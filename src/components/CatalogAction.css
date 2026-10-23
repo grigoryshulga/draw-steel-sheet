@@ -1,0 +1,24 @@
+.catalog-action {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.catalog-project-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.catalog-action-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 500px) {
+  .catalog-project-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

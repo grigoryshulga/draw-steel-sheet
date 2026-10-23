@@ -1,0 +1,24 @@
+.library-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.library-nav a {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+}
+.library-nav a:hover,
+.library-nav a[aria-current] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.library-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

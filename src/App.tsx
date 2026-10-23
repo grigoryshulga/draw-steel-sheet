@@ -31,11 +31,7 @@ import { downloadJson, safeFilename } from "./lib/utils";
 import { makeId } from "./data/templates";
 import { TABS, type Tab } from "./navigation";
 import { AppContext, type SaveStatus } from "./state/AppContext";
-import type {
-  Character,
-  CharacterSummary,
-  AppTheme,
-} from "./types";
+import type { Character, CharacterSummary, AppTheme } from "./types";
 import { deriveStats } from "./lib/rules";
 import { recalculateCharacter } from "./lib/character-calculations";
 import { createRollEntry, type RollConfig, type RollEntry } from "./lib/roll";
@@ -67,6 +63,16 @@ const SettingsView = lazy(() =>
 const CodexView = lazy(() =>
   import("./views/CodexView").then((module) => ({ default: module.CodexView })),
 );
+const CatalogView = lazy(() =>
+  import("./views/CatalogView").then((module) => ({
+    default: module.CatalogView,
+  })),
+);
+const GlossaryView = lazy(() =>
+  import("./views/GlossaryView").then((module) => ({
+    default: module.GlossaryView,
+  })),
+);
 const NewCharacterDialog = lazy(() =>
   import("./components/NewCharacterDialog").then((module) => ({
     default: module.NewCharacterDialog,
@@ -89,7 +95,11 @@ function sortSummaries(list: CharacterSummary[]): CharacterSummary[] {
 }
 
 export default function App() {
-  return <AuthGate><WorkspaceApp /></AuthGate>;
+  return (
+    <AuthGate>
+      <WorkspaceApp />
+    </AuthGate>
+  );
 }
 
 function WorkspaceApp() {
@@ -204,7 +214,9 @@ function WorkspaceApp() {
           lastLoadedRef.current = doc;
           setCharacter(doc);
           setSaveStatus("saved");
-        } else if (!window.location.hash.startsWith("#/codex")) {
+        } else if (
+          !/^#\/(codex|catalog|glossary)(?:\/|$)/.test(window.location.hash)
+        ) {
           setNewOpen(true);
         }
       } catch (error) {
@@ -448,9 +460,17 @@ function WorkspaceApp() {
           <main className="content">
             {booting ? (
               <LoadingScreen label="Загрузка листа" />
-            ) : tab === "codex" ? (
-              <Suspense fallback={<LoadingScreen label="Загрузка Кодекса" />}>
-                <CodexView />
+            ) : ["codex", "catalog", "glossary"].includes(tab) ? (
+              <Suspense fallback={<LoadingScreen label="Загрузка библиотеки" />}>
+                <AppContext.Provider value={contextValue}>
+                  {tab === "codex" ? (
+                    <CodexView />
+                  ) : tab === "catalog" ? (
+                    <CatalogView />
+                  ) : (
+                    <GlossaryView />
+                  )}
+                </AppContext.Provider>
               </Suspense>
             ) : !character || !contextValue ? (
               <EmptyState
