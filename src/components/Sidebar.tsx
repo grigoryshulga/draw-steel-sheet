@@ -1,6 +1,7 @@
 import { NAV_ITEMS, type Tab } from "../navigation";
 import { Icon } from "./Icons";
 import { SiteLogo } from "./SiteLogo";
+import { TopbarAccountActions } from "./Topbar";
 
 /** Каталоги и глоссарий живут внутри «Кодекса» и подсвечивают его пункт. */
 const LIBRARY_TABS: Tab[] = ["codex", "catalog", "glossary"];
@@ -51,6 +52,9 @@ export function Sidebar(props: { tab: Tab; onNavigate: (tab: Tab) => void }) {
   return (
     <header className="rail">
       <RailNav {...props} />
+      <div className="topbar-right">
+        <TopbarAccountActions {...props} />
+      </div>
     </header>
   );
 }

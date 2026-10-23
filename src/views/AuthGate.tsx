@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
-import { StorageScope } from "../state/StorageScope";
+import { AccountContext, StorageScope } from "../state/StorageScope";
 
 export function AuthGate({
   children,
@@ -70,6 +70,24 @@ export function AuthGate({
     }
   }
 
+  async function signOut() {
+    setSigningOut(true);
+    setError("");
+    try {
+      await beforeSignOut?.();
+      const result = await supabase!.auth.signOut();
+      if (result.error) throw result.error;
+    } catch (cause) {
+      setError(
+        cause instanceof Error
+          ? cause.message
+          : "Не удалось выйти. Попробуйте снова.",
+      );
+    } finally {
+      setSigningOut(false);
+    }
+  }
+
   if (loading) return <div className="loading-screen">Проверяем вход…</div>;
 
   if (!session) {
@@ -135,35 +153,21 @@ export function AuthGate({
 
   return (
     <>
-      <div className="auth-account-bar">
-        <span>{session.user.email}</span>
-        {error && <span role="alert">{error}</span>}
-        <button
-          type="button"
-          disabled={signingOut}
-          onClick={async () => {
-            setSigningOut(true);
-            setError("");
-            try {
-              await beforeSignOut?.();
-              const result = await supabase!.auth.signOut();
-              if (result.error) throw result.error;
-            } catch (cause) {
-              setError(
-                cause instanceof Error
-                  ? cause.message
-                  : "Не удалось выйти. Попробуйте снова.",
-              );
-            } finally {
-              setSigningOut(false);
-            }
+      <StorageScope.Provider key={session.user.id} value={session.user.id}>
+        <AccountContext.Provider
+          value={{
+            email: session.user.email ?? "",
+            signingOut,
+            signOut: () => void signOut(),
           }}
         >
-          {signingOut ? "Выходим…" : "Выйти"}
-        </button>
-      </div>
-      <StorageScope.Provider key={session.user.id} value={session.user.id}>
-        <div inert={signingOut}>{children}</div>
+          {error && (
+            <p className="auth-account-error" role="alert">
+              {error}
+            </p>
+          )}
+          <div inert={signingOut}>{children}</div>
+        </AccountContext.Provider>
       </StorageScope.Provider>
     </>
   );

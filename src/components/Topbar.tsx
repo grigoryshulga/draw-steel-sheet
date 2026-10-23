@@ -4,6 +4,7 @@ import type { Character, CharacterSummary } from "../types";
 import { CharacterMenu } from "./CharacterMenu";
 import { SaveIndicator } from "./SaveIndicator";
 import { RailNav } from "./Sidebar";
+import { useAccount } from "../state/StorageScope";
 import { Button } from "./ui";
 
 export function Topbar({
@@ -52,18 +53,46 @@ export function Topbar({
         >
           <span className="hide-sm">Новый герой</span>
         </Button>
-        <Button
-          icon="settings"
-          iconOnly
-          variant={tab === "settings" ? "soft" : "ghost"}
-          size="sm"
-          aria-label="Настройки"
-          aria-current={tab === "settings" ? "page" : undefined}
-          title="Настройки"
-          onClick={() => onNavigate("settings")}
-        />
+        <TopbarAccountActions tab={tab} onNavigate={onNavigate} />
       </div>
     </header>
+  );
+}
+
+/** Настройки и выход — правая часть любой шапки. */
+export function TopbarAccountActions({
+  tab,
+  onNavigate,
+}: {
+  tab: Tab;
+  onNavigate: (tab: Tab) => void;
+}) {
+  const account = useAccount();
+  return (
+    <>
+      <Button
+        icon="settings"
+        iconOnly
+        variant={tab === "settings" ? "soft" : "ghost"}
+        size="sm"
+        aria-label="Настройки"
+        aria-current={tab === "settings" ? "page" : undefined}
+        title="Настройки"
+        onClick={() => onNavigate("settings")}
+      />
+      {account && (
+        <Button
+          icon="logout"
+          iconOnly
+          variant="ghost"
+          size="sm"
+          aria-label="Выйти"
+          title={`Выйти (${account.email})`}
+          disabled={account.signingOut}
+          onClick={account.signOut}
+        />
+      )}
+    </>
   );
 }
 

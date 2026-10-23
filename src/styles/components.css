@@ -301,11 +301,10 @@
 .auth-copy { color: var(--muted); line-height: 1.5; margin-bottom: 8px !important; }
 .auth-card label { font-size: .88rem; }
 .auth-card input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 7px; color: var(--fg); background: var(--bg); }
-.auth-submit, .auth-account-bar button { border: 0; border-radius: 7px; padding: 11px 14px; color: var(--accent-ink); background: var(--accent); font: inherit; cursor: pointer; }
+.auth-submit { border: 0; border-radius: 7px; padding: 11px 14px; color: var(--accent-ink); background: var(--accent); font: inherit; cursor: pointer; }
 .auth-submit:disabled { opacity: .65; cursor: wait; }
 .auth-switch { border: 0; padding: 6px; color: var(--accent); background: transparent; font: inherit; cursor: pointer; }
 .auth-error { color: var(--red); }
 .auth-message { color: var(--accent); }
-.auth-account-bar { position: fixed; z-index: 30; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 12px; max-width: calc(100vw - 24px); padding: 8px 10px 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); background: var(--surface); box-shadow: 0 2px 12px #0003; font-size: .82rem; }
-.auth-account-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.auth-account-bar button { padding: 7px 11px; }
+
+.auth-account-error { position: fixed; z-index: 30; right: 12px; bottom: 12px; margin: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--fg); background: var(--surface); font-size: .82rem; }
