@@ -251,19 +251,6 @@
   margin-bottom: 20px;
 }
 
-.codex-result.with-art {
-  position: relative;
-  padding-right: 104px;
-  min-height: 116px;
-}
-.codex-result-art {
-  position: absolute;
-  right: 8px;
-  bottom: 4px;
-  top: 4px;
-  width: 84px;
-  height: auto;
-}
 .codex-article-art {
   float: right;
   width: min(38%, 320px);
@@ -521,5 +508,64 @@
   }
   .codex-collections {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.codex-levels {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.codex-level {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 20px;
+  min-height: 88px;
+  padding: 18px 24px;
+  color: var(--fg);
+  text-decoration: none;
+}
+.codex-level + .codex-level {
+  border-top: 1px solid var(--line);
+}
+.codex-level:hover,
+.codex-level:focus-visible {
+  background: var(--accent-soft);
+}
+.codex-level:focus-visible {
+  outline-offset: -3px;
+}
+.codex-level-number {
+  color: var(--muted);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.codex-level h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+.codex-level p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.codex-level-arrow {
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .codex-level {
+    grid-template-columns: 28px minmax(0, 1fr) 16px;
+    gap: 12px;
+    padding: 16px;
+  }
+  .codex-level p {
+    white-space: normal;
   }
 }

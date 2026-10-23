@@ -54,6 +54,8 @@ export function CodexView() {
     id: headingId(m[2]),
     level: m[1].length,
   }));
+  const showLevels =
+    chapter === "08. Классы" && !!group && !needle && !onlyBookmarks;
   const groups = [
     ...new Set(
       articles
@@ -442,7 +444,7 @@ export function CodexView() {
                     })}
                   </div>
                 )}
-              <div className="codex-results">
+              <div className={showLevels ? "codex-levels" : "codex-results"}>
                 {results
                   .filter(
                     (a) =>
@@ -451,7 +453,46 @@ export function CodexView() {
                       (chapter && (group || !a.group)),
                   )
                   .map((a) => {
-                    const art = artForArticle(a.id);
+                    if (showLevels) {
+                      const level = a.title.match(/^(\d+)-й/)?.[1];
+                      const topics = [
+                        ...a.markdown.matchAll(/^#{2,6}\s+(.+)$/gm),
+                      ]
+                        .map((m) => m[1].replace(/[*_`]/g, "").trim())
+                        .filter(
+                          (title) =>
+                            !/^(Особенности|Способности|Основы|Таблица развития)/i.test(
+                              title,
+                            ),
+                        );
+                      return (
+                        <a
+                          className="codex-level"
+                          key={a.id}
+                          href={`#/codex/${a.id}`}
+                        >
+                          <span
+                            className="codex-level-number"
+                            aria-hidden="true"
+                          >
+                            {level?.padStart(2, "0") || "—"}
+                          </span>
+                          <div className="codex-level-copy">
+                            <h3>{level ? `${level}-й уровень` : a.title}</h3>
+                            <p>
+                              {topics.slice(0, 3).join(" · ") ||
+                                "Особенности и способности уровня"}
+                            </p>
+                          </div>
+                          <span
+                            className="codex-level-arrow"
+                            aria-hidden="true"
+                          >
+                            →
+                          </span>
+                        </a>
+                      );
+                    }
                     const normalized = searchText(a.markdown);
                     const match = needle
                       ? normalized.indexOf(needle.split(/\s+/)[0])
@@ -463,25 +504,10 @@ export function CodexView() {
                       .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
                     return (
                       <a
-                        className={`codex-result ${art ? "with-art" : ""}`}
+                        className="codex-result"
                         key={a.id}
                         href={`#/codex/${a.id}`}
                       >
-                        {art && (
-                          <span
-                            className="artwork codex-result-art"
-                            aria-hidden="true"
-                          >
-                            <img
-                              src={art.thumbnailSrc ?? art.src}
-                              width={art.width}
-                              height={art.height}
-                              alt=""
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </span>
-                        )}
                         <span className="eyebrow">
                           {a.chapter}
                           {a.group && ` / ${a.group}`}
