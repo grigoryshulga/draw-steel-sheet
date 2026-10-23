@@ -3,8 +3,15 @@
   flex: none;
   color: var(--fg-bright);
   --logo-accent: var(--accent);
-  --logo-gold: color-mix(in srgb, var(--yellow) 72%, var(--fg));
-  --logo-paper: color-mix(in srgb, var(--surface) 62%, var(--bg));
+  --logo-gold: color-mix(in srgb, var(--yellow) 78%, var(--fg));
+  --logo-paper: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  --logo-edge: color-mix(in srgb, var(--logo-gold) 52%, var(--bg));
+  --logo-steel: color-mix(in srgb, var(--logo-gold) 88%, var(--fg-bright));
+}
+
+html[data-mode="light"] .site-logo {
+  --logo-edge: color-mix(in srgb, var(--logo-gold) 72%, var(--fg));
+  --logo-steel: color-mix(in srgb, var(--logo-gold) 62%, var(--bg));
 }
 
 .site-logo--mark {
