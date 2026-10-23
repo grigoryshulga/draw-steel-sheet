@@ -1,9 +1,10 @@
 .site-logo {
   display: block;
   flex: none;
-  color: var(--site-logo-ink, #252a2a);
-  --logo-accent: var(--site-logo-accent, #97361a);
-  --logo-gold: var(--site-logo-gold, #c49a5a);
+  color: var(--fg-bright);
+  --logo-accent: var(--accent);
+  --logo-gold: color-mix(in srgb, var(--yellow) 72%, var(--fg));
+  --logo-paper: color-mix(in srgb, var(--surface) 62%, var(--bg));
 }
 
 .site-logo--mark {
@@ -14,19 +15,6 @@
 .site-logo--wordmark {
   width: min(100%, 240px);
   height: auto;
-}
-
-html[data-mode="light"] .site-logo {
-  --site-logo-ink: #1c1a17;
-  --site-logo-accent: #97361a;
-  --site-logo-gold: #b88a4a;
-}
-
-html[data-mode="dark"] .site-logo,
-html:not([data-mode="light"]) .site-logo {
-  --site-logo-ink: #f0e9de;
-  --site-logo-accent: #c8543a;
-  --site-logo-gold: #d1a868;
 }
 
 .site-logo--welcome {
