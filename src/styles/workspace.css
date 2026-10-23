@@ -1,0 +1,112 @@
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -100px;
+  z-index: 1000;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+.save-state.is-pending .save-dot {
+  background: var(--yellow);
+}
+.save-error-banner {
+  margin: 16px clamp(16px, 3vw, 36px) 0;
+  padding: 16px 20px;
+  border: 1px solid var(--red);
+  border-radius: var(--radius);
+  background: var(--red-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.save-error-banner p {
+  margin-top: 4px;
+  max-width: 70ch;
+}
+.save-error-banner .hstack {
+  flex-shrink: 0;
+}
+.workspace-progress {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 20px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-pop);
+}
+.view-error {
+  max-width: 680px;
+  padding: 28px;
+  margin: 6vh auto;
+  display: grid;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.main .content:focus {
+  outline: none;
+}
+.boot-error .btn {
+  margin-top: 20px;
+}
+.modal .loading-screen {
+  min-height: 180px;
+}
+.modal .view-error {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+@media (max-width: 980px) {
+  .auth-account-bar {
+    position: relative;
+    inset: auto;
+    margin: 8px 12px;
+    border-radius: var(--radius-sm);
+    flex-wrap: wrap;
+  }
+  .auth-account-bar span[role="alert"] {
+    white-space: normal;
+  }
+  .save-error-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .app .main {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+}
+@media (max-width: 640px) {
+  .main .topbar .topbar-left {
+    flex-wrap: wrap;
+  }
+  .main .topbar .save-state {
+    display: flex;
+    padding: 0 6px 4px;
+    font-size: 10px;
+  }
+  .main .topbar .save-state span:not(.save-dot) {
+    display: inline;
+  }
+}
+@media (max-width: 560px) {
+  body .toasts {
+    bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}

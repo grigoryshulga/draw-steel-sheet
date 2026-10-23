@@ -55,6 +55,8 @@ export function SettingsView({
     try {
       await onDelete(deleteTarget.id);
       setDeleteTarget(null);
+    } catch {
+      // The workspace reports the error; keep the confirmation open for retry.
     } finally {
       setBusyId("");
     }

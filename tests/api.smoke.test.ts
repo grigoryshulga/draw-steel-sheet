@@ -4,29 +4,55 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
-const PORT = 8899;
-const BASE = `http://127.0.0.1:${PORT}`;
+let BASE = "";
 
 let child: ChildProcess | undefined;
-let dataDir: string;
+let dataDir: string | undefined;
 let serverStderr = "";
 
-async function waitForHealth(timeoutMs = 15000): Promise<void> {
+async function waitForOwnedServer(timeoutMs = 15000): Promise<string> {
   const deadline = Date.now() + timeoutMs;
-  let lastError = "нет попыток";
-  while (Date.now() < deadline) {
-    try {
-      const res = await fetch(`${BASE}/api/health`);
-      if (res.ok) return;
-      lastError = `status ${res.status}`;
-    } catch (error) {
-      lastError = String(error);
-    }
-    // Реальные задержки оправданы: опрашиваем внешний процесс сервера,
-    // детерминированное управление временем тут неприменимо.
-    await new Promise((resolve) => setTimeout(resolve, 100));
-  }
-  throw new Error(`Сервер не поднялся за ${timeoutMs}мс: ${lastError}\n${serverStderr}`);
+  const ownedChild = child;
+  if (!ownedChild) throw new Error("Дочерний сервер не запущен");
+
+  return new Promise((resolve, reject) => {
+    let output = "";
+    const cleanup = () => {
+      clearTimeout(timer);
+      ownedChild.stdout?.off("data", onData);
+      ownedChild.off("error", onError);
+      ownedChild.off("exit", onExit);
+    };
+    const fail = (message: string) => {
+      cleanup();
+      reject(new Error(`${message}\n${serverStderr}`));
+    };
+    const onData = (chunk: Buffer) => {
+      output += chunk.toString();
+      const match = output.match(/http:\/\/127\.0\.0\.1:(\d+)/);
+      if (!match) return;
+      cleanup();
+      resolve(`http://127.0.0.1:${match[1]}`);
+    };
+    const onError = (error: Error) =>
+      fail(`Не удалось запустить API сервер: ${error.message}`);
+    const onExit = (code: number | null, signal: NodeJS.Signals | null) =>
+      fail(
+        `API сервер завершился до готовности (code=${code}, signal=${signal})`,
+      );
+    const timer = setTimeout(
+      () => {
+        fail(
+          `API сервер не сообщил о готовности за ${timeoutMs}мс. stdout: ${output}`,
+        );
+      },
+      Math.max(0, deadline - Date.now()),
+    );
+
+    ownedChild.stdout?.on("data", onData);
+    ownedChild.once("error", onError);
+    ownedChild.once("exit", onExit);
+  });
 }
 
 beforeAll(async () => {
@@ -35,31 +61,45 @@ beforeAll(async () => {
     cwd: process.cwd(),
     env: {
       ...process.env,
-      PORT: String(PORT),
+      PORT: "0",
+      HOST: "127.0.0.1",
       NODE_ENV: "production",
       DS_DATA_DIR: dataDir,
     },
-    stdio: ["ignore", "ignore", "pipe"],
+    stdio: ["ignore", "pipe", "pipe"],
   });
   child.stderr?.on("data", (chunk: Buffer) => {
     serverStderr += chunk.toString();
   });
-  await waitForHealth();
+  BASE = await waitForOwnedServer();
 }, 30000);
 
 afterAll(async () => {
-  if (child && child.exitCode === null) {
-    child.kill("SIGTERM");
-    // SIGKILL-страховка по истечении реальных 3 секунд — внешнее поведение ОС.
-    const { promise, resolve } = Promise.withResolvers<void>();
-    const killTimer = setTimeout(() => child?.kill("SIGKILL"), 3000);
-    child.once("exit", () => {
-      clearTimeout(killTimer);
-      resolve();
+  const ownedChild = child;
+  if (
+    ownedChild?.pid !== undefined &&
+    ownedChild.exitCode === null &&
+    ownedChild.signalCode === null
+  ) {
+    const exited = new Promise<void>((resolve) => {
+      let done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        resolve();
+      };
+      ownedChild.once("exit", finish);
+      // Recheck after installing the listener to close the exit-listener race.
+      if (ownedChild.exitCode !== null || ownedChild.signalCode !== null)
+        finish();
     });
-    await promise;
+    ownedChild.kill("SIGTERM");
+    // Реальная страховка ОС на случай, если дочерний сервер не завершится после SIGTERM.
+    const killTimer = setTimeout(() => ownedChild.kill("SIGKILL"), 3000);
+    await exited;
+    clearTimeout(killTimer);
   }
-  await fs.rm(dataDir, { recursive: true, force: true });
+  if (dataDir) await fs.rm(dataDir, { recursive: true, force: true });
 });
 
 async function getJson(pathname: string) {
@@ -111,7 +151,9 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
   });
 
   it("DELETE /api/characters/test-hero → 200, список пуст", async () => {
-    const res = await fetch(`${BASE}/api/characters/test-hero`, { method: "DELETE" });
+    const res = await fetch(`${BASE}/api/characters/test-hero`, {
+      method: "DELETE",
+    });
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ ok: true });
 

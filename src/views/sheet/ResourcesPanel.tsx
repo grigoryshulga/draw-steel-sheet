@@ -5,7 +5,7 @@ import { useApp } from "../../state/AppContext";
 
 /** Ресурсы боя, независимые от здоровья и восстановлений. */
 export function ResourcesPanel() {
-  const { character, patch } = useApp();
+  const { character, patch, performGameAction } = useApp();
   const resourceName = heroicResourceName(character.className);
   return (
     <Panel title="Ресурсы героя" icon="spark" className="resources-panel">
@@ -20,8 +20,10 @@ export function ResourcesPanel() {
               label={`${resourceName}: текущее значение`}
               className="sheet-large-counter"
               onChange={(current) =>
-                patch({
-                  heroicResource: { ...character.heroicResource, current },
+                performGameAction({
+                  kind: "resource",
+                  resource: "heroicResource",
+                  value: current,
                 })
               }
             />
@@ -58,7 +60,13 @@ export function ResourcesPanel() {
             max={99}
             label="Всплески"
             className="sheet-large-counter"
-            onChange={(surges) => patch({ surges })}
+            onChange={(surges) =>
+              performGameAction({
+                kind: "resource",
+                resource: "surges",
+                value: surges,
+              })
+            }
           />
         </div>
 
@@ -80,7 +88,11 @@ export function ResourcesPanel() {
                     aria-label={`Жетон героя ${index + 1}: ${on ? "потратить" : "получить"}`}
                     title={on ? "Убрать жетон" : "Добавить жетон"}
                     onClick={() =>
-                      patch({ heroTokens: on ? index : index + 1 })
+                      performGameAction({
+                        kind: "resource",
+                        resource: "heroTokens",
+                        value: character.heroTokens + (on ? -1 : 1),
+                      })
                     }
                   >
                     <span className="pip-dot" />

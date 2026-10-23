@@ -3,12 +3,15 @@
    Цветовые схемы приложения задают CSS-переменные через JS.
    ============================================================ */
 
+@import "./fonts.css";
+
 :root {
   color-scheme: dark;
 
-  --font-ui: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-  --font-mono: "JetBrainsMono Nerd Font", "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  --font-ui: "Golos Text", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Literata", "Golos Text", Georgia, serif;
+  --font-mono: "Golos Text", "Segoe UI", system-ui, sans-serif;
+  --font-code: "JetBrainsMono Nerd Font", "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
 
   --bg: #0b0b0d;
   --bg-deep: #070708;
@@ -79,6 +82,11 @@ body {
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+code,
+pre {
+  font-family: var(--font-code);
 }
 
 body::before {
@@ -157,13 +165,13 @@ svg {
 
 .mono {
   font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .numeric {
   font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
 }
 
 .serif {
@@ -182,7 +190,7 @@ svg {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -249,16 +257,15 @@ svg {
 .brand {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   margin-bottom: 10px;
+  padding: 4px;
   border: 1px solid var(--accent-line);
   border-radius: 14px;
-  color: var(--accent);
   background:
     radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 65%),
     var(--surface-2);
-  box-shadow: 0 0 26px -10px var(--accent);
 }
 
 .rail-nav {
@@ -282,7 +289,7 @@ svg {
   color: var(--muted);
   font-size: 9.5px;
   font-family: var(--font-mono);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   cursor: pointer;
   transition: color 150ms var(--ease), background 150ms var(--ease);
@@ -427,7 +434,7 @@ svg {
 .char-switch-meta {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -448,7 +455,7 @@ svg {
   padding: 0 8px;
   font-family: var(--font-mono);
   font-size: 10.5px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -541,7 +548,7 @@ svg {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -693,7 +700,7 @@ svg {
 .field-label {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -982,7 +989,7 @@ button.chip:hover {
   padding: 7px 9px 5px;
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -1155,7 +1162,7 @@ button.chip:hover {
   padding: 2px 7px;
   border-radius: 6px;
   background: var(--bg-deep);
-  font-family: var(--font-mono);
+  font-family: var(--font-code);
   font-size: 12px;
 }
 

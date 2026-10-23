@@ -338,6 +338,7 @@ export function InventoryView() {
                           <TextInput
                             value={item.name}
                             placeholder="Название"
+                            aria-label={`Название предмета: ${item.name}`}
                             onChange={(e) =>
                               patchItem(item.id, { name: e.target.value })
                             }
@@ -359,6 +360,7 @@ export function InventoryView() {
                           className="inv-note"
                           value={item.notes}
                           placeholder="Заметка"
+                          aria-label={`Описание предмета: ${item.name}`}
                           onChange={(e) =>
                             patchItem(item.id, { notes: e.target.value })
                           }

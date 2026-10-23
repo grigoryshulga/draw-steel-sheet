@@ -22,8 +22,11 @@ import { ProgressPanel } from "./sheet/ProgressPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
+import { SheetQuickActions } from "./sheet/SheetQuickActions";
+import { GameHistory } from "./sheet/GameHistory";
 import "./SheetView.css";
 import "./sheet/Workspace.css";
+import "./SheetAtmosphere.css";
 
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
@@ -73,11 +76,20 @@ function SheetWorkspace() {
         rangedDamageKit: character.automation?.rangedDamageKit,
       },
     });
+  const mobileOrder: PanelId[] = [
+    "vitals",
+    "resources",
+    "conditions",
+    "abilities",
+    "characteristics",
+    "potency",
+    "skills",
+    "progress",
+    "perks",
+  ];
   const displayed = canvas.stacked
-    ? [...layout].sort((a, b) =>
-        a.placement && b.placement
-          ? a.placement.y - b.placement.y || a.placement.x - b.placement.x
-          : 0,
+    ? [...layout].sort(
+        (a, b) => mobileOrder.indexOf(a.id) - mobileOrder.indexOf(b.id),
       )
     : layout;
   return (
@@ -85,6 +97,8 @@ function SheetWorkspace() {
       className={`sheet-view sheet-workspace-view ${editing ? "is-customizing" : ""} ${canvas.active ? "is-adjusting" : ""}`}
     >
       <HeaderPanel />
+      <SheetQuickActions />
+      <GameHistory />
       <div className="sheet-toolbar">
         <a href="#/codex/0301">Правила создания героя ↗</a>
         <div>

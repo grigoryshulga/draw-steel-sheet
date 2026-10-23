@@ -38,7 +38,6 @@ export function AbilityCard({
     return () => window.clearTimeout(timer);
   }, [confirming]);
 
-  const canRoll = ability.rollCharacteristics.length > 0;
   const preferred = preferredCharacteristic(ability);
 
   return (
@@ -145,11 +144,10 @@ export function AbilityCard({
             <Button
               variant="primary"
               size="sm"
-              icon="dice"
-              disabled={!canRoll}
+              icon="abilities"
               onClick={onRoll}
             >
-              Бросок
+              Использовать
             </Button>
             <Button size="sm" icon="edit" onClick={onEdit}>
               Изменить

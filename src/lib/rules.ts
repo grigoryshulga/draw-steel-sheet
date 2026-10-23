@@ -94,6 +94,8 @@ export interface PowerRollOptions {
   /** Основное действие — только такие броски могут быть критическими. */
   isMainAction?: boolean;
   rng?: () => number;
+  /** Physical dice use the same calculation as digital rolls. */
+  dice?: readonly [number, number];
 }
 
 export interface PowerRollResult {
@@ -123,8 +125,13 @@ export function tierForTotal(total: number): Tier {
  */
 export function rollPowerRoll(options: PowerRollOptions): PowerRollResult {
   const rng = options.rng ?? Math.random;
-  const die1 = Math.floor(rng() * 10) + 1;
-  const die2 = Math.floor(rng() * 10) + 1;
+  const die1 = options.dice?.[0] ?? Math.floor(rng() * 10) + 1;
+  const die2 = options.dice?.[1] ?? Math.floor(rng() * 10) + 1;
+  if (
+    ![die1, die2].every((die) => Number.isInteger(die) && die >= 1 && die <= 10)
+  ) {
+    throw new Error("Каждый d10 должен иметь значение от 1 до 10");
+  }
   const natural = die1 + die2;
   const edges = Math.max(0, options.edges ?? 0);
   const banes = Math.max(0, options.banes ?? 0);

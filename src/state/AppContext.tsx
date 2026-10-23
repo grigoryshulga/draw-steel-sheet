@@ -1,13 +1,18 @@
 import { createContext, useContext } from "react";
 import type { Character, DerivedStats } from "../types";
 
-export type SaveStatus = "idle" | "saving" | "saved" | "error";
+import type { SaveStatus } from "../lib/autosave";
+import type { GameAction, GameHistoryEntry } from "../lib/game-actions";
+export type { SaveStatus } from "../lib/autosave";
 
 export interface AppContextValue {
   character: Character;
   derived: DerivedStats;
   update: (recipe: (character: Character) => Character) => void;
   patch: (patch: Partial<Character>) => void;
+  performGameAction: (action: GameAction, operationId?: string) => boolean;
+  undoGameAction: () => void;
+  gameHistory: GameHistoryEntry[];
   saveStatus: SaveStatus;
   saveError: string;
   notify: (message: string, tone?: "info" | "success" | "error") => void;

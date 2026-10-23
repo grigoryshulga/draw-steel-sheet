@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { Button, NumberInput, Panel, Stepper } from "../../components/ui";
-import { applyDamage, clamp, vitalStatus } from "../../lib/rules";
+import { clamp, vitalStatus } from "../../lib/rules";
+import type { HealthOperation } from "../../lib/game-actions";
 import { useApp } from "../../state/AppContext";
+import { HealthDialog } from "./HealthDialog";
 
 /** Здоровье: выносливость, урон, восстановления и отдых. */
 export function VitalsPanel() {
-  const { character, derived, patch, notify } = useApp();
-  const [damage, setDamage] = useState(0);
+  const { character, derived, patch, performGameAction } = useApp();
   const [maxDraft, setMaxDraft] = useState(String(character.stamina.max));
+  const [operation, setOperation] = useState<HealthOperation | null>(null);
 
-  useEffect(() => {
-    setMaxDraft(String(character.stamina.max));
-  }, [character.stamina.max]);
+  useEffect(
+    () => setMaxDraft(String(character.stamina.max)),
+    [character.stamina.max],
+  );
 
   const commitMax = (value?: number) => {
     const parsed = value ?? Number(maxDraft);
@@ -34,71 +37,9 @@ export function VitalsPanel() {
   const stamina = character.stamina;
   const max = Math.max(0, stamina.max);
   const winded = derived.winded;
-  const floor = max > 0 ? -Math.max(1, winded) : stamina.current;
   const fillPct = max > 0 ? clamp((stamina.current / max) * 100, 0, 100) : 0;
   const tempPct =
     max > 0 ? clamp((stamina.temp / max) * 100, 0, 100 - fillPct) : 0;
-
-  const shiftCurrent = (delta: number) => {
-    patch({
-      stamina: {
-        ...stamina,
-        current: clamp(stamina.current + delta, floor, max),
-      },
-    });
-  };
-
-  const takeDamage = () => {
-    const amount = Math.max(0, Math.floor(damage));
-    setDamage(0);
-    if (amount === 0) return;
-    const applied = applyDamage(stamina.current, stamina.temp, amount);
-    patch({
-      stamina: { ...stamina, current: applied.stamina, temp: applied.temp },
-    });
-    notify(
-      applied.absorbed > 0
-        ? `Урон ${amount}: ${applied.absorbed} поглотила временная выносливость`
-        : `Получен урон: ${amount}`,
-      applied.stamina <= 0 ? "error" : "info",
-    );
-  };
-
-  const spendRecovery = () => {
-    if (character.recoveries.current <= 0) {
-      notify("Восстановления закончились", "error");
-      return;
-    }
-    if (stamina.current >= max) {
-      notify(
-        "Выносливость уже максимальна — восстановление не потрачено",
-        "info",
-      );
-      return;
-    }
-    const heal = derived.recoveryValue;
-    patch({
-      recoveries: {
-        ...character.recoveries,
-        current: character.recoveries.current - 1,
-      },
-      stamina: { ...stamina, current: Math.min(max, stamina.current + heal) },
-    });
-    notify(`Передышка: +${heal} выносливости`, "success");
-  };
-
-  const rest = () => {
-    patch({
-      stamina: { ...stamina, current: max, temp: 0 },
-      recoveries: {
-        ...character.recoveries,
-        current: character.recoveries.max,
-      },
-      heroicResource: { ...character.heroicResource, current: 0 },
-      surges: 0,
-    });
-    notify("Отдых: выносливость и восстановления восстановлены", "success");
-  };
 
   return (
     <Panel title="Здоровье" icon="heart" className="vitals-panel">
@@ -126,7 +67,7 @@ export function VitalsPanel() {
               label="Максимум выносливости"
               className="vital-max-input"
               onChange={(value) => setMaxDraft(String(value))}
-              onCommit={(value) => commitMax(value)}
+              onCommit={commitMax}
               onBlur={() => commitMax()}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
@@ -170,91 +111,66 @@ export function VitalsPanel() {
         )}
       </div>
 
-      <div className="vitals-controls">
-        <div className="vitals-adjust">
-          <Button
-            size="sm"
-            variant="soft"
-            onClick={() => shiftCurrent(-5)}
-            aria-label="Выносливость: минус 5"
-          >
-            −5
-          </Button>
-          <Button
-            size="sm"
-            variant="soft"
-            onClick={() => shiftCurrent(-1)}
-            aria-label="Выносливость: минус 1"
-          >
-            −1
-          </Button>
-          <Button
-            size="sm"
-            variant="soft"
-            onClick={() => shiftCurrent(1)}
-            aria-label="Выносливость: плюс 1"
-          >
-            +1
-          </Button>
-          <Button
-            size="sm"
-            variant="soft"
-            onClick={() => shiftCurrent(5)}
-            aria-label="Выносливость: плюс 5"
-          >
-            +5
-          </Button>
-          <span className="vital-temp-edit small muted">
-            врем.
-            <NumberInput
-              value={stamina.temp}
-              min={0}
-              max={999}
-              label="Временная выносливость"
-              className="tiny-num"
-              onChange={(temp) => patch({ stamina: { ...stamina, temp } })}
-            />
-          </span>
-        </div>
-
-        <div className="damage-row">
-          <span className="damage-prefix eyebrow">Урон</span>
-          <NumberInput
-            min={0}
-            max={999}
-            placeholder="0"
-            label="Количество урона"
-            className="damage-input"
-            value={damage}
-            onChange={setDamage}
-          />
-          <Button variant="danger" icon="sword" onClick={takeDamage}>
-            Получить
-          </Button>
-        </div>
-
-        <div className="vitals-rest">
-          <Button
-            size="sm"
-            variant="soft"
-            icon="heart"
-            onClick={spendRecovery}
-            disabled={
-              character.recoveries.current <= 0 || stamina.current >= max
-            }
-            title={
-              stamina.current >= max
-                ? "Выносливость уже максимальна"
-                : "Потратить восстановление и восстановить выносливость"
-            }
-          >
-            Передышка (+{derived.recoveryValue})
-          </Button>
-          <Button size="sm" variant="soft" icon="sun" onClick={rest}>
-            Отдых
-          </Button>
-        </div>
+      <div className="vitals-controls vitals-action-buttons">
+        <Button
+          size="sm"
+          variant="danger"
+          icon="sword"
+          onClick={() => setOperation("damage")}
+        >
+          Получить урон
+        </Button>
+        <Button
+          size="sm"
+          variant="soft"
+          icon="heart"
+          onClick={() => setOperation("heal")}
+        >
+          Исцелиться
+        </Button>
+        <Button
+          size="sm"
+          variant="soft"
+          onClick={() => setOperation("temporary")}
+        >
+          Временная выносливость
+        </Button>
+        <Button
+          size="sm"
+          variant="soft"
+          icon="heart"
+          onClick={() => setOperation("recovery")}
+        >
+          Передышка (+{derived.recoveryValue})
+        </Button>
+        <Button
+          size="sm"
+          variant="soft"
+          icon="sun"
+          onClick={() => setOperation("rest")}
+        >
+          Отдых
+        </Button>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={() => setOperation("adjust")}
+        >
+          Исправить значение
+        </Button>
       </div>
+
+      <details className="vitals-temp-manual">
+        <summary>Настроить текущий временный запас</summary>
+        <NumberInput
+          value={stamina.temp}
+          min={0}
+          max={999}
+          label="Текущая временная выносливость"
+          className="tiny-num"
+          onChange={(temp) => patch({ stamina: { ...stamina, temp } })}
+        />
+      </details>
 
       <div className="vital-block health-recoveries">
         <div className="between">
@@ -268,7 +184,11 @@ export function VitalsPanel() {
             label="Текущие восстановления"
             className="sheet-large-counter"
             onChange={(current) =>
-              patch({ recoveries: { ...character.recoveries, current } })
+              performGameAction({
+                kind: "resource",
+                resource: "recoveries",
+                value: current,
+              })
             }
           />
           <span className="small muted max-edit">
@@ -286,6 +206,12 @@ export function VitalsPanel() {
           </span>
         </div>
       </div>
+      {operation && (
+        <HealthDialog
+          initialOperation={operation}
+          onClose={() => setOperation(null)}
+        />
+      )}
     </Panel>
   );
 }
