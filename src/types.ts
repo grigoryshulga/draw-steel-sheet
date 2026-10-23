@@ -194,16 +194,10 @@ export interface CharacterSummary {
   updatedAt: string;
 }
 
-export interface OmarchyTheme {
+export interface AppTheme {
   name: string;
   mode: "dark" | "light";
   colors: Record<string, string>;
-  source: "user" | "system";
-}
-
-export interface ThemePayload {
-  current: string;
-  themes: OmarchyTheme[];
 }
 
 export interface DerivedStats {

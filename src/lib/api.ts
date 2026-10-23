@@ -1,7 +1,6 @@
 import type {
   Character,
   CharacterSummary,
-  ThemePayload,
 } from "../types";
 import { supabase, supabaseEnabled } from "./supabase";
 
@@ -93,8 +92,4 @@ export async function deleteCharacter(id: string): Promise<void> {
     return;
   }
   await request(`/api/characters/${encodeURIComponent(id)}`, { method: "DELETE" });
-}
-
-export function loadThemes(): Promise<ThemePayload> {
-  return request<ThemePayload>("/api/theme");
 }

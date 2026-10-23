@@ -17,11 +17,11 @@ import {
   deleteCharacter,
   listCharacters,
   loadCharacter,
-  loadThemes,
   saveCharacter,
 } from "./lib/api";
 import {
   applyTheme,
+  THEMES,
   readThemeChoice,
   resolveTheme,
   writeThemeChoice,
@@ -34,8 +34,7 @@ import { AppContext, type SaveStatus } from "./state/AppContext";
 import type {
   Character,
   CharacterSummary,
-  OmarchyTheme,
-  ThemePayload,
+  AppTheme,
 } from "./types";
 import { deriveStats } from "./lib/rules";
 import { recalculateCharacter } from "./lib/character-calculations";
@@ -102,7 +101,6 @@ function WorkspaceApp() {
   const [saveError, setSaveError] = useState("");
   const [newOpen, setNewOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
-  const [themePayload, setThemePayload] = useState<ThemePayload | null>(null);
   const [themeChoice, setThemeChoiceState] =
     useState<ThemeChoice>(readThemeChoice);
   const [tab, setTab] = useHashTab("sheet", TABS);
@@ -244,32 +242,12 @@ function WorkspaceApp() {
     return () => window.removeEventListener("beforeunload", flushOnUnload);
   }, []);
 
-  /* ---------- Темы Omarchy ---------- */
+  /* ---------- Тема оформления ---------- */
 
-  useEffect(() => {
-    let disposed = false;
-    const refresh = async () => {
-      try {
-        const payload = await loadThemes();
-        if (!disposed) setThemePayload(payload);
-      } catch {
-        // Сервис может быть временно недоступен — тема останется прежней.
-      }
-    };
-    void refresh();
-    const timer = window.setInterval(() => {
-      if (document.visibilityState === "visible") void refresh();
-    }, 5000);
-    return () => {
-      disposed = true;
-      window.clearInterval(timer);
-    };
-  }, []);
-
-  const activeTheme = useMemo<OmarchyTheme | undefined>(() => {
-    if (!themePayload) return undefined;
-    return resolveTheme(themePayload.themes, themePayload.current, themeChoice);
-  }, [themePayload, themeChoice]);
+  const activeTheme = useMemo<AppTheme>(
+    () => resolveTheme(THEMES, themeChoice),
+    [themeChoice],
+  );
 
   useEffect(() => {
     if (activeTheme) applyTheme(activeTheme);
@@ -278,17 +256,7 @@ function WorkspaceApp() {
   const handleThemeChoice = (choice: ThemeChoice) => {
     setThemeChoiceState(choice);
     writeThemeChoice(choice);
-    if (choice.mode === "manual") {
-      const selected = themePayload?.themes.find(
-        (theme) => theme.name === choice.name,
-      );
-      if (selected) applyTheme(selected);
-    } else if (themePayload) {
-      const current = themePayload.themes.find(
-        (theme) => theme.name === themePayload.current,
-      );
-      if (current) applyTheme(current);
-    }
+    applyTheme(resolveTheme(THEMES, choice));
   };
 
   /* ---------- Действия с персонажами ---------- */
@@ -468,8 +436,7 @@ function WorkspaceApp() {
               characters={characters}
               saveStatus={saveStatus}
               saveError={saveError}
-              themes={themePayload?.themes ?? []}
-              currentTheme={themePayload?.current ?? ""}
+              themes={THEMES}
               themeChoice={themeChoice}
               onThemeChoice={handleThemeChoice}
               onSelectCharacter={(id) => void handleSelectCharacter(id)}
@@ -511,8 +478,7 @@ function WorkspaceApp() {
                     <SettingsView
                       characters={characters}
                       currentId={character.id}
-                      themes={themePayload?.themes ?? []}
-                      currentTheme={themePayload?.current ?? ""}
+                      themes={THEMES}
                       themeChoice={themeChoice}
                       onThemeChoice={handleThemeChoice}
                       onSelect={(id) => void handleSelectCharacter(id)}

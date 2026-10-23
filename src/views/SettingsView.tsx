@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { Icon } from "../components/Icons";
-import { Button, EmptyState, Modal, Panel, Toggle } from "../components/ui";
+import { Button, EmptyState, Modal, Panel } from "../components/ui";
 import { useApp } from "../state/AppContext";
 import type { ThemeChoice } from "../lib/theme";
 import { initials } from "../lib/utils";
-import type { CharacterSummary, OmarchyTheme } from "../types";
+import type { AppTheme, CharacterSummary } from "../types";
 import "./SettingsView.css";
 import { ART_ASSETS } from "../lib/art";
 
@@ -12,7 +12,6 @@ export function SettingsView({
   characters,
   currentId,
   themes,
-  currentTheme,
   themeChoice,
   onThemeChoice,
   onSelect,
@@ -24,8 +23,7 @@ export function SettingsView({
 }: {
   characters: CharacterSummary[];
   currentId: string;
-  themes: OmarchyTheme[];
-  currentTheme: string;
+  themes: AppTheme[];
   themeChoice: ThemeChoice;
   onThemeChoice: (choice: ThemeChoice) => void;
   onSelect: (id: string) => void;
@@ -42,8 +40,7 @@ export function SettingsView({
   );
   const [busyId, setBusyId] = useState("");
 
-  const activeTheme =
-    themeChoice.mode === "manual" ? themeChoice.name : currentTheme;
+  const activeTheme = themeChoice.name;
 
   const dateFormat = new Intl.DateTimeFormat("ru-RU", {
     day: "2-digit",
@@ -71,71 +68,6 @@ export function SettingsView({
           Настройки
         </h1>
       </header>
-
-      <Panel title="Тема Omarchy" icon="palette">
-        <div className="theme-auto-row">
-          <strong>Следовать за Omarchy</strong>
-          <Toggle
-            checked={themeChoice.mode === "auto"}
-            onChange={(checked) =>
-              onThemeChoice(
-                checked
-                  ? { mode: "auto" }
-                  : {
-                      mode: "manual",
-                      name: currentTheme || themes[0]?.name || "",
-                    },
-              )
-            }
-            label="Следовать за темой Omarchy"
-          />
-        </div>
-
-        <div className="theme-grid">
-          {themes.map((theme) => {
-            const active = activeTheme === theme.name;
-            return (
-              <button
-                key={theme.name}
-                type="button"
-                className={`theme-card ${active ? "is-active" : ""}`.trim()}
-                onClick={() =>
-                  onThemeChoice({ mode: "manual", name: theme.name })
-                }
-                aria-pressed={active}
-              >
-                <span
-                  className="theme-card-preview"
-                  style={{ background: theme.colors.background }}
-                >
-                  <span
-                    className="theme-card-panel"
-                    style={{ background: theme.colors.lighter_background }}
-                  />
-                  <span className="theme-dots">
-                    {["accent", "red", "green", "blue", "magenta"].map(
-                      (key) => (
-                        <i
-                          key={key}
-                          style={{ background: theme.colors[key] }}
-                        />
-                      ),
-                    )}
-                  </span>
-                </span>
-                <span className="theme-card-name">{theme.name}</span>
-                <span className="theme-card-meta">
-                  {theme.mode === "light" ? "светлая" : "тёмная"}
-                  {theme.name === currentTheme ? " · сейчас" : ""}
-                </span>
-                {active && (
-                  <Icon name="check" size={15} className="theme-card-check" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </Panel>
 
       <Panel
         title="Мои персонажи"
@@ -327,6 +259,49 @@ export function SettingsView({
           </div>
         </div>
       </Panel>
+
+      <details className="settings-theme-disclosure">
+        <summary>
+          <Icon name="palette" size={17} />
+          <span>Внешний вид</span>
+          <span className="settings-theme-current">{activeTheme}</span>
+          <Icon name="chevron-down" size={15} className="settings-theme-chevron" />
+        </summary>
+        <div className="settings-theme-content">
+          <p className="settings-theme-description">
+            Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.
+          </p>
+          <div className="theme-grid">
+            {themes.map((theme) => {
+              const active = activeTheme === theme.name;
+              return (
+                <button
+                  key={theme.name}
+                  type="button"
+                  className={`theme-card ${active ? "is-active" : ""}`.trim()}
+                  onClick={() => onThemeChoice({ name: theme.name })}
+                  aria-pressed={active}
+                >
+                  <span
+                    className="theme-card-preview"
+                    style={{ background: theme.colors.background }}
+                  >
+                    <span className="theme-card-panel" style={{ background: theme.colors.lighter_background }} />
+                    <span className="theme-dots">
+                      {["accent", "red", "green", "blue", "magenta"].map((key) => (
+                        <i key={key} style={{ background: theme.colors[key] }} />
+                      ))}
+                    </span>
+                  </span>
+                  <span className="theme-card-name">{theme.name}</span>
+                  <span className="theme-card-meta">{theme.mode === "light" ? "светлая" : "тёмная"}</span>
+                  {active && <Icon name="check" size={15} className="theme-card-check" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </details>
 
       <Modal
         open={deleteTarget !== null}

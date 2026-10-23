@@ -1,7 +1,7 @@
 import type { Tab } from "../navigation";
 import type { SaveStatus } from "../state/AppContext";
 import type { ThemeChoice } from "../lib/theme";
-import type { Character, CharacterSummary, OmarchyTheme } from "../types";
+import type { AppTheme, Character, CharacterSummary } from "../types";
 import { CharacterMenu } from "./CharacterMenu";
 import { ThemeMenu } from "./ThemeMenu";
 import { Button } from "./ui";
@@ -19,7 +19,6 @@ export function Topbar({
   saveStatus,
   saveError,
   themes,
-  currentTheme,
   themeChoice,
   onThemeChoice,
   onSelectCharacter,
@@ -30,8 +29,7 @@ export function Topbar({
   characters: CharacterSummary[];
   saveStatus: SaveStatus;
   saveError: string;
-  themes: OmarchyTheme[];
-  currentTheme: string;
+  themes: AppTheme[];
   themeChoice: ThemeChoice;
   onThemeChoice: (choice: ThemeChoice) => void;
   onSelectCharacter: (id: string) => void;
@@ -62,7 +60,6 @@ export function Topbar({
       <div className="topbar-right">
         <ThemeMenu
           themes={themes}
-          current={currentTheme}
           choice={themeChoice}
           onChoose={onThemeChoice}
         />

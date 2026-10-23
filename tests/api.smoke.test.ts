@@ -74,13 +74,6 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     expect(body).toEqual({ ok: true });
   });
 
-  it("GET /api/theme → 200 с current и themes", async () => {
-    const { res, body } = await getJson("/api/theme");
-    expect(res.status).toBe(200);
-    expect(typeof body.current).toBe("string");
-    expect(Array.isArray(body.themes)).toBe(true);
-  });
-
   it("GET /api/characters → 200 {characters:[]} на чистом каталоге", async () => {
     const { res, body } = await getJson("/api/characters");
     expect(res.status).toBe(200);

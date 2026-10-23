@@ -3,7 +3,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createStore } from "./store.mjs";
-import { loadThemes } from "./theme.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.env.PORT || 8787);
@@ -68,11 +67,6 @@ function createApi({ store }) {
     try {
       if (req.method === "GET" && pathname === "/api/health") {
         sendJson(res, 200, { ok: true });
-        return true;
-      }
-
-      if (req.method === "GET" && pathname === "/api/theme") {
-        sendJson(res, 200, await loadThemes());
         return true;
       }
 
