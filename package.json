@@ -1,0 +1,33 @@
+{
+  "name": "draw-steel-sheet",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Интерактивный лист героя Draw Steel",
+  "scripts": {
+    "dev": "node server/index.mjs --dev",
+    "build": "tsc -b && vite build",
+    "start": "NODE_ENV=production node server/index.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && npm run data:rules",
+    "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs",
+    "data:art": "node scripts/build-art-manifest.mjs",
+    "data:art-previews": "node scripts/build-art-previews.mjs && npm run data:art"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

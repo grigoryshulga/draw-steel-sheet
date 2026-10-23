@@ -1,0 +1,903 @@
+/* ============================================================
+   Экран «Способности» — карточки, редактор, бросок, каталог.
+   Только токены темы, color-mix вместо фиксированных цветов.
+   ============================================================ */
+
+.abil-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Панель поиска и фильтров ---------- */
+
+.abil-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 55%, var(--bg));
+}
+
+.abil-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
+.abil-search svg {
+  position: absolute;
+  left: 11px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.abil-search .input {
+  width: 100%;
+  padding-left: 34px;
+}
+
+.abil-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Группы по типу действия ---------- */
+
+.abil-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.abil-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--muted);
+  border-radius: var(--radius-sm);
+}
+
+.abil-group-head:hover {
+  color: var(--fg);
+}
+
+.abil-group-head h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.abil-group-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--surface-2);
+}
+
+.abil-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Карточка способности ---------- */
+
+.abil-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 140ms var(--ease);
+}
+
+.abil-card:hover {
+  border-color: var(--line-strong);
+}
+
+.abil-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+}
+
+.abil-card-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  padding: 2px 4px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--fg);
+}
+
+.abil-card-toggle svg {
+  color: var(--muted);
+}
+
+.abil-card-toggle:hover .abil-card-name {
+  color: var(--accent);
+}
+
+.abil-card-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg-bright);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.abil-card-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.abil-card-action {
+  flex: none;
+  min-width: 86px;
+  text-align: right;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.abil-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 14px 14px;
+  border-top: 1px solid var(--line);
+}
+
+.abil-flavor {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.abil-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.abil-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 14px;
+}
+
+.abil-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+}
+
+.abil-fact-label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.abil-fact-value {
+  font-size: 13.5px;
+  color: var(--fg);
+}
+
+/* ---------- Тиры ---------- */
+
+.abil-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.abil-tier {
+  --tier-color: var(--tier1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 1px solid color-mix(in srgb, var(--tier-color) 32%, var(--line));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--tier-color) 6%, var(--surface-2));
+}
+
+.abil-tier[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.abil-tier[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.abil-tier-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+
+
+.abil-tier-damage {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-bright);
+  text-align: right;
+}
+
+.abil-tier-empty {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.abil-tier-effect {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+/* ---------- Блоки триггер / эффект / заметки ---------- */
+
+.abil-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--line-strong);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: color-mix(in srgb, var(--surface-3) 60%, transparent);
+}
+
+.abil-block p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.abil-block-trigger {
+  border-left-color: var(--magenta);
+}
+
+.abil-block-notes {
+  border-left-style: dashed;
+}
+
+.abil-block-label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.abil-source {
+  margin: 0;
+}
+
+.abil-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 2px;
+}
+
+/* ---------- Модалка броска ---------- */
+
+.abil-roll-modal {
+  width: min(760px, 100%);
+}
+
+.abil-roll-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.abil-roll-title svg {
+  color: var(--accent);
+}
+
+.abil-roll-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+
+.abil-roll-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.abil-roll-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.abil-roll-warning {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--yellow) 38%, transparent);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--yellow) 10%, transparent);
+  font-size: 12.5px;
+  color: var(--yellow);
+}
+
+.abil-roll-warning svg {
+  flex: none;
+}
+
+.abil-roll-result {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-2) 60%, var(--bg));
+  min-height: 200px;
+}
+
+.abil-roll-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  color: var(--muted);
+  text-align: center;
+}
+
+.abil-roll-dice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.abil-die {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--fg-bright);
+}
+
+.abil-roll-nums {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.abil-roll-nums b {
+  color: var(--fg-bright);
+  font-size: 14px;
+}
+
+.abil-roll-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.abil-crit-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.abil-note-badge {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.abil-roll-outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.abil-roll-outcome .abil-tier-effect {
+  font-size: 13.5px;
+}
+
+.abil-damage {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface-3) 55%, transparent);
+}
+
+.abil-damage-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.abil-damage-total {
+  border-top: 1px dashed var(--line-strong);
+  padding-top: 6px;
+}
+
+.abil-damage-total .mono {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fg-bright);
+}
+
+.abil-roll-footer,
+.abil-editor-footer,
+.abil-picker-footer,
+.abil-templates-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ---------- Редактор ---------- */
+
+.abil-editor-modal {
+  width: min(860px, 100%);
+}
+
+.abil-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+}
+
+.abil-editor-grid .span-2 {
+  grid-column: span 2;
+}
+
+.abil-editor-grid .field {
+  margin: 0;
+}
+
+.abil-editor-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.abil-editor-tier {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 6px 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+}
+
+.abil-editor-tier[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.abil-editor-tier[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.abil-editor-tier .tier-chip {
+  grid-row: 1;
+}
+
+.abil-editor-tier .input {
+  grid-column: 2;
+}
+
+.abil-editor-tier .textarea {
+  grid-column: 1 / -1;
+}
+
+.abil-editor-error {
+  font-size: 12.5px;
+  color: var(--red);
+}
+
+/* ---------- Каталог ---------- */
+
+.abil-picker-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.abil-picker-title,
+.abil-templates-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.abil-picker-title svg,
+.abil-templates-title svg {
+  color: var(--accent);
+}
+
+.abil-picker-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.abil-picker-filters .abil-search {
+  flex: 1 1 240px;
+}
+
+.abil-picker-filters .select {
+  width: auto;
+  min-width: 130px;
+}
+
+.abil-picker-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 14px;
+  min-height: 380px;
+}
+
+.abil-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.abil-picker-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  cursor: pointer;
+  text-align: left;
+  color: var(--fg);
+  transition: border-color 120ms var(--ease), background 120ms var(--ease);
+}
+
+.abil-picker-item:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-hover);
+}
+
+.abil-picker-item.is-active {
+  border-color: var(--accent-line);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
+}
+
+.abil-picker-item-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg-bright);
+}
+
+.abil-picker-item-meta {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.abil-owned-badge {
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: color-mix(in srgb, var(--green) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--green) 34%, transparent);
+}
+
+.abil-picker-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-2) 55%, var(--bg));
+  overflow-y: auto;
+  max-height: 460px;
+}
+
+.abil-picker-preview-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--fg-bright);
+}
+
+.abil-picker-preview .abil-tiers {
+  grid-template-columns: 1fr;
+}
+
+/* ---------- Базовые действия ---------- */
+
+.abil-templates-modal {
+  width: min(640px, 100%);
+}
+
+.abil-templates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.abil-template-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.abil-template-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.abil-template-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg-bright);
+}
+
+.abil-template-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Адаптив ---------- */
+
+@media (max-width: 860px) {
+  .abil-tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .abil-roll-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .abil-picker-body {
+    grid-template-columns: 1fr;
+  }
+
+  .abil-picker-preview {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .abil-card-action {
+    display: none;
+  }
+
+  .abil-editor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .abil-editor-grid .span-2 {
+    grid-column: span 1;
+  }
+
+  .abil-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Чистая панель фильтров: поиск + вид + отдельная строка типов действий */
+.abil-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.abil-search {
+  grid-column: 1;
+}
+
+.abil-filter-inline {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.abil-kind-select {
+  width: 150px;
+}
+
+.abil-type-chips {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 720px) {
+  .abil-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .abil-search,
+  .abil-filter-inline,
+  .abil-type-chips {
+    grid-column: 1;
+  }
+
+  .abil-kind-select {
+    width: 100%;
+  }
+}
+
+/* Факты способности — одной строкой, без «коробок» */
+.abil-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+  padding: 2px 0;
+}
+
+.abil-fact {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  min-width: 0;
+}
+
+.abil-fact-label {
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.abil-fact-value {
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .abil-facts {
+    gap: 4px 14px;
+  }
+}
+
+/* Порог натурального броска для тиров */
+.abil-tier-req {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 7px;
+  margin-bottom: 8px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface-3) 55%, transparent);
+}
+
+.abil-tier-req-title,
+.abil-tier-req-source {
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+.abil-tier-req-title {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.abil-tier-req-item {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 7px;
+  border: 1px solid color-mix(in srgb, var(--tier-color, var(--line)) 35%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tier-color, var(--surface-3)) 8%, var(--surface-2));
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.abil-tier-req-item[data-tier="1"] {
+  --tier-color: var(--tier1);
+}
+
+.abil-tier-req-item[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.abil-tier-req-item[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.abil-tier-req-source {
+  margin-left: auto;
+}

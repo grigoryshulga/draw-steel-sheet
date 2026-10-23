@@ -1,0 +1,122 @@
+.hero-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+/* --- Identity --- */
+
+.hero-identity {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr)) minmax(
+      0,
+      0.6fr
+    );
+  gap: 12px;
+}
+
+.hero-identity-name .input {
+  font-weight: 600;
+}
+
+.hero-identity-level .input {
+  text-align: center;
+}
+
+/* --- Skills --- */
+
+.hero-skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-skill-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.hero-skill-head h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-bright);
+}
+
+.hero-skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* --- Languages --- */
+
+.hero-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  min-height: 26px;
+}
+
+.hero-langs .chip svg {
+  opacity: 0.65;
+}
+
+.hero-lang-input {
+  width: 100%;
+}
+
+/* --- Culture / career --- */
+
+.hero-culture,
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* --- Adaptive --- */
+
+@media (max-width: 1000px) {
+  .hero-identity {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .hero-identity-name {
+    grid-column: 1 / -1;
+  }
+}
+
+.hero-identity-level .number-counter {
+  width: 100%;
+}
+
+.hero-identity-level .number-counter-value {
+  text-align: center;
+}
+
+.hero-art-gallery {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-art-gallery:not(:has(.artwork)) {
+  display: none;
+}
+.hero-art-gallery .artwork {
+  flex: 0 1 180px;
+  height: 190px;
+}

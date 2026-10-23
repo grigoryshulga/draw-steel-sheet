@@ -1,0 +1,32 @@
+.artwork {
+  display: block;
+  min-width: 0;
+  height: 150px;
+  pointer-events: none;
+}
+.artwork img,
+.artwork-figure > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.artwork-figure {
+  margin: 0;
+  min-width: 0;
+}
+.artwork-figure > img {
+  height: 280px;
+}
+.artwork-figure figcaption {
+  margin-top: 8px;
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+.artwork-figure figcaption a {
+  color: inherit;
+  text-underline-offset: 3px;
+}

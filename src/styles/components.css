@@ -1,0 +1,375 @@
+/* ---------- Переключатель темы ---------- */
+
+.theme-menu {
+  position: relative;
+}
+
+.theme-trigger {
+  gap: 6px;
+  color: var(--muted);
+}
+
+.theme-trigger:hover {
+  color: var(--fg);
+}
+
+.theme-trigger-name {
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+}
+
+.theme-trigger .chevron {
+  transition: transform 140ms var(--ease);
+}
+
+.theme-popover {
+  width: 310px;
+}
+
+.theme-list {
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.theme-swatch-lg {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 7px;
+  border: 1px solid var(--line-strong);
+  flex: none;
+}
+
+.theme-swatch-lg span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* ---------- Переключатель персонажа ---------- */
+
+.char-popover {
+  width: 330px;
+  left: 0;
+  right: auto;
+}
+
+.char-list {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.char-list-item {
+  padding: 7px 8px;
+}
+
+.char-avatar.small {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  font-size: 12px;
+  flex: none;
+}
+
+.char-list-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.char-list-name {
+  font-size: 13px;
+  color: var(--fg-bright);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.char-list-meta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* ---------- Новый герой ---------- */
+
+.new-char-preview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface-3);
+  min-height: 62px;
+  align-items: center;
+}
+
+.new-char-preview > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.new-char-preview strong {
+  font-size: 15px;
+  color: var(--fg-bright);
+}
+
+.new-char-preview p {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Общие мелочи ---------- */
+
+.hide-sm {
+  display: inline;
+}
+
+@media (max-width: 1100px) {
+  .theme-trigger-name {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hide-sm {
+    display: none;
+  }
+
+  .new-char-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .char-popover {
+    width: min(330px, calc(100vw - 24px));
+    left: -6px;
+  }
+}
+
+
+/* Длинные тексты: абзацы, переносы и списки */
+.rich-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rich-text p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.rich-text ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.rich-text li {
+  line-height: 1.5;
+  padding-left: 2px;
+}
+
+.rich-text li::marker {
+  color: var(--muted);
+}
+
+
+/* ---------- Чипы тиров ---------- */
+
+.tier-chip {
+  --tier-color: var(--tier2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--tier-color) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tier-color) 15%, transparent);
+  color: color-mix(in srgb, var(--tier-color) 72%, var(--fg));
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tier-chip[data-tier="1"] {
+  --tier-color: var(--tier1);
+}
+
+.tier-chip[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.tier-chip[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.tier-chip-sm {
+  height: 20px;
+  padding: 0 6px;
+  font-size: 9px;
+}
+
+.tier-chip-md {
+  height: 24px;
+  padding: 0 9px;
+  font-size: 10px;
+}
+
+.tier-chip-lg {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+/* ---------- Чип урона ---------- */
+
+.damage-chip {
+  --damage-color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--damage-color) 42%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--damage-color) 12%, transparent);
+  color: var(--fg-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.damage-chip strong {
+  font-weight: 700;
+}
+
+.damage-chip em {
+  font-style: normal;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--damage-color) 78%, var(--fg));
+}
+
+.damage-chip[data-type="acid"] {
+  --damage-color: var(--green);
+}
+
+.damage-chip[data-type="cold"] {
+  --damage-color: var(--blue);
+}
+
+.damage-chip[data-type="corruption"] {
+  --damage-color: var(--magenta);
+}
+
+.damage-chip[data-type="fire"] {
+  --damage-color: var(--orange);
+}
+
+.damage-chip[data-type="holy"] {
+  --damage-color: var(--yellow);
+}
+
+.damage-chip[data-type="lightning"] {
+  --damage-color: var(--cyan);
+}
+
+.damage-chip[data-type="poison"] {
+  --damage-color: var(--green);
+}
+
+.damage-chip[data-type="psychic"] {
+  --damage-color: var(--magenta);
+}
+
+.damage-chip[data-type="sonic"] {
+  --damage-color: var(--blue);
+}
+
+/* ---------- Меньше декоративных рамок на страницах ---------- */
+
+.abil-view .abil-toolbar,
+.abil-view .abil-card,
+.inv-view .panel,
+.inv-view .empty-state,
+.hero-view .panel,
+.hero-view .perk-slot,
+.hero-view .perk-empty,
+.notes-view .panel,
+.settings-view .panel,
+.settings-view .theme-card,
+.settings-view .theme-card-preview {
+  border: 0;
+}
+
+.settings-view .theme-card.is-active {
+  border: 0;
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.hero-view .perk-empty {
+  border-bottom: 1px solid var(--line);
+}
+@media(max-width: 640px) {
+  .topbar { flex-wrap: nowrap; gap: 4px; min-height: 62px; padding: 8px 10px; }
+  .topbar-left { flex: 1; gap: 6px; }
+  .char-switch { min-width: 0; flex: 1; }.char-switch-btn { width: 100%; gap: 8px; padding-inline: 0; }.char-avatar { flex-shrink: 0; width: 32px; height: 32px; }.char-switch-name { max-width: 140px; font-size: 15px; }.char-switch-meta { font-size: 8px; }
+  .theme-trigger-name, .theme-trigger .chevron { display: none; }.theme-trigger { padding: 0 7px; }
+  .topbar-right { flex-shrink: 0; gap: 2px; }.save-state { display: none; }.save-state.is-error { display: flex; }
+}
+@media(max-width: 560px) { .rail-nav { gap: 0; max-width: none; }.rail-link { min-width: 36px; width: 36px; flex: 1; }.rail { padding-inline: 8px; } }
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--fg);
+}
+.auth-card {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 390px);
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.auth-card h1, .auth-card p { margin: 0; }
+.auth-card h1 { font-size: 1.7rem; }
+.auth-kicker { color: var(--accent); font-size: .75rem; letter-spacing: .14em; }
+.auth-copy { color: var(--muted); line-height: 1.5; margin-bottom: 8px !important; }
+.auth-card label { font-size: .88rem; }
+.auth-card input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 7px; color: var(--fg); background: var(--bg); }
+.auth-submit, .auth-account-bar button { border: 0; border-radius: 7px; padding: 11px 14px; color: var(--accent-ink); background: var(--accent); font: inherit; cursor: pointer; }
+.auth-submit:disabled { opacity: .65; cursor: wait; }
+.auth-switch { border: 0; padding: 6px; color: var(--accent); background: transparent; font: inherit; cursor: pointer; }
+.auth-error { color: var(--red); }
+.auth-message { color: var(--accent); }
+.auth-account-bar { position: fixed; z-index: 30; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 12px; max-width: calc(100vw - 24px); padding: 8px 10px 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); background: var(--surface); box-shadow: 0 2px 12px #0003; font-size: .82rem; }
+.auth-account-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.auth-account-bar button { padding: 7px 11px; }

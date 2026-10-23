@@ -1,0 +1,90 @@
+.skills-panel {
+  grid-column: span 4;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-panel .panel-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-panel .panel-actions .btn {
+  height: 26px;
+  font-size: 11px;
+}
+
+.sheet-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  max-height: 360px;
+  padding-right: 2px;
+}
+
+.sheet-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sheet-skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skills-panel .chip {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 10.5px;
+}
+
+.skills-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  color: var(--muted);
+}
+
+.skills-empty p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  .skills-panel {
+    grid-column: 1 / -1;
+  }
+
+  .sheet-skills {
+    max-height: none;
+  }
+}
+
+/* Компактные группы навыков: подпись слева, чипы справа */
+.sheet-skills {
+  gap: 8px;
+}
+
+.sheet-skill-group {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sheet-skill-group .eyebrow {
+  flex: 0 0 102px;
+  padding-top: 4px;
+  line-height: 1.3;
+}
+
+.sheet-skill-chips {
+  flex: 1;
+  min-width: 0;
+}

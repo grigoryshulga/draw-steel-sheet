@@ -1,0 +1,1620 @@
+/* ---------- Сетка экрана ---------- */
+
+.sheet-view {
+  min-width: 0;
+}
+
+.sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 9px;
+  align-items: start;
+}
+
+.sheet-header {
+  grid-column: 1 / -1;
+}
+
+.char-panel {
+  grid-column: 1 / -1;
+}
+
+.vitals-panel {
+  grid-column: span 8;
+}
+
+.conditions-panel {
+  grid-column: span 5;
+}
+
+@media (max-width: 1180px) {
+  .vitals-panel,
+  .conditions-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Шапка героя ---------- */
+
+.sheet-head-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-name {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 2px 6px 6px;
+  border: none;
+  border-bottom: 1px dashed var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg-bright);
+  font-size: clamp(26px, 4vw, 38px);
+  line-height: 1.15;
+  outline: none;
+  transition: border-color 140ms var(--ease);
+}
+
+.hero-name::placeholder {
+  color: color-mix(in srgb, var(--muted) 55%, transparent);
+}
+
+.hero-name:focus {
+  border-bottom: 1px solid var(--accent);
+}
+
+.sheet-head-identity {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* ---------- Характеристики ---------- */
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .char-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .char-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  min-width: 0;
+}
+
+.stat-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.stat-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Витальные показатели ---------- */
+
+.vitals-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.status-chip {
+  padding: 3px 9px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-chip.tone-normal {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 40%, transparent);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+}
+
+.status-chip.tone-winded {
+  color: var(--yellow);
+  border-color: color-mix(in srgb, var(--yellow) 40%, transparent);
+  background: color-mix(in srgb, var(--yellow) 12%, transparent);
+}
+
+.status-chip.tone-dying {
+  color: var(--orange);
+  border-color: color-mix(in srgb, var(--orange) 45%, transparent);
+  background: color-mix(in srgb, var(--orange) 14%, transparent);
+}
+
+.status-chip.tone-dead {
+  color: var(--red);
+  border-color: color-mix(in srgb, var(--red) 45%, transparent);
+  background: color-mix(in srgb, var(--red) 14%, transparent);
+}
+
+.vitals-current {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vital-big {
+  font-size: 34px;
+  line-height: 1;
+  color: var(--fg-bright);
+}
+
+.vital-big.is-down {
+  color: var(--red);
+}
+
+.vital-temp {
+  font-size: 12px;
+  color: var(--cyan);
+}
+
+.meter {
+  position: relative;
+  height: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.meter-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--green);
+  transition:
+    width 160ms var(--ease),
+    background 160ms var(--ease);
+}
+
+.meter-fill.tone-winded {
+  background: var(--yellow);
+}
+
+.meter-fill.tone-dying,
+.meter-fill.tone-dead {
+  background: var(--red);
+}
+
+.meter-temp {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: color-mix(in srgb, var(--cyan) 55%, transparent);
+}
+
+.meter-tick {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  background: color-mix(in srgb, var(--fg) 55%, transparent);
+}
+
+.vital-temp-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tiny-num {
+  width: 64px;
+}
+
+.damage-row {
+  display: flex;
+  gap: 6px;
+}
+
+.damage-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.vital-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.vital-block > p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vital-block-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.max-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Крупные значения с компактными кнопками для ресурсов и восстановлений. */
+.sheet-view .sheet-large-counter {
+  flex: 1 1 128px;
+  min-width: 128px;
+  max-width: 200px;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+.sheet-large-counter .stepper-value {
+  font-size: 34px;
+  line-height: 1.15;
+  min-width: 48px;
+  padding: 3px 6px;
+}
+.sheet-large-counter .stepper-btn {
+  width: 32px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.sheet-view .health-recoveries {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.health-recoveries .vital-block-row {
+  flex: 1 1 260px;
+  justify-content: flex-end;
+}
+.hero-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 8px 20px;
+}
+.hero-resources-grid .resource-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.hero-resources-grid .vital-block-row {
+  justify-content: space-between;
+}
+.hero-resources-grid .sheet-large-counter {
+  max-width: none;
+}
+.hero-resources-grid .vital-block > .sheet-large-counter {
+  flex: 0 0 auto;
+}
+.hero-resources-grid .pip {
+  width: 32px;
+  height: 32px;
+}
+
+.pips {
+  display: flex;
+  gap: 7px;
+}
+
+.pip {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    border-color 140ms var(--ease),
+    color 140ms var(--ease),
+    background 140ms var(--ease),
+    box-shadow 140ms var(--ease);
+}
+
+.pip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pip.is-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 9px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.pip-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- Бросок силы ---------- */
+
+.roll-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.roll-controls-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.roll-char-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.roll-char-value {
+  font-size: 15px;
+  padding: 6px 12px;
+}
+
+.roll-chip-label {
+  min-width: 92px;
+}
+
+.roll-chips {
+  display: flex;
+  gap: 5px;
+}
+
+.roll-main-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.roll-stage {
+  margin-top: 12px;
+}
+
+.roll-result {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.roll-result p {
+  margin: 0;
+}
+
+.roll-result.is-crit {
+  border-color: color-mix(in srgb, var(--tier3) 55%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--tier3) 22%, transparent);
+}
+
+.roll-headline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.roll-dice {
+  display: flex;
+  gap: 7px;
+}
+
+.die {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--surface-3);
+  color: var(--fg-bright);
+  font-size: 17px;
+}
+
+.roll-total {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--fg-bright);
+}
+
+.roll-detail {
+  margin: 0;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+.roll-log-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.roll-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roll-log li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 2px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  min-width: 0;
+}
+
+.roll-crit {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.roll-log-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.roll-log-total {
+  color: var(--fg-bright);
+}
+
+.roll-log-time {
+  margin-left: auto;
+  flex: none;
+}
+
+/* Поле навыка в панели броска */
+.roll-skill-field {
+  flex: 1 1 200px;
+}
+
+.roll-bonus-field {
+  flex: 0 0 92px;
+}
+
+.roll-main-action {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.roll-main-action .small {
+  white-space: nowrap;
+}
+
+.roll-submit {
+  flex: 1 1 100%;
+}
+
+/* Редактируемый максимум выносливости */
+.vitals-current .vital-max-edit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.vitals-current .vital-max-slash {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.vitals-current .vital-max-input {
+  width: 58px;
+  height: 26px;
+  padding: 0 3px;
+  border: none;
+  border-bottom: 1px dashed var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  text-align: left;
+}
+
+.vitals-current .vital-max-input:hover,
+.vitals-current .vital-max-input:focus {
+  border-bottom-color: var(--accent);
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+.vitals-current .vital-max-input:focus {
+  box-shadow: none;
+}
+
+/* Прибранная строка урона */
+.damage-row {
+  align-items: center;
+}
+
+.damage-prefix {
+  flex: none;
+  min-width: 34px;
+}
+
+.tokens-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.tokens-row p {
+  margin: 0;
+}
+
+/* Идентичность героя читается как лист, а не как форма */
+.sheet-head-identity .input {
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+.sheet-head-identity .input:hover {
+  border-bottom-color: var(--accent-line);
+}
+
+.sheet-head-identity .input:focus {
+  border-bottom-color: var(--accent);
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Степпер характеристики заполняет карточку: минус и плюс по краям, значение по центру */
+.stat-card > .stepper {
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Все «широкие» степперы распределяют минус/значение/плюс по краям */
+.vital-block > .stepper {
+  align-self: stretch;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.conditions-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.conditions-panel .panel-body {
+  flex: 1;
+}
+
+/* Размер, скорость, отход и устойчивость */
+.movement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.movement-grid .input {
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .movement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.movement-grid .input.numeric {
+  text-align: center;
+  padding-right: 11px;
+}
+
+/* Компактные карточки характеристик без кнопок броска */
+.stat-card {
+  gap: 6px;
+  padding: 8px 10px;
+}
+
+.stat-card-head {
+  min-height: 14px;
+}
+
+/* Состояния рядом с витальными показателями */
+.sheet-grid > .vitals-panel {
+  grid-column: span 8;
+}
+
+.sheet-grid > .conditions-panel {
+  grid-column: span 5;
+}
+
+@media (max-width: 1180px) {
+  .sheet-grid > .vitals-panel,
+  .sheet-grid > .conditions-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Характеристики и навыки в одной строке */
+.sheet-grid > .char-panel {
+  grid-column: span 9;
+  align-self: stretch;
+}
+
+@media (max-width: 1180px) {
+  .sheet-grid > .char-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Компактная шкала тиров в карточках характеристик */
+.tier-scale {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-3) 55%, transparent);
+}
+
+.tier-cell {
+  --tier-color: var(--tier2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 0;
+  padding: 4px 2px 3px;
+  border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--tier-color) 6%, transparent);
+  box-shadow: inset 0 2px 0
+    color-mix(in srgb, var(--tier-color) 62%, transparent);
+}
+
+.tier-cell:first-child {
+  border-left: none;
+}
+
+.tier-cell[data-tier="1"] {
+  --tier-color: var(--tier1);
+}
+
+.tier-cell[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.tier-cell[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.tier-cell b {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--tier-color) 72%, var(--fg));
+}
+
+.tier-cell em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 9px;
+  line-height: 1.1;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+/* Компактная гармоничная компоновка витальных показателей */
+.vitals-panel .panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vitals-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vitals-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vitals-adjust {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.vitals-controls .damage-row {
+  flex: 1 1 220px;
+}
+
+.vitals-rest {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.vitals-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+}
+
+.vitals-resource-grid .vital-block {
+  justify-content: flex-start;
+  min-height: 96px;
+}
+
+.vitals-resource-grid .tokens-row {
+  gap: 10px;
+}
+
+.vitals-resource-grid .tokens-row p {
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .vitals-resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitals-rest {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Не растягиваем короткие карточки в высокие пустые панели */
+.sheet-grid > .conditions-panel {
+  align-self: start;
+}
+
+/* Компактная форма броска */
+.roll-controls {
+  gap: 8px;
+}
+
+.roll-modifiers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.roll-modifier {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.roll-modifier .roll-chip-label {
+  min-width: 0;
+  font-size: 9px;
+}
+
+.roll-chip-label.eyebrow {
+  letter-spacing: 0.08em;
+}
+
+.roll-secondary-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 92px auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.roll-skill-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.roll-skill-control .select {
+  flex: 1;
+  min-width: 0;
+}
+
+.roll-skill-control .chip {
+  flex: none;
+  height: 24px;
+  padding: 0 6px;
+  font-size: 10px;
+}
+
+.roll-main-action {
+  padding-bottom: 8px;
+}
+
+.roll-submit {
+  flex: none;
+  width: 100%;
+}
+
+.roll-stage {
+  margin-top: 10px;
+}
+
+@media (max-width: 520px) {
+  .roll-modifiers,
+  .roll-secondary-row {
+    grid-template-columns: 1fr;
+  }
+
+  .roll-main-action {
+    padding-bottom: 0;
+  }
+}
+
+/* Характеристики и потенциал в основной колонке */
+.sheet-main-stack {
+  grid-column: span 8;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.sheet-main-stack .char-panel {
+  grid-column: auto;
+}
+
+@media (max-width: 1180px) {
+  .sheet-main-stack {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Компактная полоса потенциала */
+.potency-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-2) 68%, transparent);
+}
+
+.potency-strip-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+}
+
+.potency-strip-values {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.potency-strip-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-3);
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.potency-strip-value strong {
+  font-size: 13px;
+  color: var(--fg-bright);
+}
+
+.potency-strip-value.is-strong {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.potency-strip-value.is-strong strong {
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .potency-strip-values {
+    margin-left: 0;
+  }
+}
+
+/* Шапка героя и прогрессия рядом, а не на всю ширину */
+.sheet-grid > .sheet-header {
+  grid-column: span 8;
+  align-self: stretch;
+}
+
+.sheet-grid > .progress-panel {
+  grid-column: span 4;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-panel .panel-body {
+  flex: 1;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.progress-grid .input,
+.progress-grid .stepper {
+  height: 32px;
+}
+
+.progress-grid .field > .stepper {
+  align-self: stretch;
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media (max-width: 1180px) {
+  .sheet-grid > .sheet-header,
+  .sheet-grid > .progress-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Карточка характеристики: значение слева, тиры справа */
+.stat-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 62px;
+  grid-template-areas:
+    "head head"
+    "stepper tiers";
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 4px;
+}
+
+.stat-card-head {
+  grid-area: head;
+  min-height: 0;
+}
+
+.stat-card > .stepper {
+  grid-area: stepper;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stat-card > .stepper .stepper-btn {
+  width: 24px;
+  height: 28px;
+}
+
+.stat-card > .stepper .stepper-value {
+  min-width: 24px;
+  font-size: 13px;
+}
+
+.stat-card > .tier-scale {
+  grid-area: tiers;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 62px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  overflow: visible;
+}
+
+.stat-card .tier-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  min-width: 0;
+  padding: 1px 3px;
+  border: none;
+  border-left: 2px solid var(--tier-color);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--tier-color) 7%, transparent);
+  box-shadow: none;
+}
+
+.stat-card .tier-cell b {
+  font-size: 8px;
+}
+
+.stat-card .tier-cell em {
+  font-size: 8.5px;
+  line-height: 1;
+}
+
+.stat-card-head {
+  min-width: 0;
+}
+
+.stat-card .stat-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--fg-bright);
+}
+
+@media (max-width: 560px) {
+  .stat-card {
+    grid-template-columns: minmax(0, 1fr) 58px;
+    column-gap: 6px;
+    padding: 7px 8px;
+  }
+
+  .stat-card .stat-name {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .stat-card > .stepper .stepper-btn {
+    width: 22px;
+  }
+
+  .stat-card > .tier-scale {
+    width: 58px;
+  }
+
+  .stat-card .tier-cell b {
+    font-size: 7.5px;
+  }
+
+  .stat-card .tier-cell em {
+    font-size: 8px;
+  }
+}
+
+/* Блок значения заполняет карточку по высоте и ширине */
+.stat-card {
+  grid-template-columns: minmax(0, 1fr) 58px;
+  column-gap: 6px;
+  padding: 8px 9px;
+}
+
+.stat-card > .stepper {
+  align-self: stretch;
+  align-items: stretch;
+  min-height: 45px;
+}
+
+.stat-card > .stepper .stepper-btn {
+  align-self: stretch;
+  height: auto;
+  width: 24px;
+}
+
+.stat-card > .stepper .stepper-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+}
+
+.stat-card > .tier-scale {
+  width: 58px;
+}
+
+@media (max-width: 560px) {
+  .stat-card {
+    grid-template-columns: minmax(0, 1fr) 58px;
+    column-gap: 6px;
+    padding: 7px 8px;
+  }
+
+  .stat-card > .stepper .stepper-btn {
+    width: 22px;
+  }
+}
+
+/* Состояния и проекты — в одной правой колонке */
+.sheet-right-stack {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.sheet-right-stack .conditions-panel {
+  grid-column: auto;
+}
+
+@media (max-width: 1180px) {
+  .sheet-right-stack {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Витальные показатели выравниваются по правой колонке */
+.sheet-grid > .vitals-panel {
+  align-self: stretch;
+}
+
+/* Ресурсы — двумя парами: шире и без лишнего переноса строк */
+.vitals-resource-grid .vital-block {
+  justify-content: space-between;
+}
+
+@media (min-width: 901px) {
+  .vitals-controls .damage-row {
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+
+  .vitals-rest {
+    padding-left: 12px;
+    border-left: 1px solid var(--line);
+  }
+}
+
+.potency-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.potency-source strong {
+  color: var(--fg);
+  font-size: 11px;
+}
+
+.sheet-right-stack .potency-strip {
+  width: 100%;
+  align-self: stretch;
+}
+
+/* Характеристики и навыки — одной высоты в общей строке */
+.sheet-main-stack {
+  align-self: stretch;
+}
+
+.sheet-main-stack .char-panel {
+  flex: 1;
+}
+
+/* Состояния занимают всю высоту правой колонки рядом с витальными показателями */
+.sheet-grid > .sheet-right-stack {
+  align-self: stretch;
+}
+
+.sheet-right-stack .conditions-panel {
+  flex: 1;
+}
+
+.sheet-right-stack .conditions-panel .panel-body {
+  justify-content: space-between;
+}
+
+.sheet-right-stack .conditions-panel .panel-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sheet-right-stack .conditions-active {
+  flex: 1;
+  min-height: 0;
+}
+
+.sheet-right-stack .condition-active-list {
+  min-height: 0;
+  overflow: auto;
+}
+
+.sheet-right-stack .conditions-empty {
+  margin: auto 0;
+  text-align: center;
+}
+
+/* Потенциал в узкой правой колонке: заголовок и источник сверху, значения сеткой */
+.sheet-right-stack .potency-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.sheet-right-stack .potency-strip-title {
+  grid-column: 1;
+}
+
+.sheet-right-stack .potency-source {
+  grid-column: 2;
+  justify-self: end;
+}
+
+.sheet-right-stack .potency-strip-values {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin-left: 0;
+}
+
+.sheet-right-stack .potency-strip-value {
+  justify-content: center;
+  height: 28px;
+  padding: 0 6px;
+}
+
+/* Каунтеры в витальных показателях и развитии */
+.vitals-current .vital-max-input {
+  width: 104px;
+  height: 28px;
+  border: 0;
+  border-bottom: 1px dashed var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+}
+
+.vitals-current .vital-max-input .number-counter-btn {
+  width: 22px;
+  color: var(--muted);
+}
+
+.vitals-current .vital-max-input .number-counter-value {
+  font-size: 16px;
+}
+
+.vitals-current .vital-max-input:hover,
+.vitals-current .vital-max-input:focus-within {
+  border-bottom-color: var(--accent);
+  background: transparent;
+  box-shadow: none;
+}
+
+.vital-block .number-counter.tiny-num {
+  width: 94px;
+  min-width: 94px;
+  height: 30px;
+}
+
+.vital-block .number-counter.tiny-num .number-counter-btn {
+  width: 24px;
+}
+
+.vitals-controls .number-counter.tiny-num {
+  width: 94px;
+  min-width: 94px;
+  height: 34px;
+}
+
+.vitals-controls .number-counter.tiny-num .number-counter-btn {
+  width: 24px;
+}
+
+.progress-grid .number-counter {
+  height: 32px;
+}
+
+.progress-grid .number-counter .number-counter-btn {
+  width: 25px;
+}
+
+.project-meta .number-counter,
+.sheet-right-stack .project-meta .number-counter {
+  height: 32px;
+}
+
+.project-meta .number-counter-btn {
+  width: 24px;
+}
+
+.project-meta .number-counter-value {
+  font-size: 12.5px;
+}
+
+/* Урон — компактный каунтер, чтобы отдых оставался в той же строке */
+.vitals-controls .damage-row {
+  flex: 0 1 auto;
+}
+
+.vitals-controls .damage-input {
+  flex: 0 0 104px;
+  width: 104px;
+}
+
+.vitals-controls .damage-input .number-counter-btn {
+  width: 24px;
+}
+
+.project-meta .number-counter,
+.sheet-right-stack .project-meta .number-counter {
+  width: 140px;
+  min-width: 140px;
+}
+
+/* ---------- Плоский лист: без карточных заливок и рамок ---------- */
+
+.sheet-view .panel {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* Секции отделяются тонкой линией сверху */
+.sheet-view .sheet-grid > .sheet-main-stack,
+.sheet-view .sheet-grid > .skills-panel,
+.sheet-view .sheet-grid > .vitals-panel,
+.sheet-view .sheet-grid > .sheet-abilities-panel,
+.sheet-view .sheet-grid > .sheet-perks-panel {
+  border-top: 1px solid var(--line);
+}
+
+/* В правой колонке линию дают сами potency/conditions */
+.sheet-view .sheet-right-stack > .potency-strip,
+.sheet-view .sheet-right-stack > .conditions-panel {
+  border-top: 1px solid var(--line);
+}
+
+/* Вертикальные линии между колонками на широком экране */
+@media (min-width: 1181px) {
+  .sheet-view .sheet-grid > .progress-panel,
+  .sheet-view .sheet-grid > .skills-panel,
+  .sheet-view .sheet-grid > .sheet-right-stack {
+    border-left: 1px solid var(--line);
+    padding-left: 12px;
+  }
+}
+
+/* Внутренние карточки — только тонкая верхняя линия */
+.sheet-view .stat-card,
+.sheet-view .vital-block,
+.sheet-view .sheet-ability-card,
+.sheet-view .sheet-ability-tier,
+.sheet-view .condition-card,
+.sheet-view .potency-strip {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sheet-view .stat-card,
+.sheet-view .vital-block,
+.sheet-view .sheet-ability-card,
+.sheet-view .sheet-ability-tier,
+.sheet-view .condition-card {
+  border-top: 1px solid var(--line);
+}
+
+/* Убираем декоративную рамку у шкалы тиров */
+.sheet-view .tier-scale {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Поля внутри плоских блоков остаются читаемыми */
+.sheet-view .sheet-ability-card {
+  padding: 9px 10px 10px;
+}
+
+.sheet-view .sheet-ability-card:hover {
+  background: transparent;
+}
+
+.sheet-view .sheet-ability-card:hover h4 {
+  color: var(--accent);
+}
+
+.sheet-view .sheet-ability-card:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.sheet-view .condition-card {
+  padding: 9px 0;
+}
+
+.sheet-view .vital-block {
+  padding: 9px 0;
+}
+
+.sheet-view .stat-card {
+  padding: 8px 0;
+  border-radius: 0;
+}
+
+/* Фон возвращаем только карточкам способностей и перков на листе */
+.sheet-view .sheet-ability-card {
+  background: color-mix(in srgb, var(--surface-2) 66%, transparent);
+}
+
+.sheet-view .sheet-ability-card:hover {
+  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+}
+
+.sheet-view .sheet-perk-card {
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--surface-2) 68%, transparent);
+}
+
+/* Карточки способностей и перков: заметные рамки и больше воздуха */
+.sheet-view .sheet-ability-card {
+  padding: 16px 16px 18px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--line-strong);
+  border-radius: 0;
+}
+
+.sheet-view .sheet-perk-card {
+  padding: 16px 16px 18px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--line-strong);
+  border-radius: 0;
+}
+
+/* Больше пространства между тировыми исходами */
+.sheet-ability-tiers {
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.sheet-ability-tier {
+  padding: 2px 0;
+}
+
+/* Больше воздуха внутри групп по типу действия */
+.sheet-ability-sections {
+  gap: 20px;
+}
+
+.sheet-ability-section {
+  padding: 8px 10px 14px;
+}
+
+.sheet-ability-section-head {
+  margin-bottom: 10px;
+}
+
+.sheet-ability-grid {
+  gap: 12px;
+}
+
+/* Убираем широкий зазор между основным листом и правой колонкой */
+@media (min-width: 1181px) {
+  .sheet-view .sheet-grid {
+    column-gap: 0;
+  }
+
+  .sheet-view .sheet-grid > .progress-panel,
+  .sheet-view .sheet-grid > .skills-panel,
+  .sheet-view .sheet-grid > .sheet-right-stack {
+    padding-left: 0;
+  }
+
+  .sheet-view .sheet-grid > .progress-panel .panel-head,
+  .sheet-view .sheet-grid > .progress-panel .panel-body,
+  .sheet-view .sheet-grid > .skills-panel .panel-head,
+  .sheet-view .sheet-grid > .skills-panel .panel-body,
+  .sheet-view .sheet-right-stack .conditions-panel .panel-head,
+  .sheet-view .sheet-right-stack .conditions-panel .panel-body {
+    padding-left: 8px;
+  }
+
+  .sheet-view .sheet-right-stack .potency-strip {
+    padding-left: 8px;
+  }
+}
+
+/* Карточка способности — по содержимому, без пустого провала до футера */
+.sheet-view .sheet-ability-grid {
+  align-items: start;
+}
+
+.sheet-view .sheet-ability-card {
+  height: auto;
+  min-height: 0;
+  padding: 16px;
+  gap: 8px;
+}
+
+.sheet-view .sheet-ability-footer {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
