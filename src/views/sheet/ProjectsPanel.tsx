@@ -1,5 +1,13 @@
 import { Icon } from "../../components/Icons";
-import { Button, Chip, Field, NumberInput, Panel, Select, TextInput } from "../../components/ui";
+import {
+  Button,
+  Chip,
+  Field,
+  NumberInput,
+  Panel,
+  Select,
+  TextInput,
+} from "../../components/ui";
 import { makeId } from "../../data/templates";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { adjustProjectPoints, projectProgress } from "../../lib/projects";
@@ -27,7 +35,9 @@ export function ProjectsPanel() {
   const patchProject = (id: string, changes: Partial<ProjectRow>) => {
     update((current) => ({
       ...current,
-      projects: current.projects.map((row) => (row.id === id ? { ...row, ...changes } : row)),
+      projects: current.projects.map((row) =>
+        row.id === id ? { ...row, ...changes } : row,
+      ),
     }));
   };
 
@@ -43,9 +53,12 @@ export function ProjectsPanel() {
       icon="book"
       className="projects-panel"
       actions={
-        <Button size="sm" variant="soft" icon="plus" onClick={addProject}>
-          Добавить проект
-        </Button>
+        <>
+          <a href="#/catalog/project">Каталог проектов</a>
+          <Button size="sm" variant="soft" icon="plus" onClick={addProject}>
+            Добавить проект
+          </Button>
+        </>
       }
     >
       {projects.length === 0 ? (
@@ -72,7 +85,9 @@ export function ProjectsPanel() {
                     value={project.name}
                     placeholder="Название проекта"
                     aria-label="Название проекта"
-                    onChange={(event) => patchProject(project.id, { name: event.target.value })}
+                    onChange={(event) =>
+                      patchProject(project.id, { name: event.target.value })
+                    }
                   />
                   <Button
                     size="sm"
@@ -85,6 +100,13 @@ export function ProjectsPanel() {
                   />
                 </header>
 
+                {project.catalogId && (
+                  <a
+                    href={`#/catalog/project/${encodeURIComponent(project.catalogId)}`}
+                  >
+                    Требования и описание проекта →
+                  </a>
+                )}
                 <div className="project-meta">
                   <Field label="Исполнитель">
                     <TextInput
@@ -92,7 +114,9 @@ export function ProjectsPanel() {
                       placeholder="Герой или последователь"
                       aria-label="Исполнитель проекта"
                       onChange={(event) =>
-                        patchProject(project.id, { assigned: event.target.value })
+                        patchProject(project.id, {
+                          assigned: event.target.value,
+                        })
                       }
                     />
                   </Field>
@@ -101,12 +125,17 @@ export function ProjectsPanel() {
                       value={project.characteristic}
                       aria-label="Характеристика проекта"
                       onChange={(event) =>
-                        patchProject(project.id, { characteristic: event.target.value })
+                        patchProject(project.id, {
+                          characteristic: event.target.value,
+                        })
                       }
                     >
                       <option value="">—</option>
                       {CHARACTERISTICS.map((characteristic) => (
-                        <option key={characteristic.key} value={characteristic.key}>
+                        <option
+                          key={characteristic.key}
+                          value={characteristic.key}
+                        >
                           {characteristic.label}
                         </option>
                       ))}
@@ -116,7 +145,6 @@ export function ProjectsPanel() {
                     <NumberInput
                       value={progress.points}
                       min={0}
-                      max={999}
                       label="Накопленные очки проекта"
                       onChange={(points) =>
                         patchProject(project.id, { points: String(points) })
@@ -127,9 +155,10 @@ export function ProjectsPanel() {
                     <NumberInput
                       value={progress.goal}
                       min={0}
-                      max={999}
                       label="Цель проекта"
-                      onChange={(goal) => patchProject(project.id, { goal: String(goal) })}
+                      onChange={(goal) =>
+                        patchProject(project.id, { goal: String(goal) })
+                      }
                     />
                   </Field>
                 </div>

@@ -21,6 +21,7 @@ import { KitPicker } from "./sheet/KitPicker";
 import { useApp } from "../state/AppContext";
 import type { InventoryItem, ItemCategory } from "../types";
 import "./InventoryView.css";
+import "../components/LibraryNav.css";
 import { Artwork } from "../components/Artwork";
 
 const CATEGORY_META: { key: ItemCategory; label: string; icon: IconName }[] = [
@@ -168,6 +169,11 @@ export function InventoryView() {
           Инвентарь
         </h1>
       </header>
+
+      <nav className="library-nav" aria-label="Каталоги инвентаря">
+        <a href="#/catalog/treasure">Выбрать сокровище</a>
+        <a href="#/catalog/title">Выбрать титул</a>
+      </nav>
 
       <Panel title="Богатство и известность" icon="spark" dense>
         <div className="inv-wallet">
@@ -360,6 +366,14 @@ export function InventoryView() {
                           }
                         />
                         <div className="inv-row-actions">
+                          {item.catalogId && (
+                            <a
+                              href={`#/catalog/${item.category === "title" ? "title" : "treasure"}/${encodeURIComponent(item.catalogId)}`}
+                              title="Полное описание из каталога"
+                            >
+                              Правила ↗
+                            </a>
+                          )}
                           {item.category === "gear" && (
                             <Toggle
                               checked={item.equipped}

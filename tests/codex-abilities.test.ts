@@ -1,3 +1,5 @@
+import { remarkRuleLinks } from "../src/lib/remark-rule-links";
+import { remarkRuleFields } from "../src/lib/remark-rule-fields";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
@@ -20,7 +22,11 @@ describe("Codex ability presentation", () => {
           ? node.value
           : "children" in node
             ? node.children.map(content).join("")
-            : "") + (node.type === "link" ? node.url : "")
+            : "") +
+        (node.type === "link" &&
+        !node.data?.hProperties?.className?.includes("rule-reference")
+          ? node.url
+          : "")
       );
     }
     const normalize = (s: string) => s.replace(/[\s,*]/g, "");
@@ -32,6 +38,8 @@ describe("Codex ability presentation", () => {
         .parse(article.markdown);
       const before = normalize(content(tree));
       remarkAbilityBlocks()(tree);
+      remarkRuleFields()(tree);
+      remarkRuleLinks()(tree);
       expect(normalize(content(tree)), article.id).toBe(before);
       cards += JSON.stringify(tree).split('"codex-ability"').length - 1;
     }
@@ -46,8 +54,12 @@ describe("Codex ability presentation", () => {
     for (const tier of [1, 2, 3]) expect(html).toContain(`data-tier="${tier}"`);
     expect(html).toContain("Ослабляющий Удар (9 Свирепости)");
     expect(html).toContain("10 + М урона");
-    expect(html).toContain("включая принудительное движение");
-    expect(html).toContain("Вы можете потратить Восстановление");
+    expect(html.replace(/<[^>]+>/g, "")).toContain(
+      "включая принудительное движение",
+    );
+    expect(html.replace(/<[^>]+>/g, "")).toContain(
+      "Вы можете потратить Восстановление",
+    );
   });
   it("preserves ordinary callouts and tables", () => {
     const html = renderToStaticMarkup(

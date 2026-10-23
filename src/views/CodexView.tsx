@@ -1,4 +1,7 @@
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { LibraryNav } from "../components/LibraryNav";
+import { CATALOG } from "../data/library";
+import { CatalogAction } from "../components/CatalogAction";
 import raw from "../data/codex.generated.json";
 import {
   catalogLink,
@@ -16,6 +19,14 @@ import { ArtworkFigure } from "../components/Artwork";
 import { artForArticle } from "../lib/art";
 
 const articles: RuleArticle[] = raw;
+const chapterCatalog = (chapter: string) =>
+  chapter.startsWith("18.")
+    ? "treasure"
+    : chapter.startsWith("19.")
+      ? "title"
+      : chapter.startsWith("16.")
+        ? "project"
+        : "";
 const chapters = [...new Set(articles.map((a) => a.chapter))];
 const searchable = articles.map((a) =>
   searchText(`${a.title} ${a.group} ${a.markdown}`),
@@ -88,6 +99,9 @@ export function CodexView() {
   );
 
   useEffect(() => {
+    if (article?.id === "0102") window.location.replace("#/glossary/");
+  }, [article?.id]);
+  useEffect(() => {
     const change = () => setLocation(readCodexLocation());
     window.addEventListener("hashchange", change);
     return () => window.removeEventListener("hashchange", change);
@@ -127,6 +141,7 @@ export function CodexView() {
           </p>
         </div>
       </header>
+      <LibraryNav current="codex" />
       <div className="codex-layout">
         <aside className="codex-nav" aria-label="Разделы Кодекса">
           <TextInput
@@ -172,13 +187,19 @@ export function CodexView() {
                 <summary>{c.replace(/^\d+\.\s*/, "")}</summary>
                 <div className="codex-tree-children">
                   <a
-                    href={catalogLink(c)}
-                    onClick={() => browse(c)}
+                    href={
+                      chapterCatalog(c)
+                        ? `#/catalog/${chapterCatalog(c)}`
+                        : catalogLink(c)
+                    }
+                    onClick={() => {
+                      if (!chapterCatalog(c)) browse(c);
+                    }}
                     className={
                       chapter === c && !group && !article ? "is-active" : ""
                     }
                   >
-                    Читать главу
+                    {chapterCatalog(c) ? "Открыть каталог" : "Читать главу"}
                   </a>
                   {[
                     ...new Set(
@@ -193,7 +214,9 @@ export function CodexView() {
                     const links = entries.map((a) => (
                       <a
                         key={a.id}
-                        href={`#/codex/${a.id}`}
+                        href={
+                          a.id === "0102" ? "#/glossary/" : `#/codex/${a.id}`
+                        }
                         aria-current={article?.id === a.id ? "page" : undefined}
                       >
                         {a.title}
@@ -319,6 +342,12 @@ export function CodexView() {
                     ))}
                   </details>
                 )}
+                {CATALOG.filter(
+                  (entry) =>
+                    entry.articleId === article.id && entry.kind === "project",
+                ).map((entry) => (
+                  <CatalogAction key={entry.id} entry={entry} />
+                ))}
                 <ArtworkFigure
                   art={artForArticle(article.id)}
                   className="codex-article-art"
@@ -328,7 +357,7 @@ export function CodexView() {
                     Эта статья пока не заполнена в исходном переводе.
                   </p>
                 ) : (
-                  <RuleText text={article.markdown} />
+                  <RuleText text={article.markdown} articleId={article.id} />
                 )}
                 <footer className="codex-paging">
                   {position > 0 && (
@@ -417,11 +446,17 @@ export function CodexView() {
                           Глава {String(i + 1).padStart(2, "0")}
                         </span>
                         <h3>
-                          <a href={catalogLink(name)}>
+                          <a
+                            href={
+                              chapterCatalog(name)
+                                ? `#/catalog/${chapterCatalog(name)}`
+                                : catalogLink(name)
+                            }
+                          >
                             {name.replace(/^\d+\.\s*/, "")}
                           </a>
                         </h3>
-                        {sections.length ? (
+                        {sections.length && !chapterCatalog(name) ? (
                           <nav
                             className="codex-section-links"
                             aria-label={name}
@@ -445,9 +480,16 @@ export function CodexView() {
                         )}
                         <a
                           className="codex-collection-footer"
-                          href={catalogLink(name)}
+                          href={
+                            chapterCatalog(name)
+                              ? `#/catalog/${chapterCatalog(name)}`
+                              : catalogLink(name)
+                          }
                         >
-                          Читать главу <span aria-hidden="true">→</span>
+                          {chapterCatalog(name)
+                            ? "Открыть каталог"
+                            : "Читать главу"}{" "}
+                          <span aria-hidden="true">→</span>
                         </a>
                       </section>
                     );
@@ -469,7 +511,7 @@ export function CodexView() {
                     <a
                       className="codex-result"
                       key={a.id}
-                      href={`#/codex/${a.id}`}
+                      href={a.id === "0102" ? "#/glossary/" : `#/codex/${a.id}`}
                     >
                       <span className="eyebrow">
                         {a.chapter}

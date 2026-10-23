@@ -93,6 +93,7 @@ export interface ConditionState {
 }
 
 export interface InventoryItem {
+  catalogId?: string;
   id: string;
   name: string;
   category: ItemCategory;
@@ -102,6 +103,7 @@ export interface InventoryItem {
 }
 
 export interface ProjectRow {
+  catalogId?: string;
   id: string;
   name: string;
   assigned: string;

@@ -373,3 +373,8 @@
 .auth-account-bar { position: fixed; z-index: 30; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 12px; max-width: calc(100vw - 24px); padding: 8px 10px 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); background: var(--surface); box-shadow: 0 2px 12px #0003; font-size: .82rem; }
 .auth-account-bar span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .auth-account-bar button { padding: 7px 11px; }
+/* Keep all library destinations reachable on narrow screens. */
+@media (max-width: 700px) {
+  .rail-nav { overflow-x: auto; justify-content: flex-start; width: 100%; scrollbar-width: thin; }
+  .rail-nav .rail-link { flex: 0 0 40px; min-width: 40px; }
+}
