@@ -10,6 +10,7 @@ import { AbilityEditor } from "./abilities/AbilityEditor";
 import { RollModal } from "./abilities/RollModal";
 import { TemplatesModal } from "./abilities/TemplatesModal";
 import { blankAbility, matchesQuery } from "./abilities/shared";
+import "../components/AbilityPresentation.css";
 import "./AbilitiesView.css";
 
 const AbilityPicker = lazy(() =>

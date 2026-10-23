@@ -1,0 +1,58 @@
+.rule-text .codex-ability {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.rule-text .codex-ability > * {
+  margin: 0;
+}
+.codex-ability-title {
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: var(--fg-bright);
+}
+.rule-text .codex-ability .abil-flavor {
+  font-size: 13.5px;
+}
+.rule-text .codex-ability .abil-facts strong {
+  font-weight: 400;
+}
+.rule-text .codex-ability .abil-fact-value {
+  overflow-wrap: anywhere;
+}
+.rule-text .codex-ability .abil-tier {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.rule-text .codex-ability .abil-tier p {
+  margin: 0;
+}
+.rule-text .codex-ability .abil-tier strong:first-child {
+  color: var(--tier-color);
+}
+.rule-text .codex-ability .abil-block {
+  display: block;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.codex-ability-roll {
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  .rule-text .codex-ability {
+    padding: 14px;
+  }
+  .codex-ability .abil-tiers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,4 +1,7 @@
 import Markdown from "react-markdown";
+import { remarkAbilityBlocks } from "../lib/remark-ability-blocks";
+import "./AbilityPresentation.css";
+import "./RuleText.css";
 import remarkGfm from "remark-gfm";
 import { Children, isValidElement, type ReactNode } from "react";
 import { headingId } from "../lib/codex";
@@ -17,7 +20,7 @@ export function RuleText({ text }: { text: string }) {
   return (
     <div className="rule-text">
       <Markdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, remarkAbilityBlocks]}
         components={{
           h1: ({ children }) => (
             <h2 id={headingId(plain(children))}>{children}</h2>

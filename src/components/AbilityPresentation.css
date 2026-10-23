@@ -1,0 +1,161 @@
+.abil-flavor {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.abil-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.abil-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 14px;
+}
+
+.abil-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+}
+
+.abil-fact-label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.abil-fact-value {
+  font-size: 13.5px;
+  color: var(--fg);
+}
+
+/* ---------- Тиры ---------- */
+
+.abil-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.abil-tier {
+  --tier-color: var(--tier1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 1px solid color-mix(in srgb, var(--tier-color) 32%, var(--line));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--tier-color) 6%, var(--surface-2));
+}
+
+.abil-tier[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+
+.abil-tier[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
+.abil-tier-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.abil-tier-damage {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-bright);
+  text-align: right;
+}
+
+.abil-tier-empty {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.abil-tier-effect {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+/* ---------- Блоки триггер / эффект / заметки ---------- */
+
+.abil-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--line-strong);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: color-mix(in srgb, var(--surface-3) 60%, transparent);
+}
+
+.abil-block p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.abil-block-trigger {
+  border-left-color: var(--magenta);
+}
+
+.abil-block-notes {
+  border-left-style: dashed;
+}
+
+.abil-block-label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Факты способности — одной строкой, без «коробок» */
+.abil-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+  padding: 2px 0;
+}
+
+.abil-fact {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  min-width: 0;
+}
+
+.abil-fact-label {
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.abil-fact-value {
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .abil-facts {
+    gap: 4px 14px;
+  }
+}
