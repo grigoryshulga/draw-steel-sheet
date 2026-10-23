@@ -2,12 +2,28 @@ import { describe, expect, it } from "vitest";
 import articles from "../src/data/codex.generated.json";
 import {
   CODEX_INDEX,
+  catalogLink,
+  readCodexLocation,
   codexLink,
   headingId,
   searchText,
 } from "../src/lib/codex";
 
 describe("Rules navigation", () => {
+  it("round-trips chapter and class catalog links independently of article links", () => {
+    const hash = catalogLink("08. Классы", "Тень");
+    expect(readCodexLocation(hash)).toEqual({
+      articleId: "",
+      heading: "",
+      chapter: "08. Классы",
+      group: "Тень",
+    });
+    expect(
+      readCodexLocation("#/codex/0801/" + encodeURIComponent("основы")),
+    ).toEqual({ articleId: "0801", heading: "основы", chapter: "", group: "" });
+    expect(readCodexLocation(catalogLink()).articleId).toBe("");
+    expect(readCodexLocation("#/codex/0801/%").heading).toBe("");
+  });
   it("retains the two source articles with duplicate 0899 numbers under unique links", () => {
     expect(new Set(articles.map((a) => a.id)).size).toBe(articles.length);
     expect(articles.find((a) => a.id === "0899-9")?.title).toContain("9-й");

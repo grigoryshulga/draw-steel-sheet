@@ -26,11 +26,26 @@ export function codexLink(title: string): string {
   );
   return article ? `#/codex/${article.id}` : "#/codex";
 }
-export function readCodexLocation(): { articleId: string; heading: string } {
-  const [, , articleId = "", heading = ""] = window.location.hash.split("/");
+export function catalogLink(chapter = "", group = ""): string {
+  const params = new URLSearchParams();
+  if (chapter) params.set("chapter", chapter);
+  if (group) params.set("group", group);
+  return `#/codex/${params.size ? `?${params}` : ""}`;
+}
+export function readCodexLocation(hash = window.location.hash) {
+  const [path, query = ""] = hash.split("?");
+  const [, , articleId = "", heading = ""] = path.split("/");
+  const params = new URLSearchParams(query);
+  let decodedHeading = "";
   try {
-    return { articleId, heading: decodeURIComponent(heading) };
+    decodedHeading = decodeURIComponent(heading);
   } catch {
-    return { articleId, heading: "" };
+    /* malformed link */
   }
+  return {
+    articleId,
+    heading: decodedHeading,
+    chapter: params.get("chapter") || "",
+    group: params.get("group") || "",
+  };
 }
