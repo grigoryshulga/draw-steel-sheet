@@ -19,9 +19,13 @@ export function SheetQuickActions() {
   const [topbarHeight, setTopbarHeight] = useState(73);
   useLayoutEffect(() => {
     const topbar = document.querySelector(".topbar");
+    const rail = document.querySelector(".rail");
     if (!topbar) return;
     const measure = () =>
-      setTopbarHeight(topbar.getBoundingClientRect().height);
+      setTopbarHeight(
+        topbar.getBoundingClientRect().height +
+          (rail?.getBoundingClientRect().height ?? 0),
+      );
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(topbar);
@@ -59,11 +63,11 @@ export function SheetQuickActions() {
           type="button"
           className="sheet-quick-action"
           onClick={() => setPanel("resources")}
-          aria-label={`${resourceName}: ${character.heroicResource.current} из ${character.heroicResource.max}`}
+          aria-label={`${resourceName}: ${character.heroicResource.current}`}
         >
           <span className="sheet-quick-label">{resourceName}</span>
           <strong className="numeric">
-            {character.heroicResource.current}/{character.heroicResource.max}
+            {character.heroicResource.current}
           </strong>
         </button>
         <button
@@ -94,12 +98,7 @@ export function SheetQuickActions() {
         </button>
       </nav>
 
-      {healthOpen && (
-        <HealthDialog
-          initialOperation="damage"
-          onClose={() => setHealthOpen(false)}
-        />
-      )}
+      {healthOpen && <HealthDialog onClose={() => setHealthOpen(false)} />}
       <Modal
         open={panel === "resources"}
         onClose={() => setPanel(null)}

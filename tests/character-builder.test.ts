@@ -242,7 +242,7 @@ describe("Character creation and automatic rules", () => {
     const strike = hero.abilities.find(
       (a) => a.kind === "free-strike" && a.keywords.includes("Ближний"),
     )!;
-    expect(evaluateAbilityDamage(strike, 1, hero).values).toEqual([6, 5]);
+    expect(evaluateAbilityDamage(strike, 1, hero).values).toEqual([6]);
     const signature = hero.abilities.find(
       (a) => a.source === "Комплект: Сияющие Доспехи",
     )!;
@@ -255,7 +255,7 @@ describe("Character creation and automatic rules", () => {
         1,
         hero,
       ).values,
-    ).toEqual([4, 3]);
+    ).toEqual([4]);
     expect(
       abilityDistance(
         hero.abilities.find(

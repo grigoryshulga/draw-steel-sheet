@@ -190,6 +190,49 @@ export function SettingsView({
         </div>
       </Panel>
 
+      <details className="settings-theme-disclosure">
+        <summary>
+          <Icon name="palette" size={17} />
+          <span>Внешний вид</span>
+          <span className="settings-theme-current">{activeTheme}</span>
+          <Icon name="chevron-down" size={15} className="settings-theme-chevron" />
+        </summary>
+        <div className="settings-theme-content">
+          <p className="settings-theme-description">
+            Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.
+          </p>
+          <div className="theme-grid">
+            {themes.map((theme) => {
+              const active = activeTheme === theme.name;
+              return (
+                <button
+                  key={theme.name}
+                  type="button"
+                  className={`theme-card ${active ? "is-active" : ""}`.trim()}
+                  onClick={() => onThemeChoice({ name: theme.name })}
+                  aria-pressed={active}
+                >
+                  <span
+                    className="theme-card-preview"
+                    style={{ background: theme.colors.background }}
+                  >
+                    <span className="theme-card-panel" style={{ background: theme.colors.lighter_background }} />
+                    <span className="theme-dots">
+                      {["accent", "red", "green", "blue", "magenta"].map((key) => (
+                        <i key={key} style={{ background: theme.colors[key] }} />
+                      ))}
+                    </span>
+                  </span>
+                  <span className="theme-card-name">{theme.name}</span>
+                  <span className="theme-card-meta">{theme.mode === "light" ? "светлая" : "тёмная"}</span>
+                  {active && <Icon name="check" size={15} className="theme-card-check" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </details>
+
       <Panel title="О листе" icon="book">
         <div className="about-grid">
           <div>
@@ -261,49 +304,6 @@ export function SettingsView({
           </div>
         </div>
       </Panel>
-
-      <details className="settings-theme-disclosure">
-        <summary>
-          <Icon name="palette" size={17} />
-          <span>Внешний вид</span>
-          <span className="settings-theme-current">{activeTheme}</span>
-          <Icon name="chevron-down" size={15} className="settings-theme-chevron" />
-        </summary>
-        <div className="settings-theme-content">
-          <p className="settings-theme-description">
-            Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.
-          </p>
-          <div className="theme-grid">
-            {themes.map((theme) => {
-              const active = activeTheme === theme.name;
-              return (
-                <button
-                  key={theme.name}
-                  type="button"
-                  className={`theme-card ${active ? "is-active" : ""}`.trim()}
-                  onClick={() => onThemeChoice({ name: theme.name })}
-                  aria-pressed={active}
-                >
-                  <span
-                    className="theme-card-preview"
-                    style={{ background: theme.colors.background }}
-                  >
-                    <span className="theme-card-panel" style={{ background: theme.colors.lighter_background }} />
-                    <span className="theme-dots">
-                      {["accent", "red", "green", "blue", "magenta"].map((key) => (
-                        <i key={key} style={{ background: theme.colors[key] }} />
-                      ))}
-                    </span>
-                  </span>
-                  <span className="theme-card-name">{theme.name}</span>
-                  <span className="theme-card-meta">{theme.mode === "light" ? "светлая" : "тёмная"}</span>
-                  {active && <Icon name="check" size={15} className="theme-card-check" />}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </details>
 
       <Modal
         open={deleteTarget !== null}

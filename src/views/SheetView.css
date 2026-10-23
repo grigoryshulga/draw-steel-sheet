@@ -1475,7 +1475,6 @@
 .sheet-view .stat-card,
 .sheet-view .vital-block,
 .sheet-view .sheet-ability-card,
-.sheet-view .sheet-ability-tier,
 .sheet-view .condition-card {
   border-top: 1px solid var(--line);
 }
@@ -1601,20 +1600,48 @@
   }
 }
 
-/* Карточка способности — по содержимому, без пустого провала до футера */
+/* Карточки способностей: одинаковая ширина и высота, футер прижат вниз */
 .sheet-view .sheet-ability-grid {
-  align-items: start;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
 }
 
 .sheet-view .sheet-ability-card {
-  height: auto;
+  height: 100%;
   min-height: 0;
   padding: 16px;
   gap: 8px;
 }
 
 .sheet-view .sheet-ability-footer {
-  margin-top: 8px;
+  margin-top: auto;
   padding-top: 8px;
-  border-top: 1px solid var(--line);
+}
+
+/* Здоровье: правка текущего значения прямо в цифре */
+.vital-current-input {
+  width: 3ch;
+  min-width: 2ch;
+  field-sizing: content;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed transparent;
+  background: transparent;
+  font: inherit;
+  font-size: 34px;
+  text-align: right;
+}
+.vital-current-input:hover,
+.vital-current-input:focus {
+  border-bottom-color: var(--accent);
+  outline: none;
+}
+.vital-temp-clear {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.vital-temp-clear:hover {
+  text-decoration: underline;
 }

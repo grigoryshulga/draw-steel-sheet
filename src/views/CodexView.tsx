@@ -1,5 +1,5 @@
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
-import { LibraryNav } from "../components/LibraryNav";
+import { LibraryHeader } from "../components/LibraryHeader";
 import { CATALOG } from "../data/library";
 import { CatalogAction } from "../components/CatalogAction";
 import raw from "../data/codex.generated.json";
@@ -13,7 +13,6 @@ import {
 } from "../lib/codex";
 import { RuleText } from "../components/RuleText";
 import { Button, TextInput } from "../components/ui";
-import { Icon } from "../components/Icons";
 import "./CodexView.css";
 import { ArtworkFigure } from "../components/Artwork";
 import { artForArticle } from "../lib/art";
@@ -130,18 +129,10 @@ export function CodexView() {
 
   return (
     <div className="codex-view">
-      <header className="page-head">
-        <div>
-          <h1 className="page-title">
-            <Icon name="book" size={26} />
-            Кодекс знаний
-          </h1>
-          <p className="muted">
-            Правила Draw Steel — от первого героя до последней битвы.
-          </p>
-        </div>
-      </header>
-      <LibraryNav current="codex" />
+      <LibraryHeader
+        current="codex"
+        description="Правила Draw Steel — от первого героя до последней битвы."
+      />
       <div className="codex-layout">
         <aside className="codex-nav" aria-label="Разделы Кодекса">
           <TextInput

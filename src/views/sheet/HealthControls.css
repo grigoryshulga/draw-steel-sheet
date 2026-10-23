@@ -1,0 +1,39 @@
+.health-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.health-amount-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.health-amount {
+  width: 84px;
+  height: 36px;
+  text-align: center;
+  font-size: 18px;
+}
+.health-hint {
+  margin: 0;
+}
+.health-recoveries-readout {
+  align-items: center;
+  gap: 8px;
+}
+.vital-current-input.is-small {
+  font-size: 22px;
+}
+.health-recoveries-readout .vital-max-slash {
+  font-size: 14px;
+}
+.health-recoveries-readout .vital-max-input {
+  width: 84px;
+}
+.vitals-head .health-recoveries-readout {
+  align-self: flex-end;
+}
+.health-dialog .health-recoveries-readout {
+  margin-bottom: 10px;
+}

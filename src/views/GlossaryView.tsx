@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GLOSSARY, glossaryLink, matchesLibraryQuery } from "../data/library";
 import { useLibraryLocation } from "../lib/library-location";
-import { LibraryNav } from "../components/LibraryNav";
+import { LibraryHeader } from "../components/LibraryHeader";
 import { RuleText } from "../components/RuleText";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
@@ -31,17 +31,10 @@ export function GlossaryView() {
   }, [id]);
   return (
     <div className="library-view glossary-view">
-      <header className="page-head">
-        <div>
-          <span className="eyebrow">Словарь Draw Steel</span>
-          <h1 className="page-title">Глоссарий</h1>
-          <p className="muted">
-            Терминов: {GLOSSARY.length}. Короткие определения на русском, поиск
-            также по английским названиям.
-          </p>
-        </div>
-      </header>
-      <LibraryNav current="glossary" />
+      <LibraryHeader
+        current="glossary"
+        description={`Терминов: ${GLOSSARY.length}. Короткие определения на русском, поиск также по английским названиям.`}
+      />
       <div className="glossary-tools">
         <TextInput
           type="search"

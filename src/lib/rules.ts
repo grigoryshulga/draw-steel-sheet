@@ -201,14 +201,14 @@ export interface EvaluatedDamage {
   values: number[];
   /** Бросок кубика, если он есть в формуле (например, "1d6"). */
   dice: string[];
-  /** Строка для отображения: "8" или "8 / 7". */
+  /** Строка для отображения: "8" или "1d6 + 2". */
   display: string;
   /** Развёрнутая формула с подставленными характеристиками: "3 + 2". */
   breakdown: string;
 }
 
 /**
- * Вычисляет урон способности. Поддерживает варианты через "или"/"|",
+ * Вычисляет урон способности. Варианты через "или"/"|" сводятся к лучшему (по высшей характеристике),
  * кубики (остаются как есть) и характеристики M/A/R/I/P (в том числе кириллицей).
  */
 export function evaluateDamage(
@@ -220,23 +220,19 @@ export function evaluateDamage(
     return { values: [], dice: [], display: "", breakdown: "" };
   }
 
-  const values: number[] = [];
-  const dice: string[] = [];
-  const breakdowns: string[] = [];
-  const displays: string[] = [];
+  // Варианты формулы («М или Л») — берём самый выгодный: от высшей из характеристик.
+  let best: EvaluatedDamage | null = null;
 
   for (const variant of expandDamageAlternatives(normalizeFormula(trimmed))) {
     const normalized = normalizeFormula(variant);
     const tokens = normalized.match(/[+-]?\s*(?:\d+d\d+|\d+|[MARIP])/gi);
     if (!tokens) {
-      values.push(0);
-      breakdowns.push(variant);
-      displays.push("0");
+      best ??= { values: [0], dice: [], display: "0", breakdown: variant };
       continue;
     }
 
     let flat = 0;
-    const diceParts: string[] = [];
+    const dice: string[] = [];
     const substituted: string[] = [];
     let hasCharacteristic = false;
 
@@ -246,7 +242,6 @@ export function evaluateDamage(
       if (/^\d+d\d+$/i.test(body)) {
         const die = sign < 0 ? `−${body}` : body;
         dice.push(die);
-        diceParts.push(die);
         substituted.push(die);
         continue;
       }
@@ -262,28 +257,20 @@ export function evaluateDamage(
       substituted.push(String(sign * value));
     }
 
-    values.push(flat);
-    breakdowns.push(
-      hasCharacteristic
+    const flatPart =
+      flat === 0 ? "" : ` ${flat > 0 ? "+" : "−"} ${Math.abs(flat)}`;
+    const candidate: EvaluatedDamage = {
+      values: [flat],
+      dice,
+      display: dice.length ? `${dice.join(" + ")}${flatPart}` : String(flat),
+      breakdown: hasCharacteristic
         ? substituted.join(" + ").replace(/\+ -/g, "− ")
         : variant,
-    );
-
-    if (diceParts.length > 0) {
-      const flatPart =
-        flat === 0 ? "" : ` ${flat > 0 ? "+" : "−"} ${Math.abs(flat)}`;
-      displays.push(`${diceParts.join(" + ")}${flatPart}`);
-    } else {
-      displays.push(String(flat));
-    }
+    };
+    if (!best || candidate.values[0] > best.values[0]) best = candidate;
   }
 
-  return {
-    values,
-    dice,
-    display: [...new Set(displays)].join(" / "),
-    breakdown: [...new Set(breakdowns)].join(" / "),
-  };
+  return best ?? { values: [], dice: [], display: "", breakdown: "" };
 }
 
 /**

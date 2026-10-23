@@ -3,17 +3,9 @@ import { applyDamage, deriveStats } from "./rules";
 import { heroicResourceName } from "../data/classes";
 
 export type HealthOperation =
-  | "damage"
-  | "heal"
-  | "temporary"
-  | "recovery"
-  | "rest"
-  | "adjust";
+  "damage" | "heal" | "temporary" | "recovery" | "rest" | "adjust";
 export type ResourceName =
-  | "heroicResource"
-  | "surges"
-  | "heroTokens"
-  | "recoveries";
+  "heroicResource" | "surges" | "heroTokens" | "recoveries";
 export type GameAction =
   | { kind: HealthOperation; amount?: number }
   | { kind: "resource"; resource: ResourceName; value: number }
@@ -30,6 +22,14 @@ export type ActionPreview =
   | { ok: true; next: Character; label: string; detail: string }
   | { ok: false; reason: string };
 
+/** У героического ресурса нет игрового максимума — только технический предел ввода. */
+const MAX_HEROIC_RESOURCE = 99;
+/** Талант может уводить ясность в минус — до −(1 + Разум); остальным ресурс не уйти ниже нуля. */
+export function heroicResourceFloor(character: Character): number {
+  return character.className === "Талант"
+    ? -(1 + Math.max(0, character.characteristics.reason))
+    : 0;
+}
 const invalid = (reason: string): ActionPreview => ({ ok: false, reason });
 const validAmount = (amount: number | undefined) =>
   amount !== undefined &&
@@ -134,14 +134,20 @@ export function previewGameAction(
     case "resource": {
       const max =
         action.resource === "heroicResource"
-          ? heroicResource.max
+          ? MAX_HEROIC_RESOURCE
           : action.resource === "recoveries"
             ? recoveries.max
-            : action.resource === "heroTokens"
-              ? 5
-              : 99;
-      if (!validAmount(action.value) || action.value > max)
-        return invalid(`Укажите значение от 0 до ${max}`);
+            : 99;
+      const min =
+        action.resource === "heroicResource"
+          ? heroicResourceFloor(character)
+          : 0;
+      if (
+        !Number.isSafeInteger(action.value) ||
+        action.value < min ||
+        action.value > max
+      )
+        return invalid(`Укажите значение от ${min} до ${max}`);
       const before =
         action.resource === "heroicResource"
           ? heroicResource.current
@@ -182,7 +188,7 @@ export function previewGameAction(
         ? 0
         : ability.resourceCost + (action.additionalCost ?? 0);
       if (!validAmount(cost)) return invalid("Проверьте стоимость способности");
-      if (heroicResource.current < cost)
+      if (heroicResource.current - cost < heroicResourceFloor(character))
         return invalid(
           `Не хватает ресурса: нужно ${cost}, доступно ${heroicResource.current}`,
         );
@@ -244,7 +250,7 @@ export function undoReason(
   const limits = {
     stamina: character.stamina.max,
     recoveries: character.recoveries.max,
-    resource: character.heroicResource.max,
+    resource: MAX_HEROIC_RESOURCE,
   };
   if (
     entry.changes.some(
@@ -292,7 +298,7 @@ export function createGameSession() {
           limits: {
             stamina: character.stamina.max,
             recoveries: character.recoveries.max,
-            resource: character.heroicResource.max,
+            resource: MAX_HEROIC_RESOURCE,
           },
         },
         ...history,

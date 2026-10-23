@@ -1,38 +1,26 @@
 import type { Tab } from "../navigation";
 import type { SaveStatus } from "../state/AppContext";
-import type { ThemeChoice } from "../lib/theme";
-import type { AppTheme, Character, CharacterSummary } from "../types";
+import type { Character, CharacterSummary } from "../types";
 import { CharacterMenu } from "./CharacterMenu";
-import { ThemeMenu } from "./ThemeMenu";
+import { SaveIndicator } from "./SaveIndicator";
+import { RailNav } from "./Sidebar";
 import { Button } from "./ui";
 
-const SAVE_LABEL: Record<SaveStatus, string> = {
-  idle: "Черновик",
-  pending: "Есть изменения",
-  saving: "Сохранение…",
-  saved: "Сохранено",
-  error: "Не сохранено",
-};
-
 export function Topbar({
+  tab,
   character,
   characters,
   saveStatus,
   saveError,
-  themes,
-  themeChoice,
-  onThemeChoice,
   onSelectCharacter,
   onNewCharacter,
   onNavigate,
 }: {
+  tab: Tab;
   character: Character;
   characters: CharacterSummary[];
   saveStatus: SaveStatus;
   saveError: string;
-  themes: AppTheme[];
-  themeChoice: ThemeChoice;
-  onThemeChoice: (choice: ThemeChoice) => void;
   onSelectCharacter: (id: string) => void;
   onNewCharacter: () => void;
   onNavigate: (tab: Tab) => void;
@@ -40,30 +28,21 @@ export function Topbar({
   return (
     <header className="topbar">
       <div className="topbar-left">
+        <RailNav tab={tab} onNavigate={onNavigate} />
+        <span className="topbar-divider" aria-hidden="true" />
         <CharacterMenu
+          saveIndicator={
+            <SaveIndicator status={saveStatus} error={saveError} />
+          }
           character={character}
           characters={characters}
           onSelect={onSelectCharacter}
           onNew={onNewCharacter}
           onManage={() => onNavigate("settings")}
         />
-        <div
-          className={`save-state is-${saveStatus}`}
-          title={saveStatus === "error" ? saveError : SAVE_LABEL[saveStatus]}
-          role="status"
-          aria-live="polite"
-        >
-          <span className="save-dot" />
-          <span>{SAVE_LABEL[saveStatus]}</span>
-        </div>
       </div>
 
       <div className="topbar-right">
-        <ThemeMenu
-          themes={themes}
-          choice={themeChoice}
-          onChoose={onThemeChoice}
-        />
         <Button
           icon="plus"
           variant="soft"
@@ -73,6 +52,16 @@ export function Topbar({
         >
           <span className="hide-sm">Новый герой</span>
         </Button>
+        <Button
+          icon="settings"
+          iconOnly
+          variant={tab === "settings" ? "soft" : "ghost"}
+          size="sm"
+          aria-label="Настройки"
+          aria-current={tab === "settings" ? "page" : undefined}
+          title="Настройки"
+          onClick={() => onNavigate("settings")}
+        />
       </div>
     </header>
   );

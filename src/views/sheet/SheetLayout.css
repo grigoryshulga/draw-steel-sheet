@@ -1,0 +1,114 @@
+/* Монолитный лист: одна плита, блоки разделены тонкими линиями. Адаптивность — по ширине самой плиты. */
+.sheet-layout-host {
+  container: sheet / inline-size;
+  min-width: 0;
+}
+.sheet-layout {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--sheet-warm-line);
+  border-radius: 14px;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--sheet-warm) 4%, transparent),
+      transparent 68%
+    ),
+    color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
+  overflow: clip;
+}
+.sheet-col {
+  display: contents;
+}
+.sheet-block {
+  min-width: 0;
+  border-top: 1px solid var(--sheet-warm-line);
+}
+
+/* Узкая плита: одна колонка, самое нужное в бою — выше способностей */
+.sheet-block[data-panel="vitals"] {
+  order: 1;
+  border-top: 0;
+}
+.sheet-block[data-panel="resources"] {
+  order: 2;
+}
+.sheet-block[data-panel="potency"] {
+  order: 3;
+}
+.sheet-block[data-panel="conditions"] {
+  order: 4;
+}
+.sheet-block[data-panel="characteristics"] {
+  order: 5;
+}
+.sheet-block[data-panel="progress"] {
+  order: 6;
+}
+.sheet-block[data-panel="abilities"] {
+  order: 7;
+}
+.sheet-block[data-panel="skills"] {
+  order: 8;
+}
+.sheet-block[data-panel="perks"] {
+  order: 9;
+}
+@container sheet (max-width: 639px) {
+  .sheet-layout {
+    border-inline: 0;
+    border-radius: 0;
+  }
+}
+
+/* От 760 px: две колонки на общей сетке строк — границы блоков слева и справа сходятся на одних линиях */
+@container sheet (min-width: 760px) {
+  .sheet-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 36cqw, 460px);
+    grid-template-areas:
+      "characteristics potency"
+      "characteristics progress"
+      "vitals resources"
+      "abilities conditions"
+      "abilities skills"
+      "abilities perks";
+  }
+  .sheet-block {
+    order: 0;
+  }
+  .sheet-block[data-panel="characteristics"] {
+    grid-area: characteristics;
+    border-top: 0;
+  }
+  .sheet-block[data-panel="vitals"] {
+    grid-area: vitals;
+    border-top: 1px solid var(--sheet-warm-line);
+  }
+  .sheet-block[data-panel="abilities"] {
+    grid-area: abilities;
+  }
+  .sheet-block[data-panel="potency"] {
+    grid-area: potency;
+    border-top: 0;
+  }
+  .sheet-block[data-panel="progress"] {
+    grid-area: progress;
+  }
+  .sheet-block[data-panel="resources"] {
+    grid-area: resources;
+  }
+  .sheet-block[data-panel="conditions"] {
+    grid-area: conditions;
+  }
+  .sheet-block[data-panel="skills"] {
+    grid-area: skills;
+  }
+  .sheet-block[data-panel="perks"] {
+    grid-area: perks;
+  }
+  .sheet-col-side > .sheet-block {
+    border-left: 1px solid var(--sheet-warm-line);
+  }
+}

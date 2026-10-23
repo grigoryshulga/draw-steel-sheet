@@ -275,16 +275,17 @@ describe("evaluateDamage", () => {
     expect(result.breakdown).toBe("3 + 2");
   });
 
-  it("варианты через «или» дают список значений", () => {
+  it("варианты через «или» сводятся к лучшему", () => {
     const result = evaluateDamage("5 + A или M", character);
-    expect(result.values).toEqual([6, 7]);
-    expect(result.display).toBe("6 / 7");
+    expect(result.values).toEqual([7]);
+    expect(result.display).toBe("7");
+    expect(result.breakdown).toBe("5 + 2");
   });
 
-  it("список характеристик через запятую разворачивается в варианты", () => {
+  it("из списка характеристик через запятую берётся высшая", () => {
     const result = evaluateDamage("5 + M, R, I или P", character);
-    expect(result.values).toEqual([7, 8, 5, 4]);
-    expect(result.display).toBe("7 / 8 / 5 / 4");
+    expect(result.values).toEqual([8]);
+    expect(result.display).toBe("8");
   });
 
   it("формула без характеристики остаётся числом", () => {

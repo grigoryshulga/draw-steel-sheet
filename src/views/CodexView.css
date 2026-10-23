@@ -1,10 +1,6 @@
 .codex-view {
   min-width: 0;
 }
-.codex-view .page-head p {
-  margin-top: 10px;
-  font-size: 13px;
-}
 .codex-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr) auto;
@@ -13,10 +9,10 @@
 }
 .codex-nav {
   position: sticky;
-  top: 92px;
+  top: calc(92px + var(--rail-h));
   display: grid;
   gap: 14px;
-  max-height: calc(100dvh - 115px);
+  max-height: calc(100dvh - 115px - var(--rail-h));
   overflow-y: auto;
 }
 .codex-nav-tabs {
@@ -175,9 +171,9 @@
 }
 .codex-toc {
   position: sticky;
-  top: 95px;
+  top: calc(95px + var(--rail-h));
   width: 165px;
-  max-height: calc(100dvh - 120px);
+  max-height: calc(100dvh - 120px - var(--rail-h));
   overflow-y: auto;
   display: grid;
   gap: 10px;

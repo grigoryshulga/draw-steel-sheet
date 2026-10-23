@@ -33,15 +33,6 @@
   letter-spacing: 0.1em;
 }
 
-.sheet-workspace-view:not(.is-customizing) .sheet-workspace {
-  background-image: radial-gradient(
-    ellipse at 50% 0%,
-    color-mix(in srgb, var(--sheet-warm) 4%, transparent),
-    transparent 68%
-  );
-  background-size: 100% 100%;
-}
-
 .sheet-crest {
   position: absolute;
   right: 180px;
@@ -56,7 +47,7 @@
 .sheet-identity-heading {
   position: relative;
 }
-.sheet-workspace-view .workspace-panel .panel-title svg {
+.sheet-workspace-view .sheet-block .panel-title svg {
   display: block;
   color: var(--sheet-warm);
   opacity: 0.8;
@@ -82,37 +73,8 @@
   }
 }
 
-.workspace-panel {
-  border-color: var(--sheet-warm-line);
-  background-color: color-mix(
-    in srgb,
-    var(--sheet-warm-soft) 42%,
-    var(--surface)
-  );
-  background-image:
-    linear-gradient(var(--sheet-warm-line), var(--sheet-warm-line)),
-    linear-gradient(var(--sheet-warm-line), var(--sheet-warm-line)),
-    linear-gradient(var(--sheet-warm-line), var(--sheet-warm-line)),
-    linear-gradient(var(--sheet-warm-line), var(--sheet-warm-line));
-  background-position:
-    9px 9px,
-    calc(100% - 9px) 9px,
-    9px calc(100% - 9px),
-    calc(100% - 9px) calc(100% - 9px);
-  background-repeat: no-repeat;
-  background-size:
-    12px 1px,
-    1px 12px;
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--fg-bright) 3%, transparent);
-}
-
-.workspace-panel-content > .panel > .panel-head {
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--sheet-warm-line) 64%, transparent);
-}
-
-.workspace-panel .sheet-ability-card,
-.workspace-panel .sheet-perk-card {
+.sheet-block .sheet-ability-card,
+.sheet-block .sheet-perk-card {
   border-color: color-mix(in srgb, var(--sheet-warm-line) 80%, var(--line));
   background: color-mix(in srgb, var(--sheet-warm-soft) 34%, var(--surface));
 }
@@ -120,19 +82,4 @@
 .sheet-toolbar > a {
   text-underline-offset: 3px;
   text-decoration-color: color-mix(in srgb, var(--sheet-warm) 40%, transparent);
-}
-
-@media (max-width: 700px) {
-  .workspace-panel {
-    background-position:
-      6px 6px,
-      calc(100% - 6px) 6px,
-      6px calc(100% - 6px),
-      calc(100% - 6px) calc(100% - 6px);
-  }
-
-  .workspace-panel-content > .panel > .panel-head {
-    border-bottom: 1px solid
-      color-mix(in srgb, var(--sheet-warm-line) 50%, transparent);
-  }
 }

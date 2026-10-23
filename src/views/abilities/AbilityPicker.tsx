@@ -35,6 +35,10 @@ export interface AbilityPickerProps {
   character: Character;
   onClose: () => void;
   onAdd: (ability: Ability) => void;
+  /** Переключиться на создание своей способности. */
+  onCreateOwn?: () => void;
+  /** Переключиться на базовые действия. */
+  onOpenTemplates?: () => void;
 }
 
 const SOURCE_FILTERS: { key: SourceFilter; label: string }[] = [
@@ -49,6 +53,8 @@ export function AbilityPicker({
   character,
   onClose,
   onAdd,
+  onCreateOwn,
+  onOpenTemplates,
 }: AbilityPickerProps) {
   const [query, setQuery] = useState("");
   const [source, setSource] = useState<SourceFilter>("all");
@@ -139,6 +145,16 @@ export function AbilityPicker({
       }
       footer={
         <div className="abil-picker-footer">
+          {onOpenTemplates && (
+            <Button variant="ghost" icon="sword" onClick={onOpenTemplates}>
+              Базовые действия
+            </Button>
+          )}
+          {onCreateOwn && (
+            <Button variant="ghost" icon="plus" onClick={onCreateOwn}>
+              Создать свою
+            </Button>
+          )}
           <span className="grow" />
           <Button variant="ghost" onClick={onClose}>
             Закрыть

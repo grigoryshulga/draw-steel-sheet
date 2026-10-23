@@ -18,7 +18,7 @@ import "./HeroView.css";
 import { Artwork } from "../components/Artwork";
 
 export function HeroView() {
-  const { character, update, patch } = useApp();
+  const { character, update, patch, goTo } = useApp();
   const [languageDraft, setLanguageDraft] = useState("");
 
   const skills = character.skills;
@@ -66,6 +66,11 @@ export function HeroView() {
           <Icon name="hero" size={26} />
           Герой
         </h1>
+        <div className="page-actions">
+          <Button icon="sheet" onClick={() => goTo("sheet")}>
+            К листу
+          </Button>
+        </div>
       </header>
 
       <Panel title="Личность" icon="hero" dense>

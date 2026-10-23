@@ -1,7 +1,66 @@
-.roll-dialog-title {
+.roll-fab-wrap {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 40;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: none;
+}
+.roll-fab-wrap > * {
+  pointer-events: auto;
+}
+.roll-fab {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--accent-line);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.45);
+  cursor: pointer;
+  transition:
+    transform 140ms var(--ease),
+    background 140ms var(--ease);
+}
+.roll-fab:hover {
+  transform: translateY(-1px) scale(1.04);
+}
+.roll-fab:focus-visible {
+  outline: 2px solid var(--fg-bright);
+  outline-offset: 3px;
+}
+.roll-fab.is-open {
+  background: var(--surface-2);
+  color: var(--fg);
+}
+.roll-popover {
+  display: flex;
+  flex-direction: column;
+  width: min(320px, calc(100vw - 32px));
+  max-height: min(70vh, 560px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgb(0 0 0 / 0.5);
+  font-size: 13px;
+}
+.roll-popover-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 6px 6px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.roll-popover-body {
+  padding: 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .roll-panel-content {
@@ -12,4 +71,11 @@
 
 .roll-panel-content .roll-result {
   margin-top: 2px;
+}
+
+/* На телефоне кнопка стоит над нижней панелью навигации */
+@media (max-width: 640px) {
+  .roll-fab-wrap {
+    bottom: calc(76px + env(safe-area-inset-bottom));
+  }
 }

@@ -12,9 +12,6 @@
   top: 12px;
 }
 
-.save-state.is-pending .save-dot {
-  background: var(--yellow);
-}
 .save-error-banner {
   margin: 16px clamp(16px, 3vw, 36px) 0;
   padding: 16px 20px;
@@ -88,24 +85,13 @@
     flex-direction: column;
     align-items: stretch;
   }
-  .app .main {
-    padding-bottom: calc(84px + env(safe-area-inset-bottom));
-  }
 }
 @media (max-width: 640px) {
   .main .topbar .topbar-left {
     flex-wrap: wrap;
   }
-  .main .topbar .save-state {
-    display: flex;
-    padding: 0 6px 4px;
-    font-size: 10px;
-  }
-  .main .topbar .save-state span:not(.save-dot) {
-    display: inline;
-  }
 }
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   body .toasts {
     bottom: calc(78px + env(safe-area-inset-bottom));
   }

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { useOutsideClick } from "../lib/hooks";
 import { useMenuKeyboard } from "../lib/useMenuKeyboard";
 import { initials } from "../lib/utils";
@@ -11,12 +11,15 @@ export function CharacterMenu({
   onSelect,
   onNew,
   onManage,
+  saveIndicator,
 }: {
   character: Character;
   characters: CharacterSummary[];
   onSelect: (id: string) => void;
   onNew: () => void;
   onManage: () => void;
+  /** Статус сохранения — стоит прямо рядом с именем. */
+  saveIndicator?: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -37,8 +40,11 @@ export function CharacterMenu({
       >
         <span className="char-avatar">{initials(character.name)}</span>
         <span className="char-switch-text">
-          <span className="char-switch-name">
-            {character.name || "Без имени"}
+          <span className="char-switch-name-row">
+            <span className="char-switch-name">
+              {character.name || "Без имени"}
+            </span>
+            {saveIndicator}
           </span>
           <span className="char-switch-meta">
             {[

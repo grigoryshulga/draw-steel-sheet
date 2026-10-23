@@ -63,63 +63,19 @@
   gap: 8px;
   flex-wrap: wrap;
 }
-.sheet-canvas-viewport {
-  min-width: 0;
-  max-width: 100%;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  padding-bottom: 4px;
-}
-.sheet-workspace {
-  position: relative;
-  min-width: 100%;
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--muted) 8%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--muted) 8%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 10px 10px;
-}
-.is-customizing .sheet-workspace {
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--accent) 14%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--accent) 14%, transparent) 1px,
-      transparent 1px
-    );
-}
-.workspace-panel {
-  position: absolute;
-  min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--surface) 65%, var(--bg));
-  overflow: hidden;
-}
-.workspace-panel-content > .panel {
+.sheet-block > .panel {
   border: 0;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
 }
-.workspace-panel-content > .panel > .panel-head {
+.sheet-block > .panel > .panel-head {
   padding: 18px 20px 14px;
 }
-.workspace-panel-content > .panel > .panel-body {
+.sheet-block > .panel > .panel-body {
   padding: 0 20px 20px;
 }
-.workspace-panel .panel-title {
+.sheet-block .panel-title {
   font-family: var(--font-ui);
   font-size: 14px;
   letter-spacing: 0;
@@ -127,114 +83,47 @@
   color: var(--fg);
   font-weight: 600;
 }
-.workspace-panel .panel-title svg {
+.sheet-block .panel-title svg {
   display: none;
 }
-.workspace-panel-content > .potency-strip {
+.sheet-block > .potency-strip {
   padding: 20px;
 }
-.workspace-panel .stat-card {
+.sheet-block .stat-card {
   border: 0;
 }
-.workspace-panel .stat-name {
+.sheet-block .stat-name {
   font-size: 11px;
   letter-spacing: 0;
 }
-.workspace-panel .char-grid {
+.sheet-block .char-grid {
   gap: 16px;
 }
-.workspace-panel .movement-grid {
+.sheet-block .movement-grid {
   gap: 12px;
 }
-.workspace-panel .tier-scale {
+.sheet-block .tier-scale {
   font-size: 10px;
   opacity: 0.85;
 }
-.workspace-panel .sheet-ability-card {
+.sheet-block .sheet-ability-card {
   border-radius: 8px;
   border: 1px solid var(--line);
   border-top: 1px solid var(--line);
 }
-.workspace-panel .sheet-perk-card {
+.sheet-block .sheet-perk-card {
   border-radius: 8px;
   border: 1px solid var(--line);
 }
-.workspace-panel .conditions-empty {
+.sheet-block .conditions-empty {
   min-height: 0;
   padding: 15px;
 }
-.workspace-panel-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 8px;
-  border-bottom: 1px solid var(--line);
-  background: var(--surface-2);
-  font-size: 12px;
-}
-
-.workspace-panel-bar > strong {
-  min-width: 0;
-}
-.workspace-panel-actions {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-.workspace-panel-actions .btn {
-  padding: 0;
-  width: 26px;
-}
-.workspace-panel-actions .select {
-  height: 28px;
-  width: 85px;
-  padding-left: 6px;
-  font-size: 11px;
-}
-.workspace-panel.is-dragging {
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
-}
-.workspace-panel.is-collapsed .workspace-panel-bar {
-  border-bottom: 0;
-}
-.workspace-settings {
-  border: 1px dashed var(--accent-line);
-  border-radius: 10px;
-  padding: 18px;
-  display: grid;
-  gap: 14px;
-}
-.workspace-visibility {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-}
-.workspace-visibility label {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 13px;
-  cursor: pointer;
-}
-.workspace-visibility input {
-  accent-color: var(--accent);
-}
-.workspace-settings > .btn {
-  justify-self: start;
-}
 @media (max-width: 760px) {
-  .workspace-panel-content > .panel > .panel-head {
+  .sheet-block > .panel > .panel-head {
     padding: 16px;
   }
-  .workspace-panel-content > .panel > .panel-body {
+  .sheet-block > .panel > .panel-body {
     padding: 0 16px 16px;
   }
   .sheet-toolbar > a {
@@ -243,19 +132,19 @@
   .sheet-identity-heading {
     align-items: start;
   }
-  .workspace-panel .char-grid {
+  .sheet-block .char-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 8px;
   }
-  .workspace-panel .stat-card .stepper-btn {
+  .sheet-block .stat-card .stepper-btn {
     width: 20px;
   }
-  .workspace-panel .stat-card .stepper-value {
+  .sheet-block .stat-card .stepper-value {
     min-width: 20px;
   }
 }
 @media (max-width: 480px) {
-  .workspace-panel .char-grid {
+  .sheet-block .char-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .sheet-identity-heading > .btn {
@@ -268,17 +157,17 @@
   }
 }
 /* Keep each characteristic readable even when its panel becomes narrow. */
-.sheet-workspace .stat-card {
+.sheet-layout .stat-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 12px;
   padding: 8px 0 4px;
 }
-.sheet-workspace .stat-card .stat-card-head {
+.sheet-layout .stat-card .stat-card-head {
   text-align: center;
 }
-.sheet-workspace .stat-card > .stepper {
+.sheet-layout .stat-card > .stepper {
   display: flex;
   width: 100%;
   min-width: 0;
@@ -286,12 +175,12 @@
   border: 1px solid var(--line);
   border-radius: 8px;
 }
-.sheet-workspace .stat-card > .stepper .stepper-btn {
+.sheet-layout .stat-card > .stepper .stepper-btn {
   flex: 0 0 23px;
   width: 23px;
   height: 40px;
 }
-.sheet-workspace .stat-card > .stepper .stepper-value {
+.sheet-layout .stat-card > .stepper .stepper-value {
   flex: 1;
   min-width: 20px;
   font-size: 23px;
@@ -316,142 +205,28 @@
   min-width: 15px;
 }
 @media (max-width: 760px) {
-  .sheet-workspace .stat-card .stat-name {
+  .sheet-layout .stat-card .stat-name {
     font-size: 10px;
   }
-  .sheet-workspace .stat-card > .stepper .stepper-btn {
+  .sheet-layout .stat-card > .stepper .stepper-btn {
     flex-basis: 20px;
     width: 20px;
   }
 }
-.sheet-workspace .char-grid {
+.sheet-layout .char-grid {
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 }
 
-.workspace-panel-content {
-  display: flow-root;
+.sheet-block .sheet-ability-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
 }
-.has-fixed-height .workspace-panel-scroll {
-  height: 100%;
-  overflow: auto;
-  overscroll-behavior: contain;
-}
-.is-customizing .has-fixed-height .workspace-panel-scroll {
-  padding-top: 44px;
-  padding-bottom: 24px;
-}
-.workspace-collapsed-space {
-  height: 44px;
-}
-.workspace-drag-handle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-  align-self: stretch;
-  min-width: 0;
-  border: 0;
-  padding: 0 6px;
-  background: transparent;
-  color: var(--fg);
-  text-align: left;
-  font: inherit;
-  cursor: grab;
-  touch-action: none;
-}
-.workspace-drag-handle strong {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 12px;
-}
-.workspace-drag-handle > span {
-  color: var(--muted);
-  font-size: 19px;
-}
-.workspace-drag-handle:active {
-  cursor: grabbing;
-}
-.workspace-drag-handle:focus-visible,
-.workspace-resize-handle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
-  border-radius: 4px;
-}
-.workspace-panel-position {
-  position: absolute;
-  bottom: 3px;
-  left: 10px;
-  padding: 0 4px;
-  border-radius: 3px;
-  background: var(--surface);
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 9px;
-  pointer-events: none;
-}
-.workspace-resize-handle {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 24px;
-  border: 0;
-  border-top-left-radius: 8px;
-  background: var(--surface-2);
-  color: var(--muted);
-  cursor: ew-resize;
-  touch-action: none;
-  font-size: 18px;
-  z-index: 3;
-}
-.workspace-resize-handle.resize-width {
-  bottom: 50%;
-  transform: translateY(50%);
-  width: 18px;
-  height: 40px;
-  border-radius: 6px 0 0 6px;
-}
-.workspace-resize-handle.resize-height {
-  right: 50%;
-  transform: translateX(50%);
-  width: 40px;
-  height: 20px;
-  border-radius: 6px 6px 0 0;
-  cursor: ns-resize;
-}
-.workspace-resize-handle.resize-both {
-  cursor: nwse-resize;
-}
-.workspace-resize-handle:hover {
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-.is-adjusting {
-  user-select: none;
-}
-.sheet-workspace.is-stacked {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  background: none;
-}
-.sheet-workspace.is-stacked .workspace-panel {
-  position: relative;
-  width: 100%;
-}
-.workspace-panel .sheet-ability-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
-}
-.workspace-panel .vitals-resource-grid {
+.sheet-block .vitals-resource-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
 }
-.workspace-panel .movement-grid,
-.workspace-panel .progress-grid {
+.sheet-block .movement-grid,
+.sheet-block .progress-grid {
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 }
-.workspace-panel .potency-strip-values {
+.sheet-block .potency-strip-values {
   flex-wrap: wrap;
 }

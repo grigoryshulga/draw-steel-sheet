@@ -51,11 +51,6 @@ import "./styles/workspace.css";
 const SheetView = lazy(() =>
   import("./views/SheetView").then((module) => ({ default: module.SheetView })),
 );
-const AbilitiesView = lazy(() =>
-  import("./views/AbilitiesView").then((module) => ({
-    default: module.AbilitiesView,
-  })),
-);
 const InventoryView = lazy(() =>
   import("./views/InventoryView").then((module) => ({
     default: module.InventoryView,
@@ -164,7 +159,7 @@ function WorkspaceApp({
   const notify = useCallback(
     (message: string, tone: "info" | "success" | "error" = "info") => {
       const id = Date.now() + Math.random();
-      setToasts((prev) => [...prev, { id, message, tone }]);
+      setToasts((prev) => [...prev, { id, message, tone }].slice(-2));
       window.setTimeout(() => {
         setToasts((prev) => prev.filter((toast) => toast.id !== id));
       }, 4200);
@@ -249,7 +244,12 @@ function WorkspaceApp({
   }, [autosave, beforeSignOut]);
 
   useEffect(() => {
-    const label = NAV_ITEMS.find((item) => item.id === tab)?.label ?? "Лист";
+    const label =
+      { catalog: "Каталоги", glossary: "Глоссарий", settings: "Настройки" }[
+        tab
+      ] ??
+      NAV_ITEMS.find((item) => item.id === tab)?.label ??
+      "Лист";
     document.title = `${character ? `${character.name} · ` : ""}${label} — Достать листы!`;
     if (tab !== "codex") window.scrollTo({ top: 0 });
   }, [tab, character?.id, character?.name]);
@@ -502,15 +502,9 @@ function WorkspaceApp({
         Перейти к содержимому
       </a>
       <div className="app">
-        <Sidebar
-          tab={tab as Tab}
-          onNavigate={(next) => setTab(next)}
-          onOpenRoll={() => {
-            setTab("sheet");
-            setRollOpen(true);
-          }}
-          rollDisabled={!character}
-        />
+        {!character && (
+          <Sidebar tab={tab as Tab} onNavigate={(next) => setTab(next)} />
+        )}
         <div className="main" aria-busy={changingCharacter}>
           {changingCharacter && (
             <div className="workspace-progress" role="status">
@@ -520,13 +514,11 @@ function WorkspaceApp({
           <div inert={changingCharacter}>
             {character && (
               <Topbar
+                tab={tab as Tab}
                 character={character}
                 characters={characters}
                 saveStatus={saveStatus}
                 saveError={saveError}
-                themes={THEMES}
-                themeChoice={themeChoice}
-                onThemeChoice={handleThemeChoice}
                 onSelectCharacter={(id) => void handleSelectCharacter(id)}
                 onNewCharacter={() => setNewOpen(true)}
                 onNavigate={(next) => setTab(next)}
@@ -594,7 +586,6 @@ function WorkspaceApp({
                       fallback={<LoadingScreen label="Загрузка раздела" />}
                     >
                       {tab === "sheet" && <SheetView />}
-                      {tab === "abilities" && <AbilitiesView />}
                       {tab === "inventory" && <InventoryView />}
                       {tab === "hero" && <HeroView />}
                       {tab === "notes" && <NotesView />}
@@ -616,6 +607,7 @@ function WorkspaceApp({
                     </Suspense>
                     <RollDialog
                       open={rollOpen}
+                      onToggle={() => setRollOpen((open) => !open)}
                       onClose={() => setRollOpen(false)}
                       onRoll={performRoll}
                       lastRoll={lastRoll}

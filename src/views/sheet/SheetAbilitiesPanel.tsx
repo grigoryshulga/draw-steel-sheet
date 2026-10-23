@@ -1,6 +1,9 @@
 import { abilityDistance } from "../../lib/character-calculations";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { RollModal } from "../abilities/RollModal";
+import { AbilityEditor } from "../abilities/AbilityEditor";
+import { TemplatesModal } from "../abilities/TemplatesModal";
+import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Modal, Panel } from "../../components/ui";
 import { RichText } from "../../components/RichText";
 import { DamageChip } from "../../components/DamageChip";
@@ -17,6 +20,7 @@ import { useApp } from "../../state/AppContext";
 import type { Ability } from "../../types";
 import {
   TierRequirementSummary,
+  blankAbility,
   kindTone,
   rollSummary,
 } from "../abilities/shared";
@@ -27,11 +31,25 @@ import {
 } from "../../lib/abilities";
 import "./SheetAbilitiesPanel.css";
 
+const AbilityPicker = lazy(() =>
+  import("../abilities/AbilityPicker").then((module) => ({
+    default: module.AbilityPicker,
+  })),
+);
+
+/** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
+type AddMode = "catalog" | "templates" | "custom" | null;
+
 /** Компактный справочник способностей внизу листа, сгруппированный по типу действия. */
 export function SheetAbilitiesPanel() {
-  const { character, goTo } = useApp();
+  const { character, update, notify } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
   const [using, setUsing] = useState<Ability | null>(null);
+  const [addMode, setAddMode] = useState<AddMode>(null);
+  const [editing, setEditing] = useState<{
+    ability: Ability;
+    isNew: boolean;
+  } | null>(null);
   const abilities = character.abilities;
   const groups = ACTION_TYPES.map((type) => ({
     ...type,
@@ -39,6 +57,42 @@ export function SheetAbilitiesPanel() {
   })).filter((group) => group.items.length > 0);
 
   const openAbility = (ability: Ability) => setSelected(ability);
+
+  const addAbility = (ability: Ability, message: string) => {
+    update((c) => ({ ...c, abilities: [...c.abilities, ability] }));
+    notify(message, "success");
+  };
+  const saveAbility = (ability: Ability) => {
+    if (editing?.isNew) {
+      addAbility(ability, "Способность добавлена");
+    } else {
+      update((c) => ({
+        ...c,
+        abilities: c.abilities.map((item) =>
+          item.id === ability.id ? ability : item,
+        ),
+      }));
+      notify("Способность сохранена", "success");
+    }
+    setEditing(null);
+  };
+  const duplicateAbility = (ability: Ability) => {
+    update((c) => ({
+      ...c,
+      abilities: [
+        ...c.abilities,
+        { ...ability, id: makeId(), name: `${ability.name} (копия)` },
+      ],
+    }));
+    notify("Копия создана", "success");
+  };
+  const deleteAbility = (ability: Ability) => {
+    update((c) => ({
+      ...c,
+      abilities: c.abilities.filter((item) => item.id !== ability.id),
+    }));
+    notify(`«${ability.name}» удалена`, "info");
+  };
 
   return (
     <>
@@ -49,11 +103,11 @@ export function SheetAbilitiesPanel() {
         actions={
           <Button
             size="sm"
-            variant="ghost"
-            icon="abilities"
-            onClick={() => goTo("abilities")}
+            variant="soft"
+            icon="plus"
+            onClick={() => setAddMode("catalog")}
           >
-            Подробнее
+            Добавить способность
           </Button>
         }
       >
@@ -61,10 +115,10 @@ export function SheetAbilitiesPanel() {
           <EmptyState
             icon="abilities"
             title="Способностей пока нет"
-            text="Добавьте способности на вкладке «Способности»."
+            text="Добавьте способности из каталога или создайте свою."
             action={
-              <Button onClick={() => goTo("abilities")}>
-                Открыть способности
+              <Button onClick={() => setAddMode("catalog")}>
+                Добавить способность
               </Button>
             }
           />
@@ -154,36 +208,34 @@ export function SheetAbilitiesPanel() {
                               return (
                                 <div
                                   className="sheet-ability-tier"
+                                  data-tier={tier.tier}
                                   key={tier.tier}
                                 >
-                                  <TierBadge tier={tier.tier} size="md" />
+                                  <span
+                                    className="sheet-ability-range mono"
+                                    title={
+                                      requirements
+                                        ? "Нужно выбросить на 2d10"
+                                        : "Диапазон суммы броска силы"
+                                    }
+                                  >
+                                    {requirements
+                                      ? tierRequirementText(
+                                          requirements,
+                                          tier.tier,
+                                        )
+                                      : TIER_ROLL_RANGES[tier.tier]}
+                                  </span>
                                   <div className="sheet-ability-tier-text">
-                                    <div className="sheet-ability-tier-top">
-                                      <span
-                                        className="sheet-ability-range mono"
-                                        title={
-                                          requirements
-                                            ? "Нужно выбросить на 2d10"
-                                            : "Диапазон суммы броска силы"
-                                        }
-                                      >
-                                        {requirements
-                                          ? tierRequirementText(
-                                              requirements,
-                                              tier.tier,
-                                            )
-                                          : TIER_ROLL_RANGES[tier.tier]}
-                                      </span>
-                                      {tier.damage && (
-                                        <DamageChip
-                                          value={damage.display}
-                                          type={inferDamageType(
-                                            ability,
-                                            tier.effect,
-                                          )}
-                                        />
-                                      )}
-                                    </div>
+                                    {tier.damage && (
+                                      <DamageChip
+                                        value={damage.display}
+                                        type={inferDamageType(
+                                          ability,
+                                          tier.effect,
+                                        )}
+                                      />
+                                    )}
                                     {tier.effect && (
                                       <span className="sheet-ability-effect">
                                         {tier.effect}
@@ -237,10 +289,51 @@ export function SheetAbilitiesPanel() {
             setUsing(selected);
             setSelected(null);
           }}
-          onOpenAll={() => {
+          onEdit={() => {
+            setEditing({ ability: selected, isNew: false });
             setSelected(null);
-            goTo("abilities");
           }}
+          onDuplicate={() => {
+            duplicateAbility(selected);
+            setSelected(null);
+          }}
+          onDelete={() => {
+            deleteAbility(selected);
+            setSelected(null);
+          }}
+        />
+      )}
+      {addMode === "catalog" && (
+        <Suspense fallback={null}>
+          <AbilityPicker
+            existing={abilities}
+            character={character}
+            onClose={() => setAddMode(null)}
+            onAdd={(ability) =>
+              addAbility(ability, "Способность добавлена из каталога")
+            }
+            onOpenTemplates={() => setAddMode("templates")}
+            onCreateOwn={() => {
+              setAddMode(null);
+              setEditing({ ability: blankAbility(), isNew: true });
+            }}
+          />
+        </Suspense>
+      )}
+      {addMode === "templates" && (
+        <TemplatesModal
+          existing={abilities}
+          onClose={() => setAddMode(null)}
+          onAdd={(ability) => addAbility(ability, "Базовое действие добавлено")}
+        />
+      )}
+      {editing && (
+        <AbilityEditor
+          key={editing.ability.id}
+          initial={editing.ability}
+          isNew={editing.isNew}
+          onClose={() => setEditing(null)}
+          onSave={saveAbility}
         />
       )}
       {using && (
@@ -258,15 +351,20 @@ export function SheetAbilitiesPanel() {
 function AbilityDetailModal({
   ability,
   onClose,
-  onOpenAll,
+  onEdit,
+  onDuplicate,
+  onDelete,
   onUse,
 }: {
   ability: Ability;
   onClose: () => void;
-  onOpenAll: () => void;
+  onEdit: () => void;
+  onDuplicate: () => void;
+  onDelete: () => void;
   onUse: () => void;
 }) {
   const { character } = useApp();
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const requirements = abilityTierRequirements(ability, character);
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
@@ -284,12 +382,24 @@ function AbilityDetailModal({
       }
       footer={
         <>
+          <Button
+            variant="ghost"
+            onClick={() =>
+              confirmDelete ? onDelete() : setConfirmDelete(true)
+            }
+            onBlur={() => setConfirmDelete(false)}
+          >
+            {confirmDelete ? "Точно удалить?" : "Удалить"}
+          </Button>
           <span className="grow" />
+          <Button variant="ghost" onClick={onDuplicate}>
+            Копия
+          </Button>
+          <Button variant="ghost" onClick={onEdit}>
+            Изменить
+          </Button>
           <Button variant="ghost" onClick={onClose}>
             Закрыть
-          </Button>
-          <Button variant="ghost" icon="abilities" onClick={onOpenAll}>
-            Открыть на вкладке
           </Button>
           <Button variant="primary" onClick={onUse}>
             Использовать

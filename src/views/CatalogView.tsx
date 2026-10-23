@@ -10,7 +10,7 @@ import {
 import { AppContext } from "../state/AppContext";
 import { ownsCatalogEntry } from "../lib/catalog-character";
 import { useLibraryLocation } from "../lib/library-location";
-import { LibraryNav } from "../components/LibraryNav";
+import { LibraryHeader } from "../components/LibraryHeader";
 import { CatalogAction } from "../components/CatalogAction";
 import { RuleText } from "../components/RuleText";
 import { Chip, Select, TextInput, Button } from "../components/ui";
@@ -50,13 +50,10 @@ export function CatalogView() {
   }, [selected]);
   return (
     <div className="library-view">
-      <header className="page-head">
-        <div>
-          <h1 className="page-title">Каталоги</h1>
-          <p className="muted">Находите награды и занятия для своего героя.</p>
-        </div>
-      </header>
-      <LibraryNav current="catalog" />
+      <LibraryHeader
+        current="catalog"
+        description="Находите награды и занятия для своего героя."
+      />
       <nav className="catalog-tabs" aria-label="Вид каталога">
         {(Object.keys(CATALOG_LABELS) as CatalogKind[]).map((key) => (
           <a

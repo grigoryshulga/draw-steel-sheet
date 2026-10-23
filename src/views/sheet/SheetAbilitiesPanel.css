@@ -186,38 +186,41 @@
   flex-direction: column;
   gap: 5px;
   padding: 7px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 
 .sheet-ability-tier {
   display: grid;
-  grid-template-columns: 31px minmax(0, 1fr);
+  grid-template-columns: 52px minmax(0, 1fr);
   align-items: start;
   gap: 7px;
   min-width: 0;
 }
 
+.sheet-ability-tier {
+  --tier-color: var(--tier1);
+}
+.sheet-ability-tier[data-tier="2"] {
+  --tier-color: var(--tier2);
+}
+.sheet-ability-tier[data-tier="3"] {
+  --tier-color: var(--tier3);
+}
+
 .sheet-ability-tier-text {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 3px;
   min-width: 0;
 }
 
-.sheet-ability-tier-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-}
-
 .sheet-ability-range {
-  flex: none;
-  font-size: 9.5px;
+  font-size: 12px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  color: var(--muted);
+  color: var(--tier-color);
   white-space: nowrap;
+  line-height: 24px;
 }
 
 .sheet-ability-effect {
@@ -384,4 +387,8 @@
 .sheet-ability-cost.is-paid em {
   color: inherit;
   opacity: 0.8;
+}
+
+.sheet-ability-tier-text .damage-chip {
+  align-self: flex-end;
 }

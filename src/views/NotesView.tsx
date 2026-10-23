@@ -22,7 +22,7 @@ export function NotesView() {
       <header className="page-head">
         <h1 className="page-title">
           <Icon name="book" size={24} />
-          Заметки
+          Журнал
         </h1>
       </header>
 
@@ -41,7 +41,7 @@ export function NotesView() {
                 rows={isMisc ? 6 : 9}
                 value={character.notes[section.key]}
                 placeholder={section.placeholder}
-                aria-label={`Заметки: ${section.label}`}
+                aria-label={`Журнал: ${section.label}`}
                 onChange={(event) => setNote(section.key, event.target.value)}
               />
             </Panel>

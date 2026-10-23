@@ -17,10 +17,19 @@ export function Toasts({
 
   return (
     <div className="toasts" role="status" aria-live="polite">
-      {toasts.map((toast) => (
-        <div key={toast.id} className={`toast toast-${toast.tone}`}>
+      {toasts.map((toast, index) => (
+        <div
+          key={toast.id}
+          className={`toast toast-${toast.tone}${index < toasts.length - 1 ? " is-previous" : ""}`}
+        >
           <Icon
-            name={toast.tone === "error" ? "warning" : toast.tone === "success" ? "check" : "spark"}
+            name={
+              toast.tone === "error"
+                ? "warning"
+                : toast.tone === "success"
+                  ? "check"
+                  : "spark"
+            }
             size={16}
           />
           <span>{toast.message}</span>

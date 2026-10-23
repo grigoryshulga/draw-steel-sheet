@@ -1,11 +1,6 @@
 .library-view {
   min-width: 0;
 }
-.library-view .page-head p {
-  margin-top: 10px;
-  font-size: 13px;
-  line-height: 1.6;
-}
 .catalog-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -94,12 +89,12 @@
   margin-top: 12px;
 }
 .has-detail .catalog-browser {
-  max-height: calc(100dvh - 130px);
+  max-height: calc(100dvh - 130px - var(--rail-h));
   overflow-y: auto;
   scrollbar-width: thin;
   padding-right: 6px;
   position: sticky;
-  top: 100px;
+  top: calc(100px + var(--rail-h));
 }
 .has-detail .catalog-cards {
   grid-template-columns: minmax(0, 1fr);
@@ -110,7 +105,7 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
-  scroll-margin-top: 100px;
+  scroll-margin-top: calc(100px + var(--rail-h));
 }
 .catalog-back {
   display: block;
