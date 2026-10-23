@@ -1,5 +1,10 @@
 import Markdown from "react-markdown";
-import { CATALOG, catalogEntryLink } from "../data/library";
+import {
+  CATALOG,
+  GLOSSARY,
+  catalogEntryLink,
+  plainSummary,
+} from "../data/library";
 import { remarkRuleFields } from "../lib/remark-rule-fields";
 import { remarkRuleLinks } from "../lib/remark-rule-links";
 import { remarkAbilityBlocks } from "../lib/remark-ability-blocks";
@@ -77,17 +82,37 @@ export function RuleText({
               <table>{children}</table>
             </div>
           ),
-          a: ({ href, children, className }) => (
-            <a
-              href={href}
-              className={className}
-              {...(href?.startsWith("http")
-                ? { target: "_blank", rel: "noreferrer" }
-                : {})}
-            >
-              {children}
-            </a>
-          ),
+          a: ({ href, children, className }) => {
+            const term = href?.startsWith("#/glossary/")
+              ? GLOSSARY.find(
+                  (t) => t.id === decodeURIComponent(href.slice(11)),
+                )
+              : undefined;
+            if (term)
+              return (
+                <a href={href} className={`${className ?? ""} has-tip`}>
+                  {children}
+                  <span className="rule-tip" role="tooltip">
+                    <strong>
+                      {term.name}
+                      {term.english && <em> · {term.english}</em>}
+                    </strong>
+                    {plainSummary(term.markdown)}…
+                  </span>
+                </a>
+              );
+            return (
+              <a
+                href={href}
+                className={className}
+                {...(href?.startsWith("http")
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
+              >
+                {children}
+              </a>
+            );
+          },
         }}
       >
         {text}
