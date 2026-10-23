@@ -105,7 +105,10 @@ describe("rollPowerRoll", () => {
   });
 
   it("одно преимущество даёт +2 к сумме", () => {
-    const plain = rollPowerRoll({ characteristic: 2, rng: rngFrom(D10.d3, D10.d6) });
+    const plain = rollPowerRoll({
+      characteristic: 2,
+      rng: rngFrom(D10.d3, D10.d6),
+    });
     const edged = rollPowerRoll({
       characteristic: 2,
       edges: 1,
@@ -201,18 +204,63 @@ describe("rollPowerRoll", () => {
     expect(roll.tier).toBe(3);
   });
 
+  it("физические кубики используют те же расчёты и не вызывают rng", () => {
+    let calls = 0;
+    const roll = rollPowerRoll({
+      characteristic: 3,
+      dice: [8, 6],
+      rng: () => {
+        calls += 1;
+        return 0;
+      },
+    });
+    expect(roll.total).toBe(17);
+    expect(roll.tier).toBe(3);
+    expect(calls).toBe(0);
+  });
+
+  it("физические натуральные 19 сохраняют тир 3 при помехах и дают крит для основного действия", () => {
+    const roll = rollPowerRoll({
+      characteristic: 0,
+      dice: [9, 10],
+      banes: 2,
+      isMainAction: true,
+    });
+    expect(roll.natural).toBe(19);
+    expect(roll.tier).toBe(3);
+    expect(roll.crit).toBe(true);
+  });
+
+  it.each([0, 11, 1.5, Number.NaN])(
+    "отклоняет недопустимое значение физического d10: %s",
+    (die) => {
+      expect(() =>
+        rollPowerRoll({ characteristic: 0, dice: [die, 1] }),
+      ).toThrow();
+    },
+  );
+
   it("крит только для основного действия и натуральных 19–20", () => {
     const nat20 = rngFrom(D10.d10, D10.d10);
-    expect(rollPowerRoll({ characteristic: 0, isMainAction: true, rng: nat20 }).crit).toBe(true);
+    expect(
+      rollPowerRoll({ characteristic: 0, isMainAction: true, rng: nat20 }).crit,
+    ).toBe(true);
 
     const nat19 = rngFrom(D10.d9, D10.d10);
-    expect(rollPowerRoll({ characteristic: 0, isMainAction: true, rng: nat19 }).crit).toBe(true);
+    expect(
+      rollPowerRoll({ characteristic: 0, isMainAction: true, rng: nat19 }).crit,
+    ).toBe(true);
 
     const notMain = rngFrom(D10.d10, D10.d10);
-    expect(rollPowerRoll({ characteristic: 0, isMainAction: false, rng: notMain }).crit).toBe(false);
+    expect(
+      rollPowerRoll({ characteristic: 0, isMainAction: false, rng: notMain })
+        .crit,
+    ).toBe(false);
 
     const low = rngFrom(D10.d3, D10.d6);
-    expect(rollPowerRoll({ characteristic: 0, isMainAction: true, rng: low }).crit).toBe(false);
+    expect(
+      rollPowerRoll({ characteristic: 0, isMainAction: true, rng: low }).crit,
+    ).toBe(false);
   });
 });
 
@@ -287,12 +335,24 @@ describe("applyDamage", () => {
   });
 
   it("без временной выносливости урон идёт целиком в выносливость", () => {
-    expect(applyDamage(20, 0, 4)).toEqual({ stamina: 16, temp: 0, absorbed: 0 });
+    expect(applyDamage(20, 0, 4)).toEqual({
+      stamina: 16,
+      temp: 0,
+      absorbed: 0,
+    });
   });
 
   it("нулевой и отрицательный урон ничего не меняют", () => {
-    expect(applyDamage(15, 3, 0)).toEqual({ stamina: 15, temp: 3, absorbed: 0 });
-    expect(applyDamage(15, 3, -7)).toEqual({ stamina: 15, temp: 3, absorbed: 0 });
+    expect(applyDamage(15, 3, 0)).toEqual({
+      stamina: 15,
+      temp: 3,
+      absorbed: 0,
+    });
+    expect(applyDamage(15, 3, -7)).toEqual({
+      stamina: 15,
+      temp: 3,
+      absorbed: 0,
+    });
   });
 
   it("дробный урон округляется вниз", () => {
@@ -309,7 +369,10 @@ describe("vitalStatus", () => {
   }
 
   it("полное здоровье — в строю", () => {
-    expect(vitalStatus(withCurrent(30))).toEqual({ label: "В строю", tone: "normal" });
+    expect(vitalStatus(withCurrent(30))).toEqual({
+      label: "В строю",
+      tone: "normal",
+    });
   });
 
   it("выше половины — в строю", () => {
@@ -317,17 +380,26 @@ describe("vitalStatus", () => {
   });
 
   it("ровно половина и ниже — утомлён", () => {
-    expect(vitalStatus(withCurrent(15))).toEqual({ label: "Утомлён", tone: "winded" });
+    expect(vitalStatus(withCurrent(15))).toEqual({
+      label: "Утомлён",
+      tone: "winded",
+    });
     expect(vitalStatus(withCurrent(1)).tone).toBe("winded");
   });
 
   it("ноль и ниже, но не мёртв — при смерти", () => {
-    expect(vitalStatus(withCurrent(0))).toEqual({ label: "При смерти", tone: "dying" });
+    expect(vitalStatus(withCurrent(0))).toEqual({
+      label: "При смерти",
+      tone: "dying",
+    });
     expect(vitalStatus(withCurrent(-14)).tone).toBe("dying");
   });
 
   it("на −winded и ниже — мёртв", () => {
-    expect(vitalStatus(withCurrent(-15))).toEqual({ label: "Мёртв", tone: "dead" });
+    expect(vitalStatus(withCurrent(-15))).toEqual({
+      label: "Мёртв",
+      tone: "dead",
+    });
     expect(vitalStatus(withCurrent(-40)).tone).toBe("dead");
   });
 });
@@ -347,7 +419,13 @@ describe("deriveStats", () => {
   it("potency берёт максимум, а не первую характеристику", () => {
     const stats = deriveStats(
       makeCharacter({
-        characteristics: { might: -1, agility: 0, reason: 1, intuition: 4, presence: 2 },
+        characteristics: {
+          might: -1,
+          agility: 0,
+          reason: 1,
+          intuition: 4,
+          presence: 2,
+        },
       }),
     );
     expect(stats.potency).toEqual({ weak: 2, average: 3, strong: 4 });
@@ -385,7 +463,13 @@ describe("surgeDamageTotal", () => {
 
   it("отрицательные характеристики не дают отрицательный бонус", () => {
     const character = makeCharacter({
-      characteristics: { might: -2, agility: -1, reason: -3, intuition: 0, presence: -1 },
+      characteristics: {
+        might: -2,
+        agility: -1,
+        reason: -3,
+        intuition: 0,
+        presence: -1,
+      },
     });
     expect(surgeDamageTotal(character, 2)).toBe(0);
   });

@@ -1,0 +1,117 @@
+.sheet-quick-actions {
+  display: none;
+}
+
+.is-customizing .sheet-quick-actions {
+  display: none;
+}
+
+.sheet-quick-modal .modal-body {
+  padding: 12px;
+}
+
+.sheet-quick-modal .panel {
+  border: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .sheet-head-top {
+    gap: 9px;
+  }
+
+  .hero-name {
+    flex-basis: 180px;
+    font-size: clamp(23px, 7vw, 30px);
+  }
+
+  .sheet-head-identity {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .sheet-quick-actions {
+    position: sticky;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    margin: 8px 0;
+    padding: 4px;
+    border-radius: var(--radius);
+    background: var(--bg);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--bg) 65%, transparent);
+  }
+
+  .sheet-quick-action {
+    display: flex;
+    min-width: 0;
+    min-height: 54px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    padding: 7px 9px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--fg);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .sheet-quick-action:hover,
+  .sheet-quick-action:focus-visible {
+    border-color: var(--accent-line);
+    outline: none;
+  }
+
+  .sheet-quick-label {
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 9px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sheet-quick-action strong {
+    color: var(--fg-bright);
+    font-size: 14px;
+    line-height: 1.1;
+  }
+
+  .sheet-quick-detail {
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 9px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sheet-quick-modal .modal-body > .panel > .panel-head {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .sheet-workspace-view {
+    gap: 12px;
+  }
+  .sheet-workspace-view > .sheet-header {
+    padding: 3px 0 10px;
+  }
+  .sheet-identity-heading h1 {
+    font-size: clamp(25px, 7vw, 32px);
+  }
+  .sheet-identity-heading .eyebrow {
+    margin-bottom: 4px;
+  }
+  .sheet-identity-summary {
+    margin-top: 5px;
+    gap: 4px 8px;
+    font-size: 11px;
+  }
+}

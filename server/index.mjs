@@ -176,8 +176,10 @@ if (DEV) {
 }
 
 server.listen(PORT, HOST, () => {
+  const address = server.address();
+  const boundPort = typeof address === "object" && address ? address.port : PORT;
   console.log(
-    `Стальной лист: http://${HOST}:${PORT} (${DEV ? "разработка" : "продакшен"})`,
+    `Достать листы!: http://${HOST}:${boundPort} (${DEV ? "разработка" : "продакшен"})`,
   );
   console.log(`Данные персонажей: ${store.charactersDir}`);
 });

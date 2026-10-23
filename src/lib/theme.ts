@@ -82,7 +82,11 @@ export function readThemeChoice(): ThemeChoice {
 }
 
 export function writeThemeChoice(choice: ThemeChoice): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
+  } catch {
+    // The selected theme still applies when browser storage is unavailable.
+  }
 }
 
 function pick(colors: Record<string, string>, ...keys: string[]): string {

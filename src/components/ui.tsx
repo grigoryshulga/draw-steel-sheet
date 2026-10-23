@@ -2,6 +2,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
   type ButtonHTMLAttributes,
   type InputHTMLAttributes,
   type KeyboardEvent as ReactKeyboardEvent,
@@ -11,6 +12,10 @@ import {
 } from "react";
 import { Icon, type IconName } from "./Icons";
 import { createPortal } from "react-dom";
+import {
+  normalizeNumberInput,
+  parseNumberInputDraft,
+} from "../lib/number-input";
 
 /* ---------- Panel ---------- */
 
@@ -159,16 +164,36 @@ export function NumberInput({
   onKeyDown,
   onCommit,
 }: NumberInputProps) {
-  const clamp = (next: number) => {
-    let result = next;
-    if (min !== undefined) result = Math.max(min, result);
-    if (max !== undefined) result = Math.min(max, result);
-    return result;
+  const [draft, setDraft] = useState(() =>
+    Number.isFinite(value) ? String(value) : "",
+  );
+  const lastValue = useRef(value);
+  const lastEmitted = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (Object.is(value, lastValue.current)) return;
+    lastValue.current = value;
+    if (!Object.is(value, lastEmitted.current)) {
+      setDraft(Number.isFinite(value) ? String(value) : "");
+    }
+    if (Object.is(value, lastEmitted.current)) lastEmitted.current = null;
+  }, [value]);
+
+  const emit = (next: number) => {
+    lastEmitted.current = next;
+    onChange(next);
   };
 
-  const change = (next: number) => {
-    if (!Number.isFinite(next)) return;
-    onChange(clamp(next));
+  const commit = () => {
+    const normalized = normalizeNumberInput(
+      parseNumberInputDraft(draft),
+      value,
+      min,
+      max,
+    );
+    setDraft(String(normalized));
+    emit(normalized);
+    onBlur?.();
   };
 
   return (
@@ -182,8 +207,9 @@ export function NumberInput({
         className="number-counter-btn"
         aria-label={`${label ?? "Значение"}: уменьшить`}
         onClick={() => {
-          const next = clamp(value - step);
-          change(next);
+          const next = normalizeNumberInput(value - step, value, min, max);
+          setDraft(String(next));
+          emit(next);
           onCommit?.(next);
         }}
         disabled={min !== undefined && value <= min}
@@ -192,18 +218,25 @@ export function NumberInput({
       </button>
       <input
         type="text"
-        inputMode="numeric"
+        inputMode="decimal"
         className="number-counter-value numeric"
-        value={Number.isFinite(value) ? value : ""}
+        value={draft}
         aria-label={label}
         placeholder={placeholder}
-        onBlur={onBlur}
-        onKeyDown={onKeyDown}
+        onBlur={commit}
+        onKeyDown={(event) => {
+          onKeyDown?.(event);
+          if (!event.defaultPrevented && event.key === "Enter") {
+            event.preventDefault();
+            event.currentTarget.blur();
+          }
+        }}
         onChange={(event) => {
-          const next =
-            event.target.value === "" ? 0 : Number(event.target.value);
-          if (!Number.isFinite(next)) return;
-          change(next);
+          const nextDraft = event.target.value;
+          if (!/^-?(?:\d*\.?\d*)?$/.test(nextDraft)) return;
+          setDraft(nextDraft);
+          const next = parseNumberInputDraft(nextDraft);
+          if (next !== null) emit(normalizeNumberInput(next, value, min, max));
         }}
       />
       <button
@@ -211,8 +244,9 @@ export function NumberInput({
         className="number-counter-btn"
         aria-label={`${label ?? "Значение"}: увеличить`}
         onClick={() => {
-          const next = clamp(value + step);
-          change(next);
+          const next = normalizeNumberInput(value + step, value, min, max);
+          setDraft(String(next));
+          emit(next);
           onCommit?.(next);
         }}
         disabled={max !== undefined && value >= max}

@@ -8,6 +8,7 @@ import { Button } from "./ui";
 
 const SAVE_LABEL: Record<SaveStatus, string> = {
   idle: "Черновик",
+  pending: "Есть изменения",
   saving: "Сохранение…",
   saved: "Сохранено",
   error: "Не сохранено",
@@ -63,7 +64,13 @@ export function Topbar({
           choice={themeChoice}
           onChoose={onThemeChoice}
         />
-        <Button icon="plus" variant="soft" size="sm" aria-label="Новый герой" onClick={onNewCharacter}>
+        <Button
+          icon="plus"
+          variant="soft"
+          size="sm"
+          aria-label="Новый герой"
+          onClick={onNewCharacter}
+        >
           <span className="hide-sm">Новый герой</span>
         </Button>
       </div>
@@ -76,9 +83,11 @@ export function BootError({ message }: { message: string }) {
     <div className="boot-error">
       <h1>Не удалось подключиться к листу</h1>
       <p className="muted">
-        Веб-сервис не отвечает. Запустите его в каталоге проекта командой{" "}
-        <code>npm start</code> (или <code>npm run dev</code>) и обновите страницу.
+        Не удалось загрузить героев. Проверьте подключение и попробуйте ещё раз.
       </p>
+      <Button onClick={() => window.location.reload()} variant="primary">
+        Попробовать снова
+      </Button>
       <p className="mono small" style={{ marginTop: 14 }}>
         {message}
       </p>
@@ -86,6 +95,14 @@ export function BootError({ message }: { message: string }) {
   );
 }
 
-export function LoadingScreen({ label = "Загрузка героя" }: { label?: string }) {
-  return <div className="loading-screen">{label}</div>;
+export function LoadingScreen({
+  label = "Загрузка героя",
+}: {
+  label?: string;
+}) {
+  return (
+    <div className="loading-screen" role="status">
+      {label}
+    </div>
+  );
 }

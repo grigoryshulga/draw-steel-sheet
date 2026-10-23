@@ -38,7 +38,7 @@
 
 .sheet-ability-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
   align-items: stretch;
   gap: 10px;
 }
@@ -55,11 +55,31 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   background: color-mix(in srgb, var(--surface-2) 66%, transparent);
-  cursor: pointer;
   transition:
     border-color 140ms var(--ease),
     background 140ms var(--ease),
     transform 120ms var(--ease);
+}
+
+.sheet-ability-title {
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.sheet-ability-title:hover {
+  color: var(--accent);
+}
+.sheet-ability-title:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.sheet-ability-footer {
+  flex-wrap: wrap;
 }
 
 .sheet-ability-card:hover {
@@ -251,8 +271,11 @@
   .sheet-ability-grid {
     grid-template-columns: 1fr;
   }
+  .sheet-ability-card-head {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
-
 
 /* ---------- Поп-ап способности ---------- */
 

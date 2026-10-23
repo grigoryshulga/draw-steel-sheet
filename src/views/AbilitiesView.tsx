@@ -8,6 +8,7 @@ import { Icon } from "../components/Icons";
 import { AbilityCard } from "./abilities/AbilityCard";
 import { AbilityEditor } from "./abilities/AbilityEditor";
 import { RollModal } from "./abilities/RollModal";
+import { GameHistory } from "./sheet/GameHistory";
 import { TemplatesModal } from "./abilities/TemplatesModal";
 import { blankAbility, matchesQuery } from "./abilities/shared";
 import "../components/AbilityPresentation.css";
@@ -23,7 +24,9 @@ const AbilityPicker = lazy(() =>
 const COMPACT_THRESHOLD = 6;
 
 function toggleInList<T>(list: T[], value: T): T[] {
-  return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+  return list.includes(value)
+    ? list.filter((item) => item !== value)
+    : [...list, value];
 }
 
 export function AbilitiesView() {
@@ -34,22 +37,27 @@ export function AbilitiesView() {
   const [typeFilter, setTypeFilter] = useState<ActionType[]>([]);
   const [kindFilter, setKindFilter] = useState<AbilityKind | "all">("all");
   const [collapsedGroups, setCollapsedGroups] = useState<ActionType[]>([]);
-  const [expandedOverrides, setExpandedOverrides] = useState<Record<string, boolean>>({});
-  const [editorTarget, setEditorTarget] = useState<{ ability: Ability; isNew: boolean } | null>(
-    null,
-  );
+  const [expandedOverrides, setExpandedOverrides] = useState<
+    Record<string, boolean>
+  >({});
+  const [editorTarget, setEditorTarget] = useState<{
+    ability: Ability;
+    isNew: boolean;
+  } | null>(null);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [templatesOpen, setTemplatesOpen] = useState(false);
   const [rolling, setRolling] = useState<Ability | null>(null);
 
-  const filtersActive = typeFilter.length > 0 || kindFilter !== "all" || query.trim() !== "";
+  const filtersActive =
+    typeFilter.length > 0 || kindFilter !== "all" || query.trim() !== "";
 
   const filtered = useMemo(
     () =>
       abilities.filter(
         (ability) =>
           matchesQuery(ability, query) &&
-          (typeFilter.length === 0 || typeFilter.includes(ability.actionType)) &&
+          (typeFilter.length === 0 ||
+            typeFilter.includes(ability.actionType)) &&
           (kindFilter === "all" || kindFilter === ability.kind),
       ),
     [abilities, query, typeFilter, kindFilter],
@@ -66,7 +74,6 @@ export function AbilitiesView() {
     [filtered],
   );
 
-
   const defaultExpanded = abilities.length <= COMPACT_THRESHOLD;
 
   const resetFilters = () => {
@@ -82,7 +89,9 @@ export function AbilitiesView() {
     } else {
       update((c) => ({
         ...c,
-        abilities: c.abilities.map((item) => (item.id === ability.id ? ability : item)),
+        abilities: c.abilities.map((item) =>
+          item.id === ability.id ? ability : item,
+        ),
       }));
       notify("Способность сохранена", "success");
     }
@@ -97,13 +106,19 @@ export function AbilitiesView() {
   const duplicateAbility = (ability: Ability) => {
     update((c) => ({
       ...c,
-      abilities: [...c.abilities, { ...ability, id: makeId(), name: `${ability.name} (копия)` }],
+      abilities: [
+        ...c.abilities,
+        { ...ability, id: makeId(), name: `${ability.name} (копия)` },
+      ],
     }));
     notify("Копия создана", "success");
   };
 
   const deleteAbility = (ability: Ability) => {
-    update((c) => ({ ...c, abilities: c.abilities.filter((item) => item.id !== ability.id) }));
+    update((c) => ({
+      ...c,
+      abilities: c.abilities.filter((item) => item.id !== ability.id),
+    }));
     notify(`«${ability.name}» удалена`, "info");
   };
 
@@ -124,13 +139,16 @@ export function AbilitiesView() {
           <Button
             variant="primary"
             icon="plus"
-            onClick={() => setEditorTarget({ ability: blankAbility(), isNew: true })}
+            onClick={() =>
+              setEditorTarget({ ability: blankAbility(), isNew: true })
+            }
           >
             Добавить способность
           </Button>
         </div>
       </div>
 
+      <GameHistory />
       <div className="abil-toolbar">
         <div className="abil-search">
           <Icon name="search" size={15} />
@@ -146,7 +164,9 @@ export function AbilitiesView() {
             value={kindFilter}
             aria-label="Вид способности"
             className="abil-kind-select"
-            onChange={(event) => setKindFilter(event.target.value as AbilityKind | "all")}
+            onChange={(event) =>
+              setKindFilter(event.target.value as AbilityKind | "all")
+            }
           >
             <option value="all">Все виды</option>
             {ABILITY_KINDS.map((kind) => (
@@ -156,7 +176,12 @@ export function AbilitiesView() {
             ))}
           </Select>
           {filtersActive && (
-            <Button variant="ghost" size="sm" icon="close" onClick={resetFilters}>
+            <Button
+              variant="ghost"
+              size="sm"
+              icon="close"
+              onClick={resetFilters}
+            >
               Сбросить
             </Button>
           )}
@@ -166,7 +191,9 @@ export function AbilitiesView() {
             <Chip
               key={type.key}
               active={typeFilter.includes(type.key)}
-              onClick={() => setTypeFilter((prev) => toggleInList(prev, type.key))}
+              onClick={() =>
+                setTypeFilter((prev) => toggleInList(prev, type.key))
+              }
               title={type.hint}
             >
               {type.short}
@@ -184,7 +211,9 @@ export function AbilitiesView() {
               <Button
                 variant="primary"
                 icon="plus"
-                onClick={() => setEditorTarget({ ability: blankAbility(), isNew: true })}
+                onClick={() =>
+                  setEditorTarget({ ability: blankAbility(), isNew: true })
+                }
               >
                 Добавить способность
               </Button>
@@ -221,9 +250,14 @@ export function AbilitiesView() {
                 title={group.hint}
                 aria-expanded={!collapsed}
               >
-                <Icon name={collapsed ? "chevron-right" : "chevron-down"} size={16} />
+                <Icon
+                  name={collapsed ? "chevron-right" : "chevron-down"}
+                  size={16}
+                />
                 <h2>{group.label}</h2>
-                <span className="abil-group-count mono">{group.items.length}</span>
+                <span className="abil-group-count mono">
+                  {group.items.length}
+                </span>
               </button>
               {!collapsed && (
                 <div className="abil-grid">
@@ -232,7 +266,9 @@ export function AbilitiesView() {
                       key={ability.id}
                       ability={ability}
                       character={character}
-                      expanded={expandedOverrides[ability.id] ?? defaultExpanded}
+                      expanded={
+                        expandedOverrides[ability.id] ?? defaultExpanded
+                      }
                       onToggle={() =>
                         setExpandedOverrides((prev) => ({
                           ...prev,
@@ -267,7 +303,9 @@ export function AbilitiesView() {
             existing={abilities}
             character={character}
             onClose={() => setPickerOpen(false)}
-            onAdd={(ability) => addFromCatalog(ability, "Способность добавлена из каталога")}
+            onAdd={(ability) =>
+              addFromCatalog(ability, "Способность добавлена из каталога")
+            }
           />
         </Suspense>
       )}
@@ -275,11 +313,17 @@ export function AbilitiesView() {
         <TemplatesModal
           existing={abilities}
           onClose={() => setTemplatesOpen(false)}
-          onAdd={(ability) => addFromCatalog(ability, "Базовое действие добавлено")}
+          onAdd={(ability) =>
+            addFromCatalog(ability, "Базовое действие добавлено")
+          }
         />
       )}
       {rolling && (
-        <RollModal ability={rolling} character={character} onClose={() => setRolling(null)} />
+        <RollModal
+          ability={rolling}
+          character={character}
+          onClose={() => setRolling(null)}
+        />
       )}
     </div>
   );

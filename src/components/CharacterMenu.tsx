@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useOutsideClick } from "../lib/hooks";
+import { useMenuKeyboard } from "../lib/useMenuKeyboard";
 import { initials } from "../lib/utils";
 import type { Character, CharacterSummary } from "../types";
 import { Icon } from "./Icons";
@@ -19,12 +20,16 @@ export function CharacterMenu({
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(ref, () => setOpen(false), open);
+  const onMenuKeyDown = useMenuKeyboard({ open, setOpen, menuRef, triggerRef });
 
   return (
     <div className="char-switch" ref={ref}>
       <button
         type="button"
+        ref={triggerRef}
         className="char-switch-btn"
         onClick={() => setOpen((value) => !value)}
         aria-haspopup="menu"
@@ -32,9 +37,14 @@ export function CharacterMenu({
       >
         <span className="char-avatar">{initials(character.name)}</span>
         <span className="char-switch-text">
-          <span className="char-switch-name">{character.name || "Без имени"}</span>
+          <span className="char-switch-name">
+            {character.name || "Без имени"}
+          </span>
           <span className="char-switch-meta">
-            {[character.className, character.level ? `${character.level} ур.` : ""]
+            {[
+              character.className,
+              character.level ? `${character.level} ур.` : "",
+            ]
               .filter(Boolean)
               .join(" · ") || "Герой без класса"}
           </span>
@@ -43,7 +53,12 @@ export function CharacterMenu({
       </button>
 
       {open && (
-        <div className="popover char-popover" role="menu">
+        <div
+          className="popover char-popover"
+          role="menu"
+          ref={menuRef}
+          onKeyDown={onMenuKeyDown}
+        >
           <div className="menu-label">Мои герои</div>
           <div className="char-list">
             {characters.map((item) => (
@@ -79,6 +94,7 @@ export function CharacterMenu({
               setOpen(false);
               onNew();
             }}
+            role="menuitem"
           >
             <Icon name="plus" size={16} className="menu-icon" />
             <span>Новый герой</span>
@@ -90,6 +106,7 @@ export function CharacterMenu({
               setOpen(false);
               onManage();
             }}
+            role="menuitem"
           >
             <Icon name="users" size={16} className="menu-icon" />
             <span>Все персонажи</span>

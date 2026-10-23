@@ -27,6 +27,7 @@ import {
   evaluateAbilityDamage,
 } from "../lib/rules";
 import type { Character, CompendiumAbility } from "../types";
+import { useStorageScope } from "../state/StorageScope";
 import { Button, Chip, Field, Modal, Select, TextArea, TextInput } from "./ui";
 import { RuleText } from "./RuleText";
 import { Artwork } from "./Artwork";
@@ -35,6 +36,10 @@ import "../views/CodexView.css";
 import "./NewCharacterDialog.css";
 
 const DRAFT_KEY = "ds-builder-draft-v1";
+const STEP_KEY = "ds-builder-step-v1";
+function scopedStorageKey(key: string, scope: string): string {
+  return scope === "local" ? key : `${key}:${scope}`;
+}
 const STEPS = [
   "Замысел",
   "Происхождение",
@@ -46,9 +51,9 @@ const STEPS = [
   "Детали",
   "Готовый герой",
 ];
-function readDraft(): BuilderDraft {
+function readDraft(key: string): BuilderDraft {
   try {
-    const stored = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null");
+    const stored = JSON.parse(localStorage.getItem(key) || "null");
     if (
       stored?.version === 1 &&
       Array.isArray(stored.traits) &&
@@ -156,12 +161,15 @@ export function NewCharacterDialog({
   onClose: () => void;
   onCreate: (character: Character) => Promise<void> | void;
 }) {
-  const [draft, setDraft] = useState(readDraft);
+  const scope = useStorageScope();
+  const draftKey = scopedStorageKey(DRAFT_KEY, scope);
+  const stepKey = scopedStorageKey(STEP_KEY, scope);
+  const [draft, setDraft] = useState(() => readDraft(draftKey));
   const [step, setStep] = useState(() => {
     try {
       return Math.min(
         8,
-        Math.max(0, Number(localStorage.getItem("ds-builder-step-v1")) || 0),
+        Math.max(0, Number(localStorage.getItem(stepKey)) || 0),
       );
     } catch {
       return 0;
@@ -199,19 +207,19 @@ export function NewCharacterDialog({
   const signatureCount = CLASS_SIGNATURE_COUNTS[draft.className] ?? 0;
   useEffect(() => {
     try {
-      localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+      localStorage.setItem(draftKey, JSON.stringify(draft));
     } catch {
       /* in-memory draft remains available */
     }
-  }, [draft]);
+  }, [draft, draftKey]);
   useEffect(() => {
     contentRef.current?.scrollTo({ top: 0 });
     try {
-      localStorage.setItem("ds-builder-step-v1", String(step));
+      localStorage.setItem(stepKey, String(step));
     } catch {
       /* no storage */
     }
-  }, [step]);
+  }, [step, stepKey]);
   const issues = builderIssues(draft);
   const go = (next: number) => {
     setStep(next);
@@ -233,7 +241,7 @@ export function NewCharacterDialog({
       setStep(0);
       seed.current = createCharacter();
       try {
-        localStorage.removeItem(DRAFT_KEY);
+        localStorage.removeItem(draftKey);
       } catch {
         /* no storage */
       }

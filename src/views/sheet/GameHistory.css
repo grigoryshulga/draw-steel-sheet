@@ -1,0 +1,90 @@
+.game-history {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.game-history-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.game-history-head > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.game-history-head > .game-history-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 12px;
+}
+.game-history-toggle {
+  min-height: 30px;
+}
+.game-history-session {
+  color: var(--muted);
+  font-size: 10px;
+}
+.game-history-toggle {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.game-history-summary {
+  min-width: 0;
+  flex: 1;
+}
+.game-history-summary > strong,
+.game-history-list strong {
+  font-size: 12px;
+}
+.game-history-list time {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.game-history-list p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+.game-history-reason {
+  color: var(--muted);
+  font-size: 10px;
+  text-align: left;
+  line-height: 1.35;
+}
+.game-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 260px;
+  overflow: auto;
+  margin: 10px 0 0;
+  padding: 9px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.game-history-list li {
+  min-width: 0;
+}
+.game-history-list li > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+.game-history-undone,
+.game-history-list li.is-undone {
+  color: var(--muted);
+}

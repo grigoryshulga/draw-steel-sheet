@@ -1,0 +1,80 @@
+.ability-use-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-bottom: 14px;
+}
+.ability-use-settings {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+}
+.ability-use-settings:disabled {
+  opacity: 0.7;
+}
+.ability-use-trigger,
+.ability-use-effect,
+.ability-use-preview {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+.ability-use-trigger {
+  border-left: 2px solid var(--magenta);
+}
+.ability-use-trigger p,
+.ability-use-preview p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.ability-use-preview.is-applied {
+  border-color: color-mix(in srgb, var(--green) 45%, var(--line));
+}
+.ability-use-exception {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.ability-use-exception input {
+  margin-top: 2px;
+  accent-color: var(--accent);
+}
+.ability-use-notes {
+  font-size: 13px;
+  margin-top: 12px;
+}
+.ability-use-notes summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.abil-roll-modal .abil-roll-footer {
+  flex-wrap: wrap;
+}
+.ability-use-cost {
+  flex-basis: 100%;
+  text-align: right;
+}
+@media (max-width: 560px) {
+  .abil-roll-modal .modal-body {
+    padding: 14px;
+  }
+  .abil-roll-modal .abil-roll-footer .btn {
+    min-height: 42px;
+  }
+  .abil-roll-modal .abil-roll-footer {
+    gap: 6px;
+  }
+  .abil-roll-modal .abil-roll-footer .grow {
+    display: none;
+  }
+  .abil-roll-modal .abil-roll-footer .btn-primary {
+    flex-grow: 1;
+  }
+}

@@ -1,5 +1,6 @@
 import { abilityDistance } from "../../lib/character-calculations";
 import { useState } from "react";
+import { RollModal } from "../abilities/RollModal";
 import { Button, Chip, EmptyState, Modal, Panel } from "../../components/ui";
 import { RichText } from "../../components/RichText";
 import { DamageChip } from "../../components/DamageChip";
@@ -30,6 +31,7 @@ import "./SheetAbilitiesPanel.css";
 export function SheetAbilitiesPanel() {
   const { character, goTo } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
+  const [using, setUsing] = useState<Ability | null>(null);
   const abilities = character.abilities;
   const groups = ACTION_TYPES.map((type) => ({
     ...type,
@@ -91,22 +93,18 @@ export function SheetAbilitiesPanel() {
                       }))
                       .filter((tier) => tier.damage || tier.effect);
                     return (
-                      <article
-                        className="sheet-ability-card"
-                        key={ability.id}
-                        role="button"
-                        tabIndex={0}
-                        aria-label={`Открыть способность: ${ability.name || "без названия"}`}
-                        onClick={() => openAbility(ability)}
-                        onKeyDown={(event) => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openAbility(ability);
-                          }
-                        }}
-                      >
+                      <article className="sheet-ability-card" key={ability.id}>
                         <header className="sheet-ability-card-head">
-                          <h4>{ability.name || "Без названия"}</h4>
+                          <h4>
+                            <button
+                              type="button"
+                              className="sheet-ability-title"
+                              aria-label={`Открыть способность: ${ability.name || "без названия"}`}
+                              onClick={() => openAbility(ability)}
+                            >
+                              {ability.name || "Без названия"}
+                            </button>
+                          </h4>
                           <div className="sheet-ability-card-tags">
                             <Chip tone={kindTone(ability.kind)}>
                               {kindLabel(ability.kind)}
@@ -211,6 +209,15 @@ export function SheetAbilitiesPanel() {
                               триггер
                             </span>
                           )}
+                          <Button
+                            size="sm"
+                            variant="soft"
+                            icon="abilities"
+                            aria-label={`Использовать: ${ability.name}`}
+                            onClick={() => setUsing(ability)}
+                          >
+                            Использовать
+                          </Button>
                         </footer>
                       </article>
                     );
@@ -226,10 +233,22 @@ export function SheetAbilitiesPanel() {
         <AbilityDetailModal
           ability={selected}
           onClose={() => setSelected(null)}
+          onUse={() => {
+            setUsing(selected);
+            setSelected(null);
+          }}
           onOpenAll={() => {
             setSelected(null);
             goTo("abilities");
           }}
+        />
+      )}
+      {using && (
+        <RollModal
+          key={using.id}
+          ability={using}
+          character={character}
+          onClose={() => setUsing(null)}
         />
       )}
     </>
@@ -240,10 +259,12 @@ function AbilityDetailModal({
   ability,
   onClose,
   onOpenAll,
+  onUse,
 }: {
   ability: Ability;
   onClose: () => void;
   onOpenAll: () => void;
+  onUse: () => void;
 }) {
   const { character } = useApp();
   const requirements = abilityTierRequirements(ability, character);
@@ -267,8 +288,11 @@ function AbilityDetailModal({
           <Button variant="ghost" onClick={onClose}>
             Закрыть
           </Button>
-          <Button variant="primary" icon="abilities" onClick={onOpenAll}>
+          <Button variant="ghost" icon="abilities" onClick={onOpenAll}>
             Открыть на вкладке
+          </Button>
+          <Button variant="primary" onClick={onUse}>
+            Использовать
           </Button>
         </>
       }

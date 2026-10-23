@@ -1,0 +1,16 @@
+.draw-steel-logo {
+  display: block;
+  width: min(100%, 140px);
+  height: auto;
+  object-fit: contain;
+}
+
+html[data-mode="dark"] .draw-steel-logo,
+html:not([data-mode="light"]) .draw-steel-logo {
+  filter: invert(1);
+}
+
+.draw-steel-logo--welcome {
+  width: min(38vw, 142px);
+  margin-bottom: 19px;
+}

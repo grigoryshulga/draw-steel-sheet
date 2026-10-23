@@ -1,0 +1,42 @@
+.health-dialog .modal-body {
+  padding-top: 12px;
+}
+.health-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.health-dialog-content > .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.health-dialog-hint {
+  margin: -5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.health-preview {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+.health-preview p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.health-preview.is-invalid {
+  border-color: color-mix(in srgb, var(--red) 45%, var(--line));
+}
+.health-preview.is-valid {
+  border-color: color-mix(in srgb, var(--green) 35%, var(--line));
+}
+.health-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
