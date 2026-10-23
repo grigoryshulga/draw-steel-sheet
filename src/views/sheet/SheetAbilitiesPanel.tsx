@@ -1,5 +1,6 @@
 import { abilityDistance } from "../../lib/character-calculations";
 import { lazy, Suspense, useState } from "react";
+import { Icon } from "../../components/Icons";
 import { RollModal } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
@@ -40,12 +41,15 @@ const AbilityPicker = lazy(() =>
 /** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
 type AddMode = "catalog" | "templates" | "custom" | null;
 
+const BASIC_SOURCE = "Базовые способности";
+
 /** Компактный справочник способностей внизу листа, сгруппированный по типу действия. */
 export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
   const [using, setUsing] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
+  const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [editing, setEditing] = useState<{
     ability: Ability;
     isNew: boolean;
@@ -55,6 +59,13 @@ export function SheetAbilitiesPanel() {
     ...type,
     items: abilities.filter((ability) => ability.actionType === type.key),
   })).filter((group) => group.items.length > 0);
+
+  const toggleGroup = (key: string) =>
+    setCollapsed((current) => {
+      const next = new Set(current);
+      if (!next.delete(key)) next.add(key);
+      return next;
+    });
 
   const openAbility = (ability: Ability) => setSelected(ability);
 
@@ -124,159 +135,183 @@ export function SheetAbilitiesPanel() {
           />
         ) : (
           <div className="sheet-ability-sections">
-            {groups.map((group) => (
-              <section className="sheet-ability-section" key={group.key}>
-                <header className="sheet-ability-section-head">
-                  <h3>{group.label}</h3>
-                  <span className="sheet-ability-count mono">
-                    {group.items.length}
-                  </span>
-                  <span className="sheet-ability-rule" />
-                </header>
+            {groups.map((group) => {
+              const isCollapsed = collapsed.has(group.key);
+              return (
+                <section
+                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}`}
+                  key={group.key}
+                >
+                  <header className="sheet-ability-section-head">
+                    <button
+                      type="button"
+                      className="sheet-ability-section-toggle"
+                      aria-expanded={!isCollapsed}
+                      onClick={() => toggleGroup(group.key)}
+                    >
+                      <Icon name="chevron-down" size={14} />
+                      <h3>{group.label}</h3>
+                      <span className="sheet-ability-count mono">
+                        {group.items.length}
+                      </span>
+                    </button>
+                    <span className="sheet-ability-rule" />
+                  </header>
 
-                <div className="sheet-ability-grid">
-                  {group.items.map((ability) => {
-                    const requirements = abilityTierRequirements(
-                      ability,
-                      character,
-                    );
-                    const tiers = ability.tiers
-                      .map((tier, index) => ({
-                        ...tier,
-                        tier: (index + 1) as Tier,
-                      }))
-                      .filter((tier) => tier.damage || tier.effect);
-                    return (
-                      <article className="sheet-ability-card" key={ability.id}>
-                        <header className="sheet-ability-card-head">
-                          <h4>
-                            <button
-                              type="button"
-                              className="sheet-ability-title"
-                              aria-label={`Открыть способность: ${ability.name || "без названия"}`}
-                              onClick={() => openAbility(ability)}
-                            >
-                              {ability.name || "Без названия"}
-                            </button>
-                          </h4>
-                          <div className="sheet-ability-card-tags">
-                            <Chip tone={kindTone(ability.kind)}>
-                              {kindLabel(ability.kind)}
-                            </Chip>
-                            {ability.resourceCost > 0 && (
-                              <span
-                                className="sheet-ability-cost-stamp is-paid"
-                                title={`Стоимость: ${ability.resourceCost}`}
-                              >
-                                {ability.resourceCost}
-                              </span>
-                            )}
-                          </div>
-                        </header>
-
-                        <div className="sheet-ability-meta">
-                          <span title="Дистанция">
-                            <em>Дист.</em>{" "}
-                            {abilityDistance(ability, character) || "—"}
-                          </span>
-                          <span title="Цель">
-                            <em>Цель</em> {ability.target || "—"}
-                          </span>
-                        </div>
-
-                        {ability.keywords.length > 0 && (
-                          <div className="sheet-ability-keywords">
-                            {ability.keywords.slice(0, 4).map((keyword) => (
-                              <span
-                                className="sheet-ability-keyword"
-                                key={keyword}
-                              >
-                                {keyword}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-
-                        {tiers.length > 0 && (
-                          <div className="sheet-ability-tiers">
-                            {tiers.map((tier) => {
-                              const damage = evaluateAbilityDamage(
-                                ability,
-                                tier.tier,
-                                character,
-                              );
-                              return (
-                                <div
-                                  className="sheet-ability-tier"
-                                  data-tier={tier.tier}
-                                  key={tier.tier}
-                                >
-                                  <span
-                                    className="sheet-ability-range mono"
-                                    title={
-                                      requirements
-                                        ? "Нужно выбросить на 2d10"
-                                        : "Диапазон суммы броска силы"
-                                    }
-                                  >
-                                    {requirements
-                                      ? tierRequirementText(
-                                          requirements,
-                                          tier.tier,
-                                        )
-                                      : TIER_ROLL_RANGES[tier.tier]}
-                                  </span>
-                                  <div className="sheet-ability-tier-text">
-                                    {tier.damage && (
-                                      <DamageChip
-                                        value={damage.display}
-                                        type={inferDamageType(
-                                          ability,
-                                          tier.effect,
-                                        )}
-                                      />
-                                    )}
-                                    {tier.effect && (
-                                      <span className="sheet-ability-effect">
-                                        {tier.effect}
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        )}
-
-                        {tiers.length === 0 && ability.effect && (
-                          <p className="sheet-ability-body">{ability.effect}</p>
-                        )}
-
-                        <footer className="sheet-ability-footer">
-                          <span title="Бросок силы">
-                            <em>Бросок</em> {rollSummary(ability)}
-                          </span>
-                          {ability.trigger && (
-                            <span className="sheet-ability-trigger">
-                              триггер
-                            </span>
-                          )}
-                          <Button
-                            size="sm"
-                            variant="soft"
-                            icon="abilities"
-                            aria-label={`Использовать: ${ability.name}`}
-                            onClick={() => setUsing(ability)}
+                  {!isCollapsed && (
+                    <div className="sheet-ability-grid">
+                      {group.items.map((ability) => {
+                        const requirements = abilityTierRequirements(
+                          ability,
+                          character,
+                        );
+                        const tiers = ability.tiers
+                          .map((tier, index) => ({
+                            ...tier,
+                            tier: (index + 1) as Tier,
+                          }))
+                          .filter((tier) => tier.damage || tier.effect);
+                        return (
+                          <article
+                            className="sheet-ability-card"
+                            key={ability.id}
                           >
-                            Использовать
-                          </Button>
-                        </footer>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            ))}
+                            <header className="sheet-ability-card-head">
+                              <h4>
+                                <button
+                                  type="button"
+                                  className="sheet-ability-title"
+                                  aria-label={`Открыть способность: ${ability.name || "без названия"}`}
+                                  onClick={() => openAbility(ability)}
+                                >
+                                  {ability.name || "Без названия"}
+                                </button>
+                              </h4>
+                              <div className="sheet-ability-card-tags">
+                                <Chip tone={kindTone(ability.kind)}>
+                                  {kindLabel(ability.kind)}
+                                </Chip>
+                                {ability.source === BASIC_SOURCE && (
+                                  <Chip>Базовая</Chip>
+                                )}
+                                {ability.resourceCost > 0 && (
+                                  <span
+                                    className="sheet-ability-cost-stamp is-paid"
+                                    title={`Стоимость: ${ability.resourceCost}`}
+                                  >
+                                    {ability.resourceCost}
+                                  </span>
+                                )}
+                              </div>
+                            </header>
+
+                            <div className="sheet-ability-meta">
+                              <span title="Дистанция">
+                                <em>Дист.</em>{" "}
+                                {abilityDistance(ability, character) || "—"}
+                              </span>
+                              <span title="Цель">
+                                <em>Цель</em> {ability.target || "—"}
+                              </span>
+                            </div>
+
+                            {ability.keywords.length > 0 && (
+                              <div className="sheet-ability-keywords">
+                                {ability.keywords.slice(0, 4).map((keyword) => (
+                                  <span
+                                    className="sheet-ability-keyword"
+                                    key={keyword}
+                                  >
+                                    {keyword}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+
+                            {tiers.length > 0 && (
+                              <div className="sheet-ability-tiers">
+                                {tiers.map((tier) => {
+                                  const damage = evaluateAbilityDamage(
+                                    ability,
+                                    tier.tier,
+                                    character,
+                                  );
+                                  return (
+                                    <div
+                                      className="sheet-ability-tier"
+                                      data-tier={tier.tier}
+                                      key={tier.tier}
+                                    >
+                                      <span
+                                        className="sheet-ability-range mono"
+                                        title={
+                                          requirements
+                                            ? "Нужно выбросить на 2d10"
+                                            : "Диапазон суммы броска силы"
+                                        }
+                                      >
+                                        {requirements
+                                          ? tierRequirementText(
+                                              requirements,
+                                              tier.tier,
+                                            )
+                                          : TIER_ROLL_RANGES[tier.tier]}
+                                      </span>
+                                      <div className="sheet-ability-tier-text">
+                                        {tier.damage && (
+                                          <DamageChip
+                                            value={damage.display}
+                                            type={inferDamageType(
+                                              ability,
+                                              tier.effect,
+                                            )}
+                                          />
+                                        )}
+                                        {tier.effect && (
+                                          <span className="sheet-ability-effect">
+                                            {tier.effect}
+                                          </span>
+                                        )}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+
+                            {tiers.length === 0 && ability.effect && (
+                              <p className="sheet-ability-body">
+                                {ability.effect}
+                              </p>
+                            )}
+
+                            <footer className="sheet-ability-footer">
+                              <span title="Бросок силы">
+                                <em>Бросок</em> {rollSummary(ability)}
+                              </span>
+                              {ability.trigger && (
+                                <span className="sheet-ability-trigger">
+                                  триггер
+                                </span>
+                              )}
+                              <Button
+                                size="sm"
+                                variant="soft"
+                                icon="abilities"
+                                aria-label={`Использовать: ${ability.name}`}
+                                onClick={() => setUsing(ability)}
+                              >
+                                Использовать
+                              </Button>
+                            </footer>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  )}
+                </section>
+              );
+            })}
           </div>
         )}
       </Panel>
@@ -410,6 +445,7 @@ function AbilityDetailModal({
       <div className="sheet-ability-detail">
         <div className="hstack wrap">
           <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
+          {ability.source === BASIC_SOURCE && <Chip>Базовая</Chip>}
           {ability.resourceCost > 0 && (
             <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>
           )}

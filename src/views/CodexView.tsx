@@ -340,6 +340,7 @@ export function CodexView() {
                   <CatalogAction key={entry.id} entry={entry} />
                 ))}
                 <ArtworkFigure
+                  key={article.id}
                   art={artForArticle(article.id)}
                   className="codex-article-art"
                 />

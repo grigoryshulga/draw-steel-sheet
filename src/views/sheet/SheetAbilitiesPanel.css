@@ -25,6 +25,30 @@
   color: var(--muted);
 }
 
+.sheet-ability-section-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sheet-ability-section-toggle svg {
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.sheet-ability-section.is-collapsed .sheet-ability-section-toggle svg {
+  transform: rotate(-90deg);
+}
+
+.sheet-ability-section.is-collapsed .sheet-ability-section-head {
+  margin-bottom: 0;
+}
+
 .sheet-ability-count {
   font-size: 9px;
   color: var(--muted);

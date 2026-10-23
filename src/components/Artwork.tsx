@@ -16,6 +16,7 @@ export function Artwork({
   return (
     <span className={`artwork ${className}`} aria-hidden="true">
       <img
+        key={art.src}
         src={art.thumbnailSrc ?? art.src}
         width={art.width}
         height={art.height}
@@ -38,6 +39,7 @@ export function ArtworkFigure({
   return (
     <figure className={`artwork-figure ${className}`}>
       <img
+        key={art.src}
         src={art.src}
         width={art.width}
         height={art.height}

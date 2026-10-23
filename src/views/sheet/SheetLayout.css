@@ -73,7 +73,10 @@
       "vitals resources"
       "abilities conditions"
       "abilities skills"
-      "abilities perks";
+      "abilities perks"
+      "abilities .";
+    /* Запас высоты от длинного списка способностей уходит в пустую строку, а не в состояния/навыки/перки */
+    grid-template-rows: repeat(6, auto) 1fr;
   }
   .sheet-block {
     order: 0;
@@ -108,7 +111,7 @@
   .sheet-block[data-panel="perks"] {
     grid-area: perks;
   }
-  .sheet-col-side > .sheet-block {
-    border-left: 1px solid var(--sheet-warm-line);
+  .sheet-col-main > .sheet-block {
+    border-right: 1px solid var(--sheet-warm-line);
   }
 }
