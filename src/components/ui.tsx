@@ -365,6 +365,8 @@ export interface ModalProps {
   title: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
+  /** Кнопки в шапке слева от крестика. */
+  headerActions?: ReactNode;
   wide?: boolean;
   className?: string;
 }
@@ -375,6 +377,7 @@ export function Modal({
   title,
   children,
   footer,
+  headerActions,
   wide = false,
   className = "",
 }: ModalProps) {
@@ -445,13 +448,16 @@ export function Modal({
       >
         <header className="modal-head">
           <h2 id={titleId}>{title}</h2>
-          <Button
-            variant="ghost"
-            icon="close"
-            iconOnly
-            aria-label="Закрыть"
-            onClick={onClose}
-          />
+          <div className="modal-head-actions">
+            {headerActions}
+            <Button
+              variant="ghost"
+              icon="close"
+              iconOnly
+              aria-label="Закрыть"
+              onClick={onClose}
+            />
+          </div>
         </header>
         <div className="modal-body">{children}</div>
         {footer && <footer className="modal-footer">{footer}</footer>}

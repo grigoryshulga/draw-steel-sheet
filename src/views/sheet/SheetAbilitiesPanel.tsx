@@ -409,7 +409,27 @@ function AbilityDetailModal({
     <Modal
       open
       onClose={onClose}
-      wide
+      className="sheet-ability-modal"
+      headerActions={
+        <>
+          <Button
+            variant="ghost"
+            icon="copy"
+            iconOnly
+            aria-label="Создать копию"
+            title="Копия"
+            onClick={onDuplicate}
+          />
+          <Button
+            variant="ghost"
+            icon="edit"
+            iconOnly
+            aria-label="Изменить"
+            title="Изменить"
+            onClick={onEdit}
+          />
+        </>
+      }
       title={
         <span className="sheet-ability-detail-title">
           {ability.name || "Без названия"}
@@ -427,15 +447,6 @@ function AbilityDetailModal({
             {confirmDelete ? "Точно удалить?" : "Удалить"}
           </Button>
           <span className="grow" />
-          <Button variant="ghost" onClick={onDuplicate}>
-            Копия
-          </Button>
-          <Button variant="ghost" onClick={onEdit}>
-            Изменить
-          </Button>
-          <Button variant="ghost" onClick={onClose}>
-            Закрыть
-          </Button>
           <Button variant="primary" onClick={onUse}>
             Использовать
           </Button>

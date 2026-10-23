@@ -2,6 +2,9 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
 import { AccountContext, StorageScope } from "../state/StorageScope";
+import { useHashTab } from "../lib/hooks";
+import { TABS } from "../navigation";
+import { GUEST_TABS, GuestApp } from "./GuestApp";
 
 export function AuthGate({
   children,
@@ -19,6 +22,7 @@ export function AuthGate({
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
+  const [tab, setTab] = useHashTab("sheet", TABS);
 
   useEffect(() => {
     if (!supabase) return;
@@ -90,6 +94,10 @@ export function AuthGate({
 
   if (loading) return <div className="loading-screen">Проверяем вход…</div>;
 
+  if (!session && GUEST_TABS.includes(tab)) {
+    return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
+  }
+
   if (!session) {
     return (
       <main className="auth-page">
@@ -145,6 +153,13 @@ export function AuthGate({
             }}
           >
             {signUp ? "Уже есть аккаунт? Войти" : "Создать аккаунт"}
+          </button>
+          <button
+            className="auth-switch"
+            type="button"
+            onClick={() => setTab("codex")}
+          >
+            Смотреть Кодекс без входа
           </button>
         </form>
       </main>

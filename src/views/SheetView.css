@@ -213,6 +213,18 @@
   background: var(--red);
 }
 
+/* Отрицательная выносливость: красная шкала растёт от правого края */
+.meter-negative {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 12px;
+  border-radius: 999px;
+  background: var(--red);
+  transition: width 160ms var(--ease);
+}
+
 .meter-temp {
   position: absolute;
   top: 0;

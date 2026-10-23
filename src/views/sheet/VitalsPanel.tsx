@@ -36,6 +36,10 @@ export function VitalsPanel() {
   const max = Math.max(0, stamina.max);
   const winded = derived.winded;
   const fillPct = max > 0 ? clamp((stamina.current / max) * 100, 0, 100) : 0;
+  const negPct =
+    max > 0 && stamina.current < 0
+      ? clamp((-stamina.current / max) * 100, 0, 100)
+      : 0;
   const tempPct =
     max > 0 ? clamp((stamina.temp / max) * 100, 0, 100 - fillPct) : 0;
 
@@ -131,6 +135,9 @@ export function VitalsPanel() {
           className={`meter-fill tone-${status.tone}`}
           style={{ width: `${fillPct}%` }}
         />
+        {negPct > 0 && (
+          <span className="meter-negative" style={{ width: `${negPct}%` }} />
+        )}
         {max > 0 && stamina.temp > 0 && (
           <span
             className="meter-temp"

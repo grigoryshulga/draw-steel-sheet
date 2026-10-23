@@ -971,7 +971,7 @@ button.chip:hover {
 .modal {
   display: flex;
   flex-direction: column;
-  width: min(680px, 100%);
+  width: min(600px, 100%);
   max-height: min(88vh, 900px);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
@@ -982,7 +982,13 @@ button.chip:hover {
 }
 
 .modal-wide {
-  width: min(1040px, 100%);
+  width: min(880px, 100%);
+}
+
+.modal-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .modal-head {
