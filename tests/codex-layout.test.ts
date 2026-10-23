@@ -4,12 +4,39 @@ import {
   CODEX_INDEX,
   catalogLink,
   readCodexLocation,
+  resolveCodexArticle,
   codexLink,
   headingId,
   searchText,
 } from "../src/lib/codex";
 
 describe("Rules navigation", () => {
+  it("opens section links directly in rules and preserves article deep links", () => {
+    expect(
+      resolveCodexArticle(
+        articles,
+        readCodexLocation(catalogLink("08. Классы", "Неистовый")),
+      )?.id,
+    ).toBe("0801");
+    expect(
+      resolveCodexArticle(
+        articles,
+        readCodexLocation(catalogLink("02. Основы")),
+      )?.id,
+    ).toBe("0201");
+    expect(
+      resolveCodexArticle(articles, readCodexLocation("#/codex/0805"))?.id,
+    ).toBe("0805");
+    expect(
+      resolveCodexArticle(articles, readCodexLocation(catalogLink())),
+    ).toBeUndefined();
+    expect(
+      resolveCodexArticle(
+        articles,
+        readCodexLocation(catalogLink("08. Классы", "Неизвестный")),
+      ),
+    ).toBeUndefined();
+  });
   it("round-trips chapter and class catalog links independently of article links", () => {
     const hash = catalogLink("08. Классы", "Тень");
     expect(readCodexLocation(hash)).toEqual({

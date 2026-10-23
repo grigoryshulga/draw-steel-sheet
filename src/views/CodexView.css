@@ -511,61 +511,55 @@
   }
 }
 
-.codex-levels {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
-}
-.codex-level {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr) 20px;
+.codex-level-switcher {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
-  min-height: 88px;
-  padding: 18px 24px;
-  color: var(--fg);
-  text-decoration: none;
+  gap: 8px;
+  margin-bottom: 24px;
 }
-.codex-level + .codex-level {
-  border-top: 1px solid var(--line);
+.codex-level-switcher .eyebrow {
+  margin-right: 8px;
 }
-.codex-level:hover,
-.codex-level:focus-visible {
-  background: var(--accent-soft);
-}
-.codex-level:focus-visible {
-  outline-offset: -3px;
-}
-.codex-level-number {
+.codex-level-switcher a {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
   color: var(--muted);
-  font-size: 20px;
+  text-decoration: none;
   font-variant-numeric: tabular-nums;
 }
-.codex-level h3 {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
+.codex-level-switcher a:hover,
+.codex-level-switcher a[aria-current] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
-.codex-level p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-  margin-top: 4px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.codex-collection h3 a {
+  color: inherit;
+  text-decoration: none;
 }
-.codex-level-arrow {
+.codex-collection h3 a:hover {
   color: var(--accent);
 }
-@media (max-width: 700px) {
-  .codex-level {
-    grid-template-columns: 28px minmax(0, 1fr) 16px;
-    gap: 12px;
-    padding: 16px;
-  }
-  .codex-level p {
-    white-space: normal;
-  }
+.codex-collection-footer {
+  text-decoration: none;
+}
+.codex-section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-bottom: 24px;
+}
+.codex-section-links a {
+  color: var(--muted);
+  font-size: 13px;
+  text-underline-offset: 3px;
+}
+.codex-section-links a:hover {
+  color: var(--accent);
 }

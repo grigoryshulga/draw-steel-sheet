@@ -4,6 +4,7 @@ import {
   catalogLink,
   headingId,
   readCodexLocation,
+  resolveCodexArticle,
   searchText,
   type RuleArticle,
 } from "../lib/codex";
@@ -40,7 +41,7 @@ export function CodexView() {
 
   const [bookmarks, setBookmarks] = useState(readBookmarks);
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
-  const article = articles.find((a) => a.id === location.articleId);
+  const article = resolveCodexArticle(articles, location);
   const chapter = article?.chapter || location.chapter;
   const group = article?.group || location.group;
   const siblings = articles.filter(
@@ -54,16 +55,6 @@ export function CodexView() {
     id: headingId(m[2]),
     level: m[1].length,
   }));
-  const showLevels =
-    chapter === "08. Классы" && !!group && !needle && !onlyBookmarks;
-  const groups = [
-    ...new Set(
-      articles
-        .filter((a) => a.chapter === chapter)
-        .map((a) => a.group)
-        .filter(Boolean),
-    ),
-  ];
   const browse = (c = "", g = "") => {
     setQuery("");
     setOnlyBookmarks(false);
@@ -187,7 +178,7 @@ export function CodexView() {
                       chapter === c && !group && !article ? "is-active" : ""
                     }
                   >
-                    Обзор главы
+                    Читать главу
                   </a>
                   {[
                     ...new Set(
@@ -224,7 +215,7 @@ export function CodexView() {
                                 : ""
                             }
                           >
-                            Обзор: {g}
+                            Читать: {g}
                           </a>
                           {links}
                         </div>
@@ -295,6 +286,26 @@ export function CodexView() {
                       : "В закладки"}
                   </Button>
                 </header>
+                {chapter === "08. Классы" && siblings.length > 1 && (
+                  <nav
+                    className="codex-level-switcher"
+                    aria-label="Уровень класса"
+                  >
+                    <span className="eyebrow">Уровень</span>
+                    {siblings.map((entry) => (
+                      <a
+                        key={entry.id}
+                        href={`#/codex/${entry.id}`}
+                        aria-current={
+                          entry.id === article.id ? "page" : undefined
+                        }
+                        title={entry.title}
+                      >
+                        {entry.title.match(/^(\d+)-й/)?.[1] || entry.title}
+                      </a>
+                    ))}
+                  </nav>
+                )}
                 {headings.length > 0 && (
                   <details className="codex-inline-toc">
                     <summary>В этой статье · {headings.length}</summary>
@@ -393,135 +404,87 @@ export function CodexView() {
                   </p>
                 </div>
               )}
-              {!needle &&
-                !onlyBookmarks &&
-                (!chapter || (!group && groups.length > 0)) && (
-                  <div className="codex-collections">
-                    {(!chapter ? chapters : groups).map((name, i) => {
-                      const entries = articles.filter((a) =>
-                        !chapter
-                          ? a.chapter === name
-                          : a.chapter === chapter && a.group === name,
-                      );
-                      const art = artForArticle(entries[0].id);
-                      return (
-                        <a
-                          className="codex-collection"
-                          key={name}
-                          href={
-                            !chapter
-                              ? catalogLink(name)
-                              : catalogLink(chapter, name)
-                          }
-                        >
-                          <span className="eyebrow">
-                            {!chapter
-                              ? `Глава ${String(i + 1).padStart(2, "0")}`
-                              : chapter.includes("Классы")
-                                ? "Класс героя"
-                                : "Раздел"}
-                          </span>
-                          {art && (
-                            <img
-                              src={art.thumbnailSrc ?? art.src}
-                              alt=""
-                              loading="lazy"
-                            />
-                          )}
-                          <h3>{name.replace(/^\d+\.\s*/, "")}</h3>
+              {!needle && !onlyBookmarks && (
+                <div className="codex-collections">
+                  {chapters.map((name, i) => {
+                    const entries = articles.filter((a) => a.chapter === name);
+                    const sections = [
+                      ...new Set(entries.map((a) => a.group).filter(Boolean)),
+                    ];
+                    return (
+                      <section className="codex-collection" key={name}>
+                        <span className="eyebrow">
+                          Глава {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h3>
+                          <a href={catalogLink(name)}>
+                            {name.replace(/^\d+\.\s*/, "")}
+                          </a>
+                        </h3>
+                        {sections.length ? (
+                          <nav
+                            className="codex-section-links"
+                            aria-label={name}
+                          >
+                            {sections.map((section) => (
+                              <a
+                                key={section}
+                                href={catalogLink(name, section)}
+                              >
+                                {section}
+                              </a>
+                            ))}
+                          </nav>
+                        ) : (
                           <p>
                             {entries
                               .slice(0, 3)
                               .map((a) => a.title)
                               .join(" · ")}
                           </p>
-                          <span className="codex-collection-footer">
-                            Статей: {entries.length}
-                            <span aria-hidden="true">↗</span>
-                          </span>
-                        </a>
-                      );
-                    })}
-                  </div>
-                )}
-              <div className={showLevels ? "codex-levels" : "codex-results"}>
-                {results
-                  .filter(
-                    (a) =>
-                      needle ||
-                      onlyBookmarks ||
-                      (chapter && (group || !a.group)),
-                  )
-                  .map((a) => {
-                    if (showLevels) {
-                      const level = a.title.match(/^(\d+)-й/)?.[1];
-                      const topics = [
-                        ...a.markdown.matchAll(/^#{2,6}\s+(.+)$/gm),
-                      ]
-                        .map((m) => m[1].replace(/[*_`]/g, "").trim())
-                        .filter(
-                          (title) =>
-                            !/^(Особенности|Способности|Основы|Таблица развития)/i.test(
-                              title,
-                            ),
-                        );
-                      return (
-                        <a
-                          className="codex-level"
-                          key={a.id}
-                          href={`#/codex/${a.id}`}
-                        >
-                          <span
-                            className="codex-level-number"
-                            aria-hidden="true"
-                          >
-                            {level?.padStart(2, "0") || "—"}
-                          </span>
-                          <div className="codex-level-copy">
-                            <h3>{level ? `${level}-й уровень` : a.title}</h3>
-                            <p>
-                              {topics.slice(0, 3).join(" · ") ||
-                                "Особенности и способности уровня"}
-                            </p>
-                          </div>
-                          <span
-                            className="codex-level-arrow"
-                            aria-hidden="true"
-                          >
-                            →
-                          </span>
-                        </a>
-                      );
-                    }
-                    const normalized = searchText(a.markdown);
-                    const match = needle
-                      ? normalized.indexOf(needle.split(/\s+/)[0])
-                      : -1;
-                    const start = Math.max(0, match - 55);
-                    const excerpt = a.markdown
-                      .slice(start, start + 200)
-                      .replace(/[#*>_`|]/g, "")
-                      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-                    return (
-                      <a
-                        className="codex-result"
-                        key={a.id}
-                        href={`#/codex/${a.id}`}
-                      >
-                        <span className="eyebrow">
-                          {a.chapter}
-                          {a.group && ` / ${a.group}`}
-                        </span>
-                        <h3>{a.title}</h3>
-                        {needle && (
-                          <p>
-                            {start > 0 && "…"}
-                            {excerpt}…
-                          </p>
                         )}
-                      </a>
+                        <a
+                          className="codex-collection-footer"
+                          href={catalogLink(name)}
+                        >
+                          Читать главу <span aria-hidden="true">→</span>
+                        </a>
+                      </section>
                     );
                   })}
+                </div>
+              )}
+              <div className="codex-results">
+                {(needle || onlyBookmarks ? results : []).map((a) => {
+                  const normalized = searchText(a.markdown);
+                  const match = needle
+                    ? normalized.indexOf(needle.split(/\s+/)[0])
+                    : -1;
+                  const start = Math.max(0, match - 55);
+                  const excerpt = a.markdown
+                    .slice(start, start + 200)
+                    .replace(/[#*>_`|]/g, "")
+                    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+                  return (
+                    <a
+                      className="codex-result"
+                      key={a.id}
+                      href={`#/codex/${a.id}`}
+                    >
+                      <span className="eyebrow">
+                        {a.chapter}
+                        {a.group && ` / ${a.group}`}
+                      </span>
+                      <h3>{a.title}</h3>
+                      {needle && (
+                        <p>
+                          {start > 0 && "…"}
+                          {excerpt}…
+                        </p>
+                      )}
+                    </a>
+                  );
+                })}
               </div>
             </>
           )}
