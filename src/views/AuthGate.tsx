@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
 import { AccountContext, StorageScope } from "../state/StorageScope";
+import { SiteLogo } from "../components/SiteLogo";
 import { useHashTab } from "../lib/hooks";
 import { TABS } from "../navigation";
 import { GUEST_TABS, GuestApp } from "./GuestApp";
@@ -102,10 +103,15 @@ export function AuthGate({
     return (
       <main className="auth-page">
         <form className="auth-card" onSubmit={submit}>
+          <SiteLogo variant="mark" className="auth-logo" />
           <p className="auth-kicker">ДОСТАТЬ ЛИСТЫ!</p>
-          <h1>{signUp ? "Создать аккаунт" : "Войти"}</h1>
+          <h1>Добро пожаловать, герой!</h1>
           <p className="auth-copy">
-            Войдите, чтобы хранить листы героев в своём аккаунте.
+            Листы персонажей для Draw Steel на русском: бои, ресурсы,
+            способности и правила под рукой.{" "}
+            {signUp
+              ? "Создайте аккаунт, чтобы хранить героев."
+              : "Войдите, чтобы вернуться к своим героям."}
           </p>
           <label htmlFor="auth-email">Электронная почта</label>
           <input

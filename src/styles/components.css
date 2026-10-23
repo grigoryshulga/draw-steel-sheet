@@ -308,3 +308,7 @@
 .auth-message { color: var(--accent); }
 
 .auth-account-error { position: fixed; z-index: 30; right: 12px; bottom: 12px; margin: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--fg); background: var(--surface); font-size: .82rem; }
+.auth-card { justify-items: center; text-align: center; }
+.auth-card label, .auth-card input, .auth-card .auth-submit { justify-self: stretch; text-align: left; }
+.auth-card .auth-submit { text-align: center; }
+.auth-logo { width: 96px; height: 96px; margin-bottom: 4px; }
