@@ -1,4 +1,5 @@
 import { Field, Panel, Stepper, TextInput } from "../../components/ui";
+import { HelpTooltip } from "../../components/HelpTooltip";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { useApp } from "../../state/AppContext";
@@ -9,7 +10,32 @@ export function CharacteristicsPanel() {
   const { character, derived, patch } = useApp();
 
   return (
-    <Panel title="Характеристики" icon="spark" className="char-panel" dense>
+    <Panel
+      title="Характеристики"
+      icon="spark"
+      className="char-panel"
+      dense
+      actions={
+        <HelpTooltip label="Пороги бросков 2d10">
+          <div className="stat-breakdown-equation">
+            <strong>Пороги бросков 2d10</strong>
+            {CHARACTERISTICS.map((meta) => {
+              const threshold = derived.tierThresholds[meta.key];
+              return (
+                <p key={meta.key}>
+                  <strong>{meta.short}</strong>{" · "}
+                  <span>Т1 ≤ {threshold.t2 - 1}</span>{" · "}
+                  <span>
+                    Т2 {threshold.t2}–{threshold.t3 - 1}
+                  </span>{" · "}
+                  <span>Т3 ≥ {threshold.t3}</span>
+                </p>
+              );
+            })}
+          </div>
+        </HelpTooltip>
+      }
+    >
       <div className="char-grid">
         {CHARACTERISTICS.map((meta) => {
           const value = character.characteristics[meta.key];
@@ -36,25 +62,6 @@ export function CharacteristicsPanel() {
           );
         })}
       </div>
-      <details className="characteristic-thresholds">
-        <summary>Пороги бросков 2d10</summary>
-        <div>
-          {CHARACTERISTICS.map((meta) => {
-            const threshold = derived.tierThresholds[meta.key];
-            return (
-              <p key={meta.key}>
-                <strong>{meta.short}</strong>
-                <span>Т1 ≤ {threshold.t2 - 1}</span>
-                <span>
-                  Т2 {threshold.t2}–{threshold.t3 - 1}
-                </span>
-                <span>Т3 ≥ {threshold.t3}</span>
-              </p>
-            );
-          })}
-        </div>
-      </details>
-
       <div className="movement-grid">
         <Field label="Размер">
           <TextInput
@@ -67,7 +74,13 @@ export function CharacteristicsPanel() {
           />
         </Field>
         <div>
-          <Field label="Скорость">
+          <div className="field">
+            <span className="field-label stat-label-with-help">
+              Скорость
+              {character.automation?.enabled && (
+                <StatBreakdown label="скорости" breakdown={characterStatBreakdown(character, "speed")} />
+              )}
+            </span>
             <TextInput
               className="numeric"
               value={character.speed}
@@ -76,13 +89,16 @@ export function CharacteristicsPanel() {
               title="Скорость в клетках"
               onChange={(event) => patch({ speed: event.target.value })}
             />
-          </Field>
-          {character.automation?.enabled && (
-            <StatBreakdown label="скорости" breakdown={characterStatBreakdown(character, "speed")} />
-          )}
+          </div>
         </div>
         <div>
-          <Field label="Отход">
+          <div className="field">
+            <span className="field-label stat-label-with-help">
+              Отход
+              {character.automation?.enabled && (
+                <StatBreakdown label="отхода" breakdown={characterStatBreakdown(character, "disengage")} />
+              )}
+            </span>
             <TextInput
               className="numeric"
               value={character.disengage}
@@ -91,13 +107,16 @@ export function CharacteristicsPanel() {
               title="Сколько клеток можно сместиться при отходе"
               onChange={(event) => patch({ disengage: event.target.value })}
             />
-          </Field>
-          {character.automation?.enabled && (
-            <StatBreakdown label="отхода" breakdown={characterStatBreakdown(character, "disengage")} />
-          )}
+          </div>
         </div>
         <div>
-          <Field label="Устойчивость">
+          <div className="field">
+            <span className="field-label stat-label-with-help">
+              Устойчивость
+              {character.automation?.enabled && (
+                <StatBreakdown label="устойчивости" breakdown={characterStatBreakdown(character, "stability")} />
+              )}
+            </span>
             <TextInput
               className="numeric"
               value={character.stability}
@@ -106,10 +125,7 @@ export function CharacteristicsPanel() {
               title="Сопротивление принудительному движению"
               onChange={(event) => patch({ stability: event.target.value })}
             />
-          </Field>
-          {character.automation?.enabled && (
-            <StatBreakdown label="устойчивости" breakdown={characterStatBreakdown(character, "stability")} />
-          )}
+          </div>
         </div>
       </div>
     </Panel>

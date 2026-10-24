@@ -31,6 +31,38 @@
 .health-recoveries-readout .vital-max-input {
   width: 84px;
 }
+.vitals-current .vital-max-input.number-counter-plain {
+  width: 4ch;
+  min-width: 4ch;
+  height: 26px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg);
+  text-align: center;
+}
+.vitals-current .vital-max-input.number-counter-plain .number-counter-value {
+  width: 100%;
+  min-width: 0;
+  padding: 0 3px;
+  color: var(--fg);
+  font-size: 15px;
+  text-align: center;
+}
+.vitals-current .vital-max-input.number-counter-plain:hover {
+  border-bottom-color: var(--line-strong);
+  background: transparent;
+}
+.vitals-current .vital-max-input.number-counter-plain:focus-within {
+  border-bottom-color: var(--accent);
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.health-recoveries-readout > .stat-breakdown {
+  margin: 0;
+}
 .vitals-head .health-recoveries-readout {
   align-self: flex-end;
 }

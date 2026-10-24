@@ -144,6 +144,7 @@ export interface NumberInputProps {
   step?: number;
   label?: string;
   className?: string;
+  showButtons?: boolean;
   placeholder?: string;
   onBlur?: () => void;
   onKeyDown?: (event: ReactKeyboardEvent<HTMLInputElement>) => void;
@@ -159,6 +160,7 @@ export function NumberInput({
   step = 1,
   label,
   className = "",
+  showButtons = true,
   placeholder,
   onBlur,
   onKeyDown,
@@ -198,24 +200,26 @@ export function NumberInput({
 
   return (
     <div
-      className={`number-counter ${className}`.trim()}
+      className={`number-counter ${showButtons ? "" : "number-counter-plain"} ${className}`.trim()}
       role="group"
       aria-label={label}
     >
-      <button
-        type="button"
-        className="number-counter-btn"
-        aria-label={`${label ?? "Значение"}: уменьшить`}
-        onClick={() => {
-          const next = normalizeNumberInput(value - step, value, min, max);
-          setDraft(String(next));
-          emit(next);
-          onCommit?.(next);
-        }}
-        disabled={min !== undefined && value <= min}
-      >
-        <Icon name="minus" size={12} />
-      </button>
+      {showButtons && (
+        <button
+          type="button"
+          className="number-counter-btn"
+          aria-label={`${label ?? "Значение"}: уменьшить`}
+          onClick={() => {
+            const next = normalizeNumberInput(value - step, value, min, max);
+            setDraft(String(next));
+            emit(next);
+            onCommit?.(next);
+          }}
+          disabled={min !== undefined && value <= min}
+        >
+          <Icon name="minus" size={12} />
+        </button>
+      )}
       <input
         type="text"
         inputMode="decimal"
@@ -239,20 +243,22 @@ export function NumberInput({
           if (next !== null) emit(normalizeNumberInput(next, value, min, max));
         }}
       />
-      <button
-        type="button"
-        className="number-counter-btn"
-        aria-label={`${label ?? "Значение"}: увеличить`}
-        onClick={() => {
-          const next = normalizeNumberInput(value + step, value, min, max);
-          setDraft(String(next));
-          emit(next);
-          onCommit?.(next);
-        }}
-        disabled={max !== undefined && value >= max}
-      >
-        <Icon name="plus" size={12} />
-      </button>
+      {showButtons && (
+        <button
+          type="button"
+          className="number-counter-btn"
+          aria-label={`${label ?? "Значение"}: увеличить`}
+          onClick={() => {
+            const next = normalizeNumberInput(value + step, value, min, max);
+            setDraft(String(next));
+            emit(next);
+            onCommit?.(next);
+          }}
+          disabled={max !== undefined && value >= max}
+        >
+          <Icon name="plus" size={12} />
+        </button>
+      )}
     </div>
   );
 }

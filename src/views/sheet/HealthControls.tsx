@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button, NumberInput } from "../../components/ui";
+import { characterStatBreakdown } from "../../lib/character-calculations";
 import { previewGameAction } from "../../lib/game-actions";
 import type { GameAction } from "../../lib/game-actions";
 import { useApp } from "../../state/AppContext";
+import { StatBreakdown } from "./StatBreakdown";
 import "./HealthControls.css";
 
 type AmountKind = "damage" | "heal" | "temporary";
@@ -153,6 +155,7 @@ export function RecoveriesReadout() {
           max={99}
           label="Максимум восстановлений"
           className="vital-max-input"
+          showButtons={false}
           onChange={(max) =>
             patch({
               recoveries: {
@@ -164,6 +167,12 @@ export function RecoveriesReadout() {
           }
         />
       </span>
+      {character.automation?.enabled && (
+        <StatBreakdown
+          label="восстановлений"
+          breakdown={characterStatBreakdown(character, "recoveries")}
+        />
+      )}
     </div>
   );
 }

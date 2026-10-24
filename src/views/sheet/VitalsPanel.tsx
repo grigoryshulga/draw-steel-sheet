@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NumberInput, Panel } from "../../components/ui";
+import { Panel, TextInput } from "../../components/ui";
 import { clamp, vitalStatus } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { useApp } from "../../state/AppContext";
@@ -93,26 +93,36 @@ export function VitalsPanel() {
             title="Максимум выносливости — измените и нажмите Enter"
           >
             <span className="vital-max-slash numeric">/</span>
-            <NumberInput
-              value={Number(maxDraft) || 0}
-              min={0}
-              max={999}
-              label="Максимум выносливости"
-              className="vital-max-input"
-              onChange={(value) => setMaxDraft(String(value))}
-              onCommit={commitMax}
-              onBlur={() => commitMax()}
+            <TextInput
+              value={maxDraft}
+              inputMode="numeric"
+              aria-label="Максимум выносливости"
+              className="vital-max-input number-counter-plain numeric"
+              onChange={(event) => setMaxDraft(event.target.value)}
+              onFocus={(event) => event.currentTarget.select()}
+              onBlur={(event) => {
+                const value = event.currentTarget.value.trim();
+                if (value === "") setMaxDraft(String(character.stamina.max));
+                else commitMax(Number(value));
+              }}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
                   event.preventDefault();
                   event.currentTarget.blur();
                 }
                 if (event.key === "Escape") {
+                  event.currentTarget.value = String(character.stamina.max);
                   setMaxDraft(String(character.stamina.max));
                   event.currentTarget.blur();
                 }
               }}
             />
+            {character.automation?.enabled && (
+              <StatBreakdown
+                label="максимума выносливости"
+                breakdown={characterStatBreakdown(character, "stamina")}
+              />
+            )}
           </span>
           {stamina.temp > 0 && (
             <button
@@ -127,19 +137,6 @@ export function VitalsPanel() {
           )}
         </div>
       </div>
-
-      {character.automation?.enabled && (
-        <>
-          <StatBreakdown
-            label="максимума выносливости"
-            breakdown={characterStatBreakdown(character, "stamina")}
-          />
-          <StatBreakdown
-            label="восстановлений"
-            breakdown={characterStatBreakdown(character, "recoveries")}
-          />
-        </>
-      )}
 
       <div
         className="meter"

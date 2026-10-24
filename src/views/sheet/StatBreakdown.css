@@ -1,15 +1,15 @@
-.stat-breakdown {
-  margin-top: 5px;
-  font-size: 11px;
+.stat-label-with-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.stat-breakdown summary {
-  cursor: pointer;
+.stat-breakdown {
+  margin: 0;
 }
 
 .stat-breakdown-equation {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 3px 9px;
-  padding-top: 4px;
 }

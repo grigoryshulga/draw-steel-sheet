@@ -1,32 +1,51 @@
-import { Icon } from "../../components/Icons";
+import { Panel } from "../../components/ui";
+import { HelpTooltip } from "../../components/HelpTooltip";
 import { useApp } from "../../state/AppContext";
-import { formatBonus } from "../../lib/utils";
+import "./PotencyPanel.css";
 
-/** Компактный потенциал способностей от высочайшей характеристики. */
+/** Пороги потенциала способностей от высочайшей характеристики. */
 export function PotencyPanel() {
   const { derived } = useApp();
-  const potency = derived.potency;
-  return (
-    <section
-      className="potency-strip"
-      title="Потенциал считается от высочайшей характеристики героя"
-    >
-      <span className="potency-strip-title">
-        <Icon name="spark" size={14} />
-        <span className="eyebrow">Потенциал</span>
-      </span>
+  const { potency, highestCharacteristic } = derived;
 
-      <div className="potency-strip-values">
-        <span className="potency-strip-value">
-          Слабый <strong className="mono">{formatBonus(potency.weak)}</strong>
-        </span>
-        <span className="potency-strip-value">
-          Средний <strong className="mono">{formatBonus(potency.average)}</strong>
-        </span>
-        <span className="potency-strip-value is-strong">
-          Сильный <strong className="mono">{formatBonus(potency.strong)}</strong>
-        </span>
-      </div>
-    </section>
+  return (
+    <Panel
+      title="Потенциал"
+      icon="spark"
+      className="potency-panel"
+      dense
+      actions={
+        <HelpTooltip label="Расчёт и применение потенциала">
+          <strong>Потенциал</strong>
+          <p>Наивысшая характеристика: {highestCharacteristic}.</p>
+          <ul>
+            <li>Слабый: {highestCharacteristic} − 2 = {potency.weak}.</li>
+            <li>Средний: {highestCharacteristic} − 1 = {potency.average}.</li>
+            <li>Сильный: {potency.strong}.</li>
+          </ul>
+          <p>
+            Эффект с потенциалом применяется, только если характеристика цели
+            строго ниже порога. Равенство не подходит. «М &lt; СЛАБЫЙ» означает,
+            что Мощь цели ниже слабого порога.
+          </p>
+        </HelpTooltip>
+      }
+    >
+      <dl className="potency-values" aria-label="Пороги потенциала">
+        <div className="potency-tile">
+          <dt>Слабый</dt>
+          <dd>{potency.weak}</dd>
+        </div>
+        <div className="potency-tile">
+          <dt>Средний</dt>
+          <dd>{potency.average}</dd>
+        </div>
+        <div className="potency-tile potency-tile-strong">
+          <dt>Сильный</dt>
+          <dd>{potency.strong}</dd>
+        </div>
+      </dl>
+
+    </Panel>
   );
 }

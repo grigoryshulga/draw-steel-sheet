@@ -43,8 +43,8 @@ const PANELS: Record<PanelId, ComponentType> = {
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
 const MAIN_COLUMN: PanelId[] = ["characteristics", "vitals", "abilities"];
 const SIDE_COLUMN: PanelId[] = [
-  "potency",
   "progress",
+  "potency",
   "resources",
   "conditions",
   "skills",

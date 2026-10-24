@@ -1,4 +1,5 @@
 import type { CharacterStatBreakdown } from "../../lib/character-calculations";
+import { HelpTooltip } from "../../components/HelpTooltip";
 import "./StatBreakdown.css";
 
 interface StatBreakdownProps {
@@ -8,9 +9,8 @@ interface StatBreakdownProps {
 
 export function StatBreakdown({ label, breakdown }: StatBreakdownProps) {
   return (
-    <details className="stat-breakdown">
-      <summary>Расчёт {label}</summary>
-      <div className="stat-breakdown-equation">
+    <HelpTooltip label={`Расчёт ${label}`} className="stat-breakdown">
+      <div className="stat-breakdown-equation" lang="ru">
         <span>База {breakdown.base}</span>
         {breakdown.contributions.map((item, index) => (
           <span key={`${item.sourceId}-${index}`}>
@@ -23,6 +23,6 @@ export function StatBreakdown({ label, breakdown }: StatBreakdownProps) {
         </span>
         <strong>Итого {breakdown.total}</strong>
       </div>
-    </details>
+    </HelpTooltip>
   );
 }
