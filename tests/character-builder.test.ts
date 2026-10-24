@@ -85,13 +85,21 @@ describe("Character creation and automatic rules", () => {
       ["career", "careerSkills"],
       ["class", "classSkills"],
     ] as const) {
-      draft[field] = slots[kind].map((s) => {
-        const value =
-          s.fixed && !used.has(s.fixed)
-            ? s.fixed
-            : (s.fixed ? ALL_CREATION_SKILLS : s.options).find(
-                (name) => !used.has(name),
-              )!;
+      const groupSlots = slots[kind];
+      const reserved = new Map<number, string>();
+      // Fixed skills are reserved before any flexible slot is filled; a fixed
+      // skill already owned by an earlier source becomes a replacement slot.
+      groupSlots.forEach((s, index) => {
+        if (s.fixed && !used.has(s.fixed)) {
+          reserved.set(index, s.fixed);
+          used.add(s.fixed);
+        }
+      });
+      draft[field] = groupSlots.map((s, index) => {
+        const fixed = reserved.get(index);
+        if (fixed) return fixed;
+        const pool = s.fixed ? ALL_CREATION_SKILLS : s.options;
+        const value = pool.find((name) => !used.has(name))!;
         used.add(value);
         return value;
       });

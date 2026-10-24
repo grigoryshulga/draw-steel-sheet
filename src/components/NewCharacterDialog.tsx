@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import {
   BUILDER_DATA as data,
   buildCharacter,
@@ -7,20 +7,25 @@ import {
   selectedSkills,
   grantedClassAbilities,
   startingCharacteristics,
-  builderIssues,
+  builderStepIssues,
   type BuilderDraft,
 } from "../lib/character-builder";
+import {
+  BUILDER_STEPS,
+  BUILDER_STEP_V2_KEY,
+  LEGACY_BUILDER_STEP_V1_KEY,
+  builderStepIndex,
+  nextBuilderStep,
+  previousBuilderStep,
+  restoreBuilderStep,
+  type BuilderStepId,
+} from "../lib/builder-steps";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
 import { classFeatureGroups } from "../data/class-feature-rules";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
-import {
-  ALL_CREATION_SKILLS,
-  CLASS_SIGNATURE_COUNTS,
-  canUseKit,
-  type SkillSlot,
-} from "../data/creation-rules";
+import { CLASS_SIGNATURE_COUNTS, canUseKit } from "../data/creation-rules";
 import { createCharacter } from "../lib/defaults";
 import { abilityDistance } from "../lib/character-calculations";
 import {
@@ -34,26 +39,17 @@ import { Button, Chip, Field, Modal, Select, TextArea, TextInput } from "./ui";
 import { FeatureEquipmentFields } from "./FeatureEquipmentFields";
 import { RuleText } from "./RuleText";
 import { Artwork } from "./Artwork";
+import { CharacteristicAllocator } from "./CharacteristicAllocator";
+import { SkillPicker } from "./SkillPicker";
 import { artFor } from "../lib/art";
 import "../views/CodexView.css";
 import "./NewCharacterDialog.css";
 
 const DRAFT_KEY = "ds-builder-draft-v1";
-const STEP_KEY = "ds-builder-step-v1";
 function scopedStorageKey(key: string, scope: string): string {
   return scope === "local" ? key : `${key}:${scope}`;
 }
-const STEPS = [
-  "Замысел",
-  "Происхождение",
-  "Культура",
-  "Карьера",
-  "Класс",
-  "Комплект",
-  "Способности",
-  "Детали",
-  "Готовый герой",
-];
+const STEPS = BUILDER_STEPS;
 function readDraft(key: string): BuilderDraft {
   try {
     const stored = JSON.parse(localStorage.getItem(key) || "null");
@@ -66,6 +62,9 @@ function readDraft(key: string): BuilderDraft {
       return {
         ...base,
         ...stored,
+        ancestrySkills: Array.isArray(stored.ancestrySkills)
+          ? stored.ancestrySkills.filter((value: unknown): value is string => typeof value === "string")
+          : base.ancestrySkills,
         culture: { ...base.culture, ...stored.culture },
         characteristics: { ...base.characteristics, ...stored.characteristics },
       };
@@ -96,65 +95,6 @@ function Reference({
     </details>
   );
 }
-function SkillChoices({
-  slots,
-  values,
-  onChange,
-  prior = [],
-}: {
-  slots: SkillSlot[];
-  values: string[];
-  onChange: (values: string[]) => void;
-  prior?: string[];
-}) {
-  return (
-    <div className="builder-skill-choices">
-      {slots.map((slot, i) => {
-        const previousValues = slots
-          .slice(0, i)
-          .map((s, j) => values[j] || s.fixed || "");
-        const duplicate =
-          slot.fixed && [...prior, ...previousValues].includes(slot.fixed);
-        const options = duplicate ? ALL_CREATION_SKILLS : slot.options;
-        const value = values[i] || (!duplicate ? slot.fixed : "") || "";
-        const otherValues = slots.flatMap((s, j) =>
-          j !== i ? [values[j] || s.fixed || ""] : [],
-        );
-        return (
-          <Field
-            key={i}
-            label={
-              duplicate
-                ? `${slot.fixed} уже есть — выберите замену`
-                : `${slot.label} ${i + 1}`
-            }
-          >
-            <Select
-              value={value}
-              onChange={(e) => {
-                const next = [...values];
-                next[i] = e.target.value;
-                onChange(next);
-              }}
-            >
-              <option value="">Выберите навык</option>
-              {options
-                .filter(
-                  (s) =>
-                    s === value ||
-                    (!prior.includes(s) && !otherValues.includes(s)),
-                )
-                .map((s) => (
-                  <option key={s}>{s}</option>
-                ))}
-            </Select>
-          </Field>
-        );
-      })}
-    </div>
-  );
-}
-
 export function NewCharacterDialog({
   open,
   onClose,
@@ -166,22 +106,25 @@ export function NewCharacterDialog({
 }) {
   const scope = useStorageScope();
   const draftKey = scopedStorageKey(DRAFT_KEY, scope);
-  const stepKey = scopedStorageKey(STEP_KEY, scope);
+  const stepKey = scopedStorageKey(BUILDER_STEP_V2_KEY, scope);
+  const legacyStepKey = scopedStorageKey(LEGACY_BUILDER_STEP_V1_KEY, scope);
   const [draft, setDraft] = useState(() => readDraft(draftKey));
-  const [step, setStep] = useState(() => {
+  const [step, setStep] = useState<BuilderStepId>(() => {
     try {
-      return Math.min(
-        8,
-        Math.max(0, Number(localStorage.getItem(stepKey)) || 0),
-      );
+      return restoreBuilderStep(localStorage.getItem(stepKey), localStorage.getItem(legacyStepKey), {
+        ancestry: Boolean(draft.ancestry),
+        career: Boolean(draft.career),
+        className: Boolean(draft.className),
+      });
     } catch {
-      return 0;
+      return "concept";
     }
   });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [showIssues, setShowIssues] = useState(false);
   const seed = useRef(createCharacter());
+  const stepsRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const hero = useMemo(() => buildCharacter(draft, seed.current), [draft]);
   const derived = deriveStats(hero);
@@ -194,8 +137,9 @@ export function NewCharacterDialog({
   const classData = data.classes.find((c) => c.name === draft.className);
   const preset = classPreset(draft.className);
   const skillSlots = builderSkillSlots(draft);
-  const cultureSkills = selectedSkills(skillSlots.culture, draft.cultureSkills);
-  const careerSkills = selectedSkills(skillSlots.career, draft.careerSkills);
+  const ancestrySkills = selectedSkills(skillSlots.ancestry, draft.ancestrySkills || []);
+  const cultureSkills = selectedSkills(skillSlots.culture, draft.cultureSkills, ancestrySkills);
+  const careerSkills = selectedSkills(skillSlots.career, draft.careerSkills, [...ancestrySkills, ...cultureSkills]);
   const traitsSpent =
     ancestry?.traits
       .filter((t) => draft.traits.includes(t.name))
@@ -218,21 +162,47 @@ export function NewCharacterDialog({
   useEffect(() => {
     contentRef.current?.scrollTo({ top: 0 });
     try {
-      localStorage.setItem(stepKey, String(step));
+      localStorage.setItem(stepKey, step);
     } catch {
       /* no storage */
     }
   }, [step, stepKey]);
-  const issues = builderIssues(draft);
-  const go = (next: number) => {
+  useEffect(() => {
+    const nav = stepsRef.current;
+    if (!open || !nav) return;
+
+    const revealCurrentStep = () => {
+      const current = nav.querySelector<HTMLElement>('[aria-current="step"]');
+      if (!current) return;
+
+      const navRect = nav.getBoundingClientRect();
+      const currentRect = current.getBoundingClientRect();
+      let left = nav.scrollLeft;
+      if (currentRect.left < navRect.left) {
+        left += currentRect.left - navRect.left;
+      } else if (currentRect.right > navRect.right) {
+        left += currentRect.right - navRect.right;
+      } else {
+        return;
+      }
+      nav.scrollTo({ left, behavior: "auto" });
+    };
+
+    revealCurrentStep();
+    const observer = new ResizeObserver(revealCurrentStep);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [open, step]);
+  const issues = builderStepIssues(draft);
+  const go = (next: BuilderStepId) => {
     setStep(next);
     setError("");
     setShowIssues(false);
   };
   const submit = async (blank = false) => {
-    const invalid = issues.findIndex(Boolean);
-    if (!blank && invalid >= 0) {
-      go(invalid);
+    const invalid = BUILDER_STEPS.find(({ id }) => Boolean(issues[id]));
+    if (!blank && invalid) {
+      go(invalid.id);
       setShowIssues(true);
       return;
     }
@@ -241,7 +211,7 @@ export function NewCharacterDialog({
     try {
       await onCreate(blank ? createCharacter({ name: draft.name }) : hero);
       setDraft(emptyBuilderDraft());
-      setStep(0);
+      setStep("concept");
       seed.current = createCharacter();
       try {
         localStorage.removeItem(draftKey);
@@ -297,8 +267,8 @@ export function NewCharacterDialog({
           <Button variant="ghost" onClick={onClose} disabled={busy}>
             Продолжить позже
           </Button>
-          {step > 0 && (
-            <Button onClick={() => go(step - 1)} disabled={busy}>
+          {step !== "concept" && (
+            <Button onClick={() => go(previousBuilderStep(step))} disabled={busy}>
               Назад
             </Button>
           )}
@@ -306,30 +276,30 @@ export function NewCharacterDialog({
             variant="primary"
             disabled={busy}
             onClick={() =>
-              step === 8
+              step === "summary"
                 ? void submit()
                 : issues[step]
                   ? setShowIssues(true)
-                  : go(step + 1)
+                  : go(nextBuilderStep(step))
             }
           >
-            {busy ? "Создание…" : step === 8 ? "Создать героя" : "Далее →"}
+            {busy ? "Создание…" : step === "summary" ? "Создать героя" : "Далее →"}
           </Button>
         </>
       }
     >
       <div className="builder-layout">
-        <nav className="builder-steps" aria-label="Этапы создания героя">
-          {STEPS.map((label, i) => (
+        <nav ref={stepsRef} className="builder-steps" aria-label="Этапы создания героя">
+          {STEPS.map(({ id, label }, i) => (
             <button
-              key={label}
+              key={id}
               type="button"
-              aria-current={step === i ? "step" : undefined}
-              className={step === i ? "is-active" : ""}
-              onClick={() => go(i)}
+              aria-current={step === id ? "step" : undefined}
+              className={step === id ? "is-active" : ""}
+              onClick={() => go(id)}
             >
               <span>
-                {!issues[i] && i !== 8 ? "✓" : String(i + 1).padStart(2, "0")}
+                {!issues[id] && id !== "summary" ? "✓" : String(i + 1).padStart(2, "0")}
               </span>
               {label}
             </button>
@@ -337,9 +307,9 @@ export function NewCharacterDialog({
         </nav>
         <div className="builder-content" ref={contentRef}>
           <span className="eyebrow">
-            Шаг {step + 1} из {STEPS.length} · Герой 1-го уровня
+            Шаг {builderStepIndex(step) + 1} из {STEPS.length} · Герой 1-го уровня
           </span>
-          <h2 className="builder-step-title">{STEPS[step]}</h2>
+          <h2 className="builder-step-title">{STEPS[builderStepIndex(step)].label}</h2>
           <details className="builder-mobile-preview">
             <summary>
               Лист: {hero.name} · {hero.stamina.max} выносливости
@@ -359,7 +329,7 @@ export function NewCharacterDialog({
             <p>Навыки: {hero.skills.join(", ") || "ещё не выбраны"}</p>
             <p>Способности: {hero.abilities.map((a) => a.name).join(", ")}</p>
           </details>
-          {step === 0 && (
+          {step === "concept" && (
             <>
               <p className="builder-intro">
                 Начните с идеи. Каждый выбор добавит новую часть в лист справа.
@@ -394,85 +364,71 @@ export function NewCharacterDialog({
               </Button>
             </>
           )}
-          {step === 1 && (
+          {step === "ancestry" && (
             <>
               <p className="builder-intro">
-                Происхождение определяет физиологию и знаковые черты. Остальные
-                черты выбираются за очки.
+                Выберите происхождение. Полный текст выбранного происхождения
+                раскроется под списком.
               </p>
               <div className="builder-option-grid">
                 {data.ancestries.map((a) => (
+                  <Fragment key={a.name}>
                   <button
                     type="button"
                     className={`builder-option ${artFor("ancestry", a.name) ? "with-art" : ""} ${a.name === draft.ancestry ? "is-selected" : ""}`}
                     aria-pressed={a.name === draft.ancestry}
-                    key={a.name}
-                    onClick={() => patch({ ancestry: a.name, traits: [] })}
+                    aria-expanded={a.name === draft.ancestry}
+                    aria-controls="builder-ancestry-preview"
+                    onClick={() => {
+                      if (a.name !== draft.ancestry) patch({ ancestry: a.name, traits: [], ancestrySkills: [] });
+                    }}
                   >
                     <Artwork kind="ancestry" name={a.name} />
                     <strong>{a.name}</strong>
-                    <span>{a.summary.slice(0, 150)}…</span>
+                    <span className="builder-option__snippet">{a.summary.slice(0, 155)}{a.summary.length > 155 ? "…" : ""}</span>
                   </button>
+                  {a.name === draft.ancestry && <section className="builder-selected-preview" id="builder-ancestry-preview" aria-label={`Выбрано происхождение: ${a.name}`}>
+                    <Artwork kind="ancestry" name={a.name} />
+                    <div><h3>{a.name}</h3><RuleText text={a.summary} /></div>
+                  </section>}
+                  </Fragment>
                 ))}
               </div>
-              {ancestry && (
+            </>
+          )}
+          {step === "ancestry-options" && (
+            <>
+              {ancestry ? (
                 <>
-                  <Reference
-                    id={ancestry.articleId}
-                    label="Знаковые черты — получены автоматически"
-                    text={ancestry.signature}
-                  />
+                  <div className="builder-selection-summary">
+                    <strong>{ancestry.name}</strong>
+                    <Button variant="ghost" size="sm" onClick={() => go("ancestry")}>Изменить происхождение</Button>
+                  </div>
+                  <Reference id={ancestry.articleId} label="Знаковые черты — получены автоматически" text={ancestry.signature} />
                   <div className="builder-section-head">
                     <h3>Черты за очки</h3>
-                    <Chip
-                      tone={
-                        traitsSpent === ancestry.budget ? "green" : "accent"
-                      }
-                    >
-                      {traitsSpent} / {ancestry.budget}
-                    </Chip>
+                    <Chip tone={traitsSpent === ancestry.budget ? "green" : "accent"}>{traitsSpent} / {ancestry.budget}</Chip>
                   </div>
                   {ancestry.traits.map((t) => {
                     const chosen = draft.traits.includes(t.name);
                     return (
-                      <div
-                        className={`builder-choice ${chosen ? "is-selected" : ""}`}
-                        key={t.name}
-                      >
+                      <div className={`builder-choice ${chosen ? "is-selected" : ""}`} key={t.name}>
                         <label>
-                          <input
-                            type="checkbox"
-                            checked={chosen}
-                            disabled={
-                              !chosen && traitsSpent + t.cost > ancestry.budget
-                            }
-                            onChange={() =>
-                              patch({
-                                traits: chosen
-                                  ? draft.traits.filter((n) => n !== t.name)
-                                  : [...draft.traits, t.name],
-                              })
-                            }
-                          />
-                          <strong>{t.name}</strong>
-                          <span className="muted small">{t.cost} очк.</span>
+                          <input type="checkbox" checked={chosen} disabled={!chosen && traitsSpent + t.cost > ancestry.budget}
+                            onChange={() => patch({ traits: chosen ? draft.traits.filter((n) => n !== t.name) : [...draft.traits, t.name] })} />
+                          <strong>{t.name}</strong><span className="muted small">{t.cost} очк.</span>
                         </label>
                         <RuleText text={t.text} />
                       </div>
                     );
                   })}
-                  {ancestry.name === "Ревенант" && (
-                    <p className="builder-notice">
-                      Черта «Предыдущая жизнь» требует выбора прошлого
-                      происхождения. Запишите этот выбор и его эффекты в
-                      особенностях на этапе «Класс».
-                    </p>
-                  )}
+                  {ancestry.name === "Ревенант" && <p className="builder-notice">Черта «Предыдущая жизнь» требует выбора прошлого происхождения. Запишите этот выбор и его эффекты в особенностях на этапе «Настройка класса».</p>}
+                  {skillSlots.ancestry.length > 0 && <SkillPicker label="Навыки происхождения" slots={skillSlots.ancestry} values={ancestrySkills} onChange={(ancestrySkills) => patch({ ancestrySkills })} />}
                 </>
-              )}
+              ) : <p className="builder-notice">Сначала выберите происхождение.</p>}
             </>
           )}
-          {step === 2 && (
+          {step === "culture" && (
             <>
               <p className="builder-intro">
                 Три аспекта сообщества, в котором вы выросли. Каждый даёт один
@@ -492,7 +448,7 @@ export function NewCharacterDialog({
                           value={draft.culture[key]}
                           onChange={(e) => {
                             const skills = [...draft.cultureSkills];
-                            skills[i] = "";
+                            if (e.target.value !== draft.culture[key]) skills[i] = "";
                             patch({
                               culture: {
                                 ...draft.culture,
@@ -509,26 +465,19 @@ export function NewCharacterDialog({
                         </Select>
                       </Field>
                       {option && (
-                        <>
-                          <Reference id={option.articleId} text={option.text} />
-                          <SkillChoices
-                            slots={[skillSlots.culture[i]]}
-                            values={[draft.cultureSkills[i] || ""]}
-                            prior={draft.cultureSkills.filter(
-                              (_, j) => j !== i,
-                            )}
-                            onChange={(values) => {
-                              const skills = [...draft.cultureSkills];
-                              skills[i] = values[0];
-                              patch({ cultureSkills: skills });
-                            }}
-                          />
-                        </>
+                        <Reference id={option.articleId} text={option.text} />
                       )}
                     </section>
                   );
                 },
               )}
+              <SkillPicker
+                label="Навыки культуры"
+                slots={skillSlots.culture}
+                values={draft.cultureSkills}
+                prior={ancestrySkills}
+                onChange={(cultureSkills) => patch({ cultureSkills })}
+              />
               <Field label="Языки (через запятую)">
                 <TextInput
                   value={draft.languages}
@@ -541,11 +490,10 @@ export function NewCharacterDialog({
               </a>
             </>
           )}
-          {step === 3 && (
+          {step === "career" && (
             <>
               <p className="builder-intro">
-                Кем вы были до приключений? Карьера даёт навыки, перк и
-                побуждающий инцидент.
+                Выберите прошлую карьеру. Полный текст о карьере раскроется под списком.
               </p>
               <div
                 className="builder-option-grid builder-career-options"
@@ -553,35 +501,39 @@ export function NewCharacterDialog({
                 aria-label="Карьера"
               >
                 {data.careers.map((c) => (
+                  <Fragment key={c.name}>
                   <button
                     type="button"
-                    key={c.name}
                     className={`builder-option ${artFor("career", c.name) ? "with-art" : ""} ${c.name === draft.career ? "is-selected" : ""}`}
                     aria-pressed={c.name === draft.career}
-                    onClick={() =>
-                      patch({
-                        career: c.name,
-                        careerSkills: [],
-                        perkId: "",
-                        incident: "",
-                      })
-                    }
+                    aria-expanded={c.name === draft.career}
+                    aria-controls="builder-career-preview"
+                    onClick={() => {
+                      if (c.name !== draft.career) patch({ career: c.name, careerSkills: [], perkId: "", incident: "" });
+                    }}
                   >
                     <Artwork kind="career" name={c.name} />
                     <strong>{c.name}</strong>
-                    <span>{c.benefits.split("\n")[0].slice(0, 150)}…</span>
+                    <span className="builder-option__snippet">{c.benefits.split("Вы получаете следующие преимущества карьеры:")[0].slice(0, 155)}…</span>
                   </button>
+                  {c.name === draft.career && <section className="builder-selected-preview" id="builder-career-preview" aria-label={`Выбрана карьера: ${c.name}`}>
+                    <Artwork kind="career" name={c.name} />
+                    <div><h3>{c.name}</h3><RuleText text={c.benefits.split("Вы получаете следующие преимущества карьеры:")[0]} /></div>
+                  </section>}
+                  </Fragment>
                 ))}
               </div>
-              {career && (
+            </>
+          )}
+          {step === "career-options" && (
+            <>
+              {career ? (
                 <>
-                  <Reference id={career.articleId} text={career.benefits} />
-                  <SkillChoices
-                    slots={skillSlots.career}
-                    values={draft.careerSkills}
-                    prior={cultureSkills}
-                    onChange={(careerSkills) => patch({ careerSkills })}
-                  />
+                  <div className="builder-selection-summary">
+                    <strong>{career.name}</strong>
+                    <Button variant="ghost" size="sm" onClick={() => go("career")}>Изменить карьеру</Button>
+                  </div>
+                  <SkillPicker label="Навыки карьеры" slots={skillSlots.career} values={draft.careerSkills} prior={[...ancestrySkills, ...cultureSkills]} onChange={(careerSkills) => patch({ careerSkills })} />
                   <Field label="Перк карьеры">
                     <Select
                       value={draft.perkId}
@@ -619,27 +571,28 @@ export function NewCharacterDialog({
                     <p className="builder-intro">{draft.incident}</p>
                   )}
                 </>
-              )}
+              ) : <p className="builder-notice">Сначала выберите карьеру.</p>}
             </>
           )}
-          {step === 4 && (
+          {step === "class" && (
             <>
               <p className="builder-intro">
-                Класс определяет вашу роль в бою, характеристики и героический
-                ресурс.
+                Выберите класс. Полное описание выбранного класса раскроется под списком.
               </p>
               <div className="builder-option-grid">
                 {CLASS_PRESETS.map((c) => {
                   const source = data.classes.find((d) => d.name === c.name);
                   return (
+                    <Fragment key={c.name}>
                     <button
                       type="button"
                       disabled={!source?.basics}
                       className={`builder-option ${artFor("class", c.name) ? "with-art" : ""} ${c.name === draft.className ? "is-selected" : ""}`}
                       aria-pressed={c.name === draft.className}
-                      key={c.name}
-                      onClick={() =>
-                        patch({
+                      aria-expanded={c.name === draft.className}
+                      aria-controls="builder-class-preview"
+                      onClick={() => {
+                        if (c.name !== draft.className) patch({
                           className: c.name,
                           characteristics: startingCharacteristics(c.name),
                           classSkills: [],
@@ -652,64 +605,35 @@ export function NewCharacterDialog({
                           secondaryKit: "",
                           meleeDamageKit: "",
                           rangedDamageKit: "",
-                        })
-                      }
+                        });
+                      }}
                     >
                       <Artwork kind="class" name={c.name} />
                       <strong>{c.name}</strong>
-                      <span>
+                      <span className="builder-option__snippet">
                         {source?.basics
-                          ? source.summary.slice(0, 150) + "…"
+                          ? `${source.summary.slice(0, 155)}${source.summary.length > 155 ? "…" : ""}`
                           : "Раздел пока пуст в переводе"}
                       </span>
                     </button>
+                    {c.name === draft.className && source?.basics && <section className="builder-selected-preview" id="builder-class-preview" aria-label={`Выбран класс: ${source.name}`}>
+                      <Artwork kind="class" name={source.name} />
+                      <div><h3>{source.name}</h3><RuleText text={source.summary} /></div>
+                    </section>}
+                    </Fragment>
                   );
                 })}
               </div>
-              {preset && (
+            </>
+          )}
+          {step === "class-options" && (
+            <>
+              {preset ? (
                 <>
-                  <Reference
-                    id={classData?.articleId}
-                    text={classData?.basics || ""}
-                    label="Начальные характеристики и навыки из книги"
-                  />
-                  <h3>Распределите характеристики</h3>
-                  <p className="muted small">
-                    Фиксированные значения заданы классом. Остальные
-                    распределите по одному из наборов в тексте выше.
-                  </p>
-                  <div className="builder-characteristics">
-                    {CHARACTERISTICS.map((meta) => (
-                      <Field key={meta.key} label={meta.label}>
-                        <Select
-                          aria-label={`Начальная ${meta.label}`}
-                          disabled={meta.key in preset.starting}
-                          value={draft.characteristics[meta.key]}
-                          onChange={(e) =>
-                            patch({
-                              characteristics: {
-                                ...draft.characteristics,
-                                [meta.key]: Number(e.target.value),
-                              },
-                            })
-                          }
-                        >
-                          {[-1, 0, 1, 2].map((v) => (
-                            <option key={v} value={v}>
-                              {v > 0 ? "+" : ""}
-                              {v}
-                            </option>
-                          ))}
-                        </Select>
-                      </Field>
-                    ))}
+                  <div className="builder-selection-summary">
+                    <strong>{draft.className}</strong>
+                    <Button variant="ghost" size="sm" onClick={() => go("class")}>Изменить класс</Button>
                   </div>
-                  <SkillChoices
-                    slots={skillSlots.class}
-                    values={draft.classSkills}
-                    prior={[...cultureSkills, ...careerSkills]}
-                    onChange={(classSkills) => patch({ classSkills })}
-                  />
                   {draft.className === "Проводник" ? (
                     <div className="builder-skill-choices">
                       {[0, 1].map((i) => (
@@ -719,7 +643,7 @@ export function NewCharacterDialog({
                             onChange={(e) => {
                               const values = draft.subclass.split(", ");
                               values[i] = e.target.value;
-                              patch({ subclass: values.join(", ") });
+                              if (values.join(", ") !== draft.subclass) patch({ subclass: values.join(", "), classSkills: [] });
                             }}
                           >
                             <option value="">Выберите домен</option>
@@ -787,6 +711,18 @@ export function NewCharacterDialog({
                       </Select>
                     </Field>
                   )}
+                  <CharacteristicAllocator
+                    className={draft.className}
+                    value={draft.characteristics}
+                    onChange={(characteristics) => patch({ characteristics })}
+                  />
+                  <SkillPicker
+                    label="Навыки класса"
+                    slots={skillSlots.class}
+                    values={draft.classSkills}
+                    prior={[...ancestrySkills, ...cultureSkills, ...careerSkills]}
+                    onChange={(classSkills) => patch({ classSkills })}
+                  />
                   {classData?.featureChoices.map((group) => {
                     const chosenName = draft.featureChoices[group.name];
                     const chosenOption = group.options.find(
@@ -853,10 +789,10 @@ export function NewCharacterDialog({
                     />
                   </Field>
                 </>
-              )}
+                  ) : <p className="builder-notice">Сначала выберите класс.</p>}
             </>
           )}
-          {step === 5 && (
+          {step === "kit" && (
             <>
               {canUseKit(draft.className, draft.subclass) ? (
                 <>
@@ -937,7 +873,7 @@ export function NewCharacterDialog({
               />
             </>
           )}
-          {step === 6 && (
+          {step === "abilities" && (
             <>
               <p className="builder-intro">
                 Свободные удары, способности комплектов и обязательные
@@ -1015,7 +951,7 @@ export function NewCharacterDialog({
                 ))}
             </>
           )}
-          {step === 7 && (
+          {step === "details" && (
             <>
               <p className="builder-intro">
                 Добавьте характер, связи и, если хотите, нюанс. Эти решения
@@ -1063,20 +999,20 @@ export function NewCharacterDialog({
               </Field>
             </>
           )}
-          {step === 8 && (
+          {step === "summary" && (
             <>
               <p className="builder-intro">
                 Проверьте выборы. После создания все разделы листа можно
                 редактировать.
               </p>
               <div className="builder-review">
-                {STEPS.slice(0, 8).map((label, i) => (
-                  <button type="button" onClick={() => go(i)} key={label}>
+                {STEPS.filter(({ id }) => id !== "summary").map(({ id, label }) => (
+                  <button type="button" onClick={() => go(id)} key={id}>
                     <span>
-                      {issues[i] ? "○" : "✓"} {label}
+                      {issues[id] ? "○" : "✓"} {label}
                     </span>
                     <span className="muted small">
-                      {issues[i] || "Заполнено"} →
+                      {issues[id] || "Заполнено"} →
                     </span>
                   </button>
                 ))}
@@ -1184,7 +1120,7 @@ export function NewCharacterDialog({
             size="sm"
             onClick={() => {
               setDraft(emptyBuilderDraft());
-              go(0);
+              go("concept");
             }}
             disabled={busy}
           >

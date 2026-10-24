@@ -6,6 +6,7 @@ import {
   classFeatureSelectionsFromDraft,
 } from "../data/class-feature-rules";
 import { ancestryTraitIdsFromNames } from "../data/ancestry-feature-rules";
+import { ancestrySkillSlots } from "../data/ancestry-skill-rules";
 import { careerPerkType, perkById } from "../data/perks";
 import { kitByName } from "../data/kits";
 import {
@@ -16,7 +17,6 @@ import {
 import { recalculateCharacter } from "./character-calculations";
 import { createCharacter } from "./defaults";
 import {
-  ALL_CREATION_SKILLS,
   CLASS_SIGNATURE_COUNTS,
   CAREER_SKILL_SLOTS,
   CLASS_SKILL_SLOTS,
@@ -29,6 +29,13 @@ import {
   canUseKit,
   type SkillSlot,
 } from "../data/creation-rules";
+import type { BuilderStepId } from "./builder-steps";
+import {
+  allocateCharacteristicArray,
+  characteristicArrays,
+  isValidCharacteristicAllocation,
+} from "./characteristic-allocation";
+import { resolveSkillSelection } from "./skill-selection";
 
 export const BUILDER_DATA = data;
 export interface BuilderDraft {
@@ -39,6 +46,7 @@ export interface BuilderDraft {
   traits: string[];
   equipment?: FeatureEquipmentFlags;
   culture: Character["culture"];
+  ancestrySkills?: string[];
   cultureSkills: string[];
   career: string;
   careerSkills: string[];
@@ -70,6 +78,7 @@ export function emptyBuilderDraft(): BuilderDraft {
     traits: [],
     equipment: { lightArmor: false, lightWeapon: false },
     culture: { environment: "", organization: "", upbringing: "" },
+    ancestrySkills: [],
     cultureSkills: [],
     career: "",
     careerSkills: [],
@@ -103,44 +112,54 @@ export function startingCharacteristics(
   className: string,
 ): Character["characteristics"] {
   const preset = classPreset(className);
-  const remaining =
-    preset && Object.keys(preset.starting).length === 1
-      ? [2, 1, 0, 0]
-      : [1, 0, 0];
+  const freeKeys = CHARACTERISTIC_KEYS.filter(
+    (key) => !(key in (preset?.starting ?? {})),
+  );
+  const defaults = freeKeys.length === 4 ? [2, 1, 0, 0] : [1, 0, 0];
+  // Набор по умолчанию берётся из общего модуля распределения характеристик.
+  const array = characteristicArrays(className).find(
+    (candidate) =>
+      candidate.values.length === defaults.length &&
+      candidate.values.every((value, index) => value === defaults[index]),
+  );
+  if (array) return allocateCharacteristicArray(className, array.id);
+  // Без выбранного класса сохранён прежний черновой набор.
   let i = 0;
   return Object.fromEntries(
     CHARACTERISTIC_KEYS.map((key) => [
       key,
-      preset?.starting[key] ?? remaining[i++] ?? 0,
+      preset?.starting[key] ?? (i < defaults.length ? defaults[i++] : 0),
     ]),
   ) as Character["characteristics"];
 }
 export function validCharacteristicArray(draft: BuilderDraft): boolean {
-  const preset = classPreset(draft.className);
-  if (!preset) return false;
-  if (
-    Object.entries(preset.starting).some(
-      ([key, value]) =>
-        draft.characteristics[key as keyof Character["characteristics"]] !==
-        value,
-    )
-  )
-    return false;
-  const free = CHARACTERISTIC_KEYS.filter((key) => !(key in preset.starting))
-    .map((key) => draft.characteristics[key])
-    .sort((a, b) => b - a)
-    .join(",");
-  return (
-    Object.keys(preset.starting).length === 1
-      ? ["2,2,-1,-1", "2,1,1,-1", "2,1,0,0", "1,1,1,0"]
-      : ["2,-1,-1", "1,1,-1", "1,0,0"]
-  ).includes(free);
+  return isValidCharacteristicAllocation(draft.className, draft.characteristics);
 }
+/** Каноническое назначение навыков по слотам через общий движок подбора. */
 export function selectedSkills(
   slots: SkillSlot[],
   selections: string[],
+  prior: string[] = [],
 ): string[] {
-  return slots.map((s, i) => selections[i] || s.fixed || "").filter(Boolean);
+  return resolveSkillSelection(slots, selections, prior).values.filter(Boolean);
+}
+interface SkillChain {
+  slots: ReturnType<typeof builderSkillSlots>;
+  ancestry: string[];
+  culture: string[];
+  career: string[];
+  class: string[];
+}
+/** Порядок источников навыков: происхождение → культура → карьера → класс. */
+export function builderSkillSelections(draft: BuilderDraft): SkillChain {
+  const slots = builderSkillSlots(draft);
+  const ancestry = selectedSkills(slots.ancestry, draft.ancestrySkills ?? []);
+  const culture = selectedSkills(slots.culture, draft.cultureSkills, ancestry);
+  const prior = [...ancestry, ...culture];
+  const career = selectedSkills(slots.career, draft.careerSkills, prior);
+  prior.push(...career);
+  const classSkills = selectedSkills(slots.class, draft.classSkills, prior);
+  return { slots, ancestry, culture, career, class: classSkills };
 }
 export function builderSkillSlots(draft: BuilderDraft) {
   const culture = (
@@ -160,6 +179,7 @@ export function builderSkillSlots(draft: BuilderDraft) {
         ? [draft.domain]
         : [];
   return {
+    ancestry: ancestrySkillSlots(draft.ancestry, draft.traits ?? []),
     culture,
     career: CAREER_SKILL_SLOTS[draft.career] ?? [],
     class: [
@@ -210,11 +230,12 @@ export function buildCharacter(
   const complication = data.complications.find(
     (c) => c.name === draft.complication,
   );
-  const slots = builderSkillSlots(draft);
+  const skills = builderSkillSelections(draft);
   const skillChoices = [
-    ...selectedSkills(slots.culture, draft.cultureSkills),
-    ...selectedSkills(slots.career, draft.careerSkills),
-    ...selectedSkills(slots.class, draft.classSkills),
+    ...skills.ancestry,
+    ...skills.culture,
+    ...skills.career,
+    ...skills.class,
   ];
   const granted = grantedClassAbilities(draft);
   const classData = data.classes.find((c) => c.name === draft.className);
@@ -353,19 +374,55 @@ export function buildCharacter(
   };
 }
 
-/** Required choices are validated in one place for the wizard and importable creation workflows. */
-export function builderIssues(draft: BuilderDraft): string[] {
+interface BuilderIssueParts {
+  name: string;
+  ancestry: string;
+  ancestryOptions: string;
+  culture: string;
+  career: string;
+  careerOptions: string;
+  class: string;
+  classOptions: string;
+  kit: string;
+  abilities: string;
+}
+
+/**
+ * Required choices are validated in one place for the wizard and importable
+ * creation workflows. Skill validation runs through the same matching engine
+ * the builder UI uses, so a draft cannot bypass the selection rules by keeping
+ * plausible-looking per-slot arrays.
+ */
+function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
   const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
   const career = data.careers.find((c) => c.name === draft.career);
   const classData = data.classes.find((c) => c.name === draft.className);
   const preset = classPreset(draft.className);
-  const skillSlots = builderSkillSlots(draft);
-  const cultureSkills = selectedSkills(skillSlots.culture, draft.cultureSkills);
-  const careerSkills = selectedSkills(skillSlots.career, draft.careerSkills);
+  const skills = builderSkillSelections(draft);
   const traitsSpent =
     ancestry?.traits
       .filter((t) => draft.traits.includes(t.name))
       .reduce((sum, t) => sum + t.cost, 0) ?? 0;
+  const ancestrySkillsComplete = resolveSkillSelection(
+    skills.slots.ancestry,
+    draft.ancestrySkills ?? [],
+  ).complete;
+  const cultureSkillsComplete = resolveSkillSelection(
+    skills.slots.culture,
+    draft.cultureSkills,
+    skills.ancestry,
+  ).complete;
+  const careerPrior = [...skills.ancestry, ...skills.culture];
+  const careerSkillsComplete = resolveSkillSelection(
+    skills.slots.career,
+    draft.careerSkills,
+    careerPrior,
+  ).complete;
+  const classSkillsComplete = resolveSkillSelection(
+    skills.slots.class,
+    draft.classSkills,
+    [...careerPrior, ...skills.career],
+  ).complete;
   const granted = grantedClassAbilities(draft);
   const classAbilities = ABILITY_COMPENDIUM.filter(
     (a) =>
@@ -377,48 +434,34 @@ export function builderIssues(draft: BuilderDraft): string[] {
     draft.abilityIds.includes(a.id),
   );
   const signatureCount = CLASS_SIGNATURE_COUNTS[draft.className] ?? 0;
-  const missingSkills = (
-    slots: SkillSlot[],
-    values: string[],
-    prior: string[] = [],
-  ) =>
-    slots.some((s, i) => {
-      const previousValues = slots
-        .slice(0, i)
-        .map((s, j) => values[j] || s.fixed || "");
-      const duplicate =
-        s.fixed && [...prior, ...previousValues].includes(s.fixed);
-      const value = values[i] || (!duplicate ? s.fixed : "");
-      return (
-        !value ||
-        !(duplicate ? ALL_CREATION_SKILLS : s.options).includes(value) ||
-        prior.includes(value) ||
-        slots.some((other, j) => j < i && (values[j] || other.fixed) === value)
-      );
-    });
-  const issues = [
-    draft.name.trim() ? "" : "Дайте герою имя.",
-    !ancestry
-      ? "Выберите происхождение."
+  return {
+    name: draft.name.trim() ? "" : "Дайте герою имя.",
+    ancestry: ancestry ? "" : "Выберите происхождение.",
+    ancestryOptions: !ancestry
+      ? ""
       : traitsSpent !== ancestry.budget
         ? `Распределите ${ancestry.budget} очка происхождения (выбрано ${traitsSpent}).`
+        : ancestrySkillsComplete
+          ? ""
+          : "Выберите навыки происхождения; повторяющиеся навыки замените.",
+    culture:
+      Object.values(draft.culture).some((v) => !v) || !cultureSkillsComplete
+        ? "Выберите три аспекта культуры и три разных навыка."
         : "",
-    Object.values(draft.culture).some((v) => !v) ||
-    missingSkills(skillSlots.culture, draft.cultureSkills)
-      ? "Выберите три аспекта культуры и три разных навыка."
-      : "",
-    !career
-      ? "Выберите карьеру."
+    career: career ? "" : "Выберите карьеру.",
+    careerOptions: !career
+      ? ""
       : !draft.incident
         ? "Выберите побуждающий инцидент."
         : !draft.perkId ||
             perkById(draft.perkId)?.type !== careerPerkType(draft.career)
           ? "Выберите перк карьеры."
-          : missingSkills(skillSlots.career, draft.careerSkills, cultureSkills)
-            ? "Заполните навыки карьеры; повторяющиеся навыки замените."
-            : "",
-    !preset
-      ? "Выберите класс."
+          : careerSkillsComplete
+            ? ""
+            : "Заполните навыки карьеры; повторяющиеся навыки замените.",
+    class: preset ? "" : "Выберите класс.",
+    classOptions: !preset
+      ? ""
       : !draft.subclass ||
           (draft.className === "Проводник"
             ? new Set(draft.subclass.split(", ").filter(Boolean)).size !== 2 ||
@@ -440,36 +483,86 @@ export function builderIssues(draft: BuilderDraft): string[] {
             ? "Выберите дополнительные особенности класса."
             : !validCharacteristicArray(draft)
               ? "Распределение характеристик должно соответствовать одному из наборов класса."
-              : missingSkills(skillSlots.class, draft.classSkills, [
-                    ...cultureSkills,
-                    ...careerSkills,
-                  ])
-                ? "Заполните навыки класса; повторяющиеся навыки замените."
-                : "",
-    canUseKit(draft.className, draft.subclass) && !draft.kit
-      ? "Выберите комплект."
-      : draft.className === "Тактик" &&
-          (!draft.secondaryKit || draft.secondaryKit === draft.kit)
-        ? "Выберите второй, отличный комплект тактика."
-        : "",
-    selectedAbilities.filter((a) => a.kind === "signature").length !==
-    signatureCount
-      ? `Выберите знаковые способности класса: ${signatureCount}.`
-      : [3, 5].some(
-            (cost) =>
-              classAbilities.some((a) => a.resourceCost === cost) &&
-              selectedAbilities.filter((a) => a.resourceCost === cost)
-                .length !== 1,
-          )
-        ? "Выберите по одной героической способности за 3 и за 5 ресурса."
-        : draft.className === "Проводник" &&
-            selectedAbilities.filter((a) =>
-              ["Слово Наставления", "Слово Суда"].includes(a.name),
-            ).length !== 1
-          ? "Выберите один триггер проводника."
+              : classSkillsComplete
+                ? ""
+                : "Заполните навыки класса; повторяющиеся навыки замените.",
+    kit:
+      canUseKit(draft.className, draft.subclass) && !draft.kit
+        ? "Выберите комплект."
+        : draft.className === "Тактик" &&
+            (!draft.secondaryKit || draft.secondaryKit === draft.kit)
+          ? "Выберите второй, отличный комплект тактика."
           : "",
+    abilities:
+      selectedAbilities.filter((a) => a.kind === "signature").length !==
+      signatureCount
+        ? `Выберите знаковые способности класса: ${signatureCount}.`
+        : [3, 5].some(
+              (cost) =>
+                classAbilities.some((a) => a.resourceCost === cost) &&
+                selectedAbilities.filter((a) => a.resourceCost === cost)
+                  .length !== 1,
+            )
+          ? "Выберите по одной героической способности за 3 и за 5 ресурса."
+          : draft.className === "Проводник" &&
+              selectedAbilities.filter((a) =>
+                ["Слово Наставления", "Слово Суда"].includes(a.name),
+              ).length !== 1
+            ? "Выберите один триггер проводника."
+            : "",
+  };
+}
+
+/**
+ * Legacy nine-position issue list. Positions are part of the public contract
+ * for callers and tests, so they are kept even though the UI is grouped into
+ * twelve steps.
+ */
+export function builderIssues(draft: BuilderDraft): string[] {
+  const parts = builderIssueParts(draft);
+  return [
+    parts.name,
+    parts.ancestry || parts.ancestryOptions,
+    parts.culture,
+    parts.career || parts.careerOptions,
+    parts.class || parts.classOptions,
+    parts.kit,
+    parts.abilities,
     "",
     "",
   ];
-  return issues;
+}
+
+/** One issue per stable UI step id; empty string means the step is complete. */
+export function builderStepIssues(
+  draft: BuilderDraft,
+): Record<BuilderStepId, string> {
+  const parts = builderIssueParts(draft);
+  const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
+  const career = data.careers.find((c) => c.name === draft.career);
+  const classData = data.classes.find((c) => c.name === draft.className);
+  // A catalog entry without basics (the unfinished «Призыватель») is not a
+  // selectable class, and a step whose parent choice is still missing must
+  // never look complete in the wizard.
+  const classReady = Boolean(classData?.basics?.trim());
+  return {
+    concept: parts.name,
+    ancestry: parts.ancestry,
+    "ancestry-options": ancestry
+      ? parts.ancestryOptions
+      : "Сначала выберите происхождение.",
+    culture: parts.culture,
+    career: parts.career,
+    "career-options": career
+      ? parts.careerOptions
+      : "Сначала выберите карьеру.",
+    class: classReady ? "" : "Выберите класс.",
+    "class-options": classReady
+      ? parts.classOptions
+      : "Сначала выберите класс.",
+    kit: classReady ? parts.kit : "Сначала выберите класс.",
+    abilities: classReady ? parts.abilities : "Сначала выберите класс.",
+    details: "",
+    summary: "",
+  };
 }

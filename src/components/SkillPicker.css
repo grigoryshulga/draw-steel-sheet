@@ -1,0 +1,215 @@
+.skill-picker {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 0;
+  color: var(--text, #f2eee7);
+}
+
+.skill-picker h3,
+.skill-picker p {
+  margin: 0;
+}
+
+.skill-picker__title {
+  font-size: 1rem;
+}
+
+.skill-picker__summary {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.skill-picker__count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.skill-picker__hint {
+  color: var(--muted, #aaa49b);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.skill-picker__automatic-summary,
+.skill-picker__message,
+.skill-picker__error {
+  color: var(--muted, #aaa49b);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.skill-picker__requirements {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border, #45413d);
+  border-radius: 0.55rem;
+  list-style: none;
+  background: var(--surface, #191817);
+  font-size: 0.78rem;
+}
+
+.skill-picker__requirements li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.skill-picker__requirements li > :first-child {
+  overflow-wrap: anywhere;
+}
+
+.skill-picker__requirements li > :last-child {
+  flex: 0 0 auto;
+  color: var(--muted, #aaa49b);
+  font-variant-numeric: tabular-nums;
+}
+
+.skill-picker__groups {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.skill-picker__group {
+  min-width: 0;
+  margin: 0;
+  padding: 0.55rem;
+  border: 1px solid var(--border, #45413d);
+  border-radius: 0.65rem;
+  background: var(--surface, #191817);
+}
+
+.skill-picker__group legend {
+  max-width: 100%;
+  padding: 0 0.25rem;
+  color: var(--muted, #aaa49b);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.skill-picker__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.skill-picker__chip {
+  position: relative;
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.skill-picker__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skill-picker__chip label {
+  display: grid;
+  justify-items: start;
+  gap: 0.1rem;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.58rem;
+  border: 1px solid var(--border, #45413d);
+  border-radius: 0.65rem;
+  color: inherit;
+  background: var(--surface-raised, #242321);
+  cursor: pointer;
+  line-height: 1.25;
+  transition: border-color 130ms ease, background-color 130ms ease;
+}
+
+.skill-picker__skill-name,
+.skill-picker__status {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.skill-picker__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skill-picker__skill-name {
+  font-size: 0.8rem;
+}
+
+.skill-picker__status {
+  color: var(--muted, #aaa49b);
+  font-size: 0.66rem;
+  line-height: 1.3;
+}
+
+.skill-picker__chip label:hover {
+  border-color: var(--accent, #d2a66b);
+}
+
+.skill-picker__chip.is-selected label {
+  border-color: var(--accent, #d2a66b);
+  background: color-mix(in srgb, var(--accent, #d2a66b) 17%, var(--surface-raised, #242321));
+}
+
+.skill-picker__chip.is-locked label {
+  border-style: dashed;
+  color: var(--muted, #aaa49b);
+  cursor: not-allowed;
+}
+
+.skill-picker__chip.is-unavailable label {
+  color: var(--muted, #aaa49b);
+  background: var(--surface, #191817);
+  cursor: not-allowed;
+}
+
+.skill-picker__checkbox:focus-visible + label {
+  outline: 2px solid var(--accent, #d2a66b);
+  outline-offset: 2px;
+}
+
+.skill-picker__error {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid color-mix(in srgb, #d66a5e 55%, var(--border, #45413d));
+  border-radius: 0.55rem;
+  color: var(--text, #f2eee7);
+  background: color-mix(in srgb, #d66a5e 12%, var(--surface, #191817));
+}
+
+@media (max-width: 430px) {
+  .skill-picker__group {
+    padding: 0.45rem;
+  }
+
+  .skill-picker__chip label {
+    padding: 0.38rem 0.48rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-picker__chip label {
+    transition: none;
+  }
+}

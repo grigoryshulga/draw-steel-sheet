@@ -5,6 +5,8 @@
 .character-builder .modal-body {
   padding: 0;
   overflow: hidden;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .character-builder .modal-head {
   padding: 18px 24px;
@@ -15,8 +17,8 @@
 .builder-layout {
   display: grid;
   grid-template-columns: 164px minmax(0, 1fr) 240px;
-  min-height: 500px;
-  height: min(72dvh, 850px);
+  min-height: 0;
+  height: 100%;
 }
 .builder-steps {
   display: flex;
@@ -150,6 +152,7 @@
   color: var(--fg);
   text-align: left;
   cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease;
 }
 .builder-option strong {
   font-size: 16px;
@@ -160,12 +163,45 @@
   line-height: 1.65;
   color: var(--muted);
 }
+.builder-option__snippet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
 .builder-option:hover {
   border-color: var(--accent-line);
 }
 .builder-option.is-selected {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+.builder-selected-preview {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(96px, 156px) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+  background: var(--accent-soft);
+  line-height: 1.7;
+  transition: opacity 140ms ease;
+}
+.builder-selected-preview .artwork {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.builder-selected-preview h3 { margin-bottom: 8px; }
+.builder-selection-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
 .builder-option.with-art {
   position: relative;
@@ -182,10 +218,7 @@
   height: auto;
 }
 .builder-career-options {
-  max-height: 390px;
-  overflow-y: auto;
   padding-right: 5px;
-  flex-shrink: 0;
 }
 .builder-option:disabled {
   opacity: 0.4;
@@ -341,7 +374,7 @@
   }
   .builder-layout {
     grid-template-columns: minmax(0, 1fr);
-    height: 74dvh;
+    height: 100%;
     min-height: 0;
     grid-template-rows: auto minmax(0, 1fr);
   }
@@ -357,6 +390,11 @@
   }
   .builder-content {
     padding: 20px 16px 30px;
+  }
+  .builder-selected-preview {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
   }
   .builder-option-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -378,6 +416,9 @@
     padding-inline: 9px;
     font-size: 12px;
   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .builder-option, .builder-selected-preview { transition: none; }
 }
 .builder-mobile-preview {
   display: none;
