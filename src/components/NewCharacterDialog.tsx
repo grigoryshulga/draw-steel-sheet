@@ -31,6 +31,7 @@ import {
 import type { Character, CompendiumAbility } from "../types";
 import { useStorageScope } from "../state/StorageScope";
 import { Button, Chip, Field, Modal, Select, TextArea, TextInput } from "./ui";
+import { FeatureEquipmentFields } from "./FeatureEquipmentFields";
 import { RuleText } from "./RuleText";
 import { Artwork } from "./Artwork";
 import { artFor } from "../lib/art";
@@ -828,6 +829,14 @@ export function NewCharacterDialog({
                                   ? "Поддерживает авторасчёт"
                                   : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
                               </p>
+                            )}
+                            {registryOption?.effects.some((effect) => effect.when?.equipment) && (
+                              <FeatureEquipmentFields
+                                value={draft.equipment}
+                                hasKit={Boolean(hero.kit.trim() || hero.secondaryKit?.trim())}
+                                automationEnabled={hero.automation?.enabled ?? false}
+                                onChange={(equipment) => patch({ equipment })}
+                              />
                             )}
                             <RuleText text={chosenOption.text} />
                           </>

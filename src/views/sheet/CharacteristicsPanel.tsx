@@ -2,32 +2,7 @@ import { Field, Panel, Stepper, TextInput } from "../../components/ui";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { useApp } from "../../state/AppContext";
-
-type Breakdown = ReturnType<typeof characterStatBreakdown>;
-
-function BreakdownDetails({
-  label,
-  breakdown,
-}: {
-  label: string;
-  breakdown: Breakdown;
-}) {
-  return (
-    <details className="stat-breakdown" style={{ marginTop: 5, fontSize: 11 }}>
-      <summary style={{ cursor: "pointer" }}>Расчёт {label}</summary>
-      <div className="stat-breakdown-equation" style={{ display: "flex", flexWrap: "wrap", gap: "3px 9px", paddingTop: 4 }}>
-        <span>База {breakdown.base}</span>
-        {breakdown.contributions.map((item) => (
-          <span key={item.sourceId}>
-            {item.sourceName} {item.value >= 0 ? "+" : ""}{item.value}
-          </span>
-        ))}
-        <span>Ручная поправка {breakdown.adjustment >= 0 ? "+" : ""}{breakdown.adjustment}</span>
-        <strong>Итого {breakdown.total}</strong>
-      </div>
-    </details>
-  );
-}
+import { StatBreakdown } from "./StatBreakdown";
 
 /** Пять характеристик с тестами и порогами тиров. */
 export function CharacteristicsPanel() {
@@ -103,7 +78,7 @@ export function CharacteristicsPanel() {
             />
           </Field>
           {character.automation?.enabled && (
-            <BreakdownDetails label="скорости" breakdown={characterStatBreakdown(character, "speed")} />
+            <StatBreakdown label="скорости" breakdown={characterStatBreakdown(character, "speed")} />
           )}
         </div>
         <div>
@@ -118,7 +93,7 @@ export function CharacteristicsPanel() {
             />
           </Field>
           {character.automation?.enabled && (
-            <BreakdownDetails label="отхода" breakdown={characterStatBreakdown(character, "disengage")} />
+            <StatBreakdown label="отхода" breakdown={characterStatBreakdown(character, "disengage")} />
           )}
         </div>
         <div>
@@ -133,7 +108,7 @@ export function CharacteristicsPanel() {
             />
           </Field>
           {character.automation?.enabled && (
-            <BreakdownDetails label="устойчивости" breakdown={characterStatBreakdown(character, "stability")} />
+            <StatBreakdown label="устойчивости" breakdown={characterStatBreakdown(character, "stability")} />
           )}
         </div>
       </div>

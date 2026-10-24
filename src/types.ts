@@ -21,6 +21,11 @@ export type AbilityKind = "free-strike" | "signature" | "heroic" | "other";
 
 export type ItemCategory = "gear" | "consumable" | "treasure" | "trinket" | "title";
 
+export interface FeatureEquipmentFlags {
+  lightArmor?: boolean;
+  lightWeapon?: boolean;
+}
+
 export type NoteSectionKey = "story" | "contacts" | "debts" | "secrets" | "misc";
 
 export type NoteSections = Record<NoteSectionKey, string>;
@@ -51,6 +56,19 @@ export interface SelectedPerk {
   /** Для собственных перков; у каталожных описание берётся из справочника. */
   summary?: string;
   description?: string;
+}
+
+/** Историческая запись о подтверждённом переходе на следующий уровень. */
+export interface LevelAdvancementRecord {
+  fromLevel: number;
+  toLevel: number;
+  className: string;
+  subclass: string;
+  mode: "xp" | "milestone";
+  articleId: string;
+  choices: Record<string, string[]>;
+  notes: string;
+  createdAt: string;
 }
 
 export interface AbilityTier {
@@ -150,6 +168,9 @@ export interface Character {
   abilities: Ability[];
   perks: SelectedPerk[];
 
+  /** Необязательная история повышений; отсутствует в старых листах. */
+  advancements?: LevelAdvancementRecord[];
+
   skills: string[];
   languages: string[];
   culture: {
@@ -176,6 +197,8 @@ export interface Character {
     enabled: boolean;
     adjustments: Partial<Record<"stamina" | "recoveries" | "speed" | "stability" | "disengage", number>>;
     ancestryTraits: string[];
+    ancestryTraitIds?: string[];
+    equipment?: FeatureEquipmentFlags;
     meleeDamageKit?: string;
     rangedDamageKit?: string;
     classFeatureSelections?: Record<string, string>;

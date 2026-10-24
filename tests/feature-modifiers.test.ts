@@ -9,6 +9,7 @@ import {
   featureAbilityDamageContributions,
   featureAbilityDistanceBonus,
   featureAbilityDistanceContributions,
+  featureConditionMet,
   featureStatBonus,
   featureStatContributions,
 } from "../src/lib/feature-modifiers";
@@ -334,30 +335,63 @@ describe("Class feature activation rules", () => {
     expect(featureAbilityDistanceBonus(ranged, character)).toBe(0);
   });
 
-  it("gives manual options no automatic effects", () => {
+  it("keeps conditional options inert without equipment flags", () => {
+    const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
+    const conditionalIds = [
+      "talent.augmentation.battle",
+      "conduit.prayer.soldier",
+      "elementalist.enchantment.battle",
+    ];
+
+    for (const optionId of conditionalIds) {
+      const option = options.find((candidate) => candidate.id === optionId);
+      expect(option?.manualReason).toBeUndefined();
+      expect(option?.effects).toHaveLength(2);
+      expect(option?.effects.every((effect) => effect.when)).toBe(true);
+    }
+    expect(
+      options.filter((option) => option.effects.length > 0),
+    ).toHaveLength(19);
+
     const talent = hero("Талант", 4, {
       "Псионическая аугментация": "Боевая аугментация",
     });
     const conduit = hero("Проводник", 4, {
       "Молитва": "Молитва о мастерстве солдата",
     });
+    const elementalist = hero("Элементалист", 4, {
+      "Зачарование": "Зачарование битвы",
+    });
     const weapon = ability({ keywords: ["Оружие"] });
 
-    for (const optionId of [
-      "talent.augmentation.battle",
-      "conduit.prayer.soldier",
-    ]) {
-      const option = CLASS_FEATURE_GROUPS.flatMap((group) => group.options).find(
-        (candidate) => candidate.id === optionId,
-      );
+    for (const character of [talent, conduit, elementalist]) {
+      expect(featureStatContributions(character, "stamina")).toEqual([]);
+      expect(featureAbilityDamageBonus(weapon, character)).toBe(0);
+    }
+  });
+
+  it("leaves reactive and immunity options manual without automatic effects", () => {
+    const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
+    const manualIds = [
+      "talent.sanctuary.entropy",
+      "conduit.sanctuary.reaction",
+      "elementalist.sanctuary.superior",
+    ];
+
+    for (const optionId of manualIds) {
+      const option = options.find((candidate) => candidate.id === optionId);
       expect(option?.manualReason).toBeTruthy();
       expect(option?.effects).toEqual([]);
     }
 
-    expect(featureStatBonus(talent, "stamina")).toBe(0);
-    expect(featureAbilityDamageBonus(weapon, talent)).toBe(0);
-    expect(featureStatBonus(conduit, "stamina")).toBe(0);
-    expect(featureAbilityDamageBonus(weapon, conduit)).toBe(0);
+    const character = hero("Проводник", 4, {
+      "Оберег проводника": "Оберег реакции",
+    });
+    expect(character.automation?.classFeatureSelections).toEqual({
+      "conduit.sanctuary": "conduit.sanctuary.reaction",
+    });
+    expect(featureStatBonus(character, "speed")).toBe(0);
+    expect(featureAbilityDamageBonus(ability(), character)).toBe(0);
   });
 
   it("does not mutate the sheet, saved values or manual adjustments", () => {
@@ -422,6 +456,171 @@ describe("Keyword normalization", () => {
       const power = ability({ keywords: ["ВСЕ"] });
       expect(modifiers.featureAbilityDamageBonus(power, character)).toBe(2);
     } finally {
+      vi.doUnmock("../src/data/class-feature-rules");
+      vi.resetModules();
+    }
+  });
+});
+
+describe("Equipment condition helper", () => {
+  it("is met without a condition and never depends on automation.enabled", () => {
+    const character = hero("Талант", 1, {}, { enabled: false });
+    expect(featureConditionMet(character)).toBe(true);
+    expect(featureConditionMet(character, {})).toBe(true);
+    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+      false,
+    );
+
+    character.automation!.equipment = { lightArmor: true, lightWeapon: false };
+    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+      true,
+    );
+    expect(featureConditionMet(character, { equipment: "lightWeapon" })).toBe(
+      false,
+    );
+  });
+
+  it("requires both kit slots to be blank for noKit", () => {
+    const character = hero("Талант", 1);
+    character.automation!.equipment = { lightArmor: true };
+    const condition = { equipment: "lightArmor", noKit: true } as const;
+
+    expect(featureConditionMet(character, condition)).toBe(true);
+    character.kit = "   ";
+    expect(featureConditionMet(character, condition)).toBe(true);
+    character.kit = "Беглый Огонь";
+    expect(featureConditionMet(character, condition)).toBe(false);
+    character.kit = "   ";
+    character.secondaryKit = "Снайпер";
+    expect(featureConditionMet(character, condition)).toBe(false);
+    character.secondaryKit = " ";
+    expect(featureConditionMet(character, condition)).toBe(true);
+  });
+
+  it("does not guess equipment from weapon, armor or inventory notes", () => {
+    const character = hero("Талант", 1);
+    character.weapon = "Легкое оружие";
+    character.armor = "Легкая броня";
+    character.equipmentEffects = "легкая броня";
+    character.inventory = [
+      {
+        id: "item",
+        name: "Кинжал",
+        category: "gear",
+        qty: 1,
+        notes: "легкое оружие",
+        equipped: true,
+      },
+    ];
+
+    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+      false,
+    );
+    expect(featureConditionMet(character, { equipment: "lightWeapon" })).toBe(
+      false,
+    );
+  });
+
+  it("does not mutate the character or its automation", () => {
+    const character = hero("Талант", 1, {}, { enabled: false });
+    const before = JSON.parse(JSON.stringify(character));
+    const automation = character.automation;
+
+    expect(
+      featureConditionMet(character, {
+        equipment: "lightArmor",
+        noKit: true,
+      }),
+    ).toBe(false);
+
+    expect(JSON.parse(JSON.stringify(character))).toEqual(before);
+    expect(character.automation).toBe(automation);
+  });
+});
+
+describe("Stat stacking groups", () => {
+  it("keeps only the largest contribution of a group with its own source", async () => {
+    vi.resetModules();
+    vi.doMock("../src/data/class-feature-rules", () => ({
+      CLASS_FEATURE_GROUPS: [],
+    }));
+    vi.doMock("../src/data/ancestry-feature-rules", () => ({
+      ANCESTRY_FEATURE_RULES: [
+        {
+          id: "test.small",
+          name: "Малый",
+          ancestryName: "Тестовая",
+          description: "",
+          effects: [
+            {
+              kind: "stat" as const,
+              stat: "speed" as const,
+              value: 1,
+              stackingGroup: "test.group",
+            },
+          ],
+        },
+        {
+          id: "test.large",
+          name: "Большой",
+          ancestryName: "Тестовая",
+          description: "",
+          effects: [
+            {
+              kind: "stat" as const,
+              stat: "speed" as const,
+              value: 2,
+              stackingGroup: "test.group",
+            },
+          ],
+        },
+        {
+          id: "test.equal",
+          name: "Равный",
+          ancestryName: "Тестовая",
+          description: "",
+          effects: [
+            {
+              kind: "stat" as const,
+              stat: "speed" as const,
+              value: 2,
+              stackingGroup: "test.group",
+            },
+          ],
+        },
+        {
+          id: "test.free",
+          name: "Свободный",
+          ancestryName: "Тестовая",
+          description: "",
+          effects: [{ kind: "stat" as const, stat: "speed" as const, value: 1 }],
+        },
+      ],
+      ancestryTraitIdsFromNames: () => [],
+    }));
+    try {
+      const modifiers = await import("../src/lib/feature-modifiers");
+      const character = createCharacter({ ancestry: "Тестовая" });
+      character.automation = {
+        enabled: true,
+        adjustments: {},
+        ancestryTraits: [],
+        ancestryTraitIds: [
+          "test.small",
+          "test.large",
+          "test.equal",
+          "test.free",
+        ],
+      };
+
+      // The tie between equal values keeps the deterministic first winner.
+      expect(modifiers.featureStatContributions(character, "speed")).toEqual([
+        { sourceId: "test.large", sourceName: "Большой", value: 2 },
+        { sourceId: "test.free", sourceName: "Свободный", value: 1 },
+      ]);
+      expect(modifiers.featureStatBonus(character, "speed")).toBe(3);
+    } finally {
+      vi.doUnmock("../src/data/ancestry-feature-rules");
       vi.doUnmock("../src/data/class-feature-rules");
       vi.resetModules();
     }

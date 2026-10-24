@@ -45,7 +45,22 @@ describe("class feature registry", () => {
     expect(ids.every((id) => /^[a-z]+(?:\.[a-z]+)+$/.test(id))).toBe(true);
 
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(16);
+    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(19);
+    const conditionalOptions = options.filter((option) =>
+      option.effects.some((effect) => effect.when !== undefined),
+    );
+    expect(conditionalOptions.map((option) => option.id)).toEqual([
+      "conduit.prayer.soldier",
+      "talent.augmentation.battle",
+      "elementalist.enchantment.battle",
+    ]);
+    for (const option of conditionalOptions) {
+      expect(option.effects).toEqual([
+        { kind: "stat", stat: "stamina", value: 0, perEchelon: 3, when: { equipment: "lightArmor", noKit: true } },
+        { kind: "damage", value: 1, keywords: ["Оружие"], rolledOnly: false, when: { equipment: "lightWeapon", noKit: true } },
+      ]);
+      expect(option.manualReason).toBeUndefined();
+    }
     for (const option of options) {
       if (option.effects.length === 0) expect(option.manualReason?.trim()).toBeTruthy();
       else expect(option.manualReason).toBeUndefined();

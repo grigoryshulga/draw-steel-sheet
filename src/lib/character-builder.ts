@@ -5,9 +5,14 @@ import {
   classFeatureGroups,
   classFeatureSelectionsFromDraft,
 } from "../data/class-feature-rules";
+import { ancestryTraitIdsFromNames } from "../data/ancestry-feature-rules";
 import { careerPerkType, perkById } from "../data/perks";
 import { kitByName } from "../data/kits";
-import { CHARACTERISTIC_KEYS, type Character } from "../types";
+import {
+  CHARACTERISTIC_KEYS,
+  type Character,
+  type FeatureEquipmentFlags,
+} from "../types";
 import { recalculateCharacter } from "./character-calculations";
 import { createCharacter } from "./defaults";
 import {
@@ -32,6 +37,7 @@ export interface BuilderDraft {
   concept: string;
   ancestry: string;
   traits: string[];
+  equipment?: FeatureEquipmentFlags;
   culture: Character["culture"];
   cultureSkills: string[];
   career: string;
@@ -62,6 +68,7 @@ export function emptyBuilderDraft(): BuilderDraft {
     concept: "",
     ancestry: "",
     traits: [],
+    equipment: { lightArmor: false, lightWeapon: false },
     culture: { environment: "", organization: "", upbringing: "" },
     cultureSkills: [],
     career: "",
@@ -322,6 +329,14 @@ export function buildCharacter(
       enabled: true,
       adjustments: {},
       ancestryTraits: traits.map((t) => t.name),
+      ancestryTraitIds: ancestryTraitIdsFromNames(
+        draft.ancestry,
+        traits.map((t) => t.name),
+      ),
+      equipment: {
+        lightArmor: draft.equipment?.lightArmor ?? false,
+        lightWeapon: draft.equipment?.lightWeapon ?? false,
+      },
       meleeDamageKit: draft.meleeDamageKit,
       rangedDamageKit: draft.rangedDamageKit,
       classFeatureSelections,

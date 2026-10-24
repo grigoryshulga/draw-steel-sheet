@@ -1,11 +1,12 @@
 import { classFeatureGroups } from "../../data/class-feature-rules";
 import { useApp } from "../../state/AppContext";
-import { Panel, Select } from "../../components/ui";
+import { Button, Panel, Select } from "../../components/ui";
+import { featureConditionMet } from "../../lib/feature-modifiers";
 import "./ClassFeaturesPanel.css";
 
 /** Stable, explicit class feature selections for automatic calculation. */
 export function ClassFeaturesPanel() {
-  const { character, update } = useApp();
+  const { character, update, goTo } = useApp();
   const groups = classFeatureGroups(character.className);
   const selections = character.automation?.classFeatureSelections ?? {};
 
@@ -42,6 +43,35 @@ export function ClassFeaturesPanel() {
             const hasDistanceEffect = selected?.effects.some(
               (effect) => effect.kind === "distance",
             );
+            const equipmentEffects = selected?.effects.filter(
+              (effect) => effect.when?.equipment,
+            ) ?? [];
+            const hasKit = Boolean(
+              character.kit.trim() || character.secondaryKit?.trim(),
+            );
+            const equipmentEffectStates = equipmentEffects.map((effect) => {
+              const equipment = effect.when?.equipment;
+              const active = featureConditionMet(character, effect.when);
+              const label = equipment === "lightArmor"
+                ? "+3 к Выносливости за эшелон (лёгкая броня)"
+                : `+${effect.value} к урону способностей «Оружие» (лёгкое оружие)`;
+              const missingEquipment = equipment === "lightArmor"
+                ? "нужно отметить лёгкую броню"
+                : "нужно отметить лёгкое оружие";
+              return { active, label, missingEquipment };
+            });
+            const activeEquipmentEffects = equipmentEffectStates.filter(
+              (effect) => effect.active,
+            ).length;
+            const conditionalStatus = !character.automation?.enabled
+              ? "Поддерживает авторасчёт"
+              : hasKit
+                ? "Недоступно с комплектом"
+                : activeEquipmentEffects === equipmentEffectStates.length
+                  ? "Все бонусы активны"
+                  : activeEquipmentEffects > 0
+                    ? "Часть бонусов активна"
+                    : "Отметьте снаряжение";
             return (
               <section className="class-feature-group" key={group.id}>
                 <label className="class-feature-label" htmlFor={`feature-${group.id}`}>
@@ -64,7 +94,9 @@ export function ClassFeaturesPanel() {
                     <div className="class-feature-status">
                       <strong>{selected.name}</strong>
                       <span className={supported ? "is-supported" : "is-manual"}>
-                        {supported
+                        {equipmentEffects.length > 0
+                          ? conditionalStatus
+                          : supported
                           ? character.automation?.enabled
                             ? "Автоматически"
                             : "Поддерживает авторасчёт"
@@ -72,6 +104,29 @@ export function ClassFeaturesPanel() {
                       </span>
                     </div>
                     <p>{selected.description.replace(/\s*---\s*$/, "")}</p>
+                    {equipmentEffects.length > 0 && (
+                      <>
+                        {equipmentEffectStates.map((effect) => (
+                          <p className="class-feature-automation-note" key={effect.label}>
+                            {effect.label}: {character.automation?.enabled
+                              ? hasKit
+                                ? "недоступно с комплектом"
+                                : effect.active
+                                  ? "активен"
+                                  : effect.missingEquipment
+                              : effect.active
+                                ? "авторасчёт выключен"
+                                : `авторасчёт выключен; ${effect.missingEquipment}`}
+                          </p>
+                        ))}
+                        <p className="class-feature-automation-note">
+                          Отметки описывают фактическое снаряжение. Условные бонусы недоступны с любым комплектом.
+                        </p>
+                        <Button size="sm" variant="ghost" onClick={() => goTo("inventory")}>
+                          Отметить снаряжение
+                        </Button>
+                      </>
+                    )}
                     {hasDistanceEffect && (
                       <p className="class-feature-automation-note">
                         Бонус применяется к числовой дальности или пределу, но не увеличивает размер области и не действует на способности «На себя».

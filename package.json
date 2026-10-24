@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && npm run data:rules",
-    "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs",
+    "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs && npm run data:level-up",
+    "data:level-up": "node scripts/build-level-up.mjs",
     "data:art": "node scripts/build-art-manifest.mjs",
     "data:art-previews": "node scripts/build-art-previews.mjs && npm run data:art"
   },

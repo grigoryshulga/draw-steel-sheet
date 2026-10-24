@@ -4,32 +4,7 @@ import { clamp, vitalStatus } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { useApp } from "../../state/AppContext";
 import { HealthControls, RecoveriesReadout } from "./HealthControls";
-
-type Breakdown = ReturnType<typeof characterStatBreakdown>;
-
-function BreakdownDetails({
-  label,
-  breakdown,
-}: {
-  label: string;
-  breakdown: Breakdown;
-}) {
-  return (
-    <details className="stat-breakdown" style={{ marginTop: 5, fontSize: 11 }}>
-      <summary style={{ cursor: "pointer" }}>Расчёт {label}</summary>
-      <div className="stat-breakdown-equation" style={{ display: "flex", flexWrap: "wrap", gap: "3px 9px", paddingTop: 4 }}>
-        <span>База {breakdown.base}</span>
-        {breakdown.contributions.map((item) => (
-          <span key={item.sourceId}>
-            {item.sourceName} {item.value >= 0 ? "+" : ""}{item.value}
-          </span>
-        ))}
-        <span>Ручная поправка {breakdown.adjustment >= 0 ? "+" : ""}{breakdown.adjustment}</span>
-        <strong>Итого {breakdown.total}</strong>
-      </div>
-    </details>
-  );
-}
+import { StatBreakdown } from "./StatBreakdown";
 
 /** Здоровье: выносливость, урон, восстановления и отдых. */
 export function VitalsPanel() {
@@ -154,16 +129,16 @@ export function VitalsPanel() {
       </div>
 
       {character.automation?.enabled && (
-        <div className="vitals-breakdowns">
-          <BreakdownDetails
+        <>
+          <StatBreakdown
             label="максимума выносливости"
             breakdown={characterStatBreakdown(character, "stamina")}
           />
-          <BreakdownDetails
+          <StatBreakdown
             label="восстановлений"
             breakdown={characterStatBreakdown(character, "recoveries")}
           />
-        </div>
+        </>
       )}
 
       <div

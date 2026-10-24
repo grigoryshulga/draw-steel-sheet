@@ -1,5 +1,5 @@
 import type { Ability, Character } from "../types";
-import type { FeatureStat } from "../data/class-feature-rules";
+import type { FeatureStat } from "../data/feature-effects";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { kitByName } from "../data/kits";
 import {
@@ -8,10 +8,9 @@ import {
   featureStatContributions,
   type FeatureContribution,
 } from "./feature-modifiers";
+import { echelon } from "./progression";
 
-export function echelon(level: number): number {
-  return Math.min(4, 1 + Math.floor((Math.max(1, level) - 1) / 3));
-}
+export { echelon };
 export function kitBonus(character: Character, label: string): number {
   return Math.max(
     0,
@@ -28,33 +27,19 @@ export type CalculatedStat = Exclude<FeatureStat, "save">;
 
 type BaseValues = Record<CalculatedStat, number>;
 
-/** Class, kit and supported-ancestry base, without class-feature automation. */
+/** Class and kit base only; ancestry traits join through the shared feature engine. */
 function baseValues(character: Character): BaseValues {
   const preset = classPreset(character.className);
-  const traits = new Set(character.automation?.ancestryTraits ?? []);
   const tier = echelon(character.level);
-  const naturalSpeed = traits.has("Молниеносная ловкость")
-    ? 7
-    : traits.has("Звериные ноги") || traits.has("Стремительный")
-      ? 6
-      : 5;
   return {
     stamina:
       (preset
         ? preset.staminaBase + preset.staminaPerLevel * (character.level - 1)
-        : 0) +
-      kitBonus(character, "выносливости") * tier +
-      (traits.has("Искра с твоей кожи") ? 6 * tier : 0),
-    recoveries:
-      (preset?.recoveries ?? 0) + (traits.has("Запас прочности") ? 2 : 0),
-    speed: naturalSpeed + kitBonus(character, "скорости"),
-    stability:
-      kitBonus(character, "устойчивости") +
-      (traits.has("Заземленность") ? 1 : 0),
-    disengage:
-      1 +
-      kitBonus(character, "отходу") +
-      (traits.has("Грациозное отступление") ? 1 : 0),
+        : 0) + kitBonus(character, "выносливости") * tier,
+    recoveries: preset?.recoveries ?? 0,
+    speed: 5 + kitBonus(character, "скорости"),
+    stability: kitBonus(character, "устойчивости"),
+    disengage: 1 + kitBonus(character, "отходу"),
   };
 }
 
@@ -124,16 +109,32 @@ export function recalculateCharacter(
     automation = { ...automation, classFeatureSelections: {} };
     next = { ...next, automation };
   }
-  // A disabled sheet keeps its saved numbers and manual adjustments as they are.
-  if (!automation.enabled) return next;
-  if (
-    previous.automation?.enabled &&
-    previous.ancestry !== next.ancestry &&
-    previous.automation.ancestryTraits === next.automation?.ancestryTraits
-  ) {
-    automation = { ...automation, ancestryTraits: [] };
+  // A disabled sheet keeps its saved numbers and manual adjustments as they are,
+  // but a stale ancestry choice is still invalidated: names and IDs that were not
+  // explicitly replaced in this operation are cleared, so nothing comes back later.
+  if (previous.automation && previous.ancestry !== next.ancestry) {
+    const previousAutomation = previous.automation;
+    const namesReplaced =
+      previousAutomation.ancestryTraits !== automation.ancestryTraits;
+    const idsReplaced =
+      previousAutomation.ancestryTraitIds !== automation.ancestryTraitIds;
+    if (!idsReplaced) {
+      if (namesReplaced) {
+        // Explicit new legacy names must be able to resolve, so drop the old canonical IDs.
+        const withoutIds = { ...automation };
+        delete withoutIds.ancestryTraitIds;
+        automation = withoutIds;
+      } else {
+        automation = { ...automation, ancestryTraits: [], ancestryTraitIds: [] };
+      }
+    } else if (!namesReplaced) {
+      // Explicit new canonical IDs win; stale legacy names are cleared.
+      automation = { ...automation, ancestryTraits: [] };
+    }
     next = { ...next, automation };
   }
+  // A disabled sheet keeps its saved numbers and manual adjustments as they are.
+  if (!automation.enabled) return next;
   const calculated = calculatedValues(next);
   const adjustments = { ...automation.adjustments };
   const fields = {

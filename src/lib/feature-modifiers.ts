@@ -2,10 +2,19 @@ import {
   CLASS_FEATURE_GROUPS,
   type ClassFeatureGroup,
   type ClassFeatureOption,
-  type FeatureEffect,
-  type FeatureStat,
 } from "../data/class-feature-rules";
+import {
+  ANCESTRY_FEATURE_RULES,
+  ancestryTraitIdsFromNames,
+  type AncestryFeatureRule,
+} from "../data/ancestry-feature-rules";
+import type {
+  FeatureCondition,
+  FeatureEffect,
+  FeatureStat,
+} from "../data/feature-effects";
 import type { Ability, Character } from "../types";
+import { echelon } from "./progression";
 
 export interface FeatureContribution {
   sourceId: string;
@@ -13,37 +22,34 @@ export interface FeatureContribution {
   value: number;
 }
 
-interface ActiveFeatureOption {
-  group: ClassFeatureGroup;
-  option: ClassFeatureOption;
+/** One active rule (class choice or ancestry trait) with all of its effects. */
+interface ActiveFeatureSource {
+  sourceId: string;
+  sourceName: string;
+  effects: FeatureEffect[];
+}
+
+/** A contribution before stacking groups reduce it to one winning source. */
+interface GroupedContribution extends FeatureContribution {
+  stackingGroup?: string;
 }
 
 type AbilityEffect = Extract<FeatureEffect, { kind: "damage" | "distance" }>;
+type StatEffect = Extract<FeatureEffect, { kind: "stat" }>;
 
-/** Keyword/class comparisons ignore case, surrounding whitespace and ё/е spelling. */
+/** Keyword/class/ancestry comparisons ignore case, surrounding whitespace and ё/е spelling. */
 function normalize(value: string): string {
   return value.trim().toLowerCase().replace(/ё/g, "е");
-}
-
-/** Draw Steel echelons start at levels 1/4/7/10. */
-function featureEchelon(level: number): number {
-  if (!Number.isFinite(level)) return 1;
-  const safeLevel = Math.max(1, Math.floor(level));
-  if (safeLevel >= 10) return 4;
-  if (safeLevel >= 7) return 3;
-  if (safeLevel >= 4) return 2;
-  return 1;
 }
 
 function optionEffects(option: ClassFeatureOption): FeatureEffect[] {
   return Array.isArray(option.effects) ? option.effects : [];
 }
 
-/**
- * Resolve selections once. Effects are active only for enabled automation, the
- * current class and a known group/option pair; unknown or foreign IDs are ignored.
- */
-function activeFeatureOptions(character: Character): ActiveFeatureOption[] {
+function activeFeatureOptions(character: Character): {
+  group: ClassFeatureGroup;
+  option: ClassFeatureOption;
+}[] {
   const automation = character.automation;
   if (!automation?.enabled) return [];
   const selections = automation.classFeatureSelections;
@@ -52,7 +58,7 @@ function activeFeatureOptions(character: Character): ActiveFeatureOption[] {
   const className = normalize(character.className);
   if (!className) return [];
 
-  const active: ActiveFeatureOption[] = [];
+  const active: { group: ClassFeatureGroup; option: ClassFeatureOption }[] = [];
   for (const group of CLASS_FEATURE_GROUPS) {
     if (normalize(group.className) !== className) continue;
     const optionId = selections[group.id];
@@ -63,34 +69,147 @@ function activeFeatureOptions(character: Character): ActiveFeatureOption[] {
   return active;
 }
 
-function statContribution(
-  option: ClassFeatureOption,
-  effect: Extract<FeatureEffect, { kind: "stat" }>,
-  echelon: number,
-): FeatureContribution {
-  return {
-    sourceId: option.id,
-    sourceName: option.name,
-    value: effect.value + (effect.perEchelon ?? 0) * echelon,
-  };
+/**
+ * Canonical ancestry selection wins whenever `automation.ancestryTraitIds` is an
+ * array, including `[]` (an explicit refusal of the legacy names). Without the
+ * field the explicit legacy name mapping is used for the current ancestry.
+ */
+function selectedAncestryIds(
+  character: Character,
+  automation: NonNullable<Character["automation"]>,
+): readonly string[] {
+  const canonical = automation.ancestryTraitIds;
+  if (Array.isArray(canonical)) {
+    return canonical.filter((id): id is string => typeof id === "string");
+  }
+  return ancestryTraitIdsFromNames(
+    character.ancestry,
+    automation.ancestryTraits ?? [],
+  );
+}
+
+/** Ancestry rules of the current ancestry only; unknown, foreign and duplicate IDs drop out. */
+function activeAncestryRules(character: Character): AncestryFeatureRule[] {
+  const automation = character.automation;
+  if (!automation?.enabled) return [];
+  const ancestry = normalize(character.ancestry ?? "");
+  if (!ancestry) return [];
+
+  const ids = new Set(selectedAncestryIds(character, automation));
+  if (!ids.size) return [];
+
+  return ANCESTRY_FEATURE_RULES.filter(
+    (rule) =>
+      normalize(rule.ancestryName) === ancestry && ids.has(rule.id),
+  );
+}
+
+/** Class choices plus ancestry traits in one pass; each rule contributes at most once. */
+function activeFeatureSources(character: Character): ActiveFeatureSource[] {
+  const sources: ActiveFeatureSource[] = activeFeatureOptions(character).map(
+    ({ option }) => ({
+      sourceId: option.id,
+      sourceName: option.name,
+      effects: optionEffects(option),
+    }),
+  );
+  for (const rule of activeAncestryRules(character)) {
+    sources.push({
+      sourceId: rule.id,
+      sourceName: rule.name,
+      effects: Array.isArray(rule.effects) ? rule.effects : [],
+    });
+  }
+  return sources;
+}
+
+function hasAnyKit(character: Character): boolean {
+  return [character.kit, character.secondaryKit ?? ""].some(
+    (name) => typeof name === "string" && name.trim() !== "",
+  );
+}
+
+/**
+ * Equipment condition only: a required flag must be exactly `true` and `noKit`
+ * requires both kit slots to be blank. It does not read weapon/armor prose,
+ * inventory notes or automation.enabled, and it never mutates the character.
+ */
+export function featureConditionMet(
+  character: Character,
+  condition?: FeatureCondition,
+): boolean {
+  if (!condition) return true;
+  if (condition.equipment) {
+    if (character.automation?.equipment?.[condition.equipment] !== true) {
+      return false;
+    }
+  }
+  if (condition.noKit && hasAnyKit(character)) return false;
+  return true;
+}
+
+function statValue(effect: StatEffect, level: number): number {
+  return effect.value + (effect.perEchelon ?? 0) * echelon(level);
+}
+
+function statContributions(
+  character: Character,
+  stat: FeatureStat,
+): GroupedContribution[] {
+  const contributions: GroupedContribution[] = [];
+  for (const source of activeFeatureSources(character)) {
+    for (const effect of source.effects) {
+      if (effect.kind !== "stat" || effect.stat !== stat) continue;
+      if (!featureConditionMet(character, effect.when)) continue;
+      contributions.push({
+        sourceId: source.sourceId,
+        sourceName: source.sourceName,
+        value: statValue(effect, character.level),
+        stackingGroup: effect.stackingGroup,
+      });
+    }
+  }
+  return contributions;
+}
+
+/**
+ * Effects in one stacking group never add up: only the highest value is kept and
+ * the winning source is the one shown. Equal values keep the deterministic first.
+ */
+function applyStackingGroups(
+  contributions: readonly GroupedContribution[],
+): FeatureContribution[] {
+  const winnerByGroup = new Map<string, number>();
+  contributions.forEach((contribution, index) => {
+    const group = contribution.stackingGroup;
+    if (!group) return;
+    const winner = winnerByGroup.get(group);
+    if (winner === undefined || contribution.value > contributions[winner].value) {
+      winnerByGroup.set(group, index);
+    }
+  });
+
+  const kept: FeatureContribution[] = [];
+  contributions.forEach((contribution, index) => {
+    const group = contribution.stackingGroup;
+    if (group && winnerByGroup.get(group) !== index) return;
+    kept.push({
+      sourceId: contribution.sourceId,
+      sourceName: contribution.sourceName,
+      value: contribution.value,
+    });
+  });
+  return kept;
 }
 
 export function featureStatContributions(
   character: Character,
   stat: FeatureStat,
 ): FeatureContribution[] {
-  const echelon = featureEchelon(character.level);
-  const contributions: FeatureContribution[] = [];
-  for (const { option } of activeFeatureOptions(character)) {
-    for (const effect of optionEffects(option)) {
-      if (effect.kind !== "stat" || effect.stat !== stat) continue;
-      contributions.push(statContribution(option, effect, echelon));
-    }
-  }
-  return contributions;
+  return applyStackingGroups(statContributions(character, stat));
 }
 
-/** Sum of all active class-feature effects for one stat; saved maxima and adjustments stay untouched. */
+/** Sum of all active feature effects for one stat; saved maxima and adjustments stay untouched. */
 export function featureStatBonus(character: Character, stat: FeatureStat): number {
   return featureStatContributions(character, stat).reduce(
     (total, contribution) => total + contribution.value,
@@ -118,13 +237,14 @@ function abilityEffectContributions(
   kind: AbilityEffect["kind"],
 ): FeatureContribution[] {
   const contributions: FeatureContribution[] = [];
-  for (const { option } of activeFeatureOptions(character)) {
-    for (const effect of optionEffects(option)) {
+  for (const source of activeFeatureSources(character)) {
+    for (const effect of source.effects) {
       if (effect.kind !== kind) continue;
       if (!matchesAllKeywords(ability, effect.keywords)) continue;
+      if (!featureConditionMet(character, effect.when)) continue;
       contributions.push({
-        sourceId: option.id,
-        sourceName: option.name,
+        sourceId: source.sourceId,
+        sourceName: source.sourceName,
         value: effect.value,
       });
     }
@@ -148,16 +268,48 @@ function hasDamageFormula(ability: Ability): boolean {
   );
 }
 
+/** A rolled-flat formula such as "3" or "3 + Р" — never a dice expression. */
+function hasNumericDamageFormula(ability: Ability): boolean {
+  return (
+    Array.isArray(ability.tiers) &&
+    ability.tiers.some(
+      (tier) =>
+        typeof tier?.damage === "string" &&
+        tier.damage.trim() !== "" &&
+        !/\d+\s*d\s*\d+/i.test(tier.damage),
+    )
+  );
+}
+
 /**
- * Damage modifiers apply only to abilities with a power roll and a damage
- * formula; the caller decides which tiers are actual damage tiers.
+ * Damage modifiers apply only to abilities with a damage formula. `rolledOnly`
+ * effects (the default) also need a power roll; an explicit `rolledOnly: false`
+ * additionally allows a non-roll ability whose printed damage is numeric.
+ * The caller still decides which tiers are actual damage tiers.
  */
 export function featureAbilityDamageContributions(
   ability: Ability,
   character: Character,
 ): FeatureContribution[] {
-  if (!hasRollCharacteristics(ability) || !hasDamageFormula(ability)) return [];
-  return abilityEffectContributions(ability, character, "damage");
+  if (!hasDamageFormula(ability)) return [];
+  const rolled = hasRollCharacteristics(ability);
+  if (!rolled && !hasNumericDamageFormula(ability)) return [];
+
+  const contributions: FeatureContribution[] = [];
+  for (const source of activeFeatureSources(character)) {
+    for (const effect of source.effects) {
+      if (effect.kind !== "damage") continue;
+      if (effect.rolledOnly !== false && !rolled) continue;
+      if (!matchesAllKeywords(ability, effect.keywords)) continue;
+      if (!featureConditionMet(character, effect.when)) continue;
+      contributions.push({
+        sourceId: source.sourceId,
+        sourceName: source.sourceName,
+        value: effect.value,
+      });
+    }
+  }
+  return contributions;
 }
 
 export function featureAbilityDamageBonus(

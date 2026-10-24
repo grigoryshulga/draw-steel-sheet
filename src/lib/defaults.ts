@@ -2,7 +2,12 @@ import { CONDITIONS, CONDITION_END_VALUES } from "../data/conditions";
 import { emptyNotes } from "../data/notes";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { DEFAULT_ABILITIES, makeId } from "../data/templates";
-import type { Ability, Character, CharacteristicKey } from "../types";
+import type {
+  Ability,
+  Character,
+  CharacteristicKey,
+  LevelAdvancementRecord,
+} from "../types";
 
 const ZERO_CHARACTERISTICS: Record<CharacteristicKey, number> = {
   might: 0,
@@ -167,6 +172,52 @@ function normalizeAbilities(value: unknown): Ability[] {
   });
 }
 
+function isObjectRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function isLevelAdvancementRecord(value: unknown): value is LevelAdvancementRecord {
+  if (!isObjectRecord(value)) return false;
+  const { fromLevel, toLevel } = value;
+  return (
+    Number.isSafeInteger(fromLevel) &&
+    Number.isSafeInteger(toLevel) &&
+    (fromLevel as number) >= 1 &&
+    (fromLevel as number) <= 9 &&
+    toLevel === (fromLevel as number) + 1 &&
+    (toLevel as number) <= 10 &&
+    typeof value.className === "string" &&
+    typeof value.subclass === "string" &&
+    (value.mode === "xp" || value.mode === "milestone") &&
+    typeof value.articleId === "string" &&
+    isObjectRecord(value.choices) &&
+    Object.values(value.choices).every(
+      (choice) => Array.isArray(choice) && choice.every((id) => typeof id === "string"),
+    ) &&
+    typeof value.notes === "string" &&
+    typeof value.createdAt === "string" &&
+    Number.isFinite(Date.parse(value.createdAt))
+  );
+}
+
+function cloneAdvancementRecord(
+  record: LevelAdvancementRecord,
+): LevelAdvancementRecord {
+  return {
+    fromLevel: record.fromLevel,
+    toLevel: record.toLevel,
+    className: record.className,
+    subclass: record.subclass,
+    mode: record.mode,
+    articleId: record.articleId,
+    choices: Object.fromEntries(
+      Object.entries(record.choices).map(([key, ids]) => [key, [...ids]]),
+    ),
+    notes: record.notes,
+    createdAt: record.createdAt,
+  };
+}
+
 export function normalizeCharacter(input: Partial<Character>): Character {
   const base = createCharacter({
     name: input.name,
@@ -175,9 +226,18 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     level: input.level,
   });
 
+  const { advancements: rawAdvancements, ...inputWithoutAdvancements } =
+    input as Partial<Character> & { advancements?: unknown };
+  const normalizedAdvancements = Array.isArray(rawAdvancements) &&
+    rawAdvancements.every(isLevelAdvancementRecord)
+    ? rawAdvancements.map(cloneAdvancementRecord)
+    : undefined;
+
   const rawAutomation = input.automation;
   const {
     classFeatureSelections: _rawSelections,
+    ancestryTraitIds: _rawAncestryTraitIds,
+    equipment: _rawEquipment,
     ...automationWithoutSelections
   } = rawAutomation ?? {};
   const hasFeatureSelections =
@@ -196,10 +256,33 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     )
       ? { ...rawAutomation.classFeatureSelections }
       : undefined;
+  const normalizedAncestryTraitIds = Array.isArray(
+    rawAutomation?.ancestryTraitIds,
+  ) && rawAutomation.ancestryTraitIds.every((id) => typeof id === "string")
+    ? [...rawAutomation.ancestryTraitIds]
+    : undefined;
+  const rawEquipment = rawAutomation?.equipment;
+  const normalizedEquipment =
+    rawEquipment !== null &&
+    typeof rawEquipment === "object" &&
+    !Array.isArray(rawEquipment) &&
+    ["lightArmor", "lightWeapon"].every(
+      (key) =>
+        !(key in rawEquipment) ||
+        typeof (rawEquipment as Record<string, unknown>)[key] === "boolean",
+    )
+      ? {
+          ...(rawEquipment as Record<string, unknown>),
+          lightArmor:
+            (rawEquipment as Record<string, unknown>).lightArmor === true,
+          lightWeapon:
+            (rawEquipment as Record<string, unknown>).lightWeapon === true,
+        }
+      : undefined;
 
   return {
     ...base,
-    ...input,
+    ...inputWithoutAdvancements,
     schemaVersion: 1,
     id: input.id || base.id,
     characteristics: {
@@ -227,12 +310,21 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     skills: Array.isArray(input.skills) ? input.skills : [],
     languages: Array.isArray(input.languages) ? input.languages : [],
     notes: normalizeNotes((input as unknown as { notes?: unknown }).notes),
+    ...(normalizedAdvancements
+      ? { advancements: normalizedAdvancements }
+      : {}),
     ...(rawAutomation
       ? {
           automation: {
             ...automationWithoutSelections,
             ...(hasFeatureSelections && normalizedSelections
               ? { classFeatureSelections: normalizedSelections }
+              : {}),
+            ...(normalizedAncestryTraitIds
+              ? { ancestryTraitIds: normalizedAncestryTraitIds }
+              : {}),
+            ...(normalizedEquipment
+              ? { equipment: normalizedEquipment }
               : {}),
           },
         }

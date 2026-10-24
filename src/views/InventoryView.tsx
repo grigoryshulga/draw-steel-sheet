@@ -16,7 +16,9 @@ import {
 } from "../components/ui";
 import { makeId } from "../data/templates";
 import { KIT_COMPENDIUM, kitBonusLabel, kitByName } from "../data/kits";
+import { classFeatureGroups } from "../data/class-feature-rules";
 import { changeKit } from "../lib/equipment";
+import { FeatureEquipmentFields } from "../components/FeatureEquipmentFields";
 import { KitPicker } from "./sheet/KitPicker";
 import { useApp } from "../state/AppContext";
 import type { InventoryItem, ItemCategory } from "../types";
@@ -91,6 +93,11 @@ export function InventoryView() {
   );
   const [kitPickerOpen, setKitPickerOpen] = useState(false);
   const selectedKit = kitByName(character.kit);
+  const hasConditionalEquipmentOption = classFeatureGroups(character.className).some(
+    (group) => group.options.some((option) =>
+      option.effects.some((effect) => effect.when?.equipment),
+    ),
+  );
 
   const grouped = useMemo(() => {
     return CATEGORY_META.map((meta) => ({
@@ -195,6 +202,26 @@ export function InventoryView() {
       </Panel>
 
       <Panel title="Снаряжение" icon="sword">
+        {hasConditionalEquipmentOption && (
+          <FeatureEquipmentFields
+            value={character.automation?.equipment}
+            hasKit={Boolean(character.kit.trim() || character.secondaryKit?.trim())}
+            automationEnabled={character.automation?.enabled ?? false}
+            onChange={(equipment) =>
+              update((current) => ({
+                ...current,
+                automation: {
+                  ...(current.automation ?? {
+                    enabled: false,
+                    adjustments: {},
+                    ancestryTraits: [],
+                  }),
+                  equipment,
+                },
+              }))
+            }
+          />
+        )}
         <div className="inv-kit">
           <Field label="Комплект">
             <div className="inv-kit-row">

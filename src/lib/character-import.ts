@@ -38,13 +38,27 @@ function requireStrings(
   }
 }
 
-function optionalStringArray(object: JsonObject, key: string): void {
+function optionalStringArray(
+  object: JsonObject,
+  key: string,
+  path = key,
+): void {
   if (
     key in object &&
     (!Array.isArray(object[key]) ||
       !object[key].every((item) => typeof item === "string"))
   ) {
-    fail(key);
+    fail(path);
+  }
+}
+
+function validateFeatureEquipment(value: unknown): void {
+  const path = "automation.equipment";
+  if (!isObject(value)) fail(path);
+  for (const key of ["lightArmor", "lightWeapon"]) {
+    if (key in value && typeof value[key] !== "boolean") {
+      fail(`${path}.${key}`);
+    }
   }
 }
 
@@ -82,7 +96,42 @@ function validateArrayOfObjects(
   });
 }
 
+function validateAdvancements(value: JsonObject): void {
+  if (!("advancements" in value)) return;
+  const records = value.advancements;
+  if (!Array.isArray(records)) fail("advancements");
+  records.forEach((raw, index) => {
+    const path = `advancements[${index}]`;
+    if (!isObject(raw)) fail(path);
+    if (!Number.isSafeInteger(raw.fromLevel) ||
+      (raw.fromLevel as number) < 1 || (raw.fromLevel as number) > 9) {
+      fail(`${path}.fromLevel`);
+    }
+    if (!Number.isSafeInteger(raw.toLevel) ||
+      raw.toLevel !== (raw.fromLevel as number) + 1 ||
+      (raw.toLevel as number) > 10) {
+      fail(`${path}.toLevel`);
+    }
+    for (const key of ["className", "subclass", "articleId", "notes", "createdAt"]) {
+      if (typeof raw[key] !== "string") fail(`${path}.${key}`);
+    }
+    if (raw.mode !== "xp" && raw.mode !== "milestone") {
+      fail(`${path}.mode`);
+    }
+    if (!isObject(raw.choices)) fail(`${path}.choices`);
+    for (const [choiceKey, ids] of Object.entries(raw.choices)) {
+      if (!Array.isArray(ids) || !ids.every((id) => typeof id === "string")) {
+        fail(`${path}.choices.${choiceKey}`);
+      }
+    }
+    if (!Number.isFinite(Date.parse(raw.createdAt as string))) {
+      fail(`${path}.createdAt`);
+    }
+  });
+}
+
 function validateCharacterShape(value: JsonObject): void {
+  validateAdvancements(value);
   const strings = [
     "id",
     "name",
@@ -289,6 +338,12 @@ function validateCharacterShape(value: JsonObject): void {
     if ("enabled" in automation && typeof automation.enabled !== "boolean")
       fail("automation.enabled");
     optionalStringArray(automation, "ancestryTraits");
+    optionalStringArray(
+      automation,
+      "ancestryTraitIds",
+      "automation.ancestryTraitIds",
+    );
+    if ("equipment" in automation) validateFeatureEquipment(automation.equipment);
     for (const key of ["meleeDamageKit", "rangedDamageKit"])
       optionalString(automation, key, `automation.${key}`);
     if ("adjustments" in automation) {
