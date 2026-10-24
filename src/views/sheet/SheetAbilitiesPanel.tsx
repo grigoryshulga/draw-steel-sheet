@@ -1,15 +1,16 @@
-import { abilityDistance } from "../../lib/character-calculations";
 import { lazy, Suspense, useState } from "react";
 import { Icon } from "../../components/Icons";
+import { AbilityCard } from "../../components/AbilityCard";
+import { DamageChip } from "../../components/DamageChip";
+import { TierBadge } from "../../components/TierBadge";
 import { RollModal } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Modal, Panel } from "../../components/ui";
 import { RichText } from "../../components/RichText";
-import { DamageChip } from "../../components/DamageChip";
-import { TierBadge } from "../../components/TierBadge";
 import { ACTION_TYPES, actionLabel, kindLabel } from "../../data/actions";
+import { abilityDistance } from "../../lib/character-calculations";
 import {
   characteristicShort,
   evaluateAbilityDamage,
@@ -160,153 +161,25 @@ export function SheetAbilitiesPanel() {
 
                   {!isCollapsed && (
                     <div className="sheet-ability-grid">
-                      {group.items.map((ability) => {
-                        const requirements = abilityTierRequirements(
-                          ability,
-                          character,
-                        );
-                        const tiers = ability.tiers
-                          .map((tier, index) => ({
-                            ...tier,
-                            tier: (index + 1) as Tier,
-                          }))
-                          .filter((tier) => tier.damage || tier.effect);
-                        return (
-                          <article
-                            className="sheet-ability-card"
-                            key={ability.id}
-                          >
-                            <header className="sheet-ability-card-head">
-                              <h4>
-                                <button
-                                  type="button"
-                                  className="sheet-ability-title"
-                                  aria-label={`Открыть способность: ${ability.name || "без названия"}`}
-                                  onClick={() => openAbility(ability)}
-                                >
-                                  {ability.name || "Без названия"}
-                                </button>
-                              </h4>
-                              <div className="sheet-ability-card-tags">
-                                <Chip tone={kindTone(ability.kind)}>
-                                  {kindLabel(ability.kind)}
-                                </Chip>
-                                {ability.source === BASIC_SOURCE && (
-                                  <Chip>Базовая</Chip>
-                                )}
-                                {ability.resourceCost > 0 && (
-                                  <span
-                                    className="sheet-ability-cost-stamp is-paid"
-                                    title={`Стоимость: ${ability.resourceCost}`}
-                                  >
-                                    {ability.resourceCost}
-                                  </span>
-                                )}
-                              </div>
-                            </header>
-
-                            <div className="sheet-ability-meta">
-                              <span title="Дистанция">
-                                <em>Дист.</em>{" "}
-                                {abilityDistance(ability, character) || "—"}
-                              </span>
-                              <span title="Цель">
-                                <em>Цель</em> {ability.target || "—"}
-                              </span>
-                            </div>
-
-                            {ability.keywords.length > 0 && (
-                              <div className="sheet-ability-keywords">
-                                {ability.keywords.slice(0, 4).map((keyword) => (
-                                  <span
-                                    className="sheet-ability-keyword"
-                                    key={keyword}
-                                  >
-                                    {keyword}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-
-                            {tiers.length > 0 && (
-                              <div className="sheet-ability-tiers">
-                                {tiers.map((tier) => {
-                                  const damage = evaluateAbilityDamage(
-                                    ability,
-                                    tier.tier,
-                                    character,
-                                  );
-                                  return (
-                                    <div
-                                      className="sheet-ability-tier"
-                                      data-tier={tier.tier}
-                                      key={tier.tier}
-                                    >
-                                      <span
-                                        className="sheet-ability-range mono"
-                                        title={
-                                          requirements
-                                            ? "Нужно выбросить на 2d10"
-                                            : "Диапазон суммы броска силы"
-                                        }
-                                      >
-                                        {requirements
-                                          ? tierRequirementText(
-                                              requirements,
-                                              tier.tier,
-                                            )
-                                          : TIER_ROLL_RANGES[tier.tier]}
-                                      </span>
-                                      <div className="sheet-ability-tier-text">
-                                        {tier.damage && (
-                                          <DamageChip
-                                            value={damage.display}
-                                            type={inferDamageType(
-                                              ability,
-                                              tier.effect,
-                                            )}
-                                          />
-                                        )}
-                                        {tier.effect && (
-                                          <span className="sheet-ability-effect">
-                                            {tier.effect}
-                                          </span>
-                                        )}
-                                      </div>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            )}
-
-                            {tiers.length === 0 && ability.effect && (
-                              <p className="sheet-ability-body">
-                                {ability.effect}
-                              </p>
-                            )}
-
-                            <footer className="sheet-ability-footer">
-                              <span title="Бросок силы">
-                                <em>Бросок</em> {rollSummary(ability)}
-                              </span>
-                              {ability.trigger && (
-                                <span className="sheet-ability-trigger">
-                                  триггер
-                                </span>
-                              )}
-                              <Button
-                                size="sm"
-                                variant="soft"
-                                icon="abilities"
-                                aria-label={`Использовать: ${ability.name}`}
-                                onClick={() => setUsing(ability)}
-                              >
-                                Использовать
-                              </Button>
-                            </footer>
-                          </article>
-                        );
-                      })}
+                      {group.items.map((ability) => (
+                        <AbilityCard
+                          key={ability.id}
+                          ability={ability}
+                          character={character}
+                          onOpen={() => openAbility(ability)}
+                          footerAction={
+                            <Button
+                              size="sm"
+                              variant="soft"
+                              icon="abilities"
+                              aria-label={`Использовать: ${ability.name}`}
+                              onClick={() => setUsing(ability)}
+                            >
+                              Использовать
+                            </Button>
+                          }
+                        />
+                      ))}
                     </div>
                   )}
                 </section>

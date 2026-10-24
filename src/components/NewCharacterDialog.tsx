@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   BUILDER_DATA as data,
   buildCharacter,
@@ -27,12 +27,7 @@ import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
 import { CLASS_SIGNATURE_COUNTS, canUseKit } from "../data/creation-rules";
 import { createCharacter } from "../lib/defaults";
-import { abilityDistance } from "../lib/character-calculations";
-import {
-  CHARACTERISTICS,
-  deriveStats,
-  evaluateAbilityDamage,
-} from "../lib/rules";
+import { CHARACTERISTICS, deriveStats } from "../lib/rules";
 import type { Character, CompendiumAbility } from "../types";
 import { useStorageScope } from "../state/StorageScope";
 import { Button, Chip, Field, Modal, Select, TextArea, TextInput } from "./ui";
@@ -40,6 +35,7 @@ import { FeatureEquipmentFields } from "./FeatureEquipmentFields";
 import { RuleText } from "./RuleText";
 import { Artwork } from "./Artwork";
 import { CharacteristicAllocator } from "./CharacteristicAllocator";
+import { AbilityCard } from "./AbilityCard";
 import { SkillPicker } from "./SkillPicker";
 import { artFor } from "../lib/art";
 import "../views/CodexView.css";
@@ -367,18 +363,20 @@ export function NewCharacterDialog({
           {step === "ancestry" && (
             <>
               <p className="builder-intro">
-                Выберите происхождение. Полный текст выбранного происхождения
-                раскроется под списком.
+                Выберите происхождение, чтобы раскрыть его полный текст прямо в карточке.
               </p>
               <div className="builder-option-grid">
-                {data.ancestries.map((a) => (
-                  <Fragment key={a.name}>
+                {data.ancestries.map((a, index) => {
+                  const selected = a.name === draft.ancestry;
+                  const detailsId = `builder-ancestry-option-${index}-details`;
+                  return (
+                  <div className={`builder-option-card ${selected ? "is-expanded" : ""}`} key={a.name}>
                   <button
                     type="button"
-                    className={`builder-option ${artFor("ancestry", a.name) ? "with-art" : ""} ${a.name === draft.ancestry ? "is-selected" : ""}`}
-                    aria-pressed={a.name === draft.ancestry}
-                    aria-expanded={a.name === draft.ancestry}
-                    aria-controls="builder-ancestry-preview"
+                    className={`builder-option ${artFor("ancestry", a.name) ? "with-art" : ""} ${selected ? "is-selected" : ""}`}
+                    aria-pressed={selected}
+                    aria-expanded={selected}
+                    aria-controls={detailsId}
                     onClick={() => {
                       if (a.name !== draft.ancestry) patch({ ancestry: a.name, traits: [], ancestrySkills: [] });
                     }}
@@ -387,12 +385,11 @@ export function NewCharacterDialog({
                     <strong>{a.name}</strong>
                     <span className="builder-option__snippet">{a.summary.slice(0, 155)}{a.summary.length > 155 ? "…" : ""}</span>
                   </button>
-                  {a.name === draft.ancestry && <section className="builder-selected-preview" id="builder-ancestry-preview" aria-label={`Выбрано происхождение: ${a.name}`}>
-                    <Artwork kind="ancestry" name={a.name} />
-                    <div><h3>{a.name}</h3><RuleText text={a.summary} /></div>
-                  </section>}
-                  </Fragment>
-                ))}
+                  <section className="builder-option-details" id={detailsId} aria-label={`Описание происхождения: ${a.name}`} aria-hidden={!selected} inert={!selected}>
+                    <div className="builder-option-details__content"><RuleText text={a.summary} /></div>
+                  </section>
+                  </div>
+                )})}
               </div>
             </>
           )}
@@ -493,21 +490,24 @@ export function NewCharacterDialog({
           {step === "career" && (
             <>
               <p className="builder-intro">
-                Выберите прошлую карьеру. Полный текст о карьере раскроется под списком.
+                Выберите прошлую карьеру, чтобы раскрыть её полный текст прямо в карточке.
               </p>
               <div
                 className="builder-option-grid builder-career-options"
                 role="group"
                 aria-label="Карьера"
               >
-                {data.careers.map((c) => (
-                  <Fragment key={c.name}>
+                {data.careers.map((c, index) => {
+                  const selected = c.name === draft.career;
+                  const detailsId = `builder-career-option-${index}-details`;
+                  return (
+                  <div className={`builder-option-card ${selected ? "is-expanded" : ""}`} key={c.name}>
                   <button
                     type="button"
-                    className={`builder-option ${artFor("career", c.name) ? "with-art" : ""} ${c.name === draft.career ? "is-selected" : ""}`}
-                    aria-pressed={c.name === draft.career}
-                    aria-expanded={c.name === draft.career}
-                    aria-controls="builder-career-preview"
+                    className={`builder-option ${artFor("career", c.name) ? "with-art" : ""} ${selected ? "is-selected" : ""}`}
+                    aria-pressed={selected}
+                    aria-expanded={selected}
+                    aria-controls={detailsId}
                     onClick={() => {
                       if (c.name !== draft.career) patch({ career: c.name, careerSkills: [], perkId: "", incident: "" });
                     }}
@@ -516,12 +516,11 @@ export function NewCharacterDialog({
                     <strong>{c.name}</strong>
                     <span className="builder-option__snippet">{c.benefits.split("Вы получаете следующие преимущества карьеры:")[0].slice(0, 155)}…</span>
                   </button>
-                  {c.name === draft.career && <section className="builder-selected-preview" id="builder-career-preview" aria-label={`Выбрана карьера: ${c.name}`}>
-                    <Artwork kind="career" name={c.name} />
-                    <div><h3>{c.name}</h3><RuleText text={c.benefits.split("Вы получаете следующие преимущества карьеры:")[0]} /></div>
-                  </section>}
-                  </Fragment>
-                ))}
+                  <section className="builder-option-details" id={detailsId} aria-label={`Описание карьеры: ${c.name}`} aria-hidden={!selected} inert={!selected}>
+                    <div className="builder-option-details__content"><RuleText text={c.benefits.split("Вы получаете следующие преимущества карьеры:")[0]} /></div>
+                  </section>
+                  </div>
+                )})}
               </div>
             </>
           )}
@@ -577,20 +576,23 @@ export function NewCharacterDialog({
           {step === "class" && (
             <>
               <p className="builder-intro">
-                Выберите класс. Полное описание выбранного класса раскроется под списком.
+                Выберите класс, чтобы раскрыть его полное описание прямо в карточке.
               </p>
               <div className="builder-option-grid">
-                {CLASS_PRESETS.map((c) => {
+                {CLASS_PRESETS.map((c, index) => {
                   const source = data.classes.find((d) => d.name === c.name);
+                  const selected = c.name === draft.className;
+                  const expanded = selected && Boolean(source?.basics);
+                  const detailsId = `builder-class-option-${index}-details`;
                   return (
-                    <Fragment key={c.name}>
+                    <div className={`builder-option-card ${expanded ? "is-expanded" : ""}`} key={c.name}>
                     <button
                       type="button"
                       disabled={!source?.basics}
-                      className={`builder-option ${artFor("class", c.name) ? "with-art" : ""} ${c.name === draft.className ? "is-selected" : ""}`}
-                      aria-pressed={c.name === draft.className}
-                      aria-expanded={c.name === draft.className}
-                      aria-controls="builder-class-preview"
+                      className={`builder-option ${artFor("class", c.name) ? "with-art" : ""} ${selected ? "is-selected" : ""}`}
+                      aria-pressed={selected}
+                      aria-expanded={expanded}
+                      aria-controls={detailsId}
                       onClick={() => {
                         if (c.name !== draft.className) patch({
                           className: c.name,
@@ -616,11 +618,10 @@ export function NewCharacterDialog({
                           : "Раздел пока пуст в переводе"}
                       </span>
                     </button>
-                    {c.name === draft.className && source?.basics && <section className="builder-selected-preview" id="builder-class-preview" aria-label={`Выбран класс: ${source.name}`}>
-                      <Artwork kind="class" name={source.name} />
-                      <div><h3>{source.name}</h3><RuleText text={source.summary} /></div>
-                    </section>}
-                    </Fragment>
+                    <section className="builder-option-details" id={detailsId} aria-label={`Описание класса: ${source?.name ?? c.name}`} aria-hidden={!expanded} inert={!expanded}>
+                      <div className="builder-option-details__content">{source?.basics && <RuleText text={source.summary} />}</div>
+                    </section>
+                    </div>
                   );
                 })}
               </div>
@@ -898,55 +899,63 @@ export function NewCharacterDialog({
                           : `Выберите ${group.count}`}
                       </span>
                     </div>
-                    {group.entries.map((a) => {
-                      const chosen = draft.abilityIds.includes(a.id);
-                      const full =
-                        group.count !== null &&
-                        group.entries.filter((a) =>
-                          draft.abilityIds.includes(a.id),
-                        ).length >= group.count;
-                      return (
-                        <div
-                          key={a.id}
-                          className={`builder-choice ${chosen ? "is-selected" : ""}`}
-                        >
-                          <label>
-                            <input
-                              type="checkbox"
-                              checked={chosen}
-                              disabled={!chosen && full}
-                              onChange={() =>
-                                patch({
-                                  abilityIds: chosen
-                                    ? draft.abilityIds.filter(
-                                        (id) => id !== a.id,
-                                      )
-                                    : [...draft.abilityIds, a.id],
-                                })
-                              }
-                            />
-                            <strong>{a.name}</strong>
-                            <span className="muted small">{abilityDistance(a, hero)}</span>
-                          </label>
-                          <p className="muted small">{a.flavor}</p>
-                          <div className="builder-ability-tiers">
-                            {a.tiers.map((t, i) => (
-                              <span key={i}>
-                                <b>Т{i + 1}</b>{" "}
-                                {evaluateAbilityDamage(a, i + 1, hero).display}{" "}
-                                {t.effect}
-                              </span>
-                            ))}
-                          </div>
-                          {a.effect && (
-                            <Reference
-                              label="Эффект способности"
-                              text={a.effect}
-                            />
-                          )}
-                        </div>
-                      );
-                    })}
+                    <div className="builder-ability-grid">
+                      {group.entries.map((a) => {
+                        const chosen = draft.abilityIds.includes(a.id);
+                        const full =
+                          group.count !== null &&
+                          group.entries.filter((a) =>
+                            draft.abilityIds.includes(a.id),
+                          ).length >= group.count;
+                        const fullText = [
+                          a.flavor && `Описание:\n${a.flavor}`,
+                          a.trigger && `Триггер:\n${a.trigger}`,
+                          ...a.tiers.map((tier, index) =>
+                            tier.effect ? `Тир ${index + 1}:\n${tier.effect}` : "",
+                          ),
+                          a.effect && `Эффект:\n${a.effect}`,
+                          a.notes && `Примечания:\n${a.notes}`,
+                        ]
+                          .filter(Boolean)
+                          .join("\n\n");
+                        return (
+                          <AbilityCard
+                            key={a.id}
+                            ability={a}
+                            character={hero}
+                            className={
+                              chosen ? "is-selected" : "builder-ability-option"
+                            }
+                            footerAction={(
+                              <label className="builder-ability-select">
+                                <input
+                                  type="checkbox"
+                                  checked={chosen}
+                                  disabled={!chosen && full}
+                                  aria-label={`${chosen ? "Снять выбор" : "Выбрать"}: ${a.name}`}
+                                  onChange={() =>
+                                    patch({
+                                      abilityIds: chosen
+                                        ? draft.abilityIds.filter(
+                                            (id) => id !== a.id,
+                                          )
+                                        : [...draft.abilityIds, a.id],
+                                    })
+                                  }
+                                />
+                                {chosen ? "Выбрано" : "Выбрать"}
+                              </label>
+                            )}
+                            details={(
+                              <Reference
+                                label="Полный текст способности"
+                                text={fullText}
+                              />
+                            )}
+                          />
+                        );
+                      })}
+                    </div>
                   </section>
                 ))}
             </>
