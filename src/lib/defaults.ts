@@ -175,6 +175,28 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     level: input.level,
   });
 
+  const rawAutomation = input.automation;
+  const {
+    classFeatureSelections: _rawSelections,
+    ...automationWithoutSelections
+  } = rawAutomation ?? {};
+  const hasFeatureSelections =
+    rawAutomation !== undefined &&
+    Object.prototype.hasOwnProperty.call(
+      rawAutomation,
+      "classFeatureSelections",
+    );
+  const normalizedSelections =
+    hasFeatureSelections &&
+    rawAutomation?.classFeatureSelections &&
+    typeof rawAutomation.classFeatureSelections === "object" &&
+    !Array.isArray(rawAutomation.classFeatureSelections) &&
+    Object.values(rawAutomation.classFeatureSelections).every(
+      (value) => typeof value === "string",
+    )
+      ? { ...rawAutomation.classFeatureSelections }
+      : undefined;
+
   return {
     ...base,
     ...input,
@@ -205,6 +227,16 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     skills: Array.isArray(input.skills) ? input.skills : [],
     languages: Array.isArray(input.languages) ? input.languages : [],
     notes: normalizeNotes((input as unknown as { notes?: unknown }).notes),
+    ...(rawAutomation
+      ? {
+          automation: {
+            ...automationWithoutSelections,
+            ...(hasFeatureSelections && normalizedSelections
+              ? { classFeatureSelections: normalizedSelections }
+              : {}),
+          },
+        }
+      : {}),
   } as Character;
 }
 

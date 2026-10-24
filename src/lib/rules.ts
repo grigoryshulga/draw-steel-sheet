@@ -5,6 +5,7 @@ import {
   type DerivedStats,
 } from "../types";
 import { abilityKitDamageBonus } from "./character-calculations";
+import { featureAbilityDamageContributions } from "./feature-modifiers";
 import type { Ability } from "../types";
 
 export const CHARACTERISTICS: {
@@ -353,9 +354,25 @@ export function evaluateAbilityDamage(
     };
   }
   const formula = ability.tiers[tier - 1]?.damage ?? "";
-  const bonus = formula ? abilityKitDamageBonus(ability, character, tier) : 0;
   const base = evaluateDamage(formula, character);
+  // No formula means no damage tier: bonuses must not invent damage there.
+  if (!formula.trim()) return base;
+  const kit = abilityKitDamageBonus(ability, character, tier);
+  const features = featureAbilityDamageContributions(ability, character);
+  const bonus = features.reduce(
+    (total, contribution) => total + contribution.value,
+    kit,
+  );
   if (!bonus) return base;
+  const sources = [
+    ...(kit
+      ? [`${kit < 0 ? "−" : "+"} ${Math.abs(kit)} (комплект)`]
+      : []),
+    ...features.map(
+      (contribution) =>
+        `${contribution.value < 0 ? "−" : "+"} ${Math.abs(contribution.value)} (${contribution.sourceName})`,
+    ),
+  ].join(" ");
   const values = base.values.map((value) => value + bonus);
   return {
     ...base,
@@ -363,7 +380,7 @@ export function evaluateAbilityDamage(
     display: base.dice.length
       ? `${base.display} ${bonus < 0 ? "−" : "+"} ${Math.abs(bonus)}`
       : [...new Set(values)].join(" / "),
-    breakdown: `${base.breakdown} ${bonus < 0 ? "−" : "+"} ${Math.abs(bonus)} (комплект)`,
+    breakdown: `${base.breakdown} ${sources}`,
   };
 }
 

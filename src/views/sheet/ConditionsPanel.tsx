@@ -6,6 +6,7 @@ import {
   SAVE_ENDS_TARGET,
 } from "../../data/conditions";
 import { useApp } from "../../state/AppContext";
+import { featureStatBonus, featureStatContributions } from "../../lib/feature-modifiers";
 import type { ConditionEnd, ConditionState } from "../../types";
 import "./ConditionsPanel.css";
 
@@ -15,6 +16,10 @@ const INACTIVE: ConditionState = { active: false, ends: "save" };
 export function ConditionsPanel() {
   const { character, patch, notify } = useApp();
   const [newCondition, setNewCondition] = useState("");
+  const [lastSaveRoll, setLastSaveRoll] = useState<Record<string, string>>({});
+  const saveBonus = featureStatBonus(character, "save");
+  const saveContributions = featureStatContributions(character, "save");
+  const saveSources = saveContributions.map((contribution) => contribution.sourceName).join(", ");
 
   const entries = CONDITIONS.map((condition) => ({
     ...condition,
@@ -45,15 +50,19 @@ export function ConditionsPanel() {
 
   const rollSave = (key: string, label: string, state: ConditionState) => {
     const d10 = Math.floor(Math.random() * 10) + 1;
-    if (d10 >= SAVE_ENDS_TARGET) {
+    const total = d10 + saveBonus;
+    const passed = total >= SAVE_ENDS_TARGET;
+    const resultText = `d10 ${d10} + бонус ${saveBonus} = ${total}; нужно ${SAVE_ENDS_TARGET}+`;
+    setLastSaveRoll((current) => ({ ...current, [key]: resultText }));
+    if (passed) {
       setCondition(key, { ...state, active: false });
       notify(
-        `Спасбросок против «${label}»: ${d10} ≥ ${SAVE_ENDS_TARGET} — состояние снято`,
+        `Спасбросок против «${label}»: ${resultText} — состояние снято`,
         "success",
       );
     } else {
       notify(
-        `Спасбросок против «${label}»: ${d10} < ${SAVE_ENDS_TARGET} — состояние остаётся`,
+        `Спасбросок против «${label}»: ${resultText} — состояние остаётся`,
         "info",
       );
     }
@@ -67,6 +76,10 @@ export function ConditionsPanel() {
       dense
     >
       <div className="conditions-active">
+        <p className="condition-summary">
+          Спасбросок: d10 {saveBonus >= 0 ? "+" : "−"}{Math.abs(saveBonus)}
+          {saveSources ? ` · ${saveSources}` : ""}
+        </p>
         <div className="conditions-block-head">
           <span className="eyebrow">Активные</span>
         </div>
@@ -106,7 +119,9 @@ export function ConditionsPanel() {
                       variant="soft"
                       icon="dice"
                       onClick={() => rollSave(entry.key, entry.label, entry.state)}
-                      title={`Спасбросок d10: снятие при ${SAVE_ENDS_TARGET}+`}
+                      title={lastSaveRoll[entry.key]
+                        ? `Последний бросок: ${lastSaveRoll[entry.key]}`
+                        : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
                     >
                       Спасбросок d10
                     </Button>

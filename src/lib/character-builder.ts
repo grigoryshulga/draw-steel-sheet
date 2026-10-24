@@ -1,6 +1,10 @@
 import data from "../data/builder.generated.json";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { classPreset } from "../data/classes";
+import {
+  classFeatureGroups,
+  classFeatureSelectionsFromDraft,
+} from "../data/class-feature-rules";
 import { careerPerkType, perkById } from "../data/perks";
 import { kitByName } from "../data/kits";
 import { CHARACTERISTIC_KEYS, type Character } from "../types";
@@ -206,6 +210,20 @@ export function buildCharacter(
     ...selectedSkills(slots.class, draft.classSkills),
   ];
   const granted = grantedClassAbilities(draft);
+  const classData = data.classes.find((c) => c.name === draft.className);
+  const classFeatureSelections = classFeatureSelectionsFromDraft(
+    draft.className,
+    draft.featureChoices,
+  );
+  const registryGroups = classFeatureGroups(draft.className);
+  const registryGroupsByName = new Map(
+    registryGroups.map((group) => [group.name, group]),
+  );
+  const mappedGroupIds = new Set(
+    registryGroups
+      .filter((group) => classFeatureSelections[group.id])
+      .map((group) => group.id),
+  );
   const abilities = ABILITY_COMPENDIUM.filter(
     (a) =>
       (draft.abilityIds.includes(a.id) || granted.some((g) => g.id === a.id)) &&
@@ -247,18 +265,18 @@ export function buildCharacter(
       .filter(Boolean)
       .join("\n\n"),
     classFeatures: [
-      data.classes
-        .find((c) => c.name === draft.className)
-        ?.subclasses.find((s) => s.name === draft.subclass)?.text,
+      classData?.subclasses.find((s) => s.name === draft.subclass)?.text,
       draft.domain ? `Домен: ${draft.domain}` : "",
-      ...(data.classes
-        .find((c) => c.name === draft.className)
-        ?.featureChoices.flatMap((group) => {
-          const option = group.options.find(
-            (o) => o.name === draft.featureChoices[group.name],
-          );
-          return option ? [`${option.name}\n${option.text}`] : [];
-        }) ?? []),
+      ...(classData?.featureChoices.flatMap((group) => {
+        const option = group.options.find(
+          (o) => o.name === draft.featureChoices[group.name],
+        );
+        if (!option) return [];
+        const registryGroup = registryGroupsByName.get(group.name);
+        return registryGroup && mappedGroupIds.has(registryGroup.id)
+          ? []
+          : [`${option.name}\n${option.text}`];
+      }) ?? []),
       draft.features,
     ]
       .filter(Boolean)
@@ -306,6 +324,7 @@ export function buildCharacter(
       ancestryTraits: traits.map((t) => t.name),
       meleeDamageKit: draft.meleeDamageKit,
       rangedDamageKit: draft.rangedDamageKit,
+      classFeatureSelections,
     },
   };
   const calculated = recalculateCharacter(seed, doc);

@@ -71,11 +71,11 @@ function SheetWorkspace() {
   const toggleAutomation = () =>
     patch({
       automation: {
+        ...(character.automation ?? {
+          adjustments: {},
+          ancestryTraits: [],
+        }),
         enabled: !character.automation?.enabled,
-        adjustments: character.automation?.adjustments ?? {},
-        ancestryTraits: character.automation?.ancestryTraits ?? [],
-        meleeDamageKit: character.automation?.meleeDamageKit,
-        rangedDamageKit: character.automation?.rangedDamageKit,
       },
     });
   return (
@@ -91,7 +91,7 @@ function SheetWorkspace() {
             variant={character.automation?.enabled ? "soft" : "ghost"}
             aria-pressed={!!character.automation?.enabled}
             onClick={toggleAutomation}
-            title="Пересчитывать класс, уровень, комплекты и числовые черты. Ручные изменения сохраняются как поправки."
+            title="Пересчитывать класс, уровень, комплекты, числовые черты класса и бонусы спасброска. При включённом авторасчёте ручные изменения сохраняются как поправки."
           >
             {character.automation?.enabled
               ? "Авторасчёт включён"

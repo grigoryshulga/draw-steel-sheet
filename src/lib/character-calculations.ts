@@ -1,6 +1,13 @@
 import type { Ability, Character } from "../types";
+import type { FeatureStat } from "../data/class-feature-rules";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { kitByName } from "../data/kits";
+import {
+  featureAbilityDistanceBonus,
+  featureStatBonus,
+  featureStatContributions,
+  type FeatureContribution,
+} from "./feature-modifiers";
 
 export function echelon(level: number): number {
   return Math.min(4, 1 + Math.floor((Math.max(1, level) - 1) / 3));
@@ -16,7 +23,13 @@ export function kitBonus(character: Character, label: string): number {
     ),
   );
 }
-export function calculatedValues(character: Character) {
+/** Saved numeric stats; saving throws are not stored and use `featureStatBonus` directly. */
+export type CalculatedStat = Exclude<FeatureStat, "save">;
+
+type BaseValues = Record<CalculatedStat, number>;
+
+/** Class, kit and supported-ancestry base, without class-feature automation. */
+function baseValues(character: Character): BaseValues {
   const preset = classPreset(character.className);
   const traits = new Set(character.automation?.ancestryTraits ?? []);
   const tier = echelon(character.level);
@@ -45,6 +58,46 @@ export function calculatedValues(character: Character) {
   };
 }
 
+export function calculatedValues(character: Character) {
+  const base = baseValues(character);
+  return {
+    stamina: base.stamina + featureStatBonus(character, "stamina"),
+    recoveries: base.recoveries + featureStatBonus(character, "recoveries"),
+    speed: base.speed + featureStatBonus(character, "speed"),
+    stability: base.stability + featureStatBonus(character, "stability"),
+    disengage: base.disengage + featureStatBonus(character, "disengage"),
+  };
+}
+
+export interface CharacterStatBreakdown {
+  /** Base before class-feature automation. */
+  base: number;
+  contributions: FeatureContribution[];
+  adjustment: number;
+  /** Same clamp as the saved sheet. */
+  total: number;
+}
+
+/** Explain one saved stat without re-deriving it: base + named features + manual adjustment. */
+export function characterStatBreakdown(
+  character: Character,
+  stat: CalculatedStat,
+): CharacterStatBreakdown {
+  const base = baseValues(character)[stat];
+  const contributions = featureStatContributions(character, stat);
+  const adjustment = character.automation?.adjustments?.[stat] ?? 0;
+  const featureTotal = contributions.reduce(
+    (total, contribution) => total + contribution.value,
+    0,
+  );
+  return {
+    base,
+    contributions,
+    adjustment,
+    total: Math.max(0, base + featureTotal + adjustment),
+  };
+}
+
 /** Recompute from inputs, never from previously applied bonuses. Direct edits become explicit adjustments. */
 export function recalculateCharacter(
   previous: Character,
@@ -57,12 +110,26 @@ export function recalculateCharacter(
       heroicResource: { ...next.heroicResource, name: resourceName },
     };
   }
-  if (!next.automation?.enabled) return next;
+  if (!next.automation) return next;
   let automation = next.automation;
+  // A class change invalidates the old feature choices even while automation is off,
+  // so a stale selection cannot come back when it is turned on again. Only an
+  // explicit replacement in the same operation keeps new selections.
+  if (
+    previous.className !== next.className &&
+    previous.automation?.classFeatureSelections &&
+    previous.automation.classFeatureSelections ===
+      automation.classFeatureSelections
+  ) {
+    automation = { ...automation, classFeatureSelections: {} };
+    next = { ...next, automation };
+  }
+  // A disabled sheet keeps its saved numbers and manual adjustments as they are.
+  if (!automation.enabled) return next;
   if (
     previous.automation?.enabled &&
     previous.ancestry !== next.ancestry &&
-    previous.automation.ancestryTraits === next.automation.ancestryTraits
+    previous.automation.ancestryTraits === next.automation?.ancestryTraits
   ) {
     automation = { ...automation, ancestryTraits: [] };
     next = { ...next, automation };
@@ -148,16 +215,39 @@ export function abilityDistance(
   ability: Ability,
   character: Character,
 ): string {
-  if (!character.automation?.enabled || !ability.keywords.includes("Оружие"))
-    return ability.distance;
+  if (!character.automation?.enabled) return ability.distance;
+  const weapon = ability.keywords.includes("Оружие");
+  // Ranged class features never extend a selected melee mode (see feature-modifiers).
+  const featureDistance = featureAbilityDistanceBonus(ability, character);
+  if (!weapon && !featureDistance) return ability.distance;
   const embeddedKit = ability.source.startsWith("Комплект: ")
     ? kitByName(ability.source.slice(10))
     : undefined;
-  return ability.distance.replace(
+  const distance = ability.distance.replace(
     /(ближний|дальний)\s+(\d+)/gi,
     (_match, kind: string, amount: string) => {
       const label = kind.toLowerCase() === "ближний" ? "Ближний" : "Дальний";
-      return `${kind} ${Number(amount) + kitBonus(character, `расстоянию (${label})`) - (Number(embeddedKit?.bonuses.find((b) => b.label === `расстоянию (${label})`)?.value.replace("+", "")) || 0)}`;
+      // Each ranged alternative is adjusted on its own; areas and melee parts keep their size.
+      const kit = weapon
+        ? kitBonus(character, `расстоянию (${label})`) -
+          (Number(
+            embeddedKit?.bonuses
+              .find((b) => b.label === `расстоянию (${label})`)
+              ?.value.replace("+", ""),
+          ) || 0)
+        : 0;
+      const feature = label === "Дальний" ? featureDistance : 0;
+      return `${kind} ${Number(amount) + kit + feature}`;
     },
   );
+  // An area prints its size and its placement range as one line (`Куб 3 в пределах 10`).
+  // Only the placement range is a distance: the area size stays as printed.
+  if (featureDistance && !/(ближний|дальний)\s+\d+/i.test(ability.distance)) {
+    return distance.replace(
+      /(в\s+пределах)\s+(\d+)/gi,
+      (match, _prefix: string, amount: string) =>
+        match.replace(/\d+$/, String(Number(amount) + featureDistance)),
+    );
+  }
+  return distance;
 }

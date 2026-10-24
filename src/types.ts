@@ -178,6 +178,7 @@ export interface Character {
     ancestryTraits: string[];
     meleeDamageKit?: string;
     rangedDamageKit?: string;
+    classFeatureSelections?: Record<string, string>;
   };
 }
 

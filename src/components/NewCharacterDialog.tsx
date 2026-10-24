@@ -11,6 +11,7 @@ import {
   type BuilderDraft,
 } from "../lib/character-builder";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
+import { classFeatureGroups } from "../data/class-feature-rules";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
@@ -21,6 +22,7 @@ import {
   type SkillSlot,
 } from "../data/creation-rules";
 import { createCharacter } from "../lib/defaults";
+import { abilityDistance } from "../lib/character-calculations";
 import {
   CHARACTERISTICS,
   deriveStats,
@@ -784,44 +786,55 @@ export function NewCharacterDialog({
                       </Select>
                     </Field>
                   )}
-                  {classData?.featureChoices.map((group) => (
-                    <section className="builder-section" key={group.name}>
-                      <Field label={group.name}>
-                        <Select
-                          value={draft.featureChoices[group.name] || ""}
-                          onChange={(e) =>
-                            patch({
-                              featureChoices: {
-                                ...draft.featureChoices,
-                                [group.name]: e.target.value,
-                              },
-                            })
-                          }
-                        >
-                          <option value="">Выберите особенность</option>
-                          {group.options.map((o) => (
-                            <option key={o.name}>{o.name}</option>
-                          ))}
-                        </Select>
-                      </Field>
-                      <Reference
-                        text={group.text}
-                        label="Как работает этот выбор"
-                      />
-                      {group.options.find(
-                        (o) => o.name === draft.featureChoices[group.name],
-                      ) && (
-                        <RuleText
-                          text={
-                            group.options.find(
-                              (o) =>
-                                o.name === draft.featureChoices[group.name],
-                            )!.text
-                          }
+                  {classData?.featureChoices.map((group) => {
+                    const chosenName = draft.featureChoices[group.name];
+                    const chosenOption = group.options.find(
+                      (option) => option.name === chosenName,
+                    );
+                    const registryOption = classFeatureGroups(
+                      draft.className,
+                    )
+                      .find((item) => item.name === group.name)
+                      ?.options.find((item) => item.name === chosenName);
+                    return (
+                      <section className="builder-section" key={group.name}>
+                        <Field label={group.name}>
+                          <Select
+                            value={draft.featureChoices[group.name] || ""}
+                            onChange={(e) =>
+                              patch({
+                                featureChoices: {
+                                  ...draft.featureChoices,
+                                  [group.name]: e.target.value,
+                                },
+                              })
+                            }
+                          >
+                            <option value="">Выберите особенность</option>
+                            {group.options.map((o) => (
+                              <option key={o.name}>{o.name}</option>
+                            ))}
+                          </Select>
+                        </Field>
+                        <Reference
+                          text={group.text}
+                          label="Как работает этот выбор"
                         />
-                      )}
-                    </section>
-                  ))}
+                        {chosenOption && (
+                          <>
+                            {registryOption && (
+                              <p className="muted small">
+                                {registryOption.effects.length > 0
+                                  ? "Поддерживает авторасчёт"
+                                  : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
+                              </p>
+                            )}
+                            <RuleText text={chosenOption.text} />
+                          </>
+                        )}
+                      </section>
+                    );
+                  })}
                   <Field label="Выбранные особенности класса">
                     <TextArea
                       rows={5}
@@ -968,7 +981,7 @@ export function NewCharacterDialog({
                               }
                             />
                             <strong>{a.name}</strong>
-                            <span className="muted small">{a.distance}</span>
+                            <span className="muted small">{abilityDistance(a, hero)}</span>
                           </label>
                           <p className="muted small">{a.flavor}</p>
                           <div className="builder-ability-tiers">

@@ -304,6 +304,15 @@ function validateCharacterShape(value: JsonObject): void {
         optionalNumber(adjustments, key, `automation.adjustments.${key}`);
       }
     }
+    if ("classFeatureSelections" in automation) {
+      const selections = automation.classFeatureSelections;
+      if (!isObject(selections)) fail("automation.classFeatureSelections");
+      for (const [groupId, optionId] of Object.entries(selections)) {
+        if (typeof optionId !== "string") {
+          fail(`automation.classFeatureSelections.${groupId}`);
+        }
+      }
+    }
   }
 }
 

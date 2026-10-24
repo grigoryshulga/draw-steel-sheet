@@ -13,6 +13,7 @@ import {
 import { ANCESTRIES, CAREERS, CLASS_PRESETS } from "../data/classes";
 import { SKILL_GROUPS } from "../data/skills";
 import { PerksPanel } from "./hero/PerksPanel";
+import { ClassFeaturesPanel } from "./hero/ClassFeaturesPanel";
 import { useApp } from "../state/AppContext";
 import "./HeroView.css";
 import { Artwork } from "../components/Artwork";
@@ -193,6 +194,7 @@ export function HeroView() {
       </Panel>
 
       <PerksPanel />
+      <ClassFeaturesPanel />
 
       <div className="hero-cols">
         <Panel title="Языки" icon="book" dense>
@@ -294,13 +296,16 @@ export function HeroView() {
                 onChange={(e) => patch({ ancestryTraits: e.target.value })}
               />
             </Field>
-            <Field label="Особенности класса">
+            <Field label="Заметки об особенностях класса">
               <TextArea
                 rows={4}
                 value={character.classFeatures}
                 placeholder="Полное описание умений класса"
                 onChange={(e) => patch({ classFeatures: e.target.value })}
               />
+              <span className="muted small">
+                Заметки редактируются вручную и не обновляются при выборе особенностей выше.
+              </span>
             </Field>
           </div>
         </Panel>
