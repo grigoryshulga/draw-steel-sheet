@@ -1,5 +1,6 @@
 import { useId, useMemo } from "react";
 import { SKILL_GROUPS } from "../data/skills";
+import { Icon } from "./Icons";
 import type { SkillSlot } from "../data/creation-rules";
 import {
   resolveSkillSelection,
@@ -128,11 +129,12 @@ export function SkillPicker({
                         onChange={() => onChange(toggleSkillSelection(slots, values, prior, skill))}
                       />
                       <label htmlFor={checkboxId}>
-                        <span className="skill-picker__skill-name">{skill}</span>
-                        {isSelected ? <span className="skill-picker__status">Выбран</span> : null}
+                        <span className="skill-picker__skill-name">
+                          {skill}
+                          {isSelected ? <Icon name="check" size={14} aria-hidden="true" /> : null}
+                        </span>
                         {isAutomatic ? <span className="skill-picker__status">Автоматически</span> : null}
                         {isKnown ? <span className="skill-picker__status">Уже есть</span> : null}
-                        {unavailable ? <span className="skill-picker__status">Недоступен</span> : null}
                         {reason ? (
                           <span className="skill-picker__sr-only" id={reasonId}>{reason}</span>
                         ) : null}

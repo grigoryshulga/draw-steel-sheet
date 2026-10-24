@@ -14,6 +14,7 @@ export type IconName =
   | "close"
   | "chevron-down"
   | "chevron-right"
+  | "arrow-up"
   | "cloud"
   | "download"
   | "upload"
@@ -81,6 +82,7 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   plus: <path d="M12 5v14M5 12h14" />,
+  "arrow-up": <path d="M12 19V5M5 12l7-7 7 7" />,
   minus: <path d="M5 12h14" />,
   trash: (
     <>

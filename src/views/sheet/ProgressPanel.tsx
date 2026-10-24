@@ -1,15 +1,19 @@
 import { useCallback, useState } from "react";
+import "./ProgressPanel.css";
+import { Icon } from "../../components/Icons";
 import { Button, Field, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
 import { getLevelUpPlan } from "../../lib/level-up";
+import { echelon } from "../../lib/progression";
 import { useApp } from "../../state/AppContext";
 import { LevelUpDialog, LevelUpHistory } from "./LevelUpDialog";
 
-/** Прогрессия героя: победы, опыт, эпик, богатство и известность. */
+/** Уровень и эшелон героя, победы, опыт, богатство и известность. */
 export function ProgressPanel() {
   const { character, patch } = useApp();
   const [levelUpOpen, setLevelUpOpen] = useState(false);
   const closeLevelUp = useCallback(() => setLevelUpOpen(false), []);
   const levelUpPlan = getLevelUpPlan(character);
+  const currentEchelon = echelon(character.level);
 
   return (
     <Panel
@@ -18,75 +22,70 @@ export function ProgressPanel() {
       className="progress-panel"
       dense
     >
-      <div className="progress-grid">
-        <Field
-          label={<span title="Ручная коррекция уровня не выдаёт награды и особенности.">Уровень · ручная коррекция</span>}
-          className="progress-level-field"
-        >
-          <Stepper
-            value={character.level}
-            min={1}
-            max={10}
-            label="Уровень"
-            onChange={(level) => patch({ level })}
-          />
-          <Button
-            size="sm"
-            variant="soft"
-            className="progress-level-up-button"
-            disabled={!levelUpPlan.available}
-            title={levelUpPlan.available ? "Открыть повышение на следующий уровень" : levelUpPlan.reason}
-            onClick={() => setLevelUpOpen(true)}
-          >
-            Повысить уровень
-          </Button>
-          {!levelUpPlan.available && levelUpPlan.reason && (
-            <span className="progress-level-up-reason" role="status">
-              {levelUpPlan.reason}
+      <div className="progress-layout">
+        <div className="progress-header" role="group" aria-label="Уровень и эшелон">
+          <div className="progress-level-summary">
+            <span className="progress-level-value">
+              <span className="sr-only">Уровень {character.level}</span>
+              <span aria-hidden="true">{character.level}</span>
+              <span className="progress-level-unit" aria-hidden="true">ур</span>
             </span>
-          )}
-        </Field>
-        <Field label="Победы">
-          <Stepper
-            value={character.victories}
-            min={0}
-            max={999}
-            label="Победы"
-            onChange={(victories) => patch({ victories })}
-          />
-        </Field>
-        <Field label="Опыт">
-          <NumberInput
-            min={0}
-            max={999999}
-            value={character.xp}
-            label="Опыт"
-            onChange={(xp) => patch({ xp })}
-          />
-        </Field>
-        <Field label="Эпик">
-          <NumberInput
-            min={0}
-            max={9999}
-            value={character.epic}
-            label="Эпические очки"
-            onChange={(epic) => patch({ epic })}
-          />
-        </Field>
-        <Field label="Богатство">
-          <TextInput
-            value={character.wealth}
-            placeholder="напр., 500 ветров"
-            onChange={(event) => patch({ wealth: event.target.value })}
-          />
-        </Field>
-        <Field label="Известность" className="progress-wide">
-          <TextInput
-            value={character.renown}
-            placeholder="напр., 3"
-            onChange={(event) => patch({ renown: event.target.value })}
-          />
-        </Field>
+            <span className="progress-echelon">{currentEchelon}-й эшелон</span>
+          </div>
+          <span
+            className="progress-level-up-wrap"
+            title={!levelUpPlan.available ? levelUpPlan.reason : undefined}
+          >
+            <Button
+              variant="soft"
+              className="progress-level-up-trigger"
+              disabled={!levelUpPlan.available}
+              title="Повысить уровень"
+              aria-label="Повысить уровень"
+              onClick={() => setLevelUpOpen(true)}
+            >
+              <Icon name="arrow-up" size={20} />
+            </Button>
+          </span>
+        </div>
+
+        <div className="progress-counters">
+          <Field label="Победы">
+            <Stepper
+              value={character.victories}
+              min={0}
+              max={999}
+              label="Победы"
+              onChange={(victories) => patch({ victories })}
+            />
+          </Field>
+          <Field label="Опыт">
+            <NumberInput
+              min={0}
+              max={999999}
+              value={character.xp}
+              label="Опыт"
+              onChange={(xp) => patch({ xp })}
+            />
+          </Field>
+        </div>
+
+        <div className="progress-standing">
+          <Field label="Богатство">
+            <TextInput
+              value={character.wealth}
+              placeholder="напр., 500 ветров"
+              onChange={(event) => patch({ wealth: event.target.value })}
+            />
+          </Field>
+          <Field label="Известность">
+            <TextInput
+              value={character.renown}
+              placeholder="напр., 3"
+              onChange={(event) => patch({ renown: event.target.value })}
+            />
+          </Field>
+        </div>
       </div>
       <LevelUpHistory character={character} />
       <LevelUpDialog

@@ -1,0 +1,115 @@
+.progress-panel .progress-layout {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.progress-panel .progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.progress-panel .progress-level-summary {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  min-width: 0;
+}
+
+.progress-panel .progress-level-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  color: var(--fg-bright);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.progress-panel .progress-level-unit {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.progress-panel .progress-echelon {
+  color: var(--fg);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.progress-panel .progress-level-up-wrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.progress-panel .progress-level-up-trigger {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.progress-panel .progress-level-up-trigger:focus-visible {
+  outline: 2px solid var(--fg-bright);
+  outline-offset: 3px;
+}
+
+.progress-panel .progress-level-up-trigger:disabled {
+  color: var(--muted);
+  background: color-mix(in srgb, var(--muted) 14%, transparent);
+  cursor: not-allowed;
+}
+
+.progress-panel .progress-counters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+
+.progress-panel .progress-counters > .field {
+  min-width: 0;
+}
+
+.progress-panel .progress-counters .input,
+.progress-panel .progress-counters .stepper {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+}
+
+.progress-panel .progress-counters .field > .stepper {
+  justify-content: space-between;
+}
+
+.progress-panel .progress-standing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.progress-panel .progress-standing > .field {
+  min-width: 0;
+}
+
+.progress-panel .progress-standing .input {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+}
+
