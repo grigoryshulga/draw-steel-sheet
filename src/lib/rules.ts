@@ -326,11 +326,12 @@ function expandDamageAlternatives(formula: string): string[] {
   return variants;
 }
 
-/** Бонус одного всплеска к урону равен самой высокой характеристике. */
+/** Бонус одного всплеска к урону равен самой высокой эффективной характеристике. */
 export function surgeDamage(character: Character): number {
+  const characteristics = effectiveCharacteristics(character);
   return Math.max(
     0,
-    ...CHARACTERISTIC_KEYS.map((key) => character.characteristics[key]),
+    ...CHARACTERISTIC_KEYS.map((key) => characteristics[key]),
   );
 }
 

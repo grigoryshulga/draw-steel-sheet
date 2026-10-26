@@ -6,7 +6,7 @@ import {
   featureCharacteristicBonus,
 } from "../src/lib/feature-modifiers";
 import { recalculateCharacter } from "../src/lib/character-calculations";
-import { deriveStats, evaluateDamage } from "../src/lib/rules";
+import { deriveStats, evaluateDamage, surgeDamage, surgeDamageTotal } from "../src/lib/rules";
 import type { FeatureEffect } from "../src/data/class-features/types";
 
 /** Минимальная автоматизация: тестам не нужны никакие выбранные фичи. */
@@ -162,5 +162,19 @@ describe("evaluateDamage", () => {
 
     expect(evaluateDamage("3 + M", hero).values).toEqual([7]);
     expect(evaluateDamage("3 + M", hero).breakdown).toBe("3 + 4");
+  });
+});
+
+describe("surgeDamage", () => {
+  it("урон всплеска считается от эффективной характеристики", () => {
+    const hero = createCharacter({ className: "Неистовый" });
+    hero.characteristics.might = 3;
+    hero.automation = automationWithHook([
+      { kind: "characteristic", key: "might", value: 1 },
+    ]);
+
+    expect(hero.characteristics.might).toBe(3);
+    expect(surgeDamage(hero)).toBe(4);
+    expect(surgeDamageTotal(hero, 2)).toBe(8);
   });
 });

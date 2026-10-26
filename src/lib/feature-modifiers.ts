@@ -159,19 +159,29 @@ export function applyCharacteristicEffects(
   return result;
 }
 
+/** Эффекты характеристик активных источников героя (только при `automation.enabled`). */
+function activeCharacteristicEffects(character: Character): FeatureEffect[] {
+  return activeFeatureSources(character).flatMap((source) => source.effects);
+}
+
+/** Нулевая запись-база для подсчёта одних только прибавок. */
+const ZERO_CHARACTERISTICS: Record<CharacteristicKey, number> = {
+  might: 0,
+  agility: 0,
+  reason: 0,
+  intuition: 0,
+  presence: 0,
+};
+
 /** Сумма прибавок активных источников к одной характеристике. */
 export function featureCharacteristicBonus(
   character: Character,
   key: CharacteristicKey,
 ): number {
-  let total = 0;
-  for (const source of activeFeatureSources(character)) {
-    for (const effect of source.effects) {
-      if (effect.kind !== "characteristic" || effect.key !== key) continue;
-      if (Number.isFinite(effect.value)) total += effect.value;
-    }
-  }
-  return total;
+  return applyCharacteristicEffects(
+    ZERO_CHARACTERISTICS,
+    activeCharacteristicEffects(character),
+  )[key];
 }
 
 /**
@@ -191,11 +201,8 @@ function testCharacteristicEffects(character: Character): FeatureEffect[] {
 export function effectiveCharacteristics(
   character: Character,
 ): Record<CharacteristicKey, number> {
-  const effects = activeFeatureSources(character).flatMap(
-    (source) => source.effects,
-  );
   return applyCharacteristicEffects(character.characteristics, [
-    ...effects,
+    ...activeCharacteristicEffects(character),
     ...testCharacteristicEffects(character),
   ]);
 }
