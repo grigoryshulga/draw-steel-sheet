@@ -5,9 +5,11 @@ import { DEFAULT_ABILITIES, makeId } from "../data/templates";
 import type {
   Ability,
   Character,
+  CharacterRuntime,
   CharacteristicKey,
   LevelAdvancementRecord,
 } from "../types";
+import { defaultRuntime } from "./runtime";
 
 const ZERO_CHARACTERISTICS: Record<CharacteristicKey, number> = {
   might: 0,
@@ -218,6 +220,76 @@ function cloneAdvancementRecord(
   };
 }
 
+function positiveInt(value: unknown): number | undefined {
+  return typeof value === "number" && Number.isSafeInteger(value) && value > 0
+    ? value
+    : undefined;
+}
+
+function normalizeRuntimeMarks(raw: unknown): CharacterRuntime["triggers"] {
+  const triggers: CharacterRuntime["triggers"] = {};
+  if (raw === null || typeof raw !== "object" || Array.isArray(raw)) {
+    return triggers;
+  }
+  for (const [featureId, mark] of Object.entries(
+    raw as Record<string, unknown>,
+  )) {
+    if (
+      !featureId ||
+      mark === null ||
+      typeof mark !== "object" ||
+      Array.isArray(mark)
+    ) {
+      continue;
+    }
+    const source = mark as Record<string, unknown>;
+    const normalized: { round?: number; encounter?: number; count?: number } = {};
+    const round = positiveInt(source.round);
+    const encounter = positiveInt(source.encounter);
+    const count = positiveInt(source.count);
+    if (round !== undefined) normalized.round = round;
+    if (encounter !== undefined) normalized.encounter = encounter;
+    if (count !== undefined) normalized.count = count;
+    if (Object.keys(normalized).length > 0) triggers[featureId] = normalized;
+  }
+  return triggers;
+}
+
+function normalizeRuntimeResources(raw: unknown): Record<string, number> {
+  if (raw === null || typeof raw !== "object" || Array.isArray(raw)) return {};
+  return Object.fromEntries(
+    Object.entries(raw as Record<string, unknown>).filter(
+      (entry): entry is [string, number] =>
+        typeof entry[1] === "number" && Number.isFinite(entry[1]),
+    ),
+  );
+}
+
+/**
+ * Нормализация сохранённого состояния схватки. Старый лист без поля остаётся
+ * без него, а битое значение не ломает загрузку: непонятные числа и записи
+ * заменяются безопасными, лишние поля отбрасываются.
+ */
+function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
+  if (raw === undefined) return undefined;
+  if (raw === null || typeof raw !== "object" || Array.isArray(raw)) {
+    return defaultRuntime();
+  }
+  const source = raw as Record<string, unknown>;
+  return {
+    round: positiveInt(source.round) ?? 1,
+    encounter: positiveInt(source.encounter) ?? 1,
+    triggers: normalizeRuntimeMarks(source.triggers),
+    forms: Array.isArray(source.forms)
+      ? source.forms.filter(
+          (form): form is string =>
+            typeof form === "string" && form.trim() !== "",
+        )
+      : [],
+    resources: normalizeRuntimeResources(source.resources),
+  };
+}
+
 export function normalizeCharacter(input: Partial<Character>): Character {
   const base = createCharacter({
     name: input.name,
@@ -234,6 +306,8 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     : undefined;
 
   const rawAutomation = input.automation;
+  const rawRuntime = (input as { runtime?: unknown }).runtime;
+  const normalizedRuntime = normalizeRuntime(rawRuntime);
   const {
     classFeatureSelections: _rawSelections,
     ancestryTraitIds: _rawAncestryTraitIds,
@@ -313,6 +387,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     ...(normalizedAdvancements
       ? { advancements: normalizedAdvancements }
       : {}),
+    ...(normalizedRuntime ? { runtime: normalizedRuntime } : {}),
     ...(rawAutomation
       ? {
           automation: {

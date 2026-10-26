@@ -1,6 +1,8 @@
-import type { Character } from "../types";
+import type { Character, CharacterRuntime } from "../types";
 import { applyDamage, deriveStats } from "./rules";
 import { heroicResourceName } from "../data/classes";
+import { classFeatureTriggers } from "./class-features";
+import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
 
 export type HealthOperation =
   "damage" | "heal" | "temporary" | "recovery" | "rest" | "adjust";
@@ -9,6 +11,9 @@ export type ResourceName =
 export type GameAction =
   | { kind: HealthOperation; amount?: number }
   | { kind: "resource"; resource: ResourceName; value: number }
+  | { kind: "round" }
+  | { kind: "encounter" }
+  | { kind: "trigger"; featureId: string; used: boolean }
   | {
       kind: "ability";
       abilityId: string;
@@ -30,6 +35,14 @@ export function heroicResourceFloor(character: Character): number {
     ? -(1 + Math.max(0, character.characteristics.reason))
     : 0;
 }
+/** Подпись триггера по id фичи. Условие фичи может быть не выполнено (например, выключена форма), поэтому неизвестный id показывается как есть. */
+function triggerName(character: Character, featureId: string): string {
+  return (
+    classFeatureTriggers(character).find((item) => item.featureId === featureId)
+      ?.name ?? featureId
+  );
+}
+
 const invalid = (reason: string): ActionPreview => ({ ok: false, reason });
 const validAmount = (amount: number | undefined) =>
   amount !== undefined &&
@@ -171,6 +184,42 @@ export function previewGameAction(
             : { [action.resource]: action.value };
       return finish(label, `${label}: ${before} → ${action.value}.`, patch);
     }
+    case "round": {
+      const runtime = currentRuntime(beginRound(character));
+      const removed =
+        Object.keys(currentRuntime(character).triggers).length -
+        Object.keys(runtime.triggers).length;
+      return finish(
+        `Новый раунд ${runtime.round}`,
+        `Раунд: ${runtime.round - 1} → ${runtime.round}.${removed ? ` Снято отметок раунда: ${removed}.` : ""}`,
+        { runtime },
+      );
+    }
+    case "encounter": {
+      const runtime = currentRuntime(beginEncounter(character));
+      return finish(
+        `Новая схватка ${runtime.encounter}`,
+        `Схватка: ${runtime.encounter - 1} → ${runtime.encounter}. Отметки триггеров сняты, раунд остаётся ${runtime.round}.`,
+        { runtime },
+      );
+    }
+    case "trigger": {
+      const name = triggerName(character, action.featureId);
+      const runtime = currentRuntime(character);
+      if (!action.used && !runtime.triggers[action.featureId])
+        return invalid(`Отметка «${name}» не стоит`);
+      const nextRuntime = currentRuntime(
+        markTrigger(character, action.featureId, action.used),
+      );
+      const mark = nextRuntime.triggers[action.featureId];
+      return finish(
+        action.used ? `Отмечено: ${name}` : `Отметка снята: ${name}`,
+        action.used
+          ? `Раунд ${nextRuntime.round}${mark?.count && mark.count > 1 ? `, ${mark.count}-й раз` : ""}.`
+          : `Триггер снова доступен в раунде ${nextRuntime.round}.`,
+        { runtime: nextRuntime },
+      );
+    }
     case "ability": {
       const ability = character.abilities.find(
         (item) => item.id === action.abilityId,
@@ -227,6 +276,26 @@ const values = (c: Character) => ({
   tokens: c.heroTokens,
 });
 type ValueKey = keyof ReturnType<typeof values>;
+
+/**
+ * Состояние схватки в виде строки: по полям и с сортировкой ключей, чтобы
+ * пересборка объекта (импорт, нормализация) не мешала отмене.
+ */
+function runtimeKey(runtime: CharacterRuntime | undefined): string {
+  if (!runtime) return "нет";
+  return JSON.stringify([
+    runtime.round,
+    runtime.encounter,
+    Object.keys(runtime.triggers)
+      .sort()
+      .map((id) => [id, runtime.triggers[id]]),
+    [...runtime.forms].sort(),
+    Object.keys(runtime.resources)
+      .sort()
+      .map((name) => [name, runtime.resources[name]]),
+  ]);
+}
+
 export interface GameHistoryEntry {
   id: string;
   characterId: string;
@@ -236,6 +305,15 @@ export interface GameHistoryEntry {
   undone: boolean;
   changes: { key: ValueKey; before: number; after: number }[];
   limits: { stamina: number; recoveries: number; resource: number };
+  /** Состояние схватки до и после действия, если действие его меняло; поля не было — `undefined`. */
+  runtime?: { before?: CharacterRuntime; after?: CharacterRuntime };
+}
+
+/** Герой без поля `runtime`: отмена действия, которое его и завело. */
+function withoutRuntime(character: Character): Character {
+  const copy = { ...character };
+  delete copy.runtime;
+  return copy;
 }
 
 export function undoReason(
@@ -244,6 +322,11 @@ export function undoReason(
 ): string | undefined {
   if (entry.characterId !== character.id || entry.undone)
     return "Действие уже недоступно для отмены";
+  if (
+    entry.runtime &&
+    runtimeKey(character.runtime) !== runtimeKey(entry.runtime.after)
+  )
+    return "Состояние схватки уже изменилось. Сначала отмените более позднее действие или исправьте его вручную.";
   const current = values(character);
   if (entry.changes.some((change) => current[change.key] !== change.after))
     return "Затронутые значения уже изменены. Сначала отмените более позднее действие или исправьте их вручную.";
@@ -286,6 +369,8 @@ export function createGameSession() {
       const changes = (Object.keys(before) as ValueKey[])
         .filter((key) => before[key] !== after[key])
         .map((key) => ({ key, before: before[key], after: after[key] }));
+      const runtimeChanged =
+        runtimeKey(character.runtime) !== runtimeKey(result.next.runtime);
       history = [
         {
           id,
@@ -300,6 +385,9 @@ export function createGameSession() {
             recoveries: character.recoveries.max,
             resource: MAX_HEROIC_RESOURCE,
           },
+          ...(runtimeChanged
+            ? { runtime: { before: character.runtime, after: result.next.runtime } }
+            : {}),
         },
         ...history,
       ].slice(0, 30);
@@ -313,7 +401,7 @@ export function createGameSession() {
       if (reason) return invalid(reason);
       const restored = values(character);
       for (const change of entry.changes) restored[change.key] = change.before;
-      const next = {
+      const next: Character = {
         ...character,
         stamina: {
           ...character.stamina,
@@ -328,6 +416,11 @@ export function createGameSession() {
         surges: restored.surges,
         heroTokens: restored.tokens,
       };
+      const reverted = entry.runtime
+        ? entry.runtime.before
+          ? { ...next, runtime: entry.runtime.before }
+          : withoutRuntime(next)
+        : next;
       history = history.map((item) =>
         item.id === entry.id ? { ...item, undone: true } : item,
       );
@@ -335,7 +428,7 @@ export function createGameSession() {
         ok: true,
         label: `Отменено: ${entry.label}`,
         detail: entry.detail,
-        next,
+        next: reverted,
       };
     },
   };

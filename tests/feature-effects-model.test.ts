@@ -3,6 +3,7 @@ import { createCharacter } from "../src/lib/defaults";
 import { fieldEffectContributions, resolveFeatureAmount } from "../src/lib/feature-modifiers";
 import type { FeatureEffect } from "../src/data/class-features/types";
 import type { Ability, Character } from "../src/types";
+import { currentRuntime } from "../src/lib/runtime";
 
 const ability = (keywords: string[]): Ability => ({
   id: "a", name: "a", flavor: "", actionType: "main", kind: "heroic",
@@ -142,17 +143,21 @@ describe("filter mode, keyValue, formActive and cap", () => {
   });
 
   it("applies formActive only while runtime.forms contains the form", () => {
-    const hero = createCharacter({ className: "Неистовый" }) as Character & {
-      runtime?: { forms?: string[] };
-    };
+    const base = createCharacter({ className: "Неистовый" });
+    const withForms = (forms: string[]): Character => ({
+      ...base,
+      runtime: { ...currentRuntime(base), forms },
+    });
     const effects: FeatureEffect[] = [
       { kind: "field", field: "speed", value: 1, when: { formActive: "Теневая форма" } },
     ];
-    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(0);
-    hero.runtime = { forms: ["ТЕНЕВАЯ ФОРМА"] };
-    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(1);
-    hero.runtime = { forms: ["Элементальная форма"] };
-    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(0);
+    expect(fieldEffectContributions(effects, base, "speed")).toHaveLength(0);
+    expect(
+      fieldEffectContributions(effects, withForms(["ТЕНЕВАЯ ФОРМА"]), "speed"),
+    ).toHaveLength(1);
+    expect(
+      fieldEffectContributions(effects, withForms(["Элементальная форма"]), "speed"),
+    ).toHaveLength(0);
   });
 
   it("caps the scaled value from above", () => {

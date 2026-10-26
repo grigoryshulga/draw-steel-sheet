@@ -4,6 +4,7 @@ import {
 import type { FeatureCondition } from "../data/class-features/types";
 import type { Character } from "../types";
 import { normalizeFeatureText as normalize } from "./utils";
+import { currentRuntime } from "./runtime";
 
 /**
  * Условия, при которых действует эффект или триггер классовой особенности.
@@ -14,15 +15,8 @@ import { normalizeFeatureText as normalize } from "./utils";
  */
 
 /**
- * `runtime` появится в `Character` позже; читаем его через структурный взгляд,
- * чтобы не опережать задачу о состоянии схватки.
+ * Названия опций по ID: нужны условию `keyValue`, где данные пишут имя группы.
  */
-export interface CharacterRuntimeLike {
-  forms?: string[];
-  resources?: Record<string, number>;
-}
-
-/** Названия опций по ID: нужны условию `keyValue`, где данные пишут имя группы. */
 const CLASS_FEATURE_OPTION_NAMES = new Map<string, string>(
   CLASS_FEATURE_GROUPS.flatMap((group) =>
     group.options.map((option) => [option.id, option.name] as const),
@@ -33,10 +27,6 @@ function hasAnyKit(character: Character): boolean {
   return [character.kit, character.secondaryKit ?? ""].some(
     (name) => typeof name === "string" && name.trim() !== "",
   );
-}
-
-function runtimeOf(character: Character): CharacterRuntimeLike {
-  return (character as Character & { runtime?: CharacterRuntimeLike }).runtime ?? {};
 }
 
 /** Текущее значение героического ресурса по имени: лист героя, затем runtime. */
@@ -50,7 +40,7 @@ function currentResourceValue(character: Character, name: string): number {
   ) {
     return typeof sheetResource.current === "number" ? sheetResource.current : 0;
   }
-  const resources = runtimeOf(character).resources;
+  const resources = currentRuntime(character).resources;
   if (!resources || typeof resources !== "object") return 0;
   for (const [key, value] of Object.entries(resources)) {
     if (normalize(key) === wanted && typeof value === "number") return value;
@@ -160,8 +150,13 @@ export function featureConditionMet(
   }
   if (condition.formActive) {
     const wanted = normalize(condition.formActive);
-    const forms = runtimeOf(character).forms ?? [];
-    if (!forms.some((form) => typeof form === "string" && normalize(form) === wanted)) {
+    const forms = currentRuntime(character).forms;
+    if (
+      !Array.isArray(forms) ||
+      !forms.some(
+        (form) => typeof form === "string" && normalize(form) === wanted,
+      )
+    ) {
       return false;
     }
   }

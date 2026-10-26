@@ -130,6 +130,18 @@ export interface ProjectRow {
   points: string;
 }
 
+/** Состояние схватки: раунд, схватка, отметки триггеров, формы и пулы ресурсов. */
+export interface CharacterRuntime {
+  round: number;
+  encounter: number;
+  /** Отметки триггеров: ключ — id фичи; round/encounter — номер, в котором отмечено; count — сколько раз. */
+  triggers: Record<string, { round?: number; encounter?: number; count?: number }>;
+  /** Активные формы (например, «Теневая форма» Неистового). */
+  forms: string[];
+  /** Дополнительные пулы ресурсов по имени: благочестие, драма, судьба, пророчество. */
+  resources: Record<string, number>;
+}
+
 export interface Character {
   schemaVersion: 1;
   id: string;
@@ -170,6 +182,12 @@ export interface Character {
 
   /** Необязательная история повышений; отсутствует в старых листах. */
   advancements?: LevelAdvancementRecord[];
+
+  /**
+   * Состояние схватки. Необязательно и лениво: старые листы остаются без поля,
+   * его заводит первое действие (`src/lib/runtime.ts`).
+   */
+  runtime?: CharacterRuntime;
 
   skills: string[];
   languages: string[];
