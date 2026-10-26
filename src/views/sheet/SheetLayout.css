@@ -49,11 +49,15 @@
 .sheet-block[data-panel="abilities"] {
   order: 7;
 }
-.sheet-block[data-panel="skills"] {
+/* Особенности класса — сразу после способностей: они объясняют их числа. */
+.sheet-block[data-panel="features"] {
   order: 8;
 }
-.sheet-block[data-panel="perks"] {
+.sheet-block[data-panel="skills"] {
   order: 9;
+}
+.sheet-block[data-panel="perks"] {
+  order: 10;
 }
 @container sheet (max-width: 639px) {
   .sheet-layout {

@@ -5,6 +5,7 @@ import { activeClassFeatures } from "../lib/class-features";
 import {
   resolvedResourceGains,
   resourceGainLabel,
+  resourceGenitive,
 } from "../lib/resources";
 import type { Character } from "../types";
 
@@ -84,23 +85,6 @@ export const HEROIC_RESOURCE_HELP: Record<string, string[]> = {
 export const HEROIC_RESOURCE_FALLBACK = [START, LOSE];
 
 /**
- * Родительный падеж для строки «Пороги свирепости»: в данных названия
- * ресурсов стоят в именительном. Незнакомый ресурс показывается в кавычках,
- * чтобы подпись не превращалась в «Пороги проверочный ресурс».
- */
-const RESOURCE_GENITIVE: Record<string, string> = {
-  Свирепость: "свирепости",
-  Дисциплина: "дисциплины",
-  Эссенция: "эссенции",
-  Благочестие: "благочестия",
-  Фокус: "фокуса",
-  Ясность: "ясности",
-  Прозрение: "прозрения",
-  Драма: "драмы",
-  Гнев: "гнева",
-};
-
-/**
  * Подсказка из данных: пороги ресурса и эпический пул.
  *
  * Пороги берутся из самих особенностей (`when.resourceAtLeast`): в
@@ -123,7 +107,8 @@ export function resourceSpecHelp(character: Character): string[] {
   }
   for (const [name, values] of thresholds) {
     const sorted = [...values].sort((left, right) => left - right);
-    const label = RESOURCE_GENITIVE[name] ?? `ресурса «${name}»`;
+    // Незнакомый ресурс — в кавычках, чтобы подпись осталась грамотной.
+    const label = resourceGenitive(name) ?? `ресурса «${name}»`;
     lines.push(`Пороги ${label}: ${sorted.join(", ")}`);
   }
 

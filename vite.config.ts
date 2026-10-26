@@ -1,6 +1,12 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
+/**
+ * Конфиг исполняется в Node, но `@types/node` в проекте нет: объявляем только
+ * то, что читаем. Иначе `tsc -b` проходит лишь на устаревшем кэше сборки.
+ */
+declare const process: { env: Record<string, string | undefined> };
+
 export default defineConfig({
   plugins: [react()],
   server: {

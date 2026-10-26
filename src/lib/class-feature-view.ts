@@ -23,6 +23,7 @@ import {
   type FeatureDamageImmunity,
 } from "./feature-modifiers";
 import { CHARACTERISTICS, deriveStats } from "./rules";
+import { resourceGenitive } from "./resources";
 import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
 
@@ -377,7 +378,10 @@ function conditionBadges(
   }
   if (condition.resourceAtLeast) {
     const { name, value } = condition.resourceAtLeast;
-    push("threshold", `нужно ${value} ${name}`, {
+    // «нужно 8 свирепости»: строчная и падеж по ресурсу, без состояния —
+    // «сейчас нет» относится к триггеру, а не к порогу.
+    const resource = resourceGenitive(name) ?? `«${name}»`;
+    push("threshold", `нужно ${value} ${resource}`, {
       resourceAtLeast: condition.resourceAtLeast,
     });
   }
@@ -420,6 +424,20 @@ function mergeBadges(badges: FeatureSheetBadge[]): FeatureSheetBadge[] {
     );
   }
   return [...merged.values()];
+}
+
+/**
+ * Пояснение состояния бейджа текстом: цвет и прозрачность — не сообщение.
+ * Состояние есть только у срабатываний и отметок выбора: порог, иммунитет и
+ * проза — свойство правила, а не «сейчас нет».
+ */
+export function featureBadgeState(
+  badge: FeatureSheetBadge,
+): string | undefined {
+  if (badge.active) return undefined;
+  if (badge.kind === "trigger") return "уже отмечено";
+  if (badge.kind === "choice") return "сейчас нет";
+  return undefined;
 }
 
 /**

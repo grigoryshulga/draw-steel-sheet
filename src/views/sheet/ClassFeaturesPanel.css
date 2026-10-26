@@ -188,6 +188,15 @@
   min-width: 0;
 }
 
+/* Разделитель между бейджами: без него две подписи подряд читаются слитно. */
+.cf-badges .cf-badge-sep {
+  align-self: center;
+  color: var(--line-strong);
+  font-size: 0.69rem;
+  line-height: 1;
+  list-style: none;
+}
+
 /* Состояние «условие не выполнено» — текстом, а не только прозрачностью. */
 .cf-badge-state {
   color: var(--orange);

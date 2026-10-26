@@ -10,6 +10,7 @@ import type { Character } from "../src/types";
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  featureBadgeState,
   featureLevelOpenState,
   triggerBadgeCounts,
   type FeatureSheetItem,
@@ -129,8 +130,7 @@ describe("classFeatureGroupsForSheet", () => {
     const hero = fury(2, "Берсерк");
     const item = itemOf(hero, ASPECT_GATE);
     const threshold = item.badges.find((badge) => badge.kind === "threshold");
-    expect(threshold?.label).toContain("нужно 2");
-    expect(threshold?.label).toContain("Свирепость");
+    expect(threshold?.label).toBe("нужно 2 свирепости");
     // Свирепости на листе нет — порог не выполнен.
     expect(threshold?.active).toBe(false);
 
@@ -142,6 +142,31 @@ describe("classFeatureGroupsForSheet", () => {
       (badge) => badge.kind === "threshold",
     );
     expect(met?.active).toBe(true);
+  });
+
+  it("порог подписан строчной, а состояние есть только у триггеров и выбора", () => {
+    const hero = fury(4, "Берсерк");
+    const item = itemOf(
+      hero,
+      "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
+    );
+    expect(item.badges.map((badge) => badge.label)).toContain(
+      "нужно 8 свирепости",
+    );
+    const threshold = item.badges.find((badge) => badge.kind === "threshold")!;
+    expect(featureBadgeState(threshold)).toBeUndefined();
+    expect(
+      featureBadgeState({ kind: "immunity", label: "иммунитет", active: false }),
+    ).toBeUndefined();
+    expect(
+      featureBadgeState({ kind: "trigger", label: "триггер", active: false }),
+    ).toBe("уже отмечено");
+    expect(
+      featureBadgeState({ kind: "choice", label: "выбор", active: false }),
+    ).toBe("сейчас нет");
+    expect(
+      featureBadgeState({ kind: "choice", label: "выбор", active: true }),
+    ).toBeUndefined();
   });
 
   it("показывает бейдж аспекта и приглушает его у чужого аспекта", () => {

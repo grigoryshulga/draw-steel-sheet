@@ -5,6 +5,7 @@ import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
 import { ConditionsPanel } from "./sheet/ConditionsPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
+import { ClassFeatureMechanicsPanel } from "./sheet/ClassFeaturesPanel";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { PotencyPanel } from "./sheet/PotencyPanel";
 import { ProgressPanel } from "./sheet/ProgressPanel";
@@ -22,6 +23,7 @@ type PanelId =
   | "characteristics"
   | "conditions"
   | "abilities"
+  | "features"
   | "perks"
   | "potency"
   | "progress"
@@ -32,6 +34,7 @@ const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
   conditions: ConditionsPanel,
   abilities: SheetAbilitiesPanel,
+  features: ClassFeatureMechanicsPanel,
   perks: SheetPerksPanel,
   potency: PotencyPanel,
   progress: ProgressPanel,
@@ -41,7 +44,12 @@ const PANELS: Record<PanelId, ComponentType> = {
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
-const MAIN_COLUMN: PanelId[] = ["characteristics", "vitals", "abilities"];
+const MAIN_COLUMN: PanelId[] = [
+  "characteristics",
+  "vitals",
+  "abilities",
+  "features",
+];
 const SIDE_COLUMN: PanelId[] = [
   "progress",
   "potency",

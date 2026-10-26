@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Button, Select } from "../../components/ui";
@@ -6,9 +6,9 @@ import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  featureBadgeState,
   featureLevelOpenState,
   triggerBadgeCounts,
-  type FeatureSheetBadge,
   type FeatureSheetGroup,
   type FeatureSheetItem,
 } from "../../lib/class-feature-view";
@@ -52,29 +52,28 @@ export function RoundEncounterControls({ className = "" }: { className?: string 
   );
 }
 
-/** Пояснение состояния бейджа текстом: цвет и прозрачность — не сообщение. */
-function badgeState(badge: FeatureSheetBadge): string | undefined {
-  if (badge.active) return undefined;
-  // Отмеченный триггер не «не выполнен» — он уже сработал в этом раунде.
-  return badge.kind === "trigger" ? "уже отмечено" : "сейчас нет";
-}
-
 /** Бейджи записи: срабатывание, порог, иммунитет, выбор, выдача. */
 function Badges({ item }: { item: FeatureSheetItem }) {
   if (item.badges.length === 0) return null;
   return (
     <ul className="cf-badges">
-      {item.badges.map((badge) => {
-        const state = badgeState(badge);
+      {item.badges.map((badge, index) => {
+        const state = featureBadgeState(badge);
         return (
-          <li
-            key={`${badge.kind}-${badge.label}`}
-            className={`cf-badge is-${badge.kind}${badge.active ? "" : " is-off"}`}
-            title={state ? `${badge.label} — ${state}` : badge.label}
-          >
-            <span className="cf-badge-text">{badge.label}</span>
-            {state && <span className="cf-badge-state">{state}</span>}
-          </li>
+          <Fragment key={`${badge.kind}-${badge.label}`}>
+            {index > 0 && (
+              <li className="cf-badge-sep" aria-hidden="true">
+                ·
+              </li>
+            )}
+            <li
+              className={`cf-badge is-${badge.kind}${badge.active ? "" : " is-off"}`}
+              title={state ? `${badge.label} — ${state}` : badge.label}
+            >
+              <span className="cf-badge-text">{badge.label}</span>
+              {state && <span className="cf-badge-state">{state}</span>}
+            </li>
+          </Fragment>
         );
       })}
     </ul>
