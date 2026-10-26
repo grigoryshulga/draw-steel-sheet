@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Button, Select } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import {
@@ -107,6 +109,16 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
         )}
       </div>
       {item.summary && <p className="cf-item-summary">{item.summary}</p>}
+      {item.detail && (
+        <details className="cf-item-detail">
+          <summary>Полный текст правила</summary>
+          <div className="cf-item-markdown">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {item.detail}
+            </ReactMarkdown>
+          </div>
+        </details>
+      )}
       <Badges item={item} />
       {trigger?.used && trigger.count > 1 && (
         <span className="cf-item-note">

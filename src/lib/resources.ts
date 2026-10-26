@@ -96,13 +96,49 @@ export interface ResourceGainLabel {
  * одна строка — одна отметка.
  */
 export function resourceGainLabels(character: Character): ResourceGainLabel[] {
-  return resolvedResourceGains(character).map((gain) => ({
+  return labelledGains(character, resolvedResourceGains(character));
+}
+
+/**
+ * Прибавки эпического пула в том же виде, что и основного: лист показывает
+ * его отдельным числом и отдельным блоком «Откуда капает».
+ */
+export function epicResourceGainLabels(
+  character: Character,
+): ResourceGainLabel[] {
+  return labelledGains(character, resolvedEpicResourceGains(character));
+}
+
+function labelledGains(
+  character: Character,
+  gains: ResolvedResourceGain[],
+): ResourceGainLabel[] {
+  return gains.map((gain) => ({
     tag: gain.tag,
     label: gain.label,
     amount: gain.amount,
     frequency: FREQUENCY_LABELS[gain.frequency],
     used: triggerMark(character, gain.tag, gain.frequency).used,
   }));
+}
+
+/**
+ * Прибавка по тегу отметки — из основного пула или эпического. Тег — ключ
+ * отметки, поэтому действие журнала находит по нему подпись и частоту.
+ */
+export function resourceGainByTag(
+  character: Character,
+  tag: string,
+): ResolvedResourceGain | undefined {
+  return [...resolvedResourceGains(character), ...resolvedEpicResourceGains(character)].find(
+    (gain) => gain.tag === tag,
+  );
+}
+
+/** Название эпического пула класса, если он уже открыт герою. */
+export function epicResourceName(character: Character): string | undefined {
+  if (resolvedEpicResourceGains(character).length === 0) return undefined;
+  return resourceSpecFor(character.className ?? "")?.epic?.name;
 }
 
 /** Прибавка вместе с источником: из чего она пришла и на каком уровне. */

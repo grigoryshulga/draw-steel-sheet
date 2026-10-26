@@ -11,6 +11,7 @@ import {
   activeClassFeatureEffects,
   activeClassFeatures,
   classFeatureTriggers,
+  invalidateClassFeatureRegistry,
 } from "../src/lib/class-features";
 import {
   effectiveCharacteristics,
@@ -54,6 +55,7 @@ function withFeature<T>(
     ...record,
   });
   FEATURE_MECHANICS[id] = mechanics;
+  invalidateClassFeatureRegistry();
   try {
     return run();
   } finally {
@@ -62,6 +64,7 @@ function withFeature<T>(
     );
     if (index >= 0) GENERATED_CLASS_FEATURES.splice(index, 1);
     delete FEATURE_MECHANICS[id];
+    invalidateClassFeatureRegistry();
   }
 }
 
@@ -96,6 +99,7 @@ describe("activeClassFeatures", () => {
       description: "",
     };
     GENERATED_CLASS_FEATURES.push({ ...duplicate, level: 1 }, duplicate);
+    invalidateClassFeatureRegistry();
     try {
       const same = activeClassFeatures(fury(2)).filter((f) => f.id === id);
       expect(same).toHaveLength(1);
@@ -107,6 +111,7 @@ describe("activeClassFeatures", () => {
           GENERATED_CLASS_FEATURES.splice(index, 1);
         }
       }
+      invalidateClassFeatureRegistry();
     }
   });
 

@@ -23,6 +23,25 @@ describe("скелет классовых особенностей", () => {
     }
   });
 
+  it("количество записей по классам зафиксировано снимком", () => {
+    // Снимок видит и рост книги, и случайно потерянные записи при разборе.
+    const counts: Record<string, number> = {};
+    for (const f of GENERATED_CLASS_FEATURES) {
+      counts[f.className] = (counts[f.className] ?? 0) + 1;
+    }
+    expect(counts).toEqual({
+      "Неистовый": 89,
+      "Нуль": 99,
+      "Проводник": 140,
+      "Тактик": 75,
+      "Талант": 93,
+      "Тень": 71,
+      "Трубадур": 84,
+      "Цензор": 102,
+      "Элементалист": 91,
+    });
+  });
+
   it("id уникальны, вложенные фичи ссылаются на существующего родителя", () => {
     const ids = new Set(GENERATED_CLASS_FEATURES.map((f) => f.id));
     expect(ids.size).toBe(GENERATED_CLASS_FEATURES.length);

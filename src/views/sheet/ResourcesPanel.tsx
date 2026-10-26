@@ -7,7 +7,12 @@ import {
   heroicResourceHelp,
 } from "../../data/resource-help";
 import { heroicResourceFloor } from "../../lib/game-actions";
-import { resourceGainLabels } from "../../lib/resources";
+import {
+  epicResourceGainLabels,
+  epicResourceName,
+  resourceGainLabels,
+} from "../../lib/resources";
+import type { ResourceName } from "../../lib/game-actions";
 import { clamp, surgeDamageTotal } from "../../lib/rules";
 import { useApp } from "../../state/AppContext";
 import "./ResourcesPanel.css";
@@ -183,12 +188,19 @@ function ResourceRow({
  * всегда, в том числе при выключенном авторасчёте: это чтение данных класса,
  * а не пересчёт листа.
  */
-function ResourceGains({ gains }: { gains: ReturnType<typeof resourceGainLabels> }) {
+function ResourceGains({
+  gains,
+  title = "Откуда капает",
+}: {
+  gains: ReturnType<typeof resourceGainLabels>;
+  /** Заголовок блока: у эпического пула он свой, чтобы блоки не путались. */
+  title?: string;
+}) {
   const { performGameAction } = useApp();
   if (gains.length === 0) return null;
   return (
-    <section className="resource-gains" aria-label="Откуда капает ресурс">
-      <h3 className="resource-gains-title">Откуда капает</h3>
+    <section className="resource-gains" aria-label={title}>
+      <h3 className="resource-gains-title">{title}</h3>
       <ul className="resource-gains-list">
         {gains.map((gain) => {
           // «= Победы» уже равенство, плюс к нему не ставится.
@@ -238,10 +250,11 @@ export function ResourcesPanel() {
   const { character, performGameAction } = useApp();
   const resourceName = heroicResourceName(character.className);
   const gains = resourceGainLabels(character);
-  const set = (
-    resource: "heroicResource" | "surges" | "heroTokens",
-    value: number,
-  ) => performGameAction({ kind: "resource", resource, value });
+  // Эпический пул открывается на своём уровне: своё число и свои прибавки.
+  const epicName = epicResourceName(character);
+  const epicGains = epicResourceGainLabels(character);
+  const set = (resource: ResourceName, value: number) =>
+    performGameAction({ kind: "resource", resource, value });
 
   return (
     <Panel title="Ресурсы героя" icon="spark" className="resources-panel">
@@ -255,6 +268,17 @@ export function ResourcesPanel() {
         />
 
         <ResourceGains gains={gains} />
+
+        {epicName && (
+          <>
+            <ResourceRow
+              label={epicName}
+              value={character.epic}
+              onValue={(value) => set("epic", value)}
+            />
+            <ResourceGains gains={epicGains} title="Откуда капает: эпический пул" />
+          </>
+        )}
 
         <ResourceRow
           label="Всплески"

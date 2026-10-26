@@ -153,57 +153,138 @@ function showConditions(
 }
 
 /**
+ * Индекс реестра: нормализованное имя класса → его записи. Строится лениво
+ * и пересобирается, когда меняется длина массива (тесты подмешивают записи),
+ * чтобы не сканировать 844 записи на каждый вызов или каждый рендер.
+ */
+let indexedLength = -1;
+let featuresByClass = new Map<string, GeneratedClassFeature[]>();
+/** Версия реестра: растёт при пересборке индекса и сбрасывает кэши по герою. */
+let registryVersion = 0;
+
+function classFeatureRecords(className: string): GeneratedClassFeature[] {
+  if (indexedLength !== GENERATED_CLASS_FEATURES.length) {
+    featuresByClass = new Map();
+    for (const feature of GENERATED_CLASS_FEATURES) {
+      const key = normalizeFeatureText(feature.className);
+      const records = featuresByClass.get(key);
+      if (records) records.push(feature);
+      else featuresByClass.set(key, [feature]);
+    }
+    indexedLength = GENERATED_CLASS_FEATURES.length;
+    registryVersion += 1;
+  }
+  return featuresByClass.get(normalizeFeatureText(className)) ?? [];
+}
+
+/**
+ * Кэш разрешённого состояния по объекту героя. Герой неизменяем: любое
+ * изменение листа даёт новый объект, поэтому кэш не устаревает. Версия
+ * реестра защищает тесты, которые подмешивают записи в скелет.
+ */
+interface CachedState<T> {
+  version: number;
+  value: T;
+}
+
+function memoByCharacter<T>(
+  cache: WeakMap<Character, CachedState<T>>,
+  character: Character,
+  compute: () => T,
+): T {
+  const cached = cache.get(character);
+  if (cached && cached.version === registryVersion) return cached.value;
+  const value = compute();
+  cache.set(character, { version: registryVersion, value });
+  return value;
+}
+
+/** Версия реестра: меняется при пересборке индекса и сбрасывает кэши. */
+export function classFeatureRegistryVersion(): number {
+  return registryVersion;
+}
+
+/**
+ * Сброс индекса реестра и кэшей по героям. Нужен только тестам, которые
+ * подмешивают записи в скелет: в приложении реестр неизменяем.
+ */
+export function invalidateClassFeatureRegistry(): void {
+  indexedLength = -1;
+  registryVersion += 1;
+}
+
+/** Пересобирает индекс реестра, если скелет изменился. */
+function syncRegistry(character: Character): void {
+  classFeatureRecords(character.className ?? "");
+}
+
+const ACTIVE_CACHE = new WeakMap<Character, CachedState<ActiveClassFeature[]>>();
+const TRIGGERS_CACHE = new WeakMap<Character, CachedState<ActiveTrigger[]>>();
+const EFFECTS_CACHE = new WeakMap<
+  Character,
+  CachedState<ActiveClassFeatureEffects[]>
+>();
+
+/**
  * Активные особенности класса: по `level`, затем по `id`, без дублей.
  * От `automation.enabled` список не зависит — лист показывает фичи всегда,
  * а гейт авторасчёта стоит на эффектах в движке.
  */
 export function activeClassFeatures(character: Character): ActiveClassFeature[] {
-  const seen = new Set<string>();
-  const active: ActiveClassFeature[] = [];
-  for (const feature of GENERATED_CLASS_FEATURES) {
-    if (seen.has(feature.id)) continue;
-    if (!isActiveClassFeature(feature, character)) continue;
-    const mechanics = mechanicsFor(feature.id);
-    // Статичные условия (аспект, уровень, форма) скрывают чужую фичу из списка;
-    // динамический порог ресурса оставляет её видимой — его показывает лист.
-    if (!featureConditionMet(character, showConditions(mechanics?.when))) continue;
-    seen.add(feature.id);
-    active.push({
-      id: feature.id,
-      name: feature.name,
-      level: feature.level,
-      className: feature.className,
-      ...(feature.keyedBy ? { keyedBy: feature.keyedBy } : {}),
-      ...(feature.keyValue ? { keyValue: feature.keyValue } : {}),
-      description: feature.description,
-      mechanics,
-    });
-  }
-  return active.sort(
-    (a, b) => a.level - b.level || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
-  );
+  // Синхронизация индекса до чтения кэша: подмешанная запись скелета
+  // увеличивает версию реестра и делает старые записи кэша недействительными.
+  syncRegistry(character);
+  return memoByCharacter(ACTIVE_CACHE, character, () => {
+    const seen = new Set<string>();
+    const active: ActiveClassFeature[] = [];
+    for (const feature of classFeatureRecords(character.className ?? "")) {
+      if (seen.has(feature.id)) continue;
+      if (!isActiveClassFeature(feature, character)) continue;
+      const mechanics = mechanicsFor(feature.id);
+      // Статичные условия (аспект, уровень, форма) скрывают чужую фичу из списка;
+      // динамический порог ресурса оставляет её видимой — его показывает лист.
+      if (!featureConditionMet(character, showConditions(mechanics?.when))) continue;
+      seen.add(feature.id);
+      active.push({
+        id: feature.id,
+        name: feature.name,
+        level: feature.level,
+        className: feature.className,
+        ...(feature.keyedBy ? { keyedBy: feature.keyedBy } : {}),
+        ...(feature.keyValue ? { keyValue: feature.keyValue } : {}),
+        description: feature.description,
+        mechanics,
+      });
+    }
+    return active.sort(
+      (a, b) => a.level - b.level || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
+    );
+  });
 }
 
 /** Триггеры активных особенностей: по одной записи на триггер фичи. */
 export function classFeatureTriggers(character: Character): ActiveTrigger[] {
-  const triggers: ActiveTrigger[] = [];
-  for (const feature of activeClassFeatures(character)) {
-    const trigger = feature.mechanics?.trigger;
-    if (!trigger) continue;
-    // Пороговые строки таблиц активируются по уровню, а не выбором аспекта:
-    // аспект и порог ресурса проверяются условием триггера.
-    if (!featureConditionMet(character, trigger.when)) continue;
-    triggers.push({
-      featureId: feature.id,
-      name: feature.name,
-      level: feature.level,
-      event: trigger.event,
-      frequency: trigger.frequency,
-      label: trigger.label,
-      detail: trigger.detail,
-    });
-  }
-  return triggers;
+  syncRegistry(character);
+  return memoByCharacter(TRIGGERS_CACHE, character, () => {
+    const triggers: ActiveTrigger[] = [];
+    for (const feature of activeClassFeatures(character)) {
+      const trigger = feature.mechanics?.trigger;
+      if (!trigger) continue;
+      // Пороговые строки таблиц активируются по уровню, а не выбором аспекта:
+      // аспект и порог ресурса проверяются условием триггера.
+      if (!featureConditionMet(character, trigger.when)) continue;
+      triggers.push({
+        featureId: feature.id,
+        name: feature.name,
+        level: feature.level,
+        event: trigger.event,
+        frequency: trigger.frequency,
+        label: trigger.label,
+        detail: trigger.detail,
+      });
+    }
+    return triggers;
+  });
 }
 
 /**
@@ -214,15 +295,18 @@ export function classFeatureTriggers(character: Character): ActiveTrigger[] {
 export function activeClassFeatureEffects(
   character: Character,
 ): ActiveClassFeatureEffects[] {
-  return activeClassFeatures(character).flatMap((feature) => {
-    const effects = feature.mechanics?.effects;
-    if (!effects?.length) return [];
-    return [
-      {
-        sourceId: feature.id,
-        sourceName: feature.name,
-        effects: [...effects],
-      },
-    ];
-  });
+  syncRegistry(character);
+  return memoByCharacter(EFFECTS_CACHE, character, () =>
+    activeClassFeatures(character).flatMap((feature) => {
+      const effects = feature.mechanics?.effects;
+      if (!effects?.length) return [];
+      return [
+        {
+          sourceId: feature.id,
+          sourceName: feature.name,
+          effects: [...effects],
+        },
+      ];
+    }),
+  );
 }

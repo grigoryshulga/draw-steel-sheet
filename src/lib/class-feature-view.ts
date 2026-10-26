@@ -11,13 +11,17 @@ import type {
 import type { Character, CharacteristicKey } from "../types";
 import {
   activeClassFeatures,
+  classFeatureRegistryVersion,
   classFeatureTriggers,
   selectionGroupFor,
   type ActiveClassFeature,
 } from "./class-features";
 import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
-import { resolveFeatureAmount } from "./feature-modifiers";
-import { echelon } from "./progression";
+import {
+  featureDamageImmunities,
+  resolveFeatureValue,
+  type FeatureDamageImmunity,
+} from "./feature-modifiers";
 import { CHARACTERISTICS, deriveStats } from "./rules";
 import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
@@ -71,6 +75,11 @@ export interface FeatureSheetItem {
   summary: string;
   badges: FeatureSheetBadge[];
   trigger?: FeatureSheetTrigger;
+  /**
+   * Полный текст правила для раскрытия. Есть у прозаических записей: в строке
+   * виден только первый фрагмент, а весь текст лист показывает по клику.
+   */
+  detail?: string;
 }
 
 export interface FeatureSheetGroup {
@@ -149,6 +158,21 @@ interface SheetContext {
   character: Character;
   className: string;
   options: Map<FeatureKeyGroup, string[]>;
+  /** Иммунитеты движка по источнику: одно правило на панель и на лист. */
+  immunities: Map<string, FeatureDamageImmunity[]>;
+}
+
+/** Иммунитеты активных источников, сгруппированные по id особенности. */
+function immunityBySource(
+  character: Character,
+): Map<string, FeatureDamageImmunity[]> {
+  const bySource = new Map<string, FeatureDamageImmunity[]>();
+  for (const immunity of featureDamageImmunities(character)) {
+    const list = bySource.get(immunity.sourceId);
+    if (list) list.push(immunity);
+    else bySource.set(immunity.sourceId, [immunity]);
+  }
+  return bySource;
 }
 
 function sheetContext(character: Character): SheetContext {
@@ -173,7 +197,12 @@ function sheetContext(character: Character): SheetContext {
       options.set(kind, values);
     }
   }
-  return { character, className, options };
+  return {
+    character,
+    className,
+    options,
+    immunities: immunityBySource(character),
+  };
 }
 
 /**
@@ -220,21 +249,6 @@ type NumericEffect = Extract<
   { kind: "field" | "damageImmunity" }
 >;
 
-/** Число эффекта с поправкой на эшелон и пределом, как в движке модификаторов. */
-function resolvedEffectValue(
-  character: Character,
-  effect: NumericEffect,
-): number {
-  const base = resolveFeatureAmount(character, effect.value);
-  const scaled =
-    base +
-    ("perEchelon" in effect ? (effect.perEchelon ?? 0) : 0) *
-      echelon(character.level);
-  return "cap" in effect && effect.cap !== undefined
-    ? Math.min(scaled, effect.cap)
-    : scaled;
-}
-
 /** Пометка источника числа: показатель характеристики или уровень героя. */
 function amountSource(effect: NumericEffect): string | undefined {
   if (typeof effect.value !== "object") return undefined;
@@ -257,6 +271,22 @@ const DAMAGE_TYPE_DATIVE: Record<string, string> = {
   звук: "звуку",
 };
 
+
+/**
+ * Иммунитет движка строками: по одной на тип урона, с итоговым значением
+ * («увеличивается до» уже применено в `featureDamageImmunities`).
+ */
+function immunityLines(immunity: FeatureDamageImmunity): string[] {
+  const types = immunity.types.filter(Boolean);
+  if (types.length === 0) return [`иммунитет ${immunity.value}`];
+  return types.map((type) => {
+    const dative = DAMAGE_TYPE_DATIVE[normalizeFeatureText(type)];
+    return dative
+      ? `иммунитет к ${dative} ${immunity.value}`
+      : `иммунитет ${immunity.value} (${type})`;
+  });
+}
+
 /**
  * Описание одного эффекта числами листа. Неизвестные виды эффектов (владение)
  * описываются отдельно: это выдача, а не число.
@@ -264,7 +294,8 @@ const DAMAGE_TYPE_DATIVE: Record<string, string> = {
 function describeEffect(character: Character, effect: FeatureEffect): string | undefined {
   switch (effect.kind) {
     case "field": {
-      const value = resolvedEffectValue(character, effect);
+      // Одно правило с движком: показатель + эшелон, затем предел.
+      const value = resolveFeatureValue(character, effect);
       const source = amountSource(effect);
       const filter = effect.filter?.keywords?.length
         ? ` — способности «${effect.filter.keywords.join(", ")}»`
@@ -277,18 +308,10 @@ function describeEffect(character: Character, effect: FeatureEffect): string | u
       const threshold = deriveStats(character).tierThresholds[effect.key].t3;
       return `${characteristicLabel(effect.key)} +${effect.value}, порог тира ${threshold}`;
     }
-    case "damageImmunity": {
-      const value = resolvedEffectValue(character, effect) * (effect.multiplier ?? 1);
-      const types = effect.types.filter(Boolean);
-      if (types.length === 0) return `иммунитет ${value}`;
-      if (types.length === 1) {
-        const dative = DAMAGE_TYPE_DATIVE[normalizeFeatureText(types[0])];
-        return dative
-          ? `иммунитет к ${dative} ${value}`
-          : `иммунитет ${value} (${types[0]})`;
-      }
-      return `иммунитет ${value}: ${types.join(", ")}`;
-    }
+    // Иммунитеты считает движок (`featureDamageImmunities`): панель только
+    // печатает его итог, иначе множитель применялся бы дважды и по-разному.
+    case "damageImmunity":
+      return undefined;
     case "proficiency": {
       const parts = [...(effect.armor ?? []), ...(effect.weapons ?? [])];
       if (effect.treasures) parts.push("клады");
@@ -394,13 +417,31 @@ function mergeBadges(badges: FeatureSheetBadge[]): FeatureSheetBadge[] {
 }
 
 /**
- * Есть ли у записи дети: такие записи — контейнеры (заголовки таблиц,
- * «Свирепость», «Способности неистового») и на лист не попадают.
+ * Id записей, у которых есть дети: контейнеры (заголовки таблиц, «Свирепость»,
+ * «Способности неистового») на лист не попадают. Набор строится один раз на
+ * версию скелета, а не `some` внутри цикла по 844 записям.
  */
+const GROUPS_CACHE = new WeakMap<
+  Character,
+  { version: number; value: FeatureSheetGroup[] }
+>();
+
+let containersLength = -1;
+let containerIds = new Set<string>();
+
+function containers(): Set<string> {
+  if (containersLength !== GENERATED_CLASS_FEATURES.length) {
+    containerIds = new Set();
+    for (const feature of GENERATED_CLASS_FEATURES) {
+      if (feature.parentId) containerIds.add(feature.parentId);
+    }
+    containersLength = GENERATED_CLASS_FEATURES.length;
+  }
+  return containerIds;
+}
+
 function hasChildren(featureId: string): boolean {
-  return GENERATED_CLASS_FEATURES.some(
-    (feature) => feature.parentId === featureId,
-  );
+  return containers().has(featureId);
 }
 
 /** Класс смоделирован новым реестром, а не отложен в `NOT_YET`. */
@@ -456,6 +497,10 @@ function sheetItem(
       }
     }
     conditions.push(effectCondition(effect));
+  }
+
+  for (const immunity of context.immunities.get(feature.id) ?? []) {
+    parts.push(...immunityLines(immunity));
   }
 
   for (const badge of conditions.flatMap((condition) =>
@@ -556,6 +601,9 @@ function sheetItem(
     summary,
     badges: merged,
     ...(trigger ? { trigger } : {}),
+    ...(!givesMechanics(feature) && feature.description.trim()
+      ? { detail: feature.description }
+      : {}),
   };
 }
 
@@ -619,6 +667,13 @@ function needsUnknownSelection(
 export function classFeatureGroupsForSheet(
   character: Character,
 ): FeatureSheetGroup[] {
+  // Кэш по объекту героя: лист неизменяем, любой правка даёт новый объект.
+  // Вызов activeClassFeatures сначала синхронизирует индекс скелета и версию.
+  activeClassFeatures(character);
+  const cached = GROUPS_CACHE.get(character);
+  if (cached && cached.version === classFeatureRegistryVersion()) {
+    return cached.value;
+  }
   const context = sheetContext(character);
   const byLevel = new Map<number, FeatureSheetItem[]>();
   for (const feature of activeClassFeatures(character)) {
@@ -628,13 +683,18 @@ export function classFeatureGroupsForSheet(
     items.push(item);
     byLevel.set(item.level, items);
   }
-  return [...byLevel.entries()]
+  const groups = [...byLevel.entries()]
     .sort(([left], [right]) => left - right)
     .map(([level, features]) => ({
       level,
       title: `Уровень ${level}`,
       features,
     }));
+  GROUPS_CACHE.set(character, {
+    version: classFeatureRegistryVersion(),
+    value: groups,
+  });
+  return groups;
 }
 
 /**

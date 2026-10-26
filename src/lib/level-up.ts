@@ -753,6 +753,21 @@ export function getLevelUpPlan(character: Character): LevelUpPlan {
   return buildContext(character).plan;
 }
 
+/**
+ * Тексты правил уровня, которых нет в блоке «Что вы получите»: сверка по
+ * нормализованному имени — одно и то же название не должно читаться в
+ * диалоге дважды. Уровень у обоих списков один и тот же (`plan.toLevel`).
+ */
+export function uncoveredRuleFeatures(plan: LevelUpPlan): LevelUpFeature[] {
+  if (!plan.rule) return [];
+  const covered = new Set(
+    plan.classFeatures.map((feature) => normalizeToken(feature.name)),
+  );
+  return plan.rule.features.filter(
+    (feature) => !covered.has(normalizeToken(feature.name)),
+  );
+}
+
 function requestIssues(
   character: Character,
   request: LevelUpRequest,

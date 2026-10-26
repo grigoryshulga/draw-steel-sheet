@@ -5,6 +5,7 @@ import {
 } from "../src/data/class-features/class-resources";
 import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { invalidateClassFeatureRegistry } from "../src/lib/class-features";
 import type {
   GeneratedClassFeature,
   HeroicResourceSpec,
@@ -139,6 +140,7 @@ function withResource<T>(
     };
   }
 
+  invalidateClassFeatureRegistry();
   try {
     return run();
   } finally {
@@ -152,6 +154,7 @@ function withResource<T>(
     }
     if (previousSpec) CLASS_RESOURCES[key] = previousSpec;
     else delete CLASS_RESOURCES[key];
+    invalidateClassFeatureRegistry();
   }
 }
 

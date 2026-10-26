@@ -14,7 +14,10 @@ import {
   triggerBadgeCounts,
   type FeatureSheetItem,
 } from "../src/lib/class-feature-view";
-import { classFeatureTriggers } from "../src/lib/class-features";
+import {
+  classFeatureTriggers,
+  invalidateClassFeatureRegistry,
+} from "../src/lib/class-features";
 import { previewGameAction } from "../src/lib/game-actions";
 import { beginEncounter, beginRound } from "../src/lib/runtime";
 
@@ -63,6 +66,7 @@ function withFeature<T>(
     ...record,
   });
   FEATURE_MECHANICS[TEST_ID] = mechanics;
+  invalidateClassFeatureRegistry();
   try {
     return run();
   } finally {
@@ -71,12 +75,14 @@ function withFeature<T>(
     );
     if (index >= 0) GENERATED_CLASS_FEATURES.splice(index, 1);
     delete FEATURE_MECHANICS[TEST_ID];
+    invalidateClassFeatureRegistry();
   }
 }
 
 const ASPECT_GATE = "fury.feature.1.rastushchaya-svirepost-berserka-2";
 const SPEED_FEATURE = "fury.aspect.2.neizbezhnyy-gnev";
 const CHAOS_IMMUNITY = "fury.feature.10.voploshchenie-khaosa";
+const ELEMENTAL_FORM = "fury.feature.7.elementalnaya-forma";
 const ENCOUNTER_TRIGGER = "fury.feature.10.voploshchenie-khaosa";
 
 describe("classFeatureGroupsForSheet", () => {
@@ -145,12 +151,27 @@ describe("classFeatureGroupsForSheet", () => {
     expect(aspect?.active).toBe(true);
   });
 
-  it("разрешает множитель иммунитета: удвоенная Мощь", () => {
+  it("иммунитет один: движок берёт большее, панель печатает итог по типу", () => {
     const hero = fury(10, "Берсерк");
+    // Мощь 2; «Воплощение Хаоса» увеличивает до ×2, «Элементальная форма» (×1)
+    // проигрывает — второй строки со старым числом быть не должно.
     const item = itemOf(hero, CHAOS_IMMUNITY);
-    // Мощь 2, множитель ×2 — иммунитет 4 к семи типам урона.
-    expect(item.summary).toContain("иммунитет 4");
-    expect(item.summary).toContain("огонь");
+    expect(item.summary).toContain("иммунитет к огню 4");
+    expect(item.summary).toContain("иммунитет к холоду 4");
+    expect(item.summary).not.toContain("иммунитет к огню 2");
+    // «Элементальная форма» отдельного иммунитета больше не печатает.
+    expect(itemOf(hero, ELEMENTAL_FORM).summary).not.toContain("иммунитет");
+  });
+
+  it("на 10-м уровне каждый тип урона — одна строка с итоговым числом", () => {
+    const hero = fury(10, "Берсерк");
+    hero.characteristics.might = 3;
+    const parts = itemsOf(hero)
+      .flatMap((item) => item.summary.split("; "))
+      .filter((part) => part.startsWith("иммунитет"));
+    expect(parts).toHaveLength(7);
+    for (const part of parts) expect(part).toMatch(/ 6$/);
+    expect(parts).toContain("иммунитет к огню 6");
   });
 
   it("пишет иммунитет к одному типу по-русски с числом", () => {
@@ -467,6 +488,18 @@ describe("прозаические особенности на листе", () =
       label: "по тексту правил",
       active: true,
     });
+  });
+
+  it("прозаическая запись отдаёт полный текст для раскрытия", () => {
+    const item = itemOf(
+      fury(2, "Берсерк"),
+      "fury.aspect.2.nepreodolimaya-sila",
+    );
+    expect(item.detail).toBeDefined();
+    expect(item.detail!.length).toBeGreaterThan(item.summary.length);
+    expect(item.detail).toContain("с рывком");
+    // У записи с числами раскрывать нечего: текст тира не переписывается.
+    expect(itemOf(fury(2, "Разоритель"), SPEED_FEATURE).detail).toBeUndefined();
   });
 
   it("у триггерной записи без чисел подпись берётся из триггера", () => {

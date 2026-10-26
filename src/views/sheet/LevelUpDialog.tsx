@@ -8,7 +8,11 @@ import { LEVEL_UP_RULES } from "../../data/level-up-rules";
 import { ALL_CREATION_SKILLS } from "../../data/creation-rules";
 import { PERK_COMPENDIUM } from "../../data/perks";
 import { CHARACTERISTICS } from "../../lib/rules";
-import { getLevelUpPlan, previewLevelUp } from "../../lib/level-up";
+import {
+  getLevelUpPlan,
+  previewLevelUp,
+  uncoveredRuleFeatures,
+} from "../../lib/level-up";
 import { useApp } from "../../state/AppContext";
 import type { Character, LevelAdvancementRecord } from "../../types";
 import "./LevelUpDialog.css";
@@ -89,12 +93,20 @@ function choiceValueLabel(key: string, id: string) {
   return ABILITY_COMPENDIUM.find((ability) => ability.id === id)?.name ?? "Способность (название недоступно)";
 }
 
-function RuleFeatures({ rule }: { rule: (typeof LEVEL_UP_RULES)[number] }) {
+function RuleFeatures({
+  rule,
+  features = rule.features,
+}: {
+  rule: (typeof LEVEL_UP_RULES)[number];
+  /** То, чего нет в блоке «Что вы получите»; пусто — блок не рисуется. */
+  features?: (typeof LEVEL_UP_RULES)[number]["features"];
+}) {
+  if (features.length === 0) return null;
   return (
     <details className="level-up-rule-details">
       <summary>Правила и особенности уровня</summary>
       <div className="level-up-rule-content">
-        {rule.features.map((feature) => (
+        {features.map((feature) => (
           <article className="level-up-feature" key={feature.id}>
             <h4>{feature.name}</h4>
             <div className="level-up-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{feature.description}</ReactMarkdown></div>
@@ -379,6 +391,7 @@ export function LevelUpDialog({
     key: `${id}:${index}`,
     name: ABILITY_COMPENDIUM.find((ability) => ability.id === id)?.name ?? "Название способности недоступно",
   }));
+  const uncoveredFeatures = uncoveredRuleFeatures(currentPlan);
   const generalFeaturesWarning = "Тексты новых особенностей доступны в правилах; автоматически применяются только характеристики, навыки, перки и способности.";
   const actionableWarnings = currentPlan.warnings.filter((warning) => warning !== generalFeaturesWarning);
   const targetCharacteristics = rule.characteristics;
@@ -593,7 +606,9 @@ export function LevelUpDialog({
 
       <section className="level-up-section">
         <h3>Правила уровня</h3>
-        <RuleFeatures rule={rule} />
+        {uncoveredFeatures.length > 0 && (
+          <RuleFeatures rule={rule} features={uncoveredFeatures} />
+        )}
         <p className="level-up-note">
           Лист применяет проверяемые изменения. Реактивные эффекты, перемещение, иммунитеты и другие правила
           применяются за игровым столом.

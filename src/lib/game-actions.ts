@@ -6,13 +6,17 @@ import {
   activeClassFeatures,
   classFeatureTriggers,
 } from "./class-features";
-import { resolvedResourceGains } from "./resources";
+import { epicResourceName, resourceGainByTag } from "./resources";
 import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
 
 export type HealthOperation =
   "damage" | "heal" | "temporary" | "recovery" | "rest" | "adjust";
 export type ResourceName =
-  "heroicResource" | "surges" | "heroTokens" | "recoveries";
+  | "heroicResource"
+  | "surges"
+  | "heroTokens"
+  | "recoveries"
+  | "epic";
 export type GameAction =
   | { kind: HealthOperation; amount?: number }
   | { kind: "resource"; resource: ResourceName; value: number }
@@ -47,10 +51,7 @@ function triggerName(character: Character, featureId: string): string {
   )?.name;
   if (feature) return feature;
   // Прибавка ресурса отмечается тегом: подпись и частота берутся из неё.
-  const gain = resolvedResourceGains(character).find(
-    (item) => item.tag === featureId,
-  );
-  return gain?.label ?? featureId;
+  return resourceGainByTag(character, featureId)?.label ?? featureId;
 }
 
 /**
@@ -72,10 +73,7 @@ function triggerFrequency(
   if (feature) return feature;
   // Прибавки ресурса отмечаются тегом: у «раз за схватку» отметка должна
   // пережить новый раунд, поэтому частота берётся из самой прибавки.
-  return (
-    resolvedResourceGains(character).find((gain) => gain.tag === featureId)
-      ?.frequency ?? "round"
-  );
+  return resourceGainByTag(character, featureId)?.frequency ?? "round";
 }
 
 const invalid = (reason: string): ActionPreview => ({ ok: false, reason });
@@ -210,7 +208,9 @@ export function previewGameAction(
             ? "Восстановления"
             : action.resource === "heroTokens"
               ? "Жетоны героя"
-              : "Всплески";
+              : action.resource === "epic"
+                ? (epicResourceName(character) ?? "Эпический ресурс")
+                : "Всплески";
       const patch =
         action.resource === "heroicResource"
           ? { heroicResource: { ...heroicResource, current: action.value } }

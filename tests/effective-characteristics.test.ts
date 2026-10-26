@@ -6,6 +6,7 @@ import {
   featureCharacteristicBonus,
 } from "../src/lib/feature-modifiers";
 import { recalculateCharacter } from "../src/lib/character-calculations";
+import { invalidateClassFeatureRegistry } from "../src/lib/class-features";
 import { deriveStats, evaluateDamage, surgeDamage, surgeDamageTotal } from "../src/lib/rules";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
@@ -33,6 +34,7 @@ function withRegistryEffects<T>(effects: FeatureEffect[], run: () => T): T {
     description: "",
   });
   FEATURE_MECHANICS[TEST_ID] = { kinds: ["characteristic"], effects };
+  invalidateClassFeatureRegistry();
   try {
     return run();
   } finally {
@@ -41,6 +43,7 @@ function withRegistryEffects<T>(effects: FeatureEffect[], run: () => T): T {
     );
     if (index >= 0) GENERATED_CLASS_FEATURES.splice(index, 1);
     delete FEATURE_MECHANICS[TEST_ID];
+    invalidateClassFeatureRegistry();
   }
 }
 

@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { createCharacter } from "../src/lib/defaults";
-import { getLevelUpPlan } from "../src/lib/level-up";
+import {
+  getLevelUpPlan,
+  uncoveredRuleFeatures,
+} from "../src/lib/level-up";
+import { normalizeFeatureText } from "../src/lib/utils";
 import type { Character } from "../src/types";
 
 /** Неистовый 1-го уровня с выбранным аспектом: подкласс хранится в `subclass`. */
@@ -47,6 +51,22 @@ describe("план повышения уровня и особенности к�
       (feature) => feature.name,
     );
     expect(berserker).not.toContain("Неизбежный гнев");
+  });
+
+  it("на каждом переходе 1→10 ни одно имя не встречается дважды", () => {
+    for (const aspect of ["Берсерк", "Разоритель", "Буревестник"]) {
+      for (let level = 1; level < 10; level += 1) {
+        const plan = getLevelUpPlan(fury(aspect, level));
+        const names = [
+          ...plan.classFeatures.map((feature) => feature.name),
+          ...uncoveredRuleFeatures(plan).map((feature) => feature.name),
+        ].map(normalizeFeatureText);
+        expect(
+          new Set(names).size,
+          `${aspect}: ${level} → ${level + 1}`,
+        ).toBe(names.length);
+      }
+    }
   });
 
   it("особенности ровно нового уровня, а не всего листа", () => {

@@ -212,6 +212,20 @@ export function resolveFeatureAmount(
   return typeof character.level === "number" ? character.level : 0;
 }
 
+/**
+ * Итоговое число эффекта: показатель (характеристика, уровень или число),
+ * плюс поправка на эшелон, затем предел. Одно правило для движка и панели:
+ * лист не должен считать то же число второй раз по-своему.
+ */
+export function resolveFeatureValue(
+  character: Character,
+  effect: { value: FeatureAmount; perEchelon?: number; cap?: number },
+): number {
+  const base = resolveFeatureAmount(character, effect.value);
+  const scaled = base + (effect.perEchelon ?? 0) * echelon(character.level);
+  return effect.cap === undefined ? scaled : Math.min(scaled, effect.cap);
+}
+
 function normalizedKeywords(keywords: readonly string[]): Set<string> {
   return new Set(
     keywords
@@ -282,9 +296,7 @@ function fieldEffectValue(
   character: Character,
   effect: FieldEffect,
 ): number {
-  const base = resolveFeatureAmount(character, effect.value);
-  const scaled = base + (effect.perEchelon ?? 0) * echelon(character.level);
-  return effect.cap === undefined ? scaled : Math.min(scaled, effect.cap);
+  return resolveFeatureValue(character, effect);
 }
 
 /** Один эффект подходит под поле, фильтр, условия и правила способности. */
@@ -436,7 +448,7 @@ export function featureDamageImmunities(
       if (effect.kind !== "damageImmunity") continue;
       if (!featureConditionMet(character, effect.when)) continue;
       const value =
-        resolveFeatureAmount(character, effect.value) * (effect.multiplier ?? 1);
+        resolveFeatureValue(character, effect) * (effect.multiplier ?? 1);
       const key = effect.types.map(normalize).sort().join("|");
       const current = best.get(key);
       if (current && current.value >= value) continue;

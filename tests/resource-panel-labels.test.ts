@@ -3,6 +3,10 @@ import {
   heroicResourceHelp,
   resourceSpecHelp,
 } from "../src/data/resource-help";
+import {
+  epicResourceGainLabels,
+  epicResourceName,
+} from "../src/lib/resources";
 import { createCharacter } from "../src/lib/defaults";
 import { previewGameAction } from "../src/lib/game-actions";
 import { resourceGainLabels } from "../src/lib/resources";
@@ -137,5 +141,37 @@ describe("памятка к ресурсу", () => {
     expect(heroicResourceHelp(createCharacter({ className: "Нуль" }))).toContain(
       "В начале каждого вашего хода: +2 дисциплины.",
     );
+  });
+});
+
+describe("эпический пул", () => {
+  it("открывается на 10-м уровне своим числом и прибавками", () => {
+    expect(epicResourceName(fury(9))).toBeUndefined();
+    expect(epicResourceGainLabels(fury(9))).toEqual([]);
+
+    const hero = fury(10);
+    expect(epicResourceName(hero)).toBe("Первозданная сила");
+    expect(epicResourceGainLabels(hero)).toEqual([
+      {
+        tag: "epic-respite",
+        label: "Завершаешь отдых",
+        amount: "= Опыт",
+        frequency: "отдых",
+        used: false,
+      },
+    ]);
+  });
+
+  it("число эпического пула меняется действием журнала", () => {
+    const hero = fury(10);
+    const preview = previewGameAction(hero, {
+      kind: "resource",
+      resource: "epic",
+      value: 3,
+    });
+    expect(preview.ok).toBe(true);
+    if (!preview.ok) return;
+    expect(preview.next.epic).toBe(3);
+    expect(preview.label).toBe("Первозданная сила");
   });
 });
