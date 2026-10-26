@@ -27,6 +27,7 @@ import {
   type SelectedPerk,
 } from "../types";
 import { recalculateCharacter } from "./character-calculations";
+import { classFeatureGiftsAtLevel } from "./class-feature-view";
 import { CHARACTERISTICS } from "./rules";
 
 export type { LevelUpAbilityGroup, LevelUpFeature, LevelUpRule };
@@ -68,6 +69,15 @@ export interface LevelUpChoice {
   options: LevelUpChoiceOption[];
 }
 
+/** Особенность класса, которую герой получает на новом уровне. */
+export interface LevelUpClassFeature {
+  id: string;
+  name: string;
+  level: number;
+  /** Подпись та же, что в панели особенностей: «скорость +2 (Ловкость)». */
+  summary: string;
+}
+
 export interface LevelUpPlan {
   available: boolean;
   reason?: string;
@@ -77,6 +87,8 @@ export interface LevelUpPlan {
   xpMissing: number;
   rule?: LevelUpRule;
   choices: LevelUpChoice[];
+  /** Активные особенности ровно нового уровня: их не спрашивают, а показывают. */
+  classFeatures: LevelUpClassFeature[];
   grantedAbilityIds: string[];
   warnings: string[];
 }
@@ -354,6 +366,15 @@ function buildContext(character: Character): LevelUpContext {
   const xp = Number.isFinite(character.xp) ? Number(character.xp) : 0;
   const xpMissing = Math.max(0, xpRequired - xp);
   const grown = baseCharacteristics(character);
+  const classFeatures: LevelUpClassFeature[] = classFeatureGiftsAtLevel(
+    character,
+    toLevel,
+  ).map((feature) => ({
+    id: feature.id,
+    name: feature.name,
+    level: feature.level,
+    summary: feature.summary,
+  }));
 
   const unavailable = (
     reason: string,
@@ -368,6 +389,7 @@ function buildContext(character: Character): LevelUpContext {
       xpMissing,
       ...(rule ? { rule } : {}),
       choices: [],
+      classFeatures,
       grantedAbilityIds: [],
       warnings,
     },
@@ -712,6 +734,7 @@ function buildContext(character: Character): LevelUpContext {
       xpMissing,
       rule,
       choices: choices.map((resolved) => resolved.choice),
+      classFeatures,
       grantedAbilityIds: granted.map((ability) => ability.id),
       warnings,
     },

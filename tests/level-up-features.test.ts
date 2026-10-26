@@ -1,0 +1,61 @@
+import { describe, expect, it } from "vitest";
+import { createCharacter } from "../src/lib/defaults";
+import { getLevelUpPlan } from "../src/lib/level-up";
+import type { Character } from "../src/types";
+
+/** Неистовый 1-го уровня с выбранным аспектом: подкласс хранится в `subclass`. */
+function fury(aspect: string, level = 1): Character {
+  const hero = createCharacter({ className: "Неистовый", level });
+  hero.subclass = aspect;
+  return hero;
+}
+
+describe("план повышения уровня и особенности класса", () => {
+  it("план перечисляет особенности нового уровня, а не спрашивает их", () => {
+    const plan = getLevelUpPlan(fury("Разоритель"));
+
+    expect(plan.available).toBe(true);
+    expect(plan.classFeatures.map((feature) => feature.level)).toEqual([2]);
+    expect(plan.classFeatures.map((feature) => feature.name)).toContain(
+      "Неизбежный гнев",
+    );
+    // Никакого нового выбора особенностей на 2-м уровне не появляется.
+    expect(
+      plan.choices.some(
+        (choice) => (choice.kind as string) === "classFeature",
+      ),
+    ).toBe(false);
+  });
+
+  it("подпись особенности та же, что в панели", () => {
+    const plan = getLevelUpPlan(fury("Разоритель"));
+    const rage = plan.classFeatures.find(
+      (feature) => feature.name === "Неизбежный гнев",
+    );
+    // Ловкость Неистового на 1-м уровне — 2, поэтому скорость +2.
+    expect(rage?.summary).toBe("скорость +2 (Ловкость)");
+  });
+
+  it("чужие аспекты в план не попадают", () => {
+    const raider = getLevelUpPlan(fury("Разоритель")).classFeatures.map(
+      (feature) => feature.name,
+    );
+    expect(raider).not.toContain("Зуб и коготь");
+    expect(raider).not.toContain("Непреодолимая сила");
+
+    const berserker = getLevelUpPlan(fury("Берсерк")).classFeatures.map(
+      (feature) => feature.name,
+    );
+    expect(berserker).not.toContain("Неизбежный гнев");
+  });
+
+  it("особенности ровно нового уровня, а не всего листа", () => {
+    const names = getLevelUpPlan(fury("Разоритель", 2)).classFeatures.map(
+      (feature) => feature.name,
+    );
+    expect(names).not.toContain("Неизбежный гнев");
+    expect(getLevelUpPlan(fury("Разоритель", 2)).classFeatures.map(
+      (feature) => feature.level,
+    ).every((level) => level === 3)).toBe(true);
+  });
+});

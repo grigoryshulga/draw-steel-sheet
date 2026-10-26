@@ -449,6 +449,27 @@ export function LevelUpDialog({
         </div>
       </section>
 
+      {currentPlan.classFeatures.length > 0 && (
+        <section className="level-up-section">
+          <h3>Что вы получите</h3>
+          <ul className="level-up-gifts">
+            {currentPlan.classFeatures.map((feature) => (
+              <li className="level-up-gift" key={feature.id}>
+                <strong className="level-up-gift-name">{feature.name}</strong>
+                {feature.summary && (
+                  <span className="level-up-gift-summary">
+                    {feature.summary}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="level-up-gift-note">
+            Эти особенности приходят вместе с уровнем — выбирать их не нужно.
+          </p>
+        </section>
+      )}
+
       {currentPlan.choices.length > 0 && (
         <section className="level-up-section">
           <h3>Выборы</h3>

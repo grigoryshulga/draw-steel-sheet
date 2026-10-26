@@ -96,6 +96,37 @@
   margin-top: 14px;
 }
 
+/* «Что вы получите»: особенности нового уровня без чекбоксов. */
+.level-up-gifts {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.level-up-gift {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 0.86rem;
+}
+.level-up-gift-name {
+  font-weight: 600;
+}
+.level-up-gift-summary {
+  color: var(--text-secondary);
+}
+.level-up-gift-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .level-up-feature h4 {
   margin: 0 0 5px;
   font-size: 0.9rem;

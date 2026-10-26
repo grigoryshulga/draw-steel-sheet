@@ -560,6 +560,42 @@ export function classFeatureGroupsForSheet(
 }
 
 /**
+ * Особенность, которую игрок действительно получает: число, триггер, порог
+ * или иммунитет. Строки выбора (аспект, способность аспекта) сюда не входят:
+ * их ведёт свой список выборов, и без выбора такая строка ничего не даёт.
+ */
+function isGift(item: FeatureSheetItem): boolean {
+  return (
+    item.summary !== "" ||
+    item.badges.some(
+      (badge) =>
+        badge.kind === "trigger" ||
+        badge.kind === "threshold" ||
+        badge.kind === "immunity",
+    )
+  );
+}
+
+/**
+ * Особенности, которые герой получит на уровне `level`.
+ *
+ * Группы считаются для будущего уровня: `activeClassFeatures` отсекает записи
+ * выше уровня героя, поэтому без подстановки уровня список всегда был бы пуст.
+ * Подписи берутся из тех же групп, что и панель особенностей: одно и то же
+ * число не может быть записано на листе двумя способами.
+ */
+export function classFeatureGiftsAtLevel(
+  character: Character,
+  level: number,
+): FeatureSheetItem[] {
+  if (!Number.isSafeInteger(level) || level <= (character.level ?? 0)) return [];
+  const group = classFeatureGroupsForSheet({ ...character, level }).find(
+    (item) => item.level === level,
+  );
+  return (group?.features ?? []).filter(isGift);
+}
+
+/**
  * Раскрытие групп по уровням: по умолчанию открыта группа ровно того уровня,
  * на котором герой, а клики игрока переопределяют только тронутые группы.
  * Смена уровня пересчитывает умолчание, не сбрасывая явные клики.
