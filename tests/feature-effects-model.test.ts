@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createCharacter } from "../src/lib/defaults";
 import { fieldEffectContributions, resolveFeatureAmount } from "../src/lib/feature-modifiers";
 import type { FeatureEffect } from "../src/data/class-features/types";
-import type { Ability } from "../src/types";
+import type { Ability, Character } from "../src/types";
 
 const ability = (keywords: string[]): Ability => ({
   id: "a", name: "a", flavor: "", actionType: "main", kind: "heroic",
@@ -45,6 +45,18 @@ it("условие по ресурсу и по снаряжению решает
   expect(fieldEffectContributions(effects, hero, "push")).toHaveLength(0);
   hero.heroicResource.current = 2;
   expect(fieldEffectContributions(effects, hero, "push")).toHaveLength(1);
+
+  const equipmentEffects: FeatureEffect[] = [
+    { kind: "field", field: "speed", value: 1, when: { equipment: { lightArmor: true } } },
+  ];
+  expect(fieldEffectContributions(equipmentEffects, hero, "speed")).toHaveLength(0);
+  hero.automation = {
+    enabled: false,
+    adjustments: {},
+    ancestryTraits: [],
+    equipment: { lightArmor: true },
+  };
+  expect(fieldEffectContributions(equipmentEffects, hero, "speed")).toHaveLength(1);
 });
 
 describe("migrated field semantics", () => {
@@ -95,5 +107,62 @@ describe("migrated field semantics", () => {
     expect(
       fieldEffectContributions(effects, hero, "rolledDamage", { ...flat, rollCharacteristics: ["might"] }),
     ).toHaveLength(1);
+  });
+});
+
+describe("filter mode, keyValue, formActive and cap", () => {
+  it("applies a mode filter only to abilities of that weapon mode", () => {
+    const hero = createCharacter({ className: "Неистовый" });
+    const effects: FeatureEffect[] = [
+      { kind: "field", field: "distance", value: 2, filter: { mode: "ranged" } },
+    ];
+    const ranged = { ...ability([]), weaponMode: "ranged" as const };
+    expect(fieldEffectContributions(effects, hero, "distance", ranged)).toHaveLength(1);
+    expect(
+      fieldEffectContributions(effects, hero, "distance", { ...ranged, weaponMode: "melee" }),
+    ).toHaveLength(0);
+  });
+
+  it("matches keyValue by selected option id and by its name", () => {
+    const hero = createCharacter({ className: "Неистовый" });
+    hero.automation = {
+      enabled: true,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: { "talent.augmentation": "talent.augmentation.density" },
+    };
+    const effects: FeatureEffect[] = [
+      { kind: "field", field: "speed", value: 1, when: { keyValue: ["talent.augmentation.density"] } },
+      { kind: "field", field: "stability", value: 1, when: { keyValue: ["  АУГМЕНТАЦИЯ плотности "] } },
+      { kind: "field", field: "save", value: 1, when: { keyValue: ["Берсерк"] } },
+    ];
+    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(1);
+    expect(fieldEffectContributions(effects, hero, "stability")).toHaveLength(1);
+    expect(fieldEffectContributions(effects, hero, "save")).toHaveLength(0);
+  });
+
+  it("applies formActive only while runtime.forms contains the form", () => {
+    const hero = createCharacter({ className: "Неистовый" }) as Character & {
+      runtime?: { forms?: string[] };
+    };
+    const effects: FeatureEffect[] = [
+      { kind: "field", field: "speed", value: 1, when: { formActive: "Теневая форма" } },
+    ];
+    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(0);
+    hero.runtime = { forms: ["ТЕНЕВАЯ ФОРМА"] };
+    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(1);
+    hero.runtime = { forms: ["Элементальная форма"] };
+    expect(fieldEffectContributions(effects, hero, "speed")).toHaveLength(0);
+  });
+
+  it("caps the scaled value from above", () => {
+    const hero = { ...createCharacter({ className: "Неистовый" }), level: 4 };
+    const effects: FeatureEffect[] = [
+      { kind: "field", field: "stamina", value: 3, perEchelon: 2, cap: 5 },
+      { kind: "field", field: "stability", value: 1, cap: 1 },
+    ];
+    // 3 + 2 * эшелон(4) = 7, ограничено до 5.
+    expect(fieldEffectContributions(effects, hero, "stamina")[0].value).toBe(5);
+    expect(fieldEffectContributions(effects, hero, "stability")[0].value).toBe(1);
   });
 });

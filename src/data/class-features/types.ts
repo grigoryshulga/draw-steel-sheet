@@ -1,4 +1,4 @@
-import type { ActionType, CharacteristicKey } from "../../types";
+import type { CharacteristicKey } from "../../types";
 
 /** Числовые поля листа, которые складываются из эффектов фич. */
 export type FeatureField =
@@ -35,14 +35,13 @@ export type FeatureAmount =
 /** К каким способностям применяется эффект; все заданные условия должны совпасть. */
 export interface FeatureFilter {
   keywords?: string[];
-  characteristic?: CharacteristicKey;
   mode?: "melee" | "ranged";
-  actionType?: ActionType[];
 }
 
 /** Когда эффект действует на героя. */
 export interface FeatureCondition {
-  equipment?: { lightArmor?: boolean; lightWeapon?: boolean };
+  /** Флаг означает требование снаряжения: `false` не выражает «без брони». */
+  equipment?: { lightArmor?: true; lightWeapon?: true };
   noKit?: boolean;
   minLevel?: number;
   /** Выбранные значения ключевых групп (например, аспект «Берсерк»). */

@@ -265,15 +265,7 @@ function matchesFilter(ability: Ability | undefined, filter?: FeatureFilter): bo
   if (filter.keywords?.length) {
     if (!ability || !matchesAllKeywords(ability, filter.keywords)) return false;
   }
-  if (filter.characteristic) {
-    if (!ability || ability.preferredCharacteristic !== filter.characteristic) return false;
-  }
-  if (filter.mode) {
-    if (ability?.weaponMode !== filter.mode) return false;
-  }
-  if (filter.actionType?.length) {
-    if (!ability || !filter.actionType.includes(ability.actionType)) return false;
-  }
+  if (filter.mode && ability?.weaponMode !== filter.mode) return false;
   return true;
 }
 
