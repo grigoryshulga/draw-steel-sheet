@@ -143,3 +143,34 @@ export interface FeatureMechanics {
   resource?: HeroicResourceSpec;
   notes?: string;
 }
+
+/** Группа выбора подкласса, по которой вложенная особенность достаётся одному варианту. */
+export type FeatureKeyGroup =
+  | "aspect"
+  | "order"
+  | "domain"
+  | "tradition"
+  | "doctrine"
+  | "college"
+  | "troupe"
+  | "specialization";
+
+/**
+ * Запись скелета из `class-features.generated.json`: разобранный текст книги без механики.
+ * Механика живёт отдельно, ключом по `id`.
+ */
+export interface GeneratedClassFeature {
+  id: string;
+  className: string;
+  level: number;
+  name: string;
+  /** Родительская особенность, если запись разобрана из заголовка или строки таблицы. */
+  parentId?: string;
+  keyedBy?: FeatureKeyGroup;
+  /** Значение группы выбора (`"Берсерк"`) или порога (`"2"`) для вложенной записи. */
+  keyValue?: string;
+  articleId: string;
+  /** id записи `level-up.generated.json`; у особенностей 1-го уровня её нет. */
+  featureId?: string;
+  description: string;
+}
