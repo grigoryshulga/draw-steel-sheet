@@ -18,7 +18,7 @@ import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
 import { resolveFeatureAmount } from "./feature-modifiers";
 import { echelon } from "./progression";
 import { CHARACTERISTICS, deriveStats } from "./rules";
-import { currentRuntime } from "./runtime";
+import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
 
 /**
@@ -361,22 +361,6 @@ function conditionBadges(
   }
   if (condition.noKit) push("threshold", "без комплекта", { noKit: true });
   return badges;
-}
-
-/** Отметка триггера на текущий раунд, а у частоты `encounter` — на схватку. */
-function triggerMark(
-  character: Character,
-  featureId: string,
-  frequency: TriggerFrequency,
-): { used: boolean; count: number } {
-  const runtime = currentRuntime(character);
-  const mark = runtime.triggers[featureId];
-  if (!mark) return { used: false, count: 0 };
-  const used =
-    frequency === "encounter"
-      ? mark.encounter === runtime.encounter
-      : mark.round === runtime.round;
-  return { used, count: used ? (mark.count ?? 1) : 0 };
 }
 
 /** Слияние одинаковых бейджей: один и тот же порог показывается один раз. */

@@ -28,6 +28,26 @@ export function currentRuntime(character: Character): CharacterRuntime {
   };
 }
 
+/**
+ * Отметка на текущий раунд, а у частоты `encounter` — на схватку. Ключ
+ * отметки выбирает вызывающий: у триггера фичи это её `id`, у прибавки
+ * ресурса — тег прибавки (см. `resourceGainLabels`).
+ */
+export function triggerMark(
+  character: Character,
+  markKey: string,
+  frequency: TriggerFrequency,
+): { used: boolean; count: number } {
+  const runtime = currentRuntime(character);
+  const mark = runtime.triggers[markKey];
+  if (!mark) return { used: false, count: 0 };
+  const used =
+    frequency === "encounter"
+      ? mark.encounter === runtime.encounter
+      : mark.round === runtime.round;
+  return { used, count: used ? (mark.count ?? 1) : 0 };
+}
+
 /** Герой с новым состоянием схватки; исходный объект не меняется. */
 function withRuntime(character: Character, runtime: CharacterRuntime): Character {
   return { ...character, runtime };

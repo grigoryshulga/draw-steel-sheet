@@ -1,5 +1,9 @@
 /** Памятки по ресурсам — по переведённым правилам draw-steel-ru (главы «Классы», «Способности», «Жетоны героя»). */
 
+import { resourceSpecFor } from "./class-features/class-resources";
+import { resourceGainLabel } from "../lib/resources";
+import type { Character } from "../types";
+
 const START = "В начале боя вы получаете ресурс, равный вашим Победам.";
 const LOSE = "Остаток пропадает в конце боя.";
 
@@ -74,6 +78,45 @@ export const HEROIC_RESOURCE_HELP: Record<string, string[]> = {
 };
 
 export const HEROIC_RESOURCE_FALLBACK = [START, LOSE];
+
+/**
+ * Подсказка из спецификации пула: пороги ресурса и эпический ресурс.
+ * Строки собираются из данных, поэтому у класса без порогов (Неистовый)
+ * в памятке останется только эпический пул. Достигнутые пороги помечены
+ * текстом — цвет и оттенок ничего не сообщают.
+ */
+export function resourceSpecHelp(character: Character): string[] {
+  const spec = resourceSpecFor(character.className ?? "");
+  if (!spec) return [];
+  const lines: string[] = [];
+  const current = character.heroicResource?.current ?? 0;
+  const thresholds = [...(spec.thresholds ?? [])].sort(
+    (left, right) => left.level - right.level,
+  );
+  for (const threshold of thresholds) {
+    const reached = current >= threshold.level;
+    lines.push(
+      `${threshold.level}+ ${spec.name}: ${threshold.note}${reached ? " — порог взят" : ""}`,
+    );
+  }
+  const epic = spec.epic;
+  if (epic) {
+    const epicLevel = epic.level ?? 10;
+    if ((character.level ?? 0) >= epicLevel) {
+      const gains = epic.gains
+        .map((gain) => `${resourceGainLabel(gain.event)} — ${gain.amount}`)
+        .join("; ");
+      lines.push(
+        `Эпический пул «${epic.name}»: ${gains || "прибавок нет"}.`,
+      );
+    } else {
+      lines.push(
+        `Эпический пул «${epic.name}» откроется на ${epicLevel}-м уровне.`,
+      );
+    }
+  }
+  return lines;
+}
 
 export const SURGES_HELP = [
   "Тратьте при выброшенном уроне — до 3 всплесков: каждый добавляет урон, равный вашему высшему показателю характеристики.",

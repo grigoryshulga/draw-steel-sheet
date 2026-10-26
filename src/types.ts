@@ -134,7 +134,7 @@ export interface ProjectRow {
 export interface CharacterRuntime {
   round: number;
   encounter: number;
-  /** Отметки триггеров: ключ — id фичи; round/encounter — номер, в котором отмечено; count — сколько раз. */
+  /** Отметки триггеров и прибавок ресурса: ключ — id фичи или тег прибавки; round/encounter — номер, в котором отмечено; count — сколько раз. */
   triggers: Record<string, { round?: number; encounter?: number; count?: number }>;
   /** Активные формы (например, «Теневая форма» Неистового). */
   forms: string[];

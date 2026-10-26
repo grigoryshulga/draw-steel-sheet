@@ -6,8 +6,10 @@ import {
   HEROIC_RESOURCE_FALLBACK,
   HEROIC_RESOURCE_HELP,
   SURGES_HELP,
+  resourceSpecHelp,
 } from "../../data/resource-help";
 import { heroicResourceFloor } from "../../lib/game-actions";
+import { resourceGainLabels } from "../../lib/resources";
 import { clamp, surgeDamageTotal } from "../../lib/rules";
 import { useApp } from "../../state/AppContext";
 import "./ResourcesPanel.css";
@@ -176,10 +178,68 @@ function ResourceRow({
   );
 }
 
+/**
+ * Компактный блок «Откуда капает»: триггер, количество и частота каждой
+ * прибавки. Отметка идёт через журнал игры (`{kind:"trigger"}`), поэтому
+ * её можно отменить, а ключ отметки — тег прибавки. Блок показывается
+ * всегда, в том числе при выключенном авторасчёте: это чтение данных класса,
+ * а не пересчёт листа.
+ */
+function ResourceGains({ gains }: { gains: ReturnType<typeof resourceGainLabels> }) {
+  const { performGameAction } = useApp();
+  if (gains.length === 0) return null;
+  return (
+    <section className="resource-gains" aria-label="Откуда капает ресурс">
+      <h3 className="resource-gains-title">Откуда капает</h3>
+      <ul className="resource-gains-list">
+        {gains.map((gain) => {
+          // «= Победы» уже равенство, плюс к нему не ставится.
+          const amountText = gain.amount.startsWith("=")
+            ? gain.amount
+            : `+${gain.amount}`;
+          return (
+            <li
+              key={gain.tag}
+              className={`resource-gain${gain.used ? " is-used" : ""}`}
+            >
+              <span className="resource-gain-event">{gain.label}</span>
+              <span className="resource-gain-meta numeric">
+                {amountText}
+                {" · "}
+                {gain.frequency}
+              </span>
+              {gain.used && (
+                <span className="resource-gain-state">отмечено</span>
+              )}
+              <Button
+                size="sm"
+                variant={gain.used ? "ghost" : "soft"}
+                aria-pressed={gain.used}
+                aria-label={`${gain.used ? "Снять отметку" : "Отметить прибавку"}: ${gain.label}`}
+                title={`${gain.label}: ${amountText} (${gain.frequency})`}
+                onClick={() =>
+                  performGameAction({
+                    kind: "trigger",
+                    featureId: gain.tag,
+                    used: !gain.used,
+                  })
+                }
+              >
+                {gain.used ? "Снять" : "получено"}
+              </Button>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
 /** Ресурсы боя, независимые от здоровья и восстановлений. */
 export function ResourcesPanel() {
   const { character, performGameAction } = useApp();
   const resourceName = heroicResourceName(character.className);
+  const gains = resourceGainLabels(character);
   const set = (
     resource: "heroicResource" | "surges" | "heroTokens",
     value: number,
@@ -191,13 +251,16 @@ export function ResourcesPanel() {
         <ResourceRow
           label={resourceName}
           min={heroicResourceFloor(character)}
-          help={
-            HEROIC_RESOURCE_HELP[character.className] ??
-            HEROIC_RESOURCE_FALLBACK
-          }
+          help={[
+            ...(HEROIC_RESOURCE_HELP[character.className] ??
+              HEROIC_RESOURCE_FALLBACK),
+            ...resourceSpecHelp(character),
+          ]}
           value={character.heroicResource.current}
           onValue={(value) => set("heroicResource", value)}
         />
+
+        <ResourceGains gains={gains} />
 
         <ResourceRow
           label="Всплески"

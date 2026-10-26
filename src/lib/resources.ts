@@ -7,6 +7,7 @@ import type {
 } from "../data/class-features/types";
 import type { Character } from "../types";
 import { activeClassFeatures } from "./class-features";
+import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
 
 /** Прибавка ресурса, готовая для листа: с источником и подписью события. */
@@ -59,6 +60,49 @@ const EVENT_LABELS: Partial<Record<TriggerEvent, string>> = {
 /** Подпись события прибавки; неизвестное событие возвращается как есть. */
 export function resourceGainLabel(event: TriggerEvent): string {
   return EVENT_LABELS[event] ?? event;
+}
+
+/**
+ * Частота прибавки по-русски: лист не показывает коды модели.
+ * `turn` — «ход», потому что прибавка на начало своего хода срабатывает
+ * каждый ход, а не раз за раунд.
+ */
+const FREQUENCY_LABELS: Record<TriggerFrequency, string> = {
+  turn: "ход",
+  round: "раунд",
+  encounter: "схватка",
+  respite: "отдых",
+  always: "всегда",
+};
+
+/** Прибавка ресурса в том виде, в каком её показывает панель ресурсов. */
+export interface ResourceGainLabel {
+  tag: string;
+  label: string;
+  amount: string;
+  /** Частота по-русски: «ход», «раунд», «схватка», «отдых», «всегда». */
+  frequency: string;
+  /** Отмечено ли «получено» в текущем раунде (у схватки — в текущей схватке). */
+  used: boolean;
+}
+
+/**
+ * Прибавки основного ресурса с подписью события, количеством, частотой и
+ * отметкой «получено».
+ *
+ * Ключ отметки — тег прибавки, а не `sourceId`: у базовых прибавок класса
+ * источник один (`class:<класс>`), и общая отметка скрыла бы, какое именно
+ * событие уже случилось. После замен теги уникальны (`applyGains`), поэтому
+ * одна строка — одна отметка.
+ */
+export function resourceGainLabels(character: Character): ResourceGainLabel[] {
+  return resolvedResourceGains(character).map((gain) => ({
+    tag: gain.tag,
+    label: gain.label,
+    amount: gain.amount,
+    frequency: FREQUENCY_LABELS[gain.frequency],
+    used: triggerMark(character, gain.tag, gain.frequency).used,
+  }));
 }
 
 /** Прибавка вместе с источником: из чего она пришла и на каком уровне. */

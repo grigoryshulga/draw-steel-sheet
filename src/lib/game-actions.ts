@@ -6,6 +6,7 @@ import {
   activeClassFeatures,
   classFeatureTriggers,
 } from "./class-features";
+import { resolvedResourceGains } from "./resources";
 import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
 
 export type HealthOperation =
@@ -39,12 +40,17 @@ export function heroicResourceFloor(character: Character): number {
     ? -(1 + Math.max(0, character.characteristics.reason))
     : 0;
 }
-/** Подпись триггера по id фичи. Условие фичи может быть не выполнено (например, выключена форма), поэтому неизвестный id показывается как есть. */
+/** Подпись триггера по id фичи или по тегу прибавки ресурса. */
 function triggerName(character: Character, featureId: string): string {
-  return (
-    classFeatureTriggers(character).find((item) => item.featureId === featureId)
-      ?.name ?? featureId
+  const feature = classFeatureTriggers(character).find(
+    (item) => item.featureId === featureId,
+  )?.name;
+  if (feature) return feature;
+  // Прибавка ресурса отмечается тегом: подпись и частота берутся из неё.
+  const gain = resolvedResourceGains(character).find(
+    (item) => item.tag === featureId,
   );
+  return gain?.label ?? featureId;
 }
 
 /**
@@ -53,16 +59,22 @@ function triggerName(character: Character, featureId: string): string {
  *
  * Берётся из механики фичи напрямую: список `classFeatureTriggers` отфильтрован
  * выполненными условиями, и невыполненный encounter-триггер получил бы
- * раундовую отметку, которую снял бы ближайший новый раунд.
+ * раундовую отметку, которую снял бы ближайший новый раунд. У прибавки
+ * ресурса частота своя — её тег и есть ключ отметки.
  */
 function triggerFrequency(
   character: Character,
   featureId: string,
 ): TriggerFrequency {
+  const feature = activeClassFeatures(character).find(
+    (item) => item.id === featureId,
+  )?.mechanics?.trigger?.frequency;
+  if (feature) return feature;
+  // Прибавки ресурса отмечаются тегом: у «раз за схватку» отметка должна
+  // пережить новый раунд, поэтому частота берётся из самой прибавки.
   return (
-    activeClassFeatures(character).find(
-      (feature) => feature.id === featureId,
-    )?.mechanics?.trigger?.frequency ?? "round"
+    resolvedResourceGains(character).find((gain) => gain.tag === featureId)
+      ?.frequency ?? "round"
   );
 }
 
