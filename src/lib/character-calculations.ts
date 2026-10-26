@@ -3,6 +3,7 @@ import type { FeatureStat } from "../data/feature-effects";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { kitByName } from "../data/kits";
 import {
+  effectiveCharacteristics,
   featureAbilityDistanceBonus,
   featureStatBonus,
   featureStatContributions,
@@ -11,6 +12,8 @@ import {
 import { echelon } from "./progression";
 
 export { echelon };
+/** Реэкспорт для UI: эффективные характеристики без прямого импорта движка. */
+export { effectiveCharacteristics };
 export function kitBonus(character: Character, label: string): number {
   return Math.max(
     0,

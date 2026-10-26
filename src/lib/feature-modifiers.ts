@@ -16,7 +16,7 @@ import type {
   FeatureFilter,
   FeatureStat,
 } from "../data/class-features/types";
-import type { Ability, Character } from "../types";
+import type { Ability, Character, CharacteristicKey } from "../types";
 import { echelon } from "./progression";
 
 export interface FeatureContribution {
@@ -139,6 +139,65 @@ function activeFeatureSources(character: Character): ActiveFeatureSource[] {
     });
   }
   return sources;
+}
+
+/**
+ * Чистое сложение бонусов характеристик: сохранённая запись не меняется,
+ * эффекты других видов игнорируются.
+ */
+export function applyCharacteristicEffects(
+  base: Record<CharacteristicKey, number>,
+  effects: readonly FeatureEffect[],
+): Record<CharacteristicKey, number> {
+  const result = { ...base };
+  for (const effect of effects) {
+    if (effect.kind !== "characteristic") continue;
+    const value = Number.isFinite(effect.value) ? effect.value : 0;
+    const current = result[effect.key];
+    result[effect.key] = (typeof current === "number" ? current : 0) + value;
+  }
+  return result;
+}
+
+/** Сумма прибавок активных источников к одной характеристике. */
+export function featureCharacteristicBonus(
+  character: Character,
+  key: CharacteristicKey,
+): number {
+  let total = 0;
+  for (const source of activeFeatureSources(character)) {
+    for (const effect of source.effects) {
+      if (effect.kind !== "characteristic" || effect.key !== key) continue;
+      if (Number.isFinite(effect.value)) total += effect.value;
+    }
+  }
+  return total;
+}
+
+/**
+ * Временный тестовый хук: эффекты характеристик без источника и без оговорок
+ * `automation.enabled`. Удаляется в задаче 5 вместе с ключом в `Character`.
+ */
+function testCharacteristicEffects(character: Character): FeatureEffect[] {
+  const hook = character.automation?.characteristicEffectsForTest;
+  return Array.isArray(hook) ? hook : [];
+}
+
+/**
+ * Характеристики, по которым считаются пороги тиров, потенциал и формулы урона:
+ * сохранённые значения плюс бонусы фич (только при `automation.enabled`) и
+ * эффекты временного тестового хука. Сохранённая запись не меняется.
+ */
+export function effectiveCharacteristics(
+  character: Character,
+): Record<CharacteristicKey, number> {
+  const effects = activeFeatureSources(character).flatMap(
+    (source) => source.effects,
+  );
+  return applyCharacteristicEffects(character.characteristics, [
+    ...effects,
+    ...testCharacteristicEffects(character),
+  ]);
 }
 
 function hasAnyKit(character: Character): boolean {

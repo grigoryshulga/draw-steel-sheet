@@ -5,7 +5,10 @@ import {
   type DerivedStats,
 } from "../types";
 import { abilityKitDamageBonus } from "./character-calculations";
-import { featureAbilityDamageContributions } from "./feature-modifiers";
+import {
+  effectiveCharacteristics,
+  featureAbilityDamageContributions,
+} from "./feature-modifiers";
 import type { Ability } from "../types";
 
 export const CHARACTERISTICS: {
@@ -53,14 +56,17 @@ export function clamp(value: number, min: number, max: number): number {
 /** Производные значения листа. */
 export function deriveStats(character: Character): DerivedStats {
   const max = Math.max(0, character.stamina.max);
+  // Пороги тиров и потенциал считаются по эффективным характеристикам: бонусы
+  // выбранных фич добавляются поверх сохранённых значений листа.
+  const characteristics = effectiveCharacteristics(character);
   const highest = Math.max(
-    ...CHARACTERISTIC_KEYS.map((key) => character.characteristics[key]),
+    ...CHARACTERISTIC_KEYS.map((key) => characteristics[key]),
   );
   // Потенциал считается от высочайшей характеристики героя.
   const potencyValue = highest;
   const tierThresholds = Object.fromEntries(
     CHARACTERISTIC_KEYS.map((key) => {
-      const bonus = character.characteristics[key];
+      const bonus = characteristics[key];
       return [key, { t2: 12 - bonus, t3: 17 - bonus }];
     }),
   ) as DerivedStats["tierThresholds"];
@@ -192,9 +198,12 @@ function normalizeFormula(formula: string): string {
     .replace(/[×х]/gi, "*");
 }
 
-function characteristicValue(letter: string, character: Character): number {
+function characteristicValue(
+  letter: string,
+  characteristics: Record<CharacteristicKey, number>,
+): number {
   const key = CHARACTERISTIC_BY_SHORT[letter.toUpperCase()];
-  return key ? character.characteristics[key] : 0;
+  return key ? characteristics[key] : 0;
 }
 
 export interface EvaluatedDamage {
@@ -223,6 +232,8 @@ export function evaluateDamage(
 
   // Варианты формулы («М или Л») — берём самый выгодный: от высшей из характеристик.
   let best: EvaluatedDamage | null = null;
+  // Подставляем эффективные характеристики: бонус фичи попадает в урон.
+  const characteristics = effectiveCharacteristics(character);
 
   for (const variant of expandDamageAlternatives(normalizeFormula(trimmed))) {
     const normalized = normalizeFormula(variant);
@@ -252,7 +263,7 @@ export function evaluateDamage(
         substituted.push(String(number));
         continue;
       }
-      const value = characteristicValue(body, character);
+      const value = characteristicValue(body, characteristics);
       hasCharacteristic = true;
       flat += sign * value;
       substituted.push(String(sign * value));
