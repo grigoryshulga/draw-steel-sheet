@@ -275,24 +275,56 @@ describe("resolvedResourceGains", () => {
   });
 });
 
+/**
+ * Ожидаемые подписи событий. Термины состояний — как в правилах проекта
+ * (`vitalStatus`): «утомлён» — на половине выносливости, «при смерти» —
+ * отдельное состояние на нуле. Таблица — контракт для UI: правка формулировки
+ * правится здесь же, по одной строке.
+ */
+const LABELS: [TriggerEvent, string][] = [
+  ["start-of-turn", "Начало твоего хода"],
+  ["end-of-turn", "Конец твоего хода"],
+  ["take-damage", "Получаешь урон"],
+  ["deal-damage", "Наносишь урон"],
+  ["hit", "Попадаешь по цели"],
+  ["crit", "Критический удар"],
+  ["miss", "Промахиваешься"],
+  ["ally-damaged", "Союзник получает урон"],
+  ["adjacent-enemy-damages-you", "Смежный враг наносит тебе урон"],
+  ["first-per-round", "Первый раз за раунд"],
+  ["winded", "Становишься утомлённым"],
+  ["dying", "Становишься при смерти"],
+  ["spend-recovery", "Тратишь восстановление"],
+  ["enemy-enters", "Враг входит в зону"],
+  ["save-failed", "Проваливаешь спасбросок"],
+  ["save-succeeded", "Проходишь спасбросок"],
+  ["respite", "Завершаешь отдых"],
+  ["victory", "Одерживаешь победу"],
+  ["use-ability", "Используешь способность"],
+  ["form-changed", "Меняешь форму"],
+  ["passive", "Постоянно"],
+];
+
 describe("resourceGainLabel", () => {
-  it("подписывает известные события по-русски, неизвестные — как есть", () => {
-    withResource(TEST_RESOURCE, [], () => {
-      const gains = resolvedResourceGains(testHero(1));
-      expect(
-        gains.find((gain) => gain.event === "start-of-turn")!.label,
-      ).toBe("Начало твоего хода");
-      expect(gains.find((gain) => gain.event === "take-damage")!.label).toBe(
-        "Получаешь урон",
-      );
-      expect(gains.find((gain) => gain.event === "respite")!.label).toBe(
-        "Завершаешь отдых",
-      );
-    });
-    expect(resourceGainLabel("winded")).toBe("Становишься при смерти");
+  it.each(LABELS)("%s → «%s»", (event, label) => {
+    expect(resourceGainLabel(event)).toBe(label);
+  });
+
+  it("неизвестное событие показывается своим кодом", () => {
     expect(resourceGainLabel("unknown-event" as TriggerEvent)).toBe(
       "unknown-event",
     );
+  });
+
+  it("прибавки несут те же подписи, что и таблица событий", () => {
+    withResource(TEST_RESOURCE, [], () => {
+      const expected = new Map(LABELS);
+      const gains = resolvedResourceGains(testHero(1));
+      expect(gains.length).toBeGreaterThan(0);
+      for (const gain of gains) {
+        expect(gain.label).toBe(expected.get(gain.event));
+      }
+    });
   });
 });
 
@@ -306,6 +338,41 @@ describe("resolvedEpicResourceGains", () => {
       const epic = resolvedEpicResourceGains(hero);
       expect(epic.map((gain) => gain.tag)).toEqual(["epic-start"]);
       expect(epic[0].sourceName).toBe(EPIC_RESOURCE_NAME);
+    });
+  });
+
+  it("эпический пул не смешивается с основным и не применяет его замены", () => {
+    // Тег урона есть в обоих пулах: замена 4-го уровня трогает только основной.
+    const withCollision: HeroicResourceSpec = {
+      ...TEST_RESOURCE,
+      epic: {
+        name: EPIC_RESOURCE_NAME,
+        gains: [
+          {
+            tag: "epic-start",
+            event: "start-of-turn",
+            amount: "2",
+            frequency: "turn",
+          },
+          {
+            tag: "take-damage",
+            event: "take-damage",
+            amount: "5",
+            frequency: "turn",
+          },
+        ],
+      },
+    };
+    withResource(withCollision, [DAMAGE_UPGRADE], () => {
+      const hero = testHero(4);
+      const main = resolvedResourceGains(hero);
+      expect(main.map((gain) => gain.tag)).not.toContain("epic-start");
+      expect(main.find((gain) => gain.tag === "take-damage")!.amount).toBe("2");
+
+      const epic = resolvedEpicResourceGains(hero);
+      expect(epic.map((gain) => gain.tag)).toEqual(["epic-start", "take-damage"]);
+      expect(epic.find((gain) => gain.tag === "take-damage")!.amount).toBe("5");
+      expect(epic.every((gain) => gain.sourceId === `class:${normalizeFeatureText(TEST_CLASS)}`)).toBe(true);
     });
   });
 

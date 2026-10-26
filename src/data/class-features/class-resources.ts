@@ -17,7 +17,7 @@ export const CLASS_RESOURCES: Record<string, HeroicResourceSpec> = {};
 export function resourceSpecFor(
   className: string,
 ): HeroicResourceSpec | undefined {
-  const key = normalizeFeatureText(className ?? "");
+  const key = normalizeFeatureText(className);
   if (!key) return undefined;
   return CLASS_RESOURCES[key];
 }

@@ -23,8 +23,11 @@ export interface ResolvedResourceGain {
 }
 
 /**
- * Подписи событий для листа. Неизвестное событие показывается своим кодом,
- * поэтому словарь неполный по типу: новые события не обязаны ломать сборку.
+ * Подписи событий для листа. Термины состояний — как в правилах проекта
+ * (`vitalStatus` в `src/lib/rules.ts`): «утомлён» — на половине выносливости,
+ * «при смерти» — отдельное состояние на нуле. Неизвестное событие показывается
+ * своим кодом, поэтому словарь неполный по типу: новые события не обязаны
+ * ломать сборку.
  */
 const EVENT_LABELS: Partial<Record<TriggerEvent, string>> = {
   "start-of-turn": "Начало твоего хода",
@@ -35,10 +38,10 @@ const EVENT_LABELS: Partial<Record<TriggerEvent, string>> = {
   crit: "Критический удар",
   miss: "Промахиваешься",
   "ally-damaged": "Союзник получает урон",
-  "adjacent-enemy-damages-you": "Смежный враг бьёт тебя",
+  "adjacent-enemy-damages-you": "Смежный враг наносит тебе урон",
   "first-per-round": "Первый раз за раунд",
-  winded: "Становишься при смерти",
-  dying: "Умираешь",
+  winded: "Становишься утомлённым",
+  dying: "Становишься при смерти",
   "spend-recovery": "Тратишь восстановление",
   "enemy-enters": "Враг входит в зону",
   "save-failed": "Проваливаешь спасбросок",
@@ -86,26 +89,20 @@ function baseGains(character: Character): SourcedGain[] {
 }
 
 /**
- * Прибавки активных фич: по возрастанию уровня источника, при равенстве —
- * по `id` фичи. Уровень героя уже учтён в `activeClassFeatures`, поэтому
- * прибавки фич выше его уровня сюда не попадают. Список не зависит от
- * `automation.enabled`: это не расчёт, а то, что лист показывает всегда.
+ * Прибавки активных фич. Порядок задаёт `activeClassFeatures`: по возрастанию
+ * уровня фичи, при равенстве — по её `id`; он же отсекает фичи выше уровня
+ * героя. Список не зависит от `automation.enabled`: это не расчёт, а то, что
+ * лист показывает всегда.
  */
 function featureGains(character: Character): SourcedGain[] {
-  return activeClassFeatures(character)
-    .flatMap((feature) =>
-      (feature.mechanics?.resource?.gains ?? []).map((gain) => ({
-        gain,
-        sourceId: feature.id,
-        sourceName: feature.name,
-        level: feature.level,
-      })),
-    )
-    .sort(
-      (a, b) =>
-        a.level - b.level ||
-        (a.sourceId < b.sourceId ? -1 : a.sourceId > b.sourceId ? 1 : 0),
-    );
+  return activeClassFeatures(character).flatMap((feature) =>
+    (feature.mechanics?.resource?.gains ?? []).map((gain) => ({
+      gain,
+      sourceId: feature.id,
+      sourceName: feature.name,
+      level: feature.level,
+    })),
+  );
 }
 
 /**
