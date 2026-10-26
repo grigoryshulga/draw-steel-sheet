@@ -64,12 +64,24 @@ const SELECTION_GROUPS: Record<
   неистовый: { aspect: "fury.aspect" },
 };
 
+/**
+ * Ключ группы выбора для класса и вида группы. `undefined` — класса нет в
+ * таблице: тогда выборы не фильтруются (старое поведение), а панель листа не
+ * показывает такие записи, потому что не может понять, выбраны ли они.
+ */
+export function selectionGroupFor(
+  className: string,
+  keyedBy: FeatureKeyGroup,
+): string | undefined {
+  return SELECTION_GROUPS[normalizeFeatureText(className)]?.[keyedBy];
+}
+
 /** Ключ группы выбора для записи или `undefined`, если класс не в таблице. */
 function selectionGroupId(
   feature: GeneratedClassFeature,
   keyedBy: FeatureKeyGroup,
 ): string | undefined {
-  return SELECTION_GROUPS[normalizeFeatureText(feature.className)]?.[keyedBy];
+  return selectionGroupFor(feature.className, keyedBy);
 }
 
 /** Части значения выбора: строка может перечислять варианты через запятую. */

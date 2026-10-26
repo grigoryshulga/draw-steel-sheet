@@ -6,7 +6,10 @@ import {
   featureConditionMet,
   resolveFeatureAmount,
 } from "../../lib/feature-modifiers";
-import { activeClassFeatures } from "../../lib/class-features";
+import {
+  classFeatureChoicesForSheet,
+  classFeatureGroupsForSheet,
+} from "../../lib/class-feature-view";
 import {
   ClassFeatureMechanicsPanel,
   RoundEncounterControls,
@@ -19,10 +22,12 @@ export function ClassFeaturesPanel() {
   const groups = classFeatureGroups(character.className);
   const selections = character.automation?.classFeatureSelections ?? {};
 
-  // Новый раздел (механики, триггеры, выбор аспекта) живёт по тем же правилам
-  // активации, что и лист, поэтому панель есть и у классов без старого реестра.
-  // Проверка дешёвая: список триггеров и бейджей строит сам раздел ниже.
-  const hasMechanics = activeClassFeatures(character).length > 0;
+  // Новый раздел показывает только записи с механикой: у классов, которые ещё
+  // не разобраны, он пуст, и единственным источником остаётся старый реестр.
+  // Панель с пустым телом не рисуем — только шапку с кнопками раунда.
+  const hasMechanics =
+    classFeatureGroupsForSheet(character).length > 0 ||
+    classFeatureChoicesForSheet(character).length > 0;
 
   if (groups.length === 0 && !hasMechanics) return null;
 

@@ -2,7 +2,10 @@ import type { Character, CharacterRuntime } from "../types";
 import type { TriggerFrequency } from "../data/class-features/types";
 import { applyDamage, deriveStats } from "./rules";
 import { heroicResourceName } from "../data/classes";
-import { classFeatureTriggers } from "./class-features";
+import {
+  activeClassFeatures,
+  classFeatureTriggers,
+} from "./class-features";
 import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
 
 export type HealthOperation =
@@ -46,15 +49,20 @@ function triggerName(character: Character, featureId: string): string {
 
 /**
  * Частота отметки: у «раз за схватку» отметка живёт до новой схватки, у
- * остальных — до нового раунда. Неизвестный триггер отмечается как раунд.
+ * остальных — до нового раунда.
+ *
+ * Берётся из механики фичи напрямую: список `classFeatureTriggers` отфильтрован
+ * выполненными условиями, и невыполненный encounter-триггер получил бы
+ * раундовую отметку, которую снял бы ближайший новый раунд.
  */
 function triggerFrequency(
   character: Character,
   featureId: string,
 ): TriggerFrequency {
   return (
-    classFeatureTriggers(character).find((item) => item.featureId === featureId)
-      ?.frequency ?? "round"
+    activeClassFeatures(character).find(
+      (feature) => feature.id === featureId,
+    )?.mechanics?.trigger?.frequency ?? "round"
   );
 }
 

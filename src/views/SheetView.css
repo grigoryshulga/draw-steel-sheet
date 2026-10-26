@@ -120,8 +120,12 @@
 }
 
 /* Эффективное значение характеристики: сохранённое плюс бонусы особенностей.
-   Подсказка объясняет, откуда прибавка; редактируется сохранённое значение. */
+   Дельта видна текстом, подсказка объясняет источник; редактируется
+   сохранённое значение. */
 .stat-effective {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
   padding: 0 5px;
   border: 1px solid var(--accent-line);
   border-radius: 999px;
@@ -130,6 +134,12 @@
   font-weight: 700;
   line-height: 1.6;
   cursor: help;
+}
+
+.stat-effective-delta {
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 /* ---------- Витальные показатели ---------- */

@@ -80,10 +80,13 @@
   cursor: pointer;
 }
 
-.cf-group-head:hover,
-.cf-group-head:focus-visible {
+.cf-group-head:hover {
   background: var(--surface-hover);
-  outline: none;
+}
+
+.cf-group-head:focus-visible {
+  outline: 2px solid var(--fg-bright);
+  outline-offset: 2px;
 }
 
 .cf-group-title {
@@ -121,9 +124,10 @@
   background: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 
-/* Отмеченный в этом раунде триггер приглушён: срабатывание уже случилось. */
+/* Отмеченный в этом раунде триггер приглушён: срабатывание уже случилось.
+   Текст остаётся читаемым — состояние дублируется словами «уже отмечено». */
 .cf-item.is-used {
-  opacity: 0.55;
+  opacity: 0.7;
 }
 
 .cf-item-head {
@@ -163,17 +167,33 @@
 }
 
 .cf-badge {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
   max-width: 100%;
   padding: 1px 6px;
-  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
   font-size: 0.69rem;
   font-weight: 600;
   line-height: 1.5;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+}
+
+/* Длинные подписи триггеров не обрезаются: перенос дешевле нечитаемого
+   многоточия на телефоне. */
+.cf-badge-text {
+  min-width: 0;
+}
+
+/* Состояние «условие не выполнено» — текстом, а не только прозрачностью. */
+.cf-badge-state {
+  color: var(--orange);
+  font-size: 0.64rem;
+  font-weight: 650;
+  text-transform: lowercase;
 }
 
 .cf-badge.is-trigger {
@@ -188,7 +208,6 @@
 
 .cf-badge.is-off {
   border-style: dashed;
-  opacity: 0.75;
 }
 
 @media (max-width: 700px) {

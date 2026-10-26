@@ -2,13 +2,16 @@ import { Field, Panel, Stepper, TextInput } from "../../components/ui";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
-import { featureCharacteristicBonus } from "../../lib/feature-modifiers";
+import { effectiveCharacteristics } from "../../lib/feature-modifiers";
 import { useApp } from "../../state/AppContext";
 import { StatBreakdown } from "./StatBreakdown";
 
 /** Пять характеристик с тестами и порогами тиров. */
 export function CharacteristicsPanel() {
   const { character, derived, patch } = useApp();
+  // Эффективные значения считает движок (сохранённое + бонусы особенностей,
+  // с теми же ограничениями); правится по-прежнему сохранённое значение.
+  const effective = effectiveCharacteristics(character);
 
   return (
     <Panel
@@ -40,9 +43,8 @@ export function CharacteristicsPanel() {
       <div className="char-grid">
         {CHARACTERISTICS.map((meta) => {
           const value = character.characteristics[meta.key];
-          // Эффективное значение считается движком (сохранённое + бонусы
-          // особенностей); правится по-прежнему сохранённое значение.
-          const bonus = featureCharacteristicBonus(character, meta.key);
+          const shown = effective[meta.key];
+          const bonus = shown - value;
           return (
             <div className="stat-card" key={meta.key}>
               <div className="stat-card-head">
@@ -51,8 +53,12 @@ export function CharacteristicsPanel() {
                   <span
                     className="stat-effective"
                     title={`${bonus > 0 ? "+" : ""}${bonus} от особенностей`}
+                    aria-label={`${meta.label}: эффективное значение ${shown}, ${bonus > 0 ? "+" : ""}${bonus} от особенностей`}
                   >
-                    {value + bonus}
+                    {shown}
+                    <span className="stat-effective-delta">
+                      {bonus > 0 ? `+${bonus}` : bonus}
+                    </span>
                   </span>
                 )}
               </div>

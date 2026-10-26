@@ -11,6 +11,7 @@ import type { Character, CharacteristicKey } from "../types";
 import {
   activeClassFeatures,
   classFeatureTriggers,
+  selectionGroupFor,
   type ActiveClassFeature,
 } from "./class-features";
 import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
@@ -435,7 +436,7 @@ function sheetItem(
     const kind = keyGroupKind(choice.group);
     const selected = selectedGroupValue(character, choice.group);
     // Группы способностей приложение ведёт списком способностей, а не
-    // выборами: для них бейдж появляется только если выбор уже записан.
+    // выборами: бейдж называет сам выбор, но не выдаёт его за сделанный.
     if (kind) {
       badges.push({
         kind: "choice",
@@ -444,6 +445,12 @@ function sheetItem(
       });
     } else if (selected !== undefined) {
       badges.push({ kind: "choice", label: `выбор: ${selected}`, active: true });
+    } else {
+      badges.push({
+        kind: "choice",
+        label: `выбор из ${choice.options.length} способностей`,
+        active: true,
+      });
     }
   }
 
@@ -479,7 +486,13 @@ function sheetItem(
 
   const merged = mergeBadges(badges);
   if (parts.length === 0 && merged.length === 0) {
-    merged.push({ kind: "grant", label: "по тексту правил", active: true });
+    // Прибавку ресурса лист считает в панели ресурсов; здесь она только
+    // называется, чтобы строка не осталась пустой.
+    merged.push({
+      kind: "grant",
+      label: mechanics?.resource ? "прибавка ресурса" : "по тексту правил",
+      active: true,
+    });
   }
 
   return {
@@ -493,9 +506,53 @@ function sheetItem(
 }
 
 /**
- * Группы особенностей по уровням: только активные записи, поэтому уровней выше
- * героя в списке нет. Внутри группы порядок задаёт `activeClassFeatures`
- * (уровень, затем `id`).
+ * Запись попадает в панель, только если даёт механику: эффекты, триггер,
+ * выбор или прибавки ресурса. Контейнеры ("Свирепость", "Растущая
+ * свирепость", "Особенности аспекта N-го уровня") и служебные заголовки
+ * скелета остаются за бортом: их дети идут отдельными строками и без родителя
+ * читаются нормально.
+ */
+function givesMechanics(feature: ActiveClassFeature): boolean {
+  const mechanics = feature.mechanics;
+  if (!mechanics) return false;
+  if (
+    mechanics.effects?.length ||
+    mechanics.trigger ||
+    mechanics.choice ||
+    mechanics.resource
+  ) {
+    return true;
+  }
+  // Пороговая строка таблицы Растущей свирепости: её механика — само условие
+  // достижения порога, поэтому строка остаётся (бейдж «нужно N Свирепость»).
+  return mechanics.when?.resourceAtLeast !== undefined;
+}
+
+/**
+ * Запись с `keyedBy` у класса без зарегистрированной группы выборов: панель не
+ * может понять, выбрана она или нет, и чужие правила выглядели бы выбранными.
+ * Такие записи остаются в общем движке, но на лист не попадают.
+ */
+function needsUnknownSelection(
+  character: Character,
+  feature: ActiveClassFeature,
+): boolean {
+  if (!feature.keyedBy) return false;
+  return selectionGroupFor(character.className ?? "", feature.keyedBy) === undefined;
+}
+
+/** Особенность, которую лист показывает строкой: есть механика и ясен выбор. */
+function isSheetFeature(
+  character: Character,
+  feature: ActiveClassFeature,
+): boolean {
+  return givesMechanics(feature) && !needsUnknownSelection(character, feature);
+}
+
+/**
+ * Группы особенностей по уровням: только активные записи с механикой, поэтому
+ * уровней выше героя в списке нет. Внутри группы порядок задаёт
+ * `activeClassFeatures` (уровень, затем `id`).
  */
 export function classFeatureGroupsForSheet(
   character: Character,
@@ -503,6 +560,7 @@ export function classFeatureGroupsForSheet(
   const context = sheetContext(character);
   const byLevel = new Map<number, FeatureSheetItem[]>();
   for (const feature of activeClassFeatures(character)) {
+    if (!isSheetFeature(character, feature)) continue;
     const item = sheetItem(context, feature);
     const items = byLevel.get(item.level) ?? [];
     items.push(item);
@@ -515,6 +573,25 @@ export function classFeatureGroupsForSheet(
       title: `Уровень ${level}`,
       features,
     }));
+}
+
+/**
+ * Раскрытие групп по уровням: по умолчанию открыта группа ровно того уровня,
+ * на котором герой, а клики игрока переопределяют только тронутые группы.
+ * Смена уровня пересчитывает умолчание, не сбрасывая явные клики.
+ */
+export function featureLevelOpenState(
+  groups: FeatureSheetGroup[],
+  characterLevel: number,
+  overrides: Readonly<Record<number, boolean>> = {},
+): Record<number, boolean> {
+  const level = typeof characterLevel === "number" ? characterLevel : 0;
+  const state: Record<number, boolean> = {};
+  for (const group of groups) {
+    state[group.level] =
+      overrides[group.level] ?? (group.level === level);
+  }
+  return state;
 }
 
 /**
@@ -545,6 +622,9 @@ export function classFeatureChoicesForSheet(
     if (!choice || seen.has(choice.group)) continue;
     const kind = keyGroupKind(choice.group);
     if (!kind) continue;
+    // Группу выбора предлагаем только если она зарегистрирована для класса:
+    // иначе запись выбора ни на что не повлияет.
+    if (selectionGroupFor(context.className, kind) !== choice.group) continue;
     seen.add(choice.group);
     if (selectedGroupValue(character, choice.group) !== undefined) continue;
     const options = context.options.get(kind) ?? [];

@@ -4,7 +4,9 @@ import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  featureLevelOpenState,
   triggerBadgeCounts,
+  type FeatureSheetBadge,
   type FeatureSheetGroup,
   type FeatureSheetItem,
 } from "../../lib/class-feature-view";
@@ -48,24 +50,31 @@ export function RoundEncounterControls({ className = "" }: { className?: string 
   );
 }
 
+/** Пояснение состояния бейджа текстом: цвет и прозрачность — не сообщение. */
+function badgeState(badge: FeatureSheetBadge): string | undefined {
+  if (badge.active) return undefined;
+  // Отмеченный триггер не «не выполнен» — он уже сработал в этом раунде.
+  return badge.kind === "trigger" ? "уже отмечено" : "сейчас нет";
+}
+
 /** Бейджи записи: срабатывание, порог, иммунитет, выбор, выдача. */
 function Badges({ item }: { item: FeatureSheetItem }) {
   if (item.badges.length === 0) return null;
   return (
     <ul className="cf-badges">
-      {item.badges.map((badge) => (
-        <li
-          key={`${badge.kind}-${badge.label}`}
-          className={`cf-badge is-${badge.kind}${badge.active ? "" : " is-off"}`}
-          title={
-            badge.active
-              ? undefined
-              : "Условие сейчас не выполнено — механика ждёт своего состояния"
-          }
-        >
-          {badge.label}
-        </li>
-      ))}
+      {item.badges.map((badge) => {
+        const state = badgeState(badge);
+        return (
+          <li
+            key={`${badge.kind}-${badge.label}`}
+            className={`cf-badge is-${badge.kind}${badge.active ? "" : " is-off"}`}
+            title={state ? `${badge.label} — ${state}` : badge.label}
+          >
+            <span className="cf-badge-text">{badge.label}</span>
+            {state && <span className="cf-badge-state">{state}</span>}
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -166,19 +175,22 @@ export function ClassFeatureMechanicsPanel() {
     group.features.some((item) => item.trigger),
   );
   const runtime = currentRuntime(character);
-  const currentLevel =
-    groups.length > 0 ? groups[groups.length - 1].level : character.level;
-  const [expanded, setExpanded] = useState<number[] | null>(null);
-  const openLevels = expanded ?? [currentLevel];
+  // Раскрыта группа ровно текущего уровня героя; клики игрока переопределяют
+  // только тронутые группы и переживают только собственный уровень.
+  const [levelOverrides, setLevelOverrides] = useState<Record<number, boolean>>({});
+  const openLevels = featureLevelOpenState(
+    groups,
+    character.level,
+    levelOverrides,
+  );
 
   if (groups.length === 0 && choices.length === 0) return null;
 
-  const toggle = (level: number) => {
-    const next = openLevels.includes(level)
-      ? openLevels.filter((item) => item !== level)
-      : [...openLevels, level];
-    setExpanded(next);
-  };
+  const toggle = (level: number) =>
+    setLevelOverrides((current) => {
+      const state = featureLevelOpenState(groups, character.level, current);
+      return { ...current, [level]: !state[level] };
+    });
 
   const selectChoice = (group: string, value: string) => {
     update((current) => {
@@ -243,7 +255,7 @@ export function ClassFeatureMechanicsPanel() {
           <LevelGroup
             key={group.level}
             group={group}
-            open={openLevels.includes(group.level)}
+            open={openLevels[group.level] ?? false}
             onToggle={() => toggle(group.level)}
           />
         ))}

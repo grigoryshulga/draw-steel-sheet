@@ -10,6 +10,7 @@ import type { Character } from "../src/types";
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  featureLevelOpenState,
   triggerBadgeCounts,
   type FeatureSheetItem,
 } from "../src/lib/class-feature-view";
@@ -283,5 +284,146 @@ describe("classFeatureChoicesForSheet", () => {
   it("у класса без разобранных выборов ничего не спрашивает", () => {
     const talent = createCharacter({ className: "Талант", level: 3 });
     expect(classFeatureChoicesForSheet(talent)).toEqual([]);
+  });
+});
+
+describe("панель показывает только то, что даёт механику", () => {
+  it("у классов без разобранных механик раздел пуст — дубля со старым реестром нет", () => {
+    for (const className of ["Проводник", "Элементалист", "Тактик", "Тень"]) {
+      const hero = createCharacter({ className, level: 6 });
+      expect(classFeatureGroupsForSheet(hero)).toEqual([]);
+      expect(classFeatureChoicesForSheet(hero)).toEqual([]);
+    }
+  });
+
+  it("у Неистового нет контейнеров и служебных заголовков", () => {
+    const hero = fury(10, "Берсерк");
+    const names = new Set(itemsOf(hero).map((item) => item.name));
+    for (const container of [
+      "Свирепость",
+      "Свирепость в бою",
+      "Свирепость вне боя",
+      "Растущая свирепость",
+      "Особенности аспекта 1-го уровня",
+      "Особенность аспекта 2-го уровня",
+      "Способность аспекта 2-го уровня",
+      "Триггер аспекта",
+      "Героические способности",
+      "Способности неистового",
+    ]) {
+      expect(names.has(container)).toBe(false);
+    }
+    // Прозаических заглушек в разделе не осталось: каждая строка — механика.
+    expect(
+      itemsOf(hero).filter((item) =>
+        item.badges.some((badge) => badge.label === "по тексту правил"),
+      ),
+    ).toEqual([]);
+  });
+
+  it("оставляет 6 пороговых строк выбранного аспекта и его триггеры", () => {
+    const hero = fury(10, "Берсерк");
+    const items = itemsOf(hero);
+    const thresholds = items.filter((item) =>
+      item.id.includes("rastushchaya-svirepost-berserka"),
+    );
+    expect(thresholds).toHaveLength(6);
+    for (const item of thresholds) {
+      expect(item.badges.some((badge) => badge.kind === "threshold")).toBe(true);
+    }
+    // Триггеры аспекта: строки порогов 4/8/12, «Линии силы», «Первозданная сила», «Воплощение Хаоса».
+    const triggered = items.filter((item) => item.trigger);
+    expect(triggered.length).toBeGreaterThanOrEqual(6);
+    expect(triggered.map((item) => item.name)).toContain("Воплощение Хаоса");
+  });
+
+  it("не показывает записи с keyedBy у класса без зарегистрированной группы выборов", () => {
+    const hero = createCharacter({ className: "Проводник", level: 3 });
+    withFeature(
+      { className: "Проводник", keyedBy: "domain", keyValue: "Солнце" },
+      { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
+      () => {
+        // Выбор домена панель проверить не может — чужие правила не показываем.
+        expect(classFeatureGroupsForSheet(hero)).toEqual([]);
+      },
+    );
+    withFeature(
+      { className: "Проводник" },
+      { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
+      () => {
+        expect(itemsOf(hero)).toHaveLength(1);
+      },
+    );
+  });
+});
+
+describe("featureLevelOpenState", () => {
+  it("раскрывает ровно текущий уровень героя", () => {
+    const groups = classFeatureGroupsForSheet(fury(4, "Берсерк"));
+    const opened = (state: Record<number, boolean>) =>
+      Object.entries(state)
+        .filter(([, open]) => open)
+        .map(([level]) => Number(level));
+
+    expect(opened(featureLevelOpenState(groups, 4))).toEqual([4]);
+    // Смена уровня пересчитывает умолчание, а не фиксирует прошлое открытие.
+    expect(opened(featureLevelOpenState(groups, 2))).toEqual([2]);
+    expect(opened(featureLevelOpenState(groups, 3))).toEqual([3]);
+  });
+
+  it("клик игрока переопределяет только тронутую группу", () => {
+    const groups = classFeatureGroupsForSheet(fury(4, "Берсерк"));
+    const state = featureLevelOpenState(groups, 4, { 1: true });
+    expect(state[1]).toBe(true);
+    expect(state[4]).toBe(true);
+    expect(state[2]).toBe(false);
+
+    // Явное закрытие текущего уровня тоже переживает пересчёт.
+    expect(featureLevelOpenState(groups, 4, { 4: false })[4]).toBe(false);
+    // А на другом уровне та же группа вернётся к умолчанию.
+    expect(featureLevelOpenState(groups, 2, { 4: false })[2]).toBe(true);
+  });
+});
+
+describe("частота отметки берётся из механики, а не из отфильтрованного списка", () => {
+  it("невыполненный encounter-триггер отмечается по схватке и переживает раунд", () => {
+    const hero = fury(4, "Берсерк");
+    withFeature(
+      {},
+      {
+        kinds: ["trigger"],
+        trigger: {
+          event: "combat-start",
+          frequency: "encounter",
+          label: "Тестовый триггер схватки",
+          detail: "Срабатывает раз за схватку.",
+          when: { resourceAtLeast: { name: "Свирепость", value: 5 } },
+        },
+      },
+      () => {
+        // Условие не выполнено, поэтому в список триггеров фича не попадает.
+        expect(
+          classFeatureTriggers(hero).some((item) => item.featureId === TEST_ID),
+        ).toBe(false);
+
+        const marked = previewGameAction(hero, {
+          kind: "trigger",
+          featureId: TEST_ID,
+          used: true,
+        });
+        expect(marked.ok).toBe(true);
+        if (!marked.ok) return;
+        expect(marked.next.runtime!.triggers[TEST_ID]).toEqual({
+          encounter: 1,
+          count: 1,
+        });
+        const nextRound = beginRound(marked.next);
+        expect(nextRound.runtime!.triggers[TEST_ID]).toEqual({
+          encounter: 1,
+          count: 1,
+        });
+        expect(beginEncounter(nextRound).runtime!.triggers[TEST_ID]).toBeUndefined();
+      },
+    );
   });
 });
