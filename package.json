@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node server/index.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && node scripts/build-class-features.mjs && npm run data:rules",
+    "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && npm run data:rules && node scripts/build-class-features.mjs",
     "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs && npm run data:level-up",
     "data:level-up": "node scripts/build-level-up.mjs",
     "data:art": "node scripts/build-art-manifest.mjs",
