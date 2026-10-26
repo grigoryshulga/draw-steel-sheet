@@ -86,9 +86,28 @@ describe("activeClassFeatures", () => {
   });
 
   it("одноимённая фича на двух уровнях учитывается один раз", () => {
-    const hero = furyWithAspect("Берсерк");
-    const ids = activeClassFeatures(hero).map((f) => f.id);
-    expect(new Set(ids).size).toBe(ids.length);
+    const id = "fury.feature.1.duplicate";
+    const duplicate: GeneratedClassFeature = {
+      id,
+      className: "Неистовый",
+      level: 2,
+      name: "Тестовая фича",
+      articleId: "test",
+      description: "",
+    };
+    GENERATED_CLASS_FEATURES.push({ ...duplicate, level: 1 }, duplicate);
+    try {
+      const same = activeClassFeatures(fury(2)).filter((f) => f.id === id);
+      expect(same).toHaveLength(1);
+      // Побеждает первая запись реестра.
+      expect(same[0].level).toBe(1);
+    } finally {
+      for (let index = GENERATED_CLASS_FEATURES.length - 1; index >= 0; index -= 1) {
+        if (GENERATED_CLASS_FEATURES[index].id === id) {
+          GENERATED_CLASS_FEATURES.splice(index, 1);
+        }
+      }
+    }
   });
 
   it("фича другого класса не активна", () => {
@@ -140,21 +159,65 @@ describe("activeClassFeatures", () => {
     );
   });
 
-  it("выбор по id опции старого реестра сравнивается с её названием", () => {
+  it("выбор под ключом, которого нет в таблице групп, фичу не активирует", () => {
     withFeature(
-      { id: "conduit.feature.3.test-domain", className: "Проводник", keyedBy: "domain", keyValue: "Молитва о разрушении" },
+      { keyedBy: "aspect", keyValue: "Берсерк" },
       { kinds: ["bonus"] },
       () => {
-        const hero = createCharacter({ className: "Проводник", level: 3 });
+        const hero = fury(2);
+        // Ключ группы не угадывается по слагу: приложение пишет `fury.aspect`.
         hero.automation = {
           enabled: true,
           adjustments: {},
           ancestryTraits: [],
-          classFeatureSelections: { "conduit.domain": "conduit.prayer.destruction" },
+          classFeatureSelections: { aspect: "Берсерк" },
+        };
+        expect(activeClassFeatures(hero).map((f) => f.id)).not.toContain(TEST_ID);
+      },
+    );
+  });
+
+  it("для класса без соответствия групп фича активна только по уровню", () => {
+    withFeature(
+      {
+        id: "conduit.feature.3.test-domain",
+        className: "Проводник",
+        level: 3,
+        keyedBy: "domain",
+        keyValue: "Молитва о разрушении",
+      },
+      { kinds: ["bonus"] },
+      () => {
+        const hero = createCharacter({ className: "Проводник", level: 3 });
+        // Старый реестр кладёт сюда `conduit.prayer`, а соответствия для
+        // Проводника в таблице нет — выборы не читаются вовсе.
+        hero.automation = {
+          enabled: true,
+          adjustments: {},
+          ancestryTraits: [],
+          classFeatureSelections: { "conduit.prayer": "conduit.prayer.destruction" },
         };
         expect(activeClassFeatures(hero).map((f) => f.id)).toContain(
           "conduit.feature.3.test-domain",
         );
+
+        const withoutAutomation = createCharacter({
+          className: "Проводник",
+          level: 3,
+        });
+        expect(activeClassFeatures(withoutAutomation).map((f) => f.id)).toContain(
+          "conduit.feature.3.test-domain",
+        );
+      },
+    );
+  });
+
+  it("вложенная запись активна без родителя в реестре", () => {
+    withFeature(
+      { parentId: "fury.feature.1.missing-parent", name: "Вложенная фича" },
+      { kinds: ["text"] },
+      () => {
+        expect(activeClassFeatures(fury()).map((f) => f.id)).toContain(TEST_ID);
       },
     );
   });
@@ -229,6 +292,26 @@ describe("classFeatureTriggers", () => {
       },
     );
     expect(classFeatureTriggers(fury())).toEqual([]);
+  });
+
+  it("при выключенном авторасчёте триггеры не теряются", () => {
+    withFeature(
+      {},
+      {
+        kinds: ["trigger"],
+        trigger: {
+          event: "take-damage",
+          frequency: "round",
+          label: "Разворот гнева",
+          detail: "Получив урон, получите 1 свирепость.",
+        },
+      },
+      () => {
+        const hero = fury();
+        hero.automation = { enabled: false, adjustments: {}, ancestryTraits: [] };
+        expect(classFeatureTriggers(hero)).toHaveLength(1);
+      },
+    );
   });
 
   it("не выводит триггеры фич выше уровня героя", () => {

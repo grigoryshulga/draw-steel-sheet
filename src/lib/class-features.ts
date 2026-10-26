@@ -1,4 +1,3 @@
-import { CLASS_FEATURE_GROUPS } from "../data/class-feature-rules";
 import { mechanicsFor } from "../data/class-features/mechanics";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import type {
@@ -43,29 +42,35 @@ export interface ActiveClassFeatureEffects {
   effects: FeatureEffect[];
 }
 
-/** Названия опций старого реестра: выбор может хранить ID вместо названия. */
-const CLASS_FEATURE_OPTION_NAMES = new Map<string, string>(
-  CLASS_FEATURE_GROUPS.flatMap((group) =>
-    group.options.map((option) => [option.id, option.name] as const),
-  ),
-);
-
 /**
- * id группы выбора собирается из id записи: `<слаг класса>.<группа>`,
- * например `fury.aspect` для аспекта Неистового.
+ * Ключи групп выбора в `automation.classFeatureSelections`; ключ класса — в нижнем
+ * регистре. Ключи не выводятся из `id` записи: приложение пишет свои
+ * `conduit.prayer`, `talent.augmentation` (см. `classFeatureSelectionsFromDraft`),
+ * и угаданный `<слаг>.<группа>` не совпал бы с ними, а в случае совпадения имени
+ * задублировал бы бонусы старого реестра.
+ *
+ * В таблице одна запись — Неистовый (его механики разобраны в этом заходе).
+ * Остальные восемь классов перечислены в `NOT_YET`: механик у них нет, эффектов
+ * они не дают и дублировать нечего; при следующем заходе они получат здесь свои
+ * записи, а старый реестр удалится вместе с ними. Класс без записи в таблице
+ * по выборам не фильтруется вовсе — это зафиксировано тестом.
  */
+const SELECTION_GROUPS: Record<
+  string,
+  Partial<Record<FeatureKeyGroup, string>>
+> = {
+  неистовый: { aspect: "fury.aspect" },
+};
+
+/** Ключ группы выбора для записи или `undefined`, если класс не в таблице. */
 function selectionGroupId(
   feature: GeneratedClassFeature,
   keyedBy: FeatureKeyGroup,
-): string {
-  const classSlug = feature.id.split(".")[0] ?? "";
-  return classSlug ? `${classSlug}.${keyedBy}` : keyedBy;
+): string | undefined {
+  return SELECTION_GROUPS[normalizeFeatureText(feature.className)]?.[keyedBy];
 }
 
-/**
- * Значение выбранного варианта группы. Ключ группы — `<слаг класса>.<группа>`,
- * например `fury.aspect` для аспекта Неистового.
- */
+/** Значение выбранного варианта группы по её ключу (`fury.aspect`). */
 function selectedValueFor(
   selections: Record<string, string>,
   groupId: string,
@@ -80,19 +85,16 @@ function selectedValueFor(
 
 /** Части значения выбора: строка может перечислять варианты через запятую. */
 function chosenValues(value: string): string[] {
-  const values = value
+  return value
     .split(",")
     .map(normalizeFeatureText)
     .filter(Boolean);
-  const name = CLASS_FEATURE_OPTION_NAMES.get(value);
-  if (name) values.push(normalizeFeatureText(name));
-  return values;
 }
 
 /**
  * Совпадение выбранного значения с `keyValue` записи. `keyValue` может
  * перечислять варианты через запятую («Берсерк, Разоритель»); сравнение идёт
- * по ID и названию без учёта регистра, пробелов по краям и ё/е.
+ * по названию варианта без учёта регистра, пробелов по краям и ё/е.
  */
 function keyValueMatches(selected: string | undefined, keyValue?: string): boolean {
   if (!keyValue) return true;
@@ -103,9 +105,10 @@ function keyValueMatches(selected: string | undefined, keyValue?: string): boole
 
 /**
  * Правило активации: класс героя, его уровень и — только когда у записи задан
- * `keyedBy` — выбранный вариант этой группы. `parentId` на активацию не влияет:
- * вложенная запись активна по своим правилам. Пороговые строки таблиц
- * (`keyValue` — число) разбираются без `keyedBy` и активны по уровню.
+ * `keyedBy` и класс есть в таблице групп — выбранный вариант этой группы.
+ * `parentId` на активацию не влияет: вложенная запись активна по своим правилам.
+ * Пороговые строки таблиц (`keyValue` — число) разбираются без `keyedBy`
+ * и активны по уровню.
  */
 function isActiveClassFeature(
   feature: GeneratedClassFeature,
@@ -119,13 +122,16 @@ function isActiveClassFeature(
   if (feature.level > level) return false;
   if (!feature.keyedBy) return true;
 
+  const groupId = selectionGroupId(feature, feature.keyedBy);
+  // Класса нет в таблице групп — выборам не доверяем и фильтрацию не применяем.
+  if (!groupId) return true;
+
   const selections = character.automation?.classFeatureSelections;
   if (!selections || typeof selections !== "object") return false;
-  const selected = selectedValueFor(
-    selections,
-    selectionGroupId(feature, feature.keyedBy),
+  return keyValueMatches(
+    selectedValueFor(selections, groupId),
+    feature.keyValue,
   );
-  return keyValueMatches(selected, feature.keyValue);
 }
 
 /**
