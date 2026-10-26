@@ -72,6 +72,9 @@ export type TriggerEvent =
   | "start-of-turn"
   | "end-of-turn"
   | "take-damage"
+  | "lose-stamina"
+  | "forced-movement"
+  | "combat-start"
   | "deal-damage"
   | "hit"
   | "crit"
@@ -98,6 +101,8 @@ export interface FeatureTrigger {
   frequency: TriggerFrequency;
   label: string;
   detail: string;
+  /** Условия срабатывания: у пороговых строк таблиц — аспект и порог ресурса. */
+  when?: FeatureCondition;
   effect?: FeatureEffect[];
 }
 

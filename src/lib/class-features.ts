@@ -9,6 +9,7 @@ import type {
   TriggerFrequency,
 } from "../data/class-features/types";
 import type { Character } from "../types";
+import { featureConditionMet } from "./feature-conditions";
 import { normalizeFeatureText } from "./utils";
 
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
@@ -168,6 +169,9 @@ export function classFeatureTriggers(character: Character): ActiveTrigger[] {
   for (const feature of activeClassFeatures(character)) {
     const trigger = feature.mechanics?.trigger;
     if (!trigger) continue;
+    // Пороговые строки таблиц активируются по уровню, а не выбором аспекта:
+    // аспект и порог ресурса проверяются условием триггера.
+    if (!featureConditionMet(character, trigger.when)) continue;
     triggers.push({
       featureId: feature.id,
       name: feature.name,

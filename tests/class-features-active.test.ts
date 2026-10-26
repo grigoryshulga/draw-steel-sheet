@@ -239,14 +239,19 @@ describe("activeClassFeatures", () => {
 
   it("фича без механики попадает в список и не даёт эффектов", () => {
     const hero = furyWithAspect("Берсерк", 3);
+    // У Неистового все записи разобраны: полностью прозаические (заголовки таблиц
+    // выдачи) лежат в TEXT_ONLY и механики не имеют.
     const plain = activeClassFeatures(hero).find(
-      (feature) => feature.id === "fury.feature.1.pervozdannyy-aspekt",
+      (feature) =>
+        feature.id === "fury.feature.1.osobennosti-aspekta-1-go-urovnya",
     );
     expect(plain).toBeDefined();
     expect(plain?.mechanics).toBeUndefined();
     expect(
       activeClassFeatureEffects(hero).some(
-        (source) => source.sourceId === "fury.feature.1.pervozdannyy-aspekt",
+        (source) =>
+          source.sourceId ===
+          "fury.feature.1.osobennosti-aspekta-1-go-urovnya",
       ),
     ).toBe(false);
   });
