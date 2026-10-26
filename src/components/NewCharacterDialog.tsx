@@ -767,7 +767,7 @@ export function NewCharacterDialog({
                                   : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
                               </p>
                             )}
-                            {registryOption?.effects.some((effect) => effect.when?.equipment) && (
+                            {registryOption?.effects.some((effect) => effect.kind === "field" && effect.when?.equipment) && (
                               <FeatureEquipmentFields
                                 value={draft.equipment}
                                 hasKit={Boolean(hero.kit.trim() || hero.secondaryKit?.trim())}

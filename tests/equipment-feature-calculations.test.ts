@@ -176,8 +176,8 @@ describe("Talent battle augmentation", () => {
 
     expect(featureStatContributions(hero, "stamina")).toEqual([]);
     expect(featureAbilityDamageBonus(weaponAbility(), hero)).toBe(0);
-    expect(featureConditionMet(hero, { equipment: "lightArmor" })).toBe(false);
-    expect(featureConditionMet(hero, { equipment: "lightWeapon" })).toBe(false);
+    expect(featureConditionMet(hero, { equipment: { lightArmor: true } })).toBe(false);
+    expect(featureConditionMet(hero, { equipment: { lightWeapon: true } })).toBe(false);
   });
 
   it("stays inert while automation is disabled, and returns when re-enabled", () => {
@@ -187,7 +187,7 @@ describe("Talent battle augmentation", () => {
     });
     expect(hero.stamina.max).toBe(18);
     expect(featureStatContributions(hero, "stamina")).toEqual([]);
-    expect(featureConditionMet(hero, { equipment: "lightArmor" })).toBe(true);
+    expect(featureConditionMet(hero, { equipment: { lightArmor: true } })).toBe(true);
 
     const on = recalculateCharacter(hero, {
       ...hero,

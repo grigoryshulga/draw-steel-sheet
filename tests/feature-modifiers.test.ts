@@ -437,7 +437,7 @@ describe("Keyword normalization", () => {
               id: "test.option",
               name: "Тестовая опция",
               description: "",
-              effects: [{ kind: "damage" as const, value: 2, keywords: ["Всё"] }],
+              effects: [{ kind: "field" as const, field: "rolledDamage" as const, value: 2, filter: { keywords: ["Всё"] } }],
             },
           ],
         },
@@ -467,15 +467,15 @@ describe("Equipment condition helper", () => {
     const character = hero("Талант", 1, {}, { enabled: false });
     expect(featureConditionMet(character)).toBe(true);
     expect(featureConditionMet(character, {})).toBe(true);
-    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+    expect(featureConditionMet(character, { equipment: { lightArmor: true } })).toBe(
       false,
     );
 
     character.automation!.equipment = { lightArmor: true, lightWeapon: false };
-    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+    expect(featureConditionMet(character, { equipment: { lightArmor: true } })).toBe(
       true,
     );
-    expect(featureConditionMet(character, { equipment: "lightWeapon" })).toBe(
+    expect(featureConditionMet(character, { equipment: { lightWeapon: true } })).toBe(
       false,
     );
   });
@@ -483,7 +483,7 @@ describe("Equipment condition helper", () => {
   it("requires both kit slots to be blank for noKit", () => {
     const character = hero("Талант", 1);
     character.automation!.equipment = { lightArmor: true };
-    const condition = { equipment: "lightArmor", noKit: true } as const;
+    const condition = { equipment: { lightArmor: true }, noKit: true } as const;
 
     expect(featureConditionMet(character, condition)).toBe(true);
     character.kit = "   ";
@@ -513,10 +513,10 @@ describe("Equipment condition helper", () => {
       },
     ];
 
-    expect(featureConditionMet(character, { equipment: "lightArmor" })).toBe(
+    expect(featureConditionMet(character, { equipment: { lightArmor: true } })).toBe(
       false,
     );
-    expect(featureConditionMet(character, { equipment: "lightWeapon" })).toBe(
+    expect(featureConditionMet(character, { equipment: { lightWeapon: true } })).toBe(
       false,
     );
   });
@@ -528,7 +528,7 @@ describe("Equipment condition helper", () => {
 
     expect(
       featureConditionMet(character, {
-        equipment: "lightArmor",
+        equipment: { lightArmor: true },
         noKit: true,
       }),
     ).toBe(false);
@@ -553,8 +553,8 @@ describe("Stat stacking groups", () => {
           description: "",
           effects: [
             {
-              kind: "stat" as const,
-              stat: "speed" as const,
+              kind: "field" as const,
+              field: "speed" as const,
               value: 1,
               stackingGroup: "test.group",
             },
@@ -567,8 +567,8 @@ describe("Stat stacking groups", () => {
           description: "",
           effects: [
             {
-              kind: "stat" as const,
-              stat: "speed" as const,
+              kind: "field" as const,
+              field: "speed" as const,
               value: 2,
               stackingGroup: "test.group",
             },
@@ -581,8 +581,8 @@ describe("Stat stacking groups", () => {
           description: "",
           effects: [
             {
-              kind: "stat" as const,
-              stat: "speed" as const,
+              kind: "field" as const,
+              field: "speed" as const,
               value: 2,
               stackingGroup: "test.group",
             },
@@ -593,7 +593,7 @@ describe("Stat stacking groups", () => {
           name: "Свободный",
           ancestryName: "Тестовая",
           description: "",
-          effects: [{ kind: "stat" as const, stat: "speed" as const, value: 1 }],
+          effects: [{ kind: "field" as const, field: "speed" as const, value: 1 }],
         },
       ],
       ancestryTraitIdsFromNames: () => [],

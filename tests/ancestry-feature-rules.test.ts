@@ -6,17 +6,17 @@ import {
 } from "../src/data/ancestry-feature-rules";
 
 const expected = [
-  ["ancestry.devil.beast-legs", "Дьявол", "Звериные ноги", [{ kind: "stat", stat: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["ancestry.dwarf.grounded", "Дварф", "Заземленность", [{ kind: "stat", stat: "stability", value: 1 }]],
-  ["ancestry.dwarf.spark-from-your-skin", "Дварф", "Искра с твоей кожи", [{ kind: "stat", stat: "stamina", value: 0, perEchelon: 6 }]],
-  ["ancestry.forest-elf.swift", "Лесной Эльф", "Стремительный", [{ kind: "stat", stat: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["ancestry.high-elf.graceful-retreat", "Высший Эльф", "Грациозное отступление", [{ kind: "stat", stat: "disengage", value: 1 }]],
-  ["ancestry.human.reserve-of-strength", "Человек", "Запас прочности", [{ kind: "stat", stat: "recoveries", value: 2 }]],
-  ["ancestry.memanek.lightning-agility", "Меманек", "Молниеносная ловкость", [{ kind: "stat", stat: "speed", value: 2, stackingGroup: "ancestry.base-speed" }]],
-  ["ancestry.orc.grounded", "Орк", "Заземленность", [{ kind: "stat", stat: "stability", value: 1 }]],
-  ["ancestry.polder.graceful-retreat", "Полдер", "Грациозное отступление", [{ kind: "stat", stat: "disengage", value: 1 }]],
-  ["ancestry.taurus.beast-legs", "Таурус", "Звериные ноги", [{ kind: "stat", stat: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["ancestry.taurus.grounded", "Таурус", "Заземленность", [{ kind: "stat", stat: "stability", value: 1 }]],
+  ["ancestry.devil.beast-legs", "Дьявол", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.dwarf.grounded", "Дварф", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
+  ["ancestry.dwarf.spark-from-your-skin", "Дварф", "Искра с твоей кожи", [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }]],
+  ["ancestry.forest-elf.swift", "Лесной Эльф", "Стремительный", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.high-elf.graceful-retreat", "Высший Эльф", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
+  ["ancestry.human.reserve-of-strength", "Человек", "Запас прочности", [{ kind: "field", field: "recoveries", value: 2 }]],
+  ["ancestry.memanek.lightning-agility", "Меманек", "Молниеносная ловкость", [{ kind: "field", field: "speed", value: 2, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.orc.grounded", "Орк", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
+  ["ancestry.polder.graceful-retreat", "Полдер", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
+  ["ancestry.taurus.beast-legs", "Таурус", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.taurus.grounded", "Таурус", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
 ] as const;
 
 describe("ancestry feature registry", () => {

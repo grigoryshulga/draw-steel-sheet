@@ -9,10 +9,13 @@ import {
   type AncestryFeatureRule,
 } from "../data/ancestry-feature-rules";
 import type {
+  FeatureAmount,
   FeatureCondition,
   FeatureEffect,
+  FeatureField,
+  FeatureFilter,
   FeatureStat,
-} from "../data/feature-effects";
+} from "../data/class-features/types";
 import type { Ability, Character } from "../types";
 import { echelon } from "./progression";
 
@@ -22,25 +25,40 @@ export interface FeatureContribution {
   value: number;
 }
 
-/** One active rule (class choice or ancestry trait) with all of its effects. */
+/** Один активный источник (выбор класса или черта происхождения) со всеми эффектами. */
 interface ActiveFeatureSource {
   sourceId: string;
   sourceName: string;
   effects: FeatureEffect[];
 }
 
-/** A contribution before stacking groups reduce it to one winning source. */
+/** Прибавка до того, как группы замещения оставят одного победителя. */
 interface GroupedContribution extends FeatureContribution {
   stackingGroup?: string;
 }
 
-type AbilityEffect = Extract<FeatureEffect, { kind: "damage" | "distance" }>;
-type StatEffect = Extract<FeatureEffect, { kind: "stat" }>;
+type FieldEffect = Extract<FeatureEffect, { kind: "field" }>;
+
+/**
+ * `runtime` появится в `Character` позже; читаем его через структурный взгляд,
+ * чтобы не опережать задачу о состоянии схватки.
+ */
+interface CharacterRuntimeLike {
+  forms?: string[];
+  resources?: Record<string, number>;
+}
 
 /** Keyword/class/ancestry comparisons ignore case, surrounding whitespace and ё/е spelling. */
 function normalize(value: string): string {
   return value.trim().toLowerCase().replace(/ё/g, "е");
 }
+
+/** Названия опций по ID: нужны условию `keyValue`, где данные пишут имя группы. */
+const CLASS_FEATURE_OPTION_NAMES = new Map<string, string>(
+  CLASS_FEATURE_GROUPS.flatMap((group) =>
+    group.options.map((option) => [option.id, option.name] as const),
+  ),
+);
 
 function optionEffects(option: ClassFeatureOption): FeatureEffect[] {
   return Array.isArray(option.effects) ? option.effects : [];
@@ -129,92 +147,102 @@ function hasAnyKit(character: Character): boolean {
   );
 }
 
+function runtimeOf(character: Character): CharacterRuntimeLike {
+  return (character as Character & { runtime?: CharacterRuntimeLike }).runtime ?? {};
+}
+
+/** Текущее значение героического ресурса по имени: лист героя, затем runtime. */
+function currentResourceValue(character: Character, name: string): number {
+  const wanted = normalize(name);
+  const sheetResource = character.heroicResource;
+  if (
+    sheetResource &&
+    typeof sheetResource.name === "string" &&
+    normalize(sheetResource.name) === wanted
+  ) {
+    return typeof sheetResource.current === "number" ? sheetResource.current : 0;
+  }
+  const resources = runtimeOf(character).resources;
+  if (!resources || typeof resources !== "object") return 0;
+  for (const [key, value] of Object.entries(resources)) {
+    if (normalize(key) === wanted && typeof value === "number") return value;
+  }
+  return 0;
+}
+
+/** Значения ключевых групп, выбранные героем: и ID опции, и её название. */
+function selectedKeyValues(character: Character): Set<string> {
+  const selected = new Set<string>();
+  const selections = character.automation?.classFeatureSelections;
+  if (!selections || typeof selections !== "object") return selected;
+
+  for (const optionId of Object.values(selections)) {
+    if (typeof optionId !== "string") continue;
+    selected.add(normalize(optionId));
+    const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
+    if (name) selected.add(normalize(name));
+  }
+  return selected;
+}
+
 /**
- * Equipment condition only: a required flag must be exactly `true` and `noKit`
- * requires both kit slots to be blank. It does not read weapon/armor prose,
- * inventory notes or automation.enabled, and it never mutates the character.
+ * Условия эффекта. Снаряжение читается только из флагов автоматизации: проза
+ * оружия/брони, заметки инвентаря и `automation.enabled` на условие не влияют.
+ * Функция ничего не меняет в герое.
  */
 export function featureConditionMet(
   character: Character,
   condition?: FeatureCondition,
 ): boolean {
   if (!condition) return true;
-  if (condition.equipment) {
-    if (character.automation?.equipment?.[condition.equipment] !== true) {
+
+  const equipment = condition.equipment;
+  if (equipment) {
+    const flags = character.automation?.equipment;
+    if (equipment.lightArmor === true && flags?.lightArmor !== true) return false;
+    if (equipment.lightWeapon === true && flags?.lightWeapon !== true) return false;
+  }
+  if (condition.noKit && hasAnyKit(character)) return false;
+  if (
+    condition.minLevel !== undefined &&
+    (typeof character.level !== "number" || character.level < condition.minLevel)
+  ) {
+    return false;
+  }
+  if (condition.keyValue?.length) {
+    const selected = selectedKeyValues(character);
+    const matched = condition.keyValue.some((value) =>
+      selected.has(normalize(value)),
+    );
+    if (!matched) return false;
+  }
+  if (condition.resourceAtLeast) {
+    const { name, value } = condition.resourceAtLeast;
+    if (currentResourceValue(character, name) < value) return false;
+  }
+  if (condition.formActive) {
+    const wanted = normalize(condition.formActive);
+    const forms = runtimeOf(character).forms ?? [];
+    if (!forms.some((form) => typeof form === "string" && normalize(form) === wanted)) {
       return false;
     }
   }
-  if (condition.noKit && hasAnyKit(character)) return false;
   return true;
 }
 
-function statValue(effect: StatEffect, level: number): number {
-  return effect.value + (effect.perEchelon ?? 0) * echelon(level);
-}
-
-function statContributions(
+/** Значение эффекта: число как есть, характеристика или уровень героя. */
+export function resolveFeatureAmount(
   character: Character,
-  stat: FeatureStat,
-): GroupedContribution[] {
-  const contributions: GroupedContribution[] = [];
-  for (const source of activeFeatureSources(character)) {
-    for (const effect of source.effects) {
-      if (effect.kind !== "stat" || effect.stat !== stat) continue;
-      if (!featureConditionMet(character, effect.when)) continue;
-      contributions.push({
-        sourceId: source.sourceId,
-        sourceName: source.sourceName,
-        value: statValue(effect, character.level),
-        stackingGroup: effect.stackingGroup,
-      });
-    }
+  amount: FeatureAmount,
+): number {
+  if (typeof amount === "number") {
+    return Number.isFinite(amount) ? amount : 0;
   }
-  return contributions;
-}
-
-/**
- * Effects in one stacking group never add up: only the highest value is kept and
- * the winning source is the one shown. Equal values keep the deterministic first.
- */
-function applyStackingGroups(
-  contributions: readonly GroupedContribution[],
-): FeatureContribution[] {
-  const winnerByGroup = new Map<string, number>();
-  contributions.forEach((contribution, index) => {
-    const group = contribution.stackingGroup;
-    if (!group) return;
-    const winner = winnerByGroup.get(group);
-    if (winner === undefined || contribution.value > contributions[winner].value) {
-      winnerByGroup.set(group, index);
-    }
-  });
-
-  const kept: FeatureContribution[] = [];
-  contributions.forEach((contribution, index) => {
-    const group = contribution.stackingGroup;
-    if (group && winnerByGroup.get(group) !== index) return;
-    kept.push({
-      sourceId: contribution.sourceId,
-      sourceName: contribution.sourceName,
-      value: contribution.value,
-    });
-  });
-  return kept;
-}
-
-export function featureStatContributions(
-  character: Character,
-  stat: FeatureStat,
-): FeatureContribution[] {
-  return applyStackingGroups(statContributions(character, stat));
-}
-
-/** Sum of all active feature effects for one stat; saved maxima and adjustments stay untouched. */
-export function featureStatBonus(character: Character, stat: FeatureStat): number {
-  return featureStatContributions(character, stat).reduce(
-    (total, contribution) => total + contribution.value,
-    0,
-  );
+  if ("characteristic" in amount) {
+    const value = character.characteristics?.[amount.characteristic];
+    return typeof value === "number" ? value : 0;
+  }
+  return typeof character.level === "number" ? character.level : 0;
 }
 
 function normalizedKeywords(keywords: readonly string[]): Set<string> {
@@ -231,25 +259,22 @@ function matchesAllKeywords(ability: Ability, required: string[]): boolean {
   return needed.every((keyword) => available.has(normalize(keyword)));
 }
 
-function abilityEffectContributions(
-  ability: Ability,
-  character: Character,
-  kind: AbilityEffect["kind"],
-): FeatureContribution[] {
-  const contributions: FeatureContribution[] = [];
-  for (const source of activeFeatureSources(character)) {
-    for (const effect of source.effects) {
-      if (effect.kind !== kind) continue;
-      if (!matchesAllKeywords(ability, effect.keywords)) continue;
-      if (!featureConditionMet(character, effect.when)) continue;
-      contributions.push({
-        sourceId: source.sourceId,
-        sourceName: source.sourceName,
-        value: effect.value,
-      });
-    }
+/** Фильтр способности; без способности проходят только пустые фильтры. */
+function matchesFilter(ability: Ability | undefined, filter?: FeatureFilter): boolean {
+  if (!filter) return true;
+  if (filter.keywords?.length) {
+    if (!ability || !matchesAllKeywords(ability, filter.keywords)) return false;
   }
-  return contributions;
+  if (filter.characteristic) {
+    if (!ability || ability.preferredCharacteristic !== filter.characteristic) return false;
+  }
+  if (filter.mode) {
+    if (ability?.weaponMode !== filter.mode) return false;
+  }
+  if (filter.actionType?.length) {
+    if (!ability || !filter.actionType.includes(ability.actionType)) return false;
+  }
+  return true;
 }
 
 function hasRollCharacteristics(ability: Ability): boolean {
@@ -282,44 +307,165 @@ function hasNumericDamageFormula(ability: Ability): boolean {
 }
 
 /**
- * Damage modifiers apply only to abilities with a damage formula. `rolledOnly`
- * effects (the default) also need a power roll; an explicit `rolledOnly: false`
- * additionally allows a non-roll ability whose printed damage is numeric.
- * The caller still decides which tiers are actual damage tiers.
+ * Damage modifiers apply only to abilities with a damage formula and either a
+ * power roll or, for an explicit `rolledOnly: false` effect, a numeric printed
+ * damage formula. The caller still decides which tiers are damage tiers.
  */
+function rolledDamageAllows(ability: Ability | undefined, effect: FieldEffect): boolean {
+  if (!ability || !hasDamageFormula(ability)) return false;
+  const rolled = hasRollCharacteristics(ability);
+  if (!rolled && !hasNumericDamageFormula(ability)) return false;
+  if (effect.rolledOnly !== false && !rolled) return false;
+  return true;
+}
+
+function fieldEffectValue(
+  character: Character,
+  effect: FieldEffect,
+): number {
+  const base = resolveFeatureAmount(character, effect.value);
+  const scaled = base + (effect.perEchelon ?? 0) * echelon(character.level);
+  return effect.cap === undefined ? scaled : Math.min(scaled, effect.cap);
+}
+
+/** Один эффект подходит под поле, фильтр, условия и правила способности. */
+function fieldEffectValueIfActive(
+  effect: FeatureEffect,
+  character: Character,
+  field: FeatureField,
+  ability?: Ability,
+): number | undefined {
+  if (effect.kind !== "field" || effect.field !== field) return undefined;
+
+  // Расстояние дальнобойных бонусов не действует на выбранный ближний режим.
+  if (field === "distance" && ability?.weaponMode === "melee") return undefined;
+  if (field === "rolledDamage" && !rolledDamageAllows(ability, effect)) return undefined;
+  if (!matchesFilter(ability, effect.filter)) return undefined;
+  if (!featureConditionMet(character, effect.when)) return undefined;
+
+  return fieldEffectValue(character, effect);
+}
+
+/**
+ * Effects in one stacking group never add up: only the highest value is kept and
+ * the winning source is the one shown. Equal values keep the deterministic first.
+ */
+function applyStackingGroups(
+  contributions: readonly GroupedContribution[],
+): FeatureContribution[] {
+  const winnerByGroup = new Map<string, number>();
+  contributions.forEach((contribution, index) => {
+    const group = contribution.stackingGroup;
+    if (!group) return;
+    const winner = winnerByGroup.get(group);
+    if (winner === undefined || contribution.value > contributions[winner].value) {
+      winnerByGroup.set(group, index);
+    }
+  });
+
+  const kept: FeatureContribution[] = [];
+  contributions.forEach((contribution, index) => {
+    const group = contribution.stackingGroup;
+    if (group && winnerByGroup.get(group) !== index) return;
+    kept.push({
+      sourceId: contribution.sourceId,
+      sourceName: contribution.sourceName,
+      value: contribution.value,
+    });
+  });
+  return kept;
+}
+
+function collectFieldContributions(
+  sources: readonly ActiveFeatureSource[],
+  character: Character,
+  field: FeatureField,
+  ability?: Ability,
+): FeatureContribution[] {
+  const contributions: GroupedContribution[] = [];
+  for (const source of sources) {
+    for (const effect of source.effects) {
+      const value = fieldEffectValueIfActive(effect, character, field, ability);
+      if (value === undefined) continue;
+      contributions.push({
+        sourceId: source.sourceId,
+        sourceName: source.sourceName,
+        value,
+        stackingGroup: effect.kind === "field" ? effect.stackingGroup : undefined,
+      });
+    }
+  }
+  return applyStackingGroups(contributions);
+}
+
+/**
+ * Чистый расчёт по готовому списку эффектов: без источников, `automation.enabled`
+ * и без обращения к выбору фич. Источник в прибавках остаётся пустым.
+ */
+export function fieldEffectContributions(
+  effects: readonly FeatureEffect[],
+  character: Character,
+  field: FeatureField,
+  ability?: Ability,
+): FeatureContribution[] {
+  return collectFieldContributions(
+    [{ sourceId: "", sourceName: "", effects: [...effects] }],
+    character,
+    field,
+    ability,
+  );
+}
+
+/** Прибавки активных источников героя (выборы класса и черты происхождения). */
+export function featureFieldContributions(
+  character: Character,
+  field: FeatureField,
+  ability?: Ability,
+): FeatureContribution[] {
+  return collectFieldContributions(
+    activeFeatureSources(character),
+    character,
+    field,
+    ability,
+  );
+}
+
+/** Сумма прибавок активных источников по одному полю. */
+export function featureFieldBonus(
+  character: Character,
+  field: FeatureField,
+  ability?: Ability,
+): number {
+  return featureFieldContributions(character, field, ability).reduce(
+    (total, contribution) => total + contribution.value,
+    0,
+  );
+}
+
+export function featureStatContributions(
+  character: Character,
+  stat: FeatureStat,
+): FeatureContribution[] {
+  return featureFieldContributions(character, stat);
+}
+
+/** Sum of all active feature effects for one stat; saved maxima and adjustments stay untouched. */
+export function featureStatBonus(character: Character, stat: FeatureStat): number {
+  return featureFieldBonus(character, stat);
+}
+
 export function featureAbilityDamageContributions(
   ability: Ability,
   character: Character,
 ): FeatureContribution[] {
-  if (!hasDamageFormula(ability)) return [];
-  const rolled = hasRollCharacteristics(ability);
-  if (!rolled && !hasNumericDamageFormula(ability)) return [];
-
-  const contributions: FeatureContribution[] = [];
-  for (const source of activeFeatureSources(character)) {
-    for (const effect of source.effects) {
-      if (effect.kind !== "damage") continue;
-      if (effect.rolledOnly !== false && !rolled) continue;
-      if (!matchesAllKeywords(ability, effect.keywords)) continue;
-      if (!featureConditionMet(character, effect.when)) continue;
-      contributions.push({
-        sourceId: source.sourceId,
-        sourceName: source.sourceName,
-        value: effect.value,
-      });
-    }
-  }
-  return contributions;
+  return featureFieldContributions(character, "rolledDamage", ability);
 }
 
 export function featureAbilityDamageBonus(
   ability: Ability,
   character: Character,
 ): number {
-  return featureAbilityDamageContributions(ability, character).reduce(
-    (total, contribution) => total + contribution.value,
-    0,
-  );
+  return featureFieldBonus(character, "rolledDamage", ability);
 }
 
 /**
@@ -330,16 +476,12 @@ export function featureAbilityDistanceContributions(
   ability: Ability,
   character: Character,
 ): FeatureContribution[] {
-  if (ability.weaponMode === "melee") return [];
-  return abilityEffectContributions(ability, character, "distance");
+  return featureFieldContributions(character, "distance", ability);
 }
 
 export function featureAbilityDistanceBonus(
   ability: Ability,
   character: Character,
 ): number {
-  return featureAbilityDistanceContributions(ability, character).reduce(
-    (total, contribution) => total + contribution.value,
-    0,
-  );
+  return featureFieldBonus(character, "distance", ability);
 }

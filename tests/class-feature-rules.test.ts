@@ -56,8 +56,8 @@ describe("class feature registry", () => {
     ]);
     for (const option of conditionalOptions) {
       expect(option.effects).toEqual([
-        { kind: "stat", stat: "stamina", value: 0, perEchelon: 3, when: { equipment: "lightArmor", noKit: true } },
-        { kind: "damage", value: 1, keywords: ["Оружие"], rolledOnly: false, when: { equipment: "lightWeapon", noKit: true } },
+        { kind: "field", field: "stamina", value: 0, perEchelon: 3, when: { equipment: { lightArmor: true }, noKit: true } },
+        { kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Оружие"] }, rolledOnly: false, when: { equipment: { lightWeapon: true }, noKit: true } },
       ]);
       expect(option.manualReason).toBeUndefined();
     }
@@ -75,19 +75,19 @@ describe("class feature registry", () => {
     const density = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
       .find((option) => option.id === "talent.augmentation.density");
     expect(density?.effects).toEqual([
-      { kind: "stat", stat: "stamina", value: 0, perEchelon: 6 },
-      { kind: "stat", stat: "stability", value: 1 },
+      { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
+      { kind: "field", field: "stability", value: 1 },
     ]);
 
     const distance = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
       .find((option) => option.id === "conduit.prayer.distance");
     expect(distance?.effects).toEqual([
-      { kind: "distance", value: 2, keywords: ["Дальний", "Магия"] },
+      { kind: "field", field: "distance", value: 2, filter: { keywords: ["Дальний", "Магия"] } },
     ]);
 
     const bastion = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
       .find((option) => option.id === "conduit.sanctuary.bastion");
-    expect(bastion?.effects).toEqual([{ kind: "stat", stat: "save", value: 1 }]);
+    expect(bastion?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
   });
 
   it("keeps Steel Ward manual with a reason matching its triggered temporary immunity", () => {

@@ -1,7 +1,11 @@
 import { classFeatureGroups } from "../../data/class-feature-rules";
+import type { FeatureEffect } from "../../data/class-features/types";
 import { useApp } from "../../state/AppContext";
 import { Button, Panel, Select } from "../../components/ui";
-import { featureConditionMet } from "../../lib/feature-modifiers";
+import {
+  featureConditionMet,
+  resolveFeatureAmount,
+} from "../../lib/feature-modifiers";
 import "./ClassFeaturesPanel.css";
 
 /** Stable, explicit class feature selections for automatic calculation. */
@@ -41,10 +45,11 @@ export function ClassFeaturesPanel() {
             );
             const supported = !!selected && selected.effects.length > 0;
             const hasDistanceEffect = selected?.effects.some(
-              (effect) => effect.kind === "distance",
+              (effect) => effect.kind === "field" && effect.field === "distance",
             );
             const equipmentEffects = selected?.effects.filter(
-              (effect) => effect.when?.equipment,
+              (effect): effect is Extract<FeatureEffect, { kind: "field" }> =>
+                effect.kind === "field" && effect.when?.equipment !== undefined,
             ) ?? [];
             const hasKit = Boolean(
               character.kit.trim() || character.secondaryKit?.trim(),
@@ -52,10 +57,10 @@ export function ClassFeaturesPanel() {
             const equipmentEffectStates = equipmentEffects.map((effect) => {
               const equipment = effect.when?.equipment;
               const active = featureConditionMet(character, effect.when);
-              const label = equipment === "lightArmor"
+              const label = equipment?.lightArmor
                 ? "+3 к Выносливости за эшелон (лёгкая броня)"
-                : `+${effect.value} к урону способностей «Оружие» (лёгкое оружие)`;
-              const missingEquipment = equipment === "lightArmor"
+                : `+${resolveFeatureAmount(character, effect.value)} к урону способностей «Оружие» (лёгкое оружие)`;
+              const missingEquipment = equipment?.lightArmor
                 ? "нужно отметить лёгкую броню"
                 : "нужно отметить лёгкое оружие";
               return { active, label, missingEquipment };

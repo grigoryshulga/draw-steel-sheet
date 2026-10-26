@@ -95,7 +95,7 @@ export function InventoryView() {
   const selectedKit = kitByName(character.kit);
   const hasConditionalEquipmentOption = classFeatureGroups(character.className).some(
     (group) => group.options.some((option) =>
-      option.effects.some((effect) => effect.when?.equipment),
+      option.effects.some((effect) => effect.kind === "field" && effect.when?.equipment),
     ),
   );
 
