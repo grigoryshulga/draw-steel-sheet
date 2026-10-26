@@ -17,7 +17,9 @@ import type {
   FeatureStat,
 } from "../data/class-features/types";
 import type { Ability, Character, CharacteristicKey } from "../types";
+import { activeClassFeatureEffects } from "./class-features";
 import { echelon } from "./progression";
+import { normalizeFeatureText as normalize } from "./utils";
 
 export interface FeatureContribution {
   sourceId: string;
@@ -46,11 +48,6 @@ type FieldEffect = Extract<FeatureEffect, { kind: "field" }>;
 interface CharacterRuntimeLike {
   forms?: string[];
   resources?: Record<string, number>;
-}
-
-/** Keyword/class/ancestry comparisons ignore case, surrounding whitespace and ё/е spelling. */
-function normalize(value: string): string {
-  return value.trim().toLowerCase().replace(/ё/g, "е");
 }
 
 /** Названия опций по ID: нужны условию `keyValue`, где данные пишут имя группы. */
@@ -122,7 +119,11 @@ function activeAncestryRules(character: Character): AncestryFeatureRule[] {
   );
 }
 
-/** Class choices plus ancestry traits in one pass; each rule contributes at most once. */
+/**
+ * Выборы класса, черты происхождения и особенности нового реестра в одном проходе;
+ * каждый источник входит не больше одного раза. Порядок детерминирован:
+ * особенности реестра добавляются в конце и уже отсортированы по `id`.
+ */
 function activeFeatureSources(character: Character): ActiveFeatureSource[] {
   const sources: ActiveFeatureSource[] = activeFeatureOptions(character).map(
     ({ option }) => ({
@@ -137,6 +138,17 @@ function activeFeatureSources(character: Character): ActiveFeatureSource[] {
       sourceName: rule.name,
       effects: Array.isArray(rule.effects) ? rule.effects : [],
     });
+  }
+
+  // Классовые особенности дают эффекты только при включённом авторасчёте,
+  // как и остальные источники; показ фич на листе от флага не зависит.
+  if (!character.automation?.enabled) return sources;
+
+  const seen = new Set(sources.map((source) => source.sourceId));
+  for (const feature of activeClassFeatureEffects(character)) {
+    if (seen.has(feature.sourceId)) continue;
+    seen.add(feature.sourceId);
+    sources.push(feature);
   }
   return sources;
 }
@@ -185,26 +197,17 @@ export function featureCharacteristicBonus(
 }
 
 /**
- * Временный тестовый хук: эффекты характеристик без источника и без оговорок
- * `automation.enabled`. Удаляется в задаче 5 вместе с ключом в `Character`.
- */
-function testCharacteristicEffects(character: Character): FeatureEffect[] {
-  const hook = character.automation?.characteristicEffectsForTest;
-  return Array.isArray(hook) ? hook : [];
-}
-
-/**
  * Характеристики, по которым считаются пороги тиров, потенциал и формулы урона:
- * сохранённые значения плюс бонусы фич (только при `automation.enabled`) и
- * эффекты временного тестового хука. Сохранённая запись не меняется.
+ * сохранённые значения плюс бонусы активных фич (только при `automation.enabled`).
+ * Сохранённая запись не меняется.
  */
 export function effectiveCharacteristics(
   character: Character,
 ): Record<CharacteristicKey, number> {
-  return applyCharacteristicEffects(character.characteristics, [
-    ...activeCharacteristicEffects(character),
-    ...testCharacteristicEffects(character),
-  ]);
+  return applyCharacteristicEffects(
+    character.characteristics,
+    activeCharacteristicEffects(character),
+  );
 }
 
 function hasAnyKit(character: Character): boolean {

@@ -1,3 +1,8 @@
+/** Сравнение названий фич и ключевых слов: без регистра, пробелов по краям и разницы ё/е. */
+export function normalizeFeatureText(value: string): string {
+  return value.trim().toLowerCase().replace(/ё/g, "е");
+}
+
 export function initials(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "?";

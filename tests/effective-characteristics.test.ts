@@ -7,17 +7,48 @@ import {
 } from "../src/lib/feature-modifiers";
 import { recalculateCharacter } from "../src/lib/character-calculations";
 import { deriveStats, evaluateDamage, surgeDamage, surgeDamageTotal } from "../src/lib/rules";
+import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
 import type { FeatureEffect } from "../src/data/class-features/types";
+import type { Character } from "../src/types";
 
-/** Минимальная автоматизация: тестам не нужны никакие выбранные фичи. */
-function automationWithHook(effects: FeatureEffect[], enabled = false) {
-  return {
-    enabled,
-    adjustments: {},
-    ancestryTraits: [],
-    // временный тестовый хук, удаляется в задаче 5
-    characteristicEffectsForTest: effects,
-  };
+const TEST_ID = "fury.feature.1.test-characteristic";
+
+/** Минимальная автоматизация: своих выбранных фич этим тестам не нужно. */
+function automation(enabled = false) {
+  return { enabled, adjustments: {}, ancestryTraits: [] };
+}
+
+/**
+ * Временная запись реестра с эффектами характеристик: ровно тот путь, которым
+ * работают настоящие фичи класса. Запись снимается в `finally`.
+ */
+function withRegistryEffects<T>(effects: FeatureEffect[], run: () => T): T {
+  GENERATED_CLASS_FEATURES.push({
+    id: TEST_ID,
+    className: "Неистовый",
+    level: 1,
+    name: "Тестовая прибавка",
+    articleId: "test",
+    description: "",
+  });
+  FEATURE_MECHANICS[TEST_ID] = { kinds: ["characteristic"], effects };
+  try {
+    return run();
+  } finally {
+    const index = GENERATED_CLASS_FEATURES.findIndex(
+      (feature) => feature.id === TEST_ID,
+    );
+    if (index >= 0) GENERATED_CLASS_FEATURES.splice(index, 1);
+    delete FEATURE_MECHANICS[TEST_ID];
+  }
+}
+
+/** Герой Неистового с включённым авторасчётом. */
+function furyWithAutomation(enabled = true): Character {
+  const hero = createCharacter({ className: "Неистовый" });
+  hero.automation = automation(enabled);
+  return hero;
 }
 
 describe("applyCharacteristicEffects", () => {
@@ -50,38 +81,40 @@ describe("applyCharacteristicEffects", () => {
 
 describe("effectiveCharacteristics", () => {
   it("пороги тиров и потенциал считаются от эффективных характеристик, сохранённые не меняются", () => {
-    const hero = createCharacter({ className: "Неистовый" });
-    hero.characteristics.might = 3;
-    // createCharacter не заводит automation: тест создаёт её сам, хук не зависит от флага
-    hero.automation = automationWithHook([
-      { kind: "characteristic", key: "might", value: 1 },
-    ]);
-    expect(hero.characteristics.might).toBe(3);
-    expect(effectiveCharacteristics(hero).might).toBe(4);
-    expect(deriveStats(hero).tierThresholds.might.t3).toBe(13); // 17 − 4
-    expect(deriveStats(hero).potency.strong).toBe(4);
+    withRegistryEffects(
+      [{ kind: "characteristic", key: "might", value: 1 }],
+      () => {
+        const hero = furyWithAutomation();
+        hero.characteristics.might = 3;
+
+        expect(hero.characteristics.might).toBe(3);
+        expect(effectiveCharacteristics(hero).might).toBe(4);
+        expect(deriveStats(hero).tierThresholds.might.t3).toBe(13); // 17 − 4
+        expect(deriveStats(hero).potency.strong).toBe(4);
+      },
+    );
   });
 
-  it("тестовый хук действует независимо от automation.enabled", () => {
-    const disabled = createCharacter({ className: "Неистовый" });
-    disabled.automation = automationWithHook(
+  it("прибавка реестра не действует при выключенной автоматизации и действует при включённой", () => {
+    withRegistryEffects(
       [{ kind: "characteristic", key: "presence", value: 2 }],
-      false,
-    );
-    const enabled = createCharacter({ className: "Неистовый" });
-    enabled.automation = automationWithHook(
-      [{ kind: "characteristic", key: "presence", value: 2 }],
-      true,
-    );
+      () => {
+        const disabled = furyWithAutomation(false);
+        const enabled = furyWithAutomation(true);
 
-    expect(disabled.automation.enabled).toBe(false);
-    expect(effectiveCharacteristics(disabled).presence).toBe(2);
-    expect(effectiveCharacteristics(enabled).presence).toBe(2);
+        expect(disabled.automation?.enabled).toBe(false);
+        expect(effectiveCharacteristics(disabled).presence).toBe(
+          disabled.characteristics.presence,
+        );
+        expect(effectiveCharacteristics(enabled).presence).toBe(2);
+        expect(featureCharacteristicBonus(enabled, "presence")).toBe(2);
+        expect(featureCharacteristicBonus(disabled, "presence")).toBe(0);
+      },
+    );
   });
 
   it("без бонусов возвращает сохранённые характеристики и их не подменяет", () => {
-    const hero = createCharacter({ className: "Неистовый" });
-    hero.automation = automationWithHook([], true);
+    const hero = furyWithAutomation(true);
 
     expect(effectiveCharacteristics(hero)).toEqual(hero.characteristics);
     expect(effectiveCharacteristics(hero)).not.toBe(hero.characteristics);
@@ -138,43 +171,48 @@ describe("effectiveCharacteristics", () => {
   });
 
   it("пересчёт листа не трогает сохранённые характеристики", () => {
-    const hero = createCharacter({ className: "Неистовый" });
-    hero.characteristics.might = 3;
-    hero.automation = automationWithHook(
+    withRegistryEffects(
       [{ kind: "characteristic", key: "might", value: 1 }],
-      true,
+      () => {
+        const hero = furyWithAutomation(true);
+        hero.characteristics.might = 3;
+
+        const recalculated = recalculateCharacter(hero, hero);
+
+        expect(recalculated.characteristics.might).toBe(3);
+        expect(effectiveCharacteristics(recalculated).might).toBe(4);
+      },
     );
-
-    const recalculated = recalculateCharacter(hero, hero);
-
-    expect(recalculated.characteristics.might).toBe(3);
-    expect(effectiveCharacteristics(recalculated).might).toBe(4);
   });
 });
 
 describe("evaluateDamage", () => {
   it("подставляет эффективную характеристику в формулу урона", () => {
-    const hero = createCharacter({ className: "Неистовый" });
-    hero.characteristics.might = 3;
-    hero.automation = automationWithHook([
-      { kind: "characteristic", key: "might", value: 1 },
-    ]);
+    withRegistryEffects(
+      [{ kind: "characteristic", key: "might", value: 1 }],
+      () => {
+        const hero = furyWithAutomation(true);
+        hero.characteristics.might = 3;
 
-    expect(evaluateDamage("3 + M", hero).values).toEqual([7]);
-    expect(evaluateDamage("3 + M", hero).breakdown).toBe("3 + 4");
+        expect(evaluateDamage("3 + M", hero).values).toEqual([7]);
+        expect(evaluateDamage("3 + M", hero).breakdown).toBe("3 + 4");
+      },
+    );
   });
 });
 
 describe("surgeDamage", () => {
   it("урон всплеска считается от эффективной характеристики", () => {
-    const hero = createCharacter({ className: "Неистовый" });
-    hero.characteristics.might = 3;
-    hero.automation = automationWithHook([
-      { kind: "characteristic", key: "might", value: 1 },
-    ]);
+    withRegistryEffects(
+      [{ kind: "characteristic", key: "might", value: 1 }],
+      () => {
+        const hero = furyWithAutomation(true);
+        hero.characteristics.might = 3;
 
-    expect(hero.characteristics.might).toBe(3);
-    expect(surgeDamage(hero)).toBe(4);
-    expect(surgeDamageTotal(hero, 2)).toBe(8);
+        expect(hero.characteristics.might).toBe(3);
+        expect(surgeDamage(hero)).toBe(4);
+        expect(surgeDamageTotal(hero, 2)).toBe(8);
+      },
+    );
   });
 });

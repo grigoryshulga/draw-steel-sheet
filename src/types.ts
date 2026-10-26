@@ -1,5 +1,3 @@
-import type { FeatureEffect } from "./data/class-features/types";
-
 export const CHARACTERISTIC_KEYS = [
   "might",
   "agility",
@@ -204,11 +202,6 @@ export interface Character {
     meleeDamageKit?: string;
     rangedDamageKit?: string;
     classFeatureSelections?: Record<string, string>;
-    /**
-     * Временный тестовый хук, удаляется в задаче 5: эффекты характеристик
-     * без источника, действуют независимо от `enabled`.
-     */
-    characteristicEffectsForTest?: FeatureEffect[];
   };
 }
 
