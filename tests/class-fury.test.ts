@@ -173,6 +173,23 @@ describe("особенности аспектов", () => {
     ).toEqual([3]); // пока только Элементальная форма: 1 × Мощь
   });
 
+  it("расчёт иммунитетов гейтован, а показ на листе — нет", () => {
+    const hero = fury(10, "Берсерк");
+    hero.characteristics.might = 3;
+    expect(featureDamageImmunities(hero)).toHaveLength(1);
+
+    hero.automation = { ...hero.automation!, enabled: false };
+    // Расчёт: без авторасчёта классовые эффекты не применяются.
+    expect(featureDamageImmunities(hero)).toEqual([]);
+    // Показ: те же правила, но без гейта.
+    const shown = featureDamageImmunities(hero, {
+      includeWhenAutomationOff: true,
+    });
+    expect(shown).toHaveLength(1);
+    expect(shown[0].value).toBe(6);
+    expect(shown[0].types).toHaveLength(7);
+  });
+
   it("Сильнейший добавляет к толчку Мощь, На шаг впереди — Ловкость к отходу", () => {
     const berserker = fury(8, "Берсерк");
     berserker.characteristics.might = 4;

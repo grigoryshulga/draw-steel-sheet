@@ -162,12 +162,18 @@ interface SheetContext {
   immunities: Map<string, FeatureDamageImmunity[]>;
 }
 
-/** Иммунитеты активных источников, сгруппированные по id особенности. */
+/**
+ * Иммунитеты активных источников, сгруппированные по id особенности.
+ * Лист показывает их и при выключенном авторасчёте: это чтение правила,
+ * а сохранённые значения персонажа по-прежнему считает только движок.
+ */
 function immunityBySource(
   character: Character,
 ): Map<string, FeatureDamageImmunity[]> {
   const bySource = new Map<string, FeatureDamageImmunity[]>();
-  for (const immunity of featureDamageImmunities(character)) {
+  for (const immunity of featureDamageImmunities(character, {
+    includeWhenAutomationOff: true,
+  })) {
     const list = bySource.get(immunity.sourceId);
     if (list) list.push(immunity);
     else bySource.set(immunity.sourceId, [immunity]);
@@ -672,7 +678,7 @@ export function classFeatureGroupsForSheet(
   activeClassFeatures(character);
   const cached = GROUPS_CACHE.get(character);
   if (cached && cached.version === classFeatureRegistryVersion()) {
-    return cached.value;
+    return copyGroups(cached.value);
   }
   const context = sheetContext(character);
   const byLevel = new Map<number, FeatureSheetItem[]>();
@@ -694,7 +700,15 @@ export function classFeatureGroupsForSheet(
     version: classFeatureRegistryVersion(),
     value: groups,
   });
-  return groups;
+  return copyGroups(groups);
+}
+
+/** Копия групп: кэш не отдаёт наружу массивы, которые вызов может испортить. */
+function copyGroups(groups: FeatureSheetGroup[]): FeatureSheetGroup[] {
+  return groups.map((group) => ({
+    ...group,
+    features: [...group.features],
+  }));
 }
 
 /**

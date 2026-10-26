@@ -110,8 +110,14 @@ function activeAncestryRules(character: Character): AncestryFeatureRule[] {
  * Выборы класса, черты происхождения и особенности нового реестра в одном проходе;
  * каждый источник входит не больше одного раза. Порядок детерминирован:
  * особенности реестра добавляются в конце и уже отсортированы по `id`.
+ *
+ * `includeClassFeatureEffects` обходит гейт авторасчёта: это нужно только
+ * показу (панель листа показывает особенности всегда, а расчёт — нет).
  */
-function activeFeatureSources(character: Character): ActiveFeatureSource[] {
+function activeFeatureSources(
+  character: Character,
+  includeClassFeatureEffects = false,
+): ActiveFeatureSource[] {
   const sources: ActiveFeatureSource[] = activeFeatureOptions(character).map(
     ({ option }) => ({
       sourceId: option.id,
@@ -129,7 +135,9 @@ function activeFeatureSources(character: Character): ActiveFeatureSource[] {
 
   // Классовые особенности дают эффекты только при включённом авторасчёте,
   // как и остальные источники; показ фич на листе от флага не зависит.
-  if (!character.automation?.enabled) return sources;
+  if (!character.automation?.enabled && !includeClassFeatureEffects) {
+    return sources;
+  }
 
   const seen = new Set(sources.map((source) => source.sourceId));
   for (const feature of activeClassFeatureEffects(character)) {
@@ -433,34 +441,68 @@ export interface FeatureDamageImmunity {
   value: number;
 }
 
+/** Настройки расчёта иммунитетов: по умолчанию считает только при авторасчёте. */
+export interface DamageImmunityOptions {
+  /**
+   * Показ на листе: панель показывает иммунитеты активных фич и при
+   * выключенном авторасчёте, не меняя сохранённых значений персонажа.
+   */
+  includeWhenAutomationOff?: boolean;
+}
+
 /**
  * Иммунитеты к урону активных источников: значение — показатель из эффекта,
- * умноженный на `multiplier`. Усиливающая запись заменяет базовую с тем же
- * набором типов (Элементальная форма → Воплощение Хаоса), а не складывается
- * с ней — книга говорит «увеличивается до», а не «добавляется».
+ * умноженный на `multiplier`. Итог берётся по каждому типу урона («увеличивается
+ * до», а не «добавляется»): перекрывающиеся наборы типов не дают двух строк на
+ * один тип. Типы с одинаковым итогом и источником собираются в одну запись.
  */
 export function featureDamageImmunities(
   character: Character,
+  options: DamageImmunityOptions = {},
 ): FeatureDamageImmunity[] {
-  const best = new Map<string, FeatureDamageImmunity>();
-  for (const source of activeFeatureSources(character)) {
+  const best = new Map<
+    string,
+    { type: string; value: number; sourceId: string; sourceName: string }
+  >();
+  for (const source of activeFeatureSources(
+    character,
+    options.includeWhenAutomationOff === true,
+  )) {
     for (const effect of source.effects) {
       if (effect.kind !== "damageImmunity") continue;
       if (!featureConditionMet(character, effect.when)) continue;
       const value =
         resolveFeatureValue(character, effect) * (effect.multiplier ?? 1);
-      const key = effect.types.map(normalize).sort().join("|");
-      const current = best.get(key);
-      if (current && current.value >= value) continue;
-      best.set(key, {
-        sourceId: source.sourceId,
-        sourceName: source.sourceName,
-        types: [...effect.types],
-        value,
+      for (const type of effect.types) {
+        const key = normalize(type);
+        const current = best.get(key);
+        // Равные значения оставляют первый источник: порядок детерминирован.
+        if (current && current.value >= value) continue;
+        best.set(key, {
+          type,
+          value,
+          sourceId: source.sourceId,
+          sourceName: source.sourceName,
+        });
+      }
+    }
+  }
+
+  const grouped = new Map<string, FeatureDamageImmunity>();
+  for (const entry of best.values()) {
+    const key = `${entry.sourceId}|${entry.value}`;
+    const group = grouped.get(key);
+    if (group) group.types.push(entry.type);
+    else {
+      grouped.set(key, {
+        sourceId: entry.sourceId,
+        sourceName: entry.sourceName,
+        types: [entry.type],
+        value: entry.value,
       });
     }
   }
-  return [...best.values()];
+  return [...grouped.values()];
 }
 
 export function featureAbilityDamageContributions(

@@ -163,6 +163,52 @@ describe("classFeatureGroupsForSheet", () => {
     expect(itemOf(hero, ELEMENTAL_FORM).summary).not.toContain("иммунитет");
   });
 
+  it("иммунитеты видны и при выключенном авторасчёте, число то же", () => {
+    const immunityLines = (hero: Character) =>
+      itemsOf(hero)
+        .flatMap((item) => item.summary.split("; "))
+        .filter((part) => part.startsWith("иммунитет"));
+
+    const enabled = fury(10, "Берсерк");
+    enabled.characteristics.might = 3;
+    const disabled = fury(10, "Берсерк");
+    disabled.characteristics.might = 3;
+    disabled.automation = { ...disabled.automation!, enabled: false };
+
+    expect(immunityLines(disabled)).toHaveLength(7);
+    for (const line of immunityLines(disabled)) expect(line).toMatch(/ 6$/);
+    expect(immunityLines(disabled)).toEqual(immunityLines(enabled));
+  });
+
+  it("перекрывающиеся наборы типов дают одну строку на тип", () => {
+    const hero = fury(1, "Берсерк");
+    withFeature(
+      {},
+      {
+        kinds: ["immunity"],
+        effects: [
+          {
+            kind: "damageImmunity",
+            types: ["огонь"],
+            value: 2,
+          },
+          {
+            kind: "damageImmunity",
+            types: ["огонь", "холод"],
+            value: 3,
+          },
+        ],
+      },
+      () => {
+        const lines = itemsOf(hero)
+          .filter((item) => item.id === TEST_ID)
+          .flatMap((item) => item.summary.split("; "))
+          .filter((part) => part.startsWith("иммунитет"));
+        expect(lines).toEqual(["иммунитет к огню 3", "иммунитет к холоду 3"]);
+      },
+    );
+  });
+
   it("на 10-м уровне каждый тип урона — одна строка с итоговым числом", () => {
     const hero = fury(10, "Берсерк");
     hero.characteristics.might = 3;
