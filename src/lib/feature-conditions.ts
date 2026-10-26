@@ -58,17 +58,67 @@ function currentResourceValue(character: Character, name: string): number {
   return 0;
 }
 
+/**
+ * Группы выбора, значение которых приложение пока не записывает в
+ * `automation.classFeatureSelections`: у Неистового аспект выбирается как
+ * подкласс героя (`character.subclass`). Ключ — `id` группы, значение — поле
+ * `Character`, откуда брать выбор, пока задача 9 не начнёт писать его в выборы.
+ */
+const SUBCLASS_BACKED_GROUPS: Record<string, "subclass"> = {
+  "fury.aspect": "subclass",
+};
+
+/** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */
+function explicitSelection(
+  character: Character,
+  groupId: string,
+): string | undefined {
+  const selections = character.automation?.classFeatureSelections;
+  if (!selections || typeof selections !== "object") return undefined;
+  const wanted = normalize(groupId);
+  for (const [key, value] of Object.entries(selections)) {
+    if (typeof value !== "string") continue;
+    if (normalize(key) === wanted) return value;
+  }
+  return undefined;
+}
+
+/**
+ * Выбранное значение группы с фолбэком: сначала явный выбор в
+ * `automation.classFeatureSelections`, затем поле, которое пишет приложение
+ * (`character.subclass` для `fury.aspect` — аспект Неистового). Явный выбор
+ * всегда перекрывает фолбэк, поэтому два источника не показывают два правила
+ * сразу. Общая точка для активации фич и для условий эффектов.
+ */
+export function selectedGroupValue(
+  character: Character,
+  groupId: string,
+): string | undefined {
+  const explicit = explicitSelection(character, groupId);
+  if (explicit !== undefined) return explicit;
+
+  const field = SUBCLASS_BACKED_GROUPS[normalize(groupId)];
+  if (field !== "subclass") return undefined;
+  const subclass = character.subclass;
+  return typeof subclass === "string" && subclass.trim() !== "" ? subclass : undefined;
+}
+
 /** Значения ключевых групп, выбранные героем: и ID опции, и её название. */
 function selectedKeyValues(character: Character): Set<string> {
   const selected = new Set<string>();
   const selections = character.automation?.classFeatureSelections;
-  if (!selections || typeof selections !== "object") return selected;
-
-  for (const optionId of Object.values(selections)) {
-    if (typeof optionId !== "string") continue;
-    selected.add(normalize(optionId));
-    const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
-    if (name) selected.add(normalize(name));
+  if (selections && typeof selections === "object") {
+    for (const optionId of Object.values(selections)) {
+      if (typeof optionId !== "string") continue;
+      selected.add(normalize(optionId));
+      const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
+      if (name) selected.add(normalize(name));
+    }
+  }
+  // Фолбэк для групп, которые приложение хранит вне выборов (аспект → подкласс).
+  for (const groupId of Object.keys(SUBCLASS_BACKED_GROUPS)) {
+    const value = selectedGroupValue(character, groupId);
+    if (value !== undefined) selected.add(normalize(value));
   }
   return selected;
 }

@@ -10,7 +10,7 @@ import type {
   TriggerFrequency,
 } from "../data/class-features/types";
 import type { Character } from "../types";
-import { featureConditionMet } from "./feature-conditions";
+import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
 import { normalizeFeatureText } from "./utils";
 
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
@@ -72,19 +72,6 @@ function selectionGroupId(
   return SELECTION_GROUPS[normalizeFeatureText(feature.className)]?.[keyedBy];
 }
 
-/** Значение выбранного варианта группы по её ключу (`fury.aspect`). */
-function selectedValueFor(
-  selections: Record<string, string>,
-  groupId: string,
-): string | undefined {
-  const wanted = normalizeFeatureText(groupId);
-  for (const [key, value] of Object.entries(selections)) {
-    if (typeof value !== "string") continue;
-    if (normalizeFeatureText(key) === wanted) return value;
-  }
-  return undefined;
-}
-
 /** Части значения выбора: строка может перечислять варианты через запятую. */
 function chosenValues(value: string): string[] {
   return value
@@ -128,10 +115,11 @@ function isActiveClassFeature(
   // Класса нет в таблице групп — выборам не доверяем и фильтрацию не применяем.
   if (!groupId) return true;
 
-  const selections = character.automation?.classFeatureSelections;
-  if (!selections || typeof selections !== "object") return false;
+  // Явный выбор в `automation.classFeatureSelections` перекрывает фолбэк;
+  // пока приложение не пишет этот ключ, аспект Неистового берётся из
+  // `character.subclass` — это решает `selectedGroupValue`.
   return keyValueMatches(
-    selectedValueFor(selections, groupId),
+    selectedGroupValue(character, groupId),
     feature.keyValue,
   );
 }

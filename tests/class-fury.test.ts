@@ -7,6 +7,11 @@ import {
   characterStatBreakdown,
 } from "../src/lib/character-calculations";
 import { activeClassFeatures, classFeatureTriggers } from "../src/lib/class-features";
+import {
+  buildCharacter,
+  emptyBuilderDraft,
+  startingCharacteristics,
+} from "../src/lib/character-builder";
 import { createCharacter } from "../src/lib/defaults";
 import { featureDamageImmunities, featureFieldBonus } from "../src/lib/feature-modifiers";
 import {
@@ -235,6 +240,66 @@ describe("список активных фич", () => {
     expect(thresholdRows(stormbringer)).toEqual([]);
     expect(thresholdRows(raider)).toHaveLength(6);
     expect(thresholdRows(berserker)).toHaveLength(6);
+  });
+
+  it("собранный билдером Берсерк видит свои строки без записи в выборы", () => {
+    // Аспект выбирается приложением как подкласс; classFeatureSelections пуст.
+    const built = buildCharacter({
+      ...emptyBuilderDraft(),
+      name: "Собранный берсерк",
+      className: "Неистовый",
+      subclass: "Берсерк",
+      characteristics: startingCharacteristics("Неистовый"),
+    });
+    expect(built.subclass).toBe("Берсерк");
+    expect(built.automation?.classFeatureSelections ?? {}).toEqual({});
+
+    const hero = { ...built, level: 10 };
+    const shown = names(hero);
+    expect(
+      shown.filter((name) => name.startsWith("Растущая свирепость Берсерка")),
+    ).toHaveLength(6);
+    expect(shown.filter((name) => name.includes("Разорителя"))).toEqual([]);
+    // Записи выбора способностей аспекта — тоже свои.
+    expect(shown).toContain("Способность Берсерка 2-го уровня");
+    expect(shown).not.toContain("Способность Разорителя 2-го уровня");
+    // И эффекты аспекта работают от подкласса, а не только показ.
+    const effects = { ...hero, characteristics: { ...hero.characteristics, might: 3 } };
+    expect(featureFieldBonus(effects, "push", weaponAbility())).toBe(3);
+  });
+
+  it("явный выбор в classFeatureSelections перекрывает подкласс", () => {
+    const built = buildCharacter({
+      ...emptyBuilderDraft(),
+      name: "Собранный подкласс",
+      className: "Неистовый",
+      subclass: "Берсерк",
+      characteristics: startingCharacteristics("Неистовый"),
+    });
+    const hero: Character = {
+      ...built,
+      level: 10,
+      characteristics: { ...built.characteristics, might: 3, agility: 3 },
+      automation: {
+        ...built.automation!,
+        classFeatureSelections: { "fury.aspect": "Разоритель" },
+      },
+    };
+
+    const shown = names(hero);
+    expect(shown.filter((name) => name.includes("Берсерка"))).toEqual([]);
+    expect(
+      shown.filter((name) => name.startsWith("Растущая свирепость Разорителя")),
+    ).toHaveLength(6);
+    // Двойного показа нет: строки обоих аспектов одновременно не выходят.
+    expect(
+      shown.filter((name) => name.startsWith("Растущая свирепость")),
+    ).toHaveLength(7); // контейнер + 6 строк Разорителя
+    // Порог 2 работает от Ловкости — то есть от явного выбора, а не от подкласса.
+    hero.heroicResource.current = 2;
+    expect(featureFieldBonus(hero, "push", weaponAbility())).toBe(3);
+    expect(shown).toContain("Способность Разорителя 2-го уровня");
+    expect(shown).not.toContain("Способность Берсерка 2-го уровня");
   });
 
   it("динамический порог ресурса фичу из списка не убирает", () => {
