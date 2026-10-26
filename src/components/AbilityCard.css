@@ -201,6 +201,18 @@
   color: var(--muted);
 }
 
+/* Строка принудительного движения: добавка особенностей, а не текст тира. */
+.sheet-ability-forced {
+  margin: 0;
+  padding: 4px 8px;
+  border-left: 2px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--fg);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
 .sheet-ability-footer {
   display: flex;
   flex-wrap: wrap;

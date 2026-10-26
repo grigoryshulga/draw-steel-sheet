@@ -5,6 +5,7 @@ import { kitByName } from "../data/kits";
 import {
   effectiveCharacteristics,
   featureAbilityDistanceBonus,
+  featureFieldBonus,
   featureStatBonus,
   featureStatContributions,
   type FeatureContribution,
@@ -254,4 +255,56 @@ export function abilityDistance(
     );
   }
   return distance;
+}
+
+/** Прибавки к принудительному движению от активных особенностей героя. */
+export interface AbilityForcedMovement {
+  push: number;
+  pull: number;
+  slide: number;
+}
+
+/**
+ * Добавка к толчку, притягиванию и швырянию от особенностей (например, порог
+ * Растущей свирепости у Неистового). Текст тиров способности не меняется:
+ * добавка живёт отдельной строкой под тирами.
+ *
+ * Считает движок модификаторов, поэтому при выключенном авторасчёте все три
+ * поля — нули, как и у расстояния способности: сохранённые значения листа
+ * остаются как есть.
+ */
+export function abilityForcedMovement(
+  ability: Ability,
+  character: Character,
+): AbilityForcedMovement {
+  return {
+    push: featureFieldBonus(character, "push", ability),
+    pull: featureFieldBonus(character, "pull", ability),
+    slide: featureFieldBonus(character, "slide", ability),
+  };
+}
+
+/** Подписи манёвров в порядке статьи: толчок, притягивание, швыряние. */
+const FORCED_MOVEMENT_LABELS: readonly (readonly [
+  keyof AbilityForcedMovement,
+  string,
+])[] = [
+  ["push", "Толчок"],
+  ["pull", "Притягивание"],
+  ["slide", "Швыряние"],
+];
+
+/**
+ * Строка под тирами: только ненулевые прибавки, с явным знаком;
+ * при нулях строка пустая и карточка её не рисует.
+ */
+export function forcedMovementSummary(
+  movement: AbilityForcedMovement,
+): string {
+  return FORCED_MOVEMENT_LABELS.filter(([key]) => movement[key] !== 0)
+    .map(
+      ([key, label]) =>
+        `${label} ${movement[key] > 0 ? "+" : "−"}${Math.abs(movement[key])}`,
+    )
+    .join(" · ");
 }
