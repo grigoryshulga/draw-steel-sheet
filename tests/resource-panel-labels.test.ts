@@ -1,13 +1,24 @@
 import { describe, expect, it } from "vitest";
+import {
+  heroicResourceHelp,
+  resourceSpecHelp,
+} from "../src/data/resource-help";
 import { createCharacter } from "../src/lib/defaults";
 import { previewGameAction } from "../src/lib/game-actions";
 import { resourceGainLabels } from "../src/lib/resources";
 import { beginRound, currentRuntime, markTrigger } from "../src/lib/runtime";
 import type { Character } from "../src/types";
 
-/** Неистовый 1-го уровня. Прибавки ресурса от авторасчёта не зависят. */
+/** Неистовый нужного уровня; прибавки ресурса от авторасчёта не зависят. */
 function fury(level = 1): Character {
   return createCharacter({ className: "Неистовый", level });
+}
+
+/** Неистовый нужного уровня с выбранным аспектом. */
+function furyWithAspect(aspect: string, level = 1): Character {
+  const hero = fury(level);
+  hero.subclass = aspect;
+  return hero;
 }
 
 describe("прибавки ресурса на листе", () => {
@@ -87,5 +98,44 @@ describe("прибавки ресурса на листе", () => {
     expect(
       resourceGainLabels(fury(10)).some((gain) => gain.tag === "epic-respite"),
     ).toBe(false);
+  });
+});
+
+describe("памятка к ресурсу", () => {
+  it("пороги берутся из активных особенностей, а не из спецификации пула", () => {
+    expect(resourceSpecHelp(furyWithAspect("Берсерк", 10))).toContain(
+      "Пороги свирепости: 2, 4, 6, 8, 10, 12",
+    );
+  });
+
+  it("на 1-м уровне герой видит только полученные пороги", () => {
+    expect(resourceSpecHelp(furyWithAspect("Берсерк", 1))).toContain(
+      "Пороги свирепости: 2, 4, 6",
+    );
+  });
+
+  it("без пороговых фич строки о порогах нет", () => {
+    const withoutFeatures = resourceSpecHelp(fury(1));
+    expect(withoutFeatures.some((line) => line.startsWith("Пороги"))).toBe(
+      false,
+    );
+    expect(resourceSpecHelp(createCharacter({ className: "Нуль" }))).toEqual(
+      [],
+    );
+  });
+
+  it("памятка не повторяет блок «Откуда капает»", () => {
+    const help = heroicResourceHelp(furyWithAspect("Берсерк", 1));
+    expect(help).toContain("Остаток пропадает в конце боя.");
+    expect(
+      help.some((line) => line.includes("В начале каждого вашего хода")),
+    ).toBe(false);
+    expect(help).toContain("Пороги свирепости: 2, 4, 6");
+  });
+
+  it("у класса без разобранных прибавок памятка остаётся прежней", () => {
+    expect(heroicResourceHelp(createCharacter({ className: "Нуль" }))).toContain(
+      "В начале каждого вашего хода: +2 дисциплины.",
+    );
   });
 });

@@ -3,10 +3,8 @@ import { Button, NumberInput, Panel } from "../../components/ui";
 import { heroicResourceName } from "../../data/classes";
 import {
   HERO_TOKENS_HELP,
-  HEROIC_RESOURCE_FALLBACK,
-  HEROIC_RESOURCE_HELP,
   SURGES_HELP,
-  resourceSpecHelp,
+  heroicResourceHelp,
 } from "../../data/resource-help";
 import { heroicResourceFloor } from "../../lib/game-actions";
 import { resourceGainLabels } from "../../lib/resources";
@@ -251,11 +249,7 @@ export function ResourcesPanel() {
         <ResourceRow
           label={resourceName}
           min={heroicResourceFloor(character)}
-          help={[
-            ...(HEROIC_RESOURCE_HELP[character.className] ??
-              HEROIC_RESOURCE_FALLBACK),
-            ...resourceSpecHelp(character),
-          ]}
+          help={heroicResourceHelp(character)}
           value={character.heroicResource.current}
           onValue={(value) => set("heroicResource", value)}
         />

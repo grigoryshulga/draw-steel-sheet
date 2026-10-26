@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import {
   abilityDistance,
-  abilityForcedMovement,
-  forcedMovementSummary,
+  abilityForcedMovementLine,
 } from "../lib/character-calculations";
 import { DamageChip } from "./DamageChip";
 import { Chip } from "./ui";
@@ -44,11 +43,10 @@ export function AbilityCard({
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
     .filter((tier) => tier.damage || tier.effect);
-  // Добавка особенностей к принудительному движению — отдельной строкой:
-  // текст тиров остаётся как напечатан в книге.
-  const forcedMovement = forcedMovementSummary(
-    abilityForcedMovement(ability, character),
-  );
+  // Добавка особенностей к принудительному движению — отдельной строкой только
+  // там, где способность действительно двигает цель: текст тиров остаётся
+  // как напечатан в книге.
+  const forcedMovement = abilityForcedMovementLine(ability, character);
 
   return (
     <article

@@ -1,7 +1,11 @@
 /** Памятки по ресурсам — по переведённым правилам draw-steel-ru (главы «Классы», «Способности», «Жетоны героя»). */
 
 import { resourceSpecFor } from "./class-features/class-resources";
-import { resourceGainLabel } from "../lib/resources";
+import { activeClassFeatures } from "../lib/class-features";
+import {
+  resolvedResourceGains,
+  resourceGainLabel,
+} from "../lib/resources";
 import type { Character } from "../types";
 
 const START = "В начале боя вы получаете ресурс, равный вашим Победам.";
@@ -80,26 +84,50 @@ export const HEROIC_RESOURCE_HELP: Record<string, string[]> = {
 export const HEROIC_RESOURCE_FALLBACK = [START, LOSE];
 
 /**
- * Подсказка из спецификации пула: пороги ресурса и эпический ресурс.
- * Строки собираются из данных, поэтому у класса без порогов (Неистовый)
- * в памятке останется только эпический пул. Достигнутые пороги помечены
- * текстом — цвет и оттенок ничего не сообщают.
+ * Родительный падеж для строки «Пороги свирепости»: в данных названия
+ * ресурсов стоят в именительном. Незнакомый ресурс показывается в кавычках,
+ * чтобы подпись не превращалась в «Пороги проверочный ресурс».
+ */
+const RESOURCE_GENITIVE: Record<string, string> = {
+  Свирепость: "свирепости",
+  Дисциплина: "дисциплины",
+  Эссенция: "эссенции",
+  Благочестие: "благочестия",
+  Фокус: "фокуса",
+  Ясность: "ясности",
+  Прозрение: "прозрения",
+  Драма: "драмы",
+  Гнев: "гнева",
+};
+
+/**
+ * Подсказка из данных: пороги ресурса и эпический пул.
+ *
+ * Пороги берутся из самих особенностей (`when.resourceAtLeast`): в
+ * спецификации пула поля `thresholds` пока пусты у всех классов, а
+ * реальные пороги Неистового (2/4/6/8/10/12) живут отдельными записями
+ * реестра. Строки собираются из уже готового списка активных фич, поэтому
+ * лист показывает только те пороги, которые герой действительно получил.
  */
 export function resourceSpecHelp(character: Character): string[] {
-  const spec = resourceSpecFor(character.className ?? "");
-  if (!spec) return [];
   const lines: string[] = [];
-  const current = character.heroicResource?.current ?? 0;
-  const thresholds = [...(spec.thresholds ?? [])].sort(
-    (left, right) => left.level - right.level,
-  );
-  for (const threshold of thresholds) {
-    const reached = current >= threshold.level;
-    lines.push(
-      `${threshold.level}+ ${spec.name}: ${threshold.note}${reached ? " — порог взят" : ""}`,
-    );
+
+  // Имя ресурса → его пороги, без дублей: таблицы аспектов повторяют числа.
+  const thresholds = new Map<string, number[]>();
+  for (const feature of activeClassFeatures(character)) {
+    const condition = feature.mechanics?.when?.resourceAtLeast;
+    if (!condition) continue;
+    const values = thresholds.get(condition.name) ?? [];
+    if (!values.includes(condition.value)) values.push(condition.value);
+    thresholds.set(condition.name, values);
   }
-  const epic = spec.epic;
+  for (const [name, values] of thresholds) {
+    const sorted = [...values].sort((left, right) => left - right);
+    const label = RESOURCE_GENITIVE[name] ?? `ресурса «${name}»`;
+    lines.push(`Пороги ${label}: ${sorted.join(", ")}`);
+  }
+
+  const epic = resourceSpecFor(character.className ?? "")?.epic;
   if (epic) {
     const epicLevel = epic.level ?? 10;
     if ((character.level ?? 0) >= epicLevel) {
@@ -116,6 +144,21 @@ export function resourceSpecHelp(character: Character): string[] {
     }
   }
   return lines;
+}
+
+/**
+ * Памятка по основному ресурсу: прибавки описывает блок «Откуда капает»,
+ * поэтому при их наличии статичные строки класса не повторяются — остаются
+ * только правило конца боя, пороги и эпический пул. Без прибавок (класс ещё
+ * не разобран) памятка остаётся прежней, ручной.
+ */
+export function heroicResourceHelp(character: Character): string[] {
+  const base =
+    resolvedResourceGains(character).length > 0
+      ? [LOSE]
+      : (HEROIC_RESOURCE_HELP[character.className] ??
+        HEROIC_RESOURCE_FALLBACK);
+  return [...base, ...resourceSpecHelp(character)];
 }
 
 export const SURGES_HELP = [

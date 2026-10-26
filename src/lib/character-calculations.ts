@@ -308,3 +308,28 @@ export function forcedMovementSummary(
     )
     .join(" · ");
 }
+
+/**
+ * Есть ли в тексте способности принудительное движение: толчок, швыряние
+ * или сдвиг. Это эвристика показа строки, а не разбор эффектов в структуру:
+ * бонусы всё равно считаются только по полям `push`/`pull`/`slide`.
+ */
+export function abilityHasForcedMovement(ability: Ability): boolean {
+  const text = [
+    ability.effect,
+    ...ability.tiers.map((tier) => `${tier.damage} ${tier.effect}`),
+  ].join(" ");
+  return /толч|швыр|сдвиг/iu.test(text);
+}
+
+/**
+ * Строка принудительного движения для карточки: пусто, если способность
+ * никого не двигает или у героя нет прибавок к манёврам.
+ */
+export function abilityForcedMovementLine(
+  ability: Ability,
+  character: Character,
+): string {
+  if (!abilityHasForcedMovement(ability)) return "";
+  return forcedMovementSummary(abilityForcedMovement(ability, character));
+}
