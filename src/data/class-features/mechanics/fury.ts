@@ -1,5 +1,6 @@
 import type {
   FeatureAmount,
+  FeatureCondition,
   FeatureEffect,
   FeatureMechanics,
   FeatureTrigger,
@@ -32,6 +33,13 @@ const AGILITY: FeatureAmount = { characteristic: "agility" };
  * Бонус к расстоянию принудительного движения: он действует только по
  * достижении порога свирепости, а порог свой у каждого аспекта.
  */
+function thresholdGate(aspect: string, threshold: number): FeatureCondition {
+  return {
+    keyValue: [aspect],
+    resourceAtLeast: { name: FEROCITY, value: threshold },
+  };
+}
+
 function forcedMovementBonus(
   aspect: string,
   amount: FeatureAmount,
@@ -41,12 +49,15 @@ function forcedMovementBonus(
     kind: "field",
     field: "push",
     value: amount,
-    when: {
-      keyValue: [aspect],
-      resourceAtLeast: { name: FEROCITY, value: threshold },
-    },
+    when: thresholdGate(aspect, threshold),
   };
 }
+
+/** Названия манёвров: подпись в именительном роде, подробность — в винительном. */
+const MANEUVERS = {
+  push: { title: "Первый толчок", action: "толчок" },
+  throw: { title: "Первое швыряние", action: "швыряние" },
+} as const;
 
 /**
  * Порог Растущей свирепости: первый толчок (Берсерк) или первое швыряние
@@ -56,7 +67,7 @@ function forcedMovementBonus(
  */
 function firstForcedMovementTrigger(
   aspect: string,
-  maneuver: string,
+  maneuver: { title: string; action: string },
   surges: string,
   threshold: number,
   replaces: boolean,
@@ -64,9 +75,9 @@ function firstForcedMovementTrigger(
   return {
     event: "forced-movement",
     frequency: "turn",
-    label: `Первый ${maneuver} в свой ход при ${threshold}+ свирепости`,
+    label: `${maneuver.title} в свой ход при ${threshold}+ свирепости`,
     detail:
-      `Первый раз за свой ход, когда вы совершаете ${maneuver} существа, ` +
+      `Первый раз за свой ход, когда вы совершаете ${maneuver.action} существа, ` +
       `вы получаете ${surges} (нужно ${threshold}+ свирепости).` +
       (replaces ? " Заменяет преимущество предыдущего порога." : ""),
     // Гейт только по аспекту: порог свирепости — состояние листа, и в условии
@@ -111,10 +122,11 @@ export const FURY_RESOURCE: HeroicResourceSpec = {
       frequency: "encounter",
     },
   ],
-  // Эпический пул 10-го уровня. Лист показывает его отдельно; гейта по уровню
-  // в модели ресурса нет, поэтому конкретный уровень проверяет вызывающий.
+  // Эпический пул 10-го уровня: до него лист его не показывает
+  // (`resolvedEpicResourceGains` проверяет `epic.level`).
   epic: {
     name: "Первозданная сила",
+    level: 10,
     gains: [
       {
         tag: "epic-respite",
@@ -178,6 +190,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.1.rastushchaya-svirepost-berserka-2": {
     kinds: ["bonus"],
+    when: thresholdGate("Берсерк", 2),
     effects: [forcedMovementBonus("Берсерк", MIGHT, 2)],
     notes:
       "Порог 2 свирепости у Берсерка: расстояние маневра Отталкивания получает " +
@@ -186,11 +199,13 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.1.rastushchaya-svirepost-berserka-4": {
     kinds: ["trigger"],
-    trigger: firstForcedMovementTrigger("Берсерк", "толчок", "1 всплеск", 4, false),
+    when: thresholdGate("Берсерк", 4),
+    trigger: firstForcedMovementTrigger("Берсерк", MANEUVERS.push, "1 всплеск", 4, false),
     notes: "Всплески лист считает вручную: поля «всплески» в модели нет.",
   },
   "fury.feature.1.rastushchaya-svirepost-berserka-6": {
     kinds: ["situational"],
+    when: thresholdGate("Берсерк", 6),
     notes:
       "Порог 6 свирепости у Берсерка: преимущество на тесты Мощи и маневр " +
       "Отталкивания. Преимущество на кубиках не выражается числовым полем — " +
@@ -198,19 +213,22 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven": {
     kinds: ["trigger"],
-    trigger: firstForcedMovementTrigger("Берсерк", "толчок", "2 всплеска", 8, true),
+    when: thresholdGate("Берсерк", 8),
+    trigger: firstForcedMovementTrigger("Берсерк", MANEUVERS.push, "2 всплеска", 8, true),
     notes:
       "Порог 8 свирепости (с 4-го уровня): те же всплески, но 2 вместо 1. " +
       "Требование уровня закрыто уровнем самой записи.",
   },
   "fury.feature.7.rastushchaya-svirepost-berserka-10-7-y-uroven": {
     kinds: ["situational"],
+    when: thresholdGate("Берсерк", 10),
     notes:
       "Порог 10 свирепости (с 7-го уровня): двойное преимущество на тесты Мощи " +
       "и маневр Отталкивания — заменяет преимущество порога 6.",
   },
   "fury.feature.10.rastushchaya-svirepost-berserka-12-10-y-uroven": {
     kinds: ["trigger", "bonus"],
+    when: thresholdGate("Берсерк", 12),
     effects: [forcedMovementBonus("Берсерк", MIGHT, 12)],
     trigger: {
       event: "use-ability",
@@ -228,6 +246,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.1.rastushchaya-svirepost-razoritelya-2": {
     kinds: ["bonus"],
+    when: thresholdGate("Разоритель", 2),
     effects: [forcedMovementBonus("Разоритель", AGILITY, 2)],
     notes:
       "Порог 2 свирепости у Разорителя: расстояние маневра Отталкивания получает " +
@@ -235,28 +254,33 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.1.rastushchaya-svirepost-razoritelya-4": {
     kinds: ["trigger"],
-    trigger: firstForcedMovementTrigger("Разоритель", "швыряние", "1 всплеск", 4, false),
+    when: thresholdGate("Разоритель", 4),
+    trigger: firstForcedMovementTrigger("Разоритель", MANEUVERS.throw, "1 всплеск", 4, false),
     notes: "Всплески лист считает вручную: поля «всплески» в модели нет.",
   },
   "fury.feature.1.rastushchaya-svirepost-razoritelya-6": {
     kinds: ["situational"],
+    when: thresholdGate("Разоритель", 6),
     notes:
       "Порог 6 свирепости у Разорителя: преимущество на тесты Ловкости и маневр " +
       "Отталкивания; преимущество на кубиках показывается текстом.",
   },
   "fury.feature.4.rastushchaya-svirepost-razoritelya-8-4-y-uroven": {
     kinds: ["trigger"],
-    trigger: firstForcedMovementTrigger("Разоритель", "швыряние", "2 всплеска", 8, true),
+    when: thresholdGate("Разоритель", 8),
+    trigger: firstForcedMovementTrigger("Разоритель", MANEUVERS.throw, "2 всплеска", 8, true),
     notes: "Порог 8 свирепости (с 4-го уровня): 2 всплеска вместо 1.",
   },
   "fury.feature.7.rastushchaya-svirepost-razoritelya-10-7-y-uroven": {
     kinds: ["situational"],
+    when: thresholdGate("Разоритель", 10),
     notes:
       "Порог 10 свирепости (с 7-го уровня): двойное преимущество на тесты " +
       "Ловкости и маневр Отталкивания — заменяет преимущество порога 6.",
   },
   "fury.feature.10.rastushchaya-svirepost-razoritelya-12-10-y-uroven": {
     kinds: ["trigger", "bonus"],
+    when: thresholdGate("Разоритель", 12),
     effects: [forcedMovementBonus("Разоритель", AGILITY, 12)],
     trigger: {
       event: "use-ability",
@@ -451,6 +475,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.2.sposobnost-berserka-2-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.2",
       options: [
@@ -462,6 +487,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.2.sposobnost-razoritelya-2-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.2",
       options: [
@@ -473,6 +499,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.2.sposobnost-burevestnika-2-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.2",
       options: [
@@ -651,6 +678,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.6.sposobnosti-berserka-6-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.6",
       options: [
@@ -662,6 +690,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.6.sposobnosti-razoritelya-6-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.6",
       options: [
@@ -673,6 +702,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.6.sposobnosti-burevestnika-6-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.6",
       options: [
@@ -704,9 +734,10 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "Берсерк и Разоритель: иммунитет к семи типам урона, равный Мощи. " +
       "Буревестник получает иммунитет к типу урона Первозданного шторма, " +
-      "равный удвоенной Мощи, но тип урона в книге берётся из комплектов " +
-      "буревестника (статья 0924, в данных отсутствует), а множитель ×2 модель " +
-      "значений не выражает — эта часть остаётся за игроком.",
+      "равный удвоенной Мощи; конкретный тип урона в книге берётся из комплектов " +
+      "буревестника (статья 0924, в данных отсутствует) — поэтому множитель ×2 " +
+      "у Буревестника появляется только на 10-м уровне вместе с Воплощением Хаоса, " +
+      "где тип назван обобщённо.",
   },
   "fury.feature.7.velikaya-svirepost": {
     kinds: ["resourceGain"],
@@ -791,6 +822,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.9.sposobnosti-berserka-9-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.9",
       options: [
@@ -805,6 +837,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.9.sposobnosti-razoritelya-9-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.9",
       options: [
@@ -819,6 +852,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "fury.feature.9.sposobnosti-burevestnika-9-go-urovnya": {
     kinds: ["choice", "grant"],
+    when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.9",
       options: [
@@ -832,6 +866,24 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   // --------------------------------------------------------------- 10-й уровень
   "fury.feature.10.voploshchenie-khaosa": {
     kinds: ["immunity", "trigger", "resource"],
+    // Двойная Мощь у Берсерка и Разорителя — семь типов урона, тройная
+    // у Буревестника — тип Первозданного шторма (см. notes).
+    effects: [
+      {
+        kind: "damageImmunity",
+        types: ["кислота", "холод", "порча", "огонь", "молния", "яд", "звук"],
+        value: MIGHT,
+        multiplier: 2,
+        when: { keyValue: ["Берсерк", "Разоритель"] },
+      },
+      {
+        kind: "damageImmunity",
+        types: ["Первозданный шторм"],
+        value: MIGHT,
+        multiplier: 3,
+        when: { keyValue: ["Буревестник"] },
+      },
+    ],
     trigger: {
       event: "combat-start",
       frequency: "encounter",
@@ -845,9 +897,11 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "Иммунитеты: Берсерк и Разоритель — к семи типам урона, равный удвоенной " +
       "Мощи; Буревестник — к типу Первозданного шторма, равный утроенной Мощи. " +
-      "Множители ×2 и ×3 модель значений не выражает, поэтому эффекта нет, " +
-      "а Элементальная форма остаётся с базовым иммунитетом. Первозданный удар " +
-      "здесь усиливается до 3 свирепости за удар (см. запись 4-го уровня).",
+      "Иммунитет заменяет базовый из Элементальной формы, а не складывается с ним. " +
+      "Конкретный тип Первозданного шторма в данных отсутствует (комплекты " +
+      "буревестника, статья 0924), поэтому тип назван обобщённо и выбирается на " +
+      "листе. Первозданный удар здесь усиливается до 3 свирепости за удар " +
+      "(см. запись 4-го уровня) — это расход ресурса, а не число листа.",
   },
   "fury.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],

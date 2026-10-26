@@ -6,9 +6,9 @@ import {
   calculatedValues,
   characterStatBreakdown,
 } from "../src/lib/character-calculations";
-import { classFeatureTriggers } from "../src/lib/class-features";
+import { activeClassFeatures, classFeatureTriggers } from "../src/lib/class-features";
 import { createCharacter } from "../src/lib/defaults";
-import { featureFieldBonus } from "../src/lib/feature-modifiers";
+import { featureDamageImmunities, featureFieldBonus } from "../src/lib/feature-modifiers";
 import {
   resolvedEpicResourceGains,
   resolvedResourceGains,
@@ -117,6 +117,12 @@ describe("Свирепость", () => {
     ]);
     expect(epic[0].sourceName).toBe("Первозданная сила");
   });
+
+  it("до 10-го уровня эпического пула нет", () => {
+    expect(resolvedEpicResourceGains(fury(1))).toEqual([]);
+    expect(resolvedEpicResourceGains(fury(9))).toEqual([]);
+    expect(resolvedEpicResourceGains(fury(10))).toHaveLength(1);
+  });
 });
 
 describe("особенности аспектов", () => {
@@ -138,6 +144,28 @@ describe("особенности аспектов", () => {
     ).toEqual(["Недвижимый объект:2"]);
     expect(breakdown.total).toBe(2);
     expect(calculatedValues(hero).stability).toBe(2);
+  });
+
+  it("Воплощение Хаоса удваивает или утраивает иммунитет к урону", () => {
+    const berserker = fury(10, "Берсерк");
+    berserker.characteristics.might = 3;
+    const seven = featureDamageImmunities(berserker);
+    expect(seven).toHaveLength(1); // замена Элементальной формы, а не сумма
+    expect(seven[0].value).toBe(6); // 2 × Мощь
+    expect(seven[0].types).toHaveLength(7);
+
+    const stormbringer = fury(10, "Буревестник");
+    stormbringer.characteristics.might = 3;
+    const storm = featureDamageImmunities(stormbringer);
+    expect(storm).toHaveLength(1);
+    expect(storm[0].value).toBe(9); // 3 × Мощь
+    expect(storm[0].types).toEqual(["Первозданный шторм"]);
+
+    const withoutChaos = fury(7, "Берсерк");
+    withoutChaos.characteristics.might = 3;
+    expect(
+      featureDamageImmunities(withoutChaos).map((entry) => entry.value),
+    ).toEqual([3]); // пока только Элементальная форма: 1 × Мощь
   });
 
   it("Сильнейший добавляет к толчку Мощь, На шаг впереди — Ловкость к отходу", () => {
@@ -174,6 +202,50 @@ describe("Растущая свирепость", () => {
     hero.characteristics.agility = 3;
     hero.heroicResource.current = 2;
     expect(featureFieldBonus(hero, "push", weaponAbility())).toBe(3);
+  });
+});
+
+describe("список активных фич", () => {
+  const names = (hero: Character) => activeClassFeatures(hero).map((f) => f.name);
+
+  it("пороговые строки чужого аспекта не показываются", () => {
+    const raider = names(fury(10, "Разоритель"));
+    const berserker = names(fury(10, "Берсерк"));
+    const stormbringer = names(fury(10, "Буревестник"));
+
+    expect(raider.filter((name) => name.includes("Берсерка"))).toEqual([]);
+    expect(
+      berserker.filter((name) => name.includes("Растущая свирепость Берсерка")),
+    ).toEqual([
+      "Растущая свирепость Берсерка: 2",
+      "Растущая свирепость Берсерка: 4",
+      "Растущая свирепость Берсерка: 6",
+      "Растущая свирепость Берсерка: 8 (4-й уровень)",
+      "Растущая свирепость Берсерка: 10 (7-й уровень)",
+      "Растущая свирепость Берсерка: 12 (10-й уровень)",
+    ]);
+    expect(raider.filter((name) => name.includes("Разорителя"))).toHaveLength(9);
+    // Буревестник своих строк в скелете не имеет — таблица лежит в комплектах.
+    const thresholdRows = (names: string[]) =>
+      names.filter(
+        (name) =>
+          name.startsWith("Растущая свирепость Берсерка") ||
+          name.startsWith("Растущая свирепость Разорителя"),
+      );
+    expect(thresholdRows(stormbringer)).toEqual([]);
+    expect(thresholdRows(raider)).toHaveLength(6);
+    expect(thresholdRows(berserker)).toHaveLength(6);
+  });
+
+  it("динамический порог ресурса фичу из списка не убирает", () => {
+    const hero = fury(1, "Берсерк");
+    hero.heroicResource.current = 0;
+    expect(names(hero)).toContain("Растущая свирепость Берсерка: 2");
+    expect(featureFieldBonus(hero, "push", weaponAbility())).toBe(0);
+
+    hero.heroicResource.current = 2;
+    expect(names(hero)).toContain("Растущая свирепость Берсерка: 2");
+    expect(featureFieldBonus(hero, "push", weaponAbility())).toBe(2);
   });
 });
 

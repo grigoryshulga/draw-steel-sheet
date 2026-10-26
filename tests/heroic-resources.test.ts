@@ -38,6 +38,8 @@ const TEST_RESOURCE: HeroicResourceSpec = {
   ],
   epic: {
     name: EPIC_RESOURCE_NAME,
+    // Синтетический пул открывается сразу: проверки уровневого гейта — отдельно.
+    level: 1,
     gains: [
       { tag: "epic-start", event: "start-of-turn", amount: "2", frequency: "turn" },
     ],
@@ -347,6 +349,7 @@ describe("resolvedEpicResourceGains", () => {
       ...TEST_RESOURCE,
       epic: {
         name: EPIC_RESOURCE_NAME,
+        level: 1,
         gains: [
           {
             tag: "epic-start",
@@ -373,6 +376,44 @@ describe("resolvedEpicResourceGains", () => {
       expect(epic.map((gain) => gain.tag)).toEqual(["epic-start", "take-damage"]);
       expect(epic.find((gain) => gain.tag === "take-damage")!.amount).toBe("5");
       expect(epic.every((gain) => gain.sourceId === `class:${normalizeFeatureText(TEST_CLASS)}`)).toBe(true);
+    });
+  });
+
+  it("эпический пул открывается на 10-м уровне, если уровень не задан", () => {
+    const defaultLevel: HeroicResourceSpec = {
+      name: TEST_RESOURCE.name,
+      gains: TEST_RESOURCE.gains,
+      epic: {
+        name: EPIC_RESOURCE_NAME,
+        gains: [
+          { tag: "epic-start", event: "start-of-turn", amount: "2", frequency: "turn" },
+        ],
+      },
+    };
+    withResource(defaultLevel, [], () => {
+      expect(resolvedEpicResourceGains(testHero(9))).toEqual([]);
+      expect(resolvedEpicResourceGains(testHero(10)).map((gain) => gain.tag)).toEqual([
+        "epic-start",
+      ]);
+    });
+  });
+
+  it("epic.level задаёт свой уровень открытия пула", () => {
+    const early: HeroicResourceSpec = {
+      ...TEST_RESOURCE,
+      epic: {
+        name: EPIC_RESOURCE_NAME,
+        level: 4,
+        gains: [
+          { tag: "epic-start", event: "start-of-turn", amount: "2", frequency: "turn" },
+        ],
+      },
+    };
+    withResource(early, [], () => {
+      expect(resolvedEpicResourceGains(testHero(3))).toEqual([]);
+      expect(resolvedEpicResourceGains(testHero(4)).map((gain) => gain.tag)).toEqual([
+        "epic-start",
+      ]);
     });
   });
 

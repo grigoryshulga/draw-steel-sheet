@@ -413,6 +413,44 @@ export function featureStatBonus(character: Character, stat: FeatureStat): numbe
   return featureFieldBonus(character, stat);
 }
 
+/** Иммунитет к урону, который даёт активная особенность. */
+export interface FeatureDamageImmunity {
+  sourceId: string;
+  sourceName: string;
+  types: string[];
+  value: number;
+}
+
+/**
+ * Иммунитеты к урону активных источников: значение — показатель из эффекта,
+ * умноженный на `multiplier`. Усиливающая запись заменяет базовую с тем же
+ * набором типов (Элементальная форма → Воплощение Хаоса), а не складывается
+ * с ней — книга говорит «увеличивается до», а не «добавляется».
+ */
+export function featureDamageImmunities(
+  character: Character,
+): FeatureDamageImmunity[] {
+  const best = new Map<string, FeatureDamageImmunity>();
+  for (const source of activeFeatureSources(character)) {
+    for (const effect of source.effects) {
+      if (effect.kind !== "damageImmunity") continue;
+      if (!featureConditionMet(character, effect.when)) continue;
+      const value =
+        resolveFeatureAmount(character, effect.value) * (effect.multiplier ?? 1);
+      const key = effect.types.map(normalize).sort().join("|");
+      const current = best.get(key);
+      if (current && current.value >= value) continue;
+      best.set(key, {
+        sourceId: source.sourceId,
+        sourceName: source.sourceName,
+        types: [...effect.types],
+        value,
+      });
+    }
+  }
+  return [...best.values()];
+}
+
 export function featureAbilityDamageContributions(
   ability: Ability,
   character: Character,

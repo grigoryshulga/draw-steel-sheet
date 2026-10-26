@@ -1,6 +1,7 @@
 import { mechanicsFor } from "../data/class-features/mechanics";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import type {
+  FeatureCondition,
   FeatureEffect,
   FeatureKeyGroup,
   FeatureMechanics,
@@ -136,6 +137,22 @@ function isActiveClassFeature(
 }
 
 /**
+ * Статичные условия показа особенности: аспект, минимальный уровень, форма.
+ * Динамические условия (`resourceAtLeast`) и снаряжение список не фильтруют:
+ * порог свирепости меняется по ходу боя, а фича остаётся частью листа.
+ */
+function showConditions(
+  condition?: FeatureCondition,
+): FeatureCondition | undefined {
+  if (!condition) return undefined;
+  const statics: FeatureCondition = {};
+  if (condition.keyValue?.length) statics.keyValue = condition.keyValue;
+  if (condition.minLevel !== undefined) statics.minLevel = condition.minLevel;
+  if (condition.formActive) statics.formActive = condition.formActive;
+  return Object.keys(statics).length > 0 ? statics : undefined;
+}
+
+/**
  * Активные особенности класса: по `level`, затем по `id`, без дублей.
  * От `automation.enabled` список не зависит — лист показывает фичи всегда,
  * а гейт авторасчёта стоит на эффектах в движке.
@@ -146,6 +163,10 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
   for (const feature of GENERATED_CLASS_FEATURES) {
     if (seen.has(feature.id)) continue;
     if (!isActiveClassFeature(feature, character)) continue;
+    const mechanics = mechanicsFor(feature.id);
+    // Статичные условия (аспект, уровень, форма) скрывают чужую фичу из списка;
+    // динамический порог ресурса оставляет её видимой — его показывает лист.
+    if (!featureConditionMet(character, showConditions(mechanics?.when))) continue;
     seen.add(feature.id);
     active.push({
       id: feature.id,
@@ -155,7 +176,7 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
       ...(feature.keyedBy ? { keyedBy: feature.keyedBy } : {}),
       ...(feature.keyValue ? { keyValue: feature.keyValue } : {}),
       description: feature.description,
-      mechanics: mechanicsFor(feature.id),
+      mechanics,
     });
   }
   return active.sort(

@@ -64,7 +64,14 @@ export type FeatureEffect =
       rolledOnly?: boolean;
     }
   | { kind: "characteristic"; key: CharacteristicKey; value: number }
-  | { kind: "damageImmunity"; types: string[]; value: FeatureAmount; when?: FeatureCondition }
+  | {
+      kind: "damageImmunity";
+      types: string[];
+      value: FeatureAmount;
+      /** Множитель к значению: «иммунитет равен двойному показателю Мощи» — 2. */
+      multiplier?: number;
+      when?: FeatureCondition;
+    }
   | { kind: "conditionImmunity"; conditions: string[] }
   | { kind: "proficiency"; armor?: string[]; weapons?: string[]; treasures?: boolean };
 
@@ -124,7 +131,11 @@ export interface HeroicResourceSpec {
   canBeNegative?: boolean;
   gains: ResourceGain[];
   thresholds?: { level: number; note: string }[];
-  epic?: { name: string; gains: ResourceGain[] };
+  /**
+   * Эпический пул класса: показывается и начисляется с уровня `level`
+   * (по умолчанию — 10-й, как в книге у всех классов).
+   */
+  epic?: { name: string; gains: ResourceGain[]; level?: number };
 }
 
 export type FeatureKind =
@@ -142,6 +153,13 @@ export type FeatureKind =
 
 export interface FeatureMechanics {
   kinds: FeatureKind[];
+  /**
+   * Условия показа самой особенности: аспект, минимальный уровень, форма.
+   * Список активных фич смотрит только на статичные условия из этого поля;
+   * динамические (`resourceAtLeast`) фичу из списка не убирают — порог
+   * показывается на листе как требование к ресурсу.
+   */
+  when?: FeatureCondition;
   effects?: FeatureEffect[];
   trigger?: FeatureTrigger;
   choice?: FeatureChoice;

@@ -154,6 +154,8 @@ export function resolvedResourceGains(
 /**
  * Прибавки эпического ресурса — отдельный пул: лист показывает его рядом
  * с основным, а замены механик основного пула к нему не применяются.
+ * Эпический пул открывается на своём уровне (`epic.level`, по умолчанию 10-й)
+ * — до него прибавок нет.
  */
 export function resolvedEpicResourceGains(
   character: Character,
@@ -161,5 +163,7 @@ export function resolvedEpicResourceGains(
   const className = character.className ?? "";
   const epic = resourceSpecFor(className)?.epic;
   if (!epic) return [];
+  const level = typeof character.level === "number" ? character.level : 0;
+  if (level < (epic.level ?? 10)) return [];
   return applyGains(specGains(className, epic), []);
 }

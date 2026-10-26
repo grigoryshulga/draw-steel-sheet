@@ -125,8 +125,14 @@ describe("activeClassFeatures", () => {
 
   it("фича без keyedBy и с числовым keyValue активна по уровню", () => {
     // Пороговые строки таблиц разбираются без группы выбора: keyValue — число.
-    const ids = activeClassFeatures(furyWithAspect("Разоритель")).map((f) => f.id);
-    expect(ids).toContain("fury.feature.1.rastushchaya-svirepost-berserka-2");
+    // Временная запись без механики: статичные условия фичи (`mechanics.when`)
+    // проверяет отдельный тест, а здесь важно только правило активации.
+    withFeature({ keyValue: "2" }, { kinds: ["situational"] }, () => {
+      const ids = activeClassFeatures(furyWithAspect("Разоритель")).map(
+        (feature) => feature.id,
+      );
+      expect(ids).toContain(TEST_ID);
+    });
   });
 
   it("фича с keyedBy без совпадения по выбору не активна, с совпадением — активна", () => {
