@@ -88,6 +88,12 @@
     white-space: nowrap;
   }
 
+  /* Раунд и схватка — действия, а не показатели: две кнопки во всю ширину
+     второй строки. */
+  .sheet-quick-action.is-turn {
+    grid-column: span 2;
+  }
+
   .sheet-quick-modal .modal-body > .panel > .panel-head {
     display: none;
   }

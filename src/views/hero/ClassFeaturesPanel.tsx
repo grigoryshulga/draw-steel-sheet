@@ -6,6 +6,11 @@ import {
   featureConditionMet,
   resolveFeatureAmount,
 } from "../../lib/feature-modifiers";
+import { activeClassFeatures } from "../../lib/class-features";
+import {
+  ClassFeatureMechanicsPanel,
+  RoundEncounterControls,
+} from "../sheet/ClassFeaturesPanel";
 import "./ClassFeaturesPanel.css";
 
 /** Stable, explicit class feature selections for automatic calculation. */
@@ -14,7 +19,12 @@ export function ClassFeaturesPanel() {
   const groups = classFeatureGroups(character.className);
   const selections = character.automation?.classFeatureSelections ?? {};
 
-  if (groups.length === 0) return null;
+  // Новый раздел (механики, триггеры, выбор аспекта) живёт по тем же правилам
+  // активации, что и лист, поэтому панель есть и у классов без старого реестра.
+  // Проверка дешёвая: список триггеров и бейджей строит сам раздел ниже.
+  const hasMechanics = activeClassFeatures(character).length > 0;
+
+  if (groups.length === 0 && !hasMechanics) return null;
 
   const selectOption = (groupId: string, optionId: string) => {
     update((current) => {
@@ -36,9 +46,16 @@ export function ClassFeaturesPanel() {
   };
 
   return (
-    <Panel title="Особенности класса" icon="spark" dense>
-      <div className="class-feature-groups">
-        {groups.map((group) => {
+    <Panel
+      title="Особенности класса"
+      icon="spark"
+      dense
+      actions={<RoundEncounterControls />}
+    >
+      <ClassFeatureMechanicsPanel />
+      {groups.length > 0 && (
+        <div className="class-feature-groups">
+          {groups.map((group) => {
             const selectedId = selections[group.id] ?? "";
             const selected = group.options.find(
               (option) => option.id === selectedId,
@@ -149,8 +166,9 @@ export function ClassFeaturesPanel() {
                 )}
               </section>
             );
-        })}
-      </div>
+          })}
+        </div>
+      )}
     </Panel>
   );
 }

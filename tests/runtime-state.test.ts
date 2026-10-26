@@ -52,6 +52,18 @@ describe("runtime state", () => {
     expect(character.runtime!.triggers["f1"]).toEqual({ round: 2, count: 1 });
   });
 
+  it("отметка триггера схватки хранится номером схватки и переживает новый раунд", () => {
+    let character = markTrigger(hero(), "f1", true, "encounter");
+    expect(character.runtime!.triggers["f1"]).toEqual({ encounter: 1, count: 1 });
+
+    character = beginRound(character);
+    expect(character.runtime!.round).toBe(2);
+    expect(character.runtime!.triggers["f1"]).toEqual({ encounter: 1, count: 1 });
+
+    character = beginEncounter(character);
+    expect(character.runtime!.triggers).toEqual({});
+  });
+
   it("старый лист без runtime работает, а исходный герой не мутируется", () => {
     const character = hero();
     delete (character as { runtime?: unknown }).runtime;

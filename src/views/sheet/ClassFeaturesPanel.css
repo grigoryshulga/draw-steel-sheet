@@ -1,0 +1,206 @@
+/* Панель активных особенностей класса на листе: группы по уровням, бейджи
+   триггеров и условий. Переменные — из base.css, чтобы панель совпадала с
+   остальными блоками листа. */
+
+.cf-sheet {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Кнопки раунда и схватки в шапке панели; на узком экране их заменяют быстрые
+   действия листа. */
+.cf-turn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cf-choices {
+  display: grid;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-3);
+}
+
+.cf-choice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.cf-choice-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.cf-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.cf-status-triggers.is-live {
+  color: var(--accent);
+  font-weight: 650;
+}
+
+.cf-groups {
+  display: grid;
+  gap: 6px;
+}
+
+.cf-group {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.cf-group-head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 0;
+  background: var(--surface-2);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cf-group-head:hover,
+.cf-group-head:focus-visible {
+  background: var(--surface-hover);
+  outline: none;
+}
+
+.cf-group-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.cf-group-count {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.cf-group-triggers {
+  min-width: 18px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cf-items {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+}
+
+.cf-item {
+  display: grid;
+  gap: 4px;
+  padding: 8px 11px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+}
+
+/* Отмеченный в этом раунде триггер приглушён: срабатывание уже случилось. */
+.cf-item.is-used {
+  opacity: 0.55;
+}
+
+.cf-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 10px;
+}
+
+.cf-item-name {
+  min-width: 0;
+  font-size: 0.83rem;
+  font-weight: 650;
+}
+
+.cf-item-summary {
+  margin: 0;
+  color: var(--fg);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.cf-item-note {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.cf-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cf-badge {
+  max-width: 100%;
+  padding: 1px 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.69rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cf-badge.is-trigger {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.cf-badge.is-immunity {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.cf-badge.is-off {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
+@media (max-width: 700px) {
+  .cf-turn {
+    display: none;
+  }
+
+  .cf-choice {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cf-item {
+    padding: 7px 9px;
+  }
+}

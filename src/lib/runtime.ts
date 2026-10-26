@@ -1,4 +1,5 @@
 import type { Character, CharacterRuntime } from "../types";
+import type { TriggerFrequency } from "../data/class-features/types";
 
 /**
  * Состояние схватки героя: раунд, номер схватки, отметки триггеров, формы и
@@ -61,23 +62,34 @@ export function beginEncounter(character: Character): Character {
 }
 
 /**
- * Отметка триггера: `used` ставит отметку текущего раунда, повторная отметка в
- * том же раунде увеличивает `count`, а `false` снимает отметку совсем.
+ * Отметка триггера: `used` ставит отметку текущего раунда, повторная отметка
+ * увеличивает `count`, а `false` снимает отметку совсем.
+ *
+ * У триггера с частотой `encounter` отметка хранится номером схватки, а не
+ * раунда: `beginRound` снимает только отметки раунда, поэтому срабатывание
+ * «раз за схватку» переживает смену раунда, а `beginEncounter` его чистит.
  */
 export function markTrigger(
   character: Character,
   featureId: string,
   used: boolean,
+  frequency: TriggerFrequency = "round",
 ): Character {
   const runtime = currentRuntime(character);
   const triggers = { ...runtime.triggers };
   if (!used) {
     delete triggers[featureId];
+  } else if (frequency === "encounter") {
+    const previous = triggers[featureId];
+    const sameEncounter = previous?.encounter === runtime.encounter;
+    triggers[featureId] = {
+      encounter: runtime.encounter,
+      count: sameEncounter ? (previous?.count ?? 0) + 1 : 1,
+    };
   } else {
     const previous = triggers[featureId];
     const sameRound = previous?.round === runtime.round;
     triggers[featureId] = {
-      ...previous,
       round: runtime.round,
       count: sameRound ? (previous?.count ?? 0) + 1 : 1,
     };

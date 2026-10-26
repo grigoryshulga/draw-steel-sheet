@@ -119,6 +119,19 @@
   color: var(--muted);
 }
 
+/* Эффективное значение характеристики: сохранённое плюс бонусы особенностей.
+   Подсказка объясняет, откуда прибавка; редактируется сохранённое значение. */
+.stat-effective {
+  padding: 0 5px;
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.6;
+  cursor: help;
+}
+
 /* ---------- Витальные показатели ---------- */
 
 .vitals-status {

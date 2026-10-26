@@ -1,4 +1,5 @@
 import type { Character, CharacterRuntime } from "../types";
+import type { TriggerFrequency } from "../data/class-features/types";
 import { applyDamage, deriveStats } from "./rules";
 import { heroicResourceName } from "../data/classes";
 import { classFeatureTriggers } from "./class-features";
@@ -40,6 +41,20 @@ function triggerName(character: Character, featureId: string): string {
   return (
     classFeatureTriggers(character).find((item) => item.featureId === featureId)
       ?.name ?? featureId
+  );
+}
+
+/**
+ * Частота отметки: у «раз за схватку» отметка живёт до новой схватки, у
+ * остальных — до нового раунда. Неизвестный триггер отмечается как раунд.
+ */
+function triggerFrequency(
+  character: Character,
+  featureId: string,
+): TriggerFrequency {
+  return (
+    classFeatureTriggers(character).find((item) => item.featureId === featureId)
+      ?.frequency ?? "round"
   );
 }
 
@@ -205,18 +220,19 @@ export function previewGameAction(
     }
     case "trigger": {
       const name = triggerName(character, action.featureId);
+      const frequency = triggerFrequency(character, action.featureId);
       const runtime = currentRuntime(character);
       if (!action.used && !runtime.triggers[action.featureId])
         return invalid(`Отметка «${name}» не стоит`);
       const nextRuntime = currentRuntime(
-        markTrigger(character, action.featureId, action.used),
+        markTrigger(character, action.featureId, action.used, frequency),
       );
       const mark = nextRuntime.triggers[action.featureId];
       return finish(
         action.used ? `Отмечено: ${name}` : `Отметка снята: ${name}`,
         action.used
-          ? `Раунд ${nextRuntime.round}${mark?.count && mark.count > 1 ? `, ${mark.count}-й раз` : ""}.`
-          : `Триггер снова доступен в раунде ${nextRuntime.round}.`,
+          ? `${frequency === "encounter" ? `Схватка ${nextRuntime.encounter}` : `Раунд ${nextRuntime.round}`}${mark?.count && mark.count > 1 ? `, ${mark.count}-й раз` : ""}.`
+          : `Триггер снова доступен в ${frequency === "encounter" ? `схватке ${nextRuntime.encounter}` : `раунде ${nextRuntime.round}`}.`,
         { runtime: nextRuntime },
       );
     }

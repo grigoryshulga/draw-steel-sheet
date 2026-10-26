@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from "react";
 import { Modal } from "../../components/ui";
 import { CONDITIONS } from "../../data/conditions";
 import { heroicResourceName } from "../../data/classes";
+import { currentRuntime } from "../../lib/runtime";
 import { useApp } from "../../state/AppContext";
 import { ConditionsPanel } from "./ConditionsPanel";
 import { HealthDialog } from "./HealthDialog";
@@ -13,7 +14,7 @@ type QuickPanel = "resources" | "conditions" | "history" | null;
 
 /** Compact mobile entry points to the character's frequently used combat data. */
 export function SheetQuickActions() {
-  const { character, gameHistory } = useApp();
+  const { character, gameHistory, performGameAction } = useApp();
   const [healthOpen, setHealthOpen] = useState(false);
   const [panel, setPanel] = useState<QuickPanel>(null);
   const [topbarHeight, setTopbarHeight] = useState(73);
@@ -35,6 +36,7 @@ export function SheetQuickActions() {
     ({ key }) => character.conditions[key]?.active,
   );
   const resourceName = heroicResourceName(character.className);
+  const runtime = currentRuntime(character);
 
   return (
     <>
@@ -95,6 +97,26 @@ export function SheetQuickActions() {
             {gameHistory.filter((entry) => !entry.undone).length || "—"}
           </strong>
           <span className="sheet-quick-detail">Отмена</span>
+        </button>
+        <button
+          type="button"
+          className="sheet-quick-action is-turn"
+          onClick={() => performGameAction({ kind: "round" })}
+          aria-label={`Новый раунд: сейчас ${runtime.round}, будут сняты отметки триггеров раунда`}
+          title="Новый раунд: снять отметки триггеров раунда"
+        >
+          <span className="sheet-quick-label">Новый раунд</span>
+          <strong className="numeric">{runtime.round}</strong>
+        </button>
+        <button
+          type="button"
+          className="sheet-quick-action is-turn"
+          onClick={() => performGameAction({ kind: "encounter" })}
+          aria-label={`Новая схватка: сейчас ${runtime.encounter}, все отметки триггеров будут сняты`}
+          title="Новая схватка: снять все отметки триггеров"
+        >
+          <span className="sheet-quick-label">Новая схватка</span>
+          <strong className="numeric">{runtime.encounter}</strong>
         </button>
       </nav>
 

@@ -2,6 +2,7 @@ import { Field, Panel, Stepper, TextInput } from "../../components/ui";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
+import { featureCharacteristicBonus } from "../../lib/feature-modifiers";
 import { useApp } from "../../state/AppContext";
 import { StatBreakdown } from "./StatBreakdown";
 
@@ -39,10 +40,21 @@ export function CharacteristicsPanel() {
       <div className="char-grid">
         {CHARACTERISTICS.map((meta) => {
           const value = character.characteristics[meta.key];
+          // Эффективное значение считается движком (сохранённое + бонусы
+          // особенностей); правится по-прежнему сохранённое значение.
+          const bonus = featureCharacteristicBonus(character, meta.key);
           return (
             <div className="stat-card" key={meta.key}>
               <div className="stat-card-head">
                 <span className="stat-name">{meta.label}</span>
+                {bonus !== 0 && (
+                  <span
+                    className="stat-effective"
+                    title={`${bonus > 0 ? "+" : ""}${bonus} от особенностей`}
+                  >
+                    {value + bonus}
+                  </span>
+                )}
               </div>
               <Stepper
                 value={value}
