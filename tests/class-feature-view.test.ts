@@ -287,7 +287,7 @@ describe("classFeatureChoicesForSheet", () => {
   });
 });
 
-describe("панель показывает только то, что даёт механику", () => {
+describe("панель показывает механику и прозу, но не контейнеры", () => {
   it("у классов без разобранных механик раздел пуст — дубля со старым реестром нет", () => {
     for (const className of ["Проводник", "Элементалист", "Тактик", "Тень"]) {
       const hero = createCharacter({ className, level: 6 });
@@ -301,8 +301,6 @@ describe("панель показывает только то, что даёт �
     const names = new Set(itemsOf(hero).map((item) => item.name));
     for (const container of [
       "Свирепость",
-      "Свирепость в бою",
-      "Свирепость вне боя",
       "Растущая свирепость",
       "Особенности аспекта 1-го уровня",
       "Особенность аспекта 2-го уровня",
@@ -313,12 +311,9 @@ describe("панель показывает только то, что даёт �
     ]) {
       expect(names.has(container)).toBe(false);
     }
-    // Прозаических заглушек в разделе не осталось: каждая строка — механика.
-    expect(
-      itemsOf(hero).filter((item) =>
-        item.badges.some((badge) => badge.label === "по тексту правил"),
-      ),
-    ).toEqual([]);
+    // Прозаические особенности своего аспекта при этом остаются на листе.
+    expect(names.has("Непреодолимая сила")).toBe(true);
+    expect(names.has("Свирепость в бою")).toBe(true);
   });
 
   it("оставляет 6 пороговых строк выбранного аспекта и его триггеры", () => {
@@ -425,5 +420,70 @@ describe("частота отметки берётся из механики, а
         expect(beginEncounter(nextRound).runtime!.triggers[TEST_ID]).toBeUndefined();
       },
     );
+  });
+});
+
+describe("прозаические особенности на листе", () => {
+  const namesOf = (hero: Character) =>
+    itemsOf(hero).map((item) => item.name);
+
+  it("2-й уровень: «Непреодолимая сила» есть у Берсерка и нет у Разорителя", () => {
+    expect(namesOf(fury(2, "Берсерк"))).toContain("Непреодолимая сила");
+    expect(namesOf(fury(2, "Разоритель"))).not.toContain("Непреодолимая сила");
+  });
+
+  it("1-й уровень: прозаические особенности своего аспекта на месте", () => {
+    const raider = namesOf(fury(1, "Разоритель"));
+    expect(raider).toContain("Могучие прыжки");
+    expect(raider).toContain("Первозданная хитрость");
+    // Чужой аспект по-прежнему не показывается.
+    expect(raider).not.toContain("Первозданная сила");
+    expect(namesOf(fury(1, "Берсерк"))).toContain("Первозданная сила");
+  });
+
+  it("ни у одной показанной записи нет детей", () => {
+    const shown = new Set(itemsOf(fury(10, "Берсерк")).map((item) => item.id));
+    const parents = new Set(
+      GENERATED_CLASS_FEATURES.map((feature) => feature.parentId).filter(
+        (id): id is string => Boolean(id),
+      ),
+    );
+    for (const id of shown) expect(parents.has(id)).toBe(false);
+  });
+
+  it("у прозаической записи подпись из текста и бейдж «по тексту правил»", () => {
+    const item = itemOf(
+      fury(2, "Берсерк"),
+      "fury.aspect.2.nepreodolimaya-sila",
+    );
+    expect(
+      item.summary.startsWith(
+        "Всякий раз, когда вы используете действие атаки с рывком",
+      ),
+    ).toBe(true);
+    expect(item.summary.length).toBeLessThanOrEqual(121);
+    expect(item.badges).toContainEqual({
+      kind: "text",
+      label: "по тексту правил",
+      active: true,
+    });
+  });
+
+  it("у триггерной записи без чисел подпись берётся из триггера", () => {
+    const item = itemOf(
+      fury(4, "Берсерк"),
+      "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
+    );
+    expect(item.summary).toBe("Первый толчок в свой ход при 8+ свирепости");
+  });
+});
+
+describe("подпись строки", () => {
+  it("подпись триггера, совпадающая с названием, заменяется текстом правила", () => {
+    const item = itemOf(fury(1, "Берсерк"), "fury.aspect.1.linii-sily");
+    expect(item.summary).not.toBe("Линии силы");
+    expect(
+      item.summary.startsWith("Вы перенаправляете энергию движения"),
+    ).toBe(true);
   });
 });

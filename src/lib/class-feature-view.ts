@@ -1,4 +1,5 @@
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
+import { NOT_YET } from "../data/class-features/mechanics";
 import type {
   FeatureChoice,
   FeatureCondition,
@@ -32,13 +33,14 @@ import { normalizeFeatureText } from "./utils";
  * не трогает (их меняет только движок модификаторов).
  */
 
-/** Вид бейджа: срабатывание, условие, иммунитет, выбор, выдача. */
+/** Вид бейджа: срабатывание, условие, иммунитет, выбор, выдача, проза. */
 export type FeatureBadgeKind =
   | "trigger"
   | "threshold"
   | "immunity"
   | "choice"
-  | "grant";
+  | "grant"
+  | "text";
 
 export interface FeatureSheetBadge {
   kind: FeatureBadgeKind;
@@ -61,7 +63,11 @@ export interface FeatureSheetItem {
   id: string;
   name: string;
   level: number;
-  /** Числа механики, разрешённые в конкретику: «скорость +3 (Ловкость)». */
+  /**
+   * Числа механики, разрешённые в конкретику: «скорость +3 (Ловкость)».
+   * У прозаической записи — первый смысловой фрагмент текста правила,
+   * у записи без чисел — подпись её триггера.
+   */
   summary: string;
   badges: FeatureSheetBadge[];
   trigger?: FeatureSheetTrigger;
@@ -363,6 +369,14 @@ function conditionBadges(
   return badges;
 }
 
+/** Названия классов, чьи механики ещё не перенесены: ключи — в нижнем регистре. */
+const UNMODELLED_CLASSES = new Set(
+  Object.keys(NOT_YET).map((className) => normalizeFeatureText(className)),
+);
+
+/** Предел подписи прозаической записи: панель показывает фрагмент, не абзац. */
+const MAX_TEXT_SUMMARY = 120;
+
 /** Слияние одинаковых бейджей: один и тот же порог показывается один раз. */
 function mergeBadges(badges: FeatureSheetBadge[]): FeatureSheetBadge[] {
   const merged = new Map<string, FeatureSheetBadge>();
@@ -377,6 +391,41 @@ function mergeBadges(badges: FeatureSheetBadge[]): FeatureSheetBadge[] {
     );
   }
   return [...merged.values()];
+}
+
+/**
+ * Есть ли у записи дети: такие записи — контейнеры (заголовки таблиц,
+ * «Свирепость», «Способности неистового») и на лист не попадают.
+ */
+function hasChildren(featureId: string): boolean {
+  return GENERATED_CLASS_FEATURES.some(
+    (feature) => feature.parentId === featureId,
+  );
+}
+
+/** Класс смоделирован новым реестром, а не отложен в `NOT_YET`. */
+function classIsModelled(className: string): boolean {
+  return !UNMODELLED_CLASSES.has(normalizeFeatureText(className));
+}
+
+/**
+ * Первый смысловой фрагмент текста правила: markdown снят, обрезано по
+ * границе предложения (или по слову) до ~120 символов. Панель показывает
+ * подпись, а не пересказ всей статьи.
+ */
+function textSummary(description: string): string {
+  const plain = description
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[*_`>#|]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!plain) return "";
+  const sentence = plain.match(/^.*?[.!?](?=\s|$)/)?.[0] ?? plain;
+  if (sentence.length <= MAX_TEXT_SUMMARY) return sentence;
+  const cut = sentence.slice(0, MAX_TEXT_SUMMARY);
+  const space = cut.lastIndexOf(" ");
+  return `${(space > 40 ? cut.slice(0, space) : cut).trimEnd()}…`;
 }
 
 /** Запись листа по одной активной особенности. */
@@ -469,7 +518,11 @@ function sheetItem(
   }
 
   const merged = mergeBadges(badges);
-  if (parts.length === 0 && merged.length === 0) {
+  if (!givesMechanics(feature)) {
+    // Прозаическая запись: чисел в модели нет, но игрок должен видеть, что
+    // получил её. Бейдж говорит это прямым текстом.
+    merged.push({ kind: "text", label: "по тексту правил", active: true });
+  } else if (merged.length === 0) {
     // Прибавку ресурса лист считает в панели ресурсов; здесь она только
     // называется, чтобы строка не осталась пустой.
     merged.push({
@@ -479,22 +532,37 @@ function sheetItem(
     });
   }
 
+  // Подпись: числа эффектов, иначе — подпись триггера, иначе — первый
+  // смысловой фрагмент текста правила. Пустая подпись у прозаической
+  // особенности читалась бы как «строка ни о чём», а подпись триггера,
+  // совпадающая с названием («Линии силы»), ничего не добавляет.
+  let summary = parts.join("; ");
+  if (!summary) {
+    const triggerSpec = mechanics?.trigger;
+    const triggerSummary = triggerSpec
+      ? triggerSpec.label.trim() || textSummary(triggerSpec.detail)
+      : "";
+    summary =
+      triggerSummary &&
+      normalizeFeatureText(triggerSummary) !== normalizeFeatureText(feature.name)
+        ? triggerSummary
+        : textSummary(feature.description);
+  }
+
   return {
     id: feature.id,
     name: feature.name,
     level: feature.level,
-    summary: parts.join("; "),
+    summary,
     badges: merged,
     ...(trigger ? { trigger } : {}),
   };
 }
 
 /**
- * Запись попадает в панель, только если даёт механику: эффекты, триггер,
- * выбор или прибавки ресурса. Контейнеры ("Свирепость", "Растущая
- * свирепость", "Особенности аспекта N-го уровня") и служебные заголовки
- * скелета остаются за бортом: их дети идут отдельными строками и без родителя
- * читаются нормально.
+ * Есть ли у записи механика, которую панель показывает: эффекты, триггер,
+ * выбор или прибавки ресурса. Пороговая строка таблицы тоже считается: её
+ * механика — само условие достижения порога (бейдж «нужно N Свирепость»).
  */
 function givesMechanics(feature: ActiveClassFeature): boolean {
   const mechanics = feature.mechanics;
@@ -507,9 +575,27 @@ function givesMechanics(feature: ActiveClassFeature): boolean {
   ) {
     return true;
   }
-  // Пороговая строка таблицы Растущей свирепости: её механика — само условие
-  // достижения порога, поэтому строка остаётся (бейдж «нужно N Свирепость»).
   return mechanics.when?.resourceAtLeast !== undefined;
+}
+
+/**
+ * Запись попадает в панель, если класс смоделирован, запись не контейнер и
+ * либо даёт механику (эффекты, триггер, выбор, прибавки ресурса), либо это
+ * прозаическая особенность: правил в модели нет, но игрок должен видеть, что
+ * получил её. Контейнеры («Свирепость», «Растущая свирепость», заголовки
+ * аспектов и способностей) не показываются никогда: их дети идут отдельными
+ * строками и без родителя читаются нормально.
+ */
+function isSheetFeature(
+  character: Character,
+  feature: ActiveClassFeature,
+): boolean {
+  if (needsUnknownSelection(character, feature)) return false;
+  // Контейнер не показывается, даже если у него есть механика.
+  if (hasChildren(feature.id)) return false;
+  if (givesMechanics(feature)) return true;
+  // Правила классов из `NOT_YET` показывает прежний реестр, а не новый раздел.
+  return classIsModelled(feature.className);
 }
 
 /**
@@ -525,18 +611,10 @@ function needsUnknownSelection(
   return selectionGroupFor(character.className ?? "", feature.keyedBy) === undefined;
 }
 
-/** Особенность, которую лист показывает строкой: есть механика и ясен выбор. */
-function isSheetFeature(
-  character: Character,
-  feature: ActiveClassFeature,
-): boolean {
-  return givesMechanics(feature) && !needsUnknownSelection(character, feature);
-}
-
 /**
- * Группы особенностей по уровням: только активные записи с механикой, поэтому
- * уровней выше героя в списке нет. Внутри группы порядок задаёт
- * `activeClassFeatures` (уровень, затем `id`).
+ * Группы особенностей по уровням: только активные записи, поэтому уровней
+ * выше героя в списке нет. Внутри группы порядок задаёт `activeClassFeatures`
+ * (уровень, затем `id`).
  */
 export function classFeatureGroupsForSheet(
   character: Character,
@@ -560,11 +638,12 @@ export function classFeatureGroupsForSheet(
 }
 
 /**
- * Особенность, которую игрок действительно получает: число, триггер, порог
- * или иммунитет. Строки выбора (аспект, способность аспекта) сюда не входят:
- * их ведёт свой список выборов, и без выбора такая строка ничего не даёт.
+ * Строка блока «Что вы получите»: механика, а не проза и не выбор. Прозаическая
+ * запись («по тексту правил») видна в панели и правилах, а выбор ведёт список
+ * выборов плана повышения — в подарках он бы задвоился.
  */
 function isGift(item: FeatureSheetItem): boolean {
+  if (item.badges.some((badge) => badge.kind === "text")) return false;
   return (
     item.summary !== "" ||
     item.badges.some(
@@ -589,10 +668,20 @@ export function classFeatureGiftsAtLevel(
   level: number,
 ): FeatureSheetItem[] {
   if (!Number.isSafeInteger(level) || level <= (character.level ?? 0)) return [];
-  const group = classFeatureGroupsForSheet({ ...character, level }).find(
+  const future = { ...character, level };
+  // У записи с собственным выбором (способность аспекта, перк, навык) подарок
+  // определяется выбором, а не уровнем — такие строки ведёт `plan.choices`.
+  const chosenElsewhere = new Set(
+    activeClassFeatures(future)
+      .filter((feature) => feature.mechanics?.choice)
+      .map((feature) => feature.id),
+  );
+  const group = classFeatureGroupsForSheet(future).find(
     (item) => item.level === level,
   );
-  return (group?.features ?? []).filter(isGift);
+  return (group?.features ?? []).filter(
+    (item) => !chosenElsewhere.has(item.id) && isGift(item),
+  );
 }
 
 /**
