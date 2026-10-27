@@ -2,7 +2,7 @@ import {
   CLASS_FEATURE_GROUPS,
 } from "../data/class-feature-rules";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
-import type { FeatureCondition } from "../data/class-features/types";
+import type { FeatureCondition, FeatureKeyGroup } from "../data/class-features/types";
 import type { Character } from "../types";
 import { normalizeFeatureText as normalize } from "./utils";
 import { currentRuntime } from "./runtime";
@@ -50,6 +50,44 @@ function currentResourceValue(character: Character, name: string): number {
 }
 
 /**
+ * Ключи групп выбора в `automation.classFeatureSelections`; ключ класса — в
+ * нижнем регистре. Ключи не выводятся из `id` записи: приложение пишет свои
+ * `conduit.prayer`, `talent.augmentation` (см. `classFeatureSelectionsFromDraft`),
+ * и угаданный `<слаг>.<группа>` не совпал бы с ними, а в случае совпадения имени
+ * задублировал бы бонусы старого реестра.
+ *
+ * У Проводника выбор доменов добавлен для корректной фильтрации записей, у
+ * Цензора — орден и домен. Класс без записи в таблице по выборам не
+ * фильтруется вовсе — это зафиксировано тестом.
+ *
+ * Таблица живёт в модуле условий, потому что условия (`when.keyValue`) и
+ * активация записей обязаны отвечать на вопрос «какой выбор здесь действует»
+ * одинаково. Группа ищется по паре «класс + вид группы»: у Цензора их две
+ * (орден и домен), и общий для класса ответ был бы неверным.
+ */
+const SELECTION_GROUPS: Record<
+  string,
+  Partial<Record<FeatureKeyGroup, string>>
+> = {
+  неистовый: { aspect: "fury.aspect" },
+  проводник: { domain: "conduit.domain" },
+  // У Цензора два независимых выбора: орден (подкласс) и один домен.
+  цензор: { order: "censor.order", domain: "censor.domain" },
+};
+
+/**
+ * Ключ группы выбора для класса и вида группы. `undefined` — класса нет в
+ * таблице: тогда выборы не фильтруются (старое поведение), а панель листа не
+ * показывает такие записи, потому что не может понять, выбраны ли они.
+ */
+export function selectionGroupFor(
+  className: string,
+  keyedBy: FeatureKeyGroup,
+): string | undefined {
+  return SELECTION_GROUPS[normalize(className)]?.[keyedBy];
+}
+
+/**
  * Группы выбора, значение которых приложение пока не записывает в
  * `automation.classFeatureSelections`: у Неистового аспект и у Проводника
  * домены могут читаться из `character.subclass`. Ключ — `id` группы, значение
@@ -58,6 +96,9 @@ function currentResourceValue(character: Character, name: string): number {
 const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   "fury.aspect": "Неистовый",
   "conduit.domain": "Проводник",
+  // Орден Цензора — это его подкласс: билдер пишет его название в
+  // `character.subclass`, отдельного поля у приложения нет.
+  "censor.order": "Цензор",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */
@@ -106,9 +147,7 @@ function selectedKeyValues(
   const groupsByValue = new Map<string, Set<string>>();
   for (const feature of GENERATED_CLASS_FEATURES) {
     if (!feature.keyedBy || !feature.keyValue) continue;
-    const registeredGroup = Object.entries(SUBCLASS_BACKED_GROUPS).find(
-      ([, owner]) => normalize(owner) === normalize(feature.className),
-    )?.[0];
+    const registeredGroup = selectionGroupFor(feature.className, feature.keyedBy);
     if (!registeredGroup) continue;
     for (const conditionValue of conditionValues) {
       const wanted = normalize(conditionValue);

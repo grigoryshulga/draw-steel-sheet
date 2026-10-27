@@ -10,7 +10,11 @@ import type {
   TriggerFrequency,
 } from "../data/class-features/types";
 import type { Character } from "../types";
-import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
+import {
+  featureConditionMet,
+  selectedGroupValue,
+  selectionGroupFor,
+} from "./feature-conditions";
 import { normalizeFeatureText } from "./utils";
 
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
@@ -45,35 +49,11 @@ export interface ActiveClassFeatureEffects {
 }
 
 /**
- * Ключи групп выбора в `automation.classFeatureSelections`; ключ класса — в нижнем
- * регистре. Ключи не выводятся из `id` записи: приложение пишет свои
- * `conduit.prayer`, `talent.augmentation` (см. `classFeatureSelectionsFromDraft`),
- * и угаданный `<слаг>.<группа>` не совпал бы с ними, а в случае совпадения имени
- * задублировал бы бонусы старого реестра.
- *
- * У Проводника выбор доменов добавлен для корректной фильтрации записей; механики
- * остальных классов ещё в `NOT_YET`. Класс без записи в таблице по выборам не
- * фильтруется вовсе — это зафиксировано тестом.
+ * Таблица групп выбора (`SELECTION_GROUPS`) и `selectionGroupFor` живут в
+ * `feature-conditions`: их спрашивают и активация записей, и условия эффектов.
+ * Здесь остаётся реэкспорт, чтобы панель листа не тянула модуль условий.
  */
-const SELECTION_GROUPS: Record<
-  string,
-  Partial<Record<FeatureKeyGroup, string>>
-> = {
-  неистовый: { aspect: "fury.aspect" },
-  проводник: { domain: "conduit.domain" },
-};
-
-/**
- * Ключ группы выбора для класса и вида группы. `undefined` — класса нет в
- * таблице: тогда выборы не фильтруются (старое поведение), а панель листа не
- * показывает такие записи, потому что не может понять, выбраны ли они.
- */
-export function selectionGroupFor(
-  className: string,
-  keyedBy: FeatureKeyGroup,
-): string | undefined {
-  return SELECTION_GROUPS[normalizeFeatureText(className)]?.[keyedBy];
-}
+export { selectionGroupFor } from "./feature-conditions";
 
 /** Ключ группы выбора для записи или `undefined`, если класс не в таблице. */
 function selectionGroupId(

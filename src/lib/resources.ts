@@ -237,7 +237,7 @@ function applyGains(
     frequency: gain.frequency,
     label: sourceId.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")
       ? domainGainLabel(sourceId, gain.event)
-      : resourceGainLabel(gain.event),
+      : gain.label ?? resourceGainLabel(gain.event),
     sourceId,
     sourceName,
   }));

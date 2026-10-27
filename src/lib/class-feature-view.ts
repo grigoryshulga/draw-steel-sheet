@@ -826,9 +826,6 @@ function copyGroups(groups: FeatureSheetGroup[]): FeatureSheetGroup[] {
  * выборов плана повышения — в подарках он бы задвоился.
  */
 function isGift(item: FeatureSheetItem): boolean {
-  // Доменные особенности описаны текстом в скелете, но это реальные дары
-  // уровня (включая комплемент, отображаемый на уровне 2/5/8).
-  if (/^conduit\.domain\.(1|4|7)\./.test(item.id)) return true;
   if (item.badges.some((badge) => badge.kind === "text")) return false;
   return (
     item.summary !== "" ||
@@ -855,18 +852,29 @@ export function classFeatureGiftsAtLevel(
 ): FeatureSheetItem[] {
   if (!Number.isSafeInteger(level) || level <= (character.level ?? 0)) return [];
   const future = { ...character, level };
+  const futureFeatures = activeClassFeatures(future);
   // У записи с собственным выбором (способность аспекта, перк, навык) подарок
   // определяется выбором, а не уровнем — такие строки ведёт `plan.choices`.
   const chosenElsewhere = new Set(
-    activeClassFeatures(future)
+    futureFeatures
       .filter((feature) => feature.mechanics?.choice)
+      .map((feature) => feature.id),
+  );
+  // Записи, привязанные к выбору подкласса (аспект, орден, домен), — реальные
+  // дары уровня, даже когда описаны прозой: их выдаёт выбранный вариант, а не
+  // текст строки. Правило общее для всех классов.
+  const selectionGifts = new Set(
+    futureFeatures
+      .filter((feature) => feature.keyedBy !== undefined)
       .map((feature) => feature.id),
   );
   const group = classFeatureGroupsForSheet(future).find(
     (item) => item.level === level,
   );
   return (group?.features ?? []).filter(
-    (item) => !chosenElsewhere.has(item.id) && isGift(item),
+    (item) =>
+      !chosenElsewhere.has(item.id) &&
+      (selectionGifts.has(item.id) || isGift(item)),
   );
 }
 

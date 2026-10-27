@@ -124,6 +124,12 @@ export interface ResourceGain {
   amount: string;
   frequency: TriggerFrequency;
   replaces?: string[];
+  /**
+   * Подпись для листа, если события мало: «первый раз за раунд, когда
+   * осуждённый наносит тебе урон» одним `TriggerEvent` не выразить.
+   * Без подписи берётся словарная подпись события.
+   */
+  label?: string;
 }
 
 export interface HeroicResourceSpec {

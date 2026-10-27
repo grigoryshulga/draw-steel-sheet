@@ -282,6 +282,12 @@ export function buildCharacter(
       classFeatureSelections["conduit.domain.1"] = draft.conduitDomainFeature;
     }
   }
+  // У Цензора орден хранится как подкласс (`character.subclass`) и читается
+  // фолбэком `censor.order`; домен приложение нигде больше не хранит, поэтому
+  // пишем его явно — иначе особенности доменов не активируются.
+  if (draft.className === "Цензор" && draft.domain.trim() !== "") {
+    classFeatureSelections["censor.domain"] = draft.domain.trim();
+  }
   const registryGroups = classFeatureGroups(draft.className);
   const registryGroupsByName = new Map(
     registryGroups.map((group) => [group.name, group]),
