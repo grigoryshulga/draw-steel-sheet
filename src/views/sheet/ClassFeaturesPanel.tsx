@@ -5,6 +5,10 @@ import { Button, Select } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
+  conduitLegacyDomainChoicesForSheet,
+  confirmConduitLegacyRewardsReviewed,
+  setConduitDomainPair,
+  setBloomingSaintImmunityChoice,
   classFeatureGroupsForSheet,
   featureBadgeState,
   featureLevelOpenState,
@@ -107,10 +111,20 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
           </Button>
         )}
       </div>
-      {item.summary && <p className="cf-item-summary">{item.summary}</p>}
+      {item.summary && !item.summaryFromDescription && <p className="cf-item-summary">{item.summary}</p>}
+      {trigger && (
+        <p className="cf-item-trigger-detail">
+          <span className="cf-item-note-label">Условие:</span> {trigger.detail}
+        </p>
+      )}
+      {item.notes && (
+        <p className="cf-item-mechanics-notes">
+          <span className="cf-item-note-label">Примечание:</span> {item.notes}
+        </p>
+      )}
       {item.detail && (
         <details className="cf-item-detail">
-          <summary>Полный текст правила</summary>
+          <summary>Текст особенности</summary>
           <div className="cf-item-markdown">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {item.detail}
@@ -181,6 +195,7 @@ export function ClassFeatureMechanicsPanel() {
   const { character, update } = useApp();
   const groups = classFeatureGroupsForSheet(character);
   const choices = classFeatureChoicesForSheet(character);
+  const conduitState = conduitLegacyDomainChoicesForSheet(character);
   const triggers = triggerBadgeCounts(character);
   const hasTriggers = groups.some((group) =>
     group.features.some((item) => item.trigger),
@@ -189,13 +204,14 @@ export function ClassFeatureMechanicsPanel() {
   // Раскрыта группа ровно текущего уровня героя; клики игрока переопределяют
   // только тронутые группы и переживают только собственный уровень.
   const [levelOverrides, setLevelOverrides] = useState<Record<number, boolean>>({});
+  const [conduitDomainDraft, setConduitDomainDraft] = useState<[string, string]>(["", ""]);
   const openLevels = featureLevelOpenState(
     groups,
     character.level,
     levelOverrides,
   );
 
-  if (groups.length === 0 && choices.length === 0) return null;
+  if (groups.length === 0 && choices.length === 0 && !conduitState.message) return null;
 
   const toggle = (level: number) =>
     setLevelOverrides((current) => {
@@ -205,6 +221,7 @@ export function ClassFeatureMechanicsPanel() {
 
   const selectChoice = (group: string, value: string) => {
     update((current) => {
+      if (group === "conduit.blooming-saint-immunity") return setBloomingSaintImmunityChoice(current, value);
       const automation = current.automation ?? {
         enabled: false,
         adjustments: {},
@@ -220,6 +237,16 @@ export function ClassFeatureMechanicsPanel() {
     });
   };
 
+  const updateConduitDomain = (index: 0 | 1, value: string) => {
+    const currentPair = conduitState.selectedDomains.length === 2 ? conduitState.selectedDomains : conduitDomainDraft;
+    const next: [string, string] = [...currentPair] as [string, string];
+    next[index] = value;
+    setConduitDomainDraft(next);
+    if (next[0] && next[1] && next[0] !== next[1]) {
+      update((current) => setConduitDomainPair(current, next));
+    }
+  };
+
   return (
     <section className="cf-sheet" aria-label="Особенности класса по уровням">
       {choices.length > 0 && (
@@ -228,21 +255,40 @@ export function ClassFeatureMechanicsPanel() {
             <label className="cf-choice" key={choice.group}>
               <span className="cf-choice-label">{choice.label}</span>
               <Select
-                value=""
+                value={choice.options.includes(choice.selected ?? "") ? choice.selected ?? "" : ""}
                 aria-label={`${choice.label}: выберите вариант`}
                 onChange={(event) => selectChoice(choice.group, event.target.value)}
               >
                 <option value="">Не выбран</option>
                 {choice.options.map((option) => (
                   <option key={option} value={option}>
-                    {option}
+                    {groupOptionLabel(choice.group, option)}
                   </option>
                 ))}
               </Select>
+              {choice.selected && !choice.options.includes(choice.selected) && (
+                <span className="cf-item-note">Сохранено: {choice.selected}. Это значение не входит в выбранную пару доменов; выберите один из доступных доменов.</span>
+              )}
             </label>
           ))}
         </div>
       )}
+      {conduitState.message && <div className="cf-choices">
+        <p className="cf-choice-label">{conduitState.message}</p>
+        {[0, 1].map((index) => (
+          <label className="cf-choice" key={index}>
+            <span className="cf-choice-label">{index === 0 ? "Первый домен" : "Второй домен"}</span>
+            <Select aria-label={index === 0 ? "Первый домен Проводника" : "Второй домен Проводника"} value={conduitDomainDraft[index as 0 | 1]} onChange={(event) => updateConduitDomain(index as 0 | 1, event.target.value)}>
+              <option value="">Выберите домен</option>
+              {conduitState.domains.map((domain) => <option key={domain} value={domain}>{domain}</option>)}
+            </Select>
+          </label>
+        ))}
+      </div>}
+      {conduitState.legacyWarning && <div className="cf-choices">
+        <p className="cf-item-note">{conduitState.legacyWarning}</p>
+        <Button size="sm" variant="soft" onClick={() => update((current) => confirmConduitLegacyRewardsReviewed(current))}>Я проверил награды</Button>
+      </div>}
 
       <div className="cf-status">
         <span>
@@ -273,4 +319,9 @@ export function ClassFeatureMechanicsPanel() {
       </div>
     </section>
   );
+}
+
+function groupOptionLabel(group: string, option: string): string {
+  if (group !== "conduit.blooming-saint-immunity") return option;
+  return option === "corruption" ? "Порча 10" : option === "holy" ? "Святой 10" : "Не выбран";
 }

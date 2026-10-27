@@ -68,6 +68,8 @@ export interface BuilderDraft {
   features: string;
   domain: string;
   featureChoices: Record<string, string>;
+  /** Проводник отдельно выбирает домен для особенности 1-го уровня. */
+  conduitDomainFeature: string;
 }
 export function emptyBuilderDraft(): BuilderDraft {
   return {
@@ -106,6 +108,7 @@ export function emptyBuilderDraft(): BuilderDraft {
     features: "",
     domain: "",
     featureChoices: {},
+    conduitDomainFeature: "",
   };
 }
 export function startingCharacteristics(
@@ -174,7 +177,7 @@ export function builderSkillSlots(draft: BuilderDraft) {
   });
   const domains =
     draft.className === "Проводник"
-      ? draft.subclass.split(", ")
+      ? selectedConduitDomain(draft)
       : draft.className === "Цензор"
         ? [draft.domain]
         : [];
@@ -194,7 +197,7 @@ export function builderSkillSlots(draft: BuilderDraft) {
 export function grantedClassAbilities(draft: BuilderDraft) {
   const domains =
     draft.className === "Проводник"
-      ? draft.subclass.split(", ")
+      ? selectedConduitDomain(draft)
       : draft.className === "Цензор"
         ? [draft.domain]
         : [];
@@ -214,6 +217,32 @@ export function grantedClassAbilities(draft: BuilderDraft) {
       a.level === 1 &&
       names.some((n) => normalized(n) === normalized(a.name)),
   );
+}
+
+/** Domain cards are granted by the selected conduit domain, never chosen manually. */
+function isManualClassAbility(draft: BuilderDraft, ability: (typeof ABILITY_COMPENDIUM)[number]) {
+  if (ability.className !== draft.className || ability.level !== 1) return false;
+  if (draft.className !== "Проводник") return true;
+  const normalize = (name: string) => name.toLowerCase().replace(/ё/g, "е").replace(/[^\p{L}\p{N}]/gu, "");
+  const domainGrantNames = new Set(Object.values(DOMAIN_GRANTED_ABILITIES).flat().map(normalize));
+  return !domainGrantNames.has(normalize(ability.name));
+}
+
+export function selectableClassAbilities(draft: BuilderDraft) {
+  const grantedIds = new Set(grantedClassAbilities(draft).map((ability) => ability.id));
+  return ABILITY_COMPENDIUM.filter(
+    (ability) => isManualClassAbility(draft, ability) && !grantedIds.has(ability.id),
+  );
+}
+
+/** На 1-м уровне Проводник получает доменные данные только из явного выбора. */
+function selectedConduitDomain(draft: BuilderDraft): string[] {
+  const pair = draft.subclass.split(",").map((domain) => domain.trim());
+  const choice = draft.conduitDomainFeature.trim();
+  return pair.length === 2 && pair[0] && pair[1] && pair[0] !== pair[1] &&
+    pair.includes(choice)
+    ? [choice]
+    : [];
 }
 export function buildCharacter(
   draft: BuilderDraft,
@@ -243,6 +272,16 @@ export function buildCharacter(
     draft.className,
     draft.featureChoices,
   );
+  if (draft.className === "Проводник") {
+    const domains = draft.subclass
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean);
+    if (domains.length) classFeatureSelections["conduit.domain"] = domains.join(", ");
+    if (domains.includes(draft.conduitDomainFeature)) {
+      classFeatureSelections["conduit.domain.1"] = draft.conduitDomainFeature;
+    }
+  }
   const registryGroups = classFeatureGroups(draft.className);
   const registryGroupsByName = new Map(
     registryGroups.map((group) => [group.name, group]),
@@ -255,8 +294,7 @@ export function buildCharacter(
   const abilities = ABILITY_COMPENDIUM.filter(
     (a) =>
       (draft.abilityIds.includes(a.id) || granted.some((g) => g.id === a.id)) &&
-      a.className === draft.className &&
-      a.level === 1,
+      isManualClassAbility(draft, a) || granted.some((g) => g.id === a.id),
   );
   const kitAbilities = [
     kit,
@@ -423,17 +461,17 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
     draft.classSkills,
     [...careerPrior, ...skills.career],
   ).complete;
-  const granted = grantedClassAbilities(draft);
-  const classAbilities = ABILITY_COMPENDIUM.filter(
-    (a) =>
-      a.className === draft.className &&
-      a.level === 1 &&
-      !granted.some((g) => g.id === a.id),
-  );
+  const classAbilities = selectableClassAbilities(draft);
   const selectedAbilities = classAbilities.filter((a) =>
     draft.abilityIds.includes(a.id),
   );
   const signatureCount = CLASS_SIGNATURE_COUNTS[draft.className] ?? 0;
+  const forbiddenDomainCardSelected =
+    draft.className === "Проводник" &&
+    draft.abilityIds.some((id) => {
+      const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === id);
+      return ability && !isManualClassAbility(draft, ability);
+    });
   return {
     name: draft.name.trim() ? "" : "Дайте герою имя.",
     ancestry: ancestry ? "" : "Выберите происхождение.",
@@ -474,6 +512,12 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
         ? "Выберите подкласс (для проводника — два домена)."
         : draft.className === "Цензор" && !draft.domain
           ? "Выберите домен цензора."
+          : draft.className === "Проводник" &&
+              !draft.subclass
+                .split(",")
+                .map((name) => name.trim())
+                .includes(draft.conduitDomainFeature)
+            ? "Выберите домен для особенности 1-го уровня из двух выбранных."
           : classData?.featureChoices.some(
                 (g) =>
                   !g.options.some(
@@ -493,8 +537,9 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
             (!draft.secondaryKit || draft.secondaryKit === draft.kit)
           ? "Выберите второй, отличный комплект тактика."
           : "",
-    abilities:
-      selectedAbilities.filter((a) => a.kind === "signature").length !==
+    abilities: forbiddenDomainCardSelected
+      ? "Особенности доменов выдаются автоматически только выбранным доменом."
+      : selectedAbilities.filter((a) => a.kind === "signature").length !==
       signatureCount
         ? `Выберите знаковые способности класса: ${signatureCount}.`
         : [3, 5].some(

@@ -6,6 +6,7 @@ import {
   emptyBuilderDraft,
   selectedSkills,
   grantedClassAbilities,
+  selectableClassAbilities,
   startingCharacteristics,
   builderStepIssues,
   type BuilderDraft,
@@ -22,7 +23,6 @@ import {
 } from "../lib/builder-steps";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
 import { classFeatureGroups } from "../data/class-feature-rules";
-import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
 import { CLASS_SIGNATURE_COUNTS, canUseKit } from "../data/creation-rules";
@@ -141,12 +141,7 @@ export function NewCharacterDialog({
       .filter((t) => draft.traits.includes(t.name))
       .reduce((sum, t) => sum + t.cost, 0) ?? 0;
   const grantedAbilities = grantedClassAbilities(draft);
-  const classAbilities = ABILITY_COMPENDIUM.filter(
-    (a) =>
-      a.className === draft.className &&
-      a.level === 1 &&
-      !grantedAbilities.some((g) => g.id === a.id),
-  );
+  const classAbilities = selectableClassAbilities(draft);
   const signatureCount = CLASS_SIGNATURE_COUNTS[draft.className] ?? 0;
   useEffect(() => {
     try {
@@ -603,6 +598,7 @@ export function NewCharacterDialog({
                           features: "",
                           featureChoices: {},
                           domain: "",
+                          conduitDomainFeature: "",
                           kit: "",
                           secondaryKit: "",
                           meleeDamageKit: "",
@@ -644,7 +640,15 @@ export function NewCharacterDialog({
                             onChange={(e) => {
                               const values = draft.subclass.split(", ");
                               values[i] = e.target.value;
-                              if (values.join(", ") !== draft.subclass) patch({ subclass: values.join(", "), classSkills: [] });
+                              const subclass = values.join(", ");
+                              const selectedDomains = subclass.split(",").map((name) => name.trim());
+                              if (subclass !== draft.subclass) patch({
+                                subclass,
+                                classSkills: [],
+                                conduitDomainFeature: selectedDomains.includes(draft.conduitDomainFeature)
+                                  ? draft.conduitDomainFeature
+                                  : "",
+                              });
                             }}
                           >
                             <option value="">Выберите домен</option>
@@ -676,6 +680,19 @@ export function NewCharacterDialog({
                         <option value="">Выберите подкласс</option>
                         {classData?.subclasses.map((s) => (
                           <option key={s.name}>{s.name}</option>
+                        ))}
+                      </Select>
+                    </Field>
+                  )}
+                  {draft.className === "Проводник" && (
+                    <Field label="Домен для особенности 1-го уровня">
+                      <Select
+                        value={draft.conduitDomainFeature}
+                        onChange={(e) => patch({ conduitDomainFeature: e.target.value })}
+                      >
+                        <option value="">Выберите домен</option>
+                        {draft.subclass.split(",").map((name) => name.trim()).filter(Boolean).map((name) => (
+                          <option key={name} value={name}>{name}</option>
                         ))}
                       </Select>
                     </Field>

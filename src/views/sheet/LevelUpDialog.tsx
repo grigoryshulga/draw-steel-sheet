@@ -5,9 +5,8 @@ import { RichText } from "../../components/RichText";
 import { Button, Field, Modal, Select, TextArea } from "../../components/ui";
 import { ABILITY_COMPENDIUM } from "../../data/compendium";
 import { LEVEL_UP_RULES } from "../../data/level-up-rules";
-import { ALL_CREATION_SKILLS } from "../../data/creation-rules";
-import { PERK_COMPENDIUM } from "../../data/perks";
 import { CHARACTERISTICS } from "../../lib/rules";
+import { choiceValueLabel, levelUpChoiceGroupTitle } from "../../lib/level-up-history";
 import {
   getLevelUpPlan,
   previewLevelUp,
@@ -73,26 +72,6 @@ function choiceTitle(kind: string, label: string) {
   return `${KIND_LABELS[kind] ?? "Выбор"}: ${label}`;
 }
 
-function choiceGroupTitle(key: string, rule?: (typeof LEVEL_UP_RULES)[number]) {
-  if (key === "perk") return "Перк";
-  if (key === "skill") return "Навык";
-  if (key === "characteristic") return "Характеристика";
-  return rule?.abilityChoices.find((group) => group.id === key)?.label ?? "Другой выбор";
-}
-
-function choiceValueLabel(key: string, id: string) {
-  if (key === "perk") {
-    return PERK_COMPENDIUM.find((perk) => perk.id === id)?.name ?? "Перк (название недоступно)";
-  }
-  if (key === "skill") {
-    return ALL_CREATION_SKILLS.includes(id) ? id : "Навык (название недоступно)";
-  }
-  if (key === "characteristic") {
-    return CHARACTERISTICS.find((item) => item.key === id || item.label === id)?.label ?? "Характеристика (название недоступно)";
-  }
-  return ABILITY_COMPENDIUM.find((ability) => ability.id === id)?.name ?? "Способность (название недоступно)";
-}
-
 function RuleFeatures({
   rule,
   features = rule.features,
@@ -138,7 +117,7 @@ export function LevelUpHistory({ character }: { character: Character }) {
               <ul className="level-up-receipt-choices">
                 {Object.entries(record.choices).map(([key, values]) => (
                   <li key={key}>
-                    <strong>{choiceGroupTitle(key, rule)}:</strong>{" "}
+                    <strong>{levelUpChoiceGroupTitle(key, rule)}:</strong>{" "}
                     {values.map((value) => choiceValueLabel(key, value)).join(", ")}
                   </li>
                 ))}
@@ -360,7 +339,7 @@ export function LevelUpDialog({
             <ul className="level-up-receipt-choices">
               {Object.entries(receipt.record.choices).map(([key, values]) => (
                 <li key={key}>
-                  <strong>{choiceGroupTitle(key, rule)}:</strong>{" "}
+                  <strong>{levelUpChoiceGroupTitle(key, rule)}:</strong>{" "}
                   {values.map((value) => choiceValueLabel(key, value)).join(", ")}
                 </li>
               ))}

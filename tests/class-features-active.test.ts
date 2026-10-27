@@ -7,6 +7,12 @@ import type {
   GeneratedClassFeature,
 } from "../src/data/class-features/types";
 import { createCharacter } from "../src/lib/defaults";
+import { featureConditionMet } from "../src/lib/feature-conditions";
+import {
+  buildCharacter,
+  emptyBuilderDraft,
+  startingCharacteristics,
+} from "../src/lib/character-builder";
 import {
   activeClassFeatureEffects,
   activeClassFeatures,
@@ -188,39 +194,192 @@ describe("activeClassFeatures", () => {
     );
   });
 
-  it("для класса без соответствия групп фича активна только по уровню", () => {
+  it("Неистовый сохраняет фолбэк подкласса и приоритет явного выбора", () => {
     withFeature(
-      {
-        id: "conduit.feature.3.test-domain",
-        className: "Проводник",
-        level: 3,
-        keyedBy: "domain",
-        keyValue: "Молитва о разрушении",
-      },
+      { keyedBy: "aspect", keyValue: "Берсерк" },
       { kinds: ["bonus"] },
       () => {
-        const hero = createCharacter({ className: "Проводник", level: 3 });
-        // Старый реестр кладёт сюда `conduit.prayer`, а соответствия для
-        // Проводника в таблице нет — выборы не читаются вовсе.
-        hero.automation = {
-          enabled: true,
-          adjustments: {},
-          ancestryTraits: [],
-          classFeatureSelections: { "conduit.prayer": "conduit.prayer.destruction" },
-        };
-        expect(activeClassFeatures(hero).map((f) => f.id)).toContain(
-          "conduit.feature.3.test-domain",
-        );
-
-        const withoutAutomation = createCharacter({
-          className: "Проводник",
-          level: 3,
-        });
-        expect(activeClassFeatures(withoutAutomation).map((f) => f.id)).toContain(
-          "conduit.feature.3.test-domain",
-        );
+        const hero = createCharacter({ className: "Неистовый", level: 2 });
+        hero.subclass = "Берсерк";
+        expect(activeClassFeatures(hero).map((f) => f.id)).toContain(TEST_ID);
+        const explicitHero = furyWithAspect("Разоритель");
+        explicitHero.subclass = "Берсерк";
+        expect(activeClassFeatures(explicitHero).map((f) => f.id)).not.toContain(TEST_ID);
+        expect(
+          featureConditionMet(explicitHero, { keyValue: ["Берсерк"] }),
+        ).toBe(false);
       },
     );
+  });
+
+  it("класс без зарегистрированной группы не фильтрует keyedBy", () => {
+    withFeature(
+      { className: "Тактик", keyedBy: "aspect", keyValue: "Берсерк" },
+      { kinds: ["bonus"] },
+      () => {
+        expect(activeClassFeatures(createCharacter({ className: "Тактик", level: 1 })).map((f) => f.id)).toContain(TEST_ID);
+      },
+    );
+  });
+
+  it("Проводник не угадывает выборы уровней 1/4/7 из старой пары доменов", () => {
+    const hero = buildCharacter({
+      ...emptyBuilderDraft(),
+      className: "Проводник",
+      subclass: "Жизнь, Защита",
+      characteristics: startingCharacteristics("Проводник"),
+    });
+    expect(hero.automation?.classFeatureSelections?.["conduit.domain"]).toBe(
+      "Жизнь, Защита",
+    );
+    const ids = new Set(
+      activeClassFeatures({ ...hero, level: 9 }).map((feature) => feature.id),
+    );
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).not.toContain("conduit.domain.1.zashchitnyy-krug");
+    expect(ids).not.toContain("conduit.domain.4.nepronitsaemoe-prikosnovenie");
+    expect(ids).not.toContain("conduit.domain.7.blagoslovenie-zheleza");
+    expect(ids).not.toContain("conduit.domain.1.osvyashchennoe-oruzhie");
+  });
+
+  it("legacy ID молитвы активирует только соответствующую запись скелета после buildCharacter", () => {
+    const prayers = [
+      ["conduit.prayer.destruction", "Молитва о разрушении", "conduit.feature.1.molitva-o-razrushenii"],
+      ["conduit.prayer.distance", "Молитва о дистанции", "conduit.feature.1.molitva-o-distantsii"],
+      ["conduit.prayer.soldier", "Молитва о мастерстве солдата", "conduit.feature.1.molitva-o-masterstve-soldata"],
+      ["conduit.prayer.speed", "Молитва о скорости", "conduit.feature.1.molitva-o-skorosti"],
+      ["conduit.prayer.steel", "Молитва о стали", "conduit.feature.1.molitva-o-stali"],
+    ] as const;
+    for (const [optionId, name, featureId] of prayers) {
+      const hero = buildCharacter({
+        ...emptyBuilderDraft(),
+        className: "Проводник",
+        level: 1,
+        featureChoices: { Молитва: name },
+        characteristics: startingCharacteristics("Проводник"),
+      });
+      hero.level = 1;
+      expect(hero.automation?.classFeatureSelections?.["conduit.prayer"]).toBe(optionId);
+      const active = activeClassFeatures(hero).filter((feature) => feature.id.startsWith("conduit.feature.1.molitva-o-"));
+      expect(active.map((feature) => feature.id)).toEqual([featureId]);
+      hero.automation = { ...hero.automation!, enabled: false };
+      expect(activeClassFeatures(hero).filter((feature) => feature.id.startsWith("conduit.feature.1.molitva-o-")).map((feature) => feature.id)).toEqual([featureId]);
+    }
+  });
+
+  it("пустой, неизвестный выбор и выбор на другом классе не активируют молитвы", () => {
+    const hero = createCharacter({ className: "Проводник", level: 1 });
+    const ids = (selection?: string, className = "Проводник") => activeClassFeatures({
+      ...hero,
+      className,
+      automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: selection === undefined ? {} : { "conduit.prayer": selection } },
+    }).filter((feature) => Object.values({
+      destruction: "conduit.feature.1.molitva-o-razrushenii",
+      distance: "conduit.feature.1.molitva-o-distantsii",
+      soldier: "conduit.feature.1.molitva-o-masterstve-soldata",
+      speed: "conduit.feature.1.molitva-o-skorosti",
+      steel: "conduit.feature.1.molitva-o-stali",
+    }).includes(feature.id)).map((feature) => feature.id);
+    expect(ids()).toEqual([]);
+    expect(ids("conduit.prayer.unknown")).toEqual([]);
+    expect(ids("conduit.prayer.distance", "Тактик")).toEqual([]);
+  });
+
+  it("старое сохранение не активирует особенности без выбора их уровня", () => {
+    const hero = createCharacter({ className: "Проводник", level: 9 });
+    hero.subclass = "Жизнь, Защита";
+    hero.automation = { enabled: true, adjustments: {}, ancestryTraits: [] };
+    const ids = new Set(activeClassFeatures(hero).map((feature) => feature.id));
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).not.toContain("conduit.domain.1.zashchitnyy-krug");
+    expect(ids).not.toContain("conduit.domain.1.osvyashchennoe-oruzhie");
+  });
+
+  it("явный выбор уровня 1 имеет приоритет над старой парой subclass", () => {
+    const hero = createCharacter({ className: "Проводник", level: 1 });
+    hero.subclass = "Жизнь";
+    hero.automation = {
+      enabled: true,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: { "conduit.domain.1": "Защита", "conduit.domain": "Жизнь, Защита" },
+    };
+    const ids = new Set(activeClassFeatures(hero).map((feature) => feature.id));
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).toContain("conduit.domain.1.zashchitnyy-krug");
+    expect(activeClassFeatures({ ...hero, level: 2 }).some(
+      (feature) => feature.id === "conduit.domain.1.vosstanavlivayushchiy-ritual" && feature.level === 2,
+    )).toBe(true);
+  });
+
+  it("доменные способности требуют отдельного выбора 2/6/9 уровня", () => {
+    for (const [level, name] of [[2, "conduit.domain.2.istochnik-blagodati"], [6, "conduit.domain.6.vosstanavlivayushchaya-blagodat"], [9, "conduit.domain.9.siyanie-blagodati"]] as const) {
+      const hero = createCharacter({ className: "Проводник", level });
+      hero.subclass = "Жизнь, Защита";
+      expect(activeClassFeatures(hero).some((feature) => feature.id === name)).toBe(false);
+      const selected = { ...hero, automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: { [`conduit.ability.domain.${level}`]: "Жизнь" } } };
+      expect(activeClassFeatures(selected).some((feature) => feature.id === name)).toBe(true);
+    }
+  });
+
+  it("доменные выборы и автоматические комплементы работают на уровнях 1–10", () => {
+    const hero = createCharacter({ className: "Проводник", level: 10 });
+    hero.automation = {
+      enabled: false,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: {
+        "conduit.domain": "Жизнь, Защита",
+        "conduit.domain.1": "Жизнь",
+        "conduit.domain.4": "Защита",
+        "conduit.domain.7": "Жизнь",
+        "conduit.ability.domain.2": "Защита",
+        "conduit.ability.domain.6": "Жизнь",
+        "conduit.ability.domain.9": "Защита",
+      },
+    };
+    const expected = new Map([
+      [1, ["Жизнь"]], [2, ["Защита"]], [3, []], [4, ["Защита"]],
+      [5, ["Жизнь"]], [6, []], [7, ["Жизнь"]], [8, ["Защита"]], [9, []], [10, []],
+    ]);
+    for (let level = 1; level <= 10; level += 1) {
+      const atLevel = activeClassFeatures({ ...hero, level });
+      const domainFeatures = atLevel.filter((feature) => /^conduit\.domain\.(1|4|7)\./.test(feature.id) && feature.level === level);
+      expect(domainFeatures.map((feature) => feature.level), `level ${level}`).toEqual(
+        (expected.get(level) ?? []).map(() => level),
+      );
+      expect(domainFeatures.map((feature) => feature.keyValue), `level ${level}`).toEqual(expected.get(level));
+      const abilityIds = atLevel.filter((feature) => feature.keyedBy === "domain" && feature.id.startsWith(`conduit.domain.${level}.`));
+      if ([2, 6, 9].includes(level)) expect(abilityIds.length, `ability level ${level}`).toBe(1);
+    }
+  });
+
+  it("не активирует домены и способности без выбора, вне пары или с некорректной парой", () => {
+    const hero = createCharacter({ className: "Проводник", level: 9 });
+    const ids = (selections: Record<string, string>, subclass = "Жизнь, Защита") => {
+      const character = { ...hero, subclass, automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: selections } };
+      return activeClassFeatures(character).map((feature) => feature.id).filter((id) => /^conduit\.domain\./.test(id));
+    };
+    expect(ids({})).toEqual([]);
+    expect(ids({ "conduit.domain": "Жизнь, Жизнь", "conduit.domain.1": "Жизнь" })).toEqual([]);
+    expect(ids({ "conduit.domain.1": "Смерть", "conduit.ability.domain.2": "Смерть" })).toEqual([]);
+    expect(ids({ "conduit.domain": "Жизнь, Защита", "conduit.domain.1": "Жизнь, Защита" })).toEqual([]);
+  });
+
+  it("условия распознают оба домена из старого листа и явного выбора", () => {
+    const condition = { keyValue: ["Жизнь", "Защита"] };
+    const oldSheet = createCharacter({ className: "Проводник" });
+    oldSheet.subclass = "Жизнь, Защита";
+    expect(featureConditionMet(oldSheet, condition)).toBe(true);
+
+    const explicit = createCharacter({ className: "Проводник" });
+    explicit.automation = {
+      enabled: true,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: { "conduit.domain": "Жизнь, Защита" },
+    };
+    expect(featureConditionMet(explicit, condition)).toBe(true);
   });
 
   it("вложенная запись активна без родителя в реестре", () => {

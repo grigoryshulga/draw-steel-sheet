@@ -1,0 +1,186 @@
+import { afterEach, describe, expect, it } from "vitest";
+import generated from "../src/data/class-features.generated.json";
+import { CONDUIT_DOMAIN_MECHANICS, CONDUIT_DOMAIN_PRAYERS } from "../src/data/class-features/mechanics/conduit-domains";
+import { CLASS_RESOURCES } from "../src/data/class-features/class-resources";
+import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
+import type { FeatureMechanics } from "../src/data/class-features/types";
+import { createCharacter } from "../src/lib/defaults";
+import { activeClassFeatures, invalidateClassFeatureRegistry } from "../src/lib/class-features";
+import { resolvedResourceGains } from "../src/lib/resources";
+
+const originalMechanics = new Map<string, FeatureMechanics | undefined>();
+const originalResource = CLASS_RESOURCES["проводник"];
+afterEach(() => {
+  for (const [id, mechanics] of originalMechanics) {
+    if (mechanics) FEATURE_MECHANICS[id] = mechanics;
+    else delete FEATURE_MECHANICS[id];
+  }
+  originalMechanics.clear();
+  if (originalResource) CLASS_RESOURCES["проводник"] = originalResource;
+  else delete CLASS_RESOURCES["проводник"];
+  invalidateClassFeatureRegistry();
+});
+
+const domains = generated.filter((feature) => feature.id.startsWith("conduit.domain."));
+const prayers = generated.filter((feature) => feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"));
+const text = (id: string) => generated.find((feature) => feature.id === id)!.description;
+
+describe("conduit domain mechanics", () => {
+  it("individually documents and registers all 72 domain features", () => {
+    expect(domains).toHaveLength(72);
+    expect(Object.keys(CONDUIT_DOMAIN_MECHANICS).sort()).toEqual(domains.map((feature) => feature.id).sort());
+    expect([...new Set(domains.map((feature) => feature.level))].sort()).toEqual([1, 2, 4, 6, 7, 9]);
+    const notes = Object.values(CONDUIT_DOMAIN_MECHANICS).map((mechanic) => mechanic.notes);
+    expect(notes.every((note) => typeof note === "string" && note.length > 100)).toBe(true);
+    expect(new Set(notes).size).toBe(72);
+    expect(notes.some((note) => note?.includes("Пассивная/отдыховая особенность домена"))).toBe(false);
+    expect(notes.some((note) => note?.includes("Эффект адресован выбранной цели/области"))).toBe(false);
+  });
+
+  it("binds all twelve piety triggers to their own domain selection and exact book condition", () => {
+    expect(prayers).toHaveLength(12);
+    expect(Object.keys(CONDUIT_DOMAIN_PRAYERS).sort()).toEqual(prayers.map((feature) => feature.id).sort());
+    const selectedDomains = ["Созидание", "Смерть", "Судьба", "Знание", "Жизнь", "Любовь", "Природа", "Защита", "Буря", "Солнце", "Хитрость", "Война"];
+    for (const prayer of prayers) {
+      const mechanic = CONDUIT_DOMAIN_PRAYERS[prayer.id];
+      expect(mechanic.when?.keyValue).toEqual([selectedDomains[prayers.indexOf(prayer)]]);
+      expect(mechanic.kinds).toContain("trigger");
+      expect(mechanic.trigger?.frequency).toBe("encounter");
+      expect(mechanic.trigger?.detail).toContain("Получить 2 благочестия");
+      expect(mechanic.kinds).toContain("resourceGain");
+      expect(mechanic.resource).toMatchObject({ name: "Благочестие", gains: [{ amount: "2", frequency: "encounter" }] });
+      expect(mechanic.resource?.gains[0].tag).toBeTruthy();
+      expect(mechanic.resource?.gains[0].event).toBe(mechanic.trigger?.event);
+      expect(mechanic.effects).toBeUndefined();
+      expect(mechanic.trigger?.detail).toContain("первый раз за встречу");
+      expect(mechanic.trigger?.detail).toContain("с 4-го уровня");
+      expect(mechanic.trigger?.detail).toContain("(итого 3)");
+      expect(mechanic.trigger?.detail).toContain("автоматическое начисление оставлено равным 2");
+      expect(mechanic.notes).toContain("Точные дальность");
+    }
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-smerti"))!.id].trigger?.detail).toContain("соло-существо");
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-znaniya"))!.id].trigger?.event).toBe("passive");
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-zhizni"))!.id].trigger?.event).toBe("spend-recovery");
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-zhizni"))!.id].trigger?.detail).toContain("не всегда означает трату Восстановления");
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-solntsa"))!.id].trigger?.detail).toContain("огнём или святым уроном");
+    const war = CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-voyny"))!.id];
+    expect(war.trigger?.detail).toContain("существо в пределах 10 клеток получает за один ход урон больше 10 + ваш уровень");
+    expect(war.trigger?.detail).not.toContain("вы или существо");
+    const sunNotes = CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-solntsa"))!.id].notes;
+    expect(sunNotes).toContain("Один враг в пределах 10 клеток получает урон огнем");
+    expect(sunNotes).not.toContain("выбирает себя ИЛИ союзника");
+    expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-zashchity"))!.id].trigger?.detail).toContain("вы или союзник в пределах 10 получает временную Выносливость");
+  });
+
+  it("models only safe owner-facing effects and rejects false target bonuses", () => {
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.1.osvyashchennoe-oruzhie"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.4.uluchshennoe-osvyashchennoe-oruzhie"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.slovo-otlozhennoy-smerti"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.slovo-otklonennoy-sudby"].trigger?.event).toBe("ally-damaged");
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.gromom-porazhennyy"].effects?.map((effect) => "field" in effect ? effect.field : "")).toEqual(["push", "pull", "slide"]);
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.gromom-porazhennyy"].trigger?.event).toBe("deal-damage");
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.istochnik-blagodati"].trigger?.event).toBe("use-ability");
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.istochnik-blagodati"].notes).toContain("только на эту способность в том же ходу");
+    const sun = CONDUIT_DOMAIN_MECHANICS["conduit.domain.7.svet-palyashchego-solntsa"];
+    expect(sun.effects).toEqual([{ kind: "damageImmunity", types: ["огонь"], value: { level: true } }]);
+    expect(sun.notes).toContain("15, если цель нежить");
+    expect(sun.notes).toContain("добавляет 5 огня");
+    expect(sun.notes).toContain("не фильтровать по ключевым словам");
+    expect(sun.notes).toContain("числовой эффект не автоматизирован");
+  });
+
+  it("checks independent book numbers against represented effects and rule notes", () => {
+    expect(text("conduit.domain.2.statuya-sily")).toContain("получаете 1 всплеск в начале каждого вашего хода");
+    expect(text("conduit.domain.2.statuya-sily")).toContain("20 или более урона");
+    expect(text("conduit.domain.7.svet-palyashchego-solntsa")).toContain("дополнительные 15 урона огнем");
+    expect(text("conduit.domain.9.zhivost-serdtsa")).toContain("получает 3 очка своего Героического Ресурса");
+    expect(text("conduit.domain.1.osvyashchennoe-oruzhie")).toContain("бонус +1 к выброшенному урону");
+    expect(text("conduit.domain.4.uluchshennoe-osvyashchennoe-oruzhie")).toContain("бонус +3");
+    expect(text("conduit.domain.4.postup-vetra")).toContain("5 или более Побед");
+    expect(text("conduit.feature.1.blagochestie-i-effekt-domena-solntsa")).toContain("трехкратному показателю вашей Интуиции");
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.1.vnutrenniy-svet"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.1.vosstanavlivayushchiy-ritual"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.4.postup-vetra"].effects).toBeUndefined();
+  });
+
+  it("resolves exactly the selected domains' piety gains", () => {
+    const allTags = Object.values(CONDUIT_DOMAIN_PRAYERS).map((mechanic) => mechanic.resource!.gains[0].tag);
+    expect(new Set(allTags).size).toBe(12);
+    for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) {
+      originalMechanics.set(id, FEATURE_MECHANICS[id]);
+      FEATURE_MECHANICS[id] = mechanics;
+    }
+    CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
+    invalidateClassFeatureRegistry();
+    const hero = createCharacter({ className: "Проводник", level: 4 });
+    hero.automation = { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Жизнь, Солнце" } };
+
+    const gains = resolvedResourceGains(hero).filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
+    expect(gains).toHaveLength(2);
+    // ResourceGain cannot condition an amount on level; 4th-level +1 remains an explicit manual rule.
+    expect(gains.map((gain) => [gain.amount, gain.frequency])).toEqual([["2", "encounter"], ["2", "encounter"]]);
+    const blessedDomain = generated.find((feature) => feature.id === "conduit.feature.4.blagoslovennye-domeny-blessed-domain")!;
+    expect(blessedDomain.level).toBe(4);
+    expect(blessedDomain.description).toContain("получаете 1 дополнительное благочестие");
+    expect(gains).toHaveLength(2);
+    expect(gains.map((gain) => gain.event)).toEqual(["deal-damage", "spend-recovery"]);
+    expect(new Set(gains.map((gain) => gain.tag)).size).toBe(2);
+    expect(gains.map((gain) => gain.sourceId).sort()).toEqual([
+      "conduit.feature.1.blagochestie-i-effekt-domena-solntsa",
+      "conduit.feature.1.blagochestie-i-effekt-domena-zhizni",
+    ].sort());
+    expect(gains.some((gain) => /znanie|priroda/u.test(gain.tag))).toBe(false);
+  });
+
+  it("does not apply target-selected prayer numbers to the hero", () => {
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.1.vnutrenniy-svet"].effects).toBeUndefined();
+    expect(CONDUIT_DOMAIN_MECHANICS["conduit.domain.1.vosstanavlivayushchiy-ritual"].effects).toBeUndefined();
+    for (const domain of ["zhizni", "solntsa"]) {
+      const prayer = CONDUIT_DOMAIN_PRAYERS[`conduit.feature.1.blagochestie-i-effekt-domena-${domain}`];
+      expect(prayer.effects).toBeUndefined();
+      expect(prayer.notes).toContain("выбор цели остаются ручными");
+    }
+  });
+
+  it("requires exactly two distinct valid domains for prayers, including legacy fallback", () => {
+    for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) {
+      originalMechanics.set(id, FEATURE_MECHANICS[id]);
+      FEATURE_MECHANICS[id] = mechanics;
+    }
+    CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
+    invalidateClassFeatureRegistry();
+    const hero = (selections: Record<string, string>, subclass?: string, className = "Проводник") => {
+      const character = createCharacter({ className, level: 1 });
+      if (subclass) character.subclass = subclass;
+      character.automation = { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: selections };
+      return character;
+    };
+    const prayerIds = () => activeClassFeatures(hero({ "conduit.domain": "Жизнь, Смерть" })).filter((f) => f.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")).map((f) => f.id);
+    expect(prayerIds()).toHaveLength(2);
+    for (const pair of ["Жизнь", "Жизнь, Смерть, Знание", "Жизнь, Жизнь"]) {
+      const invalid = hero({ "conduit.domain": pair });
+      expect(activeClassFeatures(invalid).some((f) => f.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"))).toBe(false);
+      expect(resolvedResourceGains(invalid).filter((g) => g.tag.startsWith("conduit-piety-domain-"))).toHaveLength(0);
+    }
+    expect(activeClassFeatures(hero({}, "Жизнь, Смерть")).filter((f) => f.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"))).toHaveLength(2);
+    const precedence = hero({ "conduit.domain": "Знание", "conduit.domain.1": "Жизнь" }, "Жизнь, Смерть");
+    expect(activeClassFeatures(precedence).some((f) => f.id.endsWith("-zhizni"))).toBe(false);
+    expect(activeClassFeatures(hero({ "conduit.domain": "Жизнь, Смерть" }, undefined)).filter((f) => f.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"))).toHaveLength(2);
+    expect(activeClassFeatures(hero({ "conduit.domain": "Жизнь, Смерть" }, undefined, "Неистовый")).some((f) => f.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"))).toBe(false);
+  });
+
+  it("labels domain gains with their subject and exact event while preserving Fury labels", () => {
+    for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) FEATURE_MECHANICS[id] = mechanics;
+    CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
+    invalidateClassFeatureRegistry();
+    const character = createCharacter({ className: "Проводник", level: 1 });
+    character.automation = { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Знание, Смерть, Жизнь" } };
+    // Three domains are invalid, so use the actual pair for resolution.
+    character.automation.classFeatureSelections["conduit.domain"] = "Знание, Смерть";
+    const gains = resolvedResourceGains(character).filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
+    expect(new Set(gains.map((gain) => gain.label)).size).toBe(gains.length);
+    expect(gains.find((gain) => gain.event === "passive")?.label).toContain("Ведущий тратит Раздор");
+    expect(gains.find((gain) => gain.event === "dying")?.label).toContain("Существо становится при смерти");
+    expect(gains.map((gain) => gain.amount)).toEqual(["2", "2"]);
+  });
+});

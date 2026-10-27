@@ -7,6 +7,7 @@ import type {
 } from "../data/class-features/types";
 import type { Character } from "../types";
 import { activeClassFeatures } from "./class-features";
+import { mechanicsFor } from "../data/class-features/mechanics";
 import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
 
@@ -234,10 +235,26 @@ function applyGains(
     event: gain.event,
     amount: gain.amount,
     frequency: gain.frequency,
-    label: resourceGainLabel(gain.event),
+    label: sourceId.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")
+      ? domainGainLabel(sourceId, gain.event)
+      : resourceGainLabel(gain.event),
     sourceId,
     sourceName,
   }));
+}
+
+/** Domain gains need the book's event subject/context as well as its event code. */
+function domainGainLabel(sourceId: string, event: TriggerEvent): string {
+  const trigger = mechanicsFor(sourceId)?.trigger;
+  const domainLabel = trigger?.label?.replace(/^Благочестие домена\s*/u, "Домен ");
+  const eventLabel = event === "dying"
+    ? "Существо становится при смерти"
+    : event === "passive"
+      ? "Ведущий тратит Раздор (пассивное событие)"
+      : event === "spend-recovery"
+        ? "Существо восстанавливает Выносливость"
+        : resourceGainLabel(event);
+  return `${domainLabel ?? "Домен"}: ${eventLabel}`;
 }
 
 /**

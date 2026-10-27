@@ -142,6 +142,39 @@ describe("filter mode, keyValue, formActive and cap", () => {
     expect(fieldEffectContributions(effects, hero, "save")).toHaveLength(0);
   });
 
+  it("does not treat another class's subclass as a Fury aspect", () => {
+    const effects: FeatureEffect[] = [
+      { kind: "field", field: "speed", value: 1, when: { keyValue: ["Берсерк"] } },
+    ];
+    const fury = { ...createCharacter({ className: "Неистовый" }), subclass: "Берсерк" };
+    const conduit = { ...createCharacter({ className: "Проводник" }), subclass: "Берсерк" };
+    fury.automation = { enabled: true, adjustments: {}, ancestryTraits: [] };
+    conduit.automation = { enabled: true, adjustments: {}, ancestryTraits: [] };
+    expect(fieldEffectContributions(effects, fury, "speed")).toHaveLength(1);
+    expect(fieldEffectContributions(effects, conduit, "speed")).toHaveLength(0);
+
+    const selectedDomains = {
+      ...conduit,
+      automation: {
+        enabled: true,
+        adjustments: {},
+        ancestryTraits: [],
+        classFeatureSelections: { "conduit.domain": "Жизнь, Защита" },
+      },
+    };
+    const commaCompatibility: FeatureEffect[] = [
+      {
+        kind: "field",
+        field: "speed",
+        value: 1,
+        when: { keyValue: ["Жизнь, Защита"] },
+      },
+    ];
+    expect(
+      fieldEffectContributions(commaCompatibility, selectedDomains, "speed"),
+    ).toHaveLength(1);
+  });
+
   it("applies formActive only while runtime.forms contains the form", () => {
     const base = createCharacter({ className: "Неистовый" });
     const withForms = (forms: string[]): Character => ({

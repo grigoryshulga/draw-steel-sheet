@@ -5,6 +5,7 @@ import {
   uncoveredRuleFeatures,
 } from "../src/lib/level-up";
 import { normalizeFeatureText } from "../src/lib/utils";
+import { classFeatureGiftsAtLevel, classFeatureGroupsForSheet } from "../src/lib/class-feature-view";
 import type { Character } from "../src/types";
 
 /** Неистовый 1-го уровня с выбранным аспектом: подкласс хранится в `subclass`. */
@@ -15,6 +16,45 @@ function fury(aspect: string, level = 1): Character {
 }
 
 describe("план повышения уровня и особенности класса", () => {
+  it("показывает выбранный домен и его комплемент на уровнях получения 1–8", () => {
+    const hero = createCharacter({ className: "Проводник", level: 1 });
+    hero.automation = {
+      enabled: false,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: {
+        "conduit.domain": "Жизнь, Защита",
+        "conduit.domain.1": "Жизнь",
+        "conduit.domain.4": "Защита",
+        "conduit.domain.7": "Жизнь",
+      },
+    };
+    const expected = new Map([
+      [2, ["Защита"]], [3, []], [4, ["Защита"]], [5, ["Жизнь"]],
+      [6, []], [7, ["Жизнь"]], [8, ["Защита"]],
+    ]);
+    for (let level = 2; level <= 8; level += 1) {
+      const gifts = classFeatureGiftsAtLevel(hero, level).filter((item) => /^conduit\.domain\./.test(item.id));
+      expect(gifts.map((item) => item.level), `gift level ${level}`).toEqual(
+        (expected.get(level) ?? []).map(() => level),
+      );
+      const planHero = { ...hero, level: level - 1 };
+      const plan = getLevelUpPlan(planHero);
+      expect(plan.classFeatures.filter((item) => /^conduit\.domain\./.test(item.id)).map((item) => item.level), `plan level ${level}`).toEqual(
+        (expected.get(level) ?? []).map(() => level),
+      );
+      const group = classFeatureGroupsForSheet({ ...hero, level }).find((item) => item.level === level);
+      expect(group?.features.some((item) => /^conduit\.domain\./.test(item.id)) ?? false).toBe((expected.get(level) ?? []).length > 0);
+      if ([2, 5, 8].includes(level)) {
+        const currentGroups = classFeatureGroupsForSheet({ ...hero, level: level - 1 });
+        expect(currentGroups.some((item) => item.level === level)).toBe(false);
+        expect(currentGroups.flatMap((item) => item.features).some(
+          (item) => item.level === level && /^conduit\.domain\./.test(item.id),
+        )).toBe(false);
+      }
+    }
+  });
+
   it("план перечисляет особенности нового уровня, а не спрашивает их", () => {
     const plan = getLevelUpPlan(fury("Разоритель"));
 

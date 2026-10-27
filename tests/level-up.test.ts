@@ -2,13 +2,18 @@ import { describe, expect, it } from "vitest";
 import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import { CLASS_PRESETS } from "../src/data/classes";
 import { ALL_CREATION_SKILLS } from "../src/data/creation-rules";
+import { DOMAIN_GRANTED_ABILITIES, DOMAIN_SKILL_SLOTS } from "../src/data/creation-rules";
+import { SKILL_GROUPS } from "../src/data/skills";
 import {
   LEVEL_UP_RULES,
   levelUpRule,
 } from "../src/data/level-up-rules";
 import { PERK_COMPENDIUM, classPerkTypes, perkById } from "../src/data/perks";
-import { BUILDER_DATA } from "../src/lib/character-builder";
+import { BUILDER_DATA, buildCharacter, emptyBuilderDraft, startingCharacteristics } from "../src/lib/character-builder";
+import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { conduitAbilities } from "../src/data/class-features/conduit-abilities";
 import { recalculateCharacter } from "../src/lib/character-calculations";
+import { activeClassFeatures } from "../src/lib/class-features";
 import { createCharacter, normalizeCharacter } from "../src/lib/defaults";
 import {
   MAX_CHARACTER_LEVEL,
@@ -206,7 +211,7 @@ describe("level-up XP and availability", () => {
     ).toHaveLength(81);
 
     for (const className of supported) {
-      const subclass = subclassOf(className);
+      const subclass = className === "Проводник" ? "Жизнь, Защита" : subclassOf(className);
       for (let level = 2; level <= 10; level += 1) {
         const rule = levelUpRule(className, level);
         expect(rule, `${className} ${level}`).toBeDefined();
@@ -214,7 +219,12 @@ describe("level-up XP and availability", () => {
         expect(rule?.title.length, `${className} ${level} title`).toBeGreaterThan(0);
         expect(rule?.features.length, `${className} ${level} features`).toBeGreaterThan(0);
 
-        const character = makeHero(className, level - 1, subclass);
+        const character = makeHero(className, level - 1, subclass, className === "Проводник"
+          ? { automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+              "conduit.domain": "Созидание, Смерть", "conduit.domain.1": "Созидание",
+              "conduit.domain.4": "Созидание", "conduit.domain.7": "Созидание",
+            } } }
+          : {});
         const plan = getLevelUpPlan(character);
         expect(
           plan.available,
@@ -605,7 +615,7 @@ describe("level-up characteristics", () => {
   });
 
   it("offers one capped characteristic choice for single-primary classes", () => {
-    const character = makeHero("Проводник", 3, "Созидание");
+    const character = makeHero("Проводник", 3, "Созидание, Смерть");
     const plan = getLevelUpPlan(character);
     const choice = plan.choices.find(
       (entry) => entry.kind === "characteristic",
@@ -1273,6 +1283,110 @@ describe("level-up full automated path", () => {
 });
 
 describe("level-up explicit previous-level ability windows", () => {
+  it.each([
+    ["Смерть", "Созидание", "crafting", false],
+    ["Смерть", "Созидание", "crafting", true],
+    ["Созидание", "Смерть", "lore", false],
+    ["Созидание", "Смерть", "lore", true],
+    ["Смерть", "Природа", "exploration", false],
+    ["Смерть", "Природа", "exploration", true],
+  ])("awards the complement domain skill and grant end to end: %s → %s (automation %s)", (firstDomain, complement, groupKey, enabled) => {
+    const domains = `${firstDomain}, ${complement}`;
+    const built = buildCharacter({
+      ...emptyBuilderDraft(),
+      name: "Проводник второго домена",
+      ancestry: "Дварф",
+      className: "Проводник",
+      subclass: domains,
+      characteristics: startingCharacteristics("Проводник"),
+      classSkills: [],
+      abilityIds: [],
+      featureChoices: {},
+      conduitDomainFeature: firstDomain,
+    });
+    const character = { ...built, level: 1, xp: ENOUGH_XP, automation: { ...built.automation!, enabled } };
+    const plan = getLevelUpPlan(character);
+    const skillChoice = plan.choices.find((entry) => entry.id === "conduit.domain.skill.2")!;
+    const abilityChoice = plan.choices.find((entry) => entry.id === "conduit.ability.domain.2")!;
+    expect(skillChoice).toMatchObject({ kind: "skill", count: 1, label: `Навык домена «${complement}»` });
+    expect(abilityChoice).toMatchObject({ kind: "ability", count: 1, label: "Доменная способность 2-го уровня" });
+    const legalGroup = SKILL_GROUPS.find((group) => group.key === groupKey)!;
+    expect(skillChoice.options.length).toBeGreaterThan(0);
+    expect(skillChoice.options.every((option) => legalGroup.skills.includes(option.id)), `${complement}/${groupKey}: ${skillChoice.options.map((option) => option.id).join(", ")}`).toBe(true);
+    expect(skillChoice.options.every((option) => DOMAIN_SKILL_SLOTS[complement].options.includes(option.id))).toBe(true);
+
+    const selections = firstChoices(character);
+    const skill = skillChoice.options[0].id;
+    selections[skillChoice.id] = [skill];
+    selections[abilityChoice.id] = [abilityChoice.options[0].id];
+    const result = expectOk(previewLevelUp(character, makeRequest(character, { choices: selections })));
+    const normalized = normalizeCharacter(JSON.parse(JSON.stringify(result.rawNext)));
+    expect(normalized.skills.filter((entry) => entry === skill)).toHaveLength(1);
+    for (const name of DOMAIN_GRANTED_ABILITIES[complement] ?? []) {
+      expect(normalized.abilities.filter((ability) => ability.name === name)).toHaveLength(1);
+    }
+    expect(normalized.abilities.filter((ability) => ability.id === abilityChoice.options[0].id)).toHaveLength(1);
+    expect(normalized.advancements?.at(-1)?.choices).toMatchObject({
+      [skillChoice.id]: [skill],
+      [abilityChoice.id]: [abilityChoice.options[0].id],
+    });
+  });
+
+  it("requires both level one domain selections and rejects a missing or foreign level one choice", () => {
+    for (const first of ["", "Смерть"]) {
+      const character = makeHero("Проводник", 1, "Созидание, Природа", {
+        automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+          "conduit.domain": "Созидание, Природа",
+          ...(first ? { "conduit.domain.1": first } : {}),
+        } },
+      });
+      expect(getLevelUpPlan(character).available).toBe(false);
+      expect(getLevelUpPlan(character).choices).toEqual([]);
+      expectIssues(previewLevelUp(character, makeRequest(character)), "сначала выберите");
+    }
+  });
+
+  it.each([false, true])("uses the selected complement with automatic calculation %s", (enabled) => {
+    const domains = "Созидание, Смерть";
+    const base = makeHero("Проводник", 1, domains, {
+      automation: { enabled, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": domains, "conduit.domain.1": "Созидание",
+      } },
+    });
+    const skillChoice = getLevelUpPlan(base).choices.find((item) => item.id === "conduit.domain.skill.2")!;
+    const request = makeRequest(base, { choices: { ...firstChoices(base), [skillChoice.id]: [skillChoice.options.at(-1)!.id] } });
+    const result = expectOk(previewLevelUp(base, request));
+    const normalized = normalizeCharacter(JSON.parse(JSON.stringify(result.rawNext)));
+    expect(normalized.skills).toContain(skillChoice.options.at(-1)!.id);
+    expect(normalized.automation?.enabled).toBe(enabled);
+  });
+
+  it("rejects a missing, foreign, or already learned complement skill and does not duplicate granted abilities", () => {
+    const domains = "Созидание, Смерть";
+    const base = makeHero("Проводник", 1, domains, {
+      skills: ["Ремонт"] as Character["skills"],
+      automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": domains, "conduit.domain.1": "Созидание",
+      } },
+    });
+    const choice = getLevelUpPlan(base).choices.find((entry) => entry.id === "conduit.domain.skill.2")!;
+    expect(choice.options.map((entry) => entry.id)).not.toContain("Ремонт");
+    const missing = firstChoices(base);
+    delete missing[choice.id];
+    expectIssues(previewLevelUp(base, makeRequest(base, { choices: missing })), "Не выбран обязательный вариант");
+    expectIssues(previewLevelUp(base, makeRequest(base, { choices: { ...firstChoices(base), [choice.id]: ["Скрытность"] } })), "не входит в варианты выбора");
+    const knownGrant = ABILITY_COMPENDIUM.find((ability) => ability.name === "Могильная Речь")!;
+    const domainAbilityId = conduitAbilities.find((entry) => entry.level === 2 && entry.domain === "Созидание")!.abilityId;
+    const knownDomainAbility = ABILITY_COMPENDIUM.find((ability) => ability.id === domainAbilityId)!;
+    const duplicate = { ...base, abilities: [...base.abilities, knownGrant, knownDomainAbility] };
+    const availableDomainChoice = getLevelUpPlan(duplicate).choices.find((entry) => entry.id === "conduit.ability.domain.2")!;
+    expect(availableDomainChoice.options.map((option) => option.id)).not.toContain(domainAbilityId);
+    const completed = firstChoices(duplicate);
+    completed[choice.id] = [choice.options[0].id];
+    const result = expectOk(previewLevelUp(duplicate, makeRequest(duplicate, { choices: completed })));
+    expect(result.next.abilities.filter((ability) => ability.name === "Могильная Речь")).toHaveLength(1);
+  });
+
   const elementalist = "Элементалист";
   const conduit = "Проводник";
 
@@ -1437,7 +1551,7 @@ describe("level-up explicit previous-level ability windows", () => {
   it("keeps the exact target level when a group declares no window", () => {
     const { group } = levelUpGroup(conduit, 5);
     expect(group.allowedLevels).toBeUndefined();
-    const character = makeHero(conduit, 4, "Созидание, Смерть");
+    const character = makeHero(conduit, 4, "Созидание, Смерть", { automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Созидание, Смерть", "conduit.domain.4": "Созидание" } } });
     const plan = getLevelUpPlan(character);
     expect(plan.available, plan.reason).toBe(true);
     const choice = plan.choices.find((entry) => entry.id === group.id)!;
@@ -1660,5 +1774,197 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(
       character.abilities.filter((ability) => ability.id === earthGrant),
     ).toHaveLength(1);
+  });
+
+  it.each([2, 6, 9])("requires and records one of the two conduit domain abilities at level %i", (toLevel) => {
+    const domains = "Жизнь, Защита";
+    const character = makeHero("Проводник", toLevel - 1, domains, {
+      automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": domains, "conduit.domain.1": "Жизнь" } },
+    });
+    const key = `conduit.ability.domain.${toLevel}`;
+    const plan = getLevelUpPlan(character);
+    const choice = plan.choices.find((entry) => entry.id === key)!;
+    expect(choice).toBeDefined();
+    expect(choice.options.map((option) => option.description).sort()).toEqual(["Жизнь", "Защита"]);
+
+    expectIssues(previewLevelUp(character, makeRequest(character)), "Не выбран обязательный вариант");
+    const chosen = choice.options[1];
+    const choices = { ...firstChoices(character), [key]: [chosen.id] };
+    const result = expectOk(previewLevelUp(character, makeRequest(character, { choices })));
+    expect(result.next.abilities.some((ability) => ability.id === chosen.id)).toBe(true);
+    expect(result.next.advancements?.at(-1)?.choices[key]).toEqual([chosen.id]);
+    expect(result.next.automation?.classFeatureSelections?.[key]).toBe("Защита");
+
+    const foreign = "provodnik-bozhestvennyy-drakon-28e9f9991d";
+    expectIssues(previewLevelUp(character, makeRequest(character, { choices: { ...firstChoices(character), [key]: [foreign] } })), "не входит в варианты выбора");
+  });
+
+  it.each([2, 6, 9])("counts learned Conduit domain abilities correctly at level %i", (toLevel) => {
+    const domains = ["Жизнь", "Защита"];
+    const mapped = domains.map((domain) => conduitAbilities.find((entry) => entry.level === toLevel && entry.domain === domain)!);
+    const entries = mapped.map((mapping) => ABILITY_COMPENDIUM.find((ability) => ability.id === mapping.abilityId)!);
+    const makeConduit = (abilities: Ability[]) => makeHero("Проводник", toLevel - 1, domains.join(", "), {
+      abilities,
+      automation: { enabled: false, adjustments: { stamina: 2 }, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": domains.join(", "), "conduit.domain.1": "Жизнь", preserved: "keep",
+      } },
+    });
+
+    const oneKnown = makeConduit([entries[0]]);
+    const onePlan = getLevelUpPlan(oneKnown);
+    const oneChoice = onePlan.choices.find((entry) => entry.id === `conduit.ability.domain.${toLevel}`)!;
+    expect(oneChoice.options.map((option) => option.id)).toEqual([entries[1].id]);
+    const oneResult = expectOk(previewLevelUp(oneKnown, makeRequest(oneKnown, { choices: firstChoices(oneKnown) })));
+    expect(oneResult.next.abilities.filter((ability) => entries.some((entry) => entry.id === ability.id))).toHaveLength(2);
+    expect(oneResult.next.automation?.classFeatureSelections?.preserved).toBe("keep");
+    expect(oneResult.next.automation?.adjustments).toEqual({ stamina: 2 });
+
+    const bothKnown = makeConduit(entries);
+    const bothPlan = getLevelUpPlan(bothKnown);
+    expect(bothPlan.available).toBe(true);
+    expect(bothPlan.choices.some((entry) => entry.id === `conduit.ability.domain.${toLevel}`)).toBe(false);
+    expect(bothPlan.warnings.join(" ")).toContain("уже есть у героя");
+    const bothResult = expectOk(previewLevelUp(bothKnown, makeRequest(bothKnown, { choices: firstChoices(bothKnown) })));
+    expect(bothResult.next.abilities.filter((ability) => entries.some((entry) => entry.id === ability.id))).toHaveLength(2);
+
+    const noneKnown = makeConduit([]);
+    const noneChoice = getLevelUpPlan(noneKnown).choices.find((entry) => entry.id === `conduit.ability.domain.${toLevel}`)!;
+    expect(noneChoice.options.map((option) => option.id).sort()).toEqual(entries.map((entry) => entry.id).sort());
+  });
+
+  it("explains when neither selected domain has an available ability", () => {
+    const domains = "Жизнь, Защита";
+    const mappedIds = conduitAbilities.filter((entry) => entry.level === 2 && ["Жизнь", "Защита"].includes(entry.domain)).map((entry) => entry.abilityId);
+    const known = mappedIds.map((id) => ABILITY_COMPENDIUM.find((ability) => ability.id === id)!);
+    const character = makeHero("Проводник", 1, domains, {
+      abilities: known,
+      automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": domains, "conduit.domain.1": "Жизнь",
+      } },
+    });
+    const plan = getLevelUpPlan(character);
+    expect(plan.available).toBe(true);
+    expect(plan.choices.some((choice) => choice.id === "conduit.ability.domain.2")).toBe(false);
+    expect(plan.warnings.join(" ")).toContain("уже есть у героя");
+    const result = expectOk(previewLevelUp(character, makeRequest(character, { choices: firstChoices(character) })));
+    expect(result.next.abilities.filter((ability) => mappedIds.includes(ability.id))).toHaveLength(2);
+  });
+
+  it("uses legacy subclass domains and does not invent a choice without a domain pair", () => {
+    const legacy = makeHero("Проводник", 1, "Жизнь, Защита", { automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Жизнь, Защита", "conduit.domain.1": "Жизнь" } } });
+    expect(getLevelUpPlan(legacy).choices.some((choice) => choice.id === "conduit.ability.domain.2")).toBe(true);
+    const incomplete = makeHero("Проводник", 1, "Жизнь");
+    expect(getLevelUpPlan(incomplete).available).toBe(false);
+    expect(getLevelUpPlan(incomplete).reason).toContain("сначала выберите");
+    expect(getLevelUpPlan(incomplete).choices.some((choice) => choice.id === "conduit.ability.domain.2")).toBe(false);
+  });
+
+  it.each([[1, 2], [5, 6], [8, 9]] as const)("blocks domain rewards for an invalid pair at %i → %i", (from, to) => {
+    const character = makeHero("Проводник", from, "Жизнь, Неизвестный", {
+      automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": "Жизнь, Неизвестный", "conduit.domain.1": "Жизнь",
+      } },
+    });
+    const plan = getLevelUpPlan(character);
+    expect(plan.available).toBe(false);
+    expect(plan.reason).toContain("домен");
+    expect(plan.choices).toEqual([]);
+    expectIssues(previewLevelUp(character, makeRequest(character)), "известных домена");
+  });
+
+  it("canonicalizes lower-case domains before resolving the level-two skill and ability", () => {
+    const character = makeHero("Проводник", 1, "жизнь, защита", {
+      automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": "жизнь, защита", "conduit.domain.1": "жИЗНЬ",
+      } },
+    });
+    const plan = getLevelUpPlan(character);
+    expect(plan.available).toBe(true);
+    expect(plan.choices.find((item) => item.id === "conduit.domain.skill.2")?.label).toBe("Навык домена «Защита»");
+    expect(plan.choices.find((item) => item.id === "conduit.ability.domain.2")?.options.map((item) => item.description)).toContain("Защита");
+  });
+
+  it("does not add conduit domain choices for other classes", () => {
+    const character = makeHero("Неистовый", 1, "Берсерк");
+    expect(getLevelUpPlan(character).choices.some((choice) => choice.id.startsWith("conduit.ability.domain."))).toBe(false);
+  });
+
+  it.each([[3, 4], [6, 7]] as const)("selects a Conduit domain feature on %i → %i and keeps its complement", (from, to) => {
+    const domains = "Жизнь, Защита";
+    const built = buildCharacter({
+      ...emptyBuilderDraft(),
+      name: "Проводник уровней",
+      ancestry: "Дварф",
+      traits: [],
+      className: "Проводник",
+      subclass: domains,
+      characteristics: startingCharacteristics("Проводник"),
+      abilityIds: [],
+      featureChoices: {},
+      conduitDomainFeature: "Жизнь",
+    }, { ...createCharacter({ name: "Проводник уровней", className: "Проводник", level: from }), level: from, xp: ENOUGH_XP });
+    const character = { ...built, level: from, xp: ENOUGH_XP, subclass: domains };
+    const key = `conduit.domain.${to}`;
+    const plan = getLevelUpPlan(character);
+    const choice = plan.choices.find((item) => item.id === key)!;
+    expect(choice.options.map((option) => option.description).sort()).toEqual(["Жизнь", "Защита"]);
+    expectIssues(previewLevelUp(character, makeRequest(character)), "Не выбран обязательный вариант");
+
+    const selected = choice.options[0];
+    const result = expectOk(previewLevelUp(character, makeRequest(character, { choices: { ...firstChoices(character), [key]: [selected.id] } })));
+    expect(result.rawNext.automation?.classFeatureSelections?.[key]).toBe(selected.description);
+    expect(result.rawNext.advancements?.at(-1)?.choices[key]).toEqual([selected.id]);
+    const reloaded = normalizeCharacter(JSON.parse(JSON.stringify(result.rawNext)));
+    const featureIds = activeClassFeatures(reloaded).map((feature) => feature.id);
+    expect(featureIds).toContain(selected.id);
+    const complement = GENERATED_CLASS_FEATURES.find((feature) => feature.level === to && feature.keyedBy === "domain" && feature.keyValue === "Защита")!;
+    const complementAtNextLevel = activeClassFeatures({ ...reloaded, level: to + 1 });
+    expect(complementAtNextLevel.map((feature) => feature.id)).toContain(complement.id);
+    expect(reloaded.advancements?.at(-1)?.choices[key]).toEqual([selected.id]);
+
+    const disabled = { ...character, automation: { ...character.automation!, enabled: false } };
+    const manualResult = expectOk(previewLevelUp(disabled, makeRequest(disabled, { choices: { ...firstChoices(disabled), [key]: [selected.id] } })));
+    expect(manualResult.next.automation?.classFeatureSelections?.[key]).toBe(selected.description);
+  });
+
+  it.each(["", "Жизнь", "Жизнь, Жизнь", "Жизнь, неизвестный"])("blocks domain feature advancement for an unknown pair: %s", (domains) => {
+    const character = makeHero("Проводник", 3, domains);
+    expect(getLevelUpPlan(character).available).toBe(false);
+    expect(getLevelUpPlan(character).reason).toContain("два известных домена");
+  });
+
+  it("prefers the saved Conduit domain pair over the subclass fallback", () => {
+    const character = makeHero("Проводник", 3, "Смерть, Любовь", {
+      automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Жизнь, Защита" } },
+    });
+    const choice = getLevelUpPlan(character).choices.find((item) => item.id === "conduit.domain.4");
+    expect(choice?.options.map((option) => option.description).sort()).toEqual(["Жизнь", "Защита"]);
+  });
+
+  it.each([[4, 5], [7, 8]] as const)("blocks %i→%i when the previous domain feature choice is missing or invalid", (featureLevel, toLevel) => {
+    for (const saved of [undefined, "Чужой домен"] as const) {
+      const selections: Record<string, string> = { "conduit.domain": "Жизнь, Защита" };
+      if (saved) selections[`conduit.domain.${featureLevel}`] = saved;
+      const character = makeHero("Проводник", featureLevel, "Жизнь, Защита", {
+        automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: selections },
+      });
+      const plan = getLevelUpPlan(character);
+      expect(plan.available).toBe(false);
+      expect(plan.reason).toContain(`особенности домена ${featureLevel}-го уровня`);
+      expect(plan.reason).toContain("панели особенностей");
+      expectIssues(previewLevelUp(character, makeRequest(character)), "Восстановите пару доменов");
+    }
+  });
+
+  it.each([true, false])("allows 4→5 with a valid saved domain feature when automation is %s", (enabled) => {
+    const character = makeHero("Проводник", 4, "Жизнь, Защита", {
+      automation: { enabled, adjustments: { stamina: 3 }, ancestryTraits: [], classFeatureSelections: {
+        "conduit.domain": "Жизнь, Защита", "conduit.domain.4": "Защита",
+      } },
+    });
+    const result = expectOk(previewLevelUp(character, makeRequest(character, { choices: firstChoices(character) })));
+    expect(result.next.level).toBe(5);
+    expect(result.next.automation?.classFeatureSelections?.["conduit.domain.4"]).toBe("Защита");
+    expect(result.next.automation?.adjustments).toEqual({ stamina: 3 });
   });
 });

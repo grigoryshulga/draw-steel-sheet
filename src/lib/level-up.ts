@@ -1,6 +1,8 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { conduitAbilities } from "../data/class-features/conduit-abilities";
+import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import { classPreset } from "../data/classes";
-import { ALL_CREATION_SKILLS } from "../data/creation-rules";
+import { ALL_CREATION_SKILLS, DOMAIN_SKILL_SLOTS, DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
 import {
   CLASS_PERK_LEVELS,
   PERK_COMPENDIUM,
@@ -29,6 +31,7 @@ import {
 import { recalculateCharacter } from "./character-calculations";
 import { classFeatureGiftsAtLevel } from "./class-feature-view";
 import { CHARACTERISTICS } from "./rules";
+import { selectedGroupValue } from "./feature-conditions";
 
 export type { LevelUpAbilityGroup, LevelUpFeature, LevelUpRule };
 
@@ -171,6 +174,15 @@ const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
   ABILITY_COMPENDIUM.map((ability) => [ability.id, ability]),
 );
 
+// Resolve user-entered domain spellings to one canonical catalog key. Refuse
+// normalized collisions so the result cannot depend on object/catalog order.
+function canonicalDomain(value: string): string | undefined {
+  const matches = Object.keys(DOMAIN_SKILL_SLOTS).filter(
+    (domain) => normalizeToken(domain) === normalizeToken(value),
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
 /**
  * Only a real class ability of this class and one of these exact levels may be
  * awarded automatically. Grants always pass the single target level; a choice
@@ -200,6 +212,7 @@ function resolveClassAbility(
       warning: `Способность «${entry.name}» из правил не совпадает со справочником класса на ${levelLabel}; начислите её вручную.`,
     };
   }
+
   return { entry };
 }
 
@@ -569,6 +582,107 @@ function buildContext(character: Character): LevelUpContext {
     }
   }
 
+  // At levels 4 and 7 a Conduit chooses which of their two domains grants its
+  // feature. Resolve options from the book skeleton so the choice stays tied
+  // to the actual domain pair and remains independent of automation.
+  if (character.className === "Проводник" && ([4, 7] as number[]).includes(toLevel)) {
+    const key = `conduit.domain.${toLevel}`;
+    const rawDomains = selectedGroupValue(character, "conduit.domain");
+    const domains = typeof rawDomains === "string"
+      ? rawDomains.split(",").map((value) => value.trim()).filter(Boolean)
+      : [];
+    const normalizedDomains = [...new Set(domains.map(normalizeToken))];
+    const options = GENERATED_CLASS_FEATURES
+      .filter((feature) => feature.className === character.className &&
+        feature.level === toLevel && feature.keyedBy === "domain" &&
+        feature.parentId === `conduit.feature.${toLevel}.osobennost-domena-${toLevel}-go-urovnya` &&
+        normalizedDomains.includes(normalizeToken(feature.keyValue ?? "")))
+      .map((feature) => ({ id: feature.id, label: feature.name, description: feature.keyValue }));
+    if (normalizedDomains.length !== 2 || options.length !== 2) {
+      return unavailable(
+        `Для получения особенности домена ${toLevel}-го уровня нужно указать два известных домена Проводника. Проверьте сохранённый выбор доменов; повышение заблокировано, награда не потеряна.`,
+        rule,
+      );
+    }
+    addChoice({
+      id: key,
+      kind: "ability",
+      label: `Особенность домена ${toLevel}-го уровня`,
+      count: 1,
+      options,
+    }, true);
+  }
+  // The feature gained at levels 4 and 7 determines which domain feature is
+  // active at levels 5 and 8. Do not silently advance past a missing or stale
+  // saved choice: the player can restore it in the class features panel.
+  if (character.className === "Проводник" && ([5, 8] as number[]).includes(toLevel)) {
+    const featureLevel = toLevel - 1;
+    const key = `conduit.domain.${featureLevel}`;
+    const savedValue = selectedGroupValue(character, key);
+    const savedDomain = typeof savedValue === "string" ? canonicalDomain(savedValue) : undefined;
+    const domainValue = selectedGroupValue(character, "conduit.domain");
+    const domains = typeof domainValue === "string"
+      ? domainValue.split(",").map((value) => canonicalDomain(value.trim()))
+      : [];
+    const validDomains = domains.length === 2 && domains.every(Boolean) &&
+      new Set(domains).size === 2;
+    const savedFeature = savedDomain && GENERATED_CLASS_FEATURES.find((feature) =>
+      feature.className === character.className && feature.level === featureLevel &&
+      feature.keyedBy === "domain" && normalizeToken(feature.keyValue ?? "") === normalizeToken(savedDomain),
+    );
+    if (!validDomains || !savedDomain || !domains.includes(savedDomain) || !savedFeature) {
+      return unavailable(
+        `Не сохранён корректный выбор особенности домена ${featureLevel}-го уровня. Восстановите пару доменов и выбор этой особенности в панели особенностей, затем повторите повышение; награда не потеряна.`,
+        rule,
+      );
+    }
+  }
+  if (character.className === "Проводник" && ([2, 6, 9] as number[]).includes(toLevel)) {
+    const groupId = `conduit.ability.domain.${toLevel}`;
+    const domainValue = selectedGroupValue(character, "conduit.domain");
+    const domains = typeof domainValue === "string"
+      ? domainValue.split(",").map((value) => value.trim()).filter(Boolean)
+      : [];
+    const canonicalDomains = domains.map(canonicalDomain);
+    const mappings = conduitAbilities.filter((entry) => entry.level === toLevel);
+    if (domains.length === 2 && canonicalDomains.every(Boolean) && new Set(canonicalDomains).size === 2 && mappings.length > 0) {
+      const existingAbilities = ownedAbilities(character);
+      const options = canonicalDomains.flatMap((domain) => {
+        const mapping = mappings.find(
+          (entry) => normalizeToken(entry.domain) === normalizeToken(domain!),
+        );
+        const entry = mapping ? COMPENDIUM_BY_ID.get(mapping.abilityId) : undefined;
+        if (
+          !mapping || !entry || entry.className !== character.className ||
+          entry.level !== toLevel || entry.sourceKind !== "class" ||
+          isAbilityOwned(entry, existingAbilities)
+        ) return [];
+        return [{ id: entry.id, label: entry.name, description: domain! }];
+      });
+      if (options.length === 0) {
+        warnings.push(
+          `Обе доменные способности Проводника ${toLevel}-го уровня уже есть у героя; награда считается полученной, дубликаты не добавляются.`,
+        );
+      } else {
+        addChoice(
+          {
+            id: groupId,
+            kind: "ability",
+            label: `Доменная способность ${toLevel}-го уровня`,
+            count: 1,
+            options,
+          },
+          true,
+        );
+      }
+    } else {
+      return unavailable(
+        `Для получения доменной способности ${toLevel}-го уровня сначала выберите два известных домена Проводника. Проверьте сохранённый выбор доменов и повторите повышение; награда не потеряна.`,
+        rule,
+      );
+    }
+  }
+
   for (const group of rule.abilityChoices) {
     if (!appliesToSubclass(group.subclasses, tokens)) continue;
     const count =
@@ -716,6 +830,47 @@ function buildContext(character: Character): LevelUpContext {
         },
         true,
       );
+    }
+  }
+
+  // At 1 → 2 the Conduit also gains a skill from the domain that was not
+  // selected for its level-one feature. Keep this separate from the level-two
+  // domain ability choice below.
+  if (character.className === "Проводник" && toLevel === 2) {
+    const domainValue = selectedGroupValue(character, "conduit.domain");
+    const domains = typeof domainValue === "string"
+      ? domainValue.split(",").map((value) => value.trim()).filter(Boolean)
+      : [];
+    const chosenFirst = selectedGroupValue(character, "conduit.domain.1");
+    const canonicalDomains = domains.map(canonicalDomain);
+    const pair = [...new Set(canonicalDomains.filter(Boolean))];
+    const first = typeof chosenFirst === "string" ? chosenFirst.trim() : "";
+    const canonicalFirst = canonicalDomain(first);
+    const complement = canonicalDomains.find((domain) => domain && domain !== canonicalFirst);
+    if (domains.length !== 2 || pair.length !== 2 || !canonicalFirst || !canonicalDomains.includes(canonicalFirst) || !complement) {
+      return unavailable(
+        "Для повышения Проводника 1→2 сначала выберите в приложении оба домена и домен особенности 1-го уровня. Старый лист сохранён; награды второго домена не начислены и не потеряны.",
+        rule,
+      );
+    }
+    const slot = DOMAIN_SKILL_SLOTS[complement];
+    const learned = learnedSkillKeys(character);
+    const options = (slot?.options ?? [])
+      .filter((skill) => !learned.has(normalizeToken(skill)))
+      .map((skill) => ({ id: skill, label: skill }));
+    if (!options.length) return unavailable(`В группе навыков домена «${complement}» нет доступных навыков; освободите навык и повторите повышение.`, rule);
+    addChoice({ id: "conduit.domain.skill.2", kind: "skill", label: `Навык домена «${complement}»`, count: 1, options }, true);
+
+    const grantedNames = DOMAIN_GRANTED_ABILITIES[complement] ?? [];
+    for (const name of grantedNames) {
+      const entry = ABILITY_COMPENDIUM.find((ability) => normalizeToken(ability.name) === normalizeToken(name) && ability.className === "Проводник" && ability.level === 1 && ability.sourceKind === "class");
+      if (!entry || isAbilityOwned(entry, owned)) continue;
+      const ownership = abilityOwnershipKey(entry.name, entry.source);
+      if (!grantedIds.has(entry.id) && !grantedKeys.has(ownership)) {
+        grantedIds.add(entry.id);
+        grantedKeys.add(ownership);
+        granted.push(cloneCharacterAbility(entry));
+      }
     }
   }
 
@@ -1068,6 +1223,55 @@ export function previewLevelUp(
     skills,
     advancements: [...oldAdvancements, record],
   };
+
+  if (character.className === "Проводник" && ([2, 6, 9] as number[]).includes(plan.toLevel)) {
+    const choiceId = `conduit.ability.domain.${plan.toLevel}`;
+    const chosenId = selections.get(choiceId)?.[0];
+    const mapping = conduitAbilities.find(
+      (entry) => entry.level === plan.toLevel && entry.abilityId === chosenId,
+    );
+    if (mapping) {
+      const automation = rawNext.automation;
+      rawNext = {
+        ...rawNext,
+        automation: {
+          enabled: automation?.enabled ?? false,
+          adjustments: automation?.adjustments ?? {},
+          ancestryTraits: automation?.ancestryTraits ?? [],
+          ...automation,
+          classFeatureSelections: {
+            ...(automation?.classFeatureSelections ?? {}),
+            [choiceId]: mapping.domain,
+          },
+        },
+      };
+    }
+  }
+
+  if (character.className === "Проводник" && ([4, 7] as number[]).includes(plan.toLevel)) {
+    const key = `conduit.domain.${plan.toLevel}`;
+    const chosenId = selections.get(key)?.[0];
+    const feature = GENERATED_CLASS_FEATURES.find((entry) =>
+      entry.id === chosenId && entry.className === character.className &&
+      entry.level === plan.toLevel && entry.keyedBy === "domain",
+    );
+    if (feature?.keyValue) {
+      const automation = rawNext.automation;
+      rawNext = {
+        ...rawNext,
+        automation: {
+          enabled: automation?.enabled ?? false,
+          adjustments: automation?.adjustments ?? {},
+          ancestryTraits: automation?.ancestryTraits ?? [],
+          ...automation,
+          classFeatureSelections: {
+            ...(automation?.classFeatureSelections ?? {}),
+            [key]: feature.keyValue,
+          },
+        },
+      };
+    }
+  }
 
   const manual = request.manualMaxima;
   if (!character.automation?.enabled && manual) {

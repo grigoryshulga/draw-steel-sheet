@@ -1,6 +1,7 @@
 import {
   CLASS_FEATURE_GROUPS,
 } from "../data/class-feature-rules";
+import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import type { FeatureCondition } from "../data/class-features/types";
 import type { Character } from "../types";
 import { normalizeFeatureText as normalize } from "./utils";
@@ -50,12 +51,13 @@ function currentResourceValue(character: Character, name: string): number {
 
 /**
  * Группы выбора, значение которых приложение пока не записывает в
- * `automation.classFeatureSelections`: у Неистового аспект выбирается как
- * подкласс героя (`character.subclass`). Ключ — `id` группы, значение — поле
- * `Character`, откуда брать выбор, пока задача 9 не начнёт писать его в выборы.
+ * `automation.classFeatureSelections`: у Неистового аспект и у Проводника
+ * домены могут читаться из `character.subclass`. Ключ — `id` группы, значение
+ * — класс, для которого разрешён фолбэк к подклассу.
  */
-const SUBCLASS_BACKED_GROUPS: Record<string, "subclass"> = {
-  "fury.aspect": "subclass",
+const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
+  "fury.aspect": "Неистовый",
+  "conduit.domain": "Проводник",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */
@@ -75,10 +77,9 @@ function explicitSelection(
 
 /**
  * Выбранное значение группы с фолбэком: сначала явный выбор в
- * `automation.classFeatureSelections`, затем поле, которое пишет приложение
- * (`character.subclass` для `fury.aspect` — аспект Неистового). Явный выбор
- * всегда перекрывает фолбэк, поэтому два источника не показывают два правила
- * сразу. Общая точка для активации фич и для условий эффектов.
+ * `automation.classFeatureSelections`, затем подкласс для зарегистрированных
+ * групп и классов. Явный выбор всегда перекрывает фолбэк. Общая точка для
+ * активации фич и для условий эффектов.
  */
 export function selectedGroupValue(
   character: Character,
@@ -87,28 +88,85 @@ export function selectedGroupValue(
   const explicit = explicitSelection(character, groupId);
   if (explicit !== undefined) return explicit;
 
-  const field = SUBCLASS_BACKED_GROUPS[normalize(groupId)];
-  if (field !== "subclass") return undefined;
+  const fallbackClass = SUBCLASS_BACKED_GROUPS[normalize(groupId)];
+  if (!fallbackClass || normalize(character.className ?? "") !== normalize(fallbackClass)) {
+    return undefined;
+  }
   const subclass = character.subclass;
   return typeof subclass === "string" && subclass.trim() !== "" ? subclass : undefined;
 }
 
 /** Значения ключевых групп, выбранные героем: и ID опции, и её название. */
-function selectedKeyValues(character: Character): Set<string> {
+function selectedKeyValues(
+  character: Character,
+  conditionValues: string[],
+): Set<string> {
   const selected = new Set<string>();
-  const selections = character.automation?.classFeatureSelections;
-  if (selections && typeof selections === "object") {
-    for (const optionId of Object.values(selections)) {
-      if (typeof optionId !== "string") continue;
-      selected.add(normalize(optionId));
-      const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
-      if (name) selected.add(normalize(name));
+  const className = normalize(character.className ?? "");
+  const groupsByValue = new Map<string, Set<string>>();
+  for (const feature of GENERATED_CLASS_FEATURES) {
+    if (!feature.keyedBy || !feature.keyValue) continue;
+    const registeredGroup = Object.entries(SUBCLASS_BACKED_GROUPS).find(
+      ([, owner]) => normalize(owner) === normalize(feature.className),
+    )?.[0];
+    if (!registeredGroup) continue;
+    for (const conditionValue of conditionValues) {
+      const wanted = normalize(conditionValue);
+      if (
+        [feature.keyValue, ...feature.keyValue.split(",")].some(
+          (value) => normalize(value) === wanted,
+        )
+      ) {
+        const groups = groupsByValue.get(wanted) ?? new Set<string>();
+        groups.add(registeredGroup);
+        groupsByValue.set(wanted, groups);
+      }
     }
   }
-  // Фолбэк для групп, которые приложение хранит вне выборов (аспект → подкласс).
+  const hasKnownOwner = (value: string) => groupsByValue.has(normalize(value));
+  const selections = character.automation?.classFeatureSelections;
+  if (selections && typeof selections === "object") {
+    for (const [groupId, optionId] of Object.entries(selections)) {
+      if (typeof optionId !== "string") continue;
+      const normalizedOption = normalize(optionId);
+      const ownerClass = SUBCLASS_BACKED_GROUPS[normalize(groupId)];
+      const owners = groupsByValue.get(normalizedOption);
+      // Старые option ID остаются глобальными; именованные значения привязаны
+      // к своей группе, а неизвестные старые группы сохраняют прежнее поведение.
+      if (
+        CLASS_FEATURE_OPTION_NAMES.has(optionId) ||
+        !ownerClass ||
+        (className === normalize(ownerClass) &&
+          (!owners || owners.has(normalize(groupId))))
+      ) {
+        selected.add(normalizedOption);
+      }
+      const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
+      if (name && !hasKnownOwner(name)) selected.add(normalize(name));
+
+      // Запятая разделяет варианты только в известной группе и для её класса.
+      if (ownerClass && className === normalize(ownerClass)) {
+        for (const value of optionId.split(",")) {
+          const normalized = normalize(value);
+          const owners = groupsByValue.get(normalized);
+          if (!owners || owners.has(normalize(groupId))) selected.add(normalized);
+        }
+      }
+    }
+  }
+  // Фолбэк для групп, которые приложение хранит в subclass.
   for (const groupId of Object.keys(SUBCLASS_BACKED_GROUPS)) {
     const value = selectedGroupValue(character, groupId);
-    if (value !== undefined) selected.add(normalize(value));
+    if (value !== undefined) {
+      const normalizedValue = normalize(value);
+      const owners = groupsByValue.get(normalizedValue);
+      if (!owners || owners.has(normalize(groupId))) selected.add(normalizedValue);
+      for (const part of value.split(",")) {
+        const normalized = normalize(part);
+        const owners = groupsByValue.get(normalized);
+        if (!owners || owners.has(normalize(groupId))) selected.add(normalized);
+      }
+    }
   }
   return selected;
 }
@@ -138,7 +196,7 @@ export function featureConditionMet(
     return false;
   }
   if (condition.keyValue?.length) {
-    const selected = selectedKeyValues(character);
+    const selected = selectedKeyValues(character, condition.keyValue);
     const matched = condition.keyValue.some((value) =>
       selected.has(normalize(value)),
     );

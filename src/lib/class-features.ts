@@ -51,17 +51,16 @@ export interface ActiveClassFeatureEffects {
  * и угаданный `<слаг>.<группа>` не совпал бы с ними, а в случае совпадения имени
  * задублировал бы бонусы старого реестра.
  *
- * В таблице одна запись — Неистовый (его механики разобраны в этом заходе).
- * Остальные восемь классов перечислены в `NOT_YET`: механик у них нет, эффектов
- * они не дают и дублировать нечего; при следующем заходе они получат здесь свои
- * записи, а старый реестр удалится вместе с ними. Класс без записи в таблице
- * по выборам не фильтруется вовсе — это зафиксировано тестом.
+ * У Проводника выбор доменов добавлен для корректной фильтрации записей; механики
+ * остальных классов ещё в `NOT_YET`. Класс без записи в таблице по выборам не
+ * фильтруется вовсе — это зафиксировано тестом.
  */
 const SELECTION_GROUPS: Record<
   string,
   Partial<Record<FeatureKeyGroup, string>>
 > = {
   неистовый: { aspect: "fury.aspect" },
+  проводник: { domain: "conduit.domain" },
 };
 
 /**
@@ -120,20 +119,121 @@ function isActiveClassFeature(
     return false;
   }
   const level = typeof character.level === "number" ? character.level : 0;
-  if (feature.level > level) return false;
+  // У комплемента скелетная запись остаётся на уровне выбора (1/4/7),
+  // но сам дар зарабатывается уровнем позже (2/5/8). Сначала определяем
+  // runtime-уровень, чтобы он не появлялся в панели преждевременно.
+  const earnedLevel = conduitComplementLevel(feature, character) ?? feature.level;
+  if (earnedLevel > level) return false;
+  // Domain piety records predate keyedBy. Their book condition describes one
+  // domain, while the character must have a complete, distinct valid pair.
+  if (feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")) {
+    const pair = conduitDomainPair(character);
+    const domain = mechanicsFor(feature.id)?.when?.keyValue?.[0];
+    return !!pair && !!domain && pair.some(
+      (value) => normalizeFeatureText(value) === normalizeFeatureText(domain),
+    );
+  }
+  // Старый builder и сохранённые листы хранят выбор молитвы как option ID.
+  // В скелете эти записи не keyedBy, поэтому связываем каждый legacy ID с
+  // конкретным стабильным ID записи, не извлекая ключ из текста описания.
+  if (Object.values(CONDUIT_PRAYER_FEATURES).includes(feature.id)) {
+    const selected = character.automation?.classFeatureSelections?.["conduit.prayer"];
+    return typeof selected === "string" && CONDUIT_PRAYER_FEATURES[selected] === feature.id;
+  }
+  // Старые листы хранят выбор оберега как option ID. Как и молитвы,
+  // записи оберегов в скелете не keyedBy, поэтому активируем ровно выбранную.
+  if (Object.values(CONDUIT_SANCTUARY_FEATURES).includes(feature.id)) {
+    const selected = character.automation?.classFeatureSelections?.["conduit.sanctuary"];
+    return typeof selected === "string" && CONDUIT_SANCTUARY_FEATURES[selected] === feature.id;
+  }
   if (!feature.keyedBy) return true;
 
   const groupId = selectionGroupId(feature, feature.keyedBy);
   // Класса нет в таблице групп — выборам не доверяем и фильтрацию не применяем.
   if (!groupId) return true;
 
-  // Явный выбор в `automation.classFeatureSelections` перекрывает фолбэк;
-  // пока приложение не пишет этот ключ, аспект Неистового берётся из
-  // `character.subclass` — это решает `selectedGroupValue`.
-  return keyValueMatches(
-    selectedGroupValue(character, groupId),
-    feature.keyValue,
+  // Явный выбор перекрывает разрешённый для класса фолбэк из selectedGroupValue.
+  if (className === normalizeFeatureText("Проводник") && feature.keyedBy === "domain") {
+    return conduitDomainFeatureActive(feature, character) || conduitComplementLevel(feature, character) !== undefined;
+  }
+  const selected = selectedGroupValue(character, groupId);
+  return keyValueMatches(selected, feature.keyValue);
+}
+
+const CONDUIT_PRAYER_FEATURES: Record<string, string> = {
+  "conduit.prayer.destruction": "conduit.feature.1.molitva-o-razrushenii",
+  "conduit.prayer.distance": "conduit.feature.1.molitva-o-distantsii",
+  "conduit.prayer.soldier": "conduit.feature.1.molitva-o-masterstve-soldata",
+  "conduit.prayer.speed": "conduit.feature.1.molitva-o-skorosti",
+  "conduit.prayer.steel": "conduit.feature.1.molitva-o-stali",
+};
+
+const CONDUIT_SANCTUARY_FEATURES: Record<string, string> = {
+  "conduit.sanctuary.bastion": "conduit.feature.1.obereg-bastiona",
+  "conduit.sanctuary.reaction": "conduit.feature.1.obereg-reaktsii",
+  "conduit.sanctuary.refuge": "conduit.feature.1.obereg-svyatilishcha",
+  "conduit.sanctuary.spirits": "conduit.feature.1.obereg-dukhov",
+};
+
+const CONDUIT_DOMAINS = [
+  "Созидание", "Смерть", "Судьба", "Знание", "Жизнь", "Любовь",
+  "Природа", "Защита", "Буря", "Солнце", "Хитрость", "Война",
+];
+function validDomains(value: string | undefined): string[] {
+  if (!value) return [];
+  return value.split(",").map((part) =>
+    CONDUIT_DOMAINS.find(
+      (domain) => normalizeFeatureText(domain) === normalizeFeatureText(part.trim()),
+    ) ?? "",
   );
+}
+function conduitDomainPair(character: Character): string[] | undefined {
+  const selections = character.automation?.classFeatureSelections ?? {};
+  const raw = typeof selections["conduit.domain"] === "string"
+    ? selections["conduit.domain"]
+    : character.subclass;
+  const pair = validDomains(raw);
+  return pair.length === 2 && pair[0] && pair[1] &&
+    normalizeFeatureText(pair[0]) !== normalizeFeatureText(pair[1])
+    ? pair
+    : undefined;
+}
+function conduitChoice(character: Character, key: string, pair: string[]): string | undefined {
+  const raw = character.automation?.classFeatureSelections?.[key];
+  if (typeof raw !== "string") return undefined;
+  const choice = validDomains(raw);
+  return choice.length === 1 && choice[0] && pair.some(
+    (domain) => normalizeFeatureText(domain) === normalizeFeatureText(choice[0]),
+  )
+    ? choice[0]
+    : undefined;
+}
+function conduitDomainFeatureActive(feature: GeneratedClassFeature, character: Character): boolean {
+  const pair = conduitDomainPair(character);
+  if (!pair || !feature.keyValue) return false;
+  const level = feature.level;
+  if ([2, 6, 9].includes(level)) {
+    const selected = conduitChoice(character, `conduit.ability.domain.${level}`, pair);
+    return !!selected && keyValueMatches(selected, feature.keyValue);
+  }
+  if (![1, 4, 7].includes(level)) return false;
+  const selected = conduitChoice(character, `conduit.domain.${level}`, pair);
+  return !!selected && keyValueMatches(selected, feature.keyValue);
+}
+
+/** Уровневый комплемент ссылается на ту же запись скелета; сам скелет неизменяем. */
+function conduitComplementLevel(feature: GeneratedClassFeature, character: Character): number | undefined {
+  if (
+    !feature.keyedBy ||
+    normalizeFeatureText(feature.className) !== normalizeFeatureText("Проводник") ||
+    ![1, 4, 7].includes(feature.level)
+  ) return undefined;
+  const pair = conduitDomainPair(character);
+  if (!pair || !feature.keyValue) return undefined;
+  const selected = conduitChoice(character, `conduit.domain.${feature.level}`, pair);
+  if (!selected) return undefined;
+  const complement = pair.find((domain) => normalizeFeatureText(domain) !== normalizeFeatureText(selected));
+  return complement && keyValueMatches(complement, feature.keyValue) ? feature.level + 1 : undefined;
 }
 
 /**
@@ -243,12 +343,13 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
       const mechanics = mechanicsFor(feature.id);
       // Статичные условия (аспект, уровень, форма) скрывают чужую фичу из списка;
       // динамический порог ресурса оставляет её видимой — его показывает лист.
-      if (!featureConditionMet(character, showConditions(mechanics?.when))) continue;
+      const prayer = feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-");
+      if (!prayer && !featureConditionMet(character, showConditions(mechanics?.when))) continue;
       seen.add(feature.id);
       active.push({
         id: feature.id,
         name: feature.name,
-        level: feature.level,
+        level: conduitComplementLevel(feature, character) ?? feature.level,
         className: feature.className,
         ...(feature.keyedBy ? { keyedBy: feature.keyedBy } : {}),
         ...(feature.keyValue ? { keyValue: feature.keyValue } : {}),

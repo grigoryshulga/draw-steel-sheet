@@ -67,6 +67,11 @@ const KEYED_BY = {
   Специализация: "specialization",
 };
 
+/** Точные расхождения между названием в сводной таблице и заголовком аккордеона в книге. */
+const ACCORDION_ALIASES = {
+  "боги повелевают вам повиноваться": "Боги Требуют Послушания",
+};
+
 const TRANSLIT = {
   а: "a", б: "b", в: "v", г: "g", д: "d", е: "e", ё: "e", ж: "zh", з: "z",
   и: "i", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o", п: "p", р: "r",
@@ -431,7 +436,8 @@ export function buildClassFeatures(builder, levelUp) {
               continue;
             }
             // Текста для строки нет и своей особенности тоже нет — такая строка не запись.
-            const accordion = findAccordion(node.rootText, target);
+            const accordionName = ACCORDION_ALIASES[normalize(target)] ?? target;
+            const accordion = findAccordion(node.rootText, accordionName);
             if (accordion) {
               makeRowNode(node, {
                 name: target,

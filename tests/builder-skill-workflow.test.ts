@@ -127,6 +127,7 @@ function completedDraft(
     className,
     subclass:
       className === "Проводник" ? "Жизнь, Защита" : source.subclasses[0].name,
+    conduitDomainFeature: className === "Проводник" ? "Защита" : "",
     domain: className === "Цензор" ? "Жизнь" : "",
     characteristics: startingCharacteristics(className),
     featureChoices: Object.fromEntries(

@@ -1,4 +1,6 @@
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
+import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { NOT_YET } from "../data/class-features/mechanics";
 import type {
   FeatureChoice,
@@ -57,6 +59,8 @@ export interface FeatureSheetBadge {
 /** Отметка триггера: частота и состояние на текущий раунд или схватку. */
 export interface FeatureSheetTrigger {
   label: string;
+  /** Точное условие срабатывания из авторской механики. */
+  detail: string;
   frequency: TriggerFrequency;
   /** Отмечено в текущем раунде (или схватке у частоты `encounter`). */
   used: boolean;
@@ -74,8 +78,12 @@ export interface FeatureSheetItem {
    * у записи без чисел — подпись её триггера.
    */
   summary: string;
+  /** Краткая строка взята из полного описания и не должна дублировать его. */
+  summaryFromDescription?: boolean;
   badges: FeatureSheetBadge[];
   trigger?: FeatureSheetTrigger;
+  /** Контекстное пояснение механики, не вошедшее в числовой расчёт. */
+  notes?: string;
   /**
    * Полный текст правила для раскрытия. Есть у прозаических записей: в строке
    * виден только первый фрагмент, а весь текст лист показывает по клику.
@@ -97,6 +105,78 @@ export interface FeatureSheetChoice {
   /** Русское название группы: «Аспект». */
   label: string;
   options: string[];
+  /** Уже сохранённое значение; выборы можно исправить без потери данных. */
+  selected?: string;
+}
+
+export interface ConduitLegacyDomainChoices {
+  choices: FeatureSheetChoice[];
+  message?: string;
+  domains: string[];
+  selectedDomains: string[];
+  /** Ранее полученные уровни с незаполненными выборами требуют ручной проверки. */
+  legacyWarning?: string;
+}
+
+/** Ввод пропущенных выборов старых листов Проводника — без догадки по порядку. */
+export function conduitLegacyDomainChoicesForSheet(character: Character): ConduitLegacyDomainChoices {
+  if (normalizeFeatureText(character.className ?? "") !== normalizeFeatureText("Проводник")) return { choices: [], domains: [], selectedDomains: [] };
+  const selections = character.automation?.classFeatureSelections ?? {};
+  const explicitPair = selections["conduit.domain"];
+  const pair = splitValues(typeof explicitPair === "string" ? explicitPair : character.subclass);
+  const allDomains = new Set<string>();
+  for (const feature of GENERATED_CLASS_FEATURES) {
+    if (normalizeFeatureText(feature.className) === normalizeFeatureText("Проводник") && feature.keyedBy === "domain") {
+      for (const value of splitValues(feature.keyValue)) allDomains.add(normalizeFeatureText(value));
+    }
+  }
+  const valid = pair.length === 2 && new Set(pair.map(normalizeFeatureText)).size === 2 && pair.every((value) => allDomains.has(normalizeFeatureText(value)));
+  const domains = [...allDomains].map((normalized) => {
+    for (const feature of GENERATED_CLASS_FEATURES) {
+      if (feature.keyedBy !== "domain" || normalizeFeatureText(feature.className) !== normalizeFeatureText("Проводник")) continue;
+      const canonical = splitValues(feature.keyValue).find((value) => normalizeFeatureText(value) === normalized);
+      if (canonical) return canonical;
+    }
+    return normalized;
+  });
+  if (!valid) {
+    const savedPair = typeof explicitPair === "string" ? explicitPair : character.subclass;
+    const retained = savedPair?.trim() ? ` Сохранённое значение «${savedPair}» оставлено без изменений, но оно не задаёт два разных известных домена.` : " Пара доменов не сохранена.";
+    return { choices: [], domains, selectedDomains: [], message: `Чтобы восстановить выборы особенностей, выберите два разных домена в этой панели.${retained} Проверка списка способностей не подтверждает освоение навыков.` };
+  }
+  const canonicalPair = pair.map((value) => domains.find((domain) => normalizeFeatureText(domain) === normalizeFeatureText(value)) ?? value);
+  const choices = ([1, 4, 7] as const).filter((level) => level <= character.level).map((level) => {
+    const key = `conduit.domain.${level}`;
+    const rawSelected = selections[key];
+    const selected = typeof rawSelected === "string" ? canonicalPair.find((domain) => normalizeFeatureText(domain) === normalizeFeatureText(rawSelected)) ?? rawSelected : undefined;
+    return { group: key, label: `Домен особенности ${level}-го уровня`, options: canonicalPair, ...(selected ? { selected } : {}) };
+  });
+  const owned = new Set((character.abilities ?? []).flatMap((ability) => [ability.id, `${normalizeFeatureText(ability.name)}|${normalizeFeatureText(ability.source)}`]));
+  const relevantAbilities = conduitAbilities.filter((entry) => entry.level <= character.level && [2, 6, 9].includes(entry.level) && pair.some((domain) => normalizeFeatureText(domain) === normalizeFeatureText(entry.domain)));
+  const missingLevels = [2, 6, 9].filter((level) => level <= character.level && relevantAbilities.filter((entry) => entry.level === level).every((entry) => {
+    const ability = ABILITY_COMPENDIUM.find((item) => item.id === entry.abilityId);
+    return !ability || (!owned.has(ability.id) && !owned.has(`${normalizeFeatureText(ability.name)}|${normalizeFeatureText(ability.source)}`));
+  }));
+  const reviewed = selections["conduit.legacyRewardsReviewed"] === "true";
+  return {
+    choices,
+    domains,
+    selectedDomains: canonicalPair,
+    ...(!reviewed && missingLevels.length ? { legacyWarning: `Старый лист может не содержать награды: проверьте, добавлена ли ОДНА способность домена на каждом из уровней ${missingLevels.join(", ")} (книга предлагает выбрать одну способность из пары на каждом уровне). Если добавляли вручную, отметьте её в листе или подтвердите проверку наград. Наличие карты способности не подтверждает, что соответствующий навык освоен.` } : {}),
+  };
+}
+
+/** Записывает выбранную пару, не затрагивая вручную добавленные награды. */
+export function setConduitDomainPair(character: Character, domains: [string, string]): Character {
+  if (normalizeFeatureText(character.className ?? "") !== normalizeFeatureText("Проводник") || domains[0] === domains[1]) return character;
+  const automation = character.automation ?? { enabled: false, adjustments: {}, ancestryTraits: [] };
+  return { ...character, automation: { ...automation, classFeatureSelections: { ...automation.classFeatureSelections, "conduit.domain": domains.join(", ") } } };
+}
+
+export function confirmConduitLegacyRewardsReviewed(character: Character): Character {
+  if (normalizeFeatureText(character.className ?? "") !== normalizeFeatureText("Проводник")) return character;
+  const automation = character.automation ?? { enabled: false, adjustments: {}, ancestryTraits: [] };
+  return { ...character, automation: { ...automation, classFeatureSelections: { ...automation.classFeatureSelections, "conduit.legacyRewardsReviewed": "true" } } };
 }
 
 /** Подписи числовых полей листа: как эффект читается в строке описания. */
@@ -572,6 +652,7 @@ function sheetItem(
     const mark = triggerMark(character, feature.id, triggerSpec.frequency);
     trigger = {
       label: triggerSpec.label,
+      detail: triggerSpec.detail,
       frequency: triggerSpec.frequency,
       used: mark.used,
       count: mark.count,
@@ -606,16 +687,21 @@ function sheetItem(
   // особенности читалась бы как «строка ни о чём», а подпись триггера,
   // совпадающая с названием («Линии силы»), ничего не добавляет.
   let summary = parts.join("; ");
+  let summaryFromDescription = false;
   if (!summary) {
     const triggerSpec = mechanics?.trigger;
     const triggerSummary = triggerSpec
       ? triggerSpec.label.trim() || textSummary(triggerSpec.detail)
       : "";
-    summary =
+    if (
       triggerSummary &&
       normalizeFeatureText(triggerSummary) !== normalizeFeatureText(feature.name)
-        ? triggerSummary
-        : textSummary(feature.description);
+    ) {
+      summary = triggerSummary;
+    } else {
+      summary = textSummary(feature.description);
+      summaryFromDescription = !!summary;
+    }
   }
 
   return {
@@ -623,9 +709,11 @@ function sheetItem(
     name: feature.name,
     level: feature.level,
     summary,
+    ...(summaryFromDescription ? { summaryFromDescription: true } : {}),
     badges: merged,
     ...(trigger ? { trigger } : {}),
-    ...(!givesMechanics(feature) && feature.description.trim()
+    ...(mechanics?.notes?.trim() ? { notes: mechanics.notes.trim() } : {}),
+    ...(feature.description.trim()
       ? { detail: feature.description }
       : {}),
   };
@@ -665,6 +753,9 @@ function isSheetFeature(
   if (needsUnknownSelection(character, feature)) return false;
   // Контейнер не показывается, даже если у него есть механика.
   if (hasChildren(feature.id)) return false;
+  // Доменные особенности Проводника показываем по тексту skeleton: они
+  // остаются полноценными дарами, даже пока прочая механика класса не разобрана.
+  if (/^conduit\.domain\.(1|4|7)\./.test(feature.id)) return true;
   if (givesMechanics(feature)) return true;
   // Правила классов из `NOT_YET` показывает прежний реестр, а не новый раздел.
   return classIsModelled(feature.className);
@@ -735,6 +826,9 @@ function copyGroups(groups: FeatureSheetGroup[]): FeatureSheetGroup[] {
  * выборов плана повышения — в подарках он бы задвоился.
  */
 function isGift(item: FeatureSheetItem): boolean {
+  // Доменные особенности описаны текстом в скелете, но это реальные дары
+  // уровня (включая комплемент, отображаемый на уровне 2/5/8).
+  if (/^conduit\.domain\.(1|4|7)\./.test(item.id)) return true;
   if (item.badges.some((badge) => badge.kind === "text")) return false;
   return (
     item.summary !== "" ||
@@ -815,8 +909,18 @@ export function triggerBadgeCounts(character: Character): number {
 export function classFeatureChoicesForSheet(
   character: Character,
 ): FeatureSheetChoice[] {
+  const conduitChoices = conduitLegacyDomainChoicesForSheet(character);
   const context = sheetContext(character);
   const choices: FeatureSheetChoice[] = [];
+  if (normalizeFeatureText(character.className ?? "") === normalizeFeatureText("Проводник") && character.level >= 6) {
+    const saved = character.automation?.classFeatureSelections?.["conduit.blooming-saint-immunity"];
+    choices.push({
+      group: "conduit.blooming-saint-immunity",
+      label: "Иммунитет Расцветающего святого",
+      options: ["corruption", "holy"],
+      ...(typeof saved === "string" ? { selected: saved } : {}),
+    });
+  }
   const seen = new Set<string>();
   for (const feature of activeClassFeatures(character)) {
     const choice = feature.mechanics?.choice;
@@ -836,5 +940,16 @@ export function classFeatureChoicesForSheet(
       options: orderedOptions(options, choice),
     });
   }
-  return choices;
+  return [...conduitChoices.choices, ...choices];
+}
+
+/** Сохраняет выбор иммунитета, оставляя прочие поля старого листа нетронутыми. */
+export function setBloomingSaintImmunityChoice(character: Character, value: string): Character {
+  if (normalizeFeatureText(character.className ?? "") !== normalizeFeatureText("Проводник") || character.level < 6) return character;
+  if (value !== "corruption" && value !== "holy" && value !== "") return character;
+  const automation = character.automation ?? { enabled: false, adjustments: {}, ancestryTraits: [] };
+  const selections = { ...automation.classFeatureSelections };
+  if (value) selections["conduit.blooming-saint-immunity"] = value;
+  else delete selections["conduit.blooming-saint-immunity"];
+  return { ...character, automation: { ...automation, classFeatureSelections: selections } };
 }

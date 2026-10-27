@@ -8,6 +8,7 @@ import {
   builderIssues,
   builderSkillSlots,
   grantedClassAbilities,
+  selectableClassAbilities,
 } from "../src/lib/character-builder";
 import { createCharacter, normalizeCharacter } from "../src/lib/defaults";
 import {
@@ -24,6 +25,8 @@ import {
   ALL_CREATION_SKILLS,
   CLASS_SIGNATURE_COUNTS,
   canUseKit,
+  DOMAIN_GRANTED_ABILITIES,
+  DOMAIN_SKILL_SLOTS,
 } from "../src/data/creation-rules";
 
 function tactician() {
@@ -43,6 +46,121 @@ function tactician() {
 }
 
 describe("Character creation and automatic rules", () => {
+  it.each([
+    ["Созидание", "Смерть"],
+    ["Природа", "Созидание"],
+    ["Смерть", "Созидание"],
+  ])("uses only the explicitly selected conduit domain in pair %s / %s", (chosen, complement) => {
+    const base = {
+      ...emptyBuilderDraft(),
+      className: "Проводник",
+      subclass: `${chosen}, ${complement}`,
+    };
+    const selected = { ...base, conduitDomainFeature: chosen };
+    const slots = builderSkillSlots(selected).class;
+    expect(slots).toContainEqual(DOMAIN_SKILL_SLOTS[chosen]);
+    expect(slots).not.toContainEqual(DOMAIN_SKILL_SLOTS[complement]);
+    expect(grantedClassAbilities(selected).map((ability) => ability.name)).toEqual(
+      expect.arrayContaining(DOMAIN_GRANTED_ABILITIES[chosen] ?? []),
+    );
+    for (const name of DOMAIN_GRANTED_ABILITIES[complement] ?? []) {
+      expect(grantedClassAbilities(selected).map((ability) => ability.name)).not.toContain(name);
+    }
+  });
+
+  it.each([
+    ["Созидание", "Руки Творца", "Могильная Речь", "Смерть"],
+    ["Смерть", "Могильная Речь", "Руки Творца", "Созидание"],
+    ["Природа", "Верный Друг", "Руки Творца", "Созидание"],
+  ])("only exposes and grants the selected conduit domain card: %s", (chosen, grantedName, foreignName, complement) => {
+    const domains = `${chosen}, ${complement}`;
+    const base = {
+      ...emptyBuilderDraft(),
+      name: "Проводник",
+      className: "Проводник",
+      subclass: domains,
+      conduitDomainFeature: chosen,
+      characteristics: startingCharacteristics("Проводник"),
+    };
+    const card = (name: string) => ABILITY_COMPENDIUM.find(
+      (ability) => ability.className === "Проводник" && ability.level === 1 && ability.name === name,
+    )!;
+    expect(selectableClassAbilities(base).map((ability) => ability.name)).not.toEqual(
+      expect.arrayContaining(["Руки Творца", "Могильная Речь", "Верный Друг"]),
+    );
+    expect(buildCharacter(base).abilities.map((ability) => ability.name)).toContain(grantedName);
+    expect(buildCharacter(base).abilities.map((ability) => ability.name)).not.toContain(foreignName);
+
+    const forged = { ...base, abilityIds: [card(foreignName).id] };
+    expect(builderIssues(forged)[6]).toContain("Особенности доменов");
+    expect(buildCharacter(forged).abilities.map((ability) => ability.name)).not.toContain(foreignName);
+  });
+
+  it("does not exclude same-named non-conduit abilities from other classes", () => {
+    const censored = {
+      ...emptyBuilderDraft(),
+      className: "Цензор",
+      domain: "Смерть",
+    };
+    const sameName = ABILITY_COMPENDIUM.find(
+      (ability) => ability.id === "cenzor-ruki-tvorca-3425397e10",
+    )!;
+    expect(selectableClassAbilities(censored)).toContainEqual(sameName);
+    expect(grantedClassAbilities(censored)).not.toContainEqual(sameName);
+    expect(
+      buildCharacter({ ...censored, abilityIds: [sameName.id] }).abilities,
+    ).toContainEqual(sameName);
+    const tactician = selectableClassAbilities({
+      ...emptyBuilderDraft(),
+      className: "Тактик",
+    });
+    expect(tactician.some((ability) => ability.kind === "heroic")).toBe(true);
+    expect(tactician.some((ability) => ability.resourceCost === 3)).toBe(true);
+    expect(tactician.some((ability) => ability.resourceCost === 5)).toBe(true);
+  });
+
+  it.each(["", "Судьба", "Созидание, Смерть"])(
+    "does not grant conduit domain data for missing or invalid choice %s",
+    (choice) => {
+      const draft = {
+        ...emptyBuilderDraft(),
+        className: "Проводник",
+        subclass: "Созидание, Смерть",
+        conduitDomainFeature: choice,
+      };
+      expect(builderSkillSlots(draft).class).not.toContainEqual(DOMAIN_SKILL_SLOTS["Созидание"]);
+      expect(builderSkillSlots(draft).class).not.toContainEqual(DOMAIN_SKILL_SLOTS["Смерть"]);
+      expect(grantedClassAbilities(draft).map((ability) => ability.name)).not.toContain("Руки Творца");
+      expect(grantedClassAbilities(draft).map((ability) => ability.name)).not.toContain("Могильная Речь");
+    },
+  );
+
+  it("stores the conduit level 1 domain only when explicitly selected from the pair", () => {
+    const base = {
+      ...emptyBuilderDraft(),
+      className: "Проводник",
+      subclass: "Жизнь, Защита",
+      characteristics: startingCharacteristics("Проводник"),
+      featureChoices: Object.fromEntries(
+        BUILDER_DATA.classes.find((entry) => entry.name === "Проводник")!.featureChoices
+          .map((group) => [group.name, group.options[0].name]),
+      ),
+    };
+    const valid = { ...base, conduitDomainFeature: "Защита" };
+    expect(builderIssues(valid)[4]).not.toContain("особенности 1-го уровня");
+    expect(buildCharacter(valid).automation?.classFeatureSelections?.["conduit.domain.1"]).toBe("Защита");
+
+    const missing = { ...base, conduitDomainFeature: "" };
+    expect(builderIssues(missing)[4]).toContain("особенности 1-го уровня");
+    expect(buildCharacter(missing).automation?.classFeatureSelections).not.toHaveProperty("conduit.domain.1");
+
+    const replaced = { ...valid, subclass: "Война, Смерть" };
+    expect(builderIssues(replaced)[4]).toContain("из двух выбранных");
+    expect(buildCharacter(replaced).automation?.classFeatureSelections).not.toHaveProperty("conduit.domain.1");
+
+    const otherClass = { ...base, className: "Тактик", subclass: "Авангард" };
+    expect(buildCharacter(otherClass).automation?.classFeatureSelections).not.toHaveProperty("conduit.domain.1");
+  });
   it.each([
     "Неистовый",
     "Нуль",
@@ -72,6 +190,7 @@ describe("Character creation and automatic rules", () => {
       className,
       subclass:
         className === "Проводник" ? "Жизнь, Защита" : source.subclasses[0].name,
+      conduitDomainFeature: className === "Проводник" ? "Защита" : "",
       domain: className === "Цензор" ? "Жизнь" : "",
       characteristics: startingCharacteristics(className),
       featureChoices: Object.fromEntries(

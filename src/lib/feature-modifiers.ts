@@ -460,6 +460,10 @@ export function featureDamageImmunities(
   character: Character,
   options: DamageImmunityOptions = {},
 ): FeatureDamageImmunity[] {
+  const selectedBloomingImmunity = character.automation?.classFeatureSelections?.["conduit.blooming-saint-immunity"];
+  const bloomingImmunity = normalize(character.className) === normalize("Проводник") && character.level >= 6 &&
+    (character.automation?.enabled || options.includeWhenAutomationOff === true) &&
+    (selectedBloomingImmunity === "corruption" || selectedBloomingImmunity === "holy");
   const best = new Map<
     string,
     { type: string; value: number; sourceId: string; sourceName: string }
@@ -486,6 +490,20 @@ export function featureDamageImmunities(
         });
       }
     }
+  }
+
+  // Эта прогрессия пока не подключена к реестру механик; выбор читается
+  // отдельно, чтобы не задвоить её после будущего подключения механики.
+  if (bloomingImmunity) {
+    const type = selectedBloomingImmunity === "corruption" ? "порча" : "святой";
+    const key = normalize(type);
+    const existing = best.get(key);
+    if (!existing || existing.value < 10) best.set(key, {
+      type,
+      value: 10,
+      sourceId: "conduit.blooming-saint-immunity",
+      sourceName: "Расцветающий святой",
+    });
   }
 
   const grouped = new Map<string, FeatureDamageImmunity>();

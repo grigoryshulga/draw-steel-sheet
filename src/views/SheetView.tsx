@@ -6,7 +6,7 @@ import { ConditionsPanel } from "./sheet/ConditionsPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
 import { ClassFeatureMechanicsPanel, RoundEncounterControls } from "./sheet/ClassFeaturesPanel";
-import { classFeatureChoicesForSheet, classFeatureGroupsForSheet } from "../lib/class-feature-view";
+import { classFeatureChoicesForSheet, classFeatureGroupsForSheet, conduitLegacyDomainChoicesForSheet } from "../lib/class-feature-view";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { PotencyPanel } from "./sheet/PotencyPanel";
 import { ProgressPanel } from "./sheet/ProgressPanel";
@@ -33,7 +33,7 @@ type PanelId =
   | "resources";
 function SheetClassFeaturesPanel() {
   const { character } = useApp();
-  if (!classFeatureGroupsForSheet(character).length && !classFeatureChoicesForSheet(character).length) return null;
+  if (!classFeatureGroupsForSheet(character).length && !classFeatureChoicesForSheet(character).length && !conduitLegacyDomainChoicesForSheet(character).message) return null;
   return (
     <Panel title="Особенности класса" icon="spark" dense actions={<RoundEncounterControls />}>
       <ClassFeatureMechanicsPanel />

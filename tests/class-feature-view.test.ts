@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { createCharacter } from "../src/lib/defaults";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { ABILITY_COMPENDIUM } from "../src/data/compendium";
+import { conduitAbilities } from "../src/data/class-features/conduit-abilities";
 import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
+import { CONDUIT_BASE_MECHANICS } from "../src/data/class-features/mechanics/conduit-base";
+import { CONDUIT_DOMAIN_MECHANICS } from "../src/data/class-features/mechanics/conduit-domains";
+import { CONDUIT_LEVEL_MECHANICS } from "../src/data/class-features/mechanics/conduit-levels";
 import type {
   FeatureMechanics,
   GeneratedClassFeature,
@@ -10,6 +15,9 @@ import type { Character } from "../src/types";
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  conduitLegacyDomainChoicesForSheet,
+  setConduitDomainPair,
+  confirmConduitLegacyRewardsReviewed,
   featureBadgeState,
   featureLevelOpenState,
   triggerBadgeCounts,
@@ -80,6 +88,27 @@ function withFeature<T>(
   }
 }
 
+/** Register unconnected conduit records only for the assertion using the view. */
+function withConduitMechanics<T>(run: () => T): T {
+  const mechanics = {
+    ...CONDUIT_BASE_MECHANICS,
+    ...CONDUIT_DOMAIN_MECHANICS,
+    ...CONDUIT_LEVEL_MECHANICS,
+  };
+  const originals = new Map(Object.keys(mechanics).map((id) => [id, FEATURE_MECHANICS[id]]));
+  Object.assign(FEATURE_MECHANICS, mechanics);
+  invalidateClassFeatureRegistry();
+  try {
+    return run();
+  } finally {
+    for (const [id, original] of originals) {
+      if (original) FEATURE_MECHANICS[id] = original;
+      else delete FEATURE_MECHANICS[id];
+    }
+    invalidateClassFeatureRegistry();
+  }
+}
+
 const ASPECT_GATE = "fury.feature.1.rastushchaya-svirepost-berserka-2";
 const SPEED_FEATURE = "fury.aspect.2.neizbezhnyy-gnev";
 const CHAOS_IMMUNITY = "fury.feature.10.voploshchenie-khaosa";
@@ -98,6 +127,9 @@ describe("classFeatureGroupsForSheet", () => {
         true,
       );
       expect(group.title).toContain(String(group.level));
+      expect(group.features.map((feature) => feature.id)).toEqual(
+        [...group.features.map((feature) => feature.id)].sort(),
+      );
     }
     // Уровень героя выше — будущие группы 4-го уровня не появляются.
     expect(classFeatureGroupsForSheet(fury(2, "Берсерк")).map((g) => g.level)).toEqual([
@@ -283,6 +315,43 @@ describe("classFeatureGroupsForSheet", () => {
     ).toBe(true);
   });
 
+  it("возвращает точное условие и заметки механики в чистой модели листа", () => {
+    const hero = fury(1, "Берсерк");
+    const exactDetail = "Когда враг в пределах 10 клеток получает урон огнём, получите 2 Благочестия.";
+    withFeature(
+      {},
+      {
+        kinds: ["trigger"],
+        trigger: {
+          event: "deal-damage",
+          frequency: "encounter",
+          label: "Благочестие домена Солнце",
+          detail: exactDetail,
+        },
+        notes: "Проверяйте тип урона вручную; начисление не автоматизировано.",
+      },
+      () => {
+        const item = itemOf(hero, TEST_ID);
+        expect(item.trigger?.detail).toBe(exactDetail);
+        expect(item.notes).toBe("Проверяйте тип урона вручную; начисление не автоматизировано.");
+        expect(item.badges.some((badge) => badge.label === "сработает: Благочестие домена Солнце")).toBe(true);
+
+        const marked = previewGameAction(hero, { kind: "trigger", featureId: TEST_ID, used: true });
+        expect(marked.ok).toBe(true);
+        if (!marked.ok) return;
+        expect(itemOf(marked.next, TEST_ID).trigger).toMatchObject({ detail: exactDetail, used: true, count: 1 });
+      },
+    );
+  });
+
+  it("показывает триггерные подробности при включённом и выключенном авторасчёте", () => {
+    const enabled = fury(2, "Буревестник");
+    const disabled = { ...enabled, automation: { ...enabled.automation!, enabled: false } };
+    const featureId = "fury.aspect.2.zub-i-kogot";
+    expect(itemOf(enabled, featureId).trigger?.detail).toBeTruthy();
+    expect(itemOf(disabled, featureId).trigger?.detail).toBe(itemOf(enabled, featureId).trigger?.detail);
+  });
+
   it("при выключенном авторасчёте показывает фичи и не трогает лист", () => {
     const hero = fury(4, "Берсерк");
     hero.automation = { ...hero.automation!, enabled: false };
@@ -357,6 +426,124 @@ describe("triggerBadgeCounts", () => {
 });
 
 describe("classFeatureChoicesForSheet", () => {
+  it("предлагает только отсутствующие выборы домена 1/4/7 из legacy-пары", () => {
+    const hero = createCharacter({ className: "Проводник", level: 7 });
+    hero.subclass = "Жизнь, Защита";
+    hero.automation = { enabled: false, adjustments: { stamina: 2 }, ancestryTraits: ["old"], classFeatureSelections: { "conduit.domain.1": "Жизнь", legacy: "keep" } };
+    const state = conduitLegacyDomainChoicesForSheet(hero);
+    expect(state.choices.map(({ group, options, selected }) => [group, options, selected])).toEqual([
+      ["conduit.domain.1", ["Жизнь", "Защита"], "Жизнь"],
+      ["conduit.domain.4", ["Жизнь", "Защита"], undefined],
+      ["conduit.domain.7", ["Жизнь", "Защита"], undefined],
+    ]);
+    expect(hero.subclass).toBe("Жизнь, Защита");
+    expect(hero.automation.classFeatureSelections).toEqual({ "conduit.domain.1": "Жизнь", legacy: "keep" });
+    expect(classFeatureChoicesForSheet(hero).some((choice) => choice.group === "conduit.domain.7")).toBe(true);
+  });
+
+  it("берёт пару из старого выбора доменов, ограничивает доступный уровень и не пропускает чужой класс", () => {
+    const hero = createCharacter({ className: "Проводник", level: 3 });
+    hero.automation = { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Защита, Жизнь" } };
+    expect(conduitLegacyDomainChoicesForSheet(hero).choices.map((choice) => choice.group)).toEqual(["conduit.domain.1"]);
+    hero.className = "Неистовый";
+    expect(conduitLegacyDomainChoicesForSheet(hero).choices).toEqual([]);
+    expect(conduitLegacyDomainChoicesForSheet(hero).message).toBeUndefined();
+  });
+
+  it("объясняет некорректную пару и не предлагает подменить её доменами", () => {
+    const hero = createCharacter({ className: "Проводник", level: 10 });
+    hero.subclass = "Жизнь, Жизнь";
+    const invalid = conduitLegacyDomainChoicesForSheet(hero);
+    expect(invalid.choices).toEqual([]);
+    expect(invalid.message).toContain("выберите два разных домена");
+    hero.subclass = "Жизнь, Неизвестный домен";
+    expect(conduitLegacyDomainChoicesForSheet(hero).choices).toEqual([]);
+    hero.automation = { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain": "Жизнь, Неизвестный домен" } };
+    const explicitInvalid = conduitLegacyDomainChoicesForSheet(hero);
+    expect(explicitInvalid.message).toContain("Жизнь, Неизвестный домен");
+    expect(explicitInvalid.message).toContain("оставлено без изменений");
+  });
+
+  it("показывает честное предупреждение только при пропущенных выборах пройденных уровней", () => {
+    const legacy = createCharacter({ className: "Проводник", level: 7 });
+    legacy.subclass = "Жизнь, Защита";
+    const state = conduitLegacyDomainChoicesForSheet(legacy);
+    expect(state.legacyWarning).toContain("ОДНА способность домена на каждом из уровней 2, 6");
+    expect(state.legacyWarning).toContain("Наличие карты способности не подтверждает");
+    // Completing the feature selectors does not prove that cards were added.
+    const complete = { ...legacy, automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain.1": "Жизнь", "conduit.domain.4": "Защита", "conduit.domain.7": "Жизнь" } } };
+    expect(conduitLegacyDomainChoicesForSheet(complete).legacyWarning).toContain("ОДНА способность");
+    const mapping = conduitAbilities.find((entry) => entry.domain === "Жизнь" && entry.level === 2)!;
+    const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === mapping.abilityId)!;
+    const ownedByName = { ...complete, abilities: [{ ...ability, id: "manual-custom-id" }] };
+    expect(conduitLegacyDomainChoicesForSheet(ownedByName).legacyWarning).not.toContain("2-го"); // Either matching name+source card covers level 2.
+    const ownedBoth = { ...ownedByName, abilities: [...ownedByName.abilities, ...conduitAbilities.filter((entry) => entry.level === 2 && entry.domain === "Защита").map((entry) => ABILITY_COMPENDIUM.find((item) => item.id === entry.abilityId)!)] };
+    expect(conduitLegacyDomainChoicesForSheet(ownedBoth).legacyWarning).toContain("уровней 6");
+    const acknowledged = confirmConduitLegacyRewardsReviewed(complete);
+    expect(conduitLegacyDomainChoicesForSheet(acknowledged).legacyWarning).toBeUndefined();
+    expect(acknowledged.automation?.classFeatureSelections?.legacy).toBeUndefined();
+  });
+
+  it("не предупреждает легального героя 9-го уровня с одной наградой каждого уровня", () => {
+    const hero = createCharacter({ className: "Проводник", level: 9 });
+    hero.subclass = "Жизнь, Защита";
+    const selectedRewards = [
+      conduitAbilities.find((entry) => entry.level === 2 && entry.domain === "Жизнь")!,
+      conduitAbilities.find((entry) => entry.level === 6 && entry.domain === "Защита")!,
+      conduitAbilities.find((entry) => entry.level === 9 && entry.domain === "Жизнь")!,
+    ].map((entry) => ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId)!);
+    hero.abilities = selectedRewards;
+    expect(conduitLegacyDomainChoicesForSheet(hero).legacyWarning).toBeUndefined();
+
+    // Удалены обе возможные карты 6-го уровня; карты 2-го и 9-го остаются.
+    const withoutLevelSix = {
+      ...hero,
+      abilities: selectedRewards.filter((ability) => !conduitAbilities.some((entry) =>
+        entry.level === 6 && entry.abilityId === ability.id,
+      )),
+    };
+    const warning = conduitLegacyDomainChoicesForSheet(withoutLevelSix).legacyWarning!;
+    expect(warning).toContain("ОДНА способность домена на каждом из уровней 6");
+    expect(warning).not.toContain("2-го");
+    expect(warning).not.toContain("9-го");
+    expect(warning).not.toContain("Сияние Благодати");
+    expect(warning).not.toContain("Кираса богов");
+  });
+
+  it("канонизирует написание Жизнь в значении, отображаемом селектом", () => {
+    const hero = createCharacter({ className: "Проводник", level: 2 });
+    hero.subclass = "жизнь, защита";
+    hero.automation = { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain.1": "жИЗНЬ" } };
+    const choice = conduitLegacyDomainChoicesForSheet(hero).choices[0];
+    expect(choice.options).toEqual(["Жизнь", "Защита"]);
+    expect(choice.selected).toBe("Жизнь");
+    expect(choice.options.includes(choice.selected!)).toBe(true);
+    expect(conduitLegacyDomainChoicesForSheet(hero).legacyWarning).toContain("ОДНА способность");
+  });
+
+  it("сохраняет и явно показывает сохранённый выбор уровня вне пары доменов", () => {
+    const hero = createCharacter({ className: "Проводник", level: 2 });
+    hero.subclass = "жизнь, защита";
+    hero.automation = { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: { "conduit.domain.1": "неизвестный домен" } };
+    const choice = conduitLegacyDomainChoicesForSheet(hero).choices[0];
+    expect(choice.selected).toBe("неизвестный домен");
+    expect(choice.options).not.toContain(choice.selected);
+    expect(hero.automation.classFeatureSelections?.["conduit.domain.1"]).toBe("неизвестный домен");
+  });
+
+  it("позволяет заменить недопустимые explicit и subclass пары прямо в панели без потери данных", () => {
+    const hero = createCharacter({ className: "Проводник", level: 4 });
+    hero.subclass = "несуществующая пара";
+    hero.automation = { enabled: false, adjustments: { stamina: 4 }, ancestryTraits: ["keep"], classFeatureSelections: { "conduit.domain": "тоже неверно", custom: "preserve", "conduit.domain.1": "Жизнь" } };
+    const repaired = setConduitDomainPair(hero, ["Жизнь", "Защита"]);
+    expect(conduitLegacyDomainChoicesForSheet(repaired).message).toBeUndefined();
+    expect(conduitLegacyDomainChoicesForSheet(repaired).choices.map((choice) => choice.group)).toEqual(["conduit.domain.1", "conduit.domain.4"]);
+    expect(repaired.subclass).toBe(hero.subclass);
+    expect(repaired.automation?.adjustments).toEqual({ stamina: 4 });
+    expect(repaired.automation?.ancestryTraits).toEqual(["keep"]);
+    expect(repaired.automation?.classFeatureSelections).toMatchObject({ custom: "preserve", "conduit.domain.1": "Жизнь", "conduit.domain": "Жизнь, Защита" });
+  });
+
   it("просит выбрать аспект, пока его нет ни в выборах, ни в подклассе", () => {
     const choices = classFeatureChoicesForSheet(fury(1));
     expect(choices).toHaveLength(1);
@@ -380,12 +567,20 @@ describe("classFeatureChoicesForSheet", () => {
 });
 
 describe("панель показывает механику и прозу, но не контейнеры", () => {
-  it("у классов без разобранных механик раздел пуст — дубля со старым реестром нет", () => {
-    for (const className of ["Проводник", "Элементалист", "Тактик", "Тень"]) {
-      const hero = createCharacter({ className, level: 6 });
-      expect(classFeatureGroupsForSheet(hero)).toEqual([]);
-      expect(classFeatureChoicesForSheet(hero)).toEqual([]);
-    }
+  it("показывает временно зарегистрированные механики Проводника и не подмешивает другие классы", () => {
+    withConduitMechanics(() => {
+      const conduit = createCharacter({ className: "Проводник", level: 6 });
+      const conduitItems = itemsOf(conduit);
+      expect(conduitItems.some((item) => item.id === "conduit.feature.1.blagochestie-v-boyu")).toBe(true);
+      expect(conduitItems.every((item) => item.trigger ? item.trigger.detail.length > 0 : true)).toBe(true);
+
+      for (const className of ["Элементалист", "Тактик", "Тень"]) {
+        const hero = createCharacter({ className, level: 6 });
+        expect(classFeatureGroupsForSheet(hero)).toEqual([]);
+        expect(classFeatureChoicesForSheet(hero)).toEqual([]);
+      }
+      expect(classFeatureChoicesForSheet(conduit).map((choice) => choice.group)).toContain("conduit.blooming-saint-immunity");
+    });
   });
 
   it("у Неистового нет контейнеров и служебных заголовков", () => {
@@ -425,17 +620,17 @@ describe("панель показывает механику и прозу, но
   });
 
   it("не показывает записи с keyedBy у класса без зарегистрированной группы выборов", () => {
-    const hero = createCharacter({ className: "Проводник", level: 3 });
+    const hero = createCharacter({ className: "Тактик", level: 3 });
     withFeature(
-      { className: "Проводник", keyedBy: "domain", keyValue: "Солнце" },
+      { className: "Тактик", keyedBy: "aspect", keyValue: "Берсерк" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
-        // Выбор домена панель проверить не может — чужие правила не показываем.
+        // Выбор неизвестной группы панель проверить не может.
         expect(classFeatureGroupsForSheet(hero)).toEqual([]);
       },
     );
     withFeature(
-      { className: "Проводник" },
+      { className: "Тактик" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
         expect(itemsOf(hero)).toHaveLength(1);
@@ -569,8 +764,10 @@ describe("прозаические особенности на листе", () =
     expect(item.detail).toBeDefined();
     expect(item.detail!.length).toBeGreaterThan(item.summary.length);
     expect(item.detail).toContain("с рывком");
-    // У записи с числами раскрывать нечего: текст тира не переписывается.
-    expect(itemOf(fury(2, "Разоритель"), SPEED_FEATURE).detail).toBeUndefined();
+    // Числовая механика и книжное описание хранятся отдельно.
+    const speed = itemOf(fury(2, "Разоритель"), SPEED_FEATURE);
+    expect(speed.detail).toBeDefined();
+    expect(speed.summaryFromDescription).toBeUndefined();
   });
 
   it("у триггерной записи без чисел подпись берётся из триггера", () => {
