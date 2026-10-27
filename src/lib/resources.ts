@@ -235,9 +235,14 @@ function applyGains(
     event: gain.event,
     amount: gain.amount,
     frequency: gain.frequency,
-    label: sourceId.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")
-      ? domainGainLabel(sourceId, gain.event)
-      : gain.label ?? resourceGainLabel(gain.event),
+    // Подпись из данных главнее: авторы фич знают событие точнее, чем словарь
+    // (например, «осуждённый наносит урон»). Специальная ветка домена
+    // Проводника остаётся запасной для записей без собственной подписи.
+    label:
+      gain.label ??
+      (sourceId.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")
+        ? domainGainLabel(sourceId, gain.event)
+        : resourceGainLabel(gain.event)),
     sourceId,
     sourceName,
   }));

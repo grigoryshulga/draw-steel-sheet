@@ -96,8 +96,8 @@ describe("Character creation and automatic rules", () => {
     expect(buildCharacter(forged).abilities.map((ability) => ability.name)).not.toContain(foreignName);
   });
 
-  it("does not exclude same-named non-conduit abilities from other classes", () => {
-    const censored = {
+  it("не выдаёт карточку чужого домена и различает одноимённые карточки по классу", () => {
+    const censor = {
       ...emptyBuilderDraft(),
       className: "Цензор",
       domain: "Смерть",
@@ -105,11 +105,23 @@ describe("Character creation and automatic rules", () => {
     const sameName = ABILITY_COMPENDIUM.find(
       (ability) => ability.id === "cenzor-ruki-tvorca-3425397e10",
     )!;
-    expect(selectableClassAbilities(censored)).toContainEqual(sameName);
-    expect(grantedClassAbilities(censored)).not.toContainEqual(sameName);
+    // Карточка с тем же названием есть у Цензора, но её выдаёт домен Созидание.
+    expect(sameName.className).toBe("Цензор");
+    expect(grantedClassAbilities(censor)).not.toContainEqual(sameName);
+    expect(selectableClassAbilities(censor)).not.toContainEqual(sameName);
     expect(
-      buildCharacter({ ...censored, abilityIds: [sameName.id] }).abilities,
-    ).toContainEqual(sameName);
+      buildCharacter({ ...censor, abilityIds: [sameName.id] }).abilities,
+    ).not.toContainEqual(sameName);
+    expect(builderIssues({ ...censor, abilityIds: [sameName.id] })[6]).toContain(
+      "Особенности доменов",
+    );
+    // Свой домен выдаётся, и это именно карточка Цензора, а не Проводника.
+    const own = grantedClassAbilities({ ...censor, domain: "Созидание" });
+    expect(own.map((ability) => ability.id)).toContain(
+      "cenzor-ruki-tvorca-3425397e10",
+    );
+    expect(own.every((ability) => ability.className === "Цензор")).toBe(true);
+
     const tactician = selectableClassAbilities({
       ...emptyBuilderDraft(),
       className: "Тактик",

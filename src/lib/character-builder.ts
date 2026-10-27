@@ -219,13 +219,30 @@ export function grantedClassAbilities(draft: BuilderDraft) {
   );
 }
 
-/** Domain cards are granted by the selected conduit domain, never chosen manually. */
-function isManualClassAbility(draft: BuilderDraft, ability: (typeof ABILITY_COMPENDIUM)[number]) {
+/** Единая нормализация имён способностей для сверки с таблицами выдачи. */
+const normalizeAbilityName = (name: string) =>
+  name.toLowerCase().replace(/ё/g, "е").replace(/[^\p{L}\p{N}]/gu, "");
+
+/**
+ * Доменные карточки: их выдаёт выбранный домен, а не ручной список билдера.
+ * Таблица одна на классы с доменами (Проводник и Цензор), поэтому набор имён
+ * общий; конкретную карточку своего класса затем выбирает фильтр по className.
+ */
+const DOMAIN_CARD_NAMES = new Set(
+  Object.values(DOMAIN_GRANTED_ABILITIES).flat().map(normalizeAbilityName),
+);
+
+/**
+ * Способность, которую герой выбирает вручную. Доменные карточки сюда не
+ * входят: у Цензора домен один, и карточка чужого домена не должна попадать
+ * в список только потому, что она того же уровня.
+ */
+function isManualClassAbility(
+  draft: BuilderDraft,
+  ability: (typeof ABILITY_COMPENDIUM)[number],
+) {
   if (ability.className !== draft.className || ability.level !== 1) return false;
-  if (draft.className !== "Проводник") return true;
-  const normalize = (name: string) => name.toLowerCase().replace(/ё/g, "е").replace(/[^\p{L}\p{N}]/gu, "");
-  const domainGrantNames = new Set(Object.values(DOMAIN_GRANTED_ABILITIES).flat().map(normalize));
-  return !domainGrantNames.has(normalize(ability.name));
+  return !DOMAIN_CARD_NAMES.has(normalizeAbilityName(ability.name));
 }
 
 export function selectableClassAbilities(draft: BuilderDraft) {
@@ -472,12 +489,18 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
     draft.abilityIds.includes(a.id),
   );
   const signatureCount = CLASS_SIGNATURE_COUNTS[draft.className] ?? 0;
-  const forbiddenDomainCardSelected =
-    draft.className === "Проводник" &&
-    draft.abilityIds.some((id) => {
-      const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === id);
-      return ability && !isManualClassAbility(draft, ability);
-    });
+  // Доменная карточка не может быть выбрана вручную ни у Проводника, ни у
+  // Цензора: её выдаёт домен. Проверяем только способности 1-го уровня своего
+  // класса, чтобы записи из истории повышения не считались нарушением.
+  const forbiddenDomainCardSelected = draft.abilityIds.some((id) => {
+    const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === id);
+    return (
+      !!ability &&
+      ability.className === draft.className &&
+      ability.level === 1 &&
+      DOMAIN_CARD_NAMES.has(normalizeAbilityName(ability.name))
+    );
+  });
   return {
     name: draft.name.trim() ? "" : "Дайте герою имя.",
     ancestry: ancestry ? "" : "Выберите происхождение.",

@@ -17,6 +17,7 @@ import {
   resolvedEpicResourceGains,
   resolvedResourceGains,
   resourceGainLabel,
+  resourceGainLabels,
 } from "../src/lib/resources";
 import { normalizeFeatureText } from "../src/lib/utils";
 import type { Character } from "../src/types";
@@ -428,5 +429,49 @@ describe("resolvedEpicResourceGains", () => {
     withResource(withoutEpic, [], () => {
       expect(resolvedEpicResourceGains(testHero(1))).toEqual([]);
     });
+  });
+
+  it("подпись из данных главнее специальной ветки домена Проводника", () => {
+    // Запись домена Проводника исторически получает подпись из специальной
+    // ветки движка. Если автор задал подпись в данных, выигрывать должна она.
+    const id = "conduit.feature.1.blagochestie-i-effekt-domena-solntsa";
+    const previousMechanic = FEATURE_MECHANICS[id];
+    const previousSpec = CLASS_RESOURCES["проводник"];
+    FEATURE_MECHANICS[id] = {
+      kinds: ["resource"],
+      when: { keyValue: ["Солнце"] },
+      resource: {
+        name: "Благочестие",
+        gains: [
+          {
+            tag: "labelled",
+            event: "use-ability",
+            amount: "2",
+            frequency: "encounter",
+            label: "Данные важнее ветки",
+          },
+        ],
+      },
+    };
+    CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
+    invalidateClassFeatureRegistry();
+    try {
+      const hero = createCharacter({ className: "Проводник", level: 1 });
+      hero.automation = {
+        enabled: true,
+        adjustments: {},
+        ancestryTraits: [],
+        classFeatureSelections: { "conduit.domain": "Жизнь, Солнце" },
+      };
+      expect(
+        resourceGainLabels(hero).find((gain) => gain.tag === "labelled")?.label,
+      ).toBe("Данные важнее ветки");
+    } finally {
+      if (previousMechanic) FEATURE_MECHANICS[id] = previousMechanic;
+      else delete FEATURE_MECHANICS[id];
+      if (previousSpec) CLASS_RESOURCES["проводник"] = previousSpec;
+      else delete CLASS_RESOURCES["проводник"];
+      invalidateClassFeatureRegistry();
+    }
   });
 });
