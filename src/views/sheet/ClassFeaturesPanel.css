@@ -274,3 +274,37 @@
   border: 1px solid var(--line);
   text-align: left;
 }
+
+/* На листе группы повторяют плоские разделители остальных справочников. */
+.sheet-block .cf-groups {
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+}
+.sheet-block .cf-group {
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+}
+.sheet-block .cf-group-head {
+  padding: 10px 0;
+  background: transparent;
+}
+.sheet-block .cf-group-head:hover {
+  color: var(--accent);
+}
+.sheet-block .cf-item {
+  padding: 10px 0;
+  background: transparent;
+}
+.sheet-block .cf-items {
+  gap: 0;
+  background: transparent;
+}
+.sheet-block .cf-item + .cf-item {
+  border-top: 1px solid var(--line);
+}
+.cf-item-markdown table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}

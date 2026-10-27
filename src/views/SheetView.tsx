@@ -1,11 +1,12 @@
 import type { ComponentType } from "react";
-import { Button } from "../components/ui";
+import { Button, Panel } from "../components/ui";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
 import { ConditionsPanel } from "./sheet/ConditionsPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
-import { ClassFeatureMechanicsPanel } from "./sheet/ClassFeaturesPanel";
+import { ClassFeatureMechanicsPanel, RoundEncounterControls } from "./sheet/ClassFeaturesPanel";
+import { classFeatureChoicesForSheet, classFeatureGroupsForSheet } from "../lib/class-feature-view";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { PotencyPanel } from "./sheet/PotencyPanel";
 import { ProgressPanel } from "./sheet/ProgressPanel";
@@ -30,11 +31,21 @@ type PanelId =
   | "skills"
   | "vitals"
   | "resources";
+function SheetClassFeaturesPanel() {
+  const { character } = useApp();
+  if (!classFeatureGroupsForSheet(character).length && !classFeatureChoicesForSheet(character).length) return null;
+  return (
+    <Panel title="Особенности класса" icon="spark" dense actions={<RoundEncounterControls />}>
+      <ClassFeatureMechanicsPanel />
+    </Panel>
+  );
+}
+
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
   conditions: ConditionsPanel,
   abilities: SheetAbilitiesPanel,
-  features: ClassFeatureMechanicsPanel,
+  features: SheetClassFeaturesPanel,
   perks: SheetPerksPanel,
   potency: PotencyPanel,
   progress: ProgressPanel,
@@ -90,7 +101,6 @@ function SheetWorkspace() {
     <div className="sheet-view sheet-workspace-view">
       <HeaderPanel />
       <SheetQuickActions />
-      <GameHistory />
       <div className="sheet-toolbar">
         <a href="#/codex/0301">Правила создания героя ↗</a>
         <div>
@@ -107,6 +117,7 @@ function SheetWorkspace() {
           </Button>
         </div>
       </div>
+      <GameHistory />
       <div className="sheet-layout-host">
         <div className="sheet-layout">
           <Column className="sheet-col-main" ids={MAIN_COLUMN} />

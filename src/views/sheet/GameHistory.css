@@ -1,9 +1,8 @@
 .game-history {
   min-width: 0;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .game-history-head {
   display: flex;
@@ -29,16 +28,24 @@
 }
 .game-history-session {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.4;
 }
 .game-history-toggle {
   padding: 2px 0;
   border: 0;
   background: none;
-  color: var(--accent);
+  color: var(--muted);
   font: inherit;
   font-size: 11px;
   cursor: pointer;
+}
+.game-history-toggle:hover {
+  color: var(--accent);
+}
+.game-history-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 .game-history-summary {
   min-width: 0;
@@ -87,4 +94,10 @@
 .game-history-undone,
 .game-history-list li.is-undone {
   color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .sheet-workspace-view > .game-history {
+    display: none;
+  }
 }

@@ -21,6 +21,9 @@
 .sheet-col {
   display: contents;
 }
+.sheet-block:empty {
+  display: none;
+}
 .sheet-block {
   min-width: 0;
   border-top: 1px solid var(--sheet-warm-line);

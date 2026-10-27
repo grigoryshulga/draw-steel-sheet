@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import "./ProgressPanel.css";
 import { Icon } from "../../components/Icons";
-import { Button, Field, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
+import { Button, Field, Modal, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
 import { getLevelUpPlan } from "../../lib/level-up";
 import { echelon } from "../../lib/progression";
 import { useApp } from "../../state/AppContext";
@@ -11,6 +11,7 @@ import { LevelUpDialog, LevelUpHistory } from "./LevelUpDialog";
 export function ProgressPanel() {
   const { character, patch } = useApp();
   const [levelUpOpen, setLevelUpOpen] = useState(false);
+  const [historyOpen, setHistoryOpen] = useState(false);
   const closeLevelUp = useCallback(() => setLevelUpOpen(false), []);
   const levelUpPlan = getLevelUpPlan(character);
   const currentEchelon = echelon(character.level);
@@ -20,6 +21,11 @@ export function ProgressPanel() {
       title="Развитие"
       icon="spark"
       className="progress-panel"
+      actions={character.advancements?.length ? (
+        <Button size="sm" variant="ghost" onClick={() => setHistoryOpen(true)}>
+          История · {character.advancements.length}
+        </Button>
+      ) : undefined}
       dense
     >
       <div className="progress-layout">
@@ -87,7 +93,9 @@ export function ProgressPanel() {
           </Field>
         </div>
       </div>
-      <LevelUpHistory character={character} />
+      <Modal open={historyOpen} onClose={() => setHistoryOpen(false)} title="История повышений уровня" className="level-up-dialog">
+        <LevelUpHistory character={character} />
+      </Modal>
       <LevelUpDialog
         open={levelUpOpen}
         onClose={closeLevelUp}

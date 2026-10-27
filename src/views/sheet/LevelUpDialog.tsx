@@ -126,7 +126,6 @@ export function LevelUpHistory({ character }: { character: Character }) {
   if (records.length === 0) return null;
   return (
     <section className="level-up-history" aria-label="История повышений уровня">
-      <h3>Повышения уровня</h3>
       {records.map((record, index) => {
         const rule = LEVEL_UP_RULES.find((item) =>
           item.className === record.className && item.level === record.toLevel && item.articleId === record.articleId,
