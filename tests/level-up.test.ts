@@ -224,7 +224,13 @@ describe("level-up XP and availability", () => {
               "conduit.domain": "Созидание, Смерть", "conduit.domain.1": "Созидание",
               "conduit.domain.4": "Созидание", "conduit.domain.7": "Созидание",
             } } }
-          : {});
+          : className === "Цензор"
+            // Цензор всегда создаётся с одним доменом; без него правила 4/7
+            // уровней честно блокируются, поэтому фикстура его задаёт.
+            ? { automation: { enabled: false, adjustments: {}, ancestryTraits: [], classFeatureSelections: {
+                "censor.domain": "Война",
+              } } }
+            : {});
         const plan = getLevelUpPlan(character);
         expect(
           plan.available,

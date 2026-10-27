@@ -1,5 +1,6 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
+import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import { classPreset } from "../data/classes";
 import { ALL_CREATION_SKILLS, DOMAIN_SKILL_SLOTS, DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
@@ -870,6 +871,46 @@ function buildContext(character: Character): LevelUpContext {
         grantedIds.add(entry.id);
         grantedKeys.add(ownership);
         granted.push(cloneCharacterAbility(entry));
+      }
+    }
+  }
+
+  // Домен Цензора один, поэтому способность его особенности на 4-м и 7-м
+  // уровнях не выбирается, а выдаётся: карточки 1-го уровня уже начислил билдер.
+  if (character.className === "Цензор" && ([4, 7] as number[]).includes(toLevel)) {
+    const domainValue = selectedGroupValue(character, "censor.domain");
+    const domain = typeof domainValue === "string" ? domainValue.trim() : "";
+    if (!domain) {
+      return unavailable(
+        `Для повышения Цензора до ${toLevel}-го уровня нужен выбранный домен: без него особенность домена и её способность не выдаются. Выберите домен в панели особенностей; награда не потеряна.`,
+        rule,
+      );
+    }
+    const bookDomain = canonicalDomain(domain);
+    if (!bookDomain) {
+      return unavailable(
+        `Сохранённый домен «${domain}» не совпадает ни с одним доменом книги. Выберите домен заново в панели особенностей; награда не потеряна.`,
+        rule,
+      );
+    }
+    const mapping = censorDomainAbilities.find(
+      (entry) =>
+        entry.level === toLevel &&
+        normalizeToken(entry.domain) === normalizeToken(bookDomain),
+    );
+    if (mapping) {
+      const entry = COMPENDIUM_BY_ID.get(mapping.abilityId);
+      if (!entry) {
+        warnings.push(
+          `Способность «${mapping.abilityId}» домена «${mapping.domain}» не найдена в справочнике; начислите её вручную.`,
+        );
+      } else if (!isAbilityOwned(entry, owned)) {
+        const ownership = abilityOwnershipKey(entry.name, entry.source);
+        if (!grantedIds.has(entry.id) && !grantedKeys.has(ownership)) {
+          grantedIds.add(entry.id);
+          grantedKeys.add(ownership);
+          granted.push(cloneCharacterAbility(entry));
+        }
       }
     }
   }

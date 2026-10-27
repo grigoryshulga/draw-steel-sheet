@@ -961,3 +961,36 @@ export function setBloomingSaintImmunityChoice(character: Character, value: stri
   else delete selections["conduit.blooming-saint-immunity"];
   return { ...character, automation: { ...automation, classFeatureSelections: selections } };
 }
+
+/**
+ * Группы, значение которых приложение хранит не только в
+ * `automation.classFeatureSelections`, но и в `character.subclass`: аспект
+ * Неистового и орден Цензора — это подкласс. Домены Проводника сюда не входят:
+ * в `subclass` у него лежит пара доменов, а не один выбор.
+ */
+const SUBCLASS_MIRRORED_GROUPS = new Set(["fury.aspect", "censor.order"]);
+
+/**
+ * Записывает выбор группы особенностей и, если это подкласс, повторяет его в
+ * `character.subclass`. Без этого выбор ордена из панели не открывал бы
+ * повышение уровня: правила 2/6/9 уровней скоупятся по подклассу.
+ */
+export function withClassFeatureSelection(
+  character: Character,
+  group: string,
+  value: string,
+): Character {
+  const automation = character.automation ?? {
+    enabled: false,
+    adjustments: {},
+    ancestryTraits: [],
+  };
+  const selections = { ...automation.classFeatureSelections };
+  if (value) selections[group] = value;
+  else delete selections[group];
+  const next: Character = {
+    ...character,
+    automation: { ...automation, classFeatureSelections: selections },
+  };
+  return SUBCLASS_MIRRORED_GROUPS.has(group) ? { ...next, subclass: value } : next;
+}

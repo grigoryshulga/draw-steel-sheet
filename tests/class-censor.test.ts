@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { ABILITY_COMPENDIUM } from "../src/data/compendium";
+import { censorDomainAbilities } from "../src/data/class-features/censor-abilities";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import { mechanicsFor } from "../src/data/class-features/mechanics";
 import type { Ability, Character } from "../src/types";
@@ -6,14 +8,19 @@ import {
   activeClassFeatures,
   classFeatureTriggers,
 } from "../src/lib/class-features";
-import { classFeatureGroupsForSheet, classFeatureChoicesForSheet } from "../src/lib/class-feature-view";
+import {
+  classFeatureGroupsForSheet,
+  classFeatureChoicesForSheet,
+  withClassFeatureSelection,
+} from "../src/lib/class-feature-view";
 import {
   buildCharacter,
   emptyBuilderDraft,
   startingCharacteristics,
 } from "../src/lib/character-builder";
 import { createCharacter } from "../src/lib/defaults";
-import { getLevelUpPlan } from "../src/lib/level-up";
+import { getLevelUpPlan, previewLevelUp } from "../src/lib/level-up";
+import type { LevelUpRequest } from "../src/lib/level-up";
 import {
   featureDamageImmunities,
   featureFieldBonus,
@@ -72,6 +79,26 @@ function weaponAbility(): Ability {
     effect: "",
     source: "",
     notes: "",
+  };
+}
+
+/** Запрос на повышение уровня с первыми допустимыми вариантами, как в диалоге. */
+function levelUpRequest(hero: Character): LevelUpRequest {
+  const plan = getLevelUpPlan(hero);
+  const choices: Record<string, string[]> = {};
+  for (const choice of plan.choices) {
+    choices[choice.id] = choice.options
+      .slice(0, choice.count)
+      .map((option) => option.id);
+  }
+  return {
+    characterId: hero.id,
+    fromLevel: hero.level,
+    className: hero.className,
+    subclass: hero.subclass,
+    mode: "milestone",
+    choices,
+    reviewedRules: true,
   };
 }
 
@@ -313,6 +340,118 @@ describe("Цензор: повышение уровня", () => {
     expect(plan.available).toBe(true);
     expect(plan.classFeatures.map((feature) => feature.name)).toContain(
       "Улучшенное освященное оружие",
+    );
+  });
+});
+
+describe("Цензор: доменные способности", () => {
+  it("все шесть доменных карточек связаны с записью своей особенности", () => {
+    const abilities = ABILITY_COMPENDIUM;
+    for (const mapping of censorDomainAbilities) {
+      const ability = abilities.find((entry) => entry.id === mapping.abilityId);
+      expect(ability, mapping.abilityId).toBeDefined();
+      expect(ability!.className).toBe("Цензор");
+      expect(ability!.level).toBe(mapping.level);
+      const feature = GENERATED_CLASS_FEATURES.find(
+        (entry) => entry.id === mapping.featureId,
+      );
+      expect(feature, mapping.featureId).toBeDefined();
+      expect(feature!.keyValue).toBe(mapping.domain);
+      expect(feature!.description).toContain(ability!.name.replace(/Ё/g, "ё"));
+    }
+  });
+
+  it("таблица покрывает все доменные записи, которые выдают способность", () => {
+    // Обратная проверка: новая запись книги с «У вас есть следующая способность»
+    // не должна пройти мимо таблицы молча.
+    const granting = GENERATED_CLASS_FEATURES.filter(
+      (feature) =>
+        feature.className === "Цензор" &&
+        feature.keyedBy === "domain" &&
+        /у вас есть следующая способность/i.test(feature.description),
+    );
+    expect(granting.map((feature) => feature.id).sort()).toEqual(
+      censorDomainAbilities.map((mapping) => mapping.featureId).sort(),
+    );
+  });
+
+  it("повышение выдаёт способность домена на 4-м и 7-м уровнях", () => {
+    const cases = [
+      { level: 3, domain: "Хитрость", ability: "Благословение тайн" },
+      { level: 6, domain: "Любовь", ability: "Ведомый к Тебе" },
+      { level: 6, domain: "Хитрость", ability: "Троица Хитрости" },
+    ] as const;
+    for (const item of cases) {
+      const hero = censor(item.level, "Идеал", item.domain);
+      const plan = getLevelUpPlan(hero);
+      expect(plan.available, item.domain).toBe(true);
+      const granted = plan.grantedAbilityIds.map(
+        (id) => ABILITY_COMPENDIUM.find((entry) => entry.id === id)?.name,
+      );
+      expect(granted, item.domain).toContain(item.ability);
+      const result = previewLevelUp(hero, levelUpRequest(hero));
+      expect(result.ok, result.ok ? "" : result.issues.join("; ")).toBe(true);
+      if (result.ok) {
+        expect(result.next.abilities.map((ability) => ability.name)).toContain(
+          item.ability,
+        );
+      }
+    }
+  });
+
+  it("домен без способности ничего лишнего не выдаёт", () => {
+    const hero = censor(3, "Идеал", "Война");
+    const plan = getLevelUpPlan(hero);
+    expect(plan.available).toBe(true);
+    expect(plan.grantedAbilityIds).toEqual([]);
+  });
+
+  it("без выбранного домена повышение на 4-й уровень блокируется с причиной", () => {
+    const hero = createCharacter({ className: "Цензор", level: 3 });
+    hero.subclass = "Идеал";
+    const plan = getLevelUpPlan(hero);
+    expect(plan.available).toBe(false);
+    expect(plan.reason).toContain("домен");
+  });
+
+  it("неизвестный домен не проходит молча", () => {
+    const plan = getLevelUpPlan(censor(3, "Идеал", "Неизвестный домен"));
+    expect(plan.available).toBe(false);
+    expect(plan.reason).toContain("не совпадает");
+  });
+});
+
+describe("Цензор: выбор ордена в панели", () => {
+  it("пишет орден в подкласс и открывает повышение уровня", () => {
+    const fresh = createCharacter({ className: "Цензор", level: 1 });
+    const chosen = withClassFeatureSelection(fresh, "censor.order", "Оракул");
+    expect(chosen.subclass).toBe("Оракул");
+    expect(chosen.automation?.classFeatureSelections?.["censor.order"]).toBe(
+      "Оракул",
+    );
+    const plan = getLevelUpPlan(chosen);
+    expect(plan.available).toBe(true);
+    expect(
+      plan.choices
+        .find((choice) => choice.kind === "ability")
+        ?.options.map((option) => option.label)
+        .sort(),
+    ).toEqual(["Провидческая Благодать", "С Моим Благословением"]);
+
+    const cleared = withClassFeatureSelection(chosen, "censor.order", "");
+    expect(cleared.subclass).toBe("");
+    expect(
+      cleared.automation?.classFeatureSelections?.["censor.order"],
+    ).toBeUndefined();
+  });
+
+  it("домен панель пишет только в выборы, не подменяя подкласс", () => {
+    const fresh = createCharacter({ className: "Цензор", level: 1 });
+    fresh.subclass = "Идеал";
+    const chosen = withClassFeatureSelection(fresh, "censor.domain", "Солнце");
+    expect(chosen.subclass).toBe("Идеал");
+    expect(chosen.automation?.classFeatureSelections?.["censor.domain"]).toBe(
+      "Солнце",
     );
   });
 });

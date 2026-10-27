@@ -9,6 +9,7 @@ import {
   confirmConduitLegacyRewardsReviewed,
   setConduitDomainPair,
   setBloomingSaintImmunityChoice,
+  withClassFeatureSelection,
   classFeatureGroupsForSheet,
   featureBadgeState,
   featureLevelOpenState,
@@ -222,18 +223,9 @@ export function ClassFeatureMechanicsPanel() {
   const selectChoice = (group: string, value: string) => {
     update((current) => {
       if (group === "conduit.blooming-saint-immunity") return setBloomingSaintImmunityChoice(current, value);
-      const automation = current.automation ?? {
-        enabled: false,
-        adjustments: {},
-        ancestryTraits: [],
-      };
-      const classFeatureSelections = { ...automation.classFeatureSelections };
-      if (value) classFeatureSelections[group] = value;
-      else delete classFeatureSelections[group];
-      return {
-        ...current,
-        automation: { ...automation, classFeatureSelections },
-      };
+      // Аспект Неистового и орден Цензора живут ещё и в `subclass`: без
+      // синхронизации выбор из панели не открывал бы повышение уровня.
+      return withClassFeatureSelection(current, group, value);
     });
   };
 
