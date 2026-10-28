@@ -1570,8 +1570,6 @@
 /* Карточки способностей и перков: заметные рамки и больше воздуха */
 .sheet-view .sheet-ability-card {
   padding: 16px 16px 18px;
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--line-strong);
   border-radius: 0;
 }
 
@@ -1635,15 +1633,15 @@
   }
 }
 
-/* Карточки способностей: ширина по сетке, высота по содержимому — короткая
-   способность не растягивается под самую высокую соседку. */
+/* Карточки способностей: одна ширина и одна высота в пределах секции —
+   сетка выглядит ровной, как просил игрок. */
 .sheet-view .sheet-ability-grid {
-  grid-auto-rows: auto;
-  align-items: start;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
 }
 
 .sheet-view .sheet-ability-card {
-  height: auto;
+  height: 100%;
   min-height: 0;
   padding: 16px;
   gap: 8px;
@@ -1680,4 +1678,17 @@
 }
 .vital-temp-clear:hover {
   text-decoration: underline;
+}
+
+/* Окантовка карточек способностей по типу действия. Селектор с дочерним
+   комбинатором сильнее правил Workspace.css, которые задают тонкую рамку
+   карточкам листа, поэтому цвет не сбивается порядком подключения стилей. */
+.sheet-view .sheet-ability-grid > .sheet-ability-card {
+  border: 1px solid color-mix(in srgb, var(--card-color, var(--muted)) 24%, var(--line));
+  border-top: 3px solid var(--card-accent, var(--line-strong));
+}
+
+.sheet-view .sheet-ability-grid > .sheet-ability-card:hover {
+  border-color: color-mix(in srgb, var(--card-color, var(--muted)) 45%, var(--line));
+  border-top-color: var(--card-accent, var(--line-strong));
 }

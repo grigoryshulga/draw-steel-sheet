@@ -2,8 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createCharacter } from "../src/lib/defaults";
 import {
   classFeatureGroupsForSheet,
-  featureCategoryOptions,
-  filterFeatureGroups,
+  featureCategoryGroups,
   FEATURE_CATEGORY_LABELS,
 } from "../src/lib/class-feature-view";
 import type { Character } from "../src/types";
@@ -68,42 +67,38 @@ describe("категории особенностей класса", () => {
     expect(categoryOf(censor(), "censor.feature.1.komplekt")).toBe("class");
   });
 
-  it("строит чипы «Все» и непустые категории, сумма совпадает с числом записей", () => {
-    const groups = classFeatureGroupsForSheet(censor());
-    const items = groups.flatMap((group) => group.features);
-    const options = featureCategoryOptions(groups);
-    expect(options[0]).toMatchObject({ key: "all", label: "Все", count: items.length });
-    const sum = options
-      .slice(1)
-      .reduce((total, option) => total + option.count, 0);
-    expect(sum).toBe(items.length);
-    for (const option of options.slice(1)) {
-      expect(option.count).toBeGreaterThan(0);
-      expect(option.label).toBe(
-        FEATURE_CATEGORY_LABELS[option.key as keyof typeof FEATURE_CATEGORY_LABELS],
-      );
+  it("делит панель на секции категорий в заданном порядке", () => {
+    const groups = featureCategoryGroups(classFeatureGroupsForSheet(censor()));
+    const order = groups.map((group) => group.key);
+    expect(order).toEqual([
+      "class",
+      "subclass",
+      "resource",
+      "choice",
+      "trigger",
+    ]);
+    expect(groups.every((group) => group.features.length > 0)).toBe(true);
+    expect(groups.map((group) => group.title)).toEqual(
+      order.map((key) => FEATURE_CATEGORY_LABELS[key]),
+    );
+  });
+
+  it("сохраняет все карточки и порядок уровней внутри категории", () => {
+    const levels = classFeatureGroupsForSheet(censor());
+    const groups = featureCategoryGroups(levels);
+    const total = levels.flatMap((group) => group.features).length;
+    const flat = groups.flatMap((group) => group.features);
+    expect(flat).toHaveLength(total);
+    for (const group of groups) {
+      const groupLevels = group.features.map((item) => item.level);
+      expect(groupLevels).toEqual([...groupLevels].sort((a, b) => a - b));
     }
   });
 
-  it("фильтрует по категории, сохраняя уровни и убирая пустые группы", () => {
-    const groups = classFeatureGroupsForSheet(censor());
-    const filtered = filterFeatureGroups(groups, "resource");
-    expect(filtered.length).toBeGreaterThan(0);
-    const items = filtered.flatMap((group) => group.features);
-    expect(items.length).toBeGreaterThan(0);
-    expect(items.every((item) => item.category === "resource")).toBe(true);
-    // Уровни идут по возрастанию, пустых групп нет.
-    expect(filtered.map((group) => group.level)).toEqual(
-      [...filtered.map((group) => group.level)].sort((a, b) => a - b),
-    );
-    expect(filtered.every((group) => group.features.length > 0)).toBe(true);
-  });
-
-  it("«Все» возвращает исходный набор без изменений", () => {
-    const groups = classFeatureGroupsForSheet(censor());
-    const all = filterFeatureGroups(groups, "all");
-    expect(all.flatMap((group) => group.features)).toHaveLength(
-      groups.flatMap((group) => group.features).length,
+  it("уровни больше не создают отдельные секции", () => {
+    const groups = featureCategoryGroups(classFeatureGroupsForSheet(censor()));
+    expect(groups.some((group) => group.title.startsWith("Уровень"))).toBe(
+      false,
     );
   });
 });

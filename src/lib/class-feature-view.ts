@@ -131,41 +131,33 @@ const FEATURE_CATEGORY_ORDER: FeatureSheetCategory[] = [
   "trigger",
 ];
 
-export interface FeatureSheetCategoryOption {
-  key: "all" | FeatureSheetCategory;
-  label: string;
-  count: number;
+export interface FeatureSheetCategoryGroup {
+  key: FeatureSheetCategory;
+  title: string;
+  features: FeatureSheetItem[];
 }
 
-/** Чипы фильтра: «Все» и только непустые категории со счётчиками. */
-export function featureCategoryOptions(
+/**
+ * Секции панели по категории вместо уровней. Внутри категории порядок
+ * сохраняется исходный — по возрастанию уровня, поэтому номер уровня виден
+ * на карточке.
+ */
+export function featureCategoryGroups(
   groups: readonly FeatureSheetGroup[],
-): FeatureSheetCategoryOption[] {
-  const items = groups.flatMap((group) => group.features);
-  const options: FeatureSheetCategoryOption[] = [
-    { key: "all", label: "Все", count: items.length },
-  ];
-  for (const key of FEATURE_CATEGORY_ORDER) {
-    const count = items.filter((item) => item.category === key).length;
-    if (count > 0) {
-      options.push({ key, label: FEATURE_CATEGORY_LABELS[key], count });
+): FeatureSheetCategoryGroup[] {
+  const buckets = new Map<FeatureSheetCategory, FeatureSheetItem[]>();
+  for (const group of groups) {
+    for (const item of group.features) {
+      const bucket = buckets.get(item.category) ?? [];
+      bucket.push(item);
+      buckets.set(item.category, bucket);
     }
   }
-  return options;
-}
-
-/** Фильтр по категории с сохранением групп уровней; пустые уровни скрываются. */
-export function filterFeatureGroups(
-  groups: readonly FeatureSheetGroup[],
-  category: "all" | FeatureSheetCategory,
-): FeatureSheetGroup[] {
-  if (category === "all") return [...groups];
-  return groups
-    .map((group) => ({
-      ...group,
-      features: group.features.filter((item) => item.category === category),
-    }))
-    .filter((group) => group.features.length > 0);
+  return FEATURE_CATEGORY_ORDER.map((key) => ({
+    key,
+    title: FEATURE_CATEGORY_LABELS[key],
+    features: buckets.get(key) ?? [],
+  })).filter((group) => group.features.length > 0);
 }
 
 /** Незакрытая группа выбора: лист предлагает её, пока значения нет. */

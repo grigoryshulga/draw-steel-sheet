@@ -55,49 +55,84 @@
 
 .cf-groups {
   display: grid;
-  gap: 6px;
+  gap: 20px;
 }
 
+/* Секции по категориям выглядят как секции способностей: шеврон, подпись
+   капсом, счётчик и линия до края. */
 .cf-group {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  display: grid;
+  min-width: 0;
 }
 
 .cf-group-head {
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 7px;
-  padding: 8px 11px;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 10px;
   border: 0;
-  background: var(--surface-2);
-  color: var(--fg);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 650;
+  background: none;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-align: left;
   cursor: pointer;
 }
 
 .cf-group-head:hover {
-  background: var(--surface-hover);
+  color: var(--fg);
 }
 
 .cf-group-head:focus-visible {
-  outline: 2px solid var(--fg-bright);
-  outline-offset: 2px;
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cf-group-head svg {
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.cf-group.is-collapsed .cf-group-head {
+  margin-bottom: 0;
+}
+
+.cf-group.is-collapsed .cf-group-head svg {
+  transform: rotate(-90deg);
 }
 
 .cf-group-title {
-  flex: 1;
+  flex: none;
   min-width: 0;
+}
+
+/* Точка повторяет цвет окантовки карточек этой категории. */
+.cf-group-title::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--section-accent, var(--muted));
+  vertical-align: middle;
 }
 
 .cf-group-count {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 9px;
   font-weight: 600;
+}
+
+.cf-group-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
 }
 
 .cf-group-triggers {
@@ -111,40 +146,74 @@
   text-align: center;
 }
 
-.cf-filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-}
-
-.cf-filter-count {
-  margin-left: 5px;
-  font-size: 9px;
-  opacity: 0.7;
-}
-
 .cf-items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
-  align-items: start;
-  gap: 10px;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 12px;
 }
 
 .cf-item {
-  display: grid;
-  align-content: start;
-  gap: 6px;
+  --card-color: var(--muted);
+  --card-accent: color-mix(in srgb, var(--card-color) 82%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   min-width: 0;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  height: 100%;
+  padding: 16px 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--card-color) 24%, var(--line));
+  border-top: 3px solid var(--card-accent);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--surface-2) 66%, transparent);
 }
 
 .cf-item:hover {
-  border-color: var(--line-strong);
+  border-color: color-mix(in srgb, var(--card-color) 45%, var(--line));
+  border-top-color: var(--card-accent);
+  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+}
+
+/* Окантовка по категории: те же цвета темы, что у типов действия. */
+.cf-item[data-category="class"] {
+  --card-color: var(--accent);
+}
+
+.cf-item[data-category="subclass"] {
+  --card-color: var(--blue);
+}
+
+.cf-item[data-category="resource"] {
+  --card-color: var(--yellow);
+}
+
+.cf-item[data-category="choice"] {
+  --card-color: var(--cyan);
+}
+
+.cf-item[data-category="trigger"] {
+  --card-color: var(--magenta);
+}
+
+.cf-group[data-category="class"] {
+  --section-accent: var(--accent);
+}
+
+.cf-group[data-category="subclass"] {
+  --section-accent: var(--blue);
+}
+
+.cf-group[data-category="resource"] {
+  --section-accent: var(--yellow);
+}
+
+.cf-group[data-category="choice"] {
+  --section-accent: var(--cyan);
+}
+
+.cf-group[data-category="trigger"] {
+  --section-accent: var(--magenta);
 }
 
 /* Отмеченный в этом раунде триггер приглушён: срабатывание уже случилось.
@@ -171,43 +240,20 @@
 
 .cf-item-name {
   min-width: 0;
-  font-size: 0.86rem;
-  font-weight: 650;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--fg-bright);
+  overflow-wrap: anywhere;
 }
 
-/* Категория — вторая ось после уровня: видна на карточке и в фильтре. */
-.cf-item-category {
+.cf-item-level {
   flex: none;
-  padding: 0 6px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
   color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  line-height: 1.6;
+  font-size: 9px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.cf-item-category.is-subclass {
-  border-color: var(--accent-line);
-  color: var(--accent);
-}
-
-.cf-item-category.is-resource {
-  border-color: color-mix(in srgb, var(--yellow) 40%, transparent);
-  color: var(--yellow);
-}
-
-.cf-item-category.is-choice {
-  border-color: color-mix(in srgb, var(--blue) 40%, transparent);
-  color: var(--blue);
-}
-
-.cf-item-category.is-trigger {
-  border-color: color-mix(in srgb, var(--magenta) 40%, transparent);
-  color: var(--magenta);
 }
 
 .cf-item-summary {
@@ -266,7 +312,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px 6px;
-  margin: 0;
+  margin: auto 0 0;
   padding: 0;
   list-style: none;
 }
@@ -334,7 +380,7 @@
   }
 
   .cf-item {
-    padding: 7px 9px;
+    padding: 12px 12px 14px;
   }
 }
 

@@ -1,4 +1,4 @@
-import { ACTION_TYPES } from "../data/actions";
+import { ACTION_TYPES, actionLabel, kindLabel } from "../data/actions";
 import type { Ability, AbilityKind, ActionType } from "../types";
 
 /** «Базовые способности» — источник, а не вид: свободные удары и маневры книги. */
@@ -31,10 +31,79 @@ function sortRank(ability: Ability): number {
 
 /**
  * Стабильная сортировка: внутри одного вида сохраняется порядок добавления.
- * `Array.prototype.sort` в ES2019+ стабилен, поэтому отдельный индекс не нужен.
+ * При непустом запросе сначала идут совпадения — чем больше совпадений в
+ * названии, тем выше карточка.
  */
-export function sortAbilitiesForSheet(abilities: readonly Ability[]): Ability[] {
-  return [...abilities].sort((left, right) => sortRank(left) - sortRank(right));
+export function sortAbilitiesForSheet(
+  abilities: readonly Ability[],
+  query = "",
+): Ability[] {
+  const search = normalizeQuery(query);
+  return abilities
+    .map((ability, index) => ({
+      ability,
+      index,
+      score: search ? abilitySearchScore(ability, search) : 0,
+    }))
+    .sort((left, right) => {
+      if (search && left.score !== right.score) {
+        return right.score - left.score;
+      }
+      return sortRank(left.ability) - sortRank(right.ability) || left.index - right.index;
+    })
+    .map((entry) => entry.ability);
+}
+
+function normalizeQuery(raw: string): string {
+  return raw.trim().toLocaleLowerCase("ru").replaceAll("ё", "е").replace(/\s+/g, " ");
+}
+
+function searchableText(ability: Ability): string {
+  return normalizeQuery(
+    [
+      ability.keywords.join(" "),
+      ability.flavor,
+      ability.distance,
+      ability.target,
+      ability.trigger,
+      ability.effect,
+      ability.tiers
+        .map((tier) => `${tier.damage} ${tier.effect}`)
+        .join(" "),
+      ability.source,
+      ability.notes,
+      kindLabel(ability.kind),
+      actionLabel(ability.actionType),
+    ].join(" "),
+  );
+}
+
+/**
+ * Оценка совпадения: каждое слово запроса обязано встретиться хотя бы где-то.
+ * `-1` — карточка не подходит. Совпадение в названии весит больше, чем в
+ * описании; слово в начале названия — ещё больше.
+ */
+export function abilitySearchScore(ability: Ability, rawQuery: string): number {
+  const query = normalizeQuery(rawQuery);
+  if (!query) return 0;
+  const tokens = query.split(" ");
+  const name = normalizeQuery(ability.name);
+  const body = searchableText(ability);
+  let score = 0;
+  for (const token of tokens) {
+    const inName = name.includes(token);
+    if (!inName && !body.includes(token)) return -1;
+    score += inName ? 4 : 1;
+    if (name.startsWith(token)) score += 3;
+    else if (inName && name.split(/[\s,:;!?«»"()-]+/).some((word) => word.startsWith(token))) {
+      score += 1;
+    }
+  }
+  return score;
+}
+
+export function matchesAbilityQuery(ability: Ability, rawQuery: string): boolean {
+  return abilitySearchScore(ability, rawQuery) >= 0;
 }
 
 export function matchesAbilityFilter(
@@ -109,14 +178,32 @@ export function abilityActionGroups(
   })).filter((group) => group.items.length > 0);
 }
 
-/** Полный набор для панели: фильтр, сортировка и секции одним вызовом. */
+/** Полный набор для панели: фильтр, поиск, сортировка и секции одним вызовом. */
 export function sheetAbilityLayout(
   abilities: readonly Ability[],
   filter: AbilitySheetFilter,
-): { groups: AbilityActionGroup[]; visible: number } {
+  query = "",
+): { groups: AbilityActionGroup[]; topMatches: Ability[]; visible: number } {
   const visible = filterAbilitiesForSheet(abilities, filter);
+  const search = normalizeQuery(query);
+  if (!search) {
+    return {
+      groups: abilityActionGroups(sortAbilitiesForSheet(visible)),
+      topMatches: [],
+      visible: visible.length,
+    };
+  }
+  const matched = visible.filter(
+    (ability) => abilitySearchScore(ability, search) >= 0,
+  );
+  const rest = visible.filter(
+    (ability) => abilitySearchScore(ability, search) < 0,
+  );
   return {
-    groups: abilityActionGroups(sortAbilitiesForSheet(visible)),
+    // Совпадения уходят в отдельную секцию наверху, а не растворяются внутри
+    // типа действия: игрок сразу видит результат поиска.
+    groups: abilityActionGroups(sortAbilitiesForSheet(rest)),
+    topMatches: sortAbilitiesForSheet(matched, query),
     visible: visible.length,
   };
 }

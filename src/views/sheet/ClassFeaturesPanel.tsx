@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Button, Chip, Select } from "../../components/ui";
+import { Button, Select } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
@@ -13,13 +13,10 @@ import {
   withClassFeatureSelection,
   classFeatureGroupsForSheet,
   featureBadgeState,
-  featureLevelOpenState,
-  featureCategoryOptions,
-  filterFeatureGroups,
-  FEATURE_CATEGORY_LABELS,
+  featureCategoryGroups,
   triggerBadgeCounts,
   type FeatureSheetCategory,
-  type FeatureSheetGroup,
+  type FeatureSheetCategoryGroup,
   type FeatureSheetItem,
 } from "../../lib/class-feature-view";
 import { currentRuntime } from "../../lib/runtime";
@@ -95,13 +92,14 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
   const { performGameAction } = useApp();
   const trigger = item.trigger;
   return (
-    <article className={`cf-item${trigger?.used ? " is-used" : ""}`}>
+    <article
+      className={`cf-item${trigger?.used ? " is-used" : ""}`}
+      data-category={item.category}
+    >
       <div className="cf-item-head">
         <div className="cf-item-title">
           <strong className="cf-item-name">{item.name}</strong>
-          <span className={`cf-item-category is-${item.category}`}>
-            {FEATURE_CATEGORY_LABELS[item.category]}
-          </span>
+          <span className="cf-item-level mono">{item.level} ур.</span>
         </div>
         {trigger && (
           <Button
@@ -156,34 +154,38 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
   );
 }
 
-/** Группа уровня: свёрнута, кроме текущего уровня героя. */
-function LevelGroup({
+/** Секция категории: карточки одной смысловой группы, свёрнута по клику. */
+function CategoryGroup({
   group,
   open,
   onToggle,
 }: {
-  group: FeatureSheetGroup;
+  group: FeatureSheetCategoryGroup;
   open: boolean;
   onToggle: () => void;
 }) {
   const triggers = group.features.filter((item) => item.trigger && !item.trigger.used)
     .length;
   return (
-    <section className="cf-group">
+    <section
+      className={`cf-group${open ? "" : " is-collapsed"}`}
+      data-category={group.key}
+    >
       <button
         type="button"
         className="cf-group-head"
         aria-expanded={open}
         onClick={onToggle}
       >
-        <Icon name={open ? "chevron-down" : "chevron-right"} size={13} />
+        <Icon name={open ? "chevron-down" : "chevron-right"} size={14} />
         <span className="cf-group-title">{group.title}</span>
-        <span className="cf-group-count">{group.features.length}</span>
+        <span className="cf-group-count mono">{group.features.length}</span>
         {triggers > 0 && (
           <span className="cf-group-triggers" title="Доступные срабатывания">
             {triggers}
           </span>
         )}
+        <span className="cf-group-rule" aria-hidden="true" />
       </button>
       {open && (
         <div className="cf-items">
@@ -197,7 +199,7 @@ function LevelGroup({
 }
 
 /**
- * Панель активных особенностей класса на листе: группы по уровням, числа
+ * Панель активных особенностей класса на листе: секции по категориям, числа
  * механики, бейджи триггеров и условий, выбор аспекта/традиции/доктрины, если
  * он ещё не выбран. Единственный источник правил — новый реестр механик.
  */
@@ -211,41 +213,22 @@ export function ClassFeatureMechanicsPanel() {
     group.features.some((item) => item.trigger),
   );
   const runtime = currentRuntime(character);
-  // Раскрыта группа ровно текущего уровня героя; клики игрока переопределяют
-  // только тронутые группы и переживают только собственный уровень.
-  const [levelOverrides, setLevelOverrides] = useState<Record<number, boolean>>({});
-  const [category, setCategory] = useState<"all" | FeatureSheetCategory>("all");
+  // Уровни больше не делят панель: карточки идут секциями по категориям.
+  // Свёрнутость хранится по категории и переживает правки героя.
+  const categoryGroups = featureCategoryGroups(groups);
+  const [collapsedCategories, setCollapsedCategories] = useState<
+    Set<FeatureSheetCategory>
+  >(new Set());
   const [conduitDomainDraft, setConduitDomainDraft] = useState<[string, string]>(["", ""]);
-  const categoryOptions = featureCategoryOptions(groups);
-  // Удаление последней записи категории не должно оставлять пустую панель.
-  const activeCategory = categoryOptions.some((option) => option.key === category)
-    ? category
-    : "all";
-  const visibleGroups = filterFeatureGroups(groups, activeCategory);
-  const openLevels = featureLevelOpenState(
-    groups,
-    character.level,
-    levelOverrides,
-  );
 
   if (groups.length === 0 && choices.length === 0 && !conduitState.message) return null;
 
-  const toggle = (level: number) =>
-    setLevelOverrides((current) => {
-      const state = featureLevelOpenState(groups, character.level, current);
-      return { ...current, [level]: !state[level] };
+  const toggleCategory = (key: FeatureSheetCategory) =>
+    setCollapsedCategories((current) => {
+      const next = new Set(current);
+      if (!next.delete(key)) next.add(key);
+      return next;
     });
-
-  // Фильтр показывает совпадения из всех уровней: иначе записи 1-го уровня
-  // остались бы за свёрнутой группой.
-  const selectCategory = (next: "all" | FeatureSheetCategory) => {
-    setCategory(next);
-    if (next !== "all") {
-      setLevelOverrides(
-        Object.fromEntries(groups.map((group) => [group.level, true])),
-      );
-    }
-  };
 
   const selectChoice = (group: string, value: string) => {
     update((current) => {
@@ -268,7 +251,7 @@ export function ClassFeatureMechanicsPanel() {
   };
 
   return (
-    <section className="cf-sheet" aria-label="Особенности класса по уровням">
+    <section className="cf-sheet" aria-label="Особенности класса по категориям">
       {choices.length > 0 && (
         <div className="cf-choices">
           {choices.map((choice) => (
@@ -332,36 +315,13 @@ export function ClassFeatureMechanicsPanel() {
         )}
       </div>
 
-      {categoryOptions.length > 2 && (
-        <div
-          className="cf-filters"
-          role="group"
-          aria-label="Фильтр особенностей по категории"
-        >
-          {categoryOptions.map((option) => (
-            <Chip
-              key={option.key}
-              active={activeCategory === option.key}
-              onClick={() => selectCategory(option.key)}
-              title={
-                option.key === "all"
-                  ? "Показать все особенности"
-                  : `Показать: ${option.label.toLowerCase()}`
-              }
-            >
-              {option.label}
-              <span className="cf-filter-count mono">{option.count}</span>
-            </Chip>
-          ))}
-        </div>
-      )}
       <div className="cf-groups">
-        {visibleGroups.map((group) => (
-          <LevelGroup
-            key={group.level}
+        {categoryGroups.map((group) => (
+          <CategoryGroup
+            key={group.key}
             group={group}
-            open={openLevels[group.level] ?? false}
-            onToggle={() => toggle(group.level)}
+            open={!collapsedCategories.has(group.key)}
+            onToggle={() => toggleCategory(group.key)}
           />
         ))}
       </div>

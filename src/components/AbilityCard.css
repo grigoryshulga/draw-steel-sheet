@@ -1,5 +1,7 @@
 .sheet-ability-card {
   position: relative;
+  --card-color: var(--muted);
+  --card-accent: color-mix(in srgb, var(--card-color) 82%, transparent);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -8,6 +10,7 @@
   min-height: 0;
   padding: 16px;
   border: 1px solid color-mix(in srgb, var(--sheet-warm-line, color-mix(in srgb, #b9966f 26%, var(--line))) 80%, var(--line));
+  border-top-color: var(--card-accent);
   border-radius: 8px;
   background: color-mix(in srgb, var(--sheet-warm-soft, color-mix(in srgb, #b9966f 5%, var(--surface))) 34%, var(--surface));
   transition:
@@ -16,9 +19,39 @@
     transform 120ms var(--ease);
 }
 
+/* Окантовка карточки по типу действия: цвета берутся из активной темы,
+   поэтому правило работает и на светлом пергаменте. */
+.sheet-ability-card[data-action="main"] {
+  --card-color: var(--accent);
+}
+
+.sheet-ability-card[data-action="maneuver"] {
+  --card-color: var(--blue);
+}
+
+.sheet-ability-card[data-action="move"] {
+  --card-color: var(--cyan);
+}
+
+.sheet-ability-card[data-action="trigger"] {
+  --card-color: var(--magenta);
+}
+
+.sheet-ability-card[data-action="free-trigger"] {
+  --card-color: var(--yellow);
+}
+
+.sheet-ability-card[data-action="free-maneuver"] {
+  --card-color: var(--green);
+}
+
+.sheet-ability-card[data-action="none"] {
+  --card-color: var(--muted);
+}
+
 .sheet-ability-card:hover {
-  border-color: var(--accent-line);
-  border-top-color: var(--accent-line);
+  border-color: color-mix(in srgb, var(--card-color, var(--muted)) 45%, var(--line));
+  border-top-color: var(--card-accent);
   background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
 }
 

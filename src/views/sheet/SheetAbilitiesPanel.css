@@ -25,6 +25,46 @@
   color: var(--muted);
 }
 
+/* Точка у заголовка повторяет цвет окантовки карточек этой секции. */
+.sheet-ability-section-head h3::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--section-accent, var(--muted));
+  vertical-align: middle;
+}
+
+.sheet-ability-section[data-action="main"] {
+  --section-accent: var(--accent);
+}
+
+.sheet-ability-section[data-action="maneuver"] {
+  --section-accent: var(--blue);
+}
+
+.sheet-ability-section[data-action="move"] {
+  --section-accent: var(--cyan);
+}
+
+.sheet-ability-section[data-action="trigger"] {
+  --section-accent: var(--magenta);
+}
+
+.sheet-ability-section[data-action="free-trigger"] {
+  --section-accent: var(--yellow);
+}
+
+.sheet-ability-section[data-action="free-maneuver"] {
+  --section-accent: var(--green);
+}
+
+.sheet-ability-section[data-action="none"] {
+  --section-accent: var(--muted);
+}
+
 .sheet-ability-section-toggle {
   display: inline-flex;
   align-items: center;
@@ -63,8 +103,89 @@
 .sheet-ability-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
-  align-items: start;
+  align-items: stretch;
   gap: 10px;
+}
+
+/* Поиск по названию и содержимому: строка над фильтрами. */
+.sheet-ability-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.sheet-ability-search:focus-within {
+  border-color: var(--accent-line);
+}
+
+.sheet-ability-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.sheet-ability-search input::placeholder {
+  color: var(--muted);
+}
+
+.sheet-ability-search-count {
+  flex: none;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.sheet-ability-search-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.sheet-ability-search-clear:hover {
+  border-color: var(--accent-line);
+  color: var(--fg);
+}
+
+.sheet-ability-search-empty {
+  margin: 0;
+  padding: 8px 11px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+/* Карточка вне поискового совпадения остаётся на месте, но приглушается:
+   совпадения всплывают вверх и читаются первыми. */
+.sheet-ability-section.is-search-results {
+  --section-accent: var(--fg-bright);
+}
+
+.sheet-ability-section.is-search-results h3::before {
+  display: none;
+}
+
+.sheet-ability-section-toggle.is-static {
+  cursor: default;
 }
 
 /* Фильтр по виду: чипы над секциями, чтобы 10–12 карточек не приходилось

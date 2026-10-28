@@ -50,6 +50,8 @@ export function AbilityCard({
   return (
     <article
       className={`sheet-ability-card${className ? ` ${className}` : ""}`}
+      data-action={ability.actionType}
+      data-kind={ability.kind}
     >
       <header className="sheet-ability-card-head">
         <h4>

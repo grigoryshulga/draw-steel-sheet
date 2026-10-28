@@ -4,6 +4,7 @@ import {
   abilityActionGroups,
   abilityFilterOptions,
   filterAbilitiesForSheet,
+  matchesAbilityQuery,
   sheetAbilityLayout,
   sortAbilitiesForSheet,
 } from "../src/lib/ability-sheet-groups";
@@ -137,6 +138,59 @@ describe("способности на листе: сортировка и фил
       "Героическая",
       "Свободный удар",
       "Базовый удар",
+    ]);
+  });
+
+  it("поднимает совпадения в названии выше совпадений в тексте", () => {
+    const inName = ability({ name: "Огонь", effect: "" });
+    const inText = ability({ name: "Тихий", effect: "огонь" });
+    const none = ability({ name: "Лёд" });
+    const sorted = sortAbilitiesForSheet([inText, none, inName], "огонь");
+    expect(sorted.map((item) => item.name)).toEqual(["Огонь", "Тихий", "Лёд"]);
+  });
+
+  it("ищет по заметкам, тирам и русским подписям типа", () => {
+    const withNote = ability({ name: "Заметка", notes: "очищающий огонь" });
+    const withTier = ability({
+      name: "Тир",
+      tiers: [{ damage: "5", effect: "цель горит" }],
+    });
+    const heroicCard = ability({ name: "Карта", kind: "heroic" });
+    expect(
+      sortAbilitiesForSheet([withNote, withTier, heroicCard], "огонь")[0].name,
+    ).toBe("Заметка");
+    expect(sortAbilitiesForSheet([withNote, withTier], "горит")[0].name).toBe(
+      "Тир",
+    );
+    expect(sortAbilitiesForSheet([withNote, heroicCard], "героическая")[0].name).toBe(
+      "Карта",
+    );
+  });
+
+  it("требует все слова запроса и игнорирует ё/е", () => {
+    const target = ability({ name: "Ледяной Огонь", effect: "урон" });
+    expect(matchesAbilityQuery(target, "лед огонь")).toBe(true);
+    expect(matchesAbilityQuery(target, "огонь урон")).toBe(true);
+    expect(matchesAbilityQuery(target, "огонь молния")).toBe(false);
+  });
+
+  it("выносит совпадения в отдельный список наверху", () => {
+    const layout = sheetAbilityLayout(
+      [
+        ability({ name: "Огонь" }),
+        ability({ name: "Тихий", effect: "огонь" }),
+        ability({ name: "Лёд" }),
+      ],
+      "all",
+      "огонь",
+    );
+    expect(layout.visible).toBe(3);
+    expect(layout.topMatches.map((item) => item.name)).toEqual([
+      "Огонь",
+      "Тихий",
+    ]);
+    expect(layout.groups.flatMap((group) => group.items).map((item) => item.name)).toEqual([
+      "Лёд",
     ]);
   });
 });

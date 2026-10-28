@@ -56,6 +56,7 @@ export function SheetAbilitiesPanel() {
   const [addMode, setAddMode] = useState<AddMode>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
+  const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<{
     ability: Ability;
     isNew: boolean;
@@ -67,8 +68,33 @@ export function SheetAbilitiesPanel() {
   const activeFilter = filterOptions.some((option) => option.key === filter)
     ? filter
     : "all";
-  const { groups } = sheetAbilityLayout(abilities, activeFilter);
+  const { groups, topMatches, visible } = sheetAbilityLayout(
+    abilities,
+    activeFilter,
+    query,
+  );
   const hasFilter = filterOptions.length > 2;
+  const hasQuery = query.trim().length > 0;
+
+  const renderAbilityCard = (ability: Ability) => (
+    <AbilityCard
+      key={ability.id}
+      ability={ability}
+      character={character}
+      onOpen={() => openAbility(ability)}
+      footerAction={
+        <Button
+          size="sm"
+          variant="soft"
+          icon="abilities"
+          aria-label={`Использовать: ${ability.name}`}
+          onClick={() => setUsing(ability)}
+        >
+          Использовать
+        </Button>
+      }
+    />
+  );
 
   const toggleGroup = (key: string) =>
     setCollapsed((current) => {
@@ -145,6 +171,39 @@ export function SheetAbilitiesPanel() {
           />
         ) : (
           <div className="sheet-ability-sections">
+            <div className="sheet-ability-search">
+              <Icon name="search" size={15} />
+              <input
+                type="search"
+                value={query}
+                autoComplete="off"
+                placeholder="Поиск по названию, эффекту, триггеру…"
+                aria-label="Поиск по способностям"
+                onChange={(event) => setQuery(event.target.value)}
+              />
+              {hasQuery && (
+                <>
+                  <span className="sheet-ability-search-count mono">
+                    {topMatches.length} из {visible}
+                  </span>
+                  <button
+                    type="button"
+                    className="sheet-ability-search-clear"
+                    aria-label="Очистить поиск"
+                    title="Очистить поиск"
+                    onClick={() => setQuery("")}
+                  >
+                    <Icon name="close" size={13} />
+                  </button>
+                </>
+              )}
+            </div>
+            {hasQuery && topMatches.length === 0 && (
+              <p className="sheet-ability-search-empty" role="status">
+                Ничего не найдено. Попробуйте другое слово — поиск смотрит
+                в название, эффект, триггер, тиры и заметки.
+              </p>
+            )}
             {hasFilter && (
               <div
                 className="sheet-ability-filters"
@@ -170,12 +229,34 @@ export function SheetAbilitiesPanel() {
                 ))}
               </div>
             )}
+            {hasQuery && topMatches.length > 0 && (
+              <section
+                className="sheet-ability-section is-search-results"
+                data-action="search"
+                aria-label="Совпадения поиска"
+              >
+                <header className="sheet-ability-section-head">
+                  <span className="sheet-ability-section-toggle is-static">
+                    <Icon name="search" size={14} />
+                    <h3>Совпадения</h3>
+                    <span className="sheet-ability-count mono">
+                      {topMatches.length}
+                    </span>
+                  </span>
+                  <span className="sheet-ability-rule" />
+                </header>
+                <div className="sheet-ability-grid">
+                  {topMatches.map(renderAbilityCard)}
+                </div>
+              </section>
+            )}
             {groups.map((group) => {
               const isCollapsed = collapsed.has(group.key);
               return (
                 <section
                   className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}`}
                   key={group.key}
+                  data-action={group.key}
                 >
                   <header className="sheet-ability-section-head">
                     <button
@@ -195,25 +276,7 @@ export function SheetAbilitiesPanel() {
 
                   {!isCollapsed && (
                     <div className="sheet-ability-grid">
-                      {group.items.map((ability) => (
-                        <AbilityCard
-                          key={ability.id}
-                          ability={ability}
-                          character={character}
-                          onOpen={() => openAbility(ability)}
-                          footerAction={
-                            <Button
-                              size="sm"
-                              variant="soft"
-                              icon="abilities"
-                              aria-label={`Использовать: ${ability.name}`}
-                              onClick={() => setUsing(ability)}
-                            >
-                              Использовать
-                            </Button>
-                          }
-                        />
-                      ))}
+                      {group.items.map(renderAbilityCard)}
                     </div>
                   )}
                 </section>
