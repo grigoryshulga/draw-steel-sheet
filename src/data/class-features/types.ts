@@ -56,6 +56,12 @@ export type FeatureEffect =
       field: FeatureField;
       value: FeatureAmount;
       perEchelon?: number;
+      /**
+       * Прибавка за КАЖДЫЙ уровень героя: итог = value + perLevel * level.
+       * Для «+3 за уровень» (уровень 2 → 6) пиши value: 0, perLevel: 3;
+       * смещения вида «выше 2-го» отдельного поля не имеют.
+       */
+      perLevel?: number;
       cap?: number;
       filter?: FeatureFilter;
       when?: FeatureCondition;
@@ -70,6 +76,8 @@ export type FeatureEffect =
       value: FeatureAmount;
       /** Множитель к значению: «иммунитет равен двойному показателю Мощи» — 2. */
       multiplier?: number;
+      /** Прибавка за каждый уровень героя: «иммунитет 5 + уровень». */
+      perLevel?: number;
       when?: FeatureCondition;
     }
   | { kind: "conditionImmunity"; conditions: string[] }

@@ -8,6 +8,13 @@ import { CONDUIT_BASE_MECHANICS } from "./conduit-base";
 import { CONDUIT_DOMAIN_MECHANICS, CONDUIT_DOMAIN_PRAYERS } from "./conduit-domains";
 import { CONDUIT_LEVEL_MECHANICS } from "./conduit-levels";
 import { CONDUIT_RESOURCE_MECHANICS } from "./conduit-resource";
+import { ELEMENTALIST_BASE_MECHANICS } from "./elementalist-base";
+import { ELEMENTALIST_EARLY_MECHANICS } from "./elementalist-early";
+import { ELEMENTALIST_ENCHANTMENT_MECHANICS } from "./elementalist-enchantments";
+import { ELEMENTALIST_LATE_MECHANICS } from "./elementalist-late";
+import { ELEMENTALIST_RESOURCE_MECHANICS } from "./elementalist-resource";
+import { ELEMENTALIST_SANCTUARY_MECHANICS } from "./elementalist-sanctuaries";
+import { ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS } from "./elementalist-specializations-late";
 import { NULL_AUGMENTATION_MECHANICS } from "./null-augmentations";
 import { NULL_BASE_MECHANICS } from "./null-base";
 import { NULL_EARLY_MECHANICS } from "./null-early";
@@ -43,6 +50,13 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...CONDUIT_DOMAIN_PRAYERS,
   ...CONDUIT_LEVEL_MECHANICS,
   ...CONDUIT_RESOURCE_MECHANICS,
+  ...ELEMENTALIST_BASE_MECHANICS,
+  ...ELEMENTALIST_ENCHANTMENT_MECHANICS,
+  ...ELEMENTALIST_SANCTUARY_MECHANICS,
+  ...ELEMENTALIST_RESOURCE_MECHANICS,
+  ...ELEMENTALIST_EARLY_MECHANICS,
+  ...ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS,
+  ...ELEMENTALIST_LATE_MECHANICS,
   ...NULL_BASE_MECHANICS,
   ...NULL_AUGMENTATION_MECHANICS,
   ...NULL_MASTERY_MECHANICS,
@@ -71,6 +85,7 @@ export function mechanicsFor(id: string): FeatureMechanics | undefined {
 export { FURY_MECHANICS, FURY_RESOURCE } from "./fury";
 export { CENSOR_RESOURCE } from "./censor-resource";
 export { CONDUIT_RESOURCE } from "./conduit-resource";
+export { ELEMENTALIST_RESOURCE } from "./elementalist-resource";
 export { NULL_RESOURCE } from "./null-resource";
 export { TALENT_RESOURCE } from "./talent-resource";
 export { TACTICIAN_RESOURCE } from "./tactician-resource";

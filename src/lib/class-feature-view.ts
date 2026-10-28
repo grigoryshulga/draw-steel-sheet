@@ -253,7 +253,7 @@ function keyGroupKind(group: string): FeatureKeyGroup | undefined {
 
 /**
  * Автоматизирован ли вариант старого реестра выбора. Сначала смотрим эффекты
- * самой опции (у Элементалиста они пока там), затем — механику вложенной
+ * самой опции (если у неё ещё остались effects), затем — механику вложенной
  * записи, которая включает эффект, триггер или ресурс по `when.keyValue` с
  * именем опции (так перенесены аугментации Таланта и Нуля). Без этой проверки
  * подсказка билдера «Поддерживает авторасчёт» после миграции врала бы.
@@ -434,6 +434,10 @@ const DAMAGE_TYPE_DATIVE: Record<string, string> = {
 function immunityLines(immunity: FeatureDamageImmunity): string[] {
   const types = immunity.types.filter(Boolean);
   if (types.length === 0) return [`иммунитет ${immunity.value}`];
+  // «Иммунитет к урону 5» — все виды урона: не перечисляем внутренние типы.
+  if (types.some((type) => normalizeFeatureText(type) === "урон")) {
+    return [`иммунитет к урону ${immunity.value}`];
+  }
   return types.map((type) => {
     const dative = DAMAGE_TYPE_DATIVE[normalizeFeatureText(type)];
     return dative
@@ -956,7 +960,7 @@ export function classFeatureGiftsAtLevel(
   // классами: у Fury/Censor/Conduit состав подарков уже сложился и менять его
   // без отдельного ревью нельзя. Служебные строки — выбор способности, перк,
   // навык, ресурс — остаются за `plan.choices` и панелью ресурсов.
-  const proseGiftClasses = ["Талант", "Нуль", "Тактик"].map(normalizeFeatureText);
+  const proseGiftClasses = ["Талант", "Нуль", "Тактик", "Элементалист"].map(normalizeFeatureText);
   const proseGifts = new Set(
     futureFeatures
       .filter(
@@ -1130,9 +1134,10 @@ export function setBloomingSaintImmunityChoice(character: Character, value: stri
 /**
  * Группы, значение которых приложение хранит не только в
  * `automation.classFeatureSelections`, но и в `character.subclass`: аспект
- * Неистового, орден Цензора, традиция Таланта, традиция Нуля и доктрина
- * Тактика — это подкласс. Домены Проводника сюда не входят: в `subclass` у
- * него лежит пара доменов, а не один выбор.
+ * Неистового, орден Цензора, традиция Таланта, традиция Нуля, доктрина
+ * Тактика и элементальная специализация Элементалиста — это подкласс.
+ * Домены Проводника сюда не входят: в `subclass` у него лежит пара доменов,
+ * а не один выбор.
  */
 const SUBCLASS_MIRRORED_GROUPS = new Set([
   "fury.aspect",
@@ -1140,6 +1145,7 @@ const SUBCLASS_MIRRORED_GROUPS = new Set([
   "talent.tradition",
   "null.tradition",
   "tactician.doctrine",
+  "elementalist.specialization",
 ]);
 
 /**

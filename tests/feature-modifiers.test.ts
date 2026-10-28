@@ -239,7 +239,7 @@ describe("Class feature distance contributions", () => {
     expect(featureAbilityDistanceContributions(spell, rangedMagicHero())).toEqual(
       [
         {
-          sourceId: "elementalist.enchantment.distance",
+          sourceId: "elementalist.feature.1.zacharovanie-distantsii",
           sourceName: "Зачарование дистанции",
           value: 2,
         },
@@ -339,15 +339,27 @@ describe("Class feature activation rules", () => {
 
   it("keeps conditional options inert without equipment flags", () => {
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    // После миграции Таланта условные числа живут в механике, а не в опции.
-    const conditionalIds = ["elementalist.enchantment.battle"];
+    // После миграции Элементалиста все числа старого реестра живут в механике.
+    expect(options.filter((option) => option.effects.length > 0)).toEqual([]);
 
-    for (const optionId of conditionalIds) {
-      const option = options.find((candidate) => candidate.id === optionId);
-      expect(option?.manualReason).toBeUndefined();
-      expect(option?.effects).toHaveLength(2);
-      expect(option?.effects.every((effect) => effect.when)).toBe(true);
-    }
+    const oldElementalistBattle = options.find(
+      (candidate) => candidate.id === "elementalist.enchantment.battle",
+    );
+    expect(oldElementalistBattle?.effects).toEqual([]);
+    expect(oldElementalistBattle?.manualReason).toMatch(/перенес/);
+    const elementalistBattle = mechanicsFor(
+      "elementalist.feature.1.zacharovanie-bitvy",
+    );
+    const elementalistBattleFields =
+      elementalistBattle?.effects?.filter((effect) => effect.kind === "field") ??
+      [];
+    expect(elementalistBattleFields).toHaveLength(2);
+    expect(
+      elementalistBattleFields.every(
+        (effect) => effect.kind === "field" && effect.when?.equipment,
+      ),
+    ).toBe(true);
+
     const talentBattle = mechanicsFor("talent.feature.1.boevaya-augmentatsiya");
     const talentBattleFields =
       talentBattle?.effects?.filter((effect) => effect.kind === "field") ?? [];
@@ -364,7 +376,6 @@ describe("Class feature activation rules", () => {
     const conduitSoldier = mechanicsFor("conduit.feature.1.molitva-o-masterstve-soldata");
     expect(conduitSoldier?.effects).toHaveLength(3);
     expect(conduitSoldier?.effects?.filter((effect) => effect.kind === "field").every((effect) => effect.when)).toBe(true);
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(5);
 
     const talent = hero("Талант", 4, {
       "Псионическая аугментация": "Боевая аугментация",

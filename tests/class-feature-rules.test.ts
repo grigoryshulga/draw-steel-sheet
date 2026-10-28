@@ -48,25 +48,16 @@ describe("class feature registry", () => {
     expect(ids.every((id) => /^[a-z]+(?:\.[a-z]+)+$/.test(id))).toBe(true);
 
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    // Числа Таланта и Нуля переехали в механики, поэтому эффектных опций
-    // старого реестра осталось 5: только пять аугментаций Элементалиста.
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(5);
+    // Числа Таланта, Нуля и Элементалиста переехали в механики: эффектных
+    // и условных опций старого реестра больше нет.
+    expect(options.filter((option) => option.effects.length > 0)).toEqual([]);
     const conditionalOptions = options.filter((option) =>
       option.effects.some((effect) => effect.when !== undefined),
     );
-    expect(conditionalOptions.map((option) => option.id)).toEqual([
-      "elementalist.enchantment.battle",
-    ]);
-    for (const option of conditionalOptions) {
-      expect(option.effects).toEqual([
-        { kind: "field", field: "stamina", value: 0, perEchelon: 3, when: { equipment: { lightArmor: true }, noKit: true } },
-        { kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Оружие"] }, rolledOnly: false, when: { equipment: { lightWeapon: true }, noKit: true } },
-      ]);
-      expect(option.manualReason).toBeUndefined();
-    }
+    expect(conditionalOptions).toEqual([]);
     for (const option of options) {
-      if (option.effects.length === 0) expect(option.manualReason?.trim()).toBeTruthy();
-      else expect(option.manualReason).toBeUndefined();
+      expect(option.effects, option.id).toEqual([]);
+      expect(option.manualReason?.trim(), option.id).toBeTruthy();
     }
     expect(classFeatureGroups("Нуль")).toHaveLength(1);
     expect(classFeatureGroups("Проводник")).toHaveLength(0);
@@ -211,6 +202,58 @@ describe("class feature registry", () => {
       expect(option.effects).toEqual([]);
       expect(option.manualReason).toMatch(/перенес/);
     }
+  });
+
+  it("keeps the last old Elementalist groups, option IDs and names without numeric effects", () => {
+    const groups = classFeatureGroups("Элементалист");
+    expect(groups.map((group) => group.id)).toEqual([
+      "elementalist.enchantment",
+      "elementalist.sanctuary",
+    ]);
+    expect(groups.map((group) => group.name)).toEqual([
+      "Зачарование",
+      "Оберег элементалиста",
+    ]);
+    expect(
+      groups.flatMap((group) => group.options.map((option) => option.id)),
+    ).toEqual([
+      "elementalist.enchantment.battle",
+      "elementalist.enchantment.speed",
+      "elementalist.enchantment.destruction",
+      "elementalist.enchantment.distance",
+      "elementalist.enchantment.constancy",
+      "elementalist.sanctuary.delightful",
+      "elementalist.sanctuary.superior",
+      "elementalist.sanctuary.nature",
+      "elementalist.sanctuary.reactivity",
+    ]);
+    expect(
+      groups.flatMap((group) => group.options.map((option) => option.name)),
+    ).toEqual([
+      "Зачарование битвы",
+      "Зачарование быстроты",
+      "Зачарование разрушения",
+      "Зачарование дистанции",
+      "Зачарование постоянства",
+      "Оберег восхитительных последствий",
+      "Оберег превосходной защиты",
+      "Оберег привязанности природы",
+      "Оберег удивительной реактивности",
+    ]);
+    for (const option of groups.flatMap((group) => group.options)) {
+      expect(option.effects, option.id).toEqual([]);
+      expect(option.manualReason, option.id).toMatch(/перенес/);
+      expect(option.manualReason, option.id).not.toContain("elementalist.feature.");
+      expect(option.manualReason, option.id).not.toMatch(/\d/);
+    }
+
+    // Числа зачарований и триггеры оберегов живут во вложенных механиках.
+    expect(mechanicsFor("elementalist.feature.1.zacharovanie-bitvy")?.when).toEqual({
+      keyValue: ["Зачарование битвы"],
+    });
+    expect(mechanicsFor("elementalist.feature.1.obereg-prevoskhodnoy-zashchity")?.when).toEqual({
+      keyValue: ["Оберег превосходной защиты"],
+    });
   });
 
   it("maps only known choices belonging to the requested class", () => {

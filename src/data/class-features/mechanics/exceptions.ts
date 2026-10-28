@@ -4,6 +4,11 @@ import { CENSOR_LEVEL_TEXT_ONLY } from "./censor-levels";
 import { CENSOR_ORDER_TEXT_ONLY } from "./censor-orders";
 import { CONDUIT_BASE_TEXT_ONLY } from "./conduit-base";
 import { CONDUIT_LEVEL_TEXT_ONLY } from "./conduit-levels";
+import { ELEMENTALIST_BASE_TEXT_ONLY } from "./elementalist-base";
+import { ELEMENTALIST_EARLY_TEXT_ONLY } from "./elementalist-early";
+import { ELEMENTALIST_ENCHANTMENT_TEXT_ONLY } from "./elementalist-enchantments";
+import { ELEMENTALIST_LATE_TEXT_ONLY } from "./elementalist-late";
+import { ELEMENTALIST_SANCTUARY_TEXT_ONLY } from "./elementalist-sanctuaries";
 import { NULL_AUGMENTATION_TEXT_ONLY } from "./null-augmentations";
 import { NULL_BASE_TEXT_ONLY } from "./null-base";
 import { NULL_EARLY_TEXT_ONLY } from "./null-early";
@@ -59,6 +64,11 @@ export const TEXT_ONLY: Record<string, string> = {
   ...CENSOR_ORDER_TEXT_ONLY,
   ...CONDUIT_BASE_TEXT_ONLY,
   ...CONDUIT_LEVEL_TEXT_ONLY,
+  ...ELEMENTALIST_BASE_TEXT_ONLY,
+  ...ELEMENTALIST_ENCHANTMENT_TEXT_ONLY,
+  ...ELEMENTALIST_SANCTUARY_TEXT_ONLY,
+  ...ELEMENTALIST_EARLY_TEXT_ONLY,
+  ...ELEMENTALIST_LATE_TEXT_ONLY,
   ...NULL_BASE_TEXT_ONLY,
   ...NULL_AUGMENTATION_TEXT_ONLY,
   ...NULL_MASTERY_TEXT_ONLY,
@@ -84,5 +94,4 @@ export const TEXT_ONLY: Record<string, string> = {
 export const NOT_YET: Record<string, string> = {
   "Тень": "следующий заход: механики по инвентаризации",
   "Трубадур": "следующий заход: механики по инвентаризации",
-  "Элементалист": "следующий заход: механики по инвентаризации",
 };

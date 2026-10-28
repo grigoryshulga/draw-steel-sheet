@@ -227,10 +227,18 @@ export function resolveFeatureAmount(
  */
 export function resolveFeatureValue(
   character: Character,
-  effect: { value: FeatureAmount; perEchelon?: number; cap?: number },
+  effect: {
+    value: FeatureAmount;
+    perEchelon?: number;
+    perLevel?: number;
+    cap?: number;
+  },
 ): number {
   const base = resolveFeatureAmount(character, effect.value);
-  const scaled = base + (effect.perEchelon ?? 0) * echelon(character.level);
+  const level = typeof character.level === "number" ? character.level : 0;
+  const scaled =
+    base + (effect.perEchelon ?? 0) * echelon(character.level) +
+    (effect.perLevel ?? 0) * level;
   return effect.cap === undefined ? scaled : Math.min(scaled, effect.cap);
 }
 

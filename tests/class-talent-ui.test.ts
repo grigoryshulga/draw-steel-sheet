@@ -50,7 +50,7 @@ describe("Талант: подписи и панель", () => {
       classFeatureLegacyGroupsForSheet(
         createCharacter({ className: "Элементалист" }),
       ).map((group) => group.id),
-    ).toEqual(["elementalist.enchantment", "elementalist.sanctuary"]);
+    ).toEqual([]);
   });
 
   it("подсказка билдера понимает и числовые аугментации, и обереги-триггеры", () => {

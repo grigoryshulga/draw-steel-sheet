@@ -646,7 +646,7 @@ describe("панель показывает механику и прозу, но
       expect(conduitItems.some((item) => item.id === "conduit.feature.1.blagochestie-v-boyu")).toBe(true);
       expect(conduitItems.every((item) => item.trigger ? item.trigger.detail.length > 0 : true)).toBe(true);
 
-      for (const className of ["Элементалист", "Трубадур", "Тень"]) {
+      for (const className of ["Трубадур", "Тень"]) {
         const hero = createCharacter({ className, level: 6 });
         expect(classFeatureGroupsForSheet(hero)).toEqual([]);
         expect(classFeatureChoicesForSheet(hero)).toEqual([]);

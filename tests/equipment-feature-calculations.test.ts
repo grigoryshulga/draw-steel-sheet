@@ -390,7 +390,7 @@ describe("Conditional sources for every supported class option", () => {
   it.each([
     ["Талант", "talent.feature.1.boevaya-augmentatsiya", "Боевая аугментация"],
     ["Проводник", "conduit.feature.1.molitva-o-masterstve-soldata", "Молитва о мастерстве солдата"],
-    ["Элементалист", "elementalist.enchantment.battle", "Зачарование битвы"],
+    ["Элементалист", "elementalist.feature.1.zacharovanie-bitvy", "Зачарование битвы"],
   ])("%s adds its conditional stamina source once", (className, id, name) => {
     const hero = battleHero({
       className,
