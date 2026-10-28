@@ -4,6 +4,12 @@ import { CENSOR_LEVEL_TEXT_ONLY } from "./censor-levels";
 import { CENSOR_ORDER_TEXT_ONLY } from "./censor-orders";
 import { CONDUIT_BASE_TEXT_ONLY } from "./conduit-base";
 import { CONDUIT_LEVEL_TEXT_ONLY } from "./conduit-levels";
+import { TALENT_AUGMENTATION_TEXT_ONLY } from "./talent-augmentations";
+import { TALENT_BASE_TEXT_ONLY } from "./talent-base";
+import { TALENT_EARLY_TEXT_ONLY } from "./talent-early";
+import { TALENT_LATE_TEXT_ONLY } from "./talent-late";
+import { TALENT_SANCTUARY_TEXT_ONLY } from "./talent-sanctuaries";
+import { TALENT_TRADITION_TEXT_ONLY } from "./talent-traditions";
 
 /**
  * Особенности, которые сознательно остаются прозой: правило читается из текста
@@ -44,6 +50,12 @@ export const TEXT_ONLY: Record<string, string> = {
   ...CENSOR_ORDER_TEXT_ONLY,
   ...CONDUIT_BASE_TEXT_ONLY,
   ...CONDUIT_LEVEL_TEXT_ONLY,
+  ...TALENT_BASE_TEXT_ONLY,
+  ...TALENT_AUGMENTATION_TEXT_ONLY,
+  ...TALENT_SANCTUARY_TEXT_ONLY,
+  ...TALENT_EARLY_TEXT_ONLY,
+  ...TALENT_TRADITION_TEXT_ONLY,
+  ...TALENT_LATE_TEXT_ONLY,
 };
 
 /**
@@ -54,7 +66,6 @@ export const TEXT_ONLY: Record<string, string> = {
 export const NOT_YET: Record<string, string> = {
   "Нуль": "следующий заход: механики по инвентаризации",
   "Тактик": "следующий заход: механики по инвентаризации",
-  "Талант": "следующий заход: механики по инвентаризации",
   "Тень": "следующий заход: механики по инвентаризации",
   "Трубадур": "следующий заход: механики по инвентаризации",
   "Элементалист": "следующий заход: механики по инвентаризации",

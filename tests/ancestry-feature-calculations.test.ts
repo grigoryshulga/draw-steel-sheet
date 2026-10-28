@@ -170,14 +170,14 @@ describe("Ancestry stat integration", () => {
 
     expect(featureStatContributions(character, "speed")).toEqual([
       {
-        sourceId: "talent.augmentation.speed",
-        sourceName: "Аугментация скорости",
-        value: 1,
-      },
-      {
         sourceId: "ancestry.memanek.lightning-agility",
         sourceName: "Молниеносная ловкость",
         value: 2,
+      },
+      {
+        sourceId: "talent.feature.1.augmentatsiya-skorosti",
+        sourceName: "Аугментация скорости",
+        value: 1,
       },
     ]);
     expect(calculatedValues(character).speed).toBe(8);

@@ -1,4 +1,3 @@
-import { classFeatureGroups } from "../../data/class-feature-rules";
 import type { FeatureEffect } from "../../data/class-features/types";
 import { useApp } from "../../state/AppContext";
 import { Button, Panel, Select } from "../../components/ui";
@@ -9,6 +8,7 @@ import {
 import {
   classFeatureChoicesForSheet,
   classFeatureGroupsForSheet,
+  classFeatureLegacyGroupsForSheet,
 } from "../../lib/class-feature-view";
 import {
   ClassFeatureMechanicsPanel,
@@ -19,7 +19,9 @@ import "./ClassFeaturesPanel.css";
 /** Stable, explicit class feature selections for automatic calculation. */
 export function ClassFeaturesPanel() {
   const { character, update, goTo } = useApp();
-  const groups = classFeatureGroups(character.className);
+  // Группы, уже перенесённые в механики, показывает новый раздел: старый
+  // селектор для них скрыт, иначе на листе два контрола и ложный статус.
+  const groups = classFeatureLegacyGroupsForSheet(character);
   const selections = character.automation?.classFeatureSelections ?? {};
 
   // Новый раздел показывает только записи с механикой: у классов, которые ещё

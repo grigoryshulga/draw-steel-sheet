@@ -79,8 +79,13 @@ function chosenValues(value: string): string[] {
 function keyValueMatches(selected: string | undefined, keyValue?: string): boolean {
   if (!keyValue) return true;
   if (selected === undefined) return false;
+  const selectedValues = chosenValues(selected);
+  // Один выбор — одно значение. Список из двух традиций/орденов в сохранении
+  // некорректен и не должен включать обе особенности; пара доменов Проводника
+  // сюда не попадает, у неё отдельная логика активации.
+  if (selectedValues.length !== 1) return false;
   const wanted = new Set(chosenValues(keyValue));
-  return chosenValues(selected).some((value) => wanted.has(value));
+  return wanted.has(selectedValues[0]);
 }
 
 /**

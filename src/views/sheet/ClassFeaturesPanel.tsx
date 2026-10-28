@@ -224,8 +224,9 @@ export function ClassFeatureMechanicsPanel() {
   const selectChoice = (group: string, value: string) => {
     update((current) => {
       if (group === "conduit.blooming-saint-immunity") return setBloomingSaintImmunityChoice(current, value);
-      // Аспект Неистового и орден Цензора живут ещё и в `subclass`: без
-      // синхронизации выбор из панели не открывал бы повышение уровня.
+      // Аспект Неистового, орден Цензора и традиция Таланта живут ещё и в
+      // `subclass`: без синхронизации выбор из панели не открывал бы
+      // повышение уровня.
       return withClassFeatureSelection(current, group, value);
     });
   };
@@ -258,7 +259,7 @@ export function ClassFeatureMechanicsPanel() {
                 <option value="">Не выбран</option>
                 {choice.options.map((option) => (
                   <option key={option} value={option}>
-                    {groupOptionLabel(choice.group, option)}
+                    {choice.optionLabels?.[option] ?? groupOptionLabel(choice.group, option)}
                   </option>
                 ))}
               </Select>

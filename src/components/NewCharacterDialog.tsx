@@ -23,6 +23,7 @@ import {
 } from "../lib/builder-steps";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
 import { classFeatureGroups } from "../data/class-feature-rules";
+import { classFeatureOptionAutomated } from "../lib/class-feature-view";
 import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
@@ -785,7 +786,10 @@ export function NewCharacterDialog({
                           <>
                             {registryOption && (
                               <p className="muted small">
-                                {registryOption.effects.length > 0
+                                {classFeatureOptionAutomated(
+                                  draft.className,
+                                  registryOption.name,
+                                )
                                   ? "Поддерживает авторасчёт"
                                   : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
                               </p>

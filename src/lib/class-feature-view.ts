@@ -1,7 +1,11 @@
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import {
+  classFeatureGroups,
+  type ClassFeatureGroup,
+} from "../data/class-feature-rules";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
-import { NOT_YET } from "../data/class-features/mechanics";
+import { NOT_YET, mechanicsFor } from "../data/class-features/mechanics";
 import type {
   FeatureChoice,
   FeatureCondition,
@@ -109,6 +113,8 @@ export interface FeatureSheetChoice {
   options: string[];
   /** Уже сохранённое значение; выборы можно исправить без потери данных. */
   selected?: string;
+  /** Подписи вариантов, если значение — внутренний ID (`talent.augmentation.*`). */
+  optionLabels?: Record<string, string>;
 }
 
 /** Pure presentation state; conduit aliases resolve to their persisted legacy option ID. */
@@ -124,7 +130,12 @@ export function featureSheetChoiceState(choice: FeatureSheetChoice): { selectedO
   const flexible = choice.group.startsWith("conduit.domain.") || choice.group.startsWith("conduit.ability.domain.") || choice.group === "conduit.blooming-saint-immunity";
   const option = choice.options.find((candidate) => flexible ? fold(candidate) === fold(saved) : candidate === saved);
   if (option) return { selectedOption: option };
-  return { selectedOption: "", warning: `Сохранено: ${saved}. Это значение не входит в выбранную пару доменов; выберите один из доступных доменов.` };
+  return {
+    selectedOption: "",
+    warning: flexible
+      ? `Сохранено: ${saved}. Это значение не входит в выбранную пару доменов; выберите один из доступных доменов.`
+      : `Сохранено: ${saved}. Это значение не входит в список доступных вариантов; выберите один из них.`,
+  };
 }
 
 export interface ConduitLegacyDomainChoices {
@@ -237,6 +248,43 @@ function characteristicLabel(key: CharacteristicKey): string {
 function keyGroupKind(group: string): FeatureKeyGroup | undefined {
   const last = group.split(".").pop();
   return KEY_GROUP_KINDS.find((kind) => kind === last);
+}
+
+/**
+ * Автоматизирован ли вариант старого реестра выбора. Сначала смотрим эффекты
+ * самой опции (у Нуля и Элементалиста они пока там), затем — механику
+ * вложенной записи, которая включает эффекты по `when.keyValue` с именем
+ * опции (так перенесены аугментации Таланта). Без этой проверки подсказка
+ * билдера «Поддерживает авторасчёт» после миграции врала бы.
+ */
+export function classFeatureOptionAutomated(
+  className: string,
+  optionName: string,
+): boolean {
+  const group = classFeatureGroups(className).find((candidate) =>
+    candidate.options.some((option) => option.name === optionName),
+  );
+  const option = group?.options.find((candidate) => candidate.name === optionName);
+  if (!option) return false;
+  if (option.effects.length > 0) return true;
+
+  const wanted = normalizeFeatureText(optionName);
+  return GENERATED_CLASS_FEATURES.some((feature) => {
+    if (normalizeFeatureText(feature.className) !== normalizeFeatureText(className)) {
+      return false;
+    }
+    const mechanics = mechanicsFor(feature.id);
+    if (
+      !mechanics?.effects?.length &&
+      !mechanics?.trigger &&
+      !mechanics?.resource
+    ) {
+      return false;
+    }
+    return (mechanics.when?.keyValue ?? []).some(
+      (value) => normalizeFeatureText(value) === wanted,
+    );
+  });
 }
 
 /** Части значения выбора: `keyValue` и ответ игрока могут перечислять варианты. */
@@ -374,6 +422,7 @@ const DAMAGE_TYPE_DATIVE: Record<string, string> = {
   молния: "молнии",
   яд: "яду",
   звук: "звуку",
+  психический: "психическому",
 };
 
 
@@ -418,7 +467,13 @@ function describeEffect(character: Character, effect: FeatureEffect): string | u
     case "damageImmunity":
       return undefined;
     case "proficiency": {
-      const parts = [...(effect.armor ?? []), ...(effect.weapons ?? [])];
+      const armor = (effect.armor ?? []).map((value) =>
+        value === "light" ? "лёгкая броня" : value,
+      );
+      const weapons = (effect.weapons ?? []).map((value) =>
+        value === "light" ? "лёгкое оружие" : value,
+      );
+      const parts = [...new Set([...armor, ...weapons])];
       if (effect.treasures) parts.push("клады");
       return parts.length > 0 ? `владение: ${parts.join(", ")}` : undefined;
     }
@@ -886,13 +941,32 @@ export function classFeatureGiftsAtLevel(
       .filter((feature) => feature.keyedBy !== undefined)
       .map((feature) => feature.id),
   );
+  // Прозаическая особенность уровня (ситуативное правило, увеличение
+  // характеристик) — тоже дар, хотя чисел в модели нет: без неё блок «Что вы
+  // получите» у Таланта пуст. Правило ограничено Талантом: у Fury/Censor/
+  // Conduit состав подарков уже сложился и менять его без отдельного ревью
+  // нельзя. Служебные строки — выбор способности, перк, навык, ресурс —
+  // остаются за `plan.choices` и панелью ресурсов.
+  const proseGifts = new Set(
+    futureFeatures
+      .filter(
+        (feature) =>
+          normalizeFeatureText(feature.className) === normalizeFeatureText("Талант") &&
+          (feature.mechanics?.kinds ?? []).some(
+            (kind) => kind === "situational" || kind === "characteristic",
+          ),
+      )
+      .map((feature) => feature.id),
+  );
   const group = classFeatureGroupsForSheet(future).find(
     (item) => item.level === level,
   );
   return (group?.features ?? []).filter(
     (item) =>
       !chosenElsewhere.has(item.id) &&
-      (selectionGifts.has(item.id) || isGift(item)),
+      (selectionGifts.has(item.id) ||
+        proseGifts.has(item.id) ||
+        isGift(item)),
   );
 }
 
@@ -927,10 +1001,11 @@ export function triggerBadgeCounts(character: Character): number {
 }
 
 /**
- * Группы выбора, значение которых ещё не записано ни в
- * `automation.classFeatureSelections`, ни в поле, которым приложение хранит
- * выбор (`character.subclass` для аспекта Неистового). Варианты берутся из
- * скелета — лист не придумывает названий аспектов.
+ * Группы выбора для панели листа. Подклассовые группы (аспект, традиция)
+ * предлагаются, только пока значение не записано в выборы или в `subclass`.
+ * Старые группы Таланта (`talent.augmentation`, `talent.sanctuary`) видны
+ * всегда: числа уже в механике, но выбор разрешено менять на отдыхе.
+ * Варианты берутся из скелета и механики — лист не придумывает названий.
  */
 export function classFeatureChoicesForSheet(
   character: Character,
@@ -967,7 +1042,37 @@ export function classFeatureChoicesForSheet(
     const choice = feature.mechanics?.choice;
     if (!choice || seen.has(choice.group)) continue;
     const kind = keyGroupKind(choice.group);
-    if (!kind) continue;
+    if (!kind) {
+      // Группа не вида: выбором листа считаем только группу старого реестра
+      // (`talent.augmentation`, `talent.sanctuary`) — значения там прежние ID.
+      // Выборы способностей (`fury.heroic.3`, `fury.signature`) ведёт повышение
+      // уровня, и лист их второй раз не спрашивает.
+      if (!classFeatureGroups(context.className).some((group) => group.id === choice.group)) {
+        continue;
+      }
+      seen.add(choice.group);
+      // Старые листы хранят и ID, и русское название опции; панель работает с
+      // ID, иначе сохранённое значение получило бы ложное предупреждение.
+      const rawSaved = selectedGroupValue(character, choice.group);
+      const saved =
+        rawSaved === undefined
+          ? undefined
+          : (choice.options.find(
+              (option) =>
+                normalizeFeatureText(option.id) === normalizeFeatureText(rawSaved) ||
+                normalizeFeatureText(option.label) === normalizeFeatureText(rawSaved),
+            )?.id ?? rawSaved);
+      choices.push({
+        group: choice.group,
+        label: choice.label ?? choice.group,
+        options: choice.options.map((option) => option.id),
+        optionLabels: Object.fromEntries(
+          choice.options.map((option) => [option.id, option.label]),
+        ),
+        ...(saved !== undefined ? { selected: saved } : {}),
+      });
+      continue;
+    }
     // Группу выбора предлагаем только если она зарегистрирована для класса:
     // иначе запись выбора ни на что не повлияет.
     if (selectionGroupFor(context.className, kind) !== choice.group) continue;
@@ -984,6 +1089,23 @@ export function classFeatureChoicesForSheet(
   return [...conduitChoices.choices, ...choices];
 }
 
+/**
+ * Группы старого реестра, которые ещё показываются отдельной панелью. Если для
+ * группы уже есть `mechanics.choice` в новом реестре (аугментация и оберег
+ * Таланта), старый селектор скрывается: иначе на листе два контрола и ложное
+ * «По тексту правил» у перенесённых чисел.
+ */
+export function classFeatureLegacyGroupsForSheet(
+  character: Character,
+): ClassFeatureGroup[] {
+  const migrated = new Set(
+    classFeatureChoicesForSheet(character).map((choice) => choice.group),
+  );
+  return classFeatureGroups(character.className).filter(
+    (group) => !migrated.has(group.id),
+  );
+}
+
 /** Сохраняет выбор иммунитета, оставляя прочие поля старого листа нетронутыми. */
 export function setBloomingSaintImmunityChoice(character: Character, value: string): Character {
   if (normalizeFeatureText(character.className ?? "") !== normalizeFeatureText("Проводник") || character.level < 6) return character;
@@ -998,10 +1120,15 @@ export function setBloomingSaintImmunityChoice(character: Character, value: stri
 /**
  * Группы, значение которых приложение хранит не только в
  * `automation.classFeatureSelections`, но и в `character.subclass`: аспект
- * Неистового и орден Цензора — это подкласс. Домены Проводника сюда не входят:
- * в `subclass` у него лежит пара доменов, а не один выбор.
+ * Неистового, орден Цензора и традиция Таланта — это подкласс. Домены
+ * Проводника сюда не входят: в `subclass` у него лежит пара доменов, а не
+ * один выбор.
  */
-const SUBCLASS_MIRRORED_GROUPS = new Set(["fury.aspect", "censor.order"]);
+const SUBCLASS_MIRRORED_GROUPS = new Set([
+  "fury.aspect",
+  "censor.order",
+  "talent.tradition",
+]);
 
 /**
  * Записывает выбор группы особенностей и, если это подкласс, повторяет его в

@@ -589,8 +589,52 @@ describe("classFeatureChoicesForSheet", () => {
   });
 
   it("у класса без разобранных выборов ничего не спрашивает", () => {
+    const shade = createCharacter({ className: "Тень", level: 3 });
+    expect(classFeatureChoicesForSheet(shade)).toEqual([]);
+  });
+
+  it("Талант просит традицию, аугментацию и оберег с русскими подписями", () => {
     const talent = createCharacter({ className: "Талант", level: 3 });
-    expect(classFeatureChoicesForSheet(talent)).toEqual([]);
+    const choices = classFeatureChoicesForSheet(talent);
+    expect(choices.map((choice) => choice.group)).toEqual([
+      "talent.sanctuary",
+      "talent.augmentation",
+      "talent.tradition",
+    ]);
+    expect(choices.find((choice) => choice.group === "talent.tradition")?.options).toEqual([
+      "Хронопатия",
+      "Телекинез",
+      "Телепатия",
+    ]);
+    const augmentation = choices.find(
+      (choice) => choice.group === "talent.augmentation",
+    );
+    expect(augmentation?.selected).toBeUndefined();
+    expect(augmentation?.optionLabels?.["talent.augmentation.density"]).toBe(
+      "Аугментация плотности",
+    );
+
+    // Аугментация и оберег остаются в панели и после сохранения, чтобы их
+    // можно было сменить на отдыхе; выбор традиции после записи скрывается.
+    const saved = createCharacter({ className: "Талант", level: 3 });
+    saved.subclass = "Телекинез";
+    saved.automation = {
+      enabled: true,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: {
+        "talent.augmentation": "talent.augmentation.density",
+        "talent.sanctuary": "talent.sanctuary.steel",
+      },
+    };
+    const savedChoices = classFeatureChoicesForSheet(saved);
+    expect(savedChoices.map((choice) => choice.group)).toEqual([
+      "talent.sanctuary",
+      "talent.augmentation",
+    ]);
+    expect(
+      savedChoices.find((choice) => choice.group === "talent.augmentation")?.selected,
+    ).toBe("talent.augmentation.density");
   });
 });
 

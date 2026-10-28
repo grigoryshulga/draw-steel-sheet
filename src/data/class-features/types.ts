@@ -115,6 +115,8 @@ export interface FeatureTrigger {
 
 export interface FeatureChoice {
   group: string;
+  /** Подпись группы для листа, если группа не видовая (`talent.augmentation`). */
+  label?: string;
   options: { id: string; label: string }[];
 }
 

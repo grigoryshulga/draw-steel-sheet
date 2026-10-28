@@ -24,6 +24,34 @@ const CLASS_FEATURE_OPTION_NAMES = new Map<string, string>(
   ),
 );
 
+/**
+ * Какая группа владеет вариантом: по ID и по русскому названию. Нужно, чтобы
+ * значение, положенное не в свою группу (например, оберег в выборе аугментации),
+ * не активировало чужую особенность. Название попадает в карту, только если оно
+ * однозначно.
+ */
+function optionOwnerMaps(): {
+  byId: Map<string, string>;
+  byName: Map<string, string>;
+} {
+  const byId = new Map<string, string>();
+  const byName = new Map<string, string>();
+  const ambiguous = new Set<string>();
+  for (const group of CLASS_FEATURE_GROUPS) {
+    for (const option of group.options) {
+      byId.set(option.id, group.id);
+      const name = normalize(option.name);
+      if (byName.has(name) && byName.get(name) !== group.id) ambiguous.add(name);
+      else byName.set(name, group.id);
+    }
+  }
+  for (const name of ambiguous) byName.delete(name);
+  return { byId, byName };
+}
+
+const { byId: OPTION_OWNER_BY_ID, byName: OPTION_OWNER_BY_NAME } =
+  optionOwnerMaps();
+
 function hasAnyKit(character: Character): boolean {
   return [character.kit, character.secondaryKit ?? ""].some(
     (name) => typeof name === "string" && name.trim() !== "",
@@ -73,6 +101,7 @@ const SELECTION_GROUPS: Record<
   проводник: { domain: "conduit.domain" },
   // У Цензора два независимых выбора: орден (подкласс) и один домен.
   цензор: { order: "censor.order", domain: "censor.domain" },
+  талант: { tradition: "talent.tradition" },
 };
 
 /**
@@ -99,6 +128,8 @@ const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   // Орден Цензора — это его подкласс: билдер пишет его название в
   // `character.subclass`, отдельного поля у приложения нет.
   "censor.order": "Цензор",
+  // Традиция Таланта — его подкласс: билдер пишет название в `subclass`.
+  "talent.tradition": "Талант",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */
@@ -168,6 +199,14 @@ function selectedKeyValues(
     for (const [groupId, optionId] of Object.entries(selections)) {
       if (typeof optionId !== "string") continue;
       const normalizedOption = normalize(optionId);
+      // Значение известной опции принадлежит только своей группе. Значение из
+      // неизвестной группы сохраняем как раньше: старые листы и будущие классы
+      // не должны терять выбор.
+      const ownerGroup =
+        OPTION_OWNER_BY_ID.get(optionId) ??
+        OPTION_OWNER_BY_NAME.get(normalizedOption);
+      if (ownerGroup && normalize(ownerGroup) !== normalize(groupId)) continue;
+
       const ownerClass = SUBCLASS_BACKED_GROUPS[normalize(groupId)];
       const owners = groupsByValue.get(normalizedOption);
       // Старые option ID остаются глобальными; именованные значения привязаны
@@ -183,8 +222,13 @@ function selectedKeyValues(
       const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
       if (name && !hasKnownOwner(name)) selected.add(normalize(name));
 
-      // Запятая разделяет варианты только в известной группе и для её класса.
-      if (ownerClass && className === normalize(ownerClass)) {
+      // Запятая разделяет пару доменов только у Проводника: у остальных групп
+      // одно значение, и «Традиция, Традиция» не должна активировать обе.
+      if (
+        ownerClass &&
+        className === normalize(ownerClass) &&
+        normalize(groupId) === "conduit.domain"
+      ) {
         for (const value of optionId.split(",")) {
           const normalized = normalize(value);
           const owners = groupsByValue.get(normalized);
@@ -193,18 +237,19 @@ function selectedKeyValues(
       }
     }
   }
-  // Фолбэк для групп, которые приложение хранит в subclass.
+  // Фолбэк для групп, которые приложение хранит в subclass. Пара доменов
+  // Проводника — единственная группа, где запятая разделяет два значения;
+  // традиция/орден/аспект — всегда один выбор.
   for (const groupId of Object.keys(SUBCLASS_BACKED_GROUPS)) {
     const value = selectedGroupValue(character, groupId);
-    if (value !== undefined) {
-      const normalizedValue = normalize(value);
+    if (value === undefined) continue;
+    const values =
+      normalize(groupId) === "conduit.domain" ? value.split(",") : [value];
+    for (const part of values) {
+      const normalizedValue = normalize(part);
+      if (!normalizedValue) continue;
       const owners = groupsByValue.get(normalizedValue);
       if (!owners || owners.has(normalize(groupId))) selected.add(normalizedValue);
-      for (const part of value.split(",")) {
-        const normalized = normalize(part);
-        const owners = groupsByValue.get(normalized);
-        if (!owners || owners.has(normalize(groupId))) selected.add(normalized);
-      }
     }
   }
   return selected;
