@@ -1,0 +1,126 @@
+.level-up-history-modal {
+  box-sizing: border-box;
+  width: min(720px, 100%);
+  max-width: 100%;
+  max-height: min(88dvh, 900px);
+}
+
+.level-up-history-modal .modal-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.level-up-feature + .level-up-feature {
+  margin-top: 14px;
+}
+
+.level-up-feature h4 {
+  margin: 0 0 5px;
+  font-size: 0.9rem;
+}
+
+.level-up-markdown {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.level-up-markdown > :first-child {
+  margin-top: 0;
+}
+
+.level-up-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.level-up-markdown h1,
+.level-up-markdown h2,
+.level-up-markdown h3,
+.level-up-markdown h4 {
+  margin: 12px 0 6px;
+  font-size: 0.92rem;
+}
+
+.level-up-markdown table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.level-up-markdown th,
+.level-up-markdown td {
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.level-up-rule-details,
+.level-up-history-item {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.level-up-rule-details > summary,
+.level-up-history-item > summary {
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.level-up-rule-content {
+  padding: 0 12px 12px;
+}
+
+.level-up-history {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+}
+
+.level-up-history-item {
+  padding-bottom: 10px;
+}
+
+.level-up-history-item > :not(summary) {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.level-up-history-item .level-up-rule-details {
+  margin-top: 10px;
+}
+
+.level-up-article-link {
+  display: inline-block;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+.level-up-receipt-choices {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.level-up-receipt-choices li + li {
+  margin-top: 7px;
+}
+
+@media (max-width: 520px) {
+  .modal-backdrop:has(.level-up-history-modal) {
+    padding: 12px;
+  }
+
+  .level-up-history-modal {
+    width: 100%;
+    max-height: 92dvh;
+  }
+
+  .level-up-history-modal .modal-body {
+    padding: 14px;
+  }
+}
