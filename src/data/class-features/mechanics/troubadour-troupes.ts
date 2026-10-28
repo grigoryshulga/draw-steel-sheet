@@ -213,7 +213,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.popravim-na-postprodakshene": {
     kinds: ["situational"],
-    when: { keyValue: ["Поправим на постпродакшене"] },
+    when: { keyValue: ["Поправим на постпродакшене"], keyValueAll: ["Автор"] },
     notes:
       "Раз за каждый свой ход свободным маневром герой меняет одно состояние " +
       "существа в пределах расстояния «Драматического монолога»: кровотечение, " +
@@ -223,7 +223,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.dubl-dva": {
     kinds: ["grant"],
-    when: { keyValue: ["Дубль два!"] },
+    when: { keyValue: ["Дубль два!"], keyValueAll: ["Автор"] },
     notes:
       "Выступление «Дубль два!» даётся этой особенностью и описано карточкой " +
       "справочника. Аура 5: каждая цель, начинающая ход в области, может " +
@@ -233,7 +233,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.slovesnaya-duel": {
     kinds: ["situational"],
-    when: { keyValue: ["Словесная дуэль"] },
+    when: { keyValue: ["Словесная дуэль"], keyValueAll: ["Дуэлянт"] },
     notes:
       "Раз за каждый свой ход, пока цель особенности «Оппонент» смежна с " +
       "героем, он свободным маневром обменивается репликами: встречный тест " +
@@ -242,7 +242,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.nas-ne-zatmit": {
     kinds: ["grant"],
-    when: { keyValue: ["Нас не затмить!"] },
+    when: { keyValue: ["Нас не затмить!"], keyValueAll: ["Дуэлянт"] },
     notes:
       "Выступление «Нас не затмить!» даётся этой особенностью и описано " +
       "карточкой справочника. Аура 5: цель, начинающая ход в области, получает " +
@@ -252,7 +252,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.podderzhivayushchaya-perepalka": {
     kinds: ["situational"],
-    when: { keyValue: ["Поддерживающая перепалка"] },
+    when: { keyValue: ["Поддерживающая перепалка"], keyValueAll: ["Виртуоз"] },
     notes:
       "Раз за каждый свой ход свободным маневром герой обменивается репликами " +
       "с целью текущего выступления, кроме себя. Цель может потратить " +
@@ -261,7 +261,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
   "troubadour.feature.5.medli": {
     kinds: ["situational"],
-    when: { keyValue: ["Медли"] },
+    when: { keyValue: ["Медли"], keyValueAll: ["Виртуоз"] },
     notes:
       "Герой может поддерживать два выступления одновременно, используя " +
       "особенность «Номера». Активные выступления лист не хранит.",

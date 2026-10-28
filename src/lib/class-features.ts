@@ -262,6 +262,7 @@ function showConditions(
   if (!condition) return undefined;
   const statics: FeatureCondition = {};
   if (condition.keyValue?.length) statics.keyValue = condition.keyValue;
+  if (condition.keyValueAll?.length) statics.keyValueAll = condition.keyValueAll;
   if (condition.minLevel !== undefined) statics.minLevel = condition.minLevel;
   if (condition.formActive) statics.formActive = condition.formActive;
   return Object.keys(statics).length > 0 ? statics : undefined;

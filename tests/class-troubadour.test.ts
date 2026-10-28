@@ -373,9 +373,11 @@ describe("Трубадур: амплуа", () => {
       expect(choice?.options, troupe).toHaveLength(2);
 
       for (const [index, featureId] of entry.children.entries()) {
+        const option = choice?.options[index];
+        expect(option, `${troupe} ${index}`).toBeTruthy();
         const selected = troubadour(
           5,
-          { [entry.group]: choice?.options[index] ?? featureId },
+          { [entry.group]: option! },
           { subclass: troupe },
         );
         expect(levelFiveIds(selected), `${troupe} ${featureId}`).toEqual([
@@ -383,6 +385,19 @@ describe("Трубадур: амплуа", () => {
         ]);
       }
     }
+
+    // Старое значение Автора не должно оставаться активным после смены амплуа.
+    const stale = troubadour(
+      5,
+      { "troubadour.feature.5.avtor": "Поправим на постпродакшене" },
+      { subclass: "Автор" },
+    );
+    const switched = withClassFeatureSelection(
+      stale,
+      "troubadour.troupe",
+      "Дуэлянт",
+    );
+    expect(levelFiveIds(switched)).toEqual([]);
   });
 
   it("чужая, неизвестная и составная амплуа не активируют записи", () => {
@@ -793,6 +808,16 @@ describe("Трубадур: старый и частичный лист", () => 
     expect(groups).toContain("troubadour.calling");
     expect(troupeIds(hero, 1)).toEqual([]);
     expect(levelFiveIds(hero)).toEqual([]);
+  });
+
+  it("составное амплуа снова предлагается в панели с предупреждением", () => {
+    const hero = troubadour(8, {}, { subclass: "Автор, Дуэлянт" });
+    const choice = classFeatureChoicesForSheet(hero).find(
+      (item) => item.group === "troubadour.troupe",
+    );
+    expect(choice).toBeDefined();
+    expect(choice?.selected).toBe("Автор, Дуэлянт");
+    expect(featureSheetChoiceState(choice!).warning).toContain("Сохранено");
   });
 
   it("после выбора активируется ровно своё амплуа", () => {

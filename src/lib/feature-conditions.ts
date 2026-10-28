@@ -339,6 +339,12 @@ export function featureConditionMet(
     );
     if (!matched) return false;
   }
+  if (condition.keyValueAll?.length) {
+    const selected = selectedKeyValues(character, condition.keyValueAll);
+    if (!condition.keyValueAll.every((value) => selected.has(normalize(value)))) {
+      return false;
+    }
+  }
   if (condition.resourceAtLeast) {
     const { name, value } = condition.resourceAtLeast;
     if (currentResourceValue(character, name) < value) return false;

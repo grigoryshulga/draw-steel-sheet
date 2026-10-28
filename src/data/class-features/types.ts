@@ -46,6 +46,8 @@ export interface FeatureCondition {
   minLevel?: number;
   /** Выбранные значения ключевых групп (например, аспект «Берсерк»). */
   keyValue?: string[];
+  /** Все перечисленные значения должны быть выбраны (например, амплуа и её особенность). */
+  keyValueAll?: string[];
   resourceAtLeast?: { name: string; value: number };
   formActive?: string;
 }
