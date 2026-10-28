@@ -100,31 +100,28 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     onDirtyChange?.(dirty || engaged);
   }, [dirty, engaged, onDirtyChange]);
 
-  const toggle = useCallback(
-    (step: DevelopmentStep, optionId: string) => {
-      setNotice(undefined);
-      setBlocked(undefined);
-      setDraft((previous) => {
-        const selected = stepSelection(step, previous);
-        const has = selected.includes(optionId);
-        let nextSelected: string[];
-        if (has) {
-          nextSelected = selected.filter((id) => id !== optionId);
-        } else if (step.count === 1) {
-          nextSelected = [optionId];
-        } else if (selected.length >= step.count) {
-          setBlocked(
-            `В шаге «${step.title}» можно выбрать только ${step.count}. Снимите лишнее.`,
-          );
-          return previous;
-        } else {
-          nextSelected = [...selected, optionId];
-        }
-        return { ...previous, [step.id]: nextSelected };
-      });
-    },
-    [],
-  );
+  const toggle = (step: DevelopmentStep, optionId: string) => {
+    setNotice(undefined);
+    setBlocked(undefined);
+    const selected = stepSelection(step, draft);
+    if (selected.includes(optionId)) {
+      setDraft({ ...draft, [step.id]: selected.filter((id) => id !== optionId) });
+      return;
+    }
+    if (step.count === 1) {
+      setDraft({ ...draft, [step.id]: [optionId] });
+      return;
+    }
+    if (selected.length >= step.count) {
+      // Снять лишнее можно повторным нажатием по карточке: отказ не мешает
+      // отмене выбора, только не даёт сохранить перебор.
+      setBlocked(
+        `В шаге «${step.title}» можно выбрать только ${step.count}. Снимите лишнее.`,
+      );
+      return;
+    }
+    setDraft({ ...draft, [step.id]: [...selected, optionId] });
+  };
 
   const reset = useCallback(() => {
     setDraft({});

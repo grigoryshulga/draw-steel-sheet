@@ -732,9 +732,7 @@ function nextLevelSteps(
   character: Character,
   level: number,
   plan: LevelUpPlan,
-  records: LevelAdvancementRecord[],
 ): DevelopmentStep[] {
-  void records;
   return plan.choices.map((choice) => {
     const current: string[] = [];
     if (choice.kind === "perk") {
@@ -855,7 +853,7 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
     const plan = getLevelUpPlan(character);
     const nextNumber = plan.toLevel;
     if (plan.available) {
-      const steps = nextLevelSteps(character, nextNumber, plan, recordsOf(character));
+      const steps = nextLevelSteps(character, nextNumber, plan);
       const covered = new Set(plan.classFeatures.map((feature) => feature.name));
       const upcoming = plan.rule
         ? plan.rule.features
@@ -912,10 +910,6 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
     }
   } else {
     issues.push(`Герой достиг ${MAX_CHARACTER_LEVEL}-го уровня — расти дальше нельзя.`);
-  }
-
-  if (issues.length === 0 && levels.every((entry) => entry.steps.length === 0)) {
-    // Ничего не выбирается: вкладка всё равно показывает особенности уровней.
   }
 
   return { levels, ...(nextLevel ? { nextLevel } : {}), issues };
@@ -1168,8 +1162,25 @@ export function applyDevelopment(
   // лист решает, какие доменные особенности уровня считать активными.
   const domainMarkers: Record<string, string> = {};
   const creationSkills = creationSkillPool(character);
-  const placedAbilities = new Set(abilities.map((ability) => ability.id));
+  let placedAbilities = new Set(abilities.map((ability) => ability.id));
 
+  interface StepChange {
+    step: DevelopmentStep;
+    chosen: string[];
+    previous: string[];
+  }
+  interface LevelEdit {
+    level: number;
+    rule: LevelUpRule | undefined;
+    recordIndex: number;
+    otherPicks: { abilities: Set<string>; skills: Set<string> };
+    changes: StepChange[];
+    record: LevelAdvancementRecord;
+  }
+
+  // Сначала собираем правки уровней, чтобы применить их одним проходом:
+  // обмен способностями между уровнями не должен зависеть от их порядка.
+  const edits: LevelEdit[] = [];
   for (const level of plan.levels) {
     if (level.status !== "applied") continue;
     const rule = levelUpRule(character.className, level.level);
@@ -1178,28 +1189,66 @@ export function applyDevelopment(
         record.toLevel === level.level &&
         (!record.className || record.className === character.className),
     );
-    let recordChoices: Record<string, string[]> = recordIndex >= 0
-      ? { ...records[recordIndex].choices }
-      : {};
-    let touched = recordIndex >= 0;
-    // Способности и навыки, занятые записями других уровней, снимать нельзя:
-    // они пришли не из этого шага.
-    const otherPicks = recordPickSets(character, level.level);
-
+    const recordChoices: Record<string, string[]> =
+      recordIndex >= 0 ? { ...records[recordIndex].choices } : {};
+    const changes: StepChange[] = [];
     for (const step of level.steps) {
       const chosen = selections.get(step.id) ?? [];
-      const previous = step.current;
-      if (sameSelection(chosen, previous)) continue;
-      touched = true;
+      if (sameSelection(chosen, step.current)) continue;
+      changes.push({ step, chosen, previous: step.current });
+      if (chosen.length > 0) recordChoices[step.choiceId] = [...chosen];
+      else delete recordChoices[step.choiceId];
+    }
+    if (recordIndex < 0 && changes.length === 0) continue;
+    const current = recordIndex >= 0 ? records[recordIndex] : undefined;
+    edits.push({
+      level: level.level,
+      rule,
+      recordIndex,
+      otherPicks: recordPickSets(character, level.level),
+      changes,
+      record: {
+        fromLevel: Math.max(1, level.level - 1),
+        toLevel: level.level,
+        className: character.className,
+        subclass: typeof character.subclass === "string" ? character.subclass : "",
+        mode: current?.mode ?? "milestone",
+        articleId: current?.articleId ?? rule?.articleId ?? "",
+        choices: recordChoices,
+        notes: current?.notes ?? "Дозаполнено в «Развитии»",
+        createdAt: current?.createdAt ?? new Date().toISOString(),
+      },
+    });
+  }
 
+  // Снятие старых выборов идёт раньше добавления новых: способность, которую
+  // один уровень отдаёт, другой может забрать в том же сохранении.
+  for (const edit of edits) {
+    for (const { step, chosen, previous } of edit.changes) {
       if (step.kind === "ability") {
         const chosenSet = new Set(chosen);
         for (const id of previous) {
           if (chosenSet.has(id)) continue;
-          if (otherPicks.abilities.has(id)) continue;
+          if (edit.otherPicks.abilities.has(id)) continue;
           abilities = removeAbility(abilities, id);
-          placedAbilities.delete(id);
         }
+      }
+      if (step.kind === "skill") {
+        const chosenKeys = chosen.map(normalizeToken);
+        for (const skill of previous) {
+          const key = normalizeToken(skill);
+          if (chosenKeys.includes(key)) continue;
+          if (creationSkills.has(key) || edit.otherPicks.skills.has(key)) continue;
+          skills = skills.filter((owned) => normalizeToken(owned) !== key);
+        }
+      }
+    }
+  }
+  placedAbilities = new Set(abilities.map((ability) => ability.id));
+
+  for (const edit of edits) {
+    for (const { step, chosen, previous } of edit.changes) {
+      if (step.kind === "ability") {
         for (const id of chosen) {
           if (previous.includes(id)) continue;
           const entry = COMPENDIUM_BY_ID.get(id);
@@ -1210,20 +1259,13 @@ export function applyDevelopment(
         }
         if (step.choiceId.startsWith("conduit.ability.domain.")) {
           const mapping = conduitAbilities.find(
-            (entry) => entry.level === level.level && entry.abilityId === chosen[0],
+            (entry) => entry.level === edit.level && entry.abilityId === chosen[0],
           );
           if (mapping) domainMarkers[step.choiceId] = mapping.domain;
         }
       }
 
       if (step.kind === "skill") {
-        const chosenKeys = chosen.map(normalizeToken);
-        for (const skill of previous) {
-          const key = normalizeToken(skill);
-          if (chosenKeys.includes(key)) continue;
-          if (creationSkills.has(key) || otherPicks.skills.has(key)) continue;
-          skills = skills.filter((owned) => normalizeToken(owned) !== key);
-        }
         for (const skill of chosen) {
           if (previous.some((old) => normalizeToken(old) === normalizeToken(skill))) {
             continue;
@@ -1235,11 +1277,11 @@ export function applyDevelopment(
       }
 
       if (step.kind === "perk") {
-        perks = applyClassPerk(perks, level.level, chosen[0]);
+        perks = applyClassPerk(perks, edit.level, chosen[0]);
       }
 
-      if (step.kind === "characteristic" && rule?.characteristics?.choice) {
-        const { amount, cap } = rule.characteristics.choice;
+      if (step.kind === "characteristic" && edit.rule?.characteristics?.choice) {
+        const { amount, cap } = edit.rule.characteristics.choice;
         const oldKey = previous[0];
         const newKey = chosen[0];
         if (isCharacteristicKey(oldKey) && oldKey !== newKey) {
@@ -1255,25 +1297,10 @@ export function applyDevelopment(
           );
         }
       }
-
-      if (chosen.length > 0) recordChoices[step.choiceId] = [...chosen];
-      else delete recordChoices[step.choiceId];
     }
 
-    if (!touched) continue;
-    const record: LevelAdvancementRecord = {
-      fromLevel: Math.max(1, level.level - 1),
-      toLevel: level.level,
-      className: character.className,
-      subclass: typeof character.subclass === "string" ? character.subclass : "",
-      mode: records[recordIndex]?.mode ?? "milestone",
-      articleId: records[recordIndex]?.articleId ?? rule?.articleId ?? "",
-      choices: recordChoices,
-      notes: records[recordIndex]?.notes ?? "Дозаполнено в «Развитии»",
-      createdAt: records[recordIndex]?.createdAt ?? new Date().toISOString(),
-    };
-    if (recordIndex >= 0) records[recordIndex] = record;
-    else records.push(record);
+    if (edit.recordIndex >= 0) records[edit.recordIndex] = edit.record;
+    else records.push(edit.record);
   }
 
   let next: Character = {
