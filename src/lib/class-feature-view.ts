@@ -25,7 +25,11 @@ import {
   selectionGroupFor,
   type ActiveClassFeature,
 } from "./class-features";
-import { featureConditionMet, selectedGroupValue } from "./feature-conditions";
+import {
+  featureConditionMet,
+  featureSelectionAliases,
+  selectedGroupValue,
+} from "./feature-conditions";
 import {
   featureDamageImmunities,
   resolveFeatureValue,
@@ -960,7 +964,7 @@ export function classFeatureGiftsAtLevel(
   // классами: у Fury/Censor/Conduit состав подарков уже сложился и менять его
   // без отдельного ревью нельзя. Служебные строки — выбор способности, перк,
   // навык, ресурс — остаются за `plan.choices` и панелью ресурсов.
-  const proseGiftClasses = ["Талант", "Нуль", "Тактик", "Элементалист"].map(normalizeFeatureText);
+  const proseGiftClasses = ["Талант", "Нуль", "Тактик", "Элементалист", "Тень"].map(normalizeFeatureText);
   const proseGifts = new Set(
     futureFeatures
       .filter(
@@ -1092,12 +1096,29 @@ export function classFeatureChoicesForSheet(
     if (selectionGroupFor(context.className, kind) !== choice.group) continue;
     seen.add(choice.group);
     if (selectedGroupValue(character, choice.group) !== undefined) continue;
-    const options = context.options.get(kind) ?? [];
+    // Для видовых групп значения — названия вариантов. Если механика задаёт
+    // свои подписи (у Тени подкласс полный: «Коллегия Черного Пепла»), берём
+    // их, но только когда каждая подпись соответствует значению скелета или
+    // его синониму. Иначе панель молча потеряла бы вариант — откат к скелету.
+    const skeletonValues = context.options.get(kind) ?? [];
+    const labelled = choice.options
+      .map((option) => option.label)
+      .filter((label) =>
+        skeletonValues.some((value) => {
+          const aliases = new Set(featureSelectionAliases(value));
+          return featureSelectionAliases(label).some((alias) =>
+            aliases.has(alias),
+          );
+        }),
+      );
+    const useLabels =
+      labelled.length > 0 && labelled.length === choice.options.length;
+    const options = useLabels ? labelled : skeletonValues;
     if (options.length === 0) continue;
     choices.push({
       group: choice.group,
       label: KEY_GROUP_LABELS[kind],
-      options: orderedOptions(options, choice),
+      options: useLabels ? options : orderedOptions(options, choice),
     });
   }
   return [...conduitChoices.choices, ...choices];
@@ -1135,7 +1156,8 @@ export function setBloomingSaintImmunityChoice(character: Character, value: stri
  * Группы, значение которых приложение хранит не только в
  * `automation.classFeatureSelections`, но и в `character.subclass`: аспект
  * Неистового, орден Цензора, традиция Таланта, традиция Нуля, доктрина
- * Тактика и элементальная специализация Элементалиста — это подкласс.
+ * Тактика, элементальная специализация Элементалиста и коллегия Тени — это
+ * подкласс.
  * Домены Проводника сюда не входят: в `subclass` у него лежит пара доменов,
  * а не один выбор.
  */
@@ -1146,6 +1168,7 @@ const SUBCLASS_MIRRORED_GROUPS = new Set([
   "null.tradition",
   "tactician.doctrine",
   "elementalist.specialization",
+  "shadow.college",
 ]);
 
 /**

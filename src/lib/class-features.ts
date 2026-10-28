@@ -12,6 +12,7 @@ import type {
 import type { Character } from "../types";
 import {
   featureConditionMet,
+  featureSelectionAliases,
   selectedGroupValue,
   selectionGroupFor,
 } from "./feature-conditions";
@@ -84,8 +85,12 @@ function keyValueMatches(selected: string | undefined, keyValue?: string): boole
   // некорректен и не должен включать обе особенности; пара доменов Проводника
   // сюда не попадает, у неё отдельная логика активации.
   if (selectedValues.length !== 1) return false;
-  const wanted = new Set(chosenValues(keyValue));
-  return wanted.has(selectedValues[0]);
+  const wanted = new Set(
+    chosenValues(keyValue).flatMap((value) => featureSelectionAliases(value)),
+  );
+  return selectedValues
+    .flatMap((value) => featureSelectionAliases(value))
+    .some((value) => wanted.has(value));
 }
 
 /**

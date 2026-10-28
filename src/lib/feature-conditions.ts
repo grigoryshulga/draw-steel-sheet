@@ -52,6 +52,35 @@ function optionOwnerMaps(): {
 const { byId: OPTION_OWNER_BY_ID, byName: OPTION_OWNER_BY_NAME } =
   optionOwnerMaps();
 
+/**
+ * Синонимы значений групп выбора, если книга и билдер называют вариант
+ * по-разному. У Тени подкласс — «Коллегия Черного Пепла», а записи скелета
+ * размечены коротким «Черный Пепел» (и наоборот). Сравнение идёт в обе
+ * стороны, чтобы и сохранённый подкласс, и короткое значение активировали
+ * одни и те же записи.
+ */
+const SELECTION_VALUE_ALIASES: Record<string, Record<string, string>> = {
+  "shadow.college": {
+    "коллегия черного пепла": "черный пепел",
+    "коллегия едкой алхимии": "едкая алхимия",
+    "коллегия маски арлекина": "маска арлекина",
+  },
+};
+
+/** Варианты значения выбора: само значение и его известные синонимы. */
+export function featureSelectionAliases(value: string): string[] {
+  const normalized = normalize(value);
+  const result = [normalized];
+  for (const aliases of Object.values(SELECTION_VALUE_ALIASES)) {
+    const forward = aliases[normalized];
+    if (forward) result.push(normalize(forward));
+    for (const [full, short] of Object.entries(aliases)) {
+      if (normalize(short) === normalized) result.push(normalize(full));
+    }
+  }
+  return [...new Set(result)];
+}
+
 function hasAnyKit(character: Character): boolean {
   return [character.kit, character.secondaryKit ?? ""].some(
     (name) => typeof name === "string" && name.trim() !== "",
@@ -102,6 +131,7 @@ const SELECTION_GROUPS: Record<
   // У Цензора два независимых выбора: орден (подкласс) и один домен.
   цензор: { order: "censor.order", domain: "censor.domain" },
   нуль: { tradition: "null.tradition" },
+  тень: { college: "shadow.college" },
   талант: { tradition: "talent.tradition" },
   тактик: { doctrine: "tactician.doctrine" },
   элементалист: { specialization: "elementalist.specialization" },
@@ -135,6 +165,8 @@ const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   "talent.tradition": "Талант",
   // Традиция Нуля — его подкласс: билдер пишет название в `subclass`.
   "null.tradition": "Нуль",
+  // Коллегия Тени — её подкласс: билдер пишет полное название в `subclass`.
+  "shadow.college": "Тень",
   // Доктрина Тактика — его подкласс: билдер пишет название в `subclass`.
   "tactician.doctrine": "Тактик",
   // Элементальная специализация — подкласс: билдер пишет название в `subclass`.
@@ -226,10 +258,17 @@ function selectedKeyValues(
         (className === normalize(ownerClass) &&
           (!owners || owners.has(normalize(groupId))))
       ) {
-        selected.add(normalizedOption);
+        for (const value of featureSelectionAliases(optionId)) {
+          const valueOwners = groupsByValue.get(value);
+          if (!valueOwners || valueOwners.has(normalize(groupId))) {
+            selected.add(value);
+          }
+        }
       }
       const name = CLASS_FEATURE_OPTION_NAMES.get(optionId);
-      if (name && !hasKnownOwner(name)) selected.add(normalize(name));
+      if (name && !hasKnownOwner(name)) {
+        for (const value of featureSelectionAliases(name)) selected.add(value);
+      }
 
       // Запятая разделяет пару доменов только у Проводника: у остальных групп
       // одно значение, и «Традиция, Традиция» не должна активировать обе.
@@ -257,8 +296,10 @@ function selectedKeyValues(
     for (const part of values) {
       const normalizedValue = normalize(part);
       if (!normalizedValue) continue;
-      const owners = groupsByValue.get(normalizedValue);
-      if (!owners || owners.has(normalize(groupId))) selected.add(normalizedValue);
+      for (const value of featureSelectionAliases(part)) {
+        const owners = groupsByValue.get(value);
+        if (!owners || owners.has(normalize(groupId))) selected.add(value);
+      }
     }
   }
   return selected;

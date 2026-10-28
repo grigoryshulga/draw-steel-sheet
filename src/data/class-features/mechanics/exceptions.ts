@@ -15,6 +15,9 @@ import { NULL_EARLY_TEXT_ONLY } from "./null-early";
 import { NULL_LATE_TEXT_ONLY } from "./null-late";
 import { NULL_MASTERY_TEXT_ONLY } from "./null-mastery";
 import { NULL_TRADITION_TEXT_ONLY } from "./null-traditions";
+import { SHADOW_BASE_TEXT_ONLY } from "./shadow-base";
+import { SHADOW_COLLEGE_TEXT_ONLY } from "./shadow-colleges";
+import { SHADOW_LEVEL_TEXT_ONLY } from "./shadow-levels";
 import { TALENT_AUGMENTATION_TEXT_ONLY } from "./talent-augmentations";
 import { TALENT_BASE_TEXT_ONLY } from "./talent-base";
 import { TALENT_EARLY_TEXT_ONLY } from "./talent-early";
@@ -75,6 +78,9 @@ export const TEXT_ONLY: Record<string, string> = {
   ...NULL_EARLY_TEXT_ONLY,
   ...NULL_TRADITION_TEXT_ONLY,
   ...NULL_LATE_TEXT_ONLY,
+  ...SHADOW_BASE_TEXT_ONLY,
+  ...SHADOW_COLLEGE_TEXT_ONLY,
+  ...SHADOW_LEVEL_TEXT_ONLY,
   ...TALENT_BASE_TEXT_ONLY,
   ...TALENT_AUGMENTATION_TEXT_ONLY,
   ...TALENT_SANCTUARY_TEXT_ONLY,
@@ -92,6 +98,5 @@ export const TEXT_ONLY: Record<string, string> = {
  * полностью, это отдельный тест.
  */
 export const NOT_YET: Record<string, string> = {
-  "Тень": "следующий заход: механики по инвентаризации",
   "Трубадур": "следующий заход: механики по инвентаризации",
 };

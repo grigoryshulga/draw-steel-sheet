@@ -5,6 +5,7 @@ import { CENSOR_RESOURCE } from "./mechanics/censor-resource";
 import { CONDUIT_RESOURCE } from "./mechanics/conduit-resource";
 import { ELEMENTALIST_RESOURCE } from "./mechanics/elementalist-resource";
 import { NULL_RESOURCE } from "./mechanics/null-resource";
+import { SHADOW_RESOURCE } from "./mechanics/shadow-resource";
 import { TALENT_RESOURCE } from "./mechanics/talent-resource";
 import { TACTICIAN_RESOURCE } from "./mechanics/tactician-resource";
 
@@ -26,6 +27,7 @@ export const CLASS_RESOURCES: Record<string, HeroicResourceSpec> = {
   [normalizeFeatureText("Проводник")]: CONDUIT_RESOURCE,
   [normalizeFeatureText("Элементалист")]: ELEMENTALIST_RESOURCE,
   [normalizeFeatureText("Нуль")]: NULL_RESOURCE,
+  [normalizeFeatureText("Тень")]: SHADOW_RESOURCE,
   [normalizeFeatureText("Талант")]: TALENT_RESOURCE,
   [normalizeFeatureText("Тактик")]: TACTICIAN_RESOURCE,
 };

@@ -169,7 +169,7 @@ describe("resourceSpecFor", () => {
   });
 
   it("у класса без спецификации ресурса прибавок нет", () => {
-    const hero = createCharacter({ className: "Тень" });
+    const hero = createCharacter({ className: "Трубадур" });
     expect(resourceSpecFor(hero.className)).toBeUndefined();
     expect(resolvedResourceGains(hero)).toEqual([]);
   });

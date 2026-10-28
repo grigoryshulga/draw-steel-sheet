@@ -22,6 +22,10 @@ import { NULL_LATE_MECHANICS } from "./null-late";
 import { NULL_MASTERY_MECHANICS } from "./null-mastery";
 import { NULL_RESOURCE_MECHANICS } from "./null-resource";
 import { NULL_TRADITION_MECHANICS } from "./null-traditions";
+import { SHADOW_BASE_MECHANICS } from "./shadow-base";
+import { SHADOW_COLLEGE_MECHANICS } from "./shadow-colleges";
+import { SHADOW_LEVEL_MECHANICS } from "./shadow-levels";
+import { SHADOW_RESOURCE_MECHANICS } from "./shadow-resource";
 import { TALENT_AUGMENTATION_MECHANICS } from "./talent-augmentations";
 import { TALENT_BASE_MECHANICS } from "./talent-base";
 import { TALENT_EARLY_MECHANICS } from "./talent-early";
@@ -64,6 +68,10 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...NULL_EARLY_MECHANICS,
   ...NULL_TRADITION_MECHANICS,
   ...NULL_LATE_MECHANICS,
+  ...SHADOW_BASE_MECHANICS,
+  ...SHADOW_COLLEGE_MECHANICS,
+  ...SHADOW_RESOURCE_MECHANICS,
+  ...SHADOW_LEVEL_MECHANICS,
   ...TALENT_BASE_MECHANICS,
   ...TALENT_AUGMENTATION_MECHANICS,
   ...TALENT_SANCTUARY_MECHANICS,
@@ -87,6 +95,7 @@ export { CENSOR_RESOURCE } from "./censor-resource";
 export { CONDUIT_RESOURCE } from "./conduit-resource";
 export { ELEMENTALIST_RESOURCE } from "./elementalist-resource";
 export { NULL_RESOURCE } from "./null-resource";
+export { SHADOW_RESOURCE } from "./shadow-resource";
 export { TALENT_RESOURCE } from "./talent-resource";
 export { TACTICIAN_RESOURCE } from "./tactician-resource";
 export { NOT_YET, TEXT_ONLY } from "./exceptions";
