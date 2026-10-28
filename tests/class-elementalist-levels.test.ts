@@ -140,6 +140,11 @@ describe("Элементалист: production-покрытие уровней 5
     expect(
       ELEMENTALIST_FEATURES.filter((feature) => mechanicsFor(feature.id)),
     ).toHaveLength(83);
+    const textOnly = ELEMENTALIST_FEATURES.filter(
+      (feature) => TEXT_ONLY[feature.id],
+    );
+    expect(textOnly).toHaveLength(8);
+    expect(textOnly.filter((feature) => mechanicsFor(feature.id))).toEqual([]);
   });
 
   it("прозаических записей ровно пять: перки 6/8/10 и навыки 7/10", () => {
