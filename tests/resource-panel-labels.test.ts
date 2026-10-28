@@ -123,9 +123,9 @@ describe("памятка к ресурсу", () => {
     expect(withoutFeatures.some((line) => line.startsWith("Пороги"))).toBe(
       false,
     );
-    expect(resourceSpecHelp(createCharacter({ className: "Трубадур" }))).toEqual(
-      [],
-    );
+    expect(
+      resourceSpecHelp(createCharacter({ className: "Неизвестный класс" })),
+    ).toEqual([]);
   });
 
   it("памятка не повторяет блок «Откуда капает»", () => {
@@ -137,10 +137,10 @@ describe("памятка к ресурсу", () => {
     expect(help).toContain("Пороги свирепости: 2, 4, 6");
   });
 
-  it("у класса без разобранных прибавок памятка остаётся прежней", () => {
-    expect(heroicResourceHelp(createCharacter({ className: "Трубадур" }))).toContain(
-      "В начале каждого вашего хода: +1d3 драмы.",
-    );
+  it("у неизвестного класса памятка остаётся резервной", () => {
+    expect(
+      heroicResourceHelp(createCharacter({ className: "Неизвестный класс" })),
+    ).toContain("В начале боя вы получаете ресурс, равный вашим Победам.");
   });
 });
 

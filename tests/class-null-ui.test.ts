@@ -1,6 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { CLASS_RESOURCES } from "../src/data/class-features/class-resources";
-import { NULL_RESOURCE } from "../src/data/class-features/mechanics/null-resource";
 import { TEXT_ONLY, mechanicsFor } from "../src/data/class-features/mechanics";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import {
@@ -9,7 +7,6 @@ import {
   withClassFeatureSelection,
 } from "../src/lib/class-feature-view";
 import { createCharacter } from "../src/lib/defaults";
-import { normalizeFeatureText } from "../src/lib/utils";
 import type { Character } from "../src/types";
 
 function nullHero(
@@ -162,26 +159,15 @@ describe("Нуль: старый лист и выборы на 5–10 уровн
   });
 });
 
-describe("Нуль: частичный перенос класса", () => {
-  it("класс в NOT_YET виден на листе только после регистрации ресурса", () => {
-    const hidden = classFeatureGroupsForSheet(
+describe("частичный перенос классов", () => {
+  it("после переноса всех классов проза видна без отдельной регистрации ресурса", () => {
+    // Все девять классов книги перенесены, поэтому NOT_YET пуст: прозаические
+    // записи показываются на листе и без ручной регистрации ресурса.
+    const shown = classFeatureGroupsForSheet(
       createCharacter({ className: "Трубадур", level: 1 }),
     )
       .flatMap((group) => group.features)
       .map((feature) => feature.name);
-    expect(hidden).not.toContain("Партнер по сцене");
-
-    const key = normalizeFeatureText("Трубадур");
-    CLASS_RESOURCES[key] = NULL_RESOURCE;
-    try {
-      const shown = classFeatureGroupsForSheet(
-        createCharacter({ className: "Трубадур", level: 1 }),
-      )
-        .flatMap((group) => group.features)
-        .map((feature) => feature.name);
-      expect(shown).toContain("Партнер по сцене");
-    } finally {
-      delete CLASS_RESOURCES[key];
-    }
+    expect(shown).toContain("Партнер по сцене");
   });
 });

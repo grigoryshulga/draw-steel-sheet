@@ -37,6 +37,10 @@ import { TACTICIAN_BASE_MECHANICS } from "./tactician-base";
 import { TACTICIAN_DOCTRINE_MECHANICS } from "./tactician-doctrines";
 import { TACTICIAN_LEVEL_MECHANICS } from "./tactician-levels";
 import { TACTICIAN_RESOURCE_MECHANICS } from "./tactician-resource";
+import { TROUBADOUR_BASE_MECHANICS } from "./troubadour-base";
+import { TROUBADOUR_LEVEL_MECHANICS } from "./troubadour-levels";
+import { TROUBADOUR_RESOURCE_MECHANICS } from "./troubadour-resource";
+import { TROUBADOUR_TROUPE_MECHANICS } from "./troubadour-troupes";
 
 /**
  * Реестр механик классовых особенностей: ключ — `id` записи скелета.
@@ -83,6 +87,10 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...TACTICIAN_DOCTRINE_MECHANICS,
   ...TACTICIAN_RESOURCE_MECHANICS,
   ...TACTICIAN_LEVEL_MECHANICS,
+  ...TROUBADOUR_BASE_MECHANICS,
+  ...TROUBADOUR_RESOURCE_MECHANICS,
+  ...TROUBADOUR_TROUPE_MECHANICS,
+  ...TROUBADOUR_LEVEL_MECHANICS,
 };
 
 /** Механика фичи или `undefined`, если она описана только прозой или ещё не разобрана. */
@@ -98,5 +106,6 @@ export { NULL_RESOURCE } from "./null-resource";
 export { SHADOW_RESOURCE } from "./shadow-resource";
 export { TALENT_RESOURCE } from "./talent-resource";
 export { TACTICIAN_RESOURCE } from "./tactician-resource";
+export { TROUBADOUR_RESOURCE } from "./troubadour-resource";
 export { NOT_YET, TEXT_ONLY } from "./exceptions";
 export type { FeatureMechanics };

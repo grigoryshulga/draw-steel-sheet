@@ -8,6 +8,7 @@ import { NULL_RESOURCE } from "./mechanics/null-resource";
 import { SHADOW_RESOURCE } from "./mechanics/shadow-resource";
 import { TALENT_RESOURCE } from "./mechanics/talent-resource";
 import { TACTICIAN_RESOURCE } from "./mechanics/tactician-resource";
+import { TROUBADOUR_RESOURCE } from "./mechanics/troubadour-resource";
 
 /**
  * Героические ресурсы классов: как ресурс набирается и на что заменяется
@@ -16,10 +17,8 @@ import { TACTICIAN_RESOURCE } from "./mechanics/tactician-resource";
  * ресурса из книги.
  *
  * Объект изменяемый — тесты подмешивают записи и убирают их после себя.
- * Неистовый и Цензор разобраны полностью: их спецификации лежат рядом с
- * механиками классов (`mechanics/fury.ts`, `mechanics/censor-resource.ts`)
- * и регистрируются здесь по нормализованному имени.
- * Остальные классы получат свои записи следующим заходом.
+ * Спецификации ресурсов всех девяти классов лежат рядом с их механиками
+ * (`mechanics/*-resource.ts`) и регистрируются здесь по нормализованному имени.
  */
 export const CLASS_RESOURCES: Record<string, HeroicResourceSpec> = {
   [normalizeFeatureText("Неистовый")]: FURY_RESOURCE,
@@ -30,6 +29,7 @@ export const CLASS_RESOURCES: Record<string, HeroicResourceSpec> = {
   [normalizeFeatureText("Тень")]: SHADOW_RESOURCE,
   [normalizeFeatureText("Талант")]: TALENT_RESOURCE,
   [normalizeFeatureText("Тактик")]: TACTICIAN_RESOURCE,
+  [normalizeFeatureText("Трубадур")]: TROUBADOUR_RESOURCE,
 };
 
 /** Спецификация ресурса класса или `undefined`, если ресурс ещё не разобран. */

@@ -135,6 +135,7 @@ const SELECTION_GROUPS: Record<
   талант: { tradition: "talent.tradition" },
   тактик: { doctrine: "tactician.doctrine" },
   элементалист: { specialization: "elementalist.specialization" },
+  трубадур: { troupe: "troubadour.troupe" },
 };
 
 /**
@@ -171,6 +172,8 @@ const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   "tactician.doctrine": "Тактик",
   // Элементальная специализация — подкласс: билдер пишет название в `subclass`.
   "elementalist.specialization": "Элементалист",
+  // Амплуа Трубадура — его подкласс: билдер пишет название в `subclass`.
+  "troubadour.troupe": "Трубадур",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */

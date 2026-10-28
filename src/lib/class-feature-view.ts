@@ -964,7 +964,7 @@ export function classFeatureGiftsAtLevel(
   // классами: у Fury/Censor/Conduit состав подарков уже сложился и менять его
   // без отдельного ревью нельзя. Служебные строки — выбор способности, перк,
   // навык, ресурс — остаются за `plan.choices` и панелью ресурсов.
-  const proseGiftClasses = ["Талант", "Нуль", "Тактик", "Элементалист", "Тень"].map(normalizeFeatureText);
+  const proseGiftClasses = ["Талант", "Нуль", "Тактик", "Элементалист", "Тень", "Трубадур"].map(normalizeFeatureText);
   const proseGifts = new Set(
     futureFeatures
       .filter(
@@ -1061,11 +1061,15 @@ export function classFeatureChoicesForSheet(
     if (!choice || seen.has(choice.group)) continue;
     const kind = keyGroupKind(choice.group);
     if (!kind) {
-      // Группа не вида: выбором листа считаем только группу старого реестра
-      // (`talent.augmentation`, `talent.sanctuary`) — значения там прежние ID.
-      // Выборы способностей (`fury.heroic.3`, `fury.signature`) ведёт повышение
+      // Группа не вида: показываем её, если это старый реестр
+      // (`talent.augmentation`, `talent.sanctuary`) или механика явно просит
+      // выбор на листе (`sheet: true`, «Призвание» Трубадура). Выборы
+      // способностей (`fury.heroic.3`, `fury.signature`) ведёт повышение
       // уровня, и лист их второй раз не спрашивает.
-      if (!classFeatureGroups(context.className).some((group) => group.id === choice.group)) {
+      if (
+        choice.sheet !== true &&
+        !classFeatureGroups(context.className).some((group) => group.id === choice.group)
+      ) {
         continue;
       }
       seen.add(choice.group);
@@ -1095,7 +1099,6 @@ export function classFeatureChoicesForSheet(
     // иначе запись выбора ни на что не повлияет.
     if (selectionGroupFor(context.className, kind) !== choice.group) continue;
     seen.add(choice.group);
-    if (selectedGroupValue(character, choice.group) !== undefined) continue;
     // Для видовых групп значения — названия вариантов. Если механика задаёт
     // свои подписи (у Тени подкласс полный: «Коллегия Черного Пепла»), берём
     // их, но только когда каждая подпись соответствует значению скелета или
@@ -1115,10 +1118,24 @@ export function classFeatureChoicesForSheet(
       labelled.length > 0 && labelled.length === choice.options.length;
     const options = useLabels ? labelled : skeletonValues;
     if (options.length === 0) continue;
+    // Известное значение уже выбрано — повторно не спрашиваем. Неизвестное
+    // или составное значение показываем с предупреждением, чтобы старый лист
+    // можно было исправить через панель.
+    const current = selectedGroupValue(character, choice.group);
+    const known =
+      current !== undefined &&
+      options.some((option) => {
+        const aliases = new Set(featureSelectionAliases(option));
+        return featureSelectionAliases(current).some((alias) =>
+          aliases.has(alias),
+        );
+      });
+    if (known) continue;
     choices.push({
       group: choice.group,
       label: KEY_GROUP_LABELS[kind],
       options: useLabels ? options : orderedOptions(options, choice),
+      ...(current !== undefined ? { selected: current } : {}),
     });
   }
   return [...conduitChoices.choices, ...choices];
@@ -1169,6 +1186,7 @@ const SUBCLASS_MIRRORED_GROUPS = new Set([
   "tactician.doctrine",
   "elementalist.specialization",
   "shadow.college",
+  "troubadour.troupe",
 ]);
 
 /**

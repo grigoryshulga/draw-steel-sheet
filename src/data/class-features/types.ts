@@ -125,6 +125,11 @@ export interface FeatureChoice {
   group: string;
   /** Подпись группы для листа, если группа не видовая (`talent.augmentation`). */
   label?: string;
+  /**
+   * Показывать выбор в панели листа, даже если группа не видовая и не входит
+   * в старый реестр (например, «Призвание» Трубадура). Значения — id опций.
+   */
+  sheet?: boolean;
   options: { id: string; label: string }[];
 }
 

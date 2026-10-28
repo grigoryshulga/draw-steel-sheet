@@ -27,6 +27,9 @@ import { TALENT_TRADITION_TEXT_ONLY } from "./talent-traditions";
 import { TACTICIAN_BASE_TEXT_ONLY } from "./tactician-base";
 import { TACTICIAN_DOCTRINE_TEXT_ONLY } from "./tactician-doctrines";
 import { TACTICIAN_LEVEL_TEXT_ONLY } from "./tactician-levels";
+import { TROUBADOUR_BASE_TEXT_ONLY } from "./troubadour-base";
+import { TROUBADOUR_LEVEL_TEXT_ONLY } from "./troubadour-levels";
+import { TROUBADOUR_TROUPE_TEXT_ONLY } from "./troubadour-troupes";
 
 /**
  * Особенности, которые сознательно остаются прозой: правило читается из текста
@@ -90,13 +93,17 @@ export const TEXT_ONLY: Record<string, string> = {
   ...TACTICIAN_BASE_TEXT_ONLY,
   ...TACTICIAN_DOCTRINE_TEXT_ONLY,
   ...TACTICIAN_LEVEL_TEXT_ONLY,
+  ...TROUBADOUR_BASE_TEXT_ONLY,
+  ...TROUBADOUR_TROUPE_TEXT_ONLY,
+  ...TROUBADOUR_LEVEL_TEXT_ONLY,
 };
 
 /**
  * Классы, чьи механики ещё не перенесены из книги. Ключ — имя класса,
  * значение — причина отсрочки. Неистового здесь нет: он обязан быть покрыт
  * полностью, это отдельный тест.
+ *
+ * Все девять классов перенесены, поэтому список пуст. Механизм оставлен:
+ * следующая книга добавит классы сюда, и лист снова спрячет их до разбора.
  */
-export const NOT_YET: Record<string, string> = {
-  "Трубадур": "следующий заход: механики по инвентаризации",
-};
+export const NOT_YET: Record<string, string> = {};

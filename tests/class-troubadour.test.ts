@@ -1,0 +1,938 @@
+import { describe, expect, it } from "vitest";
+import { ABILITY_COMPENDIUM } from "../src/data/compendium";
+import { resourceSpecFor } from "../src/data/class-features/class-resources";
+import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import {
+  FEATURE_MECHANICS,
+  NOT_YET,
+  TEXT_ONLY,
+  TROUBADOUR_RESOURCE,
+  mechanicsFor,
+} from "../src/data/class-features/mechanics";
+import {
+  activeClassFeatures,
+  classFeatureTriggers,
+} from "../src/lib/class-features";
+import {
+  classFeatureChoicesForSheet,
+  classFeatureGiftsAtLevel,
+  classFeatureGroupsForSheet,
+  featureSheetChoiceState,
+  withClassFeatureSelection,
+} from "../src/lib/class-feature-view";
+import {
+  buildCharacter,
+  emptyBuilderDraft,
+  startingCharacteristics,
+} from "../src/lib/character-builder";
+import { createCharacter } from "../src/lib/defaults";
+import {
+  getLevelUpPlan,
+  previewLevelUp,
+  type LevelUpPreview,
+  type LevelUpRequest,
+} from "../src/lib/level-up";
+import {
+  resolvedEpicResourceGains,
+  resolvedResourceGains,
+} from "../src/lib/resources";
+import type { Character } from "../src/types";
+
+const TROUBADOUR_FEATURES = GENERATED_CLASS_FEATURES.filter(
+  (feature) => feature.className === "Трубадур",
+);
+
+const TROUPE_OPTIONS = ["Автор", "Дуэлянт", "Виртуоз"];
+
+/** Keyed-записи амплуа по уровню. */
+const TROUPE_KEYED: Record<string, Record<number, string[]>> = {
+  Автор: {
+    1: [
+      "troubadour.troupe.1.mizanstsena",
+      "troubadour.troupe.1.dramaticheskiy-monolog",
+      "troubadour.troupe.1.oko-za-oko",
+    ],
+    3: ["troubadour.troupe.3.propushchennaya-replika"],
+    8: ["troubadour.troupe.8.vyrezannaya-stsena"],
+  },
+  Дуэлянт: {
+    1: [
+      "troubadour.troupe.1.akrobatika",
+      "troubadour.troupe.1.zvezdnaya-sila",
+      "troubadour.troupe.1.ripost",
+    ],
+    3: ["troubadour.troupe.3.opponent"],
+    8: ["troubadour.troupe.8.shedevr"],
+  },
+  Виртуоз: {
+    1: [
+      "troubadour.troupe.1.moshchnyy-akkord",
+      "troubadour.troupe.1.vystupleniya-virtuoza",
+      "troubadour.troupe.1.garmonizatsiya",
+    ],
+    3: ["troubadour.troupe.3.vtoroy-albom"],
+    8: ["troubadour.troupe.8.lyubimtsy-publiki"],
+  },
+};
+
+/** Особенности 5-го уровня амплуа: контейнер, группа выбора и два варианта. */
+const TROUPE_LEVEL_FIVE: Record<
+  string,
+  { group: string; children: [string, string] }
+> = {
+  Автор: {
+    group: "troubadour.feature.5.avtor",
+    children: [
+      "troubadour.feature.5.popravim-na-postprodakshene",
+      "troubadour.feature.5.dubl-dva",
+    ],
+  },
+  Дуэлянт: {
+    group: "troubadour.feature.5.duelyant",
+    children: [
+      "troubadour.feature.5.slovesnaya-duel",
+      "troubadour.feature.5.nas-ne-zatmit",
+    ],
+  },
+  Виртуоз: {
+    group: "troubadour.feature.5.virtuoz",
+    children: [
+      "troubadour.feature.5.podderzhivayushchaya-perepalka",
+      "troubadour.feature.5.medli",
+    ],
+  },
+};
+
+const LEVEL_FIVE_CONTAINERS: Record<string, string> = {
+  Автор: "troubadour.feature.5.osobennosti-avtora",
+  Дуэлянт: "troubadour.feature.5.osobennosti-duelyanta",
+  Виртуоз: "troubadour.feature.5.osobennosti-virtuoza",
+};
+
+const LEVEL_FIVE_CHILD_IDS = Object.values(TROUPE_LEVEL_FIVE).flatMap(
+  (entry) => entry.children,
+);
+
+/** Контейнеры способностей амплуа 2/6/9 уровней. */
+const ABILITY_CONTAINERS: Record<string, Record<number, string>> = {
+  Автор: {
+    2: "troubadour.feature.2.sposobnosti-avtora-2-go-urovnya",
+    6: "troubadour.feature.6.sposobnosti-avtora-6-go-urovnya",
+    9: "troubadour.feature.9.sposobnosti-avtora-9-go-urovnya",
+  },
+  Дуэлянт: {
+    2: "troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya",
+    6: "troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya",
+    9: "troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya",
+  },
+  Виртуоз: {
+    2: "troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya",
+    6: "troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya",
+    9: "troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya",
+  },
+};
+
+const CALLINGS = [
+  "Позвольте представить сегодняшних актеров",
+  "Официальные представления",
+  "Моя репутация опережает меня",
+];
+
+const CALLING_IDS = [
+  "troubadour.feature.2.pozvolte-predstavit-segodnyashnikh-akterov",
+  "troubadour.feature.2.ofitsialnye-predstavleniya",
+  "troubadour.feature.2.moya-reputatsiya-operezhaet-menya",
+];
+
+const TEXT_ONLY_IDS = [
+  "troubadour.feature.2.perk",
+  "troubadour.feature.4.navyk",
+  "troubadour.feature.4.perk",
+  "troubadour.feature.6.perk",
+  "troubadour.feature.7.navyk",
+  "troubadour.feature.8.perk",
+  "troubadour.feature.10.navyk",
+  "troubadour.feature.10.perk",
+].sort();
+
+function troubadour(
+  level = 1,
+  selections: Record<string, string> = {},
+  overrides: Partial<Character> = {},
+): Character {
+  const hero = createCharacter({ className: "Трубадур", level });
+  hero.automation = {
+    enabled: true,
+    adjustments: {},
+    ancestryTraits: [],
+    classFeatureSelections: selections,
+  };
+  return { ...hero, ...overrides };
+}
+
+const activeIds = (hero: Character) =>
+  activeClassFeatures(hero).map((feature) => feature.id);
+
+const troupeIds = (hero: Character, level: number) =>
+  activeIds(hero).filter((id) => id.startsWith(`troubadour.troupe.${level}.`));
+
+const levelFiveIds = (hero: Character) =>
+  activeIds(hero).filter((id) => LEVEL_FIVE_CHILD_IDS.includes(id));
+
+const callingIds = (hero: Character) =>
+  activeIds(hero).filter((id) => CALLING_IDS.includes(id));
+
+const sheetNames = (hero: Character) =>
+  classFeatureGroupsForSheet(hero)
+    .flatMap((group) => group.features)
+    .map((feature) => feature.name);
+
+describe("Трубадур: production-реестры", () => {
+  it("ресурс Драма зарегистрирован, NOT_YET класс больше не держит", () => {
+    expect(resourceSpecFor("Трубадур")).toBe(TROUBADOUR_RESOURCE);
+    expect(resourceSpecFor("  трубадур ")).toBe(TROUBADOUR_RESOURCE);
+    expect(NOT_YET["Трубадур"]).toBeUndefined();
+  });
+
+  it("все 84 записи покрыты механикой или прозой: 76 + 8", () => {
+    expect(TROUBADOUR_FEATURES).toHaveLength(84);
+
+    const covered = TROUBADOUR_FEATURES.filter(
+      (feature) => mechanicsFor(feature.id) || TEXT_ONLY[feature.id],
+    );
+    expect(covered).toHaveLength(84);
+
+    const mechanicsCount = TROUBADOUR_FEATURES.filter((feature) =>
+      mechanicsFor(feature.id),
+    ).length;
+    const textOnlyIds = TROUBADOUR_FEATURES.filter(
+      (feature) => !mechanicsFor(feature.id),
+    ).map((feature) => feature.id);
+
+    expect(mechanicsCount).toBe(76);
+    expect(textOnlyIds.sort()).toEqual(TEXT_ONLY_IDS);
+    expect(
+      textOnlyIds.every((id) => (TEXT_ONLY[id] ?? "").trim().length > 10),
+    ).toBe(true);
+
+    // Инвентарь сворачивает часть записей (75), скелет считает их отдельно
+    // (84): 9 контейнеров способностей 2/6/9 и раздельные записи «Драмы».
+    const skeletonIds = new Set(TROUBADOUR_FEATURES.map((feature) => feature.id));
+    const orphanMechanics = Object.keys(FEATURE_MECHANICS).filter(
+      (id) => id.startsWith("troubadour.") && !skeletonIds.has(id),
+    );
+    const orphanText = Object.keys(TEXT_ONLY).filter(
+      (id) => id.startsWith("troubadour.") && !skeletonIds.has(id),
+    );
+    expect(orphanMechanics).toEqual([]);
+    expect(orphanText).toEqual([]);
+  });
+
+  it("скелет держит 15 keyed-записей амплуа и 9 контейнеров способностей", () => {
+    expect(
+      TROUBADOUR_FEATURES.filter((feature) => feature.keyedBy === "troupe"),
+    ).toHaveLength(15);
+
+    const containers = TROUBADOUR_FEATURES.filter((feature) =>
+      /^troubadour\.feature\.(2|6|9)\.sposobnosti-[a-z]+-\d+-go-urovnya$/.test(
+        feature.id,
+      ),
+    );
+    expect(containers).toHaveLength(9);
+    expect(
+      containers.filter((feature) => mechanicsFor(feature.id)?.when?.keyValue),
+    ).toHaveLength(9);
+
+    const fiveChildren = TROUBADOUR_FEATURES.filter((feature) =>
+      /^troubadour\.feature\.5\.(popravim|dubl|slovesnaya|nas-ne|podderzhivayushchaya|medli)/.test(
+        feature.id,
+      ),
+    );
+    expect(fiveChildren).toHaveLength(6);
+    expect(
+      fiveChildren.filter((feature) => mechanicsFor(feature.id)?.when?.keyValue),
+    ).toHaveLength(6);
+  });
+
+  it("механика без чисел, триггера, выбора и ресурса объяснена в notes", () => {
+    const silent = TROUBADOUR_FEATURES.map((feature) => ({
+      feature,
+      mechanics: mechanicsFor(feature.id),
+    })).filter(({ mechanics }) => {
+      if (!mechanics) return false;
+      if (
+        mechanics.effects?.length ||
+        mechanics.trigger ||
+        mechanics.choice ||
+        mechanics.resource
+      ) {
+        return false;
+      }
+      return !mechanics.notes?.trim();
+    });
+    expect(silent.map(({ feature }) => feature.name)).toEqual([]);
+  });
+});
+
+describe("Трубадур: ресурс Драма и замена 7-го уровня", () => {
+  it("1/3 — шесть книжных прибавок, по одной на тег", () => {
+    for (const level of [1, 3]) {
+      const gains = resolvedResourceGains(troubadour(level));
+      expect(gains.map((gain) => gain.tag)).toEqual([
+        "combat-start",
+        "start-of-turn",
+        "three-heroes",
+        "hero-winded",
+        "natural-19-20",
+        "hero-dies",
+      ]);
+      expect(gains.map((gain) => gain.amount)).toEqual([
+        "= Победы",
+        "1d3",
+        "2",
+        "2",
+        "3",
+        "10",
+      ]);
+      expect(new Set(gains.map((gain) => gain.tag)).size).toBe(6);
+      expect(gains.every((gain) => gain.sourceId === "class:трубадур")).toBe(
+        true,
+      );
+    }
+  });
+
+  it("первый раз за встречу и постоянные события имеют книжную частоту", () => {
+    const gains = resolvedResourceGains(troubadour(3));
+    const byTag = new Map(gains.map((gain) => [gain.tag, gain]));
+    expect(byTag.get("three-heroes")?.frequency).toBe("encounter");
+    expect(byTag.get("hero-winded")?.frequency).toBe("encounter");
+    expect(byTag.get("natural-19-20")?.frequency).toBe("always");
+    expect(byTag.get("hero-dies")?.frequency).toBe("always");
+    expect(byTag.get("natural-19-20")?.event).toBe("crit");
+    expect(byTag.get("hero-dies")?.event).toBe("passive");
+  });
+
+  it("7-й уровень: начало хода — 1d3 + 1, других замен нет", () => {
+    const gains = resolvedResourceGains(troubadour(7));
+    const start = gains.filter((gain) => gain.tag === "start-of-turn");
+    expect(start).toHaveLength(1);
+    expect(start[0].amount).toBe("1d3 + 1");
+    expect(start[0].sourceId).toBe("troubadour.feature.7.muza-muzy");
+    expect(gains).toHaveLength(6);
+    expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
+  });
+
+  it("эпические «Аплодисменты» открываются только на 10-м уровне", () => {
+    expect(resolvedEpicResourceGains(troubadour(9))).toEqual([]);
+    const epic = resolvedEpicResourceGains(troubadour(10));
+    expect(epic).toHaveLength(1);
+    expect(epic[0].amount).toBe("= Опыт");
+    expect(epic[0].event).toBe("respite");
+    expect(epic[0].frequency).toBe("respite");
+    expect(TROUBADOUR_RESOURCE.epic?.name).toBe("Аплодисменты");
+    expect(TROUBADOUR_RESOURCE.epic?.level).toBe(10);
+  });
+
+  it("записи «Драма», «Драма в бою», «Драма вне боя» и «Аплодисменты» не начисляют ресурс повторно", () => {
+    for (const id of [
+      "troubadour.feature.1.drama",
+      "troubadour.feature.1.drama-v-boyu",
+      "troubadour.feature.1.drama-vne-boya",
+      "troubadour.feature.10.aplodismenty",
+    ]) {
+      const mechanics = mechanicsFor(id);
+      expect(mechanics?.kinds, id).toContain("resource");
+      expect(mechanics?.resource, id).toBeUndefined();
+      expect(mechanics?.notes?.trim(), id).toBeTruthy();
+    }
+  });
+});
+
+describe("Трубадур: амплуа", () => {
+  it("полный подкласс активирует только свои keyed-записи 1/3/8", () => {
+    for (const [troupe, byLevel] of Object.entries(TROUPE_KEYED)) {
+      const hero = troubadour(8, {}, { subclass: troupe });
+      for (const [level, ids] of Object.entries(byLevel)) {
+        expect(troupeIds(hero, Number(level)).sort(), `${troupe} ${level}`).toEqual(
+          [...ids].sort(),
+        );
+      }
+    }
+  });
+
+  it("особенности 5-го уровня: выбор одной из двух на амплуа", () => {
+    for (const [troupe, entry] of Object.entries(TROUPE_LEVEL_FIVE)) {
+      const hero = troubadour(5, {}, { subclass: troupe });
+      // Пока выбор не сделан, ни одна из двух особенностей не активна,
+      // но контейнер и группа выбора доступны.
+      expect(levelFiveIds(hero), troupe).toEqual([]);
+      expect(activeIds(hero), troupe).toContain(LEVEL_FIVE_CONTAINERS[troupe]);
+      const choice = classFeatureChoicesForSheet(hero).find(
+        (item) => item.group === entry.group,
+      );
+      expect(choice?.options, troupe).toHaveLength(2);
+
+      for (const [index, featureId] of entry.children.entries()) {
+        const selected = troubadour(
+          5,
+          { [entry.group]: choice?.options[index] ?? featureId },
+          { subclass: troupe },
+        );
+        expect(levelFiveIds(selected), `${troupe} ${featureId}`).toEqual([
+          featureId,
+        ]);
+      }
+    }
+  });
+
+  it("чужая, неизвестная и составная амплуа не активируют записи", () => {
+    for (const hero of [
+      troubadour(8, {}, { subclass: "Неизвестное амплуа" }),
+      troubadour(8, {}, { subclass: "Автор, Дуэлянт" }),
+    ]) {
+      expect(
+        activeIds(hero).filter((id) => id.startsWith("troubadour.troupe.")),
+      ).toEqual([]);
+      expect(levelFiveIds(hero)).toEqual([]);
+    }
+
+    const author = troubadour(8, {}, { subclass: "Автор" });
+    expect(troupeIds(author, 1)).not.toContain(
+      "troubadour.troupe.1.akrobatika",
+    );
+    expect(levelFiveIds(author)).not.toContain(
+      "troubadour.feature.5.medli",
+    );
+  });
+
+  it("пустой подкласс: панель предлагает амплуа, keyed-записи не активны", () => {
+    const hero = troubadour(8);
+    const choice = classFeatureChoicesForSheet(hero).find(
+      (item) => item.group === "troubadour.troupe",
+    );
+    expect(choice?.options).toEqual(TROUPE_OPTIONS);
+    expect(choice?.label).toBe("Труппа");
+    expect(
+      activeIds(hero).filter((id) => id.startsWith("troubadour.troupe.")),
+    ).toEqual([]);
+    expect(levelFiveIds(hero)).toEqual([]);
+  });
+
+  it("выбор в панели пишет подкласс и включает только своё амплуа", () => {
+    const hero = troubadour(8);
+    const selected = withClassFeatureSelection(
+      hero,
+      "troubadour.troupe",
+      "Дуэлянт",
+    );
+    expect(selected.subclass).toBe("Дуэлянт");
+    expect(
+      selected.automation?.classFeatureSelections?.["troubadour.troupe"],
+    ).toBe("Дуэлянт");
+    expect(troupeIds(selected, 1).sort()).toEqual(
+      [...TROUPE_KEYED["Дуэлянт"][1]].sort(),
+    );
+    expect(troupeIds(selected, 8)).toEqual(["troubadour.troupe.8.shedevr"]);
+    expect(
+      classFeatureChoicesForSheet(selected).some(
+        (item) => item.group === "troubadour.troupe",
+      ),
+    ).toBe(false);
+  });
+
+  it("контейнеры способностей 2/6/9 уровней видны только своему амплуа", () => {
+    for (const troupe of TROUPE_OPTIONS) {
+      const ids = activeIds(troubadour(9, {}, { subclass: troupe }));
+      for (const level of [2, 6, 9]) {
+        expect(ids, `${troupe} ${level}`).toContain(
+          ABILITY_CONTAINERS[troupe][level],
+        );
+        for (const other of TROUPE_OPTIONS) {
+          if (other === troupe) continue;
+          expect(ids, `${troupe} / ${other} ${level}`).not.toContain(
+            ABILITY_CONTAINERS[other][level],
+          );
+        }
+      }
+    }
+  });
+
+  it("условие контейнера — название амплуа", () => {
+    for (const troupe of TROUPE_OPTIONS) {
+      for (const level of [2, 6, 9]) {
+        expect(
+          mechanicsFor(ABILITY_CONTAINERS[troupe][level])?.when?.keyValue,
+          `${troupe} ${level}`,
+        ).toEqual([troupe]);
+      }
+    }
+  });
+
+  it("триггеры амплуа имеют книжные событие, частоту и подпись", () => {
+    const cases = [
+      ["Автор", "troubadour.troupe.1.oko-za-oko"],
+      ["Дуэлянт", "troubadour.troupe.1.ripost"],
+      ["Виртуоз", "troubadour.troupe.1.garmonizatsiya"],
+    ] as const;
+
+    for (const [troupe, featureId] of cases) {
+      const triggers = classFeatureTriggers(
+        troubadour(1, {}, { subclass: troupe }),
+      ).filter((trigger) => trigger.featureId === featureId);
+      expect(triggers, featureId).toHaveLength(1);
+      expect(triggers[0].event, featureId).toBe("use-ability");
+      expect(triggers[0].frequency, featureId).toBe("always");
+      expect(triggers[0].label.trim(), featureId).not.toBe("");
+      expect(triggers[0].detail.trim(), featureId).not.toBe("");
+    }
+  });
+});
+
+describe("Трубадур: Призвание 2-го уровня", () => {
+  it("панель предлагает три варианта русскими подписями", () => {
+    const choice = classFeatureChoicesForSheet(troubadour(2)).find(
+      (item) => item.group === "troubadour.calling",
+    );
+    expect(choice?.label).toBe("Призвание");
+    expect(choice?.options).toEqual(CALLINGS);
+    expect(choice?.optionLabels).toEqual(
+      Object.fromEntries(CALLINGS.map((name) => [name, name])),
+    );
+    expect(choice?.selected).toBeUndefined();
+  });
+
+  it("выбор пишет значение группы и активирует ровно одну запись", () => {
+    const hero = withClassFeatureSelection(
+      troubadour(2),
+      "troubadour.calling",
+      CALLINGS[0],
+    );
+    expect(
+      hero.automation?.classFeatureSelections?.["troubadour.calling"],
+    ).toBe(CALLINGS[0]);
+    expect(hero.subclass).toBe("");
+
+    for (const [index, name] of CALLINGS.entries()) {
+      const selected = withClassFeatureSelection(
+        troubadour(2),
+        "troubadour.calling",
+        name,
+      );
+      expect(callingIds(selected), name).toEqual([CALLING_IDS[index]]);
+    }
+  });
+
+  it("без выбора ни одна запись не активна", () => {
+    expect(callingIds(troubadour(10))).toEqual([]);
+  });
+
+  it("смена выбора переносит активность на другую запись", () => {
+    const first = withClassFeatureSelection(
+      troubadour(2),
+      "troubadour.calling",
+      CALLINGS[0],
+    );
+    const second = withClassFeatureSelection(
+      first,
+      "troubadour.calling",
+      CALLINGS[2],
+    );
+    expect(callingIds(first)).toEqual([CALLING_IDS[0]]);
+    expect(callingIds(second)).toEqual([CALLING_IDS[2]]);
+    expect(
+      featureSheetChoiceState(
+        classFeatureChoicesForSheet(second).find(
+          (item) => item.group === "troubadour.calling",
+        )!,
+      ).selectedOption,
+    ).toBe(CALLINGS[2]);
+  });
+
+  it("панель сохраняет выбор между перерисовками (лист и повышение)", () => {
+    const hero = withClassFeatureSelection(
+      troubadour(3),
+      "troubadour.calling",
+      CALLINGS[1],
+    );
+    const choice = classFeatureChoicesForSheet(hero).find(
+      (item) => item.group === "troubadour.calling",
+    );
+    expect(choice?.selected).toBe(CALLINGS[1]);
+    expect(featureSheetChoiceState(choice!).selectedOption).toBe(CALLINGS[1]);
+    expect(featureSheetChoiceState(choice!).warning).toBeUndefined();
+  });
+});
+
+describe("Трубадур: создание героя", () => {
+  const signature = ABILITY_COMPENDIUM.find(
+    (ability) =>
+      ability.className === "Трубадур" &&
+      ability.name === "Остроумная Перепалка",
+  );
+  const heroic = ABILITY_COMPENDIUM.find(
+    (ability) =>
+      ability.className === "Трубадур" && ability.name === "Суровый Критик",
+  );
+
+  function draft() {
+    return {
+      ...emptyBuilderDraft(),
+      name: "Тестовый трубадур",
+      ancestry: "Дварф",
+      traits: ["Заземленность", "Искра с твоей кожи"],
+      className: "Трубадур",
+      subclass: "Виртуоз",
+      characteristics: startingCharacteristics("Трубадур"),
+      kit: "Головорез",
+      abilityIds: [signature?.id, heroic?.id].filter(
+        (id): id is string => !!id,
+      ),
+    };
+  }
+
+  it("выдаёт навык амплуа, его способности и выбранные знаковую и героическую", () => {
+    const hero = buildCharacter(draft());
+    expect(hero.subclass).toBe("Виртуоз");
+    expect(hero.skills).toContain("Музыка");
+
+    const names = hero.abilities.map((ability) => ability.name);
+    expect(names).toContain("Хореография");
+    expect(names).toContain("Живительный Лимерик");
+    expect(names).toContain("Мощный Аккорд");
+    expect(names).toContain("Гармонизация");
+    expect(names).toContain('"Громовая Мать"');
+    expect(names).toContain('"Баллада о Звере"');
+    expect(names).toContain("Остроумная Перепалка");
+    expect(names).toContain("Суровый Критик");
+  });
+
+  it("лист показывает записи своего амплуа, но не чужие", () => {
+    const hero = buildCharacter(draft());
+    const names = sheetNames(hero);
+    expect(names).toContain("Мощный аккорд");
+    expect(names).toContain("Выступления виртуоза");
+    expect(names).toContain("Гармонизация");
+    expect(names).not.toContain("Акробатика");
+    expect(names).not.toContain("Рипост");
+  });
+
+  it("выступления Виртуоза на 3 и 8 уровнях приходят повышением", () => {
+    const hero3 = troubadour(
+      2,
+      { "troubadour.troupe": "Виртуоз" },
+      { subclass: "Виртуоз", xp: 160 },
+    );
+    const level3 = previewLevelUp(hero3, levelUpRequest(hero3));
+    expect(level3.ok).toBe(true);
+    if (level3.ok) {
+      const names = level3.next.abilities.map((ability) => ability.name);
+      expect(names).toContain('"Зажги Эту Ночь"');
+      expect(names).toContain('"Неустанный Герой"');
+    }
+
+    const hero8 = troubadour(
+      7,
+      { "troubadour.troupe": "Виртуоз" },
+      { subclass: "Виртуоз", xp: 160 },
+    );
+    const level8 = previewLevelUp(hero8, levelUpRequest(hero8));
+    expect(level8.ok).toBe(true);
+    if (level8.ok) {
+      const names = level8.next.abilities.map((ability) => ability.name);
+      expect(names).toContain("Лунная Соната");
+      expect(names).toContain("Радикальная Фантазия");
+    }
+  });
+
+  it("выборы и подкласс переживают экспорт и импорт JSON", () => {
+    const hero = buildCharacter(draft());
+    const restored = JSON.parse(JSON.stringify(hero)) as Character;
+    expect(restored.subclass).toBe("Виртуоз");
+    expect(activeIds(restored)).toEqual(activeIds(hero));
+    expect(troupeIds(restored, 1)).toEqual(troupeIds(hero, 1));
+  });
+});
+
+describe("Трубадур: повышение уровня", () => {
+  const ENOUGH_XP = 160;
+
+  function firstChoices(hero: Character): Record<string, string[]> {
+    const plan = getLevelUpPlan(hero);
+    const choices: Record<string, string[]> = {};
+    for (const choice of plan.choices) {
+      choices[choice.id] = choice.options
+        .slice(0, choice.count)
+        .map((option) => option.id);
+    }
+    return choices;
+  }
+
+  function baseHero(level: number, troupe = "Виртуоз"): Character {
+    return troubadour(
+      level,
+      { "troubadour.troupe": troupe },
+      { subclass: troupe, xp: ENOUGH_XP },
+    );
+  }
+
+  function expectOk(result: LevelUpPreview): LevelUpPreview & { ok: true } {
+    expect(result.ok, result.ok ? "" : result.issues.join("; ")).toBe(true);
+    if (!result.ok) throw new Error(result.issues.join("; "));
+    return result;
+  }
+
+  it("1→2 сохраняет амплуа и выборы, ресурс остаётся шестистрочным", () => {
+    const hero = baseHero(1);
+    const result = expectOk(previewLevelUp(hero, levelUpRequest(hero)));
+    expect(result.next.level).toBe(2);
+    expect(result.next.subclass).toBe("Виртуоз");
+    expect(result.next.automation?.classFeatureSelections).toEqual({
+      "troubadour.troupe": "Виртуоз",
+    });
+    expect(resolvedResourceGains(result.next)).toHaveLength(6);
+  });
+
+  it("3→4 сохраняет выборы и не добавляет ресурсных замен", () => {
+    const hero = baseHero(3);
+    const result = expectOk(previewLevelUp(hero, levelUpRequest(hero)));
+    expect(result.next.level).toBe(4);
+    expect(result.next.subclass).toBe("Виртуоз");
+    expect(result.next.automation?.classFeatureSelections).toEqual({
+      "troubadour.troupe": "Виртуоз",
+    });
+    expect(resolvedResourceGains(result.next)).toHaveLength(6);
+    expect(
+      resolvedResourceGains(result.next).filter(
+        (gain) => gain.tag === "start-of-turn",
+      )[0].amount,
+    ).toBe("1d3");
+  });
+
+  it("6→7 сохраняет выборы и усиливает начало хода до 1d3 + 1", () => {
+    const hero = baseHero(6);
+    const result = expectOk(previewLevelUp(hero, levelUpRequest(hero)));
+    expect(result.next.level).toBe(7);
+    expect(result.next.subclass).toBe("Виртуоз");
+    expect(result.next.automation?.classFeatureSelections).toEqual({
+      "troubadour.troupe": "Виртуоз",
+    });
+    const start = resolvedResourceGains(result.next).filter(
+      (gain) => gain.tag === "start-of-turn",
+    );
+    expect(start).toHaveLength(1);
+    expect(start[0].amount).toBe("1d3 + 1");
+  });
+
+  it("9→10 сохраняет выборы, даёт шесть прибавок и «Аплодисменты»", () => {
+    const hero = baseHero(9);
+    const result = expectOk(previewLevelUp(hero, levelUpRequest(hero)));
+    expect(result.next.level).toBe(10);
+    expect(result.next.subclass).toBe("Виртуоз");
+    expect(resolvedResourceGains(result.next)).toHaveLength(6);
+    expect(
+      resolvedEpicResourceGains(result.next).map((gain) => gain.amount),
+    ).toEqual(["= Опыт"]);
+  });
+
+  it("гранты 3/6/8 уровней приходят по амплуа", () => {
+    const two = baseHero(2);
+    const toThree = expectOk(previewLevelUp(two, levelUpRequest(two)));
+    const threeNames = toThree.next.abilities.map((ability) => ability.name);
+    expect(threeNames).toContain('"Зажги Эту Ночь"');
+    expect(threeNames).toContain('"Неустанный Герой"');
+
+    const five = baseHero(5);
+    const toSix = expectOk(previewLevelUp(five, levelUpRequest(five)));
+    expect(toSix.next.abilities.map((ability) => ability.name)).toContain(
+      "В лучах Прожектора",
+    );
+
+    const seven = baseHero(7);
+    const toEight = expectOk(previewLevelUp(seven, levelUpRequest(seven)));
+    const eightNames = toEight.next.abilities.map((ability) => ability.name);
+    expect(eightNames).toContain("Лунная Соната");
+    expect(eightNames).toContain("Радикальная Фантазия");
+  });
+
+  it("выборы 2/6/9 уровней берутся из пар способностей амплуа", () => {
+    for (const level of [2, 6, 9]) {
+      const hero = baseHero(level - 1);
+      const plan = getLevelUpPlan(hero);
+      const choice = plan.choices.find((item) =>
+        item.label.includes("Виртуоз"),
+      );
+      expect(choice, `уровень ${level}`).toBeDefined();
+      expect(choice?.count, `уровень ${level}`).toBe(1);
+      expect(choice?.options, `уровень ${level}`).toHaveLength(2);
+    }
+  });
+
+  it("подарки уровней 2/3/4/7/8/9/10 не пусты", () => {
+    for (const level of [2, 3, 4, 7, 8, 9, 10]) {
+      const hero = baseHero(level - 1);
+      const gifts = classFeatureGiftsAtLevel(hero, level).map(
+        (feature) => feature.name,
+      );
+      expect(gifts.length, `уровень ${level}`).toBeGreaterThan(0);
+    }
+    // 5-й уровень — выбор одной из двух особенностей в панели листа, поэтому
+    // до выбора подарков нет. 6-й — грант карточки «В лучах прожектора» и
+    // TEXT_ONLY-перк; отдельных подарочных строк нет.
+    expect(classFeatureGiftsAtLevel(baseHero(4), 5)).toEqual([]);
+    expect(classFeatureGiftsAtLevel(baseHero(5), 6)).toEqual([]);
+  });
+});
+
+describe("Трубадур: старый и частичный лист", () => {
+  it("без подкласса панель просит амплуа и призвание, keyed-записи не активны", () => {
+    const hero = troubadour(8);
+    const groups = classFeatureChoicesForSheet(hero).map(
+      (choice) => choice.group,
+    );
+    expect(groups).toContain("troubadour.troupe");
+    expect(groups).toContain("troubadour.calling");
+    expect(troupeIds(hero, 1)).toEqual([]);
+    expect(levelFiveIds(hero)).toEqual([]);
+  });
+
+  it("после выбора активируется ровно своё амплуа", () => {
+    const hero = withClassFeatureSelection(
+      troubadour(8),
+      "troubadour.troupe",
+      "Автор",
+    );
+    expect(troupeIds(hero, 1).sort()).toEqual(
+      [...TROUPE_KEYED["Автор"][1]].sort(),
+    );
+    expect(levelFiveIds(hero)).toEqual([]);
+    const selected = withClassFeatureSelection(
+      hero,
+      "troubadour.feature.5.avtor",
+      "Поправим на постпродакшене",
+    );
+    expect(levelFiveIds(selected)).toEqual([
+      "troubadour.feature.5.popravim-na-postprodakshene",
+    ]);
+    expect(troupeIds(hero, 1)).not.toContain(
+      "troubadour.troupe.1.akrobatika",
+    );
+  });
+
+  it("выключение и включение автоматизации сохраняет выборы и записи", () => {
+    const hero = troubadour(
+      8,
+      { "troubadour.troupe": "Дуэлянт", "troubadour.calling": CALLINGS[0] },
+      { subclass: "Дуэлянт" },
+    );
+    const off: Character = {
+      ...hero,
+      automation: { ...hero.automation!, enabled: false },
+    };
+    const on: Character = {
+      ...off,
+      automation: { ...off.automation!, enabled: true },
+    };
+    expect(activeIds(off)).toEqual(activeIds(hero));
+    expect(activeIds(on)).toEqual(activeIds(hero));
+    expect(
+      off.automation?.classFeatureSelections?.["troubadour.troupe"],
+    ).toBe("Дуэлянт");
+    expect(on.subclass).toBe("Дуэлянт");
+    expect(callingIds(on)).toEqual([CALLING_IDS[0]]);
+  });
+});
+
+describe("Трубадур: видимый текст без внутренних имён", () => {
+  const forbidden = [
+    "keyValue",
+    "keyedBy",
+    "when.",
+    "subclass",
+    "troubadour.feature.",
+    "troubadour.troupe.",
+    "troubadour.calling",
+    "sourceId",
+    "generated.json",
+    "forced-movement",
+  ];
+
+  const visibleText = (hero: Character): string =>
+    classFeatureGroupsForSheet(hero)
+      .flatMap((group) => group.features)
+      .flatMap((feature) => [
+        feature.summary,
+        feature.notes ?? "",
+        feature.detail ?? "",
+        feature.trigger?.label ?? "",
+        feature.trigger?.detail ?? "",
+        ...feature.badges.map((badge) => badge.label),
+      ])
+      .join(" ");
+
+  const heroes = (): Character[] => [
+    troubadour(10),
+    ...TROUPE_OPTIONS.map((troupe) =>
+      troubadour(
+        10,
+        { "troubadour.troupe": troupe, "troubadour.calling": CALLINGS[0] },
+        { subclass: troupe },
+      ),
+    ),
+  ];
+
+  it("notes, summary, триггеры и бейджи чисты для всех амплуа и уровней", () => {
+    const leaks: string[] = [];
+    for (const hero of heroes()) {
+      const text = visibleText(hero);
+      for (const token of forbidden) {
+        if (text.includes(token)) {
+          leaks.push(`${token} у ${hero.subclass || "без амплуа"}`);
+        }
+      }
+    }
+    expect(leaks).toEqual([]);
+  });
+
+  it("ни notes, ни причины TEXT_ONLY не содержат технических имён", () => {
+    const leaked: string[] = [];
+    for (const feature of TROUBADOUR_FEATURES) {
+      const text = [
+        mechanicsFor(feature.id)?.notes ?? "",
+        TEXT_ONLY[feature.id] ?? "",
+      ].join(" ");
+      for (const token of forbidden) {
+        if (text.includes(token)) leaked.push(`${feature.id}: ${token}`);
+      }
+    }
+    expect(leaked).toEqual([]);
+  });
+
+  it("подписи панели русские", () => {
+    const hero = troubadour(10);
+    const labels = classFeatureChoicesForSheet(hero).map(
+      (choice) => choice.label,
+    );
+    expect(labels).toContain("Труппа");
+    expect(labels).toContain("Призвание");
+  });
+});
+
+/** Запрос повышения уровня с первыми вариантами каждого выбора. */
+function levelUpRequest(hero: Character): LevelUpRequest {
+  const plan = getLevelUpPlan(hero);
+  const choices: Record<string, string[]> = {};
+  for (const choice of plan.choices) {
+    choices[choice.id] = choice.options
+      .slice(0, choice.count)
+      .map((option) => option.id);
+  }
+  return {
+    characterId: hero.id,
+    fromLevel: hero.level,
+    className: hero.className,
+    subclass: hero.subclass,
+    mode: "milestone",
+    choices,
+    reviewedRules: true,
+  };
+}

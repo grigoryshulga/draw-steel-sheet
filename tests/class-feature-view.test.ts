@@ -55,6 +55,18 @@ function itemsOf(hero: Character): FeatureSheetItem[] {
   return classFeatureGroupsForSheet(hero).flatMap((group) => group.features);
 }
 
+/**
+ * Герой класса без записей скелета. Все девять классов книги уже перенесены,
+ * поэтому «неразобранного» класса из книги больше нет: синтетическое имя
+ * проверяет ветки, которые не зависят от конкретного класса.
+ */
+function unmodelledHero(level = 1): Character {
+  return {
+    ...createCharacter({ className: "Трубадур", level }),
+    className: "Бард",
+  };
+}
+
 function itemOf(hero: Character, id: string): FeatureSheetItem {
   const item = itemsOf(hero).find((feature) => feature.id === id);
   if (!item) throw new Error(`В панели нет фичи ${id}`);
@@ -589,8 +601,7 @@ describe("classFeatureChoicesForSheet", () => {
   });
 
   it("у класса без разобранных выборов ничего не спрашивает", () => {
-    const bard = createCharacter({ className: "Трубадур", level: 3 });
-    expect(classFeatureChoicesForSheet(bard)).toEqual([]);
+    expect(classFeatureChoicesForSheet(unmodelledHero(3))).toEqual([]);
   });
 
   it("Талант просит традицию, аугментацию и оберег с русскими подписями", () => {
@@ -646,11 +657,9 @@ describe("панель показывает механику и прозу, но
       expect(conduitItems.some((item) => item.id === "conduit.feature.1.blagochestie-v-boyu")).toBe(true);
       expect(conduitItems.every((item) => item.trigger ? item.trigger.detail.length > 0 : true)).toBe(true);
 
-      for (const className of ["Трубадур"]) {
-        const hero = createCharacter({ className, level: 6 });
-        expect(classFeatureGroupsForSheet(hero)).toEqual([]);
-        expect(classFeatureChoicesForSheet(hero)).toEqual([]);
-      }
+      const bard = unmodelledHero(6);
+      expect(classFeatureGroupsForSheet(bard)).toEqual([]);
+      expect(classFeatureChoicesForSheet(bard)).toEqual([]);
       expect(classFeatureChoicesForSheet(conduit).map((choice) => choice.group)).toContain("conduit.blooming-saint-immunity");
     });
   });
@@ -692,9 +701,9 @@ describe("панель показывает механику и прозу, но
   });
 
   it("не показывает записи с keyedBy у класса без зарегистрированной группы выборов", () => {
-    const hero = createCharacter({ className: "Трубадур", level: 3 });
+    const hero = unmodelledHero(3);
     withFeature(
-      { className: "Трубадур", keyedBy: "aspect", keyValue: "Берсерк" },
+      { className: "Бард", keyedBy: "aspect", keyValue: "Берсерк" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
         // Выбор неизвестной группы панель проверить не может.
@@ -702,7 +711,7 @@ describe("панель показывает механику и прозу, но
       },
     );
     withFeature(
-      { className: "Трубадур" },
+      { className: "Бард" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
         expect(itemsOf(hero)).toHaveLength(1);
