@@ -123,7 +123,7 @@ describe("памятка к ресурсу", () => {
     expect(withoutFeatures.some((line) => line.startsWith("Пороги"))).toBe(
       false,
     );
-    expect(resourceSpecHelp(createCharacter({ className: "Нуль" }))).toEqual(
+    expect(resourceSpecHelp(createCharacter({ className: "Тактик" }))).toEqual(
       [],
     );
   });
@@ -138,8 +138,8 @@ describe("памятка к ресурсу", () => {
   });
 
   it("у класса без разобранных прибавок памятка остаётся прежней", () => {
-    expect(heroicResourceHelp(createCharacter({ className: "Нуль" }))).toContain(
-      "В начале каждого вашего хода: +2 дисциплины.",
+    expect(heroicResourceHelp(createCharacter({ className: "Тактик" }))).toContain(
+      "В начале каждого вашего хода: +2 фокуса.",
     );
   });
 });

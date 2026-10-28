@@ -102,7 +102,8 @@ describe("Class feature stat contributions", () => {
     });
     expect(featureStatContributions(character, "stamina")).toEqual([
       {
-        sourceId: "null.augmentation.density",
+        sourceId:
+          "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 12,
       },
@@ -363,7 +364,7 @@ describe("Class feature activation rules", () => {
     const conduitSoldier = mechanicsFor("conduit.feature.1.molitva-o-masterstve-soldata");
     expect(conduitSoldier?.effects).toHaveLength(3);
     expect(conduitSoldier?.effects?.filter((effect) => effect.kind === "field").every((effect) => effect.when)).toBe(true);
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(8);
+    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(5);
 
     const talent = hero("Талант", 4, {
       "Псионическая аугментация": "Боевая аугментация",

@@ -26,15 +26,39 @@ const talentMoved = (
 ) =>
   `${lead} в механику особенности «${name}»; запись оставлена для сохранённых выборов билдера и панели листа.`;
 
+/** Старые опции Нуля тоже остаются метаданными выбора: числа живут в механике. */
+const nullMoved = (name: string) => talentMoved(name);
+
 export const CLASS_FEATURE_GROUPS: ClassFeatureGroup[] = [
   {
     id: "null.augmentation",
     name: "Псионическая аугментация",
     className: "Нуль",
     options: [
-      { id: "null.augmentation.density", name: "Аугментация плотности (Density Augmentation)", description: "Вы получаете бонус +6 к выносливости, и этот бонус увеличивается на 6 на 4-м, 7-м и 10-м уровнях. Дополнительно, вы получаете бонус +1 к устойчивости.", effects: [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }, { kind: "field", field: "stability", value: 1 }] },
-      { id: "null.augmentation.force", name: "Аугментация силы (Force Augmentation)", description: "Ваши наносящие урон псионические способности получают бонус +1 к выброшенному урону.", effects: [{ kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Псионика"] } }] },
-      { id: "null.augmentation.speed", name: "Аугментация скорости (Speed Augmentation)", description: "Вы получаете бонус +1 к скорости и к расстоянию, на которое вы можете сместиться, когда вы используете Действие отхода.\n\n---", effects: [{ kind: "field", field: "speed", value: 1 }, { kind: "field", field: "disengage", value: 1 }] },
+      {
+        id: "null.augmentation.density",
+        name: "Аугментация плотности (Density Augmentation)",
+        description:
+          "Вы получаете бонус +6 к выносливости, и этот бонус увеличивается на 6 на 4-м, 7-м и 10-м уровнях. Дополнительно, вы получаете бонус +1 к устойчивости.",
+        effects: [],
+        manualReason: nullMoved("Аугментация плотности"),
+      },
+      {
+        id: "null.augmentation.force",
+        name: "Аугментация силы (Force Augmentation)",
+        description:
+          "Ваши наносящие урон псионические способности получают бонус +1 к выброшенному урону.",
+        effects: [],
+        manualReason: nullMoved("Аугментация силы"),
+      },
+      {
+        id: "null.augmentation.speed",
+        name: "Аугментация скорости (Speed Augmentation)",
+        description:
+          "Вы получаете бонус +1 к скорости и к расстоянию, на которое вы можете сместиться, когда вы используете Действие отхода.\n\n---",
+        effects: [],
+        manualReason: nullMoved("Аугментация скорости"),
+      },
     ],
   },
   {

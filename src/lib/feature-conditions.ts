@@ -101,6 +101,7 @@ const SELECTION_GROUPS: Record<
   проводник: { domain: "conduit.domain" },
   // У Цензора два независимых выбора: орден (подкласс) и один домен.
   цензор: { order: "censor.order", domain: "censor.domain" },
+  нуль: { tradition: "null.tradition" },
   талант: { tradition: "talent.tradition" },
 };
 
@@ -130,6 +131,8 @@ const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   "censor.order": "Цензор",
   // Традиция Таланта — его подкласс: билдер пишет название в `subclass`.
   "talent.tradition": "Талант",
+  // Традиция Нуля — его подкласс: билдер пишет название в `subclass`.
+  "null.tradition": "Нуль",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */

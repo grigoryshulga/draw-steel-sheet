@@ -5,6 +5,7 @@ import {
   type ClassFeatureGroup,
 } from "../data/class-feature-rules";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
+import { resourceSpecFor } from "../data/class-features/class-resources";
 import { NOT_YET, mechanicsFor } from "../data/class-features/mechanics";
 import type {
   FeatureChoice,
@@ -252,10 +253,10 @@ function keyGroupKind(group: string): FeatureKeyGroup | undefined {
 
 /**
  * Автоматизирован ли вариант старого реестра выбора. Сначала смотрим эффекты
- * самой опции (у Нуля и Элементалиста они пока там), затем — механику
- * вложенной записи, которая включает эффекты по `when.keyValue` с именем
- * опции (так перенесены аугментации Таланта). Без этой проверки подсказка
- * билдера «Поддерживает авторасчёт» после миграции врала бы.
+ * самой опции (у Элементалиста они пока там), затем — механику вложенной
+ * записи, которая включает эффект, триггер или ресурс по `when.keyValue` с
+ * именем опции (так перенесены аугментации Таланта и Нуля). Без этой проверки
+ * подсказка билдера «Поддерживает авторасчёт» после миграции врала бы.
  */
 export function classFeatureOptionAutomated(
   className: string,
@@ -623,7 +624,15 @@ function hasChildren(featureId: string): boolean {
 
 /** Класс смоделирован новым реестром, а не отложен в `NOT_YET`. */
 function classIsModelled(className: string): boolean {
-  return !UNMODELLED_CLASSES.has(normalizeFeatureText(className));
+  const normalized = normalizeFeatureText(className);
+  if (!UNMODELLED_CLASSES.has(normalized)) return true;
+  // Класс может быть перенесён частично: у него уже есть механики и
+  // зарегистрированный ресурс, но `NOT_YET` ещё держит запись ради проверки
+  // покрытия. Признак начатого переноса — ресурс класса: тогда лист показывает
+  // новый раздел, а нерозобранные записи остаются текстом книги. Класс без
+  // ресурса в `NOT_YET` по-прежнему скрыт. Для завершённых классов ветка не
+  // срабатывает: их нет в `UNMODELLED_CLASSES`.
+  return resourceSpecFor(className) !== undefined;
 }
 
 /**
@@ -943,15 +952,16 @@ export function classFeatureGiftsAtLevel(
   );
   // Прозаическая особенность уровня (ситуативное правило, увеличение
   // характеристик) — тоже дар, хотя чисел в модели нет: без неё блок «Что вы
-  // получите» у Таланта пуст. Правило ограничено Талантом: у Fury/Censor/
-  // Conduit состав подарков уже сложился и менять его без отдельного ревью
-  // нельзя. Служебные строки — выбор способности, перк, навык, ресурс —
-  // остаются за `plan.choices` и панелью ресурсов.
+  // получите» у Таланта и Нуля пуст. Правило ограничено этими классами: у
+  // Fury/Censor/Conduit состав подарков уже сложился и менять его без
+  // отдельного ревью нельзя. Служебные строки — выбор способности, перк,
+  // навык, ресурс — остаются за `plan.choices` и панелью ресурсов.
+  const proseGiftClasses = ["Талант", "Нуль"].map(normalizeFeatureText);
   const proseGifts = new Set(
     futureFeatures
       .filter(
         (feature) =>
-          normalizeFeatureText(feature.className) === normalizeFeatureText("Талант") &&
+          proseGiftClasses.includes(normalizeFeatureText(feature.className)) &&
           (feature.mechanics?.kinds ?? []).some(
             (kind) => kind === "situational" || kind === "characteristic",
           ),
@@ -1128,6 +1138,7 @@ const SUBCLASS_MIRRORED_GROUPS = new Set([
   "fury.aspect",
   "censor.order",
   "talent.tradition",
+  "null.tradition",
 ]);
 
 /**

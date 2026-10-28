@@ -39,13 +39,13 @@ describe("Талант: подписи и панель", () => {
     expect(battle?.summary).not.toContain("light");
   });
 
-  it("старая панель не дублирует перенесённые группы Таланта", () => {
+  it("старая панель не дублирует перенесённые группы Таланта и Нуля", () => {
     expect(classFeatureLegacyGroupsForSheet(talent()).map((group) => group.id)).toEqual([]);
     expect(
       classFeatureLegacyGroupsForSheet(createCharacter({ className: "Нуль" })).map(
         (group) => group.id,
       ),
-    ).toEqual(["null.augmentation"]);
+    ).toEqual([]);
     expect(
       classFeatureLegacyGroupsForSheet(
         createCharacter({ className: "Элементалист" }),

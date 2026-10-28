@@ -3,6 +3,7 @@ import { normalizeFeatureText } from "../../lib/utils";
 import { FURY_RESOURCE } from "./mechanics/fury";
 import { CENSOR_RESOURCE } from "./mechanics/censor-resource";
 import { CONDUIT_RESOURCE } from "./mechanics/conduit-resource";
+import { NULL_RESOURCE } from "./mechanics/null-resource";
 import { TALENT_RESOURCE } from "./mechanics/talent-resource";
 
 /**
@@ -21,6 +22,7 @@ export const CLASS_RESOURCES: Record<string, HeroicResourceSpec> = {
   [normalizeFeatureText("Неистовый")]: FURY_RESOURCE,
   [normalizeFeatureText("Цензор")]: CENSOR_RESOURCE,
   [normalizeFeatureText("Проводник")]: CONDUIT_RESOURCE,
+  [normalizeFeatureText("Нуль")]: NULL_RESOURCE,
   [normalizeFeatureText("Талант")]: TALENT_RESOURCE,
 };
 

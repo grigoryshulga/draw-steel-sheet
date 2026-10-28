@@ -48,9 +48,9 @@ describe("class feature registry", () => {
     expect(ids.every((id) => /^[a-z]+(?:\.[a-z]+)+$/.test(id))).toBe(true);
 
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    // Числа Таланта переехали в механики, поэтому эффектных опций старого
-    // реестра осталось 8: три Нуля и пять Элементалиста.
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(8);
+    // Числа Таланта и Нуля переехали в механики, поэтому эффектных опций
+    // старого реестра осталось 5: только пять аугментаций Элементалиста.
+    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(5);
     const conditionalOptions = options.filter((option) =>
       option.effects.some((effect) => effect.when !== undefined),
     );
@@ -94,6 +94,67 @@ describe("class feature registry", () => {
 
     const bastion = mechanicsFor("conduit.feature.1.obereg-bastiona");
     expect(bastion?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
+  });
+
+  it("moves Null density into mechanics and keeps the old choice as metadata", () => {
+    const nullOptions = classFeatureGroups("Нуль").flatMap((group) => group.options);
+    expect(nullOptions.map((option) => option.id)).toEqual([
+      "null.augmentation.density",
+      "null.augmentation.force",
+      "null.augmentation.speed",
+    ]);
+    expect(nullOptions.map((option) => option.name)).toEqual([
+      "Аугментация плотности (Density Augmentation)",
+      "Аугментация силы (Force Augmentation)",
+      "Аугментация скорости (Speed Augmentation)",
+    ]);
+    for (const option of nullOptions) {
+      expect(option.effects, option.id).toEqual([]);
+      expect(option.manualReason, option.id).toMatch(/перенес[её]н/);
+      expect(option.manualReason, option.id).not.toContain("null.feature.");
+    }
+
+    expect(
+      mechanicsFor("null.feature.1.augmentatsiya-plotnosti-density-augmentation")
+        ?.effects,
+    ).toEqual([
+      { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
+      { kind: "field", field: "stability", value: 1 },
+    ]);
+    expect(
+      mechanicsFor("null.feature.1.augmentatsiya-sily-force-augmentation")
+        ?.effects,
+    ).toEqual([
+      {
+        kind: "field",
+        field: "rolledDamage",
+        value: 1,
+        filter: { keywords: ["Псионика"] },
+      },
+    ]);
+    expect(
+      mechanicsFor("null.feature.1.augmentatsiya-skorosti-speed-augmentation")
+        ?.effects,
+    ).toEqual([
+      { kind: "field", field: "speed", value: 1 },
+      { kind: "field", field: "disengage", value: 1 },
+    ]);
+    for (const [id, name] of [
+      [
+        "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        "Аугментация плотности (Density Augmentation)",
+      ],
+      [
+        "null.feature.1.augmentatsiya-sily-force-augmentation",
+        "Аугментация силы (Force Augmentation)",
+      ],
+      [
+        "null.feature.1.augmentatsiya-skorosti-speed-augmentation",
+        "Аугментация скорости (Speed Augmentation)",
+      ],
+    ] as const) {
+      expect(mechanicsFor(id)?.when).toEqual({ keyValue: [name] });
+    }
   });
 
   it("moves Steel Ward into a trigger and leaves no numeric effect in the old registry", () => {

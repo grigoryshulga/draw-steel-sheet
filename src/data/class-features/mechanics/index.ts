@@ -8,6 +8,13 @@ import { CONDUIT_BASE_MECHANICS } from "./conduit-base";
 import { CONDUIT_DOMAIN_MECHANICS, CONDUIT_DOMAIN_PRAYERS } from "./conduit-domains";
 import { CONDUIT_LEVEL_MECHANICS } from "./conduit-levels";
 import { CONDUIT_RESOURCE_MECHANICS } from "./conduit-resource";
+import { NULL_AUGMENTATION_MECHANICS } from "./null-augmentations";
+import { NULL_BASE_MECHANICS } from "./null-base";
+import { NULL_EARLY_MECHANICS } from "./null-early";
+import { NULL_LATE_MECHANICS } from "./null-late";
+import { NULL_MASTERY_MECHANICS } from "./null-mastery";
+import { NULL_RESOURCE_MECHANICS } from "./null-resource";
+import { NULL_TRADITION_MECHANICS } from "./null-traditions";
 import { TALENT_AUGMENTATION_MECHANICS } from "./talent-augmentations";
 import { TALENT_BASE_MECHANICS } from "./talent-base";
 import { TALENT_EARLY_MECHANICS } from "./talent-early";
@@ -32,6 +39,13 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...CONDUIT_DOMAIN_PRAYERS,
   ...CONDUIT_LEVEL_MECHANICS,
   ...CONDUIT_RESOURCE_MECHANICS,
+  ...NULL_BASE_MECHANICS,
+  ...NULL_AUGMENTATION_MECHANICS,
+  ...NULL_MASTERY_MECHANICS,
+  ...NULL_RESOURCE_MECHANICS,
+  ...NULL_EARLY_MECHANICS,
+  ...NULL_TRADITION_MECHANICS,
+  ...NULL_LATE_MECHANICS,
   ...TALENT_BASE_MECHANICS,
   ...TALENT_AUGMENTATION_MECHANICS,
   ...TALENT_SANCTUARY_MECHANICS,
@@ -49,6 +63,7 @@ export function mechanicsFor(id: string): FeatureMechanics | undefined {
 export { FURY_MECHANICS, FURY_RESOURCE } from "./fury";
 export { CENSOR_RESOURCE } from "./censor-resource";
 export { CONDUIT_RESOURCE } from "./conduit-resource";
+export { NULL_RESOURCE } from "./null-resource";
 export { TALENT_RESOURCE } from "./talent-resource";
 export { NOT_YET, TEXT_ONLY } from "./exceptions";
 export type { FeatureMechanics };

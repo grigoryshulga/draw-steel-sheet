@@ -4,6 +4,12 @@ import { CENSOR_LEVEL_TEXT_ONLY } from "./censor-levels";
 import { CENSOR_ORDER_TEXT_ONLY } from "./censor-orders";
 import { CONDUIT_BASE_TEXT_ONLY } from "./conduit-base";
 import { CONDUIT_LEVEL_TEXT_ONLY } from "./conduit-levels";
+import { NULL_AUGMENTATION_TEXT_ONLY } from "./null-augmentations";
+import { NULL_BASE_TEXT_ONLY } from "./null-base";
+import { NULL_EARLY_TEXT_ONLY } from "./null-early";
+import { NULL_LATE_TEXT_ONLY } from "./null-late";
+import { NULL_MASTERY_TEXT_ONLY } from "./null-mastery";
+import { NULL_TRADITION_TEXT_ONLY } from "./null-traditions";
 import { TALENT_AUGMENTATION_TEXT_ONLY } from "./talent-augmentations";
 import { TALENT_BASE_TEXT_ONLY } from "./talent-base";
 import { TALENT_EARLY_TEXT_ONLY } from "./talent-early";
@@ -50,6 +56,12 @@ export const TEXT_ONLY: Record<string, string> = {
   ...CENSOR_ORDER_TEXT_ONLY,
   ...CONDUIT_BASE_TEXT_ONLY,
   ...CONDUIT_LEVEL_TEXT_ONLY,
+  ...NULL_BASE_TEXT_ONLY,
+  ...NULL_AUGMENTATION_TEXT_ONLY,
+  ...NULL_MASTERY_TEXT_ONLY,
+  ...NULL_EARLY_TEXT_ONLY,
+  ...NULL_TRADITION_TEXT_ONLY,
+  ...NULL_LATE_TEXT_ONLY,
   ...TALENT_BASE_TEXT_ONLY,
   ...TALENT_AUGMENTATION_TEXT_ONLY,
   ...TALENT_SANCTUARY_TEXT_ONLY,
@@ -64,7 +76,6 @@ export const TEXT_ONLY: Record<string, string> = {
  * полностью, это отдельный тест.
  */
 export const NOT_YET: Record<string, string> = {
-  "Нуль": "следующий заход: механики по инвентаризации",
   "Тактик": "следующий заход: механики по инвентаризации",
   "Тень": "следующий заход: механики по инвентаризации",
   "Трубадур": "следующий заход: механики по инвентаризации",
