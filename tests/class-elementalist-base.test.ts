@@ -240,8 +240,8 @@ describe("Элементалист: миграция старого реестр
     ).flatMap((group) => group.options);
     expect(options).toHaveLength(9);
     for (const option of options) {
-      expect(option.effects, option.id).toEqual([]);
-      expect(option.manualReason, option.id).toMatch(/перенес/);
+      expect("effects" in option, option.id).toBe(false);
+      expect("manualReason" in option, option.id).toBe(false);
     }
   });
 

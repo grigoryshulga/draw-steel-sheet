@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { TEXT_ONLY, mechanicsFor } from "../src/data/class-features/mechanics";
+import { classFeatureGroups } from "../src/data/class-feature-rules";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import { activeClassFeatures } from "../src/lib/class-features";
 import {
   classFeatureChoicesForSheet,
   classFeatureGiftsAtLevel,
   classFeatureGroupsForSheet,
-  classFeatureLegacyGroupsForSheet,
   classFeatureOptionAutomated,
   featureSheetChoiceState,
   withClassFeatureSelection,
@@ -146,12 +146,14 @@ describe("Элементалист: видимый текст без внутр�
 });
 
 describe("Элементалист: панель и выборы", () => {
-  it("старая панель не дублирует перенесённые группы", () => {
-    expect(
-      classFeatureLegacyGroupsForSheet(elementalist(1)).map(
-        (group) => group.id,
-      ),
-    ).toEqual([]);
+  it("старая панель удалена: все legacy-группы ведёт новый реестр", () => {
+    const legacyGroups = classFeatureGroups("Элементалист").map(
+      (group) => group.id,
+    );
+    const groups = classFeatureChoicesForSheet(elementalist(1)).map(
+      (choice) => choice.group,
+    );
+    expect(groups).toEqual(expect.arrayContaining(legacyGroups));
   });
 
   it("подсказка билдера смотрит на механику, а не на старые эффекты", () => {

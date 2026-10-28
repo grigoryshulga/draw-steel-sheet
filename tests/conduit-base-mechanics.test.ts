@@ -12,6 +12,7 @@ import { fieldEffectContributions } from "../src/lib/feature-modifiers";
 import { CONDUIT_LEVEL_MECHANICS } from "../src/data/class-features/mechanics/conduit-levels";
 import { CONDUIT_RESOURCE_MECHANICS } from "../src/data/class-features/mechanics/conduit-resource";
 import { classFeatureGroups } from "../src/data/class-feature-rules";
+import { classFeatureOptionAutomated } from "../src/lib/class-feature-view";
 
 const features = (Array.isArray(generated) ? generated : generated.features) as GeneratedClassFeature[];
 const included = features.filter((feature) =>
@@ -22,6 +23,17 @@ const included = features.filter((feature) =>
 const feature = (id: string) => included.find((entry) => entry.id === id)!;
 
 describe("механики Проводника 1-го уровня", () => {
+  it("билдер видит авторасчёт для молитв и оберегов Проводника", () => {
+    for (const name of [
+      "Молитва о скорости",
+      "Молитва о мастерстве солдата",
+      "Оберег бастиона",
+      "Оберег реакции",
+    ]) {
+      expect(classFeatureOptionAutomated("Проводник", name), name).toBe(true);
+    }
+    expect(classFeatureOptionAutomated("Проводник", "Неизвестно")).toBe(false);
+  });
   it("покрывают только записи базового класса", () => {
     const covered = new Set([...Object.keys(CONDUIT_BASE_MECHANICS), ...Object.keys(CONDUIT_BASE_TEXT_ONLY), ...Object.keys(CONDUIT_RESOURCE_MECHANICS)]);
     expect(Object.keys(CONDUIT_BASE_MECHANICS).filter((id) => id in CONDUIT_BASE_TEXT_ONLY)).toEqual([]);
@@ -47,8 +59,8 @@ describe("механики Проводника 1-го уровня", () => {
       expect(mechanic.trigger?.event).toBe("take-damage");
       expect(mechanic.trigger?.detail).toContain(condition);
       expect(mechanic.notes).toContain("шире условия книги");
-      expect(mechanic.notes).toContain("не смежном источнике");
-      expect(mechanic.notes).toContain("в том числе не существе");
+      expect(mechanic.notes).toContain("не смежный источник");
+      expect(mechanic.notes).toContain("в том числе не существо");
     }
   });
 
@@ -69,7 +81,7 @@ describe("механики Проводника 1-го уровня", () => {
     expect(soldier.effects?.some((effect) => effect.kind === "field" && effect.field === "freeStrikeDamage")).toBe(false);
     for (const exact of ["+3 к Выносливости", "увеличивается на 3", "+1 к урону", "использовать сокровища", "Если у вас есть комплект"]) expect(feature(ids[2]).description).toContain(exact);
     expect(soldier.notes).toContain("Условное владение");
-    expect(soldier.notes).toContain("старой записи");
+    expect(soldier.notes).toContain("остаётся текстом правила");
 
     const hero = createCharacter({ className: "Проводник" });
     hero.automation = { enabled: true, adjustments: {}, ancestryTraits: [], equipment: { lightArmor: true } };
@@ -117,7 +129,7 @@ describe("механики Проводника 1-го уровня", () => {
       expect(CONDUIT_BASE_MECHANICS[id].notes).not.toContain("options: []");
     }
     expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.bozhestvo-i-domeny"].notes).toContain("conduit.domain");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.osobennost-domena-1-go-urovnya"].notes).toContain("conduit.domain.1");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.osobennost-domena-1-go-urovnya"].notes).toContain("выбранный домен");
   });
 
   it("сохраняет точную семантику триггеров и не подменяет её событием врага", () => {
@@ -170,8 +182,8 @@ describe("механики Проводника 1-го уровня", () => {
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, secondCost3.id, cost5.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, cost5.id, trigger.id, judgment.id] })[6]).toContain("Выберите один триггер проводника");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.znakovye-sposobnosti"].notes).toContain("CLASS_SIGNATURE_COUNTS");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-3-blagochestiya"].notes).toContain("resourceCost 3");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-5-blagochestiya"].notes).toContain("resourceCost 5");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.znakovye-sposobnosti"].notes).toContain("ровно две");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-3-blagochestiya"].notes).toContain("стоимостью 3");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-5-blagochestiya"].notes).toContain("стоимостью 5");
   });
 });

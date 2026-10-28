@@ -1,9 +1,4 @@
 import {
-  CLASS_FEATURE_GROUPS,
-  type ClassFeatureGroup,
-  type ClassFeatureOption,
-} from "../data/class-feature-rules";
-import {
   ANCESTRY_FEATURE_RULES,
   ancestryTraitIdsFromNames,
   type AncestryFeatureRule,
@@ -43,33 +38,6 @@ interface GroupedContribution extends FeatureContribution {
 }
 
 type FieldEffect = Extract<FeatureEffect, { kind: "field" }>;
-
-function optionEffects(option: ClassFeatureOption): FeatureEffect[] {
-  return Array.isArray(option.effects) ? option.effects : [];
-}
-
-function activeFeatureOptions(character: Character): {
-  group: ClassFeatureGroup;
-  option: ClassFeatureOption;
-}[] {
-  const automation = character.automation;
-  if (!automation?.enabled) return [];
-  const selections = automation.classFeatureSelections;
-  if (!selections || typeof selections !== "object") return [];
-
-  const className = normalize(character.className);
-  if (!className) return [];
-
-  const active: { group: ClassFeatureGroup; option: ClassFeatureOption }[] = [];
-  for (const group of CLASS_FEATURE_GROUPS) {
-    if (normalize(group.className) !== className) continue;
-    const optionId = selections[group.id];
-    if (typeof optionId !== "string") continue;
-    const option = group.options.find((candidate) => candidate.id === optionId);
-    if (option) active.push({ group, option });
-  }
-  return active;
-}
 
 /**
  * Canonical ancestry selection wins whenever `automation.ancestryTraitIds` is an
@@ -118,13 +86,7 @@ function activeFeatureSources(
   character: Character,
   includeClassFeatureEffects = false,
 ): ActiveFeatureSource[] {
-  const sources: ActiveFeatureSource[] = activeFeatureOptions(character).map(
-    ({ option }) => ({
-      sourceId: option.id,
-      sourceName: option.name,
-      effects: optionEffects(option),
-    }),
-  );
+  const sources: ActiveFeatureSource[] = [];
   for (const rule of activeAncestryRules(character)) {
     sources.push({
       sourceId: rule.id,

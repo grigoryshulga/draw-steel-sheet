@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { createCharacter } from "../src/lib/defaults";
 import {
   applyCharacteristicEffects,
@@ -123,54 +123,25 @@ describe("effectiveCharacteristics", () => {
     expect(effectiveCharacteristics(hero)).not.toBe(hero.characteristics);
   });
 
-  it("при выключенной автоматизации реальные источники не считаются, при включённой — считаются", async () => {
-    vi.resetModules();
-    vi.doMock("../src/data/class-feature-rules", () => ({
-      CLASS_FEATURE_GROUPS: [
-        {
-          id: "test.group",
-          name: "Тестовая группа",
-          className: "Тестовый класс",
-          options: [
-            {
-              id: "test.option",
-              name: "Тестовая опция",
-              description: "",
-              effects: [
-                { kind: "characteristic" as const, key: "might" as const, value: 1 },
-              ],
-            },
-          ],
-        },
-      ],
-    }));
-    try {
-      const modifiers = await import("../src/lib/feature-modifiers");
-      const hero = createCharacter();
-      hero.className = "Тестовый класс";
-      hero.characteristics.might = 2;
-      const selections = { "test.group": "test.option" };
+  it("при выключенной автоматизации реальные источники не считаются, при включённой — считаются", () => {
+    withRegistryEffects(
+      [{ kind: "characteristic", key: "might", value: 1 }],
+      () => {
+        const hero = furyWithAutomation(false);
+        hero.characteristics.might = 2;
 
-      hero.automation = {
-        enabled: false,
-        adjustments: {},
-        ancestryTraits: [],
-        classFeatureSelections: selections,
-      };
-      expect(modifiers.featureCharacteristicBonus(hero, "might")).toBe(0);
-      expect(modifiers.effectiveCharacteristics(hero).might).toBe(2);
+        expect(featureCharacteristicBonus(hero, "might")).toBe(0);
+        expect(effectiveCharacteristics(hero).might).toBe(2);
 
-      const withAutomation = {
-        ...hero,
-        automation: { ...hero.automation, enabled: true },
-      };
-      expect(modifiers.featureCharacteristicBonus(withAutomation, "might")).toBe(1);
-      expect(modifiers.effectiveCharacteristics(withAutomation).might).toBe(3);
-      expect(modifiers.featureCharacteristicBonus(withAutomation, "agility")).toBe(0);
-    } finally {
-      vi.doUnmock("../src/data/class-feature-rules");
-      vi.resetModules();
-    }
+        const withAutomation = {
+          ...hero,
+          automation: { ...hero.automation!, enabled: true },
+        };
+        expect(featureCharacteristicBonus(withAutomation, "might")).toBe(1);
+        expect(effectiveCharacteristics(withAutomation).might).toBe(3);
+        expect(featureCharacteristicBonus(withAutomation, "agility")).toBe(0);
+      },
+    );
   });
 
   it("пересчёт листа не трогает сохранённые характеристики", () => {

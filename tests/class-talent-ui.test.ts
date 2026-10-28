@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { TEXT_ONLY, mechanicsFor } from "../src/data/class-features/mechanics";
+import { classFeatureGroups } from "../src/data/class-feature-rules";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import { activeClassFeatures } from "../src/lib/class-features";
 import {
+  classFeatureChoicesForSheet,
   classFeatureGiftsAtLevel,
   classFeatureGroupsForSheet,
-  classFeatureLegacyGroupsForSheet,
   classFeatureOptionAutomated,
   featureSheetChoiceState,
 } from "../src/lib/class-feature-view";
@@ -39,18 +40,12 @@ describe("Талант: подписи и панель", () => {
     expect(battle?.summary).not.toContain("light");
   });
 
-  it("старая панель не дублирует перенесённые группы Таланта и Нуля", () => {
-    expect(classFeatureLegacyGroupsForSheet(talent()).map((group) => group.id)).toEqual([]);
-    expect(
-      classFeatureLegacyGroupsForSheet(createCharacter({ className: "Нуль" })).map(
-        (group) => group.id,
-      ),
-    ).toEqual([]);
-    expect(
-      classFeatureLegacyGroupsForSheet(
-        createCharacter({ className: "Элементалист" }),
-      ).map((group) => group.id),
-    ).toEqual([]);
+  it("старая панель удалена: все legacy-группы ведёт новый реестр", () => {
+    const legacyGroups = classFeatureGroups("Талант").map((group) => group.id);
+    const groups = classFeatureChoicesForSheet(talent()).map(
+      (choice) => choice.group,
+    );
+    expect(groups).toEqual(expect.arrayContaining(legacyGroups));
   });
 
   it("подсказка билдера понимает и числовые аугментации, и обереги-триггеры", () => {

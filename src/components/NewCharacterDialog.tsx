@@ -22,7 +22,6 @@ import {
   type BuilderStepId,
 } from "../lib/builder-steps";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
-import { classFeatureGroups } from "../data/class-feature-rules";
 import { classFeatureOptionAutomated } from "../lib/class-feature-view";
 import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
@@ -748,11 +747,6 @@ export function NewCharacterDialog({
                     const chosenOption = group.options.find(
                       (option) => option.name === chosenName,
                     );
-                    const registryOption = classFeatureGroups(
-                      draft.className,
-                    )
-                      .find((item) => item.name === group.name)
-                      ?.options.find((item) => item.name === chosenName);
                     const equipmentRequirement = featureEquipmentRequirements(draft.className, {
                       ...(draft.className === "Проводник" && group.name === "Молитва" ? { "conduit.prayer": chosenName } : {}),
                       ...(draft.className === "Талант" && group.name === "Псионическая аугментация" ? { "talent.augmentation": chosenName } : {}),
@@ -784,17 +778,15 @@ export function NewCharacterDialog({
                         />
                         {chosenOption && (
                           <>
-                            {registryOption && (
-                              <p className="muted small">
-                                {classFeatureOptionAutomated(
-                                  draft.className,
-                                  registryOption.name,
-                                )
-                                  ? "Поддерживает авторасчёт"
-                                  : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
-                              </p>
-                            )}
-                            {(registryOption?.effects.some((effect) => effect.kind === "field" && effect.when?.equipment) || equipmentRequirement) && (
+                            <p className="muted small">
+                              {classFeatureOptionAutomated(
+                                draft.className,
+                                chosenOption.name,
+                              )
+                                ? "Поддерживает авторасчёт"
+                                : "По тексту правил"}
+                            </p>
+                            {(equipmentRequirement) && (
                               <FeatureEquipmentFields
                                 value={draft.equipment}
                                 hasKit={Boolean(hero.kit.trim() || hero.secondaryKit?.trim())}

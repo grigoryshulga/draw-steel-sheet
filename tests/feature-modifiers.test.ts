@@ -1,8 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import {
-  CLASS_FEATURE_GROUPS,
-  classFeatureSelectionsFromDraft,
-} from "../src/data/class-feature-rules";
+import { classFeatureSelectionsFromDraft } from "../src/data/class-feature-rules";
 import { mechanicsFor } from "../src/data/class-features/mechanics";
 import { createCharacter } from "../src/lib/defaults";
 import {
@@ -338,15 +335,6 @@ describe("Class feature activation rules", () => {
   });
 
   it("keeps conditional options inert without equipment flags", () => {
-    const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    // После миграции Элементалиста все числа старого реестра живут в механике.
-    expect(options.filter((option) => option.effects.length > 0)).toEqual([]);
-
-    const oldElementalistBattle = options.find(
-      (candidate) => candidate.id === "elementalist.enchantment.battle",
-    );
-    expect(oldElementalistBattle?.effects).toEqual([]);
-    expect(oldElementalistBattle?.manualReason).toMatch(/перенес/);
     const elementalistBattle = mechanicsFor(
       "elementalist.feature.1.zacharovanie-bitvy",
     );
@@ -369,10 +357,6 @@ describe("Class feature activation rules", () => {
         (effect) => effect.kind === "field" && effect.when?.equipment,
       ),
     ).toBe(true);
-    const oldTalentBattle = options.find(
-      (candidate) => candidate.id === "talent.augmentation.battle",
-    );
-    expect(oldTalentBattle?.effects).toEqual([]);
     const conduitSoldier = mechanicsFor("conduit.feature.1.molitva-o-masterstve-soldata");
     expect(conduitSoldier?.effects).toHaveLength(3);
     expect(conduitSoldier?.effects?.filter((effect) => effect.kind === "field").every((effect) => effect.when)).toBe(true);
@@ -395,16 +379,13 @@ describe("Class feature activation rules", () => {
   });
 
   it("leaves reactive and immunity options manual without automatic effects", () => {
-    const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    const manualIds = [
-      "talent.sanctuary.entropy",
-      "elementalist.sanctuary.superior",
-    ];
-
-    for (const optionId of manualIds) {
-      const option = options.find((candidate) => candidate.id === optionId);
-      expect(option?.manualReason).toBeTruthy();
-      expect(option?.effects).toEqual([]);
+    for (const id of [
+      "talent.feature.1.obereg-entropii",
+      "talent.feature.1.stalnoy-obereg",
+    ]) {
+      const mechanics = mechanicsFor(id);
+      expect(mechanics?.effects, id).toBeUndefined();
+      expect(mechanics?.trigger, id).toBeTruthy();
     }
     const conduitReaction = mechanicsFor("conduit.feature.1.obereg-reaktsii");
     expect(conduitReaction?.effects).toBeUndefined();
@@ -452,37 +433,38 @@ describe("Class feature activation rules", () => {
 describe("Keyword normalization", () => {
   it("treats ё and е as the same keyword letter", async () => {
     vi.resetModules();
-    vi.doMock("../src/data/class-feature-rules", () => ({
-      CLASS_FEATURE_GROUPS: [
+    vi.doMock("../src/data/ancestry-feature-rules", () => ({
+      ANCESTRY_FEATURE_RULES: [
         {
-          id: "test.group",
-          name: "Тестовая группа",
-          className: "Тестовый класс",
-          options: [
+          id: "test.trait",
+          name: "Тестовая черта",
+          ancestryName: "Тестовая",
+          description: "",
+          effects: [
             {
-              id: "test.option",
-              name: "Тестовая опция",
-              description: "",
-              effects: [{ kind: "field" as const, field: "rolledDamage" as const, value: 2, filter: { keywords: ["Всё"] } }],
+              kind: "field" as const,
+              field: "rolledDamage" as const,
+              value: 2,
+              filter: { keywords: ["Всё"] },
             },
           ],
         },
       ],
+      ancestryTraitIdsFromNames: () => [],
     }));
     try {
       const modifiers = await import("../src/lib/feature-modifiers");
-      const character = createCharacter({ className: "Тестовый класс" });
-      character.className = "Тестовый класс";
+      const character = createCharacter({ ancestry: "Тестовая" });
       character.automation = {
         enabled: true,
         adjustments: {},
         ancestryTraits: [],
-        classFeatureSelections: { "test.group": "test.option" },
+        ancestryTraitIds: ["test.trait"],
       };
       const power = ability({ keywords: ["ВСЕ"] });
       expect(modifiers.featureAbilityDamageBonus(power, character)).toBe(2);
     } finally {
-      vi.doUnmock("../src/data/class-feature-rules");
+      vi.doUnmock("../src/data/ancestry-feature-rules");
       vi.resetModules();
     }
   });
@@ -567,9 +549,6 @@ describe("Equipment condition helper", () => {
 describe("Stat stacking groups", () => {
   it("keeps only the largest contribution of a group with its own source", async () => {
     vi.resetModules();
-    vi.doMock("../src/data/class-feature-rules", () => ({
-      CLASS_FEATURE_GROUPS: [],
-    }));
     vi.doMock("../src/data/ancestry-feature-rules", () => ({
       ANCESTRY_FEATURE_RULES: [
         {
@@ -647,7 +626,6 @@ describe("Stat stacking groups", () => {
       expect(modifiers.featureStatBonus(character, "speed")).toBe(3);
     } finally {
       vi.doUnmock("../src/data/ancestry-feature-rules");
-      vi.doUnmock("../src/data/class-feature-rules");
       vi.resetModules();
     }
   });

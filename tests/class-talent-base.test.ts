@@ -397,7 +397,9 @@ describe("Талант: суммы и ровно один источник", () 
     const talentOptions = CLASS_FEATURE_GROUPS.filter(
       (group) => group.className === "Талант",
     ).flatMap((group) => group.options);
-    expect(talentOptions.every((option) => option.effects.length === 0)).toBe(true);
+    expect(
+      talentOptions.every((option) => !("effects" in option)),
+    ).toBe(true);
 
     for (const [selections, field, expected] of [
       [DENSITY, "stamina", 6],

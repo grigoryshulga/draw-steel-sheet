@@ -587,7 +587,7 @@ describe("Нуль: создание и старый лист", () => {
     const nullOptions = CLASS_FEATURE_GROUPS.filter(
       (group) => group.className === "Нуль",
     ).flatMap((group) => group.options);
-    expect(nullOptions.every((option) => option.effects.length === 0)).toBe(
+    expect(nullOptions.every((option) => !("effects" in option))).toBe(
       true,
     );
   });

@@ -1,12 +1,8 @@
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
-import {
-  classFeatureGroups,
-  type ClassFeatureGroup,
-} from "../data/class-feature-rules";
+import { classFeatureGroups } from "../data/class-feature-rules";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
-import { resourceSpecFor } from "../data/class-features/class-resources";
-import { NOT_YET, mechanicsFor } from "../data/class-features/mechanics";
+import { mechanicsFor } from "../data/class-features/mechanics";
 import type {
   FeatureChoice,
   FeatureCondition,
@@ -256,23 +252,25 @@ function keyGroupKind(group: string): FeatureKeyGroup | undefined {
 }
 
 /**
- * Автоматизирован ли вариант старого реестра выбора. Сначала смотрим эффекты
- * самой опции (если у неё ещё остались effects), затем — механику вложенной
- * записи, которая включает эффект, триггер или ресурс по `when.keyValue` с
- * именем опции (так перенесены аугментации Таланта и Нуля). Без этой проверки
- * подсказка билдера «Поддерживает авторасчёт» после миграции врала бы.
+ * Автоматизирован ли вариант старого реестра выбора. У Проводника молитвы и
+ * обереги включаются отдельным резолвером; у остальных — механикой вложенной
+ * записи, которая содержит эффект, триггер или ресурс с именем опции в
+ * `when.keyValue`. Эффекты самой старой опции больше не читаются.
  */
 export function classFeatureOptionAutomated(
   className: string,
   optionName: string,
 ): boolean {
-  const group = classFeatureGroups(className).find((candidate) =>
-    candidate.options.some((option) => option.name === optionName),
-  );
-  const option = group?.options.find((candidate) => candidate.name === optionName);
-  if (!option) return false;
-  if (option.effects.length > 0) return true;
-
+  if (normalizeFeatureText(className) === normalizeFeatureText("Проводник")) {
+    for (const group of ["conduit.prayer", "conduit.sanctuary"]) {
+      const resolved = resolveConduitFeatureChoice(group, optionName);
+      if (!resolved) continue;
+      const mechanics = mechanicsFor(resolved.featureId);
+      return Boolean(
+        mechanics?.effects?.length || mechanics?.trigger || mechanics?.resource,
+      );
+    }
+  }
   const wanted = normalizeFeatureText(optionName);
   return GENERATED_CLASS_FEATURES.some((feature) => {
     if (normalizeFeatureText(feature.className) !== normalizeFeatureText(className)) {
@@ -564,11 +562,6 @@ function conditionBadges(
   return badges;
 }
 
-/** Названия классов, чьи механики ещё не перенесены: ключи — в нижнем регистре. */
-const UNMODELLED_CLASSES = new Set(
-  Object.keys(NOT_YET).map((className) => normalizeFeatureText(className)),
-);
-
 /** Предел подписи прозаической записи: панель показывает фрагмент, не абзац. */
 const MAX_TEXT_SUMMARY = 120;
 
@@ -628,19 +621,6 @@ function containers(): Set<string> {
 
 function hasChildren(featureId: string): boolean {
   return containers().has(featureId);
-}
-
-/** Класс смоделирован новым реестром, а не отложен в `NOT_YET`. */
-function classIsModelled(className: string): boolean {
-  const normalized = normalizeFeatureText(className);
-  if (!UNMODELLED_CLASSES.has(normalized)) return true;
-  // Класс может быть перенесён частично: у него уже есть механики и
-  // зарегистрированный ресурс, но `NOT_YET` ещё держит запись ради проверки
-  // покрытия. Признак начатого переноса — ресурс класса: тогда лист показывает
-  // новый раздел, а нерозобранные записи остаются текстом книги. Класс без
-  // ресурса в `NOT_YET` по-прежнему скрыт. Для завершённых классов ветка не
-  // срабатывает: их нет в `UNMODELLED_CLASSES`.
-  return resourceSpecFor(className) !== undefined;
 }
 
 /**
@@ -843,12 +823,12 @@ function isSheetFeature(
   if (needsUnknownSelection(character, feature)) return false;
   // Контейнер не показывается, даже если у него есть механика.
   if (hasChildren(feature.id)) return false;
-  // Доменные особенности Проводника показываем по тексту skeleton: они
-  // остаются полноценными дарами, даже пока прочая механика класса не разобрана.
+  // Доменные особенности Проводника показываем по тексту skeleton: это
+  // полноценные дары, даже если прочая механика записи описана прозой.
   if (/^conduit\.domain\.(1|4|7)\./.test(feature.id)) return true;
   if (givesMechanics(feature)) return true;
-  // Правила классов из `NOT_YET` показывает прежний реестр, а не новый раздел.
-  return classIsModelled(feature.className);
+  // Все классы книги смоделированы: прозаическая запись — реальный дар.
+  return true;
 }
 
 /**
@@ -1139,23 +1119,6 @@ export function classFeatureChoicesForSheet(
     });
   }
   return [...conduitChoices.choices, ...choices];
-}
-
-/**
- * Группы старого реестра, которые ещё показываются отдельной панелью. Если для
- * группы уже есть `mechanics.choice` в новом реестре (аугментация и оберег
- * Таланта), старый селектор скрывается: иначе на листе два контрола и ложное
- * «По тексту правил» у перенесённых чисел.
- */
-export function classFeatureLegacyGroupsForSheet(
-  character: Character,
-): ClassFeatureGroup[] {
-  const migrated = new Set(
-    classFeatureChoicesForSheet(character).map((choice) => choice.group),
-  );
-  return classFeatureGroups(character.className).filter(
-    (group) => !migrated.has(group.id),
-  );
 }
 
 /** Сохраняет выбор иммунитета, оставляя прочие поля старого листа нетронутыми. */

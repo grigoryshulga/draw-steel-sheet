@@ -7,7 +7,11 @@ import {
 } from "../src/data/class-feature-rules";
 import { mechanicsFor } from "../src/data/class-features/mechanics";
 
-describe("class feature registry", () => {
+/**
+ * Старый реестр после миграции — только метаданные выбора: ID, имена и тексты
+ * для сохранённых листов и конструктора. Числа и триггеры живут в механиках.
+ */
+describe("class feature selection metadata", () => {
   it("covers every generated feature group and option with complete Russian descriptions", () => {
     const sourceGroups = BUILDER_DATA.classes.flatMap((classData) =>
       classData.featureChoices.map((group) => ({ ...group, className: classData.name })),
@@ -40,24 +44,16 @@ describe("class feature registry", () => {
     }
   });
 
-  it("uses unique explicit ASCII IDs and keeps the supported numerical set fully automated", () => {
+  it("uses unique explicit ASCII IDs and no numeric fields", () => {
     const groupIds = CLASS_FEATURE_GROUPS.map((group) => group.id);
     const optionIds = CLASS_FEATURE_GROUPS.flatMap((group) => group.options.map((option) => option.id));
     const ids = [...groupIds, ...optionIds];
     expect(new Set(ids).size).toBe(ids.length);
     expect(ids.every((id) => /^[a-z]+(?:\.[a-z]+)+$/.test(id))).toBe(true);
 
-    const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    // Числа Таланта, Нуля и Элементалиста переехали в механики: эффектных
-    // и условных опций старого реестра больше нет.
-    expect(options.filter((option) => option.effects.length > 0)).toEqual([]);
-    const conditionalOptions = options.filter((option) =>
-      option.effects.some((effect) => effect.when !== undefined),
-    );
-    expect(conditionalOptions).toEqual([]);
-    for (const option of options) {
-      expect(option.effects, option.id).toEqual([]);
-      expect(option.manualReason?.trim(), option.id).toBeTruthy();
+    for (const option of CLASS_FEATURE_GROUPS.flatMap((group) => group.options)) {
+      expect("effects" in option, option.id).toBe(false);
+      expect("manualReason" in option, option.id).toBe(false);
     }
     expect(classFeatureGroups("Нуль")).toHaveLength(1);
     expect(classFeatureGroups("Проводник")).toHaveLength(0);
@@ -65,116 +61,13 @@ describe("class feature registry", () => {
     expect(classFeatureGroups("Элементалист")).toHaveLength(2);
   });
 
-  it("moves Talent density into mechanics and keeps the old choice as metadata", () => {
-    const density = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
-      .find((option) => option.id === "talent.augmentation.density");
-    expect(density?.effects).toEqual([]);
-    expect(density?.manualReason).toMatch(/перенес[её]н/);
-    expect(density?.manualReason).not.toContain("talent.feature.1.");
-
-    const mechanics = mechanicsFor("talent.feature.1.augmentatsiya-plotnosti");
-    expect(mechanics?.effects).toEqual([
-      { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
-      { kind: "field", field: "stability", value: 1 },
-    ]);
-
-    const distance = mechanicsFor("conduit.feature.1.molitva-o-distantsii");
-    expect(distance?.effects).toEqual([
-      { kind: "field", field: "distance", value: 2, filter: { keywords: ["Магия", "Дальний"] } },
-    ]);
-
-    const bastion = mechanicsFor("conduit.feature.1.obereg-bastiona");
-    expect(bastion?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
-  });
-
-  it("moves Null density into mechanics and keeps the old choice as metadata", () => {
-    const nullOptions = classFeatureGroups("Нуль").flatMap((group) => group.options);
-    expect(nullOptions.map((option) => option.id)).toEqual([
+  it("keeps Talent, Null and Elementalist choice IDs and names", () => {
+    expect(classFeatureGroups("Нуль").flatMap((group) => group.options.map((option) => option.id))).toEqual([
       "null.augmentation.density",
       "null.augmentation.force",
       "null.augmentation.speed",
     ]);
-    expect(nullOptions.map((option) => option.name)).toEqual([
-      "Аугментация плотности (Density Augmentation)",
-      "Аугментация силы (Force Augmentation)",
-      "Аугментация скорости (Speed Augmentation)",
-    ]);
-    for (const option of nullOptions) {
-      expect(option.effects, option.id).toEqual([]);
-      expect(option.manualReason, option.id).toMatch(/перенес[её]н/);
-      expect(option.manualReason, option.id).not.toContain("null.feature.");
-    }
-
-    expect(
-      mechanicsFor("null.feature.1.augmentatsiya-plotnosti-density-augmentation")
-        ?.effects,
-    ).toEqual([
-      { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
-      { kind: "field", field: "stability", value: 1 },
-    ]);
-    expect(
-      mechanicsFor("null.feature.1.augmentatsiya-sily-force-augmentation")
-        ?.effects,
-    ).toEqual([
-      {
-        kind: "field",
-        field: "rolledDamage",
-        value: 1,
-        filter: { keywords: ["Псионика"] },
-      },
-    ]);
-    expect(
-      mechanicsFor("null.feature.1.augmentatsiya-skorosti-speed-augmentation")
-        ?.effects,
-    ).toEqual([
-      { kind: "field", field: "speed", value: 1 },
-      { kind: "field", field: "disengage", value: 1 },
-    ]);
-    for (const [id, name] of [
-      [
-        "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
-        "Аугментация плотности (Density Augmentation)",
-      ],
-      [
-        "null.feature.1.augmentatsiya-sily-force-augmentation",
-        "Аугментация силы (Force Augmentation)",
-      ],
-      [
-        "null.feature.1.augmentatsiya-skorosti-speed-augmentation",
-        "Аугментация скорости (Speed Augmentation)",
-      ],
-    ] as const) {
-      expect(mechanicsFor(id)?.when).toEqual({ keyValue: [name] });
-    }
-  });
-
-  it("moves Steel Ward into a trigger and leaves no numeric effect in the old registry", () => {
-    const steelWard = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
-      .find((option) => option.id === "talent.sanctuary.steel");
-
-    expect(steelWard?.effects).toEqual([]);
-    expect(steelWard?.manualReason).toMatch(/перенес[её]н/);
-    expect(steelWard?.manualReason).not.toContain("talent.feature.1.");
-
-    const mechanics = mechanicsFor("talent.feature.1.stalnoy-obereg");
-    expect(mechanics?.trigger?.detail).toContain("иммунитет");
-    expect(mechanics?.trigger?.detail).toContain("Разума");
-    expect(mechanics?.trigger?.detail).toContain("следующего хода");
-  });
-
-  it("keeps the old Talent groups, option IDs and names without numeric effects", () => {
-    const talentGroups = classFeatureGroups("Талант");
-    expect(talentGroups.map((group) => group.id)).toEqual([
-      "talent.augmentation",
-      "talent.sanctuary",
-    ]);
-    expect(talentGroups.map((group) => group.name)).toEqual([
-      "Псионическая аугментация",
-      "Оберег таланта",
-    ]);
-    expect(
-      talentGroups.flatMap((group) => group.options.map((option) => option.id)),
-    ).toEqual([
+    expect(classFeatureGroups("Талант").flatMap((group) => group.options.map((option) => option.id))).toEqual([
       "talent.augmentation.battle",
       "talent.augmentation.density",
       "talent.augmentation.distance",
@@ -185,9 +78,7 @@ describe("class feature registry", () => {
       "talent.sanctuary.steel",
       "talent.sanctuary.vanishing",
     ]);
-    expect(
-      talentGroups.flatMap((group) => group.options.map((option) => option.name)),
-    ).toEqual([
+    expect(classFeatureGroups("Талант").flatMap((group) => group.options.map((option) => option.name))).toEqual([
       "Боевая аугментация",
       "Аугментация плотности",
       "Аугментация дистанции",
@@ -198,24 +89,16 @@ describe("class feature registry", () => {
       "Стальной оберег",
       "Исчезающий оберег",
     ]);
-    for (const option of talentGroups.flatMap((group) => group.options)) {
-      expect(option.effects).toEqual([]);
-      expect(option.manualReason).toMatch(/перенес/);
-    }
-  });
-
-  it("keeps the last old Elementalist groups, option IDs and names without numeric effects", () => {
-    const groups = classFeatureGroups("Элементалист");
-    expect(groups.map((group) => group.id)).toEqual([
+    expect(classFeatureGroups("Элементалист").map((group) => group.id)).toEqual([
       "elementalist.enchantment",
       "elementalist.sanctuary",
     ]);
-    expect(groups.map((group) => group.name)).toEqual([
+    expect(classFeatureGroups("Элементалист").map((group) => group.name)).toEqual([
       "Зачарование",
       "Оберег элементалиста",
     ]);
     expect(
-      groups.flatMap((group) => group.options.map((option) => option.id)),
+      classFeatureGroups("Элементалист").flatMap((group) => group.options.map((option) => option.id)),
     ).toEqual([
       "elementalist.enchantment.battle",
       "elementalist.enchantment.speed",
@@ -227,32 +110,19 @@ describe("class feature registry", () => {
       "elementalist.sanctuary.nature",
       "elementalist.sanctuary.reactivity",
     ]);
-    expect(
-      groups.flatMap((group) => group.options.map((option) => option.name)),
-    ).toEqual([
-      "Зачарование битвы",
-      "Зачарование быстроты",
-      "Зачарование разрушения",
-      "Зачарование дистанции",
-      "Зачарование постоянства",
-      "Оберег восхитительных последствий",
-      "Оберег превосходной защиты",
-      "Оберег привязанности природы",
-      "Оберег удивительной реактивности",
-    ]);
-    for (const option of groups.flatMap((group) => group.options)) {
-      expect(option.effects, option.id).toEqual([]);
-      expect(option.manualReason, option.id).toMatch(/перенес/);
-      expect(option.manualReason, option.id).not.toContain("elementalist.feature.");
-      expect(option.manualReason, option.id).not.toMatch(/\d/);
-    }
+  });
 
-    // Числа зачарований и триггеры оберегов живут во вложенных механиках.
+  it("points saved choices at mechanics, not at old numeric effects", () => {
+    expect(mechanicsFor("talent.feature.1.augmentatsiya-plotnosti")?.effects).toEqual([
+      { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
+      { kind: "field", field: "stability", value: 1 },
+    ]);
+    expect(mechanicsFor("null.feature.1.augmentatsiya-sily-force-augmentation")?.when).toEqual({
+      keyValue: ["Аугментация силы (Force Augmentation)"],
+    });
+    expect(mechanicsFor("talent.feature.1.stalnoy-obereg")?.trigger?.detail).toContain("иммунитет");
     expect(mechanicsFor("elementalist.feature.1.zacharovanie-bitvy")?.when).toEqual({
       keyValue: ["Зачарование битвы"],
-    });
-    expect(mechanicsFor("elementalist.feature.1.obereg-prevoskhodnoy-zashchity")?.when).toEqual({
-      keyValue: ["Оберег превосходной защиты"],
     });
   });
 
