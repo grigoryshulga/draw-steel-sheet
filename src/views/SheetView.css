@@ -1635,14 +1635,15 @@
   }
 }
 
-/* Карточки способностей: одинаковая ширина и высота, футер прижат вниз */
+/* Карточки способностей: ширина по сетке, высота по содержимому — короткая
+   способность не растягивается под самую высокую соседку. */
 .sheet-view .sheet-ability-grid {
-  grid-auto-rows: 1fr;
-  align-items: stretch;
+  grid-auto-rows: auto;
+  align-items: start;
 }
 
 .sheet-view .sheet-ability-card {
-  height: 100%;
+  height: auto;
   min-height: 0;
   padding: 16px;
   gap: 8px;

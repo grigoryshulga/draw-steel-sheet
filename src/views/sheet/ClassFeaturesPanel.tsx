@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Button, Select } from "../../components/ui";
+import { Button, Chip, Select } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
@@ -14,7 +14,11 @@ import {
   classFeatureGroupsForSheet,
   featureBadgeState,
   featureLevelOpenState,
+  featureCategoryOptions,
+  filterFeatureGroups,
+  FEATURE_CATEGORY_LABELS,
   triggerBadgeCounts,
+  type FeatureSheetCategory,
   type FeatureSheetGroup,
   type FeatureSheetItem,
 } from "../../lib/class-feature-view";
@@ -93,7 +97,12 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
   return (
     <article className={`cf-item${trigger?.used ? " is-used" : ""}`}>
       <div className="cf-item-head">
-        <strong className="cf-item-name">{item.name}</strong>
+        <div className="cf-item-title">
+          <strong className="cf-item-name">{item.name}</strong>
+          <span className={`cf-item-category is-${item.category}`}>
+            {FEATURE_CATEGORY_LABELS[item.category]}
+          </span>
+        </div>
         {trigger && (
           <Button
             size="sm"
@@ -120,9 +129,10 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
         </p>
       )}
       {item.notes && (
-        <p className="cf-item-mechanics-notes">
-          <span className="cf-item-note-label">Примечание:</span> {item.notes}
-        </p>
+        <details className="cf-item-notes">
+          <summary>Примечание</summary>
+          <p>{item.notes}</p>
+        </details>
       )}
       {item.detail && (
         <details className="cf-item-detail">
@@ -204,7 +214,14 @@ export function ClassFeatureMechanicsPanel() {
   // Раскрыта группа ровно текущего уровня героя; клики игрока переопределяют
   // только тронутые группы и переживают только собственный уровень.
   const [levelOverrides, setLevelOverrides] = useState<Record<number, boolean>>({});
+  const [category, setCategory] = useState<"all" | FeatureSheetCategory>("all");
   const [conduitDomainDraft, setConduitDomainDraft] = useState<[string, string]>(["", ""]);
+  const categoryOptions = featureCategoryOptions(groups);
+  // Удаление последней записи категории не должно оставлять пустую панель.
+  const activeCategory = categoryOptions.some((option) => option.key === category)
+    ? category
+    : "all";
+  const visibleGroups = filterFeatureGroups(groups, activeCategory);
   const openLevels = featureLevelOpenState(
     groups,
     character.level,
@@ -218,6 +235,17 @@ export function ClassFeatureMechanicsPanel() {
       const state = featureLevelOpenState(groups, character.level, current);
       return { ...current, [level]: !state[level] };
     });
+
+  // Фильтр показывает совпадения из всех уровней: иначе записи 1-го уровня
+  // остались бы за свёрнутой группой.
+  const selectCategory = (next: "all" | FeatureSheetCategory) => {
+    setCategory(next);
+    if (next !== "all") {
+      setLevelOverrides(
+        Object.fromEntries(groups.map((group) => [group.level, true])),
+      );
+    }
+  };
 
   const selectChoice = (group: string, value: string) => {
     update((current) => {
@@ -304,8 +332,31 @@ export function ClassFeatureMechanicsPanel() {
         )}
       </div>
 
+      {categoryOptions.length > 2 && (
+        <div
+          className="cf-filters"
+          role="group"
+          aria-label="Фильтр особенностей по категории"
+        >
+          {categoryOptions.map((option) => (
+            <Chip
+              key={option.key}
+              active={activeCategory === option.key}
+              onClick={() => selectCategory(option.key)}
+              title={
+                option.key === "all"
+                  ? "Показать все особенности"
+                  : `Показать: ${option.label.toLowerCase()}`
+              }
+            >
+              {option.label}
+              <span className="cf-filter-count mono">{option.count}</span>
+            </Chip>
+          ))}
+        </div>
+      )}
       <div className="cf-groups">
-        {groups.map((group) => (
+        {visibleGroups.map((group) => (
           <LevelGroup
             key={group.level}
             group={group}

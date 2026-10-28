@@ -79,6 +79,8 @@ export interface FeatureSheetItem {
   id: string;
   name: string;
   level: number;
+  /** Категория для фильтра и подписи карточки на листе. */
+  category: FeatureSheetCategory;
   /**
    * Числа механики, разрешённые в конкретику: «скорость +3 (Ловкость)».
    * У прозаической записи — первый смысловой фрагмент текста правила,
@@ -103,6 +105,67 @@ export interface FeatureSheetGroup {
   /** Заголовок группы: «Уровень 2». */
   title: string;
   features: FeatureSheetItem[];
+}
+
+/** Смысловая категория записи — вторая ось после уровня. */
+export type FeatureSheetCategory =
+  | "class"
+  | "subclass"
+  | "resource"
+  | "choice"
+  | "trigger";
+
+export const FEATURE_CATEGORY_LABELS: Record<FeatureSheetCategory, string> = {
+  class: "Класс",
+  subclass: "Подкласс",
+  resource: "Ресурс",
+  choice: "Выбор",
+  trigger: "Триггер",
+};
+
+const FEATURE_CATEGORY_ORDER: FeatureSheetCategory[] = [
+  "class",
+  "subclass",
+  "resource",
+  "choice",
+  "trigger",
+];
+
+export interface FeatureSheetCategoryOption {
+  key: "all" | FeatureSheetCategory;
+  label: string;
+  count: number;
+}
+
+/** Чипы фильтра: «Все» и только непустые категории со счётчиками. */
+export function featureCategoryOptions(
+  groups: readonly FeatureSheetGroup[],
+): FeatureSheetCategoryOption[] {
+  const items = groups.flatMap((group) => group.features);
+  const options: FeatureSheetCategoryOption[] = [
+    { key: "all", label: "Все", count: items.length },
+  ];
+  for (const key of FEATURE_CATEGORY_ORDER) {
+    const count = items.filter((item) => item.category === key).length;
+    if (count > 0) {
+      options.push({ key, label: FEATURE_CATEGORY_LABELS[key], count });
+    }
+  }
+  return options;
+}
+
+/** Фильтр по категории с сохранением групп уровней; пустые уровни скрываются. */
+export function filterFeatureGroups(
+  groups: readonly FeatureSheetGroup[],
+  category: "all" | FeatureSheetCategory,
+): FeatureSheetGroup[] {
+  if (category === "all") return [...groups];
+  return groups
+    .map((group) => ({
+      ...group,
+      features: group.features.filter((item) => item.category === category),
+    }))
+    .filter((group) => group.features.length > 0);
 }
 
 /** Незакрытая группа выбора: лист предлагает её, пока значения нет. */
@@ -643,6 +706,38 @@ function textSummary(description: string): string {
   return `${(space > 40 ? cut.slice(0, space) : cut).trimEnd()}…`;
 }
 
+/**
+ * Категория записи для карточек. Подкласс определяется по `keyedBy` и по
+ * видовой группе выбора (орден, домен, аспект, традиция); остальные категории —
+ * по механике. Ресурс важнее триггера: «Гнев в бою» — правило ресурса, а не
+ * срабатывание.
+ */
+function featureSheetCategory(
+  feature: ActiveClassFeature,
+): FeatureSheetCategory {
+  const mechanics = feature.mechanics;
+  if (feature.keyedBy) return "subclass";
+  if (mechanics?.choice && keyGroupKind(mechanics.choice.group)) {
+    return "subclass";
+  }
+  if (
+    mechanics?.resource ||
+    (mechanics?.kinds ?? []).some(
+      (kind) => kind === "resource" || kind === "resourceGain",
+    )
+  ) {
+    return "resource";
+  }
+  if (mechanics?.trigger) return "trigger";
+  if (
+    mechanics?.choice ||
+    (mechanics?.kinds ?? []).some((kind) => kind === "choice")
+  ) {
+    return "choice";
+  }
+  return "class";
+}
+
 /** Запись листа по одной активной особенности. */
 function sheetItem(
   context: SheetContext,
@@ -778,6 +873,7 @@ function sheetItem(
     id: feature.id,
     name: feature.name,
     level: feature.level,
+    category: featureSheetCategory(feature),
     summary,
     ...(summaryFromDescription ? { summaryFromDescription: true } : {}),
     badges: merged,

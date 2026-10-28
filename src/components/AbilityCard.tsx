@@ -14,13 +14,12 @@ import {
 import { inferDamageType } from "../lib/damageType";
 import type { Ability, Character } from "../types";
 import { kindTone, rollSummary } from "../views/abilities/shared";
+import { BASIC_ABILITY_SOURCE } from "../lib/ability-sheet-groups";
 import {
   abilityTierRequirements,
   tierRequirementText,
 } from "../lib/abilities";
 import "./AbilityCard.css";
-
-const BASIC_SOURCE = "Базовые способности";
 
 export interface AbilityCardProps {
   ability: Ability;
@@ -69,11 +68,13 @@ export function AbilityCard({
         </h4>
         <div className="sheet-ability-card-tags">
           <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
-          {ability.source === BASIC_SOURCE && <Chip>Базовая</Chip>}
+          {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
           {ability.resourceCost > 0 && (
             <span
               className="sheet-ability-cost-stamp is-paid"
-              title={`Стоимость: ${ability.resourceCost}`}
+              role="img"
+              aria-label={`Стоимость: ${ability.resourceCost} ресурса`}
+              title={`Стоимость: ${ability.resourceCost} ресурса`}
             >
               {ability.resourceCost}
             </span>

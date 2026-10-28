@@ -9,7 +9,7 @@ import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Modal, Panel } from "../../components/ui";
 import { RichText } from "../../components/RichText";
-import { ACTION_TYPES, actionLabel, kindLabel } from "../../data/actions";
+import { actionLabel, kindLabel } from "../../data/actions";
 import { abilityDistance } from "../../lib/character-calculations";
 import {
   characteristicShort,
@@ -31,6 +31,12 @@ import {
   preferredCharacteristic,
   tierRequirementText,
 } from "../../lib/abilities";
+import {
+  BASIC_ABILITY_SOURCE,
+  abilityFilterOptions,
+  sheetAbilityLayout,
+  type AbilitySheetFilter,
+} from "../../lib/ability-sheet-groups";
 import "./SheetAbilitiesPanel.css";
 
 const AbilityPicker = lazy(() =>
@@ -42,8 +48,6 @@ const AbilityPicker = lazy(() =>
 /** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
 type AddMode = "catalog" | "templates" | "custom" | null;
 
-const BASIC_SOURCE = "Базовые способности";
-
 /** Компактный справочник способностей внизу листа, сгруппированный по типу действия. */
 export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
@@ -51,15 +55,20 @@ export function SheetAbilitiesPanel() {
   const [using, setUsing] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+  const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [editing, setEditing] = useState<{
     ability: Ability;
     isNew: boolean;
   } | null>(null);
   const abilities = character.abilities;
-  const groups = ACTION_TYPES.map((type) => ({
-    ...type,
-    items: abilities.filter((ability) => ability.actionType === type.key),
-  })).filter((group) => group.items.length > 0);
+  const filterOptions = abilityFilterOptions(abilities);
+  // Удаление последней способности категории не должно оставлять пустой лист:
+  // неизвестный фильтр откатывается к «Все».
+  const activeFilter = filterOptions.some((option) => option.key === filter)
+    ? filter
+    : "all";
+  const { groups } = sheetAbilityLayout(abilities, activeFilter);
+  const hasFilter = filterOptions.length > 2;
 
   const toggleGroup = (key: string) =>
     setCollapsed((current) => {
@@ -136,6 +145,31 @@ export function SheetAbilitiesPanel() {
           />
         ) : (
           <div className="sheet-ability-sections">
+            {hasFilter && (
+              <div
+                className="sheet-ability-filters"
+                role="group"
+                aria-label="Фильтр способностей по виду"
+              >
+                {filterOptions.map((option) => (
+                  <Chip
+                    key={option.key}
+                    active={activeFilter === option.key}
+                    onClick={() => setFilter(option.key)}
+                    title={
+                      option.key === "all"
+                        ? "Показать все способности"
+                        : `Показать: ${option.label.toLowerCase()}`
+                    }
+                  >
+                    {option.label}
+                    <span className="sheet-ability-filter-count mono">
+                      {option.count}
+                    </span>
+                  </Chip>
+                ))}
+              </div>
+            )}
             {groups.map((group) => {
               const isCollapsed = collapsed.has(group.key);
               return (
@@ -329,7 +363,7 @@ function AbilityDetailModal({
       <div className="sheet-ability-detail">
         <div className="hstack wrap">
           <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
-          {ability.source === BASIC_SOURCE && <Chip>Базовая</Chip>}
+          {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
           {ability.resourceCost > 0 && (
             <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>
           )}
