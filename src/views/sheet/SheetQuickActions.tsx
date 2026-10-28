@@ -7,29 +7,24 @@ import { useApp } from "../../state/AppContext";
 import { ConditionsPanel } from "./ConditionsPanel";
 import { HealthDialog } from "./HealthDialog";
 import { ResourcesPanel } from "./ResourcesPanel";
-import { GameHistory } from "./GameHistory";
 import "./SheetQuickActions.css";
 
-type QuickPanel = "resources" | "conditions" | "history" | null;
+type QuickPanel = "resources" | "conditions" | null;
 
 /** Compact mobile entry points to the character's frequently used combat data. */
 export function SheetQuickActions() {
-  const { character, gameHistory, performGameAction } = useApp();
+  const { character, performGameAction } = useApp();
   const [healthOpen, setHealthOpen] = useState(false);
   const [panel, setPanel] = useState<QuickPanel>(null);
-  const [topbarHeight, setTopbarHeight] = useState(73);
+  const [topbarHeight, setTopbarHeight] = useState(74);
   useLayoutEffect(() => {
-    const topbar = document.querySelector(".topbar");
-    const rail = document.querySelector(".rail");
-    if (!topbar) return;
+    const header = document.querySelector(".floating-header");
+    if (!header) return;
     const measure = () =>
-      setTopbarHeight(
-        topbar.getBoundingClientRect().height +
-          (rail?.getBoundingClientRect().height ?? 0),
-      );
+      setTopbarHeight(header.getBoundingClientRect().bottom + 6);
     measure();
     const observer = new ResizeObserver(measure);
-    observer.observe(topbar);
+    observer.observe(header);
     return () => observer.disconnect();
   }, []);
   const activeConditions = CONDITIONS.filter(
@@ -43,7 +38,7 @@ export function SheetQuickActions() {
       <nav
         className="sheet-quick-actions"
         aria-label="Быстрый доступ к листу"
-        style={{ top: topbarHeight + 1 }}
+        style={{ top: topbarHeight }}
       >
         <button
           type="button"
@@ -88,18 +83,6 @@ export function SheetQuickActions() {
         </button>
         <button
           type="button"
-          className="sheet-quick-action"
-          onClick={() => setPanel("history")}
-          aria-label="История и отмена действий"
-        >
-          <span className="sheet-quick-label">История</span>
-          <strong className="numeric">
-            {gameHistory.filter((entry) => !entry.undone).length || "—"}
-          </strong>
-          <span className="sheet-quick-detail">Отмена</span>
-        </button>
-        <button
-          type="button"
           className="sheet-quick-action is-turn"
           onClick={() => performGameAction({ kind: "round" })}
           aria-label={`Новый раунд: сейчас ${runtime.round}, будут сняты отметки триггеров раунда`}
@@ -136,21 +119,6 @@ export function SheetQuickActions() {
         className="sheet-quick-modal"
       >
         <ConditionsPanel />
-      </Modal>
-      <Modal
-        open={panel === "history"}
-        onClose={() => setPanel(null)}
-        title="История и отмена"
-        className="sheet-quick-modal"
-      >
-        {gameHistory.length ? (
-          <GameHistory />
-        ) : (
-          <p className="muted">
-            Здесь появятся действия с ресурсами, здоровьем и способностями.
-            Последнее действие можно отменить.
-          </p>
-        )}
       </Modal>
     </>
   );

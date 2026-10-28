@@ -1,0 +1,235 @@
+/* Рамка листа: закладки приклеены к верхней кромке панели. */
+.sheet-frame {
+  min-width: 0;
+  border: 1px solid var(--sheet-warm-line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--sheet-warm) 4%, transparent),
+      transparent 68%
+    ),
+    color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
+  overflow: clip;
+}
+
+.sheet-frame-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  padding: var(--space-3) clamp(12px, 2.4vw, 20px);
+  border-bottom: 1px solid var(--sheet-warm-line);
+}
+
+.sheet-frame .sheet-tablist {
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sheet-frame .sheet-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  letter-spacing: 0;
+}
+
+.sheet-frame .sheet-tab svg {
+  flex: none;
+  opacity: 0.8;
+}
+
+.sheet-frame .sheet-tab.is-active {
+  border-color: var(--accent-line);
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sheet-frame .sheet-tab:not(.is-active):hover {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+/* Под активной закладкой нет нижней линии — шапка и тело сходятся без бордера. */
+.sheet-frame .sheet-tab.is-active::after {
+  display: none;
+}
+
+.sheet-frame-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin-left: auto;
+}
+
+.sheet-frame-actions > a {
+  color: var(--muted);
+  font-size: var(--text-body);
+  text-decoration: none;
+}
+
+.sheet-frame-actions > a:hover {
+  color: var(--fg);
+}
+
+.sheet-frame-body {
+  min-width: 0;
+}
+
+.sheet-frame .sheet-layout {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.sheet-frame .dev-panel {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: var(--space-8);
+}
+
+.sheet-frame-body[data-view="inventory"] > .inv-view,
+.sheet-frame-body[data-view="notes"] > .notes-view,
+.sheet-frame-body[data-view="companions"] > .companions-view {
+  padding: var(--space-8);
+}
+
+.sheet-frame-body .page-head {
+  display: none;
+}
+
+.companions-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+@media (max-width: 900px) {
+  .sheet-frame-head {
+    align-items: stretch;
+  }
+
+  .sheet-frame-actions {
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: var(--space-4);
+  }
+
+  .sheet-frame-body[data-view="inventory"] > .inv-view,
+  .sheet-frame-body[data-view="notes"] > .notes-view,
+  .sheet-frame-body[data-view="companions"] > .companions-view,
+  .sheet-frame .dev-panel {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 700px) {
+  /* На телефоне лист идёт от края до края: убираем боковые поля страницы. */
+  .sheet-workspace-view {
+    margin-inline: calc(-1 * clamp(16px, 3vw, 36px));
+  }
+
+  .sheet-workspace-view > .sheet-header {
+    padding-inline: var(--space-6);
+  }
+
+  .sheet-quick-actions {
+    margin-inline: var(--space-4);
+  }
+
+  .sheet-frame {
+    border-inline: 0;
+    border-radius: 0;
+  }
+
+  .sheet-frame-head {
+    padding-inline: var(--space-5);
+  }
+}
+
+/* «Развитие» совмещает редактор героя и уровни развития. */
+.development-workspace {
+  display: flex;
+  flex-direction: column;
+}
+
+.development-workspace .hero-view.is-embedded {
+  padding: var(--space-8);
+  border-bottom: 1px solid var(--sheet-warm-line);
+}
+
+.development-workspace .dev-panel {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .development-workspace .hero-view.is-embedded {
+    padding: var(--space-6);
+  }
+}
+
+/* Блоки редактора героя — секции листа: без подложки, только бордеры. */
+.hero-view.is-embedded {
+  gap: 0;
+}
+
+.hero-view.is-embedded .panel {
+  border: 0;
+  border-top: 1px solid var(--sheet-warm-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.hero-view.is-embedded > .panel:first-child {
+  border-top: 0;
+}
+
+.hero-view.is-embedded .hero-cols {
+  gap: 0;
+}
+
+.hero-view.is-embedded .hero-cols > .panel {
+  border-top: 1px solid var(--sheet-warm-line);
+}
+
+@media (min-width: 720px) {
+  .hero-view.is-embedded .hero-cols > .panel + .panel {
+    border-left: 1px solid var(--sheet-warm-line);
+  }
+}
+
+.hero-view.is-embedded .panel-head {
+  padding: var(--space-6) var(--space-7) var(--space-4);
+}
+
+.hero-view.is-embedded .panel-body {
+  padding: var(--space-2) var(--space-7) var(--space-7);
+}
+
+.hero-view.is-embedded .panel-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--fg-bright);
+}
+
+.hero-view.is-embedded .panel-title svg {
+  color: var(--sheet-warm);
+  opacity: 0.85;
+}

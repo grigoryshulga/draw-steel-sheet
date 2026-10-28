@@ -4,15 +4,15 @@
   --card-accent: color-mix(in srgb, var(--card-color) 82%, transparent);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-4);
   min-width: 0;
   height: 100%;
   min-height: 0;
-  padding: 16px;
-  border: 1px solid color-mix(in srgb, var(--sheet-warm-line, color-mix(in srgb, #b9966f 26%, var(--line))) 80%, var(--line));
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border);
   border-top-color: var(--card-accent);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--sheet-warm-soft, color-mix(in srgb, #b9966f 5%, var(--surface))) 34%, var(--surface));
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
   transition:
     border-color 140ms var(--ease),
     background 140ms var(--ease),
@@ -55,6 +55,19 @@
   background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
 }
 
+.sheet-ability-card[role="button"] {
+  cursor: pointer;
+}
+
+.sheet-ability-card.is-selected {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  border-top-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 0 24px -10px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
 .sheet-ability-card:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: 2px;
@@ -71,15 +84,15 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .sheet-ability-card-head h4 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 17.5px;
+  font-size: var(--text-xl);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: var(--leading-tight);
   color: var(--fg-bright);
   overflow-wrap: anywhere;
 }
@@ -102,7 +115,7 @@
 .sheet-ability-title:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
 }
 
 .sheet-ability-card-tags {
@@ -110,14 +123,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
+  gap: var(--space-3);
   flex: none;
 }
 
 .sheet-ability-card-tags .chip {
   height: 22px;
-  padding: 0 7px;
-  font-size: 10px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
 }
 
 .sheet-ability-cost-stamp {
@@ -131,7 +144,7 @@
   background: color-mix(in srgb, var(--surface-3) 70%, transparent);
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-sm);
   font-weight: 700;
   line-height: 1;
 }
@@ -145,16 +158,16 @@
 .sheet-ability-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px 12px;
-  font-size: 11.5px;
-  line-height: 1.35;
+  gap: var(--space-2) var(--space-6);
+  font-size: var(--text-body);
+  line-height: var(--leading-snug);
   color: var(--muted);
 }
 
 .sheet-ability-meta em {
   font-style: normal;
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: var(--text-2xs);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
@@ -163,31 +176,32 @@
 .sheet-ability-keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: var(--space-2);
 }
 
 .sheet-ability-keyword {
-  padding: 1px 5px;
+  padding: var(--space-1) var(--space-3);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 9px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-2xs);
   color: var(--muted);
 }
 
 .sheet-ability-tiers {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px 0;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
 }
 
+/* Диапазон, урон и эффект тира — одной строкой: урон слева, текст сразу за ним. */
 .sheet-ability-tier {
-  display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  align-items: start;
-  gap: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-4);
   min-width: 0;
-  padding: 2px 0;
+  padding: var(--space-1) 0;
   --tier-color: var(--tier1);
 }
 
@@ -199,16 +213,10 @@
   --tier-color: var(--tier3);
 }
 
-.sheet-ability-tier-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-  min-width: 0;
-}
-
 .sheet-ability-range {
-  font-size: 12px;
+  flex: none;
+  min-width: 34px;
+  font-size: var(--text-body);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--tier-color);
@@ -216,37 +224,49 @@
   line-height: 24px;
 }
 
-.sheet-ability-effect {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: var(--muted);
+.sheet-ability-tier .damage-chip {
+  flex: none;
+  align-self: center;
 }
 
+.sheet-ability-effect {
+  flex: 1 1 150px;
+  min-width: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+  white-space: pre-line;
+}
+
+/* Эффект в карточке — первые 6 строк; полный текст живёт в превью. */
 .sheet-ability-body {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
-  font-size: 11.5px;
-  line-height: 1.45;
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
   color: var(--muted);
+  white-space: pre-line;
+}
+
+.sheet-ability-card.is-full .sheet-ability-body {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
 }
 
 /* Строка принудительного движения: добавка особенностей, а не текст тира. */
 .sheet-ability-forced {
   margin: 0;
-  padding: 4px 8px;
+  padding: var(--space-2) var(--space-4);
   border-left: 2px solid var(--accent);
   border-radius: var(--radius-sm);
   background: var(--surface-2);
   color: var(--fg);
-  font-size: 11.5px;
-  line-height: 1.45;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
 }
 
 .sheet-ability-footer {
@@ -254,33 +274,25 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-4);
   margin-top: auto;
-  padding-top: 8px;
-  font-size: 11px;
+  padding-top: var(--space-4);
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
 .sheet-ability-footer em {
   font-style: normal;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-2xs);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-
-.sheet-ability-tier-text .damage-chip {
-  align-self: flex-end;
-}
-
-.sheet-ability-tier-text .damage-chip {
-  align-self: flex-end;
 }
 
 .sheet-ability-trigger {
   color: var(--magenta);
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: var(--text-2xs);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -288,6 +300,25 @@
 @media (max-width: 560px) {
   .sheet-ability-card-head {
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-4);
   }
+}
+
+.sheet-ability-card.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Карточка внутри поп-апа: без второй рамки и фона. */
+.sheet-ability-card.is-flat,
+.sheet-ability-card.is-flat:hover {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sheet-ability-card.is-flat .sheet-ability-card-head h4 {
+  font-size: var(--text-2xl);
 }

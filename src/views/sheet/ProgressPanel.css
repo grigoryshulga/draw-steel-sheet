@@ -1,6 +1,6 @@
 .progress-panel .progress-layout {
   display: grid;
-  gap: 16px;
+  gap: var(--space-7);
   min-width: 0;
 }
 
@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-7);
   min-width: 0;
 }
 
@@ -16,14 +16,14 @@
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px 14px;
+  gap: var(--space-4) var(--space-7);
   min-width: 0;
 }
 
 .progress-panel .progress-level-value {
   display: inline-flex;
   align-items: baseline;
-  gap: 7px;
+  gap: var(--space-4);
   color: var(--fg-bright);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 750;
@@ -34,14 +34,14 @@
 
 .progress-panel .progress-level-unit {
   color: var(--muted);
-  font-size: 1rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: 0;
 }
 
 .progress-panel .progress-echelon {
   color: var(--fg);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 600;
 }
 
@@ -56,7 +56,7 @@
   height: 44px;
   padding: 0;
   place-items: center;
-  border-radius: 12px;
+  border-radius: var(--radius);
   color: var(--accent-ink);
   background: var(--accent);
 }
@@ -75,7 +75,7 @@
 .progress-panel .progress-counters {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--space-5);
   min-width: 0;
 }
 
@@ -97,9 +97,9 @@
 .progress-panel .progress-standing {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--space-5);
   min-width: 0;
-  padding-top: 14px;
+  padding-top: var(--space-7);
   border-top: 1px solid var(--line);
 }
 

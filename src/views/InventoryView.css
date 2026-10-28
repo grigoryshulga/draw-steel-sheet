@@ -1,7 +1,7 @@
 .inv-view {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-7);
 }
 
 /* --- Wallet --- */
@@ -9,7 +9,7 @@
 .inv-wallet {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+  gap: var(--space-6);
 }
 
 /* --- Kit --- */
@@ -17,8 +17,8 @@
 .inv-kit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
 }
 
 .inv-effects {
@@ -31,27 +31,27 @@
 .inv-groups {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-7);
 }
 
 .inv-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .inv-group-head {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   color: var(--accent);
-  padding-bottom: 6px;
+  padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--line);
 }
 
 .inv-group-head h3 {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -64,15 +64,15 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .inv-row {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) auto minmax(0, 1.4fr) auto;
-  gap: 8px;
+  gap: var(--space-4);
   align-items: center;
-  padding: 6px 8px;
+  padding: var(--space-3) var(--space-4);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-2);
@@ -93,7 +93,7 @@
 .inv-name {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   min-width: 0;
 }
 
@@ -116,7 +116,7 @@
 .inv-row-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
   justify-self: end;
 }
 
@@ -125,10 +125,10 @@
 .inv-add {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) 150px 112px minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: var(--space-4);
   align-items: center;
-  margin-top: 16px;
-  padding-top: 12px;
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
   border-top: 1px solid var(--line);
 }
 
@@ -139,9 +139,9 @@
 .inv-presets {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: var(--space-5);
 }
 
 /* --- Adaptive --- */
@@ -184,7 +184,7 @@
 .inv-kit-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .inv-kit-row .input {
@@ -195,27 +195,27 @@
 .inv-kit-selected {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 5px;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
 }
 
 .inv-kit-selected p {
   margin: 0;
-  font-size: 11.5px;
-  line-height: 1.4;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
   color: var(--muted);
 }
 
 .inv-kit-bonuses {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: var(--space-2);
 }
 
 .inv-kit-bonuses .chip {
   height: 22px;
-  padding: 0 7px;
-  font-size: 10px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-xs);
 }
 
 .inv-kit-selected:has(.inv-kit-art) {

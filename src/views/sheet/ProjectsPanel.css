@@ -5,14 +5,14 @@
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 12px;
+  gap: var(--space-5);
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-2) 70%, transparent);
@@ -27,14 +27,14 @@
 .project-head {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .project-name {
   flex: 1;
   min-width: 0;
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--fg-bright);
 }
@@ -42,7 +42,7 @@
 .project-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .project-meta .input {
@@ -52,21 +52,21 @@
 .project-progress {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: var(--space-4);
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: var(--space-5);
   border-top: 1px solid var(--line);
 }
 
 .project-numbers {
   color: var(--fg-bright);
-  font-size: 11.5px;
+  font-size: var(--text-body);
 }
 
 .project-bar {
   height: 8px;
   border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--bg-deep) 50%, transparent);
   overflow: hidden;
 }
@@ -87,16 +87,16 @@
 .project-actions {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
 .project-empty {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-6);
   flex-wrap: wrap;
-  padding: 14px;
+  padding: var(--space-7);
   border: 1px dashed var(--line-strong);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface) 40%, transparent);
@@ -112,7 +112,7 @@
 }
 
 .project-empty p {
-  margin-top: 3px;
+  margin-top: var(--space-2);
 }
 
 .project-empty-icon {
@@ -120,7 +120,7 @@
   place-items: center;
   width: 38px;
   height: 38px;
-  border-radius: 11px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--accent-line);
   background: var(--accent-soft);
   color: var(--accent);

@@ -8,6 +8,7 @@ export type IconName =
   | "settings"
   | "logout"
   | "dice"
+  | "history"
   | "plus"
   | "minus"
   | "trash"
@@ -79,6 +80,13 @@ const paths: Record<IconName, ReactNode> = {
       <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
       <circle cx="15.5" cy="8.5" r="1" fill="currentColor" stroke="none" />
       <circle cx="8.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
+    </>
+  ),
+  history: (
+    <>
+      <path d="M4.5 12a7.5 7.5 0 107.5-7.5A7.4 7.4 0 006.4 7.1" />
+      <path d="M4.5 4v4h4" />
+      <path d="M12 8v4.5l3 2" />
     </>
   ),
   plus: <path d="M12 5v14M5 12h14" />,

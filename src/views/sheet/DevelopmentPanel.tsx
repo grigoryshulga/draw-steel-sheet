@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./DevelopmentPanel.css";
 import { AbilityCard } from "../../components/AbilityCard";
+import { PerkCard } from "../../components/PerkCard";
 import { Icon } from "../../components/Icons";
-import { RichText } from "../../components/RichText";
+import { PerkDetailModal } from "../../components/PerkDetailModal";
 import { Button, Chip, Modal } from "../../components/ui";
+import { ALL_PERK_TYPES, PERK_TYPE_META } from "../../data/perks";
+import type { PerkType } from "../../types";
 import {
   applyDevelopment,
   buildDevelopmentPlan,
@@ -21,9 +24,7 @@ import {
 import { useApp } from "../../state/AppContext";
 import {
   ClassFeatureChoices,
-  ClassFeatureRuntimeStatus,
   FeatureRow,
-  RoundEncounterControls,
 } from "./ClassFeaturesPanel";
 
 interface DetailState {
@@ -34,6 +35,25 @@ interface DetailState {
 interface DevelopmentPanelProps {
   /** Черновик разошёлся с героем: вкладку нельзя покинуть молча. */
   onDirtyChange?: (dirty: boolean) => void;
+}
+
+type PerkGroupKey = PerkType | "other";
+
+const PERK_GROUP_ORDER: PerkGroupKey[] = [...ALL_PERK_TYPES, "other"];
+
+/** Перки в шаге уровня группируются по типу, сохраняя порядок типов. */
+function groupPerkOptions(options: DevelopmentOption[]) {
+  const byType = new Map<PerkGroupKey, DevelopmentOption[]>();
+  for (const option of options) {
+    const key: PerkGroupKey = option.perkType ?? "other";
+    const list = byType.get(key) ?? [];
+    list.push(option);
+    byType.set(key, list);
+  }
+  return PERK_GROUP_ORDER.filter((key) => byType.has(key)).map((key) => ({
+    key,
+    options: byType.get(key)!,
+  }));
 }
 
 const STATUS_LABEL: Record<DevelopmentLevel["status"], string> = {
@@ -69,6 +89,9 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
   const [closed, setClosed] = useState<Set<number>>(() => defaultClosedLevels(plan));
   const [notice, setNotice] = useState<string | undefined>();
   const [blocked, setBlocked] = useState<string | undefined>();
+  const [closedPerkGroups, setClosedPerkGroups] = useState<Set<string>>(
+    new Set(),
+  );
 
   const input = { draft, mode, reviewedRules: reviewed };
   const issues = developmentIssues(plan, input);
@@ -149,6 +172,14 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     );
   }, [character, plan, input, update]);
 
+  const togglePerkGroup = (id: string) => {
+    setClosedPerkGroups((previous) => {
+      const next = new Set(previous);
+      if (!next.delete(id)) next.add(id);
+      return next;
+    });
+  };
+
   const toggleLevel = (level: number) => {
     setClosed((previous) => {
       const next = new Set(previous);
@@ -159,16 +190,19 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
   };
 
   const nextLevel = plan.nextLevel;
+  const nextLevelEntry = plan.levels.find((level) => level.status === "next");
+  const nextSteps = (nextLevelEntry?.steps ?? [])
+    .map((step) => ({
+      step,
+      selected: stepSelection(step, draft).length,
+    }))
+    .filter(({ step, selected }) => selected < step.count);
 
   return (
     <div className="dev-panel">
       <header className="dev-head">
         <div className="dev-head-text">
           <h2 className="dev-title">Развитие</h2>
-          <p className="dev-subtitle">
-            Уровни и выборы внутри них. На отдыхе способности можно пересобрать:
-            правьте шаги и сохраняйте готовое.
-          </p>
         </div>
         <div className="dev-head-actions">
           <Button
@@ -207,10 +241,32 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         </div>
       )}
 
-      <div className="dev-class-bar">
-        <ClassFeatureRuntimeStatus />
-        <RoundEncounterControls />
-      </div>
+      {nextSteps.length > 0 && (
+        <div className="dev-todo" aria-label="Что осталось выбрать">
+          <span className="eyebrow">
+            {nextLevelEntry ? `${nextLevelEntry.title} · осталось выбрать` : "Осталось выбрать"}
+          </span>
+          <div className="dev-todo-list">
+            {nextSteps.map(({ step, selected }) => (
+              <button
+                type="button"
+                key={step.id}
+                className="dev-todo-item"
+                onClick={() =>
+                  document
+                    .getElementById(`dev-step-${step.id}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                }
+              >
+                <span>{step.title}</span>
+                <span className="mono">
+                  {selected}/{step.count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="dev-class-choices">
         <ClassFeatureChoices />
@@ -272,6 +328,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                     return (
                       <div
                         key={step.id}
+                        id={`dev-step-${step.id}`}
                         className={`dev-step${complete ? " is-complete" : ""}`}
                       >
                         <div className="dev-step-head">
@@ -281,49 +338,98 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                             {stepProgress(step, selected)}
                           </span>
                         </div>
-                        {step.kind === "ability" || step.kind === "perk" ? (
+                        {step.kind === "ability" ? (
                           <div className="dev-cards">
                             {step.options.map((option) => {
                               const isSelected = selected.includes(option.id);
+                              if (!option.ability) return null;
                               return (
-                                <article
+                                <AbilityCard
                                   key={option.id}
-                                  className={`dev-card${isSelected ? " is-selected" : ""}`}
-                                >
-                                  <button
-                                    type="button"
-                                    className="dev-card-title"
-                                    onClick={() => setDetail({ option, step })}
-                                    aria-label={`Открыть: ${option.label}`}
-                                  >
-                                    <span className="dev-card-name">{option.label}</span>
-                                    {option.tag && (
-                                      <span className="dev-card-tag">{option.tag}</span>
-                                    )}
-                                    <Icon name="book" size={14} />
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="dev-card-body"
-                                    onClick={() => toggle(step, option.id)}
-                                    aria-pressed={isSelected}
-                                  >
-                                    {option.summary && (
-                                      <span className="dev-card-summary">{option.summary}</span>
-                                    )}
-                                    <span className="dev-card-mark">
-                                      {isSelected ? (
-                                        <>
-                                          <Icon name="check" size={13} /> Выбрано
-                                        </>
-                                      ) : (
-                                        "Выбрать"
-                                      )}
-                                    </span>
-                                  </button>
-                                </article>
+                                  ability={option.ability}
+                                  character={character}
+                                  selected={isSelected}
+                                  onSelect={() => toggle(step, option.id)}
+                                  origin={
+                                    option.tag?.startsWith("Домен")
+                                      ? { label: option.tag }
+                                      : null
+                                  }
+                                  onOpen={() => setDetail({ option, step })}
+                                />
                               );
                             })}
+                          </div>
+                        ) : step.kind === "perk" ? (
+                          <div className="dev-perk-groups">
+                            {groupPerkOptions(step.options).map(
+                              ({ key, options }) => {
+                                const groupId = `${step.id}:${key}`;
+                                const collapsed =
+                                  closedPerkGroups.has(groupId);
+                                const meta =
+                                  key === "other"
+                                    ? null
+                                    : PERK_TYPE_META[key];
+                                return (
+                                  <section
+                                    className="dev-perk-group"
+                                    key={key}
+                                  >
+                                    <button
+                                      type="button"
+                                      className="dev-perk-group-head"
+                                      aria-expanded={!collapsed}
+                                      onClick={() => togglePerkGroup(groupId)}
+                                    >
+                                      <Icon
+                                        name={
+                                          collapsed
+                                            ? "chevron-right"
+                                            : "chevron-down"
+                                        }
+                                        size={14}
+                                      />
+                                      <span className="dev-perk-group-name">
+                                        {meta?.label ?? "Другие"}
+                                      </span>
+                                      <span className="dev-perk-group-count mono">
+                                        {options.length}
+                                      </span>
+                                      <span
+                                        className={`dev-perk-group-dot tone-${meta?.tone ?? "default"}`}
+                                        aria-hidden="true"
+                                      />
+                                    </button>
+                                    {!collapsed && (
+                                      <div className="dev-perk-group-grid">
+                                        {options.map((option) => {
+                                          const isSelected = selected.includes(
+                                            option.id,
+                                          );
+                                          return (
+                                            <PerkCard
+                                              key={option.id}
+                                              eyebrow={step.hint ?? "Перк"}
+                                              name={option.label}
+                                              type={option.perkType}
+                                              summary={option.summary}
+                                              selected={isSelected}
+                                              onSelect={() =>
+                                                toggle(step, option.id)
+                                              }
+                                              onOpen={() =>
+                                                setDetail({ option, step })
+                                              }
+                                            />
+                                          );
+                                        })}
+                                      </div>
+                                    )}
+                                  </section>
+                                );
+                              },
+                            )}
                           </div>
                         ) : (
                           <div className="dev-chips">
@@ -438,13 +544,13 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         </p>
       )}
 
-      <Modal
-        open={!!detail}
-        onClose={() => setDetail(undefined)}
-        title={detail ? detail.option.label : ""}
-        wide={!!detail?.option.ability}
-        footer={
-          detail ? (
+      {detail?.option.ability ? (
+        <Modal
+          open
+          onClose={() => setDetail(undefined)}
+          title="Способность"
+          wide
+          footer={
             <div className="dev-detail-footer">
               <Button variant="soft" onClick={() => setDetail(undefined)}>
                 Закрыть
@@ -461,23 +567,26 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                   : "Выбрать"}
               </Button>
             </div>
-          ) : undefined
-        }
-      >
-        {detail?.option.ability ? (
-          <AbilityCard ability={detail.option.ability} character={character} />
-        ) : (
-          <div className="dev-detail">
-            {detail?.option.tag && (
-              <span className="dev-card-tag">{detail.option.tag}</span>
-            )}
-            {detail?.option.summary && <RichText text={detail.option.summary} />}
-            {detail?.option.detail && detail.option.detail !== detail.option.summary && (
-              <RichText text={detail.option.detail} />
-            )}
-          </div>
-        )}
-      </Modal>
+          }
+        >
+          <AbilityCard
+            ability={detail.option.ability}
+            character={character}
+            full
+            flat
+          />
+        </Modal>
+      ) : detail ? (
+        <PerkDetailModal
+          open
+          onClose={() => setDetail(undefined)}
+          name={detail.option.label}
+          type={detail.option.perkType}
+          eyebrow={detail.step.hint}
+          summary={detail.option.summary}
+          description={detail.option.detail}
+        />
+      ) : null}
     </div>
   );
 }

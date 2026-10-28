@@ -1,0 +1,174 @@
+/* Плавающая панель-таблетка: герой, разделы и иконка сайта. */
+.floating-header {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top, 0px));
+  left: 50%;
+  z-index: 45;
+  width: fit-content;
+  max-width: calc(100% - 24px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.floating-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: fit-content;
+  max-width: 100%;
+  min-height: 56px;
+  padding: 4px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow: 0 18px 42px -26px rgb(0 0 0 / 0.85);
+  backdrop-filter: blur(22px) saturate(1.15);
+  pointer-events: auto;
+}
+
+.floating-header-left,
+.floating-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.floating-header-right {
+  justify-content: flex-end;
+}
+
+/* Поп-ап героя открывается влево, чтобы не вылезать за экран. */
+.floating-header .char-popover {
+  top: calc(100% + 10px);
+  right: 0;
+  left: auto;
+}
+
+/* Компактный переключатель героя внутри таблетки. */
+.floating-header .char-switch {
+  min-width: 0;
+}
+
+.floating-header .char-switch-btn {
+  gap: var(--space-3);
+  max-width: 100%;
+  padding: 2px var(--space-3) 2px 2px;
+  border-radius: 999px;
+}
+
+.floating-header .char-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-body);
+}
+
+.floating-header .char-switch-name {
+  max-width: 160px;
+  font-size: var(--text-base);
+}
+
+.floating-header .char-switch-meta {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+}
+
+.floating-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-2) 78%, transparent);
+}
+
+.floating-header-nav button {
+  padding: 6px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 140ms var(--ease), background 140ms var(--ease);
+}
+
+.floating-header-nav button:hover {
+  color: var(--fg);
+}
+
+.floating-header-nav button.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.floating-header-logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 140ms var(--ease), background 140ms var(--ease);
+}
+
+.floating-header-logo:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-2);
+}
+
+.floating-header-logo .site-logo--mark {
+  width: 28px;
+}
+
+/* Место под плавающую панель. */
+.workspace-main {
+  padding-top: 78px;
+}
+
+@media (max-width: 760px) {
+  .floating-header {
+    max-width: calc(100% - 12px);
+  }
+
+  .floating-header-inner {
+    min-height: 50px;
+    gap: var(--space-2);
+  }
+
+  .floating-header .char-switch-name {
+    max-width: 88px;
+    font-size: var(--text-body);
+  }
+
+  .floating-header .char-switch-meta,
+  .floating-header .char-switch-btn .chevron {
+    display: none;
+  }
+
+  .floating-header-nav button {
+    padding: 5px 11px;
+    font-size: var(--text-body);
+  }
+
+  .workspace-main {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 460px) {
+  .floating-header .char-switch-text {
+    display: none;
+  }
+
+  .floating-header-nav button {
+    padding-inline: 9px;
+  }
+}

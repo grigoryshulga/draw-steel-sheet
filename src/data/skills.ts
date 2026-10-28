@@ -1,3 +1,14 @@
+export type SkillTone = "yellow" | "green" | "blue" | "magenta" | "accent";
+
+/** Цвет группы навыков — один и тот же на листе, в развитии и в билдере. */
+export const SKILL_GROUP_TONES: Record<SkillGroup["key"], SkillTone> = {
+  crafting: "yellow",
+  exploration: "green",
+  interpersonal: "blue",
+  intrigue: "magenta",
+  lore: "accent",
+};
+
 export interface SkillGroup {
   key: "crafting" | "exploration" | "interpersonal" | "intrigue" | "lore";
   label: string;

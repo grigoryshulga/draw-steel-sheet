@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Icon } from "../../components/Icons";
 import { RichText } from "../../components/RichText";
 import { Button, Chip, EmptyState, Field, Modal, Panel, Select, TextInput } from "../../components/ui";
+import { PerkCard } from "../../components/PerkCard";
+import { PerkDetailModal } from "../../components/PerkDetailModal";
 import {
   PERK_COMPENDIUM,
   PERK_TYPE_META,
@@ -14,15 +16,6 @@ import {
 import { useApp } from "../../state/AppContext";
 import type { Character, Perk, PerkType, SelectedPerk } from "../../types";
 import "./PerksPanel.css";
-
-function typeChip(type: PerkType) {
-  const meta = PERK_TYPE_META[type];
-  return (
-    <Chip key={type} tone={meta.tone}>
-      {meta.short}
-    </Chip>
-  );
-}
 
 function typeLabel(type: PerkType): string {
   return PERK_TYPE_META[type].label;
@@ -58,18 +51,9 @@ export function PerksPanel() {
     notify(`Перк «${perk.name}» выбран`, "success");
   };
 
-  const remove = (slot: PerkSlot) => {
-    update((current) => ({
-      ...current,
-      perks: current.perks.filter((item) =>
-        slot.source === "career"
-          ? item.source !== "career"
-          : !(item.source === "class" && item.level === slot.level),
-      ),
-    }));
-    setDetail(null);
-    notify("Перк убран", "info");
-  };
+  const detailDescription = detail
+    ? perkById(detail.selected.perkId)?.description
+    : undefined;
 
   return (
     <Panel
@@ -82,64 +66,57 @@ export function PerksPanel() {
       }
       className="perks-panel"
     >
-      <div className="perk-slots">
+      <div className="perk-card-grid">
         {slots.map((slot) => {
           const selected = selectedPerkForSlot(character, slot);
           const perk = selected ? perkById(selected.perkId) : undefined;
-          return (
-            <section className="perk-slot" key={slot.key}>
-              <header className="perk-slot-head">
-                <span className="eyebrow">{slot.title}</span>
-                <div className="perk-slot-types">
-                  {slot.allowedTypes.slice(0, 3).map((type) => typeChip(type))}
-                  {slot.allowedTypes.length > 3 && (
-                    <Chip title={slot.allowedTypes.map(typeLabel).join(", ")}>
-                      +{slot.allowedTypes.length - 3}
-                    </Chip>
-                  )}
-                </div>
-              </header>
 
-              {selected ? (
-                <div className="perk-chosen">
-                  <div className="perk-chosen-head">
-                    <h3>{selected.name}</h3>
-                    {typeChip(selected.type)}
-                  </div>
-                  <p className="perk-summary">{perk?.summary ?? "Описание перка недоступно."}</p>
-                  <div className="perk-actions">
-                    <Button
-                      size="sm"
-                      variant="soft"
-                      icon="book"
-                      onClick={() => setDetail({ slot, selected })}
-                    >
-                      Подробнее
-                    </Button>
-                    <Button size="sm" icon="edit" onClick={() => setPickerSlot(slot)}>
-                      Заменить
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      icon="close"
-                      onClick={() => remove(slot)}
-                    >
-                      Убрать
-                    </Button>
-                  </div>
-                </div>
-              ) : (
-                <button type="button" className="perk-empty" onClick={() => setPickerSlot(slot)}>
-                  <Icon name="plus" size={17} />
-                  <span>Выбрать перк</span>
+          if (!selected) {
+            return (
+              <article
+                className="sheet-perk-card is-empty"
+                key={slot.key}
+                role="button"
+                tabIndex={0}
+                onClick={() => setPickerSlot(slot)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setPickerSlot(slot);
+                  }
+                }}
+              >
+                <header className="sheet-perk-head">
+                  <span className="eyebrow">{slot.title}</span>
+                </header>
+                <button
+                  type="button"
+                  className="sheet-perk-empty"
+                  onClick={() => setPickerSlot(slot)}
+                >
+                  <Icon name="plus" size={16} aria-hidden="true" />
+                  <span className="sheet-perk-empty-title">Выбрать перк</span>
                 </button>
-              )}
-            </section>
+              </article>
+            );
+          }
+
+          return (
+            <PerkCard
+              key={slot.key}
+              eyebrow={slot.title}
+              name={selected.name}
+              type={selected.type}
+              summary={
+                perk?.summary ??
+                selected.summary ??
+                "Описание перка недоступно."
+              }
+              onOpen={() => setDetail({ slot, selected })}
+            />
           );
         })}
       </div>
-
 
       {pickerSlot && (
         <PerkPicker
@@ -150,57 +127,29 @@ export function PerksPanel() {
         />
       )}
 
-      <Modal
+      <PerkDetailModal
         open={detail !== null}
         onClose={() => setDetail(null)}
-        title={detail ? `Перк: ${detail.selected.name}` : "Перк"}
-        footer={
-          detail && (
-            <>
-              <Button
-                variant="ghost"
-                size="sm"
-                icon="close"
-                onClick={() => remove(detail.slot)}
-              >
-                Убрать
-              </Button>
-              <span className="grow" />
-              <Button
-                icon="edit"
-                onClick={() => {
-                  setPickerSlot(detail.slot);
-                  setDetail(null);
-                }}
-              >
-                Заменить
-              </Button>
-              <Button variant="primary" onClick={() => setDetail(null)}>
-                Закрыть
-              </Button>
-            </>
-          )
+        name={detail?.selected.name ?? ""}
+        type={detail?.selected.type}
+        eyebrow={detail?.slot.title}
+        summary={detail?.selected.summary}
+        description={detailDescription}
+        action={
+          detail ? (
+            <Button
+              icon="edit"
+              onClick={() => {
+                setPickerSlot(detail.slot);
+                setDetail(null);
+              }}
+            >
+              Заменить
+            </Button>
+          ) : undefined
         }
-      >
-        {detail && (
-          <div className="perk-detail">
-            <div className="hstack wrap">
-              <Chip tone={PERK_TYPE_META[detail.selected.type].tone}>
-                {typeLabel(detail.selected.type)}
-              </Chip>
-              <span className="small muted">{detail.slot.title}</span>
-            </div>
-            {(() => {
-              const perk = perkById(detail.selected.perkId);
-              return perk ? (
-                <RichText text={perk.description} />
-              ) : (
-                <p className="muted">Полное описание этого перка недоступно.</p>
-              );
-            })()}
-          </div>
-        )}
-      </Modal>
+      />
+
     </Panel>
   );
 }

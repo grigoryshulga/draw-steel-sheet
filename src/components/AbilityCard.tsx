@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { KeyboardEvent, ReactNode } from "react";
 import {
   abilityDistance,
   abilityForcedMovementLine,
@@ -27,6 +27,13 @@ export interface AbilityCardProps {
   /** Происхождение из подкласса: «Орден», «Домен», «Доктрина» и т. п. */
   origin?: { label: string; value?: string } | null;
   onOpen?: () => void;
+  /** Карточка участвует в выборе: клик выбирает, заголовок открывает превью. */
+  onSelect?: () => void;
+  selected?: boolean;
+  /** Полное превью: эффект не обрезается. */
+  full?: boolean;
+  /** Без рамки и фона: карточка как содержимое поп-апа, а не карточка в карточке. */
+  flat?: boolean;
   footerAction?: ReactNode;
   details?: ReactNode;
   className?: string;
@@ -37,6 +44,10 @@ export function AbilityCard({
   character,
   origin,
   onOpen,
+  onSelect,
+  selected = false,
+  full = false,
+  flat = false,
   footerAction,
   details,
   className,
@@ -50,11 +61,28 @@ export function AbilityCard({
   // как напечатан в книге.
   const forcedMovement = abilityForcedMovementLine(ability, character);
 
+  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (!onSelect || event.target !== event.currentTarget) return;
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelect();
+    }
+  };
+
   return (
     <article
-      className={`sheet-ability-card${className ? ` ${className}` : ""}`}
+      className={`sheet-ability-card${selected ? " is-selected" : ""}${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
       data-action={ability.actionType}
       data-kind={ability.kind}
+      {...(onSelect
+        ? {
+            role: "button",
+            tabIndex: 0,
+            "aria-pressed": selected,
+            onClick: onSelect,
+            onKeyDown,
+          }
+        : {})}
     >
       <header className="sheet-ability-card-head">
         <h4>
@@ -63,7 +91,10 @@ export function AbilityCard({
               type="button"
               className="sheet-ability-title"
               aria-label={`Открыть способность: ${ability.name || "без названия"}`}
-              onClick={onOpen}
+              onClick={(event) => {
+                event.stopPropagation();
+                onOpen();
+              }}
             >
               {ability.name || "Без названия"}
             </button>
@@ -140,24 +171,22 @@ export function AbilityCard({
                     ? tierRequirementText(requirements, tier.tier)
                     : TIER_ROLL_RANGES[tier.tier]}
                 </span>
-                <div className="sheet-ability-tier-text">
-                  {tier.damage && (
-                    <DamageChip
-                      value={damage.display}
-                      type={inferDamageType(ability, tier.effect)}
-                    />
-                  )}
-                  {tier.effect && (
-                    <span className="sheet-ability-effect">{tier.effect}</span>
-                  )}
-                </div>
+                {tier.damage && (
+                  <DamageChip
+                    value={damage.display}
+                    type={inferDamageType(ability, tier.effect)}
+                  />
+                )}
+                {tier.effect && (
+                  <span className="sheet-ability-effect">{tier.effect}</span>
+                )}
               </div>
             );
           })}
         </div>
       )}
 
-      {tiers.length === 0 && ability.effect && (
+      {ability.effect && (
         <p className="sheet-ability-body">{ability.effect}</p>
       )}
 
@@ -179,7 +208,14 @@ export function AbilityCard({
         {ability.trigger && (
           <span className="sheet-ability-trigger">триггер</span>
         )}
-        {footerAction}
+        {footerAction && (
+          <span
+            onClick={(event) => event.stopPropagation()}
+            onKeyDown={(event) => event.stopPropagation()}
+          >
+            {footerAction}
+          </span>
+        )}
       </footer>
     </article>
   );

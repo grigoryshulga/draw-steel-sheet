@@ -1,20 +1,20 @@
 .catalog-action {
   display: grid;
-  gap: 12px;
-  margin: 20px 0 28px;
-  padding-bottom: 24px;
+  gap: var(--space-6);
+  margin: var(--space-8) 0 28px;
+  padding-bottom: var(--space-9);
   border-bottom: 1px solid var(--line);
 }
 .catalog-project-options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: var(--space-6);
 }
 .catalog-action-buttons {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: var(--space-7);
 }
 
 @media (max-width: 500px) {

@@ -1,19 +1,12 @@
-import type { Ability, AbilityKind, AbilityTier, Character } from "../../types";
+import type { Ability, AbilityKind, Character } from "../../types";
 import { ABILITY_KINDS } from "../../data/actions";
-import {
-  characteristicShort,
-  evaluateDamage,
-  evaluateAbilityDamage,
-} from "../../lib/rules";
+import { characteristicShort } from "../../lib/rules";
 import { formatBonus } from "../../lib/utils";
 import {
   abilityTierRequirements,
   tierRequirementText,
 } from "../../lib/abilities";
 import { makeId } from "../../data/templates";
-import { RichText } from "../../components/RichText";
-import { TierBadge } from "../../components/TierBadge";
-import type { Tier } from "../../lib/rules";
 
 /** «1 способность / 2 способности / 5 способностей». */
 export function pluralAbilities(count: number): string {
@@ -131,71 +124,6 @@ export function TierRequirementSummary({
         {source}
         {req.rollBonus !== 0 && ` · бонус ${formatBonus(req.rollBonus)}`}
       </span>
-    </div>
-  );
-}
-
-/**
- * Три тира с рассчитанным уроном. Используется в карточке и в превью каталога.
- */
-export function TierList({
-  ability,
-  character,
-  compact = false,
-}: {
-  ability: Ability;
-  character: Character;
-  compact?: boolean;
-}) {
-  return (
-    <>
-      <TierRequirementSummary ability={ability} character={character} />
-      <div
-        className={`abil-tiers ${compact ? "abil-tiers-compact" : ""}`.trim()}
-      >
-        {ability.tiers.map((tier, index) => (
-          <TierBox
-            key={index}
-            tier={(index + 1) as Tier}
-            data={tier}
-            character={character}
-            ability={ability}
-          />
-        ))}
-      </div>
-    </>
-  );
-}
-
-export function TierBox({
-  tier,
-  data,
-  character,
-  ability,
-}: {
-  tier: number;
-  data: AbilityTier;
-  ability?: Ability;
-  character: Character;
-}) {
-  const damage = ability
-    ? evaluateAbilityDamage(ability, tier, character)
-    : evaluateDamage(data.damage, character);
-  return (
-    <div className="abil-tier" data-tier={tier}>
-      <div className="abil-tier-head">
-        <TierBadge tier={tier as Tier} />
-        {data.damage ? (
-          <span className="abil-tier-damage mono" title={data.damage}>
-            {damage.display}
-          </span>
-        ) : (
-          <span className="abil-tier-damage abil-tier-empty">без урона</span>
-        )}
-      </div>
-      {data.effect && (
-        <RichText text={data.effect} className="abil-tier-effect" />
-      )}
     </div>
   );
 }

@@ -7,7 +7,7 @@
 .sheet-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 9px;
+  gap: var(--space-5);
   align-items: start;
 }
 
@@ -39,21 +39,21 @@
 .sheet-head-top {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--space-8);
   flex-wrap: wrap;
 }
 
 .hero-name {
   flex: 1 1 260px;
   min-width: 0;
-  padding: 2px 6px 6px;
+  padding: var(--space-1) var(--space-3) var(--space-3);
   border: none;
   border-bottom: 1px dashed var(--line-strong);
   border-radius: 0;
   background: transparent;
   color: var(--fg-bright);
   font-size: clamp(26px, 4vw, 38px);
-  line-height: 1.15;
+  line-height: var(--leading-tight);
   outline: none;
   transition: border-color 140ms var(--ease);
 }
@@ -69,8 +69,8 @@
 .sheet-head-identity {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  margin-top: 12px;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
 }
 
 /* ---------- Характеристики ---------- */
@@ -78,7 +78,7 @@
 .char-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 @media (max-width: 1000px) {
@@ -96,8 +96,8 @@
 .stat-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-2);
@@ -108,12 +108,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .stat-name {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -125,19 +125,19 @@
 .stat-effective {
   display: inline-flex;
   align-items: baseline;
-  gap: 3px;
-  padding: 0 5px;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
   border: 1px solid var(--accent-line);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--accent);
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-weight: 700;
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
   cursor: help;
 }
 
 .stat-effective-delta {
-  font-size: 9px;
+  font-size: var(--text-2xs);
   font-weight: 600;
   opacity: 0.85;
 }
@@ -148,15 +148,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: var(--space-3);
 }
 
 .status-chip {
-  padding: 3px 9px;
+  padding: var(--space-2) var(--space-5);
   border: 1px solid;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: var(--text-sm);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -188,7 +188,7 @@
 .vitals-current {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: var(--space-3);
   min-width: 0;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .vital-temp {
-  font-size: 12px;
+  font-size: var(--text-body);
   color: var(--cyan);
 }
 
@@ -211,7 +211,7 @@
   position: relative;
   height: 12px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface-3);
   overflow: hidden;
 }
@@ -243,7 +243,7 @@
   right: 0;
   bottom: 0;
   min-width: 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--red);
   transition: width 160ms var(--ease);
 }
@@ -266,7 +266,7 @@
 .vital-temp-edit {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .tiny-num {
@@ -275,7 +275,7 @@
 
 .damage-row {
   display: flex;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .damage-input {
@@ -286,8 +286,8 @@
 .vital-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-2);
@@ -295,20 +295,20 @@
 
 .vital-block > p {
   margin: 0;
-  line-height: 1.4;
+  line-height: var(--leading-normal);
 }
 
 .vital-block-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
 }
 
 .max-edit {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 /* Крупные значения с компактными кнопками для ресурсов и восстановлений. */
@@ -317,13 +317,13 @@
   min-width: 128px;
   max-width: 200px;
   justify-content: space-between;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 .sheet-large-counter .stepper-value {
   font-size: 34px;
-  line-height: 1.15;
+  line-height: var(--leading-tight);
   min-width: 48px;
-  padding: 3px 6px;
+  padding: var(--space-2) var(--space-3);
 }
 .sheet-large-counter .stepper-btn {
   width: 32px;
@@ -335,7 +335,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: var(--space-4) var(--space-7);
 }
 .health-recoveries .vital-block-row {
   flex: 1 1 260px;
@@ -344,10 +344,10 @@
 .hero-resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 8px 20px;
+  gap: var(--space-4) var(--space-8);
 }
 .hero-resources-grid .resource-title {
-  font-size: 13px;
+  font-size: var(--text-md);
   font-weight: 600;
   color: var(--fg);
 }
@@ -367,7 +367,7 @@
 
 .pips {
   display: flex;
-  gap: 7px;
+  gap: var(--space-4);
 }
 
 .pip {
@@ -412,13 +412,13 @@
 .roll-controls {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: var(--space-5);
 }
 
 .roll-controls-row {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
@@ -428,8 +428,8 @@
 }
 
 .roll-char-value {
-  font-size: 15px;
-  padding: 6px 12px;
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
 }
 
 .roll-chip-label {
@@ -438,26 +438,26 @@
 
 .roll-chips {
   display: flex;
-  gap: 5px;
+  gap: var(--space-3);
 }
 
 .roll-main-action {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   flex: 1;
   min-width: 0;
 }
 
 .roll-stage {
-  margin-top: 12px;
+  margin-top: var(--space-6);
 }
 
 .roll-result {
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  padding: 12px;
+  gap: var(--space-4);
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-2);
@@ -475,13 +475,13 @@
 .roll-headline {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
 }
 
 .roll-dice {
   display: flex;
-  gap: 7px;
+  gap: var(--space-4);
 }
 
 .die {
@@ -490,10 +490,10 @@
   width: 38px;
   height: 38px;
   border: 1px solid var(--line-strong);
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   background: var(--surface-3);
   color: var(--fg-bright);
-  font-size: 17px;
+  font-size: var(--text-lg);
 }
 
 .roll-total {
@@ -511,8 +511,8 @@
 .roll-log-wrap {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 12px;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
 }
 
 .roll-log {
@@ -524,17 +524,17 @@
 .roll-log li {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 2px;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-1);
   border-top: 1px solid var(--line);
-  font-size: 12.5px;
+  font-size: var(--text-md);
   min-width: 0;
 }
 
 .roll-crit {
   flex: none;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-xs);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
@@ -582,26 +582,26 @@
 .vitals-current .vital-max-edit {
   display: inline-flex;
   align-items: baseline;
-  gap: 2px;
+  gap: var(--space-1);
   color: var(--muted);
   min-width: 0;
 }
 
 .vitals-current .vital-max-slash {
-  font-size: 16px;
+  font-size: var(--text-lg);
   color: var(--muted);
 }
 
 .vitals-current .vital-max-input {
   width: 58px;
   height: 26px;
-  padding: 0 3px;
+  padding: 0 var(--space-2);
   border: none;
   border-bottom: 1px dashed var(--line-strong);
   border-radius: 0;
   background: transparent;
   color: var(--muted);
-  font-size: 16px;
+  font-size: var(--text-lg);
   text-align: left;
 }
 
@@ -629,7 +629,7 @@
 .tokens-row {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: var(--space-7);
   flex-wrap: wrap;
 }
 
@@ -644,7 +644,7 @@
   border-radius: 0;
   background: transparent;
   padding-left: 0;
-  padding-right: 4px;
+  padding-right: var(--space-2);
 }
 
 .sheet-head-identity .input:hover {
@@ -683,9 +683,9 @@
 .movement-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 12px;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
   border-top: 1px solid var(--line);
 }
 
@@ -701,13 +701,13 @@
 
 .movement-grid .input.numeric {
   text-align: center;
-  padding-right: 11px;
+  padding-right: var(--space-6);
 }
 
 /* Компактные карточки характеристик без кнопок броска */
 .stat-card {
-  gap: 6px;
-  padding: 8px 10px;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
 }
 
 .stat-card-head {
@@ -746,9 +746,9 @@
 .tier-scale {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 1px;
+  margin-top: var(--space-1);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background: color-mix(in srgb, var(--surface-3) 55%, transparent);
 }
@@ -758,9 +758,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1px;
+  gap: var(--space-1);
   min-width: 0;
-  padding: 4px 2px 3px;
+  padding: var(--space-2) var(--space-1) var(--space-2);
   border-left: 1px solid var(--line);
   background: color-mix(in srgb, var(--tier-color) 6%, transparent);
   box-shadow: inset 0 2px 0
@@ -785,7 +785,7 @@
 
 .tier-cell b {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.05em;
   color: color-mix(in srgb, var(--tier-color) 72%, var(--fg));
@@ -794,8 +794,8 @@
 .tier-cell em {
   font-family: var(--font-mono);
   font-style: normal;
-  font-size: 9px;
-  line-height: 1.1;
+  font-size: var(--text-2xs);
+  line-height: var(--leading-tight);
   color: var(--fg);
   white-space: nowrap;
 }
@@ -804,28 +804,28 @@
 .vitals-panel .panel-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 .vitals-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-6);
   flex-wrap: wrap;
 }
 
 .vitals-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
 .vitals-adjust {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
@@ -836,14 +836,14 @@
 .vitals-rest {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
   margin-left: auto;
 }
 
 .vitals-resource-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: var(--space-4);
   align-items: stretch;
 }
 
@@ -853,11 +853,11 @@
 }
 
 .vitals-resource-grid .tokens-row {
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 .vitals-resource-grid .tokens-row p {
-  font-size: 11px;
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 640px) {
@@ -878,26 +878,26 @@
 
 /* Компактная форма броска */
 .roll-controls {
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .roll-modifiers {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .roll-modifier {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
   min-width: 0;
   flex-wrap: wrap;
 }
 
 .roll-modifier .roll-chip-label {
   min-width: 0;
-  font-size: 9px;
+  font-size: var(--text-2xs);
 }
 
 .roll-chip-label.eyebrow {
@@ -907,14 +907,14 @@
 .roll-secondary-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 92px auto;
-  gap: 8px;
+  gap: var(--space-4);
   align-items: end;
 }
 
 .roll-skill-control {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-3);
   min-width: 0;
 }
 
@@ -926,12 +926,12 @@
 .roll-skill-control .chip {
   flex: none;
   height: 24px;
-  padding: 0 6px;
-  font-size: 10px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
 }
 
 .roll-main-action {
-  padding-bottom: 8px;
+  padding-bottom: var(--space-4);
 }
 
 .roll-submit {
@@ -940,7 +940,7 @@
 }
 
 .roll-stage {
-  margin-top: 10px;
+  margin-top: var(--space-5);
 }
 
 @media (max-width: 520px) {
@@ -959,7 +959,7 @@
   grid-column: span 8;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: var(--space-5);
   min-width: 0;
 }
 
@@ -977,12 +977,12 @@
 .potency-strip {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
   align-self: flex-start;
   width: fit-content;
   max-width: 100%;
-  padding: 7px 10px;
+  padding: var(--space-4) var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-2) 68%, transparent);
@@ -991,14 +991,14 @@
 .potency-strip-title {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-3);
   color: var(--accent);
 }
 
 .potency-strip-values {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-3);
   flex-wrap: wrap;
   margin-left: auto;
 }
@@ -1006,19 +1006,19 @@
 .potency-strip-value {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-2);
   height: 30px;
-  padding: 0 9px;
+  padding: 0 var(--space-5);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: var(--surface-3);
-  font-size: 11px;
+  font-size: var(--text-sm);
   color: var(--muted);
   white-space: nowrap;
 }
 
 .potency-strip-value strong {
-  font-size: 13px;
+  font-size: var(--text-md);
   color: var(--fg-bright);
 }
 
@@ -1058,7 +1058,7 @@
 .progress-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 7px;
+  gap: var(--space-4);
 }
 
 .progress-grid .input,
@@ -1087,8 +1087,8 @@
     "head head"
     "stepper tiers";
   align-items: center;
-  column-gap: 8px;
-  row-gap: 4px;
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
 }
 
 .stat-card-head {
@@ -1109,14 +1109,14 @@
 
 .stat-card > .stepper .stepper-value {
   min-width: 24px;
-  font-size: 13px;
+  font-size: var(--text-md);
 }
 
 .stat-card > .tier-scale {
   grid-area: tiers;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--space-1);
   width: 62px;
   margin: 0;
   border: none;
@@ -1130,22 +1130,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 3px;
+  gap: var(--space-2);
   min-width: 0;
-  padding: 1px 3px;
+  padding: var(--space-1) var(--space-2);
   border: none;
   border-left: 2px solid var(--tier-color);
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: color-mix(in srgb, var(--tier-color) 7%, transparent);
   box-shadow: none;
 }
 
 .stat-card .tier-cell b {
-  font-size: 8px;
+  font-size: var(--text-2xs);
 }
 
 .stat-card .tier-cell em {
-  font-size: 8.5px;
+  font-size: var(--text-2xs);
   line-height: 1;
 }
 
@@ -1158,7 +1158,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 12px;
+  font-size: var(--text-body);
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--fg-bright);
@@ -1167,12 +1167,12 @@
 @media (max-width: 560px) {
   .stat-card {
     grid-template-columns: minmax(0, 1fr) 58px;
-    column-gap: 6px;
-    padding: 7px 8px;
+    column-gap: var(--space-3);
+    padding: var(--space-4) var(--space-4);
   }
 
   .stat-card .stat-name {
-    font-size: 11px;
+    font-size: var(--text-sm);
     letter-spacing: 0.06em;
   }
 
@@ -1185,19 +1185,19 @@
   }
 
   .stat-card .tier-cell b {
-    font-size: 7.5px;
+    font-size: var(--text-2xs);
   }
 
   .stat-card .tier-cell em {
-    font-size: 8px;
+    font-size: var(--text-2xs);
   }
 }
 
 /* Блок значения заполняет карточку по высоте и ширине */
 .stat-card {
   grid-template-columns: minmax(0, 1fr) 58px;
-  column-gap: 6px;
-  padding: 8px 9px;
+  column-gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
 }
 
 .stat-card > .stepper {
@@ -1226,8 +1226,8 @@
 @media (max-width: 560px) {
   .stat-card {
     grid-template-columns: minmax(0, 1fr) 58px;
-    column-gap: 6px;
-    padding: 7px 8px;
+    column-gap: var(--space-3);
+    padding: var(--space-4) var(--space-4);
   }
 
   .stat-card > .stepper .stepper-btn {
@@ -1240,7 +1240,7 @@
   grid-column: span 4;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: var(--space-5);
   min-width: 0;
 }
 
@@ -1266,12 +1266,12 @@
 
 @media (min-width: 901px) {
   .vitals-controls .damage-row {
-    padding-left: 12px;
+    padding-left: var(--space-6);
     border-left: 1px solid var(--line);
   }
 
   .vitals-rest {
-    padding-left: 12px;
+    padding-left: var(--space-6);
     border-left: 1px solid var(--line);
   }
 }
@@ -1279,18 +1279,18 @@
 .potency-source {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 8px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--radius-xs);
   color: var(--muted);
-  font-size: 10.5px;
+  font-size: var(--text-sm);
   white-space: nowrap;
 }
 
 .potency-source strong {
   color: var(--fg);
-  font-size: 11px;
+  font-size: var(--text-sm);
 }
 
 .sheet-right-stack .potency-strip {
@@ -1346,7 +1346,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 6px 8px;
+  gap: var(--space-3) var(--space-4);
 }
 
 .sheet-right-stack .potency-strip-title {
@@ -1362,14 +1362,14 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4px;
+  gap: var(--space-2);
   margin-left: 0;
 }
 
 .sheet-right-stack .potency-strip-value {
   justify-content: center;
   height: 28px;
-  padding: 0 6px;
+  padding: 0 var(--space-3);
 }
 
 /* Каунтеры в витальных показателях и развитии */
@@ -1388,7 +1388,7 @@
 }
 
 .vitals-current .vital-max-input .number-counter-value {
-  font-size: 16px;
+  font-size: var(--text-lg);
 }
 
 .vitals-current .vital-max-input:hover,
@@ -1436,7 +1436,7 @@
 }
 
 .project-meta .number-counter-value {
-  font-size: 12.5px;
+  font-size: var(--text-md);
 }
 
 /* Урон — компактный каунтер, чтобы отдых оставался в той же строке */
@@ -1490,7 +1490,7 @@
   .sheet-view .sheet-grid > .skills-panel,
   .sheet-view .sheet-grid > .sheet-right-stack {
     border-left: 1px solid var(--line);
-    padding-left: 12px;
+    padding-left: var(--space-6);
   }
 }
 
@@ -1523,7 +1523,7 @@
 
 /* Поля внутри плоских блоков остаются читаемыми */
 .sheet-view .sheet-ability-card {
-  padding: 9px 10px 10px;
+  padding: var(--space-5) var(--space-5) var(--space-5);
 }
 
 .sheet-view .sheet-ability-card:hover {
@@ -1541,15 +1541,15 @@
 }
 
 .sheet-view .condition-card {
-  padding: 9px 0;
+  padding: var(--space-5) 0;
 }
 
 .sheet-view .vital-block {
-  padding: 9px 0;
+  padding: var(--space-5) 0;
 }
 
 .sheet-view .stat-card {
-  padding: 8px 0;
+  padding: var(--space-4) 0;
   border-radius: 0;
 }
 
@@ -1563,18 +1563,18 @@
 }
 
 .sheet-view .sheet-perk-card {
-  padding: 10px 12px;
+  padding: var(--space-5) var(--space-6);
   background: color-mix(in srgb, var(--surface-2) 68%, transparent);
 }
 
 /* Карточки способностей и перков: заметные рамки и больше воздуха */
 .sheet-view .sheet-ability-card {
-  padding: 16px 16px 18px;
+  padding: var(--space-7) var(--space-7) var(--space-8);
   border-radius: 0;
 }
 
 .sheet-view .sheet-perk-card {
-  padding: 16px 16px 18px;
+  padding: var(--space-7) var(--space-7) var(--space-8);
   border: 1px solid var(--line);
   border-top: 3px solid var(--line-strong);
   border-radius: 0;
@@ -1582,29 +1582,29 @@
 
 /* Больше пространства между тировыми исходами */
 .sheet-ability-tiers {
-  gap: 10px;
-  padding: 10px 0;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
 }
 
 .sheet-ability-tier {
-  padding: 2px 0;
+  padding: var(--space-1) 0;
 }
 
 /* Больше воздуха внутри групп по типу действия */
 .sheet-ability-sections {
-  gap: 20px;
+  gap: var(--space-8);
 }
 
 .sheet-ability-section {
-  padding: 8px 10px 14px;
+  padding: var(--space-4) var(--space-5) var(--space-7);
 }
 
 .sheet-ability-section-head {
-  margin-bottom: 10px;
+  margin-bottom: var(--space-8);
 }
 
 .sheet-ability-grid {
-  gap: 12px;
+  gap: var(--space-6);
 }
 
 /* Убираем широкий зазор между основным листом и правой колонкой */
@@ -1625,11 +1625,11 @@
   .sheet-view .sheet-grid > .skills-panel .panel-body,
   .sheet-view .sheet-right-stack .conditions-panel .panel-head,
   .sheet-view .sheet-right-stack .conditions-panel .panel-body {
-    padding-left: 8px;
+    padding-left: var(--space-4);
   }
 
   .sheet-view .sheet-right-stack .potency-strip {
-    padding-left: 8px;
+    padding-left: var(--space-4);
   }
 }
 
@@ -1643,13 +1643,13 @@
 .sheet-view .sheet-ability-card {
   height: 100%;
   min-height: 0;
-  padding: 16px;
-  gap: 8px;
+  padding: var(--space-7);
+  gap: var(--space-4);
 }
 
 .sheet-view .sheet-ability-footer {
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: var(--space-4);
 }
 
 /* Здоровье: правка текущего значения прямо в цифре */

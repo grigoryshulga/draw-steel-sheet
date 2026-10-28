@@ -571,7 +571,6 @@ function AbilityDetailModal({
                           ? tierRequirementText(requirements, tier.tier)
                           : TIER_ROLL_RANGES[tier.tier]}
                       </span>
-                      <span className="grow" />
                       {tier.damage && (
                         <DamageChip
                           value={damage.display}

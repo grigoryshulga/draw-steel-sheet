@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Icon } from "../components/Icons";
 import { Button, EmptyState, Modal, Panel } from "../components/ui";
 import { useApp } from "../state/AppContext";
+import { useAccount } from "../state/StorageScope";
 import type { ThemeChoice } from "../lib/theme";
 import { initials } from "../lib/utils";
 import type { AppTheme, CharacterSummary } from "../types";
@@ -34,6 +35,7 @@ export function SettingsView({
   onImport: (file: File) => Promise<void>;
 }) {
   const { character, notify } = useApp();
+  const account = useAccount();
   const fileRef = useRef<HTMLInputElement>(null);
   const [deleteTarget, setDeleteTarget] = useState<CharacterSummary | null>(
     null,
@@ -164,6 +166,22 @@ export function SettingsView({
           </ul>
         )}
       </Panel>
+
+      {account && (
+        <Panel title="Аккаунт" icon="users">
+          <div className="settings-account">
+            <span className="muted">{account.email}</span>
+            <Button
+              icon="logout"
+              variant="ghost"
+              disabled={account.signingOut}
+              onClick={account.signOut}
+            >
+              Выйти
+            </Button>
+          </div>
+        </Panel>
+      )}
 
       <Panel title="Данные" icon="cloud">
         <div className="data-actions">

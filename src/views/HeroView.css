@@ -1,13 +1,13 @@
 .hero-view {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-7);
 }
 
 .hero-cols {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 16px;
+  gap: var(--space-7);
   align-items: start;
 }
 
@@ -19,7 +19,7 @@
       0,
       0.6fr
     );
-  gap: 12px;
+  gap: var(--space-6);
 }
 
 .hero-identity-name .input {
@@ -35,19 +35,19 @@
 .hero-skill-groups {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-7);
 }
 
 .hero-skill-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .hero-skill-head h3 {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -57,7 +57,7 @@
 .hero-skill-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 /* --- Languages --- */
@@ -65,8 +65,8 @@
 .hero-langs {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
   min-height: 26px;
 }
 
@@ -84,7 +84,7 @@
 .hero-stack {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 /* --- Adaptive --- */
@@ -107,16 +107,51 @@
   text-align: center;
 }
 
-.hero-art-gallery {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+
+/* Навыки в редакторе: компактная сетка и цвета групп как на листе. */
+.hero-view.is-embedded .hero-skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+  gap: var(--space-5) var(--space-7);
 }
-.hero-art-gallery:not(:has(.artwork)) {
-  display: none;
+
+.hero-view.is-embedded .hero-skill-head {
+  margin-bottom: var(--space-3);
 }
-.hero-art-gallery .artwork {
-  flex: 0 1 180px;
-  height: 190px;
+
+.hero-view.is-embedded .hero-skill-head h3 {
+  font-size: var(--text-xs);
+}
+
+.hero-view.is-embedded .hero-skill-grid {
+  gap: var(--space-2);
+}
+
+.hero-view.is-embedded .hero-skill-grid .chip {
+  height: 24px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.hero-skill-group[data-tone="yellow"] {
+  --skill-tone: var(--yellow);
+}
+.hero-skill-group[data-tone="green"] {
+  --skill-tone: var(--green);
+}
+.hero-skill-group[data-tone="blue"] {
+  --skill-tone: var(--blue);
+}
+.hero-skill-group[data-tone="magenta"] {
+  --skill-tone: var(--magenta);
+}
+.hero-skill-group[data-tone="accent"] {
+  --skill-tone: var(--accent);
+}
+
+.hero-skill-group .chip.is-active {
+  color: var(--skill-tone, var(--accent));
+  border-color: color-mix(in srgb, var(--skill-tone, var(--accent)) 42%, transparent);
+  background: color-mix(in srgb, var(--skill-tone, var(--accent)) 14%, transparent);
 }

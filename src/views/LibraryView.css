@@ -4,17 +4,17 @@
 .catalog-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-9);
   border-bottom: 1px solid var(--line);
-  padding-bottom: 16px;
+  padding-bottom: var(--space-7);
 }
 .catalog-tabs a {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  gap: var(--space-6);
+  padding: var(--space-5) var(--space-7);
+  border-radius: var(--radius-sm);
   text-decoration: none;
   color: var(--muted);
 }
@@ -24,7 +24,7 @@
   background: var(--accent-soft);
 }
 .catalog-tabs span {
-  font-size: 11px;
+  font-size: var(--text-sm);
   font-variant-numeric: tabular-nums;
 }
 .catalog-layout {
@@ -42,7 +42,7 @@
 .catalog-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-4);
 }
 .catalog-filters input {
   flex: 1 1 220px;
@@ -51,17 +51,17 @@
   flex: 1 1 150px;
 }
 .catalog-count {
-  margin: 16px 0;
+  margin: var(--space-7) 0;
 }
 .catalog-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
-  gap: 12px;
+  gap: var(--space-6);
 }
 .catalog-card {
-  padding: 20px;
+  padding: var(--space-8);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--fg);
   text-decoration: none;
@@ -72,27 +72,27 @@
   background: var(--accent-soft);
 }
 .catalog-card h2 {
-  font-size: 18px;
-  line-height: 1.4;
-  margin: 10px 0;
+  font-size: var(--text-xl);
+  line-height: var(--leading-normal);
+  margin: var(--space-5) 0;
 }
 .catalog-card p {
-  font-size: 13px;
+  font-size: var(--text-md);
   color: var(--muted);
-  line-height: 1.7;
+  line-height: var(--leading-relaxed);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .catalog-card .chip {
-  margin-top: 12px;
+  margin-top: var(--space-6);
 }
 .has-detail .catalog-browser {
   max-height: calc(100dvh - 130px - var(--rail-h));
   overflow-y: auto;
   scrollbar-width: thin;
-  padding-right: 6px;
+  padding-right: var(--space-3);
   position: sticky;
   top: calc(100px + var(--rail-h));
 }
@@ -101,38 +101,38 @@
 }
 .catalog-detail {
   min-width: 0;
-  padding: clamp(20px, 3vw, 36px);
+  padding: clamp(var(--space-8), 3vw, 36px);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: var(--radius);
   scroll-margin-top: calc(100px + var(--rail-h));
 }
 .catalog-back {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-8);
 }
 .catalog-detail h1 {
   font-family: var(--font-display);
   font-size: clamp(25px, 3vw, 36px);
-  line-height: 1.2;
-  margin: 12px 0 24px;
+  line-height: var(--leading-tight);
+  margin: var(--space-6) 0 var(--space-9);
 }
 .catalog-detail > a,
 .catalog-action a {
   color: var(--accent);
   text-underline-offset: 3px;
-  font-size: 13px;
+  font-size: var(--text-md);
 }
 .catalog-prerequisite {
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: var(--space-7);
+  margin-bottom: var(--space-7);
   border-left: 2px solid var(--accent);
   background: var(--accent-soft);
 }
 .catalog-prerequisite p {
-  margin-top: 8px;
-  font-size: 13px;
-  line-height: 1.7;
+  margin-top: var(--space-4);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
 }
 .catalog-source {
   display: inline-block;
@@ -141,37 +141,37 @@
 .library-empty {
   padding: 32px;
   border: 1px dashed var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
 }
 .library-empty p {
-  margin: 12px 0;
+  margin: var(--space-6) 0;
   color: var(--muted);
 }
 .glossary-view {
   max-width: 1100px;
 }
 .glossary-tools {
-  padding: 20px;
+  padding: var(--space-8);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius);
 }
 .glossary-tools input {
   width: 100%;
-  font-size: 16px;
+  font-size: var(--text-lg);
 }
 .glossary-alphabet {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 16px;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
 }
 .glossary-alphabet button {
   min-width: 32px;
   min-height: 34px;
-  padding: 6px;
+  padding: var(--space-3);
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: var(--radius-xs);
   color: var(--muted);
   background: transparent;
   cursor: pointer;
@@ -186,14 +186,14 @@
   display: grid;
   gap: 0;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius);
   overflow: hidden;
 }
 .glossary-entries:empty {
   display: none;
 }
 .glossary-entry {
-  padding: 24px 28px;
+  padding: var(--space-9) 28px;
   background: var(--surface);
   scroll-margin-top: 120px;
 }
@@ -208,11 +208,11 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 8px 16px;
-  margin-bottom: 12px;
+  gap: var(--space-4) var(--space-7);
+  margin-bottom: var(--space-6);
 }
 .glossary-entry h2 {
-  font-size: 21px;
+  font-size: var(--text-2xl);
   font-family: var(--font-display);
 }
 .glossary-entry h2 a {
@@ -220,12 +220,12 @@
   text-decoration: none;
 }
 .glossary-english {
-  font-size: 13px;
+  font-size: var(--text-md);
   color: var(--muted);
 }
 .glossary-entry .rule-text {
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
 }
 .library-view :is(a, button):focus-visible {
   outline: 2px solid var(--accent);
@@ -249,10 +249,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
   .catalog-tabs a {
-    padding: 8px;
-    gap: 6px;
+    padding: var(--space-4);
+    gap: var(--space-3);
   }
   .glossary-entry {
-    padding: 20px;
+    padding: var(--space-8);
   }
 }

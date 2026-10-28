@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { PerkCard } from "../../components/PerkCard";
+import { PerkDetailModal } from "../../components/PerkDetailModal";
 import { RichText } from "../../components/RichText";
 import {
   Button,
@@ -108,6 +110,16 @@ export function SheetPerksPanel() {
     notify(`Перк «${perk.name}» добавлен`, "success");
   };
 
+  const detailPerk = detail ? perkById(detail.selected.perkId) : undefined;
+  const detailText = detail
+    ? detail.selected.source === "custom"
+      ? detail.selected.description ||
+        detail.selected.summary ||
+        detailPerk?.description ||
+        ""
+      : (detailPerk?.description ?? "")
+    : "";
+
   return (
     <>
       <Panel
@@ -115,44 +127,22 @@ export function SheetPerksPanel() {
         icon="spark"
         className="sheet-perks-panel"
         actions={
-          <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("hero")}>
+          <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("development")}>
             Изменить
           </Button>
         }
       >
-        <div className="sheet-perk-grid">
+        <div className="perk-card-grid">
           {slots.map((slot) => {
             const selected = selectedPerkForSlot(character, slot);
             const perk = selected ? perkById(selected.perkId) : undefined;
-            const type = selected ? PERK_TYPE_META[selected.type] : null;
 
-            return (
-              <article
-                className={`sheet-perk-card ${selected ? "is-filled" : "is-empty"}`.trim()}
-                key={slot.key}
-              >
-                <header className="sheet-perk-head">
-                  <span className="eyebrow">{slot.title}</span>
-                  {type && <Chip tone={type.tone}>{type.short}</Chip>}
-                </header>
-
-                {selected ? (
-                  <>
-                    <h3>{selected.name}</h3>
-                    <p className="sheet-perk-summary">
-                      {perk?.summary ?? selected.summary ?? "Описание перка недоступно."}
-                    </p>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      icon="book"
-                      className="sheet-perk-more"
-                      onClick={() => setDetail({ selected, slot })}
-                    >
-                      Подробнее
-                    </Button>
-                  </>
-                ) : (
+            if (!selected) {
+              return (
+                <article className="sheet-perk-card is-empty" key={slot.key}>
+                  <header className="sheet-perk-head">
+                    <span className="eyebrow">{slot.title}</span>
+                  </header>
                   <button
                     type="button"
                     className="sheet-perk-empty"
@@ -161,8 +151,23 @@ export function SheetPerksPanel() {
                   >
                     <span className="sheet-perk-empty-title">Не выбран</span>
                   </button>
-                )}
-              </article>
+                </article>
+              );
+            }
+
+            return (
+              <PerkCard
+                key={slot.key}
+                eyebrow={slot.title}
+                name={selected.name}
+                type={selected.type}
+                summary={
+                  perk?.summary ??
+                  selected.summary ??
+                  "Описание перка недоступно."
+                }
+                onOpen={() => setDetail({ selected, slot })}
+              />
             );
           })}
         </div>
@@ -187,29 +192,23 @@ export function SheetPerksPanel() {
         </div>
 
         {customPerks.length > 0 && (
-          <div className="sheet-perk-grid sheet-perk-custom-grid">
+          <div className="perk-card-grid sheet-perk-custom-grid">
             {customPerks.map((perk) => {
-              const type = PERK_TYPE_META[perk.type];
               const fromCatalog = !!perkById(perk.perkId);
               return (
-                <article className="sheet-perk-card is-filled is-custom" key={perk.perkId}>
-                  <header className="sheet-perk-head">
-                    <span className="eyebrow">{fromCatalog ? "Из списка" : "Свой перк"}</span>
-                    <Chip tone={type.tone}>{type.short}</Chip>
-                  </header>
-                  <h3>{perk.name}</h3>
-                  <p className="sheet-perk-summary">
-                    {perk.summary || perk.description || "Описание не заполнено."}
-                  </p>
-                  <div className="sheet-perk-custom-actions">
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      icon="book"
-                      onClick={() => setDetail({ selected: perk })}
-                    >
-                      Подробнее
-                    </Button>
+                <PerkCard
+                  key={perk.perkId}
+                  eyebrow={fromCatalog ? "Из списка" : "Свой перк"}
+                  name={perk.name}
+                  type={perk.type}
+                  summary={
+                    perk.summary ||
+                    perk.description ||
+                    "Описание не заполнено."
+                  }
+                  className="is-custom"
+                  onOpen={() => setDetail({ selected: perk })}
+                  footerAction={
                     <Button
                       size="sm"
                       variant="ghost"
@@ -218,86 +217,52 @@ export function SheetPerksPanel() {
                     >
                       Изменить
                     </Button>
-                  </div>
-                </article>
+                  }
+                />
               );
             })}
           </div>
         )}
       </Panel>
 
-      <Modal
+      <PerkDetailModal
         open={detail !== null}
         onClose={() => setDetail(null)}
-        title={detail ? `Перк: ${detail.selected.name}` : "Перк"}
-        footer={
-          detail && (
+        name={detail?.selected.name ?? ""}
+        type={detail?.selected.type}
+        eyebrow={detail?.slot?.title}
+        summary={
+          detail
+            ? (detail.selected.summary ??
+              detailPerk?.summary ??
+              "Описание перка недоступно.")
+            : undefined
+        }
+        description={detailText}
+        action={
+          detail?.selected.source === "custom" ? (
             <>
-              {detail.selected.source === "custom" && (
-                <>
-                  <Button
-                    variant="ghost"
-                    icon="edit"
-                    onClick={() => {
-                      setEditing(detail.selected);
-                      setDetail(null);
-                    }}
-                  >
-                    Изменить
-                  </Button>
-                  <Button
-                    variant="danger"
-                    icon="trash"
-                    onClick={() => removeCustom(detail.selected)}
-                  >
-                    Удалить
-                  </Button>
-                </>
-              )}
-              <span className="grow" />
-              {detail.selected.source !== "custom" && (
-                <Button
-                  variant="ghost"
-                  onClick={() => {
-                    setDetail(null);
-                    goTo("hero");
-                  }}
-                >
-                  Открыть на вкладке «Герой»
-                </Button>
-              )}
-              <Button variant="primary" onClick={() => setDetail(null)}>
-                Закрыть
+              <Button
+                variant="ghost"
+                icon="edit"
+                onClick={() => {
+                  setEditing(detail.selected);
+                  setDetail(null);
+                }}
+              >
+                Изменить
+              </Button>
+              <Button
+                variant="danger"
+                icon="trash"
+                onClick={() => removeCustom(detail.selected)}
+              >
+                Удалить
               </Button>
             </>
-          )
+          ) : undefined
         }
-      >
-        {detail && (
-          <div className="sheet-perk-detail">
-            <div className="hstack wrap">
-              <Chip tone={PERK_TYPE_META[detail.selected.type].tone}>
-                {PERK_TYPE_META[detail.selected.type].label}
-              </Chip>
-            </div>
-            {(() => {
-              const perk = perkById(detail.selected.perkId);
-              const text =
-                detail.selected.source === "custom"
-                  ? detail.selected.description ||
-                    detail.selected.summary ||
-                    perk?.description ||
-                    ""
-                  : (perk?.description ?? "");
-              return text ? (
-                <RichText text={text} />
-              ) : (
-                <p className="muted">Полное описание этого перка недоступно.</p>
-              );
-            })()}
-          </div>
-        )}
-      </Modal>
+      />
 
       {(creating || editing) && (
         <CustomPerkModal

@@ -72,14 +72,15 @@ export function HeaderPanel() {
                 <a href={codexLink(character.career)}>{character.career}</a>
               </>
             )}
+            <HeaderDomainChoices key={character.id} />
           </div>
-          <HeaderDomainChoices key={character.id} />
         </div>
         <Button
           size="sm"
           variant="ghost"
           icon="edit"
-          onClick={() => goTo("hero")}
+          className="sheet-edit-button"
+          onClick={() => goTo("development")}
         >
           Редактировать героя
         </Button>

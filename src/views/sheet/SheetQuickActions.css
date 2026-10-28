@@ -3,7 +3,7 @@
 }
 
 .sheet-quick-modal .modal-body {
-  padding: 12px;
+  padding: var(--space-6);
 }
 
 .sheet-quick-modal .panel {
@@ -13,7 +13,7 @@
 
 @media (max-width: 700px) {
   .sheet-head-top {
-    gap: 9px;
+    gap: var(--space-5);
   }
 
   .hero-name {
@@ -23,18 +23,18 @@
 
   .sheet-head-identity {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
-    margin-top: 8px;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
   }
 
   .sheet-quick-actions {
     position: sticky;
     z-index: 20;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
-    margin: 8px 0;
-    padding: 4px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+    margin: var(--space-4) 0;
+    padding: var(--space-2);
     border-radius: var(--radius);
     background: var(--bg);
     box-shadow: 0 4px 12px color-mix(in srgb, var(--bg) 65%, transparent);
@@ -47,8 +47,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2px;
-    padding: 7px 9px;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-5);
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
@@ -68,22 +68,22 @@
     max-width: 100%;
     overflow: hidden;
     color: var(--muted);
-    font-size: 9px;
+    font-size: var(--text-2xs);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .sheet-quick-action strong {
     color: var(--fg-bright);
-    font-size: 14px;
-    line-height: 1.1;
+    font-size: var(--text-base);
+    line-height: var(--leading-tight);
   }
 
   .sheet-quick-detail {
     max-width: 100%;
     overflow: hidden;
     color: var(--muted);
-    font-size: 9px;
+    font-size: var(--text-2xs);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -100,20 +100,20 @@
 }
 @media (max-width: 560px) {
   .sheet-workspace-view {
-    gap: 12px;
+    gap: var(--space-6);
   }
   .sheet-workspace-view > .sheet-header {
-    padding: 3px 0 10px;
+    padding: var(--space-2) 0 var(--space-5);
   }
   .sheet-identity-heading h1 {
     font-size: clamp(25px, 7vw, 32px);
   }
   .sheet-identity-heading .eyebrow {
-    margin-bottom: 4px;
+    margin-bottom: var(--space-2);
   }
   .sheet-identity-summary {
-    margin-top: 5px;
-    gap: 4px 8px;
-    font-size: 11px;
+    margin-top: var(--space-3);
+    gap: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
   }
 }

@@ -3,8 +3,8 @@
 .dev-panel {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 18px 20px 22px;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-8) var(--space-9);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -14,7 +14,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-6);
   flex-wrap: wrap;
 }
 
@@ -25,22 +25,16 @@
 .dev-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: var(--text-xl);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--fg-bright);
 }
 
-.dev-subtitle {
-  margin: 4px 0 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .dev-head-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 /* ---------- Строка состояния сохранения ---------- */
@@ -48,8 +42,8 @@
 .dev-savebar {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 10px 12px;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-2);
@@ -57,17 +51,17 @@
 
 .dev-issues {
   margin: 0;
-  padding-left: 18px;
+  padding-left: var(--space-8);
   color: var(--yellow);
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
 }
 
 .dev-note {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
 }
 
 .dev-note.is-error {
@@ -78,19 +72,7 @@
   color: var(--accent);
 }
 
-/* ---------- Раунд и выборы особенностей ---------- */
-
-.dev-class-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-2);
-}
+/* ---------- Выборы особенностей класса ---------- */
 
 .dev-class-choices:empty {
   display: none;
@@ -99,7 +81,7 @@
 .dev-class-choices {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 /* ---------- Уровни ---------- */
@@ -107,7 +89,7 @@
 .dev-levels {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 .dev-level {
@@ -126,9 +108,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 10px;
+  gap: var(--space-4) var(--space-5);
   width: 100%;
-  padding: 11px 14px;
+  padding: var(--space-6) var(--space-7);
   border: 0;
   background: transparent;
   color: var(--fg);
@@ -146,11 +128,11 @@
   justify-content: center;
   min-width: 26px;
   height: 26px;
-  padding: 0 6px;
+  padding: 0 var(--space-3);
   border-radius: var(--radius-sm);
   background: var(--surface-3);
   color: var(--fg-bright);
-  font-size: 13px;
+  font-size: var(--text-md);
 }
 
 .dev-level[data-status="next"] .dev-level-number {
@@ -159,24 +141,24 @@
 }
 
 .dev-level-title {
-  font-size: 14px;
+  font-size: var(--text-base);
   font-weight: 600;
 }
 
 .dev-level-echelon {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-sm);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .dev-level-status {
   margin-left: auto;
-  padding: 2px 8px;
+  padding: var(--space-1) var(--space-4);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-sm);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -188,20 +170,20 @@
 
 .dev-level-incomplete {
   color: var(--yellow);
-  font-size: 11px;
+  font-size: var(--text-sm);
 }
 
 .dev-level-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 0 14px 14px;
+  gap: var(--space-6);
+  padding: 0 var(--space-7) var(--space-7);
 }
 
 .dev-level-rule {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-body);
   font-style: italic;
 }
 
@@ -210,14 +192,14 @@
 .dev-fixed {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 6px 16px;
+  gap: var(--space-3) var(--space-7);
 }
 
 .dev-fixed-row {
   display: flex;
-  gap: 8px;
-  font-size: 12px;
-  line-height: 1.5;
+  gap: var(--space-4);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
 }
 
 .dev-fixed-label {
@@ -225,8 +207,8 @@
   color: var(--muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  font-size: 10px;
-  padding-top: 2px;
+  font-size: var(--text-xs);
+  padding-top: var(--space-1);
 }
 
 .dev-fixed-values {
@@ -238,8 +220,8 @@
 .dev-step {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 12px;
+  gap: var(--space-4);
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-left: 2px solid var(--line-strong);
   border-radius: var(--radius);
@@ -253,12 +235,12 @@
 .dev-step-head {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
 .dev-step-title {
-  font-size: 13px;
+  font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--fg-bright);
@@ -266,13 +248,13 @@
 
 .dev-step-hint {
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-sm);
 }
 
 .dev-step-count {
   margin-left: auto;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-sm);
 }
 
 .dev-step.is-complete .dev-step-count {
@@ -281,106 +263,21 @@
 
 /* ---------- Карточки способностей и перков ---------- */
 
+/* Сетка переиспользует карточки листа, поэтому задаёт только раскладку. */
 .dev-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  align-items: stretch;
+  gap: var(--space-5);
 }
 
-.dev-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-2);
-  overflow: hidden;
-  transition: border-color 140ms var(--ease), background 140ms var(--ease);
+.dev-perk-cards {
+  gap: 0 var(--space-8);
+  border-bottom: 1px solid var(--line);
 }
 
-.dev-card:hover {
-  border-color: var(--line-strong);
-}
-
-.dev-card.is-selected {
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface-2));
-}
-
-.dev-card-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 10px 6px;
-  border: 0;
-  background: transparent;
-  color: var(--fg-bright);
-  font-size: 13px;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-}
-
-.dev-card-title:hover .dev-card-name {
-  text-decoration: underline dotted;
-}
-
-.dev-card-name {
-  min-width: 0;
-}
-
-.dev-card-title > svg {
-  margin-left: auto;
-  flex: none;
-  color: var(--muted);
-}
-
-.dev-card-tag {
-  display: inline-block;
-  padding: 1px 6px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.dev-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-  padding: 0 10px 10px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  text-align: left;
-  cursor: pointer;
-}
-
-.dev-card-summary {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.dev-card-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: auto;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.dev-card.is-selected .dev-card-mark {
-  color: var(--accent);
+.dev-perk-cards .sheet-perk-card {
+  padding: var(--space-5) 0;
 }
 
 /* ---------- Чипы навыков и характеристик ---------- */
@@ -388,7 +285,7 @@
 .dev-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .dev-chips .chip {
@@ -400,21 +297,21 @@
 .dev-block {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .dev-block-title {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .dev-list {
   margin: 0;
-  padding-left: 18px;
-  font-size: 12px;
-  line-height: 1.55;
+  padding-left: var(--space-8);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
   color: var(--muted);
 }
 
@@ -426,7 +323,7 @@
 .dev-features {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 /* ---------- Повышение уровня ---------- */
@@ -434,31 +331,31 @@
 .dev-advance {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
   border: 1px dashed var(--accent-line);
   border-radius: var(--radius);
 }
 
 .dev-advance-row {
   display: flex;
-  gap: 6px;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
 .dev-review {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-body);
   cursor: pointer;
 }
 
 .dev-footnote {
   margin: 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-sm);
   font-style: italic;
 }
 
@@ -467,25 +364,174 @@
 .dev-detail {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 13px;
-  line-height: 1.6;
+  gap: var(--space-5);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
 }
 
 .dev-detail-footer {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 @media (max-width: 720px) {
   .dev-panel {
-    padding: 14px 12px 18px;
+    padding: var(--space-7) var(--space-6) var(--space-8);
   }
   .dev-cards {
     grid-template-columns: minmax(0, 1fr);
   }
   .dev-level-head {
-    padding: 10px 12px;
+    padding: var(--space-5) var(--space-6);
   }
+}
+
+/* ---------- Сводка незаполненных шагов ---------- */
+
+.dev-todo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.dev-todo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.dev-todo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.dev-todo-item:hover,
+.dev-todo-item:focus-visible {
+  border-color: var(--accent-line);
+  color: var(--accent);
+  outline: none;
+}
+
+.dev-todo-item .mono {
+  color: var(--muted);
+}
+
+/* ---------- Перки по типам ---------- */
+
+.dev-perk-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.dev-perk-group-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-perk-group:first-child .dev-perk-group-head {
+  border-top: 0;
+}
+
+.dev-perk-group-head:hover,
+.dev-perk-group-head:focus-visible {
+  color: var(--fg);
+  outline: none;
+}
+
+.dev-perk-group-name {
+  color: var(--fg-bright);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.dev-perk-group-count {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.dev-perk-group-dot {
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.dev-perk-group-dot.tone-yellow {
+  background: var(--yellow);
+}
+.dev-perk-group-dot.tone-green {
+  background: var(--green);
+}
+.dev-perk-group-dot.tone-blue {
+  background: var(--blue);
+}
+.dev-perk-group-dot.tone-magenta {
+  background: var(--magenta);
+}
+.dev-perk-group-dot.tone-accent {
+  background: var(--accent);
+}
+
+.dev-perk-group-grid {
+  margin-top: var(--space-3);
+  border-bottom: 0;
+  row-gap: var(--space-6);
+}
+
+/* Перки в группах — обычная flex-сетка с зазорами по всем сторонам. */
+.dev-perk-group .dev-perk-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  border-bottom: 0;
+}
+
+.dev-perk-group .dev-perk-group-grid > .sheet-perk-card {
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid color-mix(in srgb, var(--perk-tone, var(--line)) 45%, var(--line));
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.dev-perk-group .dev-perk-group-grid > .sheet-perk-card[data-type] {
+  border-color: color-mix(in srgb, var(--perk-tone) 45%, var(--line));
+  border-top-color: color-mix(in srgb, var(--perk-tone) 72%, var(--line));
+}
+
+/* Выбранный перк в группе: фон всей карточки в тон типа. */
+.dev-perk-group .dev-perk-group-grid > .sheet-perk-card.is-selected {
+  background: color-mix(
+    in srgb,
+    var(--perk-tone, var(--accent)) 12%,
+    var(--surface-2)
+  );
 }

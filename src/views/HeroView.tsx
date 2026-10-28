@@ -11,14 +11,13 @@ import {
   TextInput,
 } from "../components/ui";
 import { ANCESTRIES, CAREERS, CLASS_PRESETS } from "../data/classes";
-import { SKILL_GROUPS } from "../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
 import { PerksPanel } from "./hero/PerksPanel";
 import { ClassFeaturesPanel } from "./hero/ClassFeaturesPanel";
 import { useApp } from "../state/AppContext";
 import "./HeroView.css";
-import { Artwork } from "../components/Artwork";
 
-export function HeroView() {
+export function HeroView({ embedded = false }: { embedded?: boolean }) {
   const { character, update, patch, goTo } = useApp();
   const [languageDraft, setLanguageDraft] = useState("");
 
@@ -61,25 +60,22 @@ export function HeroView() {
   };
 
   return (
-    <div className="hero-view">
-      <header className="page-head">
-        <h1 className="page-title">
-          <Icon name="hero" size={26} />
-          Герой
-        </h1>
-        <div className="page-actions">
-          <Button icon="sheet" onClick={() => goTo("sheet")}>
-            К листу
-          </Button>
-        </div>
-      </header>
+    <div className={`hero-view${embedded ? " is-embedded" : ""}`}>
+      {!embedded && (
+        <header className="page-head">
+          <h1 className="page-title">
+            <Icon name="hero" size={26} />
+            Герой
+          </h1>
+          <div className="page-actions">
+            <Button icon="sheet" onClick={() => goTo("sheet")}>
+              К листу
+            </Button>
+          </div>
+        </header>
+      )}
 
       <Panel title="Личность" icon="hero" dense>
-        <div className="hero-art-gallery">
-          <Artwork kind="ancestry" name={character.ancestry} />
-          <Artwork kind="class" name={character.className} />
-          <Artwork kind="career" name={character.career} />
-        </div>
         <div className="hero-identity">
           <Field label="Имя" className="hero-identity-name">
             <TextInput
@@ -166,7 +162,11 @@ export function HeroView() {
               skills.includes(skill),
             ).length;
             return (
-              <section key={group.key} className="hero-skill-group">
+              <section
+                key={group.key}
+                className="hero-skill-group"
+                data-tone={SKILL_GROUP_TONES[group.key]}
+              >
                 <header className="hero-skill-head">
                   <h3>{group.label}</h3>
                   <Chip
@@ -180,6 +180,7 @@ export function HeroView() {
                   {group.skills.map((skill) => (
                     <Chip
                       key={skill}
+                      tone={SKILL_GROUP_TONES[group.key]}
                       active={skills.includes(skill)}
                       onClick={() => toggleSkill(skill)}
                     >
@@ -194,7 +195,7 @@ export function HeroView() {
       </Panel>
 
       <PerksPanel />
-      <ClassFeaturesPanel />
+      {!embedded && <ClassFeaturesPanel />}
 
       <div className="hero-cols">
         <Panel title="Языки" icon="book" dense>

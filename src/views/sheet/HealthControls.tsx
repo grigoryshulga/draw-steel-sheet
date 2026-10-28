@@ -92,6 +92,7 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
         <Button
           variant="ghost"
           icon="sun"
+          className="health-rest"
           onClick={() => run({ kind: "rest" })}
           title="Полный отдых: выносливость и восстановления до максимума, ресурс и всплески — в 0"
         >

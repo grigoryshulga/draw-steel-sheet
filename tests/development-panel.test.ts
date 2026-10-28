@@ -87,6 +87,10 @@ describe("вкладка «Развитие»", () => {
     expect(html).toContain("Следующий");
     expect(html).toContain("Выбор перка");
     expect(html).toContain("Выбор способности");
+    // Выборы используют те же карточки, что и лист.
+    expect(html).toContain("sheet-ability-card");
+    expect(html).toContain("sheet-perk-card");
+    expect(html).toContain('data-type="');
     expect(html).toContain("Способ повышения");
     expect(html).toContain("Сохранить");
   });
@@ -104,7 +108,8 @@ describe("вкладка «Развитие»", () => {
     expect(html).toContain('aria-expanded="true"');
     expect(html).toContain('aria-expanded="false"');
     // Текущие выборы видны как выбранные карточки, а не пустые шаги.
-    expect(html).toContain("Выбрано");
+    expect(html).toContain('aria-pressed="true"');
+    expect(html).toContain("is-selected");
     expect(html).toContain("1/1");
   });
 });

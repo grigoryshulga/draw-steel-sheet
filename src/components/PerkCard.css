@@ -1,0 +1,183 @@
+/* Единая карточка перка: лист героя и вкладка «Развитие». */
+.sheet-perk-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  min-width: 0;
+  padding: var(--space-5) 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.sheet-perk-card.is-filled {
+  border-color: var(--line);
+}
+
+.sheet-perk-card.is-interactive {
+  cursor: pointer;
+}
+
+.sheet-perk-card.is-interactive:hover {
+  border-top-color: var(--accent-line);
+}
+
+.sheet-perk-card.is-selected {
+  background: color-mix(
+    in srgb,
+    var(--perk-tone, var(--accent)) 12%,
+    var(--surface-2)
+  );
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--perk-tone, var(--accent)) 42%, transparent);
+}
+
+.sheet-perk-card.is-selected h3 {
+  color: var(--accent);
+}
+
+.sheet-perk-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--space-8);
+}
+
+.sheet-perk-head .chip {
+  height: 21px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.sheet-perk-card h3 {
+  margin: var(--space-1) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: var(--fg-bright);
+  overflow-wrap: anywhere;
+}
+
+.sheet-perk-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+}
+
+.sheet-perk-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.sheet-perk-card-actions .btn {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Общая сетка карточек перков: лист, развитие, билдер и редактор героя. */
+.perk-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0 var(--space-8);
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+  .perk-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Пустой слот перка: та же карточка, без названия и типа. */
+.sheet-perk-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 66px;
+  padding: var(--space-4) 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sheet-perk-empty-title {
+  font-size: var(--text-md);
+  color: var(--muted);
+}
+
+.sheet-perk-empty:hover .sheet-perk-empty-title {
+  color: var(--accent);
+}
+
+/* Рамка перка окрашена в цвет его типа. */
+.sheet-perk-card[data-type="crafting"] {
+  --perk-tone: var(--yellow);
+}
+.sheet-perk-card[data-type="exploration"] {
+  --perk-tone: var(--green);
+}
+.sheet-perk-card[data-type="interpersonal"] {
+  --perk-tone: var(--blue);
+}
+.sheet-perk-card[data-type="intrigue"] {
+  --perk-tone: var(--magenta);
+}
+.sheet-perk-card[data-type="lore"] {
+  --perk-tone: var(--accent);
+}
+.sheet-perk-card[data-type="supernatural"] {
+  --perk-tone: var(--muted);
+}
+
+.sheet-perk-card[data-type] {
+  border-top-color: color-mix(in srgb, var(--perk-tone) 70%, var(--line));
+}
+
+.sheet-perk-card[data-type]:hover {
+  border-top-color: color-mix(in srgb, var(--perk-tone) 78%, var(--line));
+}
+
+.sheet-perk-card.is-selected[data-type] {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--perk-tone) 48%, transparent);
+}
+
+/* Заголовок-кнопка перка: без браузерной плашки и рамки. */
+.sheet-perk-title {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sheet-perk-title:hover {
+  color: var(--accent);
+}
+
+.sheet-perk-title:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.sheet-perk-card.is-selected .sheet-perk-title {
+  color: var(--perk-tone, var(--accent));
+}

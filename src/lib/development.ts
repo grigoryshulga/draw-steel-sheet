@@ -21,7 +21,7 @@ import {
   selectedPerkForSlot,
   type PerkSlot,
 } from "../data/perks";
-import { SKILL_GROUPS } from "../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
 import {
   CHARACTERISTIC_KEYS,
   type Ability,
@@ -29,6 +29,7 @@ import {
   type CharacteristicKey,
   type CompendiumAbility,
   type LevelAdvancementRecord,
+  type PerkType,
   type SelectedPerk,
 } from "../types";
 import {
@@ -78,6 +79,8 @@ export interface DevelopmentOption {
   detail?: string;
   /** Карточка способности целиком: попап и сетка показывают её поля. */
   ability?: Ability;
+  /** Тип перка: по нему карточка выбирает тон и подпись чипа. */
+  perkType?: PerkType;
   /** Текущее значение характеристики для подписи варианта. */
   value?: number;
   /** Вариант был выбран раньше и сейчас недоступен для нового выбора. */
@@ -318,11 +321,7 @@ interface SkillChipMeta {
 export function skillChipMeta(skill: string): SkillChipMeta {
   const group = SKILL_GROUPS.find((entry) => entry.skills.includes(skill));
   if (!group) return { tone: "accent", group: "Другие" };
-  if (group.key === "crafting") return { tone: "yellow", group: group.label };
-  if (group.key === "exploration") return { tone: "green", group: group.label };
-  if (group.key === "interpersonal") return { tone: "blue", group: group.label };
-  if (group.key === "intrigue") return { tone: "magenta", group: group.label };
-  return { tone: "accent", group: group.label };
+  return { tone: SKILL_GROUP_TONES[group.key], group: group.label };
 }
 
 function skillOptions(
@@ -458,6 +457,7 @@ function perkOptions(
     tag: PERK_TYPE_META[perk.type].label,
     summary: perk.summary || perk.description,
     detail: perk.description,
+    perkType: perk.type,
   }));
   if (currentPerk) {
     const index = options.findIndex((option) => option.id === currentPerk.perkId);
@@ -467,6 +467,7 @@ function perkOptions(
         id: currentPerk.perkId,
         label: currentPerk.name,
         tag: "выбран сейчас",
+        perkType: currentPerk.type,
         ...(currentPerk.summary ? { summary: currentPerk.summary } : {}),
         ...(currentPerk.description ? { detail: currentPerk.description } : {}),
       });
@@ -754,6 +755,7 @@ function nextLevelSteps(
             tag: PERK_TYPE_META[perk.type].label,
             summary: perk.summary || perk.description,
             detail: perk.description,
+            perkType: perk.type,
           };
         }
       }

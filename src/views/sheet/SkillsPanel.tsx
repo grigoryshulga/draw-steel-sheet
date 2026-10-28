@@ -1,20 +1,8 @@
 import { Button, Chip, Panel } from "../../components/ui";
 import { Icon } from "../../components/Icons";
-import { SKILL_GROUPS } from "../../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../../data/skills";
 import { useApp } from "../../state/AppContext";
-import type { SkillGroup } from "../../data/skills";
 import "./SkillsPanel.css";
-
-const GROUP_TONES: Record<
-  SkillGroup["key"],
-  "yellow" | "green" | "blue" | "magenta" | "accent"
-> = {
-  crafting: "yellow",
-  exploration: "green",
-  interpersonal: "blue",
-  intrigue: "magenta",
-  lore: "accent",
-};
 
 /** Навыки героя рядом с характеристиками. */
 export function SkillsPanel() {
@@ -32,7 +20,7 @@ export function SkillsPanel() {
       icon="check"
       className="skills-panel"
       actions={
-        <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("hero")}>
+        <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("development")}>
           Изменить
         </Button>
       }
@@ -40,7 +28,7 @@ export function SkillsPanel() {
       {character.skills.length === 0 ? (
         <div className="skills-empty">
           <Icon name="check" size={20} />
-          <Button size="sm" variant="soft" onClick={() => goTo("hero")}>
+          <Button size="sm" variant="soft" onClick={() => goTo("development")}>
             Выбрать навыки
           </Button>
         </div>
@@ -51,7 +39,7 @@ export function SkillsPanel() {
               <span className="eyebrow">{group.label}</span>
               <div className="sheet-skill-chips">
                 {group.items.map((skill) => (
-                  <Chip key={skill} tone={GROUP_TONES[group.key]}>
+                  <Chip key={skill} tone={SKILL_GROUP_TONES[group.key]}>
                     {skill}
                   </Chip>
                 ))}

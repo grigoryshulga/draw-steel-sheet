@@ -1,0 +1,199 @@
+/* Крупная карточка выбора в билдере: портрет-подложка, текст поверх. */
+.builder-option-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--fg);
+  cursor: pointer;
+  transition:
+    border-color 140ms var(--ease),
+    background-color 140ms var(--ease),
+    box-shadow 140ms var(--ease);
+}
+
+.builder-option-card.with-art {
+  min-height: 280px;
+}
+
+.builder-option-card:not(.with-art) {
+  min-height: 0;
+}
+
+.builder-option-card:hover {
+  border-color: var(--accent-line);
+}
+
+.builder-option-card.is-selected {
+  min-height: 320px;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 20px 46px -30px color-mix(in srgb, var(--accent) 80%, transparent);
+}
+
+.builder-option-card.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.builder-option-art {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: -1;
+  width: 64%;
+  height: 100%;
+  opacity: 0.95;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 48%, transparent 100%);
+}
+
+.builder-option-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.builder-option-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-7);
+}
+
+.builder-option-card.with-art .builder-option-body {
+  margin-left: 38%;
+}
+
+.builder-option-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: 0.01em;
+  color: var(--fg-bright);
+  text-shadow: 0 1px 16px color-mix(in srgb, var(--bg) 85%, transparent);
+  overflow-wrap: anywhere;
+}
+
+.builder-option-card.is-selected .builder-option-name {
+  font-size: clamp(28px, 3vw, 36px);
+}
+
+.builder-option-snippet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+}
+
+.builder-option-copy {
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  overflow-wrap: anywhere;
+}
+
+.builder-option-copy > :first-child {
+  margin-top: 0;
+}
+
+.builder-option-copy > :last-child {
+  margin-bottom: 0;
+}
+
+.builder-option-copy a {
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .builder-option-card,
+  .builder-option-card.with-art,
+  .builder-option-card.is-selected {
+    min-height: 300px;
+  }
+
+  .builder-option-art {
+    width: 100%;
+    height: 54%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 54%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 54%, transparent 100%);
+  }
+
+  .builder-option-art img {
+    object-position: center bottom;
+  }
+
+  .builder-option-body,
+  .builder-option-card.with-art .builder-option-body {
+    margin-left: 0;
+    padding-top: 46%;
+  }
+}
+
+.builder-option-grid > .builder-option-card.is-selected {
+  grid-column: 1 / -1;
+}
+
+.builder-option-kit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+}
+
+.builder-option-kit p {
+  margin: 0;
+}
+
+/* Мягкая подложка под текстом: портрет уходит в фон, текст остаётся читаемым. */
+.builder-option-card.with-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 28%,
+    color-mix(in srgb, var(--surface-2) 72%, transparent) 52%,
+    var(--surface-2) 100%
+  );
+}
+
+.builder-option-card.with-art.is-selected::after {
+  background: linear-gradient(
+    90deg,
+    transparent 28%,
+    color-mix(in srgb, color-mix(in srgb, var(--accent) 7%, var(--surface)) 72%, transparent) 52%,
+    color-mix(in srgb, var(--accent) 7%, var(--surface)) 100%
+  );
+}
+
+@media (max-width: 860px) {
+  .builder-option-card.with-art::after,
+  .builder-option-card.with-art.is-selected::after {
+    background: linear-gradient(
+      180deg,
+      transparent 28%,
+      var(--surface-2) 100%
+    );
+  }
+}

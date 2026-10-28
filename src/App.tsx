@@ -7,10 +7,10 @@ import {
   useRef,
   useState,
 } from "react";
-import { BootError, LoadingScreen, Topbar } from "./components/Topbar";
-import { Sidebar } from "./components/Sidebar";
+import { BootError, LoadingScreen } from "./components/Topbar";
+import { FloatingHeader } from "./components/FloatingHeader";
 import { Toasts, type ToastMessage } from "./components/Toasts";
-import { Button, Modal } from "./components/ui";
+import { Button } from "./components/ui";
 import { WelcomeView } from "./views/WelcomeView";
 import { createAutosave } from "./lib/autosave";
 import {
@@ -37,30 +37,22 @@ import {
 } from "./lib/theme";
 import { downloadJson, safeFilename } from "./lib/utils";
 import { makeId } from "./data/templates";
-import { NAV_ITEMS, TABS, type Tab } from "./navigation";
+import { HERO_TABS, NAV_ITEMS, TABS, type HeroTab, type Tab } from "./navigation";
 import { AppContext, type SaveStatus } from "./state/AppContext";
 import type { Character, CharacterSummary, AppTheme } from "./types";
 import { deriveStats } from "./lib/rules";
 import { recalculateCharacter } from "./lib/character-calculations";
 import { createRollEntry, type RollConfig, type RollEntry } from "./lib/roll";
 import { RollDialog } from "./views/sheet/RollDialog";
+import { HistoryDialog } from "./views/sheet/HistoryDialog";
+import "./views/sheet/SheetFabs.css";
+import "./components/BuilderPage.css";
 import { AuthGate } from "./views/AuthGate";
 import { ViewErrorBoundary } from "./components/ViewErrorBoundary";
 import "./styles/workspace.css";
 
 const SheetView = lazy(() =>
   import("./views/SheetView").then((module) => ({ default: module.SheetView })),
-);
-const InventoryView = lazy(() =>
-  import("./views/InventoryView").then((module) => ({
-    default: module.InventoryView,
-  })),
-);
-const HeroView = lazy(() =>
-  import("./views/HeroView").then((module) => ({ default: module.HeroView })),
-);
-const NotesView = lazy(() =>
-  import("./views/NotesView").then((module) => ({ default: module.NotesView })),
 );
 const SettingsView = lazy(() =>
   import("./views/SettingsView").then((module) => ({
@@ -121,11 +113,11 @@ function WorkspaceApp({
   const [bootError, setBootError] = useState("");
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [saveError, setSaveError] = useState("");
-  const [newOpen, setNewOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [themeChoice, setThemeChoiceState] =
     useState<ThemeChoice>(readThemeChoice);
   const [tab, setTab] = useHashTab("sheet", TABS);
+  const lastNonCreateTab = useRef<Tab>("sheet");
   const [rollOpen, setRollOpen] = useState(false);
   const [lastRoll, setLastRoll] = useState<RollEntry | null>(null);
   const [rollLog, setRollLog] = useState<RollEntry[]>([]);
@@ -245,12 +237,22 @@ function WorkspaceApp({
 
   useEffect(() => {
     const label =
-      { catalog: "Каталоги", glossary: "Глоссарий", settings: "Настройки" }[
-        tab
-      ] ??
+      {
+        catalog: "Каталоги",
+        glossary: "Глоссарий",
+        settings: "Настройки",
+        create: "Создание героя",
+        development: "Развитие",
+        inventory: "Инвентарь",
+        notes: "Журнал",
+        companions: "Спутники",
+      }[tab] ??
       NAV_ITEMS.find((item) => item.id === tab)?.label ??
       "Лист";
-    document.title = `${character ? `${character.name} · ` : ""}${label} — Достать листы!`;
+    document.title =
+      tab === "create"
+        ? "Создание героя — Достать листы!"
+        : `${character ? `${character.name} · ` : ""}${label} — Достать листы!`;
     if (tab !== "codex") window.scrollTo({ top: 0 });
   }, [tab, character?.id, character?.name]);
 
@@ -309,6 +311,10 @@ function WorkspaceApp({
       autosave.dispose();
     };
   }, [autosave]);
+
+  useEffect(() => {
+    if (tab !== "create") lastNonCreateTab.current = tab as Tab;
+  }, [tab]);
 
   /* ---------- Тема оформления ---------- */
 
@@ -372,7 +378,6 @@ function WorkspaceApp({
       const doc = await saveCharacter(draft);
       setCharacters((prev) => sortSummaries([toSummary(doc), ...prev]));
       activateCharacter(doc);
-      setNewOpen(false);
       setTab("sheet");
       notify(`Герой «${doc.name}» создан`, "success");
     });
@@ -473,6 +478,44 @@ function WorkspaceApp({
     return <BootError message={bootError} />;
   }
 
+  const closeBuilder = () => setTab(lastNonCreateTab.current);
+
+  if (tab === "create") {
+    if (booting) {
+      return (
+        <main className="builder-page builder-page-loading" id="main-content">
+          <LoadingScreen label="Загрузка конструктора" />
+        </main>
+      );
+    }
+    return (
+      <>
+        <main className="builder-page" id="main-content" tabIndex={-1}>
+          <ViewErrorBoundary onClose={closeBuilder}>
+            <Suspense
+              fallback={
+                <div className="builder-page-loading">
+                  <LoadingScreen label="Загрузка конструктора" />
+                </div>
+              }
+            >
+              <NewCharacterDialog
+                onClose={closeBuilder}
+                onCreate={handleCreate}
+              />
+            </Suspense>
+          </ViewErrorBoundary>
+        </main>
+        <Toasts
+          toasts={toasts}
+          onDismiss={(id) =>
+            setToasts((prev) => prev.filter((toast) => toast.id !== id))
+          }
+        />
+      </>
+    );
+  }
+
   const contextValue = character
     ? {
         character,
@@ -501,30 +544,24 @@ function WorkspaceApp({
       >
         Перейти к содержимому
       </a>
+      <FloatingHeader
+        tab={tab as Tab}
+        character={character}
+        characters={characters}
+        saveStatus={saveStatus}
+        saveError={saveError}
+        onSelectCharacter={(id) => void handleSelectCharacter(id)}
+        onNewCharacter={() => setTab("create")}
+        onNavigate={(next) => setTab(next)}
+      />
       <div className="app">
-        {!character && (
-          <Sidebar tab={tab as Tab} onNavigate={(next) => setTab(next)} />
-        )}
-        <div className="main" aria-busy={changingCharacter}>
+        <div className="main workspace-main" aria-busy={changingCharacter}>
           {changingCharacter && (
             <div className="workspace-progress" role="status">
               Сохраняем и открываем героя…
             </div>
           )}
           <div inert={changingCharacter}>
-            {character && (
-              <Topbar
-                tab={tab as Tab}
-                character={character}
-                characters={characters}
-                saveStatus={saveStatus}
-                saveError={saveError}
-                onSelectCharacter={(id) => void handleSelectCharacter(id)}
-                onNewCharacter={() => setNewOpen(true)}
-                onNavigate={(next) => setTab(next)}
-              />
-            )}
-
             {character && saveStatus === "error" && (
               <section className="save-error-banner" role="alert">
                 <div>
@@ -575,7 +612,7 @@ function WorkspaceApp({
                   </Suspense>
                 ) : !character || !contextValue ? (
                   <WelcomeView
-                    onCreate={() => setNewOpen(true)}
+                    onCreate={() => setTab("create")}
                     onImport={handleImport}
                     onOpenCodex={() => setTab("codex")}
                     busy={changingCharacter}
@@ -585,10 +622,9 @@ function WorkspaceApp({
                     <Suspense
                       fallback={<LoadingScreen label="Загрузка раздела" />}
                     >
-                      {tab === "sheet" && <SheetView />}
-                      {tab === "inventory" && <InventoryView />}
-                      {tab === "hero" && <HeroView />}
-                      {tab === "notes" && <NotesView />}
+                      {HERO_TABS.includes(tab as HeroTab) && (
+                        <SheetView tab={tab as HeroTab} />
+                      )}
                       {tab === "settings" && (
                         <SettingsView
                           characters={characters}
@@ -597,7 +633,7 @@ function WorkspaceApp({
                           themeChoice={themeChoice}
                           onThemeChoice={handleThemeChoice}
                           onSelect={(id) => void handleSelectCharacter(id)}
-                          onNew={() => setNewOpen(true)}
+                          onNew={() => setTab("create")}
                           onDelete={handleDelete}
                           onDuplicate={handleDuplicate}
                           onExport={handleExport}
@@ -605,14 +641,17 @@ function WorkspaceApp({
                         />
                       )}
                     </Suspense>
-                    <RollDialog
-                      open={rollOpen}
-                      onToggle={() => setRollOpen((open) => !open)}
-                      onClose={() => setRollOpen(false)}
-                      onRoll={performRoll}
-                      lastRoll={lastRoll}
-                      log={rollLog}
-                    />
+                    <div className="sheet-fab-stack">
+                      <HistoryDialog />
+                      <RollDialog
+                        open={rollOpen}
+                        onToggle={() => setRollOpen((open) => !open)}
+                        onClose={() => setRollOpen(false)}
+                        onRoll={performRoll}
+                        lastRoll={lastRoll}
+                        log={rollLog}
+                      />
+                    </div>
                   </AppContext.Provider>
                 )}
               </ViewErrorBoundary>
@@ -620,33 +659,6 @@ function WorkspaceApp({
           </div>
         </div>
       </div>
-
-      {newOpen && (
-        <ViewErrorBoundary
-          onClose={() => setNewOpen(false)}
-          onExport={
-            character ? () => void handleExport(character.id) : undefined
-          }
-        >
-          <Suspense
-            fallback={
-              <Modal
-                open
-                title="Создание героя"
-                onClose={() => setNewOpen(false)}
-              >
-                <LoadingScreen label="Загрузка конструктора" />
-              </Modal>
-            }
-          >
-            <NewCharacterDialog
-              open={newOpen}
-              onClose={() => setNewOpen(false)}
-              onCreate={handleCreate}
-            />
-          </Suspense>
-        </ViewErrorBoundary>
-      )}
 
       <Toasts
         toasts={toasts}

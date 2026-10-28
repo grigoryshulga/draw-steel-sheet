@@ -1,7 +1,7 @@
 .potency-panel .potency-values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: var(--space-4);
   margin: 0;
 }
 
@@ -9,24 +9,24 @@
   min-width: 0;
   display: grid;
   justify-items: center;
-  gap: 4px;
-  padding: 9px 4px 8px;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-2) var(--space-4);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   text-align: center;
 }
 
 .potency-tile dt {
   color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.2;
+  font-size: var(--text-body);
+  line-height: var(--leading-tight);
   white-space: nowrap;
 }
 
 .potency-tile dd {
   margin: 0;
   color: var(--fg-bright);
-  font-size: 1.35rem;
+  font-size: var(--text-2xl);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
   line-height: 1;

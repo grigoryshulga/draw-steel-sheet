@@ -5,93 +5,13 @@
 .sheet-perk-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 9px;
-}
-
-.sheet-perk-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-height: 108px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface-2) 68%, transparent);
-  min-width: 0;
-}
-
-.sheet-perk-card.is-filled {
-  border-color: color-mix(in srgb, var(--accent) 22%, var(--line));
-}
-
-.sheet-perk-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  min-height: 20px;
-}
-
-.sheet-perk-head .chip {
-  height: 21px;
-  padding: 0 7px;
-  font-size: 9.5px;
-}
-
-.sheet-perk-card h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--fg-bright);
-}
-
-.sheet-perk-summary {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin: 0;
-  font-size: 11.5px;
-  line-height: 1.45;
-  color: var(--muted);
-}
-
-.sheet-perk-more {
-  align-self: flex-start;
-  margin-top: auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.sheet-perk-empty {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-  width: 100%;
-  min-height: 66px;
-  padding: 8px 0;
-  border: 0;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-}
-
-.sheet-perk-empty-title {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.sheet-perk-empty:hover .sheet-perk-empty-title {
-  color: var(--accent);
+  gap: var(--space-5);
 }
 
 .sheet-perk-detail {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 @media (max-width: 640px) {
@@ -105,17 +25,17 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--space-6);
   flex-wrap: wrap;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
   border-top: 1px solid var(--line);
 }
 
 .sheet-perk-custom-head p {
-  margin: 3px 0 0;
-  font-size: 11.5px;
-  line-height: 1.4;
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
 }
 
 .sheet-perk-custom-head .eyebrow {
@@ -123,7 +43,7 @@
 }
 
 .sheet-perk-custom-grid {
-  margin-top: 9px;
+  margin-top: var(--space-5);
 }
 
 .sheet-perk-card.is-custom {
@@ -131,23 +51,10 @@
   border-color: color-mix(in srgb, var(--accent) 28%, var(--line));
 }
 
-.sheet-perk-custom-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: auto;
-  padding-top: 4px;
-}
-
-.sheet-perk-custom-actions .btn {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .sheet-perk-form {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 180px;
-  gap: 12px;
+  gap: var(--space-6);
 }
 
 .sheet-perk-form .field:nth-child(n + 3) {
@@ -167,38 +74,38 @@
 .sheet-perk-custom-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-3);
 }
 
 .sheet-perk-picker-filters {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 200px;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .sheet-perk-picker-body {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 10px;
+  gap: var(--space-5);
   min-height: 300px;
 }
 
 .sheet-perk-picker-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-2);
   max-height: 420px;
   overflow: auto;
-  padding-right: 4px;
+  padding-right: var(--space-2);
 }
 
 .sheet-perk-picker-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2px;
-  padding: 8px 10px;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: transparent;
@@ -214,29 +121,29 @@
 }
 
 .sheet-perk-picker-name {
-  font-size: 13px;
+  font-size: var(--text-md);
   font-weight: 600;
 }
 
 .sheet-perk-picker-meta {
-  font-size: 10.5px;
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
 .sheet-perk-picker-preview {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-4);
   min-width: 0;
   max-height: 420px;
   overflow: auto;
-  padding: 2px 4px 2px 0;
+  padding: var(--space-1) var(--space-2) var(--space-1) 0;
 }
 
 .sheet-perk-picker-preview h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: var(--text-2xl);
   color: var(--fg-bright);
 }
 
@@ -254,30 +161,8 @@
 
 /* Плоские карточки перков: без заливки и рамок, только тонкие разделители */
 .sheet-perk-grid {
-  gap: 0 20px;
+  gap: 0 var(--space-8);
   border-bottom: 1px solid var(--line);
-}
-
-.sheet-perk-card {
-  min-height: 0;
-  padding: 10px 0;
-  border: 0;
-  border-top: 1px solid var(--line);
-  border-radius: 0;
-  background: transparent;
-}
-
-.sheet-perk-card.is-filled {
-  border-color: var(--line);
-}
-
-.sheet-perk-card h3 {
-  margin-top: 1px;
-}
-
-.sheet-perk-more,
-.sheet-perk-custom-actions .btn {
-  margin-top: 4px;
 }
 
 .sheet-perk-picker-list {
@@ -285,7 +170,7 @@
 }
 
 .sheet-perk-picker-item {
-  padding: 8px 4px;
+  padding: var(--space-4) var(--space-2);
   border: 0;
   border-bottom: 1px solid var(--line);
   border-radius: 0;

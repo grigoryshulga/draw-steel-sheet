@@ -1,32 +1,32 @@
 .health-controls {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
 }
 .health-amount-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 .health-amount {
   width: 84px;
   height: 36px;
   text-align: center;
-  font-size: 18px;
+  font-size: var(--text-xl);
 }
 .health-hint {
   margin: 0;
 }
 .health-recoveries-readout {
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
 }
 .vital-current-input.is-small {
-  font-size: 22px;
+  font-size: var(--text-2xl);
 }
 .health-recoveries-readout .vital-max-slash {
-  font-size: 14px;
+  font-size: var(--text-base);
 }
 .health-recoveries-readout .vital-max-input {
   width: 84px;
@@ -45,9 +45,9 @@
 .vitals-current .vital-max-input.number-counter-plain .number-counter-value {
   width: 100%;
   min-width: 0;
-  padding: 0 3px;
+  padding: 0 var(--space-2);
   color: var(--fg);
-  font-size: 15px;
+  font-size: var(--text-base);
   text-align: center;
 }
 .vitals-current .vital-max-input.number-counter-plain:hover {
@@ -67,5 +67,10 @@
   align-self: flex-end;
 }
 .health-dialog .health-recoveries-readout {
-  margin-bottom: 10px;
+  margin-bottom: var(--space-5);
+}
+
+/* «Отдых» стоит отдельно, у правого края строки действий. */
+.health-rest {
+  margin-left: auto;
 }

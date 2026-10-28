@@ -3,6 +3,7 @@ import { Button } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import type { RollConfig, RollEntry } from "../../lib/roll";
 import { PowerRollPanel } from "./PowerRollPanel";
+import "./SheetFabs.css";
 import "./RollDialog.css";
 
 /** Плавающая кнопка броска в правом нижнем углу; по нажатию над ней раскрывается небольшая панель. */
@@ -31,14 +32,14 @@ export function RollDialog({
   }, [open, onClose]);
 
   return (
-    <div className="roll-fab-wrap">
+    <>
       {open && (
         <section
-          className="roll-popover"
+          className="sheet-fab-popover roll-popover"
           role="dialog"
           aria-label="Бросок силы"
         >
-          <header className="roll-popover-head">
+          <header className="sheet-fab-popover-head">
             <strong>Бросок силы</strong>
             <Button
               variant="ghost"
@@ -49,14 +50,14 @@ export function RollDialog({
               onClick={onClose}
             />
           </header>
-          <div className="roll-popover-body">
+          <div className="sheet-fab-popover-body">
             <PowerRollPanel onRoll={onRoll} lastRoll={lastRoll} log={log} />
           </div>
         </section>
       )}
       <button
         type="button"
-        className={`roll-fab${open ? " is-open" : ""}`}
+        className={`sheet-fab${open ? " is-open" : ""}`}
         onClick={onToggle}
         aria-expanded={open}
         aria-label="Бросок силы"
@@ -64,6 +65,6 @@ export function RollDialog({
       >
         <Icon name={open ? "close" : "dice"} size={24} />
       </button>
-    </div>
+    </>
   );
 }

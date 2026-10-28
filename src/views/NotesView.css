@@ -1,13 +1,13 @@
 .notes-view {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-7);
 }
 
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: var(--space-7);
   align-items: start;
 }
 
@@ -16,13 +16,13 @@
 }
 
 .note-section-card .panel-body {
-  padding-top: 4px;
+  padding-top: var(--space-2);
 }
 
 .note-section-textarea {
   min-height: 190px;
   resize: vertical;
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
 }
 
 .note-section-wide .note-section-textarea {

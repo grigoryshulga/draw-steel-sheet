@@ -1,10 +1,10 @@
 .sheet-workspace-view {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--space-8);
 }
 .sheet-workspace-view > .sheet-header {
-  padding: 12px 0 18px;
+  padding: var(--space-6) 0 var(--space-8);
   border: 0;
   border-bottom: 1px solid var(--line);
   border-radius: 0;
@@ -15,27 +15,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: var(--space-8);
 }
 .sheet-identity-heading h1 {
   color: var(--fg-bright);
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.2;
+  line-height: var(--leading-tight);
 }
 .sheet-identity-heading .eyebrow {
   display: inline-block;
-  margin-bottom: 9px;
+  margin-bottom: var(--space-5);
 }
 .sheet-identity-summary {
   display: flex;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
   align-items: center;
   color: var(--muted);
-  margin-top: 10px;
-  font-size: 13px;
+  margin-top: var(--space-5);
+  font-size: var(--text-md);
 }
 .sheet-identity-summary a {
   color: var(--fg);
@@ -45,46 +45,103 @@
 .sheet-identity-summary a:hover {
   color: var(--accent);
 }
-.sheet-header-domains {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 10px;
-  margin-top: 10px;
+/* Домен живёт прямо в строке идентичности: чип вместо отдельного поля. */
+.sheet-domain-chip-wrap {
+  position: relative;
+  display: inline-flex;
+  min-width: 0;
 }
-.sheet-domain-choice {
+.sheet-domain-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 24px;
+  padding: var(--space-1) var(--space-5);
+  border: 1px solid color-mix(in srgb, var(--sheet-warm) 32%, var(--line));
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--sheet-warm-soft) 55%, transparent);
+  color: var(--fg);
+  font: inherit;
+  font-size: var(--text-body);
+  line-height: var(--leading-snug);
+  cursor: pointer;
+  transition:
+    border-color 140ms var(--ease),
+    background 140ms var(--ease);
+}
+.sheet-domain-chip:hover {
+  border-color: color-mix(in srgb, var(--sheet-warm) 55%, var(--line));
+  background: color-mix(in srgb, var(--sheet-warm-soft) 80%, transparent);
+}
+.sheet-domain-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.sheet-domain-chip-label {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sheet-domain-chip-value {
+  color: var(--fg);
+  font-weight: 500;
+}
+.sheet-domain-chip svg {
+  color: var(--muted);
+}
+.sheet-domain-popover {
+  right: auto;
+  left: 0;
+  min-width: 220px;
+}
+.sheet-domain-popover.is-form {
+  width: 240px;
+  padding: var(--space-5);
+}
+.sheet-domain-popover .menu-item svg {
+  margin-left: auto;
+  color: var(--accent);
+}
+.sheet-domain-field {
   display: grid;
-  gap: 4px;
-  min-width: 150px;
+  gap: var(--space-2);
+}
+.sheet-domain-field + .sheet-domain-field {
+  margin-top: var(--space-4);
 }
 .sheet-domain-warning {
-  flex-basis: 100%;
+  margin: var(--space-3) var(--space-5) var(--space-2);
   color: var(--orange);
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+.sheet-domain-popover.is-form .sheet-domain-warning {
+  margin: var(--space-4) 0 0;
 }
 .sheet-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
   margin-top: -10px;
 }
 .sheet-toolbar > a {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-body);
   text-decoration: none;
 }
 .sheet-toolbar > div {
   display: flex;
-  gap: 8px;
+  gap: var(--space-4);
   flex-wrap: wrap;
   align-items: center;
 }
 .sheet-toolbar-actions > a {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-body);
   text-decoration: none;
 }
 .sheet-toolbar-actions > a:hover {
@@ -96,22 +153,25 @@
 .sheet-tablist {
   display: flex;
   align-items: flex-end;
-  gap: 4px;
+  gap: var(--space-2);
   border-bottom: 1px solid var(--line);
 }
 .sheet-tab {
   position: relative;
-  padding: 8px 16px 9px;
+  padding: var(--space-4) var(--space-7) var(--space-5);
   border: 1px solid transparent;
   border-bottom: 0;
   border-radius: var(--radius) var(--radius) 0 0;
   background: transparent;
   color: var(--muted);
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: var(--text-base);
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition: color 140ms var(--ease), border-color 140ms var(--ease);
+  transition:
+    color 140ms var(--ease),
+    border-color 140ms var(--ease),
+    transform 140ms var(--ease);
 }
 .sheet-tab:hover {
   color: var(--fg);
@@ -132,13 +192,13 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin-left: 6px;
+  margin-left: var(--space-3);
   border-radius: 50%;
   background: var(--yellow);
   vertical-align: middle;
 }
 .dev-tab {
-  margin-top: 10px;
+  margin-top: var(--space-5);
 }
 .sheet-block > .panel {
   border: 0;
@@ -147,14 +207,14 @@
   border-radius: 0;
 }
 .sheet-block > .panel > .panel-head {
-  padding: 18px 20px 14px;
+  padding: var(--space-8) var(--space-8) var(--space-7);
 }
 .sheet-block > .panel > .panel-body {
-  padding: 0 20px 20px;
+  padding: 0 var(--space-8) var(--space-8);
 }
 .sheet-block .panel-title {
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: var(--text-base);
   letter-spacing: 0;
   text-transform: none;
   color: var(--fg);
@@ -164,44 +224,44 @@
   display: none;
 }
 .sheet-block > .potency-strip {
-  padding: 20px;
+  padding: var(--space-8);
 }
 .sheet-block .stat-card {
   border: 0;
 }
 .sheet-block .stat-name {
-  font-size: 11px;
+  font-size: var(--text-sm);
   letter-spacing: 0;
 }
 .sheet-block .char-grid {
-  gap: 16px;
+  gap: var(--space-7);
 }
 .sheet-block .movement-grid {
-  gap: 12px;
+  gap: var(--space-6);
 }
 .sheet-block .tier-scale {
-  font-size: 10px;
+  font-size: var(--text-xs);
   opacity: 0.85;
 }
 .sheet-block .sheet-ability-card {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--line);
   border-top: 1px solid var(--line);
 }
 .sheet-block .sheet-perk-card {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--line);
 }
 .sheet-block .conditions-empty {
   min-height: 0;
-  padding: 15px;
+  padding: var(--space-7);
 }
 @media (max-width: 760px) {
   .sheet-block > .panel > .panel-head {
-    padding: 16px;
+    padding: var(--space-7);
   }
   .sheet-block > .panel > .panel-body {
-    padding: 0 16px 16px;
+    padding: 0 var(--space-7) var(--space-7);
   }
   .sheet-toolbar > a {
     display: none;
@@ -211,7 +271,7 @@
   }
   .sheet-block .char-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 8px;
+    gap: var(--space-4);
   }
   .sheet-block .stat-card .stepper-btn {
     width: 20px;
@@ -238,8 +298,8 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 12px;
-  padding: 8px 0 4px;
+  gap: var(--space-6);
+  padding: var(--space-4) 0 var(--space-2);
 }
 .sheet-layout .stat-card .stat-card-head {
   text-align: center;
@@ -250,7 +310,7 @@
   min-width: 0;
   justify-content: space-between;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 .sheet-layout .stat-card > .stepper .stepper-btn {
   flex: 0 0 23px;
@@ -260,12 +320,12 @@
 .sheet-layout .stat-card > .stepper .stepper-value {
   flex: 1;
   min-width: 20px;
-  font-size: 23px;
+  font-size: var(--text-2xl);
   font-weight: 500;
 }
 .characteristic-thresholds {
-  margin-top: 16px;
-  font-size: 12px;
+  margin-top: var(--space-7);
+  font-size: var(--text-body);
   color: var(--muted);
 }
 .characteristic-thresholds summary {
@@ -273,9 +333,9 @@
 }
 .characteristic-thresholds p {
   display: flex;
-  gap: 16px;
+  gap: var(--space-7);
   flex-wrap: wrap;
-  margin: 8px 0;
+  margin: var(--space-4) 0;
 }
 .characteristic-thresholds strong {
   color: var(--fg);
@@ -283,7 +343,7 @@
 }
 @media (max-width: 760px) {
   .sheet-layout .stat-card .stat-name {
-    font-size: 10px;
+    font-size: var(--text-xs);
   }
   .sheet-layout .stat-card > .stepper .stepper-btn {
     flex-basis: 20px;
@@ -306,4 +366,9 @@
 }
 .sheet-block .potency-strip-values {
   flex-wrap: wrap;
+}
+
+/* Редактирование героя живёт в нижней строке шапки, а не рядом с именем. */
+.sheet-identity-heading > .sheet-edit-button {
+  align-self: flex-end;
 }

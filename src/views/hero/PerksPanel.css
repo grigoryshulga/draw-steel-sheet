@@ -1,14 +1,14 @@
 .perk-slots {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+  gap: var(--space-5);
 }
 
 .perk-slot {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 12px;
+  gap: var(--space-5);
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-2) 68%, transparent);
@@ -19,20 +19,20 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 10px;
+  gap: var(--space-5);
   flex-wrap: wrap;
 }
 
 .perk-slot-types {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: var(--space-2);
 }
 
 .perk-chosen {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
   flex: 1;
 }
 
@@ -40,13 +40,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .perk-chosen-head h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: var(--text-xl);
   font-weight: 600;
   color: var(--fg-bright);
 }
@@ -56,27 +56,27 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
   color: var(--muted);
 }
 
 .perk-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-3);
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: var(--space-2);
 }
 
 .perk-empty {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: var(--space-2);
   width: 100%;
   min-height: 96px;
-  padding: 14px;
+  padding: var(--space-7);
   border: 1px dashed var(--line-strong);
   border-radius: var(--radius-sm);
   background: transparent;
@@ -93,7 +93,7 @@
 }
 
 .perk-empty > span:nth-child(2) {
-  font-size: 13.5px;
+  font-size: var(--text-md);
   font-weight: 600;
   color: var(--fg);
 }
@@ -107,37 +107,37 @@
 .perk-picker-title {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--space-1);
 }
 
 .perk-picker-filters {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 180px;
-  gap: 10px;
+  gap: var(--space-5);
   align-items: end;
 }
 
 .perk-picker-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 14px;
+  gap: var(--space-7);
   min-height: 360px;
 }
 
 .perk-picker-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-3);
   max-height: 52vh;
   overflow: auto;
-  padding-right: 3px;
+  padding-right: var(--space-2);
 }
 
 .perk-option {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 9px 10px;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface-2);
@@ -160,18 +160,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .perk-option-name {
-  font-size: 13.5px;
+  font-size: var(--text-md);
   font-weight: 600;
   color: var(--fg-bright);
 }
 
 .perk-used {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-2xs);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--yellow);
@@ -179,7 +179,7 @@
 
 .perk-option-meta {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-xs);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -190,18 +190,18 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 11.5px;
-  line-height: 1.4;
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
   color: var(--muted);
 }
 
 .perk-picker-preview {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-5);
   max-height: 52vh;
   overflow: auto;
-  padding: 12px;
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-3) 60%, transparent);
@@ -210,18 +210,18 @@
 .perk-picker-preview > h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: var(--text-2xl);
   color: var(--fg-bright);
 }
 
 .perk-picker-preview .rich-text {
-  font-size: 13px;
+  font-size: var(--text-md);
 }
 
 .perk-detail {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-6);
   max-height: 62vh;
   overflow: auto;
 }

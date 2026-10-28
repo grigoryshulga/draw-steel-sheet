@@ -1,0 +1,47 @@
+/* ============================================================
+   Дизайн-токены
+   Единственный источник повторяющихся значений: отступы, шкала
+   типографики, радиусы, поверхности и карточки. Компоненты берут
+   размеры отсюда, а не заводят собственные.
+   ============================================================ */
+
+:root {
+  /* Отступы. Шаг 2px, рабочие значения — 4/8/12/16/20. */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 10px;
+  --space-6: 12px;
+  --space-7: 16px;
+  --space-8: 20px;
+  --space-9: 24px;
+
+  /* Шкала типографики. */
+  --text-2xs: 9px;
+  --text-xs: 10px;
+  --text-sm: 11px;
+  --text-body: 12px;
+  --text-md: 13px;
+  --text-base: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 22px;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.55;
+  --tracking-caps: 0.08em;
+  --tracking-wide: 0.12em;
+
+  /* Радиусы: дополняют базовые --radius-sm / --radius / --radius-lg. */
+  --radius-xs: 6px;
+  --radius-pill: 999px;
+
+  /* Карточки. Лист переопределяет цвета в SheetAtmosphere.css. */
+  --card-gap: var(--space-3);
+  --card-padding: var(--space-7);
+  --card-radius: var(--radius-sm);
+  --card-border: var(--line);
+  --card-bg: var(--surface-2);
+}

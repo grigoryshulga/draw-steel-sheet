@@ -1,16 +1,16 @@
 .library-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-9);
 }
 .library-nav a {
-  padding: 8px 14px;
+  padding: var(--space-4) var(--space-7);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: var(--muted);
   text-decoration: none;
-  font-size: 13px;
+  font-size: var(--text-md);
 }
 .library-nav a:hover,
 .library-nav a[aria-current] {

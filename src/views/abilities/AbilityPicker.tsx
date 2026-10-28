@@ -1,4 +1,3 @@
-import { abilityDistance } from "../../lib/character-calculations";
 import { useMemo, useState } from "react";
 import type {
   Ability,
@@ -24,9 +23,10 @@ import {
   Select,
   TextInput,
 } from "../../components/ui";
+import { AbilityCard } from "../../components/AbilityCard";
 import { Icon } from "../../components/Icons";
-import { TierList, kindTone, ownershipKey, rollSummary } from "./shared";
-import { RichText } from "../../components/RichText";
+import { ownershipKey } from "./shared";
+import "../AbilitiesView.css";
 
 type SourceFilter = "all" | "class" | "kit" | "basic";
 
@@ -287,66 +287,12 @@ export function AbilityPicker({
 
           <aside className="abil-picker-preview">
             {selected ? (
-              <>
-                <h3 className="abil-picker-preview-name">{selected.name}</h3>
-                <div className="abil-keywords">
-                  <Chip tone={kindTone(selected.kind)}>
-                    {kindLabel(selected.kind)}
-                  </Chip>
-                  <Chip>{actionShort(selected.actionType)}</Chip>
-                  {selected.keywords.map((keyword) => (
-                    <Chip key={keyword}>{keyword}</Chip>
-                  ))}
-                </div>
-                {selected.flavor && (
-                  <p className="abil-flavor">{selected.flavor}</p>
-                )}
-                <div className="abil-facts">
-                  <div className="abil-fact">
-                    <span className="abil-fact-label">Дистанция</span>
-                    <span className="abil-fact-value">
-                      {abilityDistance(selected, character) || "—"}
-                    </span>
-                  </div>
-                  <div className="abil-fact">
-                    <span className="abil-fact-label">Цель</span>
-                    <span className="abil-fact-value">
-                      {selected.target || "—"}
-                    </span>
-                  </div>
-                  <div className="abil-fact">
-                    <span className="abil-fact-label">Бросок</span>
-                    <span className="abil-fact-value mono">
-                      {rollSummary(selected)}
-                    </span>
-                  </div>
-                  <div className="abil-fact">
-                    <span className="abil-fact-label">Уровень</span>
-                    <span className="abil-fact-value mono">
-                      {selected.level}
-                    </span>
-                  </div>
-                  <div className="abil-fact">
-                    <span className="abil-fact-label">Стоимость</span>
-                    <span className="abil-fact-value mono">
-                      {selected.resourceCost > 0 ? selected.resourceCost : "—"}
-                    </span>
-                  </div>
-                </div>
-                <TierList ability={selected} character={character} />
-                {selected.trigger && (
-                  <div className="abil-block abil-block-trigger">
-                    <span className="abil-block-label">Триггер</span>
-                    <RichText text={selected.trigger} />
-                  </div>
-                )}
-                {selected.effect && (
-                  <div className="abil-block">
-                    <span className="abil-block-label">Эффект</span>
-                    <RichText text={selected.effect} />
-                  </div>
-                )}
-              </>
+              <AbilityCard
+                ability={selected}
+                character={character}
+                full
+                className="abil-picker-card"
+              />
             ) : (
               <EmptyState
                 icon="book"

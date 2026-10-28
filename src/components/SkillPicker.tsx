@@ -1,5 +1,5 @@
 import { useId, useMemo } from "react";
-import { SKILL_GROUPS } from "../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
 import { Icon } from "./Icons";
 import type { SkillSlot } from "../data/creation-rules";
 import {
@@ -39,41 +39,14 @@ export function SkillPicker({
   const known = useMemo(() => new Set(state.known.map(skillKey)), [state.known]);
   const available = useMemo(() => new Set(state.available.map(skillKey)), [state.available]);
   const selectable = useMemo(() => new Set(state.selectable.map(skillKey)), [state.selectable]);
-  const hasUnavailableSkills = state.available.some(
-    (skill) => !selected.has(skillKey(skill)) && !selectable.has(skillKey(skill)),
-  );
-
   return (
     <section className="skill-picker" aria-labelledby={`${id}-title`}>
       <h3 className="skill-picker__title" id={`${id}-title`}>{label}</h3>
 
-      <div className="skill-picker__summary" aria-live="polite">
-        <p className="skill-picker__count">
-          Выбрано {state.selected.length} из {state.required}, осталось {state.remaining}
+      {state.automatic.length > 0 ? (
+        <p className="skill-picker__automatic-summary">
+          Автоматически получено: {state.automatic.join(", ")} (не входят в выбор)
         </p>
-        {hasUnavailableSkills ? (
-          <p className="skill-picker__hint">
-            {state.remaining === 0
-              ? "Лимит выбран. Снимите отметку с выбранного навыка, чтобы заменить его."
-              : "Некоторые навыки недоступны при текущем выборе. Снимите отметку с навыка, чтобы заменить его."}
-          </p>
-        ) : null}
-        {state.automatic.length > 0 ? (
-          <p className="skill-picker__automatic-summary">
-            Автоматически получено: {state.automatic.join(", ")} (не входят в выбор)
-          </p>
-        ) : null}
-      </div>
-
-      {state.requirements.length > 0 ? (
-        <ul className="skill-picker__requirements" aria-label="Требования по группам навыков">
-          {state.requirements.map((requirement, index) => (
-            <li key={`${requirement.label}:${index}`}>
-              <span>{requirement.label}</span>
-              <span>{requirement.selected} из {requirement.required}</span>
-            </li>
-          ))}
-        </ul>
       ) : null}
 
       {slots.length === 0 ? (
@@ -89,10 +62,43 @@ export function SkillPicker({
             return available.has(key) || automatic.has(key) || known.has(key);
           });
           if (relevantSkills.length === 0) return null;
+          const requirement = state.requirements.find(
+            (item) => item.label === group.label,
+          );
+          const remaining = requirement
+            ? Math.max(0, requirement.required - requirement.selected)
+            : 0;
 
           return (
-            <fieldset className="skill-picker__group" key={group.key}>
-              <legend>{group.label}</legend>
+            <fieldset
+              className="skill-picker__group"
+              data-tone={SKILL_GROUP_TONES[group.key]}
+              key={group.key}
+            >
+              <legend className="sr-only">{group.label}</legend>
+              <div className="skill-picker__group-head">
+                <span className="skill-picker__group-name">{group.label}</span>
+                {requirement && (
+                  <span
+                    className={`skill-picker__group-count${
+                      remaining === 0 ? " is-complete" : ""
+                    }`}
+                    title={`Выбрано ${requirement.selected} из ${requirement.required}`}
+                  >
+                    {remaining === 0 ? (
+                      <>
+                        <Icon name="check" size={12} aria-hidden="true" />
+                        Готово
+                      </>
+                    ) : (
+                      <>
+                        <b className="numeric">{remaining}</b>
+                        осталось
+                      </>
+                    )}
+                  </span>
+                )}
+              </div>
               <div className="skill-picker__chips">
                 {relevantSkills.map((skill, skillIndex) => {
                   const key = skillKey(skill);

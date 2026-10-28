@@ -1,7 +1,7 @@
 .stat-label-with-help {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-4);
 }
 
 .stat-breakdown {
@@ -11,5 +11,5 @@
 .stat-breakdown-equation {
   display: flex;
   flex-direction: column;
-  gap: 3px 9px;
+  gap: var(--space-2) var(--space-5);
 }

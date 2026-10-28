@@ -3,6 +3,8 @@
   --sheet-warm: color-mix(in srgb, #b9966f 38%, var(--accent));
   --sheet-warm-line: color-mix(in srgb, #b9966f 26%, var(--line));
   --sheet-warm-soft: color-mix(in srgb, #b9966f 5%, var(--surface));
+  --card-border: color-mix(in srgb, var(--sheet-warm-line) 80%, var(--line));
+  --card-bg: color-mix(in srgb, var(--sheet-warm-soft) 34%, var(--surface));
 }
 
 .sheet-workspace-view > .sheet-header {
@@ -18,7 +20,7 @@
   display: block;
   width: min(104px, 36%);
   height: 1px;
-  margin-top: 5px;
+  margin-top: var(--space-3);
   background: linear-gradient(
     90deg,
     color-mix(in srgb, var(--sheet-warm) 65%, transparent),
@@ -51,13 +53,6 @@
   display: block;
   color: var(--sheet-warm);
   opacity: 0.8;
-}
-.sheet-workspace-view > .sheet-header {
-  background: radial-gradient(
-    ellipse at 80% 35%,
-    color-mix(in srgb, var(--sheet-warm) 6%, transparent),
-    transparent 65%
-  );
 }
 @media (max-width: 900px) {
   .sheet-crest {
