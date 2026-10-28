@@ -113,6 +113,9 @@ describe("Тактик: production-реестры", () => {
 
   it("«Метка» не переворачивает сторону преимущества", () => {
     const note = mechanicsFor("tactician.feature.1.metka")?.notes ?? "";
+    expect(note).toContain(
+      "вы и союзники в вашей линии воздействия получаете преимущество",
+    );
     expect(note).toContain("против него");
     expect(note).not.toContain("Отмеченное существо получает преимущество");
   });
