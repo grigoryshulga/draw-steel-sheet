@@ -103,6 +103,7 @@ const SELECTION_GROUPS: Record<
   цензор: { order: "censor.order", domain: "censor.domain" },
   нуль: { tradition: "null.tradition" },
   талант: { tradition: "talent.tradition" },
+  тактик: { doctrine: "tactician.doctrine" },
 };
 
 /**
@@ -133,6 +134,8 @@ const SUBCLASS_BACKED_GROUPS: Record<string, string> = {
   "talent.tradition": "Талант",
   // Традиция Нуля — его подкласс: билдер пишет название в `subclass`.
   "null.tradition": "Нуль",
+  // Доктрина Тактика — его подкласс: билдер пишет название в `subclass`.
+  "tactician.doctrine": "Тактик",
 };
 
 /** Явный выбор группы из `automation.classFeatureSelections`, если он есть. */

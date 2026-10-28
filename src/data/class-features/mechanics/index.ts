@@ -22,6 +22,10 @@ import { TALENT_LATE_MECHANICS } from "./talent-late";
 import { TALENT_RESOURCE_MECHANICS } from "./talent-resource";
 import { TALENT_SANCTUARY_MECHANICS } from "./talent-sanctuaries";
 import { TALENT_TRADITION_MECHANICS } from "./talent-traditions";
+import { TACTICIAN_BASE_MECHANICS } from "./tactician-base";
+import { TACTICIAN_DOCTRINE_MECHANICS } from "./tactician-doctrines";
+import { TACTICIAN_LEVEL_MECHANICS } from "./tactician-levels";
+import { TACTICIAN_RESOURCE_MECHANICS } from "./tactician-resource";
 
 /**
  * Реестр механик классовых особенностей: ключ — `id` записи скелета.
@@ -53,6 +57,10 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...TALENT_EARLY_MECHANICS,
   ...TALENT_TRADITION_MECHANICS,
   ...TALENT_LATE_MECHANICS,
+  ...TACTICIAN_BASE_MECHANICS,
+  ...TACTICIAN_DOCTRINE_MECHANICS,
+  ...TACTICIAN_RESOURCE_MECHANICS,
+  ...TACTICIAN_LEVEL_MECHANICS,
 };
 
 /** Механика фичи или `undefined`, если она описана только прозой или ещё не разобрана. */
@@ -65,5 +73,6 @@ export { CENSOR_RESOURCE } from "./censor-resource";
 export { CONDUIT_RESOURCE } from "./conduit-resource";
 export { NULL_RESOURCE } from "./null-resource";
 export { TALENT_RESOURCE } from "./talent-resource";
+export { TACTICIAN_RESOURCE } from "./tactician-resource";
 export { NOT_YET, TEXT_ONLY } from "./exceptions";
 export type { FeatureMechanics };

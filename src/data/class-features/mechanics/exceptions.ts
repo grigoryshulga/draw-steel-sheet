@@ -16,6 +16,9 @@ import { TALENT_EARLY_TEXT_ONLY } from "./talent-early";
 import { TALENT_LATE_TEXT_ONLY } from "./talent-late";
 import { TALENT_SANCTUARY_TEXT_ONLY } from "./talent-sanctuaries";
 import { TALENT_TRADITION_TEXT_ONLY } from "./talent-traditions";
+import { TACTICIAN_BASE_TEXT_ONLY } from "./tactician-base";
+import { TACTICIAN_DOCTRINE_TEXT_ONLY } from "./tactician-doctrines";
+import { TACTICIAN_LEVEL_TEXT_ONLY } from "./tactician-levels";
 
 /**
  * Особенности, которые сознательно остаются прозой: правило читается из текста
@@ -68,6 +71,9 @@ export const TEXT_ONLY: Record<string, string> = {
   ...TALENT_EARLY_TEXT_ONLY,
   ...TALENT_TRADITION_TEXT_ONLY,
   ...TALENT_LATE_TEXT_ONLY,
+  ...TACTICIAN_BASE_TEXT_ONLY,
+  ...TACTICIAN_DOCTRINE_TEXT_ONLY,
+  ...TACTICIAN_LEVEL_TEXT_ONLY,
 };
 
 /**
@@ -76,7 +82,6 @@ export const TEXT_ONLY: Record<string, string> = {
  * полностью, это отдельный тест.
  */
 export const NOT_YET: Record<string, string> = {
-  "Тактик": "следующий заход: механики по инвентаризации",
   "Тень": "следующий заход: механики по инвентаризации",
   "Трубадур": "следующий заход: механики по инвентаризации",
   "Элементалист": "следующий заход: механики по инвентаризации",

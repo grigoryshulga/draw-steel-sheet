@@ -952,11 +952,11 @@ export function classFeatureGiftsAtLevel(
   );
   // Прозаическая особенность уровня (ситуативное правило, увеличение
   // характеристик) — тоже дар, хотя чисел в модели нет: без неё блок «Что вы
-  // получите» у Таланта и Нуля пуст. Правило ограничено этими классами: у
-  // Fury/Censor/Conduit состав подарков уже сложился и менять его без
-  // отдельного ревью нельзя. Служебные строки — выбор способности, перк,
+  // получите» у Таланта, Нуля и Тактика пуст. Правило ограничено этими
+  // классами: у Fury/Censor/Conduit состав подарков уже сложился и менять его
+  // без отдельного ревью нельзя. Служебные строки — выбор способности, перк,
   // навык, ресурс — остаются за `plan.choices` и панелью ресурсов.
-  const proseGiftClasses = ["Талант", "Нуль"].map(normalizeFeatureText);
+  const proseGiftClasses = ["Талант", "Нуль", "Тактик"].map(normalizeFeatureText);
   const proseGifts = new Set(
     futureFeatures
       .filter(
@@ -1130,15 +1130,16 @@ export function setBloomingSaintImmunityChoice(character: Character, value: stri
 /**
  * Группы, значение которых приложение хранит не только в
  * `automation.classFeatureSelections`, но и в `character.subclass`: аспект
- * Неистового, орден Цензора и традиция Таланта — это подкласс. Домены
- * Проводника сюда не входят: в `subclass` у него лежит пара доменов, а не
- * один выбор.
+ * Неистового, орден Цензора, традиция Таланта, традиция Нуля и доктрина
+ * Тактика — это подкласс. Домены Проводника сюда не входят: в `subclass` у
+ * него лежит пара доменов, а не один выбор.
  */
 const SUBCLASS_MIRRORED_GROUPS = new Set([
   "fury.aspect",
   "censor.order",
   "talent.tradition",
   "null.tradition",
+  "tactician.doctrine",
 ]);
 
 /**

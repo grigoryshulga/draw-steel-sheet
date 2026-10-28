@@ -165,21 +165,21 @@ describe("Нуль: старый лист и выборы на 5–10 уровн
 describe("Нуль: частичный перенос класса", () => {
   it("класс в NOT_YET виден на листе только после регистрации ресурса", () => {
     const hidden = classFeatureGroupsForSheet(
-      createCharacter({ className: "Тактик", level: 1 }),
+      createCharacter({ className: "Тень", level: 1 }),
     )
       .flatMap((group) => group.features)
       .map((feature) => feature.name);
-    expect(hidden).not.toContain("Тактическая доктрина");
+    expect(hidden).not.toContain("Нерешительность — это слабость");
 
-    const key = normalizeFeatureText("Тактик");
+    const key = normalizeFeatureText("Тень");
     CLASS_RESOURCES[key] = NULL_RESOURCE;
     try {
       const shown = classFeatureGroupsForSheet(
-        createCharacter({ className: "Тактик", level: 1 }),
+        createCharacter({ className: "Тень", level: 1 }),
       )
         .flatMap((group) => group.features)
         .map((feature) => feature.name);
-      expect(shown).toContain("Тактическая доктрина");
+      expect(shown).toContain("Нерешительность — это слабость");
     } finally {
       delete CLASS_RESOURCES[key];
     }

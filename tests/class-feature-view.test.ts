@@ -646,7 +646,7 @@ describe("панель показывает механику и прозу, но
       expect(conduitItems.some((item) => item.id === "conduit.feature.1.blagochestie-v-boyu")).toBe(true);
       expect(conduitItems.every((item) => item.trigger ? item.trigger.detail.length > 0 : true)).toBe(true);
 
-      for (const className of ["Элементалист", "Тактик", "Тень"]) {
+      for (const className of ["Элементалист", "Трубадур", "Тень"]) {
         const hero = createCharacter({ className, level: 6 });
         expect(classFeatureGroupsForSheet(hero)).toEqual([]);
         expect(classFeatureChoicesForSheet(hero)).toEqual([]);
@@ -692,9 +692,9 @@ describe("панель показывает механику и прозу, но
   });
 
   it("не показывает записи с keyedBy у класса без зарегистрированной группы выборов", () => {
-    const hero = createCharacter({ className: "Тактик", level: 3 });
+    const hero = createCharacter({ className: "Тень", level: 3 });
     withFeature(
-      { className: "Тактик", keyedBy: "aspect", keyValue: "Берсерк" },
+      { className: "Тень", keyedBy: "aspect", keyValue: "Берсерк" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
         // Выбор неизвестной группы панель проверить не может.
@@ -702,7 +702,7 @@ describe("панель показывает механику и прозу, но
       },
     );
     withFeature(
-      { className: "Тактик" },
+      { className: "Тень" },
       { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }] },
       () => {
         expect(itemsOf(hero)).toHaveLength(1);
