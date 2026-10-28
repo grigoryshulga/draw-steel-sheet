@@ -87,7 +87,8 @@ function Badges({ item }: { item: FeatureSheetItem }) {
 }
 
 /** Одна особенность: название, числа механики, бейджи и отметка триггера. */
-function FeatureRow({ item }: { item: FeatureSheetItem }) {
+/** Карточка особенности класса: переиспользуется во вкладке «Развитие». */
+export function FeatureRow({ item }: { item: FeatureSheetItem }) {
   const { performGameAction } = useApp();
   const trigger = item.trigger;
   return (
@@ -197,14 +198,9 @@ function CategoryGroup({
   );
 }
 
-/**
- * Панель активных особенностей класса на листе: секции по категориям, числа
- * механики, бейджи триггеров и условий, выбор аспекта/традиции/доктрины, если
- * он ещё не выбран. Единственный источник правил — новый реестр механик.
- */
-export function ClassFeatureMechanicsPanel() {
+/** Выборы особенностей класса: аспект, традиция, молитва, домены. */
+export function ClassFeatureChoices() {
   const { character, update } = useApp();
-  const groups = classFeatureGroupsForSheet(character);
   // Домен Цензора и пару доменов Проводника редактируем в шапке героя,
   // чтобы не дублировать один и тот же выбор в двух местах.
   const choices = classFeatureChoicesForSheet(character).filter(
@@ -212,11 +208,96 @@ export function ClassFeatureMechanicsPanel() {
       choice.group !== "censor.domain" && choice.group !== "conduit.domain",
   );
   const conduitState = conduitLegacyDomainChoicesForSheet(character);
+
+  const selectChoice = (group: string, value: string) => {
+    update((current) => {
+      if (group === "conduit.blooming-saint-immunity") return setBloomingSaintImmunityChoice(current, value);
+      // Аспект Неистового, орден Цензора и традиция Таланта живут ещё и в
+      // `subclass`: без синхронизации выбор из панели не открывал бы
+      // повышение уровня.
+      return withClassFeatureSelection(current, group, value);
+    });
+  };
+
+  if (choices.length === 0 && !conduitState.message && !conduitState.legacyWarning) {
+    return null;
+  }
+
+  return (
+    <>
+      {choices.length > 0 && (
+        <div className="cf-choices">
+          {choices.map((choice) => {
+            const state = featureSheetChoiceState(choice);
+            return (
+              <label className="cf-choice" key={choice.group}>
+                <span className="cf-choice-label">{choice.label}</span>
+                <Select
+                  value={state.selectedOption}
+                  aria-label={`${choice.label}: выберите вариант`}
+                  onChange={(event) => selectChoice(choice.group, event.target.value)}
+                >
+                  <option value="">Не выбран</option>
+                  {choice.options.map((option) => (
+                    <option key={option} value={option}>
+                      {choice.optionLabels?.[option] ?? groupOptionLabel(choice.group, option)}
+                    </option>
+                  ))}
+                </Select>
+                {state.warning && <span className="cf-item-note">{state.warning}</span>}
+              </label>
+            );
+          })}
+        </div>
+      )}
+      {conduitState.message && (
+        <div className="cf-choices">
+          <p className="cf-item-note">{conduitState.message}</p>
+        </div>
+      )}
+      {conduitState.legacyWarning && (
+        <div className="cf-choices">
+          <p className="cf-item-note">{conduitState.legacyWarning}</p>
+          <Button size="sm" variant="soft" onClick={() => update((current) => confirmConduitLegacyRewardsReviewed(current))}>
+            Я проверил награды
+          </Button>
+        </div>
+      )}
+    </>
+  );
+}
+
+/** Номер раунда и схватки, доступные срабатывания. */
+export function ClassFeatureRuntimeStatus() {
+  const { character } = useApp();
+  const groups = classFeatureGroupsForSheet(character);
   const triggers = triggerBadgeCounts(character);
   const hasTriggers = groups.some((group) =>
     group.features.some((item) => item.trigger),
   );
   const runtime = currentRuntime(character);
+  return (
+    <div className="cf-status">
+      <span>
+        Раунд {runtime.round} · схватка {runtime.encounter}
+      </span>
+      {hasTriggers && (
+        <span className={triggers > 0 ? "cf-status-triggers is-live" : "cf-status-triggers"}>
+          {triggers > 0 ? `Доступно срабатываний: ${triggers}` : "Все срабатывания отмечены"}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Панель активных особенностей класса: выборы, состояние раунда и карточки
+ * по категориям. На листе её место занимает вкладка «Развитие», поэтому
+ * панель оставлена как самостоятельная сборка тех же частей.
+ */
+export function ClassFeatureMechanicsPanel() {
+  const { character } = useApp();
+  const groups = classFeatureGroupsForSheet(character);
   // Уровни больше не делят панель: карточки идут секциями по категориям.
   // Свёрнутость хранится по категории и переживает правки героя.
   // Пассивные эффекты уходят в панель способностей: здесь остаются только
@@ -231,14 +312,6 @@ export function ClassFeatureMechanicsPanel() {
     Set<FeatureSheetCategory>
   >(new Set());
 
-  if (
-    categoryGroups.length === 0 &&
-    choices.length === 0 &&
-    !conduitState.message
-  ) {
-    return null;
-  }
-
   const toggleCategory = (key: FeatureSheetCategory) =>
     setCollapsedCategories((current) => {
       const next = new Set(current);
@@ -246,74 +319,12 @@ export function ClassFeatureMechanicsPanel() {
       return next;
     });
 
-  const selectChoice = (group: string, value: string) => {
-    update((current) => {
-      if (group === "conduit.blooming-saint-immunity") return setBloomingSaintImmunityChoice(current, value);
-      // Аспект Неистового, орден Цензора и традиция Таланта живут ещё и в
-      // `subclass`: без синхронизации выбор из панели не открывал бы
-      // повышение уровня.
-      return withClassFeatureSelection(current, group, value);
-    });
-  };
+  if (categoryGroups.length === 0) return null;
 
   return (
     <section className="cf-sheet" aria-label="Особенности класса по категориям">
-      {choices.length > 0 && (
-        <div className="cf-choices">
-          {choices.map((choice) => (
-            <label className="cf-choice" key={choice.group}>
-              {(() => {
-                const state = featureSheetChoiceState(choice);
-                return <>
-              <span className="cf-choice-label">{choice.label}</span>
-              <Select
-                value={state.selectedOption}
-                aria-label={`${choice.label}: выберите вариант`}
-                onChange={(event) => selectChoice(choice.group, event.target.value)}
-              >
-                <option value="">Не выбран</option>
-                {choice.options.map((option) => (
-                  <option key={option} value={option}>
-                    {choice.optionLabels?.[option] ?? groupOptionLabel(choice.group, option)}
-                  </option>
-                ))}
-              </Select>
-              {state.warning && (
-                <span className="cf-item-note">{state.warning}</span>
-              )}
-                </>;
-              })()}
-            </label>
-          ))}
-        </div>
-      )}
-      {conduitState.message && (
-        <div className="cf-choices">
-          <p className="cf-item-note">{conduitState.message}</p>
-        </div>
-      )}
-      {conduitState.legacyWarning && <div className="cf-choices">
-        <p className="cf-item-note">{conduitState.legacyWarning}</p>
-        <Button size="sm" variant="soft" onClick={() => update((current) => confirmConduitLegacyRewardsReviewed(current))}>Я проверил награды</Button>
-      </div>}
-
-      <div className="cf-status">
-        <span>
-          Раунд {runtime.round} · схватка {runtime.encounter}
-        </span>
-        {hasTriggers && (
-          <span
-            className={
-              triggers > 0 ? "cf-status-triggers is-live" : "cf-status-triggers"
-            }
-          >
-            {triggers > 0
-              ? `Доступно срабатываний: ${triggers}`
-              : "Все срабатывания отмечены"}
-          </span>
-        )}
-      </div>
-
+      <ClassFeatureChoices />
+      <ClassFeatureRuntimeStatus />
       <div className="cf-groups">
         {categoryGroups.map((group) => (
           <CategoryGroup

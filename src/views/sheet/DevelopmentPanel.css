@@ -1,0 +1,491 @@
+/* ---------- Вкладка «Развитие» ---------- */
+
+.dev-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.dev-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dev-head-text {
+  min-width: 0;
+}
+
+.dev-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--fg-bright);
+}
+
+.dev-subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dev-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Строка состояния сохранения ---------- */
+
+.dev-savebar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.dev-issues {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--yellow);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dev-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dev-note.is-error {
+  color: var(--red);
+}
+
+.dev-note.is-ok {
+  color: var(--accent);
+}
+
+/* ---------- Раунд и выборы особенностей ---------- */
+
+.dev-class-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.dev-class-choices:empty {
+  display: none;
+}
+
+.dev-class-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ---------- Уровни ---------- */
+
+.dev-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dev-level {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.dev-level[data-status="next"] {
+  border-color: var(--accent-line);
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface-2));
+}
+
+.dev-level-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  width: 100%;
+  padding: 11px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-level-head:hover {
+  background: var(--surface-hover);
+}
+
+.dev-level-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-3);
+  color: var(--fg-bright);
+  font-size: 13px;
+}
+
+.dev-level[data-status="next"] .dev-level-number {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.dev-level-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dev-level-echelon {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dev-level-status {
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dev-level[data-status="next"] .dev-level-status {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.dev-level-incomplete {
+  color: var(--yellow);
+  font-size: 11px;
+}
+
+.dev-level-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 14px 14px;
+}
+
+.dev-level-rule {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* ---------- Строки уровня 1 ---------- */
+
+.dev-fixed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px 16px;
+}
+
+.dev-fixed-row {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dev-fixed-label {
+  min-width: 96px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.dev-fixed-values {
+  color: var(--fg);
+}
+
+/* ---------- Шаг выбора ---------- */
+
+.dev-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.dev-step.is-complete {
+  border-left-color: var(--accent);
+}
+
+.dev-step-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dev-step-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--fg-bright);
+}
+
+.dev-step-hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.dev-step-count {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.dev-step.is-complete .dev-step-count {
+  color: var(--accent);
+}
+
+/* ---------- Карточки способностей и перков ---------- */
+
+.dev-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+}
+
+.dev-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  overflow: hidden;
+  transition: border-color 140ms var(--ease), background 140ms var(--ease);
+}
+
+.dev-card:hover {
+  border-color: var(--line-strong);
+}
+
+.dev-card.is-selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface-2));
+}
+
+.dev-card-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 10px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--fg-bright);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-card-title:hover .dev-card-name {
+  text-decoration: underline dotted;
+}
+
+.dev-card-name {
+  min-width: 0;
+}
+
+.dev-card-title > svg {
+  margin-left: auto;
+  flex: none;
+  color: var(--muted);
+}
+
+.dev-card-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.dev-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  padding: 0 10px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dev-card-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.dev-card-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dev-card.is-selected .dev-card-mark {
+  color: var(--accent);
+}
+
+/* ---------- Чипы навыков и характеристик ---------- */
+
+.dev-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dev-chips .chip {
+  cursor: pointer;
+}
+
+/* ---------- Списки уровня ---------- */
+
+.dev-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dev-block-title {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dev-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.dev-list strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.dev-features {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ---------- Повышение уровня ---------- */
+
+.dev-advance {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px dashed var(--accent-line);
+  border-radius: var(--radius);
+}
+
+.dev-advance-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dev-review {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dev-footnote {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ---------- Поп-ап выбора ---------- */
+
+.dev-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.dev-detail-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 720px) {
+  .dev-panel {
+    padding: 14px 12px 18px;
+  }
+  .dev-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dev-level-head {
+    padding: 10px 12px;
+  }
+}

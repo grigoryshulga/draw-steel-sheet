@@ -190,7 +190,7 @@ export function conduitFeatureChoiceOptions(group: string): readonly { id: strin
   return CONDUIT_FEATURE_CHOICES.filter((choice) => choice.group === group).map(({ legacyId, name, featureId }) => ({ id: legacyId, name, featureId }));
 }
 
-const CONDUIT_DOMAINS = [
+export const CONDUIT_DOMAINS = [
   "Созидание", "Смерть", "Судьба", "Знание", "Жизнь", "Любовь",
   "Природа", "Защита", "Буря", "Солнце", "Хитрость", "Война",
 ];

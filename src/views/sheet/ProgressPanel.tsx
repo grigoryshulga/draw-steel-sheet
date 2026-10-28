@@ -1,18 +1,17 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import "./ProgressPanel.css";
 import { Icon } from "../../components/Icons";
 import { Button, Field, Modal, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
 import { getLevelUpPlan } from "../../lib/level-up";
+import { openSheetTab } from "../../lib/sheet-tabs";
 import { echelon } from "../../lib/progression";
 import { useApp } from "../../state/AppContext";
-import { LevelUpDialog, LevelUpHistory } from "./LevelUpDialog";
+import { LevelUpHistory } from "./LevelUpHistory";
 
 /** Уровень и эшелон героя, победы, опыт, богатство и известность. */
 export function ProgressPanel() {
   const { character, patch } = useApp();
-  const [levelUpOpen, setLevelUpOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
-  const closeLevelUp = useCallback(() => setLevelUpOpen(false), []);
   const levelUpPlan = getLevelUpPlan(character);
   const currentEchelon = echelon(character.level);
 
@@ -46,9 +45,9 @@ export function ProgressPanel() {
               variant="soft"
               className="progress-level-up-trigger"
               disabled={!levelUpPlan.available}
-              title="Повысить уровень"
+              title="Повысить уровень — вкладка «Развитие»"
               aria-label="Повысить уровень"
-              onClick={() => setLevelUpOpen(true)}
+              onClick={() => openSheetTab("development")}
             >
               <Icon name="arrow-up" size={20} />
             </Button>
@@ -93,13 +92,9 @@ export function ProgressPanel() {
           </Field>
         </div>
       </div>
-      <Modal open={historyOpen} onClose={() => setHistoryOpen(false)} title="История повышений уровня" className="level-up-dialog">
+      <Modal open={historyOpen} onClose={() => setHistoryOpen(false)} title="История повышений уровня" className="level-up-history-modal">
         <LevelUpHistory character={character} />
       </Modal>
-      <LevelUpDialog
-        open={levelUpOpen}
-        onClose={closeLevelUp}
-      />
     </Panel>
   );
 }

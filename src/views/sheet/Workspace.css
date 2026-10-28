@@ -80,6 +80,65 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
+}
+.sheet-toolbar-actions > a {
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: none;
+}
+.sheet-toolbar-actions > a:hover {
+  color: var(--fg);
+}
+
+/* ---------- Вкладки листа ---------- */
+
+.sheet-tablist {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.sheet-tab {
+  position: relative;
+  padding: 8px 16px 9px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 140ms var(--ease), border-color 140ms var(--ease);
+}
+.sheet-tab:hover {
+  color: var(--fg);
+}
+.sheet-tab.is-active {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--accent);
+}
+.sheet-tab.is-active::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--accent);
+}
+.sheet-tab-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+  vertical-align: middle;
+}
+.dev-tab {
+  margin-top: 10px;
 }
 .sheet-block > .panel {
   border: 0;

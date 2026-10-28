@@ -1,12 +1,13 @@
 import type { ComponentType } from "react";
-import { Button, Panel } from "../components/ui";
+import { useEffect, useState } from "react";
+import { Button } from "../components/ui";
+import { onSheetTabRequest, type SheetTab } from "../lib/sheet-tabs";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
 import { ConditionsPanel } from "./sheet/ConditionsPanel";
+import { DevelopmentPanel } from "./sheet/DevelopmentPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
-import { ClassFeatureMechanicsPanel, RoundEncounterControls } from "./sheet/ClassFeaturesPanel";
-import { classFeatureChoicesForSheet, classFeatureGroupsForSheet, conduitLegacyDomainChoicesForSheet } from "../lib/class-feature-view";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { PotencyPanel } from "./sheet/PotencyPanel";
 import { ProgressPanel } from "./sheet/ProgressPanel";
@@ -24,31 +25,17 @@ type PanelId =
   | "characteristics"
   | "conditions"
   | "abilities"
-  | "features"
   | "perks"
   | "potency"
   | "progress"
   | "skills"
   | "vitals"
   | "resources";
-function SheetClassFeaturesPanel() {
-  const { character } = useApp();
-  const hasVisible = classFeatureGroupsForSheet(character).some((group) =>
-    group.features.some((item) => !item.passive),
-  );
-  if (!hasVisible && !classFeatureChoicesForSheet(character).length && !conduitLegacyDomainChoicesForSheet(character).message) return null;
-  return (
-    <Panel title="Особенности класса" icon="spark" dense actions={<RoundEncounterControls />}>
-      <ClassFeatureMechanicsPanel />
-    </Panel>
-  );
-}
 
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
   conditions: ConditionsPanel,
   abilities: SheetAbilitiesPanel,
-  features: SheetClassFeaturesPanel,
   perks: SheetPerksPanel,
   potency: PotencyPanel,
   progress: ProgressPanel,
@@ -58,12 +45,7 @@ const PANELS: Record<PanelId, ComponentType> = {
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
-const MAIN_COLUMN: PanelId[] = [
-  "characteristics",
-  "vitals",
-  "abilities",
-  "features",
-];
+const MAIN_COLUMN: PanelId[] = ["characteristics", "vitals", "abilities"];
 const SIDE_COLUMN: PanelId[] = [
   "progress",
   "potency",
@@ -71,6 +53,11 @@ const SIDE_COLUMN: PanelId[] = [
   "conditions",
   "skills",
   "perks",
+];
+
+const SHEET_TABS: { id: SheetTab; label: string }[] = [
+  { id: "sheet", label: "Лист" },
+  { id: "development", label: "Развитие" },
 ];
 
 function Column({ className, ids }: { className: string; ids: PanelId[] }) {
@@ -90,6 +77,25 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
 
 function SheetWorkspace() {
   const { character, patch } = useApp();
+  const [tab, setTab] = useState<SheetTab>("sheet");
+  const [developmentDirty, setDevelopmentDirty] = useState(false);
+
+  useEffect(() => onSheetTabRequest(setTab), []);
+
+  const switchTab = (next: SheetTab) => {
+    if (next === tab) return;
+    if (tab === "development" && developmentDirty) {
+      const leave = window.confirm(
+        "В «Развитии» есть несохранённые выборы. Уйти без сохранения?",
+      );
+      if (!leave) return;
+      // Черновик живёт внутри панели и исчезнет вместе с ней: снимаем метку,
+      // иначе точка «есть несохранённые выборы» осталась бы на вкладке.
+      setDevelopmentDirty(false);
+    }
+    setTab(next);
+  };
+
   const toggleAutomation = () =>
     patch({
       automation: {
@@ -104,9 +110,26 @@ function SheetWorkspace() {
     <div className="sheet-view sheet-workspace-view">
       <HeaderPanel />
       <SheetQuickActions />
-      <div className="sheet-toolbar">
-        <a href="#/codex/0301">Правила создания героя ↗</a>
-        <div>
+      <div className="sheet-toolbar sheet-toolbar-tabs">
+        <div className="sheet-tablist" role="tablist" aria-label="Разделы героя">
+          {SHEET_TABS.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              className={`sheet-tab${tab === item.id ? " is-active" : ""}`}
+              aria-selected={tab === item.id}
+              onClick={() => switchTab(item.id)}
+            >
+              {item.label}
+              {item.id === "development" && developmentDirty && (
+                <span className="sheet-tab-dot" aria-label="есть несохранённые выборы" />
+              )}
+            </button>
+          ))}
+        </div>
+        <div className="sheet-toolbar-actions">
+          <a href="#/codex/0301">Правила создания героя ↗</a>
           <Button
             size="sm"
             variant={character.automation?.enabled ? "soft" : "ghost"}
@@ -121,12 +144,18 @@ function SheetWorkspace() {
         </div>
       </div>
       <GameHistory />
-      <div className="sheet-layout-host">
-        <div className="sheet-layout">
-          <Column className="sheet-col-main" ids={MAIN_COLUMN} />
-          <Column className="sheet-col-side" ids={SIDE_COLUMN} />
+      {tab === "sheet" ? (
+        <div className="sheet-layout-host">
+          <div className="sheet-layout">
+            <Column className="sheet-col-main" ids={MAIN_COLUMN} />
+            <Column className="sheet-col-side" ids={SIDE_COLUMN} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <section className="dev-tab" role="tabpanel" aria-label="Развитие">
+          <DevelopmentPanel onDirtyChange={setDevelopmentDirty} />
+        </section>
+      )}
     </div>
   );
 }
