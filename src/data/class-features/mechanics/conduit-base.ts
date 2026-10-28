@@ -4,7 +4,7 @@ import type { FeatureMechanics } from "../types";
 export const CONDUIT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
   "conduit.feature.1.bozhestvo-i-domeny": {
     kinds: ["grant"],
-    notes: "Выбор божества и портфолио зависит от мира кампании. Пара доменов хранится под conduit.domain, а особенность первого домена выбирает builder/level-up под conduit.domain.1; фиксированного списка вариантов в записи нет.",
+    notes: "Выбор божества и портфолио зависит от мира кампании. Пара доменов хранится в листе; особенность первого домена выбирается при создании героя или повышении уровня. Фиксированного списка вариантов в записи нет.",
   },
   "conduit.feature.1.osobennost-domena-1-go-urovnya": {
     kinds: ["grant"],

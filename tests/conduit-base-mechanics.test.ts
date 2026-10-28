@@ -128,7 +128,7 @@ describe("механики Проводника 1-го уровня", () => {
       expect(CONDUIT_BASE_MECHANICS[id].choice).toBeUndefined();
       expect(CONDUIT_BASE_MECHANICS[id].notes).not.toContain("options: []");
     }
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.bozhestvo-i-domeny"].notes).toContain("conduit.domain");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.bozhestvo-i-domeny"].notes).toContain("Пара доменов");
     expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.osobennost-domena-1-go-urovnya"].notes).toContain("выбранный домен");
   });
 

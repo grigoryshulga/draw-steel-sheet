@@ -177,7 +177,7 @@ describe("механики уровней Проводника", () => {
     expect(feature.effects).toHaveLength(2);
     expect(feature.effects?.[0]).toMatchObject({ kind: "damageImmunity", types: ["порча"], value: 10, when: { keyValue: ["corruption"] } });
     expect(feature.effects?.[1]).toMatchObject({ kind: "damageImmunity", types: ["святой"], value: 10, when: { keyValue: ["holy"] } });
-    expect(feature.notes).toContain("доступен в интерфейсе классовых особенностей");
+    expect(feature.notes).toContain("выбирается в панели классовых особенностей");
 
     const hero = createCharacter({ className: "Проводник", level: 6 });
     hero.automation = { enabled: true, classFeatureSelections: { "conduit.blooming-saint-immunity": "corruption" } };
@@ -224,7 +224,7 @@ describe("механики уровней Проводника", () => {
       const notes = CONDUIT_LEVEL_MECHANICS[featureId].notes!;
       expect(notes).toContain(`до ${level} уровня`);
       expect(notes).toContain(`стоимостью ${cost}`);
-      expect(notes).toContain("выбор доступен в списке способностей");
+      expect(notes).toContain("выбор доступен при повышении уровня");
       expect(notes).toContain("Благочестие тратится отдельно");
       expect(notes).not.toMatch(/083[358]-g01|CONDUIT_RESOURCE|ResourceGain/);
     }
