@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
 import { DamageChip } from "../../components/DamageChip";
@@ -37,6 +37,10 @@ import {
   sheetAbilityLayout,
   type AbilitySheetFilter,
 } from "../../lib/ability-sheet-groups";
+import {
+  subclassAbilitySource,
+  subclassAbilitySources,
+} from "../../lib/ability-origin";
 import "./SheetAbilitiesPanel.css";
 
 const AbilityPicker = lazy(() =>
@@ -62,7 +66,13 @@ export function SheetAbilitiesPanel() {
     isNew: boolean;
   } | null>(null);
   const abilities = character.abilities;
-  const filterOptions = abilityFilterOptions(abilities);
+  // Карта «способность → подкласс» не зависит от поиска и фильтра, поэтому
+  // считается один раз на героя.
+  const subclassSources = useMemo(
+    () => subclassAbilitySources(character),
+    [character],
+  );
+  const filterOptions = abilityFilterOptions(abilities, subclassSources);
   // Удаление последней способности категории не должно оставлять пустой лист:
   // неизвестный фильтр откатывается к «Все».
   const activeFilter = filterOptions.some((option) => option.key === filter)
@@ -72,6 +82,7 @@ export function SheetAbilitiesPanel() {
     abilities,
     activeFilter,
     query,
+    subclassSources,
   );
   const hasFilter = filterOptions.length > 2;
   const hasQuery = query.trim().length > 0;
@@ -81,6 +92,7 @@ export function SheetAbilitiesPanel() {
       key={ability.id}
       ability={ability}
       character={character}
+      origin={subclassAbilitySource(subclassSources, ability)}
       onOpen={() => openAbility(ability)}
       footerAction={
         <Button
@@ -370,6 +382,11 @@ function AbilityDetailModal({
 }) {
   const { character } = useApp();
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const subclassSources = useMemo(
+    () => subclassAbilitySources(character),
+    [character],
+  );
+  const origin = subclassAbilitySource(subclassSources, ability);
   const requirements = abilityTierRequirements(ability, character);
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
@@ -426,6 +443,7 @@ function AbilityDetailModal({
       <div className="sheet-ability-detail">
         <div className="hstack wrap">
           <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
+          {origin && <Chip tone="accent">{origin.text}</Chip>}
           {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
           {ability.resourceCost > 0 && (
             <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>

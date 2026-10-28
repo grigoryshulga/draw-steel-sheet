@@ -24,6 +24,8 @@ import "./AbilityCard.css";
 export interface AbilityCardProps {
   ability: Ability;
   character: Character;
+  /** Происхождение из подкласса: «Орден», «Домен», «Доктрина» и т. п. */
+  origin?: { label: string; value?: string } | null;
   onOpen?: () => void;
   footerAction?: ReactNode;
   details?: ReactNode;
@@ -33,6 +35,7 @@ export interface AbilityCardProps {
 export function AbilityCard({
   ability,
   character,
+  origin,
   onOpen,
   footerAction,
   details,
@@ -70,6 +73,14 @@ export function AbilityCard({
         </h4>
         <div className="sheet-ability-card-tags">
           <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
+          {origin && (
+            <Chip
+              tone="accent"
+              title={origin.value ? `${origin.label}: ${origin.value}` : origin.label}
+            >
+              {origin.label}
+            </Chip>
+          )}
           {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
           {ability.resourceCost > 0 && (
             <span

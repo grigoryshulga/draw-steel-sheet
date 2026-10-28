@@ -68,6 +68,7 @@
 
 .sheet-ability-card-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 6px;
@@ -106,7 +107,9 @@
 
 .sheet-ability-card-tags {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 5px;
   flex: none;
 }

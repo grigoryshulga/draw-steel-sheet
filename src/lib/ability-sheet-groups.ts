@@ -1,11 +1,18 @@
 import { ACTION_TYPES, actionLabel, kindLabel } from "../data/actions";
+import {
+  isSubclassAbility,
+  type SubclassAbilitySources,
+} from "./ability-origin";
 import type { Ability, AbilityKind, ActionType } from "../types";
 
 /** «Базовые способности» — источник, а не вид: свободные удары и маневры книги. */
 export const BASIC_ABILITY_SOURCE = "Базовые способности";
 
-/** Фильтр панели способностей: вид способности или отдельная группа базовых. */
-export type AbilitySheetFilter = "all" | "basic" | AbilityKind;
+/**
+ * Фильтр панели: вид способности, базовые или происхождение из подкласса.
+ * Подкласс — отдельная ось, поэтому он не входит в `AbilityKind`.
+ */
+export type AbilitySheetFilter = "all" | "basic" | "subclass" | AbilityKind;
 
 /**
  * Порядок видов внутри группы действия: сначала знаковые и героические,
@@ -109,17 +116,26 @@ export function matchesAbilityQuery(ability: Ability, rawQuery: string): boolean
 export function matchesAbilityFilter(
   ability: Ability,
   filter: AbilitySheetFilter,
+  subclassSources?: SubclassAbilitySources,
 ): boolean {
   if (filter === "all") return true;
   if (filter === "basic") return isBasicAbility(ability);
+  if (filter === "subclass") {
+    return subclassSources
+      ? isSubclassAbility(subclassSources, ability)
+      : false;
+  }
   return ability.kind === filter;
 }
 
 export function filterAbilitiesForSheet(
   abilities: readonly Ability[],
   filter: AbilitySheetFilter,
+  subclassSources?: SubclassAbilitySources,
 ): Ability[] {
-  return abilities.filter((ability) => matchesAbilityFilter(ability, filter));
+  return abilities.filter((ability) =>
+    matchesAbilityFilter(ability, filter, subclassSources),
+  );
 }
 
 export interface AbilityFilterOption {
@@ -134,15 +150,28 @@ const FILTER_LABELS: Record<Exclude<AbilitySheetFilter, "all">, string> = {
   "free-strike": "Свободные удары",
   other: "Другие",
   basic: "Базовые",
+  subclass: "Подкласс",
 };
 
 /** Чипы фильтра: «Все» плюс только те категории, которые реально есть. */
 export function abilityFilterOptions(
   abilities: readonly Ability[],
+  subclassSources?: SubclassAbilitySources,
 ): AbilityFilterOption[] {
   const options: AbilityFilterOption[] = [
     { key: "all", label: "Все", count: abilities.length },
   ];
+  const subclassCount = subclassSources
+    ? abilities.filter((ability) => isSubclassAbility(subclassSources, ability))
+        .length
+    : 0;
+  if (subclassCount > 0) {
+    options.push({
+      key: "subclass",
+      label: FILTER_LABELS.subclass,
+      count: subclassCount,
+    });
+  }
   for (const key of [
     "signature",
     "heroic",
@@ -183,8 +212,9 @@ export function sheetAbilityLayout(
   abilities: readonly Ability[],
   filter: AbilitySheetFilter,
   query = "",
+  subclassSources?: SubclassAbilitySources,
 ): { groups: AbilityActionGroup[]; topMatches: Ability[]; visible: number } {
-  const visible = filterAbilitiesForSheet(abilities, filter);
+  const visible = filterAbilitiesForSheet(abilities, filter, subclassSources);
   const search = normalizeQuery(query);
   if (!search) {
     return {
