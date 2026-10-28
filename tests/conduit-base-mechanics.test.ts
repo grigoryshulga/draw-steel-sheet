@@ -10,6 +10,7 @@ import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import { builderIssues, emptyBuilderDraft } from "../src/lib/character-builder";
 import { fieldEffectContributions } from "../src/lib/feature-modifiers";
 import { CONDUIT_LEVEL_MECHANICS } from "../src/data/class-features/mechanics/conduit-levels";
+import { CONDUIT_RESOURCE_MECHANICS } from "../src/data/class-features/mechanics/conduit-resource";
 import { classFeatureGroups } from "../src/data/class-feature-rules";
 
 const features = (Array.isArray(generated) ? generated : generated.features) as GeneratedClassFeature[];
@@ -22,7 +23,7 @@ const feature = (id: string) => included.find((entry) => entry.id === id)!;
 
 describe("механики Проводника 1-го уровня", () => {
   it("покрывают только записи базового класса", () => {
-    const covered = new Set([...Object.keys(CONDUIT_BASE_MECHANICS), ...Object.keys(CONDUIT_BASE_TEXT_ONLY)]);
+    const covered = new Set([...Object.keys(CONDUIT_BASE_MECHANICS), ...Object.keys(CONDUIT_BASE_TEXT_ONLY), ...Object.keys(CONDUIT_RESOURCE_MECHANICS)]);
     expect(Object.keys(CONDUIT_BASE_MECHANICS).filter((id) => id in CONDUIT_BASE_TEXT_ONLY)).toEqual([]);
     expect(included.filter(({ id }) => !covered.has(id)).map(({ id }) => id)).toEqual([]);
     expect([...covered].filter((id) => !included.some((entry) => entry.id === id))).toEqual([]);
@@ -95,25 +96,22 @@ describe("механики Проводника 1-го уровня", () => {
   });
 
   it("не дублирует базовые gains Благочестия и сохраняет теги замещения уровней", () => {
-    const piety = CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie"];
-    expect(piety.resource).toBeUndefined();
-    expect(piety.notes).toContain("CLASS_RESOURCES");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].resource).toBeUndefined();
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("1d6 + уровень");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("на 3 — +2 Благочестия");
-    expect(CONDUIT_BASE_TEXT_ONLY["conduit.feature.1.blagochestie-i-effekty-domena"]).toContain("обоих выбранных доменов");
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie"]).toBeUndefined();
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"]).toBeUndefined();
+    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("1d6 + уровень");
+    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("на 3 получите +2 Благочестия");
+    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-i-effekty-domena"].notes).toContain("одно событие может активировать оба");
     const level7 = CONDUIT_LEVEL_MECHANICS["conduit.feature.7.nagrada-veruyushchego-faithful-s-reward"].resource!.gains[0];
     expect(level7).toMatchObject({ tag: "start-of-turn", event: "start-of-turn", replaces: ["start-of-turn"] });
   });
 
   it("использует реальные ключи доступных выборов и не создаёт пустых фиктивных вариантов", () => {
     const conduitGroups = classFeatureGroups("Проводник");
-    const prayerGroup = conduitGroups.find(({ id }) => id === "conduit.prayer")!;
-    const sanctuaryGroup = conduitGroups.find(({ id }) => id === "conduit.sanctuary")!;
+    expect(conduitGroups).toEqual([]);
     expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva"].choice).toMatchObject({ group: "conduit.prayer" });
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva"].choice!.options.map(({ id }) => id)).toEqual(prayerGroup.options.map(({ id }) => id));
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva"].choice!.options.map(({ id }) => id)).toEqual(["conduit.prayer.destruction", "conduit.prayer.distance", "conduit.prayer.soldier", "conduit.prayer.speed", "conduit.prayer.steel"]);
     expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-provodnika"].choice).toMatchObject({ group: "conduit.sanctuary" });
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-provodnika"].choice!.options.map(({ id }) => id)).toEqual(sanctuaryGroup.options.map(({ id }) => id));
+    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-provodnika"].choice!.options.map(({ id }) => id)).toEqual(["conduit.sanctuary.bastion", "conduit.sanctuary.reaction", "conduit.sanctuary.refuge", "conduit.sanctuary.spirits"]);
     for (const id of ["conduit.feature.1.bozhestvo-i-domeny", "conduit.feature.1.osobennost-domena-1-go-urovnya", "conduit.feature.1.znakovye-sposobnosti", "conduit.feature.1.sposobnost-za-3-blagochestiya", "conduit.feature.1.sposobnost-za-5-blagochestiya"]) {
       expect(CONDUIT_BASE_MECHANICS[id].choice).toBeUndefined();
       expect(CONDUIT_BASE_MECHANICS[id].notes).not.toContain("options: []");

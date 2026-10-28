@@ -5,6 +5,7 @@ import {
   classFeatureGroups,
   classFeatureSelectionsFromDraft,
 } from "../src/data/class-feature-rules";
+import { mechanicsFor } from "../src/data/class-features/mechanics";
 
 describe("class feature registry", () => {
   it("covers every generated feature group and option with complete Russian descriptions", () => {
@@ -16,16 +17,18 @@ describe("class feature registry", () => {
       optionNames: group.options.map((option) => option.name),
     }));
 
-    expect(CLASS_FEATURE_GROUPS).toHaveLength(7);
-    expect(CLASS_FEATURE_GROUPS.reduce((total, group) => total + group.options.length, 0)).toBe(30);
+    const legacyGroups = sourceGroups.filter((group) => group.className !== "Проводник");
+    expect(CLASS_FEATURE_GROUPS).toHaveLength(legacyGroups.length);
+    expect(CLASS_FEATURE_GROUPS.reduce((total, group) => total + group.options.length, 0))
+      .toBe(legacyGroups.reduce((total, group) => total + group.options.length, 0));
     expect(actualGroups.map(({ name, className, optionNames }) => ({ name, className, optionNames })))
-      .toEqual(sourceGroups.map((group) => ({
+      .toEqual(legacyGroups.map((group) => ({
         name: group.name,
         className: group.className,
         optionNames: group.options.map((option) => option.name),
       })));
 
-    for (const source of sourceGroups) {
+    for (const source of legacyGroups) {
       const group = CLASS_FEATURE_GROUPS.find(
         (candidate) => candidate.className === source.className && candidate.name === source.name,
       )!;
@@ -45,12 +48,11 @@ describe("class feature registry", () => {
     expect(ids.every((id) => /^[a-z]+(?:\.[a-z]+)+$/.test(id))).toBe(true);
 
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
-    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(19);
+    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(13);
     const conditionalOptions = options.filter((option) =>
       option.effects.some((effect) => effect.when !== undefined),
     );
     expect(conditionalOptions.map((option) => option.id)).toEqual([
-      "conduit.prayer.soldier",
       "talent.augmentation.battle",
       "elementalist.enchantment.battle",
     ]);
@@ -66,7 +68,7 @@ describe("class feature registry", () => {
       else expect(option.manualReason).toBeUndefined();
     }
     expect(classFeatureGroups("Нуль")).toHaveLength(1);
-    expect(classFeatureGroups("Проводник")).toHaveLength(2);
+    expect(classFeatureGroups("Проводник")).toHaveLength(0);
     expect(classFeatureGroups("Талант")).toHaveLength(2);
     expect(classFeatureGroups("Элементалист")).toHaveLength(2);
   });
@@ -79,14 +81,12 @@ describe("class feature registry", () => {
       { kind: "field", field: "stability", value: 1 },
     ]);
 
-    const distance = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
-      .find((option) => option.id === "conduit.prayer.distance");
+    const distance = mechanicsFor("conduit.feature.1.molitva-o-distantsii");
     expect(distance?.effects).toEqual([
-      { kind: "field", field: "distance", value: 2, filter: { keywords: ["Дальний", "Магия"] } },
+      { kind: "field", field: "distance", value: 2, filter: { keywords: ["Магия", "Дальний"] } },
     ]);
 
-    const bastion = CLASS_FEATURE_GROUPS.flatMap((group) => group.options)
-      .find((option) => option.id === "conduit.sanctuary.bastion");
+    const bastion = mechanicsFor("conduit.feature.1.obereg-bastiona");
     expect(bastion?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
   });
 

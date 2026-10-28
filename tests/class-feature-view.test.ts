@@ -4,9 +4,11 @@ import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
 import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import { conduitAbilities } from "../src/data/class-features/conduit-abilities";
 import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
+import { CONDUIT_LEGACY_OPTIONS } from "../src/data/class-feature-rules";
 import { CONDUIT_BASE_MECHANICS } from "../src/data/class-features/mechanics/conduit-base";
 import { CONDUIT_DOMAIN_MECHANICS } from "../src/data/class-features/mechanics/conduit-domains";
 import { CONDUIT_LEVEL_MECHANICS } from "../src/data/class-features/mechanics/conduit-levels";
+import { CONDUIT_RESOURCE_MECHANICS } from "../src/data/class-features/mechanics/conduit-resource";
 import type {
   FeatureMechanics,
   GeneratedClassFeature,
@@ -18,12 +20,14 @@ import {
   conduitLegacyDomainChoicesForSheet,
   setConduitDomainPair,
   confirmConduitLegacyRewardsReviewed,
+  featureSheetChoiceState,
   featureBadgeState,
   featureLevelOpenState,
   triggerBadgeCounts,
   type FeatureSheetItem,
 } from "../src/lib/class-feature-view";
 import {
+  conduitFeatureChoiceOptions,
   classFeatureTriggers,
   invalidateClassFeatureRegistry,
 } from "../src/lib/class-features";
@@ -88,12 +92,13 @@ function withFeature<T>(
   }
 }
 
-/** Register unconnected conduit records only for the assertion using the view. */
+/** Временная установка сохраняет совместимость старых проверок отображения. */
 function withConduitMechanics<T>(run: () => T): T {
   const mechanics = {
     ...CONDUIT_BASE_MECHANICS,
     ...CONDUIT_DOMAIN_MECHANICS,
     ...CONDUIT_LEVEL_MECHANICS,
+    ...CONDUIT_RESOURCE_MECHANICS,
   };
   const originals = new Map(Object.keys(mechanics).map((id) => [id, FEATURE_MECHANICS[id]]));
   Object.assign(FEATURE_MECHANICS, mechanics);
@@ -426,6 +431,29 @@ describe("triggerBadgeCounts", () => {
 });
 
 describe("classFeatureChoicesForSheet", () => {
+  it("resolves every conduit choice alias for display and keeps legacy select values", () => {
+    for (const group of ["conduit.prayer", "conduit.sanctuary"] as const) {
+      for (const option of conduitFeatureChoiceOptions(group)) {
+        for (const selected of [option.id, option.featureId, option.name, `  ${option.name.toLocaleUpperCase("ru")}  `]) {
+          expect(featureSheetChoiceState({ group, label: group, options: conduitFeatureChoiceOptions(group).map(({ id }) => id), selected }))
+            .toEqual({ selectedOption: option.id });
+        }
+      }
+      expect(featureSheetChoiceState({ group, label: group, options: conduitFeatureChoiceOptions(group).map(({ id }) => id), selected: "unknown.value" }))
+        .toMatchObject({ selectedOption: "", warning: expect.any(String) });
+    }
+  });
+
+  it("keeps the resolver aliases aligned with legacy builder options and unique", () => {
+    const prayer = conduitFeatureChoiceOptions("conduit.prayer");
+    const sanctuary = conduitFeatureChoiceOptions("conduit.sanctuary");
+    expect(prayer.map(({ id, name }) => ({ id, name }))).toEqual(CONDUIT_LEGACY_OPTIONS.prayer);
+    expect(sanctuary.map(({ id, name }) => ({ id, name }))).toEqual(CONDUIT_LEGACY_OPTIONS.sanctuary);
+    const all = [...prayer, ...sanctuary];
+    expect(new Set(all.map(({ id }) => id)).size).toBe(all.length);
+    expect(new Set(all.map(({ featureId }) => featureId)).size).toBe(all.length);
+  });
+
   it("предлагает только отсутствующие выборы домена 1/4/7 из legacy-пары", () => {
     const hero = createCharacter({ className: "Проводник", level: 7 });
     hero.subclass = "Жизнь, Защита";

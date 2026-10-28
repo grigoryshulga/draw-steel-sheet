@@ -3,24 +3,21 @@ import generated from "../src/data/class-features.generated.json";
 import { CONDUIT_DOMAIN_MECHANICS, CONDUIT_DOMAIN_PRAYERS } from "../src/data/class-features/mechanics/conduit-domains";
 import { CLASS_RESOURCES } from "../src/data/class-features/class-resources";
 import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
-import type { FeatureMechanics } from "../src/data/class-features/types";
 import { createCharacter } from "../src/lib/defaults";
 import { activeClassFeatures, invalidateClassFeatureRegistry } from "../src/lib/class-features";
 import { resolvedResourceGains } from "../src/lib/resources";
 
-const originalMechanics = new Map<string, FeatureMechanics | undefined>();
-const originalResource = CLASS_RESOURCES["проводник"];
+const originalMechanics = { ...FEATURE_MECHANICS };
+const originalResources = { ...CLASS_RESOURCES };
 afterEach(() => {
-  for (const [id, mechanics] of originalMechanics) {
-    if (mechanics) FEATURE_MECHANICS[id] = mechanics;
-    else delete FEATURE_MECHANICS[id];
-  }
-  originalMechanics.clear();
-  if (originalResource) CLASS_RESOURCES["проводник"] = originalResource;
-  else delete CLASS_RESOURCES["проводник"];
+  for (const id of Object.keys(FEATURE_MECHANICS)) delete FEATURE_MECHANICS[id];
+  Object.assign(FEATURE_MECHANICS, originalMechanics);
+  for (const id of Object.keys(CLASS_RESOURCES)) delete CLASS_RESOURCES[id];
+  Object.assign(CLASS_RESOURCES, originalResources);
   invalidateClassFeatureRegistry();
 });
 
+const selectedDomains: Record<string, string> = { sozidaniya: "Созидание", smerti: "Смерть", sudby: "Судьба", znaniya: "Знание", zhizni: "Жизнь", lyubvi: "Любовь", prirody: "Природа", zashchity: "Защита", buri: "Буря", solntsa: "Солнце", khitrosti: "Хитрость", voyny: "Война" };
 const domains = generated.filter((feature) => feature.id.startsWith("conduit.domain."));
 const prayers = generated.filter((feature) => feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-"));
 const text = (id: string) => generated.find((feature) => feature.id === id)!.description;
@@ -40,22 +37,24 @@ describe("conduit domain mechanics", () => {
   it("binds all twelve piety triggers to their own domain selection and exact book condition", () => {
     expect(prayers).toHaveLength(12);
     expect(Object.keys(CONDUIT_DOMAIN_PRAYERS).sort()).toEqual(prayers.map((feature) => feature.id).sort());
-    const selectedDomains = ["Созидание", "Смерть", "Судьба", "Знание", "Жизнь", "Любовь", "Природа", "Защита", "Буря", "Солнце", "Хитрость", "Война"];
     for (const prayer of prayers) {
       const mechanic = CONDUIT_DOMAIN_PRAYERS[prayer.id];
-      expect(mechanic.when?.keyValue).toEqual([selectedDomains[prayers.indexOf(prayer)]]);
+      const suffix = prayer.id.slice(prayer.id.lastIndexOf("-") + 1);
+      expect(mechanic.when?.keyValue).toEqual([selectedDomains[suffix]]);
       expect(mechanic.kinds).toContain("trigger");
       expect(mechanic.trigger?.frequency).toBe("encounter");
       expect(mechanic.trigger?.detail).toContain("Получить 2 благочестия");
       expect(mechanic.kinds).toContain("resourceGain");
-      expect(mechanic.resource).toMatchObject({ name: "Благочестие", gains: [{ amount: "2", frequency: "encounter" }] });
+      expect(mechanic.resource).toMatchObject({ name: "Благочестие", gains: [{ amount: "2", amountByLevel: [{ level: 4, amount: "3" }], frequency: "encounter" }] });
       expect(mechanic.resource?.gains[0].tag).toBeTruthy();
+      expect(mechanic.resource?.gains[0].label).toBeTruthy();
       expect(mechanic.resource?.gains[0].event).toBe(mechanic.trigger?.event);
       expect(mechanic.effects).toBeUndefined();
       expect(mechanic.trigger?.detail).toContain("первый раз за встречу");
-      expect(mechanic.trigger?.detail).toContain("с 4-го уровня");
-      expect(mechanic.trigger?.detail).toContain("(итого 3)");
-      expect(mechanic.trigger?.detail).toContain("автоматическое начисление оставлено равным 2");
+      expect(mechanic.trigger?.detail).toContain("На 4-м уровне и выше размер этой прибавки уже равен 3");
+      expect(mechanic.trigger?.detail).not.toContain("добавляет 1 благочестие");
+      expect(mechanic.trigger?.detail).not.toContain("прибавьте 1 вручную");
+      expect(mechanic.trigger?.detail).not.toContain("Схема ResourceGain не выражает условие уровня");
       expect(mechanic.notes).toContain("Точные дальность");
     }
     expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-smerti"))!.id].trigger?.detail).toContain("соло-существо");
@@ -64,8 +63,7 @@ describe("conduit domain mechanics", () => {
     expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-zhizni"))!.id].trigger?.detail).toContain("не всегда означает трату Восстановления");
     expect(CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-solntsa"))!.id].trigger?.detail).toContain("огнём или святым уроном");
     const war = CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-voyny"))!.id];
-    expect(war.trigger?.detail).toContain("существо в пределах 10 клеток получает за один ход урон больше 10 + ваш уровень");
-    expect(war.trigger?.detail).not.toContain("вы или существо");
+    expect(war.trigger?.detail).toContain("вы или существо в пределах 10 клеток получает за один ход урон больше 10 + ваш уровень");
     const sunNotes = CONDUIT_DOMAIN_PRAYERS[prayers.find((f) => f.id.endsWith("-solntsa"))!.id].notes;
     expect(sunNotes).toContain("Один враг в пределах 10 клеток получает урон огнем");
     expect(sunNotes).not.toContain("выбирает себя ИЛИ союзника");
@@ -107,7 +105,6 @@ describe("conduit domain mechanics", () => {
     const allTags = Object.values(CONDUIT_DOMAIN_PRAYERS).map((mechanic) => mechanic.resource!.gains[0].tag);
     expect(new Set(allTags).size).toBe(12);
     for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) {
-      originalMechanics.set(id, FEATURE_MECHANICS[id]);
       FEATURE_MECHANICS[id] = mechanics;
     }
     CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
@@ -117,8 +114,7 @@ describe("conduit domain mechanics", () => {
 
     const gains = resolvedResourceGains(hero).filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
     expect(gains).toHaveLength(2);
-    // ResourceGain cannot condition an amount on level; 4th-level +1 remains an explicit manual rule.
-    expect(gains.map((gain) => [gain.amount, gain.frequency])).toEqual([["2", "encounter"], ["2", "encounter"]]);
+    expect(gains.map((gain) => [gain.amount, gain.frequency])).toEqual([["3", "encounter"], ["3", "encounter"]]);
     const blessedDomain = generated.find((feature) => feature.id === "conduit.feature.4.blagoslovennye-domeny-blessed-domain")!;
     expect(blessedDomain.level).toBe(4);
     expect(blessedDomain.description).toContain("получаете 1 дополнительное благочестие");
@@ -144,7 +140,6 @@ describe("conduit domain mechanics", () => {
 
   it("requires exactly two distinct valid domains for prayers, including legacy fallback", () => {
     for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) {
-      originalMechanics.set(id, FEATURE_MECHANICS[id]);
       FEATURE_MECHANICS[id] = mechanics;
     }
     CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
@@ -170,6 +165,25 @@ describe("conduit domain mechanics", () => {
   });
 
   it("labels domain gains with their subject and exact event while preserving Fury labels", () => {
+    const expectedLabels: Record<string, string> = {
+      "sozidaniya": "Существо в пределах 10 клеток использует способность по области",
+      "smerti": "Не-миньон в пределах 10 клеток снижает Выносливость до 0 или соло-существо там становится утомлённым",
+      "sudby": "Союзник в пределах 10 клеток получает третий тир или враг там получает первый тир броска силы",
+      "znaniya": "Ведущий тратит Раздор",
+      "zhizni": "Существо в пределах 10 клеток восстанавливает Выносливость",
+      "lyubvi": "Вы или союзник в пределах 10 клеток используете помощь в атаке или способность, нацеленную на союзника",
+      "prirody": "Вы или существо в пределах 10 клеток получаете кислотный, холодный, огненный, молниевый, ядовитый или звуковой урон",
+      "zashchity": "Вы или союзник в пределах 10 клеток получаете временную Выносливость или применяете триггер снижения урона, помехи либо двойной помехи врагу",
+      "buri": "Враг в пределах 10 клеток подвергается принудительному движению",
+      "solntsa": "Враг в пределах 10 клеток получает огненный или святой урон",
+      "khitrosti": "Вы или существо в пределах 10 клеток совершаете помощь в атаке или тест Скрытности",
+      "voyny": "Вы или существо в пределах 10 клеток получает за один ход урон больше 10 + ваш уровень",
+    };
+    expect(Object.keys(expectedLabels)).toHaveLength(12);
+    for (const [suffix, label] of Object.entries(expectedLabels)) {
+      const id = "conduit.feature.1.blagochestie-i-effekt-domena-" + suffix;
+      expect(CONDUIT_DOMAIN_PRAYERS[id].resource?.gains[0]).toMatchObject({ label: `Домен ${selectedDomains[suffix]}: ${label}`, amount: "2", amountByLevel: [{ level: 4, amount: "3" }], frequency: "encounter" });
+    }
     for (const [id, mechanics] of Object.entries(CONDUIT_DOMAIN_PRAYERS)) FEATURE_MECHANICS[id] = mechanics;
     CLASS_RESOURCES["проводник"] = { name: "Благочестие", gains: [] };
     invalidateClassFeatureRegistry();
@@ -179,8 +193,8 @@ describe("conduit domain mechanics", () => {
     character.automation.classFeatureSelections["conduit.domain"] = "Знание, Смерть";
     const gains = resolvedResourceGains(character).filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
     expect(new Set(gains.map((gain) => gain.label)).size).toBe(gains.length);
-    expect(gains.find((gain) => gain.event === "passive")?.label).toContain("Ведущий тратит Раздор");
-    expect(gains.find((gain) => gain.event === "dying")?.label).toContain("Существо становится при смерти");
+    expect(gains.find((gain) => gain.event === "passive")?.label).toBe("Домен Знание: Ведущий тратит Раздор");
+    expect(gains.find((gain) => gain.event === "dying")?.label).toBe("Домен Смерть: Не-миньон в пределах 10 клеток снижает Выносливость до 0 или соло-существо там становится утомлённым");
     expect(gains.map((gain) => gain.amount)).toEqual(["2", "2"]);
   });
 });

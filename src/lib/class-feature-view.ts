@@ -15,6 +15,8 @@ import {
   activeClassFeatures,
   classFeatureRegistryVersion,
   classFeatureTriggers,
+  conduitFeatureChoiceOptions,
+  resolveConduitFeatureChoice,
   selectionGroupFor,
   type ActiveClassFeature,
 } from "./class-features";
@@ -107,6 +109,22 @@ export interface FeatureSheetChoice {
   options: string[];
   /** Уже сохранённое значение; выборы можно исправить без потери данных. */
   selected?: string;
+}
+
+/** Pure presentation state; conduit aliases resolve to their persisted legacy option ID. */
+export function featureSheetChoiceState(choice: FeatureSheetChoice): { selectedOption: string; warning?: string } {
+  const saved = choice.selected;
+  if (!saved) return { selectedOption: "" };
+  if (choice.group === "conduit.prayer" || choice.group === "conduit.sanctuary") {
+    const resolved = resolveConduitFeatureChoice(choice.group, saved);
+    if (resolved) return { selectedOption: resolved.legacyId };
+    return { selectedOption: "", warning: `Сохранено: ${saved}. Это значение не входит в список доступных вариантов.` };
+  }
+  const fold = (value: string) => value.trim().toLocaleLowerCase("ru");
+  const flexible = choice.group.startsWith("conduit.domain.") || choice.group.startsWith("conduit.ability.domain.") || choice.group === "conduit.blooming-saint-immunity";
+  const option = choice.options.find((candidate) => flexible ? fold(candidate) === fold(saved) : candidate === saved);
+  if (option) return { selectedOption: option };
+  return { selectedOption: "", warning: `Сохранено: ${saved}. Это значение не входит в выбранную пару доменов; выберите один из доступных доменов.` };
 }
 
 export interface ConduitLegacyDomainChoices {
@@ -920,6 +938,21 @@ export function classFeatureChoicesForSheet(
   const conduitChoices = conduitLegacyDomainChoicesForSheet(character);
   const context = sheetContext(character);
   const choices: FeatureSheetChoice[] = [];
+  if (normalizeFeatureText(character.className ?? "") === normalizeFeatureText("Проводник")) {
+    for (const [key, label] of [
+      ["conduit.prayer", "Молитва проводника"],
+      ["conduit.sanctuary", "Оберег проводника"],
+    ] as const) {
+      const saved = character.automation?.classFeatureSelections?.[key];
+      const options = conduitFeatureChoiceOptions(key);
+      choices.push({
+        group: key,
+        label,
+        options: options.map((option) => option.id),
+        ...(typeof saved === "string" ? { selected: saved } : {}),
+      });
+    }
+  }
   if (normalizeFeatureText(character.className ?? "") === normalizeFeatureText("Проводник") && character.level >= 6) {
     const saved = character.automation?.classFeatureSelections?.["conduit.blooming-saint-immunity"];
     choices.push({

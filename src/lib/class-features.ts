@@ -113,18 +113,12 @@ function isActiveClassFeature(
       (value) => normalizeFeatureText(value) === normalizeFeatureText(domain),
     );
   }
-  // Старый builder и сохранённые листы хранят выбор молитвы как option ID.
-  // В скелете эти записи не keyedBy, поэтому связываем каждый legacy ID с
-  // конкретным стабильным ID записи, не извлекая ключ из текста описания.
-  if (Object.values(CONDUIT_PRAYER_FEATURES).includes(feature.id)) {
-    const selected = character.automation?.classFeatureSelections?.["conduit.prayer"];
-    return typeof selected === "string" && CONDUIT_PRAYER_FEATURES[selected] === feature.id;
-  }
-  // Старые листы хранят выбор оберега как option ID. Как и молитвы,
-  // записи оберегов в скелете не keyedBy, поэтому активируем ровно выбранную.
-  if (Object.values(CONDUIT_SANCTUARY_FEATURES).includes(feature.id)) {
-    const selected = character.automation?.classFeatureSelections?.["conduit.sanctuary"];
-    return typeof selected === "string" && CONDUIT_SANCTUARY_FEATURES[selected] === feature.id;
+  // Выборы проводника в сохранениях встречаются как legacy option ID,
+  // стабильный ID записи скелета или локализованное название. Разрешаем
+  // все варианты одной явной таблицей, не извлекая ключи из описаний.
+  const conduitChoice = conduitFeatureSelection(character, feature);
+  if (conduitChoice !== undefined) {
+    return conduitChoice;
   }
   if (!feature.keyedBy) return true;
 
@@ -140,20 +134,51 @@ function isActiveClassFeature(
   return keyValueMatches(selected, feature.keyValue);
 }
 
-const CONDUIT_PRAYER_FEATURES: Record<string, string> = {
-  "conduit.prayer.destruction": "conduit.feature.1.molitva-o-razrushenii",
-  "conduit.prayer.distance": "conduit.feature.1.molitva-o-distantsii",
-  "conduit.prayer.soldier": "conduit.feature.1.molitva-o-masterstve-soldata",
-  "conduit.prayer.speed": "conduit.feature.1.molitva-o-skorosti",
-  "conduit.prayer.steel": "conduit.feature.1.molitva-o-stali",
-};
+type ConduitChoiceGroup = "conduit.prayer" | "conduit.sanctuary";
+interface ConduitFeatureChoice {
+  group: ConduitChoiceGroup;
+  legacyId: string;
+  featureId: string;
+  name: string;
+}
 
-const CONDUIT_SANCTUARY_FEATURES: Record<string, string> = {
-  "conduit.sanctuary.bastion": "conduit.feature.1.obereg-bastiona",
-  "conduit.sanctuary.reaction": "conduit.feature.1.obereg-reaktsii",
-  "conduit.sanctuary.refuge": "conduit.feature.1.obereg-svyatilishcha",
-  "conduit.sanctuary.spirits": "conduit.feature.1.obereg-dukhov",
-};
+/** Stable aliases for the nine choices; book prose is deliberately not parsed. */
+const CONDUIT_FEATURE_CHOICES: readonly ConduitFeatureChoice[] = [
+  { group: "conduit.prayer", legacyId: "conduit.prayer.destruction", featureId: "conduit.feature.1.molitva-o-razrushenii", name: "Молитва о разрушении" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.distance", featureId: "conduit.feature.1.molitva-o-distantsii", name: "Молитва о дистанции" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.soldier", featureId: "conduit.feature.1.molitva-o-masterstve-soldata", name: "Молитва о мастерстве солдата" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.speed", featureId: "conduit.feature.1.molitva-o-skorosti", name: "Молитва о скорости" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.steel", featureId: "conduit.feature.1.molitva-o-stali", name: "Молитва о стали" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.bastion", featureId: "conduit.feature.1.obereg-bastiona", name: "Оберег бастиона" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.reaction", featureId: "conduit.feature.1.obereg-reaktsii", name: "Оберег реакции" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.refuge", featureId: "conduit.feature.1.obereg-svyatilishcha", name: "Оберег святилища" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.spirits", featureId: "conduit.feature.1.obereg-dukhov", name: "Оберег духов" },
+];
+
+/** Return true/false for these records; undefined means an unrelated feature. */
+function conduitFeatureSelection(
+  character: Character,
+  feature: GeneratedClassFeature,
+): boolean | undefined {
+  const choice = CONDUIT_FEATURE_CHOICES.find(({ featureId }) => featureId === feature.id);
+  if (!choice) return undefined;
+  const selected = character.automation?.classFeatureSelections?.[choice.group];
+  return typeof selected === "string" && resolveConduitFeatureChoice(choice.group, selected)?.featureId === feature.id;
+}
+
+/** Resolve any saved alias to the stable choice, refusing ambiguous/unknown input. */
+export function resolveConduitFeatureChoice(group: string, selected: string): ConduitFeatureChoice | undefined {
+  const normalized = normalizeFeatureText(selected);
+  const matches = CONDUIT_FEATURE_CHOICES.filter(({ group: candidateGroup, legacyId, featureId, name }) =>
+    candidateGroup === group && [legacyId, featureId, name].some((alias) => normalizeFeatureText(alias) === normalized),
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
+/** Legacy option IDs are the persisted values accepted by older sheets. */
+export function conduitFeatureChoiceOptions(group: string): readonly { id: string; name: string; featureId: string }[] {
+  return CONDUIT_FEATURE_CHOICES.filter((choice) => choice.group === group).map(({ legacyId, name, featureId }) => ({ id: legacyId, name, featureId }));
+}
 
 const CONDUIT_DOMAINS = [
   "Созидание", "Смерть", "Судьба", "Знание", "Жизнь", "Любовь",

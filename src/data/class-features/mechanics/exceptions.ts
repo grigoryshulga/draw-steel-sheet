@@ -2,6 +2,8 @@ import { CENSOR_BASE_TEXT_ONLY } from "./censor-base";
 import { CENSOR_DOMAIN_TEXT_ONLY } from "./censor-domains";
 import { CENSOR_LEVEL_TEXT_ONLY } from "./censor-levels";
 import { CENSOR_ORDER_TEXT_ONLY } from "./censor-orders";
+import { CONDUIT_BASE_TEXT_ONLY } from "./conduit-base";
+import { CONDUIT_LEVEL_TEXT_ONLY } from "./conduit-levels";
 
 /**
  * Особенности, которые сознательно остаются прозой: правило читается из текста
@@ -40,6 +42,8 @@ export const TEXT_ONLY: Record<string, string> = {
   ...CENSOR_DOMAIN_TEXT_ONLY,
   ...CENSOR_LEVEL_TEXT_ONLY,
   ...CENSOR_ORDER_TEXT_ONLY,
+  ...CONDUIT_BASE_TEXT_ONLY,
+  ...CONDUIT_LEVEL_TEXT_ONLY,
 };
 
 /**
@@ -49,9 +53,6 @@ export const TEXT_ONLY: Record<string, string> = {
  */
 export const NOT_YET: Record<string, string> = {
   "Нуль": "следующий заход: механики по инвентаризации",
-  // Временное исключение: панель восстанавливает только старые выборы доменов;
-  // механики класса остаются NOT_YET до отдельного полного переноса.
-  "Проводник": "следующий заход: механики по инвентаризации; пока восстановление старых выборов доменов",
   "Тактик": "следующий заход: механики по инвентаризации",
   "Талант": "следующий заход: механики по инвентаризации",
   "Тень": "следующий заход: механики по инвентаризации",

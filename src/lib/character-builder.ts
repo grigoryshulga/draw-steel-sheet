@@ -362,7 +362,10 @@ export function buildCharacter(
         );
         if (!option) return [];
         const registryGroup = registryGroupsByName.get(group.name);
-        return registryGroup && mappedGroupIds.has(registryGroup.id)
+        const conduitLegacyChoice = draft.className === "Проводник" &&
+          (group.name === "Молитва" ? classFeatureSelections["conduit.prayer"] :
+            group.name === "Оберег проводника" ? classFeatureSelections["conduit.sanctuary"] : undefined);
+        return (registryGroup && mappedGroupIds.has(registryGroup.id)) || conduitLegacyChoice
           ? []
           : [`${option.name}\n${option.text}`];
       }) ?? []),

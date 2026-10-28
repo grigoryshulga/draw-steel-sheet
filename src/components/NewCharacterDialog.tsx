@@ -23,6 +23,7 @@ import {
 } from "../lib/builder-steps";
 import { CLASS_PRESETS, classPreset } from "../data/classes";
 import { classFeatureGroups } from "../data/class-feature-rules";
+import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
 import { KIT_COMPENDIUM, kitBonusLabel } from "../data/kits";
 import { careerPerkType, PERK_COMPENDIUM, perkById } from "../data/perks";
 import { CLASS_SIGNATURE_COUNTS, canUseKit } from "../data/creation-rules";
@@ -751,6 +752,11 @@ export function NewCharacterDialog({
                     )
                       .find((item) => item.name === group.name)
                       ?.options.find((item) => item.name === chosenName);
+                    const equipmentRequirement = featureEquipmentRequirements(draft.className, {
+                      ...(draft.className === "Проводник" && group.name === "Молитва" ? { "conduit.prayer": chosenName } : {}),
+                      ...(draft.className === "Талант" && group.name === "Псионическая аугментация" ? { "talent.augmentation": chosenName } : {}),
+                      ...(draft.className === "Элементалист" && group.name === "Зачарование" ? { "elementalist.enchantment": chosenName } : {}),
+                    });
                     return (
                       <section className="builder-section" key={group.name}>
                         <Field label={group.name}>
@@ -784,7 +790,7 @@ export function NewCharacterDialog({
                                   : `По тексту правил${registryOption.manualReason ? `: ${registryOption.manualReason}` : ""}`}
                               </p>
                             )}
-                            {registryOption?.effects.some((effect) => effect.kind === "field" && effect.when?.equipment) && (
+                            {(registryOption?.effects.some((effect) => effect.kind === "field" && effect.when?.equipment) || equipmentRequirement) && (
                               <FeatureEquipmentFields
                                 value={draft.equipment}
                                 hasKit={Boolean(hero.kit.trim() || hero.secondaryKit?.trim())}

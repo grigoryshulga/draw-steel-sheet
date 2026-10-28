@@ -389,7 +389,7 @@ describe("Equipment changes on a saved sheet", () => {
 describe("Conditional sources for every supported class option", () => {
   it.each([
     ["Талант", "talent.augmentation.battle", "Боевая аугментация"],
-    ["Проводник", "conduit.prayer.soldier", "Молитва о мастерстве солдата"],
+    ["Проводник", "conduit.feature.1.molitva-o-masterstve-soldata", "Молитва о мастерстве солдата"],
     ["Элементалист", "elementalist.enchantment.battle", "Зачарование битвы"],
   ])("%s adds its conditional stamina source once", (className, id, name) => {
     const hero = battleHero({

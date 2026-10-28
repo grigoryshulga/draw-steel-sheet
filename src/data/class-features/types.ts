@@ -122,6 +122,10 @@ export interface ResourceGain {
   tag: string;
   event: TriggerEvent;
   amount: string;
+  /** Значение, выбираемое по уровню героя: берётся запись с наибольшим level, не превышающим уровень героя. */
+  amountByLevel?: { level: number; amount: string }[];
+  /** Минимальный уровень героя, на котором прибавка отображается. */
+  minLevel?: number;
   frequency: TriggerFrequency;
   replaces?: string[];
   /**

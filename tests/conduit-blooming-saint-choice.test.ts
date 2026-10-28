@@ -57,7 +57,7 @@ describe("выбор иммунитета Расцветающего свято�
       expect(saved.automation?.ancestryTraits).toEqual(["keep"]);
       expect(source.automation?.classFeatureSelections?.[GROUP]).toBeUndefined();
       expect(featureDamageImmunities(saved, { includeWhenAutomationOff: true })).toEqual([
-        expect.objectContaining({ sourceId: GROUP, types: ["порча"], value: 10 }),
+        expect.objectContaining({ sourceId: "conduit.feature.6.rastsvetayushchiy-svyatoy", types: ["порча"], value: 10 }),
       ]);
       expect(featureDamageImmunities(saved).length).toBe(enabled ? 1 : 0);
     }

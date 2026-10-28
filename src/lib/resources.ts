@@ -7,7 +7,6 @@ import type {
 } from "../data/class-features/types";
 import type { Character } from "../types";
 import { activeClassFeatures } from "./class-features";
-import { mechanicsFor } from "../data/class-features/mechanics";
 import { triggerMark } from "./runtime";
 import { normalizeFeatureText } from "./utils";
 
@@ -218,9 +217,11 @@ function featureGains(character: Character): SourcedGain[] {
 function applyGains(
   base: SourcedGain[],
   additions: SourcedGain[],
+  heroLevel: number,
 ): ResolvedResourceGain[] {
   const collected: SourcedGain[] = [];
   for (const entry of [...base, ...additions]) {
+    if (entry.gain.minLevel !== undefined && heroLevel < entry.gain.minLevel) continue;
     const replaces = entry.gain.replaces ?? [];
     if (replaces.length > 0) {
       const replaced = new Set(replaces);
@@ -233,33 +234,16 @@ function applyGains(
   return collected.map(({ gain, sourceId, sourceName }) => ({
     tag: gain.tag,
     event: gain.event,
-    amount: gain.amount,
+    amount: gain.amountByLevel
+      ?.filter((entry) => entry.level <= heroLevel)
+      .reduce((selected, entry) =>
+        !selected || entry.level > selected.level ? entry : selected,
+      undefined as { level: number; amount: string } | undefined)?.amount ?? gain.amount,
     frequency: gain.frequency,
-    // Подпись из данных главнее: авторы фич знают событие точнее, чем словарь
-    // (например, «осуждённый наносит урон»). Специальная ветка домена
-    // Проводника остаётся запасной для записей без собственной подписи.
-    label:
-      gain.label ??
-      (sourceId.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")
-        ? domainGainLabel(sourceId, gain.event)
-        : resourceGainLabel(gain.event)),
+    label: gain.label ?? resourceGainLabel(gain.event),
     sourceId,
     sourceName,
   }));
-}
-
-/** Domain gains need the book's event subject/context as well as its event code. */
-function domainGainLabel(sourceId: string, event: TriggerEvent): string {
-  const trigger = mechanicsFor(sourceId)?.trigger;
-  const domainLabel = trigger?.label?.replace(/^Благочестие домена\s*/u, "Домен ");
-  const eventLabel = event === "dying"
-    ? "Существо становится при смерти"
-    : event === "passive"
-      ? "Ведущий тратит Раздор (пассивное событие)"
-      : event === "spend-recovery"
-        ? "Существо восстанавливает Выносливость"
-        : resourceGainLabel(event);
-  return `${domainLabel ?? "Домен"}: ${eventLabel}`;
 }
 
 /**
@@ -271,7 +255,8 @@ function domainGainLabel(sourceId: string, event: TriggerEvent): string {
 export function resolvedResourceGains(
   character: Character,
 ): ResolvedResourceGain[] {
-  return applyGains(baseGains(character), featureGains(character));
+  const level = typeof character.level === "number" ? character.level : 0;
+  return applyGains(baseGains(character), featureGains(character), level);
 }
 
 /**
@@ -288,5 +273,5 @@ export function resolvedEpicResourceGains(
   if (!epic) return [];
   const level = typeof character.level === "number" ? character.level : 0;
   if (level < (epic.level ?? 10)) return [];
-  return applyGains(specGains(className, epic), []);
+  return applyGains(specGains(className, epic), [], level);
 }

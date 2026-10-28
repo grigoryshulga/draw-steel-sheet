@@ -5,6 +5,7 @@ import { Button, Select } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import {
   classFeatureChoicesForSheet,
+  featureSheetChoiceState,
   conduitLegacyDomainChoicesForSheet,
   confirmConduitLegacyRewardsReviewed,
   setConduitDomainPair,
@@ -190,7 +191,7 @@ function LevelGroup({
  * механики, бейджи триггеров и условий, выбор аспекта, если он ещё не выбран.
  *
  * Старый реестр выборов (`classFeature-rules`) живёт ниже в панели героя и
- * продолжает обслуживать четыре класса, у которых механики пока нет.
+ * продолжает обслуживать три класса, у которых механики пока нет.
  */
 export function ClassFeatureMechanicsPanel() {
   const { character, update } = useApp();
@@ -245,9 +246,12 @@ export function ClassFeatureMechanicsPanel() {
         <div className="cf-choices">
           {choices.map((choice) => (
             <label className="cf-choice" key={choice.group}>
+              {(() => {
+                const state = featureSheetChoiceState(choice);
+                return <>
               <span className="cf-choice-label">{choice.label}</span>
               <Select
-                value={choice.options.includes(choice.selected ?? "") ? choice.selected ?? "" : ""}
+                value={state.selectedOption}
                 aria-label={`${choice.label}: выберите вариант`}
                 onChange={(event) => selectChoice(choice.group, event.target.value)}
               >
@@ -258,9 +262,11 @@ export function ClassFeatureMechanicsPanel() {
                   </option>
                 ))}
               </Select>
-              {choice.selected && !choice.options.includes(choice.selected) && (
-                <span className="cf-item-note">Сохранено: {choice.selected}. Это значение не входит в выбранную пару доменов; выберите один из доступных доменов.</span>
+              {state.warning && (
+                <span className="cf-item-note">{state.warning}</span>
               )}
+                </>;
+              })()}
             </label>
           ))}
         </div>
@@ -314,6 +320,20 @@ export function ClassFeatureMechanicsPanel() {
 }
 
 function groupOptionLabel(group: string, option: string): string {
+  if (group === "conduit.prayer" || group === "conduit.sanctuary") {
+    const labels: Record<string, string> = {
+      "conduit.prayer.destruction": "Молитва о разрушении",
+      "conduit.prayer.distance": "Молитва о дистанции",
+      "conduit.prayer.soldier": "Молитва о мастерстве солдата",
+      "conduit.prayer.speed": "Молитва о скорости",
+      "conduit.prayer.steel": "Молитва о стали",
+      "conduit.sanctuary.bastion": "Оберег бастиона",
+      "conduit.sanctuary.reaction": "Оберег реакции",
+      "conduit.sanctuary.refuge": "Оберег святилища",
+      "conduit.sanctuary.spirits": "Оберег духов",
+    };
+    return labels[option] ?? option;
+  }
   if (group !== "conduit.blooming-saint-immunity") return option;
   return option === "corruption" ? "Порча 10" : option === "holy" ? "Святой 10" : "Не выбран";
 }

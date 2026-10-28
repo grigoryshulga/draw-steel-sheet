@@ -212,6 +212,39 @@ describe("resolvedResourceGains", () => {
     });
   });
 
+  it("выбирает последнее уровневое значение и соблюдает minLevel", () => {
+    const scaled: Upgrade = {
+      id: "test.upgrade.scaled",
+      level: 1,
+      name: "Уровневое значение",
+      gains: [{
+        tag: "scaled", event: "hit", amount: "2", frequency: "encounter",
+        minLevel: 1,
+        // Намеренно не по порядку: выбор не зависит от порядка записей.
+        amountByLevel: [
+          { level: 4, amount: "3" },
+          { level: 1, amount: "2" },
+        ],
+      }],
+    };
+    withResource(TEST_RESOURCE, [scaled], () => {
+      const at = (level: number) => {
+        const hero = testHero(1);
+        hero.level = level;
+        return resolvedResourceGains(hero).find((gain) => gain.tag === "scaled")?.amount;
+      };
+      expect(at(0)).toBeUndefined();
+      expect(at(1)).toBe("2");
+      expect(at(3)).toBe("2");
+      expect(at(4)).toBe("3");
+      expect(at(7)).toBe("3");
+      expect(at(10)).toBe("3");
+      const noLevel = testHero(1);
+      noLevel.level = undefined as unknown as number;
+      expect(resolvedResourceGains(noLevel).some((gain) => gain.tag === "scaled")).toBe(false);
+    });
+  });
+
   it("на 7-м уровне начало хода даёт 1d3 + 1, на 10-м урон — 3", () => {
     withResource(
       TEST_RESOURCE,

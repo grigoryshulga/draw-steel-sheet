@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CLASS_FEATURE_GROUPS } from "../src/data/class-feature-rules";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { mechanicsFor } from "../src/data/class-features/mechanics";
 import { buildCharacter, emptyBuilderDraft, startingCharacteristics } from "../src/lib/character-builder";
 import { createCharacter } from "../src/lib/defaults";
 import { activeClassFeatures } from "../src/lib/class-features";
@@ -37,15 +38,9 @@ describe("legacy conduit sanctuary selection", () => {
     expect(activeSanctuaries(hero)).toEqual([stableId]);
   });
 
-  it("keeps the legacy bonus registry intact while selecting one skeleton record", () => {
-    const group = CLASS_FEATURE_GROUPS.find(({ id }) => id === "conduit.sanctuary")!;
-    expect(group.options.map(({ id }) => id)).toEqual(choices.map(([id]) => id));
-    expect(group.options[0].effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
-    for (const [, , id] of choices.slice(1)) {
-      expect(group.options.find((option) => option.id === choices.find((entry) => entry[2] === id)![0])?.effects).toEqual([]);
-    }
-    // The bonus remains in the old registry; this compatibility mapping does not
-    // add or connect mechanics to the skeleton.
+  it("removes legacy effects while keeping the choice and its mechanics on canonical records", () => {
+    expect(CLASS_FEATURE_GROUPS.find(({ id }) => id === "conduit.sanctuary")).toBeUndefined();
+    expect(mechanicsFor("conduit.feature.1.obereg-bastiona")?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
     expect(GENERATED_CLASS_FEATURES.find(({ id }) => id === "conduit.feature.1.obereg-bastiona")).toBeDefined();
   });
 

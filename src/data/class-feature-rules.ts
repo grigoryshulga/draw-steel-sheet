@@ -33,29 +33,6 @@ export const CLASS_FEATURE_GROUPS: ClassFeatureGroup[] = [
     ],
   },
   {
-    id: "conduit.prayer",
-    name: "Молитва",
-    className: "Проводник",
-    options: [
-      { id: "conduit.prayer.destruction", name: "Молитва о разрушении", description: "Ваш бог вселяет гнев в вашу сущность. Вы получаете бонус +1 к выброшенному урону магическими способностями.", effects: [{ kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Магия"] } }] },
-      { id: "conduit.prayer.distance", name: "Молитва о дистанции", description: "Ваш бог благословляет вас способностью растягивать свою божественную магию дальше. Вы получаете бонус +2 к расстоянию ваших дальнобойных магических способностей.", effects: [{ kind: "field", field: "distance", value: 2, filter: { keywords: ["Дальний", "Магия"] } }] },
-      { id: "conduit.prayer.soldier", name: "Молитва о мастерстве солдата", description: "Ваш бог дает вашему разуму выучку солдата. Вы можете эффективно носить легкую броню и владеть легким оружием, даже если у вас нет комплекта. Пока вы носите легкую броню, вы получаете бонус +3 к Выносливости, и этот бонус увеличивается на 3 на 4-м, 7-м и 10-м уровнях. Пока вы владеете легким оружием, вы получаете бонус +1 к урону со способностями оружия, включая свободные удары. Вы можете использовать сокровища легкой брони и сокровища легкого оружия.\n\nЕсли у вас есть комплект, вы не можете принять это благословение.", effects: [{ kind: "field", field: "stamina", value: 0, perEchelon: 3, when: { equipment: { lightArmor: true }, noKit: true } }, { kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Оружие"] }, rolledOnly: false, when: { equipment: { lightWeapon: true }, noKit: true } }] },
-      { id: "conduit.prayer.speed", name: "Молитва о скорости", description: "Ваш бог благословляет вашу плоть и наполняет ее божественной быстротой. Вы получаете бонус +1 к вашей скорости и к расстоянию, на которое вы можете сместиться, когда вы используете Действие отхода.", effects: [{ kind: "field", field: "speed", value: 1 }, { kind: "field", field: "disengage", value: 1 }] },
-      { id: "conduit.prayer.steel", name: "Молитва о стали", description: "Ваш бог наполняет ваше тело светом созидания, делая вас более стойким к урону и перемещению. Вы получаете бонус +6 к Выносливости, и этот бонус увеличивается на 6 на 4-м, 7-м и 10-м уровнях. Дополнительно, вы получаете бонус +1 к устойчивости.\n\n---", effects: [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }, { kind: "field", field: "stability", value: 1 }] },
-    ],
-  },
-  {
-    id: "conduit.sanctuary",
-    name: "Оберег проводника",
-    className: "Проводник",
-    options: [
-      { id: "conduit.sanctuary.bastion", name: "Оберег бастиона", description: "Ваш бог дарует вам святой лик, который защищает вас во все времена. Вы получаете бонус +1 к спасброскам.", effects: [{ kind: "field", field: "save", value: 1 }] },
-      { id: "conduit.sanctuary.reaction", name: "Оберег реакции", description: "Боги дарят вам божественную реакцию. Всякий раз, когда смежное существо наносит вам урон, вы можете сместиться вплоть до числа клеток, равного показателю вашей Интуиции, после того, как урон был нанесен.", effects: [], manualReason: manualReaction },
-      { id: "conduit.sanctuary.refuge", name: "Оберег святилища", description: "В ответ на агрессию врага ваш бог защищает вас. Всякий раз, когда другое существо наносит вам урон, оно не может нацелиться на вас ударом, пока вы не нанесете вред ему или одному из его союзников, или до конца его следующего хода.", effects: [], manualReason: manualReaction },
-      { id: "conduit.sanctuary.spirits", name: "Оберег духов", description: "Невидимые духи окружают вас, если вам причиняют вред. Всякий раз, когда смежное существо наносит вам урон, оно получает урон порчей, равный показателю вашей Интуиции.\n\n---", effects: [], manualReason: manualReaction },
-    ],
-  },
-  {
     id: "talent.augmentation",
     name: "Псионическая аугментация",
     className: "Талант",
@@ -117,5 +94,30 @@ export function classFeatureSelectionsFromDraft(
     const option = group.options.find((candidate) => candidate.name === choices[group.name]);
     if (option) selected[group.id] = option.id;
   }
+  // Старые поля конструктора остаются входным контрактом, но их выборы
+  // сохраняются как явные ID, читаемые механикой Проводника.
+  if (className === "Проводник") {
+    const prayer = CONDUIT_LEGACY_OPTIONS.prayer.find((option) => option.name === choices.Молитва);
+    const sanctuary = CONDUIT_LEGACY_OPTIONS.sanctuary.find((option) => option.name === choices["Оберег проводника"]);
+    if (prayer) selected["conduit.prayer"] = prayer.id;
+    if (sanctuary) selected["conduit.sanctuary"] = sanctuary.id;
+  }
   return selected;
 }
+
+/** Explicit legacy choice IDs retained for old sheets and builder drafts. */
+export const CONDUIT_LEGACY_OPTIONS = {
+  prayer: [
+    { id: "conduit.prayer.destruction", name: "Молитва о разрушении" },
+    { id: "conduit.prayer.distance", name: "Молитва о дистанции" },
+    { id: "conduit.prayer.soldier", name: "Молитва о мастерстве солдата" },
+    { id: "conduit.prayer.speed", name: "Молитва о скорости" },
+    { id: "conduit.prayer.steel", name: "Молитва о стали" },
+  ],
+  sanctuary: [
+    { id: "conduit.sanctuary.bastion", name: "Оберег бастиона" },
+    { id: "conduit.sanctuary.reaction", name: "Оберег реакции" },
+    { id: "conduit.sanctuary.refuge", name: "Оберег святилища" },
+    { id: "conduit.sanctuary.spirits", name: "Оберег духов" },
+  ],
+} as const;

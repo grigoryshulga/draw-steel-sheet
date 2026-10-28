@@ -3,6 +3,7 @@ import {
   CLASS_FEATURE_GROUPS,
   classFeatureSelectionsFromDraft,
 } from "../src/data/class-feature-rules";
+import { mechanicsFor } from "../src/data/class-features/mechanics";
 import { createCharacter } from "../src/lib/defaults";
 import {
   featureAbilityDamageBonus,
@@ -132,7 +133,7 @@ describe("Class feature stat contributions", () => {
     });
     expect(featureStatContributions(character, "save")).toEqual([
       {
-        sourceId: "conduit.sanctuary.bastion",
+        sourceId: "conduit.feature.1.obereg-bastiona",
         sourceName: "Оберег бастиона",
         value: 1,
       },
@@ -164,7 +165,7 @@ describe("Class feature damage contributions", () => {
     const spell = ability({ keywords: ["Магия"] });
     expect(featureAbilityDamageContributions(spell, magicHero())).toEqual([
       {
-        sourceId: "conduit.prayer.destruction",
+        sourceId: "conduit.feature.1.molitva-o-razrushenii",
         sourceName: "Молитва о разрушении",
         value: 1,
       },
@@ -339,7 +340,6 @@ describe("Class feature activation rules", () => {
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
     const conditionalIds = [
       "talent.augmentation.battle",
-      "conduit.prayer.soldier",
       "elementalist.enchantment.battle",
     ];
 
@@ -349,9 +349,10 @@ describe("Class feature activation rules", () => {
       expect(option?.effects).toHaveLength(2);
       expect(option?.effects.every((effect) => effect.when)).toBe(true);
     }
-    expect(
-      options.filter((option) => option.effects.length > 0),
-    ).toHaveLength(19);
+    const conduitSoldier = mechanicsFor("conduit.feature.1.molitva-o-masterstve-soldata");
+    expect(conduitSoldier?.effects).toHaveLength(3);
+    expect(conduitSoldier?.effects?.filter((effect) => effect.kind === "field").every((effect) => effect.when)).toBe(true);
+    expect(options.filter((option) => option.effects.length > 0)).toHaveLength(13);
 
     const talent = hero("Талант", 4, {
       "Псионическая аугментация": "Боевая аугментация",
@@ -374,7 +375,6 @@ describe("Class feature activation rules", () => {
     const options = CLASS_FEATURE_GROUPS.flatMap((group) => group.options);
     const manualIds = [
       "talent.sanctuary.entropy",
-      "conduit.sanctuary.reaction",
       "elementalist.sanctuary.superior",
     ];
 
@@ -383,6 +383,9 @@ describe("Class feature activation rules", () => {
       expect(option?.manualReason).toBeTruthy();
       expect(option?.effects).toEqual([]);
     }
+    const conduitReaction = mechanicsFor("conduit.feature.1.obereg-reaktsii");
+    expect(conduitReaction?.effects).toBeUndefined();
+    expect(conduitReaction?.trigger?.detail).toContain("смежное существо");
 
     const character = hero("Проводник", 4, {
       "Оберег проводника": "Оберег реакции",

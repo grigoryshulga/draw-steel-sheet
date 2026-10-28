@@ -17,6 +17,7 @@ import {
 import { makeId } from "../data/templates";
 import { KIT_COMPENDIUM, kitBonusLabel, kitByName } from "../data/kits";
 import { classFeatureGroups } from "../data/class-feature-rules";
+import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
 import { changeKit } from "../lib/equipment";
 import { FeatureEquipmentFields } from "../components/FeatureEquipmentFields";
 import { KitPicker } from "./sheet/KitPicker";
@@ -93,7 +94,7 @@ export function InventoryView() {
   );
   const [kitPickerOpen, setKitPickerOpen] = useState(false);
   const selectedKit = kitByName(character.kit);
-  const hasConditionalEquipmentOption = classFeatureGroups(character.className).some(
+  const hasConditionalEquipmentOption = Boolean(featureEquipmentRequirements(character.className, character.automation?.classFeatureSelections)) || classFeatureGroups(character.className).some(
     (group) => group.options.some((option) =>
       option.effects.some((effect) => effect.kind === "field" && effect.when?.equipment),
     ),
