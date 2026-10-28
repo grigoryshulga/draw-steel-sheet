@@ -321,3 +321,57 @@
 .modal.sheet-ability-modal {
   width: min(700px, 100%);
 }
+
+/* Пассивные эффекты: та же карточка, что у способности, но без действия. */
+.sheet-ability-section[data-action="passive"] {
+  --section-accent: var(--green);
+}
+
+.sheet-passive-card {
+  --card-color: var(--accent);
+}
+
+.sheet-passive-card[data-category="subclass"] {
+  --card-color: var(--blue);
+}
+
+.sheet-passive-level {
+  flex: none;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sheet-passive-details {
+  margin: 0;
+}
+
+.sheet-passive-details > summary {
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.sheet-passive-details > summary:hover {
+  color: var(--fg);
+}
+
+.sheet-passive-details .rich-text {
+  margin-top: 4px;
+  padding-left: 8px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.sheet-passive-details .rich-text p {
+  margin: 0 0 4px;
+}
+
+.sheet-passive-details .rich-text ul {
+  margin: 4px 0;
+  padding-left: 16px;
+}

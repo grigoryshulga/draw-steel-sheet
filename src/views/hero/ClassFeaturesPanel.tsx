@@ -16,8 +16,9 @@ import {
 export function ClassFeaturesPanel() {
   const { character } = useApp();
   const hasMechanics =
-    classFeatureGroupsForSheet(character).length > 0 ||
-    classFeatureChoicesForSheet(character).length > 0;
+    classFeatureGroupsForSheet(character).some((group) =>
+      group.features.some((item) => !item.passive),
+    ) || classFeatureChoicesForSheet(character).length > 0;
 
   if (!hasMechanics) return null;
 

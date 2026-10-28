@@ -1,5 +1,6 @@
 import { Button } from "../../components/ui";
 import { useApp } from "../../state/AppContext";
+import { HeaderDomainChoices } from "./HeaderDomainChoices";
 import { codexLink, CODEX_INDEX } from "../../lib/codex";
 
 export function HeaderPanel() {
@@ -72,6 +73,7 @@ export function HeaderPanel() {
               </>
             )}
           </div>
+          <HeaderDomainChoices key={character.id} />
         </div>
         <Button
           size="sm"

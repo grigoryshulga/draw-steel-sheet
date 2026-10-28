@@ -82,6 +82,11 @@ export interface FeatureSheetItem {
   /** Категория для фильтра и подписи карточки на листе. */
   category: FeatureSheetCategory;
   /**
+   * Пассивный эффект: работает без действия и без триггера. Такие записи
+   * показываются в панели способностей, а не в списке особенностей.
+   */
+  passive: boolean;
+  /**
    * Числа механики, разрешённые в конкретику: «скорость +3 (Ловкость)».
    * У прозаической записи — первый смысловой фрагмент текста правила,
    * у записи без чисел — подпись её триггера.
@@ -227,7 +232,7 @@ export function conduitLegacyDomainChoicesForSheet(character: Character): Condui
   if (!valid) {
     const savedPair = typeof explicitPair === "string" ? explicitPair : character.subclass;
     const retained = savedPair?.trim() ? ` Сохранённое значение «${savedPair}» оставлено без изменений, но оно не задаёт два разных известных домена.` : " Пара доменов не сохранена.";
-    return { choices: [], domains, selectedDomains: [], message: `Чтобы восстановить выборы особенностей, выберите два разных домена в этой панели.${retained} Проверка списка способностей не подтверждает освоение навыков.` };
+    return { choices: [], domains, selectedDomains: [], message: `Чтобы восстановить выборы особенностей, выберите два разных домена в шапке героя.${retained} Проверка списка способностей не подтверждает освоение навыков.` };
   }
   const canonicalPair = pair.map((value) => domains.find((domain) => normalizeFeatureText(domain) === normalizeFeatureText(value)) ?? value);
   const choices = ([1, 4, 7] as const).filter((level) => level <= character.level).map((level) => {
@@ -704,6 +709,40 @@ function textSummary(description: string): string {
  * по механике. Ресурс важнее триггера: «Гнев в бою» — правило ресурса, а не
  * срабатывание.
  */
+/** Пассивные виды: эффект есть, но действие или срабатывание не нужно. */
+const PASSIVE_FEATURE_KINDS = new Set([
+  "bonus",
+  "immunity",
+  "proficiency",
+  "situational",
+]);
+
+/**
+ * Пассивная особенность: нет триггера, выбора и ресурса, но есть хотя бы один
+ * пассивный вид. «Выберите перк» и «Комплект» — транзитивные записи: у них
+ * только `choice`/`grant`, поэтому в способности они не попадают.
+ */
+function featureIsPassive(feature: ActiveClassFeature): boolean {
+  const mechanics = feature.mechanics;
+  if (!mechanics) return false;
+  if (mechanics.trigger || mechanics.choice || mechanics.resource) return false;
+  // Пороговые записи ресурса («при 6 Свирепости…») — правило ресурса, а не
+  // пассивный эффект в панели способностей.
+  if (mechanics.when?.resourceAtLeast) return false;
+  if (
+    mechanics.kinds.some(
+      (kind) =>
+        kind === "trigger" ||
+        kind === "choice" ||
+        kind === "resource" ||
+        kind === "resourceGain",
+    )
+  ) {
+    return false;
+  }
+  return mechanics.kinds.some((kind) => PASSIVE_FEATURE_KINDS.has(kind));
+}
+
 function featureSheetCategory(
   feature: ActiveClassFeature,
 ): FeatureSheetCategory {
@@ -866,6 +905,7 @@ function sheetItem(
     name: feature.name,
     level: feature.level,
     category: featureSheetCategory(feature),
+    passive: featureIsPassive(feature),
     summary,
     ...(summaryFromDescription ? { summaryFromDescription: true } : {}),
     badges: merged,
@@ -968,6 +1008,29 @@ export function classFeatureGroupsForSheet(
     value: groups,
   });
   return copyGroups(groups);
+}
+
+/** Пассивные эффекты класса и подкласса — для панели способностей. */
+export function passiveClassFeatures(
+  character: Character,
+): FeatureSheetItem[] {
+  return classFeatureGroupsForSheet(character)
+    .flatMap((group) => group.features)
+    .filter((item) => item.passive);
+}
+
+/** Поиск по пассивной особенности: название, подпись, примечание и текст. */
+export function matchesFeatureQuery(
+  item: FeatureSheetItem,
+  rawQuery: string,
+): boolean {
+  const query = rawQuery.trim().toLocaleLowerCase("ru").replaceAll("ё", "е");
+  if (!query) return true;
+  const haystack = [item.name, item.summary, item.notes ?? "", item.detail ?? ""]
+    .join(" ")
+    .toLocaleLowerCase("ru")
+    .replaceAll("ё", "е");
+  return query.split(/\s+/).every((token) => haystack.includes(token));
 }
 
 /** Копия групп: кэш не отдаёт наружу массивы, которые вызов может испортить. */

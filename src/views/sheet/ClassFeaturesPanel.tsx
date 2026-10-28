@@ -8,7 +8,6 @@ import {
   featureSheetChoiceState,
   conduitLegacyDomainChoicesForSheet,
   confirmConduitLegacyRewardsReviewed,
-  setConduitDomainPair,
   setBloomingSaintImmunityChoice,
   withClassFeatureSelection,
   classFeatureGroupsForSheet,
@@ -206,7 +205,12 @@ function CategoryGroup({
 export function ClassFeatureMechanicsPanel() {
   const { character, update } = useApp();
   const groups = classFeatureGroupsForSheet(character);
-  const choices = classFeatureChoicesForSheet(character);
+  // Домен Цензора и пару доменов Проводника редактируем в шапке героя,
+  // чтобы не дублировать один и тот же выбор в двух местах.
+  const choices = classFeatureChoicesForSheet(character).filter(
+    (choice) =>
+      choice.group !== "censor.domain" && choice.group !== "conduit.domain",
+  );
   const conduitState = conduitLegacyDomainChoicesForSheet(character);
   const triggers = triggerBadgeCounts(character);
   const hasTriggers = groups.some((group) =>
@@ -215,13 +219,25 @@ export function ClassFeatureMechanicsPanel() {
   const runtime = currentRuntime(character);
   // Уровни больше не делят панель: карточки идут секциями по категориям.
   // Свёрнутость хранится по категории и переживает правки героя.
-  const categoryGroups = featureCategoryGroups(groups);
+  // Пассивные эффекты уходят в панель способностей: здесь остаются только
+  // выборы, ресурсы и срабатывания.
+  const categoryGroups = featureCategoryGroups(groups)
+    .map((group) => ({
+      ...group,
+      features: group.features.filter((item) => !item.passive),
+    }))
+    .filter((group) => group.features.length > 0);
   const [collapsedCategories, setCollapsedCategories] = useState<
     Set<FeatureSheetCategory>
   >(new Set());
-  const [conduitDomainDraft, setConduitDomainDraft] = useState<[string, string]>(["", ""]);
 
-  if (groups.length === 0 && choices.length === 0 && !conduitState.message) return null;
+  if (
+    categoryGroups.length === 0 &&
+    choices.length === 0 &&
+    !conduitState.message
+  ) {
+    return null;
+  }
 
   const toggleCategory = (key: FeatureSheetCategory) =>
     setCollapsedCategories((current) => {
@@ -238,16 +254,6 @@ export function ClassFeatureMechanicsPanel() {
       // повышение уровня.
       return withClassFeatureSelection(current, group, value);
     });
-  };
-
-  const updateConduitDomain = (index: 0 | 1, value: string) => {
-    const currentPair = conduitState.selectedDomains.length === 2 ? conduitState.selectedDomains : conduitDomainDraft;
-    const next: [string, string] = [...currentPair] as [string, string];
-    next[index] = value;
-    setConduitDomainDraft(next);
-    if (next[0] && next[1] && next[0] !== next[1]) {
-      update((current) => setConduitDomainPair(current, next));
-    }
   };
 
   return (
@@ -281,18 +287,11 @@ export function ClassFeatureMechanicsPanel() {
           ))}
         </div>
       )}
-      {conduitState.message && <div className="cf-choices">
-        <p className="cf-choice-label">{conduitState.message}</p>
-        {[0, 1].map((index) => (
-          <label className="cf-choice" key={index}>
-            <span className="cf-choice-label">{index === 0 ? "Первый домен" : "Второй домен"}</span>
-            <Select aria-label={index === 0 ? "Первый домен Проводника" : "Второй домен Проводника"} value={conduitDomainDraft[index as 0 | 1]} onChange={(event) => updateConduitDomain(index as 0 | 1, event.target.value)}>
-              <option value="">Выберите домен</option>
-              {conduitState.domains.map((domain) => <option key={domain} value={domain}>{domain}</option>)}
-            </Select>
-          </label>
-        ))}
-      </div>}
+      {conduitState.message && (
+        <div className="cf-choices">
+          <p className="cf-item-note">{conduitState.message}</p>
+        </div>
+      )}
       {conduitState.legacyWarning && <div className="cf-choices">
         <p className="cf-item-note">{conduitState.legacyWarning}</p>
         <Button size="sm" variant="soft" onClick={() => update((current) => confirmConduitLegacyRewardsReviewed(current))}>Я проверил награды</Button>

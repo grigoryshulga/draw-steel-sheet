@@ -33,7 +33,10 @@ type PanelId =
   | "resources";
 function SheetClassFeaturesPanel() {
   const { character } = useApp();
-  if (!classFeatureGroupsForSheet(character).length && !classFeatureChoicesForSheet(character).length && !conduitLegacyDomainChoicesForSheet(character).message) return null;
+  const hasVisible = classFeatureGroupsForSheet(character).some((group) =>
+    group.features.some((item) => !item.passive),
+  );
+  if (!hasVisible && !classFeatureChoicesForSheet(character).length && !conduitLegacyDomainChoicesForSheet(character).message) return null;
   return (
     <Panel title="Особенности класса" icon="spark" dense actions={<RoundEncounterControls />}>
       <ClassFeatureMechanicsPanel />
