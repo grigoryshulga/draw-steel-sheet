@@ -122,6 +122,12 @@ export function recalculateCharacter(
       previousAutomation.ancestryTraits !== automation.ancestryTraits;
     const idsReplaced =
       previousAutomation.ancestryTraitIds !== automation.ancestryTraitIds;
+    const selectionsReplaced =
+      previousAutomation.ancestryFeatureSelections !==
+      automation.ancestryFeatureSelections;
+    if (!selectionsReplaced) {
+      automation = { ...automation, ancestryFeatureSelections: {} };
+    }
     if (!idsReplaced) {
       if (namesReplaced) {
         // Explicit new legacy names must be able to resolve, so drop the old canonical IDs.

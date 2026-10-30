@@ -310,6 +310,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
   const normalizedRuntime = normalizeRuntime(rawRuntime);
   const {
     classFeatureSelections: _rawSelections,
+    ancestryFeatureSelections: _rawAncestrySelections,
     ancestryTraitIds: _rawAncestryTraitIds,
     equipment: _rawEquipment,
     ...automationWithoutSelections
@@ -329,6 +330,22 @@ export function normalizeCharacter(input: Partial<Character>): Character {
       (value) => typeof value === "string",
     )
       ? { ...rawAutomation.classFeatureSelections }
+      : undefined;
+  const hasAncestrySelections =
+    rawAutomation !== undefined &&
+    Object.prototype.hasOwnProperty.call(
+      rawAutomation,
+      "ancestryFeatureSelections",
+    );
+  const normalizedAncestrySelections =
+    hasAncestrySelections &&
+    rawAutomation?.ancestryFeatureSelections &&
+    typeof rawAutomation.ancestryFeatureSelections === "object" &&
+    !Array.isArray(rawAutomation.ancestryFeatureSelections) &&
+    Object.values(rawAutomation.ancestryFeatureSelections).every(
+      (value) => typeof value === "string",
+    )
+      ? { ...rawAutomation.ancestryFeatureSelections }
       : undefined;
   const normalizedAncestryTraitIds = Array.isArray(
     rawAutomation?.ancestryTraitIds,
@@ -394,6 +411,9 @@ export function normalizeCharacter(input: Partial<Character>): Character {
             ...automationWithoutSelections,
             ...(hasFeatureSelections && normalizedSelections
               ? { classFeatureSelections: normalizedSelections }
+              : {}),
+            ...(hasAncestrySelections && normalizedAncestrySelections
+              ? { ancestryFeatureSelections: normalizedAncestrySelections }
               : {}),
             ...(normalizedAncestryTraitIds
               ? { ancestryTraitIds: normalizedAncestryTraitIds }

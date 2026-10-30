@@ -368,6 +368,15 @@ function validateCharacterShape(value: JsonObject): void {
         }
       }
     }
+    if ("ancestryFeatureSelections" in automation) {
+      const selections = automation.ancestryFeatureSelections;
+      if (!isObject(selections)) fail("automation.ancestryFeatureSelections");
+      for (const [groupId, optionId] of Object.entries(selections)) {
+        if (typeof optionId !== "string") {
+          fail(`automation.ancestryFeatureSelections.${groupId}`);
+        }
+      }
+    }
   }
 }
 

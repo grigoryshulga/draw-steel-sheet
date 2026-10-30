@@ -7,7 +7,7 @@ import { RollModal } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
-import { Button, Chip, EmptyState, Modal, Panel } from "../../components/ui";
+import { Button, Chip, EmptyState, Modal, Panel, Select } from "../../components/ui";
 import { RichText } from "../../components/RichText";
 import { actionLabel, kindLabel } from "../../data/actions";
 import { abilityDistance } from "../../lib/character-calculations";
@@ -38,9 +38,16 @@ import {
   type AbilitySheetFilter,
 } from "../../lib/ability-sheet-groups";
 import {
+  ancestryAbilitySourcesFrom,
+  ancestryAbilitySource,
   subclassAbilitySource,
   subclassAbilitySources,
 } from "../../lib/ability-origin";
+import {
+  ancestryAbilityEntries,
+  ancestryFeatureChoicesForSheet,
+  withAncestryFeatureSelection,
+} from "../../lib/ancestry-features";
 import {
   matchesFeatureQuery,
   passiveClassFeatures,
@@ -57,6 +64,47 @@ const AbilityPicker = lazy(() =>
 /** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
 type AddMode = "catalog" | "templates" | "custom" | null;
 
+/** Выбор способности, которую выдаёт черта происхождения (например, дар Рейдера Времени). */
+function AncestryFeatureChoices() {
+  const { character, update } = useApp();
+  const choices = ancestryFeatureChoicesForSheet(character);
+  if (choices.length === 0) return null;
+  return (
+    <div className="sheet-ability-ancestry-choices">
+      {choices.map((choice) => (
+        <label className="sheet-ability-ancestry-choice" key={choice.group}>
+          <span className="eyebrow">{choice.label}</span>
+          <Select
+            value={choice.selected}
+            aria-label={`${choice.label}: выберите способность`}
+            onChange={(event) =>
+              update((current) =>
+                withAncestryFeatureSelection(
+                  current,
+                  choice.group,
+                  event.target.value,
+                ),
+              )
+            }
+          >
+            <option value="">Не выбрана</option>
+            {choice.options.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </Select>
+          {choice.warning && (
+            <span className="sheet-ability-ancestry-warning">
+              {choice.warning}
+            </span>
+          )}
+        </label>
+      ))}
+    </div>
+  );
+}
+
 /** Компактный справочник способностей внизу листа, сгруппированный по типу действия. */
 export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
@@ -72,13 +120,39 @@ export function SheetAbilitiesPanel() {
     isNew: boolean;
   } | null>(null);
   const abilities = character.abilities;
+  // Способности происхождения не хранятся в `character.abilities`: их выдаёт
+  // выбранная черта или знаковая черта. Для листа это такие же карточки,
+  // поэтому они вливаются в общий список до фильтра и поиска.
+  const ancestryEntries = useMemo(
+    () => ancestryAbilityEntries(character),
+    [character],
+  );
+  const ancestrySources = useMemo(
+    () => ancestryAbilitySourcesFrom(ancestryEntries),
+    [ancestryEntries],
+  );
+  const sheetAbilities = useMemo(
+    () => [
+      ...abilities,
+      ...ancestryEntries.map((entry) => entry.ability),
+    ],
+    [abilities, ancestryEntries],
+  );
   // Карта «способность → подкласс» не зависит от поиска и фильтра, поэтому
   // считается один раз на героя.
   const subclassSources = useMemo(
     () => subclassAbilitySources(character),
     [character],
   );
-  const filterOptions = abilityFilterOptions(abilities, subclassSources);
+  const ancestryChoices = useMemo(
+    () => ancestryFeatureChoicesForSheet(character),
+    [character],
+  );
+  const filterOptions = abilityFilterOptions(
+    sheetAbilities,
+    subclassSources,
+    ancestrySources,
+  );
   const allPassives = useMemo(
     () => passiveClassFeatures(character),
     [character],
@@ -93,10 +167,11 @@ export function SheetAbilitiesPanel() {
     ? filter
     : "all";
   const { groups, topMatches, visible } = sheetAbilityLayout(
-    abilities,
+    sheetAbilities,
     activeFilter,
     query,
     subclassSources,
+    ancestrySources,
   );
   const hasFilter = filterOptions.length > 2;
   const hasQuery = query.trim().length > 0;
@@ -111,7 +186,10 @@ export function SheetAbilitiesPanel() {
       key={ability.id}
       ability={ability}
       character={character}
-      origin={subclassAbilitySource(subclassSources, ability)}
+      origin={
+        subclassAbilitySource(subclassSources, ability) ??
+        ancestryAbilitySource(ancestrySources, ability)
+      }
       onOpen={() => openAbility(ability)}
       footerAction={
         <Button
@@ -189,7 +267,7 @@ export function SheetAbilitiesPanel() {
           </Button>
         }
       >
-        {abilities.length === 0 ? (
+        {sheetAbilities.length === 0 && ancestryChoices.length === 0 ? (
           <EmptyState
             icon="abilities"
             title="Способностей пока нет"
@@ -202,33 +280,36 @@ export function SheetAbilitiesPanel() {
           />
         ) : (
           <div className="sheet-ability-sections">
-            <div className="sheet-ability-search">
-              <Icon name="search" size={15} />
-              <input
-                type="search"
-                value={query}
-                autoComplete="off"
-                placeholder="Поиск по названию, эффекту, триггеру…"
-                aria-label="Поиск по способностям"
-                onChange={(event) => setQuery(event.target.value)}
-              />
-              {hasQuery && (
-                <>
-                  <span className="sheet-ability-search-count mono">
-                    {totalMatches} из {totalVisible}
-                  </span>
-                  <button
-                    type="button"
-                    className="sheet-ability-search-clear"
-                    aria-label="Очистить поиск"
-                    title="Очистить поиск"
-                    onClick={() => setQuery("")}
-                  >
-                    <Icon name="close" size={13} />
-                  </button>
-                </>
-              )}
-            </div>
+            <AncestryFeatureChoices />
+            {sheetAbilities.length > 0 && (
+              <div className="sheet-ability-search">
+                <Icon name="search" size={15} />
+                <input
+                  type="search"
+                  value={query}
+                  autoComplete="off"
+                  placeholder="Поиск по названию, эффекту, триггеру…"
+                  aria-label="Поиск по способностям"
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                {hasQuery && (
+                  <>
+                    <span className="sheet-ability-search-count mono">
+                      {totalMatches} из {totalVisible}
+                    </span>
+                    <button
+                      type="button"
+                      className="sheet-ability-search-clear"
+                      aria-label="Очистить поиск"
+                      title="Очистить поиск"
+                      onClick={() => setQuery("")}
+                    >
+                      <Icon name="close" size={13} />
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
             {hasQuery && totalMatches === 0 && (
               <p className="sheet-ability-search-empty" role="status">
                 Ничего не найдено. Попробуйте другое слово — поиск смотрит
@@ -350,6 +431,7 @@ export function SheetAbilitiesPanel() {
       {selected && (
         <AbilityDetailModal
           ability={selected}
+          derived={ancestryAbilitySource(ancestrySources, selected) !== undefined}
           onClose={() => setSelected(null)}
           onUse={() => {
             setUsing(selected);
@@ -416,6 +498,7 @@ export function SheetAbilitiesPanel() {
 
 function AbilityDetailModal({
   ability,
+  derived = false,
   onClose,
   onEdit,
   onDuplicate,
@@ -423,6 +506,8 @@ function AbilityDetailModal({
   onUse,
 }: {
   ability: Ability;
+  /** Карточка выдана происхождением: её нельзя править или удалить на листе. */
+  derived?: boolean;
   onClose: () => void;
   onEdit: () => void;
   onDuplicate: () => void;
@@ -435,7 +520,13 @@ function AbilityDetailModal({
     () => subclassAbilitySources(character),
     [character],
   );
-  const origin = subclassAbilitySource(subclassSources, ability);
+  const ancestrySources = useMemo(
+    () => ancestryAbilitySourcesFrom(ancestryAbilityEntries(character)),
+    [character],
+  );
+  const origin =
+    subclassAbilitySource(subclassSources, ability) ??
+    ancestryAbilitySource(ancestrySources, ability);
   const requirements = abilityTierRequirements(ability, character);
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
@@ -447,24 +538,26 @@ function AbilityDetailModal({
       onClose={onClose}
       className="sheet-ability-modal"
       headerActions={
-        <>
-          <Button
-            variant="ghost"
-            icon="copy"
-            iconOnly
-            aria-label="Создать копию"
-            title="Копия"
-            onClick={onDuplicate}
-          />
-          <Button
-            variant="ghost"
-            icon="edit"
-            iconOnly
-            aria-label="Изменить"
-            title="Изменить"
-            onClick={onEdit}
-          />
-        </>
+        derived ? undefined : (
+          <>
+            <Button
+              variant="ghost"
+              icon="copy"
+              iconOnly
+              aria-label="Создать копию"
+              title="Копия"
+              onClick={onDuplicate}
+            />
+            <Button
+              variant="ghost"
+              icon="edit"
+              iconOnly
+              aria-label="Изменить"
+              title="Изменить"
+              onClick={onEdit}
+            />
+          </>
+        )
       }
       title={
         <span className="sheet-ability-detail-title">
@@ -473,15 +566,22 @@ function AbilityDetailModal({
       }
       footer={
         <>
-          <Button
-            variant="ghost"
-            onClick={() =>
-              confirmDelete ? onDelete() : setConfirmDelete(true)
-            }
-            onBlur={() => setConfirmDelete(false)}
-          >
-            {confirmDelete ? "Точно удалить?" : "Удалить"}
-          </Button>
+          {!derived && (
+            <Button
+              variant="ghost"
+              onClick={() =>
+                confirmDelete ? onDelete() : setConfirmDelete(true)
+              }
+              onBlur={() => setConfirmDelete(false)}
+            >
+              {confirmDelete ? "Точно удалить?" : "Удалить"}
+            </Button>
+          )}
+          {derived && (
+            <span className="sheet-ability-derived-note">
+              Выдана происхождением
+            </span>
+          )}
           <span className="grow" />
           <Button variant="primary" onClick={onUse}>
             Использовать

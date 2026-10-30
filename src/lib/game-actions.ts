@@ -6,6 +6,7 @@ import {
   activeClassFeatures,
   classFeatureTriggers,
 } from "./class-features";
+import { ancestryAbilityEntries } from "./ancestry-features";
 import { epicResourceName, resourceGainByTag } from "./resources";
 import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
 
@@ -257,9 +258,13 @@ export function previewGameAction(
       );
     }
     case "ability": {
-      const ability = character.abilities.find(
-        (item) => item.id === action.abilityId,
-      );
+      // Способность происхождения не хранится в `character.abilities`: она
+      // выводится из черты, но применяется на листе так же, как остальные.
+      const ability =
+        character.abilities.find((item) => item.id === action.abilityId) ??
+        ancestryAbilityEntries(character).find(
+          (entry) => entry.ability.id === action.abilityId,
+        )?.ability;
       if (!ability) return invalid("Этой способности больше нет у героя");
       if (
         !Number.isSafeInteger(action.surges) ||

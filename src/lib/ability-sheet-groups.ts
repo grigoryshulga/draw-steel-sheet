@@ -1,6 +1,8 @@
 import { ACTION_TYPES, actionLabel, kindLabel } from "../data/actions";
 import {
+  isAncestryAbility,
   isSubclassAbility,
+  type AncestryAbilitySources,
   type SubclassAbilitySources,
 } from "./ability-origin";
 import type { Ability, AbilityKind, ActionType } from "../types";
@@ -9,10 +11,16 @@ import type { Ability, AbilityKind, ActionType } from "../types";
 export const BASIC_ABILITY_SOURCE = "Базовые способности";
 
 /**
- * Фильтр панели: вид способности, базовые или происхождение из подкласса.
- * Подкласс — отдельная ось, поэтому он не входит в `AbilityKind`.
+ * Фильтр панели: вид способности, базовые, происхождение из подкласса или
+ * происхождение героя. Обе оси происхождения — отдельные фильтры, потому что
+ * не входят в `AbilityKind`.
  */
-export type AbilitySheetFilter = "all" | "basic" | "subclass" | AbilityKind;
+export type AbilitySheetFilter =
+  | "all"
+  | "basic"
+  | "subclass"
+  | "ancestry"
+  | AbilityKind;
 
 /**
  * Порядок видов внутри группы действия: сначала знаковые и героические,
@@ -117,12 +125,18 @@ export function matchesAbilityFilter(
   ability: Ability,
   filter: AbilitySheetFilter,
   subclassSources?: SubclassAbilitySources,
+  ancestrySources?: AncestryAbilitySources,
 ): boolean {
   if (filter === "all") return true;
   if (filter === "basic") return isBasicAbility(ability);
   if (filter === "subclass") {
     return subclassSources
       ? isSubclassAbility(subclassSources, ability)
+      : false;
+  }
+  if (filter === "ancestry") {
+    return ancestrySources
+      ? isAncestryAbility(ancestrySources, ability)
       : false;
   }
   return ability.kind === filter;
@@ -132,9 +146,10 @@ export function filterAbilitiesForSheet(
   abilities: readonly Ability[],
   filter: AbilitySheetFilter,
   subclassSources?: SubclassAbilitySources,
+  ancestrySources?: AncestryAbilitySources,
 ): Ability[] {
   return abilities.filter((ability) =>
-    matchesAbilityFilter(ability, filter, subclassSources),
+    matchesAbilityFilter(ability, filter, subclassSources, ancestrySources),
   );
 }
 
@@ -151,12 +166,14 @@ const FILTER_LABELS: Record<Exclude<AbilitySheetFilter, "all">, string> = {
   other: "Другие",
   basic: "Базовые",
   subclass: "Подкласс",
+  ancestry: "Происхождение",
 };
 
 /** Чипы фильтра: «Все» плюс только те категории, которые реально есть. */
 export function abilityFilterOptions(
   abilities: readonly Ability[],
   subclassSources?: SubclassAbilitySources,
+  ancestrySources?: AncestryAbilitySources,
 ): AbilityFilterOption[] {
   const options: AbilityFilterOption[] = [
     { key: "all", label: "Все", count: abilities.length },
@@ -170,6 +187,17 @@ export function abilityFilterOptions(
       key: "subclass",
       label: FILTER_LABELS.subclass,
       count: subclassCount,
+    });
+  }
+  const ancestryCount = ancestrySources
+    ? abilities.filter((ability) => isAncestryAbility(ancestrySources, ability))
+        .length
+    : 0;
+  if (ancestryCount > 0) {
+    options.push({
+      key: "ancestry",
+      label: FILTER_LABELS.ancestry,
+      count: ancestryCount,
     });
   }
   for (const key of [
@@ -213,8 +241,14 @@ export function sheetAbilityLayout(
   filter: AbilitySheetFilter,
   query = "",
   subclassSources?: SubclassAbilitySources,
+  ancestrySources?: AncestryAbilitySources,
 ): { groups: AbilityActionGroup[]; topMatches: Ability[]; visible: number } {
-  const visible = filterAbilitiesForSheet(abilities, filter, subclassSources);
+  const visible = filterAbilitiesForSheet(
+    abilities,
+    filter,
+    subclassSources,
+    ancestrySources,
+  );
   const search = normalizeQuery(query);
   if (!search) {
     return {

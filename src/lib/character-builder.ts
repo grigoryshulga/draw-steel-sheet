@@ -6,6 +6,7 @@ import {
   classFeatureSelectionsFromDraft,
 } from "../data/class-feature-rules";
 import { ancestryTraitIdsFromNames } from "../data/ancestry-feature-rules";
+import { ancestryFeatureChoiceDefinitions } from "./ancestry-features";
 import { ancestrySkillSlots } from "../data/ancestry-skill-rules";
 import { careerPerkType, perkById } from "../data/perks";
 import { kitByName } from "../data/kits";
@@ -44,6 +45,8 @@ export interface BuilderDraft {
   concept: string;
   ancestry: string;
   traits: string[];
+  /** Выбор способности для черт вроде «Псионического дара»: группа → id варианта. */
+  ancestryChoices: Record<string, string>;
   equipment?: FeatureEquipmentFlags;
   culture: Character["culture"];
   ancestrySkills?: string[];
@@ -78,6 +81,7 @@ export function emptyBuilderDraft(): BuilderDraft {
     concept: "",
     ancestry: "",
     traits: [],
+    ancestryChoices: {},
     equipment: { lightArmor: false, lightWeapon: false },
     culture: { environment: "", organization: "", upbringing: "" },
     ancestrySkills: [],
@@ -268,6 +272,20 @@ export function buildCharacter(
   const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
   const traits =
     ancestry?.traits.filter((t) => draft.traits.includes(t.name)) ?? [];
+  const ancestryTraitNames = traits.map((trait) => trait.name);
+  const ancestryChoices: Record<string, string> = {};
+  for (const definition of ancestryFeatureChoiceDefinitions(
+    draft.ancestry,
+    ancestryTraitNames,
+  )) {
+    const value = draft.ancestryChoices?.[definition.choice.group];
+    if (
+      typeof value === "string" &&
+      definition.choice.options.some((option) => option.id === value)
+    ) {
+      ancestryChoices[definition.choice.group] = value;
+    }
+  }
   const career = data.careers.find((c) => c.name === draft.career);
   const perk = perkById(draft.perkId);
   const kit = canUseKit(draft.className, draft.subclass)
@@ -418,6 +436,9 @@ export function buildCharacter(
         draft.ancestry,
         traits.map((t) => t.name),
       ),
+      ...(Object.keys(ancestryChoices).length > 0
+        ? { ancestryFeatureSelections: ancestryChoices }
+        : {}),
       equipment: {
         lightArmor: draft.equipment?.lightArmor ?? false,
         lightWeapon: draft.equipment?.lightWeapon ?? false,
@@ -467,6 +488,16 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
     ancestry?.traits
       .filter((t) => draft.traits.includes(t.name))
       .reduce((sum, t) => sum + t.cost, 0) ?? 0;
+  const ancestryChoiceMissing = ancestryFeatureChoiceDefinitions(
+    draft.ancestry,
+    draft.traits,
+  ).find(
+    (definition) =>
+      !definition.choice.options.some(
+        (option) =>
+          option.id === draft.ancestryChoices?.[definition.choice.group],
+      ),
+  );
   const ancestrySkillsComplete = resolveSkillSelection(
     skills.slots.ancestry,
     draft.ancestrySkills ?? [],
@@ -511,9 +542,11 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
       ? ""
       : traitsSpent !== ancestry.budget
         ? `Распределите ${ancestry.budget} очка происхождения (выбрано ${traitsSpent}).`
-        : ancestrySkillsComplete
-          ? ""
-          : "Выберите навыки происхождения; повторяющиеся навыки замените.",
+        : ancestryChoiceMissing
+          ? `Выберите способность для черты «${ancestryChoiceMissing.featureName}».`
+          : ancestrySkillsComplete
+            ? ""
+            : "Выберите навыки происхождения; повторяющиеся навыки замените.",
     culture:
       Object.values(draft.culture).some((v) => !v) || !cultureSkillsComplete
         ? "Выберите три аспекта культуры и три разных навыка."

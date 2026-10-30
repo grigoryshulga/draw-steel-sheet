@@ -41,7 +41,7 @@ import { ChoiceCard } from "./ChoiceCard";
 import { PerkCard } from "./PerkCard";
 import { PerkDetailModal } from "./PerkDetailModal";
 import { SkillPicker } from "./SkillPicker";
-import { ancestryTraitAbility } from "../lib/ancestry-trait-ability";
+import { ancestryTraitAbilities, ancestryTraitChoice } from "../lib/ancestry-features";
 import "../views/CodexView.css";
 import "./NewCharacterDialog.css";
 import "./BuilderPage.css";
@@ -72,6 +72,15 @@ function readDraft(key: string): BuilderDraft {
       return {
         ...base,
         ...stored,
+        ancestryChoices:
+          stored.ancestryChoices &&
+          typeof stored.ancestryChoices === "object" &&
+          !Array.isArray(stored.ancestryChoices) &&
+          Object.values(stored.ancestryChoices).every(
+            (value) => typeof value === "string",
+          )
+            ? { ...stored.ancestryChoices }
+            : base.ancestryChoices,
         ancestrySkills: Array.isArray(stored.ancestrySkills)
           ? stored.ancestrySkills.filter((value: unknown): value is string => typeof value === "string")
           : base.ancestrySkills,
@@ -408,11 +417,22 @@ export function NewCharacterDialog({
                     {ancestry.traits.map((t) => {
                       const chosen = draft.traits.includes(t.name);
                       const blocked = !chosen && traitsSpent + t.cost > ancestry.budget;
-                      const ability = ancestryTraitAbility(t.text, t.name);
+                      const abilities = ancestryTraitAbilities(ancestry.name, t.name);
+                      const choice = ancestryTraitChoice(ancestry.name, t.name);
+                      const selectedChoice = choice
+                        ? draft.ancestryChoices?.[choice.group] ?? ""
+                        : "";
+                      const selectedAbility = choice?.options.find(
+                        (option) => option.id === selectedChoice,
+                      )?.ability;
                       return (
                         <ChoiceCard
                           key={t.name}
-                          eyebrow={ability ? "Знаковая способность" : "Черта происхождения"}
+                          eyebrow={
+                            choice || abilities.length > 0
+                              ? "Знаковая способность"
+                              : "Черта происхождения"
+                          }
                           title={t.name}
                           meta={`${t.cost} очк.`}
                           selected={chosen}
@@ -426,9 +446,61 @@ export function NewCharacterDialog({
                           }
                           onOpen={() => setTraitDetail({ name: t.name, text: t.text })}
                         >
-                          {ability ? (
-                            <AbilityCard ability={ability} character={hero} />
-                          ) : (
+                          {abilities.map((ability) => (
+                            <AbilityCard
+                              key={ability.id}
+                              ability={ability}
+                              character={hero}
+                            />
+                          ))}
+                          {choice && (
+                            <div
+                              className="builder-trait-choice"
+                              onClick={(event) => event.stopPropagation()}
+                              onKeyDown={(event) => event.stopPropagation()}
+                            >
+                              {chosen ? (
+                                <>
+                                  <label className="builder-trait-choice-label">
+                                    <span className="eyebrow">
+                                      Выберите способность
+                                    </span>
+                                    <Select
+                                      value={selectedChoice}
+                                      aria-label={`${t.name}: выберите способность`}
+                                      onChange={(event) =>
+                                        patch({
+                                          ancestryChoices: {
+                                            ...(draft.ancestryChoices ?? {}),
+                                            [choice.group]: event.target.value,
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <option value="">Не выбрана</option>
+                                      {choice.options.map((option) => (
+                                        <option key={option.id} value={option.id}>
+                                          {option.label}
+                                        </option>
+                                      ))}
+                                    </Select>
+                                  </label>
+                                  {selectedAbility && (
+                                    <AbilityCard
+                                      ability={selectedAbility}
+                                      character={hero}
+                                    />
+                                  )}
+                                </>
+                              ) : (
+                                <p className="choice-card-summary">
+                                  Выберите черту, чтобы получить одну из трёх
+                                  знаковых способностей на выбор.
+                                </p>
+                              )}
+                            </div>
+                          )}
+                          {!choice && abilities.length === 0 && (
                             <div className="choice-card-clamp">
                               <RuleText text={t.text} />
                             </div>

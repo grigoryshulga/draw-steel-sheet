@@ -4,6 +4,10 @@ import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
 import { LEVEL_UP_RULES } from "../data/level-up-rules";
 import { FEATURE_MECHANICS } from "../data/class-features/mechanics";
+import {
+  ancestryAbilityEntries,
+  type AncestryAbilityEntry,
+} from "./ancestry-features";
 import { classFeatureChoicesForSheet } from "./class-feature-view";
 import { normalizeFeatureText } from "./utils";
 import type { Ability, Character } from "../types";
@@ -205,4 +209,64 @@ export function isSubclassAbility(
   ability: Pick<Ability, "id" | "name" | "source">,
 ): boolean {
   return subclassAbilitySource(sources, ability) !== undefined;
+}
+
+/** Источник карточки происхождения: знаковая черта или купленная способность. */
+export interface AncestryAbilitySource {
+  label: "Происхождение";
+  /** Название происхождения для подсказки. */
+  value: string;
+  /** «Происхождение · Название черты» — подпись в карточке. */
+  text: string;
+  featureName: string;
+}
+
+export type AncestryAbilitySources = Map<string, AncestryAbilitySource>;
+
+function ancestrySourceFor(
+  entry: AncestryAbilityEntry,
+): AncestryAbilitySource {
+  return {
+    label: "Происхождение",
+    value: entry.ancestryName,
+    text: `Происхождение · ${entry.featureName}`,
+    featureName: entry.featureName,
+  };
+}
+
+/** Карточки, выданные происхождением героя; ключ — id и название+источник. */
+export function ancestryAbilitySourcesFrom(
+  entries: readonly AncestryAbilityEntry[],
+): AncestryAbilitySources {
+  const sources: AncestryAbilitySources = new Map();
+  for (const entry of entries) {
+    const source = ancestrySourceFor(entry);
+    if (!sources.has(entry.ability.id)) {
+      sources.set(entry.ability.id, source);
+    }
+    const key = abilityKey(entry.ability);
+    if (!sources.has(key)) sources.set(key, source);
+  }
+  return sources;
+}
+
+/** Карточки, выданные происхождением героя. */
+export function ancestryAbilitySources(
+  character: Character,
+): AncestryAbilitySources {
+  return ancestryAbilitySourcesFrom(ancestryAbilityEntries(character));
+}
+
+export function ancestryAbilitySource(
+  sources: AncestryAbilitySources,
+  ability: Pick<Ability, "id" | "name" | "source">,
+): AncestryAbilitySource | undefined {
+  return sources.get(ability.id) ?? sources.get(abilityKey(ability));
+}
+
+export function isAncestryAbility(
+  sources: AncestryAbilitySources,
+  ability: Pick<Ability, "id" | "name" | "source">,
+): boolean {
+  return ancestryAbilitySource(sources, ability) !== undefined;
 }

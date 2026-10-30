@@ -227,6 +227,8 @@ export interface Character {
     meleeDamageKit?: string;
     rangedDamageKit?: string;
     classFeatureSelections?: Record<string, string>;
+    /** Выборы способностей происхождения: ключ — группа черты, значение — id варианта. */
+    ancestryFeatureSelections?: Record<string, string>;
   };
 }
 

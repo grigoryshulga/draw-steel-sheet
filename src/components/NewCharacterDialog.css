@@ -604,6 +604,19 @@
   mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
 }
 
+/* Выбор способности внутри черты происхождения: не переключает саму черту. */
+.builder-trait-choice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.builder-trait-choice-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
 @media (max-width: 860px) {
   .builder-subclass-grid {
     grid-template-columns: minmax(0, 1fr);

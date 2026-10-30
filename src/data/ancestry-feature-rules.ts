@@ -1,4 +1,5 @@
 import type { FeatureEffect } from "./class-features/types";
+import { ancestryTraitIdsFromNames } from "./ancestry-features/skeleton";
 
 export interface AncestryFeatureRule {
   id: string;
@@ -8,6 +9,12 @@ export interface AncestryFeatureRule {
   effects: FeatureEffect[];
 }
 
+/**
+ * Числовые эффекты происхождений. Реестр остаётся источником для расчёта
+ * выносливости, скорости, устойчивости и отхода; способности и выборы живут
+ * в `ancestry-features/mechanics`. ID совпадают со скелетом происхождений,
+ * поэтому выбранная черта разрешается одним и тем же ключом в обоих местах.
+ */
 export const ANCESTRY_FEATURE_RULES: AncestryFeatureRule[] = [
   {
     id: "ancestry.devil.beast-legs",
@@ -88,19 +95,4 @@ export const ANCESTRY_FEATURE_RULES: AncestryFeatureRule[] = [
   },
 ];
 
-export function ancestryTraitIdsFromNames(
-  ancestry: string,
-  names: readonly string[],
-): string[] {
-  const selectedNames = new Set(names);
-  const seenIds = new Set<string>();
-  const ids: string[] = [];
-
-  for (const rule of ANCESTRY_FEATURE_RULES) {
-    if (rule.ancestryName !== ancestry || !selectedNames.has(rule.name) || seenIds.has(rule.id)) continue;
-    seenIds.add(rule.id);
-    ids.push(rule.id);
-  }
-
-  return ids;
-}
+export { ancestryTraitIdsFromNames };
