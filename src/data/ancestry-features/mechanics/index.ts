@@ -1,11 +1,10 @@
 import type { AncestryFeatureMechanics } from "../types";
-import { LEGACY_ANCESTRY_FEATURE_IDS } from "../../originals";
 import { ANCESTRY_ABILITY_MECHANICS } from "./abilities";
 
 /**
- * Реестр механик происхождений: ключ — `id` записи
- * `ancestry-features.generated.json`. Объект изменяемый — тесты подмешивают
- * записи и убирают их после себя.
+ * Реестр механик происхождений: ключ — `id` записи скелета из канонической
+ * проекции `generated/consumers/features.json`. Объект изменяемый — тесты
+ * подмешивают записи и убирают их после себя.
  */
 export const ANCESTRY_FEATURE_MECHANICS: Record<
   string,
@@ -14,22 +13,11 @@ export const ANCESTRY_FEATURE_MECHANICS: Record<
   ...ANCESTRY_ABILITY_MECHANICS,
 };
 
-const LEGACY_BY_CANONICAL = new Map(
-  Object.entries(LEGACY_ANCESTRY_FEATURE_IDS).map(([legacyId, canonicalId]) => [
-    canonicalId,
-    legacyId,
-  ]),
-);
-
 /** Механика черты или `undefined`, если она пока описана только прозой. */
 export function ancestryMechanicsFor(
   id: string,
 ): AncestryFeatureMechanics | undefined {
-  return (
-    ANCESTRY_FEATURE_MECHANICS[id] ??
-    ANCESTRY_FEATURE_MECHANICS[LEGACY_ANCESTRY_FEATURE_IDS[id]] ??
-    ANCESTRY_FEATURE_MECHANICS[LEGACY_BY_CANONICAL.get(id) ?? ""]
-  );
+  return ANCESTRY_FEATURE_MECHANICS[id];
 }
 
 export { ANCESTRY_ABILITY_MECHANICS };

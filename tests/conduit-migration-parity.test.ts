@@ -9,17 +9,17 @@ import { classFeatureChoicesForSheet, featureSheetChoiceState, withClassFeatureS
 import type { Ability, Character } from "../src/types";
 
 const prayers = [
-  ["conduit.prayer.destruction", "Молитва о разрушении", "feature.conduit.level-1.prayer-of-destruction"],
-  ["conduit.prayer.distance", "Молитва о дистанции", "feature.conduit.level-1.prayer-of-distance"],
-  ["conduit.prayer.soldier", "Молитва о мастерстве солдата", "feature.conduit.level-1.prayer-of-soldiers-skill"],
-  ["conduit.prayer.speed", "Молитва о скорости", "feature.conduit.level-1.prayer-of-speed"],
-  ["conduit.prayer.steel", "Молитва о стали", "feature.conduit.level-1.prayer-of-steel"],
+  ["conduit.prayer.destruction", "Молитва о разрушении", "conduit.feature.1.molitva-o-razrushenii"],
+  ["conduit.prayer.distance", "Молитва о дистанции", "conduit.feature.1.molitva-o-distantsii"],
+  ["conduit.prayer.soldier", "Молитва о мастерстве солдата", "conduit.feature.1.molitva-o-masterstve-soldata"],
+  ["conduit.prayer.speed", "Молитва о скорости", "conduit.feature.1.molitva-o-skorosti"],
+  ["conduit.prayer.steel", "Молитва о стали", "conduit.feature.1.molitva-o-stali"],
 ] as const;
 const wards = [
-  ["conduit.sanctuary.bastion", "Оберег бастиона", "feature.conduit.level-1.bastion-ward"],
-  ["conduit.sanctuary.reaction", "Оберег реакции", "feature.conduit.level-1.quickness-ward"],
-  ["conduit.sanctuary.refuge", "Оберег святилища", "feature.conduit.level-1.sanctuary-ward"],
-  ["conduit.sanctuary.spirits", "Оберег духов", "feature.conduit.level-1.spirit-ward"],
+  ["conduit.sanctuary.bastion", "Оберег бастиона", "conduit.feature.1.obereg-bastiona"],
+  ["conduit.sanctuary.reaction", "Оберег реакции", "conduit.feature.1.obereg-reaktsii"],
+  ["conduit.sanctuary.refuge", "Оберег святилища", "conduit.feature.1.obereg-svyatilishcha"],
+  ["conduit.sanctuary.spirits", "Оберег духов", "conduit.feature.1.obereg-dukhov"],
 ] as const;
 const all = [...prayers, ...wards];
 function build(name?: string, group = "Молитва", level = 1, kit = ""): Character {
@@ -124,7 +124,7 @@ describe("Проводник: паритет старых выборов при 
       const contributions = featureAbilityDamageContributions(magic, hero);
       expect(contributions).toHaveLength(1);
       expect(contributions[0].value).toBe(1);
-      expect(["conduit.prayer.destruction", "feature.conduit.level-1.prayer-of-destruction"]).toContain(contributions[0].sourceId);
+      expect(["conduit.prayer.destruction", "conduit.feature.1.molitva-o-razrushenii"]).toContain(contributions[0].sourceId);
     }
 
     const soldier = select(build(prayers[2][1]), "conduit.prayer", prayers[2][0]);

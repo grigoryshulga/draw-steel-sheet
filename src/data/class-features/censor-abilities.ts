@@ -1,10 +1,10 @@
 /**
  * Связь домена Цензора со способностью, которую выдаёт его доменная особенность.
  *
- * Источники: `class-features.generated.json` (у записи домена прямо сказано
- * «У вас есть следующая способность»), `abilities.generated.json` (карточка) и
- * `level-up.generated.json` (`grantedAbilities` у Цензора пуст, связи нет —
- * восстанавливаем её здесь по тексту).
+ * Источники: каноническая проекция `generated/consumers/features.json` (у
+ * записи домена прямо сказано «У вас есть следующая способность»), карточка из
+ * `generated/consumers/abilities.json` и `level-up.json` (`grantedAbilities` у
+ * Цензора пуст, связи нет — восстанавливаем её здесь по тексту).
  *
  * У Цензора один домен, поэтому способность не выбирается: она приходит вместе
  * с особенностью своего уровня.
@@ -23,38 +23,38 @@ export const censorDomainAbilities: readonly CensorDomainAbility[] = [
   {
     level: 1,
     domain: "Созидание",
-    abilityId: "feature.ability.censor.level-1.hands-of-the-maker",
-    featureId: "feature.censor.level-1.hands-of-the-maker",
+    abilityId: "cenzor-ruki-tvorca-3425397e10",
+    featureId: "censor.domain.1.ruki-tvortsa",
   },
   {
     level: 1,
     domain: "Смерть",
-    abilityId: "feature.ability.censor.level-1.grave-speech",
-    featureId: "feature.censor.level-1.grave-speech",
+    abilityId: "cenzor-mogilnaya-rech-9278e7b3ff",
+    featureId: "censor.domain.1.mogilnaya-rech",
   },
   {
     level: 1,
     domain: "Природа",
-    abilityId: "feature.ability.censor.level-1.faithful-friend",
-    featureId: "feature.censor.level-1.faithful-friend",
+    abilityId: "cenzor-vernyy-drug-225ee009e1",
+    featureId: "censor.domain.1.vernyy-drug",
   },
   // 4-й и 7-й уровни: способность выдаёт повышение уровня.
   {
     level: 4,
     domain: "Хитрость",
-    abilityId: "feature.ability.censor.level-4.blessing-of-secrets",
-    featureId: "feature.censor.level-4.blessing-of-secrets",
+    abilityId: "cenzor-blagoslovenie-tayn-495d24a291",
+    featureId: "censor.domain.4.blagoslovenie-tayn",
   },
   {
     level: 7,
     domain: "Любовь",
-    abilityId: "feature.ability.censor.level-7.guided-to-your-side",
-    featureId: "feature.censor.level-7.covenant-of-the-heart",
+    abilityId: "cenzor-vedomyy-k-tebe-b7901eb438",
+    featureId: "censor.domain.7.zavet-serdtsa",
   },
   {
     level: 7,
     domain: "Хитрость",
-    abilityId: "feature.ability.censor.level-7.trinity-of-trickery",
-    featureId: "feature.censor.level-7.trinity-of-trickery",
+    abilityId: "cenzor-troica-hitrosti-2ecc3107cb",
+    featureId: "censor.domain.7.troitsa-khitrosti",
   },
 ];

@@ -8,10 +8,10 @@ import { activeClassFeatures } from "../src/lib/class-features";
 import type { Character } from "../src/types";
 
 const choices = [
-  ["conduit.sanctuary.bastion", "Оберег бастиона", "feature.conduit.level-1.bastion-ward"],
-  ["conduit.sanctuary.reaction", "Оберег реакции", "feature.conduit.level-1.quickness-ward"],
-  ["conduit.sanctuary.refuge", "Оберег святилища", "feature.conduit.level-1.sanctuary-ward"],
-  ["conduit.sanctuary.spirits", "Оберег духов", "feature.conduit.level-1.spirit-ward"],
+  ["conduit.sanctuary.bastion", "Оберег бастиона", "conduit.feature.1.obereg-bastiona"],
+  ["conduit.sanctuary.reaction", "Оберег реакции", "conduit.feature.1.obereg-reaktsii"],
+  ["conduit.sanctuary.refuge", "Оберег святилища", "conduit.feature.1.obereg-svyatilishcha"],
+  ["conduit.sanctuary.spirits", "Оберег духов", "conduit.feature.1.obereg-dukhov"],
 ] as const;
 const sanctuaryIds = choices.map(([, , stableId]) => stableId);
 
@@ -40,8 +40,8 @@ describe("legacy conduit sanctuary selection", () => {
 
   it("removes legacy effects while keeping the choice and its mechanics on canonical records", () => {
     expect(CLASS_FEATURE_GROUPS.find(({ id }) => id === "conduit.sanctuary")).toBeUndefined();
-    expect(mechanicsFor("feature.conduit.level-1.bastion-ward")?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
-    expect(GENERATED_CLASS_FEATURES.find(({ id }) => id === "feature.conduit.level-1.bastion-ward")).toBeDefined();
+    expect(mechanicsFor("conduit.feature.1.obereg-bastiona")?.effects).toEqual([{ kind: "field", field: "save", value: 1 }]);
+    expect(GENERATED_CLASS_FEATURES.find(({ id }) => id === "conduit.feature.1.obereg-bastiona")).toBeDefined();
   });
 
   it("does not activate any sanctuary for absent, empty or unknown legacy selection", () => {
@@ -56,14 +56,14 @@ describe("legacy conduit sanctuary selection", () => {
   it("honors selection with automation disabled and ignores it for another class", () => {
     const hero = built("Оберег духов");
     const disabled = { ...hero, automation: { ...hero.automation!, enabled: false } };
-    expect(activeSanctuaries(disabled)).toEqual(["feature.conduit.level-1.spirit-ward"]);
+    expect(activeSanctuaries(disabled)).toEqual(["conduit.feature.1.obereg-dukhov"]);
     expect(activeSanctuaries({ ...hero, className: "Тактик" })).toEqual([]);
   });
 
   it("keeps unrelated skeleton records visible alongside the chosen sanctuary", () => {
     const hero = built("Оберег реакции");
     const allIds = activeClassFeatures(hero).map(({ id }) => id);
-    expect(allIds).toContain("feature.conduit.level-1.quickness-ward");
+    expect(allIds).toContain("conduit.feature.1.obereg-reaktsii");
     const otherConduitRecord = GENERATED_CLASS_FEATURES.find((feature) =>
       feature.className === "Проводник" && feature.level <= 1 && !sanctuaryIds.includes(feature.id),
     );

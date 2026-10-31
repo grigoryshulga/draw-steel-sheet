@@ -6,19 +6,23 @@
   "description": "Интерактивный лист героя Draw Steel",
   "scripts": {
     "dev": "node server/index.mjs --dev",
-    "build": "tsc -b && vite build",
+    "build": "npm run content:build && tsc -b && vite build",
     "start": "NODE_ENV=production node server/index.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && npm run data:rules && node scripts/build-class-features.mjs && npm run data:originals",
+    "data": "node scripts/build-abilities.mjs && node scripts/build-perks.mjs && node scripts/build-kits.mjs && npm run data:rules && node scripts/build-class-features.mjs",
     "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs && node scripts/build-ancestry-features.mjs && npm run data:level-up",
     "data:level-up": "node scripts/build-level-up.mjs",
     "data:art": "node scripts/build-art-manifest.mjs",
     "data:art-previews": "node scripts/build-art-previews.mjs && npm run data:art",
     "check:architecture": "node scripts/check-architecture.mjs",
-    "data:library": "node scripts/build-library.mjs && npm run data:originals",
-    "check": "npm run check:architecture && npm test && npm run build",
-    "data:originals": "node scripts/build-originals.mjs"
+    "data:library": "node scripts/build-library.mjs",
+    "check": "npm run check:architecture && npm run content:check && npm test && npm run build",
+    "content:import": "node scripts/content/import-legacy.mjs",
+    "content:build": "node scripts/content/build-rules.mjs && node scripts/content/build-consumer-data.mjs",
+    "content:check": "node scripts/content/build-rules.mjs --check && node scripts/content/build-consumer-data.mjs --check",
+    "content:consumers": "node scripts/content/build-consumer-data.mjs",
+    "content:consumers:check": "node scripts/content/build-consumer-data.mjs --check"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

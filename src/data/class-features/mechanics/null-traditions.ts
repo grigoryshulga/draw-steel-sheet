@@ -14,7 +14,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.null.level-5.chilling-readiness": {
+  "null.tradition.5.okhlazhdayushchaya-gotovnost": {
     kinds: ["trigger"],
     trigger: {
       event: "combat-start",
@@ -28,7 +28,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Криокинетик. Всплески не входят в ресурс листа: их число равно " +
       "Победам и ведётся вручную вместе с остальными всплесками.",
   },
-  "feature.null.level-5.inertial-fulcrum": {
+  "null.tradition.5.inertsionnaya-tochka-opory": {
     kinds: ["situational"],
     notes:
       "Метакинетик. Всякий раз, когда вы используете способность, чтобы " +
@@ -37,7 +37,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "своего Поля нуля урон, равный показателю Интуиции. Лист не связывает " +
       "уменьшение урона с ответным уроном — правило применяется вручную.",
   },
-  "feature.null.level-5.instant-action": {
+  "null.tradition.5.mgnovennoe-deystvie": {
     kinds: ["situational"],
     notes:
       "Хронокинетик. Если в начале вашего первого хода в бою вы не застигнуты " +
@@ -47,7 +47,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "особенности. Состояние «застигнут врасплох» и трата дисциплины " +
       "ведутся вручную.",
   },
-  "feature.null.level-5.9-discipline-ability": {
+  "null.feature.5.sposobnost-za-9-distsipliny": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 дисциплины: " +
@@ -57,7 +57,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.null.level-8.inertial-dampener": {
+  "null.tradition.8.inertsionnyy-gasitel": {
     kinds: ["bonus"],
     effects: [
       {
@@ -74,7 +74,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Лист показывает бонус только самому герою: выбор существ в области и " +
       "ответный урон применяются вручную.",
   },
-  "feature.null.level-8.shared-momentum": {
+  "null.tradition.8.razdelennyy-impuls": {
     kinds: ["situational"],
     notes:
       "Хронокинетик. Когда вы используете Действие отхода, один союзник в " +
@@ -82,7 +82,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "свободный триггер, используя ваше расстояние. Лист не отмечает выбор " +
       "союзника и общее действие — правило применяется вручную.",
   },
-  "feature.null.level-8.synaptic-triage": {
+  "null.tradition.8.sinapticheskaya-sortirovka": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -101,7 +101,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------- контейнеры способностей 6-го уровня
-  "feature.null.level-6.chronokinetic-abilities": {
+  "null.feature.6.sposobnosti-khronokinetika-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Хронокинетик"] },
     notes:
@@ -109,7 +109,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "или Фазовый Шаг, обе за 9 дисциплины. Выбор делается при повышении " +
       "уровня по подклассу.",
   },
-  "feature.null.level-6.cryokinetic-abilities": {
+  "null.feature.6.sposobnosti-kriokinetika-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Криокинетик"] },
     notes:
@@ -117,7 +117,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Столбы или Ледяная Стена, обе за 9 дисциплины. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "feature.null.level-6.metakinetic-abilities": {
+  "null.feature.6.sposobnosti-metakinetika-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Метакинетик"] },
     notes:
@@ -127,7 +127,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------- контейнеры способностей 9-го уровня
-  "feature.null.level-9.chronokinetic-abilities": {
+  "null.feature.9.sposobnosti-khronokinetika-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Хронокинетик"] },
     notes:
@@ -135,7 +135,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Арестора или Временная Петля, обе за 11 дисциплины. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "feature.null.level-9.cryokinetic-abilities": {
+  "null.feature.9.sposobnosti-kriokinetika-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Криокинетик"] },
     notes:
@@ -143,7 +143,7 @@ export const NULL_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Ноль или Утечка Тепла, обе за 11 дисциплины. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "feature.null.level-9.metakinetic-abilities": {
+  "null.feature.9.sposobnosti-metakinetika-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Метакинетик"] },
     notes:

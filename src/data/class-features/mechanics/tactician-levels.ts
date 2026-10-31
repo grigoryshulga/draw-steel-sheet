@@ -13,7 +13,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 3-й уровень
-  "feature.tactician.level-3.out-of-position": {
+  "tactician.feature.3.vne-pozitsii": {
     kinds: ["trigger"],
     trigger: {
       event: "combat-start",
@@ -30,7 +30,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор врага и клетки для швыряния остаётся за игроком: лист не хранит " +
       "отмеченных и поле боя.",
   },
-  "feature.tactician.level-3.7-focus-ability": {
+  "tactician.feature.3.sposobnost-za-7-fokusa": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 фокуса: Штурм " +
@@ -40,13 +40,13 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "feature.tactician.level-4.characteristic-increase": {
+  "tactician.feature.4.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Разум поднимаются до 3. Повышение уже применяет левел-ап; " +
       "аддитивный эффект здесь задвоил бы изменение, поэтому его нет.",
   },
-  "feature.tactician.level-4.focus-on-their-weaknesses": {
+  "tactician.feature.4.fokus-na-ikh-slabosti": {
     kinds: ["resourceGain"],
     resource: {
       name: "Фокус",
@@ -67,7 +67,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "существу, герой получает 2 фокуса вместо 1. Замена действует на базовую " +
       "прибавку, поэтому второй строки за тот же тег не остаётся.",
   },
-  "feature.tactician.level-4.improved-field-arsenal": {
+  "tactician.feature.4.uluchshennyy-polevoy-arsenal": {
     kinds: ["situational"],
     notes:
       "Знаковая способность одного из комплектов героя или свободный удар " +
@@ -76,7 +76,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.tactician.level-5.9-focus-ability": {
+  "tactician.feature.5.sposobnost-za-9-fokusa": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 фокуса: Отряд! " +
@@ -87,7 +87,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.tactician.level-6.master-of-arms": {
+  "tactician.feature.6.master-oruzhiya": {
     kinds: ["situational"],
     notes:
       "Знаковая способность одного из комплектов героя или свободный удар " +
@@ -97,14 +97,14 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "feature.tactician.level-7.characteristic-increase": {
+  "tactician.feature.7.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "feature.tactician.level-7.heightened-focus": {
+  "tactician.feature.7.povyshennyy-fokus": {
     kinds: ["resourceGain"],
     resource: {
       name: "Фокус",
@@ -124,7 +124,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "Замена действует на базовую прибавку начала хода, поэтому второй строки " +
       "за тот же тег не остаётся.",
   },
-  "feature.tactician.level-7.seize-the-initiative": {
+  "tactician.feature.7.zakhvat-initsiativy": {
     kinds: ["trigger"],
     trigger: {
       event: "combat-start",
@@ -141,7 +141,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.tactician.level-8.11-focus-ability": {
+  "tactician.feature.8.sposobnost-za-11-fokusa": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 фокуса: Бей " +
@@ -151,7 +151,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.tactician.level-9.grandmaster-of-arms": {
+  "tactician.feature.9.grandmaster-oruzhiya": {
     kinds: ["situational"],
     notes:
       "Знаковая способность одного из комплектов героя или свободный удар " +
@@ -162,14 +162,14 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 10-й уровень
-  "feature.tactician.level-10.characteristic-increase": {
+  "tactician.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Разум увеличиваются до 5. Повышение уровня уже применяет " +
       "изменение; аддитивного эффекта здесь нет, иначе характеристики выросли " +
       "бы дважды.",
   },
-  "feature.tactician.level-10.true-focus": {
+  "tactician.feature.10.istinnyy-fokus": {
     kinds: ["resourceGain"],
     resource: {
       name: "Фокус",
@@ -189,7 +189,7 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "Замена перекрывает прибавку 7-го уровня: за ход остаётся ровно одна " +
       "строка этого тега.",
   },
-  "feature.tactician.level-10.warmaster": {
+  "tactician.feature.10.master-voyny": {
     kinds: ["situational"],
     notes:
       "При броске способности против отмеченного существа бросающий может " +
@@ -206,20 +206,20 @@ export const TACTICIAN_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
  * ранних уровней.
  */
 export const TACTICIAN_LEVEL_TEXT_ONLY: Record<string, string> = {
-  "feature.tactician.level-2.perk":
+  "tactician.feature.2.perk":
     "перк 2-го уровня выбирается из каталога перков (исследования, межличностных навыков или интриги); механика его не хранит",
-  "feature.tactician.level-4.perk":
+  "tactician.feature.4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.tactician.level-4.skill":
+  "tactician.feature.4.navyk":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.tactician.level-6.perk":
+  "tactician.feature.6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.tactician.level-7.skill":
+  "tactician.feature.7.navyk":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.tactician.level-8.perk":
+  "tactician.feature.8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.tactician.level-10.perk":
+  "tactician.feature.10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.tactician.level-10.skill":
+  "tactician.feature.10.navyk":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

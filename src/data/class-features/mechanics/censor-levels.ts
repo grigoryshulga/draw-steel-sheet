@@ -13,40 +13,40 @@ import type { FeatureMechanics } from "../types";
  */
 export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень
-  "feature.censor.level-2.2nd-level-order-features": {
+  "censor.feature.2.osobennosti-ordena-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Орден даёт две особенности 2-го уровня по таблице: Экзорцист — Бдительность святого и Чувство истины, Оракул — Это было предсказано и Судья характеров, Идеал — Вести за собой и Непоколебимый символ. Конкретные записи выдаются орденом.",
   },
-  "feature.censor.level-2.2nd-level-order-ability": {
+  "censor.feature.2.sposobnost-ordena-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: орден даёт на выбор одну из двух героических способностей. Варианты — в записях «Способности <орден> 2-го уровня», выбор ведётся в плане повышения уровня.",
   },
-  "feature.censor.level-2.exorcist-ability": {
+  "censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Экзорцист"] },
-    choice: { group: "censor.ability.order.2", options: [{ id: "feature.ability.censor.level-2.it-is-justice-you-fear", label: "Правосудия Вы Боитесь" }, { id: "feature.ability.censor.level-2.revelator", label: "Откровитель" }] },
+    choice: { group: "censor.ability.order.2", options: [{ id: "cenzor-pravosudiya-vy-boites-f4a2e8c977", label: "Правосудия Вы Боитесь" }, { id: "cenzor-otkrovitel-0915b8d6f9", label: "Откровитель" }] },
     notes:
       "Выбор одной из двух героических способностей Экзорциста 2-го уровня (Правосудия Вы Боитесь за 5 гнева или Откровитель за 5 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-2.oracle-ability": {
+  "censor.feature.2.sposobnosti-orakula-2-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Оракул"] },
-    choice: { group: "censor.ability.order.2", options: [{ id: "feature.ability.censor.level-2.prescient-grace", label: "Провидческая Благодать" }, { id: "feature.ability.censor.level-2.with-my-blessing", label: "С Моим Благословением" }] },
+    choice: { group: "censor.ability.order.2", options: [{ id: "cenzor-providcheskaya-blagodat-1a5cbd864d", label: "Провидческая Благодать" }, { id: "cenzor-s-moim-blagosloveniem-06c92fccea", label: "С Моим Благословением" }] },
     notes:
       "Выбор одной из двух героических способностей Оракула 2-го уровня (Провидческая Благодать за 5 гнева или С Моим Благословением за 5 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-2.paragon-ability": {
+  "censor.feature.2.sposobnosti-ideala-2-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Идеал"] },
-    choice: { group: "censor.ability.order.2", options: [{ id: "feature.ability.censor.level-2.blessing-of-the-faithful", label: "Благословение Верующих" }, { id: "feature.ability.censor.level-2.sentenced", label: "Приговорен" }] },
+    choice: { group: "censor.ability.order.2", options: [{ id: "cenzor-blagoslovenie-veruyuschih-4a5a324076", label: "Благословение Верующих" }, { id: "cenzor-prigovoren-ff4aa335e0", label: "Приговорен" }] },
     notes:
       "Выбор одной из двух героических способностей Идеала 2-го уровня (Благословение Верующих за 5 гнева или Приговорен за 5 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "feature.censor.level-3.look-on-my-work-and-despair": {
+  "censor.feature.3.uzrite-moi-dela-i-otchaytes": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -58,19 +58,19 @@ export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "Срабатывает только вместе с Судом; испуг, осуждение и повторный испуг — состояния целей, которых модель не хранит. Числа оставлены в подробности триггера.",
   },
-  "feature.censor.level-3.7-wrath-ability": {
+  "censor.feature.3.sposobnost-za-7-gneva": {
     kinds: ["choice", "grant"],
     notes:
       "Выбор одной из четырёх героических способностей за 7 гнева (Эдикт Разрушительной Изоляции, Эдикт Идеального Порядка, Эдикт Очищающего Пацифизма, Эдикт Неподвижности). Выбор предлагает левел-ап из справочника способностей (`abilityChoices` правила уровня); отдельная группа options не нужна.",
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "feature.censor.level-4.characteristic-increase": {
+  "censor.feature.4.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Присутствие поднимаются до 3. Повышение уже применяет левел-ап; аддитивный эффект здесь задвоил бы изменение, поэтому его нет.",
   },
-  "feature.censor.level-4.wrath-beyond-wrath": {
+  "censor.feature.4.gnev-za-predelami-gneva": {
     kinds: ["resourceGain"],
     resource: {
       name: "Гнев",
@@ -88,26 +88,26 @@ export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "Первый раз за раунд, когда вы наносите урон осуждённому, получаете 2 гнева вместо 1; заменяет базовый тег damage-judged.",
   },
-  "feature.censor.level-4.4th-level-domain-feature": {
+  "censor.feature.4.osobennost-domena-4-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Выдаёт особенность 4-го уровня из выбранного домена по таблице. Вложенные записи выдаются доменом; конкретную выбирает билдер или повышение уровня по домену героя.",
   },
 
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.censor.level-5.5th-level-order-feature": {
+  "censor.feature.5.osobennost-ordena-5-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Орден даёт одну особенность 5-го уровня: Экзорцист — Зло раскрыто, Оракул — Пророчество, Идеал — Стой твердо! Записи выдаются орденом.",
   },
-  "feature.censor.level-5.9-wrath-ability": {
+  "censor.feature.5.sposobnost-za-9-gneva": {
     kinds: ["choice", "grant"],
     notes:
       "Выбор одной из четырёх героических способностей за 9 гнева (Боги Даруют Тебе Силу, Молитва о Победе, Праведный Суд, Щит Праведника). Выбор предлагает левел-ап из справочника способностей (`abilityChoices` правила уровня); отдельная группа options не нужна.",
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.censor.level-6.implement-of-wrath": {
+  "censor.feature.6.orudie-gneva": {
     kinds: ["situational", "trigger"],
     trigger: {
       event: "respite",
@@ -119,40 +119,40 @@ export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "Оружие и его владелец не хранятся в модели, поэтому числа не назначаются автоматически: святой урон равен высшей характеристике владельца, а испуг и ослабление зависят от уязвимости цели.",
   },
-  "feature.censor.level-6.6th-level-order-ability": {
+  "censor.feature.6.sposobnost-ordena-6-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: орден даёт на выбор одну из двух героических способностей 6-го уровня. Варианты — в записях «Способности <орден> 6-го уровня», выбор ведётся в плане повышения уровня.",
   },
-  "feature.censor.level-6.exorcist-abilities": {
+  "censor.feature.6.sposobnosti-ekzortsista-6-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Экзорцист"] },
-    choice: { group: "censor.ability.order.6", options: [{ id: "feature.ability.censor.level-6.pain-of-your-own-making", label: "Боль, Созданная Тобой" }, { id: "feature.ability.censor.level-6.begone", label: "Изыди!" }] },
+    choice: { group: "censor.ability.order.6", options: [{ id: "cenzor-bol-sozdannaya-toboy-3f0d1121d6", label: "Боль, Созданная Тобой" }, { id: "cenzor-izydi-1817345fb2", label: "Изыди!" }] },
     notes:
       "Выбор одной из двух героических способностей Экзорциста 6-го уровня (Изыди! за 9 гнева или Боль, Созданная Тобой за 9 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-6.oracle-abilities": {
+  "censor.feature.6.sposobnosti-orakula-6-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Оракул"] },
-    choice: { group: "censor.ability.order.6", options: [{ id: "feature.ability.censor.level-6.burden-of-evil", label: "Бремя Зла" }, { id: "feature.ability.censor.level-6.edict-of-peace", label: "Эдикт Мира" }] },
+    choice: { group: "censor.ability.order.6", options: [{ id: "cenzor-bremya-zla-5c3d96a6bf", label: "Бремя Зла" }, { id: "cenzor-edikt-mira-d204ddca35", label: "Эдикт Мира" }] },
     notes:
       "Выбор одной из двух героических способностей Оракула 6-го уровня (Бремя Зла за 9 гнева или Эдикт Мира за 9 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-6.paragon-abilities": {
+  "censor.feature.6.sposobnosti-ideala-6-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Идеал"] },
-    choice: { group: "censor.ability.order.6", options: [{ id: "feature.ability.censor.level-6.intercede", label: "Заступиться" }, { id: "feature.ability.censor.level-6.congregation", label: "Паства" }] },
+    choice: { group: "censor.ability.order.6", options: [{ id: "cenzor-zastupitsya-e69f33e922", label: "Заступиться" }, { id: "cenzor-pastva-c1ecbebc56", label: "Паства" }] },
     notes:
       "Выбор одной из двух героических способностей Идеала 6-го уровня (Паства за 9 гнева или Заступиться за 9 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "feature.censor.level-7.characteristic-increase": {
+  "censor.feature.7.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4; повышение уровня уже применяет это изменение, аддитивный эффект задвоил бы его.",
   },
-  "feature.censor.level-7.focused-wrath": {
+  "censor.feature.7.sosredotochennyy-gnev": {
     kinds: ["resourceGain"],
     resource: {
       name: "Гнев",
@@ -170,74 +170,74 @@ export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
     notes:
       "В начале каждого своего хода в бою получаете 3 гнева вместо 2; заменяет базовый тег start-of-turn.",
   },
-  "feature.censor.level-7.7th-level-domain-feature": {
+  "censor.feature.7.osobennost-domena-7-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Выдаёт особенность 7-го уровня из выбранного домена по таблице. Вложенные записи выдаются доменом; конкретную выбирает билдер или повышение уровня по домену героя.",
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.censor.level-8.8th-level-order-feature": {
+  "censor.feature.8.osobennost-ordena-8-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Орден даёт одну особенность 8-го уровня: Экзорцист — Демонолог, Оракул — Их прошлое раскрыто, Идеал — Клятва. Записи выдаются орденом.",
   },
-  "feature.censor.level-8.11-wrath-ability": {
+  "censor.feature.8.sposobnost-za-11-gneva": {
     kinds: ["choice", "grant"],
     notes:
       "Выбор одной из четырёх героических способностей за 11 гнева (Отлучение, Рука Богов, Столп Святого Огня, Твои Союзники Ополчились на Тебя!). Выбор предлагает левел-ап из справочника способностей (`abilityChoices` правила уровня); отдельная группа options не нужна.",
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.censor.level-9.improved-implement-of-wrath": {
+  "censor.feature.9.uluchshennoe-orudie-gneva": {
     kinds: ["situational"],
     notes:
       "Оружие, выбранное Орудием гнева, дополнительно даёт владельцу и каждому смежному с ним союзнику +2 к спасброскам; в конце каждого хода владельца каждый смежный союзник делает спасбросок против каждого эффекта на себе, заканчивающегося спасброском; владелец получает иммунитет к урону порчей 10. Всё привязано к выбранному оружию и смежности, поэтому автоматически не назначается.",
   },
-  "feature.censor.level-9.9th-level-order-ability": {
+  "censor.feature.9.sposobnost-ordena-9-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: орден даёт на выбор одну из двух героических способностей 9-го уровня. Варианты — в записях «Способности <орден> 9-го уровня», выбор ведётся в плане повышения уровня.",
   },
-  "feature.censor.level-9.exorcist-abilities": {
+  "censor.feature.9.sposobnosti-ekzortsista-9-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Экзорцист"] },
-    choice: { group: "censor.ability.order.9", options: [{ id: "feature.ability.censor.level-9.terror-manifest", label: "Воплощение Ужаса" }, { id: "feature.ability.censor.level-9.banish", label: "Изгнание" }] },
+    choice: { group: "censor.ability.order.9", options: [{ id: "cenzor-voploschenie-uzhasa-f9386f4e83", label: "Воплощение Ужаса" }, { id: "cenzor-izgnanie-1f6e318fce", label: "Изгнание" }] },
     notes:
       "Выбор одной из двух героических способностей Экзорциста 9-го уровня (Изгнание за 11 гнева или Воплощение Ужаса за 11 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-9.oracle-abilities": {
+  "censor.feature.9.sposobnosti-orakula-9-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Оракул"] },
-    choice: { group: "censor.ability.order.9", options: [{ id: "feature.ability.censor.level-9.blessing-and-a-curse", label: "Благословение и Проклятие" }, { id: "feature.ability.censor.level-9.fulfill-your-destiny", label: "Исполни Свою Судьбу" }] },
+    choice: { group: "censor.ability.order.9", options: [{ id: "cenzor-blagoslovenie-i-proklyatie-5d84c431e0", label: "Благословение и Проклятие" }, { id: "cenzor-ispolni-svoyu-sudbu-ffac1de2ba", label: "Исполни Свою Судьбу" }] },
     notes:
       "Выбор одной из двух героических способностей Оракула 9-го уровня (Благословение и Проклятие за 11 гнева или Исполни Свою Судьбу за 11 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
-  "feature.censor.level-9.paragon-abilities": {
+  "censor.feature.9.sposobnosti-ideala-9-go-urovnya": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Идеал"] },
-    choice: { group: "censor.ability.order.9", options: [{ id: "feature.ability.censor.level-9.apostate", label: "Отступник" }, { id: "feature.ability.censor.level-9.edict-of-unyielding-resolve", label: "Эдикт Непреклонной Решимости" }] },
+    choice: { group: "censor.ability.order.9", options: [{ id: "cenzor-otstupnik-0fc4a6948d", label: "Отступник" }, { id: "cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4", label: "Эдикт Непреклонной Решимости" }] },
     notes:
       "Выбор одной из двух героических способностей Идеала 9-го уровня (Отступник за 11 гнева или Эдикт Непреклонной Решимости за 11 гнева). Запись видна только своему ордену. Конкретные варианты строит левел-ап по ордену героя.",
   },
 
   // ---------------------------------------------------------------- 10-й уровень
-  "feature.censor.level-10.characteristic-increase": {
+  "censor.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Присутствие поднимаются до 5; повышение уже применяет левел-ап, аддитивный эффект задвоил бы изменение.",
   },
-  "feature.censor.level-10.templar": {
+  "censor.feature.10.khramovnik": {
     kinds: ["situational"],
     notes:
       "Используя Суд, можно свободным триггером применить эффект домена Проводника для выбранного домена или домена, открытого через Добродетель; Интуиция заменяется Присутствием, уровень проводника — уровнем цензора. Дополнительно на отдыхе можно открыть портал к божеству и отдохнуть в его присутствии с союзниками: задать три вопроса (Ведущий отвечает честно, если божество знает ответы, но может ответить туманно или неполно), после отдыха появиться в любом месте мультивселенной, где поклоняются божеству, а бог может дать приоритетные цели — против них вы и союзники получаете двойное преимущество на броски силы. Повторный портал до победы над приоритетными целями навлекает гнев бога по решению Ведущего. Всё это требует выбора и нарратива и не автоматизируется.",
   },
-  "feature.censor.level-10.virtue": {
+  "censor.feature.10.dobrodetel": {
     kinds: ["resource"],
     notes:
       "Эпический пул Добродетели: каждый отдых даёт Добродетель, равную полученному Опыту, и её можно тратить на способности как гнев; остаток сохраняется, пока его не потратят. Пул описан в спецификации ресурса censor-resource.ts; здесь не дублируется. Дополнительно 3 Добродетели открывают доступ к одному домену своего божества, к которому обычно доступа нет: его Особенности доступны до завершения следующего отдыха. Выбор домена и трата остаются ручными.",
   },
-  "feature.censor.level-10.wrath-of-the-gods": {
+  "censor.feature.10.gnev-bogov": {
     kinds: ["resourceGain"],
     resource: {
       name: "Гнев",
@@ -259,20 +259,20 @@ export const CENSOR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
 
 /** Записи, которые сознательно остаются прозой: id → причина. */
 export const CENSOR_LEVEL_TEXT_ONLY: Record<string, string> = {
-  "feature.censor.level-2.perk":
+  "censor.feature.2.perk":
     "Выбирается один межличностный перк, перк знаний или сверхъестественный перк из каталога; механика записи его не хранит.",
-  "feature.censor.level-4.perk":
+  "censor.feature.4.perk":
     "Выбирается один перк из каталога; подходящий тип задан текстом книги, выдача зависит от каталога перков.",
-  "feature.censor.level-4.skill":
+  "censor.feature.4.navyk":
     "Выбирается один навык из каталога навыков; значение выбора механика записи не хранит.",
-  "feature.censor.level-6.perk":
+  "censor.feature.6.perk":
     "Выбирается один межличностный перк, перк знаний или сверхъестественный перк из каталога; выдача зависит от каталога перков.",
-  "feature.censor.level-7.skill":
+  "censor.feature.7.navyk":
     "Выбирается один навык из каталога навыков; значение выбора механика записи не хранит.",
-  "feature.censor.level-8.perk":
+  "censor.feature.8.perk":
     "Выбирается один перк из каталога; выдача зависит от каталога перков.",
-  "feature.censor.level-10.perk":
+  "censor.feature.10.perk":
     "Выбирается один ремесленный перк, перк знаний или сверхъестественный перк из каталога; выдача зависит от каталога перков.",
-  "feature.censor.level-10.skill":
+  "censor.feature.10.navyk":
     "Выбирается один навык из каталога навыков; значение выбора механика записи не хранит.",
 };

@@ -8,7 +8,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.talent.level-5.5th-level-tradition-features": {
+  "talent.feature.5.osobennosti-traditsii-5-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт две особенности 5-го уровня по таблице. " +
@@ -16,7 +16,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "Кинетический усилитель и Триангуляция; Телепатия — Принуждение и " +
       "Удалённое усиление. Механику дают вложенные записи выбранной традиции.",
   },
-  "feature.talent.level-5.9-clarity-ability": {
+  "talent.feature.5.sposobnost-za-9-yasnosti": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 Ясности: " +
@@ -26,7 +26,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.talent.level-6.psi-boost": {
+  "talent.feature.6.psi-usilenie-psi-boost": {
     kinds: ["grant"],
     notes:
       "Пси-усиления доступны все сразу, выбирать между ними не нужно. Когда " +
@@ -36,7 +36,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "способности, но каждое — не больше одного раза; эффект длится до конца " +
       "хода, в котором способность использована впервые.",
   },
-  "feature.talent.level-6.dynamic-power": {
+  "talent.feature.6.dinamicheskaya-sila-1-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 1 Ясность: если способность подвергает цель принудительному " +
@@ -44,35 +44,35 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "Разума. Число не добавляется постоянно: усиление действует только " +
       "после траты Ясности.",
   },
-  "feature.talent.level-6.expanded-power": {
+  "talent.feature.6.rasshirennaya-sila-3-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 3 Ясности: если способность нацелена на область, её размер растёт " +
       "на 1; у линии увеличивается одно измерение, а не оба. Применяется " +
       "только к конкретной способности после траты Ясности.",
   },
-  "feature.talent.level-6.extended-power": {
+  "talent.feature.6.prodlennaya-sila-1-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 1 Ясность: дальняя способность получает бонус к расстоянию, равный " +
       "показателю Разума; ближняя — бонус +2. Применяется только к конкретной " +
       "способности после траты Ясности.",
   },
-  "feature.talent.level-6.heightened-power": {
+  "talent.feature.6.uvelichennaya-sila-1-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 1 Ясность: если способность наносит выброшенный урон, она наносит " +
       "дополнительный урон, равный показателю Разума. Постоянной прибавки к " +
       "урону нет — только после траты Ясности.",
   },
-  "feature.talent.level-6.magnified-power": {
+  "talent.feature.6.potentsialnaya-sila-5-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 5 Ясности: если у способности есть потенциал, он увеличивается на " +
       "величину, равную показателю Разума. Применяется только к конкретной " +
       "способности после траты Ясности.",
   },
-  "feature.talent.level-6.shared-power": {
+  "talent.feature.6.razdelennaya-sila-5-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 5 Ясности: если способность нацелена на отдельных существ или " +
@@ -80,14 +80,14 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "пределах расстояния. Применяется только к конкретной способности после " +
       "траты Ясности.",
   },
-  "feature.talent.level-6.sharpened-power": {
+  "talent.feature.6.obostrennaya-sila-1-yasnosti": {
     kinds: ["situational"],
     notes:
       "За 1 Ясность: если способность требует броска силы, этот бросок " +
       "получает преимущество. Применяется только к конкретной способности " +
       "после траты Ясности.",
   },
-  "feature.talent.level-6.6th-level-tradition-ability": {
+  "talent.feature.6.sposobnost-traditsii-6-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
@@ -96,7 +96,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "feature.talent.level-7.ancestral-memory": {
+  "talent.feature.7.pamyat-predkov": {
     kinds: ["trigger"],
     trigger: {
       event: "respite",
@@ -112,7 +112,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "Лист не хранит временные замены навыков: выбор и возврат прежних " +
       "навыков выполняются вручную до следующего отдыха.",
   },
-  "feature.talent.level-7.cascading-strain": {
+  "talent.feature.7.kaskadnaya-vozbuzhdennost": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -127,14 +127,14 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "Лист не отличает источник урона и не выбирает врага: напоминание " +
       "срабатывает на любой полученный урон, решение и расчёт — вручную.",
   },
-  "feature.talent.level-7.characteristic-increase": {
+  "talent.feature.7.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "feature.talent.level-7.lucid-mind": {
+  "talent.feature.7.osoznannyy-razum": {
     kinds: ["resourceGain"],
     resource: {
       name: "Ясность",
@@ -156,7 +156,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.talent.level-8.8th-level-tradition-features": {
+  "talent.feature.8.osobennosti-traditsii-8-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт две особенности 8-го уровня по таблице. " +
@@ -165,7 +165,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "В таблице вторая особенность Телепатии названа «Универсальная связь», " +
       "а в блоке текста — «Безграничная связь»; лист держит имя блока.",
   },
-  "feature.talent.level-8.11-clarity-ability": {
+  "talent.feature.8.sposobnost-za-11-yasnosti": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 Ясности: " +
@@ -175,7 +175,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.talent.level-9.fortress-of-perfect-thought": {
+  "talent.feature.9.krepost-idealnoy-mysli": {
     kinds: ["immunity"],
     effects: [
       { kind: "damageImmunity", types: ["психический"], value: 10 },
@@ -188,7 +188,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "они применяются вручную. Иммунитет к психическому урону 10 и запрет " +
       "состояний Провокация и Испуг показаны на листе.",
   },
-  "feature.talent.level-9.9th-level-tradition-ability": {
+  "talent.feature.9.sposobnost-traditsii-9-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
@@ -197,14 +197,14 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 10-й уровень
-  "feature.talent.level-10.characteristic-increase": {
+  "talent.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Разум и Присутствие увеличиваются до 5. Повышение уровня уже применяет " +
       "изменение; аддитивного эффекта здесь нет, иначе характеристики выросли " +
       "бы дважды.",
   },
-  "feature.talent.level-10.clear-mind": {
+  "talent.feature.10.chistyy-razum": {
     kinds: ["resourceGain"],
     resource: {
       name: "Ясность",
@@ -225,7 +225,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "движению, герой получает 3 Ясности вместо 2. Замена перекрывает " +
       "прибавку 4-го уровня: за раунд остаётся ровно одна строка этого тега.",
   },
-  "feature.talent.level-10.omnisensory": {
+  "talent.feature.10.omnisensorika": {
     kinds: ["bonus"],
     effects: [
       {
@@ -241,7 +241,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "линия уже была; лист не хранит знакомство с целями, поэтому это " +
       "правило применяется вручную.",
   },
-  "feature.talent.level-10.psion": {
+  "talent.feature.10.psion": {
     kinds: ["resourceGain"],
     resource: {
       name: "Ясность",
@@ -262,7 +262,7 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "отрицательную Ясность и принять возбужденность любой способности, даже " +
       "не находясь в этом состоянии; оба решения принимает игрок.",
   },
-  "feature.talent.level-10.vision": {
+  "talent.feature.10.videnie": {
     kinds: ["resource"],
     notes:
       "У героя появляется эпический ресурс «Видение»: каждый отдых даёт " +
@@ -280,14 +280,14 @@ export const TALENT_LATE_MECHANICS: Record<string, FeatureMechanics> = {
  * 2/4 уровней — в `talent-early.ts`; здесь продолжение 6–10 уровней.
  */
 export const TALENT_LATE_TEXT_ONLY: Record<string, string> = {
-  "feature.talent.level-6.perk":
+  "talent.feature.6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.talent.level-7.skill":
+  "talent.feature.7.navyk":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.talent.level-8.perk":
+  "talent.feature.8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.talent.level-10.perk":
+  "talent.feature.10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.talent.level-10.skill":
+  "talent.feature.10.navyk":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

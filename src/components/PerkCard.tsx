@@ -8,8 +8,6 @@ export interface PerkCardProps {
   /** Надпись над названием: слот, источник или «Перк». */
   eyebrow: ReactNode;
   name: string;
-  /** Английское название оригинала из SteelCompendium. */
-  originalName?: string;
   type?: PerkType | null;
   summary?: string;
   /** Карточка участвует в выборе: клик выбирает её. */
@@ -29,7 +27,6 @@ export interface PerkCardProps {
 export function PerkCard({
   eyebrow,
   name,
-  originalName,
   type,
   summary,
   onSelect,
@@ -55,7 +52,6 @@ export function PerkCard({
       }${className ? ` ${className}` : ""}`}
       data-selected={selected || undefined}
       data-type={type ?? undefined}
-      title={originalName || undefined}
       {...(onCardClick
         ? {
             role: "button",

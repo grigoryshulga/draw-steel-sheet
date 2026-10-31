@@ -1,5 +1,4 @@
 import { ancestryMechanicsFor } from "../data/ancestry-features/mechanics";
-import { LEGACY_ANCESTRY_FEATURE_IDS } from "../data/originals";
 import {
   ancestryFeatureById,
   ancestryFeatureRecords,
@@ -123,31 +122,11 @@ export function activeAncestryFeatures(
     }));
 }
 
-const LEGACY_ANCESTRY_GROUP_KEYS = new Map(
-  Object.entries(LEGACY_ANCESTRY_FEATURE_IDS).map(([legacyId, canonicalId]) => [
-    canonicalId,
-    legacyId,
-  ]),
-);
-
-function savedChoiceValue(character: Character, group: string): string | undefined {
-  const selections = character.automation?.ancestryFeatureSelections;
-  if (!selections) return undefined;
-  const direct = selections[group];
-  if (typeof direct === "string") return direct;
-  const legacyGroup = LEGACY_ANCESTRY_GROUP_KEYS.get(group);
-  const legacy = legacyGroup ? selections[legacyGroup] : undefined;
-  if (typeof legacy === "string" && legacyGroup && legacy.startsWith(legacyGroup)) {
-    return group + legacy.slice(legacyGroup.length);
-  }
-  return legacy;
-}
-
 function choiceSelection(
   choice: AncestryAbilityChoice,
   character: Character,
 ): { optionId: string; warning?: string } {
-  const raw = savedChoiceValue(character, choice.group);
+  const raw = character.automation?.ancestryFeatureSelections?.[choice.group];
   if (typeof raw !== "string" || raw.trim() === "") {
     return { optionId: "" };
   }

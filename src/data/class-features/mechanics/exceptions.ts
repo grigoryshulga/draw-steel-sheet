@@ -42,27 +42,27 @@ export const TEXT_ONLY: Record<string, string> = {
   // Неистовый: заголовки таблиц выдачи. Сами выдачи — во вложенных записях
   // аспектов, у которых стоит `keyedBy: "aspect"`; дублировать их в заголовке
   // значило бы показывать листу одну и ту же особенность дважды.
-  "feature.fury.level-1.1st-level-aspect-features":
+  "fury.feature.1.osobennosti-aspekta-1-go-urovnya":
     "заголовок таблицы: аспект выдаёт две особенности, они приходят вложенными записями (Комплект, Первозданная сила, Первозданная хитрость, Форма зверя, Безжалостный охотник)",
-  "feature.fury.level-1.aspect-triggered-action":
+  "fury.feature.1.trigger-aspekta":
     "заголовок таблицы: триггер аспекта выдаётся вложенной записью своего аспекта (Линии силы, Неземные рефлексы, Яростное изменение)",
-  "feature.fury.level-1.fury-abilities":
+  "fury.feature.1.sposobnosti-neistovogo":
     "контейнер: знаковая и героические способности 1-го уровня перечислены вложенными записями и справочником способностей",
-  "feature.fury.level-1.heroic-abilities":
+  "fury.feature.1.geroicheskie-sposobnosti":
     "контейнер: набор героических способностей со свирепостью, конкретные способности — записи справочника",
-  "feature.fury.level-2.2nd-level-aspect-feature":
+  "fury.feature.2.osobennost-aspekta-2-go-urovnya":
     "заголовок таблицы: особенность 2-го уровня выдаётся вложенной записью аспекта (Непреодолимая сила, Неизбежный гнев, Зуб и коготь)",
-  "feature.fury.level-2.2nd-level-aspect-ability":
+  "fury.feature.2.sposobnost-aspekta-2-go-urovnya":
     "заголовок: выбор одной из двух способностей делается в записи своего аспекта",
-  "feature.fury.level-3.3rd-level-aspect-feature":
+  "fury.feature.3.osobennost-aspekta-3-go-urovnya":
     "заголовок таблицы: особенность 3-го уровня выдаётся вложенной записью аспекта (Недвижимый объект, Видеть сквозь их уловки, Рыцарь природы)",
-  "feature.fury.level-5.5th-level-aspect-feature":
+  "fury.feature.5.osobennost-aspekta-5-go-urovnya":
     "заголовок таблицы: особенность 5-го уровня выдаётся вложенной записью аспекта (Прыгун, Раскованный, Рожденный штормом)",
-  "feature.fury.level-6.6th-level-aspect-ability":
+  "fury.feature.6.sposobnost-aspekta-6-go-urovnya":
     "заголовок: выбор одной из двух способностей делается в записи своего аспекта",
-  "feature.fury.level-8.8th-level-aspect-feature":
+  "fury.feature.8.osobennost-aspekta-8-go-urovnya":
     "заголовок таблицы: особенность 8-го уровня выдаётся вложенной записью аспекта (Сильнейший, На шаг впереди, Зверинец)",
-  "feature.fury.level-9.9th-level-aspect-ability":
+  "fury.feature.9.sposobnost-aspekta-9-go-urovnya":
     "заголовок: выбор одной из двух способностей делается в записи своего аспекта",
   ...CENSOR_BASE_TEXT_ONLY,
   ...CENSOR_DOMAIN_TEXT_ONLY,

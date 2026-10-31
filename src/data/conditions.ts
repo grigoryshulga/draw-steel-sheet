@@ -1,14 +1,13 @@
-import type { ConditionEnd, OriginalFields } from "../types";
-import originals from "./conditions-originals.generated.json";
+import type { ConditionEnd } from "../types";
 
-export interface ConditionDef extends OriginalFields {
+export interface ConditionDef {
   key: string;
   label: string;
   summary: string;
 }
 
 /** Состояния с листа персонажа и главы 07.11. */
-const BASE_CONDITIONS: ConditionDef[] = [
+export const CONDITIONS: ConditionDef[] = [
   {
     key: "bleeding",
     label: "Кровотечение",
@@ -62,11 +61,6 @@ const BASE_CONDITIONS: ConditionDef[] = [
     summary: "Помеха на все броски силы.",
   },
 ];
-
-export const CONDITIONS: ConditionDef[] = BASE_CONDITIONS.map((condition) => ({
-  ...condition,
-  ...((originals as Record<string, OriginalFields>)[condition.key] ?? {}),
-}));
 
 export const CONDITION_END_OPTIONS: { key: ConditionEnd; label: string }[] = [
   { key: "save", label: "До спасброска" },

@@ -93,30 +93,30 @@ const STAGE_TWO = ELEMENTALIST_FEATURES.filter(
 );
 
 const ABILITY_CHOICES = [
-  "feature.elementalist.level-5.9-essence-ability",
-  "feature.elementalist.level-6.new-9-essence-ability",
-  "feature.elementalist.level-8.11-essence-ability",
-  "feature.elementalist.level-9.new-11-essence-ability",
+  "elementalist.feature.5.sposobnost-za-9-essentsii",
+  "elementalist.feature.6.novaya-sposobnost-za-9-essentsii",
+  "elementalist.feature.8.sposobnost-za-11-essentsii",
+  "elementalist.feature.9.novaya-sposobnost-za-11-essentsii",
 ];
 
 const SPECIALIZATION_LATE = {
   5: {
-    Земля: "feature.elementalist.level-5.the-mountain-does-not-move",
-    Огонь: "feature.elementalist.level-5.smoldering-step",
-    Зелень: "feature.elementalist.level-5.hide-of-tenfold-shields",
-    Пустота: "feature.elementalist.level-5.pierce-the-veil-of-substance",
+    Земля: "elementalist.specialization.5.gora-ne-sdvinetsya",
+    Огонь: "elementalist.specialization.5.tleyushchiy-shag",
+    Зелень: "elementalist.specialization.5.shkura-desyatikratnykh-shchitov",
+    Пустота: "elementalist.specialization.5.probit-zavesu-materii",
   },
   8: {
-    Земля: "feature.elementalist.level-8.summon-source-of-earth",
-    Огонь: "feature.elementalist.level-8.the-flame-primordial",
-    Зелень: "feature.elementalist.level-8.chimeric-manifestation",
-    Пустота: "feature.elementalist.level-8.black-hole-star",
+    Земля: "elementalist.specialization.8.prizyv-istochnika-zemli",
+    Огонь: "elementalist.specialization.8.pervozdannoe-plamya",
+    Зелень: "elementalist.specialization.8.khimericheskoe-proyavlenie",
+    Пустота: "elementalist.specialization.8.zvezda-chernoy-dyry",
   },
   10: {
-    Земля: "feature.elementalist.level-10.master-of-earth",
-    Огонь: "feature.elementalist.level-10.master-of-fire",
-    Зелень: "feature.elementalist.level-10.master-of-green",
-    Пустота: "feature.elementalist.level-10.master-of-void",
+    Земля: "elementalist.specialization.10.master-zemli",
+    Огонь: "elementalist.specialization.10.master-ognya",
+    Зелень: "elementalist.specialization.10.master-zeleni",
+    Пустота: "elementalist.specialization.10.master-pustoty",
   },
 } as const;
 
@@ -153,11 +153,11 @@ describe("Элементалист: production-покрытие уровней 5
     ).map((feature) => feature.id);
     expect(textOnlyIds.sort()).toEqual(
       [
-        "feature.elementalist.level-10.skill",
-        "feature.elementalist.level-10.perk",
-        "feature.elementalist.level-6.perk",
-        "feature.elementalist.level-7.skill",
-        "feature.elementalist.level-8.perk",
+        "elementalist.feature.10.navyk",
+        "elementalist.feature.10.perk",
+        "elementalist.feature.6.perk",
+        "elementalist.feature.7.navyk",
+        "elementalist.feature.8.perk",
       ].sort(),
     );
     expect(
@@ -190,10 +190,10 @@ describe("Элементалист: Эссенция на уровнях 5–10"
     for (const [level, amount, sourceId] of [
       [5, "2", undefined],
       [6, "2", undefined],
-      [7, "3", "feature.elementalist.level-7.surging-essence"],
-      [8, "3", "feature.elementalist.level-7.surging-essence"],
-      [9, "3", "feature.elementalist.level-7.surging-essence"],
-      [10, "4", "feature.elementalist.level-10.essential-being"],
+      [7, "3", "elementalist.feature.7.burlyashchaya-essentsiya"],
+      [8, "3", "elementalist.feature.7.burlyashchaya-essentsiya"],
+      [9, "3", "elementalist.feature.7.burlyashchaya-essentsiya"],
+      [10, "4", "elementalist.feature.10.sushchnostnoe-bytie"],
     ] as const) {
       const gains = resolvedResourceGains(elementalist(level));
       expect(new Set(gains.map((gain) => gain.tag)).size, String(level)).toBe(
@@ -217,7 +217,7 @@ describe("Элементалист: Эссенция на уровнях 5–10"
         (gain) => `${gain.tag}:${gain.event}:${gain.amount}:${gain.frequency}`,
       ),
     ).toEqual(["epic-respite:respite:= Опыт:respite"]);
-    expect(mechanicsFor("feature.elementalist.level-10.breath")?.kinds).toEqual([
+    expect(mechanicsFor("elementalist.feature.10.veyanie")?.kinds).toEqual([
       "resource",
     ]);
   });
@@ -253,7 +253,7 @@ describe("Элементалист: специализации 5/8/10 уровн
       const hero = elementalist(level, {}, { subclass: "Земля" });
       expect(featureStatContributions(hero, "stability"), String(level)).toEqual([
         {
-          sourceId: "feature.elementalist.level-5.the-mountain-does-not-move",
+          sourceId: "elementalist.specialization.5.gora-ne-sdvinetsya",
           sourceName: "Гора не сдвинется",
           value: level,
         },
@@ -265,7 +265,7 @@ describe("Элементалист: специализации 5/8/10 уровн
     const hero = elementalist(10, {}, { subclass: "Земля" });
     expect(featureDamageImmunities(hero)).toEqual([
       {
-        sourceId: "feature.elementalist.level-10.master-of-earth",
+        sourceId: "elementalist.specialization.10.master-zemli",
         sourceName: "Мастер Земли",
         types: ["урон"],
         value: 5,
@@ -282,14 +282,14 @@ describe("Элементалист: специализации 5/8/10 уровн
     const hero = elementalist(10, {}, { subclass: "Огонь" });
     expect(featureAbilityDamageContributions(fireAbility(), hero)).toEqual([
       {
-        sourceId: "feature.elementalist.level-10.master-of-fire",
+        sourceId: "elementalist.specialization.10.master-ognya",
         sourceName: "Мастер Огня",
         value: 5,
       },
     ]);
     expect(featureAbilityDamageContributions(magicAbility(), hero)).toEqual([
       {
-        sourceId: "feature.elementalist.level-10.master-of-fire",
+        sourceId: "elementalist.specialization.10.master-ognya",
         sourceName: "Мастер Огня",
         value: 5,
       },
@@ -301,7 +301,7 @@ describe("Элементалист: специализации 5/8/10 уровн
     const hero = elementalist(10, {}, { subclass: "Зелень" });
     expect(featureStatContributions(hero, "recoveries")).toEqual([
       {
-        sourceId: "feature.elementalist.level-10.master-of-green",
+        sourceId: "elementalist.specialization.10.master-zeleni",
         sourceName: "Мастер Зелени",
         value: 2,
       },
@@ -310,7 +310,7 @@ describe("Элементалист: специализации 5/8/10 уровн
 
   it("Великий вирдинг — ручной выбор иммунитета, не постоянный эффект", () => {
     const hero = elementalist(9, {}, { subclass: "Пустота" });
-    const mechanics = mechanicsFor("feature.elementalist.level-9.grand-wyrding");
+    const mechanics = mechanicsFor("elementalist.feature.9.velikiy-virding");
     expect(mechanics?.effects ?? []).toEqual([]);
     expect(mechanics?.trigger).toBeUndefined();
     expect(mechanics?.notes).toContain("5 и более Побед");
@@ -321,7 +321,7 @@ describe("Элементалист: специализации 5/8/10 уровн
   it("Мастер Пустоты не добавляет постоянных чисел", () => {
     const hero = elementalist(10, {}, { subclass: "Пустота" });
     const mechanics = mechanicsFor(
-      "feature.elementalist.level-10.master-of-void",
+      "elementalist.specialization.10.master-pustoty",
     );
     expect(mechanics?.effects ?? []).toEqual([]);
     expect(mechanics?.notes).toContain("телепортироваться");
@@ -344,13 +344,13 @@ describe("Элементалист: контейнеры способносте�
     }
 
     expect(
-      mechanicsFor("feature.elementalist.level-5.9-essence-ability")?.notes,
+      mechanicsFor("elementalist.feature.5.sposobnost-za-9-essentsii")?.notes,
     ).toContain("Отложенное Возгорание");
     expect(
-      mechanicsFor("feature.elementalist.level-8.11-essence-ability")?.notes,
+      mechanicsFor("elementalist.feature.8.sposobnost-za-11-essentsii")?.notes,
     ).toContain("Сердце Леса");
     expect(
-      mechanicsFor("feature.elementalist.level-9.new-11-essence-ability")
+      mechanicsFor("elementalist.feature.9.novaya-sposobnost-za-11-essentsii")
         ?.notes,
     ).toContain("Призма");
   });
@@ -381,18 +381,18 @@ describe("Элементалист: контейнеры способносте�
 
 describe("Элементалист: проза 6–10 уровней", () => {
   it("Вирдинг, мантия и характеристики объяснены без чисел-эффектов", () => {
-    const virding = mechanicsFor("feature.elementalist.level-6.wyrding");
+    const virding = mechanicsFor("elementalist.feature.6.virding");
     expect(virding?.kinds).toEqual(["situational"]);
     expect(virding?.notes).toContain("10 непрерывных минут");
     expect(virding?.effects ?? []).toEqual([]);
 
-    const mantle = mechanicsFor("feature.elementalist.level-7.mantle-of-quintessence");
+    const mantle = mechanicsFor("elementalist.feature.7.mantiya-kvintessentsii");
     expect(mantle?.notes).toContain("терпение");
     expect(mantle?.effects ?? []).toEqual([]);
 
     for (const id of [
-      "feature.elementalist.level-7.characteristic-increase",
-      "feature.elementalist.level-10.characteristic-increase",
+      "elementalist.feature.7.uvelichenie-kharakteristik",
+      "elementalist.feature.10.uvelichenie-kharakteristik",
     ]) {
       expect(mechanicsFor(id)?.kinds, id).toEqual(["characteristic"]);
       expect(mechanicsFor(id)?.effects ?? [], id).toEqual([]);
@@ -466,8 +466,8 @@ describe("Элементалист: повышение уровня 4→5, 7→8
     expect(result.next.subclass).toBe("Земля");
     expect(result.next.automation?.classFeatureSelections).toEqual(selections);
     const ids = activeIds(result.next);
-    expect(ids).toContain("feature.elementalist.level-5.the-mountain-does-not-move");
-    expect(ids).not.toContain("feature.elementalist.level-5.smoldering-step");
+    expect(ids).toContain("elementalist.specialization.5.gora-ne-sdvinetsya");
+    expect(ids).not.toContain("elementalist.specialization.5.tleyushchiy-shag");
     const start = resolvedResourceGains(result.next).filter(
       (gain) => gain.tag === "start-of-turn",
     );
@@ -476,7 +476,7 @@ describe("Элементалист: повышение уровня 4→5, 7→8
   });
 
   it("7→8 выдаёт «Призыв Источника Земли» специализации Земля", () => {
-    const grantedId = "feature.ability.elementalist.level-8.summon-source-of-earth";
+    const grantedId = "elementalist-prizyv-istochnika-zemli-c9679a42db";
     const hero = elementalist(7, {}, {
       subclass: "Земля",
       xp: ENOUGH_XP * 2,
@@ -493,9 +493,9 @@ describe("Элементалист: повышение уровня 4→5, 7→8
     ).toHaveLength(1);
     const ids = activeIds(result.next);
     expect(ids).toContain(
-      "feature.elementalist.level-8.summon-source-of-earth",
+      "elementalist.specialization.8.prizyv-istochnika-zemli",
     );
-    expect(ids).not.toContain("feature.elementalist.level-8.the-flame-primordial");
+    expect(ids).not.toContain("elementalist.specialization.8.pervozdannoe-plamya");
   });
 
   it("9→10 сохраняет подкласс, даёт 4 эссенции и «Веяние»", () => {
@@ -518,12 +518,12 @@ describe("Элементалист: повышение уровня 4→5, 7→8
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("4");
     expect(start[0].sourceId).toBe(
-      "feature.elementalist.level-10.essential-being",
+      "elementalist.feature.10.sushchnostnoe-bytie",
     );
     expect(resolvedEpicResourceGains(result.next)).toHaveLength(1);
 
     const ids = activeIds(result.next);
-    expect(ids).toContain("feature.elementalist.level-10.master-of-void");
-    expect(ids).not.toContain("feature.elementalist.level-10.master-of-earth");
+    expect(ids).toContain("elementalist.specialization.10.master-pustoty");
+    expect(ids).not.toContain("elementalist.specialization.10.master-zemli");
   });
 });

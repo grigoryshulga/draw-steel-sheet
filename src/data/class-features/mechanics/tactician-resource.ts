@@ -66,7 +66,7 @@ export const TACTICIAN_RESOURCE: HeroicResourceSpec = {
  * `TACTICIAN_RESOURCE`, замены на 4/7/10 уровнях — в механиках уровней.
  */
 export const TACTICIAN_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
-  "feature.tactician.level-1.focus": {
+  "tactician.feature.1.fokus": {
     kinds: ["resource"],
     notes:
       "Фокус — героический ресурс Тактика. Прибавки считаются автоматически: " +
@@ -75,7 +75,7 @@ export const TACTICIAN_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "первый раз за раунд за героическую способность союзника в 10 клетках — " +
       "1. Отдельных прибавок у записи нет, иначе фокус начислялся бы дважды.",
   },
-  "feature.tactician.level-1.focus-in-combat": {
+  "tactician.feature.1.fokus-v-boyu": {
     kinds: ["resource"],
     notes:
       "В бою фокус начисляется так: на старте встречи или стрессовой " +
@@ -85,7 +85,7 @@ export const TACTICIAN_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "способность, — 1. Остаток сгорает в конце боевой встречи. Отдельных " +
       "прибавок у записи нет: числа живут в спецификации ресурса.",
   },
-  "feature.tactician.level-1.focus-outside-of-combat": {
+  "tactician.feature.1.fokus-vne-boya": {
     kinds: ["resource"],
     notes:
       "Вне боя фокус не набирается. Способность или эффект со стоимостью в " +
@@ -95,7 +95,7 @@ export const TACTICIAN_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "работает так, как если бы потрачено количество, равное Победам. Повтор " +
       "и неограниченную трату лист не отслеживает.",
   },
-  "feature.tactician.level-10.command": {
+  "tactician.feature.10.komandovanie": {
     kinds: ["resource"],
     notes:
       "Эпический ресурс «Командование»: каждый отдых даёт Командование, равное " +

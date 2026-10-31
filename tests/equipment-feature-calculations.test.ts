@@ -85,7 +85,7 @@ function weaponAbility(overrides: Partial<Ability> = {}): Ability {
 }
 
 const BATTLE_STAMINA = {
-  sourceId: "feature.talent.level-1.battle-augmentation",
+  sourceId: "talent.feature.1.boevaya-augmentatsiya",
   sourceName: "Боевая аугментация",
   value: 3,
 };
@@ -114,7 +114,7 @@ describe("Talent battle augmentation", () => {
       base: 36,
       contributions: [
         {
-          sourceId: "feature.talent.level-1.battle-augmentation",
+          sourceId: "talent.feature.1.boevaya-augmentatsiya",
           sourceName: "Боевая аугментация",
           value: 6,
         },
@@ -131,7 +131,7 @@ describe("Talent battle augmentation", () => {
     expect(hero.stamina.max).toBe(18); // the armor part stays inactive
     expect(featureAbilityDamageContributions(strike, hero)).toEqual([
       {
-        sourceId: "feature.talent.level-1.battle-augmentation",
+        sourceId: "talent.feature.1.boevaya-augmentatsiya",
         sourceName: "Боевая аугментация",
         value: 1,
       },
@@ -267,7 +267,7 @@ describe("Conditional weapon damage", () => {
 
     expect(featureAbilityDamageContributions(flat, hero)).toEqual([
       {
-        sourceId: "feature.talent.level-1.battle-augmentation",
+        sourceId: "talent.feature.1.boevaya-augmentatsiya",
         sourceName: "Боевая аугментация",
         value: 1,
       },
@@ -388,9 +388,9 @@ describe("Equipment changes on a saved sheet", () => {
 
 describe("Conditional sources for every supported class option", () => {
   it.each([
-    ["Талант", "feature.talent.level-1.battle-augmentation", "Боевая аугментация"],
-    ["Проводник", "feature.conduit.level-1.prayer-of-soldiers-skill", "Молитва о мастерстве солдата"],
-    ["Элементалист", "feature.elementalist.level-1.enchantment-of-battle", "Зачарование битвы"],
+    ["Талант", "talent.feature.1.boevaya-augmentatsiya", "Боевая аугментация"],
+    ["Проводник", "conduit.feature.1.molitva-o-masterstve-soldata", "Молитва о мастерстве солдата"],
+    ["Элементалист", "elementalist.feature.1.zacharovanie-bitvy", "Зачарование битвы"],
   ])("%s adds its conditional stamina source once", (className, id, name) => {
     const hero = battleHero({
       className,

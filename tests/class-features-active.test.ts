@@ -44,14 +44,6 @@ function furyWithAspect(aspect: string, level = 2): Character {
 
 const TEST_ID = "fury.feature.1.test-feature";
 
-/** Доменные особенности 1/4/7 уровней (их же дополняют на 2/5/8). */
-const DOMAIN_FEATURE_IDS = new Set(
-  GENERATED_CLASS_FEATURES.filter(
-    (feature) =>
-      feature.keyedBy === "domain" && [1, 4, 7].includes(feature.level),
-  ).map((feature) => feature.id),
-);
-
 /** Временная запись реестра: снимается в `finally`, даже если тест упал. */
 function withFeature<T>(
   record: Partial<GeneratedClassFeature>,
@@ -243,20 +235,20 @@ describe("activeClassFeatures", () => {
     const ids = new Set(
       activeClassFeatures({ ...hero, level: 9 }).map((feature) => feature.id),
     );
-    expect(ids).not.toContain("feature.conduit.level-1.revitalizing-ritual");
-    expect(ids).not.toContain("feature.conduit.level-1.protective-circle");
-    expect(ids).not.toContain("feature.conduit.level-4.4th-level-domain-feature.protection");
-    expect(ids).not.toContain("feature.conduit.level-7.blessing-of-iron");
-    expect(ids).not.toContain("feature.conduit.level-1.sanctified-weapon");
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).not.toContain("conduit.domain.1.zashchitnyy-krug");
+    expect(ids).not.toContain("conduit.domain.4.nepronitsaemoe-prikosnovenie");
+    expect(ids).not.toContain("conduit.domain.7.blagoslovenie-zheleza");
+    expect(ids).not.toContain("conduit.domain.1.osvyashchennoe-oruzhie");
   });
 
   it("legacy ID молитвы активирует только соответствующую запись скелета после buildCharacter", () => {
     const prayers = [
-      ["conduit.prayer.destruction", "Молитва о разрушении", "feature.conduit.level-1.prayer-of-destruction"],
-      ["conduit.prayer.distance", "Молитва о дистанции", "feature.conduit.level-1.prayer-of-distance"],
-      ["conduit.prayer.soldier", "Молитва о мастерстве солдата", "feature.conduit.level-1.prayer-of-soldiers-skill"],
-      ["conduit.prayer.speed", "Молитва о скорости", "feature.conduit.level-1.prayer-of-speed"],
-      ["conduit.prayer.steel", "Молитва о стали", "feature.conduit.level-1.prayer-of-steel"],
+      ["conduit.prayer.destruction", "Молитва о разрушении", "conduit.feature.1.molitva-o-razrushenii"],
+      ["conduit.prayer.distance", "Молитва о дистанции", "conduit.feature.1.molitva-o-distantsii"],
+      ["conduit.prayer.soldier", "Молитва о мастерстве солдата", "conduit.feature.1.molitva-o-masterstve-soldata"],
+      ["conduit.prayer.speed", "Молитва о скорости", "conduit.feature.1.molitva-o-skorosti"],
+      ["conduit.prayer.steel", "Молитва о стали", "conduit.feature.1.molitva-o-stali"],
     ] as const;
     for (const [optionId, name, featureId] of prayers) {
       const hero = buildCharacter({
@@ -268,10 +260,10 @@ describe("activeClassFeatures", () => {
       });
       hero.level = 1;
       expect(hero.automation?.classFeatureSelections?.["conduit.prayer"]).toBe(optionId);
-      const active = activeClassFeatures(hero).filter((feature) => feature.id.startsWith("feature.conduit.level-1.prayer-of-"));
+      const active = activeClassFeatures(hero).filter((feature) => feature.id.startsWith("conduit.feature.1.molitva-o-"));
       expect(active.map((feature) => feature.id)).toEqual([featureId]);
       hero.automation = { ...hero.automation!, enabled: false };
-      expect(activeClassFeatures(hero).filter((feature) => feature.id.startsWith("feature.conduit.level-1.prayer-of-")).map((feature) => feature.id)).toEqual([featureId]);
+      expect(activeClassFeatures(hero).filter((feature) => feature.id.startsWith("conduit.feature.1.molitva-o-")).map((feature) => feature.id)).toEqual([featureId]);
     }
   });
 
@@ -282,11 +274,11 @@ describe("activeClassFeatures", () => {
       className,
       automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: selection === undefined ? {} : { "conduit.prayer": selection } },
     }).filter((feature) => Object.values({
-      destruction: "feature.conduit.level-1.prayer-of-destruction",
-      distance: "feature.conduit.level-1.prayer-of-distance",
-      soldier: "feature.conduit.level-1.prayer-of-soldiers-skill",
-      speed: "feature.conduit.level-1.prayer-of-speed",
-      steel: "feature.conduit.level-1.prayer-of-steel",
+      destruction: "conduit.feature.1.molitva-o-razrushenii",
+      distance: "conduit.feature.1.molitva-o-distantsii",
+      soldier: "conduit.feature.1.molitva-o-masterstve-soldata",
+      speed: "conduit.feature.1.molitva-o-skorosti",
+      steel: "conduit.feature.1.molitva-o-stali",
     }).includes(feature.id)).map((feature) => feature.id);
     expect(ids()).toEqual([]);
     expect(ids("conduit.prayer.unknown")).toEqual([]);
@@ -298,9 +290,9 @@ describe("activeClassFeatures", () => {
     hero.subclass = "Жизнь, Защита";
     hero.automation = { enabled: true, adjustments: {}, ancestryTraits: [] };
     const ids = new Set(activeClassFeatures(hero).map((feature) => feature.id));
-    expect(ids).not.toContain("feature.conduit.level-1.revitalizing-ritual");
-    expect(ids).not.toContain("feature.conduit.level-1.protective-circle");
-    expect(ids).not.toContain("feature.conduit.level-1.sanctified-weapon");
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).not.toContain("conduit.domain.1.zashchitnyy-krug");
+    expect(ids).not.toContain("conduit.domain.1.osvyashchennoe-oruzhie");
   });
 
   it("явный выбор уровня 1 имеет приоритет над старой парой subclass", () => {
@@ -313,15 +305,15 @@ describe("activeClassFeatures", () => {
       classFeatureSelections: { "conduit.domain.1": "Защита", "conduit.domain": "Жизнь, Защита" },
     };
     const ids = new Set(activeClassFeatures(hero).map((feature) => feature.id));
-    expect(ids).not.toContain("feature.conduit.level-1.revitalizing-ritual");
-    expect(ids).toContain("feature.conduit.level-1.protective-circle");
+    expect(ids).not.toContain("conduit.domain.1.vosstanavlivayushchiy-ritual");
+    expect(ids).toContain("conduit.domain.1.zashchitnyy-krug");
     expect(activeClassFeatures({ ...hero, level: 2 }).some(
-      (feature) => feature.id === "feature.conduit.level-1.revitalizing-ritual" && feature.level === 2,
+      (feature) => feature.id === "conduit.domain.1.vosstanavlivayushchiy-ritual" && feature.level === 2,
     )).toBe(true);
   });
 
   it("доменные способности требуют отдельного выбора 2/6/9 уровня", () => {
-    for (const [level, name] of [[2, "feature.ability.conduit.level-2.wellspring-of-grace"], [6, "feature.ability.conduit.level-6.revitalizing-grace"], [9, "feature.ability.conduit.level-9.radiance-of-grace"]] as const) {
+    for (const [level, name] of [[2, "conduit.domain.2.istochnik-blagodati"], [6, "conduit.domain.6.vosstanavlivayushchaya-blagodat"], [9, "conduit.domain.9.siyanie-blagodati"]] as const) {
       const hero = createCharacter({ className: "Проводник", level });
       hero.subclass = "Жизнь, Защита";
       expect(activeClassFeatures(hero).some((feature) => feature.id === name)).toBe(false);
@@ -352,12 +344,12 @@ describe("activeClassFeatures", () => {
     ]);
     for (let level = 1; level <= 10; level += 1) {
       const atLevel = activeClassFeatures({ ...hero, level });
-      const domainFeatures = atLevel.filter((feature) => DOMAIN_FEATURE_IDS.has(feature.id) && feature.level === level);
+      const domainFeatures = atLevel.filter((feature) => /^conduit\.domain\.(1|4|7)\./.test(feature.id) && feature.level === level);
       expect(domainFeatures.map((feature) => feature.level), `level ${level}`).toEqual(
         (expected.get(level) ?? []).map(() => level),
       );
       expect(domainFeatures.map((feature) => feature.keyValue), `level ${level}`).toEqual(expected.get(level));
-      const abilityIds = atLevel.filter((feature) => feature.keyedBy === "domain" && feature.level === level && !DOMAIN_FEATURE_IDS.has(feature.id));
+      const abilityIds = atLevel.filter((feature) => feature.keyedBy === "domain" && feature.id.startsWith(`conduit.domain.${level}.`));
       if ([2, 6, 9].includes(level)) expect(abilityIds.length, `ability level ${level}`).toBe(1);
     }
   });
@@ -366,7 +358,7 @@ describe("activeClassFeatures", () => {
     const hero = createCharacter({ className: "Проводник", level: 9 });
     const ids = (selections: Record<string, string>, subclass = "Жизнь, Защита") => {
       const character = { ...hero, subclass, automation: { enabled: true, adjustments: {}, ancestryTraits: [], classFeatureSelections: selections } };
-      return activeClassFeatures(character).filter((feature) => feature.keyedBy === "domain").map((feature) => feature.id);
+      return activeClassFeatures(character).map((feature) => feature.id).filter((id) => /^conduit\.domain\./.test(id));
     };
     expect(ids({})).toEqual([]);
     expect(ids({ "conduit.domain": "Жизнь, Жизнь", "conduit.domain.1": "Жизнь" })).toEqual([]);
@@ -404,9 +396,9 @@ describe("activeClassFeatures", () => {
     const idsFor = (aspect: string) =>
       activeClassFeatures(furyWithAspect(aspect)).map((f) => f.id);
     // В книге «Комплект» записан как «Берсерк, Разоритель».
-    expect(idsFor("Разоритель")).toContain("feature.fury.level-1.kit");
-    expect(idsFor("Берсерк")).toContain("feature.fury.level-1.kit");
-    expect(idsFor("Буревестник")).not.toContain("feature.fury.level-1.kit");
+    expect(idsFor("Разоритель")).toContain("fury.aspect.1.komplekt");
+    expect(idsFor("Берсерк")).toContain("fury.aspect.1.komplekt");
+    expect(idsFor("Буревестник")).not.toContain("fury.aspect.1.komplekt");
   });
 
   it("список активных фич не зависит от automation.enabled", () => {
@@ -421,7 +413,7 @@ describe("activeClassFeatures", () => {
     // выдачи) лежат в TEXT_ONLY и механики не имеют.
     const plain = activeClassFeatures(hero).find(
       (feature) =>
-        feature.id === "feature.fury.level-1.1st-level-aspect-features",
+        feature.id === "fury.feature.1.osobennosti-aspekta-1-go-urovnya",
     );
     expect(plain).toBeDefined();
     expect(plain?.mechanics).toBeUndefined();
@@ -429,7 +421,7 @@ describe("activeClassFeatures", () => {
       activeClassFeatureEffects(hero).some(
         (source) =>
           source.sourceId ===
-          "feature.fury.level-1.1st-level-aspect-features",
+          "fury.feature.1.osobennosti-aspekta-1-go-urovnya",
       ),
     ).toBe(false);
   });

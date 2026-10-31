@@ -1,7 +1,7 @@
-import type { CharacteristicKey, OriginalFields } from "../types";
-import generatedRules from "./level-up.generated.json";
+import { CANONICAL_LEVEL_UP_RULES } from "../rules/consumer-level-up";
+import type { CharacteristicKey } from "../types";
 
-export interface LevelUpFeature extends OriginalFields {
+export interface LevelUpFeature {
   id: string;
   name: string;
   description: string;
@@ -32,7 +32,7 @@ export interface LevelUpRule {
   grantedAbilities: { abilityIds: string[]; subclasses?: string[] }[];
 }
 
-export const LEVEL_UP_RULES: LevelUpRule[] = generatedRules as LevelUpRule[];
+export const LEVEL_UP_RULES: LevelUpRule[] = CANONICAL_LEVEL_UP_RULES;
 
 export function levelUpRule(
   className: string,

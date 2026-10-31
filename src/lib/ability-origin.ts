@@ -1,5 +1,4 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
-import { canonicalAbilityId } from "../data/originals";
 import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
@@ -142,9 +141,7 @@ export function subclassAbilitySources(
       }
       for (const abilityId of grant.abilityIds) {
         add(
-          ABILITY_COMPENDIUM.find(
-            (ability) => ability.id === canonicalAbilityId(abilityId),
-          ),
+          ABILITY_COMPENDIUM.find((ability) => ability.id === abilityId),
           kind,
           subclass,
         );
@@ -204,11 +201,7 @@ export function subclassAbilitySource(
   sources: SubclassAbilitySources,
   ability: Pick<Ability, "id" | "name" | "source">,
 ): SubclassAbilitySource | undefined {
-  return (
-    sources.get(ability.id) ??
-    sources.get(canonicalAbilityId(ability.id)) ??
-    sources.get(abilityKey(ability))
-  );
+  return sources.get(ability.id) ?? sources.get(abilityKey(ability));
 }
 
 export function isSubclassAbility(
@@ -268,11 +261,7 @@ export function ancestryAbilitySource(
   sources: AncestryAbilitySources,
   ability: Pick<Ability, "id" | "name" | "source">,
 ): AncestryAbilitySource | undefined {
-  return (
-    sources.get(ability.id) ??
-    sources.get(canonicalAbilityId(ability.id)) ??
-    sources.get(abilityKey(ability))
-  );
+  return sources.get(ability.id) ?? sources.get(abilityKey(ability));
 }
 
 export function isAncestryAbility(

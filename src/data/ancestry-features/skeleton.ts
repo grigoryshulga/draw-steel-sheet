@@ -1,14 +1,22 @@
-import raw from "../ancestry-features.generated.json";
+import { CONSUMER_ANCESTRY_FEATURES } from "../../rules/consumer-features";
 import type { GeneratedAncestryFeature } from "./types";
-import { canonicalAncestryFeatureId } from "../originals";
 
 /**
  * Скелет особенностей происхождений: разобранный текст книги без механики.
- * Собирается `node scripts/build-ancestry-features.mjs`, руками не правится.
+ * Данные приходят из канонической проекции `generated/consumers/features.json`
+ * через адаптер `src/rules/consumer-features.ts`; уровень канон трактует как 1.
  * Массив изменяемый — тесты подмешивают временные записи и убирают их после себя.
  */
-export const GENERATED_ANCESTRY_FEATURES =
-  raw as GeneratedAncestryFeature[];
+export const GENERATED_ANCESTRY_FEATURES: GeneratedAncestryFeature[] =
+  CONSUMER_ANCESTRY_FEATURES.map((feature) => ({
+    id: feature.id,
+    ancestryName: feature.ancestryName,
+    kind: feature.ancestryKind,
+    name: feature.name,
+    ...(feature.cost !== undefined ? { cost: feature.cost } : {}),
+    articleId: feature.articleId,
+    description: feature.description,
+  }));
 
 function normalize(value: string): string {
   return value.trim().toLocaleLowerCase("ru").replaceAll("ё", "е");
@@ -41,8 +49,7 @@ export function ancestryFeatureRecords(
 export function ancestryFeatureById(
   id: string,
 ): GeneratedAncestryFeature | undefined {
-  const canonical = canonicalAncestryFeatureId(id);
-  return GENERATED_ANCESTRY_FEATURES.find((feature) => feature.id === canonical);
+  return GENERATED_ANCESTRY_FEATURES.find((feature) => feature.id === id);
 }
 
 /** Запись по точному названию внутри происхождения. */

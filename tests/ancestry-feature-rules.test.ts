@@ -6,17 +6,17 @@ import {
 } from "../src/data/ancestry-feature-rules";
 
 const expected = [
-  ["feature.trait.devil.beast-legs", "Дьявол", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["feature.trait.dwarf.grounded", "Дварф", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
-  ["feature.trait.dwarf.spark-off-your-skin", "Дварф", "Искра с твоей кожи", [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }]],
-  ["feature.trait.wode-elf.swift", "Лесной Эльф", "Стремительный", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["feature.trait.high-elf.graceful-retreat", "Высший Эльф", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
-  ["feature.trait.human.staying-power", "Человек", "Запас прочности", [{ kind: "field", field: "recoveries", value: 2 }]],
-  ["feature.trait.memonek.lightning-nimbleness", "Меманек", "Молниеносная ловкость", [{ kind: "field", field: "speed", value: 2, stackingGroup: "ancestry.base-speed" }]],
-  ["feature.trait.orc.grounded", "Орк", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
-  ["feature.trait.polder.graceful-retreat", "Полдер", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
-  ["ancestry.tauros.beast-legs", "Таурус", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
-  ["ancestry.tauros.grounded", "Таурус", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
+  ["ancestry.devil.beast-legs", "Дьявол", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.dwarf.grounded", "Дварф", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
+  ["ancestry.dwarf.spark-from-your-skin", "Дварф", "Искра с твоей кожи", [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }]],
+  ["ancestry.forest-elf.swift", "Лесной Эльф", "Стремительный", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.high-elf.graceful-retreat", "Высший Эльф", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
+  ["ancestry.human.reserve-of-strength", "Человек", "Запас прочности", [{ kind: "field", field: "recoveries", value: 2 }]],
+  ["ancestry.memanek.lightning-agility", "Меманек", "Молниеносная ловкость", [{ kind: "field", field: "speed", value: 2, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.orc.grounded", "Орк", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
+  ["ancestry.polder.graceful-retreat", "Полдер", "Грациозное отступление", [{ kind: "field", field: "disengage", value: 1 }]],
+  ["ancestry.taurus.beast-legs", "Таурус", "Звериные ноги", [{ kind: "field", field: "speed", value: 1, stackingGroup: "ancestry.base-speed" }]],
+  ["ancestry.taurus.grounded", "Таурус", "Заземленность", [{ kind: "field", field: "stability", value: 1 }]],
 ] as const;
 
 describe("ancestry feature registry", () => {
@@ -41,11 +41,11 @@ describe("ancestry feature registry", () => {
 
   it("maps exact names for only the requested ancestry, without duplicate IDs", () => {
     expect(ancestryTraitIdsFromNames("Таурус", ["Звериные ноги", "Заземленность", "Звериные ноги"]))
-      .toEqual(["ancestry.tauros.beast-legs", "ancestry.tauros.grounded"]);
+      .toEqual(["ancestry.taurus.beast-legs", "ancestry.taurus.grounded"]);
     expect(ancestryTraitIdsFromNames("Таурус", ["звериные ноги", "Стремительный", "unknown"]))
       .toEqual([]);
     expect(ancestryTraitIdsFromNames("Орк", ["Заземленность", "Искра с твоей кожи"]))
-      .toEqual(["feature.trait.orc.grounded"]);
+      .toEqual(["ancestry.orc.grounded"]);
     expect(ancestryTraitIdsFromNames("Неизвестное происхождение", ["Заземленность"]))
       .toEqual([]);
   });

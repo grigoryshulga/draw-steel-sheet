@@ -61,19 +61,8 @@ function tactician(
 const activeIds = (hero: Character) =>
   activeClassFeatures(hero).map((feature) => feature.id);
 
-/**
- * Keyed-записи доктрины: после миграции ID на английские слаги вложенность
- * задаёт не префикс, а `keyedBy`/`level` активной записи.
- */
 const doctrineIds = (hero: Character, level: number) =>
-  activeClassFeatures(hero)
-    .filter((feature) => feature.keyedBy === "doctrine" && feature.level === level)
-    .map((feature) => feature.id);
-
-const allDoctrineIds = (hero: Character) =>
-  activeClassFeatures(hero)
-    .filter((feature) => feature.keyedBy === "doctrine")
-    .map((feature) => feature.id);
+  activeIds(hero).filter((id) => id.startsWith(`tactician.doctrine.${level}.`));
 
 const sheetNames = (hero: Character) =>
   classFeatureGroupsForSheet(hero)
@@ -107,14 +96,14 @@ describe("Тактик: production-реестры", () => {
     expect(mechanicsCount).toBe(67);
     expect(textOnlyIds.sort()).toEqual(
       [
-        "feature.tactician.level-10.skill",
-        "feature.tactician.level-10.perk",
-        "feature.tactician.level-2.perk",
-        "feature.tactician.level-4.skill",
-        "feature.tactician.level-4.perk",
-        "feature.tactician.level-6.perk",
-        "feature.tactician.level-7.skill",
-        "feature.tactician.level-8.perk",
+        "tactician.feature.10.navyk",
+        "tactician.feature.10.perk",
+        "tactician.feature.2.perk",
+        "tactician.feature.4.navyk",
+        "tactician.feature.4.perk",
+        "tactician.feature.6.perk",
+        "tactician.feature.7.navyk",
+        "tactician.feature.8.perk",
       ].sort(),
     );
     expect(
@@ -123,7 +112,7 @@ describe("Тактик: production-реестры", () => {
   });
 
   it("«Метка» не переворачивает сторону преимущества", () => {
-    const note = mechanicsFor("feature.tactician.level-1.mark")?.notes ?? "";
+    const note = mechanicsFor("tactician.feature.1.metka")?.notes ?? "";
     expect(note).toContain(
       "вы и союзники в вашей линии воздействия получаете преимущество",
     );
@@ -178,7 +167,7 @@ describe("Тактик: ресурс Фокус и замены 4/7/10 уров�
     expect(marked).toHaveLength(1);
     expect(marked[0].amount).toBe("2");
     expect(marked[0].sourceId).toBe(
-      "feature.tactician.level-4.focus-on-their-weaknesses",
+      "tactician.feature.4.fokus-na-ikh-slabosti",
     );
     expect(gains.filter((gain) => gain.tag === "start-of-turn")[0].amount).toBe(
       "2",
@@ -190,13 +179,13 @@ describe("Тактик: ресурс Фокус и замены 4/7/10 уров�
     const sevenStart = seventh.filter((gain) => gain.tag === "start-of-turn");
     expect(sevenStart).toHaveLength(1);
     expect(sevenStart[0].amount).toBe("3");
-    expect(sevenStart[0].sourceId).toBe("feature.tactician.level-7.heightened-focus");
+    expect(sevenStart[0].sourceId).toBe("tactician.feature.7.povyshennyy-fokus");
 
     const tenth = resolvedResourceGains(tactician(10));
     const tenStart = tenth.filter((gain) => gain.tag === "start-of-turn");
     expect(tenStart).toHaveLength(1);
     expect(tenStart[0].amount).toBe("4");
-    expect(tenStart[0].sourceId).toBe("feature.tactician.level-10.true-focus");
+    expect(tenStart[0].sourceId).toBe("tactician.feature.10.istinnyy-fokus");
     expect(new Set(tenth.map((gain) => gain.tag)).size).toBe(tenth.length);
   });
 
@@ -213,16 +202,16 @@ describe("Тактик: ресурс Фокус и замены 4/7/10 уров�
 
   it("записи «Фокус», «Фокус в бою» и «Фокус вне боя» не начисляют ресурс повторно", () => {
     for (const id of [
-      "feature.tactician.level-1.focus",
-      "feature.tactician.level-1.focus-in-combat",
-      "feature.tactician.level-1.focus-outside-of-combat",
+      "tactician.feature.1.fokus",
+      "tactician.feature.1.fokus-v-boyu",
+      "tactician.feature.1.fokus-vne-boya",
     ]) {
       const mechanics = mechanicsFor(id);
       expect(mechanics?.kinds, id).toContain("resource");
       expect(mechanics?.resource, id).toBeUndefined();
       expect(mechanics?.notes?.trim(), id).toBeTruthy();
     }
-    const command = mechanicsFor("feature.tactician.level-10.command");
+    const command = mechanicsFor("tactician.feature.10.komandovanie");
     expect(command?.kinds).toContain("resource");
     expect(command?.resource).toBeUndefined();
     expect(command?.notes).toContain("Командование");
@@ -234,31 +223,31 @@ describe("Тактик: доктрина", () => {
     const hero = tactician(8, {}, { subclass: "Авангард" });
 
     expect(doctrineIds(hero, 1).sort()).toEqual([
-      "feature.ability.tactician.level-1.parry",
-      "feature.tactician.level-1.commanding-presence",
+      "tactician.doctrine.1.komandirskoe-prisutstvie",
+      "tactician.doctrine.1.parirovanie",
     ]);
     expect(doctrineIds(hero, 2)).toEqual([
-      "feature.tactician.level-2.melee-superiority",
+      "tactician.doctrine.2.prevoskhodstvo-v-blizhnem-boyu",
     ]);
     expect(doctrineIds(hero, 5).sort()).toEqual([
-      "feature.tactician.level-5.shake-it-off",
-      "feature.tactician.level-5.tactical-offensive",
+      "tactician.doctrine.5.stryakhnut",
+      "tactician.doctrine.5.takticheskoe-nastuplenie",
     ]);
     expect(doctrineIds(hero, 7)).toEqual([
-      "feature.tactician.level-7.shock-and-awe",
+      "tactician.doctrine.7.shok-i-trepet",
     ]);
     expect(doctrineIds(hero, 8)).toEqual([
-      "feature.tactician.level-8.see-your-enemies-driven-before-you",
+      "tactician.doctrine.8.videt-kak-vragi-begut-pered-toboy",
     ]);
 
     const all = activeIds(hero);
     for (const foreign of [
-      "feature.tactician.level-1.covert-operations",
-      "feature.ability.tactician.level-1.advanced-tactics",
-      "feature.tactician.level-2.goaded",
-      "feature.tactician.level-5.anticipation",
-      "feature.tactician.level-7.grand-strategy",
-      "feature.tactician.level-8.pincer-movement",
+      "tactician.doctrine.1.sekretnye-operatsii",
+      "tactician.doctrine.1.prodvinutaya-taktika",
+      "tactician.doctrine.2.sprovotsirovannyy",
+      "tactician.doctrine.5.zamysel",
+      "tactician.doctrine.7.grand-strategiya",
+      "tactician.doctrine.8.kleshchevoy-manevr",
     ]) {
       expect(all, foreign).not.toContain(foreign);
     }
@@ -271,7 +260,9 @@ describe("Тактик: доктрина", () => {
     );
     expect(choice?.options).toEqual(DOCTRINE_OPTIONS);
     expect(choice?.label).toBe("Доктрина");
-    expect(allDoctrineIds(hero)).toEqual([]);
+    expect(
+      activeIds(hero).filter((id) => id.startsWith("tactician.doctrine.")),
+    ).toEqual([]);
   });
 
   it("выбор в панели пишет подкласс и включает только свою доктрину", () => {
@@ -283,14 +274,14 @@ describe("Тактик: доктрина", () => {
     );
     expect(selected.subclass).toBe("Воевода");
     expect(doctrineIds(selected, 1).sort()).toEqual([
-      "feature.ability.tactician.level-1.overwatch",
-      "feature.tactician.level-1.studied-commander",
+      "tactician.doctrine.1.obrazovannyy-komandir",
+      "tactician.doctrine.1.prikrytie",
     ]);
     expect(doctrineIds(selected, 7)).toEqual([
-      "feature.tactician.level-7.grand-strategy",
+      "tactician.doctrine.7.grand-strategiya",
     ]);
     expect(activeIds(selected)).not.toContain(
-      "feature.tactician.level-7.shock-and-awe",
+      "tactician.doctrine.7.shok-i-trepet",
     );
     // Панель больше не предлагает выбор, когда доктрина уже записана.
     expect(
@@ -302,7 +293,9 @@ describe("Тактик: доктрина", () => {
 
   it("две доктрины в одном подклассе не активируют ни одной записи", () => {
     const hero = tactician(8, {}, { subclass: "Воевода, Авангард" });
-    expect(allDoctrineIds(hero)).toEqual([]);
+    expect(
+      activeIds(hero).filter((id) => id.startsWith("tactician.doctrine.")),
+    ).toEqual([]);
     expect(doctrineIds(hero, 5)).toEqual([]);
     // Известное ограничение общего level-up: план может предложить обе
     // способности, но лист не активирует ни одну доктрину. Выбор в панели
@@ -312,7 +305,9 @@ describe("Тактик: доктрина", () => {
   it("неизвестная доктрина не активирует ни одной вложенной записи", () => {
     const hero = tactician(8, { "tactician.doctrine": "Неизвестная доктрина" });
     hero.subclass = "Неизвестная доктрина";
-    expect(allDoctrineIds(hero)).toEqual([]);
+    expect(
+      activeIds(hero).filter((id) => id.startsWith("tactician.doctrine.")),
+    ).toEqual([]);
     expect(doctrineIds(hero, 1)).toEqual([]);
   });
 
@@ -332,11 +327,11 @@ describe("Тактик: доктрина", () => {
 
 describe("Тактик: контейнеры способностей 2/6/9 уровней", () => {
   const containers = (level: number) => {
-    const noun = level === 2 ? "ability" : "abilities";
+    const noun = level === 2 ? "sposobnost" : "sposobnosti";
     return [
-      ["Повстанец", `feature.tactician.level-${level}.insurgent-${noun}`],
-      ["Воевода", `feature.tactician.level-${level}.mastermind-${noun}`],
-      ["Авангард", `feature.tactician.level-${level}.vanguard-${noun}`],
+      ["Повстанец", `tactician.feature.${level}.${noun}-povstantsa-${level}-go-urovnya`],
+      ["Воевода", `tactician.feature.${level}.${noun}-voevody-${level}-go-urovnya`],
+      ["Авангард", `tactician.feature.${level}.${noun}-avangarda-${level}-go-urovnya`],
     ] as const;
   };
 
@@ -541,14 +536,18 @@ describe("Тактик: создание героя с двумя комплек
 
   it("смена комплектов сохраняет доктрину и не удваивает бонус", () => {
     const hero = buildCharacter(draft());
-    const doctrineFeatureIds = allDoctrineIds(hero);
+    const doctrineIds = activeIds(hero).filter((id) =>
+      id.startsWith("tactician.doctrine."),
+    );
     const switched = changeKit(
       changeKit(hero, "Мастер Боевых Искусств"),
       "Гора",
       true,
     );
     expect(switched.subclass).toBe("Авангард");
-    expect(allDoctrineIds(switched)).toEqual(doctrineFeatureIds);
+    expect(
+      activeIds(switched).filter((id) => id.startsWith("tactician.doctrine.")),
+    ).toEqual(doctrineIds);
     const doubled = changeKit(switched, switched.kit, true);
     expect(doubled.secondaryKit).toBe(doubled.kit);
     const stamina = calculatedValues(doubled).stamina;
@@ -562,12 +561,12 @@ describe("Тактик: создание героя с двумя комплек
 
   it("«Полевой арсенал» не дублирует бонусы комплектов", () => {
     const hero = buildCharacter(draft());
-    expect(mechanicsFor("feature.tactician.level-1.field-arsenal")?.effects).toBeUndefined();
+    expect(mechanicsFor("tactician.feature.1.polevoy-arsenal")?.effects).toBeUndefined();
     const stamina = featureStatContributions(hero, "stamina");
     expect(
       stamina.some(
         (contribution) =>
-          contribution.sourceId === "feature.tactician.level-1.field-arsenal",
+          contribution.sourceId === "tactician.feature.1.polevoy-arsenal",
       ),
     ).toBe(false);
   });
@@ -588,11 +587,11 @@ describe("Тактик: старый и частичный лист", () => {
     );
     expect(selected.subclass).toBe("Повстанец");
     expect(doctrineIds(selected, 5).sort()).toEqual([
-      "feature.tactician.level-5.distracted",
-      "feature.tactician.level-5.leave-no-trace",
+      "tactician.doctrine.5.ne-ostavlyat-sledov",
+      "tactician.doctrine.5.otvlechenie",
     ]);
     expect(doctrineIds(selected, 5)).not.toContain(
-      "feature.tactician.level-5.anticipation",
+      "tactician.doctrine.5.zamysel",
     );
   });
 
@@ -692,19 +691,19 @@ describe("Тактик: видимый текст без внутренних и
     const cases = [
       {
         hero: tactician(8, {}, { subclass: "Повстанец" }),
-        featureId: "feature.tactician.level-3.out-of-position",
+        featureId: "tactician.feature.3.vne-pozitsii",
         event: "combat-start",
         frequency: "encounter",
       },
       {
         hero: tactician(8, {}, { subclass: "Авангард" }),
-        featureId: "feature.tactician.level-5.shake-it-off",
+        featureId: "tactician.doctrine.5.stryakhnut",
         event: "start-of-turn",
         frequency: "turn",
       },
       {
         hero: tactician(8, {}, { subclass: "Авангард" }),
-        featureId: "feature.tactician.level-7.seize-the-initiative",
+        featureId: "tactician.feature.7.zakhvat-initsiativy",
         event: "combat-start",
         frequency: "encounter",
       },

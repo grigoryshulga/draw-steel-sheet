@@ -467,7 +467,7 @@ describe("resolvedEpicResourceGains", () => {
   it("подпись из данных главнее специальной ветки домена Проводника", () => {
     // Запись домена Проводника исторически получает подпись из специальной
     // ветки движка. Если автор задал подпись в данных, выигрывать должна она.
-    const id = "feature.conduit.level-1.domain-piety-and-effects.sun";
+    const id = "conduit.feature.1.blagochestie-i-effekt-domena-solntsa";
     const previousMechanic = FEATURE_MECHANICS[id];
     const previousSpec = CLASS_RESOURCES["проводник"];
     FEATURE_MECHANICS[id] = {

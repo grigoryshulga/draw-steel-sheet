@@ -1,4 +1,4 @@
-import data from "../data/builder.generated.json";
+import { CANONICAL_BUILDER_DATA } from "../rules/consumer-builder";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { classPreset } from "../data/classes";
 import {
@@ -38,7 +38,11 @@ import {
 } from "./characteristic-allocation";
 import { resolveSkillSelection } from "./skill-selection";
 
-export const BUILDER_DATA = data;
+/**
+ * Данные конструктора приходят из канонических сущностей через
+ * `src/rules/consumer-builder.ts`; форма и порядок записей прежние.
+ */
+export const BUILDER_DATA = CANONICAL_BUILDER_DATA;
 export interface BuilderDraft {
   version: 1;
   name: string;
@@ -172,7 +176,7 @@ export function builderSkillSlots(draft: BuilderDraft) {
   const culture = (
     Object.keys(draft.culture) as (keyof Character["culture"])[]
   ).map((key) => {
-    const option = data.cultures[key].find(
+    const option = BUILDER_DATA.cultures[key].find(
       (o) => o.name === draft.culture[key],
     );
     return option
@@ -269,7 +273,9 @@ export function buildCharacter(
   draft: BuilderDraft,
   seed: Character = createCharacter(),
 ): Character {
-  const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
+  const ancestry = BUILDER_DATA.ancestries.find(
+    (a) => a.name === draft.ancestry,
+  );
   const traits =
     ancestry?.traits.filter((t) => draft.traits.includes(t.name)) ?? [];
   const ancestryTraitNames = traits.map((trait) => trait.name);
@@ -286,12 +292,12 @@ export function buildCharacter(
       ancestryChoices[definition.choice.group] = value;
     }
   }
-  const career = data.careers.find((c) => c.name === draft.career);
+  const career = BUILDER_DATA.careers.find((c) => c.name === draft.career);
   const perk = perkById(draft.perkId);
   const kit = canUseKit(draft.className, draft.subclass)
     ? kitByName(draft.kit)
     : undefined;
-  const complication = data.complications.find(
+  const complication = BUILDER_DATA.complications.find(
     (c) => c.name === draft.complication,
   );
   const skills = builderSkillSelections(draft);
@@ -302,7 +308,9 @@ export function buildCharacter(
     ...skills.class,
   ];
   const granted = grantedClassAbilities(draft);
-  const classData = data.classes.find((c) => c.name === draft.className);
+  const classData = BUILDER_DATA.classes.find(
+    (c) => c.name === draft.className,
+  );
   const classFeatureSelections = classFeatureSelectionsFromDraft(
     draft.className,
     draft.featureChoices,
@@ -479,9 +487,13 @@ interface BuilderIssueParts {
  * plausible-looking per-slot arrays.
  */
 function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
-  const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
-  const career = data.careers.find((c) => c.name === draft.career);
-  const classData = data.classes.find((c) => c.name === draft.className);
+  const ancestry = BUILDER_DATA.ancestries.find(
+    (a) => a.name === draft.ancestry,
+  );
+  const career = BUILDER_DATA.careers.find((c) => c.name === draft.career);
+  const classData = BUILDER_DATA.classes.find(
+    (c) => c.name === draft.className,
+  );
   const preset = classPreset(draft.className);
   const skills = builderSkillSelections(draft);
   const traitsSpent =
@@ -527,9 +539,7 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
   // Цензора: её выдаёт домен. Проверяем только способности 1-го уровня своего
   // класса, чтобы записи из истории повышения не считались нарушением.
   const forbiddenDomainCardSelected = draft.abilityIds.some((id) => {
-    const ability = ABILITY_COMPENDIUM.find(
-      (entry) => entry.id === id || entry.legacyId === id,
-    );
+    const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === id);
     return (
       !!ability &&
       ability.className === draft.className &&
@@ -650,9 +660,13 @@ export function builderStepIssues(
   draft: BuilderDraft,
 ): Record<BuilderStepId, string> {
   const parts = builderIssueParts(draft);
-  const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
-  const career = data.careers.find((c) => c.name === draft.career);
-  const classData = data.classes.find((c) => c.name === draft.className);
+  const ancestry = BUILDER_DATA.ancestries.find(
+    (a) => a.name === draft.ancestry,
+  );
+  const career = BUILDER_DATA.careers.find((c) => c.name === draft.career);
+  const classData = BUILDER_DATA.classes.find(
+    (c) => c.name === draft.className,
+  );
   // A catalog entry without basics (the unfinished «Призыватель») is not a
   // selectable class, and a step whose parent choice is still missing must
   // never look complete in the wizard.

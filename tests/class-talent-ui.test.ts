@@ -110,16 +110,16 @@ describe("Талант: прозаические записи и подарки 
 describe("Талант: сохранённое значение не активирует чужую группу", () => {
   it("оберег в выборе аугментации не включает оберег", () => {
     const ids = activeIds(talent({ "talent.augmentation": "talent.sanctuary.steel" }));
-    expect(ids).not.toContain("feature.talent.level-1.steel-ward");
-    expect(ids).not.toContain("feature.talent.level-1.density-augmentation");
+    expect(ids).not.toContain("talent.feature.1.stalnoy-obereg");
+    expect(ids).not.toContain("talent.feature.1.augmentatsiya-plotnosti");
   });
 
   it("аугментация в выборе оберега не включает аугментацию", () => {
     const ids = activeIds(
       talent({ "talent.sanctuary": "talent.augmentation.density" }),
     );
-    expect(ids).not.toContain("feature.talent.level-1.density-augmentation");
-    expect(ids).not.toContain("feature.talent.level-1.steel-ward");
+    expect(ids).not.toContain("talent.feature.1.augmentatsiya-plotnosti");
+    expect(ids).not.toContain("talent.feature.1.stalnoy-obereg");
   });
 
   it("две традиции в одном сохранении не включают обе", () => {

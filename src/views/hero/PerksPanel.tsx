@@ -106,7 +106,6 @@ export function PerksPanel() {
               key={slot.key}
               eyebrow={slot.title}
               name={selected.name}
-              originalName={perk?.originalName}
               type={selected.type}
               summary={
                 perk?.summary ??

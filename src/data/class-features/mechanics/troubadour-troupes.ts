@@ -15,7 +15,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   // ------------------------------------------------ особенности 1-го уровня
-  "feature.troubadour.level-1.acrobatics": {
+  "troubadour.troupe.1.akrobatika": {
     kinds: ["grant"],
     notes:
       "Выступление «Акробатика» выдаётся амплуа Дуэлянта и описано карточкой " +
@@ -24,7 +24,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "тесте на прыжок, кувырок или лазание как часть своего движения до конца " +
       "своего хода.",
   },
-  "feature.troubadour.level-1.blocking": {
+  "troubadour.troupe.1.mizanstsena": {
     kinds: ["grant"],
     notes:
       "Выступление «Мизансцена» выдаётся амплуа Автора и описано карточкой " +
@@ -34,7 +34,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "причинить цели вред, оставить её при смерти или наложить негативный " +
       "эффект.",
   },
-  "feature.troubadour.level-1.dramatic-monologue": {
+  "troubadour.troupe.1.dramaticheskiy-monolog": {
     kinds: ["grant"],
     notes:
       "Способность «Драматический монолог» выдаётся амплуа Автора и описана " +
@@ -43,14 +43,14 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "подвигах — 1 всплеск, оскорбление даёт врагу помеху на следующий бросок " +
       "силы до конца его следующего хода. За 1 драму можно выбрать две цели.",
   },
-  "feature.troubadour.level-1.power-chord": {
+  "troubadour.troupe.1.moshchnyy-akkord": {
     kinds: ["grant"],
     notes:
       "Способность «Мощный аккорд» выдаётся амплуа Виртуоза и описана карточкой " +
       "справочника. Маневр, взрыв 2, каждый враг в области; бросок силы + " +
       "Присутствие: до 11 — толчок 1, 12–16 — толчок 2, 17+ — толчок 3.",
   },
-  "feature.troubadour.level-1.star-power": {
+  "troubadour.troupe.1.zvezdnaya-sila": {
     kinds: ["grant"],
     notes:
       "Способность «Звездная сила» выдаётся амплуа Дуэлянта и описана карточкой " +
@@ -58,7 +58,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "бросок силы в этот ход не может быть ниже второго тира. Потратив 1 драмы, " +
       "герой получает +4 к скорости вместо +2.",
   },
-  "feature.troubadour.level-1.virtuoso-performances": {
+  "troubadour.troupe.1.vystupleniya-virtuoza": {
     kinds: ["grant"],
     notes:
       "Амплуа Виртуоза выдаёт два выступления, описанные карточками " +
@@ -71,7 +71,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ триггеры 1-го уровня
-  "feature.ability.troubadour.level-1.turnabout-is-fair-play": {
+  "troubadour.troupe.1.oko-za-oko": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -90,7 +90,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "Способность-триггер Автора. Выбор цели и трата драмы ведутся вручную: " +
       "лист не хранит броски и поле боя.",
   },
-  "feature.ability.troubadour.level-1.riposte": {
+  "troubadour.troupe.1.ripost": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -105,7 +105,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "Способность-триггер Дуэлянта. Свободный удар и выбор цели ведутся " +
       "вручную: лист не хранит позиции и удары.",
   },
-  "feature.ability.troubadour.level-1.harmonize": {
+  "troubadour.troupe.1.garmonizatsiya": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -125,7 +125,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ особенности 3-го уровня
-  "feature.troubadour.level-3.foil": {
+  "troubadour.troupe.3.opponent": {
     kinds: ["situational"],
     when: { keyValue: ["Дуэлянт"] },
     notes:
@@ -136,7 +136,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "можно выбрать в начале следующего раунда. Выбранный оппонент — состояние " +
       "встречи, лист его не хранит.",
   },
-  "feature.troubadour.level-3.missed-cue": {
+  "troubadour.troupe.3.propushchennaya-replika": {
     kinds: ["situational"],
     when: { keyValue: ["Автор"] },
     notes:
@@ -146,7 +146,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "в начале второго раунда. Повторно особенность доступна после 3 Побед. " +
       "Удаление и счёт Побед лист не хранит.",
   },
-  "feature.troubadour.level-3.second-album": {
+  "troubadour.troupe.3.vtoroy-albom": {
     kinds: ["grant"],
     when: { keyValue: ["Виртуоз"] },
     notes:
@@ -160,7 +160,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ особенности 5-го уровня
-  "feature.troubadour.level-5.auteur-features": {
+  "troubadour.feature.5.osobennosti-avtora": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Автор"] },
     choice: {
@@ -177,7 +177,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Поправим на постпродакшене» или «Дубль два!». Выбор делается в панели " +
       "листа; активна только выбранная запись.",
   },
-  "feature.troubadour.level-5.duelist-features": {
+  "troubadour.feature.5.osobennosti-duelyanta": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Дуэлянт"] },
     choice: {
@@ -194,7 +194,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Словесная дуэль» или «Нас не затмить!». Выбор делается в панели листа; " +
       "активна только выбранная запись.",
   },
-  "feature.troubadour.level-5.virtuoso-features": {
+  "troubadour.feature.5.osobennosti-virtuoza": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Виртуоз"] },
     choice: {
@@ -211,7 +211,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Поддерживающая перепалка» или «Медли». Выбор делается в панели листа; " +
       "активна только выбранная запись.",
   },
-  "feature.troubadour.level-5.fix-it-in-post": {
+  "troubadour.feature.5.popravim-na-postprodakshene": {
     kinds: ["situational"],
     when: { keyValue: ["Поправим на постпродакшене"], keyValueAll: ["Автор"] },
     notes:
@@ -221,7 +221,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "сохраняя продолжительность и источник. Цель, которая больше не лежит, " +
       "может встать. Состояния лист не переключает.",
   },
-  "feature.ability.troubadour.level-5.take-two": {
+  "troubadour.feature.5.dubl-dva": {
     kinds: ["grant"],
     when: { keyValue: ["Дубль два!"], keyValueAll: ["Автор"] },
     notes:
@@ -231,7 +231,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "обязана использовать новый результат. Повышение уровня карточку " +
       "автоматически не добавляет — отметьте её в списке способностей вручную.",
   },
-  "feature.troubadour.level-5.verbal-duel": {
+  "troubadour.feature.5.slovesnaya-duel": {
     kinds: ["situational"],
     when: { keyValue: ["Словесная дуэль"], keyValueAll: ["Дуэлянт"] },
     notes:
@@ -240,7 +240,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "Присутствия, и победитель делает свободный удар, наносящий психический " +
       "урон вместо обычного. Реплики и оппонента лист не хранит.",
   },
-  "feature.ability.troubadour.level-5.we-cant-be-upstaged": {
+  "troubadour.feature.5.nas-ne-zatmit": {
     kinds: ["grant"],
     when: { keyValue: ["Нас не затмить!"], keyValueAll: ["Дуэлянт"] },
     notes:
@@ -250,7 +250,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "хода. Повышение уровня карточку автоматически не добавляет — отметьте её " +
       "в списке способностей вручную.",
   },
-  "feature.troubadour.level-5.bolstering-banter": {
+  "troubadour.feature.5.podderzhivayushchaya-perepalka": {
     kinds: ["situational"],
     when: { keyValue: ["Поддерживающая перепалка"], keyValueAll: ["Виртуоз"] },
     notes:
@@ -259,7 +259,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "Восстановление, чтобы получить временную выносливость, равную значению " +
       "восстановления. Трата ведётся вручную.",
   },
-  "feature.troubadour.level-5.medley": {
+  "troubadour.feature.5.medli": {
     kinds: ["situational"],
     when: { keyValue: ["Медли"], keyValueAll: ["Виртуоз"] },
     notes:
@@ -268,7 +268,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ способности 2-го уровня
-  "feature.troubadour.level-2.auteur-ability": {
+  "troubadour.feature.2.sposobnosti-avtora-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Автор"] },
     notes:
@@ -276,7 +276,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Приглашенная Звезда» или «Неожиданный Поворот в Финале». Выбор делается " +
       "при повышении уровня по амплуа.",
   },
-  "feature.troubadour.level-2.duelist-ability": {
+  "troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Дуэлянт"] },
     notes:
@@ -284,7 +284,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Классический Трюк с Люстрой» или «Ан Гард!». Выбор делается при " +
       "повышении уровня по амплуа.",
   },
-  "feature.troubadour.level-2.virtuoso-ability": {
+  "troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Виртуоз"] },
     notes:
@@ -294,7 +294,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ способности 6-го уровня
-  "feature.troubadour.level-6.auteur-abilities": {
+  "troubadour.feature.6.sposobnosti-avtora-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Автор"] },
     notes:
@@ -302,7 +302,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Вот Как Закончится Ваша История» или «Все Вы Мои Дублеры». Выбор " +
       "делается при повышении уровня по амплуа.",
   },
-  "feature.troubadour.level-6.duelist-abilities": {
+  "troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Дуэлянт"] },
     notes:
@@ -310,7 +310,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Кровь на Сцене» или «Хореография Боя». Выбор делается при повышении " +
       "уровня по амплуа.",
   },
-  "feature.troubadour.level-6.virtuoso-abilities": {
+  "troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Виртуоз"] },
     notes:
@@ -320,7 +320,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ особенности 8-го уровня
-  "feature.troubadour.level-8.crowd-favorites": {
+  "troubadour.troupe.8.lyubimtsy-publiki": {
     kinds: ["grant"],
     when: { keyValue: ["Виртуоз"] },
     notes:
@@ -332,7 +332,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "принудительного движения и раз за раунд используют триггер свободным " +
       "триггером. Оба выступления выдаются повышением уровня.",
   },
-  "feature.troubadour.level-8.deleted-scene": {
+  "troubadour.troupe.8.vyrezannaya-stsena": {
     kinds: ["situational"],
     when: { keyValue: ["Автор"] },
     notes:
@@ -341,7 +341,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "свободный триггер и использовать «Драматический монолог», нацелившись " +
       "только на одно существо. Броски и трата ведутся вручную.",
   },
-  "feature.troubadour.level-8.masterwork": {
+  "troubadour.troupe.8.shedevr": {
     kinds: ["situational"],
     when: { keyValue: ["Дуэлянт"] },
     notes:
@@ -355,7 +355,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ способности 9-го уровня
-  "feature.troubadour.level-9.auteur-abilities": {
+  "troubadour.feature.9.sposobnosti-avtora-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Автор"] },
     notes:
@@ -363,7 +363,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Эпос» или «Нарастающее Напряжение». Выбор делается при повышении уровня " +
       "по амплуа.",
   },
-  "feature.troubadour.level-9.duelist-abilities": {
+  "troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Дуэлянт"] },
     notes:
@@ -371,7 +371,7 @@ export const TROUBADOUR_TROUPE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Эксперт-Фехтовальщик» или «Пересмотренный Контракт». Выбор делается при " +
       "повышении уровня по амплуа.",
   },
-  "feature.troubadour.level-9.virtuoso-abilities": {
+  "troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Виртуоз"] },
     notes:

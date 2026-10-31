@@ -50,31 +50,31 @@ const COLLEGE_OPTIONS = [
 const COLLEGE_KEYED: Record<string, Record<number, string[]>> = {
   "Коллегия Черного Пепла": {
     1: [
-      "feature.shadow.level-1.black-ash-teleport",
-      "feature.ability.shadow.level-1.in-all-this-confusion",
+      "shadow.college.1.teleportatsiya-chernogo-pepla",
+      "shadow.college.1.vo-vsey-etoy-nerazberikhe",
     ],
-    2: ["feature.shadow.level-2.burning-ash"],
-    5: ["feature.shadow.level-5.trail-of-cinders"],
-    8: ["feature.shadow.level-8.cinder-step"],
+    2: ["shadow.college.2.goryashchiy-pepel"],
+    5: ["shadow.college.5.sled-pepla"],
+    8: ["shadow.college.8.pepelnyy-shag"],
   },
   "Коллегия Едкой Алхимии": {
     1: [
-      "feature.shadow.level-1.coat-the-blade",
-      "feature.shadow.level-1.smoke-bomb",
-      "feature.ability.shadow.level-1.defensive-roll",
+      "shadow.college.1.smazat-klinok",
+      "shadow.college.1.dymovaya-bomba",
+      "shadow.college.1.zashchitnyy-perekat",
     ],
-    2: ["feature.shadow.level-2.trained-assassin"],
-    5: ["feature.shadow.level-5.volatile-reagents"],
-    8: ["feature.shadow.level-8.time-bomb"],
+    2: ["shadow.college.2.obuchennyy-ubiytsa"],
+    5: ["shadow.college.5.nestabilnye-reagenty"],
+    8: ["shadow.college.8.bomba-zamedlennogo-deystviya"],
   },
   "Коллегия Маски Арлекина": {
     1: [
-      "feature.shadow.level-1.im-no-threat",
-      "feature.ability.shadow.level-1.clever-trick",
+      "shadow.college.1.ya-ne-ugroza",
+      "shadow.college.1.umnyy-tryuk",
     ],
-    2: ["feature.shadow.level-2.friend"],
-    5: ["feature.shadow.level-5.harlequin-gambit"],
-    8: ["feature.shadow.level-8.parkour"],
+    2: ["shadow.college.2.drug"],
+    5: ["shadow.college.5.gambit-arlekina"],
+    8: ["shadow.college.8.parkur"],
   },
 };
 
@@ -87,31 +87,31 @@ const SHORT_COLLEGE: Record<string, string> = {
 /** Контейнеры способностей коллегии 2/6/9 уровней. */
 const ABILITY_CONTAINERS: Record<string, Record<number, string>> = {
   "Коллегия Черного Пепла": {
-    2: "feature.shadow.level-2.black-ash-ability",
-    6: "feature.shadow.level-6.black-ash-abilities",
-    9: "feature.shadow.level-9.black-ash-abilities",
+    2: "shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya",
+    6: "shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya",
+    9: "shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya",
   },
   "Коллегия Едкой Алхимии": {
-    2: "feature.shadow.level-2.caustic-alchemy-ability",
-    6: "feature.shadow.level-6.caustic-alchemy-abilities",
-    9: "feature.shadow.level-9.caustic-alchemy-abilities",
+    2: "shadow.feature.2.sposobnost-edkoy-alkhimii-2-go-urovnya",
+    6: "shadow.feature.6.sposobnosti-edkoy-alkhimii-6-go-urovnya",
+    9: "shadow.feature.9.sposobnosti-edkoy-alkhimii-9-go-urovnya",
   },
   "Коллегия Маски Арлекина": {
-    2: "feature.shadow.level-2.harlequin-mask-ability",
-    6: "feature.shadow.level-6.harlequin-mask-abilities",
-    9: "feature.shadow.level-9.harlequin-mask-abilities",
+    2: "shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya",
+    6: "shadow.feature.6.sposobnosti-maski-arlekina-6-go-urovnya",
+    9: "shadow.feature.9.sposobnosti-maski-arlekina-9-go-urovnya",
   },
 };
 
 const TEXT_ONLY_IDS = [
-  "feature.shadow.level-2.perk",
-  "feature.shadow.level-4.skill",
-  "feature.shadow.level-4.perk",
-  "feature.shadow.level-6.perk",
-  "feature.shadow.level-7.skill",
-  "feature.shadow.level-8.perk",
-  "feature.shadow.level-10.skill",
-  "feature.shadow.level-10.perk",
+  "shadow.feature.2.perk",
+  "shadow.feature.4.navyk",
+  "shadow.feature.4.perk",
+  "shadow.feature.6.perk",
+  "shadow.feature.7.navyk",
+  "shadow.feature.8.perk",
+  "shadow.feature.10.navyk",
+  "shadow.feature.10.perk",
 ].sort();
 
 function shadow(
@@ -132,19 +132,8 @@ function shadow(
 const activeIds = (hero: Character) =>
   activeClassFeatures(hero).map((feature) => feature.id);
 
-/**
- * Keyed-записи коллегии: после миграции ID на английские слаги вложенность
- * задаёт не префикс, а `keyedBy`/`level` активной записи.
- */
 const collegeIds = (hero: Character, level: number) =>
-  activeClassFeatures(hero)
-    .filter((feature) => feature.keyedBy === "college" && feature.level === level)
-    .map((feature) => feature.id);
-
-const allCollegeIds = (hero: Character) =>
-  activeClassFeatures(hero)
-    .filter((feature) => feature.keyedBy === "college")
-    .map((feature) => feature.id);
+  activeIds(hero).filter((id) => id.startsWith(`shadow.college.${level}.`));
 
 const sheetNames = (hero: Character) =>
   classFeatureGroupsForSheet(hero)
@@ -185,16 +174,8 @@ describe("Тень: production-реестры", () => {
       SHADOW_FEATURES.filter((feature) => feature.keyedBy === "college"),
     ).toHaveLength(16);
 
-    const containers = SHADOW_FEATURES.filter(
-      (feature) =>
-        // Синтетические контейнеры конкретной коллегии.
-        /^feature\.shadow\.level-(2|6|9)\.(black-ash|caustic-alchemy|harlequin-mask)-abilit(?:y|ies)$/.test(
-          feature.id,
-        ) ||
-        // Общий контейнер уровня.
-        /^feature\.shadow\.level-(2|6|9)\.\d+(?:st|nd|rd|th)-level-college-ability$/.test(
-          feature.id,
-        ),
+    const containers = SHADOW_FEATURES.filter((feature) =>
+      /^shadow\.feature\.(2|6|9)\.sposobnost(i)?-/.test(feature.id),
     );
     expect(containers).toHaveLength(12);
     expect(
@@ -247,7 +228,7 @@ describe("Тень: ресурс Прозрение и замены 4/7/10 ур�
     expect(surge).toHaveLength(1);
     expect(surge[0].amount).toBe("2");
     expect(surge[0].sourceId).toBe(
-      "feature.shadow.level-4.surge-of-insight",
+      "shadow.feature.4.vsplesk-prozreniya",
     );
     expect(gains.filter((gain) => gain.tag === "start-of-turn")[0].amount).toBe(
       "1d3",
@@ -260,7 +241,7 @@ describe("Тень: ресурс Прозрение и замены 4/7/10 ур�
     const start = gains.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("1d3 + 1");
-    expect(start[0].sourceId).toBe("feature.shadow.level-7.keen-insight");
+    expect(start[0].sourceId).toBe("shadow.feature.7.ostroe-prozrenie");
     expect(gains.filter((gain) => gain.tag === "damage-surge")[0].amount).toBe(
       "2",
     );
@@ -271,7 +252,7 @@ describe("Тень: ресурс Прозрение и замены 4/7/10 ур�
     const surge = gains.filter((gain) => gain.tag === "damage-surge");
     expect(surge).toHaveLength(1);
     expect(surge[0].amount).toBe("3");
-    expect(surge[0].sourceId).toBe("feature.shadow.level-10.death-pool");
+    expect(surge[0].sourceId).toBe("shadow.feature.10.resurs-smerti");
     expect(gains.filter((gain) => gain.tag === "start-of-turn")[0].amount).toBe(
       "1d3 + 1",
     );
@@ -291,16 +272,16 @@ describe("Тень: ресурс Прозрение и замены 4/7/10 ур�
 
   it("записи «Прозрение», «Прозрение в бою» и «Прозрение вне боя» не начисляют ресурс повторно", () => {
     for (const id of [
-      "feature.shadow.level-1.insight",
-      "feature.shadow.level-1.insight-in-combat",
-      "feature.shadow.level-1.insight-outside-of-combat",
+      "shadow.feature.1.prozrenie",
+      "shadow.feature.1.prozrenie-v-boyu",
+      "shadow.feature.1.prozrenie-vne-boya",
     ]) {
       const mechanics = mechanicsFor(id);
       expect(mechanics?.kinds, id).toContain("resource");
       expect(mechanics?.resource, id).toBeUndefined();
       expect(mechanics?.notes?.trim(), id).toBeTruthy();
     }
-    const trick = mechanicsFor("feature.shadow.level-10.subterfuge");
+    const trick = mechanicsFor("shadow.feature.10.ulovka");
     expect(trick?.kinds).toContain("resource");
     expect(trick?.resource).toBeUndefined();
     expect(trick?.notes).toContain("Уловка");
@@ -344,10 +325,10 @@ describe("Тень: коллегии", () => {
       [...COLLEGE_KEYED["Коллегия Едкой Алхимии"][1]].sort(),
     );
     expect(collegeIds(caustic, 1)).not.toContain(
-      "feature.shadow.level-1.black-ash-teleport",
+      "shadow.college.1.teleportatsiya-chernogo-pepla",
     );
     expect(collegeIds(caustic, 8)).toEqual([
-      "feature.shadow.level-8.time-bomb",
+      "shadow.college.8.bomba-zamedlennogo-deystviya",
     ]);
 
     // Неизвестное и составное значение не активируют ни одной записи.
@@ -355,7 +336,9 @@ describe("Тень: коллегии", () => {
       shadow(8, { "shadow.college": "Неизвестная коллегия" }),
       shadow(8, {}, { subclass: "Коллегия Черного Пепла, Коллегия Едкой Алхимии" }),
     ]) {
-      expect(allCollegeIds(hero)).toEqual([]);
+      expect(
+        activeIds(hero).filter((id) => id.startsWith("shadow.college.")),
+      ).toEqual([]);
     }
   });
 
@@ -366,7 +349,9 @@ describe("Тень: коллегии", () => {
     );
     expect(choice?.options).toEqual(COLLEGE_OPTIONS);
     expect(choice?.label).toBe("Коллегия");
-    expect(allCollegeIds(hero)).toEqual([]);
+    expect(
+      activeIds(hero).filter((id) => id.startsWith("shadow.college.")),
+    ).toEqual([]);
   });
 
   it("выбор в панели пишет полный подкласс и включает только свою коллегию", () => {
@@ -384,7 +369,7 @@ describe("Тень: коллегии", () => {
       [...COLLEGE_KEYED["Коллегия Едкой Алхимии"][1]].sort(),
     );
     expect(collegeIds(selected, 8)).toEqual([
-      "feature.shadow.level-8.time-bomb",
+      "shadow.college.8.bomba-zamedlennogo-deystviya",
     ]);
     expect(
       classFeatureChoicesForSheet(selected).some(
@@ -522,7 +507,7 @@ describe("Тень: повышение уровня", () => {
     expect(resolvedResourceGains(result.next)).toHaveLength(3);
     expect(
       result.next.abilities.some(
-        (ability) => ability.id === "feature.ability.shadow.level-2.in-a-puff-of-ash",
+        (ability) => ability.id === "ten-v-oblake-pepla-630cf9f29c",
       ),
     ).toBe(true);
   });
@@ -534,7 +519,7 @@ describe("Тень: повышение уровня", () => {
     expect(result.next.subclass).toBe("Коллегия Черного Пепла");
     expect(
       result.next.abilities.some(
-        (ability) => ability.id === "feature.ability.shadow.level-3.careful-observation",
+        (ability) => ability.id === "ten-vnimatelnoe-nablyudenie-0e1275c4b7",
       ),
     ).toBe(true);
   });
@@ -581,7 +566,7 @@ describe("Тень: повышение уровня", () => {
       "Бомба Замедленного Действия",
     );
     expect(collegeIds(result.next, 8)).toEqual([
-      "feature.shadow.level-8.time-bomb",
+      "shadow.college.8.bomba-zamedlennogo-deystviya",
     ]);
   });
 
@@ -630,10 +615,10 @@ describe("Тень: старый и частичный лист", () => {
     );
     expect(selected.subclass).toBe("Коллегия Маски Арлекина");
     expect(collegeIds(selected, 5)).toEqual([
-      "feature.shadow.level-5.harlequin-gambit",
+      "shadow.college.5.gambit-arlekina",
     ]);
     expect(collegeIds(selected, 5)).not.toContain(
-      "feature.shadow.level-5.trail-of-cinders",
+      "shadow.college.5.sled-pepla",
     );
   });
 
@@ -721,21 +706,21 @@ describe("Тень: видимый текст без внутренних имё
 
   it("«Теневая форма» — точная заметка, а не постоянный иммунитет", () => {
     for (const id of [
-      "feature.shadow.level-6.umbral-form",
-      "feature.shadow.level-10.improved-umbral-form",
+      "shadow.feature.6.tenevaya-forma",
+      "shadow.feature.10.uluchshennaya-tenevaya-forma",
     ]) {
       const mechanics = mechanicsFor(id);
       expect(mechanics?.effects, id).toBeUndefined();
       expect(mechanics?.notes, id).toBeTruthy();
     }
-    expect(mechanicsFor("feature.shadow.level-6.umbral-form")?.notes).toContain(
+    expect(mechanicsFor("shadow.feature.6.tenevaya-forma")?.notes).toContain(
       "5 + ваш уровень",
     );
-    expect(mechanicsFor("feature.shadow.level-6.umbral-form")?.notes).toContain(
+    expect(mechanicsFor("shadow.feature.6.tenevaya-forma")?.notes).toContain(
       "Лист не переключает форму",
     );
     expect(
-      mechanicsFor("feature.shadow.level-10.improved-umbral-form")?.notes,
+      mechanicsFor("shadow.feature.10.uluchshennaya-tenevaya-forma")?.notes,
     ).toContain("покров");
   });
 
@@ -743,17 +728,17 @@ describe("Тень: видимый текст без внутренних имё
     const cases = [
       {
         college: "Коллегия Черного Пепла",
-        featureId: "feature.ability.shadow.level-1.in-all-this-confusion",
+        featureId: "shadow.college.1.vo-vsey-etoy-nerazberikhe",
         event: "take-damage",
       },
       {
         college: "Коллегия Едкой Алхимии",
-        featureId: "feature.ability.shadow.level-1.defensive-roll",
+        featureId: "shadow.college.1.zashchitnyy-perekat",
         event: "take-damage",
       },
       {
         college: "Коллегия Маски Арлекина",
-        featureId: "feature.ability.shadow.level-1.clever-trick",
+        featureId: "shadow.college.1.umnyy-tryuk",
         event: "use-ability",
       },
     ] as const;

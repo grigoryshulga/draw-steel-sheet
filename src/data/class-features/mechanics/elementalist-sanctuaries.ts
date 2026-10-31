@@ -10,7 +10,7 @@ export const ELEMENTALIST_SANCTUARY_MECHANICS: Record<
   string,
   FeatureMechanics
 > = {
-  "feature.elementalist.level-1.ward-of-delightful-consequences": {
+  "elementalist.feature.1.obereg-voskhititelnykh-posledstviy": {
     kinds: ["trigger"],
     when: { keyValue: ["Оберег восхитительных последствий"] },
     trigger: {
@@ -23,7 +23,7 @@ export const ELEMENTALIST_SANCTUARY_MECHANICS: Record<
       "Всплеск начисляется вручную: лист не хранит счётчик всплесков. " +
       "Напоминание срабатывает только первый раз за раунд.",
   },
-  "feature.elementalist.level-1.ward-of-excellent-protection": {
+  "elementalist.feature.1.obereg-prevoskhodnoy-zashchity": {
     kinds: ["bonus", "immunity"],
     when: { keyValue: ["Оберег превосходной защиты"] },
     effects: [
@@ -38,7 +38,7 @@ export const ELEMENTALIST_SANCTUARY_MECHANICS: Record<
       "звуком равен показателю Разума. Лист показывает число, но урон не " +
       "уменьшает: применяется вручную.",
   },
-  "feature.elementalist.level-1.ward-of-natures-affection": {
+  "elementalist.feature.1.obereg-privyazannosti-prirody": {
     kinds: ["trigger"],
     when: { keyValue: ["Оберег привязанности природы"] },
     trigger: {
@@ -53,7 +53,7 @@ export const ELEMENTALIST_SANCTUARY_MECHANICS: Record<
       "Расстояние швыряния и выбор цели применяются вручную: лист не двигает " +
       "существ и не проверяет дистанцию до источника урона.",
   },
-  "feature.elementalist.level-1.ward-of-surprising-reactivity": {
+  "elementalist.feature.1.obereg-udivitelnoy-reaktivnosti": {
     kinds: ["trigger"],
     when: { keyValue: ["Оберег удивительной реактивности"] },
     trigger: {

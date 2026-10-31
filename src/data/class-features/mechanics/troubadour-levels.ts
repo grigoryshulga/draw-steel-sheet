@@ -12,7 +12,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень
-  "feature.troubadour.level-2.appeal-to-the-muses": {
+  "troubadour.feature.2.obrashchenie-k-muzam": {
     kinds: ["situational"],
     notes:
       "Перед броском драмы в начале своего хода герой может без действия " +
@@ -23,7 +23,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "героем и союзниками в пределах расстояния. Ресурс союзника и Раздор лист " +
       "не начисляет.",
   },
-  "feature.troubadour.level-2.invocation": {
+  "troubadour.feature.2.prizvanie": {
     kinds: ["choice"],
     choice: {
       group: "troubadour.calling",
@@ -51,7 +51,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "отдельного вопроса при повышении уровня нет — выберите значение в " +
       "панели листа.",
   },
-  "feature.troubadour.level-2.allow-me-to-introduce-tonights-players": {
+  "troubadour.feature.2.pozvolte-predstavit-segodnyashnikh-akterov": {
     kinds: ["situational"],
     when: { keyValue: ["Позвольте представить сегодняшних актеров"] },
     notes:
@@ -61,7 +61,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "Любой застигнутый врасплох враг больше не застигнут врасплох. Лист не " +
       "хранит первый ход и состояния.",
   },
-  "feature.troubadour.level-2.formal-introductions": {
+  "troubadour.feature.2.ofitsialnye-predstavleniya": {
     kinds: ["situational"],
     when: { keyValue: ["Официальные представления"] },
     notes:
@@ -72,7 +72,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "герои начинают каждую такую встречу с 2 дополнительными жетонами героя, " +
       "исчезающими в конце встречи. Уведомление и жетоны лист не хранит.",
   },
-  "feature.troubadour.level-2.my-reputation-precedes-me": {
+  "troubadour.feature.2.moya-reputatsiya-operezhaet-menya": {
     kinds: ["situational"],
     when: { keyValue: ["Моя репутация опережает меня"] },
     notes:
@@ -85,7 +85,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "помеху на межличностные тесты с этой группой. Связи и Славу лист не " +
       "хранит.",
   },
-  "feature.troubadour.level-2.2nd-level-class-act-ability": {
+  "troubadour.feature.2.sposobnost-amplua-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт на выбор одну из двух героических способностей " +
@@ -94,14 +94,14 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "feature.troubadour.level-3.3rd-level-class-act-feature": {
+  "troubadour.feature.3.osobennost-amplua-3-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт особенность 3-го уровня по таблице. Автор — " +
       "Пропущенная реплика, Дуэлянт — Оппонент, Виртуоз — Второй альбом. " +
       "Механику дают вложенные записи выбранного амплуа.",
   },
-  "feature.troubadour.level-3.7-drama-ability": {
+  "troubadour.feature.3.sposobnost-za-7-dramy": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 драмы: " +
@@ -111,14 +111,14 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "feature.troubadour.level-4.characteristic-increase": {
+  "troubadour.feature.4.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Ловкость и Присутствие увеличиваются до 3. Повышение уровня уже " +
       "применяет изменение; аддитивного эффекта здесь нет, иначе характеристики " +
       "выросли бы дважды.",
   },
-  "feature.troubadour.level-4.melodrama": {
+  "troubadour.feature.4.melodrama": {
     kinds: ["situational"],
     notes:
       "Герой выбирает два события, добавляющие драму: натуральная 2 на броске " +
@@ -131,21 +131,21 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "выбор лист не хранит и отдельных прибавок не создаёт, чтобы драма не " +
       "начислялась дважды.",
   },
-  "feature.troubadour.level-4.zeitgeist": {
+  "troubadour.feature.4.dukh-vremeni": {
     kinds: ["situational"],
     notes:
       "В начале или в конце отдыха герой выбирает один эффект: «Предзнаменование», " +
       "«Слушайте, слушайте!» или «Свежие сплетни». Механику дают вложенные " +
       "записи; выбранный эффект лист не хранит.",
   },
-  "feature.troubadour.level-4.foreshadowing": {
+  "troubadour.feature.4.predznamenovanie": {
     kinds: ["situational"],
     notes:
       "Герой может попросить Ведущего дать две подсказки о предстоящей встрече " +
       "или переговорах; одна из них может быть ложной. Подсказки лист не " +
       "хранит.",
   },
-  "feature.troubadour.level-4.hear-ye-hear-ye": {
+  "troubadour.feature.4.slushayte-slushayte": {
     kinds: ["situational"],
     notes:
       "Навыком межличностной группы герой распространяет информацию по " +
@@ -156,7 +156,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "Восстановление; 17+ — ещё и до следующей такой территории, а " +
       "преимущество длится до начала следующего отдыха.",
   },
-  "feature.troubadour.level-4.latest-goss": {
+  "troubadour.feature.4.svezhie-spletni": {
     kinds: ["situational"],
     notes:
       "Герой может попросить Ведущего рассказать три слуха о текущей местности " +
@@ -165,7 +165,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.troubadour.level-5.5th-level-class-act-feature": {
+  "troubadour.feature.5.osobennost-amplua-5-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт на выбор одну из двух особенностей 5-го уровня. " +
@@ -173,7 +173,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "дуэль или Нас не затмить!; Виртуоз — Поддерживающая перепалка или Медли. " +
       "Механику дают вложенные записи выбранного амплуа.",
   },
-  "feature.troubadour.level-5.9-drama-ability": {
+  "troubadour.feature.5.sposobnost-za-9-dramy": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 драмы: Герой " +
@@ -183,7 +183,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.troubadour.level-6.spotlight": {
+  "troubadour.feature.6.v-luchakh-prozhektora": {
     kinds: ["grant"],
     notes:
       "Выступление «В лучах прожектора» выдаётся на 6-м уровне и описано " +
@@ -191,7 +191,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "получает 1 героический ресурс, который исчезает в конце её хода, если не " +
       "потрачен. Карточку выдаёт повышение уровня, в механике она только названа.",
   },
-  "feature.troubadour.level-6.6th-level-class-act-ability": {
+  "troubadour.feature.6.sposobnost-amplua-6-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт на выбор одну из двух героических способностей " +
@@ -200,14 +200,14 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "feature.troubadour.level-7.characteristic-increase": {
+  "troubadour.feature.7.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "feature.troubadour.level-7.equal-billing": {
+  "troubadour.feature.7.ravnyy-billing": {
     kinds: ["situational"],
     notes:
       "Особенностью «Партнер по сцене» герой может связать себя с одним " +
@@ -217,7 +217,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "каждое связанное существо получают временную выносливость, равную уровню " +
       "героя. Связи, спасброски и временную выносливость лист не хранит.",
   },
-  "feature.troubadour.level-7.a-muses-muse": {
+  "troubadour.feature.7.muza-muzy": {
     kinds: ["resourceGain"],
     resource: {
       name: "Драма",
@@ -239,14 +239,14 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.troubadour.level-8.8th-level-class-act-feature": {
+  "troubadour.feature.8.osobennost-amplua-8-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт особенность 8-го уровня по таблице. Автор — " +
       "Вырезанная сцена, Дуэлянт — Шедевр, Виртуоз — Любимцы публики. Механику " +
       "дают вложенные записи выбранного амплуа.",
   },
-  "feature.troubadour.level-8.11-drama-ability": {
+  "troubadour.feature.8.sposobnost-za-11-dramy": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 драмы: " +
@@ -256,7 +256,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.troubadour.level-9.roar-of-the-crowd": {
+  "troubadour.feature.9.rev-tolpy": {
     kinds: ["situational"],
     notes:
       "Герой не может получить испуг, а если он лежит, то встаёт свободным " +
@@ -266,7 +266,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "сцене» + большее из двух: Победы героя или число игроков. Формулу и " +
       "трату лист не считает.",
   },
-  "feature.troubadour.level-9.9th-level-class-act-ability": {
+  "troubadour.feature.9.sposobnost-amplua-9-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт на выбор одну из двух героических способностей " +
@@ -275,14 +275,14 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 10-й уровень
-  "feature.troubadour.level-10.characteristic-increase": {
+  "troubadour.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Ловкость и Присутствие увеличиваются до 5. Повышение уровня уже " +
       "применяет изменение; аддитивного эффекта здесь нет, иначе характеристики " +
       "выросли бы дважды.",
   },
-  "feature.troubadour.level-10.dramaturgy": {
+  "troubadour.feature.10.dramaturgiya": {
     kinds: ["situational"],
     notes:
       "За каждое использование «Обращения к музам» герой получает 1 " +
@@ -291,7 +291,7 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "встречи в пределах линии воздействия. Дополнительный ресурс и расстояние " +
       "лист не считает.",
   },
-  "feature.troubadour.level-10.greatest-of-all-time": {
+  "troubadour.feature.10.velichayshiy-vsekh-vremen": {
     kinds: ["situational"],
     notes:
       "При успехе в тесте каждый НПС в линии воздействия уменьшает Впечатление " +
@@ -305,20 +305,20 @@ export const TROUBADOUR_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
  * Перки и навыки выбираются из каталога, а не хранятся механикой.
  */
 export const TROUBADOUR_LEVEL_TEXT_ONLY: Record<string, string> = {
-  "feature.troubadour.level-2.perk":
+  "troubadour.feature.2.perk":
     "перк 2-го уровня выбирается из каталога межличностных перков, перков интриги или знаний; механика его не хранит",
-  "feature.troubadour.level-4.perk":
+  "troubadour.feature.4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.troubadour.level-4.skill":
+  "troubadour.feature.4.navyk":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.troubadour.level-6.perk":
+  "troubadour.feature.6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.troubadour.level-7.skill":
+  "troubadour.feature.7.navyk":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.troubadour.level-8.perk":
+  "troubadour.feature.8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.troubadour.level-10.perk":
+  "troubadour.feature.10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.troubadour.level-10.skill":
+  "troubadour.feature.10.navyk":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

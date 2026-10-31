@@ -13,7 +13,7 @@ import type { FeatureMechanics } from "../types";
  * псионической медитацией как деятельностью отдыха.
  */
 export const NULL_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
-  "feature.null.level-1.psionic-augmentation": {
+  "null.feature.1.psionicheskaya-augmentatsiya": {
     kinds: ["choice", "grant"],
     choice: {
       group: "null.augmentation",
@@ -39,7 +39,7 @@ export const NULL_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "вложенных особенностей, а сохранённые выборы прежних листов " +
       "продолжают работать. Быстрый билд: Аугментация скорости.",
   },
-  "feature.null.level-1.density-augmentation": {
+  "null.feature.1.augmentatsiya-plotnosti-density-augmentation": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация плотности (Density Augmentation)"] },
     effects: [
@@ -52,7 +52,7 @@ export const NULL_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "считается по эшелону так же, как у родственных аугментаций. Числа " +
       "перенесены из старой опции без изменений.",
   },
-  "feature.null.level-1.force-augmentation": {
+  "null.feature.1.augmentatsiya-sily-force-augmentation": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация силы (Force Augmentation)"] },
     effects: [
@@ -68,7 +68,7 @@ export const NULL_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "урону. Бонус не применяется к способности без броска силы с числовым " +
       "уроном: так же считает и остальной лист.",
   },
-  "feature.null.level-1.speed-augmentation": {
+  "null.feature.1.augmentatsiya-skorosti-speed-augmentation": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация скорости (Speed Augmentation)"] },
     effects: [

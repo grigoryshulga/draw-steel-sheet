@@ -209,19 +209,19 @@ describe("Элементалист: панель и выборы", () => {
     });
     const ids = activeIds(enchantmentWithSanctuary);
     expect(ids).not.toContain(
-      "feature.elementalist.level-1.ward-of-excellent-protection",
+      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
     );
-    expect(ids).not.toContain("feature.elementalist.level-1.enchantment-of-battle");
+    expect(ids).not.toContain("elementalist.feature.1.zacharovanie-bitvy");
 
     const sanctuaryWithEnchantment = elementalist(1, {
       "elementalist.sanctuary": "Зачарование дистанции",
     });
     const reverse = activeIds(sanctuaryWithEnchantment);
     expect(reverse).not.toContain(
-      "feature.elementalist.level-1.enchantment-of-distance",
+      "elementalist.feature.1.zacharovanie-distantsii",
     );
     expect(reverse).not.toContain(
-      "feature.elementalist.level-1.ward-of-excellent-protection",
+      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
     );
   });
 
@@ -236,7 +236,7 @@ describe("Элементалист: панель и выборы", () => {
       "elementalist.sanctuary": "elementalist.sanctuary.reactivity",
     });
     expect(activeIds(selected)).toContain(
-      "feature.elementalist.level-1.ward-of-surprising-reactivity",
+      "elementalist.feature.1.obereg-udivitelnoy-reaktivnosti",
     );
   });
 });
@@ -288,8 +288,8 @@ describe("Элементалист: старый лист и автоматиз�
     const hero = elementalist(1);
     const ids = activeIds(hero);
     for (const id of [
-      "feature.elementalist.level-1.enchantment-of-battle",
-      "feature.elementalist.level-1.ward-of-excellent-protection",
+      "elementalist.feature.1.zacharovanie-bitvy",
+      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
     ]) {
       expect(ids).not.toContain(id);
     }
@@ -311,10 +311,10 @@ describe("Элементалист: старый лист и автоматиз�
       automation: { ...hero.automation!, enabled: false },
     };
     expect(activeIds(off)).toContain(
-      "feature.elementalist.level-1.enchantment-of-permanence",
+      "elementalist.feature.1.zacharovanie-postoyanstva",
     );
     expect(activeIds(off)).toContain(
-      "feature.elementalist.level-2.disciple-of-earth",
+      "elementalist.specialization.2.uchenik-zemli",
     );
     expect(
       classFeatureChoicesForSheet(off).some(

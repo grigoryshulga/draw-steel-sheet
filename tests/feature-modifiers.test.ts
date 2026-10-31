@@ -83,7 +83,7 @@ describe("Class feature stat contributions", () => {
     const character = hero("Талант", level, DENSITY_CHOICE);
     expect(featureStatContributions(character, "stamina")).toEqual([
       {
-        sourceId: "feature.talent.level-1.density-augmentation",
+        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
         sourceName: "Аугментация плотности",
         value: expected,
       },
@@ -100,7 +100,7 @@ describe("Class feature stat contributions", () => {
     expect(featureStatContributions(character, "stamina")).toEqual([
       {
         sourceId:
-          "feature.null.level-1.density-augmentation",
+          "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 12,
       },
@@ -114,7 +114,7 @@ describe("Class feature stat contributions", () => {
       });
       expect(featureStatContributions(character, "speed")).toEqual([
         {
-          sourceId: "feature.talent.level-1.speed-augmentation",
+          sourceId: "talent.feature.1.augmentatsiya-skorosti",
           sourceName: "Аугментация скорости",
           value: 1,
         },
@@ -131,7 +131,7 @@ describe("Class feature stat contributions", () => {
     });
     expect(featureStatContributions(character, "save")).toEqual([
       {
-        sourceId: "feature.conduit.level-1.bastion-ward",
+        sourceId: "conduit.feature.1.obereg-bastiona",
         sourceName: "Оберег бастиона",
         value: 1,
       },
@@ -163,7 +163,7 @@ describe("Class feature damage contributions", () => {
     const spell = ability({ keywords: ["Магия"] });
     expect(featureAbilityDamageContributions(spell, magicHero())).toEqual([
       {
-        sourceId: "feature.conduit.level-1.prayer-of-destruction",
+        sourceId: "conduit.feature.1.molitva-o-razrushenii",
         sourceName: "Молитва о разрушении",
         value: 1,
       },
@@ -236,7 +236,7 @@ describe("Class feature distance contributions", () => {
     expect(featureAbilityDistanceContributions(spell, rangedMagicHero())).toEqual(
       [
         {
-          sourceId: "feature.elementalist.level-1.enchantment-of-distance",
+          sourceId: "elementalist.feature.1.zacharovanie-distantsii",
           sourceName: "Зачарование дистанции",
           value: 2,
         },
@@ -336,7 +336,7 @@ describe("Class feature activation rules", () => {
 
   it("keeps conditional options inert without equipment flags", () => {
     const elementalistBattle = mechanicsFor(
-      "feature.elementalist.level-1.enchantment-of-battle",
+      "elementalist.feature.1.zacharovanie-bitvy",
     );
     const elementalistBattleFields =
       elementalistBattle?.effects?.filter((effect) => effect.kind === "field") ??
@@ -348,7 +348,7 @@ describe("Class feature activation rules", () => {
       ),
     ).toBe(true);
 
-    const talentBattle = mechanicsFor("feature.talent.level-1.battle-augmentation");
+    const talentBattle = mechanicsFor("talent.feature.1.boevaya-augmentatsiya");
     const talentBattleFields =
       talentBattle?.effects?.filter((effect) => effect.kind === "field") ?? [];
     expect(talentBattleFields).toHaveLength(2);
@@ -357,7 +357,7 @@ describe("Class feature activation rules", () => {
         (effect) => effect.kind === "field" && effect.when?.equipment,
       ),
     ).toBe(true);
-    const conduitSoldier = mechanicsFor("feature.conduit.level-1.prayer-of-soldiers-skill");
+    const conduitSoldier = mechanicsFor("conduit.feature.1.molitva-o-masterstve-soldata");
     expect(conduitSoldier?.effects).toHaveLength(3);
     expect(conduitSoldier?.effects?.filter((effect) => effect.kind === "field").every((effect) => effect.when)).toBe(true);
 
@@ -380,14 +380,14 @@ describe("Class feature activation rules", () => {
 
   it("leaves reactive and immunity options manual without automatic effects", () => {
     for (const id of [
-      "feature.talent.level-1.entropy-ward",
-      "feature.talent.level-1.steel-ward",
+      "talent.feature.1.obereg-entropii",
+      "talent.feature.1.stalnoy-obereg",
     ]) {
       const mechanics = mechanicsFor(id);
       expect(mechanics?.effects, id).toBeUndefined();
       expect(mechanics?.trigger, id).toBeTruthy();
     }
-    const conduitReaction = mechanicsFor("feature.conduit.level-1.quickness-ward");
+    const conduitReaction = mechanicsFor("conduit.feature.1.obereg-reaktsii");
     expect(conduitReaction?.effects).toBeUndefined();
     expect(conduitReaction?.trigger?.detail).toContain("смежное существо");
 

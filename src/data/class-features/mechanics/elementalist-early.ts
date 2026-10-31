@@ -12,7 +12,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень
-  "feature.elementalist.level-2.2nd-level-specialization-feature": {
+  "elementalist.feature.2.osobennost-spetsializatsii-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт одну особенность 2-го уровня по таблице. " +
@@ -20,7 +20,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Пустота — Между нами нет пространства. Механику дают вложенные записи, " +
       "размеченные по специализации.",
   },
-  "feature.elementalist.level-2.disciple-of-earth": {
+  "elementalist.specialization.2.uchenik-zemli": {
     kinds: ["bonus"],
     effects: [
       { kind: "field", field: "stamina", value: 0, perLevel: 3 },
@@ -30,7 +30,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "героя: 9 на 3-м, 30 на 10-м. Прибавка считается от уровня героя, " +
       "сохранённая Выносливость листа не меняется.",
   },
-  "feature.elementalist.level-2.disciple-of-fire": {
+  "elementalist.specialization.2.uchenik-ognya": {
     kinds: ["bonus", "immunity"],
     effects: [
       {
@@ -46,7 +46,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Всплески на старте боевой встречи и замену их урона огнём игрок ведёт " +
       "вручную.",
   },
-  "feature.elementalist.level-2.disciple-of-the-green": {
+  "elementalist.specialization.2.uchenik-zeleni": {
     kinds: ["situational"],
     notes:
       "Маневром герой превращается в животное из таблицы животных форм зелени. " +
@@ -55,7 +55,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "истинную форму. Выбор животного, внешний вид, форма и временная " +
       "Выносливость ведутся вручную: лист их не хранит.",
   },
-  "feature.elementalist.level-2.there-is-no-space-between": {
+  "elementalist.specialization.2.mezhdu-nami-net-prostranstva": {
     kinds: ["grant"],
     notes:
       "Способность «Между Нами Нет Пространства» приходит вместе со " +
@@ -63,7 +63,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "два портала 1×1, через которые можно телепортироваться. Позиции порталов " +
       "и их число лист не хранит — эффект ведётся на карточке.",
   },
-  "feature.elementalist.level-2.new-5-essence-ability": {
+  "elementalist.feature.2.novaya-sposobnost-za-5-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 эссенции: " +
@@ -74,7 +74,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "feature.elementalist.level-3.3rd-level-specialization-feature": {
+  "elementalist.feature.3.osobennost-spetsializatsii-3-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт одну особенность 3-го уровня по таблице. " +
@@ -82,7 +82,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "рост, солнце и дождь, Пустота — Расстояние — это лишь память. Механику " +
       "дают вложенные записи, размеченные по специализации.",
   },
-  "feature.elementalist.level-3.a-conversation-with-fire": {
+  "elementalist.specialization.3.razgovor-s-ognem": {
     kinds: ["situational"],
     notes:
       "После непрерывной минуты перед огнём герой называет имя существа; если " +
@@ -90,14 +90,14 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "друг друга, как при личной встрече. Разговор заканчивается маневром. " +
       "Лист не ведёт разговоры — правило применяется вручную.",
   },
-  "feature.elementalist.level-3.distance-is-only-memory": {
+  "elementalist.specialization.3.rasstoyanie-eto-lish-pamyat": {
     kinds: ["situational"],
     notes:
       "Завершая отдых, герой может открыть двусторонний портал в любое место, " +
       "где уже бывал. Портал остаётся открытым 1 час или до закрытия основным " +
       "действием. Лист не хранит места и порталы — правило применяется вручную.",
   },
-  "feature.elementalist.level-3.earth-accepts-me": {
+  "elementalist.specialization.3.zemlya-prinimaet-menya": {
     kinds: ["grant"],
     notes:
       "Способность «Земля Принимает Меня» приходит вместе со специализацией " +
@@ -105,7 +105,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "земли, металла или камня и может оставаться внутри, наблюдая и говоря, " +
       "но без линии воздействия. Эффект ведётся на карточке.",
   },
-  "feature.elementalist.level-3.remember-growth-and-sun-and-rain": {
+  "elementalist.specialization.3.vspomni-rost-solntse-i-dozhd": {
     kinds: ["grant"],
     notes:
       "Способность «Вспомни Рост, Солнце И Дождь» приходит вместе со " +
@@ -113,7 +113,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "деревянного объекта показывает события последних 12 часов в 10 клетках " +
       "от него. Эффект ведётся на карточке.",
   },
-  "feature.elementalist.level-3.7-essence-ability": {
+  "elementalist.feature.3.sposobnost-za-7-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 эссенции: " +
@@ -123,14 +123,14 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "feature.elementalist.level-4.characteristic-increase": {
+  "elementalist.feature.4.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Разум поднимается до 3, и ещё одна характеристика по выбору — до 3. " +
       "Повышение уже применяет левел-ап; аддитивный эффект здесь задвоил бы " +
       "изменение, поэтому его нет.",
   },
-  "feature.elementalist.level-4.font-of-essence": {
+  "elementalist.feature.4.istochnik-essentsii": {
     kinds: ["resourceGain"],
     resource: {
       name: "Эссенция",
@@ -151,7 +151,7 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "в 10 клетках получает урон, не являющийся нетиповым или святым, он " +
       "получает 2 эссенции вместо 1. Отдельная строка ресурса не остаётся.",
   },
-  "feature.elementalist.level-4.mantle-of-essence": {
+  "elementalist.feature.4.mantiya-essentsii": {
     kinds: ["situational"],
     notes:
       "Пока у героя 3+ эссенции и он не при смерти, он излучает ауру радиусом, " +
@@ -160,28 +160,28 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Включённая аура и её радиус ведутся вручную: лист не хранит это " +
       "состояние.",
   },
-  "feature.elementalist.level-4.burning-grounds": {
+  "elementalist.specialization.4.goryashchie-zemli": {
     kinds: ["situational"],
     notes:
       "Пока аура мантии включена, в конце каждого своего хода каждый враг в " +
       "области получает урон огнём, равный показателю Разума. Урон применяется " +
       "вручную: лист не хранит положение врагов и включённую ауру.",
   },
-  "feature.elementalist.level-4.flowering-bed": {
+  "elementalist.specialization.4.tsvetushchaya-klumba": {
     kinds: ["situational"],
     notes:
       "Пока аура мантии включена, в конце каждого своего хода каждый союзник в " +
       "области получает временную Выносливость, равную показателю Разума. " +
       "Временная Выносливость и область ведутся вручную.",
   },
-  "feature.elementalist.level-4.quaking-earth": {
+  "elementalist.specialization.4.sotryasayushchayasya-zemlya": {
     kinds: ["situational"],
     notes:
       "Пока аура мантии включена, в конце каждого своего хода герой может " +
       "совершить толчок каждого врага в области вплоть до числа клеток, равного " +
       "показателю Разума. Толчок применяется вручную: лист не двигает существ.",
   },
-  "feature.elementalist.level-4.veiling-bed": {
+  "elementalist.specialization.4.sokryvayushchaya-postel": {
     kinds: ["situational"],
     notes:
       "Пока аура мантии включена, область даёт покров герою и его союзникам. " +
@@ -194,10 +194,10 @@ export const ELEMENTALIST_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
  * 5–10 живут в `elementalist-late.ts` и `elementalist-specializations-late.ts`.
  */
 export const ELEMENTALIST_EARLY_TEXT_ONLY: Record<string, string> = {
-  "feature.elementalist.level-2.perk":
+  "elementalist.feature.2.perk":
     "перк 2-го уровня выбирается из каталога перков (ремесленный, знаний или сверхъестественный); механика его не хранит",
-  "feature.elementalist.level-4.perk":
+  "elementalist.feature.4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.elementalist.level-4.skill":
+  "elementalist.feature.4.navyk":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
 };

@@ -1,23 +1,27 @@
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { LibraryHeader } from "../components/LibraryHeader";
 import { CATALOG } from "../data/library";
 import { CatalogAction } from "../components/CatalogAction";
-import raw from "../data/codex.generated.json";
-import {
-  catalogLink,
-  headingId,
-  readCodexLocation,
-  resolveCodexArticle,
-  searchText,
-  type RuleArticle,
-} from "../lib/codex";
-import { RuleText } from "../components/RuleText";
+import { catalogLink, readCodexLocation } from "../lib/codex";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
 import { ArtworkFigure } from "../components/Artwork";
 import { artForArticle } from "../lib/art";
+import {
+  loadRuleArticle,
+  loadRuleSearchIndex,
+  resolveRuleIndexEntry,
+  ruleIndex,
+} from "../rules/repository";
+import type { RuleArticle, RuleEntity, RuleSearchIndex } from "../rules/schema";
+import {
+  createRuleSearcher,
+  createSearchSequencer,
+  normalizeSearchText,
+  type RuleSearchOptions,
+} from "../rules/search";
+import { RuleArticleContent } from "../components/rules/RuleArticle";
 
-const articles: RuleArticle[] = raw;
 const chapterCatalog = (chapter: string) =>
   chapter.startsWith("18.")
     ? "treasure"
@@ -26,10 +30,18 @@ const chapterCatalog = (chapter: string) =>
       : chapter.startsWith("16.")
         ? "project"
         : "";
-const chapters = [...new Set(articles.map((a) => a.chapter))];
-const searchable = articles.map((a) =>
-  searchText(`${a.title} ${a.group} ${a.markdown}`),
-);
+const chapters = [...new Set(ruleIndex.map((article) => article.chapter))];
+
+interface LoadedArticle {
+  article: RuleArticle;
+  entities: Record<string, RuleEntity>;
+}
+
+type ArticleContent =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "ready"; entryId: string; data: LoadedArticle }
+  | { status: "error"; entryId: string; message: string };
 
 function readBookmarks(): string[] {
   try {
@@ -44,62 +56,161 @@ function readBookmarks(): string[] {
   }
 }
 
+function headingLabel(title: string): string {
+  return title.replace(/\*\*/g, "").trim();
+}
+
+function isEmptyArticle(article: RuleArticle): boolean {
+  return article.blocks.every(
+    (block) => block.type === "markdown" && !block.text.trim(),
+  );
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "Неизвестная ошибка загрузки.";
+}
+
 export function CodexView() {
   const [location, setLocation] = useState(readCodexLocation);
   const [query, setQuery] = useState("");
-  const needle = searchText(useDeferredValue(query).trim());
+  const needle = normalizeSearchText(useDeferredValue(query));
 
   const [bookmarks, setBookmarks] = useState(readBookmarks);
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
-  const article = resolveCodexArticle(articles, location);
-  const chapter = article?.chapter || location.chapter;
-  const group = article?.group || location.group;
-  const siblings = articles.filter(
-    (a) => a.chapter === chapter && a.group === group,
+  const [content, setContent] = useState<ArticleContent>({ status: "idle" });
+  const [attempt, setAttempt] = useState(0);
+  // Полный поисковый корпус приходит отдельным чанком только при первом поиске.
+  const [searchCorpus, setSearchCorpus] = useState<RuleSearchIndex | null>(
+    null,
   );
-  const position = article ? siblings.indexOf(article) : -1;
-  const headings = [
-    ...(article?.markdown || "").matchAll(/^(#{1,6})\s+(.+)$/gm),
-  ].map((m) => ({
-    title: m[2].replace(/\*\*/g, ""),
-    id: headingId(m[2]),
-    level: m[1].length,
-  }));
+  const [searchStatus, setSearchStatus] = useState<
+    "idle" | "loading" | "ready" | "error"
+  >("idle");
+  const [searchFailure, setSearchFailure] = useState("");
+  const [searchAttempt, setSearchAttempt] = useState(0);
+  const sequencer = useRef(createSearchSequencer());
+  const searcher = useMemo(
+    () => (searchCorpus ? createRuleSearcher(ruleIndex, searchCorpus) : null),
+    [searchCorpus],
+  );
+  const entry = useMemo(
+    () => resolveRuleIndexEntry(ruleIndex, location),
+    [location],
+  );
+  const entryId = entry?.id ?? "";
+  const missingArticle = Boolean(location.articleId) && !entry;
+  const chapter = entry?.chapter || location.chapter;
+  const group = entry?.group || location.group;
+  const siblings = entry
+    ? ruleIndex.filter(
+        (item) => item.chapter === entry.chapter && item.group === entry.group,
+      )
+    : [];
+  const position = entry
+    ? siblings.findIndex((item) => item.id === entry.id)
+    : -1;
+  const headings = entry?.headings ?? [];
+  const loaded =
+    content.status === "ready" && content.entryId === entryId
+      ? content.data
+      : undefined;
+  const failure =
+    content.status === "error" && content.entryId === entryId
+      ? content
+      : undefined;
+  const loading = Boolean(entry) && !loaded && !failure;
+
   const browse = (c = "", g = "") => {
     setQuery("");
     setOnlyBookmarks(false);
     window.location.hash = catalogLink(c, g);
   };
-  const results = useMemo(
+  useEffect(() => {
+    if (!needle || searchCorpus) return;
+    const token = sequencer.current.begin();
+    let active = true;
+    setSearchStatus("loading");
+    setSearchFailure("");
+    loadRuleSearchIndex().then(
+      (index) => {
+        // Поздний ответ на прежний запрос не должен перезаписать новый.
+        if (!active || !sequencer.current.isCurrent(token)) return;
+        setSearchCorpus(index);
+        setSearchStatus("ready");
+      },
+      (error: unknown) => {
+        if (!active || !sequencer.current.isCurrent(token)) return;
+        setSearchFailure(errorMessage(error));
+        setSearchStatus("error");
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [needle, searchCorpus, searchAttempt]);
+
+  const searchMatches = useMemo(
     () =>
-      articles
-        .filter(
-          (a, i) =>
-            (needle || onlyBookmarks || !chapter || a.chapter === chapter) &&
-            (needle || onlyBookmarks || !group || a.group === group) &&
-            (!onlyBookmarks || bookmarks.includes(a.id)) &&
-            (!needle ||
-              needle
-                .split(/\s+/)
-                .every((word) => searchable[i].includes(word))),
-        )
-        .sort((a, b) => {
-          if (!needle) return 0;
-          const relevance = (article: RuleArticle) => {
-            const title = searchText(article.title);
-            return (
-              (title === needle ? 10 : title.includes(needle) ? 5 : 0) +
-              (searchText(article.group).includes(needle) ? 2 : 0)
-            );
-          };
-          return relevance(b) - relevance(a);
-        }),
-    [chapter, group, onlyBookmarks, bookmarks, needle],
+      searcher && needle
+        ? searcher.search(needle, {
+            chapter: chapter || undefined,
+            group: group || undefined,
+            bookmarks,
+            onlyBookmarks,
+          } satisfies RuleSearchOptions)
+        : [],
+    [searcher, needle, chapter, group, bookmarks, onlyBookmarks],
   );
+  const bookmarkEntries = useMemo(
+    () =>
+      onlyBookmarks
+        ? ruleIndex.filter((article) => bookmarks.includes(article.id))
+        : [],
+    [onlyBookmarks, bookmarks],
+  );
+  const resultEntries = needle
+    ? searchMatches.map((match) => match.entry)
+    : bookmarkEntries;
+  const excerptById = useMemo(
+    () =>
+      new Map(searchMatches.map((match) => [match.entry.id, match.excerpt])),
+    [searchMatches],
+  );
+  // Пока корпус не загружен, список не должен выглядеть как «ничего не найдено».
+  const searchPending =
+    Boolean(needle) && !searcher && searchStatus !== "error";
+  const searchFailed =
+    Boolean(needle) && !searcher && searchStatus === "error";
 
   useEffect(() => {
-    if (article?.id === "0102") window.location.replace("#/glossary/");
-  }, [article?.id]);
+    if (!entryId) {
+      setContent({ status: "idle" });
+      return;
+    }
+    let active = true;
+    setContent({ status: "loading" });
+    loadRuleArticle(entryId).then(
+      (data) => {
+        if (active) setContent({ status: "ready", entryId, data });
+      },
+      (error: unknown) => {
+        if (active)
+          setContent({
+            status: "error",
+            entryId,
+            message: errorMessage(error),
+          });
+      },
+    );
+    return () => {
+      // Поздний ответ для покинутой статьи не должен перезаписать новую.
+      active = false;
+    };
+  }, [entryId, attempt]);
+
+  useEffect(() => {
+    if (entryId === "0102") window.location.replace("#/glossary/");
+  }, [entryId]);
   useEffect(() => {
     const change = () => setLocation(readCodexLocation());
     window.addEventListener("hashchange", change);
@@ -108,9 +219,9 @@ export function CodexView() {
   useEffect(() => {
     const target = location.heading
       ? document.getElementById(location.heading)
-      : document.getElementById(article ? "codex-article" : "codex-catalog");
+      : document.getElementById(entry ? "codex-article" : "codex-catalog");
     target?.scrollIntoView({ block: "start" });
-  }, [location, article]);
+  }, [location, entry, loaded]);
   const toggleBookmark = (id: string) =>
     setBookmarks((prev) => {
       const next = prev.includes(id)
@@ -142,7 +253,7 @@ export function CodexView() {
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              if (article) window.location.hash = catalogLink();
+              if (entry) window.location.hash = catalogLink();
             }}
           />
           <div className="codex-nav-tabs">
@@ -167,7 +278,7 @@ export function CodexView() {
           </div>
           <nav aria-label="Оглавление">
             <a
-              className={!chapter && !article ? "is-active" : ""}
+              className={!chapter && !entry ? "is-active" : ""}
               href={catalogLink()}
               onClick={() => browse()}
             >
@@ -187,30 +298,33 @@ export function CodexView() {
                       if (!chapterCatalog(c)) browse(c);
                     }}
                     className={
-                      chapter === c && !group && !article ? "is-active" : ""
+                      chapter === c && !group && !entry ? "is-active" : ""
                     }
                   >
                     {chapterCatalog(c) ? "Открыть каталог" : "Читать главу"}
                   </a>
                   {[
                     ...new Set(
-                      articles
-                        .filter((a) => a.chapter === c)
-                        .map((a) => a.group),
+                      ruleIndex
+                        .filter((article) => article.chapter === c)
+                        .map((article) => article.group),
                     ),
                   ].map((g) => {
-                    const entries = articles.filter(
-                      (a) => a.chapter === c && a.group === g,
+                    const entries = ruleIndex.filter(
+                      (article) =>
+                        article.chapter === c && article.group === g,
                     );
-                    const links = entries.map((a) => (
+                    const links = entries.map((article) => (
                       <a
-                        key={a.id}
+                        key={article.id}
                         href={
-                          a.id === "0102" ? "#/glossary/" : `#/codex/${a.id}`
+                          article.id === "0102"
+                            ? "#/glossary/"
+                            : `#/codex/${article.id}`
                         }
-                        aria-current={article?.id === a.id ? "page" : undefined}
+                        aria-current={entry?.id === article.id ? "page" : undefined}
                       >
-                        {a.title}
+                        {article.title}
                       </a>
                     ));
                     return g ? (
@@ -224,7 +338,7 @@ export function CodexView() {
                             href={catalogLink(c, g)}
                             onClick={() => browse(c, g)}
                             className={
-                              chapter === c && group === g && !article
+                              chapter === c && group === g && !entry
                                 ? "is-active"
                                 : ""
                             }
@@ -252,7 +366,7 @@ export function CodexView() {
           </a>
         </aside>
         <div className="codex-main">
-          {article ? (
+          {entry ? (
             <>
               <Button
                 variant="ghost"
@@ -288,17 +402,14 @@ export function CodexView() {
                   )}
                 </nav>
                 <header className="codex-article-head">
-                  <h1>{article.title}</h1>
-                  {article.originalName && (
-                    <p className="codex-original-title">{article.originalName}</p>
-                  )}
+                  <h1>{entry.title}</h1>
                   <Button
                     size="sm"
-                    variant={bookmarks.includes(article.id) ? "soft" : "ghost"}
-                    aria-pressed={bookmarks.includes(article.id)}
-                    onClick={() => toggleBookmark(article.id)}
+                    variant={bookmarks.includes(entry.id) ? "soft" : "ghost"}
+                    aria-pressed={bookmarks.includes(entry.id)}
+                    onClick={() => toggleBookmark(entry.id)}
                   >
-                    {bookmarks.includes(article.id)
+                    {bookmarks.includes(entry.id)
                       ? "В закладках"
                       : "В закладки"}
                   </Button>
@@ -309,16 +420,16 @@ export function CodexView() {
                     aria-label="Уровень класса"
                   >
                     <span className="eyebrow">Уровень</span>
-                    {siblings.map((entry) => (
+                    {siblings.map((sibling) => (
                       <a
-                        key={entry.id}
-                        href={`#/codex/${entry.id}`}
+                        key={sibling.id}
+                        href={`#/codex/${sibling.id}`}
                         aria-current={
-                          entry.id === article.id ? "page" : undefined
+                          sibling.id === entry.id ? "page" : undefined
                         }
-                        title={entry.title}
+                        title={sibling.title}
                       >
-                        {entry.title.match(/^(\d+)-й/)?.[1] || entry.title}
+                        {sibling.title.match(/^(\d+)-й/)?.[1] || sibling.title}
                       </a>
                     ))}
                   </nav>
@@ -326,42 +437,58 @@ export function CodexView() {
                 {headings.length > 0 && (
                   <details className="codex-inline-toc">
                     <summary>В этой статье · {headings.length}</summary>
-                    {headings.map((h, i) => (
+                    {headings.map((heading, i) => (
                       <a
-                        key={i}
-                        href={`#/codex/${article.id}/${encodeURIComponent(h.id)}`}
+                        key={`${heading.id}-${i}`}
+                        href={`#/codex/${entry.id}/${encodeURIComponent(heading.id)}`}
                       >
-                        {h.title}
+                        {headingLabel(heading.title)}
                       </a>
                     ))}
                   </details>
                 )}
                 {CATALOG.filter(
-                  (entry) =>
-                    entry.articleId === article.id && entry.kind === "project",
-                ).map((entry) => (
-                  <CatalogAction key={entry.id} entry={entry} />
+                  (catalogEntry) =>
+                    catalogEntry.articleId === entry.id &&
+                    catalogEntry.kind === "project",
+                ).map((catalogEntry) => (
+                  <CatalogAction key={catalogEntry.id} entry={catalogEntry} />
                 ))}
                 <ArtworkFigure
-                  key={article.id}
-                  art={artForArticle(article.id)}
+                  key={entry.id}
+                  art={artForArticle(entry.id)}
                   className="codex-article-art"
                 />
-                {!article.markdown.trim() ? (
-                  <p className="muted">
-                    Эта статья пока не заполнена в исходном переводе.
-                  </p>
-                ) : (
-                  <RuleText text={article.markdown} articleId={article.id} />
+                {loading && (
+                  <div className="codex-state" role="status" aria-live="polite">
+                    <span className="codex-state-spinner" aria-hidden="true" />
+                    <p>Загружаем статью…</p>
+                  </div>
                 )}
-                {article.originalDescription && (
-                  <details className="codex-original">
-                    <summary>Оригинал (English)</summary>
-                    <div className="codex-original-text">
-                      <RuleText text={article.originalDescription} articleId={article.id} />
-                    </div>
-                  </details>
+                {failure && (
+                  <div className="codex-state codex-state-error" role="alert">
+                    <h2>Не удалось загрузить статью</h2>
+                    <p>
+                      Проверьте подключение и попробуйте снова. Если ошибка
+                      повторяется, откройте другую статью Кодекса.
+                    </p>
+                    <p className="muted small">{failure.message}</p>
+                    <Button size="sm" onClick={() => setAttempt((n) => n + 1)}>
+                      Повторить
+                    </Button>
+                  </div>
                 )}
+                {loaded &&
+                  (isEmptyArticle(loaded.article) ? (
+                    <p className="muted">
+                      Эта статья пока не заполнена в исходном переводе.
+                    </p>
+                  ) : (
+                    <RuleArticleContent
+                      article={loaded.article}
+                      entities={loaded.entities}
+                    />
+                  ))}
                 <footer className="codex-paging">
                   {position > 0 && (
                     <Button
@@ -382,6 +509,17 @@ export function CodexView() {
                 </footer>
               </article>
             </>
+          ) : missingArticle ? (
+            <div className="codex-state codex-state-missing" role="alert">
+              <h2>Статья не найдена</h2>
+              <p>
+                Возможно, ссылка устарела или содержит опечатку. Вернитесь к
+                оглавлению и выберите статью заново.
+              </p>
+              <Button size="sm" onClick={() => browse()}>
+                К оглавлению
+              </Button>
+            </div>
           ) : (
             <>
               <div id="codex-catalog" className="codex-results-heading">
@@ -404,9 +542,11 @@ export function CodexView() {
                   </h2>
                   <p className="muted">
                     {needle || onlyBookmarks
-                      ? `Найдено статей: ${results.length}`
+                      ? searchPending
+                        ? "Ищем по всему Кодексу…"
+                        : `Найдено статей: ${resultEntries.length}`
                       : !chapter
-                        ? `${chapters.length} глав · ${articles.length} статей. Выберите главу, чтобы начать чтение.`
+                        ? `${chapters.length} глав · ${ruleIndex.length} статей. Выберите главу, чтобы начать чтение.`
                         : group
                           ? "Правила и развитие — в порядке чтения."
                           : "Выберите раздел или статью этой главы."}
@@ -421,7 +561,32 @@ export function CodexView() {
                   </a>
                 )}
               </div>
-              {results.length === 0 && (
+              {searchPending && (
+                <div className="codex-state" role="status" aria-live="polite">
+                  <span className="codex-state-spinner" aria-hidden="true" />
+                  <p>Загружаем полный текст правил для поиска…</p>
+                </div>
+              )}
+              {searchFailed && (
+                <div
+                  className="codex-state codex-state-error codex-state-search"
+                  role="alert"
+                >
+                  <h2>Не удалось загрузить поиск</h2>
+                  <p>
+                    Браузер не получил поисковый индекс. Проверьте подключение
+                    и попробуйте снова — чтение статей работает без него.
+                  </p>
+                  <p className="muted small">{searchFailure}</p>
+                  <Button
+                    size="sm"
+                    onClick={() => setSearchAttempt((n) => n + 1)}
+                  >
+                    Повторить поиск
+                  </Button>
+                </div>
+              )}
+              {!searchPending && !searchFailed && resultEntries.length === 0 && (
                 <div className="codex-empty">
                   <h3>
                     {onlyBookmarks
@@ -439,9 +604,13 @@ export function CodexView() {
               {!needle && !onlyBookmarks && (
                 <div className="codex-collections">
                   {chapters.map((name, i) => {
-                    const entries = articles.filter((a) => a.chapter === name);
+                    const entries = ruleIndex.filter(
+                      (article) => article.chapter === name,
+                    );
                     const sections = [
-                      ...new Set(entries.map((a) => a.group).filter(Boolean)),
+                      ...new Set(
+                        entries.map((article) => article.group).filter(Boolean),
+                      ),
                     ];
                     return (
                       <section className="codex-collection" key={name}>
@@ -477,7 +646,7 @@ export function CodexView() {
                           <p>
                             {entries
                               .slice(0, 3)
-                              .map((a) => a.title)
+                              .map((article) => article.title)
                               .join(" · ")}
                           </p>
                         )}
@@ -500,53 +669,46 @@ export function CodexView() {
                 </div>
               )}
               <div className="codex-results">
-                {(needle || onlyBookmarks ? results : []).map((a) => {
-                  const normalized = searchText(a.markdown);
-                  const match = needle
-                    ? normalized.indexOf(needle.split(/\s+/)[0])
-                    : -1;
-                  const start = Math.max(0, match - 55);
-                  const excerpt = a.markdown
-                    .slice(start, start + 200)
-                    .replace(/[#*>_`|]/g, "")
-                    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-                  return (
-                    <a
-                      className="codex-result"
-                      key={a.id}
-                      href={a.id === "0102" ? "#/glossary/" : `#/codex/${a.id}`}
-                    >
-                      <span className="eyebrow">
-                        {a.chapter}
-                        {a.group && ` / ${a.group}`}
-                      </span>
-                      <h3>{a.title}</h3>
-                      {needle && (
-                        <p>
-                          {start > 0 && "…"}
-                          {excerpt}…
-                        </p>
-                      )}
-                    </a>
-                  );
-                })}
+                {(needle || onlyBookmarks ? resultEntries : []).map(
+                  (article) => {
+                    const excerpt = excerptById.get(article.id) ?? "";
+                    return (
+                      <a
+                        className="codex-result"
+                        key={article.id}
+                        href={
+                          article.id === "0102"
+                            ? "#/glossary/"
+                            : `#/codex/${article.id}`
+                        }
+                      >
+                        <span className="eyebrow">
+                          {article.chapter}
+                          {article.group && ` / ${article.group}`}
+                        </span>
+                        <h3>{article.title}</h3>
+                        {needle && <p>{excerpt}…</p>}
+                      </a>
+                    );
+                  },
+                )}
               </div>
             </>
           )}
         </div>
-        {article && headings.length > 0 && (
+        {entry && headings.length > 0 && (
           <nav className="codex-toc" aria-label="В этой статье">
             <span className="eyebrow">В этой статье</span>
-            {headings.map((h, i) => (
+            {headings.map((heading, i) => (
               <a
-                key={`${h.id}-${i}`}
-                style={{ paddingLeft: h.level > 2 ? 12 : 0 }}
+                key={`${heading.id}-${i}`}
+                style={{ paddingLeft: heading.level > 2 ? 12 : 0 }}
                 aria-current={
-                  location.heading === h.id ? "location" : undefined
+                  location.heading === heading.id ? "location" : undefined
                 }
-                href={`#/codex/${article.id}/${encodeURIComponent(h.id)}`}
+                href={`#/codex/${entry.id}/${encodeURIComponent(heading.id)}`}
               >
-                {h.title.replace(/\*\*/g, "")}
+                {headingLabel(heading.title)}
               </a>
             ))}
           </nav>

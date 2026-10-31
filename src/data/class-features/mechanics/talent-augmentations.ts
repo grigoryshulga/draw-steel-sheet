@@ -9,7 +9,7 @@ import type { FeatureMechanics } from "../types";
  * `class-feature-rules.ts` удалены, чтобы не было двойного вклада.
  */
 export const TALENT_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
-  "feature.talent.level-1.battle-augmentation": {
+  "talent.feature.1.boevaya-augmentatsiya": {
     kinds: ["bonus", "proficiency"],
     when: { keyValue: ["Боевая аугментация"] },
     effects: [
@@ -38,7 +38,7 @@ export const TALENT_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "свободные удары. Условия независимы: броня даёт выносливость, оружие — " +
       "урон. С любым комплектом эту аугментацию взять нельзя.",
   },
-  "feature.talent.level-1.density-augmentation": {
+  "talent.feature.1.augmentatsiya-plotnosti": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация плотности"] },
     effects: [
@@ -49,7 +49,7 @@ export const TALENT_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "Выносливость +6 и ещё +6 на 4/7/10 уровнях; устойчивость +1. Числа " +
       "перенесены из старой опции без изменений.",
   },
-  "feature.talent.level-1.distance-augmentation": {
+  "talent.feature.1.augmentatsiya-distantsii": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация дистанции"] },
     effects: [
@@ -64,7 +64,7 @@ export const TALENT_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "Дальнобойные псионические способности получают +2 к расстоянию. " +
       "Фильтр требует оба ключевых слова, как в книге.",
   },
-  "feature.talent.level-1.force-augmentation": {
+  "talent.feature.1.augmentatsiya-sily": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация силы"] },
     effects: [
@@ -80,7 +80,7 @@ export const TALENT_AUGMENTATION_MECHANICS: Record<string, FeatureMechanics> = {
       "урону. Бонус не применяется к способности без броска силы с числовым " +
       "уроном: так же считает и остальной лист.",
   },
-  "feature.talent.level-1.speed-augmentation": {
+  "talent.feature.1.augmentatsiya-skorosti": {
     kinds: ["bonus"],
     when: { keyValue: ["Аугментация скорости"] },
     effects: [

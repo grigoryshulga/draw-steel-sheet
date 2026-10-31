@@ -82,18 +82,16 @@ const activeIds = (hero: Character) =>
   activeClassFeatures(hero).map((feature) => feature.id);
 
 const traditionIds = (hero: Character, level: number) =>
-  activeClassFeatures(hero)
-    .filter((feature) => feature.level === level && feature.keyedBy === "tradition")
-    .map((feature) => feature.id);
+  activeIds(hero).filter((id) => id.startsWith(`talent.tradition.${level}.`));
 
 const PSI_BOOSTS = [
-  "feature.talent.level-6.dynamic-power",
-  "feature.talent.level-6.expanded-power",
-  "feature.talent.level-6.extended-power",
-  "feature.talent.level-6.heightened-power",
-  "feature.talent.level-6.magnified-power",
-  "feature.talent.level-6.shared-power",
-  "feature.talent.level-6.sharpened-power",
+  "talent.feature.6.dinamicheskaya-sila-1-yasnosti",
+  "talent.feature.6.rasshirennaya-sila-3-yasnosti",
+  "talent.feature.6.prodlennaya-sila-1-yasnosti",
+  "talent.feature.6.uvelichennaya-sila-1-yasnosti",
+  "talent.feature.6.potentsialnaya-sila-5-yasnosti",
+  "talent.feature.6.razdelennaya-sila-5-yasnosti",
+  "talent.feature.6.obostrennaya-sila-1-yasnosti",
 ];
 
 describe("Талант: production-покрытие уровней 5–10", () => {
@@ -117,14 +115,14 @@ describe("Талант: production-покрытие уровней 5–10", () =
     expect(mechanicsCount).toBe(85);
     expect(textOnlyIds.sort()).toEqual(
       [
-        "feature.talent.level-10.skill",
-        "feature.talent.level-10.perk",
-        "feature.talent.level-2.perk",
-        "feature.talent.level-4.skill",
-        "feature.talent.level-4.perk",
-        "feature.talent.level-6.perk",
-        "feature.talent.level-7.skill",
-        "feature.talent.level-8.perk",
+        "talent.feature.10.navyk",
+        "talent.feature.10.perk",
+        "talent.feature.2.perk",
+        "talent.feature.4.navyk",
+        "talent.feature.4.perk",
+        "talent.feature.6.perk",
+        "talent.feature.7.navyk",
+        "talent.feature.8.perk",
       ].sort(),
     );
     expect(
@@ -171,7 +169,7 @@ describe("Талант: ресурс на уровнях 5–10", () => {
       const start = gains.filter((gain) => gain.tag === "start-of-turn");
       expect(start).toHaveLength(1);
       expect(start[0].amount).toBe("1d3 + 1");
-      expect(start[0].sourceId).toBe("feature.talent.level-7.lucid-mind");
+      expect(start[0].sourceId).toBe("talent.feature.7.osoznannyy-razum");
       expect(gains.filter((gain) => gain.tag === "forced-movement")).toHaveLength(1);
     }
   });
@@ -184,12 +182,12 @@ describe("Талант: ресурс на уровнях 5–10", () => {
     const start = gains.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("1d3 + 2");
-    expect(start[0].sourceId).toBe("feature.talent.level-10.psion");
+    expect(start[0].sourceId).toBe("talent.feature.10.psion");
 
     const forced = gains.filter((gain) => gain.tag === "forced-movement");
     expect(forced).toHaveLength(1);
     expect(forced[0].amount).toBe("3");
-    expect(forced[0].sourceId).toBe("feature.talent.level-10.clear-mind");
+    expect(forced[0].sourceId).toBe("talent.feature.10.chistyy-razum");
   });
 
   it("эпический пул «Видение» открывается только на 10-м уровне", () => {
@@ -206,35 +204,35 @@ describe("Талант: традиции 5-го и 8-го уровней", () =>
   it("на 5-м уровне видны ровно две записи своей традиции", () => {
     const telekinez = traditionIds(talent(5, {}, { subclass: "Телекинез" }), 5);
     expect(telekinez.sort()).toEqual([
-      "feature.talent.level-5.kinetic-amplifier",
-      "feature.talent.level-5.triangulate",
+      "talent.tradition.5.kineticheskiy-usilitel",
+      "talent.tradition.5.triangulyatsiya",
     ]);
 
     const chrono = traditionIds(talent(5, {}, { subclass: "Хронопатия" }), 5);
     expect(chrono.sort()).toEqual([
-      "feature.talent.level-5.distortion-temporal",
-      "feature.talent.level-5.speed-of-thought",
+      "talent.tradition.5.iskazhenie-vremeni",
+      "talent.tradition.5.skorost-mysli",
     ]);
 
     const telepathy = traditionIds(talent(5, {}, { subclass: "Телепатия" }), 5);
     expect(telepathy.sort()).toEqual([
-      "feature.talent.level-5.compulsion",
-      "feature.talent.level-5.remote-amplification",
+      "talent.tradition.5.prinuzhdenie",
+      "talent.tradition.5.udalennoe-usilenie",
     ]);
   });
 
   it("на 8-м уровне: Хронопатия — Стазисный щит, Телекинез — Поле левитации", () => {
     expect(traditionIds(talent(8, {}, { subclass: "Хронопатия" }), 8).sort()).toEqual([
-      "feature.talent.level-8.doubling-the-hours",
-      "feature.talent.level-8.stasis-shield",
+      "talent.tradition.8.stazisnyy-shchit",
+      "talent.tradition.8.udvoenie-chasov",
     ]);
     expect(traditionIds(talent(8, {}, { subclass: "Телекинез" }), 8).sort()).toEqual([
-      "feature.talent.level-8.levitation-field",
-      "feature.talent.level-8.low-gravity",
+      "talent.tradition.8.nizkaya-gravitatsiya",
+      "talent.tradition.8.pole-levitatsii",
     ]);
     expect(traditionIds(talent(8, {}, { subclass: "Телепатия" }), 8).sort()).toEqual([
-      "feature.talent.level-8.mindlink",
-      "feature.talent.level-8.universal-connection",
+      "talent.tradition.8.bezgranichnaya-svyaz",
+      "talent.tradition.8.svyaz-razumov",
     ]);
   });
 
@@ -251,27 +249,27 @@ describe("Талант: традиции 5-го и 8-го уровней", () =>
   it("контейнеры способностей 6/9 уровней видны только своей традиции", () => {
     const telekinez = activeIds(talent(9, {}, { subclass: "Телекинез" }));
     expect(telekinez).toContain(
-      "feature.talent.level-6.telekinesis-abilities",
+      "talent.feature.6.sposobnosti-telekineza-6-go-urovnya",
     );
     expect(telekinez).toContain(
-      "feature.talent.level-9.telekinesis-abilities",
+      "talent.feature.9.sposobnosti-telekineza-9-go-urovnya",
     );
     expect(telekinez).not.toContain(
-      "feature.talent.level-6.chronopathy-abilities",
+      "talent.feature.6.sposobnosti-khronopatii-6-go-urovnya",
     );
     expect(telekinez).not.toContain(
-      "feature.talent.level-9.telepathy-abilities",
+      "talent.feature.9.sposobnosti-telepatii-9-go-urovnya",
     );
 
     const telepathy = activeIds(talent(9, {}, { subclass: "Телепатия" }));
     expect(telepathy).toContain(
-      "feature.talent.level-6.telepathy-abilities",
+      "talent.feature.6.sposobnosti-telepatii-6-go-urovnya",
     );
     expect(telepathy).toContain(
-      "feature.talent.level-9.telepathy-abilities",
+      "talent.feature.9.sposobnosti-telepatii-9-go-urovnya",
     );
     expect(telepathy).not.toContain(
-      "feature.talent.level-6.telekinesis-abilities",
+      "talent.feature.6.sposobnosti-telekineza-6-go-urovnya",
     );
   });
 
@@ -291,8 +289,8 @@ describe("Талант: традиции 5-го и 8-го уровней", () =>
     const selected = withClassFeatureSelection(hero, "talent.tradition", "Хронопатия");
     expect(selected.subclass).toBe("Хронопатия");
     expect(traditionIds(selected, 8).sort()).toEqual([
-      "feature.talent.level-8.doubling-the-hours",
-      "feature.talent.level-8.stasis-shield",
+      "talent.tradition.8.stazisnyy-shchit",
+      "talent.tradition.8.udvoenie-chasov",
     ]);
   });
 });
@@ -303,42 +301,42 @@ describe("Талант: триггеры уровней 5–8", () => {
       {
         level: 5,
         subclass: "Телекинез",
-        featureId: "feature.talent.level-5.kinetic-amplifier",
+        featureId: "talent.tradition.5.kineticheskiy-usilitel",
         event: "forced-movement",
         frequency: "always",
       },
       {
         level: 5,
         subclass: "Телекинез",
-        featureId: "feature.talent.level-5.triangulate",
+        featureId: "talent.tradition.5.triangulyatsiya",
         event: "use-ability",
         frequency: "always",
       },
       {
         level: 5,
         subclass: "Хронопатия",
-        featureId: "feature.talent.level-5.speed-of-thought",
+        featureId: "talent.tradition.5.skorost-mysli",
         event: "use-ability",
         frequency: "round",
       },
       {
         level: 7,
         subclass: "Телекинез",
-        featureId: "feature.talent.level-7.ancestral-memory",
+        featureId: "talent.feature.7.pamyat-predkov",
         event: "respite",
         frequency: "respite",
       },
       {
         level: 7,
         subclass: "Телекинез",
-        featureId: "feature.talent.level-7.cascading-strain",
+        featureId: "talent.feature.7.kaskadnaya-vozbuzhdennost",
         event: "take-damage",
         frequency: "always",
       },
       {
         level: 8,
         subclass: "Телепатия",
-        featureId: "feature.talent.level-8.mindlink",
+        featureId: "talent.tradition.8.svyaz-razumov",
         event: "respite",
         frequency: "respite",
       },
@@ -360,7 +358,7 @@ describe("Талант: триггеры уровней 5–8", () => {
     const trigger = classFeatureTriggers(
       talent(7, {}, { subclass: "Телекинез" }),
     ).find(
-      (item) => item.featureId === "feature.talent.level-7.cascading-strain",
+      (item) => item.featureId === "talent.feature.7.kaskadnaya-vozbuzhdennost",
     );
     expect(trigger?.label).toContain("возбужденности");
   });
@@ -397,7 +395,7 @@ describe("Талант: 9-й уровень", () => {
     const hero = talent(9, {}, { subclass: "" });
     expect(featureDamageImmunities(hero)).toEqual([
       {
-        sourceId: "feature.talent.level-9.fortress-of-perfect-thought",
+        sourceId: "talent.feature.9.krepost-idealnoy-mysli",
         sourceName: "Крепость идеальной мысли",
         types: ["психический"],
         value: 10,
@@ -437,9 +435,9 @@ describe("Талант: 10-й уровень", () => {
 
   it("«Омнисенсорика» и «Псион» объяснены в notes без внутренних имён", () => {
     for (const id of [
-      "feature.talent.level-10.omnisensory",
-      "feature.talent.level-10.psion",
-      "feature.talent.level-10.vision",
+      "talent.feature.10.omnisensorika",
+      "talent.feature.10.psion",
+      "talent.feature.10.videnie",
     ]) {
       expect(mechanicsFor(id)?.notes?.trim(), id).toBeTruthy();
     }
@@ -509,7 +507,7 @@ describe("Талант: повышение уровня 6→7, 7→8, 9→10", (
     const hero = baseHero(7, "Телекинез");
     const plan = getLevelUpPlan(hero);
     expect(plan.grantedAbilityIds).toContain(
-      "feature.ability.talent.level-8.levitation-field",
+      "talant-pole-levitacii-c51c097676",
     );
     const result = expectOk(
       previewLevelUp(hero, request(hero, firstChoices(hero))),
@@ -521,7 +519,7 @@ describe("Талант: повышение уровня 6→7, 7→8, 9→10", (
     );
     expect(
       ABILITY_COMPENDIUM.find(
-        (item) => item.id === "feature.ability.talent.level-8.levitation-field",
+        (item) => item.id === "talant-pole-levitacii-c51c097676",
       )?.name,
     ).toBe("Поле Левитации");
   });
@@ -530,7 +528,7 @@ describe("Талант: повышение уровня 6→7, 7→8, 9→10", (
     const hero = baseHero(7, "Хронопатия");
     const plan = getLevelUpPlan(hero);
     expect(plan.grantedAbilityIds).toContain(
-      "feature.ability.talent.level-8.stasis-shield",
+      "talant-stazisnyy-schit-b4f19a14ce",
     );
     const result = expectOk(
       previewLevelUp(hero, request(hero, firstChoices(hero))),

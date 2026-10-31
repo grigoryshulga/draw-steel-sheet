@@ -11,7 +11,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.null.level-5.5th-level-tradition-feature": {
+  "null.feature.5.osobennost-traditsii-5-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: традиция даёт одну особенность 5-го уровня. " +
@@ -21,7 +21,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.null.level-6.elemental-absorption": {
+  "null.feature.6.elementalnoe-pogloshchenie": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -39,7 +39,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "нет. Лист показывает напоминание, а уменьшение урона применяется " +
       "вручную.",
   },
-  "feature.null.level-6.elemental-buffer": {
+  "null.feature.6.elementalnyy-bufer": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -56,7 +56,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "лист не хранит всплески и не уменьшает урон автоматически, поэтому " +
       "срабатывание и трату игрок отмечает сам.",
   },
-  "feature.null.level-6.6th-level-tradition-ability": {
+  "null.feature.6.sposobnost-traditsii-6-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
@@ -65,21 +65,21 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "feature.null.level-7.characteristic-increase": {
+  "null.feature.7.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "feature.null.level-7.discipline-mastery-improvement": {
+  "null.feature.7.uluchshenie-masterstva-distsipliny": {
     kinds: ["situational"],
     notes:
       "Мастерство дисциплины даёт дополнительные преимущества при 10 и более " +
       "дисциплины. Строка порога 10 уже есть в таблицах традиций: нужен 7-й " +
       "уровень героя и 10 дисциплины.",
   },
-  "feature.null.level-7.psi-boost": {
+  "null.feature.7.psi-usilenie": {
     kinds: ["grant"],
     notes:
       "Когда вы используете способность — основное действие или маневр с " +
@@ -91,7 +91,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "больше одного раза; эффект длится до конца хода, в котором способность " +
       "использована впервые.",
   },
-  "feature.null.level-7.dynamic-power": {
+  "null.feature.7.dinamicheskaya-sila-1-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 1 дисциплины: если способность подвергает цель принудительному " +
@@ -99,35 +99,35 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "Интуиции. Постоянной прибавки к толчку нет — усиление действует только " +
       "после траты дисциплины.",
   },
-  "feature.null.level-7.expanded-power": {
+  "null.feature.7.rasshirennaya-sila-3-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 3 дисциплины: если способность нацелена на область, её размер растёт " +
       "на 1; у линии увеличивается одно измерение, а не оба. Применяется " +
       "только к конкретной способности после траты дисциплины.",
   },
-  "feature.null.level-7.extended-power": {
+  "null.feature.7.prodlennaya-sila-1-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 1 дисциплины: дальняя способность получает бонус к расстоянию, " +
       "равный показателю Интуиции; ближняя — бонус +2. Применяется только к " +
       "конкретной способности после траты дисциплины.",
   },
-  "feature.null.level-7.heightened-power": {
+  "null.feature.7.uvelichennaya-sila-1-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 1 дисциплины: если способность наносит выброшенный урон, она наносит " +
       "дополнительный урон, равный показателю Интуиции. Постоянной прибавки к " +
       "урону нет — только после траты дисциплины.",
   },
-  "feature.null.level-7.magnified-power": {
+  "null.feature.7.potentsialnaya-sila-5-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 5 дисциплины: если у способности есть потенциал, он увеличивается на " +
       "величину, равную показателю Интуиции. Применяется только к конкретной " +
       "способности после траты дисциплины.",
   },
-  "feature.null.level-7.shared-power": {
+  "null.feature.7.razdelennaya-sila-5-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 5 дисциплины: если способность нацелена на отдельных существ или " +
@@ -135,14 +135,14 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "пределах расстояния. Применяется только к конкретной способности после " +
       "траты дисциплины.",
   },
-  "feature.null.level-7.sharpened-power": {
+  "null.feature.7.obostrennaya-sila-1-distsipliny": {
     kinds: ["situational"],
     notes:
       "За 1 дисциплины: если способность требует броска силы, этот бросок " +
       "получает преимущество. Применяется только к конкретной способности " +
       "после траты дисциплины.",
   },
-  "feature.null.level-7.improved-body": {
+  "null.feature.7.uluchshennoe-telo": {
     kinds: ["resourceGain"],
     resource: {
       name: "Дисциплина",
@@ -164,7 +164,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.null.level-8.8th-level-tradition-feature": {
+  "null.feature.8.osobennost-traditsii-8-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт одну особенность 8-го уровня по таблице. " +
@@ -172,7 +172,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "сортировка, Метакинетик — Инерционный гаситель. Механику дают вложенные " +
       "записи выбранной традиции.",
   },
-  "feature.null.level-8.11-discipline-ability": {
+  "null.feature.8.sposobnost-za-11-distsipliny": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 дисциплины: " +
@@ -182,7 +182,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.null.level-9.i-am-the-weapon": {
+  "null.feature.9.ya-i-est-oruzhie": {
     kinds: ["bonus"],
     effects: [{ kind: "field", field: "stamina", value: 21 }],
     notes:
@@ -192,7 +192,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "другой характеристики. Лист показывает только прибавку выносливости: " +
       "кровотечение, старение и подмена характеристики применяются вручную.",
   },
-  "feature.null.level-9.9th-level-tradition-ability": {
+  "null.feature.9.sposobnost-traditsii-9-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
@@ -201,21 +201,21 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // --------------------------------------------------------------- 10-й уровень
-  "feature.null.level-10.characteristic-increase": {
+  "null.feature.10.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Ловкость и Интуиция увеличиваются до 5. Повышение уровня уже применяет " +
       "изменение; аддитивного эффекта здесь нет, иначе характеристики выросли " +
       "бы дважды.",
   },
-  "feature.null.level-10.discipline-mastery-improvement": {
+  "null.feature.10.uluchshenie-masterstva-distsipliny": {
     kinds: ["situational"],
     notes:
       "Мастерство дисциплины даёт дополнительные преимущества при 12 и более " +
       "дисциплины. Строка порога 12 уже есть в таблицах традиций: нужен 10-й " +
       "уровень героя и 12 дисциплины.",
   },
-  "feature.null.level-10.manifold-body": {
+  "null.feature.10.telo-manifolda": {
     kinds: ["resourceGain"],
     resource: {
       name: "Дисциплина",
@@ -235,7 +235,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "3. Замена перекрывает прибавку 7-го уровня: за ход остаётся ровно одна " +
       "строка этого тега.",
   },
-  "feature.null.level-10.manifold-resonance": {
+  "null.feature.10.rezonans-manifolda": {
     kinds: ["situational"],
     notes:
       "Ваше тело становится совершенной материей, вне прихотей и хаоса " +
@@ -249,7 +249,7 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "и двойные помехи на бросках силы. Лист не хранит известные места и " +
       "помехи — правила применяются вручную.",
   },
-  "feature.null.level-10.order": {
+  "null.feature.10.poryadok": {
     kinds: ["resource"],
     notes:
       "Эпический ресурс «Порядок» описан в спецификации ресурса класса: " +
@@ -266,14 +266,14 @@ export const NULL_LATE_MECHANICS: Record<string, FeatureMechanics> = {
  * 2/4 уровней — в `null-early.ts`; здесь продолжение 6–10 уровней.
  */
 export const NULL_LATE_TEXT_ONLY: Record<string, string> = {
-  "feature.null.level-6.perk":
+  "null.feature.6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.null.level-7.skill":
+  "null.feature.7.navyk":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "feature.null.level-8.perk":
+  "null.feature.8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.null.level-10.perk":
+  "null.feature.10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.null.level-10.skill":
+  "null.feature.10.navyk":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

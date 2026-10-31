@@ -6,15 +6,15 @@ import { featureStatBonus } from "../src/lib/feature-modifiers";
 import type { Character } from "../src/types";
 
 const choices = [
-  ["conduit.prayer.destruction", "feature.conduit.level-1.prayer-of-destruction", "Молитва о разрушении", "conduit.prayer"],
-  ["conduit.prayer.distance", "feature.conduit.level-1.prayer-of-distance", "Молитва о дистанции", "conduit.prayer"],
-  ["conduit.prayer.soldier", "feature.conduit.level-1.prayer-of-soldiers-skill", "Молитва о мастерстве солдата", "conduit.prayer"],
-  ["conduit.prayer.speed", "feature.conduit.level-1.prayer-of-speed", "Молитва о скорости", "conduit.prayer"],
-  ["conduit.prayer.steel", "feature.conduit.level-1.prayer-of-steel", "Молитва о стали", "conduit.prayer"],
-  ["conduit.sanctuary.bastion", "feature.conduit.level-1.bastion-ward", "Оберег бастиона", "conduit.sanctuary"],
-  ["conduit.sanctuary.reaction", "feature.conduit.level-1.quickness-ward", "Оберег реакции", "conduit.sanctuary"],
-  ["conduit.sanctuary.refuge", "feature.conduit.level-1.sanctuary-ward", "Оберег святилища", "conduit.sanctuary"],
-  ["conduit.sanctuary.spirits", "feature.conduit.level-1.spirit-ward", "Оберег духов", "conduit.sanctuary"],
+  ["conduit.prayer.destruction", "conduit.feature.1.molitva-o-razrushenii", "Молитва о разрушении", "conduit.prayer"],
+  ["conduit.prayer.distance", "conduit.feature.1.molitva-o-distantsii", "Молитва о дистанции", "conduit.prayer"],
+  ["conduit.prayer.soldier", "conduit.feature.1.molitva-o-masterstve-soldata", "Молитва о мастерстве солдата", "conduit.prayer"],
+  ["conduit.prayer.speed", "conduit.feature.1.molitva-o-skorosti", "Молитва о скорости", "conduit.prayer"],
+  ["conduit.prayer.steel", "conduit.feature.1.molitva-o-stali", "Молитва о стали", "conduit.prayer"],
+  ["conduit.sanctuary.bastion", "conduit.feature.1.obereg-bastiona", "Оберег бастиона", "conduit.sanctuary"],
+  ["conduit.sanctuary.reaction", "conduit.feature.1.obereg-reaktsii", "Оберег реакции", "conduit.sanctuary"],
+  ["conduit.sanctuary.refuge", "conduit.feature.1.obereg-svyatilishcha", "Оберег святилища", "conduit.sanctuary"],
+  ["conduit.sanctuary.spirits", "conduit.feature.1.obereg-dukhov", "Оберег духов", "conduit.sanctuary"],
 ] as const;
 
 function build(): Character {
@@ -40,12 +40,12 @@ describe("conduit prayer and sanctuary selection aliases", () => {
   it("normalizes localized names, rejects unknown values, and keeps other classes clear", () => {
     const hero = build();
     const localized = select(hero, "conduit.prayer", "  МОЛИТВА О СТАЛИ ");
-    expect(activeClassFeatures(localized).filter(({ id }) => id.includes("prayer-of-")).map(({ id }) => id)).toEqual([choices[4][1]]);
+    expect(activeClassFeatures(localized).filter(({ id }) => id.includes("molitva-o-")).map(({ id }) => id)).toEqual([choices[4][1]]);
     expect(classFeatureGroupsForSheet(localized).flatMap(({ features }) => features).filter(({ id }) => id === choices[4][1])).toHaveLength(1);
     const diaeresis = select(hero, "conduit.sanctuary", "Оберег святилища".replace("е", "ё"));
-    expect(activeClassFeatures(diaeresis).filter(({ id }) => id.endsWith("-ward")).map(({ id }) => id)).toContain(choices[7][1]);
-    expect(activeClassFeatures(select(hero, "conduit.prayer", "conduit.prayer.unknown")).some(({ id }) => id.includes("prayer-of-"))).toBe(false);
-    expect(activeClassFeatures(select(hero, "conduit.prayer", "conduit.prayer.steel, conduit.prayer.speed")).some(({ id }) => id.includes("prayer-of-"))).toBe(false);
+    expect(activeClassFeatures(diaeresis).filter(({ id }) => id.startsWith("conduit.feature.1.obereg-")).map(({ id }) => id)).toContain(choices[7][1]);
+    expect(activeClassFeatures(select(hero, "conduit.prayer", "conduit.prayer.unknown")).some(({ id }) => id.includes("molitva-o-"))).toBe(false);
+    expect(activeClassFeatures(select(hero, "conduit.prayer", "conduit.prayer.steel, conduit.prayer.speed")).some(({ id }) => id.includes("molitva-o-"))).toBe(false);
     const otherClass = { ...select(hero, "conduit.prayer", choices[4][1]), className: "Воин" };
     expect(activeClassFeatures(otherClass).some(({ id }) => id === choices[4][1])).toBe(false);
   });

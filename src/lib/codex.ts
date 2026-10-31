@@ -1,15 +1,9 @@
-import index from "../data/codex-index.generated.json";
-import type { OriginalFields } from "../types";
-
-export interface RuleArticle extends OriginalFields {
-  id: string;
-  title: string;
-  chapter: string;
-  group: string;
-  path: string;
-  markdown: string;
-}
-export const CODEX_INDEX = index;
+/**
+ * Чистые помощники ссылок Кодекса: маршруты, заголовки и нормализация текста.
+ * Навигационные данные живут в `src/rules/codex-navigation.ts`, чтобы модули,
+ * которым нужна только нормализация (например `src/data/library.ts`), не
+ * подтягивали манифест правил в свой граф импортов.
+ */
 export function headingId(text: string): string {
   return text
     .toLowerCase()
@@ -20,12 +14,6 @@ export function headingId(text: string): string {
 }
 export function searchText(text: string): string {
   return text.toLocaleLowerCase("ru").replace(/ё/g, "е");
-}
-export function codexLink(title: string): string {
-  const article = CODEX_INDEX.find(
-    (a) => searchText(a.title) === searchText(title),
-  );
-  return article ? `#/codex/${article.id}` : "#/codex";
 }
 export function catalogLink(chapter = "", group = ""): string {
   const params = new URLSearchParams();
@@ -49,20 +37,4 @@ export function readCodexLocation(hash = window.location.hash) {
     chapter: params.get("chapter") || "",
     group: params.get("group") || "",
   };
-}
-
-/** Old section URLs remain usable, but open rules instead of another index. */
-export function resolveCodexArticle(
-  articles: RuleArticle[],
-  location: ReturnType<typeof readCodexLocation>,
-) {
-  if (location.articleId)
-    return articles.find((a) => a.id === location.articleId);
-  if (!location.chapter) return undefined;
-  const entries = articles.filter(
-    (a) =>
-      a.chapter === location.chapter &&
-      (!location.group || a.group === location.group),
-  );
-  return entries.find((a) => a.markdown.trim()) || entries[0];
 }

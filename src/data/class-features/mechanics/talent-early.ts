@@ -7,11 +7,11 @@ import type { FeatureMechanics } from "../types";
  * "tradition"`, поэтому подкласс их фильтрует без дополнительного условия.
  * Способности 2-го уровня — контейнеры выбора без `keyedBy`: у них выбор
  * традиции задаёт `when.keyValue`. Конкретную пару и выбор одной способности
- * строит повышение уровня из `level-up.generated.json`.
+ * строит повышение уровня из канонической проекции `level-up.json`.
  */
 export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень
-  "feature.talent.level-2.2nd-level-tradition-feature": {
+  "talent.feature.2.osobennost-traditsii-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт одну особенность 2-го уровня по таблице. " +
@@ -19,14 +19,14 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Телепатия — Облегчение разума. Механику дают вложенные записи, " +
       "размеченные по традиции.",
   },
-  "feature.talent.level-2.ease-the-hours": {
+  "talent.tradition.2.oblegchenie-chasov": {
     kinds: ["situational"],
     notes:
       "В тест-монтаже можно увеличить число раундов на 1, если тест " +
       "закончится раньше, чем герои достигнут лимита успехов. Лист не ведёт " +
       "монтажи и их раунды, поэтому прибавка остаётся напоминанием.",
   },
-  "feature.talent.level-2.ease-the-mind": {
+  "talent.tradition.2.oblegchenie-razuma": {
     kinds: ["situational"],
     notes:
       "Преимущество на тесты, чтобы остановить бой и начать переговоры. Если " +
@@ -34,7 +34,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "начальным отношением получает +1 терпения (максимум 5). Лист не хранит " +
       "отношение и терпение НПС — применяется вручную.",
   },
-  "feature.talent.level-2.ease-their-fall": {
+  "talent.tradition.2.oblegchenie-padeniya": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -50,14 +50,14 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Напоминание не отличает урон от падения и не проверяет, кто " +
       "приземлился рядом. Уменьшение урона на 2 + Разум применяется вручную.",
   },
-  "feature.talent.level-2.2nd-level-tradition-ability": {
+  "talent.feature.2.sposobnost-traditsii-2-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
       "2-го уровня. Конкретные варианты и выбор одной способности строит " +
       "повышение уровня по подклассу; дублировать их в механике не нужно.",
   },
-  "feature.talent.level-2.chronopathy-ability": {
+  "talent.feature.2.sposobnosti-khronopatii-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Хронопатия"] },
     notes:
@@ -65,7 +65,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Хронометрия или Замедливание, обе за 5 Ясности. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "feature.talent.level-2.telekinesis-ability": {
+  "talent.feature.2.sposobnosti-telekineza-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Телекинез"] },
     notes:
@@ -73,7 +73,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Гравитационный Взрыв или Левитация и Гравитация, обе за 5 Ясности. " +
       "Выбор делается при повышении уровня по подклассу.",
   },
-  "feature.talent.level-2.telepathy-ability": {
+  "talent.feature.2.sposobnosti-telepatii-2-go-urovnya": {
     kinds: ["grant"],
     when: { keyValue: ["Телепатия"] },
     notes:
@@ -83,7 +83,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "feature.talent.level-3.scan": {
+  "talent.feature.3.skanirovanie": {
     kinds: ["situational"],
     notes:
       "Один раз в каждый свой ход можно искать скрытых существ свободным " +
@@ -92,7 +92,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "расстояние. Лист не хранит скрытность и линии воздействия — правило " +
       "применяется вручную.",
   },
-  "feature.talent.level-3.7-clarity-ability": {
+  "talent.feature.3.sposobnost-za-7-yasnosti": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 Ясности: " +
@@ -102,13 +102,13 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "feature.talent.level-4.characteristic-increase": {
+  "talent.feature.4.uvelichenie-kharakteristik": {
     kinds: ["characteristic"],
     notes:
       "Разум и Присутствие поднимаются до 3. Повышение уже применяет " +
       "левел-ап; аддитивный эффект здесь задвоил бы изменение, поэтому его нет.",
   },
-  "feature.talent.level-4.mind-projection": {
+  "talent.feature.4.proektsiya-razuma": {
     kinds: ["situational"],
     notes:
       "Как маневр герой проецирует разум за пределы тела: тело остаётся без " +
@@ -118,7 +118,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "мгновенно возвращается в тело. Лист не хранит две позиции и состояние " +
       "тела, поэтому проекция ведётся вручную.",
   },
-  "feature.talent.level-4.mind-recovery": {
+  "talent.feature.4.vosstanovlenie-razuma": {
     kinds: ["trigger", "resourceGain"],
     trigger: {
       event: "spend-recovery",
@@ -151,7 +151,7 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Ясности — выбор игрока, а не автоматическая прибавка: триггер только " +
       "напоминает, лист не отнимает лечение и не начисляет Ясность сам.",
   },
-  "feature.talent.level-4.suspensor-field": {
+  "talent.feature.4.podveshivayushchee-pole": {
     kinds: ["situational"],
     notes:
       "Герой может летать; во время полёта устойчивость снижается до 0 и не " +
@@ -167,10 +167,10 @@ export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
  * 6/8/10 и 7/10 добавит второй этап вместе со своими записями.
  */
 export const TALENT_EARLY_TEXT_ONLY: Record<string, string> = {
-  "feature.talent.level-2.perk":
+  "talent.feature.2.perk":
     "перк 2-го уровня выбирается из каталога перков (межличностный, знаний или сверхъестественный); механика его не хранит",
-  "feature.talent.level-4.perk":
+  "talent.feature.4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "feature.talent.level-4.skill":
+  "talent.feature.4.navyk":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
 };

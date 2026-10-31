@@ -1,0 +1,54 @@
+{
+  "id": "ability.provodnik-oshelomlyayuschee-proklyatie-93d8cbdbe0",
+  "kind": "ability",
+  "name": "Ошеломляющее Проклятие",
+  "markdown": "> **Ошеломляющее Проклятие**\n>\n> *Взрыв осуждения дезориентирует вашего врага.*\n>\n> | **Магия, Ближний, Удар** |               **Основное действие** |\n> | ------------------------ | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона; швыряние 1\n> - **12-16:** 5 + И святого урона; швыряние 2\n> - **17+:** 8 + И святого урона; швыряние 3",
+  "source": {
+    "articleId": "0831",
+    "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+  },
+  "legacyIds": [
+    "provodnik-oshelomlyayuschee-proklyatie-93d8cbdbe0"
+  ],
+  "ability": {
+    "id": "provodnik-oshelomlyayuschee-proklyatie-93d8cbdbe0",
+    "name": "Ошеломляющее Проклятие",
+    "flavor": "Взрыв осуждения дезориентирует вашего врага.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Магия",
+      "Ближний",
+      "Удар"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо или объект",
+    "rollCharacteristics": [
+      "intuition"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "3 + I",
+        "effect": "Швыряние 1"
+      },
+      {
+        "damage": "5 + I",
+        "effect": "Швыряние 2"
+      },
+      {
+        "damage": "8 + I",
+        "effect": "Швыряние 3"
+      }
+    ],
+    "effect": "",
+    "source": "Проводник",
+    "notes": "",
+    "className": "Проводник",
+    "level": 1,
+    "sourceKind": "class",
+    "preferredCharacteristic": "intuition"
+  }
+}

@@ -64,7 +64,7 @@ function ability(partial: Partial<Ability> & Pick<Ability, "name">): Ability {
 describe("происхождение способностей из подкласса", () => {
   it("находит доменную способность Цензора 1-го уровня", () => {
     const sources = subclassAbilitySources(censor(1, "Созидание"));
-    const source = sources.get("feature.ability.censor.level-1.hands-of-the-maker");
+    const source = sources.get("cenzor-ruki-tvorca-3425397e10");
     expect(source).toMatchObject({
       label: "Домен",
       value: "Созидание",
@@ -74,7 +74,7 @@ describe("происхождение способностей из подкла�
 
   it("понимает id варианта домена, который сохраняет панель листа", () => {
     const sources = subclassAbilitySources(censor(1, "censor.domain.sozdanie"));
-    expect(sources.get("feature.ability.censor.level-1.hands-of-the-maker")).toMatchObject({
+    expect(sources.get("cenzor-ruki-tvorca-3425397e10")).toMatchObject({
       value: "Созидание",
     });
   });
@@ -92,11 +92,11 @@ describe("происхождение способностей из подкла�
 
   it("находит обе доменные способности Проводника по паре доменов", () => {
     const sources = subclassAbilitySources(conduit(2, "Созидание, Смерть"));
-    expect(sources.get("feature.ability.conduit.level-2.statue-of-power")).toMatchObject({
+    expect(sources.get("provodnik-statuya-sily-d2ae69a37f")).toMatchObject({
       label: "Домен",
       value: "Созидание",
     });
-    expect(sources.get("feature.ability.conduit.level-2.reap")).toMatchObject({
+    expect(sources.get("provodnik-zhatva-e3bad0fcb0")).toMatchObject({
       label: "Домен",
       value: "Смерть",
     });
@@ -106,14 +106,14 @@ describe("происхождение способностей из подкла�
     const hero = conduit(2);
     hero.subclass = "Созидание, Смерть";
     const sources = subclassAbilitySources(hero);
-    expect(sources.has("feature.ability.conduit.level-2.statue-of-power")).toBe(true);
+    expect(sources.has("provodnik-statuya-sily-d2ae69a37f")).toBe(true);
   });
 
   it("не добавляет способности выше текущего уровня", () => {
     const sources = subclassAbilitySources(conduit(1, "Созидание"));
-    expect(sources.has("feature.ability.conduit.level-2.statue-of-power")).toBe(false);
+    expect(sources.has("provodnik-statuya-sily-d2ae69a37f")).toBe(false);
     // На 1-м уровне у Созидания есть доменная способность «Руки Творца».
-    expect(sources.get("feature.ability.conduit.level-1.hands-of-the-maker")).toMatchObject({
+    expect(sources.get("provodnik-ruki-tvorca-b0ff1e66a7")).toMatchObject({
       label: "Домен",
       value: "Созидание",
     });
@@ -121,20 +121,20 @@ describe("происхождение способностей из подкла�
 
   it("находит способность Таланта, выданную традицией", () => {
     const sources = subclassAbilitySources(talent(8, "Телекинез"));
-    expect(sources.get("feature.ability.talent.level-8.levitation-field")).toMatchObject({
+    expect(sources.get("talant-pole-levitacii-c51c097676")).toMatchObject({
       label: "Традиция",
       value: "Телекинез",
     });
-    expect(sources.has("feature.ability.talent.level-8.stasis-shield")).toBe(false);
+    expect(sources.has("talant-stazisnyy-schit-b4f19a14ce")).toBe(false);
   });
 
   it("не подмешивает способности другой традиции", () => {
     const sources = subclassAbilitySources(talent(8, "Хронопатия"));
-    expect(sources.get("feature.ability.talent.level-8.stasis-shield")).toMatchObject({
+    expect(sources.get("talant-stazisnyy-schit-b4f19a14ce")).toMatchObject({
       label: "Традиция",
       value: "Хронопатия",
     });
-    expect(sources.has("feature.ability.talent.level-8.levitation-field")).toBe(false);
+    expect(sources.has("talant-pole-levitacii-c51c097676")).toBe(false);
   });
 
   it("находит старую карточку по названию и источнику, если id не совпал", () => {
@@ -151,7 +151,7 @@ describe("происхождение способностей из подкла�
     const sources = subclassAbilitySources(hero);
     const options = abilityFilterOptions(
       [
-        ability({ name: "Руки Творца", source: "Цензор", id: "feature.ability.censor.level-1.hands-of-the-maker" }),
+        ability({ name: "Руки Творца", source: "Цензор", id: "cenzor-ruki-tvorca-3425397e10" }),
         ability({ name: "Обычная", source: "Цензор" }),
       ],
       sources,

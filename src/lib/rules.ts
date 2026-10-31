@@ -1,3 +1,5 @@
+import { type Tier } from "./rule-display";
+export { CHARACTERISTICS, characteristicShort, TIER_ROLL_RANGES, type Tier } from "./rule-display";
 import {
   CHARACTERISTIC_KEYS,
   type Character,
@@ -10,24 +12,6 @@ import {
   featureAbilityDamageContributions,
 } from "./feature-modifiers";
 import type { Ability } from "../types";
-
-export const CHARACTERISTICS: {
-  key: CharacteristicKey;
-  short: string;
-  label: string;
-  testLabel: string;
-}[] = [
-  { key: "might", short: "М", label: "Мощь", testLabel: "Мощи" },
-  { key: "agility", short: "Л", label: "Ловкость", testLabel: "Ловкости" },
-  { key: "reason", short: "Р", label: "Разум", testLabel: "Разума" },
-  { key: "intuition", short: "И", label: "Интуиция", testLabel: "Интуиции" },
-  {
-    key: "presence",
-    short: "П",
-    label: "Присутствие",
-    testLabel: "Присутствия",
-  },
-];
 
 export const CHARACTERISTIC_BY_SHORT: Record<string, CharacteristicKey> = {
   M: "might",
@@ -44,10 +28,6 @@ const RUS_CHAR_MAP: Record<string, string> = {
   И: "I",
   П: "P",
 };
-
-export function characteristicShort(key: CharacteristicKey): string {
-  return CHARACTERISTICS.find((c) => c.key === key)?.short ?? key;
-}
 
 export function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
@@ -83,15 +63,6 @@ export function deriveStats(character: Character): DerivedStats {
     tierThresholds,
   };
 }
-
-export type Tier = 1 | 2 | 3;
-
-/** Диапазоны суммы броска силы для тиров. */
-export const TIER_ROLL_RANGES: Record<Tier, string> = {
-  1: "≤ 11",
-  2: "12–16",
-  3: "17+",
-};
 
 export interface PowerRollOptions {
   characteristic: number;

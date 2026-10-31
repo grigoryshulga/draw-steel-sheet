@@ -1,0 +1,393 @@
+{
+  "id": "0831",
+  "title": "1-й Уровень Проводника",
+  "chapter": "08. Классы",
+  "group": "Проводник",
+  "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md",
+  "blocks": [
+    {
+      "type": "markdown",
+      "text": "Сила богов течет через вас! Как сосуд для божественной силы, вы не просто поддерживаете своих союзников в бою. Вы делаете этих союзников более эффективными, даже когда обрушиваете божественную энергию на своих врагов. Хотя божество или святой, которому вы служите, может иметь других верующих и священнослужителей, вы особенны среди них, получая свои способности из высшего источника.\n\n**Будучи проводником, вы исцеляете и усиливаете своих союзников, ослабляете врагов, поражая их божественной магией. Искра божественности внутри вас сияет, наполняя ваших врагов трепетом и делая вас более мудрым и осведомленным о мире.**\n\n---\n## Основы\n\n**Начальные характеристики:** Вы начинаете с Интуицией 2, и можете выбрать один из следующих наборов для ваших остальных характеристик:\n\n- 2, 2, −1, −1\n- 2, 1, 1, −1\n- 2, 1, 0, 0\n- 1, 1, 1, 0\n\n**Слабый потенциал:** Интуиция − 2\n\n**Средний потенциал:** Интуиция − 1\n\n**Сильный потенциал:** Интуиция\n\n**Начальная выносливость на 1-м уровне:** 18\n\n**Выносливость, получаемая на 2-м и последующих уровнях:** 6\n\n**Восстановления:** 8\n\n**Навыки:** Выберите любые два навыка из межличностной группы или группы знаний (смотрите [Навыки](#/codex/1208)). (*Быстрый Билд:* Чтение личности, Религия.)\n\n###### Таблица развития проводника\n\n| Уровень | Особенности                                                                                                                                                 | Способности                  | Способности домена |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------ |\n| 1-й     | Божество и домены, Благочестие, Особенность домена, Исцеляющая благодать, Луч гнева, Триггер проводника, Молитва, Оберег проводника, Способности проводника | Две знаковые, 3, 5           | -                  |\n| 2-й     | Списки Небес, Перк, Особенность домена, Способность домена                                                                                                  | Две знаковые, 3, 5           | 5                  |\n| 3-й     | Малое чудо, Способность за 7 благочестия                                                                                                                    | Две знаковые, 3, 5, 7        | 5                  |\n| 4-й     | Благословенные домены, Увеличение характеристик, Особенность домена, Перк, Навык                                                                            | Две знаковые, 3, 5, 7        | 5                  |\n| 5-й     | Особенность домена, Способность за 9 благочестия                                                                                                            | Две знаковые, 3, 5, 7, 9     | 5                  |\n| 6-й     | Расцветающий святой, Перк, Способность домена                                                                                                               | Две знаковые, 3, 5, 7, 9     | 5, 9               |\n| 7-й     | Увеличение характеристик, Особенность домена, Награда верующего, Навык                                                                                      | Две знаковые, 3, 5, 7, 9     | 5, 9               |\n| 8-й     | Особенность домена, Перк, Способность за 11 благочестия                                                                                                     | Две знаковые, 3, 5, 7, 9, 11 | 5, 9               |\n| 9-й     | Способность домена, Меч веры, Посвященный                                                                                                                   | Две знаковые, 3, 5, 7, 9, 11 | 5, 9, 11           |\n| 10-й    | Аватар, Увеличение характеристик, Божественная сила, Самый благочестивый, Перк, Навык                                                                       | Две знаковые, 3, 5, 7, 9, 11 | 5, 9, 11           |\n\n---\n## Особенности 1-го уровня\n\nБудучи проводником 1-го уровня, вы получаете следующие особенности.\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.bozhestvo-i-domeny"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-v-boyu"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-vne-boya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekty-domena"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-sozidaniya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-smerti"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-sudby"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-znaniya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-zhizni"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-lyubvi"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-prirody"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-zashchity"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-buri"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-solntsa"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-khitrosti"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.blagochestie-i-effekt-domena-voyny"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.osobennost-domena-1-go-urovnya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.blagoslovenie-sostradaniya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.blagoslovenie-ponimaniya"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.blagoslovenie-udachnoy-pogody"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.vernyy-drug"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-vernyy-drug-719ad2726e"
+    },
+    {
+      "type": "markdown",
+      "text": "\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.mogilnaya-rech"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-mogilnaya-rech-f6200d4a39"
+    },
+    {
+      "type": "markdown",
+      "text": "\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.ruki-tvortsa"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-ruki-tvorca-b0ff1e66a7"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.vnutrenniy-svet"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.vdokhnovennyy-obman"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.videniya-orakula"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.zashchitnyy-krug"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.vosstanavlivayushchiy-ritual"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.domain.1.osvyashchennoe-oruzhie"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.istselyayushchaya-blagodat"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-iscelyayuschaya-blagodat-0f15f2f4dd"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n---\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.luch-gneva"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-luch-gneva-2b3cf93271"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n---\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.trigger-provodnika"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-slovo-nastavleniya-e0313ac2e1"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-slovo-suda-2620900a55"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n---\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva-o-razrushenii"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva-o-distantsii"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva-o-masterstve-soldata"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva-o-skorosti"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.molitva-o-stali"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.obereg-provodnika"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.obereg-bastiona"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.obereg-reaktsii"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.obereg-svyatilishcha"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.obereg-dukhov"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.sposobnosti-provodnika"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.znakovye-sposobnosti"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-blagoslovennyy-svet-91b73a5e82"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-istoschenie-92955f8821"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-svyatoy-knut-320fd91e25"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-svetopad-639c9b9a7d"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-zhertvennoe-predlozhenie-53e7cbd18a"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-oshelomlyayuschee-proklyatie-93d8cbdbe0"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-litaniya-voina-2aa5daf3eb"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-issushenie-47f7814c00"
+    },
+    {
+      "type": "markdown",
+      "text": "\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.geroicheskie-sposobnosti"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.sposobnost-za-3-blagochestiya"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-prizyv-groma-6b617092cf"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-istochnik-gneva-0f3918c94d"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-molot-pravosudiya-421cac4e2d"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-nasilie-tebe-ne-pomozhet-44528bf230"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "feature.conduit.feature.1.sposobnost-za-5-blagochestiya"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-proklyatie-porchi-810e367258"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-proklyatie-uzhasa-c9f6d367fa"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-vera-nasha-bronya-ccb14edcf5"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    },
+    {
+      "type": "entity",
+      "ref": "ability.provodnik-propoved-miloserdiya-c67e38e6c1"
+    },
+    {
+      "type": "markdown",
+      "text": "\n\n"
+    }
+  ]
+}

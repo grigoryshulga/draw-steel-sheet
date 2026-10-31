@@ -1,11 +1,11 @@
 import { Button } from "../../components/ui";
 import { useApp } from "../../state/AppContext";
 import { HeaderDomainChoices } from "./HeaderDomainChoices";
-import { codexLink, CODEX_INDEX } from "../../lib/codex";
+import { codexIndex, codexLink } from "../../rules/codex-navigation";
 
 export function HeaderPanel() {
   const { character, goTo } = useApp();
-  const classArticle = CODEX_INDEX.find(
+  const classArticle = codexIndex.find(
     (a) => a.group === character.className && /1-й Уровень/.test(a.title),
   );
   return (

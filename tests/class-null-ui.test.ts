@@ -145,10 +145,10 @@ describe("Нуль: старый лист и выборы на 5–10 уровн
     );
     expect(selected.subclass).toBe("Хронокинетик");
     const ids = sheetItems(selected).map((feature) => feature.id);
-    expect(ids).toContain("feature.null.level-5.instant-action");
-    expect(ids).toContain("feature.null.level-8.shared-momentum");
-    expect(ids).not.toContain("feature.null.level-5.chilling-readiness");
-    expect(ids).not.toContain("feature.null.level-8.inertial-dampener");
+    expect(ids).toContain("null.tradition.5.mgnovennoe-deystvie");
+    expect(ids).toContain("null.tradition.8.razdelennyy-impuls");
+    expect(ids).not.toContain("null.tradition.5.okhlazhdayushchaya-gotovnost");
+    expect(ids).not.toContain("null.tradition.8.inertsionnyy-gasitel");
   });
 
   it("«Порядок» и «Резонанс манифольда» видны прозой на 10-м уровне", () => {

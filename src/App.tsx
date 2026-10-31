@@ -26,7 +26,7 @@ import {
   writeThemeChoice,
   type ThemeChoice,
 } from "./lib/theme";
-import { HERO_TABS, NAV_ITEMS, TABS, type HeroTab, type Tab } from "./navigation";
+import { HERO_TABS, TABS, TAB_LABELS, type HeroTab, type Tab } from "./navigation";
 import { makeId } from "./data/templates";
 import { AppContext } from "./state/AppContext";
 import type { AppTheme } from "./types";
@@ -180,19 +180,7 @@ function WorkspaceApp({
   }, [characterRef, gameSession, isTransitioning, notify, update]);
 
   useEffect(() => {
-    const label =
-      {
-        catalog: "Каталоги",
-        glossary: "Глоссарий",
-        settings: "Настройки",
-        create: "Создание героя",
-        development: "Развитие",
-        inventory: "Инвентарь",
-        notes: "Журнал",
-        companions: "Спутники",
-      }[tab] ??
-      NAV_ITEMS.find((item) => item.id === tab)?.label ??
-      "Лист";
+    const label = TAB_LABELS[tab as Tab];
     document.title =
       tab === "create"
         ? "Создание героя — Достать листы!"

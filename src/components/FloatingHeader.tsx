@@ -4,13 +4,11 @@ import { SiteLogo } from "./SiteLogo";
 import { Button } from "./ui";
 import type { SaveStatus } from "../state/AppContext";
 import type { Character, CharacterSummary } from "../types";
-import type { Tab } from "../navigation";
+import { isHeroTab, isLibraryTab, type Tab, type HeroTab, type LibraryTab } from "../navigation";
 import { useAccount } from "../state/StorageScope";
-import { HERO_TABS } from "../navigation";
+
 import "./FloatingHeader.css";
 
-const HERO_WORKSPACE = new Set<string>(HERO_TABS);
-const LIBRARY = new Set<string>(["codex", "catalog", "glossary"]);
 
 /**
  * Плавающая панель-таблетка по центру сверху: герой и его переключатель,
@@ -19,6 +17,9 @@ const LIBRARY = new Set<string>(["codex", "catalog", "glossary"]);
  */
 export function FloatingHeader({
   tab,
+  heroTab = "sheet",
+  libraryTab = "codex",
+  busy = false,
   character,
   characters,
   saveStatus,
@@ -28,6 +29,9 @@ export function FloatingHeader({
   onNavigate,
 }: {
   tab: Tab;
+  heroTab?: HeroTab;
+  libraryTab?: LibraryTab;
+  busy?: boolean;
   character: Character | null;
   characters: CharacterSummary[];
   saveStatus: SaveStatus;
@@ -36,8 +40,8 @@ export function FloatingHeader({
   onNewCharacter: () => void;
   onNavigate: (tab: Tab) => void;
 }) {
-  const heroActive = HERO_WORKSPACE.has(tab);
-  const codexActive = LIBRARY.has(tab);
+  const heroActive = isHeroTab(tab);
+  const codexActive = isLibraryTab(tab);
   const account = useAccount();
 
   return (
@@ -60,7 +64,7 @@ export function FloatingHeader({
             type="button"
             className={heroActive ? "is-active" : ""}
             aria-current={heroActive ? "page" : undefined}
-            onClick={() => onNavigate("sheet")}
+            onClick={() => onNavigate(heroTab)}
           >
             Герой
           </button>
@@ -68,7 +72,7 @@ export function FloatingHeader({
             type="button"
             className={codexActive ? "is-active" : ""}
             aria-current={codexActive ? "page" : undefined}
-            onClick={() => onNavigate("codex")}
+            onClick={() => onNavigate(libraryTab)}
           >
             Кодекс
           </button>
@@ -77,6 +81,7 @@ export function FloatingHeader({
         <div className="floating-header-right">
           {character ? (
             <CharacterMenu
+              disabled={busy}
               character={character}
               characters={characters}
               onSelect={onSelectCharacter}
@@ -91,6 +96,7 @@ export function FloatingHeader({
               size="sm"
               variant="soft"
               icon="plus"
+              disabled={busy}
               onClick={onNewCharacter}
             >
               Новый герой

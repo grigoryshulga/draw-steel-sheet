@@ -366,7 +366,7 @@ describe("reconfiguring an earned level", () => {
 });
 
 describe("домены Проводника", () => {
-  const deathSix = "feature.ability.conduit.level-6.aura-of-souls";
+  const deathSix = "provodnik-aura-dush-f3bad427a7";
   const lifeSix = conduitAbilities.find(
     (entry) => entry.level === 6 && entry.domain === "Жизнь",
   )!.abilityId;

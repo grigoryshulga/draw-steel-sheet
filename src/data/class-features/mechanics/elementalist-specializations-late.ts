@@ -18,7 +18,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
   FeatureMechanics
 > = {
   // ---------------------------------------------------------------- 5-й уровень
-  "feature.elementalist.level-5.5th-level-specialization-feature": {
+  "elementalist.feature.5.osobennost-spetsializatsii-5-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт одну особенность 5-го уровня по таблице. " +
@@ -26,7 +26,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "десятикратных щитов, Пустота — Пробить завесу материи. Механику дают " +
       "вложенные записи, размеченные по специализации.",
   },
-  "feature.elementalist.level-5.the-mountain-does-not-move": {
+  "elementalist.specialization.5.gora-ne-sdvinetsya": {
     kinds: ["bonus", "situational"],
     when: { keyValue: ["Земля"] },
     effects: [{ kind: "field", field: "stability", value: { level: true } }],
@@ -38,7 +38,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "увеличивает устойчивость союзника до конца раунда. Передача " +
       "устойчивости ведётся вручную: лист не двигает существ.",
   },
-  "feature.elementalist.level-5.smoldering-step": {
+  "elementalist.specialization.5.tleyushchiy-shag": {
     kinds: ["situational"],
     when: { keyValue: ["Огонь"] },
     notes:
@@ -49,7 +49,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "враг получает урон огнём, равный показателю Разума. Телепорт и урон " +
       "применяются вручную.",
   },
-  "feature.elementalist.level-5.hide-of-tenfold-shields": {
+  "elementalist.specialization.5.shkura-desyatikratnykh-shchitov": {
     kinds: ["situational"],
     when: { keyValue: ["Зелень"] },
     notes:
@@ -59,7 +59,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "Выносливость вплоть до 0, а союзник получает столько же. Временная " +
       "Выносливость и её передача ведутся вручную.",
   },
-  "feature.elementalist.level-5.pierce-the-veil-of-substance": {
+  "elementalist.specialization.5.probit-zavesu-materii": {
     kinds: ["situational"],
     when: { keyValue: ["Пустота"] },
     notes:
@@ -69,7 +69,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "пределах её расстояния телепортируется вплоть до показателя Разума. " +
       "Выбор преграды и телепорт применяются вручную.",
   },
-  "feature.elementalist.level-5.9-essence-ability": {
+  "elementalist.feature.5.sposobnost-za-9-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 эссенции: " +
@@ -80,7 +80,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "feature.elementalist.level-6.new-9-essence-ability": {
+  "elementalist.feature.6.novaya-sposobnost-za-9-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 эссенции: " +
@@ -91,7 +91,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "feature.elementalist.level-8.8th-level-specialization-feature": {
+  "elementalist.feature.8.osobennost-spetsializatsii-8-go-urovnya": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт одну особенность 8-го уровня по таблице. " +
@@ -99,7 +99,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "Химерическое проявление, Пустота — Звезда черной дыры. Механику дают " +
       "вложенные записи, размеченные по специализации.",
   },
-  "feature.elementalist.level-8.black-hole-star": {
+  "elementalist.specialization.8.zvezda-chernoy-dyry": {
     kinds: ["situational"],
     when: { keyValue: ["Пустота"] },
     notes:
@@ -111,7 +111,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "устойчивости, равное уровню героя. Притягивание и аура применяются " +
       "вручную.",
   },
-  "feature.elementalist.level-8.chimeric-manifestation": {
+  "elementalist.specialization.8.khimericheskoe-proyavlenie": {
     kinds: ["situational"],
     when: { keyValue: ["Зелень"] },
     notes:
@@ -122,7 +122,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "совпадении преимуществ выбирает одно. Сумма уровней форм не может " +
       "превышать 12. Выбор форм и их сочетание ведутся вручную.",
   },
-  "feature.elementalist.level-8.the-flame-primordial": {
+  "elementalist.specialization.8.pervozdannoe-plamya": {
     kinds: ["situational"],
     when: { keyValue: ["Огонь"] },
     notes:
@@ -133,7 +133,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "своего следующего хода; для металлического врага — двойному показателю. " +
       "Кости, выбор объекта и уязвимость применяются вручную.",
   },
-  "feature.elementalist.level-8.summon-source-of-earth": {
+  "elementalist.specialization.8.prizyv-istochnika-zemli": {
     kinds: ["grant"],
     when: { keyValue: ["Земля"] },
     notes:
@@ -143,7 +143,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "отзывается в начале следующего хода; поддержание 2 даёт ему ещё один " +
       "ход. Карточка источника и его характеристики живут в справочнике.",
   },
-  "feature.elementalist.level-8.11-essence-ability": {
+  "elementalist.feature.8.sposobnost-za-11-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 эссенции: " +
@@ -153,7 +153,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "feature.elementalist.level-9.new-11-essence-ability": {
+  "elementalist.feature.9.novaya-sposobnost-za-11-essentsii": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 эссенции: " +
@@ -163,7 +163,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
   },
 
   // --------------------------------------------------------------- 10-й уровень
-  "feature.elementalist.level-10.one": {
+  "elementalist.feature.10.edinyy": {
     kinds: ["grant"],
     notes:
       "Контейнер: герой становится воплощением своего элемента и получает " +
@@ -171,7 +171,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "Мастер Огня, Зелень — Мастер Зелени, Пустота — Мастер Пустоты. " +
       "Механику дают вложенные записи, размеченные по специализации.",
   },
-  "feature.elementalist.level-10.master-of-earth": {
+  "elementalist.specialization.10.master-zemli": {
     kinds: ["bonus", "immunity"],
     when: { keyValue: ["Земля"] },
     effects: [{ kind: "damageImmunity", types: ["урон"], value: 5 }],
@@ -182,7 +182,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "применяет другое существо в пределах 1 мили, и повторно — 10 дней; лист " +
       "это состояние не хранит.",
   },
-  "feature.elementalist.level-10.master-of-fire": {
+  "elementalist.specialization.10.master-ognya": {
     kinds: ["bonus"],
     when: { keyValue: ["Огонь"] },
     effects: [
@@ -202,7 +202,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "расплавленное сокровище герой получает веяние, равное его эшелону — " +
       "вручную.",
   },
-  "feature.elementalist.level-10.master-of-green": {
+  "elementalist.specialization.10.master-zeleni": {
     kinds: ["bonus"],
     when: { keyValue: ["Зелень"] },
     effects: [{ kind: "field", field: "recoveries", value: 2 }],
@@ -214,7 +214,7 @@ export const ELEMENTALIST_SPECIALIZATION_LATE_MECHANICS: Record<
       "состояния, встаёт и может приостановить старение на 1d10 лет. Плоды и " +
       "состояния союзников лист не хранит.",
   },
-  "feature.elementalist.level-10.master-of-void": {
+  "elementalist.specialization.10.master-pustoty": {
     kinds: ["situational"],
     when: { keyValue: ["Пустота"] },
     notes:

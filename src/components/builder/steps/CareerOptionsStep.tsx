@@ -42,7 +42,6 @@ export function CareerOptionsStep() {
                 key={p.id}
                 eyebrow="Карьера"
                 name={p.name}
-                originalName={p.originalName}
                 type={p.type}
                 summary={p.summary}
                 selected={draft.perkId === p.id}

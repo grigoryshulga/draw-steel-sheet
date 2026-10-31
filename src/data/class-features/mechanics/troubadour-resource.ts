@@ -78,7 +78,7 @@ export const TROUBADOUR_RESOURCE: HeroicResourceSpec = {
  * `TROUBADOUR_RESOURCE`, замена начала хода — в механиках 7-го уровня.
  */
 export const TROUBADOUR_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
-  "feature.troubadour.level-1.drama": {
+  "troubadour.feature.1.drama": {
     kinds: ["resource"],
     notes:
       "Драма — героический ресурс Трубадура. Прибавки считаются автоматически: " +
@@ -92,7 +92,7 @@ export const TROUBADOUR_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "встречах больше не набирается. Остаток сгорает в конце встречи. " +
       "Отдельных прибавок у записи нет, иначе драма начислялась бы дважды.",
   },
-  "feature.troubadour.level-1.drama-in-combat": {
+  "troubadour.feature.1.drama-v-boyu": {
     kinds: ["resource"],
     notes:
       "В бою драма начисляется так: на старте встречи или стрессовой " +
@@ -105,7 +105,7 @@ export const TROUBADOUR_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "драмы описаны в записи «Драма». Остаток сгорает в конце встречи. " +
       "Отдельных прибавок у записи нет: числа живут в спецификации ресурса.",
   },
-  "feature.troubadour.level-1.drama-outside-of-combat": {
+  "troubadour.feature.1.drama-vne-boya": {
     kinds: ["resource"],
     notes:
       "Вне боя драма не набирается. Способность или эффект со стоимостью в " +
@@ -115,7 +115,7 @@ export const TROUBADOUR_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "например «Искусный росчерк», работает так, как если бы потрачено " +
       "количество драмы, равное Победам. Повтор и трату лист не отслеживает.",
   },
-  "feature.troubadour.level-10.applause": {
+  "troubadour.feature.10.aplodismenty": {
     kinds: ["resource"],
     notes:
       "Аплодисменты — эпический ресурс Трубадура: каждый отдых даёт " +

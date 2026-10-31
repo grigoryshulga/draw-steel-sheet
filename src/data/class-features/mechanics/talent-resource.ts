@@ -57,7 +57,7 @@ export const TALENT_RESOURCE: HeroicResourceSpec = {
  * начислялся бы дважды.
  */
 export const TALENT_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
-  "feature.talent.level-1.clarity-and-strain": {
+  "talent.feature.1.yasnost-i-vozbuzhdennost": {
     kinds: ["resource"],
     notes:
       "Ясность — героический ресурс Таланта. Прибавки считаются " +
@@ -67,7 +67,7 @@ export const TALENT_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "начислялась бы дважды. Остаток сгорает в конце боевой встречи, " +
       "отрицательная Ясность сбрасывается.",
   },
-  "feature.talent.level-1.clarity-in-combat": {
+  "talent.feature.1.yasnost-v-boyu": {
     kinds: ["resource"],
     notes:
       "В бою Ясность начисляется так: на старте встречи или стрессовой " +
@@ -79,7 +79,7 @@ export const TALENT_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "применяются вручную. В конце боевой встречи остаток Ясности теряется, " +
       "отрицательная Ясность сбрасывается. Отдельных прибавок у записи нет.",
   },
-  "feature.talent.level-1.clarity-outside-of-combat": {
+  "talent.feature.1.yasnost-vne-boya": {
     kinds: ["resource"],
     notes:
       "Вне боя Ясность не набирается. Способность или эффект со стоимостью в " +

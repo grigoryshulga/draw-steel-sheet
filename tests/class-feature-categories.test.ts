@@ -37,34 +37,34 @@ describe("категории особенностей класса", () => {
   });
 
   it("относит орден и домен к подклассу", () => {
-    expect(categoryOf(censor(), "feature.censor.level-1.censor-order")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.orden-tsenzora")).toBe(
       "subclass",
     );
-    expect(categoryOf(censor(), "feature.censor.level-1.deity-and-domains")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.bozhestvo-i-domeny")).toBe(
       "subclass",
     );
   });
 
   it("относит правила гнева к ресурсу", () => {
-    expect(categoryOf(censor(), "feature.censor.level-1.wrath-in-combat")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.gnev-v-boyu")).toBe(
       "resource",
     );
-    expect(categoryOf(censor(), "feature.censor.level-1.wrath-outside-of-combat")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.gnev-vne-boya")).toBe(
       "resource",
     );
   });
 
   it("относит срабатывания к триггерам, а выборы способностей — к выбору", () => {
-    expect(categoryOf(censor(), "feature.censor.level-1.my-life-for-yours")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.moya-zhizn-za-tvoyu")).toBe(
       "trigger",
     );
-    expect(categoryOf(censor(), "feature.censor.level-1.3-wrath-ability")).toBe(
+    expect(categoryOf(censor(), "censor.feature.1.sposobnost-za-3-gneva")).toBe(
       "choice",
     );
   });
 
   it("оставляет базовые правила класса в категории «Класс»", () => {
-    expect(categoryOf(censor(), "feature.censor.level-1.kit")).toBe("class");
+    expect(categoryOf(censor(), "censor.feature.1.komplekt")).toBe("class");
   });
 
   it("делит панель на секции категорий в заданном порядке", () => {

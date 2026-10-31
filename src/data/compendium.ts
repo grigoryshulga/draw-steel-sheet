@@ -1,17 +1,12 @@
-import raw from "./abilities.generated.json";
 import type { CompendiumAbility } from "../types";
-import type { AbilityWithPreferred } from "../lib/abilities";
+import { CANONICAL_ABILITY_COMPENDIUM } from "../rules/consumer-abilities";
 
-type RawCompendiumAbility = Omit<CompendiumAbility, "preferredCharacteristic"> &
-  Pick<AbilityWithPreferred, "preferredCharacteristic">;
-
-export const ABILITY_COMPENDIUM: CompendiumAbility[] = (raw as unknown as RawCompendiumAbility[]).map(
-  (entry) => ({
-    ...entry,
-    preferredCharacteristic:
-      entry.preferredCharacteristic &&
-      entry.rollCharacteristics.includes(entry.preferredCharacteristic)
-        ? entry.preferredCharacteristic
-        : (entry.rollCharacteristics[0] ?? ""),
-  }),
-);
+/**
+ * Публичный интерфейс каталога способностей для листа и строителя.
+ *
+ * Данные приходят из канонических сущностей правил через
+ * `src/rules/consumer-abilities.ts`; старый датасет способностей
+ * больше не читается во время работы или обычной сборки.
+ */
+export const ABILITY_COMPENDIUM: CompendiumAbility[] =
+  CANONICAL_ABILITY_COMPENDIUM;
