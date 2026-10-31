@@ -65,7 +65,7 @@ const PUSH_INTUITION_NOTE =
 
 export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
   // ------------------------------------------------------- база: хронокинетик
-  "null.feature.1.masterstvo-khronokinetika": {
+  "feature.null.level-1.chronokinetic-mastery": {
     kinds: ["grant"],
     notes:
       "Всякий раз, когда вы используете «Инерционный щит», вы можете " +
@@ -80,7 +80,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "записи с порогом.",
   },
   // ------------------------------------------------------- база: криокинетик
-  "null.feature.1.masterstvo-kriokinetika": {
+  "feature.null.level-1.cryokinetic-mastery": {
     kinds: ["grant"],
     notes:
       "Всякий раз, когда вы используете «Инерционный щит», вы можете затем " +
@@ -95,7 +95,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "отдельные записи с порогом.",
   },
   // ------------------------------------------------------- база: метакинетик
-  "null.feature.1.masterstvo-metakinetika": {
+  "feature.null.level-1.metakinetic-mastery": {
     kinds: ["grant"],
     notes:
       "Всякий раз, когда вы используете «Инерционный щит», вы можете затем " +
@@ -111,14 +111,14 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------------ таблица хронокинетика
-  "null.feature.1.masterstvo-khronokinetika-2": {
+  "feature.null.level-1.chronokinetic-mastery-2": {
     kinds: ["situational"],
     when: chrono2,
     notes:
       "Используя Отталкивание, вы можете применить Действие отхода как " +
       "свободный триггер либо до, либо после маневра.",
   },
-  "null.feature.1.masterstvo-khronokinetika-4": {
+  "feature.null.level-1.chronokinetic-mastery-4": {
     kinds: ["trigger"],
     when: chrono4,
     trigger: {
@@ -136,12 +136,12 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "заменяет этот порог двумя всплесками: при 8+ дисциплины отмечайте " +
       "только строку 8.",
   },
-  "null.feature.1.masterstvo-khronokinetika-6": {
+  "feature.null.level-1.chronokinetic-mastery-6": {
     kinds: ["situational"],
     when: chrono6,
     notes: "Вы получаете преимущество на маневры Захвата и Отталкивания.",
   },
-  "null.feature.4.masterstvo-khronokinetika-8-4-y-uroven": {
+  "feature.null.level-4.chronokinetic-mastery-8": {
     kinds: ["trigger"],
     when: chrono8,
     trigger: {
@@ -157,14 +157,14 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "Строка заменяет порог 4: два всплеска вместо одного, вторая строка " +
       "отдельно не срабатывает. Нужен 4-й уровень героя и 8 дисциплины.",
   },
-  "null.feature.7.masterstvo-khronokinetika-10-7-y-uroven": {
+  "feature.null.level-7.chronokinetic-mastery-10": {
     kinds: ["situational"],
     when: chrono10,
     notes:
       "Вы получаете двойное преимущество на маневры Захвата и Отталкивания. " +
       "Строка заменяет порог 6; нужен 7-й уровень героя и 10 дисциплины.",
   },
-  "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven": {
+  "feature.null.level-10.chronokinetic-mastery-12": {
     kinds: ["bonus", "trigger"],
     when: chrono12,
     effects: [
@@ -181,7 +181,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // --------------------------------------------------------- таблица криокинетика
-  "null.feature.1.masterstvo-kriokinetika-2": {
+  "feature.null.level-1.cryokinetic-mastery-2": {
     kinds: ["situational"],
     when: krio2,
     notes:
@@ -190,7 +190,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "заменить уроном холодом. Замена типа урона на карточке способности " +
       "остаётся за игроком.",
   },
-  "null.feature.1.masterstvo-kriokinetika-4": {
+  "feature.null.level-1.cryokinetic-mastery-4": {
     kinds: ["trigger"],
     when: krio4,
     trigger: {
@@ -208,12 +208,12 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "другого перемещения. На 4-м уровне строка 8 заменяет этот порог двумя " +
       "всплесками: при 8+ дисциплины отмечайте только строку 8.",
   },
-  "null.feature.1.masterstvo-kriokinetika-6": {
+  "feature.null.level-1.cryokinetic-mastery-6": {
     kinds: ["situational"],
     when: krio6,
     notes: "Вы получаете преимущество на маневры Захвата и Отталкивания.",
   },
-  "null.feature.4.masterstvo-kriokinetika-8-4-y-uroven": {
+  "feature.null.level-4.cryokinetic-mastery-8": {
     kinds: ["trigger"],
     when: krio8,
     trigger: {
@@ -230,14 +230,14 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "Строка заменяет порог 4: два всплеска вместо одного. Нужен 4-й " +
       "уровень героя и 8 дисциплины.",
   },
-  "null.feature.7.masterstvo-kriokinetika-10-7-y-uroven": {
+  "feature.null.level-7.cryokinetic-mastery-10": {
     kinds: ["situational"],
     when: krio10,
     notes:
       "Вы получаете двойное преимущество на маневры Захвата и Отталкивания. " +
       "Строка заменяет порог 6; нужен 7-й уровень героя и 10 дисциплины.",
   },
-  "null.feature.10.masterstvo-kriokinetika-12-10-y-uroven": {
+  "feature.null.level-10.cryokinetic-mastery-12": {
     kinds: ["bonus", "trigger"],
     when: krio12,
     effects: [
@@ -254,7 +254,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------- таблица метакинетика
-  "null.feature.1.masterstvo-metakinetika-2": {
+  "feature.null.level-1.metakinetic-mastery-2": {
     kinds: ["bonus"],
     when: meta2,
     effects: [
@@ -270,7 +270,7 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "Используя Отталкивание, вы получаете бонус к расстоянию " +
       "принудительного перемещения, равный показателю Интуиции.",
   },
-  "null.feature.1.masterstvo-metakinetika-4": {
+  "feature.null.level-1.metakinetic-mastery-4": {
     kinds: ["trigger"],
     when: meta4,
     trigger: {
@@ -289,12 +289,12 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "8 заменяет этот порог двумя всплесками: при 8+ дисциплины отмечайте " +
       "только строку 8.",
   },
-  "null.feature.1.masterstvo-metakinetika-6": {
+  "feature.null.level-1.metakinetic-mastery-6": {
     kinds: ["situational"],
     when: meta6,
     notes: "Вы получаете преимущество на маневры Захвата и Отталкивания.",
   },
-  "null.feature.4.masterstvo-metakinetika-8-4-y-uroven": {
+  "feature.null.level-4.metakinetic-mastery-8": {
     kinds: ["trigger"],
     when: meta8,
     trigger: {
@@ -311,14 +311,14 @@ export const NULL_MASTERY_MECHANICS: Record<string, FeatureMechanics> = {
       "Строка заменяет порог 4: два всплеска вместо одного. Нужен 4-й " +
       "уровень героя и 8 дисциплины.",
   },
-  "null.feature.7.masterstvo-metakinetika-10-7-y-uroven": {
+  "feature.null.level-7.metakinetic-mastery-10": {
     kinds: ["situational"],
     when: meta10,
     notes:
       "Вы получаете двойное преимущество на маневры Захвата и Отталкивания. " +
       "Строка заменяет порог 6; нужен 7-й уровень героя и 10 дисциплины.",
   },
-  "null.feature.10.masterstvo-metakinetika-12-10-y-uroven": {
+  "feature.null.level-10.metakinetic-mastery-12": {
     kinds: ["bonus", "trigger"],
     when: meta12,
     effects: [

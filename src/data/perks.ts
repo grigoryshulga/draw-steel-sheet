@@ -1,4 +1,5 @@
 import raw from "./perks.generated.json";
+import { canonicalPerkId } from "./originals";
 import type { Character, Perk, PerkType, SelectedPerk } from "../types";
 
 export const PERK_COMPENDIUM = raw.perks as Perk[];
@@ -32,7 +33,8 @@ export interface PerkSlot {
 }
 
 export function perkById(id: string): Perk | undefined {
-  return PERK_COMPENDIUM.find((perk) => perk.id === id);
+  const canonical = canonicalPerkId(id);
+  return PERK_COMPENDIUM.find((perk) => perk.id === canonical);
 }
 
 export function careerPerkType(career: string): PerkType | undefined {

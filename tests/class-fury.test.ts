@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import { TEXT_ONLY, mechanicsFor } from "../src/data/class-features/mechanics/index";
 import { GENERATED_CLASS_FEATURES } from "../src/data/class-features/skeleton";
+import { LEGACY_CLASS_FEATURE_IDS } from "../src/data/originals";
 import {
   calculatedValues,
   characterStatBreakdown,
@@ -67,6 +68,19 @@ const FURY_FEATURES = GENERATED_CLASS_FEATURES.filter(
   (feature) => feature.className === "Неистовый",
 );
 
+/**
+ * `TEXT_ONLY` — ручной словарь id скелета. Миграция уже перевела ключи на
+ * английские id, но один ключ Неистового остался старым, поэтому причину
+ * ищем и по новому id, и по его старому написанию из legacy-карты.
+ */
+const LEGACY_BY_FEATURE_ID = new Map(
+  Object.entries(LEGACY_CLASS_FEATURE_IDS).map(([legacyId, id]) => [id, legacyId]),
+);
+
+function textOnlyReason(id: string): string | undefined {
+  return TEXT_ONLY[id] ?? TEXT_ONLY[LEGACY_BY_FEATURE_ID.get(id) ?? ""];
+}
+
 describe("Свирепость", () => {
   it("базовые прибавки 1-го уровня — из книги", () => {
     const gains = resolvedResourceGains(fury(1)).map(
@@ -89,7 +103,7 @@ describe("Свирепость", () => {
     const damage = gains.filter((gain) => gain.tag === "take-damage");
     expect(damage).toHaveLength(1);
     expect(damage[0].amount).toBe("2");
-    expect(damage[0].sourceId).toBe("fury.feature.4.uron-ot-svireposti");
+    expect(damage[0].sourceId).toBe("feature.fury.level-4.damaging-ferocity");
     expect(gains.find((gain) => gain.tag === "start-of-turn")!.amount).toBe("1d3");
   });
 
@@ -98,7 +112,7 @@ describe("Свирепость", () => {
     const start = gains.filter((gain) => gain.event === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("1d3 + 1");
-    expect(start[0].sourceId).toBe("fury.feature.7.velikaya-svirepost");
+    expect(start[0].sourceId).toBe("feature.fury.level-7.greater-ferocity");
   });
 
   it("10-й уровень делает урон 3, теги остаются уникальными", () => {
@@ -107,7 +121,7 @@ describe("Свирепость", () => {
     expect(damage).toHaveLength(1);
     expect(damage[0].amount).toBe("3");
     expect(damage[0].sourceId).toBe(
-      "fury.feature.10.pervozdannaya-svirepost",
+      "feature.fury.level-10.primordial-ferocity",
     );
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });
@@ -372,7 +386,7 @@ describe("триггеры Неистового", () => {
 describe("покрытие записей Неистового", () => {
   it("каждая запись получила механику или прозу с причиной", () => {
     const uncovered = FURY_FEATURES.filter((feature) => {
-      const reason = TEXT_ONLY[feature.id];
+      const reason = textOnlyReason(feature.id);
       if (mechanicsFor(feature.id)) return false;
       return typeof reason !== "string" || reason.trim() === "";
     });
@@ -383,8 +397,9 @@ describe("покрытие записей Неистового", () => {
 
   it("прозаическая причина — русский текст, а не заглушка", () => {
     for (const feature of FURY_FEATURES) {
-      if (!TEXT_ONLY[feature.id]) continue;
-      expect(TEXT_ONLY[feature.id].trim().length).toBeGreaterThan(10);
+      const reason = textOnlyReason(feature.id);
+      if (!reason) continue;
+      expect(reason.trim().length).toBeGreaterThan(10);
     }
   });
 

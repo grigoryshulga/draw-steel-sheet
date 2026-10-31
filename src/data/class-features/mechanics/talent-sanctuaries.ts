@@ -7,7 +7,7 @@ import type { FeatureMechanics } from "../types";
  * состояние цели (скорость, иммунитет, невидимость) игрок ведёт вручную.
  */
 export const TALENT_SANCTUARY_MECHANICS: Record<string, FeatureMechanics> = {
-  "talent.feature.1.obereg-entropii": {
+  "feature.talent.level-1.entropy-ward": {
     kinds: ["trigger"],
     when: { keyValue: ["Оберег энтропии"] },
     trigger: {
@@ -24,7 +24,7 @@ export const TALENT_SANCTUARY_MECHANICS: Record<string, FeatureMechanics> = {
       "эффекты на других существах и их длительность. Напоминание о " +
       "срабатывании не различает источник урона.",
   },
-  "talent.feature.1.ottalkivayushchiy-obereg": {
+  "feature.talent.level-1.repulsive-ward": {
     kinds: ["trigger"],
     when: { keyValue: ["Отталкивающий оберег"] },
     trigger: {
@@ -41,7 +41,7 @@ export const TALENT_SANCTUARY_MECHANICS: Record<string, FeatureMechanics> = {
       "существ и не проверяет смежность. Напоминание относится только к " +
       "смежному источнику урона.",
   },
-  "talent.feature.1.stalnoy-obereg": {
+  "feature.talent.level-1.steel-ward": {
     kinds: ["trigger"],
     when: { keyValue: ["Стальной оберег"] },
     trigger: {
@@ -58,7 +58,7 @@ export const TALENT_SANCTUARY_MECHANICS: Record<string, FeatureMechanics> = {
       "временное состояние, а не постоянный эффект листа. Напоминание " +
       "срабатывает после разрешения урона.",
   },
-  "talent.feature.1.ischezayushchiy-obereg": {
+  "feature.talent.level-1.vanishing-ward": {
     kinds: ["trigger"],
     when: { keyValue: ["Исчезающий оберег"] },
     trigger: {

@@ -1,5 +1,6 @@
 import raw from "../ancestry-features.generated.json";
 import type { GeneratedAncestryFeature } from "./types";
+import { canonicalAncestryFeatureId } from "../originals";
 
 /**
  * Скелет особенностей происхождений: разобранный текст книги без механики.
@@ -40,7 +41,8 @@ export function ancestryFeatureRecords(
 export function ancestryFeatureById(
   id: string,
 ): GeneratedAncestryFeature | undefined {
-  return GENERATED_ANCESTRY_FEATURES.find((feature) => feature.id === id);
+  const canonical = canonicalAncestryFeatureId(id);
+  return GENERATED_ANCESTRY_FEATURES.find((feature) => feature.id === canonical);
 }
 
 /** Запись по точному названию внутри происхождения. */

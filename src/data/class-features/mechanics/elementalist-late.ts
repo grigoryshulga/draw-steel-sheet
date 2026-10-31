@@ -12,7 +12,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 6-й уровень
-  "elementalist.feature.6.virding": {
+  "feature.elementalist.level-6.wyrding": {
     kinds: ["situational"],
     notes:
       "Потратив 10 непрерывных минут, герой создаёт магическую формулу и " +
@@ -27,14 +27,14 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "elementalist.feature.7.uvelichenie-kharakteristik": {
+  "feature.elementalist.level-7.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "elementalist.feature.7.mantiya-kvintessentsii": {
+  "feature.elementalist.level-7.mantle-of-quintessence": {
     kinds: ["situational"],
     notes:
       "Мантия эссенции больше не требует эссенции. Её аура создаёт спокойную " +
@@ -44,7 +44,7 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "бонус к терпению равен 2, а преимущество двойное. Аура, терпение и " +
       "преимущества ведутся вручную.",
   },
-  "elementalist.feature.7.burlyashchaya-essentsiya": {
+  "feature.elementalist.level-7.surging-essence": {
     kinds: ["resourceGain"],
     resource: {
       name: "Эссенция",
@@ -66,7 +66,7 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "elementalist.feature.9.velikiy-virding": {
+  "feature.elementalist.level-9.grand-wyrding": {
     kinds: ["situational"],
     notes:
       "Вирдинг можно использовать как основное действие. При 5 и более " +
@@ -77,7 +77,7 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // --------------------------------------------------------------- 10-й уровень
-  "elementalist.feature.10.veyanie": {
+  "feature.elementalist.level-10.breath": {
     kinds: ["resource"],
     notes:
       "Эпический ресурс «Веяние»: каждый отдых даёт Веяние, равное полученному " +
@@ -86,14 +86,14 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
       "превращено. Прибавки пула ведёт спецификация ресурса класса, у записи " +
       "своих прибавок нет, иначе пул начислялся бы дважды.",
   },
-  "elementalist.feature.10.uvelichenie-kharakteristik": {
+  "feature.elementalist.level-10.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Разум увеличивается до 5, и ещё одна характеристика по выбору — до 5. " +
       "Повышение уровня уже применяет изменение; аддитивного эффекта здесь " +
       "нет, иначе характеристики выросли бы дважды.",
   },
-  "elementalist.feature.10.sushchnostnoe-bytie": {
+  "feature.elementalist.level-10.essential-being": {
     kinds: ["resourceGain"],
     resource: {
       name: "Эссенция",
@@ -120,14 +120,14 @@ export const ELEMENTALIST_LATE_MECHANICS: Record<string, FeatureMechanics> = {
  * 2/4 уровней — в `elementalist-early.ts`; здесь продолжение 6–10 уровней.
  */
 export const ELEMENTALIST_LATE_TEXT_ONLY: Record<string, string> = {
-  "elementalist.feature.6.perk":
+  "feature.elementalist.level-6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "elementalist.feature.7.navyk":
+  "feature.elementalist.level-7.skill":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "elementalist.feature.8.perk":
+  "feature.elementalist.level-8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "elementalist.feature.10.perk":
+  "feature.elementalist.level-10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "elementalist.feature.10.navyk":
+  "feature.elementalist.level-10.skill":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

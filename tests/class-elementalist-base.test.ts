@@ -177,16 +177,16 @@ describe("Элементалист: Эссенция", () => {
     expect(nearby).toHaveLength(1);
     expect(nearby[0].amount).toBe("2");
     expect(nearby[0].sourceId).toBe(
-      "elementalist.feature.4.istochnik-essentsii",
+      "feature.elementalist.level-4.font-of-essence",
     );
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });
 
   it("записи Эссенции не дублируют прибавки", () => {
     for (const id of [
-      "elementalist.feature.1.essentsiya",
-      "elementalist.feature.1.essentsiya-v-boyu",
-      "elementalist.feature.1.essentsiya-vne-boya",
+      "feature.elementalist.level-1.essence",
+      "feature.elementalist.level-1.essence-in-combat",
+      "feature.elementalist.level-1.essence-outside-of-combat",
     ]) {
       expect(mechanicsFor(id)?.resource, id).toBeUndefined();
       expect(mechanicsFor(id)?.kinds, id).toContain("resource");
@@ -215,22 +215,22 @@ describe("Элементалист: миграция старого реестр
     [
       "elementalist.sanctuary.delightful",
       "Оберег восхитительных последствий",
-      "elementalist.feature.1.obereg-voskhititelnykh-posledstviy",
+      "feature.elementalist.level-1.ward-of-delightful-consequences",
     ],
     [
       "elementalist.sanctuary.superior",
       "Оберег превосходной защиты",
-      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
+      "feature.elementalist.level-1.ward-of-excellent-protection",
     ],
     [
       "elementalist.sanctuary.nature",
       "Оберег привязанности природы",
-      "elementalist.feature.1.obereg-privyazannosti-prirody",
+      "feature.elementalist.level-1.ward-of-natures-affection",
     ],
     [
       "elementalist.sanctuary.reactivity",
       "Оберег удивительной реактивности",
-      "elementalist.feature.1.obereg-udivitelnoy-reaktivnosti",
+      "feature.elementalist.level-1.ward-of-surprising-reactivity",
     ],
   ] as const;
 
@@ -247,11 +247,11 @@ describe("Элементалист: миграция старого реестр
 
   it("старый ID и русское имя активируют ровно одно зачарование", () => {
     const childIds = [
-      "elementalist.feature.1.zacharovanie-bitvy",
-      "elementalist.feature.1.zacharovanie-bystroty",
-      "elementalist.feature.1.zacharovanie-razrusheniya",
-      "elementalist.feature.1.zacharovanie-distantsii",
-      "elementalist.feature.1.zacharovanie-postoyanstva",
+      "feature.elementalist.level-1.enchantment-of-battle",
+      "feature.elementalist.level-1.enchantment-of-celerity",
+      "feature.elementalist.level-1.enchantment-of-destruction",
+      "feature.elementalist.level-1.enchantment-of-distance",
+      "feature.elementalist.level-1.enchantment-of-permanence",
     ];
     for (const [index, [id, name]] of ENCHANTMENTS.entries()) {
       for (const value of [id, name]) {
@@ -270,10 +270,10 @@ describe("Элементалист: миграция старого реестр
         const hero = elementalist(1, { "elementalist.sanctuary": value });
         const active = activeIds(hero).filter((featureId) =>
           [
-            "elementalist.feature.1.obereg-voskhititelnykh-posledstviy",
-            "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
-            "elementalist.feature.1.obereg-privyazannosti-prirody",
-            "elementalist.feature.1.obereg-udivitelnoy-reaktivnosti",
+            "feature.elementalist.level-1.ward-of-delightful-consequences",
+            "feature.elementalist.level-1.ward-of-excellent-protection",
+            "feature.elementalist.level-1.ward-of-natures-affection",
+            "feature.elementalist.level-1.ward-of-surprising-reactivity",
           ].includes(featureId),
         );
         expect(active, value).toEqual([childId]);
@@ -293,14 +293,14 @@ describe("Элементалист: миграция старого реестр
     });
     expect(featureStatContributions(equipped, "stamina")).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-bitvy",
+        sourceId: "feature.elementalist.level-1.enchantment-of-battle",
         sourceName: "Зачарование битвы",
         value: 3,
       },
     ]);
     expect(featureAbilityDamageContributions(weaponAbility(), equipped)).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-bitvy",
+        sourceId: "feature.elementalist.level-1.enchantment-of-battle",
         sourceName: "Зачарование битвы",
         value: 1,
       },
@@ -327,7 +327,7 @@ describe("Элементалист: миграция старого реестр
       const hero = elementalist(level, SPEED);
       expect(featureStatContributions(hero, "speed"), String(level)).toEqual([
         {
-          sourceId: "elementalist.feature.1.zacharovanie-bystroty",
+          sourceId: "feature.elementalist.level-1.enchantment-of-celerity",
           sourceName: "Зачарование быстроты",
           value: 1,
         },
@@ -340,7 +340,7 @@ describe("Элементалист: миграция старого реестр
     const hero = elementalist(1, DESTRUCTION);
     expect(featureAbilityDamageContributions(magicAbility(), hero)).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-razrusheniya",
+        sourceId: "feature.elementalist.level-1.enchantment-of-destruction",
         sourceName: "Зачарование разрушения",
         value: 1,
       },
@@ -352,7 +352,7 @@ describe("Элементалист: миграция старого реестр
     const hero = elementalist(1, DISTANCE);
     expect(featureAbilityDistanceContributions(rangedMagic(), hero)).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-distantsii",
+        sourceId: "feature.elementalist.level-1.enchantment-of-distance",
         sourceName: "Зачарование дистанции",
         value: 2,
       },
@@ -369,14 +369,14 @@ describe("Элементалист: миграция старого реестр
     const hero = elementalist(1, CONSTANCY);
     expect(featureStatContributions(hero, "stamina")).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-postoyanstva",
+        sourceId: "feature.elementalist.level-1.enchantment-of-permanence",
         sourceName: "Зачарование постоянства",
         value: 6,
       },
     ]);
     expect(featureStatContributions(hero, "stability")).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-postoyanstva",
+        sourceId: "feature.elementalist.level-1.enchantment-of-permanence",
         sourceName: "Зачарование постоянства",
         value: 1,
       },
@@ -389,7 +389,7 @@ describe("Элементалист: миграция старого реестр
     const immunity = featureDamageImmunities(hero);
     expect(immunity).toHaveLength(1);
     expect(immunity[0].sourceId).toBe(
-      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
+      "feature.elementalist.level-1.ward-of-excellent-protection",
     );
     expect(immunity[0].types).toEqual([
       "кислота",
@@ -427,7 +427,7 @@ describe("Элементалист: миграция старого реестр
     for (const [name, event, frequency, label] of cases) {
       const hero = elementalist(1, { "elementalist.sanctuary": name });
       const triggers = classFeatureTriggers(hero).filter((trigger) =>
-        trigger.featureId.startsWith("elementalist.feature.1.obereg-"),
+        trigger.featureId.startsWith("feature.elementalist.level-1.ward-"),
       );
       expect(triggers, name).toHaveLength(1);
       expect(triggers[0].event).toBe(event);
@@ -441,36 +441,36 @@ describe("Элементалист: миграция старого реестр
 describe("Элементалист: специализация как подкласс", () => {
   const SPECIALIZATIONS = {
     Земля: [
-      "elementalist.feature.1.zemlya-akolit-zemli",
-      "elementalist.specialization.1.pobudit-zemlyu",
-      "elementalist.specialization.1.kozha-kak-steny-zamka",
-      "elementalist.specialization.2.uchenik-zemli",
-      "elementalist.specialization.3.zemlya-prinimaet-menya",
-      "elementalist.specialization.4.sotryasayushchayasya-zemlya",
+      "feature.elementalist.level-1.earth-acolyte-of-earth",
+      "feature.elementalist.level-1.motivate-earth",
+      "feature.ability.elementalist.level-1.skin-like-castle-walls",
+      "feature.elementalist.level-2.disciple-of-earth",
+      "feature.elementalist.level-3.earth-accepts-me",
+      "feature.elementalist.level-4.quaking-earth",
     ],
     Огонь: [
-      "elementalist.feature.1.ogon-akolit-ognya",
-      "elementalist.specialization.1.vozvrat-k-besformennosti",
-      "elementalist.specialization.1.vzryvnaya-pomoshch",
-      "elementalist.specialization.2.uchenik-ognya",
-      "elementalist.specialization.3.razgovor-s-ognem",
-      "elementalist.specialization.4.goryashchie-zemli",
+      "feature.elementalist.level-1.fire-acolyte-of-fire",
+      "feature.elementalist.level-1.return-to-formlessness",
+      "feature.ability.elementalist.level-1.explosive-assistance",
+      "feature.elementalist.level-2.disciple-of-fire",
+      "feature.elementalist.level-3.a-conversation-with-fire",
+      "feature.elementalist.level-4.burning-grounds",
     ],
     Зелень: [
-      "elementalist.feature.1.zelen-akolit-zeleni",
-      "elementalist.specialization.1.imenno-dusha-slyshit",
-      "elementalist.specialization.1.vospominanie-o-dykhanii-rassveta",
-      "elementalist.specialization.2.uchenik-zeleni",
-      "elementalist.specialization.3.vspomni-rost-solntse-i-dozhd",
-      "elementalist.specialization.4.tsvetushchaya-klumba",
+      "feature.elementalist.level-1.green-acolyte-of-the-green",
+      "feature.elementalist.level-1.it-is-the-soul-which-hears",
+      "feature.ability.elementalist.level-1.breath-of-dawn-remembered",
+      "feature.elementalist.level-2.disciple-of-the-green",
+      "feature.elementalist.level-3.remember-growth-and-sun-and-rain",
+      "feature.elementalist.level-4.flowering-bed",
     ],
     Пустота: [
-      "elementalist.feature.1.pustota-akolit-tayny",
-      "elementalist.specialization.1.za-predelami-zreniya",
-      "elementalist.specialization.1.nezametnoe-peremeshchenie",
-      "elementalist.specialization.2.mezhdu-nami-net-prostranstva",
-      "elementalist.specialization.3.rasstoyanie-eto-lish-pamyat",
-      "elementalist.specialization.4.sokryvayushchaya-postel",
+      "feature.elementalist.level-1.void-acolyte-of-the-mystery",
+      "feature.elementalist.level-1.a-beyonding-of-vision",
+      "feature.ability.elementalist.level-1.subtle-relocation",
+      "feature.elementalist.level-2.there-is-no-space-between",
+      "feature.elementalist.level-3.distance-is-only-memory",
+      "feature.elementalist.level-4.veiling-bed",
     ],
   } as const;
 
@@ -520,10 +520,10 @@ describe("Элементалист: специализация как подкл
       ],
     ).toBe("Огонь");
     expect(activeIds(selected)).toContain(
-      "elementalist.specialization.2.uchenik-ognya",
+      "feature.elementalist.level-2.disciple-of-fire",
     );
     expect(activeIds(selected)).not.toContain(
-      "elementalist.specialization.2.uchenik-zemli",
+      "feature.elementalist.level-2.disciple-of-earth",
     );
   });
 });
@@ -538,7 +538,7 @@ describe("Элементалист: числа уровня", () => {
       const hero = elementalist(level, {}, { subclass: "Земля" });
       expect(featureStatContributions(hero, "stamina"), String(level)).toEqual([
         {
-          sourceId: "elementalist.specialization.2.uchenik-zemli",
+          sourceId: "feature.elementalist.level-2.disciple-of-earth",
           sourceName: "Ученик Земли",
           value,
         },
@@ -563,7 +563,7 @@ describe("Элементалист: числа уровня", () => {
     const hero = elementalist(1, {}, { subclass: "Огонь" });
     expect(featureAbilityDamageContributions(fireAbility(), hero)).toEqual([
       {
-        sourceId: "elementalist.feature.1.ogon-akolit-ognya",
+        sourceId: "feature.elementalist.level-1.fire-acolyte-of-fire",
         sourceName: "Огонь: Аколит Огня",
         value: 1,
       },
@@ -572,7 +572,7 @@ describe("Элементалист: числа уровня", () => {
   });
 
   it("иммунитет к урону читается строкой, а не внутренним типом", () => {
-    const id = "elementalist.feature.1.obereg-prevoskhodnoy-zashchity";
+    const id = "feature.elementalist.level-1.ward-of-excellent-protection";
     const saved = FEATURE_MECHANICS[id];
     FEATURE_MECHANICS[id] = {
       kinds: ["bonus", "immunity"],
@@ -601,14 +601,14 @@ describe("Элементалист: контейнеры способносте�
       const hero = elementalist(4, {}, { subclass });
       const ids = activeIds(hero);
       expect(ids).toContain(
-        "elementalist.feature.2.novaya-sposobnost-za-5-essentsii",
+        "feature.elementalist.level-2.new-5-essence-ability",
       );
-      expect(ids).toContain("elementalist.feature.3.sposobnost-za-7-essentsii");
-      expect(mechanicsFor("elementalist.feature.2.novaya-sposobnost-za-5-essentsii")?.kinds).toEqual([
+      expect(ids).toContain("feature.elementalist.level-3.7-essence-ability");
+      expect(mechanicsFor("feature.elementalist.level-2.new-5-essence-ability")?.kinds).toEqual([
         "choice",
         "grant",
       ]);
-      expect(mechanicsFor("elementalist.feature.3.sposobnost-za-7-essentsii")?.kinds).toEqual([
+      expect(mechanicsFor("feature.elementalist.level-3.7-essence-ability")?.kinds).toEqual([
         "choice",
         "grant",
       ]);
@@ -635,12 +635,12 @@ describe("Элементалист: создание героя и старый 
       "elementalist.sanctuary": "elementalist.sanctuary.superior",
     });
     const ids = activeIds(hero);
-    expect(ids).toContain("elementalist.feature.1.zacharovanie-bitvy");
+    expect(ids).toContain("feature.elementalist.level-1.enchantment-of-battle");
     expect(ids).toContain(
-      "elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
+      "feature.elementalist.level-1.ward-of-excellent-protection",
     );
-    expect(ids).toContain("elementalist.feature.1.zemlya-akolit-zemli");
-    expect(ids).not.toContain("elementalist.feature.1.ogon-akolit-ognya");
+    expect(ids).toContain("feature.elementalist.level-1.earth-acolyte-of-earth");
+    expect(ids).not.toContain("feature.elementalist.level-1.fire-acolyte-of-fire");
 
     const reloaded = JSON.parse(JSON.stringify(hero)) as Character;
     expect(reloaded.subclass).toBe("Земля");
@@ -721,7 +721,7 @@ describe("Элементалист: создание героя и старый 
     );
     expect(featureAbilityDamageContributions(magicAbility(), selected)).toEqual([
       {
-        sourceId: "elementalist.feature.1.zacharovanie-razrusheniya",
+        sourceId: "feature.elementalist.level-1.enchantment-of-destruction",
         sourceName: "Зачарование разрушения",
         value: 1,
       },
@@ -745,7 +745,7 @@ describe("Элементалист: создание героя и старый 
       automation: { ...hero.automation!, enabled: false },
     };
     expect(activeIds(off)).toContain(
-      "elementalist.feature.1.zacharovanie-postoyanstva",
+      "feature.elementalist.level-1.enchantment-of-permanence",
     );
     expect(
       classFeatureChoicesForSheet(off).some(
@@ -819,7 +819,7 @@ describe("Элементалист: повышение уровня 1→2 и 3�
     });
     expect(featureStatBonus(result.next, "stamina")).toBe(9); // 3 битвы + 6 ученика
     expect(activeIds(result.next)).toContain(
-      "elementalist.specialization.2.uchenik-zemli",
+      "feature.elementalist.level-2.disciple-of-earth",
     );
     expect(resolvedResourceGains(result.next)).toHaveLength(3);
   });
@@ -840,10 +840,10 @@ describe("Элементалист: повышение уровня 1→2 и 3�
     expect(nearby).toHaveLength(1);
     expect(nearby[0].amount).toBe("2");
     expect(nearby[0].sourceId).toBe(
-      "elementalist.feature.4.istochnik-essentsii",
+      "feature.elementalist.level-4.font-of-essence",
     );
     expect(activeIds(result.next)).toContain(
-      "elementalist.feature.4.mantiya-essentsii",
+      "feature.elementalist.level-4.mantle-of-essence",
     );
     // 12 Ученика Земли на 4-м уровне + 6 битвы.
     expect(featureStatBonus(result.next, "stamina")).toBe(18);

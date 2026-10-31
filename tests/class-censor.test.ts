@@ -181,8 +181,8 @@ describe("Цензор: орден и домен", () => {
     });
     expect(hero.automation?.classFeatureSelections?.["censor.domain"]).toBe("Солнце");
     const ids = activeClassFeatures(hero).map((feature) => feature.id);
-    expect(ids).toContain("censor.domain.1.vnutrenniy-svet");
-    expect(ids).not.toContain("censor.domain.1.osvyashchennoe-oruzhie");
+    expect(ids).toContain("feature.censor.level-1.inner-light");
+    expect(ids).not.toContain("feature.censor.level-1.sanctified-weapon");
   });
 
   it("орден активирует только свои записи, а не все двенадцать", () => {
@@ -205,17 +205,17 @@ describe("Цензор: орден и домен", () => {
     const level2 = activeClassFeatures(censor(2, "Оракул", "Буря")).map(
       (feature) => feature.id,
     );
-    expect(level2).toContain("censor.order.2.sudya-kharakterov");
-    expect(level2).not.toContain("censor.order.5.prorochestvo");
-    expect(level2).not.toContain("censor.domain.4.postup-vetra");
+    expect(level2).toContain("feature.censor.level-2.judge-of-character");
+    expect(level2).not.toContain("feature.censor.level-5.prophecy");
+    expect(level2).not.toContain("feature.censor.level-4.windwalk");
 
     const level8 = activeClassFeatures(censor(8, "Оракул", "Буря")).map(
       (feature) => feature.id,
     );
-    expect(level8).toContain("censor.order.5.prorochestvo");
-    expect(level8).toContain("censor.order.8.ikh-proshloe-raskryto");
-    expect(level8).toContain("censor.domain.7.verkhom-na-molnii");
-    expect(level8).not.toContain("censor.feature.10.gnev-bogov");
+    expect(level8).toContain("feature.censor.level-5.prophecy");
+    expect(level8).toContain("feature.censor.level-8.their-past-revealed");
+    expect(level8).toContain("feature.censor.level-7.ride-the-lightning");
+    expect(level8).not.toContain("feature.censor.level-10.wrath-of-the-gods");
   });
 
   it("чужой орден не показывает свои списки способностей", () => {
@@ -226,7 +226,7 @@ describe("Цензор: орден и домен", () => {
     expect(excorcist).not.toContain("Способности Оракула 2-го уровня");
     expect(excorcist).not.toContain("Способности Идеала 2-го уровня");
     const own = mechanicsFor(
-      "censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya",
+      "feature.censor.level-2.exorcist-ability",
     );
     expect(own?.choice?.options.map((option) => option.label)).toEqual([
       "Правосудия Вы Боитесь",
@@ -253,9 +253,9 @@ describe("Цензор: орден и домен", () => {
     const events = classFeatureTriggers(censor(1, "Оракул")).map(
       (trigger) => trigger.featureId,
     );
-    expect(events).toContain("censor.feature.1.sud");
-    expect(events).toContain("censor.feature.1.preimushchestvo-ordena-dlya-suda");
-    expect(events).toContain("censor.feature.1.moya-zhizn-za-tvoyu");
+    expect(events).toContain("feature.censor.level-1.judgment");
+    expect(events).toContain("feature.censor.level-1.judgment-order-benefit");
+    expect(events).toContain("feature.censor.level-1.my-life-for-yours");
   });
 });
 
@@ -265,7 +265,7 @@ describe("Цензор: числа доменов", () => {
     expect(featureFieldBonus(hero, "rolledDamage", weaponAbility())).toBe(5);
     expect(featureDamageImmunities(hero)).toEqual([
       {
-        sourceId: "censor.domain.7.svet-palyashchego-solntsa",
+        sourceId: "feature.censor.level-7.light-of-the-burning-sun",
         sourceName: "Свет палящего солнца",
         types: ["огонь"],
         value: 8,
@@ -466,14 +466,14 @@ describe("Цензор: покрытие механик", () => {
     // Прозаические записи (перки и навыки) лежат в TEXT_ONLY и проверяются
     // гейтом покрытия; здесь важно, что механик у них нет намеренно.
     expect(missing.map((feature) => feature.id).sort()).toEqual([
-      "censor.feature.10.navyk",
-      "censor.feature.10.perk",
-      "censor.feature.2.perk",
-      "censor.feature.4.navyk",
-      "censor.feature.4.perk",
-      "censor.feature.6.perk",
-      "censor.feature.7.navyk",
-      "censor.feature.8.perk",
+      "feature.censor.level-10.perk",
+      "feature.censor.level-10.skill",
+      "feature.censor.level-2.perk",
+      "feature.censor.level-4.perk",
+      "feature.censor.level-4.skill",
+      "feature.censor.level-6.perk",
+      "feature.censor.level-7.skill",
+      "feature.censor.level-8.perk",
     ]);
   });
 

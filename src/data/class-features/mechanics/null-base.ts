@@ -11,7 +11,7 @@ import type { FeatureMechanics } from "../types";
  * ремесло, Метакинетик — исследование), поэтому в механике он только назван.
  */
 export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "null.feature.1.traditsiya-nulya": {
+  "feature.null.level-1.null-tradition": {
     kinds: ["choice", "grant"],
     choice: {
       group: "null.tradition",
@@ -31,7 +31,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "2/5/8 уровней и способности 2/6/9 уровней. Быстрый билд: Хронокинетик " +
       "и навык из группы знаний (в книге — Монстры).",
   },
-  "null.feature.1.pole-nulya": {
+  "feature.null.level-1.null-field": {
     kinds: ["situational"],
     notes:
       "Способность-аура: область 1, псионика, маневр; каждая цель в области " +
@@ -45,7 +45,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "героя или по его выбору. Аура, трата дисциплины и эффект ведутся " +
       "вручную.",
   },
-  "null.feature.1.inertsionnyy-shchit": {
+  "feature.null.level-1.inertial-shield": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -59,7 +59,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Половина урона, трата дисциплины и выбор эффекта применяются вручную: " +
       "лист не знает источник и тип урона.",
   },
-  "null.feature.1.masterstvo-distsipliny": {
+  "feature.null.level-1.discipline-mastery": {
     kinds: ["grant"],
     notes:
       "Контейнер мастерства: преимущества по порогам дисциплины 2/4/6/8/10/12 " +
@@ -67,7 +67,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "количестве дисциплины, держатся до конца вашего хода, даже если " +
       "дисциплины стало меньше. Пороги 8/10/12 открываются на 4/7/10 уровнях.",
   },
-  "null.feature.1.skorost-nulya": {
+  "feature.null.level-1.null-speed": {
     kinds: ["bonus"],
     effects: [
       {
@@ -86,7 +86,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Сохранённые характеристики листа не меняются: прибавка считается поверх " +
       "введённых значений.",
   },
-  "null.feature.1.psionicheskie-boevye-iskusstva": {
+  "feature.null.level-1.psionic-martial-arts": {
     kinds: ["situational"],
     notes:
       "Используя Отталкивание или Захват, вы применяете Интуицию вместо Мощи " +
@@ -94,14 +94,14 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Отталкивание можно заменить швырянием цели. Подмена характеристики в " +
       "броске маневра не выражается полем листа и применяется вручную.",
   },
-  "null.feature.1.sposobnosti-nulya": {
+  "feature.null.level-1.null-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковые и героические способности " +
       "1-го уровня описаны вложенными записями, а конкретные карточки " +
       "выбираются при создании героя и повышении уровня.",
   },
-  "null.feature.1.znakovye-sposobnosti": {
+  "feature.null.level-1.signature-abilities": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать две знаковые способности из списка книги: Танец Ударов, " +
@@ -112,13 +112,13 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "первая названа «Быстрее глаза» — это расхождение имени, имеется в виду " +
       "та же способность.",
   },
-  "null.feature.1.geroicheskie-sposobnosti": {
+  "feature.null.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 " +
       "дисциплины описаны дочерними записями.",
   },
-  "null.feature.1.sposobnost-za-3-distsipliny": {
+  "feature.null.level-1.3-discipline-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 дисциплины: " +
@@ -128,7 +128,7 @@ export const NULL_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "списке способность называется «Хронометрический Джеб» — это " +
       "расхождение имени, имеется в виду та же способность.",
   },
-  "null.feature.1.sposobnost-za-5-distsipliny": {
+  "feature.null.level-1.5-discipline-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 дисциплины: " +

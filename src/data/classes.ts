@@ -2,6 +2,8 @@ import type { CharacteristicKey } from "../types";
 
 export interface ClassPreset {
   name: string;
+  /** Английское название класса из SteelCompendium. */
+  originalName?: string;
   resource: string;
   staminaBase: number;
   staminaPerLevel: number;
@@ -14,6 +16,7 @@ export interface ClassPreset {
 export const CLASS_PRESETS: ClassPreset[] = [
   {
     name: "Неистовый",
+    originalName: "Fury",
     resource: "Свирепость",
     staminaBase: 21,
     staminaPerLevel: 9,
@@ -23,6 +26,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Нуль",
+    originalName: "Null",
     resource: "Дисциплина",
     staminaBase: 21,
     staminaPerLevel: 9,
@@ -32,6 +36,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Призыватель",
+    originalName: "Summoner",
     resource: "Эссенция",
     staminaBase: 18,
     staminaPerLevel: 6,
@@ -41,6 +46,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Проводник",
+    originalName: "Conduit",
     resource: "Благочестие",
     staminaBase: 18,
     staminaPerLevel: 6,
@@ -50,6 +56,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Тактик",
+    originalName: "Tactician",
     resource: "Фокус",
     staminaBase: 21,
     staminaPerLevel: 9,
@@ -59,6 +66,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Талант",
+    originalName: "Talent",
     resource: "Ясность",
     staminaBase: 18,
     staminaPerLevel: 6,
@@ -68,6 +76,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Тень",
+    originalName: "Shadow",
     resource: "Прозрение",
     staminaBase: 18,
     staminaPerLevel: 6,
@@ -77,6 +86,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Трубадур",
+    originalName: "Troubadour",
     resource: "Драма",
     staminaBase: 18,
     staminaPerLevel: 6,
@@ -86,6 +96,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Цензор",
+    originalName: "Censor",
     resource: "Гнев",
     staminaBase: 21,
     staminaPerLevel: 9,
@@ -95,6 +106,7 @@ export const CLASS_PRESETS: ClassPreset[] = [
   },
   {
     name: "Элементалист",
+    originalName: "Elementalist",
     resource: "Эссенция",
     staminaBase: 18,
     staminaPerLevel: 6,

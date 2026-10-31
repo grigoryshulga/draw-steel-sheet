@@ -28,6 +28,14 @@ For another class, extend its mechanics modules and focused rule tests; avoid ad
 
 `codex.generated.json` is the complete book. Only the Codex view imports it directly in application code. Shared catalog/tooltips consume `library-articles.generated.json`, containing the glossary and chapters 16, 18, 19. `build-codex.mjs` refreshes this subset automatically; `npm run data:library` refreshes it independently. A parity test prevents stale or missing articles.
 
+English originals live in `scripts/originals/` (SteelCompendium reference data and
+old-to-new id maps). `build-originals.mjs` is the last data step: it adds
+`originalId`, `originalName` and `originalDescription`, replaces transliterated
+ids with English scc-ids, and writes `legacy-ids.generated.json` so saved
+characters still resolve perks, ancestry traits and abilities by their old ids.
+It runs after the generators in `npm run data` and `npm run data:library`, and
+can be rerun alone with `npm run data:originals`.
+
 ## Quality gate
 
 `npm run check` runs import-boundary checks, all Vitest tests, then TypeScript and the production build. GitHub Actions runs the same command. API tests start an isolated server and use temporary storage, leaving user characters untouched.

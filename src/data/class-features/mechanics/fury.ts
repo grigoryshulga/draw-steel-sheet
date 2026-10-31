@@ -140,7 +140,7 @@ export const FURY_RESOURCE: HeroicResourceSpec = {
 
 export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 1-й уровень
-  "fury.feature.1.pervozdannyy-aspekt": {
+  "feature.fury.level-1.primordial-aspect": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.aspect",
@@ -156,14 +156,14 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Разоритель — Скрытность, Буревестник — Выслеживание) выдаётся при " +
       "создании героя.",
   },
-  "fury.feature.1.svirepost": {
+  "feature.fury.level-1.ferocity": {
     kinds: ["resource"],
     notes:
       "Контейнер ресурса: прибавки живут в CLASS_RESOURCES (FURY_RESOURCE) " +
       "и собираются движком src/lib/resources.ts. Своих gains у записи нет, " +
       "иначе свирепость начислялась бы дважды.",
   },
-  "fury.feature.1.svirepost-v-boyu": {
+  "feature.fury.level-1.ferocity-in-combat": {
     kinds: ["resource"],
     notes:
       "Набор свирепости: в начале боевой встречи — равная Победам; в начале " +
@@ -171,7 +171,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "первый раз за бой, когда входишь в утомление или при смерти — 1d3. " +
       "Остаток свирепости сгорает в конце боевой встречи.",
   },
-  "fury.feature.1.svirepost-vne-boya": {
+  "feature.fury.level-1.ferocity-outside-of-combat": {
     kinds: ["resource"],
     notes:
       "Вне боя свирепость не набирается: способность или эффект со свирепостью " +
@@ -179,7 +179,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Способность с тратой «неограниченно» вне боя работает как трата, равная " +
       "Победам. Траты не списывают ресурс — это правило чтения, а не расчёт.",
   },
-  "fury.feature.1.rastushchaya-svirepost": {
+  "feature.fury.level-1.growing-ferocity": {
     kinds: ["resource", "situational"],
     notes:
       "Пороговые преимущества по количеству свирепости (2/4/6/8/10/12) из таблиц " +
@@ -187,7 +187,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Строки порогов перенесены отдельными записями, таблица Буревестника " +
       "лежит в комплектах буревестника и в данных отсутствует.",
   },
-  "fury.feature.1.rastushchaya-svirepost-berserka-2": {
+  "feature.fury.level-1.growing-ferocity-berserker-2": {
     kinds: ["bonus"],
     when: thresholdGate("Берсерк", 2),
     effects: [forcedMovementBonus("Берсерк", MIGHT, 2)],
@@ -196,13 +196,13 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "бонус, равный Мощи. Тип маневра движок не различает, поэтому бонус висит " +
       "на поле «толчок».",
   },
-  "fury.feature.1.rastushchaya-svirepost-berserka-4": {
+  "feature.fury.level-1.growing-ferocity-berserker-4": {
     kinds: ["trigger"],
     when: thresholdGate("Берсерк", 4),
     trigger: firstForcedMovementTrigger("Берсерк", MANEUVERS.push, "1 всплеск", 4, false),
     notes: "Всплески лист считает вручную: поля «всплески» в модели нет.",
   },
-  "fury.feature.1.rastushchaya-svirepost-berserka-6": {
+  "feature.fury.level-1.growing-ferocity-berserker-6": {
     kinds: ["situational"],
     when: thresholdGate("Берсерк", 6),
     notes:
@@ -210,7 +210,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Отталкивания. Преимущество на кубиках не выражается числовым полем — " +
       "правило показывается текстом.",
   },
-  "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven": {
+  "feature.fury.level-4.growing-ferocity-berserker-8": {
     kinds: ["trigger"],
     when: thresholdGate("Берсерк", 8),
     trigger: firstForcedMovementTrigger("Берсерк", MANEUVERS.push, "2 всплеска", 8, true),
@@ -218,14 +218,14 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Порог 8 свирепости (с 4-го уровня): те же всплески, но 2 вместо 1. " +
       "Требование уровня закрыто уровнем самой записи.",
   },
-  "fury.feature.7.rastushchaya-svirepost-berserka-10-7-y-uroven": {
+  "feature.fury.level-7.growing-ferocity-berserker-10": {
     kinds: ["situational"],
     when: thresholdGate("Берсерк", 10),
     notes:
       "Порог 10 свирепости (с 7-го уровня): двойное преимущество на тесты Мощи " +
       "и маневр Отталкивания — заменяет преимущество порога 6.",
   },
-  "fury.feature.10.rastushchaya-svirepost-berserka-12-10-y-uroven": {
+  "feature.fury.level-10.growing-ferocity-berserker-12": {
     kinds: ["trigger", "bonus"],
     when: thresholdGate("Берсерк", 12),
     effects: [forcedMovementBonus("Берсерк", MIGHT, 12)],
@@ -243,7 +243,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "движения относится к любому броску силы, а не только к маневру " +
       "Отталкивания, поэтому складывается с бонусом порога 2.",
   },
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-2": {
+  "feature.fury.level-1.growing-ferocity-reaver-2": {
     kinds: ["bonus"],
     when: thresholdGate("Разоритель", 2),
     effects: [forcedMovementBonus("Разоритель", AGILITY, 2)],
@@ -251,33 +251,33 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Порог 2 свирепости у Разорителя: расстояние маневра Отталкивания получает " +
       "бонус, равный Ловкости.",
   },
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-4": {
+  "feature.fury.level-1.growing-ferocity-reaver-4": {
     kinds: ["trigger"],
     when: thresholdGate("Разоритель", 4),
     trigger: firstForcedMovementTrigger("Разоритель", MANEUVERS.throw, "1 всплеск", 4, false),
     notes: "Всплески лист считает вручную: поля «всплески» в модели нет.",
   },
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-6": {
+  "feature.fury.level-1.growing-ferocity-reaver-6": {
     kinds: ["situational"],
     when: thresholdGate("Разоритель", 6),
     notes:
       "Порог 6 свирепости у Разорителя: преимущество на тесты Ловкости и маневр " +
       "Отталкивания; преимущество на кубиках показывается текстом.",
   },
-  "fury.feature.4.rastushchaya-svirepost-razoritelya-8-4-y-uroven": {
+  "feature.fury.level-4.growing-ferocity-reaver-8": {
     kinds: ["trigger"],
     when: thresholdGate("Разоритель", 8),
     trigger: firstForcedMovementTrigger("Разоритель", MANEUVERS.throw, "2 всплеска", 8, true),
     notes: "Порог 8 свирепости (с 4-го уровня): 2 всплеска вместо 1.",
   },
-  "fury.feature.7.rastushchaya-svirepost-razoritelya-10-7-y-uroven": {
+  "feature.fury.level-7.growing-ferocity-reaver-10": {
     kinds: ["situational"],
     when: thresholdGate("Разоритель", 10),
     notes:
       "Порог 10 свирепости (с 7-го уровня): двойное преимущество на тесты " +
       "Ловкости и маневр Отталкивания — заменяет преимущество порога 6.",
   },
-  "fury.feature.10.rastushchaya-svirepost-razoritelya-12-10-y-uroven": {
+  "feature.fury.level-10.growing-ferocity-reaver-12": {
     kinds: ["trigger", "bonus"],
     when: thresholdGate("Разоритель", 12),
     effects: [forcedMovementBonus("Разоритель", AGILITY, 12)],
@@ -294,7 +294,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Порог 12 свирепости (с 10-го уровня): бонус к расстоянию принудительного " +
       "движения при любом броске силы складывается с бонусом порога 2.",
   },
-  "fury.aspect.1.forma-zverya": {
+  "feature.fury.level-1.beast-shape": {
     kinds: ["grant", "situational"],
     notes:
       "Буревестник: можно использовать комплекты буревестника (статья 0924, " +
@@ -302,21 +302,21 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Растущей свирепости Буревестника. Эффектов нет: преимущества живут " +
       "в комплекте, а не в этой записи.",
   },
-  "fury.aspect.1.komplekt": {
+  "feature.fury.level-1.kit": {
     kinds: ["grant"],
     notes:
       "Берсерк и Разоритель: можно использовать комплект и получать его " +
       "преимущества. Бонусы комплекта уже считает лист по данным комплектов " +
       "(kitBonus), дублировать их в записи не нужно.",
   },
-  "fury.aspect.1.pervozdannaya-khitrost": {
+  "feature.fury.level-1.primordial-cunning": {
     kinds: ["situational"],
     notes:
       "Разоритель: вас нельзя застигнуть врасплох; всякий раз, когда вы должны " +
       "совершить толчок цели принудительным движением, можете вместо этого " +
       "совершить швыряние. Подмены типа принудительного движения в модели нет.",
   },
-  "fury.aspect.1.pervozdannaya-sila": {
+  "feature.fury.level-1.primordial-strength": {
     kinds: ["trigger", "situational"],
     trigger: {
       event: "forced-movement",
@@ -332,13 +332,13 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "условии эффекта), поэтому бонус урона по объектам остаётся за игроком: " +
       "бонус на все удары оружием был бы неверен.",
   },
-  "fury.aspect.1.bezzhalostnyy-okhotnik": {
+  "feature.fury.level-1.relentless-hunter": {
     kinds: ["situational"],
     notes:
       "Буревестник: преимущество на тесты навыка Выслеживание. Преимущество на " +
       "кубиках не выражается числом.",
   },
-  "fury.aspect.1.linii-sily": {
+  "feature.ability.fury.level-1.lines-of-force": {
     kinds: ["trigger"],
     trigger: {
       event: "forced-movement",
@@ -356,7 +356,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "принудительное движение героя и складывался бы с бонусом порога свирепости, " +
       "чего книга не говорит.",
   },
-  "fury.aspect.1.nezemnye-refleksy": {
+  "feature.ability.fury.level-1.unearthly-reflexes": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -370,7 +370,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Разоритель. Половина урона считается игроком на лету.",
   },
-  "fury.aspect.1.yarostnoe-izmenenie": {
+  "feature.ability.fury.level-1.furious-change": {
     kinds: ["trigger"],
     trigger: {
       event: "lose-stamina",
@@ -384,68 +384,68 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Буревестник. Временная выносливость и формы — состояние листа, не эффект.",
   },
-  "fury.feature.1.moguchie-pryzhki": {
+  "feature.fury.level-1.mighty-leaps": {
     kinds: ["situational"],
     notes:
       "Результат теста Мощи на прыжок не ниже второго тира. Подмены минимума " +
       "тира в модели нет — правило показывается текстом.",
   },
-  "fury.feature.1.znakovaya-sposobnost": {
+  "feature.fury.level-1.signature-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.signature",
       options: [
-        { id: "neistovyy-brutalnyy-udar-c9b6b0c82f", label: "Брутальный Удар" },
-        { id: "neistovyy-bey-i-begi-d49f37111e", label: "Бей и Беги" },
-        { id: "neistovyy-naskvoz-7040e8d41c", label: "Насквозь!" },
-        { id: "neistovyy-do-smerti-cc34e7fea6", label: "До Смерти!" },
+        { id: "feature.ability.fury.level-1.brutal-slam", label: "Брутальный Удар" },
+        { id: "feature.ability.fury.level-1.hit-and-run", label: "Бей и Беги" },
+        { id: "feature.ability.fury.level-1.impaled", label: "Насквозь!" },
+        { id: "feature.ability.fury.level-1.to-the-death", label: "До Смерти!" },
       ],
     },
     notes:
       "Выбор одной знаковой способности из четырёх; сами способности — записи " +
       "справочника способностей (abilities.generated), здесь только выбор.",
   },
-  "fury.feature.1.sposobnost-za-3-svireposti": {
+  "feature.fury.level-1.3-ferocity-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.heroic.3",
       options: [
-        { id: "neistovyy-nazad-dd23a538d2", label: "Назад!" },
-        { id: "neistovyy-s-dorogi-5131581e24", label: "С Дороги!" },
-        { id: "neistovyy-volna-smerti-ae560a2604", label: "Волна Смерти" },
+        { id: "feature.ability.fury.level-1.back", label: "Назад!" },
+        { id: "feature.ability.fury.level-1.out-of-the-way", label: "С Дороги!" },
+        { id: "feature.ability.fury.level-1.tide-of-death", label: "Волна Смерти" },
         {
-          id: "neistovyy-tvoi-vnutrennosti-teper-tvoi-naruzhnosti-23236dd6fc",
+          id: "feature.ability.fury.level-1.your-entrails-are-your-extrails",
           label: "Твои внутренности Теперь Твои Наружности!",
         },
       ],
     },
     notes: "Выбор одной героической способности за 3 свирепости.",
   },
-  "fury.feature.1.sposobnost-za-5-svireposti": {
+  "feature.fury.level-1.5-ferocity-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.heroic.5",
       options: [
-        { id: "neistovyy-krov-za-krov-dd0a9a2493", label: "Кровь за Кровь!" },
+        { id: "feature.ability.fury.level-1.blood-for-blood", label: "Кровь за Кровь!" },
         {
-          id: "neistovyy-prostis-so-svoim-bogom-098a9d8f41",
+          id: "feature.ability.fury.level-1.make-peace-with-your-god",
           label: "Простись Со Своим Богом!",
         },
-        { id: "neistovyy-gromovoy-rev-b222cca75a", label: "Громовой Рев" },
-        { id: "neistovyy-do-samogo-konca-ed7c9f1a9d", label: "До Самого Конца" },
+        { id: "feature.ability.fury.level-1.thunder-roar", label: "Громовой Рев" },
+        { id: "feature.ability.fury.level-1.to-the-uttermost-end", label: "До Самого Конца" },
       ],
     },
     notes: "Выбор одной героической способности за 5 свирепости.",
   },
 
   // ---------------------------------------------------------------- 2-й уровень
-  "fury.feature.2.perk": {
+  "feature.fury.level-2.perk": {
     kinds: ["grant"],
     notes:
       "Один перк ремесла, исследования или интриги по выбору. Перки ведутся " +
       "своим списком на листе, поля эффектов у перка нет.",
   },
-  "fury.aspect.2.neizbezhnyy-gnev": {
+  "feature.fury.level-2.inescapable-wrath": {
     kinds: ["bonus", "situational"],
     effects: [{ kind: "field", field: "speed", value: AGILITY }],
     notes:
@@ -453,7 +453,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "труднопроходимой местности. Игнорирование местности — правило чтения, " +
       "числового поля у него нет.",
   },
-  "fury.aspect.2.zub-i-kogot": {
+  "feature.fury.level-2.tooth-and-claw": {
     kinds: ["trigger"],
     trigger: {
       event: "end-of-turn",
@@ -465,52 +465,52 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Буревестник. Урон получают все смежные враги — лист считает вручную.",
   },
-  "fury.aspect.2.nepreodolimaya-sila": {
+  "feature.fury.level-2.unstoppable-force": {
     kinds: ["situational"],
     notes:
       "Берсерк: в действии атаки с рывком вместо свободного удара можно применить " +
       "знаковую или героическую способность удара; прыжок можно совершить как " +
       "часть рывка. Это правило выбора действия, чисел не даёт.",
   },
-  "fury.feature.2.sposobnost-berserka-2-go-urovnya": {
+  "feature.fury.level-2.berserker-ability": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.2",
       options: [
-        { id: "neistovyy-osobaya-dostavka-f71cbdccc0", label: "Особая Доставка" },
-        { id: "neistovyy-tarannyy-shar-5aecde78f8", label: "Таранный Шар" },
+        { id: "feature.ability.fury.level-2.special-delivery", label: "Особая Доставка" },
+        { id: "feature.ability.fury.level-2.wrecking-ball", label: "Таранный Шар" },
       ],
     },
     notes: "Берсерк: одна из двух способностей 2-го уровня за 5 свирепости.",
   },
-  "fury.feature.2.sposobnost-razoritelya-2-go-urovnya": {
+  "feature.fury.level-2.reaver-ability": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.2",
       options: [
-        { id: "neistovyy-smert-smert-61a8e0d162", label: "Смерть... Смерть!" },
-        { id: "neistovyy-razrushitel-falang-5c4d3b0d58", label: "Разрушитель Фаланг" },
+        { id: "feature.ability.fury.level-2.death-death", label: "Смерть... Смерть!" },
+        { id: "feature.ability.fury.level-2.phalanx-breaker", label: "Разрушитель Фаланг" },
       ],
     },
     notes: "Разоритель: одна из двух способностей 2-го уровня за 5 свирепости.",
   },
-  "fury.feature.2.sposobnost-burevestnika-2-go-urovnya": {
+  "feature.fury.level-2.stormwight-ability": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.2",
       options: [
-        { id: "neistovyy-vysshiy-hischnik-373d249741", label: "Высший Хищник" },
-        { id: "neistovyy-vnutrenniy-rev-04d333351c", label: "Внутренний Рев" },
+        { id: "feature.ability.fury.level-2.apex-predator", label: "Высший Хищник" },
+        { id: "feature.ability.fury.level-2.visceral-roar", label: "Внутренний Рев" },
       ],
     },
     notes: "Буревестник: одна из двух способностей 2-го уровня за 5 свирепости.",
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "fury.aspect.3.nedvizhimyy-obekt": {
+  "feature.fury.level-3.immovable-object": {
     kinds: ["bonus"],
     effects: [{ kind: "field", field: "stability", value: MIGHT }],
     notes:
@@ -518,42 +518,42 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "прибавляется к размеру для взаимодействий) не моделируется: поля размера " +
       "в движке нет; на захват это не влияет, как и говорит книга.",
   },
-  "fury.aspect.3.rytsar-prirody": {
+  "feature.fury.level-3.natures-knight": {
     kinds: ["situational"],
     notes:
       "Буревестник: разговор с животными и элементалями, ощущение их присутствия " +
       "в 10 клетках, Слава +1 в переговорах с ними (суммируется с прибавкой " +
       "Мародёра). Слава и чувства — не числовые поля листа.",
   },
-  "fury.aspect.3.videt-skvoz-ikh-ulovki": {
+  "feature.fury.level-3.see-through-their-tricks": {
     kinds: ["situational"],
     notes:
       "Разоритель: двойное преимущество на поиск скрытых существ и мотивов, " +
       "обнаружение лжи и азартные игры. Преимущество на кубиках не выражается.",
   },
-  "fury.feature.3.sposobnost-za-7-svireposti": {
+  "feature.fury.level-3.7-ferocity-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.heroic.7",
       options: [
-        { id: "neistovyy-demon-na-vole-645401a1d0", label: "Демон на Воле" },
-        { id: "neistovyy-vstret-buryu-971551c413", label: "Встреть Бурю!" },
-        { id: "neistovyy-razrushitel-stali-90211fa030", label: "Разрушитель Стали" },
-        { id: "neistovyy-vy-uzhe-mertvy-c10cbde43c", label: "Вы Уже Мертвы" },
+        { id: "feature.ability.fury.level-3.demon-unleashed", label: "Демон на Воле" },
+        { id: "feature.ability.fury.level-3.face-the-storm", label: "Встреть Бурю!" },
+        { id: "feature.ability.fury.level-3.steelbreaker", label: "Разрушитель Стали" },
+        { id: "feature.ability.fury.level-3.you-are-already-dead", label: "Вы Уже Мертвы" },
       ],
     },
     notes: "Выбор одной героической способности за 7 свирепости.",
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "fury.feature.4.uvelichenie-kharakteristik": {
+  "feature.fury.level-4.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Ловкость поднимаются до 3. Значение применяет повышение уровня " +
       "(level-up: characteristics.set {might:3, agility:3}); аддитивный эффект " +
       "здесь удвоил бы прибавку, поэтому его нет.",
   },
-  "fury.feature.4.uron-ot-svireposti": {
+  "feature.fury.level-4.damaging-ferocity": {
     kinds: ["resourceGain"],
     resource: {
       name: "Свирепость",
@@ -569,25 +569,25 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Первый раз за раунд, когда получаешь урон, — 2 свирепости вместо 1.",
   },
-  "fury.feature.4.uluchshenie-rastushchey-svireposti": {
+  "feature.fury.level-4.growing-ferocity-improvement": {
     kinds: ["resource", "situational"],
     notes:
       "Открывает строки Растущей свирепости с порогом 8 свирепости: строки " +
       "лежат отдельными записями 4-го уровня, а эта запись объясняет, почему " +
       "они появляются.",
   },
-  "fury.feature.4.perk": {
+  "feature.fury.level-4.perk": {
     kinds: ["grant"],
     notes: "Один перк на выбор.",
   },
-  "fury.feature.4.pervozdannaya-nastroyka": {
+  "feature.fury.level-4.primordial-attunement": {
     kinds: ["situational"],
     notes:
       "Автоматическое ощущение иммунитетов и уязвимостей к кислоте, холоду, " +
       "порче, огню, молнии, яду и звуку в 10 клетках и источников этих типов. " +
       "Чувства — правило чтения, числового поля нет.",
   },
-  "fury.feature.4.pervozdannyy-udar": {
+  "feature.fury.level-4.primordial-strike": {
     kinds: ["resource"],
     notes:
       "Как часть любого удара можно потратить 1 свирепости и получить 1 всплеск " +
@@ -596,20 +596,20 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "можно потратить до 3 свирепости. Трата ресурса и выбор типа — действие " +
       "игрока, не автоматический эффект.",
   },
-  "fury.feature.4.navyk": {
+  "feature.fury.level-4.skill": {
     kinds: ["grant"],
     notes: "Один навык на выбор; навыки ведутся своим списком на листе.",
   },
 
   // ---------------------------------------------------------------- 5-й уровень
-  "fury.aspect.5.prygun": {
+  "feature.fury.level-5.bounder": {
     kinds: ["situational"],
     notes:
       "Берсерк: дистанция и высота прыжка удваиваются — это множитель, а не " +
       "слагаемое, и поля «дальность прыжка» в движке нет. Падение уменьшается на " +
       "дистанцию прыжка, лежачим после падения на существо вы не становитесь.",
   },
-  "fury.aspect.5.rozhdennyy-shtormom": {
+  "feature.fury.level-5.stormborn": {
     kinds: ["situational", "grant"],
     notes:
       "Буревестник: вы и союзники в 5 клетках игнорируете негативные эффекты " +
@@ -617,7 +617,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "у проводника 1-го уровня. Кросс-классовая выдача чужой особенности " +
       "моделью не выражается.",
   },
-  "fury.aspect.5.raskovannyy": {
+  "feature.fury.level-5.unfettered": {
     kinds: ["trigger", "situational"],
     trigger: {
       event: "start-of-turn",
@@ -630,25 +630,25 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Разоритель: двойное преимущество на тесты побега из заключения — " +
       "преимущество на кубиках показывается текстом.",
   },
-  "fury.feature.5.sposobnost-za-9-svireposti": {
+  "feature.fury.level-5.9-ferocity-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.heroic.9",
       options: [
-        { id: "neistovyy-oslablyayuschiy-udar-33a1fa07fa", label: "Ослабляющий Удар" },
-        { id: "neistovyy-moya-ochered-a1891828ca", label: "Моя Очередь!" },
+        { id: "feature.ability.fury.level-5.debilitating-strike", label: "Ослабляющий Удар" },
+        { id: "feature.ability.fury.level-5.my-turn", label: "Моя Очередь!" },
         {
-          id: "neistovyy-razbrasyvayuschiy-shtorm-653f063a97",
+          id: "feature.ability.fury.level-5.rebounding-storm",
           label: "Разбрасывающий Шторм",
         },
-        { id: "neistovyy-plot-v-kamen-feb37231c4", label: "Плоть в Камень!" },
+        { id: "feature.ability.fury.level-5.to-stone", label: "Плоть в Камень!" },
       ],
     },
     notes: "Выбор одной героической способности за 9 свирепости.",
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "fury.feature.6.maroder-pervozdannogo-khaosa": {
+  "feature.fury.level-6.marauder-of-the-primordial-chaos": {
     kinds: ["situational", "trigger"],
     trigger: {
       event: "combat-start",
@@ -664,63 +664,63 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "природы). Событие «впервые понял, что в бою» отслеживается за существо; " +
       "в листе это одно срабатывание за встречу.",
   },
-  "fury.feature.6.pervozdannyy-portal": {
+  "feature.fury.level-6.primordial-portal": {
     kinds: ["situational"],
     notes:
       "Основным действием коснуться источника элементальной силы и создать портал " +
       "в Квинтэссенцию; поддерживается число порталов, равное Мощи. Портал и " +
       "перемещения — действия игрока, чисел для листа нет.",
   },
-  "fury.feature.6.perk": {
+  "feature.fury.level-6.perk": {
     kinds: ["grant"],
     notes: "Один перк ремесла, исследования или интриги на выбор.",
   },
-  "fury.feature.6.sposobnosti-berserka-6-go-urovnya": {
+  "feature.fury.level-6.berserker-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.6",
       options: [
-        { id: "neistovyy-lavinnyy-udar-de8e2a81ef", label: "Лавинный Удар" },
-        { id: "neistovyy-sila-shtormov-45ac646e33", label: "Сила Штормов" },
+        { id: "feature.ability.fury.level-6.avalanche-impact", label: "Лавинный Удар" },
+        { id: "feature.ability.fury.level-6.force-of-storms", label: "Сила Штормов" },
       ],
     },
     notes: "Берсерк: одна из двух способностей 6-го уровня за 9 свирепости.",
   },
-  "fury.feature.6.sposobnosti-razoritelya-6-go-urovnya": {
+  "feature.fury.level-6.reaver-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.6",
       options: [
-        { id: "neistovyy-smertelnyy-udar-dec35603e1", label: "Смертельный Удар" },
-        { id: "neistovyy-nayti-i-unichtozhit-2f81ea4bd4", label: "Найти и Уничтожить" },
+        { id: "feature.ability.fury.level-6.death-strike", label: "Смертельный Удар" },
+        { id: "feature.ability.fury.level-6.seek-and-destroy", label: "Найти и Уничтожить" },
       ],
     },
     notes: "Разоритель: одна из двух способностей 6-го уровня за 9 свирепости.",
   },
-  "fury.feature.6.sposobnosti-burevestnika-6-go-urovnya": {
+  "feature.fury.level-6.stormwight-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.6",
       options: [
-        { id: "neistovyy-zverinyy-naskok-575ec5a122", label: "Звериный Наскок" },
-        { id: "neistovyy-osedlavshie-buryu-56b467d86d", label: "Оседлавшие Бурю" },
+        { id: "feature.ability.fury.level-6.pounce", label: "Звериный Наскок" },
+        { id: "feature.ability.fury.level-6.riders-on-the-storm", label: "Оседлавшие Бурю" },
       ],
     },
     notes: "Буревестник: одна из двух способностей 6-го уровня за 9 свирепости.",
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "fury.feature.7.uvelichenie-kharakteristik": {
+  "feature.fury.level-7.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика +1 до максимума 4. Значение применяет повышение " +
       "уровня (level-up: increaseAll {amount:1, cap:4}); аддитивный эффект здесь " +
       "удвоил бы прибавку.",
   },
-  "fury.feature.7.elementalnaya-forma": {
+  "feature.fury.level-7.elemental-form": {
     kinds: ["immunity"],
     effects: [
       {
@@ -738,7 +738,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "у Буревестника появляется только на 10-м уровне вместе с Воплощением Хаоса, " +
       "где тип назван обобщённо.",
   },
-  "fury.feature.7.velikaya-svirepost": {
+  "feature.fury.level-7.greater-ferocity": {
     kinds: ["resourceGain"],
     resource: {
       name: "Свирепость",
@@ -754,23 +754,23 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Свирепость в начале каждого своего хода — 1d3 + 1 вместо 1d3.",
   },
-  "fury.feature.7.uluchshenie-rastushchey-svireposti": {
+  "feature.fury.level-7.growing-ferocity-improvement": {
     kinds: ["resource", "situational"],
     notes:
       "Открывает строки Растущей свирепости с порогом 10 свирепости; строки " +
       "лежат отдельными записями 7-го уровня.",
   },
-  "fury.feature.7.navyk": {
+  "feature.fury.level-7.skill": {
     kinds: ["grant"],
     notes: "Один навык на выбор.",
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "fury.feature.8.perk": {
+  "feature.fury.level-8.perk": {
     kinds: ["grant"],
     notes: "Один перк на выбор.",
   },
-  "fury.aspect.8.zverinets": {
+  "feature.fury.level-8.menagerie": {
     kinds: ["grant", "situational"],
     notes:
       "Буревестник: доступны все комплекты буревестника, на отдыхе комплект " +
@@ -779,7 +779,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "Комплекты буревестника в данных отсутствуют, «три кубика» числом не " +
       "выражаются.",
   },
-  "fury.aspect.8.na-shag-vperedi": {
+  "feature.fury.level-8.a-step-ahead": {
     kinds: ["situational", "bonus"],
     effects: [{ kind: "field", field: "disengage", value: AGILITY }],
     notes:
@@ -787,83 +787,83 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "на тестах Ловкости бросаются три кубика с выбором двух (числом не " +
       "выражается).",
   },
-  "fury.aspect.8.silneyshiy": {
+  "feature.fury.level-8.strongest-there-is": {
     kinds: ["situational", "bonus"],
     effects: [{ kind: "field", field: "push", value: MIGHT }],
     notes:
       "Берсерк: расстояние маневра Отталкивания получает бонус, равный Мощи; " +
       "на тестах Мощи бросаются три кубика с выбором двух (числом не выражается).",
   },
-  "fury.feature.8.sposobnost-za-11-svireposti": {
+  "feature.fury.level-8.11-ferocity-ability": {
     kinds: ["choice", "grant"],
     choice: {
       group: "fury.heroic.11",
       options: [
         {
-          id: "neistovyy-elementalnaya-svirepost-e0e6be2a3b",
+          id: "feature.ability.fury.level-8.elemental-ferocity",
           label: "Элементальная Свирепость",
         },
-        { id: "neistovyy-izbytochnyy-uron-48e9173636", label: "Избыточный Урон" },
-        { id: "neistovyy-pervozdannaya-yarost-682dd13031", label: "Первозданная Ярость" },
-        { id: "neistovyy-neumolimaya-smert-73c9ebb5f8", label: "Неумолимая Смерть" },
+        { id: "feature.ability.fury.level-8.overkill", label: "Избыточный Урон" },
+        { id: "feature.ability.fury.level-8.primordial-rage", label: "Первозданная Ярость" },
+        { id: "feature.ability.fury.level-8.relentless-death", label: "Неумолимая Смерть" },
       ],
     },
     notes: "Выбор одной героической способности за 11 свирепости.",
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "fury.feature.9.predvestnik-pervozdannogo-khaosa": {
+  "feature.fury.level-9.harbinger-of-the-primordial-chaos": {
     kinds: ["situational"],
     notes:
       "Деятельность отдыха: создать временный источник элементальной силы на 24 " +
       "часа, пригодный для Первозданного портала; пока портал поддерживается, " +
       "источник сохраняется. Это деятельность отдыха, чисел для листа нет.",
   },
-  "fury.feature.9.sposobnosti-berserka-9-go-urovnya": {
+  "feature.fury.level-9.berserker-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Берсерк"] },
     choice: {
       group: "fury.berserker.ability.9",
       options: [
         {
-          id: "neistovyy-smert-prihodit-za-vsemi-14cbc215f6",
+          id: "feature.ability.fury.level-9.death-comes-for-you-all",
           label: "Смерть Приходит За Всеми!",
         },
-        { id: "neistovyy-pervozdannyy-vihr-f4a556044d", label: "Первозданный Вихрь" },
+        { id: "feature.ability.fury.level-9.primordial-vortex", label: "Первозданный Вихрь" },
       ],
     },
     notes: "Берсерк: одна из двух способностей 9-го уровня за 11 свирепости.",
   },
-  "fury.feature.9.sposobnosti-razoritelya-9-go-urovnya": {
+  "feature.fury.level-9.reaver-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Разоритель"] },
     choice: {
       group: "fury.raider.ability.9",
       options: [
         {
-          id: "neistovyy-pervozdannaya-kara-primordial-bane-201a549d9a",
+          id: "feature.ability.fury.level-9.primordial-bane",
           label: "Первозданная кара",
         },
-        { id: "neistovyy-krovavyy-dozhd-f2ebe05910", label: "Кровавый Дождь" },
+        { id: "feature.ability.fury.level-9.shower-of-blood", label: "Кровавый Дождь" },
       ],
     },
     notes: "Разоритель: одна из двух способностей 9-го уровня за 11 свирепости.",
   },
-  "fury.feature.9.sposobnosti-burevestnika-9-go-urovnya": {
+  "feature.fury.level-9.stormwight-abilities": {
     kinds: ["choice", "grant"],
     when: { keyValue: ["Буревестник"] },
     choice: {
       group: "fury.stormbringer.ability.9",
       options: [
-        { id: "neistovyy-rev-smerti-c0987130c4", label: "Рев Смерти" },
-        { id: "neistovyy-bedstvie-62e981aae4", label: "Бедствие" },
+        { id: "feature.ability.fury.level-9.death-rattle", label: "Рев Смерти" },
+        { id: "feature.ability.fury.level-9.deluge", label: "Бедствие" },
       ],
     },
     notes: "Буревестник: одна из двух способностей 9-го уровня за 11 свирепости.",
   },
 
   // --------------------------------------------------------------- 10-й уровень
-  "fury.feature.10.voploshchenie-khaosa": {
+  "feature.fury.level-10.chaos-incarnate": {
     kinds: ["immunity", "trigger", "resource"],
     // Двойная Мощь у Берсерка и Разорителя — семь типов урона, тройная
     // у Буревестника — тип Первозданного шторма (см. notes).
@@ -902,24 +902,24 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "листе. Первозданный удар здесь усиливается до 3 свирепости за удар " +
       "(см. запись 4-го уровня) — это расход ресурса, а не число листа.",
   },
-  "fury.feature.10.uvelichenie-kharakteristik": {
+  "feature.fury.level-10.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Мощь и Ловкость поднимаются до 5. Значение применяет повышение уровня " +
       "(level-up: characteristics.set {might:5, agility:5}); аддитивный эффект " +
       "здесь удвоил бы прибавку.",
   },
-  "fury.feature.10.uluchshenie-rastushchey-svireposti": {
+  "feature.fury.level-10.growing-ferocity-improvement": {
     kinds: ["resource", "situational"],
     notes:
       "Открывает строки Растущей свирепости с порогом 12 свирепости; строки " +
       "лежат отдельными записями 10-го уровня.",
   },
-  "fury.feature.10.perk": {
+  "feature.fury.level-10.perk": {
     kinds: ["grant"],
     notes: "Один перк ремесла, исследования или интриги на выбор.",
   },
-  "fury.feature.10.pervozdannaya-svirepost": {
+  "feature.fury.level-10.primordial-ferocity": {
     kinds: ["resourceGain"],
     resource: {
       name: "Свирепость",
@@ -935,7 +935,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
     },
     notes: "Первый раз за раунд, когда получаешь урон, — 3 свирепости вместо 2.",
   },
-  "fury.feature.10.pervozdannaya-sila": {
+  "feature.fury.level-10.primordial-power": {
     kinds: ["resource"],
     notes:
       "Эпический ресурс: на каждом отдыхе первозданная сила прибывает на " +
@@ -945,7 +945,7 @@ export const FURY_MECHANICS: Record<string, FeatureMechanics> = {
       "завершить столько же эффектов на себе; 3 единицы создают портал без " +
       "источника элементальной силы.",
   },
-  "fury.feature.10.navyk": {
+  "feature.fury.level-10.skill": {
     kinds: ["grant"],
     notes: "Один навык на выбор.",
   },

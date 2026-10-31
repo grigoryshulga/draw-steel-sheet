@@ -74,6 +74,7 @@ export function AbilityCard({
       className={`sheet-ability-card${selected ? " is-selected" : ""}${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
       data-action={ability.actionType}
       data-kind={ability.kind}
+      title={ability.originalName || undefined}
       {...(onSelect
         ? {
             role: "button",

@@ -1,7 +1,7 @@
-import type { CharacteristicKey } from "../types";
+import type { CharacteristicKey, OriginalFields } from "../types";
 import generatedRules from "./level-up.generated.json";
 
-export interface LevelUpFeature {
+export interface LevelUpFeature extends OriginalFields {
   id: string;
   name: string;
   description: string;

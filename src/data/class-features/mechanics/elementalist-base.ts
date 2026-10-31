@@ -13,7 +13,7 @@ import type { FeatureMechanics } from "../types";
  * при этом продолжают работать через таблицу названий.
  */
 export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "elementalist.feature.1.elementalnaya-spetsializatsiya": {
+  "feature.elementalist.level-1.elemental-specialization": {
     kinds: ["choice", "grant"],
     choice: {
       group: "elementalist.specialization",
@@ -34,7 +34,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "1-го уровня, особенности 2/3/4/5/8/10 уровней и способности подкласса. " +
       "Быстрый билд: Огонь.",
   },
-  "elementalist.feature.1.zemlya-akolit-zemli": {
+  "feature.elementalist.level-1.earth-acolyte-of-earth": {
     kinds: ["situational"],
     when: { keyValue: ["Земля"] },
     notes:
@@ -43,7 +43,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "следующего хода; прибавки суммируются. Это временное состояние, лист " +
       "его не хранит: число применяется вручную.",
   },
-  "elementalist.feature.1.ogon-akolit-ognya": {
+  "feature.elementalist.level-1.fire-acolyte-of-fire": {
     kinds: ["bonus"],
     when: { keyValue: ["Огонь"] },
     effects: [
@@ -61,7 +61,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "получает этот бонус, хотя в карточке у него нет ключевого слова Огонь: " +
       "этот случай игрок учитывает вручную.",
   },
-  "elementalist.feature.1.zelen-akolit-zeleni": {
+  "feature.elementalist.level-1.green-acolyte-of-the-green": {
     kinds: ["situational"],
     when: { keyValue: ["Зелень"] },
     notes:
@@ -71,7 +71,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор цели и временная Выносливость ведутся вручную: лист не хранит " +
       "состояния на других существах.",
   },
-  "elementalist.feature.1.pustota-akolit-tayny": {
+  "feature.elementalist.level-1.void-acolyte-of-the-mystery": {
     kinds: ["bonus"],
     when: { keyValue: ["Пустота"] },
     effects: [
@@ -86,7 +86,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Расстояние способностей с ключевыми словами Магия, Дальний и Пустота " +
       "увеличивается на 2 клетки. Фильтр требует все три ключевых слова.",
   },
-  "elementalist.feature.1.brosok-elementa": {
+  "feature.elementalist.level-1.hurl-element": {
     kinds: ["grant"],
     notes:
       "Способность «Бросок элемента» выдаётся вместе с классом и описана " +
@@ -94,7 +94,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "выбирается тип урона из семи элементов. Числа и выбор типа урона живут " +
       "на карточке, дублировать их в листе не нужно.",
   },
-  "elementalist.feature.1.podderzhivaemaya-magiya": {
+  "feature.elementalist.level-1.persistent-magic": {
     kinds: ["situational"],
     notes:
       "Поддержание N уменьшает эссенцию, получаемую в начале своего хода, на N " +
@@ -104,7 +104,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "урон за один ход в размере 5×Разум и больше прекращает их. Список " +
       "активных поддержаний лист не хранит — вычитание ведётся вручную.",
   },
-  "elementalist.feature.1.prakticheskaya-magiya": {
+  "feature.elementalist.level-1.practical-magic": {
     kinds: ["grant"],
     notes:
       "Способность «Практическая Магия» выдаётся вместе с классом и описана " +
@@ -112,7 +112,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "через Разум, урон Разумом выбранного типа, телепорт с тратой эссенции). " +
       "Выбор варианта и трата эссенции ведутся на карточке.",
   },
-  "elementalist.feature.1.osobennost-spetsializatsii-1-go-urovnya": {
+  "feature.elementalist.level-1.1st-level-specialization-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт одну особенность 1-го уровня по таблице. " +
@@ -120,7 +120,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Именно душа слышит, Пустота — За пределами зрения. Механику дают " +
       "вложенные записи, размеченные по специализации.",
   },
-  "elementalist.specialization.1.za-predelami-zreniya": {
+  "feature.elementalist.level-1.a-beyonding-of-vision": {
     kinds: ["situational", "grant"],
     notes:
       "Герой распознаёт иллюзии, видит невидимых существ, и сверхъестественные " +
@@ -130,7 +130,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "карточка справочника даёт союзникам преимущество особенности до конца " +
       "следующего хода. Распознавание ведётся вручную.",
   },
-  "elementalist.specialization.1.imenno-dusha-slyshit": {
+  "feature.elementalist.level-1.it-is-the-soul-which-hears": {
     kinds: ["situational"],
     notes:
       "Герой говорит с животными, зверями и существами-растениями и понимает " +
@@ -139,7 +139,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "телепатически, но растение отвечает только чувствами и ощущениями. " +
       "Лист не хранит языки и разум существ — правило применяется вручную.",
   },
-  "elementalist.specialization.1.pobudit-zemlyu": {
+  "feature.elementalist.level-1.motivate-earth": {
     kinds: ["grant"],
     notes:
       "Способность «Побудить Землю» приходит вместе со специализацией Земля и " +
@@ -147,7 +147,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "обычной земли, камня или металла либо открывает или запечатывает " +
       "отверстие в 1 клетку. Эффект ведётся на карточке.",
   },
-  "elementalist.specialization.1.vozvrat-k-besformennosti": {
+  "feature.elementalist.level-1.return-to-formlessness": {
     kinds: ["grant"],
     notes:
       "Способность «Возврат к Бесформенности» приходит вместе со " +
@@ -155,7 +155,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "уничтожает одну клетку обычного объекта, расплавляя её в шлак или пепел. " +
       "Эффект ведётся на карточке.",
   },
-  "elementalist.feature.1.trigger-spetsializatsii": {
+  "feature.elementalist.level-1.specialization-triggered-action": {
     kinds: ["grant"],
     notes:
       "Контейнер: специализация даёт один триггер 1-го уровня по таблице. " +
@@ -163,7 +163,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Воспоминание о дыхании рассвета, Пустота — Незаметное перемещение. " +
       "Механику дают вложенные записи, размеченные по специализации.",
   },
-  "elementalist.specialization.1.kozha-kak-steny-zamka": {
+  "feature.ability.elementalist.level-1.skin-like-castle-walls": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -177,7 +177,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Половина урона, трата эссенции и уменьшение потенциала применяются " +
       "вручную: лист не знает источник урона и связанные с ним эффекты.",
   },
-  "elementalist.specialization.1.vzryvnaya-pomoshch": {
+  "feature.ability.elementalist.level-1.explosive-assistance": {
     kinds: ["trigger"],
     trigger: {
       event: "forced-movement",
@@ -191,7 +191,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Бонус к расстоянию и трата эссенции применяются вручную: лист не " +
       "пересчитывает принудительное движение другой способности.",
   },
-  "elementalist.specialization.1.vospominanie-o-dykhanii-rassveta": {
+  "feature.ability.elementalist.level-1.breath-of-dawn-remembered": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -205,7 +205,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Трата Восстановления и эссенции — выбор игрока: триггер только " +
       "напоминает, лист не лечит цель и не списывает ресурс сам.",
   },
-  "elementalist.specialization.1.nezametnoe-peremeshchenie": {
+  "feature.ability.elementalist.level-1.subtle-relocation": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -220,7 +220,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Телепорт и трата эссенции ведутся вручную: лист не двигает существ и " +
       "не проверяет момент перемещения.",
   },
-  "elementalist.feature.1.zacharovanie": {
+  "feature.elementalist.level-1.enchantment": {
     kinds: ["choice", "grant"],
     choice: {
       group: "elementalist.enchantment",
@@ -248,7 +248,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "вложенных особенностей, а сохранённые выборы прежних листов " +
       "продолжают работать. Быстрый билд: Зачарование разрушения.",
   },
-  "elementalist.feature.1.obereg-elementalista": {
+  "feature.elementalist.level-1.elementalist-ward": {
     kinds: ["choice", "grant"],
     choice: {
       group: "elementalist.sanctuary",
@@ -278,14 +278,14 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "срабатывание, но состояние цели игрок ведёт вручную. Быстрый билд: " +
       "Оберег удивительной реактивности.",
   },
-  "elementalist.feature.1.sposobnosti-elementalista": {
+  "feature.elementalist.level-1.elementalist-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковые и героические способности " +
       "1-го уровня описаны вложенными записями, а конкретные карточки " +
       "выбираются при создании героя и повышении уровня.",
   },
-  "elementalist.feature.1.znakovye-sposobnosti": {
+  "feature.elementalist.level-1.signature-abilities": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать две знаковые способности из списка книги: Обильное " +
@@ -295,13 +295,13 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "способностей: у Элементалиста ровно две знаковые способности. Быстрый " +
       "билд: Раздвоенное Испепеление и Вязкий Огонь.",
   },
-  "elementalist.feature.1.geroicheskie-sposobnosti": {
+  "feature.elementalist.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 " +
       "эссенции описаны дочерними записями.",
   },
-  "elementalist.feature.1.sposobnost-za-3-essentsii": {
+  "feature.elementalist.level-1.3-essence-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 эссенции: " +
@@ -309,7 +309,7 @@ export const ELEMENTALIST_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "идёт в билдере способностей при создании героя; отдельный список " +
       "вариантов в листе не нужен. Быстрый билд: Плоть — Это Горнило.",
   },
-  "elementalist.feature.1.sposobnost-za-5-essentsii": {
+  "feature.elementalist.level-1.5-essence-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 эссенции: " +

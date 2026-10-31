@@ -9,7 +9,7 @@ import type { FeatureMechanics } from "../types";
  * 15 записям скелета, у которых нет `keyedBy`.
  */
 export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "censor.feature.1.orden-tsenzora": {
+  "feature.censor.level-1.censor-order": {
     kinds: ["choice", "grant"],
     choice: {
       group: "censor.order",
@@ -25,7 +25,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "выдаётся при создании героя (Экзорцист — Чтение личности, Оракул — " +
       "Магия, Идеал — Лидерство). Быстрый билд: Идеал.",
   },
-  "censor.feature.1.bozhestvo-i-domeny": {
+  "feature.censor.level-1.deity-and-domains": {
     kinds: ["choice", "grant"],
     choice: {
       group: "censor.domain",
@@ -51,14 +51,14 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "(пишет билдер) и определяет особенности домена 1/4/7 уровней и навык " +
       "домена.",
   },
-  "censor.feature.1.gnev": {
+  "feature.censor.level-1.wrath": {
     kinds: ["resource"],
     notes:
       "Героический ресурс Гнев. Прибавки живут в CENSOR_RESOURCE " +
       "(`censor-resource.ts`) и собираются движком; своих gains у записи нет, " +
       "иначе гнев начислялся бы дважды.",
   },
-  "censor.feature.1.gnev-v-boyu": {
+  "feature.censor.level-1.wrath-in-combat": {
     kinds: ["resource"],
     notes:
       "Набор гнева: в начале боевой встречи или иной стрессовой ситуации, " +
@@ -68,7 +68,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "урон осуждённому, — 1. Остаток сгорает в конце боевой встречи. Числа " +
       "не дублируются: они в CENSOR_RESOURCE.",
   },
-  "censor.feature.1.gnev-vne-boya": {
+  "feature.censor.level-1.wrath-outside-of-combat": {
     kinds: ["resource"],
     notes:
       "Вне боя гнев не набирается: способность или эффект со стоимостью в " +
@@ -78,7 +78,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "трата, равная Победам. Модель не хранит историю повторного " +
       "использования.",
   },
-  "censor.feature.1.sud": {
+  "feature.censor.level-1.judgment": {
     kinds: ["grant", "trigger"],
     trigger: {
       event: "use-ability",
@@ -108,7 +108,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "«осуждён»; урон и варианты за 1 гнев применяются вручную. За раз " +
       "выбирается только один вариант, даже если событие подходит к нескольким.",
   },
-  "censor.feature.1.preimushchestvo-ordena-dlya-suda": {
+  "feature.censor.level-1.judgment-order-benefit": {
     kinds: ["grant", "trigger"],
     trigger: {
       event: "use-ability",
@@ -128,7 +128,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "вариант определяется выбранным орденом. Перемещение и урон лист не " +
       "применяет автоматически; выбор цели и клетки остаётся за игроком.",
   },
-  "censor.feature.1.komplekt": {
+  "feature.censor.level-1.kit": {
     kinds: ["grant"],
     notes:
       "Комплект выбирается в билдере и хранится в character.kit; Цензор " +
@@ -136,7 +136,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "комплектов, дублировать их в записи не нужно. Быстрый билд: " +
       "Воинствующий жрец.",
   },
-  "censor.feature.1.moya-zhizn-za-tvoyu": {
+  "feature.censor.level-1.my-life-for-yours": {
     kinds: ["grant", "trigger"],
     trigger: {
       event: "start-of-turn",
@@ -154,7 +154,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "получает урон» — проверяется вручную. Расход Восстановления и лечение " +
       "лист не применяет.",
   },
-  "censor.feature.1.osobennost-domena-1-go-urovnya": {
+  "feature.censor.level-1.1st-level-domain-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: особенность домена 1-го уровня по таблице и навык из группы " +
@@ -168,13 +168,13 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Вдохновенный обман (Интрига), Война — Освященное оружие " +
       "(Исследование). Механику дают вложенные записи censor.domain.1.*.",
   },
-  "censor.feature.1.sposobnosti-tsenzora": {
+  "feature.censor.level-1.censor-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела: Суд и Моя Жизнь за Твою выдаются классом и описаны " +
       "отдельными записями; знаковая и героические способности выбираются в билдере.",
   },
-  "censor.feature.1.znakovaya-sposobnost": {
+  "feature.censor.level-1.signature-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну знаковую способность; в тексте четыре варианта: " +
@@ -183,13 +183,13 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "требует ровно одну знаковую способность. Быстрый билд: «Твои Союзники " +
       "Тебя не Спасут!».",
   },
-  "censor.feature.1.geroicheskie-sposobnosti": {
+  "feature.censor.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 гнева " +
       "описаны дочерними записями.",
   },
-  "censor.feature.1.sposobnost-za-3-gneva": {
+  "feature.censor.level-1.3-wrath-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 гнева; в тексте " +
@@ -197,7 +197,7 @@ export const CENSOR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Защищают», «Покайся!». Выбор идёт при создании героя по справочнику способностей; нужна одна " +
       "способность стоимостью 3 гнева. Быстрый билд: «Боги Карают и Защищают».",
   },
-  "censor.feature.1.sposobnost-za-5-gneva": {
+  "feature.censor.level-1.5-wrath-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 гнева; в тексте " +

@@ -1,8 +1,10 @@
 import articles from "./library-articles.generated.json";
+import catalogOriginals from "./catalog-originals.generated.json";
+import type { OriginalFields } from "../types";
 import { headingId, searchText } from "../lib/codex";
 
 export type CatalogKind = "treasure" | "title" | "project";
-export interface CatalogEntry {
+export interface CatalogEntry extends OriginalFields {
   id: string;
   kind: CatalogKind;
   name: string;
@@ -37,6 +39,11 @@ export function plainSummary(markdown: string) {
     .trim()
     .slice(0, 180);
 }
+const CATALOG_ORIGINALS = catalogOriginals as Record<
+  string,
+  OriginalFields & { id?: string }
+>;
+
 export const CATALOG: CatalogEntry[] = articles.flatMap((article) => {
   const kind: CatalogKind | null = article.chapter.startsWith("18.")
     ? "treasure"
@@ -58,27 +65,36 @@ export const CATALOG: CatalogEntry[] = articles.flatMap((article) => {
             .replace(/\n---\s*$/, "")
             .trim(),
         }));
-  return pieces.map((piece) => ({
-    ...piece,
-    id: piece.heading ? `${article.id}-${piece.heading}` : article.id,
-    kind,
-    articleId: article.id,
-    category: article.group || "Титулы",
-    echelon: Number(article.title.match(/(\d)-го Эшелона/i)?.[1]) || null,
-    summary: plainSummary(
-      piece.markdown
-        .split(/\n\s*\n/)
-        .find((p) => !/^\*\*[^*]+:\*\*/.test(p) && !/^[#|]/.test(p)) ||
+  return pieces.map((piece) => {
+    const localId = piece.heading
+      ? `${article.id}-${piece.heading}`
+      : article.id;
+    const original = CATALOG_ORIGINALS[localId] ?? {};
+    return {
+      ...piece,
+      id: original.id ?? localId,
+      originalId: original.originalId,
+      originalName: original.originalName,
+      originalDescription: original.originalDescription,
+      kind,
+      articleId: article.id,
+      category: article.group || "Титулы",
+      echelon: Number(article.title.match(/(\d)-го Эшелона/i)?.[1]) || null,
+      summary: plainSummary(
+        piece.markdown
+          .split(/\n\s*\n/)
+          .find((p) => !/^\*\*[^*]+:\*\*/.test(p) && !/^[#|]/.test(p)) ||
+          piece.markdown,
+      ),
+      keywords: field(piece.markdown, "Ключевые слова"),
+      prerequisite: field(piece.markdown, "Предварительное условие"),
+      projectGoal: field(piece.markdown, "Цель проекта"),
+      projectCharacteristic: field(
         piece.markdown,
-    ),
-    keywords: field(piece.markdown, "Ключевые слова"),
-    prerequisite: field(piece.markdown, "Предварительное условие"),
-    projectGoal: field(piece.markdown, "Цель проекта"),
-    projectCharacteristic: field(
-      piece.markdown,
-      "Характеристика броска проекта",
-    ),
-  }));
+        "Характеристика броска проекта",
+      ),
+    };
+  });
 });
 export function catalogEntryLink(entry: Pick<CatalogEntry, "kind" | "id">) {
   return `#/catalog/${entry.kind}/${encodeURIComponent(entry.id)}`;
@@ -87,7 +103,7 @@ export function sourceLink(entry: CatalogEntry) {
   return `#/codex/${entry.articleId}${entry.heading ? `/${encodeURIComponent(entry.heading)}` : ""}`;
 }
 
-export interface GlossaryEntry {
+export interface GlossaryEntry extends OriginalFields {
   id: string;
   name: string;
   english: string;
@@ -108,6 +124,8 @@ export const GLOSSARY: GlossaryEntry[] = terms
       id: headingId(name),
       name,
       english: label.match(/\(([^)]+)\)\s*$/)?.[1] || "",
+      originalName: label.match(/\(([^)]+)\)\s*$/)?.[1] || "",
+      originalDescription: "",
       markdown: glossarySource
         .slice(match.index! + match[0].length, terms[i + 1]?.index)
         .trim(),

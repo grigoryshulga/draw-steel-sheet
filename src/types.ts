@@ -6,6 +6,16 @@ export const CHARACTERISTIC_KEYS = [
   "presence",
 ] as const;
 
+/** Английский оригинал записи компендиума из SteelCompendium. */
+export interface OriginalFields {
+  /** Полный scc-id оригинала, например `mcdm.heroes.v1/kit/rapid-fire`. */
+  originalId?: string;
+  originalName?: string;
+  originalDescription?: string;
+  /** Транслитерированный id до перехода на английские scc-id. */
+  legacyId?: string;
+}
+
 export type CharacteristicKey = (typeof CHARACTERISTIC_KEYS)[number];
 
 export type ActionType =
@@ -38,7 +48,7 @@ export type PerkType =
   | "lore"
   | "supernatural";
 
-export interface Perk {
+export interface Perk extends OriginalFields {
   id: string;
   name: string;
   type: PerkType;
@@ -78,7 +88,7 @@ export interface AbilityTier {
   effect: string;
 }
 
-export interface Ability {
+export interface Ability extends OriginalFields {
   id: string;
   name: string;
   flavor: string;

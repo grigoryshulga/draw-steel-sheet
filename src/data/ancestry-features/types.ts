@@ -1,4 +1,4 @@
-import type { Ability } from "../../types";
+import type { Ability, OriginalFields } from "../../types";
 import type { FeatureEffect } from "../class-features/types";
 
 /**
@@ -6,7 +6,7 @@ import type { FeatureEffect } from "../class-features/types";
  * разобранный текст книги без механики. Механика живёт отдельно, ключом по
  * `id`, — как у классовых особенностей.
  */
-export interface GeneratedAncestryFeature {
+export interface GeneratedAncestryFeature extends OriginalFields {
   id: string;
   ancestryName: string;
   /** Знаковая черта выдаётся вместе с происхождением, купленная — за очки. */

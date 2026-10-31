@@ -172,7 +172,11 @@ function isAbilityOwned(
 }
 
 const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
-  ABILITY_COMPENDIUM.map((ability) => [ability.id, ability]),
+  ABILITY_COMPENDIUM.flatMap((ability) => {
+    const rows: [string, (typeof ABILITY_COMPENDIUM)[number]][] = [[ability.id, ability]];
+    if (ability.legacyId) rows.push([ability.legacyId, ability]);
+    return rows;
+  }),
 );
 
 // Resolve user-entered domain spellings to one canonical catalog key. Refuse
@@ -593,10 +597,18 @@ function buildContext(character: Character): LevelUpContext {
       ? rawDomains.split(",").map((value) => value.trim()).filter(Boolean)
       : [];
     const normalizedDomains = [...new Set(domains.map(normalizeToken))];
+    // The generated skeleton uses SteelCompendium ids. Locate the level's
+    // domain-feature container by its stable id suffix instead of the
+    // pre-migration `conduit.feature.N.osobennost-domena-...` slug.
+    const domainFeatureParentId = GENERATED_CLASS_FEATURES.find(
+      (feature) => feature.className === character.className &&
+        feature.level === toLevel && feature.id.endsWith("-level-domain-feature"),
+    )?.id;
     const options = GENERATED_CLASS_FEATURES
       .filter((feature) => feature.className === character.className &&
         feature.level === toLevel && feature.keyedBy === "domain" &&
-        feature.parentId === `conduit.feature.${toLevel}.osobennost-domena-${toLevel}-go-urovnya` &&
+        domainFeatureParentId !== undefined &&
+        feature.parentId === domainFeatureParentId &&
         normalizedDomains.includes(normalizeToken(feature.keyValue ?? "")))
       .map((feature) => ({ id: feature.id, label: feature.name, description: feature.keyValue }));
     if (normalizedDomains.length !== 2 || options.length !== 2) {

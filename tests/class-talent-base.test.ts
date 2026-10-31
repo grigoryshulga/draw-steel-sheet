@@ -155,19 +155,19 @@ describe("Талант: выбор аугментации и оберега", ()
   it("активны только выбранные записи, смена выбора меняет набор", () => {
     const chosen = talent(1, { ...DENSITY, ...STEEL });
     const ids = activeIds(chosen);
-    expect(ids).toContain("talent.feature.1.augmentatsiya-plotnosti");
-    expect(ids).toContain("talent.feature.1.stalnoy-obereg");
-    expect(ids).not.toContain("talent.feature.1.augmentatsiya-sily");
-    expect(ids).not.toContain("talent.feature.1.obereg-entropii");
-    expect(ids).not.toContain("talent.feature.1.ottalkivayushchiy-obereg");
-    expect(ids).not.toContain("talent.feature.1.ischezayushchiy-obereg");
+    expect(ids).toContain("feature.talent.level-1.density-augmentation");
+    expect(ids).toContain("feature.talent.level-1.steel-ward");
+    expect(ids).not.toContain("feature.talent.level-1.force-augmentation");
+    expect(ids).not.toContain("feature.talent.level-1.entropy-ward");
+    expect(ids).not.toContain("feature.talent.level-1.repulsive-ward");
+    expect(ids).not.toContain("feature.talent.level-1.vanishing-ward");
 
     const changed = talent(1, { ...FORCE, "talent.sanctuary": "Оберег энтропии" });
     const changedIds = activeIds(changed);
-    expect(changedIds).toContain("talent.feature.1.augmentatsiya-sily");
-    expect(changedIds).toContain("talent.feature.1.obereg-entropii");
-    expect(changedIds).not.toContain("talent.feature.1.augmentatsiya-plotnosti");
-    expect(changedIds).not.toContain("talent.feature.1.stalnoy-obereg");
+    expect(changedIds).toContain("feature.talent.level-1.force-augmentation");
+    expect(changedIds).toContain("feature.talent.level-1.entropy-ward");
+    expect(changedIds).not.toContain("feature.talent.level-1.density-augmentation");
+    expect(changedIds).not.toContain("feature.talent.level-1.steel-ward");
   });
 
   it("неизвестное значение не активирует ни одну дочернюю запись", () => {
@@ -178,25 +178,25 @@ describe("Талант: выбор аугментации и оберега", ()
       }),
     );
     const childIds = [
-      "talent.feature.1.boevaya-augmentatsiya",
-      "talent.feature.1.augmentatsiya-plotnosti",
-      "talent.feature.1.augmentatsiya-distantsii",
-      "talent.feature.1.augmentatsiya-sily",
-      "talent.feature.1.augmentatsiya-skorosti",
-      "talent.feature.1.obereg-entropii",
-      "talent.feature.1.ottalkivayushchiy-obereg",
-      "talent.feature.1.stalnoy-obereg",
-      "talent.feature.1.ischezayushchiy-obereg",
+      "feature.talent.level-1.battle-augmentation",
+      "feature.talent.level-1.density-augmentation",
+      "feature.talent.level-1.distance-augmentation",
+      "feature.talent.level-1.force-augmentation",
+      "feature.talent.level-1.speed-augmentation",
+      "feature.talent.level-1.entropy-ward",
+      "feature.talent.level-1.repulsive-ward",
+      "feature.talent.level-1.steel-ward",
+      "feature.talent.level-1.vanishing-ward",
     ];
     expect(ids.filter((id) => childIds.includes(id))).toEqual([]);
     // Контейнеры выбора остаются на листе.
-    expect(ids).toContain("talent.feature.1.psionicheskaya-augmentatsiya");
-    expect(ids).toContain("talent.feature.1.obereg-talanta");
+    expect(ids).toContain("feature.talent.level-1.psionic-augmentation");
+    expect(ids).toContain("feature.talent.level-1.talent-ward");
   });
 
   it("сохранённый старый ID активирует ту же запись", () => {
     const saved = talent(1, { "talent.augmentation": "talent.augmentation.density" });
-    expect(activeIds(saved)).toContain("talent.feature.1.augmentatsiya-plotnosti");
+    expect(activeIds(saved)).toContain("feature.talent.level-1.density-augmentation");
     expect(featureStatBonus(saved, "stamina")).toBe(6);
   });
 
@@ -204,25 +204,25 @@ describe("Талант: выбор аугментации и оберега", ()
     const cases = [
       [
         "Оберег энтропии",
-        "talent.feature.1.obereg-entropii",
+        "feature.talent.level-1.entropy-ward",
         "take-damage",
         "Существо наносит тебе урон",
       ],
       [
         "Отталкивающий оберег",
-        "talent.feature.1.ottalkivayushchiy-obereg",
+        "feature.talent.level-1.repulsive-ward",
         "adjacent-enemy-damages-you",
         "Смежное существо наносит тебе урон",
       ],
       [
         "Стальной оберег",
-        "talent.feature.1.stalnoy-obereg",
+        "feature.talent.level-1.steel-ward",
         "take-damage",
         "Ты получаешь урон",
       ],
       [
         "Исчезающий оберег",
-        "talent.feature.1.ischezayushchiy-obereg",
+        "feature.talent.level-1.vanishing-ward",
         "take-damage",
         "Ты получаешь урон",
       ],
@@ -230,7 +230,7 @@ describe("Талант: выбор аугментации и оберега", ()
     for (const [name, featureId, event, label] of cases) {
       const hero = talent(1, { "talent.sanctuary": name });
       const sanctuaryTriggers = classFeatureTriggers(hero).filter((trigger) =>
-        trigger.featureId.startsWith("talent.feature.1."),
+        trigger.featureId.endsWith("-ward"),
       );
       expect(sanctuaryTriggers.map((trigger) => trigger.featureId)).toEqual([
         featureId,
@@ -266,14 +266,14 @@ describe("Талант: суммы и ровно один источник", () 
     const hero = talent(1, DENSITY);
     expect(featureStatContributions(hero, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 6,
       },
     ]);
     expect(featureStatContributions(hero, "stability")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 1,
       },
@@ -282,7 +282,7 @@ describe("Талант: суммы и ровно один источник", () 
     const advanced = { ...hero, level: 4 };
     expect(featureStatContributions(advanced, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 12,
       },
@@ -294,7 +294,7 @@ describe("Талант: суммы и ровно один источник", () 
     const hero = talent(1, FORCE);
     expect(featureAbilityDamageContributions(psionicAbility(), hero)).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-sily",
+        sourceId: "feature.talent.level-1.force-augmentation",
         sourceName: "Аугментация силы",
         value: 1,
       },
@@ -311,7 +311,7 @@ describe("Талант: суммы и ровно один источник", () 
       const hero = talent(level, SPEED);
       expect(featureStatContributions(hero, "speed")).toEqual([
         {
-          sourceId: "talent.feature.1.augmentatsiya-skorosti",
+          sourceId: "feature.talent.level-1.speed-augmentation",
           sourceName: "Аугментация скорости",
           value: 1,
         },
@@ -324,7 +324,7 @@ describe("Талант: суммы и ровно один источник", () 
     const hero = talent(1, DISTANCE);
     expect(featureAbilityDistanceContributions(psionicRanged(), hero)).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-distantsii",
+        sourceId: "feature.talent.level-1.distance-augmentation",
         sourceName: "Аугментация дистанции",
         value: 2,
       },
@@ -344,14 +344,14 @@ describe("Талант: суммы и ровно один источник", () 
     });
     expect(featureStatContributions(hero, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.boevaya-augmentatsiya",
+        sourceId: "feature.talent.level-1.battle-augmentation",
         sourceName: "Боевая аугментация",
         value: 3,
       },
     ]);
     expect(featureAbilityDamageContributions(weaponAbility(), hero)).toEqual([
       {
-        sourceId: "talent.feature.1.boevaya-augmentatsiya",
+        sourceId: "feature.talent.level-1.battle-augmentation",
         sourceName: "Боевая аугментация",
         value: 1,
       },
@@ -496,7 +496,7 @@ describe("Талант: Ясность", () => {
     const forced = gains.filter((gain) => gain.tag === "forced-movement");
     expect(forced).toHaveLength(1);
     expect(forced[0].amount).toBe("2");
-    expect(forced[0].sourceId).toBe("talent.feature.4.vosstanovlenie-razuma");
+    expect(forced[0].sourceId).toBe("feature.talent.level-4.mind-recovery");
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });
 
@@ -514,21 +514,21 @@ describe("Талант: традиция как подкласс", () => {
   it("Телекинез активирует только свои записи 1–2 уровней", () => {
     const hero = talent(2, {}, { subclass: "Телекинез" });
     const ids = activeIds(hero);
-    expect(ids).toContain("talent.tradition.1.malyy-telekinez");
-    expect(ids).toContain("talent.tradition.1.otrazhenie");
-    expect(ids).toContain("talent.tradition.2.oblegchenie-padeniya");
-    expect(ids).toContain("talent.feature.2.sposobnosti-telekineza-2-go-urovnya");
-    expect(ids).not.toContain("talent.tradition.1.uskorenie");
-    expect(ids).not.toContain("talent.tradition.1.petlya-obratnoy-svyazi");
-    expect(ids).not.toContain("talent.tradition.2.oblegchenie-chasov");
-    expect(ids).not.toContain("talent.feature.2.sposobnosti-khronopatii-2-go-urovnya");
-    expect(ids).not.toContain("talent.feature.2.sposobnosti-telepatii-2-go-urovnya");
+    expect(ids).toContain("feature.talent.level-1.minor-telekinesis");
+    expect(ids).toContain("feature.talent.level-1.repel");
+    expect(ids).toContain("feature.talent.level-2.ease-their-fall");
+    expect(ids).toContain("feature.talent.level-2.telekinesis-ability");
+    expect(ids).not.toContain("feature.talent.level-1.accelerate");
+    expect(ids).not.toContain("feature.talent.level-1.feedback-loop");
+    expect(ids).not.toContain("feature.talent.level-2.ease-the-hours");
+    expect(ids).not.toContain("feature.talent.level-2.chronopathy-ability");
+    expect(ids).not.toContain("feature.talent.level-2.telepathy-ability");
   });
 
   it("чужая и неизвестная традиция не активируют лишние записи", () => {
     const chrono = activeIds(talent(2, {}, { subclass: "Хронопатия" }));
-    expect(chrono).toContain("talent.tradition.2.oblegchenie-chasov");
-    expect(chrono).not.toContain("talent.tradition.2.oblegchenie-padeniya");
+    expect(chrono).toContain("feature.talent.level-2.ease-the-hours");
+    expect(chrono).not.toContain("feature.talent.level-2.ease-their-fall");
 
     for (const subclass of ["Пирокинез", "Теле", ""]) {
       const ids = activeIds(talent(2, {}, { subclass }));
@@ -552,7 +552,7 @@ describe("Талант: традиция как подкласс", () => {
     expect(selected.automation?.classFeatureSelections?.["talent.tradition"]).toBe(
       "Телекинез",
     );
-    expect(activeIds(selected)).toContain("talent.tradition.2.oblegchenie-padeniya");
+    expect(activeIds(selected)).toContain("feature.talent.level-2.ease-their-fall");
   });
 });
 
@@ -574,8 +574,8 @@ describe("Талант: создание и старый лист", () => {
       "talent.augmentation": "talent.augmentation.force",
       "talent.sanctuary": "talent.sanctuary.steel",
     });
-    expect(activeIds(hero)).toContain("talent.feature.1.augmentatsiya-sily");
-    expect(activeIds(hero)).toContain("talent.feature.1.stalnoy-obereg");
+    expect(activeIds(hero)).toContain("feature.talent.level-1.force-augmentation");
+    expect(activeIds(hero)).toContain("feature.talent.level-1.steel-ward");
 
     const choices = classFeatureChoicesForSheet(hero);
     expect(choices.find((choice) => choice.group === "talent.augmentation")?.selected).toBe(
@@ -620,7 +620,7 @@ describe("Талант: создание и старый лист", () => {
     );
     expect(featureStatContributions(selected, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 6,
       },
@@ -660,7 +660,7 @@ describe("Талант: выключенная автоматизация", () =
 
     const hero = talent(4, DENSITY);
     hero.stamina = { ...hero.stamina, current: 30, max: 60 };
-    expect(activeIds(hero)).toContain("talent.feature.1.augmentatsiya-plotnosti");
+    expect(activeIds(hero)).toContain("feature.talent.level-1.density-augmentation");
     expect(featureStatBonus(hero, "stamina")).toBe(12);
     expect(hero.stamina.current).toBe(30);
 
@@ -668,7 +668,7 @@ describe("Талант: выключенная автоматизация", () =
       ...hero,
       automation: { ...hero.automation!, enabled: false },
     };
-    expect(activeIds(off)).toContain("talent.feature.1.augmentatsiya-plotnosti");
+    expect(activeIds(off)).toContain("feature.talent.level-1.density-augmentation");
     expect(classFeatureChoicesForSheet(off).some(
       (choice) => choice.group === "talent.augmentation",
     )).toBe(true);
@@ -680,7 +680,7 @@ describe("Талант: выключенная автоматизация", () =
     const on = { ...off, automation: { ...off.automation!, enabled: true } };
     expect(featureStatContributions(on, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 12,
       },
@@ -740,7 +740,7 @@ describe("Талант: повышение уровня 1→2 и 3→4", () => {
     });
     expect(featureStatBonus(result.next, "stamina")).toBe(6);
     expect(featureStatBonus(result.next, "stability")).toBe(1);
-    expect(activeIds(result.next)).toContain("talent.tradition.2.oblegchenie-padeniya");
+    expect(activeIds(result.next)).toContain("feature.talent.level-2.ease-their-fall");
     expect(resolvedResourceGains(result.next)).toHaveLength(3);
   });
 
@@ -754,7 +754,7 @@ describe("Талант: повышение уровня 1→2 и 3→4", () => {
     });
     expect(featureStatContributions(result.next, "stamina")).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+        sourceId: "feature.talent.level-1.density-augmentation",
         sourceName: "Аугментация плотности",
         value: 12,
       },
@@ -764,6 +764,6 @@ describe("Талант: повышение уровня 1→2 и 3→4", () => {
     );
     expect(forced).toHaveLength(1);
     expect(forced[0].amount).toBe("2");
-    expect(forced[0].sourceId).toBe("talent.feature.4.vosstanovlenie-razuma");
+    expect(forced[0].sourceId).toBe("feature.talent.level-4.mind-recovery");
   });
 });

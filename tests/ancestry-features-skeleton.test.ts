@@ -9,17 +9,17 @@ import {
 } from "../src/data/ancestry-features/skeleton";
 
 const LEGACY_IDS = [
-  "ancestry.devil.beast-legs",
-  "ancestry.dwarf.grounded",
-  "ancestry.dwarf.spark-from-your-skin",
-  "ancestry.forest-elf.swift",
-  "ancestry.high-elf.graceful-retreat",
-  "ancestry.human.reserve-of-strength",
-  "ancestry.memanek.lightning-agility",
-  "ancestry.orc.grounded",
-  "ancestry.polder.graceful-retreat",
-  "ancestry.taurus.beast-legs",
-  "ancestry.taurus.grounded",
+  "feature.trait.devil.beast-legs",
+  "feature.trait.dwarf.grounded",
+  "feature.trait.dwarf.spark-off-your-skin",
+  "feature.trait.wode-elf.swift",
+  "feature.trait.high-elf.graceful-retreat",
+  "feature.trait.human.staying-power",
+  "feature.trait.memonek.lightning-nimbleness",
+  "feature.trait.orc.grounded",
+  "feature.trait.polder.graceful-retreat",
+  "ancestry.tauros.beast-legs",
+  "ancestry.tauros.grounded",
 ];
 
 describe("скелет особенностей происхождений", () => {
@@ -53,8 +53,8 @@ describe("скелет особенностей происхождений", () 
         "Потустороннее зрение",
       ]),
     ).toEqual([
-      "ancestry.time-raider.psionic-gift",
-      "ancestry.time-raider.beyondsight",
+      "feature.trait.time-raider.psionic-gift",
+      "feature.trait.time-raider.beyondsight",
     ]);
     expect(
       ancestryTraitIdsFromNames("Драконий Рыцарь", [
@@ -62,14 +62,14 @@ describe("скелет особенностей происхождений", () 
         "Драконье дыхание",
       ]),
     ).toEqual([
-      "ancestry.dragon-knight.draconic-pride",
-      "ancestry.dragon-knight.dragon-breath",
+      "feature.trait.dragon-knight.draconian-pride",
+      "feature.trait.dragon-knight.dragon-breath",
     ]);
     expect(ancestryFeatureByName("Дьявол", "Светящиеся глаза")?.id).toBe(
-      "ancestry.devil.glowing-eyes",
+      "feature.trait.devil.glowing-eyes",
     );
     expect(ancestryFeatureByName("Дьявол", "светящиеся глаза")?.id).toBe(
-      "ancestry.devil.glowing-eyes",
+      "feature.trait.devil.glowing-eyes",
     );
   });
 });

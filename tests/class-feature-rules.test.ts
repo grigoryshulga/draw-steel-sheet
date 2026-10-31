@@ -113,15 +113,15 @@ describe("class feature selection metadata", () => {
   });
 
   it("points saved choices at mechanics, not at old numeric effects", () => {
-    expect(mechanicsFor("talent.feature.1.augmentatsiya-plotnosti")?.effects).toEqual([
+    expect(mechanicsFor("feature.talent.level-1.density-augmentation")?.effects).toEqual([
       { kind: "field", field: "stamina", value: 0, perEchelon: 6 },
       { kind: "field", field: "stability", value: 1 },
     ]);
-    expect(mechanicsFor("null.feature.1.augmentatsiya-sily-force-augmentation")?.when).toEqual({
+    expect(mechanicsFor("feature.null.level-1.force-augmentation")?.when).toEqual({
       keyValue: ["Аугментация силы (Force Augmentation)"],
     });
-    expect(mechanicsFor("talent.feature.1.stalnoy-obereg")?.trigger?.detail).toContain("иммунитет");
-    expect(mechanicsFor("elementalist.feature.1.zacharovanie-bitvy")?.when).toEqual({
+    expect(mechanicsFor("feature.talent.level-1.steel-ward")?.trigger?.detail).toContain("иммунитет");
+    expect(mechanicsFor("feature.elementalist.level-1.enchantment-of-battle")?.when).toEqual({
       keyValue: ["Зачарование битвы"],
     });
   });

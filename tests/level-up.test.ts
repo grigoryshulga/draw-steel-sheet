@@ -84,6 +84,28 @@ function expectIssues(result: LevelUpPreview, fragment: string) {
   expect(result.issues.join("\n")).toContain(fragment);
 }
 
+/**
+ * Rule JSON still addresses abilities by their pre-migration ids; the catalog
+ * keeps the English SteelCompendium id plus `legacyId`. Resolve either, like
+ * the level-up engine does, and always return the canonical catalog entry.
+ */
+const ABILITY_BY_RULE_ID = new Map<string, (typeof ABILITY_COMPENDIUM)[number]>();
+for (const ability of ABILITY_COMPENDIUM) {
+  ABILITY_BY_RULE_ID.set(ability.id, ability);
+  if (ability.legacyId) ABILITY_BY_RULE_ID.set(ability.legacyId, ability);
+}
+
+function catalogEntry(id: string) {
+  const entry = ABILITY_BY_RULE_ID.get(id);
+  expect(entry, id).toBeDefined();
+  return entry!;
+}
+
+/** Rule ids mapped to the English SteelCompendium ids the sheet awards. */
+function canonicalIds(ids: string[]): string[] {
+  return ids.map((id) => catalogEntry(id).id);
+}
+
 function deepFreeze<T>(value: T): T {
   if (value && typeof value === "object") {
     for (const nested of Object.values(value as Record<string, unknown>)) {
@@ -1035,10 +1057,7 @@ describe("level-up ability ownership", () => {
       (candidate) => candidate.subclasses && candidate.subclasses.length > 0,
     )!;
     const subclass = grant.subclasses![0];
-    const entry = ABILITY_COMPENDIUM.find(
-      (ability) => ability.id === grant.abilityIds[0],
-    )!;
-    expect(entry).toBeDefined();
+    const entry = catalogEntry(grant.abilityIds[0]);
 
     const legacyCopy: Ability = {
       ...entry,
@@ -1108,7 +1127,8 @@ describe("level-up ability ownership", () => {
     );
     const plan = getLevelUpPlan(character);
     expect(plan.available, plan.reason).toBe(true);
-    expect(plan.grantedAbilityIds).toContain(grant.abilityIds[0]);
+    const grantedId = catalogEntry(grant.abilityIds[0]).id;
+    expect(plan.grantedAbilityIds).toContain(grantedId);
     const result = expectOk(
       previewLevelUp(
         character,
@@ -1117,7 +1137,7 @@ describe("level-up ability ownership", () => {
     );
     expect(
       result.next.abilities.filter(
-        (ability) => ability.id === grant.abilityIds[0],
+        (ability) => ability.id === grantedId,
       ),
     ).toHaveLength(1);
   });
@@ -1133,7 +1153,7 @@ describe("level-up ability ownership", () => {
     const grant = rule.grantedAbilities.find(
       (candidate) => candidate.subclasses && candidate.subclasses.length > 0,
     )!;
-    const grantedId = grant.abilityIds[0];
+    const grantedId = catalogEntry(grant.abilityIds[0]).id;
     let character = makeHero(
       "Элементалист",
       rule.level - 1,
@@ -1167,8 +1187,8 @@ describe("level-up ability ownership", () => {
       (candidate) => candidate.subclasses?.length,
     )!;
     const owned = group.abilityIds.map((id) => {
-      const entry = ABILITY_COMPENDIUM.find((ability) => ability.id === id)!;
-      return { ...entry, id: `legacy-${id}` } as Ability;
+      const entry = catalogEntry(id);
+      return { ...entry, id: `legacy-${entry.id}` } as Ability;
     });
     const base = makeHero(
       rule.className,
@@ -1396,12 +1416,6 @@ describe("level-up explicit previous-level ability windows", () => {
   const elementalist = "Элементалист";
   const conduit = "Проводник";
 
-  function catalogEntry(id: string) {
-    const entry = ABILITY_COMPENDIUM.find((ability) => ability.id === id);
-    expect(entry, id).toBeDefined();
-    return entry!;
-  }
-
   function levelUpGroup(className: string, targetLevel: number) {
     const rule = levelUpRule(className, targetLevel);
     expect(rule, `${className} ${targetLevel}`).toBeDefined();
@@ -1436,7 +1450,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(choice!.count).toBe(1);
     const offered = choice!.options.map((option) => option.id);
     // The union of both levels is offered, exactly as the rule text allows.
-    expect([...offered].sort()).toEqual([...group.abilityIds].sort());
+    expect([...offered].sort()).toEqual(canonicalIds(group.abilityIds).sort());
     const offeredLevels = offered.map((id) => catalogEntry(id).level);
     expect(offeredLevels.filter((level) => level === 5)).toHaveLength(4);
     expect(offeredLevels.filter((level) => level === 6)).toHaveLength(4);
@@ -1493,7 +1507,7 @@ describe("level-up explicit previous-level ability windows", () => {
     ).toHaveLength(4);
 
     // «Призыв Источника Земли» is a level-8 Earth grant, not a generic pick.
-    const earthGrantId = "elementalist-prizyv-istochnika-zemli-c9679a42db";
+    const earthGrantId = "feature.ability.elementalist.level-8.summon-source-of-earth";
     expect(catalogEntry(earthGrantId)).toMatchObject({
       level: 8,
       className: elementalist,
@@ -1562,7 +1576,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(plan.available, plan.reason).toBe(true);
     const choice = plan.choices.find((entry) => entry.id === group.id)!;
     const offered = choice.options.map((option) => option.id);
-    expect(offered).toEqual([...group.abilityIds]);
+    expect(offered).toEqual(canonicalIds(group.abilityIds));
     for (const id of offered) {
       expect(catalogEntry(id)).toMatchObject({
         level: 5,
@@ -1580,7 +1594,7 @@ describe("level-up explicit previous-level ability windows", () => {
     );
 
     // The default is the exact target level: a previous level of the same class…
-    const previousLevelId = "provodnik-vytyagivanie-dushi-59f437b757";
+    const previousLevelId = "feature.ability.conduit.level-3.soul-siphon";
     expect(catalogEntry(previousLevelId)).toMatchObject({
       level: 3,
       className: conduit,
@@ -1596,7 +1610,7 @@ describe("level-up explicit previous-level ability windows", () => {
     );
 
     // …and a real level-5 ability of another class are both rejected.
-    const foreignLevelId = "elementalist-peschanaya-burya-120402b3db";
+    const foreignLevelId = "feature.ability.elementalist.level-5.storm-of-sands";
     expect(catalogEntry(foreignLevelId)).toMatchObject({
       level: 5,
       className: elementalist,
@@ -1623,7 +1637,7 @@ describe("level-up explicit previous-level ability windows", () => {
     ).toEqual([5, 6]);
 
     const legalChoices = firstChoices(character);
-    const futureLevelId = "elementalist-muza-ognya-3e351890f4";
+    const futureLevelId = "feature.ability.elementalist.level-8.muse-of-fire";
     expect(catalogEntry(futureLevelId)).toMatchObject({
       level: 8,
       className: elementalist,
@@ -1638,7 +1652,7 @@ describe("level-up explicit previous-level ability windows", () => {
       "не входит в варианты",
     );
 
-    const foreignLevelId = "provodnik-mayak-blagodati-5c85fcb46e";
+    const foreignLevelId = "feature.ability.conduit.level-5.beacon-of-grace";
     expect(catalogEntry(foreignLevelId)).toMatchObject({
       level: 5,
       className: conduit,
@@ -1677,10 +1691,12 @@ describe("level-up explicit previous-level ability windows", () => {
             (candidate.level === targetLevel ||
               candidate.level === targetLevel - 1),
         ).flatMap((candidate) =>
-          candidate.grantedAbilities.flatMap((grant) => grant.abilityIds),
+          canonicalIds(
+            candidate.grantedAbilities.flatMap((grant) => grant.abilityIds),
+          ),
         ),
       );
-      for (const id of group.abilityIds) {
+      for (const id of canonicalIds(group.abilityIds)) {
         expect(grantedNearby.has(id)).toBe(false);
       }
       const plan = getLevelUpPlan(
@@ -1776,7 +1792,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(catalogEntry(pickedAtNine[0]).level).toBe(8);
 
     // The level-8 Earth grant is awarded exactly once alongside the picks.
-    const earthGrant = "elementalist-prizyv-istochnika-zemli-c9679a42db";
+    const earthGrant = "feature.ability.elementalist.level-8.summon-source-of-earth";
     expect(
       character.abilities.filter((ability) => ability.id === earthGrant),
     ).toHaveLength(1);
@@ -1801,7 +1817,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(result.next.advancements?.at(-1)?.choices[key]).toEqual([chosen.id]);
     expect(result.next.automation?.classFeatureSelections?.[key]).toBe("Защита");
 
-    const foreign = "provodnik-bozhestvennyy-drakon-28e9f9991d";
+    const foreign = "feature.ability.conduit.level-9.divine-dragon";
     expectIssues(previewLevelUp(character, makeRequest(character, { choices: { ...firstChoices(character), [key]: [foreign] } })), "не входит в варианты выбора");
   });
 

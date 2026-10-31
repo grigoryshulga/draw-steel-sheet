@@ -160,6 +160,7 @@ export function SheetPerksPanel() {
                 key={slot.key}
                 eyebrow={slot.title}
                 name={selected.name}
+                originalName={perk?.originalName}
                 type={selected.type}
                 summary={
                   perk?.summary ??
@@ -200,6 +201,7 @@ export function SheetPerksPanel() {
                   key={perk.perkId}
                   eyebrow={fromCatalog ? "Из списка" : "Свой перк"}
                   name={perk.name}
+                  originalName={perkById(perk.perkId)?.originalName}
                   type={perk.type}
                   summary={
                     perk.summary ||

@@ -289,6 +289,9 @@ export function CodexView() {
                 </nav>
                 <header className="codex-article-head">
                   <h1>{article.title}</h1>
+                  {article.originalName && (
+                    <p className="codex-original-title">{article.originalName}</p>
+                  )}
                   <Button
                     size="sm"
                     variant={bookmarks.includes(article.id) ? "soft" : "ghost"}
@@ -350,6 +353,14 @@ export function CodexView() {
                   </p>
                 ) : (
                   <RuleText text={article.markdown} articleId={article.id} />
+                )}
+                {article.originalDescription && (
+                  <details className="codex-original">
+                    <summary>Оригинал (English)</summary>
+                    <div className="codex-original-text">
+                      <RuleText text={article.originalDescription} articleId={article.id} />
+                    </div>
+                  </details>
                 )}
                 <footer className="codex-paging">
                   {position > 0 && (

@@ -181,14 +181,14 @@ describe("Нуль: аугментации и ровно один источни
     const hero = nullHero(1, DENSITY);
     expect(featureStatContributions(hero, "stamina")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 6,
       },
     ]);
     expect(featureStatContributions(hero, "stability")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 1,
       },
@@ -197,7 +197,7 @@ describe("Нуль: аугментации и ровно один источни
     const advanced = { ...hero, level: 4 };
     expect(featureStatContributions(advanced, "stamina")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 12,
       },
@@ -208,7 +208,7 @@ describe("Нуль: аугментации и ровно один источни
     const hero = nullHero(1, FORCE);
     expect(featureAbilityDamageContributions(psionicAbility(), hero)).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-sily-force-augmentation",
+        sourceId: "feature.null.level-1.force-augmentation",
         sourceName: "Аугментация силы (Force Augmentation)",
         value: 1,
       },
@@ -223,11 +223,11 @@ describe("Нуль: аугментации и ровно один источни
       const augmentation = featureStatContributions(hero, "speed").filter(
         (contribution) =>
           contribution.sourceId ===
-          "null.feature.1.augmentatsiya-skorosti-speed-augmentation",
+          "feature.null.level-1.speed-augmentation",
       );
       expect(augmentation).toEqual([
         {
-          sourceId: "null.feature.1.augmentatsiya-skorosti-speed-augmentation",
+          sourceId: "feature.null.level-1.speed-augmentation",
           sourceName: "Аугментация скорости (Speed Augmentation)",
           value: 1,
         },
@@ -249,13 +249,13 @@ describe("Нуль: аугментации и ровно один источни
       expect(featureStatContributions(hero, "stability")).toHaveLength(1);
       const ids = activeIds(hero);
       expect(ids).toContain(
-        "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        "feature.null.level-1.density-augmentation",
       );
       expect(ids).not.toContain(
-        "null.feature.1.augmentatsiya-sily-force-augmentation",
+        "feature.null.level-1.force-augmentation",
       );
       expect(ids).not.toContain(
-        "null.feature.1.augmentatsiya-skorosti-speed-augmentation",
+        "feature.null.level-1.speed-augmentation",
       );
     }
   });
@@ -285,7 +285,7 @@ describe("Нуль: аугментации и ровно один источни
       ids.filter((id) => id.includes(".augmentatsiya-")),
     ).toEqual([]);
     // Контейнер выбора остаётся на листе.
-    expect(ids).toContain("null.feature.1.psionicheskaya-augmentatsiya");
+    expect(ids).toContain("feature.null.level-1.psionic-augmentation");
   });
 });
 
@@ -295,14 +295,14 @@ describe("Нуль: Скорость нуля", () => {
     expect(hero.characteristics.agility).toBe(2);
     expect(featureStatContributions(hero, "speed")).toEqual([
       {
-        sourceId: "null.feature.1.skorost-nulya",
+        sourceId: "feature.null.level-1.null-speed",
         sourceName: "Скорость нуля",
         value: 2,
       },
     ]);
     expect(featureStatContributions(hero, "disengage")).toEqual([
       {
-        sourceId: "null.feature.1.skorost-nulya",
+        sourceId: "feature.null.level-1.null-speed",
         sourceName: "Скорость нуля",
         value: 2,
       },
@@ -314,7 +314,7 @@ describe("Нуль: Скорость нуля", () => {
     };
     expect(featureStatContributions(faster, "speed")).toEqual([
       {
-        sourceId: "null.feature.1.skorost-nulya",
+        sourceId: "feature.null.level-1.null-speed",
         sourceName: "Скорость нуля",
         value: 3,
       },
@@ -347,7 +347,7 @@ describe("Нуль: Дисциплина", () => {
     const field = gains.filter((gain) => gain.tag === "field-main-action");
     expect(field).toHaveLength(1);
     expect(field[0].amount).toBe("2");
-    expect(field[0].sourceId).toBe("null.feature.4.regenerativnoe-pole");
+    expect(field[0].sourceId).toBe("feature.null.level-4.regenerative-field");
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });
 
@@ -371,13 +371,13 @@ describe("Нуль: мастерство дисциплины", () => {
     expect(push).toHaveLength(1);
     expect(push[0].value).toBe(hero.characteristics.intuition);
     expect(push[0].sourceId).toBe(
-      "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
+      "feature.null.level-10.chronokinetic-mastery-12",
     );
 
     const row = classFeatureTriggers(hero).find(
       (trigger) =>
         trigger.featureId ===
-        "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
+        "feature.null.level-10.chronokinetic-mastery-12",
     );
     expect(row?.event).toBe("use-ability");
     expect(row?.frequency).toBe("always");
@@ -390,7 +390,7 @@ describe("Нуль: мастерство дисциплины", () => {
     const low = withDiscipline(hero, 2);
     expect(featureFieldContributions(low, "push")).toEqual([
       {
-        sourceId: "null.feature.1.masterstvo-metakinetika-2",
+        sourceId: "feature.null.level-1.metakinetic-mastery-2",
         sourceName: "Мастерство метакинетика: 2",
         value: 2,
       },
@@ -408,9 +408,9 @@ describe("Нуль: мастерство дисциплины", () => {
       12,
     );
     const ids = activeIds(chrono);
-    expect(ids).toContain("null.feature.1.masterstvo-khronokinetika-2");
-    expect(ids).not.toContain("null.feature.1.masterstvo-kriokinetika-2");
-    expect(ids).not.toContain("null.feature.1.masterstvo-metakinetika-2");
+    expect(ids).toContain("feature.null.level-1.chronokinetic-mastery-2");
+    expect(ids).not.toContain("feature.null.level-1.cryokinetic-mastery-2");
+    expect(ids).not.toContain("feature.null.level-1.metakinetic-mastery-2");
 
     const below = withDiscipline(
       nullHero(4, {}, { subclass: "Хронокинетик" }),
@@ -421,7 +421,7 @@ describe("Нуль: мастерство дисциплины", () => {
       classFeatureTriggers(below).some(
         (trigger) =>
           trigger.featureId ===
-          "null.feature.4.masterstvo-khronokinetika-8-4-y-uroven",
+          "feature.null.level-4.chronokinetic-mastery-8",
       ),
     ).toBe(false);
   });
@@ -431,24 +431,24 @@ describe("Нуль: традиция как подкласс", () => {
   it("криокинетик активирует только свои записи 2-го уровня", () => {
     const hero = nullHero(2, {}, { subclass: "Криокинетик" });
     const ids = activeIds(hero);
-    expect(ids).toContain("null.tradition.2.entropiynaya-adaptivnost");
+    expect(ids).toContain("feature.null.level-2.entropic-adaptability");
     expect(ids).toContain(
-      "null.feature.2.sposobnost-kriokinetika-2-go-urovnya",
+      "feature.null.level-2.cryokinetic-ability",
     );
-    expect(ids).not.toContain("null.tradition.2.bystraya-obrabotka");
-    expect(ids).not.toContain("null.tradition.2.inertsionnyy-stok");
+    expect(ids).not.toContain("feature.null.level-2.rapid-processing");
+    expect(ids).not.toContain("feature.null.level-2.inertial-sink");
     expect(ids).not.toContain(
-      "null.feature.2.sposobnost-khronokinetika-2-go-urovnya",
+      "feature.null.level-2.chronokinetic-ability",
     );
     expect(ids).not.toContain(
-      "null.feature.2.sposobnost-metakinetika-2-go-urovnya",
+      "feature.null.level-2.metakinetic-ability",
     );
   });
 
   it("энтропийная адаптивность даёт иммунитет к холоду 2×Интуиция", () => {
     const hero = nullHero(2, {}, { subclass: "Криокинетик" });
     const immunity = featureDamageImmunities(hero).find(
-      (item) => item.sourceId === "null.tradition.2.entropiynaya-adaptivnost",
+      (item) => item.sourceId === "feature.null.level-2.entropic-adaptability",
     );
     expect(immunity?.types).toEqual(["холод"]);
     expect(immunity?.value).toBe(hero.characteristics.intuition * 2);
@@ -476,10 +476,10 @@ describe("Нуль: традиция как подкласс", () => {
       selected.automation?.classFeatureSelections?.["null.tradition"],
     ).toBe("Хронокинетик");
     expect(activeIds(selected)).toContain(
-      "null.tradition.2.bystraya-obrabotka",
+      "feature.null.level-2.rapid-processing",
     );
     expect(activeIds(selected)).not.toContain(
-      "null.tradition.2.entropiynaya-adaptivnost",
+      "feature.null.level-2.entropic-adaptability",
     );
   });
 
@@ -511,7 +511,7 @@ describe("Нуль: создание и старый лист", () => {
       "null.augmentation": "null.augmentation.force",
     });
     expect(activeIds(hero)).toContain(
-      "null.feature.1.augmentatsiya-sily-force-augmentation",
+      "feature.null.level-1.force-augmentation",
     );
     expect(featureAbilityDamageBonus(psionicAbility(), hero)).toBe(1);
 
@@ -556,7 +556,7 @@ describe("Нуль: создание и старый лист", () => {
     );
     expect(featureStatContributions(selected, "stamina")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 6,
       },
@@ -598,7 +598,7 @@ describe("Нуль: выключенная автоматизация", () => {
     const hero = nullHero(4, DENSITY);
     hero.stamina = { ...hero.stamina, current: 30, max: 60 };
     expect(activeIds(hero)).toContain(
-      "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+      "feature.null.level-1.density-augmentation",
     );
     expect(featureStatBonus(hero, "stamina")).toBe(12);
     expect(hero.stamina.current).toBe(30);
@@ -608,7 +608,7 @@ describe("Нуль: выключенная автоматизация", () => {
       automation: { ...hero.automation!, enabled: false },
     };
     expect(activeIds(off)).toContain(
-      "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+      "feature.null.level-1.density-augmentation",
     );
     expect(
       classFeatureChoicesForSheet(off).some(
@@ -623,7 +623,7 @@ describe("Нуль: выключенная автоматизация", () => {
     const on = { ...off, automation: { ...off.automation!, enabled: true } };
     expect(featureStatContributions(on, "stamina")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 12,
       },
@@ -701,7 +701,7 @@ describe("Нуль: повышение уровня 1→2 и 3→4", () => {
     expect(featureStatBonus(result.next, "stamina")).toBe(6);
     expect(featureStatBonus(result.next, "stability")).toBe(1);
     expect(activeIds(result.next)).toContain(
-      "null.tradition.2.bystraya-obrabotka",
+      "feature.null.level-2.rapid-processing",
     );
     expect(resolvedResourceGains(result.next)).toHaveLength(4);
   });
@@ -715,7 +715,7 @@ describe("Нуль: повышение уровня 1→2 и 3→4", () => {
     expect(result.next.automation?.classFeatureSelections).toEqual(DENSITY);
     expect(featureStatContributions(result.next, "stamina")).toEqual([
       {
-        sourceId: "null.feature.1.augmentatsiya-plotnosti-density-augmentation",
+        sourceId: "feature.null.level-1.density-augmentation",
         sourceName: "Аугментация плотности (Density Augmentation)",
         value: 12,
       },
@@ -725,7 +725,7 @@ describe("Нуль: повышение уровня 1→2 и 3→4", () => {
     );
     expect(field).toHaveLength(1);
     expect(field[0].amount).toBe("2");
-    expect(field[0].sourceId).toBe("null.feature.4.regenerativnoe-pole");
+    expect(field[0].sourceId).toBe("feature.null.level-4.regenerative-field");
     expect(result.next.characteristics.agility).toBe(3);
     expect(result.next.characteristics.intuition).toBe(3);
   });

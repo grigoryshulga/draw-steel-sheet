@@ -5,7 +5,7 @@ import type { AbilityWithPreferred } from "../lib/abilities";
 type RawCompendiumAbility = Omit<CompendiumAbility, "preferredCharacteristic"> &
   Pick<AbilityWithPreferred, "preferredCharacteristic">;
 
-export const ABILITY_COMPENDIUM: CompendiumAbility[] = (raw as RawCompendiumAbility[]).map(
+export const ABILITY_COMPENDIUM: CompendiumAbility[] = (raw as unknown as RawCompendiumAbility[]).map(
   (entry) => ({
     ...entry,
     preferredCharacteristic:

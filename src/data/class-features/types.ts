@@ -1,4 +1,4 @@
-import type { CharacteristicKey } from "../../types";
+import type { CharacteristicKey, OriginalFields } from "../../types";
 
 /** Числовые поля листа, которые складываются из эффектов фич. */
 export type FeatureField =
@@ -209,7 +209,7 @@ export type FeatureKeyGroup =
  * Запись скелета из `class-features.generated.json`: разобранный текст книги без механики.
  * Механика живёт отдельно, ключом по `id`.
  */
-export interface GeneratedClassFeature {
+export interface GeneratedClassFeature extends OriginalFields {
   id: string;
   className: string;
   level: number;

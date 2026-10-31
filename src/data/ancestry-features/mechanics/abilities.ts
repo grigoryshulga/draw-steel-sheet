@@ -74,10 +74,10 @@ const TIME_RAIDER = "Происхождение · Рейдер Времени";
 const TAURUS = "Происхождение · Таурус";
 const LIZARD = "Происхождение · Ящер";
 
-const PSIONIC_GIFT_GROUP = "ancestry.time-raider.psionic-gift";
+const PSIONIC_GIFT_GROUP = "feature.trait.time-raider.psionic-gift";
 
 const concussiveSlam = ability(TIME_RAIDER, {
-  id: "ancestry.time-raider.psionic-gift.concussive-slam",
+  id: "feature.trait.time-raider.psionic-gift.concussive-slam",
   name: "Сотрясающий Удар",
   kind: "signature",
   flavor: "Вы сотрясаете врага невидимой силой.",
@@ -97,7 +97,7 @@ const concussiveSlam = ability(TIME_RAIDER, {
 });
 
 const psionicBolt = ability(TIME_RAIDER, {
-  id: "ancestry.time-raider.psionic-gift.psionic-bolt",
+  id: "feature.trait.time-raider.psionic-gift.psionic-bolt",
   name: "Псионический Заряд",
   kind: "signature",
   flavor: "Вы пускаете луч сконцентрированной пси-энергии.",
@@ -114,7 +114,7 @@ const psionicBolt = ability(TIME_RAIDER, {
 });
 
 const minorAcceleration = ability(TIME_RAIDER, {
-  id: "ancestry.time-raider.psionic-gift.minor-acceleration",
+  id: "feature.trait.time-raider.psionic-gift.minor-acceleration",
   name: "Малая Акселерация",
   kind: "signature",
   flavor: "Вы заряжаете себя или союзника всплеском скорости.",
@@ -132,10 +132,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   AncestryFeatureMechanics
 > = {
   // ---------------------------------------------------------------- Дьявол
-  "ancestry.devil.glowing-eyes": {
+  "feature.trait.devil.glowing-eyes": {
     abilities: [
       ability(DEVIL, {
-        id: "ancestry.devil.glowing-eyes",
+        id: "feature.trait.devil.glowing-eyes",
         name: "Светящиеся Глаза",
         flavor:
           "Ваши глаза сплошного, яркого цвета, который вспыхивает, показывая ваше возбуждение или ярость.",
@@ -155,10 +155,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ------------------------------------------------------ Драконий Рыцарь
-  "ancestry.dragon-knight.draconian-guard": {
+  "feature.trait.dragon-knight.draconian-guard": {
     abilities: [
       ability(DRAGON_KNIGHT, {
-        id: "ancestry.dragon-knight.draconian-guard",
+        id: "feature.trait.dragon-knight.draconian-guard",
         name: "Драконий Страж",
         flavor:
           "Ваша драконья чешуя позволяет вам защитить себя или союзника от удара.",
@@ -173,10 +173,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.dragon-knight.draconic-pride": {
+  "feature.trait.dragon-knight.draconian-pride": {
     abilities: [
       ability(DRAGON_KNIGHT, {
-        id: "ancestry.dragon-knight.draconic-pride",
+        id: "feature.trait.dragon-knight.draconian-pride",
         name: "Драконья Гордость",
         kind: "signature",
         flavor: "Вы издаете могучий рев, что колеблет ваших противников.",
@@ -193,10 +193,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.dragon-knight.remember-your-oath": {
+  "feature.trait.dragon-knight.remember-your-oath": {
     abilities: [
       ability(DRAGON_KNIGHT, {
-        id: "ancestry.dragon-knight.remember-your-oath",
+        id: "feature.trait.dragon-knight.remember-your-oath",
         name: "Помни Свою Клятву",
         flavor:
           "Вы произносите клятву, которая укрепляет вашу волю против врагов.",
@@ -210,10 +210,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.dragon-knight.dragon-breath": {
+  "feature.trait.dragon-knight.dragon-breath": {
     abilities: [
       ability(DRAGON_KNIGHT, {
-        id: "ancestry.dragon-knight.dragon-breath",
+        id: "feature.trait.dragon-knight.dragon-breath",
         name: "Драконье Дыхание",
         kind: "signature",
         flavor: "Яростный выдох энергии омывает ваших противников.",
@@ -235,10 +235,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ------------------------------------------------------------- Лесной Эльф
-  "ancestry.forest-elf.the-wode-defends": {
+  "feature.trait.wode-elf.the-wode-defends": {
     abilities: [
       ability(WODE_ELF, {
-        id: "ancestry.forest-elf.the-wode-defends",
+        id: "feature.trait.wode-elf.the-wode-defends",
         name: "Леса Защищают",
         kind: "signature",
         flavor: "Колючие лозы прорастают из земли и связывают врага.",
@@ -266,10 +266,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ------------------------------------------------------------ Высший Эльф
-  "ancestry.high-elf.glamor-of-terror": {
+  "feature.trait.high-elf.glamor-of-terror": {
     abilities: [
       ability(HIGH_ELF, {
-        id: "ancestry.high-elf.glamor-of-terror",
+        id: "feature.trait.high-elf.glamor-of-terror",
         name: "Очарование Ужаса",
         flavor:
           "Вы обращаете магию своего очарования, чтобы вселить страх в сердце врага.",
@@ -285,10 +285,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ---------------------------------------------------------------- Человек
-  "ancestry.human.signature.detect-the-supernatural": {
+  "feature.trait.human.detect-the-supernatural": {
     abilities: [
       ability(HUMAN, {
-        id: "ancestry.human.signature.detect-the-supernatural",
+        id: "feature.trait.human.detect-the-supernatural",
         name: "Видение Сверхъестественного",
         flavor:
           "Вы открываете своё сознание для обнаружения сверхъестественных существ и явлений.",
@@ -305,10 +305,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.human.determination": {
+  "feature.trait.human.determination": {
     abilities: [
       ability(HUMAN, {
-        id: "ancestry.human.determination",
+        id: "feature.trait.human.determination",
         name: "Решимость",
         flavor:
           "Терпимость к боли и страданиям позволяет вам преодолевать трудные ситуации.",
@@ -322,10 +322,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.human.resist-the-unnatural": {
+  "feature.trait.human.resist-the-unnatural": {
     abilities: [
       ability(HUMAN, {
-        id: "ancestry.human.resist-the-unnatural",
+        id: "feature.trait.human.resist-the-unnatural",
         name: "Сопротивление Неестественному",
         flavor:
           "Ваша инстинктивная стойкость защищает вас от травм, выходящих за рамки обычного.",
@@ -341,10 +341,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ---------------------------------------------------------------- Меманек
-  "ancestry.memanek.keeper-of-order": {
+  "feature.trait.memonek.keeper-of-order": {
     abilities: [
       ability(MEMANEK, {
-        id: "ancestry.memanek.keeper-of-order",
+        id: "feature.trait.memonek.keeper-of-order",
         name: "Хранитель Порядка",
         flavor:
           "Ваша связь с Аксиомом, планом Абсолютного Закона, позволяет вам управлять хаосом вокруг вас.",
@@ -362,10 +362,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ----------------------------------------------------------------- Полдер
-  "ancestry.polder.signature.shadowmeld": {
+  "feature.trait.polder.shadowmeld": {
     abilities: [
       ability(POLDER, {
-        id: "ancestry.polder.signature.shadowmeld",
+        id: "feature.trait.polder.shadowmeld",
         name: "Слияние С Тенью",
         flavor: "Вы становитесь настоящей тенью.",
         actionType: "maneuver",
@@ -386,10 +386,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
     ],
     notes: "Выход из формы — повторное использование маневра.",
   },
-  "ancestry.polder.reactive-tumble": {
+  "feature.trait.polder.reactive-tumble": {
     abilities: [
       ability(POLDER, {
-        id: "ancestry.polder.reactive-tumble",
+        id: "feature.trait.polder.reactive-tumble",
         name: "Реактивное Перемещение",
         flavor: "Легкий шаг помогает вам быстро менять позицию.",
         actionType: "free-trigger",
@@ -404,10 +404,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // --------------------------------------------------------------- Ревенант
-  "ancestry.revenant.detonate-sigil": {
+  "feature.trait.revenant.vengeance-mark": {
     abilities: [
       ability(REVENANT, {
-        id: "ancestry.revenant.detonate-sigil",
+        id: "feature.trait.revenant.vengeance-mark",
         name: "Взрыв Печати",
         kind: "signature",
         flavor: "Помещенная магическая печать взрывается энергией.",
@@ -430,10 +430,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // -------------------------------------------------------- Рейдер Времени
-  "ancestry.time-raider.beyondsight": {
+  "feature.trait.time-raider.beyondsight": {
     abilities: [
       ability(TIME_RAIDER, {
-        id: "ancestry.time-raider.beyondsight",
+        id: "feature.trait.time-raider.beyondsight",
         name: "Потустороннее Зрение",
         flavor:
           "Вы настраиваете зрение так, чтобы видеть сквозь обыденные препятствия.",
@@ -449,10 +449,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       }),
     ],
   },
-  "ancestry.time-raider.foresight": {
+  "feature.trait.time-raider.foresight": {
     abilities: [
       ability(TIME_RAIDER, {
-        id: "ancestry.time-raider.foresight",
+        id: "feature.trait.time-raider.foresight",
         name: "Дальновидность",
         flavor:
           "Ваши чувства простираются сквозь обыденные препятствия и завесу будущего.",
@@ -469,23 +469,23 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
       "под покровом в пределах 20 клеток, если оно не скрыто от вас, и " +
       "игнорируете обычную помеху на удары по таким существам.",
   },
-  "ancestry.time-raider.psionic-gift": {
+  "feature.trait.time-raider.psionic-gift": {
     choice: {
       group: PSIONIC_GIFT_GROUP,
       label: "Псионический дар: знаковая способность",
       options: [
         {
-          id: "ancestry.time-raider.psionic-gift.concussive-slam",
+          id: "feature.trait.time-raider.psionic-gift.concussive-slam",
           label: "Сотрясающий Удар",
           ability: concussiveSlam,
         },
         {
-          id: "ancestry.time-raider.psionic-gift.psionic-bolt",
+          id: "feature.trait.time-raider.psionic-gift.psionic-bolt",
           label: "Псионический Заряд",
           ability: psionicBolt,
         },
         {
-          id: "ancestry.time-raider.psionic-gift.minor-acceleration",
+          id: "feature.trait.time-raider.psionic-gift.minor-acceleration",
           label: "Малая Акселерация",
           ability: minorAcceleration,
         },
@@ -494,10 +494,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ----------------------------------------------------------------- Таурус
-  "ancestry.taurus.let-loose": {
+  "ancestry.tauros.let-loose": {
     abilities: [
       ability(TAURUS, {
-        id: "ancestry.taurus.let-loose",
+        id: "ancestry.tauros.let-loose",
         name: "Дать Волю",
         kind: "signature",
         flavor: "С яростным ревом вы выпускаете зверя.",
@@ -516,10 +516,10 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ------------------------------------------------------------------ Ящер
-  "ancestry.lizard.dragon-heritage": {
+  "ancestry.lizardfolk.dragon-heritage": {
     abilities: [
       ability(LIZARD, {
-        id: "ancestry.lizard.dragon-heritage",
+        id: "ancestry.lizardfolk.dragon-heritage",
         name: "Наследие Драконов",
         kind: "signature",
         flavor: "Яростный выдох энергии омывает ваших противников.",

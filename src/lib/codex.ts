@@ -1,6 +1,7 @@
 import index from "../data/codex-index.generated.json";
+import type { OriginalFields } from "../types";
 
-export interface RuleArticle {
+export interface RuleArticle extends OriginalFields {
   id: string;
   title: string;
   chapter: string;

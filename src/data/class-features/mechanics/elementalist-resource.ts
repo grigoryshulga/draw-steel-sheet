@@ -61,7 +61,7 @@ export const ELEMENTALIST_RESOURCE_MECHANICS: Record<
   string,
   FeatureMechanics
 > = {
-  "elementalist.feature.1.essentsiya": {
+  "feature.elementalist.level-1.essence": {
     kinds: ["resource"],
     notes:
       "Эссенция — героический ресурс Элементалиста. Прибавки считаются " +
@@ -70,7 +70,7 @@ export const ELEMENTALIST_RESOURCE_MECHANICS: Record<
       "(кроме нетипового и святого) — 1. Отдельных прибавок у записи нет, иначе " +
       "эссенция начислялась бы дважды. Остаток сгорает в конце боевой встречи.",
   },
-  "elementalist.feature.1.essentsiya-v-boyu": {
+  "feature.elementalist.level-1.essence-in-combat": {
     kinds: ["resource"],
     notes:
       "В бою эссенция начисляется так: на старте встречи или стрессовой " +
@@ -79,7 +79,7 @@ export const ELEMENTALIST_RESOURCE_MECHANICS: Record<
       "нетиповым или святым, — 1. В конце боевой встречи остаток эссенции " +
       "теряется. Отдельных прибавок у записи нет.",
   },
-  "elementalist.feature.1.essentsiya-vne-boya": {
+  "feature.elementalist.level-1.essence-outside-of-combat": {
     kinds: ["resource"],
     notes:
       "Вне боя эссенция не набирается. Способность или эффект со стоимостью в " +

@@ -18,6 +18,12 @@ import {
 } from "./feature-conditions";
 import { normalizeFeatureText } from "./utils";
 
+/**
+ * Записи Благочестия домена: у каждой в `when.keyValue` назван один домен,
+ * но действует она только при полной паре двух разных доменов героя.
+ */
+const DOMAIN_PIETY_ID_PREFIX = "feature.conduit.level-1.domain-piety-and-effects.";
+
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
 export interface ActiveClassFeature {
   id: string;
@@ -116,7 +122,7 @@ function isActiveClassFeature(
   if (earnedLevel > level) return false;
   // Domain piety records predate keyedBy. Their book condition describes one
   // domain, while the character must have a complete, distinct valid pair.
-  if (feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-")) {
+  if (feature.id.startsWith(DOMAIN_PIETY_ID_PREFIX)) {
     const pair = conduitDomainPair(character);
     const domain = mechanicsFor(feature.id)?.when?.keyValue?.[0];
     return !!pair && !!domain && pair.some(
@@ -154,15 +160,15 @@ interface ConduitFeatureChoice {
 
 /** Stable aliases for the nine choices; book prose is deliberately not parsed. */
 const CONDUIT_FEATURE_CHOICES: readonly ConduitFeatureChoice[] = [
-  { group: "conduit.prayer", legacyId: "conduit.prayer.destruction", featureId: "conduit.feature.1.molitva-o-razrushenii", name: "Молитва о разрушении" },
-  { group: "conduit.prayer", legacyId: "conduit.prayer.distance", featureId: "conduit.feature.1.molitva-o-distantsii", name: "Молитва о дистанции" },
-  { group: "conduit.prayer", legacyId: "conduit.prayer.soldier", featureId: "conduit.feature.1.molitva-o-masterstve-soldata", name: "Молитва о мастерстве солдата" },
-  { group: "conduit.prayer", legacyId: "conduit.prayer.speed", featureId: "conduit.feature.1.molitva-o-skorosti", name: "Молитва о скорости" },
-  { group: "conduit.prayer", legacyId: "conduit.prayer.steel", featureId: "conduit.feature.1.molitva-o-stali", name: "Молитва о стали" },
-  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.bastion", featureId: "conduit.feature.1.obereg-bastiona", name: "Оберег бастиона" },
-  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.reaction", featureId: "conduit.feature.1.obereg-reaktsii", name: "Оберег реакции" },
-  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.refuge", featureId: "conduit.feature.1.obereg-svyatilishcha", name: "Оберег святилища" },
-  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.spirits", featureId: "conduit.feature.1.obereg-dukhov", name: "Оберег духов" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.destruction", featureId: "feature.conduit.level-1.prayer-of-destruction", name: "Молитва о разрушении" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.distance", featureId: "feature.conduit.level-1.prayer-of-distance", name: "Молитва о дистанции" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.soldier", featureId: "feature.conduit.level-1.prayer-of-soldiers-skill", name: "Молитва о мастерстве солдата" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.speed", featureId: "feature.conduit.level-1.prayer-of-speed", name: "Молитва о скорости" },
+  { group: "conduit.prayer", legacyId: "conduit.prayer.steel", featureId: "feature.conduit.level-1.prayer-of-steel", name: "Молитва о стали" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.bastion", featureId: "feature.conduit.level-1.bastion-ward", name: "Оберег бастиона" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.reaction", featureId: "feature.conduit.level-1.quickness-ward", name: "Оберег реакции" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.refuge", featureId: "feature.conduit.level-1.sanctuary-ward", name: "Оберег святилища" },
+  { group: "conduit.sanctuary", legacyId: "conduit.sanctuary.spirits", featureId: "feature.conduit.level-1.spirit-ward", name: "Оберег духов" },
 ];
 
 /** Return true/false for these records; undefined means an unrelated feature. */
@@ -359,7 +365,7 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
       const mechanics = mechanicsFor(feature.id);
       // Статичные условия (аспект, уровень, форма) скрывают чужую фичу из списка;
       // динамический порог ресурса оставляет её видимой — его показывает лист.
-      const prayer = feature.id.startsWith("conduit.feature.1.blagochestie-i-effekt-domena-");
+      const prayer = feature.id.startsWith(DOMAIN_PIETY_ID_PREFIX);
       if (!prayer && !featureConditionMet(character, showConditions(mechanics?.when))) continue;
       seen.add(feature.id);
       active.push({
