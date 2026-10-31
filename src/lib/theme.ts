@@ -74,18 +74,6 @@ export const THEMES: AppTheme[] = [
     },
   },
   {
-    // Палитра Dracula; красный, синий, розовый и приглушённый текст слегка осветлены ради WCAG AA.
-    name: "Логово вампира",
-    mode: "dark",
-    colors: {
-      background: "#282a36", darker_background: "#191a21", lighter_background: "#363949",
-      foreground: "#f8f8f2", bright_foreground: "#ffffff", dark_foreground: "#9aa5ce",
-      accent: "#bd93f9", selection: "#44475a", selection_foreground: "#282a36",
-      red: "#ff7d7d", orange: "#ffb86c", yellow: "#f1fa8c", green: "#50fa7b",
-      cyan: "#8be9fd", blue: "#a4b9ff", magenta: "#ff8fd0", brown: "#d8ac7d",
-    },
-  },
-  {
     // Серый интерфейс + базовые классические цвета терминала (осветлённые под AA).
     name: "Тёмная классика",
     mode: "dark",
