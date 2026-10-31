@@ -271,6 +271,17 @@
   gap: var(--space-5);
 }
 
+/* Выбранная способность: общее состояние выбора из AbilityCard, но с
+   заметной рамкой — плоский вид вкладки иначе гасит акцент. */
+.dev-cards > .sheet-ability-card.is-selected {
+  border: 1px solid var(--accent);
+  border-top-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface-2));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 0 24px -10px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
 .dev-perk-cards {
   gap: 0 var(--space-8);
   border-bottom: 1px solid var(--line);
