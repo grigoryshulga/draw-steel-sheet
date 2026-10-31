@@ -17,7 +17,8 @@ import "../AbilityCard.css";
  * Модель собирают два места: `referenceAbilityView` ниже показывает только
  * напечатанные в книге значения, а `abilityCardView` в соседнем модуле
  * добавляет расчёты листа. Разметку используют и карточка листа, и чтение
- * правил — второго рендера способности не существует.
+ * правил — второго рендера способности не существует: страница Кодекса
+ * рисует ту же карточку (`sheet-ability-card`), а не свою копию.
  */
 
 export interface AbilityOrigin {
@@ -50,6 +51,10 @@ export interface AbilitySheetView {
   tiers: AbilityTierView[];
   effect: string;
   forcedMovement: string;
+  /** Флейвор источника: показывается только в полной карточке Кодекса. */
+  flavor?: string;
+  /** Напечатанный триггер источника: только для способностей-триггеров. */
+  trigger?: string;
 }
 
 export interface VisibleAbilityTier {
@@ -107,6 +112,8 @@ export function referenceAbilityView(ability: Ability): AbilitySheetView {
   return {
     ...abilitySheetBase(ability),
     origin: null,
+    flavor: ability.flavor,
+    trigger: ability.trigger,
     facts: [
       {
         label: "Действие",
@@ -164,22 +171,19 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
   );
 }
 
+/**
+ * Тело карточки способности: факты, метки, тиры с уроном и эффектами,
+ * полный эффект. Сокращённого варианта нет — урезанная копия правила
+ * дублировала карточку и выдавала себя за полный текст.
+ */
 export function AbilityBody({
   view,
   full = false,
-  variant = "card",
 }: {
   view: AbilitySheetView;
   full?: boolean;
-  /**
-   * `summary` — компактная справка для чтения правил: только факты, метки и
-   * урон тиров. Полные описания остаются в `entity.markdown` и не дублируются
-   * сокращённой проекцией.
-   */
-  variant?: "card" | "summary";
 }) {
-  const tiers =
-    variant === "summary" ? view.tiers.filter((tier) => tier.damage) : view.tiers;
+  const tiers = view.tiers;
 
   return (
     <>
@@ -215,7 +219,7 @@ export function AbilityBody({
               {tier.damage && (
                 <DamageChip value={tier.damage.value} type={tier.damage.type} />
               )}
-              {variant === "card" && tier.effect && (
+              {tier.effect && (
                 <span className="sheet-ability-effect">{tier.effect}</span>
               )}
             </div>
@@ -223,13 +227,13 @@ export function AbilityBody({
         </div>
       )}
 
-      {variant === "card" && view.effect && (
+      {view.effect && (
         <p className={`sheet-ability-body${full ? " is-full-body" : ""}`}>
           {view.effect}
         </p>
       )}
 
-      {variant === "card" && view.forcedMovement && (
+      {view.forcedMovement && (
         <p
           className="sheet-ability-forced"
           title="Прибавка от особенностей к принудительному движению"

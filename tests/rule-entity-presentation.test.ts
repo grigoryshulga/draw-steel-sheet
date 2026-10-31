@@ -7,6 +7,7 @@ import { RuleEntityView } from "../src/components/rules/RuleEntity";
 import { createCharacter } from "../src/lib/defaults";
 import { BASIC_ABILITY_SOURCE } from "../src/lib/ability-sheet-groups";
 import { TIER_ROLL_RANGES, characteristicShort } from "../src/lib/rules";
+import { normalizeAbilityText } from "../src/lib/remark-ability-blocks";
 import { CHARACTERISTIC_KEYS, type Ability } from "../src/types";
 import type { RuleArticle, RuleEntity } from "../src/rules/schema";
 
@@ -24,7 +25,7 @@ function abilityFixture(overrides: Partial<Ability> = {}): Ability {
     preferredCharacteristic: "might",
     rollBonus: 1,
     resourceCost: 2,
-    trigger: "",
+    trigger: "Цель получает урон.",
     tiers: [
       { damage: "5 + М", effect: "Первый эффект." },
       { damage: "7 + М", effect: "Второй эффект." },
@@ -36,6 +37,35 @@ function abilityFixture(overrides: Partial<Ability> = {}): Ability {
     ...overrides,
   };
 }
+
+/**
+ * Реалистичная цитата-карточка источника: заголовок, флейвор, таблица 📏/🎯,
+ * триггер, бросок силы, тиры, эффект и два «допблока», которых в структурной
+ * проекции нет.
+ */
+const abilityCardMarkdown = [
+  "> **Тестовая способность**",
+  ">",
+  "> *Короткая присказка.*",
+  ">",
+  "> | **Магия, Ближний** | **Основное действие** |",
+  "> | --- | ---: |",
+  "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+  ">",
+  "> **Триггер:** Цель атакует вас.",
+  ">",
+  "> **Бросок силы + Мощь:**",
+  ">",
+  "> - **≤11:** 5 + М урона",
+  "> - **12-16:** 7 + М урона",
+  "> - **17+:** 9 + М урона",
+  ">",
+  "> **Эффект:** Цель теряет Восстановление.",
+  ">",
+  "> **Поддержание 1:** Область остаётся до начала вашего следующего хода.",
+  ">",
+  "> **Потратить 1 Эссенцию:** Вы наносите дополнительно 1d6 урона.",
+].join("\n");
 
 const fullMarkdown = [
   "## Дополнительно",
@@ -61,12 +91,25 @@ function abilityEntity(overrides: Partial<RuleEntity> = {}): RuleEntity {
     id: "ability:test",
     kind: "ability",
     name: "Тестовая способность",
-    markdown: fullMarkdown,
+    markdown: abilityCardMarkdown,
     source: { articleId: "0805", path: "content/rules/entities/ability/test.json" },
     legacyIds: ["legacy-1"],
     ability: abilityFixture(),
     ...overrides,
   };
+}
+
+function renderEntity(entity: RuleEntity): string {
+  return renderToStaticMarkup(createElement(RuleEntityView, { entity }));
+}
+
+function extrasHtml(html: string): string {
+  const marker = 'class="rule-text rule-entity-extras">';
+  const at = html.indexOf(marker);
+  if (at < 0) return "";
+  return html
+    .slice(at + marker.length)
+    .replace(/<\/div><\/section>$/, "");
 }
 
 function articleFixture(blocks: RuleArticle["blocks"]): RuleArticle {
@@ -80,52 +123,264 @@ function articleFixture(blocks: RuleArticle["blocks"]): RuleArticle {
   };
 }
 
-describe("RuleEntityView: чтение без героя", () => {
-  it("рендерит способность по напечатанным значениям и не требует Character", () => {
-    const html = renderToStaticMarkup(
-      createElement(RuleEntityView, { entity: abilityEntity() }),
-    );
+describe("RuleEntityView: одна полная карточка способности", () => {
+  it("показывает факты, метки, тиры с эффектами, полный эффект, триггер и флейвор", () => {
+    const html = renderEntity(abilityEntity());
 
     expect(html).toContain('data-rule-entity="ability:test"');
     expect(html).toContain('id="rule-entity-ability:test"');
-    expect(html).toContain("Тестовая способность");
+    expect(html).toContain("class=\"sheet-ability-card is-full\"");
+    expect(html).toContain('data-action="main"');
+    expect(html).toContain('data-kind="signature"');
+
+    // Факты книги, метки и бросок — та же семантика, что у карточки листа.
     expect(html).toContain("sheet-ability-meta");
     expect(html).toContain("Ближний 1");
     expect(html).toContain("Одно существо");
+    expect(html).toContain("sheet-ability-keyword");
     expect(html).toContain("Магия");
-    for (const tier of [1, 2, 3]) {
-      expect(html).toContain(`data-tier="${tier}"`);
-    }
-    // Сокращённая проекция не выдаёт себя за полное описание: текст эффекта
-    // приходит только из markdown источника.
-    expect(html).not.toContain("Краткий эффект из справочника.");
-    expect(html).toContain("Полное описание эффекта тира из источника.");
-    expect(html).toContain("Бросок");
-  });
-
-  it("сохраняет полный markdown источника, ссылки, вложенные списки и таблицы", () => {
-    const html = renderToStaticMarkup(
-      createElement(RuleEntityView, { entity: abilityEntity() }),
+    expect(html).toContain(
+      `<em>Бросок</em> ${characteristicShort("might")} +1`,
     );
 
+    // Карточка полная: у каждого тира есть и урон, и эффект.
+    for (const tier of [1, 2, 3]) {
+      expect(html).toContain(`data-tier="${tier}"`);
+      expect(html).toContain(TIER_ROLL_RANGES[tier as 1 | 2 | 3]);
+    }
+    expect(html).toContain("Первый эффект.");
+    expect(html).toContain("Второй эффект.");
+    expect(html).toContain("Третий эффект.");
+    expect(html).toContain("sheet-ability-body");
+    expect(html).toContain("Краткий эффект из справочника.");
+
+    // Флейвор и триггер из структурной проекции.
+    expect(html).toContain('class="rule-ability-flavor"');
+    expect(html).toContain("Короткая присказка.");
+    expect(html).toContain('class="rule-ability-trigger"');
+    expect(html).toContain("Цель получает урон.");
+
+    // Вид способности показывает чип «Знаковая», а не чип вида сущности.
+    expect(html).toContain("Знаковая");
+    expect(html).not.toContain("Способность");
+    expect(html).not.toContain("rule-entity-kind");
+  });
+
+  it("не дублирует карточку из markdown: заголовок и таблица 📏/🎯 убраны", () => {
+    const html = renderEntity(abilityEntity());
+
+    const names = html.match(/Тестовая способность/g) ?? [];
+    expect(names).toHaveLength(1);
+    expect(html).not.toContain("📏");
+    expect(html).not.toContain("🎯");
+    expect(html).not.toContain("<table>");
+  });
+
+  it("оставляет из цитаты только то, чего карточка не показывает", () => {
+    const html = renderEntity(abilityEntity());
+
+    // Допблоки источника на месте и развёрнуты из цитаты в поток статьи.
+    expect(html).toContain('class="rule-text rule-entity-extras"');
+    expect(html).toContain("Поддержание 1:");
+    expect(html).toContain("Область остаётся до начала вашего следующего хода.");
+    expect(html).toContain("Потратить 1 Эссенцию:");
+    expect(html).toContain("Вы наносите дополнительно 1d6 урона.");
+    expect(html).not.toContain("<blockquote>");
+
+    // Карточные части цитаты вырезаны.
+    expect(html).not.toContain("Бросок силы + Мощь");
+    expect(html).not.toContain("≤11:");
+    expect(html).not.toContain("12-16:");
+    expect(html).not.toContain("17+:");
+    expect(html).not.toContain("Цель теряет Восстановление.");
+    expect(html).not.toContain("Цель атакует вас.");
+    expect(html.match(/Эффект:/g) ?? []).toHaveLength(0);
+    // «Триггер» остаётся один раз — подписью карточки, а не абзацем источника.
+    expect(html.match(/Триггер:/g) ?? []).toHaveLength(1);
+  });
+
+  it("вырезает из остатка оба абзаца «Эффект», если их два", () => {
+    const twoEffectsMarkdown = [
+      "> **Двойной эффект**",
+      ">",
+      "> | **Магия** | **Основное действие** |",
+      "> | --- | ---: |",
+      "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+      ">",
+      "> **Эффект:** Эффект до броска силы.",
+      ">",
+      "> **Бросок силы + Мощь:**",
+      ">",
+      "> - **≤11:** 5 + М урона",
+      "> - **12-16:** 7 + М урона",
+      "> - **17+:** 9 + М урона",
+      ">",
+      "> **Эффект:** Эффект после тиров.",
+    ].join("\n");
+
+    const html = renderEntity(
+      abilityEntity({
+        name: "Двойной эффект",
+        markdown: twoEffectsMarkdown,
+        ability: abilityFixture({
+          effect: "Склеенный эффект проекции.",
+          trigger: "",
+        }),
+      }),
+    );
+
+    expect(html).toContain("Склеенный эффект проекции.");
+    expect(html).not.toContain("Эффект до броска силы.");
+    expect(html).not.toContain("Эффект после тиров.");
+    expect(html.match(/Эффект:/g) ?? []).toHaveLength(0);
+  });
+
+  it("не повторяет под карточкой допблок, уже вошедший в effect", () => {
+    const markdown = [
+      "> **Проверка дубля**",
+      ">",
+      "> | **Магия** | **Основное действие** |",
+      "> | --- | ---: |",
+      "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+      ">",
+      "> **Эффект:** Краткий эффект.",
+      ">",
+      "> **Потрать 5 Оч. Судьбы:** Цель получает слабость.",
+      ">",
+      "> **Особое:** Действует и вне боя.",
+    ].join("\n");
+
+    const html = renderEntity(
+      abilityEntity({
+        name: "Проверка дубля",
+        markdown,
+        ability: abilityFixture({
+          trigger: "",
+          effect:
+            "Краткий эффект.\n\nПотрать 5 Оч. Судьбы: Цель получает слабость.",
+        }),
+      }),
+    );
+
+    // Показанное карточкой (с переносами \n\n) под ней не повторяется.
+    expect(html).toContain("Краткий эффект.");
+    expect(extrasHtml(html)).not.toContain("Цель получает слабость.");
+    // Допблок, которого в effect нет, остаётся видимым.
+    expect(extrasHtml(html)).toContain("Особое:");
+    expect(extrasHtml(html)).toContain("Действует и вне боя.");
+  });
+
+  it("сравнивает текст без markdown-разметки: эмфазис и ссылки не мешают", () => {
+    const markdown = [
+      "> **Разметка**",
+      ">",
+      "> | **Магия** | **Основное действие** |",
+      "> | --- | ---: |",
+      "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+      ">",
+      "> **Потрать:** *1 Эссенцию* выдаёт [искру](#/codex/0801).",
+    ].join("\n");
+
+    const html = renderEntity(
+      abilityEntity({
+        name: "Разметка",
+        markdown,
+        ability: abilityFixture({
+          trigger: "",
+          effect: "Потрать: 1 Эссенцию выдаёт искру.",
+        }),
+      }),
+    );
+
+    expect(extrasHtml(html)).not.toContain("выдаёт искру.");
+  });
+
+  it("оставляет из списка только непокрытые пункты", () => {
+    const markdown = [
+      "> **Список**",
+      ">",
+      "> | **Магия** | **Основное действие** |",
+      "> | --- | ---: |",
+      "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+      ">",
+      "> **Эффект:** Основной эффект.",
+      ">",
+      "> - Второй ход: сдвиньте цель",
+      "> - Пока поддерживается: цель ослеплена",
+    ].join("\n");
+
+    const html = renderEntity(
+      abilityEntity({
+        name: "Список",
+        markdown,
+        ability: abilityFixture({
+          trigger: "",
+          effect: "Основной эффект.\n\nВторой ход: сдвиньте цель",
+        }),
+      }),
+    );
+
+    const extras = extrasHtml(html);
+    expect(extras).toContain("Пока поддерживается:");
+    expect(extras).toContain("ослеплена");
+    expect(extras).not.toContain("сдвиньте цель");
+    expect(extras.match(/<li>/g) ?? []).toHaveLength(1);
+  });
+
+  it("убирает список целиком, если все его пункты уже показаны", () => {
+    const markdown = [
+      "> **Полный список**",
+      ">",
+      "> | **Магия** | **Основное действие** |",
+      "> | --- | ---: |",
+      "> | **📏 Ближний 1** | **🎯 Одно существо** |",
+      ">",
+      "> **Эффект:** Основной эффект.",
+      ">",
+      "> - Первый пункт",
+      "> - Второй пункт",
+    ].join("\n");
+
+    const html = renderEntity(
+      abilityEntity({
+        name: "Полный список",
+        markdown,
+        ability: abilityFixture({
+          trigger: "",
+          effect: "Основной эффект.\n\nПервый пункт\n\nВторой пункт",
+        }),
+      }),
+    );
+
+    const extras = extrasHtml(html);
+    expect(extras).not.toContain("Первый пункт");
+    expect(extras).not.toContain("Второй пункт");
+    expect(extras.match(/<li>/g) ?? []).toHaveLength(0);
+    expect(extras.trim()).toBe("");
+  });
+
+  it("не трогает markdown без ability-цитаты", () => {
+    const html = renderEntity(abilityEntity({ markdown: fullMarkdown }));
+
+    // Карточка способности рисуется из проекции.
+    expect(html).toContain("sheet-ability-meta");
+    // А Markdown остаётся целиком: заголовки, ссылки, списки, таблицы, заметки.
+    expect(html).toContain('id="дополнительно"');
     expect(html).toContain('href="#/codex/0801"');
     expect(html).toContain("Вложенный пункт");
     expect(html).toContain("<table>");
     expect(html).toContain("42");
     expect(html).toContain("Заметка мастера.");
-    expect(html).toContain('id="дополнительно"');
-    // Структурная проекция не заменяет текст, которого в ней нет.
+    expect(html).toContain("Полное описание эффекта тира из источника.");
     expect(html).toContain(
       "Полный текст, которого нет в структурной проекции.",
     );
   });
 
   it("помечает базовые способности тем же источником, что и лист", () => {
-    const html = renderToStaticMarkup(
-      createElement(RuleEntityView, {
-        entity: abilityEntity({
-          ability: abilityFixture({ source: BASIC_ABILITY_SOURCE }),
-        }),
+    const html = renderEntity(
+      abilityEntity({
+        ability: abilityFixture({ source: BASIC_ABILITY_SOURCE }),
       }),
     );
 
@@ -134,13 +389,11 @@ describe("RuleEntityView: чтение без героя", () => {
 
   it("подписи броска и тиров совпадают с правилами листа", () => {
     for (const key of CHARACTERISTIC_KEYS) {
-      const html = renderToStaticMarkup(
-        createElement(RuleEntityView, {
-          entity: abilityEntity({
-            ability: abilityFixture({
-              rollCharacteristics: [key],
-              rollBonus: 2,
-            }),
+      const html = renderEntity(
+        abilityEntity({
+          ability: abilityFixture({
+            rollCharacteristics: [key],
+            rollBonus: 2,
           }),
         }),
       );
@@ -149,9 +402,7 @@ describe("RuleEntityView: чтение без героя", () => {
       );
     }
 
-    const html = renderToStaticMarkup(
-      createElement(RuleEntityView, { entity: abilityEntity() }),
-    );
+    const html = renderEntity(abilityEntity());
     for (const tier of [1, 2, 3] as const) {
       expect(html).toContain(TIER_ROLL_RANGES[tier]);
     }
@@ -167,15 +418,32 @@ describe("RuleEntityView: чтение без героя", () => {
       legacyIds: [],
     };
 
-    const html = renderToStaticMarkup(
-      createElement(RuleEntityView, { entity }),
-    );
+    const html = renderEntity(entity);
 
     expect(html).toContain("Особенность");
     expect(html).toContain("Тестовая особенность");
     expect(html).toContain("работает всегда.");
     expect(html).toContain("<li>Один</li>");
+    expect(html).not.toContain("sheet-ability-card");
     expect(html).not.toContain("sheet-ability-meta");
+  });
+});
+
+describe("normalizeAbilityText: сравнимая форма текста", () => {
+  it("схлопывает переносы и повторы пробелов", () => {
+    expect(normalizeAbilityText("  Потрать 1\n\nЭссенцию:\n  текст ")).toBe(
+      "Потрать 1 Эссенцию: текст",
+    );
+  });
+
+  it("не склеивает слова на месте переноса строки", () => {
+    expect(normalizeAbilityText("Потрать\n1")).toBe("Потрать 1");
+  });
+
+  it("сохраняет реальные различия текста", () => {
+    expect(normalizeAbilityText("Потрать 1")).not.toBe(
+      normalizeAbilityText("Потрать 2"),
+    );
   });
 });
 
@@ -275,9 +543,7 @@ describe("AbilityCard: совместимость с листом", () => {
         character: createCharacter({ name: "Герой" }),
       }),
     );
-    const reference = renderToStaticMarkup(
-      createElement(RuleEntityView, { entity: abilityEntity() }),
-    );
+    const reference = renderEntity(abilityEntity());
 
     for (const marker of [
       "sheet-ability-meta",

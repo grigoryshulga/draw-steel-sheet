@@ -27,15 +27,61 @@ export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
 /**
  * Чтение одной канонической сущности правил.
  *
- * Структурная проекция способности показывает то же оформление, что и лист,
- * но без героя: только напечатанные значения. Полный `markdown` источника
- * выводится ниже без сокращений — таблицы, ссылки, вложенные списки и заметки
+ * Способность показывается ровно одной полной карточкой — той же разметкой,
+ * что и на листе героя (`sheet-ability-card`), но с напечатанными в книге
+ * значениями. Полный `markdown` источника больше не дублирует карточку: из
+ * него берутся только «допблоки», которых в проекции нет (Поддержание,
+ * Потратить, Особое, списки и проза). Остальные виды правил выводят полный
+ * текст без сокращений — таблицы, ссылки, вложенные списки и заметки
  * остаются частью правила.
  */
 export function RuleEntityView({ entity }: { entity: RuleEntity }) {
   const anchor = ruleEntityAnchor(entity);
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
   const hasMarkdown = entity.markdown.trim().length > 0;
+
+  if (ability)
+    return (
+      <section
+        className={`rule-entity rule-entity-${entity.kind}`}
+        data-rule-entity={entity.id}
+        data-kind={entity.kind}
+        aria-labelledby={anchor}
+      >
+        <article
+          className="sheet-ability-card is-full"
+          data-action={ability.actionType}
+          data-kind={ability.kind}
+        >
+          <header className="rule-entity-head">
+            <h2 className="rule-entity-name" id={anchor}>
+              {entity.name}
+            </h2>
+            <AbilityTags view={ability} />
+          </header>
+
+          {ability.flavor && (
+            <p className="rule-ability-flavor">{ability.flavor}</p>
+          )}
+
+          <AbilityBody view={ability} full />
+
+          {ability.trigger && (
+            <p className="rule-ability-trigger">
+              <strong className="rule-ability-trigger-label">Триггер:</strong>{" "}
+              {ability.trigger}
+            </p>
+          )}
+        </article>
+
+        <RuleMarkdown
+          text={entity.markdown}
+          articleId={entity.source.articleId}
+          className="rule-text rule-entity-extras"
+          abilityCardRemainder={{ shownText: entity.ability?.effect }}
+        />
+      </section>
+    );
 
   return (
     <section
@@ -53,19 +99,7 @@ export function RuleEntityView({ entity }: { entity: RuleEntity }) {
             {entity.name}
           </h2>
         </div>
-        {ability && <AbilityTags view={ability} />}
       </header>
-
-      {ability && (
-        <div
-          className="rule-entity-ability"
-          data-action={ability.actionType}
-          role="group"
-          aria-label="Кратко о способности"
-        >
-          <AbilityBody view={ability} full variant="summary" />
-        </div>
-      )}
 
       {hasMarkdown ? (
         <RuleMarkdown

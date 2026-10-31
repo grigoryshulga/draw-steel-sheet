@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { PluggableList } from "unified";
 import { Children, isValidElement, type ReactNode } from "react";
 import {
   CATALOG,
@@ -8,7 +9,11 @@ import {
   plainSummary,
 } from "../../data/library";
 import { headingId } from "../../lib/codex";
-import { remarkAbilityBlocks } from "../../lib/remark-ability-blocks";
+import {
+  remarkAbilityBlocks,
+  remarkAbilityCardRemainder,
+  type AbilityCardRemainderOptions,
+} from "../../lib/remark-ability-blocks";
 import { remarkRuleFields } from "../../lib/remark-rule-fields";
 import { remarkRuleLinks } from "../../lib/remark-rule-links";
 import "../AbilityPresentation.css";
@@ -29,6 +34,13 @@ export interface RuleMarkdownProps {
   /** Статья источника: по ней подбирается ссылка «Карточка в каталоге». */
   articleId?: string;
   className?: string;
+  /**
+   * Текст уже показан полной карточкой способности: из источника берём только
+   * «допблоки» (Поддержание, Потратить, Особое, списки и прозу), а не дубль
+   * карточки. `{ shownText }` дополнительно отбрасывает допблоки, дословно
+   * повторяющие показанный текст. Без пропа Markdown рендерится целиком.
+   */
+  abilityCardRemainder?: boolean | AbilityCardRemainderOptions;
 }
 
 /**
@@ -43,16 +55,24 @@ export function RuleMarkdown({
   text,
   articleId,
   className = "rule-text",
+  abilityCardRemainder = false,
 }: RuleMarkdownProps) {
+  const remainder =
+    typeof abilityCardRemainder === "object"
+      ? abilityCardRemainder
+      : undefined;
+  const plugins: PluggableList = abilityCardRemainder
+    ? [
+        remarkGfm,
+        [remarkAbilityCardRemainder, remainder],
+        remarkRuleFields,
+        remarkRuleLinks,
+      ]
+    : [remarkGfm, remarkAbilityBlocks, remarkRuleFields, remarkRuleLinks];
   return (
     <div className={className}>
       <Markdown
-        remarkPlugins={[
-          remarkGfm,
-          remarkAbilityBlocks,
-          remarkRuleFields,
-          remarkRuleLinks,
-        ]}
+        remarkPlugins={plugins}
         components={{
           h1: ({ children }) => (
             <h2 id={headingId(plain(children))}>{children}</h2>
