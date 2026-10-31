@@ -1,0 +1,854 @@
+{
+ "map": {
+  "fury.feature.1.svirepost-v-boyu": {
+   "id": "feature.fury.level-1.ferocity-in-combat",
+   "originalName": "Ferocity in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain ferocity equal to your Victories."
+  },
+  "fury.feature.1.svirepost-vne-boya": {
+   "id": "feature.fury.level-1.ferocity-outside-of-combat",
+   "originalName": "Ferocity Outside of Combat",
+   "originalDescription": "Though you can't gain ferocity outside of combat, you can use your heroic abilities and effects that cost ferocity without spending it."
+  },
+  "fury.feature.1.rastushchaya-svirepost-berserka-2": {
+   "id": "feature.fury.level-1.growing-ferocity-berserker-2",
+   "originalName": "Growing Ferocity: 2",
+   "originalDescription": "Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score."
+  },
+  "fury.feature.1.rastushchaya-svirepost-berserka-4": {
+   "id": "feature.fury.level-1.growing-ferocity-berserker-4",
+   "originalName": "Growing Ferocity: 4",
+   "originalDescription": "The first time you push a creature on a turn, you gain 1 surge."
+  },
+  "fury.feature.1.rastushchaya-svirepost-berserka-6": {
+   "id": "feature.fury.level-1.growing-ferocity-berserker-6",
+   "originalName": "Growing Ferocity: 6",
+   "originalDescription": "You gain an edge on Might tests and the Knockback maneuver."
+  },
+  "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven": {
+   "id": "feature.fury.level-4.growing-ferocity-berserker-8",
+   "originalName": "Growing Ferocity: 8 (4th Level)",
+   "originalDescription": "The first time you push a creature on a turn, you gain 2 surges."
+  },
+  "fury.feature.7.rastushchaya-svirepost-berserka-10-7-y-uroven": {
+   "id": "feature.fury.level-7.growing-ferocity-berserker-10",
+   "originalName": "Growing Ferocity: 10 (7th Level)",
+   "originalDescription": "You have a double edge on Might tests and the Knockback maneuver."
+  },
+  "fury.feature.10.rastushchaya-svirepost-berserka-12-10-y-uroven": {
+   "id": "feature.fury.level-10.growing-ferocity-berserker-12",
+   "originalName": "Growing Ferocity: 12 (10th Level)",
+   "originalDescription": "Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Might score."
+  },
+  "fury.feature.1.rastushchaya-svirepost-razoritelya-2": {
+   "id": "feature.fury.level-1.growing-ferocity-reaver-2",
+   "originalName": "Growing Ferocity: 2",
+   "originalDescription": "Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Agility score."
+  },
+  "fury.feature.1.rastushchaya-svirepost-razoritelya-4": {
+   "id": "feature.fury.level-1.growing-ferocity-reaver-4",
+   "originalName": "Growing Ferocity: 4",
+   "originalDescription": "The first time you slide a creature on a turn, you gain 1 surge."
+  },
+  "fury.feature.1.rastushchaya-svirepost-razoritelya-6": {
+   "id": "feature.fury.level-1.growing-ferocity-reaver-6",
+   "originalName": "Growing Ferocity: 6",
+   "originalDescription": "You gain an edge on Agility tests and the Knockback maneuver."
+  },
+  "fury.feature.4.rastushchaya-svirepost-razoritelya-8-4-y-uroven": {
+   "id": "feature.fury.level-4.growing-ferocity-reaver-8",
+   "originalName": "Growing Ferocity: 8 (4th Level)",
+   "originalDescription": "The first time you slide a creature on a turn, you gain 2 surges."
+  },
+  "fury.feature.7.rastushchaya-svirepost-razoritelya-10-7-y-uroven": {
+   "id": "feature.fury.level-7.growing-ferocity-reaver-10",
+   "originalName": "Growing Ferocity: 10 (7th Level)",
+   "originalDescription": "You have a double edge on Agility tests and the Knockback maneuver."
+  },
+  "fury.feature.10.rastushchaya-svirepost-razoritelya-12-10-y-uroven": {
+   "id": "feature.fury.level-10.growing-ferocity-reaver-12",
+   "originalName": "Growing Ferocity: 12 (10th Level)",
+   "originalDescription": "Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Agility score."
+  },
+  "fury.aspect.1.linii-sily": {
+   "id": "feature.ability.fury.level-1.lines-of-force",
+   "originalName": "Lines of Force",
+   "originalDescription": "You redirect the energy of motion."
+  },
+  "fury.aspect.1.nezemnye-refleksy": {
+   "id": "feature.ability.fury.level-1.unearthly-reflexes",
+   "originalName": "Unearthly Reflexes",
+   "originalDescription": "You are as elusive as a hummingbird."
+  },
+  "fury.aspect.1.yarostnoe-izmenenie": {
+   "id": "feature.ability.fury.level-1.furious-change",
+   "originalName": "Furious Change",
+   "originalDescription": "In your anger, you revert to a more bestial form."
+  },
+  "fury.feature.1.znakovaya-sposobnost": {
+   "id": "feature.fury.level-1.signature-ability",
+   "originalName": "Signature Ability",
+   "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (Quick Build: To the Death!)"
+  },
+  "fury.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.fury.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You fight with an array of heroic abilities, all of which cost ferocity to fuel them."
+  },
+  "fury.feature.1.sposobnost-za-3-svireposti": {
+   "id": "feature.fury.level-1.3-ferocity-ability",
+   "originalName": "3-Ferocity Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 ferocity to use. (Quick Build: Back!)"
+  },
+  "fury.feature.1.sposobnost-za-5-svireposti": {
+   "id": "feature.fury.level-1.5-ferocity-ability",
+   "originalName": "5-Ferocity Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 ferocity to use. (Quick Build: Blood for Blood!)"
+  },
+  "null.feature.1.distsiplina-v-boyu": {
+   "id": "feature.null.level-1.discipline-in-combat",
+   "originalName": "Discipline in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories."
+  },
+  "null.feature.1.distsiplina-vne-boya": {
+   "id": "feature.null.level-1.discipline-outside-of-combat",
+   "originalName": "Discipline Outside of Combat",
+   "originalDescription": "Though you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it."
+  },
+  "null.feature.1.masterstvo-khronokinetika-2": {
+   "id": "feature.null.level-1.chronokinetic-mastery-2",
+   "originalName": "Chronokinetic Mastery: 2",
+   "originalDescription": "Whenever you use the Knockback maneuver, you can use the Disengage move action as a free triggered action either before or after the maneuver."
+  },
+  "null.feature.1.masterstvo-khronokinetika-4": {
+   "id": "feature.null.level-1.chronokinetic-mastery-4",
+   "originalName": "Chronokinetic Mastery: 4",
+   "originalDescription": "The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 1 surge."
+  },
+  "null.feature.1.masterstvo-khronokinetika-6": {
+   "id": "feature.null.level-1.chronokinetic-mastery-6",
+   "originalName": "Chronokinetic Mastery: 6",
+   "originalDescription": "You gain an edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.4.masterstvo-khronokinetika-8-4-y-uroven": {
+   "id": "feature.null.level-4.chronokinetic-mastery-8",
+   "originalName": "Chronokinetic Mastery: 8 (4th Level)",
+   "originalDescription": "The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 2 surges."
+  },
+  "null.feature.7.masterstvo-khronokinetika-10-7-y-uroven": {
+   "id": "feature.null.level-7.chronokinetic-mastery-10",
+   "originalName": "Chronokinetic Mastery: 10 (7th Level)",
+   "originalDescription": "You have a double edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven": {
+   "id": "feature.null.level-10.chronokinetic-mastery-12",
+   "originalName": "Chronokinetic Mastery: 12 (10th Level)",
+   "originalDescription": "Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina."
+  },
+  "null.feature.1.masterstvo-kriokinetika-2": {
+   "id": "feature.null.level-1.cryokinetic-mastery-2",
+   "originalName": "Cryokinetic Mastery: 2",
+   "originalDescription": "Whenever you use the Knockback maneuver, you can target one additional creature. Additionally, whenever you deal untyped damage with a psionic ability, you can change it to cold damage instead."
+  },
+  "null.feature.1.masterstvo-kriokinetika-4": {
+   "id": "feature.null.level-1.cryokinetic-mastery-4",
+   "originalName": "Cryokinetic Mastery: 4",
+   "originalDescription": "The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 1 surge."
+  },
+  "null.feature.1.masterstvo-kriokinetika-6": {
+   "id": "feature.null.level-1.cryokinetic-mastery-6",
+   "originalName": "Cryokinetic Mastery: 6",
+   "originalDescription": "You gain an edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.4.masterstvo-kriokinetika-8-4-y-uroven": {
+   "id": "feature.null.level-4.cryokinetic-mastery-8",
+   "originalName": "Cryokinetic Mastery: 8 (4th Level)",
+   "originalDescription": "The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 2 surges."
+  },
+  "null.feature.7.masterstvo-kriokinetika-10-7-y-uroven": {
+   "id": "feature.null.level-7.cryokinetic-mastery-10",
+   "originalName": "Cryokinetic Mastery: 10 (7th Level)",
+   "originalDescription": "You have a double edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.10.masterstvo-kriokinetika-12-10-y-uroven": {
+   "id": "feature.null.level-10.cryokinetic-mastery-12",
+   "originalName": "Cryokinetic Mastery: 12 (10th Level)",
+   "originalDescription": "Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina."
+  },
+  "null.feature.1.masterstvo-metakinetika-2": {
+   "id": "feature.null.level-1.metakinetic-mastery-2",
+   "originalName": "Metakinetic Mastery: 2",
+   "originalDescription": "Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Intuition score."
+  },
+  "null.feature.1.masterstvo-metakinetika-4": {
+   "id": "feature.null.level-1.metakinetic-mastery-4",
+   "originalName": "Metakinetic Mastery: 4",
+   "originalDescription": "The first time in a combat round that you take damage or are force moved, you gain 1 surge, even if you resist the effect."
+  },
+  "null.feature.1.masterstvo-metakinetika-6": {
+   "id": "feature.null.level-1.metakinetic-mastery-6",
+   "originalName": "Metakinetic Mastery: 6",
+   "originalDescription": "You gain an edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.4.masterstvo-metakinetika-8-4-y-uroven": {
+   "id": "feature.null.level-4.metakinetic-mastery-8",
+   "originalName": "Metakinetic Mastery: 8 (4th Level)",
+   "originalDescription": "The first time in a combat round that you take damage or are force moved, you gain 2 surges, even if you resist the effect."
+  },
+  "null.feature.7.masterstvo-metakinetika-10-7-y-uroven": {
+   "id": "feature.null.level-7.metakinetic-mastery-10",
+   "originalName": "Metakinetic Mastery: 10 (7th Level)",
+   "originalDescription": "You have a double edge on the Grab and Knockback maneuvers."
+  },
+  "null.feature.10.masterstvo-metakinetika-12-10-y-uroven": {
+   "id": "feature.null.level-10.metakinetic-mastery-12",
+   "originalName": "Metakinetic Mastery: 12 (10th Level)",
+   "originalDescription": "Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina."
+  },
+  "null.feature.1.znakovye-sposobnosti": {
+   "id": "feature.null.level-1.signature-abilities",
+   "originalName": "Signature Abilities",
+   "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Faster Than the Eye, Inertial Step.)"
+  },
+  "null.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.null.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You have mastered a range of heroic abilities, all of them channeled through your discipline."
+  },
+  "null.feature.1.sposobnost-za-3-distsipliny": {
+   "id": "feature.null.level-1.3-discipline-ability",
+   "originalName": "3-Discipline Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 discipline to use. (Quick Build: Chronal Spike.)"
+  },
+  "null.feature.1.sposobnost-za-5-distsipliny": {
+   "id": "feature.null.level-1.5-discipline-ability",
+   "originalName": "5-Discipline Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 discipline to use. (Quick Build: A Squad Unto Myself.)"
+  },
+  "conduit.feature.1.blagochestie-v-boyu": {
+   "id": "feature.conduit.level-1.piety-in-combat",
+   "originalName": "Piety in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories."
+  },
+  "conduit.feature.1.blagochestie-vne-boya": {
+   "id": "feature.conduit.level-1.piety-outside-of-combat",
+   "originalName": "Piety Outside of Combat",
+   "originalDescription": "Though you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-sozidaniya": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.creation",
+   "originalName": "Domain Piety and Effects: Creation",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability. Prayer Effect: You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-smerti": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.death",
+   "originalName": "Domain Piety and Effects: Death",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded. Prayer Effect: You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-sudby": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.fate",
+   "originalName": "Domain Piety and Effects: Fate",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll. Prayer Effect: You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-znaniya": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.knowledge",
+   "originalName": "Domain Piety and Effects: Knowledge",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that the Director spends Malice (see Draw Steel: Monsters). Prayer Effect: Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-zhizni": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.life",
+   "originalName": "Domain Piety and Effects: Life",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina. Prayer Effect: Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-lyubvi": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.love",
+   "originalName": "Domain Piety and Effects: Love",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally. Prayer Effect: Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-prirody": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.nature",
+   "originalName": "Domain Piety and Effects: Nature",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage. Prayer Effect: Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-zashchity": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.protection",
+   "originalName": "Domain Piety and Effects: Protection",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll. Prayer Effect: One ally within 10 squares gains temporary Stamina equal to four times your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-buri": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.storm",
+   "originalName": "Domain Piety and Effects: Storm",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved. Prayer Effect: Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-solntsa": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.sun",
+   "originalName": "Domain Piety and Effects: Sun",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage. Prayer Effect: One enemy within 10 squares takes fire damage equal to three times your Intuition score."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-khitrosti": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.trickery",
+   "originalName": "Domain Piety and Effects: Trickery",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver. Prayer Effect: You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level."
+  },
+  "conduit.feature.1.blagochestie-i-effekt-domena-voyny": {
+   "id": "feature.conduit.level-1.domain-piety-and-effects.war",
+   "originalName": "Domain Piety and Effects: War",
+   "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn. Prayer Effect: Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+  },
+  "conduit.feature.1.znakovye-sposobnosti": {
+   "id": "feature.conduit.level-1.signature-abilities",
+   "originalName": "Signature Abilities",
+   "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Blessed Light, Staggering Curse.)"
+  },
+  "conduit.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.conduit.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You make use of a number of heroic abilities, all of which channel piety to empower them."
+  },
+  "conduit.feature.1.sposobnost-za-3-blagochestiya": {
+   "id": "feature.conduit.level-1.3-piety-ability",
+   "originalName": "3-Piety Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 piety to use. (Quick Build: Violence Will Not Aid Thee.)"
+  },
+  "conduit.feature.1.sposobnost-za-5-blagochestiya": {
+   "id": "feature.conduit.level-1.5-piety-ability",
+   "originalName": "5-Piety Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 piety to use. (Quick Build: Curse of Terror.)"
+  },
+  "tactician.feature.1.fokus-v-boyu": {
+   "id": "feature.tactician.level-1.focus-in-combat",
+   "originalName": "Focus in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain focus equal to your Victories."
+  },
+  "tactician.feature.1.fokus-vne-boya": {
+   "id": "feature.tactician.level-1.focus-outside-of-combat",
+   "originalName": "Focus Outside of Combat",
+   "originalDescription": "Though you can't gain focus outside of combat, you can use your heroic abilities and effects that cost focus without spending it."
+  },
+  "tactician.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.tactician.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "Your heroic abilities cover a range of combat tactics, all of which require focus to use."
+  },
+  "tactician.feature.1.sposobnost-za-3-fokusa": {
+   "id": "feature.tactician.level-1.3-focus-ability",
+   "originalName": "3-Focus Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 focus to use. (Quick Build: Inspiring Strike.)"
+  },
+  "talent.feature.1.yasnost-v-boyu": {
+   "id": "feature.talent.level-1.clarity-in-combat",
+   "originalName": "Clarity in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories."
+  },
+  "talent.feature.1.yasnost-vne-boya": {
+   "id": "feature.talent.level-1.clarity-outside-of-combat",
+   "originalName": "Clarity Outside of Combat",
+   "originalDescription": "Though you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it."
+  },
+  "talent.feature.1.znakovye-sposobnosti": {
+   "id": "feature.talent.level-1.signature-abilities",
+   "originalName": "Signature Abilities",
+   "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Incinerate, Kinetic Grip.)"
+  },
+  "talent.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.talent.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You know a range of heroic abilities, all of which cost clarity to fuel them."
+  },
+  "talent.feature.1.sposobnost-za-3-yasnosti": {
+   "id": "feature.talent.level-1.3-clarity-ability",
+   "originalName": "3-Clarity Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 clarity to use. (Quick Build: Choke.)"
+  },
+  "talent.feature.1.sposobnost-za-5-yasnosti": {
+   "id": "feature.talent.level-1.5-clarity-ability",
+   "originalName": "5-Clarity Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 clarity to use. (Quick Build: Inertia Soak.)"
+  },
+  "shadow.feature.1.prozrenie-v-boyu": {
+   "id": "feature.shadow.level-1.insight-in-combat",
+   "originalName": "Insight in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain insight equal to your Victories."
+  },
+  "shadow.feature.1.prozrenie-vne-boya": {
+   "id": "feature.shadow.level-1.insight-outside-of-combat",
+   "originalName": "Insight Outside of Combat",
+   "originalDescription": "Although you can't gain insight outside of combat, you can use your heroic abilities and effects that cost insight without spending it."
+  },
+  "shadow.feature.1.znakovaya-sposobnost": {
+   "id": "feature.shadow.level-1.signature-ability",
+   "originalName": "Signature Ability",
+   "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (Quick Build: Teamwork Has Its Place.)"
+  },
+  "shadow.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.shadow.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "A range of heroic abilities define your combat prowess, all of which make use of your insight."
+  },
+  "shadow.feature.1.sposobnost-za-3-prozreniya": {
+   "id": "feature.shadow.level-1.3-insight-ability",
+   "originalName": "3-Insight Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 insight to use. (Quick Build: Get In Get Out.)"
+  },
+  "shadow.feature.1.sposobnost-za-5-prozreniya": {
+   "id": "feature.shadow.level-1.5-insight-ability",
+   "originalName": "5-Insight Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 insight to use. (Quick Build: Coup de Grace.)"
+  },
+  "troubadour.feature.1.drama-v-boyu": {
+   "id": "feature.troubadour.level-1.drama-in-combat",
+   "originalName": "Drama in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories."
+  },
+  "troubadour.feature.1.drama-vne-boya": {
+   "id": "feature.troubadour.level-1.drama-outside-of-combat",
+   "originalName": "Drama Outside of Combat",
+   "originalDescription": "Though you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it."
+  },
+  "troubadour.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.troubadour.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You master a range of heroic abilities, all of which cost drama to empower them."
+  },
+  "troubadour.feature.1.sposobnost-za-3-dramy": {
+   "id": "feature.troubadour.level-1.3-drama-ability",
+   "originalName": "3-Drama Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 drama to use. (Quick Build: Harsh Critic.)"
+  },
+  "troubadour.feature.1.sposobnost-za-5-dramy": {
+   "id": "feature.troubadour.level-1.5-drama-ability",
+   "originalName": "5-Drama Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 drama to use. (Quick Build: Dramatic Reversal.)"
+  },
+  "censor.feature.1.gnev-v-boyu": {
+   "id": "feature.censor.level-1.wrath-in-combat",
+   "originalName": "Wrath in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain wrath equal to your Victories."
+  },
+  "censor.feature.1.gnev-vne-boya": {
+   "id": "feature.censor.level-1.wrath-outside-of-combat",
+   "originalName": "Wrath Outside of Combat",
+   "originalDescription": "Though you can't gain wrath outside of combat, you can use your heroic abilities and effects that cost wrath without spending it."
+  },
+  "censor.feature.1.znakovaya-sposobnost": {
+   "id": "feature.censor.level-1.signature-ability",
+   "originalName": "Signature Ability",
+   "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (Quick Build: Your Allies Cannot Save You!)"
+  },
+  "censor.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.censor.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You call upon a number of heroic abilities, all of them bound to your wrath."
+  },
+  "censor.feature.1.sposobnost-za-3-gneva": {
+   "id": "feature.censor.level-1.3-wrath-ability",
+   "originalName": "3-Wrath Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 wrath to use. (Quick Build: The Gods Punish and Defend.)"
+  },
+  "censor.feature.1.sposobnost-za-5-gneva": {
+   "id": "feature.censor.level-1.5-wrath-ability",
+   "originalName": "5-Wrath Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 wrath to use. (Quick Build: Purifying Fire.)"
+  },
+  "elementalist.feature.1.essentsiya-v-boyu": {
+   "id": "feature.elementalist.level-1.essence-in-combat",
+   "originalName": "Essence in Combat",
+   "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain essence equal to your Victories."
+  },
+  "elementalist.feature.1.essentsiya-vne-boya": {
+   "id": "feature.elementalist.level-1.essence-outside-of-combat",
+   "originalName": "Essence Outside of Combat",
+   "originalDescription": "Though you can't gain essence outside of combat, you can use your heroic abilities and effects that cost essence without spending it."
+  },
+  "elementalist.feature.1.znakovye-sposobnosti": {
+   "id": "feature.elementalist.level-1.signature-abilities",
+   "originalName": "Signature Abilities",
+   "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Bifurcated Incineration, Viscous Fire.)"
+  },
+  "elementalist.feature.1.geroicheskie-sposobnosti": {
+   "id": "feature.elementalist.level-1.heroic-abilities",
+   "originalName": "Heroic Abilities",
+   "originalDescription": "You channel a variety of heroic abilities, all of them fueled by your essence."
+  },
+  "elementalist.feature.1.sposobnost-za-3-essentsii": {
+   "id": "feature.elementalist.level-1.3-essence-ability",
+   "originalName": "3-Essence Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 essence to use. (Quick Build: The Flesh, a Crucible.)"
+  },
+  "elementalist.feature.1.sposobnost-za-5-essentsii": {
+   "id": "feature.elementalist.level-1.5-essence-ability",
+   "originalName": "5-Essence Ability",
+   "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 essence to use. (Quick Build: Conflagration.)"
+  },
+  "fury.feature.2.sposobnost-berserka-2-go-urovnya": {
+   "id": "feature.fury.level-2.berserker-ability",
+   "originalName": "2nd-Level Berserker Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.2.sposobnost-razoritelya-2-go-urovnya": {
+   "id": "feature.fury.level-2.reaver-ability",
+   "originalName": "2nd-Level Reaver Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.2.sposobnost-burevestnika-2-go-urovnya": {
+   "id": "feature.fury.level-2.stormwight-ability",
+   "originalName": "2nd-Level Stormwight Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.6.sposobnosti-berserka-6-go-urovnya": {
+   "id": "feature.fury.level-6.berserker-abilities",
+   "originalName": "6th-Level Berserker Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.6.sposobnosti-razoritelya-6-go-urovnya": {
+   "id": "feature.fury.level-6.reaver-abilities",
+   "originalName": "6th-Level Reaver Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.6.sposobnosti-burevestnika-6-go-urovnya": {
+   "id": "feature.fury.level-6.stormwight-abilities",
+   "originalName": "6th-Level Stormwight Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.9.sposobnosti-berserka-9-go-urovnya": {
+   "id": "feature.fury.level-9.berserker-abilities",
+   "originalName": "9th-Level Berserker Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.9.sposobnosti-razoritelya-9-go-urovnya": {
+   "id": "feature.fury.level-9.reaver-abilities",
+   "originalName": "9th-Level Reaver Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "fury.feature.9.sposobnosti-burevestnika-9-go-urovnya": {
+   "id": "feature.fury.level-9.stormwight-abilities",
+   "originalName": "9th-Level Stormwight Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.2.sposobnost-khronokinetika-2-go-urovnya": {
+   "id": "feature.null.level-2.chronokinetic-ability",
+   "originalName": "2nd-Level Chronokinetic Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.2.sposobnost-kriokinetika-2-go-urovnya": {
+   "id": "feature.null.level-2.cryokinetic-ability",
+   "originalName": "2nd-Level Cryokinetic Ability",
+   "originalDescription": "Choose one of the following heroic abilities."
+  },
+  "null.feature.2.sposobnost-metakinetika-2-go-urovnya": {
+   "id": "feature.null.level-2.metakinetic-ability",
+   "originalName": "2nd-Level Metakinetic Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.6.sposobnosti-khronokinetika-6-go-urovnya": {
+   "id": "feature.null.level-6.chronokinetic-abilities",
+   "originalName": "6th-Level Chronokinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.6.sposobnosti-kriokinetika-6-go-urovnya": {
+   "id": "feature.null.level-6.cryokinetic-abilities",
+   "originalName": "6th-Level Cryokinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.6.sposobnosti-metakinetika-6-go-urovnya": {
+   "id": "feature.null.level-6.metakinetic-abilities",
+   "originalName": "6th-Level Metakinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.9.sposobnosti-khronokinetika-9-go-urovnya": {
+   "id": "feature.null.level-9.chronokinetic-abilities",
+   "originalName": "9th-Level Chronokinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.9.sposobnosti-kriokinetika-9-go-urovnya": {
+   "id": "feature.null.level-9.cryokinetic-abilities",
+   "originalName": "9th-Level Cryokinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "null.feature.9.sposobnosti-metakinetika-9-go-urovnya": {
+   "id": "feature.null.level-9.metakinetic-abilities",
+   "originalName": "9th-Level Metakinetic Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "conduit.domain.4.blagoslovenie-zhizni": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.life",
+   "originalName": "Blessing of Life",
+   "originalDescription": "Your divine presence causes those you deem worthy to recover quickly from a fight."
+  },
+  "conduit.domain.4.nepronitsaemoe-prikosnovenie": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.protection",
+   "originalName": "Impervious Touch",
+   "originalDescription": "As a maneuver, you can touch an object with a size equal to your Intuition score or smaller and place a protective spell on it."
+  },
+  "conduit.domain.4.uluchshennye-ruki-tvortsa": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.creation",
+   "originalName": "Improved Hands of the Maker",
+   "originalDescription": "When you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller."
+  },
+  "conduit.domain.4.uluchshennoe-osvyashchennoe-oruzhie": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.war",
+   "originalName": "Improved Sanctified Weapon",
+   "originalDescription": "The weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1."
+  },
+  "conduit.domain.4.prizyv-serdtsa": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.love",
+   "originalName": "Invocation of the Heart",
+   "originalDescription": "As a main action, you forge a bond of love and friendship with one willing creature you touch."
+  },
+  "conduit.domain.4.svet-otkroveniya": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.sun",
+   "originalName": "Light of Revelation",
+   "originalDescription": "As a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares until you dismiss the light (no action required)."
+  },
+  "conduit.domain.4.preduprezhdenie-orakula": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.fate",
+   "originalName": "Oracular Warning",
+   "originalDescription": "Each time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you."
+  },
+  "conduit.domain.4.spiriticheskiy-seans": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.death",
+   "originalName": "Seance",
+   "originalDescription": "You can commune with a network of spirits."
+  },
+  "conduit.domain.4.prozrenie-svyatogo": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.knowledge",
+   "originalName": "Saint's Epiphany",
+   "originalDescription": "At the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge."
+  },
+  "conduit.domain.4.postup-vetra": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.storm",
+   "originalName": "Windwalk",
+   "originalDescription": "While you have 5 or more Victories, you can fly."
+  },
+  "conduit.domain.4.lesnaya-doroga": {
+   "id": "feature.conduit.level-4.4th-level-domain-feature.nature",
+   "originalName": "Wode Road",
+   "originalDescription": "As a main action, you touch a living tree and make it part of a divine transportation network."
+  },
+  "tactician.feature.2.sposobnost-povstantsa-2-go-urovnya": {
+   "id": "feature.tactician.level-2.insurgent-ability",
+   "originalName": "2nd-Level Insurgent Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.2.sposobnost-voevody-2-go-urovnya": {
+   "id": "feature.tactician.level-2.mastermind-ability",
+   "originalName": "2nd-Level Mastermind Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.2.sposobnost-avangarda-2-go-urovnya": {
+   "id": "feature.tactician.level-2.vanguard-ability",
+   "originalName": "2nd-Level Vanguard Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.6.sposobnosti-povstantsa-6-go-urovnya": {
+   "id": "feature.tactician.level-6.insurgent-abilities",
+   "originalName": "6th-Level Insurgent Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.6.sposobnosti-voevody-6-go-urovnya": {
+   "id": "feature.tactician.level-6.mastermind-abilities",
+   "originalName": "6th-Level Mastermind Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.6.sposobnosti-avangarda-6-go-urovnya": {
+   "id": "feature.tactician.level-6.vanguard-abilities",
+   "originalName": "6th-Level Vanguard Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.9.sposobnosti-povstantsa-9-go-urovnya": {
+   "id": "feature.tactician.level-9.insurgent-abilities",
+   "originalName": "9th-Level Insurgent Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.9.sposobnosti-voevody-9-go-urovnya": {
+   "id": "feature.tactician.level-9.mastermind-abilities",
+   "originalName": "9th-Level Mastermind Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "tactician.feature.9.sposobnosti-avangarda-9-go-urovnya": {
+   "id": "feature.tactician.level-9.vanguard-abilities",
+   "originalName": "9th-Level Vanguard Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.2.sposobnosti-khronopatii-2-go-urovnya": {
+   "id": "feature.talent.level-2.chronopathy-ability",
+   "originalName": "2nd-Level Chronopathy Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.2.sposobnosti-telekineza-2-go-urovnya": {
+   "id": "feature.talent.level-2.telekinesis-ability",
+   "originalName": "2nd-Level Telekinesis Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.2.sposobnosti-telepatii-2-go-urovnya": {
+   "id": "feature.talent.level-2.telepathy-ability",
+   "originalName": "2nd-Level Telepathy Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.6.sposobnosti-khronopatii-6-go-urovnya": {
+   "id": "feature.talent.level-6.chronopathy-abilities",
+   "originalName": "6th-Level Chronopathy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.6.sposobnosti-telekineza-6-go-urovnya": {
+   "id": "feature.talent.level-6.telekinesis-abilities",
+   "originalName": "6th-Level Telekinesis Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.6.sposobnosti-telepatii-6-go-urovnya": {
+   "id": "feature.talent.level-6.telepathy-abilities",
+   "originalName": "6th-Level Telepathy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.9.sposobnosti-khronopatii-9-go-urovnya": {
+   "id": "feature.talent.level-9.chronopathy-abilities",
+   "originalName": "9th-Level Chronopathy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.9.sposobnosti-telekineza-9-go-urovnya": {
+   "id": "feature.talent.level-9.telekinesis-abilities",
+   "originalName": "9th-Level Telekinesis Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "talent.feature.9.sposobnosti-telepatii-9-go-urovnya": {
+   "id": "feature.talent.level-9.telepathy-abilities",
+   "originalName": "9th-Level Telepathy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya": {
+   "id": "feature.shadow.level-2.black-ash-ability",
+   "originalName": "2nd-Level Black Ash Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.2.sposobnost-edkoy-alkhimii-2-go-urovnya": {
+   "id": "feature.shadow.level-2.caustic-alchemy-ability",
+   "originalName": "2nd-Level Caustic Alchemy Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya": {
+   "id": "feature.shadow.level-2.harlequin-mask-ability",
+   "originalName": "2nd-Level Harlequin Mask Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya": {
+   "id": "feature.shadow.level-6.black-ash-abilities",
+   "originalName": "6th-Level Black Ash Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.6.sposobnosti-edkoy-alkhimii-6-go-urovnya": {
+   "id": "feature.shadow.level-6.caustic-alchemy-abilities",
+   "originalName": "6th-Level Caustic Alchemy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.6.sposobnosti-maski-arlekina-6-go-urovnya": {
+   "id": "feature.shadow.level-6.harlequin-mask-abilities",
+   "originalName": "6th-Level Harlequin Mask Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya": {
+   "id": "feature.shadow.level-9.black-ash-abilities",
+   "originalName": "9th-Level Black Ash Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.9.sposobnosti-edkoy-alkhimii-9-go-urovnya": {
+   "id": "feature.shadow.level-9.caustic-alchemy-abilities",
+   "originalName": "9th-Level Caustic Alchemy Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "shadow.feature.9.sposobnosti-maski-arlekina-9-go-urovnya": {
+   "id": "feature.shadow.level-9.harlequin-mask-abilities",
+   "originalName": "9th-Level Harlequin Mask Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.2.sposobnosti-avtora-2-go-urovnya": {
+   "id": "feature.troubadour.level-2.auteur-ability",
+   "originalName": "2nd-Level Auteur Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya": {
+   "id": "feature.troubadour.level-2.duelist-ability",
+   "originalName": "2nd-Level Duelist Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya": {
+   "id": "feature.troubadour.level-2.virtuoso-ability",
+   "originalName": "2nd-Level Virtuoso Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.6.sposobnosti-avtora-6-go-urovnya": {
+   "id": "feature.troubadour.level-6.auteur-abilities",
+   "originalName": "6th-Level Auteur Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya": {
+   "id": "feature.troubadour.level-6.duelist-abilities",
+   "originalName": "6th-Level Duelist Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya": {
+   "id": "feature.troubadour.level-6.virtuoso-abilities",
+   "originalName": "6th-Level Virtuoso Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.9.sposobnosti-avtora-9-go-urovnya": {
+   "id": "feature.troubadour.level-9.auteur-abilities",
+   "originalName": "9th-Level Auteur Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya": {
+   "id": "feature.troubadour.level-9.duelist-abilities",
+   "originalName": "9th-Level Duelist Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya": {
+   "id": "feature.troubadour.level-9.virtuoso-abilities",
+   "originalName": "9th-Level Virtuoso Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya": {
+   "id": "feature.censor.level-2.exorcist-ability",
+   "originalName": "2nd-Level Exorcist Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.2.sposobnosti-orakula-2-go-urovnya": {
+   "id": "feature.censor.level-2.oracle-ability",
+   "originalName": "2nd-Level Oracle Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.2.sposobnosti-ideala-2-go-urovnya": {
+   "id": "feature.censor.level-2.paragon-ability",
+   "originalName": "2nd-Level Paragon Ability",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.6.sposobnosti-ekzortsista-6-go-urovnya": {
+   "id": "feature.censor.level-6.exorcist-abilities",
+   "originalName": "6th-Level Exorcist Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.6.sposobnosti-orakula-6-go-urovnya": {
+   "id": "feature.censor.level-6.oracle-abilities",
+   "originalName": "6th-Level Oracle Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.6.sposobnosti-ideala-6-go-urovnya": {
+   "id": "feature.censor.level-6.paragon-abilities",
+   "originalName": "6th-Level Paragon Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.9.sposobnosti-ekzortsista-9-go-urovnya": {
+   "id": "feature.censor.level-9.exorcist-abilities",
+   "originalName": "9th-Level Exorcist Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.9.sposobnosti-orakula-9-go-urovnya": {
+   "id": "feature.censor.level-9.oracle-abilities",
+   "originalName": "9th-Level Oracle Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  },
+  "censor.feature.9.sposobnosti-ideala-9-go-urovnya": {
+   "id": "feature.censor.level-9.paragon-abilities",
+   "originalName": "9th-Level Paragon Abilities",
+   "originalDescription": "Choose one of the following abilities."
+  }
+ }
+}

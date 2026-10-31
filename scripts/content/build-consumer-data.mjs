@@ -33,7 +33,7 @@
  * новые записи каталога и глоссария требует `--update-identity` (явное действие).
  * Для новых наборов (`kits`, `perks`, `ancestryFeatures`, `classFeatures`,
  * `levelUp`, `builder`) сопоставление хранит порядок legacy-снапшотов: ID
- * записей уже закреплены в `entity.legacyIds` (а у записей конструктора —
+ * записей уже закреплены в английских id (а у записей конструктора —
  * канонический ID сущности), поэтому файл нужен прежде всего для порядка.
  * Составной комплект 0924 «Буревестник» теперь есть в каноне и проецируется
  * вместе с остальными.
@@ -50,6 +50,7 @@ import {
   walkJson,
   writeJsonText,
 } from "./lib/common.mjs";
+import { compactId, decorateConsumerProjections, maps } from "./lib/originals.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -327,6 +328,15 @@ function field(markdown, label) {
  * Каталог сокровищ/титулов/проектов из реконструированного Markdown статей.
  * Старые ID берутся из явного сопоставления, а не выводятся из текущего имени.
  */
+function catalogEnglishId(id) {
+  const value = maps.catalog[id];
+  if (typeof value === "string") {
+    return compactId(value).replace(/^(project|treasure|title)\./, "");
+  }
+  if (value && typeof value === "object" && value.id) return value.id;
+  return id;
+}
+
 export function projectCatalog(
   articles,
   identityCatalog = {},
@@ -341,12 +351,16 @@ export function projectCatalog(
     const projected = catalogPieces(article);
     if (!projected) continue;
     const { kind, pieces } = projected;
-    const derived = pieces.map((piece) =>
-      piece.heading ? `${article.id}-${piece.heading}` : article.id,
-    );
+    const derived = pieces
+      .map((piece) =>
+        piece.heading ? `${article.id}-${piece.heading}` : article.id,
+      )
+      .map(catalogEnglishId);
+    const rawExpected = identityCatalog[article.id];
+    const expected = rawExpected ? rawExpected.map(catalogEnglishId) : undefined;
     const assignment = assignIdentityIds({
       derived,
-      expected: identityCatalog[article.id],
+      expected,
       update,
       scope: `каталог статьи ${article.id}`,
     });
@@ -649,8 +663,7 @@ export function projectKits({
   const kits = [];
   for (const entity of entities) {
     if (entity.kind !== "kit") continue;
-    const id = entity.legacyIds?.[0];
-    if (!id) fail(`комплект ${entity.id} без legacy-ID`);
+    const id = entity.id;
     const parts = kitSections(entity.markdown);
     const bonuses = [];
     for (const line of (parts.get(KIT_BONUSES) ?? "").split("\n")) {
@@ -690,6 +703,11 @@ export function projectKits({
       ),
       bonuses,
       signatureAbility,
+      ...(entity.originalId ? { originalId: entity.originalId } : {}),
+      ...(entity.originalName ? { originalName: entity.originalName } : {}),
+      ...(entity.originalDescription
+        ? { originalDescription: entity.originalDescription }
+        : {}),
     });
   }
   const order = applyIdentityOrder(kits, identity, {
@@ -718,8 +736,7 @@ export function projectPerks({
   const perks = [];
   for (const entity of entities) {
     if (entity.kind !== "perk") continue;
-    const id = entity.legacyIds?.[0];
-    if (!id) fail(`перк ${entity.id} без legacy-ID`);
+    const id = entity.id;
     const type = PERK_TYPE_BY_ARTICLE[entity.source?.articleId];
     if (!type) {
       fail(
@@ -731,6 +748,11 @@ export function projectPerks({
       name: entity.name,
       type,
       summary: makePerkSummary(cleanPerkBody(entity)),
+      ...(entity.originalId ? { originalId: entity.originalId } : {}),
+      ...(entity.originalName ? { originalName: entity.originalName } : {}),
+      ...(entity.originalDescription
+        ? { originalDescription: entity.originalDescription }
+        : {}),
     });
   }
   perks.sort((left, right) => {
@@ -847,8 +869,7 @@ export function projectFeatures({
   const classFeatures = [];
   for (const entity of entities) {
     if (entity.kind !== "feature") continue;
-    const id = entity.legacyIds?.[0];
-    if (!id) fail(`особенность ${entity.id} без legacy-ID`);
+    const id = entity.id;
     const article = articleById.get(entity.source?.articleId);
     if (!article) {
       fail(
@@ -859,7 +880,10 @@ export function projectFeatures({
     if (article.chapter.startsWith("04.")) {
       // Купленные черты записаны абзацем `**Название (N очко):** текст`;
       // legacy-описание начиналось сразу с текста, без повторения заголовка.
-      const traitText = id.includes(".signature.")
+      const ancestryKind = /^####\s+[^\n]*знаков/i.test(entity.markdown)
+        ? "signature"
+        : "trait";
+      const traitText = ancestryKind === "signature"
         ? description
         : description.replace(
             /^\*\*[^*]+\s*\(\d+\s+очк[а-я]*\)\*\*:\s*/,
@@ -867,9 +891,6 @@ export function projectFeatures({
           );
       // Знаковые черты — секции «Знаковая Черта» статьи происхождения;
       // остальные записи — купленные черты за очки происхождения.
-      const ancestryKind = /^####\s+[^\n]*знаков/i.test(entity.markdown)
-        ? "signature"
-        : "trait";
       ancestryFeatures.push({
         id,
         kind: "ancestry",
@@ -879,6 +900,11 @@ export function projectFeatures({
         name: entity.name,
         articleId: article.id,
         description: traitText,
+        ...(entity.originalId ? { originalId: entity.originalId } : {}),
+        ...(entity.originalName ? { originalName: entity.originalName } : {}),
+        ...(entity.originalDescription
+          ? { originalDescription: entity.originalDescription }
+          : {}),
       });
       continue;
     }
@@ -908,6 +934,11 @@ export function projectFeatures({
       name: entity.name,
       articleId: article.id,
       description: classDescription,
+      ...(entity.originalId ? { originalId: entity.originalId } : {}),
+      ...(entity.originalName ? { originalName: entity.originalName } : {}),
+      ...(entity.originalDescription
+        ? { originalDescription: entity.originalDescription }
+        : {}),
     });
   }
 
@@ -1300,51 +1331,51 @@ const LEVEL_UP_EXCEPTIONS = {
   "Неистовый:2": {
     subclassGroups: {
       Берсерк: [
-        "neistovyy-osobaya-dostavka-f71cbdccc0",
-        "neistovyy-tarannyy-shar-5aecde78f8",
+        "feature.ability.fury.level-2.special-delivery",
+        "feature.ability.fury.level-2.wrecking-ball",
       ],
       Разоритель: [
-        "neistovyy-smert-smert-61a8e0d162",
-        "neistovyy-razrushitel-falang-5c4d3b0d58",
+        "feature.ability.fury.level-2.death-death",
+        "feature.ability.fury.level-2.phalanx-breaker",
       ],
       Буревестник: [
-        "neistovyy-vysshiy-hischnik-373d249741",
-        "neistovyy-vnutrenniy-rev-04d333351c",
+        "feature.ability.fury.level-2.apex-predator",
+        "feature.ability.fury.level-2.visceral-roar",
       ],
     },
   },
   "Элементалист:2": {
     grantItems: [
       {
-        abilityIds: ["elementalist-mezhdu-nami-net-prostranstva-603bea008c"],
+        abilityIds: ["feature.ability.elementalist.level-2.there-is-no-space-between"],
         subclasses: ["Пустота"],
       },
     ],
     choiceIds: [
-      "elementalist-o-cvetok-pomogi-o-zemlya-zaschiti-d5889806f1",
-      "elementalist-obyatiya-vulkana-3acba82839",
-      "elementalist-perenesennyy-cherez-plamya-402569297d",
-      "elementalist-podchinit-zelen-vnutri-69079b517c",
+      "feature.ability.elementalist.level-2.o-flower-aid-o-earth-defend",
+      "feature.ability.elementalist.level-2.volcanos-embrace",
+      "feature.ability.elementalist.level-2.translated-through-flame",
+      "feature.ability.elementalist.level-2.subvert-the-green-within",
     ],
   },
   "Талант:8": {
     grantItems: [
-      { abilityIds: ["talant-pole-levitacii-c51c097676"], subclasses: ["Телекинез"] },
-      { abilityIds: ["talant-stazisnyy-schit-b4f19a14ce"], subclasses: ["Хронопатия"] },
+      { abilityIds: ["feature.ability.talent.level-8.levitation-field"], subclasses: ["Телекинез"] },
+      { abilityIds: ["feature.ability.talent.level-8.stasis-shield"], subclasses: ["Хронопатия"] },
     ],
     choiceIds: [
-      "talant-omolozhenie-76cce55c24",
-      "talant-predubezhdenie-b1aab277a4",
-      "talant-stal-8f6e7fcb00",
-      "talant-stiranie-pamyati-01c3ae771b",
+      "feature.ability.talent.level-8.rejuvenate",
+      "feature.ability.talent.level-8.doubt",
+      "feature.ability.talent.level-8.steel",
+      "feature.ability.talent.level-8.mindwipe",
     ],
   },
-  "Тень:3": { grantIds: ["ten-vnimatelnoe-nablyudenie-0e1275c4b7"] },
-  "Тень:4": { grantIds: ["ten-nochnoy-dozor-ae28536624"] },
+  "Тень:3": { grantIds: ["feature.ability.shadow.level-3.careful-observation"] },
+  "Тень:4": { grantIds: ["feature.ability.shadow.level-4.night-watch"] },
   "Тень:8": {
     grantItems: [
       {
-        abilityIds: ["ten-bomba-zamedlennogo-deystviya-3b731f7d34"],
+        abilityIds: ["feature.ability.shadow.level-8.time-bomb"],
         subclasses: ["Коллегия Едкой Алхимии"],
       },
     ],
@@ -1353,20 +1384,20 @@ const LEVEL_UP_EXCEPTIONS = {
     grantItems: [
       {
         abilityIds: [
-          "trubadur-zazhgi-etu-noch-7913c15e2d",
-          "trubadur-neustannyy-geroy-091a644e8b",
+          "feature.ability.troubadour.level-3.fire-up-the-night",
+          "feature.ability.troubadour.level-3.never-ending-hero",
         ],
         subclasses: ["Виртуоз"],
       },
     ],
   },
-  "Трубадур:6": { grantIds: ["trubadur-v-luchah-prozhektora-e05dc6a432"] },
+  "Трубадур:6": { grantIds: ["feature.ability.troubadour.level-6.spotlight"] },
   "Трубадур:8": {
     grantItems: [
       {
         abilityIds: [
-          "trubadur-lunnaya-sonata-07f21e5507",
-          "trubadur-radikalnaya-fantaziya-e273b724c7",
+          "feature.ability.troubadour.level-8.moonlight-sonata",
+          "feature.ability.troubadour.level-8.radical-fantasia",
         ],
         subclasses: ["Виртуоз"],
       },
@@ -1375,11 +1406,11 @@ const LEVEL_UP_EXCEPTIONS = {
   "Элементалист:3": {
     grantItems: [
       {
-        abilityIds: ["elementalist-zemlya-prinimaet-menya-ccc45de0e7"],
+        abilityIds: ["feature.ability.elementalist.level-3.earth-accepts-me"],
         subclasses: ["Земля"],
       },
       {
-        abilityIds: ["elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702"],
+        abilityIds: ["feature.ability.elementalist.level-3.remember-growth-and-sun-and-rain"],
         subclasses: ["Зелень"],
       },
     ],
@@ -1388,7 +1419,7 @@ const LEVEL_UP_EXCEPTIONS = {
   "Элементалист:8": {
     grantItems: [
       {
-        abilityIds: ["elementalist-prizyv-istochnika-zemli-c9679a42db"],
+        abilityIds: ["feature.ability.elementalist.level-8.summon-source-of-earth"],
         subclasses: ["Земля"],
       },
     ],
@@ -1822,6 +1853,16 @@ export function buildConsumerData({
     schemaVersion: CONSUMER_SCHEMA_VERSION,
     ...builder.data,
   };
+
+  decorateConsumerProjections({
+    abilities: abilityProjection,
+    library: libraryProjection,
+    kits: kitProjection,
+    perks: perkProjection,
+    features: featureProjection,
+    levelUp: levelUpProjection,
+    builder: builderProjection,
+  });
 
   const nextIdentity = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,

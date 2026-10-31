@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-parnoe-oruzhie-dvoynoy-udar-0bd44a3413",
+  "id": "feature.ability.dual-wielder.double-strike",
   "kind": "ability",
   "name": "Двойной Удар",
   "markdown": "> **Двойной Удар**\n> \n> *Зачем бить один раз, когда можно дважды?*\n> \n> | **Ближний, Удар, Оружие** |               **Основное действие** |\n> | ------------------------- | ----------------------------------: |\n> | **📏 Ближний 1** | **🎯 Два существа или объекта** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 урона\n> - **12-16:** 6 урона\n> - **17+:** 8 урона\n> \n> **Эффект:** Если вы используете эту способность в свой ход, вы можете использовать ее против одной цели, затем использовать свой маневр и свое действие движения для этого хода перед использованием способности против второй цели. Вы по-прежнему используете тот же бросок силы для обеих целей.",
@@ -7,11 +7,8 @@
     "articleId": "0917",
     "path": "09. Комплекты/Список Комплектов/0917. Парное Оружие.md"
   },
-  "legacyIds": [
-    "komplekt-parnoe-oruzhie-dvoynoy-udar-0bd44a3413"
-  ],
   "ability": {
-    "id": "komplekt-parnoe-oruzhie-dvoynoy-udar-0bd44a3413",
+    "id": "feature.ability.dual-wielder.double-strike",
     "name": "Двойной Удар",
     "flavor": "Зачем бить один раз, когда можно дважды?",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Комплект: Парное Оружие",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.dual-wielder/double-strike",
+    "originalName": "Double Strike",
+    "originalDescription": "*Why strike once when you could do it twice?*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage\n\n**Effect:** If you use this ability on your turn, you can use it against one target, then use your maneuver and your move action for that turn before using the ability against a second target. You still use the same power roll for both targets."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.dual-wielder/double-strike",
+  "originalName": "Double Strike",
+  "originalDescription": "*Why strike once when you could do it twice?*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage\n\n**Effect:** If you use this ability on your turn, you can use it against one target, then use your maneuver and your move action for that turn before using the ability against a second target. You still use the same power roll for both targets."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-zamedlivanie-64ccb3b9bb",
+  "id": "feature.ability.talent.level-2.slow",
   "kind": "ability",
   "name": "Замедливание",
   "markdown": "> **Замедливание (5 Ясности)**\n>\n> *Возможно, они задаются вопросом, почему все остальные двигаются так быстро?*\n>\n> | **Хронопатия, Псионика, Дальний** | **Маневр** |\n> | -------------------------------- | --------------------------------: |\n> | **📏 Дальний 10** | **🎯 Три существа или объекта** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** Скорость цели уменьшается вдвое (до прох.), или если П < СЛАБЫЙ, цель получает замедление (до прох.).\n> - **12-16:** Цель получает замедление (до прох.), или если П < СРЕДНИЙ, скорость цели становится 0 (до прох.).\n> - **17+:** Цель получает замедление (до прох.), или если П < СИЛЬНЫЙ, скорость цели становится 0 (до прох.).\n>\n> **Эффект:** Цель не может использовать триггеры, пока ее скорость снижена таким образом.\n>\n> **Возбужденность:** Потенциал этой способности увеличивается на 1, и вы получаете 1d6 урона. В начале каждого раунда боя, пока любая цель находится под воздействием этой способности, вы получаете 1d6 урона. Вы можете прекратить эффект на всех затронутых целях в любое время (действие не требуется).",
@@ -7,11 +7,8 @@
     "articleId": "0852",
     "path": "08. Классы/Талант/0852. 2-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-zamedlivanie-64ccb3b9bb"
-  ],
   "ability": {
-    "id": "talant-zamedlivanie-64ccb3b9bb",
+    "id": "feature.ability.talent.level-2.slow",
     "name": "Замедливание",
     "flavor": "Возможно, они задаются вопросом, почему все остальные двигаются так быстро?",
     "actionType": "maneuver",
@@ -49,6 +46,12 @@
     "className": "Талант",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/slow",
+    "originalName": "Slow",
+    "originalDescription": "*Perhaps they wonder why everyone else is moving so quickly?*\n\n| **Chronopathy, Psionic, Ranged** |                      **Maneuver** |\n|----------------------------------|----------------------------------:|\n| **📏 Ranged 10**                 | **🎯 Three creatures or objects** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target's speed is halved (save ends), or if P < WEAK, the target is slowed (save ends).\n- **12-16:** The target is slowed (save ends), or if P < AVERAGE, the target's speed is 0 (save ends).\n- **17+:** The target is slowed (save ends), or if P < STRONG, the target's speed is 0 (save ends).\n\n**Effect:** A target can't use triggered actions while their speed is reduced this way.\n\n**Strained:** The potency of this ability increases by 1 and you take 1d6 damage. At the start of each combat round while any target is affected by this ability, you take 1d6 damage. You can end the effect on all affected targets at any time (no action required)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/slow",
+  "originalName": "Slow",
+  "originalDescription": "*Perhaps they wonder why everyone else is moving so quickly?*\n\n| **Chronopathy, Psionic, Ranged** |                      **Maneuver** |\n|----------------------------------|----------------------------------:|\n| **📏 Ranged 10**                 | **🎯 Three creatures or objects** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target's speed is halved (save ends), or if P < WEAK, the target is slowed (save ends).\n- **12-16:** The target is slowed (save ends), or if P < AVERAGE, the target's speed is 0 (save ends).\n- **17+:** The target is slowed (save ends), or if P < STRONG, the target's speed is 0 (save ends).\n\n**Effect:** A target can't use triggered actions while their speed is reduced this way.\n\n**Strained:** The potency of this ability increases by 1 and you take 1d6 damage. At the start of each combat round while any target is affected by this ability, you take 1d6 damage. You can end the effect on all affected targets at any time (no action required)."
 }

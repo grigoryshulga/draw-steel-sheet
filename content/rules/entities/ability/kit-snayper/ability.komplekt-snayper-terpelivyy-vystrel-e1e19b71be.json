@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-snayper-terpelivyy-vystrel-e1e19b71be",
+  "id": "feature.ability.sniper.patient-shot",
   "kind": "ability",
   "name": "Терпеливый Выстрел",
   "markdown": "> **Терпеливый Выстрел**\n> \n> *Вдох... прицел... ожидание... и удар!*\n> \n> | **Дальний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Дальний 15** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 3 + М или Л урона\n> - **12-16:** 6 + М или Л урона\n> - **17+:** 13 + М или Л урона\n> \n> **Эффект:** Если вы не совершаете действие движения в этот ход, этот удар наносит дополнительный урон, равный вашему счету Мощи или Ловкости (по вашему выбору).",
@@ -7,11 +7,8 @@
     "articleId": "0923",
     "path": "09. Комплекты/Список Комплектов/0923. Снайпер.md"
   },
-  "legacyIds": [
-    "komplekt-snayper-terpelivyy-vystrel-e1e19b71be"
-  ],
   "ability": {
-    "id": "komplekt-snayper-terpelivyy-vystrel-e1e19b71be",
+    "id": "feature.ability.sniper.patient-shot",
     "name": "Терпеливый Выстрел",
     "flavor": "Вдох... прицел... ожидание... и удар!",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Комплект: Снайпер",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.sniper/patient-shot",
+    "originalName": "Patient Shot",
+    "originalDescription": "*Breathe... aim... wait... then strike!*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 15**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** If you don't take a move action this turn, this strike deals extra damage equal to your Might or Agility score (your choice)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.sniper/patient-shot",
+  "originalName": "Patient Shot",
+  "originalDescription": "*Breathe... aim... wait... then strike!*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 15**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** If you don't take a move action this turn, this strike deals extra damage equal to your Might or Agility score (your choice)."
 }

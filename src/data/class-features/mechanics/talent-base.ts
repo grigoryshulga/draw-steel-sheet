@@ -11,7 +11,7 @@ import type { FeatureMechanics } from "../types";
  * чтобы сохранённые листы и Supabase не получали предупреждение.
  */
 export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "talent.feature.1.traditsiya-talanta": {
+  "feature.talent.level-1.talent-tradition": {
     kinds: ["choice", "grant"],
     choice: {
       group: "talent.tradition",
@@ -32,14 +32,14 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Способности 2/6/9-го уровней выбираются при повышении уровня. " +
       "Быстрый билд: Телекинез.",
   },
-  "talent.feature.1.ship-razuma": {
+  "feature.talent.level-1.mind-spike": {
     kinds: ["grant"],
     notes:
       "Способность «Шип Разума» приходит вместе с классом и выдаётся " +
       "билдером; карточка способности живёт в справочнике. Отдельных числовых " +
       "эффектов у записи нет.",
   },
-  "talent.feature.1.psionicheskaya-augmentatsiya": {
+  "feature.talent.level-1.psionic-augmentation": {
     kinds: ["choice", "grant"],
     choice: {
       group: "talent.augmentation",
@@ -58,7 +58,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "учитываются в расчётах вложенных особенностей, а сохранённые выборы " +
       "прежних листов продолжают работать. Быстрый билд: Аугментация силы.",
   },
-  "talent.feature.1.obereg-talanta": {
+  "feature.talent.level-1.talent-ward": {
     kinds: ["choice", "grant"],
     choice: {
       group: "talent.sanctuary",
@@ -77,7 +77,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "триггер, но состояние цели игрок ведёт вручную. Быстрый билд: " +
       "Отталкивающий оберег.",
   },
-  "talent.feature.1.telepaticheskaya-rech": {
+  "feature.talent.level-1.telepathic-speech": {
     kinds: ["situational"],
     notes:
       "Герой знает язык Мысленной речи. Дополнительно он может телепатически " +
@@ -86,7 +86,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "отвечать телепатически. Лист не хранит языки и известность существ, " +
       "поэтому правило остаётся напоминанием.",
   },
-  "talent.feature.1.osobennosti-traditsii-1-go-urovnya": {
+  "feature.talent.level-1.1st-level-tradition-features": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт две особенности 1-го уровня по таблице. " +
@@ -94,7 +94,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Отражение; Телепатия — Петля обратной связи и Удалённая помощь. " +
       "Механику дают вложенные записи выбранной традиции.",
   },
-  "talent.tradition.1.uskorenie": {
+  "feature.talent.level-1.accelerate": {
     kinds: ["grant"],
     notes:
       "Способность «Ускорение» приходит вместе с традицией Хронопатия и " +
@@ -103,7 +103,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Стоимость и эффект применяются на карточке, дублировать их в листе не " +
       "нужно.",
   },
-  "talent.tradition.1.snova": {
+  "feature.talent.level-1.again": {
     kinds: ["grant"],
     notes:
       "Способность «Снова» приходит вместе с традицией Хронопатия. " +
@@ -111,7 +111,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "заставить её перебросить бросок силы после результата. Карточка " +
       "способности ведёт эффект.",
   },
-  "talent.tradition.1.petlya-obratnoy-svyazi": {
+  "feature.talent.level-1.feedback-loop": {
     kinds: ["grant"],
     notes:
       "Способность «Петля обратной связи» приходит вместе с традицией " +
@@ -119,7 +119,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "психический урон, равный половине вызвавшего урона. Расчёт ведётся на " +
       "карточке способности.",
   },
-  "talent.tradition.1.malyy-telekinez": {
+  "feature.talent.level-1.minor-telekinesis": {
     kinds: ["grant"],
     notes:
       "Способность «Малый телекинез» приходит вместе с традицией Телекинез. " +
@@ -127,7 +127,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Ясности растёт размер цели, за 3 — доступно вертикальное швыряние. " +
       "Стоимость и эффект ведутся на карточке.",
   },
-  "talent.tradition.1.udalennaya-pomoshch": {
+  "feature.talent.level-1.remote-assistance": {
     kinds: ["grant"],
     notes:
       "Способность «Удалённая помощь» приходит вместе с традицией Телепатия. " +
@@ -135,7 +135,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "до начала следующего хода получает преимущество; за 1 Ясность — ещё " +
       "одна цель. Карточка способности ведёт эффект.",
   },
-  "talent.tradition.1.otrazhenie": {
+  "feature.talent.level-1.repel": {
     kinds: ["grant"],
     notes:
       "Способность «Отражение» приходит вместе с традицией Телекинез. " +
@@ -144,14 +144,14 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "движения уменьшается на Разум; при обнулении цель может толкнуть " +
       "источник. Карточка способности ведёт эффект.",
   },
-  "talent.feature.1.sposobnosti-talanta": {
+  "feature.talent.level-1.talent-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковые и героические способности " +
       "1-го уровня описаны вложенными записями, а конкретные карточки " +
       "выбираются в билдере и повышении уровня.",
   },
-  "talent.feature.1.znakovye-sposobnosti": {
+  "feature.talent.level-1.signature-abilities": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать две знаковые способности из списка в тексте книги " +
@@ -161,13 +161,13 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "способности. Отдельный список вариантов в листе не нужен. Быстрый " +
       "билд: Испепеление, Кинетический захват.",
   },
-  "talent.feature.1.geroicheskie-sposobnosti": {
+  "feature.talent.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 " +
       "Ясности описаны дочерними записями.",
   },
-  "talent.feature.1.sposobnost-za-3-yasnosti": {
+  "feature.talent.level-1.3-clarity-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 Ясности: " +
@@ -175,7 +175,7 @@ export const TALENT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "способностей по справочнику; отдельный список вариантов в листе не " +
       "нужен. Быстрый билд: Удушение.",
   },
-  "talent.feature.1.sposobnost-za-5-yasnosti": {
+  "feature.talent.level-1.5-clarity-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 Ясности: " +

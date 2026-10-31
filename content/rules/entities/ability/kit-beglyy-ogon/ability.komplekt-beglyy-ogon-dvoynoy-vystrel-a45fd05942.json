@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-beglyy-ogon-dvoynoy-vystrel-a45fd05942",
+  "id": "feature.ability.rapid-fire.two-shot",
   "kind": "ability",
   "name": "Двойной Выстрел",
   "markdown": "> **Двойной Выстрел**\n> \n> *Когда вы выпускаете две стрелы подряд, обе попадают в цель.*\n> \n> | **Дальний, Удар, Оружие** |               **Основное действие** |\n> | ------------------------- | ----------------------------------: |\n> | **📏 Дальний 12** | **🎯 Два существа или объекта** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 урона\n> - **12-16:** 6 урона\n> - **17+:** 8 урона",
@@ -7,11 +7,8 @@
     "articleId": "0903",
     "path": "09. Комплекты/Список Комплектов/0903. Беглый Огонь.md"
   },
-  "legacyIds": [
-    "komplekt-beglyy-ogon-dvoynoy-vystrel-a45fd05942"
-  ],
   "ability": {
-    "id": "komplekt-beglyy-ogon-dvoynoy-vystrel-a45fd05942",
+    "id": "feature.ability.rapid-fire.two-shot",
     "name": "Двойной Выстрел",
     "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Комплект: Беглый Огонь",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+    "originalName": "Two Shot",
+    "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+  "originalName": "Two Shot",
+  "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
 }

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import classFeatures from '../src/data/class-features.generated.json';
+import { GENERATED_CLASS_FEATURES as classFeatures } from '../src/data/class-features/skeleton';
 import levelUp from '../src/data/level-up.generated.json';
-import abilities from '../src/data/abilities.generated.json';
+import { ABILITY_COMPENDIUM as abilities } from '../src/data/compendium';
 import { conduitAbilities } from '../src/data/class-features/conduit-abilities';
 
 const documentedExceptions: Record<string, { tableName: string; cardName: string }> = {

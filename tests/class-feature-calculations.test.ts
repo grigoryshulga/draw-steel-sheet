@@ -116,7 +116,7 @@ describe("class feature stat integration", () => {
       base: 18,
       contributions: [
         {
-          sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+          sourceId: "feature.talent.level-1.density-augmentation",
           sourceName: "Аугментация плотности",
           value: 6,
         },
@@ -128,7 +128,7 @@ describe("class feature stat integration", () => {
       base: 0,
       contributions: [
         {
-          sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+          sourceId: "feature.talent.level-1.density-augmentation",
           sourceName: "Аугментация плотности",
           value: 1,
         },
@@ -190,7 +190,7 @@ describe("class feature stat integration", () => {
       base: 36,
       contributions: [
         {
-          sourceId: "talent.feature.1.augmentatsiya-plotnosti",
+          sourceId: "feature.talent.level-1.density-augmentation",
           sourceName: "Аугментация плотности",
           value: 12,
         },
@@ -333,7 +333,7 @@ describe("class feature damage integration", () => {
 
     expect(featureAbilityDamageContributions(psionic, hero)).toEqual([
       {
-        sourceId: "talent.feature.1.augmentatsiya-sily",
+        sourceId: "feature.talent.level-1.force-augmentation",
         sourceName: "Аугментация силы",
         value: 1,
       },

@@ -1,5 +1,5 @@
 {
-  "id": "ability.bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610",
+  "id": "feature.ability.common.escape-grab",
   "kind": "ability",
   "name": "Маневр Ускальзывания",
   "markdown": "> **Маневр Ускальзывания**\n>\n> | **-** | **Маневр** |\n> | :--- | ---: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Бросок силы + Мощь или Ловкость:**\n>\n> - **≤11:** Без эффекта.\n> - **12-16:** Вы можете избежать захвата, но если вы это сделаете, существо, которое схватило вас, может совершить по вам свободный удар ближнего боя до того, как вы перестанете быть схваченным.\n> - **17+:** Вы больше не схвачены.\n>\n> **Эффект:** Вы получаете помеху на этот маневр, если ваш размер меньше размера существа, объекта или эффекта, который вас схватил.",
@@ -7,11 +7,8 @@
     "articleId": "1309",
     "path": "13. Ведение Боя/1309. Маневры.md"
   },
-  "legacyIds": [
-    "bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610"
-  ],
   "ability": {
-    "id": "bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610",
+    "id": "feature.ability.common.escape-grab",
     "name": "Маневр Ускальзывания",
     "flavor": "",
     "actionType": "maneuver",
@@ -46,6 +43,12 @@
     "className": "Базовые",
     "level": 1,
     "sourceKind": "basic",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.common/escape-grab",
+    "originalName": "Escape Grab",
+    "originalDescription": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.common/escape-grab",
+  "originalName": "Escape Grab",
+  "originalDescription": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
 }

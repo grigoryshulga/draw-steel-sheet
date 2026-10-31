@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-osuzhden-cd32caa56b",
+  "id": "feature.ability.censor.level-1.censored",
   "kind": "ability",
   "name": "Осужден",
   "markdown": "> **Осужден (5 Гнева)**\n>\n> *Осужден и приговорен.*\n>\n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 2 + М святого урона\n> - **12-16:** 3 + М святого урона\n> - **17+:** 5 + М святого урона\n>\n> **Эффект:** Когда цель, не являющаяся лидером или соло-существом, становится утомленной от этой способности, ее Выносливость снижается до 0.",
@@ -7,11 +7,8 @@
     "articleId": "0881",
     "path": "08. Классы/Цензор/0881. 1-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-osuzhden-cd32caa56b"
-  ],
   "ability": {
-    "id": "cenzor-osuzhden-cd32caa56b",
+    "id": "feature.ability.censor.level-1.censored",
     "name": "Осужден",
     "flavor": "Осужден и приговорен.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/censored",
+    "originalName": "Censored",
+    "originalDescription": "*Judged and sentenced.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage\n- **12-16:** 3 + M holy damage\n- **17+:** 5 + M holy damage\n\n**Effect:** When a target who is not a leader or solo creature is made winded by this ability, they are reduced to 0 Stamina."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/censored",
+  "originalName": "Censored",
+  "originalDescription": "*Judged and sentenced.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage\n- **12-16:** 3 + M holy damage\n- **17+:** 5 + M holy damage\n\n**Effect:** When a target who is not a leader or solo creature is made winded by this ability, they are reduced to 0 Stamina."
 }

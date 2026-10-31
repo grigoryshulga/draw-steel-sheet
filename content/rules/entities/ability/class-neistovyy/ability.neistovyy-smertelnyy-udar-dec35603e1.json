@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-smertelnyy-udar-dec35603e1",
+  "id": "feature.ability.fury.level-6.death-strike",
   "kind": "ability",
   "name": "Смертельный Удар",
   "markdown": "> **Смертельный Удар (9 Свирепости)**\n>\n> *Как только вы чувствуете вкус крови вашего врага, вы становитесь более эффективным и превращаете каждый смертельный удар в возможность.*\n>\n> | **Ближний, Удар, Оружие** | **Свободный триггер** |\n> | ------------------------- | -----------------: |\n> | **📏 Ближний 1** | **🎯 На себя** |\n>\n> **Триггер:** Вы снижаете выносливость существа до 0 с помощью удара.\n>\n> **Эффект:** Вы нацеливаетесь на существо, смежное с вами, тем же ударом, используя тот же бросок силы, что и вызвавший триггер удар.",
@@ -7,11 +7,8 @@
     "articleId": "0806",
     "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-smertelnyy-udar-dec35603e1"
-  ],
   "ability": {
-    "id": "neistovyy-smertelnyy-udar-dec35603e1",
+    "id": "feature.ability.fury.level-6.death-strike",
     "name": "Смертельный Удар",
     "flavor": "Как только вы чувствуете вкус крови вашего врага, вы становитесь более эффективным и превращаете каждый смертельный удар в возможность.",
     "actionType": "free-trigger",
@@ -47,6 +44,12 @@
     "className": "Неистовый",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+    "originalName": "Death Strike",
+    "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+  "originalName": "Death Strike",
+  "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike."
 }

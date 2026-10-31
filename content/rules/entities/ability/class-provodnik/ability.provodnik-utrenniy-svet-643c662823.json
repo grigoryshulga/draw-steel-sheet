@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-utrenniy-svet-643c662823",
+  "id": "feature.ability.conduit.level-2.morning-light",
   "kind": "ability",
   "name": "Утренний Свет",
   "markdown": "> **Утренний Свет (5 Благочестия)**\n>\n> *Свет сияет по вашей команде, обжигая врагов и благословляя союзников.*\n>\n> | **Область, Магия** |               **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 4 урона огнем\n> - **12-16:** 6 урона огнем\n> - **17+:** 10 урона огнем\n>\n> **Эффект:** Каждый союзник в области наносит урон огнем, равный показателю вашей Интуиции, своим следующим ударом, сделанным до конца своего следующего хода.",
@@ -7,12 +7,8 @@
     "articleId": "0832",
     "path": "08. Классы/Проводник/0832. 2-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-utrenniy-svet-643c662823",
-    "conduit.domain.2.utrenniy-svet"
-  ],
   "ability": {
-    "id": "provodnik-utrenniy-svet-643c662823",
+    "id": "feature.ability.conduit.level-2.morning-light",
     "name": "Утренний Свет",
     "flavor": "Свет сияет по вашей команде, обжигая врагов и благословляя союзников.",
     "actionType": "main",
@@ -49,6 +45,12 @@
     "className": "Проводник",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/morning-light",
+    "originalName": "Morning Light",
+    "originalDescription": "*Light shines at your command, burning your foes and blessing your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 3 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Effect:** Each ally in the area deals fire damage equal to your Intuition score with their next strike made before the end of their next turn."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/morning-light",
+  "originalName": "Morning Light",
+  "originalDescription": "*Light shines at your command, burning your foes and blessing your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 3 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Effect:** Each ally in the area deals fire damage equal to your Intuition score with their next strike made before the end of their next turn."
 }

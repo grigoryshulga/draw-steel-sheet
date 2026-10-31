@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-spaseniya-net-6aac604ec5",
+  "id": "feature.ability.tactician.level-9.no-escape",
   "kind": "ability",
   "name": "Спасения Нет",
   "markdown": "> **Спасения Нет (11 Фокуса)**\n>\n> *Ничто не остановит вас на пути к вашему врагу.*\n>\n> | **Рывок, Ближний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы отмечаете цель.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 11 + М урона\n> - **12-16:** 16 + М урона\n> - **17+:** 21 + М урона\n>\n> **Эффект:** Если вы используете эту способность как часть основного действия Атака с рывком, клетки врагов не считаются труднопроходимой местностью для вашего движения. Дополнительно, если вы проходите через пространство любого существа, вы можете совершить швыряние этого существа на 1 клетку в сторону от пути вашего рывка.",
@@ -7,11 +7,8 @@
     "articleId": "0849",
     "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-spaseniya-net-6aac604ec5"
-  ],
   "ability": {
-    "id": "taktik-spaseniya-net-6aac604ec5",
+    "id": "feature.ability.tactician.level-9.no-escape",
     "name": "Спасения Нет",
     "flavor": "Ничто не остановит вас на пути к вашему врагу.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тактик",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+    "originalName": "No Escape",
+    "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+  "originalName": "No Escape",
+  "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
 }

@@ -1,4 +1,5 @@
 import type { FeatureMechanics } from "../types";
+import { LEGACY_CLASS_FEATURE_IDS } from "../../originals";
 import { FURY_MECHANICS } from "./fury";
 import { CENSOR_BASE_MECHANICS } from "./censor-base";
 import { CENSOR_DOMAIN_MECHANICS } from "./censor-domains";
@@ -93,9 +94,21 @@ export const FEATURE_MECHANICS: Record<string, FeatureMechanics> = {
   ...TROUBADOUR_LEVEL_MECHANICS,
 };
 
+const LEGACY_BY_CANONICAL = new Map(
+  Object.entries(LEGACY_CLASS_FEATURE_IDS).map(([legacyId, canonicalId]) => [
+    canonicalId,
+    legacyId,
+  ]),
+);
+
 /** Механика фичи или `undefined`, если она описана только прозой или ещё не разобрана. */
 export function mechanicsFor(id: string): FeatureMechanics | undefined {
-  return FEATURE_MECHANICS[id];
+  return (
+    FEATURE_MECHANICS[id] ??
+    FEATURE_MECHANICS[id.replace(/^feature\./, "feature.ability.")] ??
+    FEATURE_MECHANICS[LEGACY_CLASS_FEATURE_IDS[id]] ??
+    FEATURE_MECHANICS[LEGACY_BY_CANONICAL.get(id) ?? ""]
+  );
 }
 
 export { FURY_MECHANICS, FURY_RESOURCE } from "./fury";

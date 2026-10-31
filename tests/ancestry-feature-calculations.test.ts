@@ -138,13 +138,13 @@ describe("Ancestry stat integration", () => {
   it("never adds alternative base-speed traits together", () => {
     // Hand-written JSON may name several known base-speed IDs at once.
     const memanek = ancestryHero("Меманек", [], 1, [
-      "ancestry.memanek.lightning-agility",
-      "ancestry.devil.beast-legs",
-      "ancestry.taurus.beast-legs",
+      "feature.trait.memonek.lightning-nimbleness",
+      "feature.trait.devil.beast-legs",
+      "ancestry.tauros.beast-legs",
     ]);
     expect(featureStatContributions(memanek, "speed")).toEqual([
       {
-        sourceId: "ancestry.memanek.lightning-agility",
+        sourceId: "feature.trait.memonek.lightning-nimbleness",
         sourceName: "Молниеносная ловкость",
         value: 2,
       },
@@ -152,8 +152,8 @@ describe("Ancestry stat integration", () => {
     expect(calculatedValues(memanek).speed).toBe(7);
 
     const taurus = ancestryHero("Таурус", [], 1, [
-      "ancestry.taurus.beast-legs",
-      "ancestry.memanek.lightning-agility",
+      "ancestry.tauros.beast-legs",
+      "feature.trait.memonek.lightning-nimbleness",
     ]);
     expect(calculatedValues(taurus).speed).toBe(6);
   });
@@ -170,12 +170,12 @@ describe("Ancestry stat integration", () => {
 
     expect(featureStatContributions(character, "speed")).toEqual([
       {
-        sourceId: "ancestry.memanek.lightning-agility",
+        sourceId: "feature.trait.memonek.lightning-nimbleness",
         sourceName: "Молниеносная ловкость",
         value: 2,
       },
       {
-        sourceId: "talent.feature.1.augmentatsiya-skorosti",
+        sourceId: "feature.talent.level-1.speed-augmentation",
         sourceName: "Аугментация скорости",
         value: 1,
       },
@@ -277,7 +277,7 @@ describe("Ancestry selection resolution", () => {
     const legacyNames = ["Заземленность", "Искра с твоей кожи"];
 
     const canonical = ancestryHero("Дварф", legacyNames, 1, [
-      "ancestry.dwarf.spark-from-your-skin",
+      "feature.trait.dwarf.spark-off-your-skin",
     ]);
     expect(featureStatBonus(canonical, "stamina")).toBe(6);
     expect(featureStatContributions(canonical, "stability")).toEqual([]);
@@ -293,11 +293,11 @@ describe("Ancestry selection resolution", () => {
 
   it("ignores unknown, foreign and duplicate IDs", () => {
     const character = ancestryHero("Дварф", [], 1, [
-      "ancestry.dwarf.spark-from-your-skin",
-      "ancestry.dwarf.spark-from-your-skin",
-      "ancestry.devil.beast-legs",
+      "feature.trait.dwarf.spark-off-your-skin",
+      "feature.trait.dwarf.spark-off-your-skin",
+      "feature.trait.devil.beast-legs",
       "unknown.trait",
-      "ancestry.dwarf.grounded",
+      "feature.trait.dwarf.grounded",
     ]);
 
     expect(featureStatContributions(character, "stamina")).toHaveLength(1);
@@ -310,7 +310,7 @@ describe("Ancestry selection resolution", () => {
     expect(stored.automation?.ancestryTraitIds).toContain("unknown.trait");
     expect(featureStatBonus(stored, "stamina")).toBe(6);
 
-    const foreign = ancestryHero("Орк", [], 1, ["ancestry.taurus.beast-legs"]);
+    const foreign = ancestryHero("Орк", [], 1, ["ancestry.tauros.beast-legs"]);
     expect(featureStatContributions(foreign, "speed")).toEqual([]);
   });
 
@@ -341,18 +341,18 @@ describe("Ancestry persistence paths", () => {
     });
 
     expect(built.automation?.ancestryTraitIds).toEqual([
-      "ancestry.memanek.lightning-agility",
+      "feature.trait.memonek.lightning-nimbleness",
     ]);
     expect(built.automation?.ancestryTraits).toEqual(["Молниеносная ловкость"]);
     expect(built.speed).toBe("7");
 
     const stored = normalizeCharacter(JSON.parse(JSON.stringify(built)));
     expect(stored.automation?.ancestryTraitIds).toEqual([
-      "ancestry.memanek.lightning-agility",
+      "feature.trait.memonek.lightning-nimbleness",
     ]);
     expect(featureStatContributions(stored, "speed")).toEqual([
       {
-        sourceId: "ancestry.memanek.lightning-agility",
+        sourceId: "feature.trait.memonek.lightning-nimbleness",
         sourceName: "Молниеносная ловкость",
         value: 2,
       },
@@ -376,7 +376,7 @@ describe("Ancestry invalidation on change", () => {
       "Дварф",
       ["Заземленность", "Искра с твоей кожи"],
       1,
-      ["ancestry.dwarf.spark-from-your-skin", "ancestry.dwarf.grounded"],
+      ["feature.trait.dwarf.spark-off-your-skin", "feature.trait.dwarf.grounded"],
     );
   }
 
@@ -432,11 +432,11 @@ describe("Ancestry invalidation on change", () => {
       ancestry: "Орк",
       automation: {
         ...previous,
-        ancestryTraitIds: ["ancestry.orc.grounded"],
+        ancestryTraitIds: ["feature.trait.orc.grounded"],
       },
     });
 
-    expect(orc.automation?.ancestryTraitIds).toEqual(["ancestry.orc.grounded"]);
+    expect(orc.automation?.ancestryTraitIds).toEqual(["feature.trait.orc.grounded"]);
     expect(orc.automation?.ancestryTraits).toEqual([]);
     expect(featureStatBonus(orc, "stability")).toBe(1);
     expect(featureStatBonus(orc, "stamina")).toBe(0);

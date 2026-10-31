@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-igry-razuma-1e1d97ade5",
+  "id": "feature.ability.tactician.level-1.mind-game",
   "kind": "ability",
   "name": "Игры Разума",
   "markdown": "> **Игры Разума (5 Фокуса)**\n>\n> *Ваша атака деморализует вашего врага. Ваши союзники начинают думать, что вы можете победить.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ----------------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Эффект:** Вы отмечаете цель.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 + М урона; Р < СЛАБЫЙ, ослабление (до прох.)\n> - **12-16:** 6 + М урона; Р < СРЕДНИЙ, ослабление (до прох.)\n> - **17+:** 10 + М урона; Р < СИЛЬНЫЙ, ослабление (до прох.)\n>\n> **Эффект:** До начала вашего следующего хода, в первый раз, когда любой союзник наносит урон любой цели, отмеченной вами, этот союзник может потратить Восстановление.",
@@ -7,11 +7,8 @@
     "articleId": "0841",
     "path": "08. Классы/Тактик/0841. 1-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-igry-razuma-1e1d97ade5"
-  ],
   "ability": {
-    "id": "taktik-igry-razuma-1e1d97ade5",
+    "id": "feature.ability.tactician.level-1.mind-game",
     "name": "Игры Разума",
     "flavor": "Ваша атака деморализует вашего врага. Ваши союзники начинают думать, что вы можете победить.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тактик",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mind-game",
+    "originalName": "Mind Game",
+    "originalDescription": "*Your attack demoralizes your foe. Your allies begin to think you can win.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; R < WEAK, weakened (save ends)\n- **12-16:** 6 + M damage; R < AVERAGE, weakened (save ends)\n- **17+:** 10 + M damage; R < STRONG, weakened (save ends)\n\n**Effect:** Before the start of your next turn, the first time any ally deals damage to any target marked by you, that ally can spend a Recovery."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mind-game",
+  "originalName": "Mind Game",
+  "originalDescription": "*Your attack demoralizes your foe. Your allies begin to think you can win.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; R < WEAK, weakened (save ends)\n- **12-16:** 6 + M damage; R < AVERAGE, weakened (save ends)\n- **17+:** 10 + M damage; R < STRONG, weakened (save ends)\n\n**Effect:** Before the start of your next turn, the first time any ally deals damage to any target marked by you, that ally can spend a Recovery."
 }

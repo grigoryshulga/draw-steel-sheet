@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { LEVEL_UP_RULES, levelUpRule } from "../src/data/level-up-rules";
 import codex from "../src/data/codex.generated.json";
-import abilities from "../src/data/abilities.generated.json";
+import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 
 const classes = ["Неистовый", "Нуль", "Проводник", "Тактик", "Талант", "Тень", "Трубадур", "Цензор", "Элементалист"];
-const abilityById = new Map(abilities.map((ability) => [ability.id, ability]));
+const abilityById = new Map(ABILITY_COMPENDIUM.map((ability) => [ability.id, ability]));
 
 describe("level-up rule data", () => {
   it("covers each nonempty class article from levels 2 through 10 exactly once", () => {
@@ -78,26 +78,26 @@ describe("level-up rule data", () => {
   it("separates verified grants from picks and attaches known subclass/domain guards", () => {
     expect(levelUpRule("Талант", 8)?.abilityChoices[0].abilityIds).toHaveLength(4);
     expect(levelUpRule("Талант", 8)?.grantedAbilities).toEqual([
-      { abilityIds: ["talant-pole-levitacii-c51c097676"], subclasses: ["Телекинез"] },
-      { abilityIds: ["talant-stazisnyy-schit-b4f19a14ce"], subclasses: ["Хронопатия"] },
+      { abilityIds: ["feature.ability.talent.level-8.levitation-field"], subclasses: ["Телекинез"] },
+      { abilityIds: ["feature.ability.talent.level-8.stasis-shield"], subclasses: ["Хронопатия"] },
     ]);
     expect(levelUpRule("Элементалист", 2)?.grantedAbilities[0]).toEqual({
-      abilityIds: ["elementalist-mezhdu-nami-net-prostranstva-603bea008c"], subclasses: ["Пустота"],
+      abilityIds: ["feature.ability.elementalist.level-2.there-is-no-space-between"], subclasses: ["Пустота"],
     });
     expect(levelUpRule("Элементалист", 8)?.grantedAbilities[0]).toEqual({
-      abilityIds: ["elementalist-prizyv-istochnika-zemli-c9679a42db"], subclasses: ["Земля"],
+      abilityIds: ["feature.ability.elementalist.level-8.summon-source-of-earth"], subclasses: ["Земля"],
     });
     expect(levelUpRule("Проводник", 4)?.grantedAbilities).toEqual([]);
     expect(levelUpRule("Проводник", 7)?.grantedAbilities).toEqual([]);
     expect(levelUpRule("Цензор", 4)?.grantedAbilities).toEqual([]);
     expect(levelUpRule("Цензор", 7)?.grantedAbilities).toEqual([]);
-    expect(levelUpRule("Трубадур", 6)?.grantedAbilities[0].abilityIds).toEqual(["trubadur-v-luchah-prozhektora-e05dc6a432"]);
+    expect(levelUpRule("Трубадур", 6)?.grantedAbilities[0].abilityIds).toEqual(["feature.ability.troubadour.level-6.spotlight"]);
     expect(levelUpRule("Трубадур", 8)?.abilityChoices[0].abilityIds).toHaveLength(4);
     expect(levelUpRule("Трубадур", 8)?.grantedAbilities).toEqual([
-      { abilityIds: ["trubadur-lunnaya-sonata-07f21e5507", "trubadur-radikalnaya-fantaziya-e273b724c7"], subclasses: ["Виртуоз"] },
+      { abilityIds: ["feature.ability.troubadour.level-8.moonlight-sonata", "feature.ability.troubadour.level-8.radical-fantasia"], subclasses: ["Виртуоз"] },
     ]);
-    expect(levelUpRule("Тень", 4)?.grantedAbilities[0].abilityIds).toEqual(["ten-nochnoy-dozor-ae28536624"]);
-    expect(levelUpRule("Тень", 8)?.grantedAbilities[0].abilityIds).toEqual(["ten-bomba-zamedlennogo-deystviya-3b731f7d34"]);
+    expect(levelUpRule("Тень", 4)?.grantedAbilities[0].abilityIds).toEqual(["feature.ability.shadow.level-4.night-watch"]);
+    expect(levelUpRule("Тень", 8)?.grantedAbilities[0].abilityIds).toEqual(["feature.ability.shadow.level-8.time-bomb"]);
     expect(levelUpRule("Тень", 8)?.grantedAbilities[0].subclasses).toEqual(["Коллегия Едкой Алхимии"]);
   });
 
@@ -117,11 +117,11 @@ describe("level-up rule data", () => {
 
   it("grants fixed level abilities from their source and scopes subclass rewards exactly", () => {
     const expected = [
-      ["Тень", 3, "ten-vnimatelnoe-nablyudenie-0e1275c4b7", undefined],
-      ["Трубадур", 3, "trubadur-zazhgi-etu-noch-7913c15e2d", "Виртуоз"],
-      ["Трубадур", 3, "trubadur-neustannyy-geroy-091a644e8b", "Виртуоз"],
-      ["Элементалист", 3, "elementalist-zemlya-prinimaet-menya-ccc45de0e7", "Земля"],
-      ["Элементалист", 3, "elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702", "Зелень"],
+      ["Тень", 3, "feature.ability.shadow.level-3.careful-observation", undefined],
+      ["Трубадур", 3, "feature.ability.troubadour.level-3.fire-up-the-night", "Виртуоз"],
+      ["Трубадур", 3, "feature.ability.troubadour.level-3.never-ending-hero", "Виртуоз"],
+      ["Элементалист", 3, "feature.ability.elementalist.level-3.earth-accepts-me", "Земля"],
+      ["Элементалист", 3, "feature.ability.elementalist.level-3.remember-growth-and-sun-and-rain", "Зелень"],
     ] as const;
     for (const [className, level, id, subclass] of expected) {
       const rule = levelUpRule(className, level)!;
@@ -140,7 +140,7 @@ describe("level-up rule data", () => {
     expect(shadowSource.markdown).toContain("Едкая Алхимия");
     expect(shadowSource.markdown).toContain("Бомба замедленного действия");
     expect(levelUpRule("Тень", 8)!.abilityChoices.flatMap((group) => group.abilityIds))
-      .not.toContain("ten-bomba-zamedlennogo-deystviya-3b731f7d34");
+      .not.toContain("feature.ability.shadow.level-8.time-bomb");
   });
 
   it("allows only source-backed previous-level Elementalist abilities at matching costs", () => {

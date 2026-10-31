@@ -1,16 +1,15 @@
-import type { CompendiumAbility } from '../types';
+import type { CompendiumAbility, OriginalFields } from '../types';
 export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'kit' | 'perk' | 'item' | 'project' | 'title';
-export interface RuleEntity {
+export interface RuleEntity extends OriginalFields {
   id: string; // namespaced stable identity; not derived anew from translated names
   kind: RuleEntityKind;
   name: string;
   markdown: string; // complete original rule block; never the lossy ability summary
   source: { articleId: string; path: string };
-  legacyIds: string[];
   ability?: CompendiumAbility; // structured projection when reliably mapped
 }
 export type RuleBlock = { type: 'markdown'; text: string } | { type: 'entity'; ref: string };
-export interface RuleArticle {
+export interface RuleArticle extends OriginalFields {
   id: string;
   title: string;
   chapter: string;

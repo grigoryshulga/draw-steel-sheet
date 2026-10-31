@@ -2,6 +2,7 @@ import { CONDITIONS, CONDITION_END_VALUES } from "../data/conditions";
 import { emptyNotes } from "../data/notes";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { DEFAULT_ABILITIES, makeId } from "../data/templates";
+import { canonicalCatalogId } from "../data/originals";
 import type {
   Ability,
   Character,
@@ -396,8 +397,18 @@ export function normalizeCharacter(input: Partial<Character>): Character {
       ? normalizeAbilities(input.abilities)
       : base.abilities,
     perks: Array.isArray(input.perks) ? input.perks : [],
-    inventory: Array.isArray(input.inventory) ? input.inventory : [],
-    projects: Array.isArray(input.projects) ? input.projects : [],
+    inventory: (Array.isArray(input.inventory) ? input.inventory : []).map(
+      (item) =>
+        item.catalogId
+          ? { ...item, catalogId: canonicalCatalogId(item.catalogId) }
+          : item,
+    ),
+    projects: (Array.isArray(input.projects) ? input.projects : []).map(
+      (item) =>
+        item.catalogId
+          ? { ...item, catalogId: canonicalCatalogId(item.catalogId) }
+          : item,
+    ),
     skills: Array.isArray(input.skills) ? input.skills : [],
     languages: Array.isArray(input.languages) ? input.languages : [],
     notes: normalizeNotes((input as unknown as { notes?: unknown }).notes),

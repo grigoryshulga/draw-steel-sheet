@@ -1,5 +1,5 @@
 {
-  "id": "ability.bazovye-sposobnosti-manevr-zahvata-d711b2d4e9",
+  "id": "feature.ability.common.grab",
   "kind": "ability",
   "name": "Маневр Захвата",
   "markdown": "> **Маневр Захвата**\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Без эффекта.\n> - **12-16:** Вы можете схватить цель, но если вы это сделаете, цель может совершить свободный удар ближнего боя по вам до того, как будет схвачена.\n> - **17+:** Цель схвачена вами.\n>\n> **Эффект:** Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
@@ -7,11 +7,8 @@
     "articleId": "1309",
     "path": "13. Ведение Боя/1309. Маневры.md"
   },
-  "legacyIds": [
-    "bazovye-sposobnosti-manevr-zahvata-d711b2d4e9"
-  ],
   "ability": {
-    "id": "bazovye-sposobnosti-manevr-zahvata-d711b2d4e9",
+    "id": "feature.ability.common.grab",
     "name": "Маневр Захвата",
     "flavor": "",
     "actionType": "maneuver",
@@ -48,6 +45,12 @@
     "className": "Базовые",
     "level": 1,
     "sourceKind": "basic",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.common/grab",
+    "originalName": "Grab",
+    "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.common/grab",
+  "originalName": "Grab",
+  "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
 }

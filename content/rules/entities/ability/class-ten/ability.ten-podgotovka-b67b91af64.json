@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-podgotovka-b67b91af64",
+  "id": "feature.ability.shadow.level-1.setup",
   "kind": "ability",
   "name": "Подготовка",
   "markdown": "> **Подготовка (5 Прозрения)**\n>\n> *Твои друзья будут тебе благодарны.*\n>\n> | **Дальний, Удар, Оружие** | **Основное действие** |\n> | -------------------------- | ------------------: |\n> | **📏 Дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 6 + Л урона; Р < СЛАБЫЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **12-16:** 9 + Л урона; Р < СРЕДНИЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **17+:** 13 + Л урона; Р < СИЛЬНЫЙ, цель имеет уязвимость к урону 5 (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0861",
     "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-podgotovka-b67b91af64"
-  ],
   "ability": {
-    "id": "ten-podgotovka-b67b91af64",
+    "id": "feature.ability.shadow.level-1.setup",
     "name": "Подготовка",
     "flavor": "Твои друзья будут тебе благодарны.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Тень",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+    "originalName": "Setup",
+    "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+  "originalName": "Setup",
+  "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
 }

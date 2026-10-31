@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-zastupitsya-e69f33e922",
+  "id": "feature.ability.censor.level-6.intercede",
   "kind": "ability",
   "name": "Заступиться",
   "markdown": "> **Заступиться (9 Гнева)**\n>\n> *Вы занимаете место своего союзника.*\n>\n> | **Магия, Дальний** | **Свободный триггер** |\n> | ----------------- | -----------------: |\n> | **📏 Дальний 10** |    **🎯 Один союзник** |\n>\n> **Триггер:** Существо совершает удар по цели.\n>\n> **Эффект:** Удар не действует на цель, и вы становитесь целью вместо нее, даже если вы не являетесь допустимой целью для этого удара. Вы получаете половину урона от удара, а цель получает 3 всплеска.",
@@ -7,11 +7,8 @@
     "articleId": "0886",
     "path": "08. Классы/Цензор/0886. 6-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-zastupitsya-e69f33e922"
-  ],
   "ability": {
-    "id": "cenzor-zastupitsya-e69f33e922",
+    "id": "feature.ability.censor.level-6.intercede",
     "name": "Заступиться",
     "flavor": "Вы занимаете место своего союзника.",
     "actionType": "free-trigger",
@@ -46,6 +43,12 @@
     "className": "Цензор",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/intercede",
+    "originalName": "Intercede",
+    "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/intercede",
+  "originalName": "Intercede",
+  "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges."
 }

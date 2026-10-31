@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-pantera-razrushitelnyy-natisk-210bf3b7b2",
+  "id": "feature.ability.panther.devastating-rush",
   "kind": "ability",
   "name": "Разрушительный Натиск",
   "markdown": "> **Разрушительный Натиск**\n> \n> *Чем быстрее вы двигаетесь, тем сильнее бьете.*\n> \n> | **Ближний, Удар, Оружие** |             **Основное действие** |\n> | ------------------------- | --------------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 3 + М или Л урона\n> - **12-16:** 6 + М или Л урона\n> - **17+:** 13 + М или Л урона\n> \n> **Эффект:** Вы можете переместиться вплоть до 3 клеток прямо к цели перед этим ударом, который наносит дополнительный урон, равный количеству клеток, на которые вы переместились таким образом.",
@@ -7,11 +7,8 @@
     "articleId": "0915",
     "path": "09. Комплекты/Список Комплектов/0915. Пантера.md"
   },
-  "legacyIds": [
-    "komplekt-pantera-razrushitelnyy-natisk-210bf3b7b2"
-  ],
   "ability": {
-    "id": "komplekt-pantera-razrushitelnyy-natisk-210bf3b7b2",
+    "id": "feature.ability.panther.devastating-rush",
     "name": "Разрушительный Натиск",
     "flavor": "Чем быстрее вы двигаетесь, тем сильнее бьете.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Комплект: Пантера",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.panther/devastating-rush",
+    "originalName": "Devastating Rush",
+    "originalDescription": "*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.panther/devastating-rush",
+  "originalName": "Devastating Rush",
+  "originalDescription": "*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way."
 }

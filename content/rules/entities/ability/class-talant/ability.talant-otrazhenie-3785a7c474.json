@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-otrazhenie-3785a7c474",
+  "id": "feature.ability.talent.level-1.repel",
   "kind": "ability",
   "name": "Отражение",
   "markdown": "> **Отражение**\n>\n> *Они останутся на месте, ты возможно нет!*\n>\n> | **Псионика, Дальний** | **Триггер** |\n> | ------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель получает урон или подвергается принудительному движению.\n>\n> **Эффект:** Цель получает половину вызвавшего триггер урона, или расстояние вызвавшего триггер принудительного движения уменьшается на количество клеток, равное показателю вашего Разума. Если цель получила урон и подверглась принудительному движению, вы выбираете эффект. Если принудительное движение уменьшается до 0 клеток, цель может совершить толчок источника принудительного движения на количество клеток, равное показателю вашего Разума.",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-otrazhenie-3785a7c474"
-  ],
   "ability": {
-    "id": "talant-otrazhenie-3785a7c474",
+    "id": "feature.ability.talent.level-1.repel",
     "name": "Отражение",
     "flavor": "Они останутся на месте, ты возможно нет!",
     "actionType": "trigger",
@@ -46,6 +43,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
+    "originalName": "Repel",
+    "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
+  "originalName": "Repel",
+  "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-potroshenie-1b7fea430f",
+  "id": "feature.ability.shadow.level-1.eviscerate",
   "kind": "ability",
   "name": "Потрошение",
   "markdown": "> **Потрошение (3 Прозрения)**\n>\n> *Вы оставляете своего врага истекать кровью после разрушительной атаки.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 4 + Л урона; Л < СЛАБЫЙ, кровотечение (до прох.)\n> - **12-16:** 6 + Л урона; Л < СРЕДНИЙ, кровотечение (до прох.)\n> - **17+:** 10 + Л урона; Л < СИЛЬНЫЙ, кровотечение (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0861",
     "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-potroshenie-1b7fea430f"
-  ],
   "ability": {
-    "id": "ten-potroshenie-1b7fea430f",
+    "id": "feature.ability.shadow.level-1.eviscerate",
     "name": "Потрошение",
     "flavor": "Вы оставляете своего врага истекать кровью после разрушительной атаки.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тень",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+    "originalName": "Eviscerate",
+    "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+  "originalName": "Eviscerate",
+  "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)"
 }

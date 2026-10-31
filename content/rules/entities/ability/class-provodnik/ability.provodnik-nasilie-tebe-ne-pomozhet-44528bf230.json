@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-nasilie-tebe-ne-pomozhet-44528bf230",
+  "id": "feature.ability.conduit.level-1.violence-will-not-aid-thee",
   "kind": "ability",
   "name": "Насилие Тебе Не Поможет",
   "markdown": "> **Насилие Тебе Не Поможет (3 Благочестия)**\n>\n> *После вызова святой молнии ваш враг дважды подумает о своей следующей атаке.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона молнией\n> - **12-16:** 6 + И урона молнией\n> - **17+:** 9 + И урона молнией\n>\n> **Эффект:** В первый раз за ход, когда цель наносит урон другому существу, цель этой способности получает 1d10 урона молнией (до прох.).",
@@ -7,11 +7,8 @@
     "articleId": "0831",
     "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-nasilie-tebe-ne-pomozhet-44528bf230"
-  ],
   "ability": {
-    "id": "provodnik-nasilie-tebe-ne-pomozhet-44528bf230",
+    "id": "feature.ability.conduit.level-1.violence-will-not-aid-thee",
     "name": "Насилие Тебе Не Поможет",
     "flavor": "После вызова святой молнии ваш враг дважды подумает о своей следующей атаке.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/violence-will-not-aid-thee",
+    "originalName": "Violence Will Not Aid Thee",
+    "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/violence-will-not-aid-thee",
+  "originalName": "Violence Will Not Aid Thee",
+  "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
 }

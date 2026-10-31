@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-proklyatie-porchi-810e367258",
+  "id": "feature.ability.conduit.level-1.corruptions-curse",
   "kind": "ability",
   "name": "Проклятие Порчи",
   "markdown": "> **Проклятие Порчи (5 Благочестия)**\n>\n> *Проклятый вами, ваш враг получает больше урона от ваших союзников.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона порчей; М < СЛАБЫЙ, уязвимость к урону 5 (до прох.)\n> - **12-16:** 6 + И урона порчей; М < СРЕДНИЙ, уязвимость к урону 5 (до прох.)\n> - **17+:** 9 + И урона порчей; М < СИЛЬНЫЙ, уязвимость к урону 5 (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0831",
     "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-proklyatie-porchi-810e367258"
-  ],
   "ability": {
-    "id": "provodnik-proklyatie-porchi-810e367258",
+    "id": "feature.ability.conduit.level-1.corruptions-curse",
     "name": "Проклятие Порчи",
     "flavor": "Проклятый вами, ваш враг получает больше урона от ваших союзников.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/corruptions-curse",
+    "originalName": "Corruption's Curse",
+    "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/corruptions-curse",
+  "originalName": "Corruption's Curse",
+  "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)"
 }

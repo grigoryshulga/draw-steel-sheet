@@ -1,5 +1,6 @@
 import { CANONICAL_BUILDER_DATA } from "../rules/consumer-builder";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { canonicalAbilityId } from "../data/originals";
 import { classPreset } from "../data/classes";
 import {
   classFeatureGroups,
@@ -539,7 +540,9 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
   // Цензора: её выдаёт домен. Проверяем только способности 1-го уровня своего
   // класса, чтобы записи из истории повышения не считались нарушением.
   const forbiddenDomainCardSelected = draft.abilityIds.some((id) => {
-    const ability = ABILITY_COMPENDIUM.find((entry) => entry.id === id);
+    const ability = ABILITY_COMPENDIUM.find(
+      (entry) => entry.id === canonicalAbilityId(id),
+    );
     return (
       !!ability &&
       ability.className === draft.className &&

@@ -1,4 +1,5 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { canonicalAbilityId } from "../data/originals";
 import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
@@ -141,7 +142,7 @@ export function subclassAbilitySources(
       }
       for (const abilityId of grant.abilityIds) {
         add(
-          ABILITY_COMPENDIUM.find((ability) => ability.id === abilityId),
+          ABILITY_COMPENDIUM.find((ability) => ability.id === canonicalAbilityId(abilityId)),
           kind,
           subclass,
         );
@@ -170,7 +171,7 @@ export function subclassAbilitySources(
         if (entry.level > level) continue;
         if (normalize(entry.domain) !== normalize(domain)) continue;
         add(
-          ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId),
+          ABILITY_COMPENDIUM.find((ability) => ability.id === canonicalAbilityId(entry.abilityId)),
           DOMAIN_KIND,
           entry.domain,
         );
@@ -186,7 +187,7 @@ export function subclassAbilitySources(
       );
       if (!domain) continue;
       add(
-        ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId),
+        ABILITY_COMPENDIUM.find((ability) => ability.id === canonicalAbilityId(entry.abilityId)),
         DOMAIN_KIND,
         entry.domain,
       );

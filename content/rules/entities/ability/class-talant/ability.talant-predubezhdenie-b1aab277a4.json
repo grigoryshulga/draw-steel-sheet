@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-predubezhdenie-b1aab277a4",
+  "id": "feature.ability.talent.level-8.doubt",
   "kind": "ability",
   "name": "Предубеждение",
   "markdown": "> **Предубеждение (11 Ясности)**\n>\n> *Вы тянете за нити анимы врага и распутываете их, позволяя кому-то другому воспользоваться его уверенностью.*\n>\n> | **Анимапатия, Псионика, Дальний**, **Удар** | **Основное действие** |\n> | ------------------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 10 + П урона; П < СЛАБЫЙ, ослабление (до прох.)\n> - **12-16:** 14 + П урона; П < СРЕДНИЙ, ослабление (до прох.)\n> - **17+:** 20 + П урона; П < СИЛЬНЫЙ, ослабление и замедление (до прох.)\n>\n> **Эффект:** Эта способность получает преимущество против цели с душой (смотрите *Draw Steel: Monsters*). После выполнения броска силы вы или один союзник в пределах расстояния получаете двойное преимущество на следующий бросок силы, который вы сделаете до конца боевой встречи.\n>\n> **Возбужденность:** Вы чувствуете себя подавленным, пока не закончите отдых. Если вы получаете результат третьего тира на броске силы, вы и цель получаете уязвимость к урону 5 (до прох.).",
@@ -7,11 +7,8 @@
     "articleId": "0858",
     "path": "08. Классы/Талант/0858. 8-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-predubezhdenie-b1aab277a4"
-  ],
   "ability": {
-    "id": "talant-predubezhdenie-b1aab277a4",
+    "id": "feature.ability.talent.level-8.doubt",
     "name": "Предубеждение",
     "flavor": "Вы тянете за нити анимы врага и распутываете их, позволяя кому-то другому воспользоваться его уверенностью.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/doubt",
+    "originalName": "Doubt",
+    "originalDescription": "*You tug at the strings of the foe's anima and unravel them, allowing someone else to take advantage of their drive.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|---------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 10 + P damage; P < WEAK, weakened (save ends)\n- **12-16:** 14 + P damage; P < AVERAGE, weakened (save ends)\n- **17+:** 20 + P damage; P < STRONG, weakened and slowed (save ends)\n\n**Effect:** This ability gains an edge against a target with a soul (see *Draw Steel: Monsters*). After you make the power roll, you or one ally within distance have a double edge on the next power roll you make before the end of the encounter.\n\n**Strained:** You feel dispirited until you finish a respite. If you obtain a tier 3 outcome on the power roll, you and the target each have damage weakness 5 (save ends)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/doubt",
+  "originalName": "Doubt",
+  "originalDescription": "*You tug at the strings of the foe's anima and unravel them, allowing someone else to take advantage of their drive.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|---------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 10 + P damage; P < WEAK, weakened (save ends)\n- **12-16:** 14 + P damage; P < AVERAGE, weakened (save ends)\n- **17+:** 20 + P damage; P < STRONG, weakened and slowed (save ends)\n\n**Effect:** This ability gains an edge against a target with a soul (see *Draw Steel: Monsters*). After you make the power roll, you or one ally within distance have a double edge on the next power roll you make before the end of the encounter.\n\n**Strained:** You feel dispirited until you finish a respite. If you obtain a tier 3 outcome on the power roll, you and the target each have damage weakness 5 (save ends)."
 }

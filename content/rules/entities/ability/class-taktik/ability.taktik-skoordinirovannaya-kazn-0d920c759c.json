@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-skoordinirovannaya-kazn-0d920c759c",
+  "id": "feature.ability.tactician.level-6.coordinated-execution",
   "kind": "ability",
   "name": "Скоординированная Казнь",
   "markdown": "> **Скоординированная Казнь (9 Фокуса)**\n>\n> *Вы направляете своего союзника нанести смертельный удар.*\n>\n> | **Дальний** | **Свободный триггер** |\n> | ---------------- | -----------------: |\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Триггер:** Цель использует способность для нанесения выброшенного урона существу, будучи скрытой.\n>\n> **Эффект:** Если цель вызвавшей триггер способности не является лидером или соло-существом, ее выносливость снижается до 0. Если цель вызвавшей триггер способности является миньоном, весь отряд погибает. Если цель вызвавшей триггер способности является лидером или соло-существом, бросок силы этой способности автоматически получает результат третьего тира.",
@@ -7,11 +7,8 @@
     "articleId": "0846",
     "path": "08. Классы/Тактик/0846. 6-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-skoordinirovannaya-kazn-0d920c759c"
-  ],
   "ability": {
-    "id": "taktik-skoordinirovannaya-kazn-0d920c759c",
+    "id": "feature.ability.tactician.level-6.coordinated-execution",
     "name": "Скоординированная Казнь",
     "flavor": "Вы направляете своего союзника нанести смертельный удар.",
     "actionType": "free-trigger",
@@ -45,6 +42,12 @@
     "className": "Тактик",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/coordinated-execution",
+    "originalName": "Coordinated Execution",
+    "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/coordinated-execution",
+  "originalName": "Coordinated Execution",
+  "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome."
 }

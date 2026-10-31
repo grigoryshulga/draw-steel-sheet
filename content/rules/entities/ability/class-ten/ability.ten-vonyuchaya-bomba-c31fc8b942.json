@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-vonyuchaya-bomba-c31fc8b942",
+  "id": "feature.ability.shadow.level-2.stink-bomb",
   "kind": "ability",
   "name": "Вонючая Бомба",
   "markdown": "> **Вонючая Бомба (5 Прозрения)**\n>\n> *Гнилой желтый газ вырывается из брошенной вами бомбы.*\n>\n> | **Область, Дальний** | **Основное действие** |\n> | ----------------------- | -------------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 2 урона ядом\n> - **12-16:** 5 урона ядом\n> - **17+:** 7 урона ядом\n>\n> **Эффект:** Газ остается в области до конца боевой встречи. Любое существо, которое начинает свой ход в области и имеет М < СРЕДНИЙ, ослаблено (до прох.).",
@@ -7,11 +7,8 @@
     "articleId": "0862",
     "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-vonyuchaya-bomba-c31fc8b942"
-  ],
   "ability": {
-    "id": "ten-vonyuchaya-bomba-c31fc8b942",
+    "id": "feature.ability.shadow.level-2.stink-bomb",
     "name": "Вонючая Бомба",
     "flavor": "Гнилой желтый газ вырывается из брошенной вами бомбы.",
     "actionType": "main",
@@ -48,6 +45,12 @@
     "className": "Тень",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+    "originalName": "Stink Bomb",
+    "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+  "originalName": "Stink Bomb",
+  "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
 }

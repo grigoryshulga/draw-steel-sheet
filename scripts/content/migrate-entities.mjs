@@ -980,7 +980,7 @@ export function extractStageTwo({ articles, entities, legacy }) {
 
   const legacyOwners = new Map();
   for (const entity of entityList(entities)) {
-    for (const legacyId of entity.legacyIds) {
+    for (const legacyId of entity.legacyIds ?? []) {
       const owner = legacyOwners.get(legacyId);
       if (owner && owner !== entity.id) {
         throw new Error(
@@ -1246,12 +1246,12 @@ function buildStageThreeReport({ articles, entities, legacy }) {
         articleId: entity.source.articleId,
         entityId: entity.id,
         name: entity.name,
-        legacyIds: [...entity.legacyIds].sort(compareStrings),
+        legacyIds: [...(entity.legacyIds ?? [])].sort(compareStrings),
       })),
       kit0924: ofKind("kit")
         .filter((entity) => entity.source.articleId === "0924")
         .flatMap((entity) =>
-          entity.legacyIds.map((legacyId) => ({
+          (entity.legacyIds ?? []).map((legacyId) => ({
             legacyId,
             entityId: entity.id,
             articleId: entity.source.articleId,
@@ -1307,11 +1307,11 @@ export function buildStageTwoReport({ articles, entities, legacy }) {
 
   const kits = ofKind("kit");
   const kitLegacyIds = new Set(
-    kits.flatMap((entity) => entity.legacyIds),
+    kits.flatMap((entity) => entity.legacyIds ?? []),
   );
   const kitMappings = kits
     .flatMap((entity) =>
-      entity.legacyIds.map((legacyId) => ({
+      (entity.legacyIds ?? []).map((legacyId) => ({
         legacyId,
         entityId: entity.id,
         articleId: entity.source.articleId,
@@ -1340,7 +1340,7 @@ export function buildStageTwoReport({ articles, entities, legacy }) {
   const projects = ofKind("project");
   const projectMappings = projects
     .flatMap((entity) =>
-      entity.legacyIds.map((legacyId) => ({
+      (entity.legacyIds ?? []).map((legacyId) => ({
         legacyId,
         entityId: entity.id,
         articleId: entity.source.articleId,

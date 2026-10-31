@@ -54,7 +54,7 @@ export const SHADOW_RESOURCE: HeroicResourceSpec = {
  * замена на 4/7/10 уровнях живёт в механиках уровней.
  */
 export const SHADOW_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
-  "shadow.feature.1.prozrenie": {
+  "feature.shadow.level-1.insight": {
     kinds: ["resource"],
     notes:
       "Прозрение — героический ресурс Тени. Наблюдая за врагом, герой учится " +
@@ -63,7 +63,7 @@ export const SHADOW_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "первый раз за раунд при уроне со всплесками — 1. Отдельных прибавок у " +
       "записи нет, иначе ресурс начислялся бы дважды.",
   },
-  "shadow.feature.1.prozrenie-v-boyu": {
+  "feature.shadow.level-1.insight-in-combat": {
     kinds: ["resource"],
     notes:
       "В бою Прозрение начисляется так: на старте встречи или стрессовой " +
@@ -74,7 +74,7 @@ export const SHADOW_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "только против одной из целей. Остаток Прозрения теряется в конце " +
       "боевой встречи. Отдельных прибавок у записи нет.",
   },
-  "shadow.feature.1.prozrenie-vne-boya": {
+  "feature.shadow.level-1.insight-outside-of-combat": {
     kinds: ["resource"],
     notes:
       "Вне боя Прозрение не набирается. Способность или эффект со стоимостью в " +

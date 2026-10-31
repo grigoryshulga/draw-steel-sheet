@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-parirovanie-a7266461a7",
+  "id": "feature.ability.tactician.level-1.parry",
   "kind": "ability",
   "name": "Парирование",
   "markdown": "> **Парирование**\n>\n> *Ваши быстрые рефлексы лишают врага той точности, к которой он стремится.*\n>\n> | **Ближний, Оружие** | **Триггер** |\n> | ----------------- | ----------------------: |\n> | **📏 Ближний 2** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Существо наносит урон цели.\n>\n> **Эффект:** Вы можете сместиться на 1 клетку. Если цель — это вы, или если вы заканчиваете это смещение смежно с целью, цель получает половину урона. Если урон имеет какой-либо эффект потенциала, связанный с ним, потенциал уменьшается на 1.\n>\n> **Потратить 1 Фокуса:** Расстояние этой способности становится Ближний 1 + ваш показатель Разума, и вы можете сместиться вплоть до числа клеток, равного вашему показателю Разума, вместо 1 клетки.",
@@ -7,12 +7,8 @@
     "articleId": "0841",
     "path": "08. Классы/Тактик/0841. 1-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-parirovanie-a7266461a7",
-    "tactician.doctrine.1.parirovanie"
-  ],
   "ability": {
-    "id": "taktik-parirovanie-a7266461a7",
+    "id": "feature.ability.tactician.level-1.parry",
     "name": "Парирование",
     "flavor": "Ваши быстрые рефлексы лишают врага той точности, к которой он стремится.",
     "actionType": "trigger",
@@ -47,6 +43,12 @@
     "className": "Тактик",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/parry",
+    "originalName": "Parry",
+    "originalDescription": "*Your quick reflexes cost an enemy the precision they seek.*\n\n| **Melee, Weapon** |            **Triggered** |\n|-------------------|-------------------------:|\n| **📏 Melee 2**    |  **🎯 Self or one ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** You can shift 1 square. If the target is you, or if you end this shift adjacent to the target, the target takes half the damage. If the damage has any potency effect associated with it, the potency is decreased by 1.\n\n**Spend 1 Focus:** This ability's distance becomes Melee 1 + your Reason score, and you can shift up to a number of squares equal to your Reason score instead of 1 square."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/parry",
+  "originalName": "Parry",
+  "originalDescription": "*Your quick reflexes cost an enemy the precision they seek.*\n\n| **Melee, Weapon** |            **Triggered** |\n|-------------------|-------------------------:|\n| **📏 Melee 2**    |  **🎯 Self or one ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** You can shift 1 square. If the target is you, or if you end this shift adjacent to the target, the target takes half the damage. If the damage has any potency effect associated with it, the potency is decreased by 1.\n\n**Spend 1 Focus:** This ability's distance becomes Melee 1 + your Reason score, and you can shift up to a number of squares equal to your Reason score instead of 1 square."
 }

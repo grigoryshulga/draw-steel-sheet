@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-padenie-teni-ecc704cb3d",
+  "id": "feature.ability.shadow.level-5.shadowfall",
   "kind": "ability",
   "name": "Падение Тени",
   "markdown": "> **Падение Тени (9 Прозрения)**\n>\n> *Вы исчезаете. Они падают. Вы снова появляетесь.*\n>\n> | **Область, Ближний, Оружие** | **Основное действие** |\n> | --------------------------- | ----------------------------: |\n> | **📏 Линия 10 x 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 14 урона\n> - **17+:** 20 урона\n>\n> **Эффект:** Вы исчезаете перед тем, как сделать бросок силы. После разрешения броска силы вы появляетесь на первой свободной клетке на дальнем конце линии.",
@@ -7,11 +7,8 @@
     "articleId": "0865",
     "path": "08. Классы/Тень/0865. 5-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-padenie-teni-ecc704cb3d"
-  ],
   "ability": {
-    "id": "ten-padenie-teni-ecc704cb3d",
+    "id": "feature.ability.shadow.level-5.shadowfall",
     "name": "Падение Тени",
     "flavor": "Вы исчезаете. Они падают. Вы снова появляетесь.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Тень",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/shadowfall",
+    "originalName": "Shadowfall",
+    "originalDescription": "*You vanish. They fall. You reappear.*\n\n| **Area, Melee, Weapon**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 damage\n- **12-16:** 14 damage\n- **17+:** 20 damage\n\n**Effect:** You disappear before making the power roll. After the power roll is resolved, you appear in the first unoccupied space at the far end of the line."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/shadowfall",
+  "originalName": "Shadowfall",
+  "originalDescription": "*You vanish. They fall. You reappear.*\n\n| **Area, Melee, Weapon**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 damage\n- **12-16:** 14 damage\n- **17+:** 20 damage\n\n**Effect:** You disappear before making the power roll. After the power roll is resolved, you appear in the first unoccupied space at the far end of the line."
 }

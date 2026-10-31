@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-mayak-blagodati-5c85fcb46e",
+  "id": "feature.ability.conduit.level-5.beacon-of-grace",
   "kind": "ability",
   "name": "Маяк Благодати",
   "markdown": "> **Маяк Благодати (9 Благочестия)**\n>\n> *Вы воспламеняете врага святым сиянием, вознаграждая союзников, которые его атакуют.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 8 + И святого урона\n> - **12-16:** 13 + И святого урона\n> - **17+:** 17 + И святого урона\n>\n> **Эффект:** До конца встречи, всякий раз, когда вы или любой союзник наносит урон цели с помощью способности, это существо может потратить Восстановление. Если Выносливость цели снижается до 0 до конца встречи, вы можете использовать свободный триггер, чтобы переместить этот эффект на другое существо в пределах расстояния.",
@@ -7,11 +7,8 @@
     "articleId": "0835",
     "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-mayak-blagodati-5c85fcb46e"
-  ],
   "ability": {
-    "id": "provodnik-mayak-blagodati-5c85fcb46e",
+    "id": "feature.ability.conduit.level-5.beacon-of-grace",
     "name": "Маяк Благодати",
     "flavor": "Вы воспламеняете врага святым сиянием, вознаграждая союзников, которые его атакуют.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/beacon-of-grace",
+    "originalName": "Beacon of Grace",
+    "originalDescription": "*You ignite a foe with holy radiance, rewarding allies who attack them.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 8 + I holy damage\n- **12-16:** 13 + I holy damage\n- **17+:** 17 + I holy damage\n\n**Effect:** Until the end of the encounter, whenever you or any ally damages the target using an ability, that creature can spend a Recovery. If the target is reduced to 0 Stamina before the end of the encounter, you can use a free triggered action to move this effect to another creature within distance."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/beacon-of-grace",
+  "originalName": "Beacon of Grace",
+  "originalDescription": "*You ignite a foe with holy radiance, rewarding allies who attack them.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 8 + I holy damage\n- **12-16:** 13 + I holy damage\n- **17+:** 17 + I holy damage\n\n**Effect:** Until the end of the encounter, whenever you or any ally damages the target using an ability, that creature can spend a Recovery. If the target is reduced to 0 Stamina before the end of the encounter, you can use a free triggered action to move this effect to another creature within distance."
 }

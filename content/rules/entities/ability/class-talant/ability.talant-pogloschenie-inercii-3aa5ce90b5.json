@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-pogloschenie-inercii-3aa5ce90b5",
+  "id": "feature.ability.talent.level-1.inertia-soak",
   "kind": "ability",
   "name": "Поглощение Инерции",
   "markdown": "> **Поглощение Инерции (5 Ясности)**\n>\n> *Ваша псионическая энергия окружает цель и отталкивает от нее все остальное.*\n>\n> | **Псионика, Дальний, Телекинез** | **Маневр** |\n> | -------------------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** Цель игнорирует труднопроходимую местность и не получает урона от принудительного движения до начала вашего следующего хода. Всякий раз, когда цель входит в клетку, находясь под этим эффектом, она может совершить толчок одного смежного существа вплоть до числа клеток, равного показателю вашего Разума. При толчке союзника цель может игнорировать устойчивость этого союзника. Существо может быть подвергнуто принудительному движению таким образом только один раз за ход.\n>\n> **Возбужденность:** Вы получаете ослабление (до прох.). Пока вы находитесь в состоянии ослабления таким образом, всякий раз, когда вы подвергаетесь принудительному движению, расстояние принудительного движения получает бонус +5.",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-pogloschenie-inercii-3aa5ce90b5"
-  ],
   "ability": {
-    "id": "talant-pogloschenie-inercii-3aa5ce90b5",
+    "id": "feature.ability.talent.level-1.inertia-soak",
     "name": "Поглощение Инерции",
     "flavor": "Ваша псионическая энергия окружает цель и отталкивает от нее все остальное.",
     "actionType": "maneuver",
@@ -47,6 +44,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/inertia-soak",
+    "originalName": "Inertia Soak",
+    "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/inertia-soak",
+  "originalName": "Inertia Soak",
+  "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus."
 }

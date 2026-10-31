@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-zaklinatel-klinkov-prygayuschaya-molniya-bebfbeecdc",
+  "id": "feature.ability.spellsword.leaping-lightning",
   "kind": "ability",
   "name": "Прыгающая Молния",
   "markdown": "> **Прыгающая Молния**\n> \n> *Молния спрыгивает с вашего оружия, когда вы бьете, чтобы ранить ближайшего врага.*\n> \n> | **Магия, Ближний, Удар, Оружие** |             **Основное действие** |\n> | -------------------------------- | --------------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь, Разум, Интуиция или Присутствие:**\n> \n> - **≤11:** 5 + М, Р, И или П урона молнией\n> - **12-16:** 8 + М, Р, И или П урона молнией\n> - **17+:** 11 + М, Р, И или П урона молнией\n> \n> **Эффект:** Одно существо или объект по вашему выбору в пределах 2 клеток от цели получает урон молнией, равный счету характеристики, использованной для броска силы этой способности.",
@@ -7,11 +7,8 @@
     "articleId": "0910",
     "path": "09. Комплекты/Список Комплектов/0910. Заклинатель Клинков.md"
   },
-  "legacyIds": [
-    "komplekt-zaklinatel-klinkov-prygayuschaya-molniya-bebfbeecdc"
-  ],
   "ability": {
-    "id": "komplekt-zaklinatel-klinkov-prygayuschaya-molniya-bebfbeecdc",
+    "id": "feature.ability.spellsword.leaping-lightning",
     "name": "Прыгающая Молния",
     "flavor": "Молния спрыгивает с вашего оружия, когда вы бьете, чтобы ранить ближайшего врага.",
     "actionType": "main",
@@ -53,6 +50,12 @@
     "className": "Комплект: Заклинатель Клинков",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.spellsword/leaping-lightning",
+    "originalName": "Leaping Lightning",
+    "originalDescription": "*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.spellsword/leaping-lightning",
+  "originalName": "Leaping Lightning",
+  "originalDescription": "*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll."
 }

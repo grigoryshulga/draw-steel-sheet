@@ -1,5 +1,6 @@
 import { CONSUMER_ANCESTRY_FEATURES } from "../../rules/consumer-features";
 import type { GeneratedAncestryFeature } from "./types";
+import { canonicalAncestryFeatureId } from "../originals";
 
 /**
  * Скелет особенностей происхождений: разобранный текст книги без механики.
@@ -10,6 +11,12 @@ import type { GeneratedAncestryFeature } from "./types";
 export const GENERATED_ANCESTRY_FEATURES: GeneratedAncestryFeature[] =
   CONSUMER_ANCESTRY_FEATURES.map((feature) => ({
     id: feature.id,
+    ...(feature.legacyId ? { legacyId: feature.legacyId } : {}),
+    ...(feature.originalId ? { originalId: feature.originalId } : {}),
+    ...(feature.originalName ? { originalName: feature.originalName } : {}),
+    ...(feature.originalDescription
+      ? { originalDescription: feature.originalDescription }
+      : {}),
     ancestryName: feature.ancestryName,
     kind: feature.ancestryKind,
     name: feature.name,
@@ -49,7 +56,10 @@ export function ancestryFeatureRecords(
 export function ancestryFeatureById(
   id: string,
 ): GeneratedAncestryFeature | undefined {
-  return GENERATED_ANCESTRY_FEATURES.find((feature) => feature.id === id);
+  const canonical = canonicalAncestryFeatureId(id);
+  return GENERATED_ANCESTRY_FEATURES.find(
+    (feature) => feature.id === canonical || feature.legacyId === canonical,
+  );
 }
 
 /** Запись по точному названию внутри происхождения. */

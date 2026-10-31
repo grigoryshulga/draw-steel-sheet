@@ -103,7 +103,7 @@ describe("Character creation and automatic rules", () => {
       domain: "Смерть",
     };
     const sameName = ABILITY_COMPENDIUM.find(
-      (ability) => ability.id === "cenzor-ruki-tvorca-3425397e10",
+      (ability) => ability.id === "feature.ability.censor.level-1.hands-of-the-maker",
     )!;
     // Карточка с тем же названием есть у Цензора, но её выдаёт домен Созидание.
     expect(sameName.className).toBe("Цензор");
@@ -118,7 +118,7 @@ describe("Character creation and automatic rules", () => {
     // Свой домен выдаётся, и это именно карточка Цензора, а не Проводника.
     const own = grantedClassAbilities({ ...censor, domain: "Созидание" });
     expect(own.map((ability) => ability.id)).toContain(
-      "cenzor-ruki-tvorca-3425397e10",
+      "feature.ability.censor.level-1.hands-of-the-maker",
     );
     expect(own.every((ability) => ability.className === "Цензор")).toBe(true);
 

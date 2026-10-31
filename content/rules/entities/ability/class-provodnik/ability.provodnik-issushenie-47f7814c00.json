@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-issushenie-47f7814c00",
+  "id": "feature.ability.conduit.level-1.wither",
   "kind": "ability",
   "name": "Иссушение",
   "markdown": "> **Иссушение**\n>\n> *Стрела святой энергии высасывает жизнь из врага.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона порчей; П < СЛАБЫЙ, цель получает помеху на свой следующий бросок силы\n> - **12-16:** 5 + И урона порчей; П < СРЕДНИЙ, цель получает помеху на свой следующий бросок силы\n> - **17+:** 8 + И урона порчей; П < СИЛЬНЫЙ, цель получает помеху на свой следующий бросок силы",
@@ -7,11 +7,8 @@
     "articleId": "0831",
     "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-issushenie-47f7814c00"
-  ],
   "ability": {
-    "id": "provodnik-issushenie-47f7814c00",
+    "id": "feature.ability.conduit.level-1.wither",
     "name": "Иссушение",
     "flavor": "Стрела святой энергии высасывает жизнь из врага.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/wither",
+    "originalName": "Wither",
+    "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/wither",
+  "originalName": "Wither",
+  "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll"
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-mgnovennoe-vozmezdie-bcbf5cc792",
+  "id": "feature.ability.tactician.level-6.instant-retaliation",
   "kind": "ability",
   "name": "Мгновенное Возмездие",
   "markdown": "> **Мгновенное Возмездие (9 Фокуса)**\n>\n> *Вы парируете с почти сверхъестественной скоростью.*\n>\n> | **Ближний, Оружие** | **Свободный триггер** |\n> | ----------------- | -----------------: |\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Триггер:** Существо наносит урон цели.\n>\n> **Эффект:** Цель получает половину урона. Затем вы делаете бросок силы против вызвавшего триггер существа.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Р < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** Р < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** Р < СИЛЬНЫЙ, оглушение (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0846",
     "path": "08. Классы/Тактик/0846. 6-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-mgnovennoe-vozmezdie-bcbf5cc792"
-  ],
   "ability": {
-    "id": "taktik-mgnovennoe-vozmezdie-bcbf5cc792",
+    "id": "feature.ability.tactician.level-6.instant-retaliation",
     "name": "Мгновенное Возмездие",
     "flavor": "Вы парируете с почти сверхъестественной скоростью.",
     "actionType": "free-trigger",
@@ -48,6 +45,12 @@
     "className": "Тактик",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/instant-retaliation",
+    "originalName": "Instant Retaliation",
+    "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/instant-retaliation",
+  "originalName": "Instant Retaliation",
+  "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)"
 }

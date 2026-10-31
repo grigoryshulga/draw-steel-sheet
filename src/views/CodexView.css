@@ -619,3 +619,27 @@
     border-top-color: var(--line-strong);
   }
 }
+
+.codex-original-title {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+}
+.codex-original {
+  margin-top: var(--space-9);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+.codex-original summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+.codex-original summary:hover {
+  color: var(--accent);
+}
+.codex-original-text {
+  margin-top: var(--space-6);
+  color: var(--muted);
+}

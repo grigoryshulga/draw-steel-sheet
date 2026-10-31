@@ -61,24 +61,28 @@ const NULL_FEATURES = GENERATED_CLASS_FEATURES.filter(
 const STAGE_TWO = NULL_FEATURES.filter(
   (feature) =>
     feature.level >= 5 &&
-    !/^null\.feature\.(7|10)\.masterstvo-/.test(feature.id),
+    !/^feature\.null\.level-(7|10)\..+-mastery-(10|12)$/.test(feature.id),
 );
 
 const PSI_BOOSTS = [
-  "null.feature.7.dinamicheskaya-sila-1-distsipliny",
-  "null.feature.7.rasshirennaya-sila-3-distsipliny",
-  "null.feature.7.prodlennaya-sila-1-distsipliny",
-  "null.feature.7.uvelichennaya-sila-1-distsipliny",
-  "null.feature.7.potentsialnaya-sila-5-distsipliny",
-  "null.feature.7.razdelennaya-sila-5-distsipliny",
-  "null.feature.7.obostrennaya-sila-1-distsipliny",
+  "feature.null.level-7.dynamic-power",
+  "feature.null.level-7.expanded-power",
+  "feature.null.level-7.extended-power",
+  "feature.null.level-7.heightened-power",
+  "feature.null.level-7.magnified-power",
+  "feature.null.level-7.shared-power",
+  "feature.null.level-7.sharpened-power",
 ];
 
 const activeIds = (hero: Character) =>
   activeClassFeatures(hero).map((feature) => feature.id);
 
 const traditionIds = (hero: Character, level: number) =>
-  activeIds(hero).filter((id) => id.startsWith(`null.tradition.${level}.`));
+  activeClassFeatures(hero)
+    .filter(
+      (feature) => feature.keyedBy === "tradition" && feature.level === level,
+    )
+    .map((feature) => feature.id);
 
 function withDiscipline(hero: Character, value: number): Character {
   return {
@@ -123,14 +127,14 @@ describe("Нуль: production-покрытие уровней 5–10", () => {
     ).map((feature) => feature.id);
     expect(textOnlyIds.sort()).toEqual(
       [
-        "null.feature.10.navyk",
-        "null.feature.10.perk",
-        "null.feature.2.perk",
-        "null.feature.4.navyk",
-        "null.feature.4.perk",
-        "null.feature.6.perk",
-        "null.feature.7.navyk",
-        "null.feature.8.perk",
+        "feature.null.level-10.skill",
+        "feature.null.level-10.perk",
+        "feature.null.level-2.perk",
+        "feature.null.level-4.skill",
+        "feature.null.level-4.perk",
+        "feature.null.level-6.perk",
+        "feature.null.level-7.skill",
+        "feature.null.level-8.perk",
       ].sort(),
     );
     expect(
@@ -177,7 +181,7 @@ describe("Нуль: ресурс на уровнях 5–10", () => {
       const start = gains.filter((gain) => gain.tag === "start-of-turn");
       expect(start).toHaveLength(1);
       expect(start[0].amount).toBe("3");
-      expect(start[0].sourceId).toBe("null.feature.7.uluchshennoe-telo");
+      expect(start[0].sourceId).toBe("feature.null.level-7.improved-body");
     }
 
     const top = resolvedResourceGains(nullHero(10));
@@ -186,7 +190,7 @@ describe("Нуль: ресурс на уровнях 5–10", () => {
     const start = top.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("4");
-    expect(start[0].sourceId).toBe("null.feature.10.telo-manifolda");
+    expect(start[0].sourceId).toBe("feature.null.level-10.manifold-body");
   });
 
   it("эпический «Порядок» начисляется только с 10-го уровня", () => {
@@ -204,25 +208,25 @@ describe("Нуль: традиции 5-го и 8-го уровней", () => {
   it("на 5-м уровне видна ровно одна запись своей традиции", () => {
     expect(
       traditionIds(nullHero(5, {}, { subclass: "Хронокинетик" }), 5),
-    ).toEqual(["null.tradition.5.mgnovennoe-deystvie"]);
+    ).toEqual(["feature.null.level-5.instant-action"]);
     expect(
       traditionIds(nullHero(5, {}, { subclass: "Криокинетик" }), 5),
-    ).toEqual(["null.tradition.5.okhlazhdayushchaya-gotovnost"]);
+    ).toEqual(["feature.null.level-5.chilling-readiness"]);
     expect(
       traditionIds(nullHero(5, {}, { subclass: "Метакинетик" }), 5),
-    ).toEqual(["null.tradition.5.inertsionnaya-tochka-opory"]);
+    ).toEqual(["feature.null.level-5.inertial-fulcrum"]);
   });
 
   it("на 8-м уровне видна ровно одна запись своей традиции", () => {
     expect(
       traditionIds(nullHero(8, {}, { subclass: "Хронокинетик" }), 8),
-    ).toEqual(["null.tradition.8.razdelennyy-impuls"]);
+    ).toEqual(["feature.null.level-8.shared-momentum"]);
     expect(
       traditionIds(nullHero(8, {}, { subclass: "Криокинетик" }), 8),
-    ).toEqual(["null.tradition.8.sinapticheskaya-sortirovka"]);
+    ).toEqual(["feature.null.level-8.synaptic-triage"]);
     expect(
       traditionIds(nullHero(8, {}, { subclass: "Метакинетик" }), 8),
-    ).toEqual(["null.tradition.8.inertsionnyy-gasitel"]);
+    ).toEqual(["feature.null.level-8.inertial-dampener"]);
   });
 
   it("пустой или неизвестный подкласс не включает записи традиций", () => {
@@ -238,27 +242,27 @@ describe("Нуль: традиции 5-го и 8-го уровней", () => {
   it("контейнеры способностей 6/9 уровней видны только своей традиции", () => {
     const chrono = activeIds(nullHero(9, {}, { subclass: "Хронокинетик" }));
     expect(chrono).toContain(
-      "null.feature.6.sposobnosti-khronokinetika-6-go-urovnya",
+      "feature.null.level-6.chronokinetic-abilities",
     );
     expect(chrono).toContain(
-      "null.feature.9.sposobnosti-khronokinetika-9-go-urovnya",
+      "feature.null.level-9.chronokinetic-abilities",
     );
     expect(chrono).not.toContain(
-      "null.feature.6.sposobnosti-kriokinetika-6-go-urovnya",
+      "feature.null.level-6.cryokinetic-abilities",
     );
     expect(chrono).not.toContain(
-      "null.feature.9.sposobnosti-metakinetika-9-go-urovnya",
+      "feature.null.level-9.metakinetic-abilities",
     );
 
     const meta = activeIds(nullHero(9, {}, { subclass: "Метакинетик" }));
     expect(meta).toContain(
-      "null.feature.6.sposobnosti-metakinetika-6-go-urovnya",
+      "feature.null.level-6.metakinetic-abilities",
     );
     expect(meta).toContain(
-      "null.feature.9.sposobnosti-metakinetika-9-go-urovnya",
+      "feature.null.level-9.metakinetic-abilities",
     );
     expect(meta).not.toContain(
-      "null.feature.9.sposobnosti-khronokinetika-9-go-urovnya",
+      "feature.null.level-9.chronokinetic-abilities",
     );
   });
 
@@ -267,14 +271,14 @@ describe("Нуль: традиции 5-го и 8-го уровней", () => {
       {
         level: 5,
         subclass: "Криокинетик",
-        featureId: "null.tradition.5.okhlazhdayushchaya-gotovnost",
+        featureId: "feature.null.level-5.chilling-readiness",
         event: "combat-start",
         frequency: "encounter",
       },
       {
         level: 8,
         subclass: "Криокинетик",
-        featureId: "null.tradition.8.sinapticheskaya-sortirovka",
+        featureId: "feature.null.level-8.synaptic-triage",
         event: "start-of-turn",
         frequency: "turn",
       },
@@ -296,7 +300,7 @@ describe("Нуль: традиции 5-го и 8-го уровней", () => {
     const hero = nullHero(8, {}, { subclass: "Метакинетик" });
     expect(featureStatContributions(hero, "stability")).toEqual([
       {
-        sourceId: "null.tradition.8.inertsionnyy-gasitel",
+        sourceId: "feature.null.level-8.inertial-dampener",
         sourceName: "Инерционный гаситель",
         value: hero.characteristics.intuition,
       },
@@ -317,7 +321,7 @@ describe("Нуль: традиции 5-го и 8-го уровней", () => {
 describe("Нуль: элементальное поглощение 6-го уровня", () => {
   it("поглощение — триггер, а не постоянный иммунитет", () => {
     const hero = nullHero(6, {}, { subclass: "Хронокинетик" });
-    const mechanics = mechanicsFor("null.feature.6.elementalnoe-pogloshchenie");
+    const mechanics = mechanicsFor("feature.null.level-6.elemental-absorption");
     expect(mechanics?.trigger?.event).toBe("take-damage");
     expect(mechanics?.trigger?.frequency).toBe("always");
     expect(mechanics?.trigger?.label).toContain("Инерционный щит");
@@ -329,12 +333,12 @@ describe("Нуль: элементальное поглощение 6-го ур�
 
     expect(featureDamageImmunities(hero)).toEqual([]);
     const ids = activeIds(hero);
-    expect(ids).toContain("null.feature.6.elementalnoe-pogloshchenie");
-    expect(ids).toContain("null.feature.6.elementalnyy-bufer");
+    expect(ids).toContain("feature.null.level-6.elemental-absorption");
+    expect(ids).toContain("feature.null.level-6.elemental-buffer");
   });
 
   it("буфер — триггер на 2 всплеска для следующего удара", () => {
-    const mechanics = mechanicsFor("null.feature.6.elementalnyy-bufer");
+    const mechanics = mechanicsFor("feature.null.level-6.elemental-buffer");
     expect(mechanics?.trigger?.event).toBe("take-damage");
     expect(mechanics?.trigger?.frequency).toBe("always");
     expect(mechanics?.trigger?.detail).toContain("2 всплеска");
@@ -367,7 +371,7 @@ describe("Нуль: пси-усиления 7-го уровня", () => {
   });
 
   it("контейнер пси-усиления перечисляет все семь вариантов", () => {
-    const notes = mechanicsFor("null.feature.7.psi-usilenie")?.notes ?? "";
+    const notes = mechanicsFor("feature.null.level-7.psi-boost")?.notes ?? "";
     for (const name of [
       "Динамическая сила",
       "Расширенная сила",
@@ -386,10 +390,10 @@ describe("Нуль: мастерство дисциплины на 7-м и 10-м
   it("порог 10 виден на 7-м уровне, порог 12 — на 10-м", () => {
     const low = withDiscipline(nullHero(7, {}, { subclass: "Хронокинетик" }), 9);
     expect(activeIds(low)).toContain(
-      "null.feature.7.masterstvo-khronokinetika-10-7-y-uroven",
+      "feature.null.level-7.chronokinetic-mastery-10",
     );
     expect(activeIds(low)).not.toContain(
-      "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
+      "feature.null.level-10.chronokinetic-mastery-12",
     );
     expect(featureFieldContributions(low, "push")).toEqual([]);
 
@@ -398,17 +402,17 @@ describe("Нуль: мастерство дисциплины на 7-м и 10-м
       12,
     );
     expect(activeIds(high)).toContain(
-      "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
+      "feature.null.level-10.chronokinetic-mastery-12",
     );
     expect(featureFieldContributions(high, "push")).toHaveLength(1);
   });
 
   it("улучшение мастерства называет новый порог в прозе", () => {
     expect(
-      mechanicsFor("null.feature.7.uluchshenie-masterstva-distsipliny")?.notes,
+      mechanicsFor("feature.null.level-7.discipline-mastery-improvement")?.notes,
     ).toContain("10");
     expect(
-      mechanicsFor("null.feature.10.uluchshenie-masterstva-distsipliny")?.notes,
+      mechanicsFor("feature.null.level-10.discipline-mastery-improvement")?.notes,
     ).toContain("12");
   });
 });
@@ -418,12 +422,12 @@ describe("Нуль: 9-й и 10-й уровни", () => {
     const hero = nullHero(9, {}, { subclass: "Хронокинетик" });
     expect(featureStatContributions(hero, "stamina")).toEqual([
       {
-        sourceId: "null.feature.9.ya-i-est-oruzhie",
+        sourceId: "feature.null.level-9.i-am-the-weapon",
         sourceName: "Я и есть оружие",
         value: 21,
       },
     ]);
-    const mechanics = mechanicsFor("null.feature.9.ya-i-est-oruzhie");
+    const mechanics = mechanicsFor("feature.null.level-9.i-am-the-weapon");
     expect(mechanics?.kinds).toContain("bonus");
     expect(mechanics?.notes).toContain("кровотечение");
     expect(mechanics?.notes).toContain("Интуицию");
@@ -444,12 +448,12 @@ describe("Нуль: 9-й и 10-й уровни", () => {
     ]) {
       expect(names, name).toContain(name);
     }
-    expect(mechanicsFor("null.feature.10.poryadok")?.kinds).toEqual([
+    expect(mechanicsFor("feature.null.level-10.order")?.kinds).toEqual([
       "resource",
     ]);
-    expect(mechanicsFor("null.feature.10.poryadok")?.notes).toContain("Опыту");
+    expect(mechanicsFor("feature.null.level-10.order")?.notes).toContain("Опыту");
     expect(
-      mechanicsFor("null.feature.10.rezonans-manifolda")?.notes,
+      mechanicsFor("feature.null.level-10.manifold-resonance")?.notes,
     ).toContain("пси-усиление");
   });
 });
@@ -535,7 +539,7 @@ describe("Нуль: повышение уровня 6→7 и 9→10", () => {
     const start = gains.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("3");
-    expect(start[0].sourceId).toBe("null.feature.7.uluchshennoe-telo");
+    expect(start[0].sourceId).toBe("feature.null.level-7.improved-body");
   });
 
   it("9→10 сохраняет выборы, подкласс и даёт 4 дисциплины с «Порядком»", () => {
@@ -555,13 +559,13 @@ describe("Нуль: повышение уровня 6→7 и 9→10", () => {
     const start = gains.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("4");
-    expect(start[0].sourceId).toBe("null.feature.10.telo-manifolda");
+    expect(start[0].sourceId).toBe("feature.null.level-10.manifold-body");
 
     expect(resolvedEpicResourceGains(result.next)).toHaveLength(1);
     expect(
       featureStatContributions(result.next, "stamina").some(
         (contribution) =>
-          contribution.sourceId === "null.feature.9.ya-i-est-oruzhie" &&
+          contribution.sourceId === "feature.null.level-9.i-am-the-weapon" &&
           contribution.value === 21,
       ),
     ).toBe(true);

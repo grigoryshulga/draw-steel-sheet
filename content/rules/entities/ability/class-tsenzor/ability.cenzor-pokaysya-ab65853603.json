@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-pokaysya-ab65853603",
+  "id": "feature.ability.censor.level-1.repent",
   "kind": "ability",
   "name": "Покайся!",
   "markdown": "> **Покайся! (3 Гнева)**\n>\n> *Вы вызываете воспоминания об их грехах, чтобы извести своих врагов.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 5 + П святого урона; И < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** 8 + П святого урона; И < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** 11 + П святого урона; И < СИЛЬНЫЙ, оглушение (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0881",
     "path": "08. Классы/Цензор/0881. 1-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-pokaysya-ab65853603"
-  ],
   "ability": {
-    "id": "cenzor-pokaysya-ab65853603",
+    "id": "feature.ability.censor.level-1.repent",
     "name": "Покайся!",
     "flavor": "Вы вызываете воспоминания об их грехах, чтобы извести своих врагов.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/repent",
+    "originalName": "Repent!",
+    "originalDescription": "*You conjure memories of their sins to harry your foes.*\n\n| **Magic, Ranged, Strike**  |    **Main action**  |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P holy damage; I < WEAK, dazed (save ends)\n- **12-16:** 8 + P holy damage; I < AVERAGE, dazed (save ends)\n- **17+:** 11 + P holy damage; I < STRONG, dazed (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/repent",
+  "originalName": "Repent!",
+  "originalDescription": "*You conjure memories of their sins to harry your foes.*\n\n| **Magic, Ranged, Strike**  |    **Main action**  |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P holy damage; I < WEAK, dazed (save ends)\n- **12-16:** 8 + P holy damage; I < AVERAGE, dazed (save ends)\n- **17+:** 11 + P holy damage; I < STRONG, dazed (save ends)"
 }

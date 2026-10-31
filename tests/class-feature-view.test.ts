@@ -126,11 +126,11 @@ function withConduitMechanics<T>(run: () => T): T {
   }
 }
 
-const ASPECT_GATE = "fury.feature.1.rastushchaya-svirepost-berserka-2";
-const SPEED_FEATURE = "fury.aspect.2.neizbezhnyy-gnev";
-const CHAOS_IMMUNITY = "fury.feature.10.voploshchenie-khaosa";
-const ELEMENTAL_FORM = "fury.feature.7.elementalnaya-forma";
-const ENCOUNTER_TRIGGER = "fury.feature.10.voploshchenie-khaosa";
+const ASPECT_GATE = "feature.fury.level-1.growing-ferocity-berserker-2";
+const SPEED_FEATURE = "feature.fury.level-2.inescapable-wrath";
+const CHAOS_IMMUNITY = "feature.fury.level-10.chaos-incarnate";
+const ELEMENTAL_FORM = "feature.fury.level-7.elemental-form";
+const ENCOUNTER_TRIGGER = "feature.fury.level-10.chaos-incarnate";
 
 describe("classFeatureGroupsForSheet", () => {
   it("группирует фичи по уровню и не показывает будущие уровни", () => {
@@ -164,7 +164,7 @@ describe("classFeatureGroupsForSheet", () => {
 
   it("показывает устойчивость и порог тира бонуса характеристики", () => {
     const hero = fury(3, "Берсерк");
-    const stability = itemOf(hero, "fury.aspect.3.nedvizhimyy-obekt");
+    const stability = itemOf(hero, "feature.fury.level-3.immovable-object");
     expect(stability.summary).toContain("устойчивость +2");
     expect(stability.summary).toContain("Мощь");
 
@@ -197,7 +197,7 @@ describe("classFeatureGroupsForSheet", () => {
     const hero = fury(4, "Берсерк");
     const item = itemOf(
       hero,
-      "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
+      "feature.fury.level-4.growing-ferocity-berserker-8",
     );
     expect(item.badges.map((badge) => badge.label)).toContain(
       "нужно 8 свирепости",
@@ -321,7 +321,7 @@ describe("classFeatureGroupsForSheet", () => {
 
   it("показывает у фичи с триггером бейдж «сработает» и кнопку отметки", () => {
     const hero = fury(2, "Буревестник");
-    const item = itemOf(hero, "fury.aspect.2.zub-i-kogot");
+    const item = itemOf(hero, "feature.fury.level-2.tooth-and-claw");
     expect(item.trigger?.frequency).toBe("turn");
     expect(item.trigger?.used).toBe(false);
     expect(
@@ -364,7 +364,7 @@ describe("classFeatureGroupsForSheet", () => {
   it("показывает триггерные подробности при включённом и выключенном авторасчёте", () => {
     const enabled = fury(2, "Буревестник");
     const disabled = { ...enabled, automation: { ...enabled.automation!, enabled: false } };
-    const featureId = "fury.aspect.2.zub-i-kogot";
+    const featureId = "feature.fury.level-2.tooth-and-claw";
     expect(itemOf(enabled, featureId).trigger?.detail).toBeTruthy();
     expect(itemOf(disabled, featureId).trigger?.detail).toBe(itemOf(enabled, featureId).trigger?.detail);
   });
@@ -608,9 +608,9 @@ describe("classFeatureChoicesForSheet", () => {
     const talent = createCharacter({ className: "Талант", level: 3 });
     const choices = classFeatureChoicesForSheet(talent);
     expect(choices.map((choice) => choice.group)).toEqual([
-      "talent.sanctuary",
       "talent.augmentation",
       "talent.tradition",
+      "talent.sanctuary",
     ]);
     expect(choices.find((choice) => choice.group === "talent.tradition")?.options).toEqual([
       "Хронопатия",
@@ -640,8 +640,8 @@ describe("classFeatureChoicesForSheet", () => {
     };
     const savedChoices = classFeatureChoicesForSheet(saved);
     expect(savedChoices.map((choice) => choice.group)).toEqual([
-      "talent.sanctuary",
       "talent.augmentation",
+      "talent.sanctuary",
     ]);
     expect(
       savedChoices.find((choice) => choice.group === "talent.augmentation")?.selected,
@@ -654,7 +654,7 @@ describe("панель показывает механику и прозу, но
     withConduitMechanics(() => {
       const conduit = createCharacter({ className: "Проводник", level: 6 });
       const conduitItems = itemsOf(conduit);
-      expect(conduitItems.some((item) => item.id === "conduit.feature.1.blagochestie-v-boyu")).toBe(true);
+      expect(conduitItems.some((item) => item.id === "feature.conduit.level-1.piety-in-combat")).toBe(true);
       expect(conduitItems.every((item) => item.trigger ? item.trigger.detail.length > 0 : true)).toBe(true);
 
       const bard = unmodelledHero(6);
@@ -688,7 +688,7 @@ describe("панель показывает механику и прозу, но
     const hero = fury(10, "Берсерк");
     const items = itemsOf(hero);
     const thresholds = items.filter((item) =>
-      item.id.includes("rastushchaya-svirepost-berserka"),
+      item.id.includes("growing-ferocity-berserker"),
     );
     expect(thresholds).toHaveLength(6);
     for (const item of thresholds) {
@@ -822,7 +822,7 @@ describe("прозаические особенности на листе", () =
   it("у прозаической записи подпись из текста и бейдж «по тексту правил»", () => {
     const item = itemOf(
       fury(2, "Берсерк"),
-      "fury.aspect.2.nepreodolimaya-sila",
+      "feature.fury.level-2.unstoppable-force",
     );
     expect(
       item.summary.startsWith(
@@ -840,7 +840,7 @@ describe("прозаические особенности на листе", () =
   it("прозаическая запись отдаёт полный текст для раскрытия", () => {
     const item = itemOf(
       fury(2, "Берсерк"),
-      "fury.aspect.2.nepreodolimaya-sila",
+      "feature.fury.level-2.unstoppable-force",
     );
     expect(item.detail).toBeDefined();
     expect(item.detail!.length).toBeGreaterThan(item.summary.length);
@@ -854,7 +854,7 @@ describe("прозаические особенности на листе", () =
   it("у триггерной записи без чисел подпись берётся из триггера", () => {
     const item = itemOf(
       fury(4, "Берсерк"),
-      "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
+      "feature.fury.level-4.growing-ferocity-berserker-8",
     );
     expect(item.summary).toBe("Первый толчок в свой ход при 8+ свирепости");
   });
@@ -862,7 +862,7 @@ describe("прозаические особенности на листе", () =
 
 describe("подпись строки", () => {
   it("подпись триггера, совпадающая с названием, заменяется текстом правила", () => {
-    const item = itemOf(fury(1, "Берсерк"), "fury.aspect.1.linii-sily");
+    const item = itemOf(fury(1, "Берсерк"), "feature.ability.fury.level-1.lines-of-force");
     expect(item.summary).not.toBe("Линии силы");
     expect(
       item.summary.startsWith("Вы перенаправляете энергию движения"),

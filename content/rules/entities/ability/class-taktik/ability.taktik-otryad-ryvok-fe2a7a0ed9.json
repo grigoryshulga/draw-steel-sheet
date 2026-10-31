@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-otryad-ryvok-fe2a7a0ed9",
+  "id": "feature.ability.tactician.level-6.to-me-squad",
   "kind": "ability",
   "name": "Отряд! Рывок!",
   "markdown": "> **Отряд! Рывок! (9 Фокуса)**\n>\n> *Вы ведете своих союзников в рывок.*\n>\n> | **Рывок, Ближний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 6 + М урона; один союзник в пределах 10 клеток может использовать основное действие Атака с рывком как свободный триггер, и может использовать знаковую способность удара ближнего боя вместо свободного удара для рывка\n> - **12-16:** 9 + М урона; один союзник в пределах 10 клеток может использовать основное действие Атака с рывком как свободный триггер, и может использовать знаковую способность удара ближнего боя, которая получает преимущество, вместо свободного удара для рывка\n> - **17+:** 13 + М урона; два союзника в пределах 10 клеток могут использовать основное действие Атака с рывком как свободный триггер, и могут каждый использовать знаковую способность удара ближнего боя, которая получает преимущество, вместо свободного удара для рывка\n>\n> **Эффект:** Если в цель попадают два или более ударов как часть этой способности, и она имеет Р < СИЛЬНЫЙ, она оглушена (до прох.). Если выносливость цели снижается до 0 до того, как один или оба союзника нанесут свой удар, союзник или союзники могут выбрать другую цель.",
@@ -7,11 +7,8 @@
     "articleId": "0846",
     "path": "08. Классы/Тактик/0846. 6-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-otryad-ryvok-fe2a7a0ed9"
-  ],
   "ability": {
-    "id": "taktik-otryad-ryvok-fe2a7a0ed9",
+    "id": "feature.ability.tactician.level-6.to-me-squad",
     "name": "Отряд! Рывок!",
     "flavor": "Вы ведете своих союзников в рывок.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тактик",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/to-me-squad",
+    "originalName": "To Me Squad!",
+    "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/to-me-squad",
+  "originalName": "To Me Squad!",
+  "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target."
 }

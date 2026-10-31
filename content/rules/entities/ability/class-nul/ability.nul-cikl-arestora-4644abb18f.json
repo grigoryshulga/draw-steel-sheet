@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-cikl-arestora-4644abb18f",
+  "id": "feature.ability.null.level-9.arrestor-cycle",
   "kind": "ability",
   "name": "Цикл Арестора",
   "markdown": "> **Цикл Арестора (11 Дисциплины)**\n>\n> *Вы запираете своего врага в зацикленном цикле времени, где он снова и снова переживает последние несколько секунд.*\n>\n> | **Псионика, Дальний** | **Свободный триггер** |\n> | ------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель начинает свой ход.\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** И < СЛАБЫЙ, цель теряет свой ход\n> - **12-16:** И < СРЕДНИЙ, цель теряет свой ход\n> - **17+:** И < СИЛЬНЫЙ, цель теряет свой ход\n>\n> **Эффект:** Если цель теряет свой ход, раунд продолжается так, как если бы она походила. Цель, которая не теряет свой ход, получает психический урон, равный двойному показателю вашей Интуиции, за каждое основное действие, которое она предпринимает до конца своего следующего хода.",
@@ -7,11 +7,8 @@
     "articleId": "0819",
     "path": "08. Классы/Нуль/0819. 9-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-cikl-arestora-4644abb18f"
-  ],
   "ability": {
-    "id": "nul-cikl-arestora-4644abb18f",
+    "id": "feature.ability.null.level-9.arrestor-cycle",
     "name": "Цикл Арестора",
     "flavor": "Вы запираете своего врага в зацикленном цикле времени, где он снова и снова переживает последние несколько секунд.",
     "actionType": "free-trigger",
@@ -48,6 +45,12 @@
     "className": "Нуль",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-9/arrestor-cycle",
+    "originalName": "Arrestor Cycle",
+    "originalDescription": "*You trap your foe in a looping cycle of time, where they relive the last few seconds over and over again.*\n\n| **Psionic, Ranged** |  **Free triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The triggering creature starts their turn.\n\n**Power Roll + Intuition:**\n\n- **≤11:** I < WEAK, the target loses their turn\n- **12-16:** I < AVERAGE, the target loses their turn\n- **17+:** I < STRONG, the target loses their turn\n\n**Effect:** If the target loses their turn, the round continues as if they had acted. A target who doesn't lose their turn takes psychic damage equal to twice your Intuition score for each main action they take until the end of their next turn."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-9/arrestor-cycle",
+  "originalName": "Arrestor Cycle",
+  "originalDescription": "*You trap your foe in a looping cycle of time, where they relive the last few seconds over and over again.*\n\n| **Psionic, Ranged** |  **Free triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The triggering creature starts their turn.\n\n**Power Roll + Intuition:**\n\n- **≤11:** I < WEAK, the target loses their turn\n- **12-16:** I < AVERAGE, the target loses their turn\n- **17+:** I < STRONG, the target loses their turn\n\n**Effect:** If the target loses their turn, the round continues as if they had acted. A target who doesn't lose their turn takes psychic damage equal to twice your Intuition score for each main action they take until the end of their next turn."
 }

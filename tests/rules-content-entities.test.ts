@@ -7,11 +7,15 @@ import { fileURLToPath } from "node:url";
 
 import { describe, expect, it } from "vitest";
 
+import { applyEnglishIds } from "../scripts/content/english-ids.mjs";
+import { decorateKit, maps } from "../scripts/content/lib/originals.mjs";
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const RULES = path.join(ROOT, "content/rules");
 const SOURCE = path.join(ROOT, "src/data");
 const MIGRATE = path.join(ROOT, "scripts/content/migrate-entities.mjs");
 const IMPORT = path.join(ROOT, "scripts/content/import-legacy.mjs");
+const IDENTITY = path.join(ROOT, "scripts/content/lib/consumer-identity.json");
 
 function readJson(file: string): any {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -46,6 +50,24 @@ function render(article: any, entityById: Map<string, any>) {
         : (entityById.get(block.ref)?.markdown ?? ""),
     )
     .join("");
+}
+
+/** Хэш только статей и сущностей: отчёт зависит от окружения. */
+function contentHash(contentDir: string) {
+  const hash = new Map<string, string>();
+  for (const part of ["articles", "entities"]) {
+    for (const [file, digest] of hashTree(path.join(contentDir, part))) {
+      hash.set(`${part}/${file}`, digest);
+    }
+  }
+  return hash;
+}
+
+function entityFileById(contentDir: string, id: string) {
+  for (const file of walkJson(path.join(contentDir, "entities"))) {
+    if (readJson(file).id === id) return file;
+  }
+  throw new Error(`Не найден файл сущности ${id}`);
 }
 
 const legacyCodex = readJson(path.join(SOURCE, "codex.generated.json")) as any[];
@@ -122,27 +144,36 @@ describe("stage two canonical entity kinds", () => {
       kits0924: { mapped: 1, total: 1 },
     });
 
-    const kitLegacyIds = new Set(
+    const kitOriginalIds = new Set(
       entities
         .filter((entity) => entity.kind === "kit")
-        .flatMap((entity) => entity.legacyIds),
+        .map((entity) => entity.originalId),
     );
-    expect(kitLegacyIds.size).toBe(22);
-    expect([...kitLegacyIds].sort()).toEqual(
-      legacyKits.map((kit) => kit.id).sort(),
-    );
-
-    const projects = entities
-      .filter((entity) => entity.kind === "project")
-      .map((entity) => entity.legacyIds)
-      .flat()
+    const kitLegacyIds = legacyKits
+      .filter((kit) =>
+        kitOriginalIds.has(decorateKit({ legacyId: kit.id }).originalId),
+      )
+      .map((kit) => kit.id)
       .sort();
-    expect(projects).toEqual(
+    expect(kitLegacyIds).toHaveLength(22);
+    expect(kitLegacyIds).toEqual(legacyKits.map((kit) => kit.id).sort());
+
+    const projects = entities.filter((entity) => entity.kind === "project");
+    expect(projects.map((entity) => entity.source.articleId).sort()).toEqual(
       legacyLibrary
         .filter((article) => article.chapter.startsWith("16."))
         .map((article) => article.id)
         .sort(),
     );
+    // Каждый проект ссылается на английский исходник своей статьи.
+    expect(
+      projects.every((project) => {
+        const original = maps.catalog[project.source.articleId];
+        const originalId =
+          typeof original === "string" ? original : original?.originalId;
+        return originalId === project.originalId;
+      }),
+    ).toBe(true);
 
     const itemMappingIds = report.stageTwo.mappings.items.flatMap(
       (mapping: any) => mapping.entityIds,
@@ -235,8 +266,8 @@ describe("stage two canonical entity kinds", () => {
         if (!kit.markdown.includes("> **")) {
           problems.push({ kit: kit.id, reason: "missing-inlined-abilities" });
         }
-        if (kit.legacyIds.length !== 1) {
-          problems.push({ kit: kit.id, reason: "legacy-id" });
+        if (!kit.originalId) {
+          problems.push({ kit: kit.id, reason: "original-id" });
         }
         continue;
       }
@@ -254,8 +285,8 @@ describe("stage two canonical entity kinds", () => {
       if (kit.markdown.includes("> **")) {
         problems.push({ kit: kit.id, reason: "contains-ability-block" });
       }
-      if (kit.legacyIds.length !== 1) {
-        problems.push({ kit: kit.id, reason: "legacy-id" });
+      if (!kit.originalId) {
+        problems.push({ kit: kit.id, reason: "original-id" });
       }
     }
     expect(problems).toEqual([]);
@@ -378,9 +409,11 @@ describe("stage two canonical entity kinds", () => {
       entityFiles.map((file) => [readJson(file).id, file]),
     );
     for (const entity of NEW_ENTITY_IDS) {
+      const prefix = entity.kind === "item" ? "treasure" : entity.kind;
       expect(entity.id).toMatch(
-        /^(ancestry|class|career|culture|complication|item|kit|project|title)\.[a-z0-9.-]+$/,
+        /^(ancestry|class|career|culture|complication|treasure|kit|project|title)\.[a-z0-9.-]+$/,
       );
+      expect(entity.id.startsWith(`${prefix}.`), entity.id).toBe(true);
       expect(entity.id).not.toMatch(cyrillic);
       expect(entity.name).not.toBe("");
       const file = fileById.get(entity.id);
@@ -651,42 +684,47 @@ describe("stage two migration commands", () => {
     "is idempotent and preserves curated entity edits and article references",
     () => {
       const root = fs.mkdtempSync(path.join(os.tmpdir(), "rules-stage-two-"));
-      fs.cpSync(RULES, path.join(root, "content/rules"), { recursive: true });
       const content = path.join(root, "content/rules");
+      fs.cpSync(RULES, content, { recursive: true });
+      const identityPath = path.join(root, "consumer-identity.json");
+      fs.copyFileSync(IDENTITY, identityPath);
+      const applyEnglish = () =>
+        applyEnglishIds({ contentDir: content, identityPath });
+
+      // Полный конвейер: свежий импорт устаревших наборов, затем английские
+      // идентификаторы. Статьи и сущности обязаны совпасть с закоммиченным
+      // каноническим деревом построчно.
+      execFileSync(
+        process.execPath,
+        [IMPORT, "--source", SOURCE, "--out", content, "--replace"],
+        { cwd: ROOT, stdio: "pipe" },
+      );
+      applyEnglish();
+      const committed = contentHash(RULES);
+      expect(contentHash(content)).toEqual(committed);
 
       execFileSync(
         process.execPath,
-        [MIGRATE, "--content", content, "--source", SOURCE, "--check"],
+        [IMPORT, "--source", SOURCE, "--out", content, "--replace"],
         { cwd: ROOT, stdio: "pipe" },
       );
+      applyEnglish();
+      expect(contentHash(content)).toEqual(committed);
 
-      const before = hashTree(content);
-      execFileSync(process.execPath, [MIGRATE, "--content", content, "--source", SOURCE], {
-        cwd: ROOT,
-        stdio: "pipe",
-      });
-      expect(hashTree(content)).toEqual(before);
-
-      const kitFile = path.join(
-        content,
-        "entities/kit/kits/kit.kit-d79a75b7ea5c.json",
-      );
+      const kitFile = entityFileById(content, "kit.rapid-fire");
       const kit = readJson(kitFile);
       kit.markdown += "\n\n> Авторская правка комплекта.";
       fs.writeFileSync(kitFile, `${JSON.stringify(kit, null, 2)}\n`);
 
-      const abilityFile = path.join(
+      const abilityFile = entityFileById(
         content,
-        "entities/ability/class-neistovyy/ability.neistovyy-linii-sily-baa1fcb51a.json",
+        "feature.ability.fury.level-1.lines-of-force",
       );
       const ability = readJson(abilityFile);
       ability.markdown += "\n\n> Не трогать.";
       fs.writeFileSync(abilityFile, `${JSON.stringify(ability, null, 2)}\n`);
 
-      execFileSync(process.execPath, [MIGRATE, "--content", content, "--source", SOURCE], {
-        cwd: ROOT,
-        stdio: "pipe",
-      });
+      applyEnglish();
       expect(readJson(kitFile).markdown).toContain("Авторская правка комплекта.");
       expect(readJson(abilityFile).markdown).toContain("Не трогать.");
       expect(
@@ -694,7 +732,7 @@ describe("stage two migration commands", () => {
           .ref,
       ).toBe(kit.id);
     },
-    30_000,
+    60_000,
   );
 
   it(
@@ -739,7 +777,10 @@ describe("stage two migration commands", () => {
   it(
     "produces the same stage two tree from a fresh legacy import",
     () => {
-      const out = fs.mkdtempSync(path.join(os.tmpdir(), "rules-import-stage-two-"));
+      const root = fs.mkdtempSync(path.join(os.tmpdir(), "rules-import-stage-two-"));
+      const out = path.join(root, "content/rules");
+      const identityPath = path.join(root, "consumer-identity.json");
+      fs.copyFileSync(IDENTITY, identityPath);
       execFileSync(
         process.execPath,
         [IMPORT, "--source", SOURCE, "--out", out, "--replace"],
@@ -759,6 +800,10 @@ describe("stage two migration commands", () => {
       );
       expect(importedReport.deferred).toEqual(report.deferred);
 
+      // Английские идентификаторы применяются к свежему импорту тем же
+      // декоратором, что и к закоммиченному дереву.
+      applyEnglishIds({ contentDir: out, identityPath });
+
       const importedArticles = walkJson(path.join(out, "articles"))
         .map(readJson)
         .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
@@ -767,10 +812,32 @@ describe("stage two migration commands", () => {
       const importedById = new Map(
         importedEntities.map((entity) => [entity.id, entity]),
       );
+
+      const identityProblems: string[] = [];
+      for (const entity of entities) {
+        const imported = importedById.get(entity.id);
+        if (
+          !imported ||
+          imported.kind !== entity.kind ||
+          imported.originalId !== entity.originalId ||
+          imported.originalName !== entity.originalName ||
+          imported.markdown !== entity.markdown
+        ) {
+          identityProblems.push(entity.id);
+        }
+      }
+      expect(identityProblems).toEqual([]);
+
       const mismatches: string[] = [];
       for (const article of importedArticles) {
         const legacy = legacyArticleById.get(article.id);
-        if (!legacy || render(article, importedById) !== legacy.markdown) {
+        const committed = articleById.get(article.id);
+        if (
+          !legacy ||
+          render(article, importedById) !== legacy.markdown ||
+          !committed ||
+          JSON.stringify(article.blocks) !== JSON.stringify(committed.blocks)
+        ) {
           mismatches.push(article.id);
         }
       }

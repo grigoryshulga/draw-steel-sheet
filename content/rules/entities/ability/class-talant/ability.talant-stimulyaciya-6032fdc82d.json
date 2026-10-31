@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-stimulyaciya-6032fdc82d",
+  "id": "feature.ability.talent.level-1.awe",
   "kind": "ability",
   "name": "Стимуляция",
   "markdown": "> **Стимуляция (3 Ясности)**\n>\n> *Вы проецируете псионическую энергию на существо и принимаете нужный облик в его разуме.*\n>\n> | **Псионика, Дальний, Удар, Телепатия** | **Основное действие** |\n> | -------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Эффект:** Если вы нацеливаетесь на союзника, он получает временную выносливость, равную утроенному показателю вашего Присутствия, и может завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце его хода. Если вы нацеливаетесь на врага, вы делаете бросок силы.\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 3 + П психического урона; И < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 6 + П психического урона; И < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 9 + П психического урона; И < СИЛЬНЫЙ, испуг (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-stimulyaciya-6032fdc82d"
-  ],
   "ability": {
-    "id": "talant-stimulyaciya-6032fdc82d",
+    "id": "feature.ability.talent.level-1.awe",
     "name": "Стимуляция",
     "flavor": "Вы проецируете псионическую энергию на существо и принимаете нужный облик в его разуме.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/awe",
+    "originalName": "Awe",
+    "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/awe",
+  "originalName": "Awe",
+  "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)"
 }

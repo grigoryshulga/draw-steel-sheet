@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-rev-smerti-c0987130c4",
+  "id": "feature.ability.fury.level-9.death-rattle",
   "kind": "ability",
   "name": "Рев Смерти",
   "markdown": "> **Рев Смерти (11 Свирепости)**\n>\n> *Вы издаете потусторонний крик, который пронзает ваших врагов, убивая слабейших из них.*\n>\n> | **Область, Магия** | **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 психического урона; выносливость любой цели, являющейся миньоном, снижается до 0\n> - **12-16:** 6 психического урона; выносливость любой цели, являющейся миньоном, снижается до 0, так же как и у одной цели в состоянии утомления, которая не является лидером или соло-существом\n> - **17+:** 10 психического урона; каждая цель, которая не является лидером или соло-существом, переходит в состояние утомления; выносливость любой цели, являющейся миньоном, снижается до 0, так же как и у одной цели в состоянии утомления, которая не является лидером или соло-существом",
@@ -7,11 +7,8 @@
     "articleId": "0809",
     "path": "08. Классы/Неистовый/0809. 9-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-rev-smerti-c0987130c4"
-  ],
   "ability": {
-    "id": "neistovyy-rev-smerti-c0987130c4",
+    "id": "feature.ability.fury.level-9.death-rattle",
     "name": "Рев Смерти",
     "flavor": "Вы издаете потусторонний крик, который пронзает ваших врагов, убивая слабейших из них.",
     "actionType": "main",
@@ -48,6 +45,12 @@
     "className": "Неистовый",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-rattle",
+    "originalName": "Death Rattle",
+    "originalDescription": "*You unleash an otherworldly cry that rips through your enemies, killing the weakest of them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 psychic damage; any target who is a minion is reduced to 0 Stamina\n- **12-16:** 6 psychic damage; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature\n- **17+:** 10 psychic damage; each target who is not a leader or solo creature is winded; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-rattle",
+  "originalName": "Death Rattle",
+  "originalDescription": "*You unleash an otherworldly cry that rips through your enemies, killing the weakest of them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 psychic damage; any target who is a minion is reduced to 0 Stamina\n- **12-16:** 6 psychic damage; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature\n- **17+:** 10 psychic damage; each target who is not a leader or solo creature is winded; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature"
 }

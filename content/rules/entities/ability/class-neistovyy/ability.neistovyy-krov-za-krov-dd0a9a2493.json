@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-krov-za-krov-dd0a9a2493",
+  "id": "feature.ability.fury.level-1.blood-for-blood",
   "kind": "ability",
   "name": "Кровь за Кровь!",
   "markdown": "> **Кровь за Кровь! (5 Свирепости)**\n>\n> *Посмотрите, как хорошо они сражаются после того, как вы обескровили их.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 + М урона; М < СЛАБЫЙ, кровотечение и ослабление (до прох.)\n> - **12-16:** 6 + М урона; М < СРЕДНИЙ, кровотечение и ослабление (до прох.)\n> - **17+:** 10 + М урона; М < СИЛЬНЫЙ, кровотечение и ослабление (до прох.)\n>\n> **Эффект:** Вы можете нанести себе 1d6 урона, чтобы нанести дополнительно 1d6 урона цели.",
@@ -7,11 +7,8 @@
     "articleId": "0801",
     "path": "08. Классы/Неистовый/0801. 1-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-krov-za-krov-dd0a9a2493"
-  ],
   "ability": {
-    "id": "neistovyy-krov-za-krov-dd0a9a2493",
+    "id": "feature.ability.fury.level-1.blood-for-blood",
     "name": "Кровь за Кровь!",
     "flavor": "Посмотрите, как хорошо они сражаются после того, как вы обескровили их.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Неистовый",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/blood-for-blood",
+    "originalName": "Blood for Blood!",
+    "originalDescription": "*See how well they fight after you've bled them dry.*\n\n| **Melee, Strike, Weapon**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1**              | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; M < WEAK, bleeding and weakened (save ends)\n- **12-16:** 6 + M damage; M < AVERAGE, bleeding and weakened (save ends)\n- **17+:** 10 + M damage; M < STRONG, bleeding and weakened (save ends)\n\n**Effect:** You can deal 1d6 damage to yourself to deal an extra 1d6 damage to the target."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/blood-for-blood",
+  "originalName": "Blood for Blood!",
+  "originalDescription": "*See how well they fight after you've bled them dry.*\n\n| **Melee, Strike, Weapon**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1**              | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; M < WEAK, bleeding and weakened (save ends)\n- **12-16:** 6 + M damage; M < AVERAGE, bleeding and weakened (save ends)\n- **17+:** 10 + M damage; M < STRONG, bleeding and weakened (save ends)\n\n**Effect:** You can deal 1d6 damage to yourself to deal an extra 1d6 damage to the target."
 }

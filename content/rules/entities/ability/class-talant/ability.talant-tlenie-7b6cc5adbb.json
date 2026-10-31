@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-tlenie-7b6cc5adbb",
+  "id": "feature.ability.talent.level-1.smolder",
   "kind": "ability",
   "name": "Тление",
   "markdown": "> **Тление (3 Ясности)**\n>\n> *Дым течет из вашего врага, как слезы, пока его кожа начинает чернеть и отслаиваться.*\n>\n> | **Псионика, Пирокинез, Дальний, Удар** | **Основное действие** |\n> | ---------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Эффект:** Выберите тип урона и уязвимость для этой способности из следующего: урон кислотой, урон порчей или урон огнем. Цель получает урон до того, как эта способность накладывает уязвимость.\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 + Р урона; Р < СЛАБЫЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **12-16:** 6 + Р урона; Р < СРЕДНИЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **17+:** 9 + Р урона; Р < СИЛЬНЫЙ, цель имеет уязвимость к урону, равную 5 + показатель вашего Разума (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-tlenie-7b6cc5adbb"
-  ],
   "ability": {
-    "id": "talant-tlenie-7b6cc5adbb",
+    "id": "feature.ability.talent.level-1.smolder",
     "name": "Тление",
     "flavor": "Дым течет из вашего врага, как слезы, пока его кожа начинает чернеть и отслаиваться.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/smolder",
+    "originalName": "Smolder",
+    "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/smolder",
+  "originalName": "Smolder",
+  "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)"
 }

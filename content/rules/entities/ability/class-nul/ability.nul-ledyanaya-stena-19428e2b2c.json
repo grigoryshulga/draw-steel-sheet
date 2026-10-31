@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-ledyanaya-stena-19428e2b2c",
+  "id": "feature.ability.null.level-6.wall-of-ice",
   "kind": "ability",
   "name": "Ледяная Стена",
   "markdown": "> **Ледяная Стена (9 Дисциплины)**\n>\n> *Вы создаете стену изо льда.*\n>\n> | **Область, Псионика, Дальний** | **Основное действие** |\n> | ------------------------- | --------------: |\n> | **📏 Стена 10 в пределах 10** | **🎯 Особая** |\n>\n> **Эффект:** Вы можете разместить эту стену на занятых клетках, совершив швыряние каждого существа в области на ближайшую свободную клетку по вашему выбору. Стена остается до конца боевой встречи или пока вы не окажетесь при смерти. Клетки стены рассматриваются как каменные клетки для целей урона, и вы и союзники можете свободно проходить сквозь стену. Каждый враг, который входит на клетку, смежную со стеной, и имеет М < СРЕДНИЙ, получает замедление (до прох.). Каждый враг, который подвергается принудительному движению в стену и имеет М < СРЕДНИЙ, получает опутанность (до прох.).",
@@ -7,11 +7,8 @@
     "articleId": "0816",
     "path": "08. Классы/Нуль/0816. 6-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-ledyanaya-stena-19428e2b2c"
-  ],
   "ability": {
-    "id": "nul-ledyanaya-stena-19428e2b2c",
+    "id": "feature.ability.null.level-6.wall-of-ice",
     "name": "Ледяная Стена",
     "flavor": "Вы создаете стену изо льда.",
     "actionType": "main",
@@ -47,6 +44,12 @@
     "className": "Нуль",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/wall-of-ice",
+    "originalName": "Wall of Ice",
+    "originalDescription": "*You create a wall of ice.*\n\n| **Area, Psionic, Ranged** | **Main action** |\n|---------------------------|----------------:|\n| **📏 10 wall within 10**  |  **🎯 Special** |\n\n**Effect:** You can place this wall in occupied squares, sliding each creature in the area into the nearest unoccupied space of your choice. The wall remains until the end of the encounter or until you are dying. The wall's squares are treated as stone squares for the purpose of damage, and you and allies can move freely through the wall. Each enemy who enters a square adjacent to the wall and has M < AVERAGE is slowed (save ends). Each enemy who is force moved into the wall and has M < AVERAGE is restrained (save ends)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/wall-of-ice",
+  "originalName": "Wall of Ice",
+  "originalDescription": "*You create a wall of ice.*\n\n| **Area, Psionic, Ranged** | **Main action** |\n|---------------------------|----------------:|\n| **📏 10 wall within 10**  |  **🎯 Special** |\n\n**Effect:** You can place this wall in occupied squares, sliding each creature in the area into the nearest unoccupied space of your choice. The wall remains until the end of the encounter or until you are dying. The wall's squares are treated as stone squares for the purpose of damage, and you and allies can move freely through the wall. Each enemy who enters a square adjacent to the wall and has M < AVERAGE is slowed (save ends). Each enemy who is force moved into the wall and has M < AVERAGE is restrained (save ends)."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-petlya-obratnoy-svyazi-35ffb2400b",
+  "id": "feature.ability.talent.level-1.feedback-loop",
   "kind": "ability",
   "name": "Петля Обратной Связи",
   "markdown": "> **Петля Обратной Связи**\n>\n> *Создание краткой психической связи между врагом и его целью дает этому врагу попробовать собственное лекарство.*\n>\n> | **Псионика, Дальний** | **Триггер** |\n> | ------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель наносит урон союзнику.\n>\n> **Эффект:** Цель получает психический урон, равный половине вызвавшего триггер урона.",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-petlya-obratnoy-svyazi-35ffb2400b"
-  ],
   "ability": {
-    "id": "talant-petlya-obratnoy-svyazi-35ffb2400b",
+    "id": "feature.ability.talent.level-1.feedback-loop",
     "name": "Петля Обратной Связи",
     "flavor": "Создание краткой психической связи между врагом и его целью дает этому врагу попробовать собственное лекарство.",
     "actionType": "trigger",
@@ -46,6 +43,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/feedback-loop",
+    "originalName": "Feedback Loop",
+    "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/feedback-loop",
+  "originalName": "Feedback Loop",
+  "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage."
 }

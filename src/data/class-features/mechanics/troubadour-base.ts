@@ -14,7 +14,7 @@ import type { FeatureMechanics } from "../types";
  * карточками справочника и выбором билдера; здесь только контейнеры и выбор.
  */
 export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "troubadour.feature.1.amplua-trubadura": {
+  "feature.troubadour.level-1.troubadour-class-act": {
     kinds: ["choice", "grant"],
     choice: {
       group: "troubadour.troupe",
@@ -33,14 +33,14 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "героя. Амплуа также определяет особенности 1/3/5/8 уровней, триггер " +
       "1-го уровня и способности 2/6/9 уровней. Быстрый билд: Виртуоз.",
   },
-  "troubadour.feature.1.komplekt": {
+  "feature.troubadour.level-1.kit": {
     kinds: ["grant"],
     notes:
       "Герой может использовать комплект и получать его преимущества; " +
       "комплект считается частью листа и выдаётся билдером. Быстрый билд: " +
       "Головорез.",
   },
-  "troubadour.feature.1.partner-po-stsene": {
+  "feature.troubadour.level-1.scene-partner": {
     kinds: ["situational"],
     notes:
       "Когда герой получает успех в тесте взаимодействия с НПС навыком " +
@@ -51,7 +51,7 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "связей не больше уровня героя; при превышении лимита игрок выбирает, " +
       "какую связь потерять. Связи и их лимит лист не хранит.",
   },
-  "troubadour.feature.1.nomera": {
+  "feature.troubadour.level-1.routines": {
     kinds: ["situational"],
     notes:
       "Герой вступает в каждую битву с набором готовых выступлений — магических " +
@@ -64,7 +64,7 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "и «Живительным лимериком»; амплуа добавляет свои выступления. Активное " +
       "выступление и его ауру лист не хранит — выбор делается вручную.",
   },
-  "troubadour.feature.1.osobennosti-amplua-1-go-urovnya": {
+  "feature.troubadour.level-1.1st-level-class-act-features": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт две особенности 1-го уровня по таблице. Автор — " +
@@ -72,21 +72,21 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "сила; Виртуоз — Мощный аккорд и Выступления виртуоза. Механику дают " +
       "вложенные записи выбранного амплуа.",
   },
-  "troubadour.feature.1.trigger-amplua": {
+  "feature.troubadour.level-1.class-act-triggered-action": {
     kinds: ["grant"],
     notes:
       "Контейнер: амплуа даёт триггер 1-го уровня по таблице. Автор — Око за " +
       "око, Дуэлянт — Рипост, Виртуоз — Гармонизация. Механику дают вложенные " +
       "записи выбранного амплуа.",
   },
-  "troubadour.feature.1.sposobnosti-trubadura": {
+  "feature.troubadour.level-1.troubadour-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковая способность и героические " +
       "способности 1-го уровня описаны вложенными записями, а конкретные " +
       "карточки выбираются билдером и повышением уровня.",
   },
-  "troubadour.feature.1.znakovaya-sposobnost": {
+  "feature.troubadour.level-1.signature-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну знаковую способность из списка: Искусный Росчерк, " +
@@ -95,13 +95,13 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор идёт в билдере способностей, отдельный список вариантов в листе не " +
       "нужен. Быстрый билд: Остроумная перепалка.",
   },
-  "troubadour.feature.1.geroicheskie-sposobnosti": {
+  "feature.troubadour.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 драмы " +
       "описаны дочерними записями и карточками справочника.",
   },
-  "troubadour.feature.1.sposobnost-za-3-dramy": {
+  "feature.troubadour.level-1.3-drama-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 драмы: Суровый " +
@@ -109,7 +109,7 @@ export const TROUBADOUR_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор идёт в билдере способностей при создании героя; отдельный список " +
       "вариантов в листе не нужен. Быстрый билд: Суровый критик.",
   },
-  "troubadour.feature.1.sposobnost-za-5-dramy": {
+  "feature.troubadour.level-1.5-drama-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 драмы: " +

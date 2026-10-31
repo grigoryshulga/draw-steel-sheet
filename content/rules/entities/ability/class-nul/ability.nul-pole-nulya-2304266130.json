@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-pole-nulya-2304266130",
+  "id": "feature.ability.null.level-1.null-field",
   "kind": "ability",
   "name": "Поле Нуля",
   "markdown": "> **Поле Нуля**\n>\n> *Вы проецируете ауру, которая ослабляет силу ваших врагов.*\n>\n> | **Область, Псионика** | **Маневр** |\n> | ----------------- | ----------------------------: |\n> | **📏 Аура 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель уменьшает свои потенциалы на 1.\n>\n> Один раз как свободный маневр в каждый ваш ход, вы можете потратить 1 дисциплины и дать вашему Полю нуля один из следующих дополнительных эффектов до начала вашего следующего хода:\n>\n> - Гравитационное разрушение (Gravitic Disruption): В первый раз в ход, когда цель получает урон, вы можете совершить ее швыряние вплоть до 2 клеток.\n> - Инерционный якорь (Inertial Anchor): Любая цель, которая начинает свой ход в области, не может смещаться.\n> - Синаптический разрыв (Synaptic Break): Всякий раз, когда вы или любой союзник используете способность против цели, которая имеет эффект потенциала, потенциал увеличивается на 1.\n>\n> Эта способность остается активной даже после окончания столкновения. Она заканчивается только если вы находитесь при смерти или если вы добровольно завершаете ее (действие не требуется).",
@@ -7,11 +7,8 @@
     "articleId": "0811",
     "path": "08. Классы/Нуль/0811. 1-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-pole-nulya-2304266130"
-  ],
   "ability": {
-    "id": "nul-pole-nulya-2304266130",
+    "id": "feature.ability.null.level-1.null-field",
     "name": "Поле Нуля",
     "flavor": "Вы проецируете ауру, которая ослабляет силу ваших врагов.",
     "actionType": "maneuver",
@@ -46,6 +43,12 @@
     "className": "Нуль",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/null-field",
+    "originalName": "Null Field",
+    "originalDescription": "*You project an aura that dampens the power of your foes.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 1 aura**     | **🎯 Each enemy in the area** |\n\n**Effect:** Each target reduces their potencies by 1.\n\nOnce as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/null-field",
+  "originalName": "Null Field",
+  "originalDescription": "*You project an aura that dampens the power of your foes.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 1 aura**     | **🎯 Each enemy in the area** |\n\n**Effect:** Each target reduces their potencies by 1.\n\nOnce as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required)."
 }

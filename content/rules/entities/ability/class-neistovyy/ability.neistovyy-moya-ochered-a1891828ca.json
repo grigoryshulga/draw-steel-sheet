@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-moya-ochered-a1891828ca",
+  "id": "feature.ability.fury.level-5.my-turn",
   "kind": "ability",
   "name": "Моя Очередь!",
   "markdown": "> **Моя Очередь! (9 Свирепости)**\n>\n> *Вы быстро наносите ответный удар врагу.*\n>\n> | **Ближний, Удар, Оружие** | **Свободный триггер** |\n> | ------------------------- | -----------------------------: |\n> | **📏 Ближний 1** | **🎯 Вызвавшее триггер существо** |\n>\n> **Триггер:** Существо заставляет вас войти в состояние утомления или быть при смерти, или наносит вам урон, пока вы находитесь в состоянии утомления или при смерти.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 6 + М урона\n> - **12-16:** 9 + М урона\n> - **17+:** 13 + М урона\n>\n> **Эффект:** Вы можете потратить Восстановление.",
@@ -7,11 +7,8 @@
     "articleId": "0805",
     "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-moya-ochered-a1891828ca"
-  ],
   "ability": {
-    "id": "neistovyy-moya-ochered-a1891828ca",
+    "id": "feature.ability.fury.level-5.my-turn",
     "name": "Моя Очередь!",
     "flavor": "Вы быстро наносите ответный удар врагу.",
     "actionType": "free-trigger",
@@ -49,6 +46,12 @@
     "className": "Неистовый",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+    "originalName": "My Turn!",
+    "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+  "originalName": "My Turn!",
+  "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
 }

@@ -12,7 +12,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 3-й уровень
-  "shadow.feature.3.vnimatelnoe-nablyudenie": {
+  "feature.shadow.level-3.careful-observation": {
     kinds: ["grant", "situational"],
     notes:
       "Способность «Внимательное наблюдение» выдаётся на 3-м уровне и описана " +
@@ -22,7 +22,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "наблюдаемой цели и 1 всплеск, который можно потратить только на этот " +
       "удар. Цель и линию воздействия лист не хранит.",
   },
-  "shadow.feature.3.sposobnost-za-7-prozreniya": {
+  "feature.shadow.level-3.7-insight-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 Прозрения: " +
@@ -32,21 +32,21 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "shadow.feature.4.uvelichenie-kharakteristik": {
+  "feature.shadow.level-4.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Ловкость поднимается до 3, и ещё одна характеристика увеличивается на 1 " +
       "до максимума 3. Повышение уровня уже применяет изменение; аддитивного " +
       "эффекта здесь нет, иначе характеристики выросли бы дважды.",
   },
-  "shadow.feature.4.potishe": {
+  "feature.shadow.level-4.keep-it-down": {
     kinds: ["situational"],
     notes:
       "Разговаривая с существом на общем языке, герой решает, сможет ли " +
       "кто-нибудь ещё воспринимать переданное, даже если он кричит. Лист не " +
       "ведёт разговоры и наблюдателей — правило применяется вручную.",
   },
-  "shadow.feature.4.nochnoy-dozor": {
+  "feature.shadow.level-4.night-watch": {
     kinds: ["grant", "situational"],
     notes:
       "Пока герой скрыт, враги получают помеху на тесты, чтобы найти его или " +
@@ -56,7 +56,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "пока герой скрыт, союзник получает половину урона, а герой остаётся " +
       "скрытым. Скрытность лист не отслеживает.",
   },
-  "shadow.feature.4.vsplesk-prozreniya": {
+  "feature.shadow.level-4.surge-of-insight": {
     kinds: ["resourceGain"],
     resource: {
       name: "Прозрение",
@@ -78,7 +78,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 5-й уровень
-  "shadow.feature.5.sposobnost-za-9-prozreniya": {
+  "feature.shadow.level-5.9-insight-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 9 Прозрения: " +
@@ -88,7 +88,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 6-й уровень
-  "shadow.feature.6.tenevaya-forma": {
+  "feature.shadow.level-6.umbral-form": {
     kinds: ["situational"],
     notes:
       "Маневром герой теряет контроль над собой и становится теневым " +
@@ -108,14 +108,14 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 7-й уровень
-  "shadow.feature.7.uvelichenie-kharakteristik": {
+  "feature.shadow.level-7.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Каждая характеристика увеличивается на 1 до максимума 4. Повышение " +
       "уровня уже применяет изменение; аддитивного эффекта здесь нет, иначе " +
       "характеристики выросли бы дважды.",
   },
-  "shadow.feature.7.ostroe-prozrenie": {
+  "feature.shadow.level-7.keen-insight": {
     kinds: ["resourceGain"],
     resource: {
       name: "Прозрение",
@@ -135,14 +135,14 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "вместо 1d3. Замена действует на базовую прибавку начала хода, поэтому " +
       "второй строки за тот же тег не остаётся.",
   },
-  "shadow.feature.7.uluchshenie-vnimatelnogo-nablyudeniya": {
+  "feature.shadow.level-7.careful-observation-improvement": {
     kinds: ["situational"],
     notes:
       "Способность «Внимательное наблюдение» может нацеливаться на двух " +
       "существ одновременно, и удар по одной цели не отменяет наблюдение за " +
       "другой. Лист не хранит наблюдаемые цели — правило применяется вручную.",
   },
-  "shadow.feature.7.chrevoveshchatel": {
+  "feature.shadow.level-7.ventriloquist": {
     kinds: ["situational"],
     notes:
       "При общении герой может проецировать голос так, будто он исходит от " +
@@ -151,7 +151,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 8-й уровень
-  "shadow.feature.8.sposobnost-za-11-prozreniya": {
+  "feature.shadow.level-8.11-insight-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 11 Прозрения: " +
@@ -161,7 +161,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 9-й уровень
-  "shadow.feature.9.mrachnyy-otryad": {
+  "feature.shadow.level-9.gloom-squad": {
     kinds: ["situational"],
     notes:
       "В начале каждого своего хода герой может отказаться от получения " +
@@ -178,14 +178,14 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 10-й уровень
-  "shadow.feature.10.uvelichenie-kharakteristik": {
+  "feature.shadow.level-10.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Ловкость поднимается до 5, и ещё одна характеристика увеличивается на 1 " +
       "до максимума 5. Повышение уровня уже применяет изменение; аддитивного " +
       "эффекта здесь нет, иначе характеристики выросли бы дважды.",
   },
-  "shadow.feature.10.resurs-smerti": {
+  "feature.shadow.level-10.death-pool": {
     kinds: ["resourceGain"],
     resource: {
       name: "Прозрение",
@@ -205,7 +205,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "всплесков, он получает 3 Прозрения вместо 2. Замена перекрывает " +
       "прибавку 4-го уровня: за раунд остаётся ровно одна строка этого тега.",
   },
-  "shadow.feature.10.uluchshenie-vnimatelnogo-nablyudeniya": {
+  "feature.shadow.level-10.careful-observation-improvement": {
     kinds: ["situational"],
     notes:
       "Способность «Внимательное наблюдение» может нацеливаться на трёх " +
@@ -213,7 +213,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "целей было две. Лист не хранит наблюдаемые цели — правило применяется " +
       "вручную.",
   },
-  "shadow.feature.10.uluchshennaya-tenevaya-forma": {
+  "feature.shadow.level-10.improved-umbral-form": {
     kinds: ["situational"],
     notes:
       "Герой полностью контролирует теневую форму и может закончить " +
@@ -226,7 +226,7 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
       "использования способности. Форму лист не переключает — эффекты " +
       "применяются вручную.",
   },
-  "shadow.feature.10.ulovka": {
+  "feature.shadow.level-10.subterfuge": {
     kinds: ["resource"],
     notes:
       "Уловка — эпический ресурс Тени. В конце отдыха герой получает Уловку, " +
@@ -242,20 +242,20 @@ export const SHADOW_LEVEL_MECHANICS: Record<string, FeatureMechanics> = {
  * Перки и навыки выбираются из каталога, а не хранятся механикой.
  */
 export const SHADOW_LEVEL_TEXT_ONLY: Record<string, string> = {
-  "shadow.feature.2.perk":
+  "feature.shadow.level-2.perk":
     "перк 2-го уровня выбирается из каталога перков (исследования, межличностных навыков или интриги); механика его не хранит",
-  "shadow.feature.4.perk":
+  "feature.shadow.level-4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "shadow.feature.4.navyk":
+  "feature.shadow.level-4.skill":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
-  "shadow.feature.6.perk":
+  "feature.shadow.level-6.perk":
     "перк 6-го уровня выбирается из каталога перков; механика его не хранит",
-  "shadow.feature.7.navyk":
+  "feature.shadow.level-7.skill":
     "навык 7-го уровня выбирается из каталога навыков; механика его не хранит",
-  "shadow.feature.8.perk":
+  "feature.shadow.level-8.perk":
     "перк 8-го уровня выбирается из каталога перков; механика его не хранит",
-  "shadow.feature.10.perk":
+  "feature.shadow.level-10.perk":
     "перк 10-го уровня выбирается из каталога перков; механика его не хранит",
-  "shadow.feature.10.navyk":
+  "feature.shadow.level-10.skill":
     "навык 10-го уровня выбирается из каталога навыков; механика его не хранит",
 };

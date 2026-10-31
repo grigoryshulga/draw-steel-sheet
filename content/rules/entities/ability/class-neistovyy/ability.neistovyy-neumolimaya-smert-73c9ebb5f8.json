@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-neumolimaya-smert-73c9ebb5f8",
+  "id": "feature.ability.fury.level-8.relentless-death",
   "kind": "ability",
   "name": "Неумолимая Смерть",
   "markdown": "> **Неумолимая Смерть (11 Свирепости)**\n>\n> *Им не избежать своей участи.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы смещаетесь на расстояние вплоть до вашей скорости. Каждый враг, с которым вы становитесь смежными во время этого движения, получает урон, равный двойному показателю вашей Мощи. Затем сделайте один бросок силы, который нацелен на каждого врага, с которым вы становитесь смежными во время этого смещения. Вы получаете 1 свирепости за каждую цель, которая умирает в результате этой способности (максимум 11 свирепости).\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Любая цель, чья выносливость равна или меньше 8, умирает.\n> - **12-16:** Любая цель, чья выносливость равна или меньше 11, умирает.\n> - **17+:** Любая цель, чья выносливость равна или меньше 17, умирает.",
@@ -7,11 +7,8 @@
     "articleId": "0808",
     "path": "08. Классы/Неистовый/0808. 8-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-neumolimaya-smert-73c9ebb5f8"
-  ],
   "ability": {
-    "id": "neistovyy-neumolimaya-smert-73c9ebb5f8",
+    "id": "feature.ability.fury.level-8.relentless-death",
     "name": "Неумолимая Смерть",
     "flavor": "Им не избежать своей участи.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Неистовый",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/relentless-death",
+    "originalName": "Relentless Death",
+    "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/relentless-death",
+  "originalName": "Relentless Death",
+  "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies."
 }

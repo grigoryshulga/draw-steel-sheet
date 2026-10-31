@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-izgnanie-1f6e318fce",
+  "id": "feature.ability.censor.level-9.banish",
   "kind": "ability",
   "name": "Изгнание",
   "markdown": "> **Изгнание (11 Гнева)**\n>\n> *Вы разрываете слабую связь цели с миром.*\n>\n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 5 + М урона; П < СЛАБЫЙ, цель изгнана (до прох.)\n> - **12-16:** 8 + М урона; П < СРЕДНИЙ, цель изгнана (до прох.)\n> - **17+:** 11 + М урона; П < СИЛЬНЫЙ, цель изгнана (до прох.)\n>\n> **Эффект:** Эта способность получает преимущество против демонов, дьяволов, нежити и существ, не являющихся коренными для вашего текущего мира. Если вы знаете истинное имя цели, эта способность получает двойное преимущество. Будучи изгнанной, цель отправляется в другой манифольд в мультивселенной и убирается с карты боевой встречи. Изгнанная цель не может делать ничего, кроме как совершать спасброски, и получает 10 святого урона каждый раз, когда делает это. Если выносливость цели падает до 0, пока она изгнана, она теряется в мультивселенной.",
@@ -7,11 +7,8 @@
     "articleId": "0889",
     "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-izgnanie-1f6e318fce"
-  ],
   "ability": {
-    "id": "cenzor-izgnanie-1f6e318fce",
+    "id": "feature.ability.censor.level-9.banish",
     "name": "Изгнание",
     "flavor": "Вы разрываете слабую связь цели с миром.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+    "originalName": "Banish",
+    "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+  "originalName": "Banish",
+  "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
 }

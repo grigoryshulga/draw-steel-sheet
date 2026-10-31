@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-lovushka-razuma-f602141a4f",
+  "id": "feature.ability.talent.level-5.mind-snare",
   "kind": "ability",
   "name": "Ловушка Разума",
   "markdown": "> **Ловушка Разума (9 Ясности)**\n>\n> *Вы вцепляетесь в мозг вашей жертвы и не отпускаете, словно песня, которую они не могут выбросить из головы.*\n>\n> | **Псионика, Дальний, Удар, Телепатия** | **Основное действие** |\n> | -------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 10 + Р психического урона; Р < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 14 + Р психического урона; Р < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 20 + Р психического урона; Р < СИЛЬНЫЙ, замедление (до прох.)\n>\n> **Эффект:** Находясь в состоянии замедления таким образом, цель получает 3 психического урона за каждую клетку, которую она добровольно покидает.\n>\n> **Возбужденность:** Находясь в состоянии замедления таким образом, цель вместо этого получает 5 психического урона за каждую клетку, которую она добровольно покидает. Вы получаете двойную помеху на броски способностей, сделанные против цели, пока она находится в состоянии замедления таким образом.",
@@ -7,11 +7,8 @@
     "articleId": "0855",
     "path": "08. Классы/Талант/0855. 5-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-lovushka-razuma-f602141a4f"
-  ],
   "ability": {
-    "id": "talant-lovushka-razuma-f602141a4f",
+    "id": "feature.ability.talent.level-5.mind-snare",
     "name": "Ловушка Разума",
     "flavor": "Вы вцепляетесь в мозг вашей жертвы и не отпускаете, словно песня, которую они не могут выбросить из головы.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/mind-snare",
+    "originalName": "Mind Snare",
+    "originalDescription": "*You latch onto your prey's brain and don't let go, like a song they can't get out of their head.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 + R psychic damage; R < WEAK, slowed (save ends)\n- **12-16:** 14 + R psychic damage; R < AVERAGE, slowed (save ends)\n- **17+:** 20 + R psychic damage; R < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 3 psychic damage for each square they willingly leave.\n\n**Strained:** While slowed this way, the target instead takes 5 psychic damage for each square they willingly leave. You have a double bane on ability rolls made against the target while they are slowed this way."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/mind-snare",
+  "originalName": "Mind Snare",
+  "originalDescription": "*You latch onto your prey's brain and don't let go, like a song they can't get out of their head.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 + R psychic damage; R < WEAK, slowed (save ends)\n- **12-16:** 14 + R psychic damage; R < AVERAGE, slowed (save ends)\n- **17+:** 20 + R psychic damage; R < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 3 psychic damage for each square they willingly leave.\n\n**Strained:** While slowed this way, the target instead takes 5 psychic damage for each square they willingly leave. You have a double bane on ability rolls made against the target while they are slowed this way."
 }

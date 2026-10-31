@@ -13,7 +13,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 5-й уровень
-  "talent.tradition.5.prinuzhdenie": {
+  "feature.talent.level-5.compulsion": {
     kinds: ["situational"],
     notes:
       "Телепатия. Успех в межличностном тесте при взаимодействии с НПС " +
@@ -21,7 +21,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "отвечает правдиво, насколько может. Лист не проверяет результат теста " +
       "и не ведёт разговор, поэтому правило применяется вручную.",
   },
-  "talent.tradition.5.iskazhenie-vremeni": {
+  "feature.talent.level-5.distortion-temporal": {
     kinds: ["situational"],
     notes:
       "Хронопатия. Пока герой не при смерти, вокруг него действует аура 3: " +
@@ -30,7 +30,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "своего хода. Лист не хранит ауры и входы в неё — числа применяются " +
       "вручную.",
   },
-  "talent.tradition.5.kineticheskiy-usilitel": {
+  "feature.talent.level-5.kinetic-amplifier": {
     kinds: ["trigger"],
     trigger: {
       event: "forced-movement",
@@ -45,7 +45,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Телекинез. Трата всплесков и выбор их количества — решение игрока, а не " +
       "автоматическая прибавка: лист только напоминает о срабатывании.",
   },
-  "talent.tradition.5.udalennoe-usilenie": {
+  "feature.talent.level-5.remote-amplification": {
     kinds: ["bonus"],
     effects: [
       {
@@ -60,7 +60,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "расстоянию. Радиус Телепатической речи при этом растёт до 1 мили; лист " +
       "не хранит радиус особенности, поэтому милю игрок отслеживает вручную.",
   },
-  "talent.tradition.5.skorost-mysli": {
+  "feature.talent.level-5.speed-of-thought": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -75,7 +75,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Хронопатия. Трата Ясности и выбор триггера остаются за игроком: " +
       "напоминание не меняет тип триггера на листе.",
   },
-  "talent.tradition.5.triangulyatsiya": {
+  "feature.talent.level-5.triangulate": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -92,7 +92,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "место; трата Ясности и пересчёт позиции — вручную.",
   },
   // ---------------------------------------------------------------- 8-й уровень
-  "talent.tradition.8.udvoenie-chasov": {
+  "feature.talent.level-8.doubling-the-hours": {
     kinds: ["situational"],
     notes:
       "Хронопатия. Если у героя 5 или больше Побед, во время отдыха он может " +
@@ -100,7 +100,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "для этой проверки и не ограничивает число деятельностей — применяется " +
       "вручную.",
   },
-  "talent.tradition.8.pole-levitatsii": {
+  "feature.talent.level-8.levitation-field": {
     kinds: ["grant"],
     notes:
       "Телекинез. Способность «Поле Левитации» приходит вместе с традицией и " +
@@ -108,14 +108,14 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "справочнике. Маневр даёт союзникам в области полёт до начала следующего " +
       "хода, за 5 Ясности — на 1 час; устойчивость летящих снижается до 0.",
   },
-  "talent.tradition.8.nizkaya-gravitatsiya": {
+  "feature.talent.level-8.low-gravity": {
     kinds: ["situational"],
     notes:
       "Телекинез. Герой игнорирует труднопроходимую местность и не тратит " +
       "дополнительное движение, находясь лежачим. Лист не хранит тип " +
       "местности и положение тела — правило применяется вручную.",
   },
-  "talent.tradition.8.svyaz-razumov": {
+  "feature.talent.level-8.mindlink": {
     kinds: ["trigger"],
     trigger: {
       event: "respite",
@@ -132,7 +132,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Телепатия. Лист не хранит список связанных существ и не тратит " +
       "Восстановления за них; связь и обмен восстановлениями ведутся вручную.",
   },
-  "talent.tradition.8.stazisnyy-shchit": {
+  "feature.talent.level-8.stasis-shield": {
     kinds: ["grant"],
     notes:
       "Хронопатия. Способность «Стазисный Щит» приходит вместе с традицией и " +
@@ -140,7 +140,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "справочнике. Триггер за 3 Ясности телепортирует цель на свободную клетку " +
       "рядом с героем, если это уводит её от опасности.",
   },
-  "talent.tradition.8.bezgranichnaya-svyaz": {
+  "feature.talent.level-8.universal-connection": {
     kinds: ["situational"],
     notes:
       "Телепатия. Радиус Телепатической речи растёт до любой точки в пределах " +
@@ -149,7 +149,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "запись оставлена под именем блока. Лист не хранит дальность связи.",
   },
   // ------------------------------------------- контейнеры способностей 6-го уровня
-  "talent.feature.6.sposobnosti-khronopatii-6-go-urovnya": {
+  "feature.talent.level-6.chronopathy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Хронопатия"] },
     notes:
@@ -157,7 +157,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Стазисное Поле, обе за 9 Ясности. Выбор делается при повышении уровня " +
       "по подклассу.",
   },
-  "talent.feature.6.sposobnosti-telekineza-6-go-urovnya": {
+  "feature.talent.level-6.telekinesis-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Телекинез"] },
     notes:
@@ -165,7 +165,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Гравитационный Колодец или Великий Кинетический Захват, обе за 9 " +
       "Ясности. Выбор делается при повышении уровня по подклассу.",
   },
-  "talent.feature.6.sposobnosti-telepatii-6-go-urovnya": {
+  "feature.talent.level-6.telepathy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Телепатия"] },
     notes:
@@ -175,7 +175,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------- контейнеры способностей 9-го уровня
-  "talent.feature.9.sposobnosti-khronopatii-9-go-urovnya": {
+  "feature.talent.level-9.chronopathy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Хронопатия"] },
     notes:
@@ -183,7 +183,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "Ускорения или Займы из Будущего, обе за 11 Ясности. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "talent.feature.9.sposobnosti-telekineza-9-go-urovnya": {
+  "feature.talent.level-9.telekinesis-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Телекинез"] },
     notes:
@@ -191,7 +191,7 @@ export const TALENT_TRADITION_MECHANICS: Record<string, FeatureMechanics> = {
       "или Гравитационная Сверхнова, обе за 11 Ясности. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "talent.feature.9.sposobnosti-telepatii-9-go-urovnya": {
+  "feature.talent.level-9.telepathy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Телепатия"] },
     notes:

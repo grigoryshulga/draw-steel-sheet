@@ -1,5 +1,5 @@
 {
-  "id": "ability.trubadur-bystroe-perepisyvanie-54c3d37a81",
+  "id": "feature.ability.troubadour.level-1.quick-rewrite",
   "kind": "ability",
   "name": "Быстрое Переписывание",
   "markdown": "> **Быстрое Переписывание (3 Драмы)**\n>\n> *Вы вписываете в сцену что-то неожиданное, что мешает вашему врагу.*\n>\n> | **Область, Магия, Дальний** |               **Основное действие** |\n> | ----------------------- | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 4 урона; П < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 5 урона; П < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 6 урона; П < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Область является труднопроходимой местностью для врагов.",
@@ -7,11 +7,8 @@
     "articleId": "0871",
     "path": "08. Классы/Трубадур/0871. 1-й Уровень Трубадура.md"
   },
-  "legacyIds": [
-    "trubadur-bystroe-perepisyvanie-54c3d37a81"
-  ],
   "ability": {
-    "id": "trubadur-bystroe-perepisyvanie-54c3d37a81",
+    "id": "feature.ability.troubadour.level-1.quick-rewrite",
     "name": "Быстрое Переписывание",
     "flavor": "Вы вписываете в сцену что-то неожиданное, что мешает вашему врагу.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Трубадур",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/quick-rewrite",
+    "originalName": "Quick Rewrite",
+    "originalDescription": "*You write something unexpected into the scene that hinders your enemy.*\n\n| **Area, Magic, Ranged**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 3 cube within 10**     | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 damage; P < AVERAGE, slowed (save ends)\n- **17+:** 6 damage; P < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain for enemies."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/quick-rewrite",
+  "originalName": "Quick Rewrite",
+  "originalDescription": "*You write something unexpected into the scene that hinders your enemy.*\n\n| **Area, Magic, Ranged**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 3 cube within 10**     | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 damage; P < AVERAGE, slowed (save ends)\n- **17+:** 6 damage; P < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain for enemies."
 }

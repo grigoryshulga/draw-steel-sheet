@@ -21,6 +21,7 @@ import {
   type RuleSearchOptions,
 } from "../rules/search";
 import { RuleArticleContent } from "../components/rules/RuleArticle";
+import { RuleMarkdown } from "../components/rules/RuleMarkdown";
 
 const chapterCatalog = (chapter: string) =>
   chapter.startsWith("18.")
@@ -402,7 +403,14 @@ export function CodexView() {
                   )}
                 </nav>
                 <header className="codex-article-head">
-                  <h1>{entry.title}</h1>
+                  <div>
+                    <h1>{entry.title}</h1>
+                    {loaded?.article.originalName && (
+                      <p className="codex-original-title">
+                        {loaded.article.originalName}
+                      </p>
+                    )}
+                  </div>
                   <Button
                     size="sm"
                     variant={bookmarks.includes(entry.id) ? "soft" : "ghost"}
@@ -489,6 +497,17 @@ export function CodexView() {
                       entities={loaded.entities}
                     />
                   ))}
+                {loaded?.article.originalDescription && (
+                  <details className="codex-original">
+                    <summary>Оригинал (English)</summary>
+                    <div className="codex-original-text">
+                      <RuleMarkdown
+                        text={loaded.article.originalDescription}
+                        articleId={loaded.article.id}
+                      />
+                    </div>
+                  </details>
+                )}
                 <footer className="codex-paging">
                   {position > 0 && (
                     <Button

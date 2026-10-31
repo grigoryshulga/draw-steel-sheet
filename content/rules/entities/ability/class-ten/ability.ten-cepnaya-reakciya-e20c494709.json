@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-cepnaya-reakciya-e20c494709",
+  "id": "feature.ability.shadow.level-9.chain-reaction",
   "kind": "ability",
   "name": "Цепная Реакция",
   "markdown": "> **Цепная Реакция (11 Прозрения)**\n>\n> *Один взрыв — это нападение. Три взрыва — это штурм. Девять взрывов — это праздник.*\n>\n> | **Дальний** | **Основное действие** |\n> | ---------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Эффект:** Каждый враг в пределах 3 клеток от цели, который в данный момент не является целью этой способности, также становится целью этой способности. Этот эффект продолжается до тех пор, пока не останется доступных целей. Способность наносит урон кислотой, огнем или ядом (по вашему выбору).\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 15 урона",
@@ -7,11 +7,8 @@
     "articleId": "0869",
     "path": "08. Классы/Тень/0869. 9-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-cepnaya-reakciya-e20c494709"
-  ],
   "ability": {
-    "id": "ten-cepnaya-reakciya-e20c494709",
+    "id": "feature.ability.shadow.level-9.chain-reaction",
     "name": "Цепная Реакция",
     "flavor": "Один взрыв — это нападение. Три взрыва — это штурм. Девять взрывов — это праздник.",
     "actionType": "main",
@@ -47,6 +44,12 @@
     "className": "Тень",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/chain-reaction",
+    "originalName": "Chain Reaction",
+    "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/chain-reaction",
+  "originalName": "Chain Reaction",
+  "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage"
 }

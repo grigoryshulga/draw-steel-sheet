@@ -23,6 +23,7 @@ import {
   walkJson,
   writeJsonText,
 } from "./lib/common.mjs";
+import { decorateRulesPack } from "./lib/originals.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -98,12 +99,6 @@ function validateEntity(entity, file) {
   }
   assertString(entity.source.articleId, `${file}: source.articleId`);
   assertString(entity.source.path, `${file}: source.path`);
-  if (!Array.isArray(entity.legacyIds)) {
-    fail(`${file}: legacyIds должен быть массивом`);
-  }
-  entity.legacyIds.forEach((legacyId, index) =>
-    assertString(legacyId, `${file}: legacyIds[${index}]`),
-  );
   if (entity.ability !== undefined && typeof entity.ability !== "object") {
     fail(`${file}: ability должен быть объектом`);
   }
@@ -200,17 +195,6 @@ export function buildRules({
     }
   }
 
-  const legacyIdOwners = new Map();
-  for (const entity of entities) {
-    for (const legacyId of entity.legacyIds) {
-      const owner = legacyIdOwners.get(legacyId);
-      if (owner && owner !== entity.id) {
-        fail(`legacy ID ${legacyId} принадлежит и ${owner}, и ${entity.id}`);
-      }
-      legacyIdOwners.set(legacyId, entity.id);
-    }
-  }
-
   const unreferenced = entities
     .filter((entity) => !referenced.has(entity.id))
     .map((entity) => entity.id)
@@ -274,6 +258,8 @@ export function buildRules({
       ),
     });
   }
+
+  for (const pack of packs.values()) decorateRulesPack(pack);
 
   const manifestEntityMap = {};
   for (const entity of [...entities].sort((a, b) => compareStrings(a.id, b.id))) {

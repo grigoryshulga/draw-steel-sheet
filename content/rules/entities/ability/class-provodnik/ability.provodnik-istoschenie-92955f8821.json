@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-istoschenie-92955f8821",
+  "id": "feature.ability.conduit.level-1.drain",
   "kind": "ability",
   "name": "Истощение",
   "markdown": "> **Истощение**\n>\n> *Вы вытягиваете энергию из своей цели, чтобы оживить себя или союзника.*\n>\n> | **Магия, Ближний, Удар** |     **Основное действие** |\n> | ------------------------ | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 + И урона порчей\n> - **12-16:** 5 + И урона порчей\n> - **17+:** 7 + И урона порчей\n>\n> **Эффект:** Вы или один союзник в пределах расстояния можете потратить Восстановление.",
@@ -7,11 +7,8 @@
     "articleId": "0831",
     "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-istoschenie-92955f8821"
-  ],
   "ability": {
-    "id": "provodnik-istoschenie-92955f8821",
+    "id": "feature.ability.conduit.level-1.drain",
     "name": "Истощение",
     "flavor": "Вы вытягиваете энергию из своей цели, чтобы оживить себя или союзника.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/drain",
+    "originalName": "Drain",
+    "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/drain",
+  "originalName": "Drain",
+  "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery."
 }

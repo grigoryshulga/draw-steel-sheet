@@ -1,5 +1,5 @@
 {
-  "id": "ability.elementalist-otlozhennoe-vozgoranie-4096d654b7",
+  "id": "feature.ability.elementalist.level-5.combustion-deferred",
   "kind": "ability",
   "name": "Отложенное Возгорание",
   "markdown": "> **Отложенное Возгорание (9 Эссенции)**\n>\n> *Ваше пламя танцует от растопки к растопке.*\n>\n> | **Огонь, Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 8 + Р урона огнем\n> - **12-16:** 13 + Р урона огнем\n> - **17+:** 17 + Р урона огнем\n>\n> **Эффект:** Когда цель заканчивает свой следующий ход, или если ее Выносливость падает до 0 до этого момента, каждый враг, смежный с ней, получает урон огнем, равный двойному показателю вашего Разума. Затем каждый затронутый враг получает этот же эффект.",
@@ -7,11 +7,8 @@
     "articleId": "0895",
     "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
   },
-  "legacyIds": [
-    "elementalist-otlozhennoe-vozgoranie-4096d654b7"
-  ],
   "ability": {
-    "id": "elementalist-otlozhennoe-vozgoranie-4096d654b7",
+    "id": "feature.ability.elementalist.level-5.combustion-deferred",
     "name": "Отложенное Возгорание",
     "flavor": "Ваше пламя танцует от растопки к растопке.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Элементалист",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+    "originalName": "Combustion Deferred",
+    "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+  "originalName": "Combustion Deferred",
+  "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
 }

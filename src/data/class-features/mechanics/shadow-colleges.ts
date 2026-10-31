@@ -17,7 +17,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   // ------------------------------------------------ особенности 1-го уровня
-  "shadow.college.1.teleportatsiya-chernogo-pepla": {
+  "feature.shadow.level-1.black-ash-teleport": {
     kinds: ["grant"],
     notes:
       "Способность «Телепортация Черного Пепла» выдаётся вместе с коллегией " +
@@ -27,7 +27,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "а при успехе герой получает 1 всплеск. За 1+ Прозрения телепорт " +
       "удлиняется на 1 клетку за каждое потраченное. Числа ведутся на карточке.",
   },
-  "shadow.college.1.smazat-klinok": {
+  "feature.shadow.level-1.coat-the-blade": {
     kinds: ["grant"],
     notes:
       "Способность «Смазать клинок» выдаётся вместе с коллегией Едкой Алхимии " +
@@ -36,7 +36,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "ядом. За каждое потраченное Прозрение — 1 дополнительный всплеск. " +
       "Выбор типа урона и трата ведутся на карточке.",
   },
-  "shadow.college.1.ya-ne-ugroza": {
+  "feature.shadow.level-1.im-no-threat": {
     kinds: ["grant"],
     notes:
       "Способность «Я не угроза» выдаётся вместе с коллегией Маски Арлекина и " +
@@ -51,7 +51,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "существа, что он — это существо. Длительность иллюзии лист не " +
       "отслеживает.",
   },
-  "shadow.college.1.dymovaya-bomba": {
+  "feature.shadow.level-1.smoke-bomb": {
     kinds: ["situational"],
     notes:
       "Герой всегда носит дымовые бомбы. Он может использовать маневр " +
@@ -63,7 +63,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ триггеры 1-го уровня
-  "shadow.college.1.vo-vsey-etoy-nerazberikhe": {
+  "feature.ability.shadow.level-1.in-all-this-confusion": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -78,7 +78,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Способность-триггер Черного Пепла. Половина урона, выбор клетки и " +
       "трата Прозрения ведутся вручную: лист не хранит позицию и поле боя.",
   },
-  "shadow.college.1.zashchitnyy-perekat": {
+  "feature.ability.shadow.level-1.defensive-roll": {
     kinds: ["trigger"],
     trigger: {
       event: "take-damage",
@@ -96,7 +96,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "потенциала и скрытность применяются вручную: лист не хранит позицию и " +
       "поле боя.",
   },
-  "shadow.college.1.umnyy-tryuk": {
+  "feature.ability.shadow.level-1.clever-trick": {
     kinds: ["trigger"],
     trigger: {
       event: "use-ability",
@@ -113,14 +113,14 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ 2-й уровень
-  "shadow.feature.2.osobennost-kollegii-2-go-urovnya": {
+  "feature.shadow.level-2.2nd-level-college-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт особенность 2-го уровня по таблице. Черный " +
       "Пепел — Горящий пепел, Едкая Алхимия — Обученный убийца, Маска " +
       "Арлекина — Друг!. Механику дают вложенные записи выбранной коллегии.",
   },
-  "shadow.college.2.goryashchiy-pepel": {
+  "feature.shadow.level-2.burning-ash": {
     kinds: ["situational"],
     notes:
       "Пепел, который герой оставляет после себя, обжигает врагов. В первый " +
@@ -129,7 +129,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "показателю Ловкости героя. Лист не отслеживает телепортацию и " +
       "смежность — урон применяется вручную.",
   },
-  "shadow.college.2.drug": {
+  "feature.shadow.level-2.friend": {
     kinds: ["situational"],
     notes:
       "Иллюзии убеждают врагов, что герой им друг. Когда враг использует " +
@@ -139,7 +139,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "можно применить Действие отхода как часть способности. Выбор цели " +
       "остаётся за игроком.",
   },
-  "shadow.college.2.obuchennyy-ubiytsa": {
+  "feature.shadow.level-2.trained-assassin": {
     kinds: ["situational"],
     notes:
       "Когда герой наносит удар без помехи или двойной помехи, включающий 1+ " +
@@ -147,7 +147,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "потратить только на этот удар. Лист не считает помехи и всплески — " +
       "прибавка применяется вручную.",
   },
-  "shadow.feature.2.sposobnost-kollegii-2-go-urovnya": {
+  "feature.shadow.level-2.2nd-level-college-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт на выбор одну из двух героических способностей " +
@@ -155,7 +155,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "способности строит повышение уровня по коллегии; дублировать их в " +
       "механике не нужно.",
   },
-  "shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya": {
+  "feature.shadow.level-2.black-ash-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Черный Пепел"] },
     notes:
@@ -163,7 +163,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Пепла или Слишком Медленно, обе за 5 Прозрения. Выбор делается при " +
       "повышении уровня по коллегии.",
   },
-  "shadow.feature.2.sposobnost-edkoy-alkhimii-2-go-urovnya": {
+  "feature.shadow.level-2.caustic-alchemy-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Едкая Алхимия"] },
     notes:
@@ -171,7 +171,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Бомба-Липучка или Вонючая Бомба, обе за 5 Прозрения. Выбор делается при " +
       "повышении уровня по коллегии.",
   },
-  "shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya": {
+  "feature.shadow.level-2.harlequin-mask-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Маска Арлекина"] },
     notes:
@@ -181,7 +181,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ 5-й уровень
-  "shadow.feature.5.osobennost-kollegii-5-go-urovnya": {
+  "feature.shadow.level-5.5th-level-college-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт особенность 5-го уровня по таблице. Черный " +
@@ -189,7 +189,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Арлекина — Гамбит арлекина. Механику дают вложенные записи выбранной " +
       "коллегии.",
   },
-  "shadow.college.5.sled-pepla": {
+  "feature.shadow.level-5.trail-of-cinders": {
     kinds: ["situational"],
     notes:
       "Когда герой снижает выносливость существа, не являющегося миньоном, до " +
@@ -199,7 +199,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "клетке рядом с точкой прибытия, а если такой клетки нет — остаётся. " +
       "Лист не ведёт выносливость существ и позиции.",
   },
-  "shadow.college.5.nestabilnye-reagenty": {
+  "feature.shadow.level-5.volatile-reagents": {
     kinds: ["situational"],
     notes:
       "Когда герой получает урон, каждый смежный враг получает урон огнем, " +
@@ -208,7 +208,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "клеток, включая по вертикали; если смещение не заканчивается на твёрдой " +
       "земле и герой не летит, он падает. Тип урона и смещение ведутся вручную.",
   },
-  "shadow.college.5.gambit-arlekina": {
+  "feature.shadow.level-5.harlequin-gambit": {
     kinds: ["situational"],
     notes:
       "Когда герой снижает выносливость смежного существа, не являющегося " +
@@ -221,14 +221,14 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ 6-й уровень
-  "shadow.feature.6.sposobnost-kollegii-6-go-urovnya": {
+  "feature.shadow.level-6.6th-level-college-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт на выбор одну из двух героических способностей " +
       "6-го уровня, обе за 9 Прозрения. Конкретную пару и выбор одной " +
       "способности строит повышение уровня по коллегии.",
   },
-  "shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya": {
+  "feature.shadow.level-6.black-ash-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Черный Пепел"] },
     notes:
@@ -236,7 +236,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Черного Пепла или Пепельная Буря, обе за 9 Прозрения. Выбор делается " +
       "при повышении уровня по коллегии.",
   },
-  "shadow.feature.6.sposobnosti-edkoy-alkhimii-6-go-urovnya": {
+  "feature.shadow.level-6.caustic-alchemy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Едкая Алхимия"] },
     notes:
@@ -244,7 +244,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Делает Тебя Лучше или Один Флакон Делает Тебя Быстрее, обе за 9 " +
       "Прозрения. Выбор делается при повышении уровня по коллегии.",
   },
-  "shadow.feature.6.sposobnosti-maski-arlekina-6-go-urovnya": {
+  "feature.shadow.level-6.harlequin-mask-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Маска Арлекина"] },
     notes:
@@ -254,7 +254,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ 8-й уровень
-  "shadow.feature.8.osobennost-kollegii-8-go-urovnya": {
+  "feature.shadow.level-8.8th-level-college-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт особенность 8-го уровня по таблице. Черный " +
@@ -262,7 +262,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Маска Арлекина — Паркур. Механику дают вложенные записи выбранной " +
       "коллегии.",
   },
-  "shadow.college.8.pepelnyy-shag": {
+  "feature.shadow.level-8.cinder-step": {
     kinds: ["situational"],
     notes:
       "При добровольном перемещении герой может телепортироваться. Такой " +
@@ -270,7 +270,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "пепла» и «Следа пепла». Лист не вмешивается в перемещение — правило " +
       "применяется вручную.",
   },
-  "shadow.college.8.parkur": {
+  "feature.shadow.level-8.parkour": {
     kinds: ["situational"],
     notes:
       "Движение героя больше не провоцирует атаки по возможности. " +
@@ -278,7 +278,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "триггер, когда выносливость существа снижается до 0 способностью " +
       "«Умный трюк». Лист не ведёт реакции и выносливость существ.",
   },
-  "shadow.college.8.bomba-zamedlennogo-deystviya": {
+  "feature.shadow.level-8.time-bomb": {
     kinds: ["situational", "grant"],
     notes:
       "У героя есть иммунитет к урону от способностей и эффектов по области, " +
@@ -294,14 +294,14 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ 9-й уровень
-  "shadow.feature.9.sposobnost-kollegii-9-go-urovnya": {
+  "feature.shadow.level-9.9th-level-college-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт на выбор одну из двух героических способностей " +
       "9-го уровня, обе за 11 Прозрения. Конкретную пару и выбор одной " +
       "способности строит повышение уровня по коллегии.",
   },
-  "shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya": {
+  "feature.shadow.level-9.black-ash-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Черный Пепел"] },
     notes:
@@ -309,7 +309,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Пепла или Демоническая Дверь, обе за 11 Прозрения. Выбор делается при " +
       "повышении уровня по коллегии.",
   },
-  "shadow.feature.9.sposobnosti-edkoy-alkhimii-9-go-urovnya": {
+  "feature.shadow.level-9.caustic-alchemy-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Едкая Алхимия"] },
     notes:
@@ -317,7 +317,7 @@ export const SHADOW_COLLEGE_MECHANICS: Record<string, FeatureMechanics> = {
       "Реакция или К Звездам, обе за 11 Прозрения. Выбор делается при " +
       "повышении уровня по коллегии.",
   },
-  "shadow.feature.9.sposobnosti-maski-arlekina-9-go-urovnya": {
+  "feature.shadow.level-9.harlequin-mask-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Маска Арлекина"] },
     notes:

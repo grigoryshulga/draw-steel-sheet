@@ -1,5 +1,5 @@
 {
-  "id": "ability.bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734",
+  "id": "feature.ability.common.knockback",
   "kind": "ability",
   "name": "Маневр Отталкивания",
   "markdown": "> **Маневр Отталкивания**\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Толчок 1\n> - **12-16:** Толчок 2\n> - **17+:** Толчок 3\n>\n> **Эффект:** Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
@@ -7,11 +7,8 @@
     "articleId": "1309",
     "path": "13. Ведение Боя/1309. Маневры.md"
   },
-  "legacyIds": [
-    "bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734"
-  ],
   "ability": {
-    "id": "bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734",
+    "id": "feature.ability.common.knockback",
     "name": "Маневр Отталкивания",
     "flavor": "",
     "actionType": "maneuver",
@@ -48,6 +45,12 @@
     "className": "Базовые",
     "level": 1,
     "sourceKind": "basic",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
+    "originalName": "Knockback",
+    "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
+  "originalName": "Knockback",
+  "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score."
 }

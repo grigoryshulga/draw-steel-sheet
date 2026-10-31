@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import generated from "../src/data/class-features.generated.json";
+import { GENERATED_CLASS_FEATURES as generated } from "../src/data/class-features/skeleton";
 import { CLASS_RESOURCES } from "../src/data/class-features/class-resources";
 import { NOT_YET, TEXT_ONLY } from "../src/data/class-features/mechanics/exceptions";
 import { normalizeFeatureText } from "../src/lib/utils";
@@ -7,7 +7,7 @@ import { CONDUIT_DOMAIN_PRAYERS } from "../src/data/class-features/mechanics/con
 import { CONDUIT_DOMAIN_MECHANICS } from "../src/data/class-features/mechanics/conduit-domains";
 import { CONDUIT_BASE_MECHANICS, CONDUIT_BASE_TEXT_ONLY } from "../src/data/class-features/mechanics/conduit-base";
 import { CONDUIT_LEVEL_TEXT_ONLY } from "../src/data/class-features/mechanics/conduit-levels";
-import { FEATURE_MECHANICS } from "../src/data/class-features/mechanics";
+import { FEATURE_MECHANICS, mechanicsFor } from "../src/data/class-features/mechanics";
 import { CONDUIT_LEVEL_MECHANICS } from "../src/data/class-features/mechanics/conduit-levels";
 import { CONDUIT_RESOURCE, CONDUIT_RESOURCE_MECHANICS } from "../src/data/class-features/mechanics/conduit-resource";
 import { invalidateClassFeatureRegistry } from "../src/lib/class-features";
@@ -64,7 +64,7 @@ describe("Проводник: Благочестие и Божественная
     expect(conduitIds).toHaveLength(141);
     expect(new Set(conduitIds).size).toBe(141);
     for (const id of conduitIds) {
-      const mechanic = FEATURE_MECHANICS[id];
+      const mechanic = mechanicsFor(id);
       const reason = TEXT_ONLY[id];
       expect(Boolean(mechanic) !== Boolean(reason)).toBe(true);
       if (reason !== undefined) expect(reason.trim().length).toBeGreaterThan(0);
@@ -101,9 +101,9 @@ describe("Проводник: Благочестие и Божественная
     const groups = classFeatureGroupsForSheet(legacy);
     const featureIds = groups.flatMap(({ features }) => features.map(({ id }) => id));
     const selectedDomainFeatures = [
-      generated.find((feature) => feature.id === "conduit.domain.1.vosstanavlivayushchiy-ritual"),
-      generated.find((feature) => feature.id === "conduit.domain.4.blagoslovenie-zhizni"),
-      generated.find((feature) => feature.id === "conduit.domain.7.svet-palyashchego-solntsa"),
+      generated.find((feature) => feature.id === "feature.conduit.level-1.revitalizing-ritual"),
+      generated.find((feature) => feature.id === "feature.conduit.level-4.4th-level-domain-feature.life"),
+      generated.find((feature) => feature.id === "feature.conduit.level-7.light-of-the-burning-sun"),
     ];
     expect(selectedDomainFeatures.every(Boolean)).toBe(true);
     for (const feature of selectedDomainFeatures) expect(featureIds).toContain(feature!.id);
@@ -122,7 +122,7 @@ describe("Проводник: Благочестие и Божественная
     };
     const fallbackGains = resolvedResourceGains(legacyWithoutSelections);
     expect(fallbackGains.filter(({ tag }) => tag.startsWith("conduit-piety-domain-")).map(({ tag }) => tag)).toEqual([
-      "conduit-piety-domain-солнце", "conduit-piety-domain-жизнь",
+      "conduit-piety-domain-жизнь", "conduit-piety-domain-солнце",
     ]);
     const fallbackFeatureIds = classFeatureGroupsForSheet(legacyWithoutSelections).flatMap(({ features }) => features.map(({ id }) => id));
     for (const feature of selectedDomainFeatures) expect(fallbackFeatureIds).not.toContain(feature!.id);
@@ -152,10 +152,10 @@ describe("Проводник: Благочестие и Божественная
 
   it("describes all four base skeleton entries without turning optional prayer into automatic gains", () => {
     const ids = [
-      "conduit.feature.1.blagochestie",
-      "conduit.feature.1.blagochestie-v-boyu",
-      "conduit.feature.1.blagochestie-vne-boya",
-      "conduit.feature.1.blagochestie-i-effekty-domena",
+      "feature.conduit.level-1.piety",
+      "feature.conduit.level-1.piety-in-combat",
+      "feature.conduit.level-1.piety-outside-of-combat",
+      "feature.conduit.level-1.domain-piety-and-effects",
     ];
     for (const id of ids) expect(generated.find((feature) => feature.id === id)).toBeTruthy();
     expect(Object.keys(CONDUIT_RESOURCE_MECHANICS)).toEqual(ids);
@@ -209,16 +209,16 @@ describe("Проводник: Благочестие и Божественная
     }))).toEqual([
       { tag: "combat-start", event: "combat-start", amount: "= Победы", frequency: "encounter", sourceId: "class:проводник" },
       ...(level < 7 ? [{ tag, event: "start-of-turn", amount, frequency: "turn", sourceId: "class:проводник" }] : []),
-      { tag: "conduit-piety-domain-солнце", event: "deal-damage", amount: level >= 4 ? "3" : "2", frequency: "encounter", sourceId: "conduit.feature.1.blagochestie-i-effekt-domena-solntsa" },
-      { tag: "conduit-piety-domain-жизнь", event: "spend-recovery", amount: level >= 4 ? "3" : "2", frequency: "encounter", sourceId: "conduit.feature.1.blagochestie-i-effekt-domena-zhizni" },
-      ...(level >= 7 ? [{ tag, event: "start-of-turn", amount, frequency: "turn", sourceId: "conduit.feature.7.nagrada-veruyushchego-faithful-s-reward" }] : []),
-      ...(level10 ? [{ tag: "prayer-bonus", event: "start-of-turn", amount: "1", frequency: "turn", sourceId: "conduit.feature.10.samyy-blagochestivyy" }] : []),
+      { tag: "conduit-piety-domain-жизнь", event: "spend-recovery", amount: level >= 4 ? "3" : "2", frequency: "encounter", sourceId: "feature.conduit.level-1.domain-piety-and-effects.life" },
+      { tag: "conduit-piety-domain-солнце", event: "deal-damage", amount: level >= 4 ? "3" : "2", frequency: "encounter", sourceId: "feature.conduit.level-1.domain-piety-and-effects.sun" },
+      ...(level >= 7 ? [{ tag, event: "start-of-turn", amount, frequency: "turn", sourceId: "feature.conduit.level-7.faithfuls-reward" }] : []),
+      ...(level10 ? [{ tag: "prayer-bonus", event: "start-of-turn", amount: "1", frequency: "turn", sourceId: "feature.conduit.level-10.most-pious" }] : []),
     ]);
     expect(resolved.filter((gain) => gain.tag === "combat-start")).toHaveLength(1);
     expect(resolved.filter((gain) => gain.tag === "start-of-turn")).toHaveLength(1);
     expect(resolved.filter((gain) => gain.tag === "prayer-bonus")).toHaveLength(level10 ? 1 : 0);
     expect(resolved.filter((gain) => gain.tag.startsWith("conduit-piety-domain-")).map((gain) => gain.tag)).toEqual([
-      "conduit-piety-domain-солнце", "conduit-piety-domain-жизнь",
+      "conduit-piety-domain-жизнь", "conduit-piety-domain-солнце",
     ]);
   });
 
@@ -234,23 +234,23 @@ describe("Проводник: Благочестие и Божественная
   it("replaces the level 1 turn tag at level 7 and exposes the level 10 prayer reminder", () => {
     const level7 = gains(7);
     expect(level7.filter((gain) => gain.tag === "start-of-turn")).toHaveLength(1);
-    expect(level7.filter((gain => gain.tag === "start-of-turn")).map((gain) => gain.sourceId)).toEqual(["conduit.feature.7.nagrada-veruyushchego-faithful-s-reward"]);
+    expect(level7.filter((gain => gain.tag === "start-of-turn")).map((gain) => gain.sourceId)).toEqual(["feature.conduit.level-7.faithfuls-reward"]);
     expect(level7.some((gain) => gain.tag === "prayer-bonus")).toBe(false);
     const level10 = gains(10);
     expect(level10.filter((gain) => gain.tag === "start-of-turn")).toHaveLength(1);
     expect(level10.filter((gain) => gain.tag === "prayer-bonus").map(({ amount, event, frequency }) => ({ amount, event, frequency }))).toEqual([{ amount: "1", event: "start-of-turn", frequency: "turn" }]);
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.10.samyy-blagochestivyy"].notes).toContain("если молишься");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.most-pious"].notes).toContain("если молишься");
   });
 
   it("resolves only the two selected domain gains, with book events and encounter frequency", () => {
     const resolved = gains(1, "Созидание, Солнце").filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
     expect(resolved.map(({ tag, event, amount, frequency, label, sourceId }) => ({ tag, event, amount, frequency, label, sourceId }))).toEqual([
-      { tag: "conduit-piety-domain-солнце", event: "deal-damage", amount: "2", frequency: "encounter", label: expect.stringContaining("Домен Солнце:"), sourceId: "conduit.feature.1.blagochestie-i-effekt-domena-solntsa" },
-      { tag: "conduit-piety-domain-созидание", event: "use-ability", amount: "2", frequency: "encounter", label: expect.stringContaining("Домен Созидание:"), sourceId: "conduit.feature.1.blagochestie-i-effekt-domena-sozidaniya" },
+      { tag: "conduit-piety-domain-созидание", event: "use-ability", amount: "2", frequency: "encounter", label: expect.stringContaining("Домен Созидание:"), sourceId: "feature.conduit.level-1.domain-piety-and-effects.creation" },
+      { tag: "conduit-piety-domain-солнце", event: "deal-damage", amount: "2", frequency: "encounter", label: expect.stringContaining("Домен Солнце:"), sourceId: "feature.conduit.level-1.domain-piety-and-effects.sun" },
     ]);
     const invalid = gains(1, "Созидание, Фейковый домен");
     expect(invalid.filter((gain) => gain.tag.startsWith("conduit-piety-domain-")).map((gain) => gain.tag)).toEqual([]);
-    expect(gains(1, "Жизнь, Солнце").filter((gain) => gain.tag.startsWith("conduit-piety-domain-")).map((gain) => gain.tag)).toEqual(["conduit-piety-domain-солнце", "conduit-piety-domain-жизнь"]);
+    expect(gains(1, "Жизнь, Солнце").filter((gain) => gain.tag.startsWith("conduit-piety-domain-")).map((gain) => gain.tag)).toEqual(["conduit-piety-domain-жизнь", "conduit-piety-domain-солнце"]);
     const level4 = gains(4, "Созидание, Солнце").filter((gain) => gain.tag.startsWith("conduit-piety-domain-"));
     expect(level4.map((gain) => gain.amount)).toEqual(["3", "3"]);
     for (const mechanic of Object.values(CONDUIT_DOMAIN_PRAYERS)) {
@@ -271,8 +271,8 @@ describe("Проводник: Благочестие и Божественная
     expect(resolvedEpicResourceGains(hero(10)).map(({ tag, event, amount, frequency, sourceId, sourceName }) => ({ tag, event, amount, frequency, sourceId, sourceName }))).toEqual([
       { tag: "divine-power-respite", event: "respite", amount: "= Опыт", frequency: "respite", sourceId: "class:проводник", sourceName: "Божественная сила" },
     ]);
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.10.bozhestvennaya-sila"].notes).toContain("в количестве Опыта, полученного после этого отдыха");
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.10.bozhestvennaya-sila"].notes).toContain("сохраняется, пока вы его не потратите");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.divine-power"].notes).toContain("в количестве Опыта, полученного после этого отдыха");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.divine-power"].notes).toContain("сохраняется, пока вы его не потратите");
   });
 
   it("keeps the gains visible with automation disabled and preserves saved usage state", () => {

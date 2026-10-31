@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 
 import { describe, expect, it } from "vitest";
 
+import { maps } from "../scripts/content/lib/originals.mjs";
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const RULES = path.join(ROOT, "content/rules");
 const GENERATED = path.join(ROOT, "src/generated/rules");
@@ -42,6 +44,16 @@ function hashTree(directory: string) {
       createHash("sha256").update(fs.readFileSync(file)).digest("hex"),
     ]),
   );
+}
+
+/** Текст способности без первого заголовка и цитатных маркеров. */
+function abilityBody(markdown: string) {
+  return markdown
+    .split("\n")
+    .slice(1)
+    .map((line) => line.replace(/^>\s?/, ""))
+    .join("\n")
+    .trim();
 }
 
 const legacyCodex = readJson(path.join(ROOT, "src/data/codex.generated.json")) as any[];
@@ -163,22 +175,29 @@ describe("canonical rules content", () => {
   });
 
   it("stores every mapped ability as the full Markdown block plus a structured projection", () => {
-    const byLegacy = new Map<string, any>();
-    for (const entity of canonicalEntities) {
-      for (const legacyId of entity.legacyIds) byLegacy.set(legacyId, entity);
-    }
+    const abilityByOriginalId = new Map(
+      canonicalEntities
+        .filter((entity) => entity.kind === "ability")
+        .map((entity) => [entity.originalId, entity]),
+    );
     const problems: any[] = [];
+    const matched = new Set<string>();
     for (const ability of legacyAbilities) {
-      const entity = byLegacy.get(ability.id);
+      const originalId = maps.abilities[ability.id];
+      const entity =
+        typeof originalId === "string"
+          ? abilityByOriginalId.get(originalId)
+          : undefined;
       if (!entity) {
         problems.push({ ability: ability.id, reason: "missing" });
         continue;
       }
-      if (entity.kind !== "ability") {
-        problems.push({ ability: ability.id, reason: "kind" });
-      }
-      if (entity.ability?.id !== ability.id) {
+      matched.add(entity.id);
+      if (entity.ability?.id !== entity.id) {
         problems.push({ ability: ability.id, reason: "projection" });
+      }
+      if (entity.ability?.originalId !== entity.originalId) {
+        problems.push({ ability: ability.id, reason: "projection-original" });
       }
       if (!entity.markdown.includes("**")) {
         problems.push({ ability: ability.id, reason: "markdown" });
@@ -197,9 +216,26 @@ describe("canonical rules content", () => {
       (entity) => entity.kind === "ability",
     );
     expect(abilities).toHaveLength(512);
+    expect(matched.size).toBe(abilities.length);
+
+    // 52 legacy class features хранятся как разметка способности, а не как
+    // отдельная сущность: их описание совпадает с телом способности.
+    const abilityByBody = new Map(
+      abilities.map((entity) => [abilityBody(entity.markdown), entity]),
+    );
+    const abilityBlockFeatures = legacyClassFeatures.filter((feature) =>
+      abilityByBody.has(String(feature.description ?? "").trim()),
+    );
+    expect(abilityBlockFeatures).toHaveLength(52);
     expect(
-      abilities.filter((entity) => entity.legacyIds.length > 1).length,
+      new Set(
+        abilityBlockFeatures.map(
+          (feature) =>
+            abilityByBody.get(String(feature.description ?? "").trim())?.id,
+        ),
+      ).size,
     ).toBe(52);
+
     expect(
       abilities.some((entity) => entity.markdown.includes("📏")),
     ).toBe(true);
@@ -217,26 +253,38 @@ describe("canonical rules content", () => {
   });
 
   it("keeps IDs stable, unique and every reference resolved", () => {
+    const articleById = new Map(
+      canonicalArticles.map((article) => [article.id, article]),
+    );
     const ids = new Set<string>();
-    const legacyIds = new Map<string, string>();
     const duplicates: string[] = [];
-    const legacyDuplicates: any[] = [];
+    const originalOwners = new Map<string, { id: string; kind: string }[]>();
     for (const entity of canonicalEntities) {
       if (ids.has(entity.id)) duplicates.push(entity.id);
       ids.add(entity.id);
-      for (const legacyId of entity.legacyIds) {
-        if (legacyIds.has(legacyId)) {
-          legacyDuplicates.push({
-            legacyId,
-            first: legacyIds.get(legacyId),
-            second: entity.id,
-          });
-        }
-        legacyIds.set(legacyId, entity.id);
-      }
+      if (!entity.originalId) continue;
+      const owners = originalOwners.get(entity.originalId) ?? [];
+      owners.push({ id: entity.id, kind: entity.kind });
+      originalOwners.set(entity.originalId, owners);
     }
     expect(duplicates).toEqual([]);
-    expect(legacyDuplicates).toEqual([]);
+
+    // Один английский исходник может обслуживать пару ability+feature
+    // (двойная проекция) или семейство проектов, но не смешивать
+    // посторонние виды сущностей.
+    const conflictingOriginals = [...originalOwners]
+      .filter(([, owners]) => {
+        const kinds = new Set(owners.map((owner) => owner.kind));
+        if (kinds.size === 1) return false;
+        return !owners.every(
+          (owner) => owner.kind === "ability" || owner.kind === "feature",
+        );
+      })
+      .map(([originalId, owners]) => ({
+        originalId,
+        ids: owners.map((owner) => owner.id),
+      }));
+    expect(conflictingOriginals).toEqual([]);
 
     const unresolved: any[] = [];
     for (const article of canonicalArticles) {
@@ -247,7 +295,7 @@ describe("canonical rules content", () => {
           continue;
         }
         const entity = entityById.get(block.ref);
-        const source = legacyArticleById.get(entity.source.articleId);
+        const source = articleById.get(entity.source.articleId);
         if (!source || source.path !== entity.source.path) {
           unresolved.push({ article: article.id, ref: block.ref, source: true });
         }
@@ -324,13 +372,24 @@ describe("canonical rules content", () => {
     const articleById = new Map(
       canonicalArticles.map((article) => [article.id, article]),
     );
-    const legacyFeatureById = new Map(
-      legacyClassFeatures.map((feature) => [feature.id, feature]),
+    // Статьи и имена legacy-особенностей уникальны, поэтому это точная
+    // обратная связь от английской сущности к исходному описанию.
+    const legacyFeatureByKey = new Map(
+      legacyClassFeatures.map((feature) => [
+        `${feature.articleId}\u0000${feature.name}`,
+        feature,
+      ]),
+    );
+    expect(legacyFeatureByKey.size).toBe(legacyClassFeatures.length);
+    expect(report.compositeFeatures).toHaveLength(
+      report.coverage.classFeatures.composite,
     );
     const problems: any[] = [];
     for (const composite of report.compositeFeatures) {
       const article = articleById.get(composite.articleId);
-      const legacy = legacyFeatureById.get(composite.id);
+      const legacy = legacyFeatureByKey.get(
+        `${composite.articleId}\u0000${composite.name}`,
+      );
       if (!article || !legacy) {
         problems.push({ id: composite.id, reason: "missing" });
         continue;
@@ -370,26 +429,44 @@ describe("canonical rules content", () => {
     }
     expect(problems).toEqual([]);
 
-    const abilityBlockFeatures = canonicalEntities.filter(
-      (entity) => entity.kind === "ability" && entity.legacyIds.length > 1,
+    const abilityByBody = new Map(
+      canonicalEntities
+        .filter((entity) => entity.kind === "ability")
+        .map((entity) => [abilityBody(entity.markdown), entity]),
     );
+    const featureKeys = new Set(
+      canonicalEntities
+        .filter((entity) => entity.kind === "feature")
+        .map((entity) => `${entity.source.articleId}\u0000${entity.name}`),
+    );
+    const abilityBlockFeatures = legacyClassFeatures.filter((feature) =>
+      abilityByBody.has(String(feature.description ?? "").trim()),
+    );
+    expect(abilityBlockFeatures).toHaveLength(52);
     const abilityProblems: any[] = [];
-    for (const entity of abilityBlockFeatures) {
-      for (const legacyId of entity.legacyIds.slice(1)) {
-        const legacy = legacyFeatureById.get(legacyId);
-        if (!legacy) continue;
-        const body = entity.markdown
-          .split("\n")
-          .slice(1)
-          .map((line: string) => line.replace(/^>\s?/, ""))
-          .join("\n")
-          .trim();
-        if (body !== legacy.description.trim()) {
-          abilityProblems.push({ id: legacyId });
-        }
+    const usedAbilities = new Set<string>();
+    for (const legacy of abilityBlockFeatures) {
+      const description = String(legacy.description ?? "").trim();
+      const entity = abilityByBody.get(description);
+      const key = `${legacy.articleId}\u0000${legacy.name}`;
+      if (!entity) {
+        abilityProblems.push({ id: legacy.id, reason: "missing-ability" });
+        continue;
+      }
+      if (usedAbilities.has(entity.id)) {
+        abilityProblems.push({ id: legacy.id, reason: "shared-ability" });
+      }
+      usedAbilities.add(entity.id);
+      // Такая особенность не должна существовать отдельной сущностью.
+      if (featureKeys.has(key)) {
+        abilityProblems.push({ id: legacy.id, reason: "duplicated-feature" });
+      }
+      if (abilityBody(entity.markdown) !== description) {
+        abilityProblems.push({ id: legacy.id, reason: "body" });
       }
     }
     expect(abilityProblems).toEqual([]);
+    expect(usedAbilities.size).toBe(52);
   });
 
   it("emits an honest, actionable migration report", () => {
@@ -436,22 +513,40 @@ describe("canonical rules content", () => {
     expect(report.notes.join(" ")).toContain("не удалены");
     expect(legacyClassFeatures.length).toBe(845);
 
-    const mappedLegacyIds = new Set(
-      canonicalEntities.flatMap((entity) => entity.legacyIds),
-    );
     const unmappedClassIds = new Set(
       report.unmapped.classFeatures.map((feature: any) => feature.id),
     );
+    const featureKeys = new Set(
+      canonicalEntities
+        .filter((entity) => entity.kind === "feature")
+        .map((entity) => `${entity.source.articleId}\u0000${entity.name}`),
+    );
+    const abilityBodies = new Set(
+      canonicalEntities
+        .filter((entity) => entity.kind === "ability")
+        .map((entity) => abilityBody(entity.markdown)),
+    );
+    const isMapped = (feature: any) =>
+      featureKeys.has(`${feature.articleId}\u0000${feature.name}`) ||
+      abilityBodies.has(String(feature.description ?? "").trim());
     const lost: string[] = [];
+    let mapped = 0;
     for (const feature of legacyClassFeatures) {
-      if (
-        !mappedLegacyIds.has(feature.id) &&
-        !unmappedClassIds.has(feature.id)
-      ) {
-        lost.push(feature.id);
+      if (unmappedClassIds.has(feature.id)) continue;
+      if (isMapped(feature)) {
+        mapped += 1;
+        continue;
       }
+      lost.push(feature.id);
     }
     expect(lost).toEqual([]);
+    // Каждая legacy-особенность либо представлена сущностью, либо честно
+    // перечислена как unmapped: отчёт не может терять строки.
+    expect(mapped).toBe(report.coverage.classFeatures.mapped);
+    expect(mapped + unmappedClassIds.size).toBe(legacyClassFeatures.length);
+    expect(
+      report.unmapped.classFeatures.every((feature: any) => !isMapped(feature)),
+    ).toBe(true);
   });
 });
 

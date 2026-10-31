@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-sinapticheskiy-yakor-2181eb1a69",
+  "id": "feature.ability.null.level-8.synaptic-anchor",
   "kind": "ability",
   "name": "Синаптический Якорь",
   "markdown": "> **Синаптический Якорь (11 Дисциплины)**\n>\n> *Вы срываете удар врага и создаете петлю обратной связи в его уме, мешая ему сосредоточиться на будущих атаках.*\n>\n> | **Псионика** | **Свободный триггер** |\n> | ---------------------- | --------------------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя или одно существо** |\n>\n> **Триггер:** Цель получает урон от способности другого существа, находясь в области вашей способности Поле нуля.\n>\n> **Эффект:** Цель получает половину урона, и если нанесшее урон существо имеет И < СРЕДНИЙ, оно оглушено (до прох.). Пока нанесшее урон существо оглушено таким образом, оно получает психический урон, равный показателю вашей Интуиции, всякий раз, когда использует основное действие.",
@@ -7,11 +7,8 @@
     "articleId": "0818",
     "path": "08. Классы/Нуль/0818. 8-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-sinapticheskiy-yakor-2181eb1a69"
-  ],
   "ability": {
-    "id": "nul-sinapticheskiy-yakor-2181eb1a69",
+    "id": "feature.ability.null.level-8.synaptic-anchor",
     "name": "Синаптический Якорь",
     "flavor": "Вы срываете удар врага и создаете петлю обратной связи в его уме, мешая ему сосредоточиться на будущих атаках.",
     "actionType": "free-trigger",
@@ -45,6 +42,12 @@
     "className": "Нуль",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-8/synaptic-anchor",
+    "originalName": "Synaptic Anchor",
+    "originalDescription": "*You disrupt an enemy's strike and create a feedback loop in their mind, preventing them from focusing on future attacks.*\n\n| **Psionic**            |           **Free triggered** |\n|------------------------|-----------------------------:|\n| **📏 Self; see below** |  **🎯 Self or one creature** |\n\n**Trigger:** The target takes damage from another creature's ability while in the area of your Null Field ability.\n\n**Effect:** The target takes half the damage, and if the triggering creature has I < AVERAGE, they are dazed (save ends). While the triggering creature is dazed this way, they take psychic damage equal to your Intuition score whenever they use a main action."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-8/synaptic-anchor",
+  "originalName": "Synaptic Anchor",
+  "originalDescription": "*You disrupt an enemy's strike and create a feedback loop in their mind, preventing them from focusing on future attacks.*\n\n| **Psionic**            |           **Free triggered** |\n|------------------------|-----------------------------:|\n| **📏 Self; see below** |  **🎯 Self or one creature** |\n\n**Trigger:** The target takes damage from another creature's ability while in the area of your Null Field ability.\n\n**Effect:** The target takes half the damage, and if the triggering creature has I < AVERAGE, they are dazed (save ends). While the triggering creature is dazed this way, they take psychic damage equal to your Intuition score whenever they use a main action."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-predvoshischayuschiy-udar-1aa7743219",
+  "id": "feature.ability.null.level-5.anticipating-strike",
   "kind": "ability",
   "name": "Предвосхищающий Удар",
   "markdown": "> **Предвосхищающий Удар (9 Дисциплины)**\n>\n> *Вы внезапно бьете врага, а затем захватываете его псионически усиленной хваткой.*\n>\n> | **Ближний, Псионика, Удар, Оружие** | **Свободный триггер** |\n> | ---------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель перемещается или использует основное действие.\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 7 + Л урона; И < СЛАБЫЙ, опутанность (до прох.)\n> - **12-16:** 10 + Л урона; И < СРЕДНИЙ, опутанность (до прох.)\n> - **17+:** 13 + Л урона; И < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Этот удар разрешается до того, как сработает движение или основное действие.",
@@ -7,11 +7,8 @@
     "articleId": "0815",
     "path": "08. Классы/Нуль/0815. 5-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-predvoshischayuschiy-udar-1aa7743219"
-  ],
   "ability": {
-    "id": "nul-predvoshischayuschiy-udar-1aa7743219",
+    "id": "feature.ability.null.level-5.anticipating-strike",
     "name": "Предвосхищающий Удар",
     "flavor": "Вы внезапно бьете врага, а затем захватываете его псионически усиленной хваткой.",
     "actionType": "free-trigger",
@@ -50,6 +47,12 @@
     "className": "Нуль",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/anticipating-strike",
+    "originalName": "Anticipating Strike",
+    "originalDescription": "*You suddenly strike an enemy, then grab them in a psionically enhanced grip.*\n\n| **Melee, Psionic, Strike, Weapon** |  **Free triggered** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Trigger:** The target moves or uses a main action.\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; I < WEAK, restrained (save ends)\n- **12-16:** 10 + A damage; I < AVERAGE, restrained (save ends)\n- **17+:** 13 + A damage; I < STRONG, restrained (save ends)\n\n**Effect:** This strike resolves before the triggering movement or main action."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/anticipating-strike",
+  "originalName": "Anticipating Strike",
+  "originalDescription": "*You suddenly strike an enemy, then grab them in a psionically enhanced grip.*\n\n| **Melee, Psionic, Strike, Weapon** |  **Free triggered** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Trigger:** The target moves or uses a main action.\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; I < WEAK, restrained (save ends)\n- **12-16:** 10 + A damage; I < AVERAGE, restrained (save ends)\n- **17+:** 13 + A damage; I < STRONG, restrained (save ends)\n\n**Effect:** This strike resolves before the triggering movement or main action."
 }

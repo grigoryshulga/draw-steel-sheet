@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426",
+  "id": "feature.ability.censor.level-8.your-allies-turn-on-you",
   "kind": "ability",
   "name": "Твои Союзники Ополчились на Тебя!",
   "markdown": "> **Твои Союзники Ополчились на Тебя! (11 Гнева)**\n>\n> *Вы обращаете гнев врагов на цель.*\n>\n> | **Дальний, Удар, Оружие** |     **Основное действие** |\n> | -------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 5 + П урона; И < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 9 + П урона; И < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 12 + П урона; И < СИЛЬНЫЙ, замедление (до прох.)\n>\n> **Эффект:** Пока цель замедлена таким образом, каждый из ее союзников, начинающий свой ход в пределах 5 клеток от нее, должен использовать свободный маневр, чтобы сделать по цели свободный удар. Дополнительно, пока цель замедлена таким образом, каждый из ее союзников в пределах 5 клеток от нее, который может сделать свободный удар как триггер по другому существу, должен вместо этого сделать этот свободный удар по цели.",
@@ -7,11 +7,8 @@
     "articleId": "0888",
     "path": "08. Классы/Цензор/0888. 8-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426"
-  ],
   "ability": {
-    "id": "cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426",
+    "id": "feature.ability.censor.level-8.your-allies-turn-on-you",
     "name": "Твои Союзники Ополчились на Тебя!",
     "flavor": "Вы обращаете гнев врагов на цель.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/your-allies-turn-on-you",
+    "originalName": "Your Allies Turn on You!",
+    "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/your-allies-turn-on-you",
+  "originalName": "Your Allies Turn on You!",
+  "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead."
 }

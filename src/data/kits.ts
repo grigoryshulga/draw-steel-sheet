@@ -1,11 +1,12 @@
 import { CANONICAL_KITS } from "../rules/consumer-kits";
+import type { OriginalFields } from "../types";
 
 export interface KitBonus {
   label: string;
   value: string;
 }
 
-export interface Kit {
+export interface Kit extends OriginalFields {
   id: string;
   name: string;
   summary: string;

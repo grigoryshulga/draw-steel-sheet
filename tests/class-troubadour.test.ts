@@ -48,30 +48,30 @@ const TROUPE_OPTIONS = ["Автор", "Дуэлянт", "Виртуоз"];
 const TROUPE_KEYED: Record<string, Record<number, string[]>> = {
   Автор: {
     1: [
-      "troubadour.troupe.1.mizanstsena",
-      "troubadour.troupe.1.dramaticheskiy-monolog",
-      "troubadour.troupe.1.oko-za-oko",
+      "feature.troubadour.level-1.blocking",
+      "feature.troubadour.level-1.dramatic-monologue",
+      "feature.ability.troubadour.level-1.turnabout-is-fair-play",
     ],
-    3: ["troubadour.troupe.3.propushchennaya-replika"],
-    8: ["troubadour.troupe.8.vyrezannaya-stsena"],
+    3: ["feature.troubadour.level-3.missed-cue"],
+    8: ["feature.troubadour.level-8.deleted-scene"],
   },
   Дуэлянт: {
     1: [
-      "troubadour.troupe.1.akrobatika",
-      "troubadour.troupe.1.zvezdnaya-sila",
-      "troubadour.troupe.1.ripost",
+      "feature.troubadour.level-1.acrobatics",
+      "feature.troubadour.level-1.star-power",
+      "feature.ability.troubadour.level-1.riposte",
     ],
-    3: ["troubadour.troupe.3.opponent"],
-    8: ["troubadour.troupe.8.shedevr"],
+    3: ["feature.troubadour.level-3.foil"],
+    8: ["feature.troubadour.level-8.masterwork"],
   },
   Виртуоз: {
     1: [
-      "troubadour.troupe.1.moshchnyy-akkord",
-      "troubadour.troupe.1.vystupleniya-virtuoza",
-      "troubadour.troupe.1.garmonizatsiya",
+      "feature.troubadour.level-1.power-chord",
+      "feature.troubadour.level-1.virtuoso-performances",
+      "feature.ability.troubadour.level-1.harmonize",
     ],
-    3: ["troubadour.troupe.3.vtoroy-albom"],
-    8: ["troubadour.troupe.8.lyubimtsy-publiki"],
+    3: ["feature.troubadour.level-3.second-album"],
+    8: ["feature.troubadour.level-8.crowd-favorites"],
   },
 };
 
@@ -83,30 +83,30 @@ const TROUPE_LEVEL_FIVE: Record<
   Автор: {
     group: "troubadour.feature.5.avtor",
     children: [
-      "troubadour.feature.5.popravim-na-postprodakshene",
-      "troubadour.feature.5.dubl-dva",
+      "feature.troubadour.level-5.fix-it-in-post",
+      "feature.troubadour.level-5.take-two",
     ],
   },
   Дуэлянт: {
     group: "troubadour.feature.5.duelyant",
     children: [
-      "troubadour.feature.5.slovesnaya-duel",
-      "troubadour.feature.5.nas-ne-zatmit",
+      "feature.troubadour.level-5.verbal-duel",
+      "feature.troubadour.level-5.we-cant-be-upstaged",
     ],
   },
   Виртуоз: {
     group: "troubadour.feature.5.virtuoz",
     children: [
-      "troubadour.feature.5.podderzhivayushchaya-perepalka",
-      "troubadour.feature.5.medli",
+      "feature.troubadour.level-5.bolstering-banter",
+      "feature.troubadour.level-5.medley",
     ],
   },
 };
 
 const LEVEL_FIVE_CONTAINERS: Record<string, string> = {
-  Автор: "troubadour.feature.5.osobennosti-avtora",
-  Дуэлянт: "troubadour.feature.5.osobennosti-duelyanta",
-  Виртуоз: "troubadour.feature.5.osobennosti-virtuoza",
+  Автор: "feature.troubadour.level-5.auteur-features",
+  Дуэлянт: "feature.troubadour.level-5.duelist-features",
+  Виртуоз: "feature.troubadour.level-5.virtuoso-features",
 };
 
 const LEVEL_FIVE_CHILD_IDS = Object.values(TROUPE_LEVEL_FIVE).flatMap(
@@ -116,19 +116,19 @@ const LEVEL_FIVE_CHILD_IDS = Object.values(TROUPE_LEVEL_FIVE).flatMap(
 /** Контейнеры способностей амплуа 2/6/9 уровней. */
 const ABILITY_CONTAINERS: Record<string, Record<number, string>> = {
   Автор: {
-    2: "troubadour.feature.2.sposobnosti-avtora-2-go-urovnya",
-    6: "troubadour.feature.6.sposobnosti-avtora-6-go-urovnya",
-    9: "troubadour.feature.9.sposobnosti-avtora-9-go-urovnya",
+    2: "feature.troubadour.level-2.auteur-ability",
+    6: "feature.troubadour.level-6.auteur-abilities",
+    9: "feature.troubadour.level-9.auteur-abilities",
   },
   Дуэлянт: {
-    2: "troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya",
-    6: "troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya",
-    9: "troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya",
+    2: "feature.troubadour.level-2.duelist-ability",
+    6: "feature.troubadour.level-6.duelist-abilities",
+    9: "feature.troubadour.level-9.duelist-abilities",
   },
   Виртуоз: {
-    2: "troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya",
-    6: "troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya",
-    9: "troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya",
+    2: "feature.troubadour.level-2.virtuoso-ability",
+    6: "feature.troubadour.level-6.virtuoso-abilities",
+    9: "feature.troubadour.level-9.virtuoso-abilities",
   },
 };
 
@@ -139,20 +139,20 @@ const CALLINGS = [
 ];
 
 const CALLING_IDS = [
-  "troubadour.feature.2.pozvolte-predstavit-segodnyashnikh-akterov",
-  "troubadour.feature.2.ofitsialnye-predstavleniya",
-  "troubadour.feature.2.moya-reputatsiya-operezhaet-menya",
+  "feature.troubadour.level-2.allow-me-to-introduce-tonights-players",
+  "feature.troubadour.level-2.formal-introductions",
+  "feature.troubadour.level-2.my-reputation-precedes-me",
 ];
 
 const TEXT_ONLY_IDS = [
-  "troubadour.feature.2.perk",
-  "troubadour.feature.4.navyk",
-  "troubadour.feature.4.perk",
-  "troubadour.feature.6.perk",
-  "troubadour.feature.7.navyk",
-  "troubadour.feature.8.perk",
-  "troubadour.feature.10.navyk",
-  "troubadour.feature.10.perk",
+  "feature.troubadour.level-2.perk",
+  "feature.troubadour.level-4.skill",
+  "feature.troubadour.level-4.perk",
+  "feature.troubadour.level-6.perk",
+  "feature.troubadour.level-7.skill",
+  "feature.troubadour.level-8.perk",
+  "feature.troubadour.level-10.skill",
+  "feature.troubadour.level-10.perk",
 ].sort();
 
 function troubadour(
@@ -173,8 +173,16 @@ function troubadour(
 const activeIds = (hero: Character) =>
   activeClassFeatures(hero).map((feature) => feature.id);
 
+const troupeFeatures = (hero: Character) =>
+  activeClassFeatures(hero).filter((feature) => feature.keyedBy === "troupe");
+
 const troupeIds = (hero: Character, level: number) =>
-  activeIds(hero).filter((id) => id.startsWith(`troubadour.troupe.${level}.`));
+  troupeFeatures(hero)
+    .filter((feature) => feature.level === level)
+    .map((feature) => feature.id);
+
+const keyedTroupeIds = (hero: Character) =>
+  troupeFeatures(hero).map((feature) => feature.id);
 
 const levelFiveIds = (hero: Character) =>
   activeIds(hero).filter((id) => LEVEL_FIVE_CHILD_IDS.includes(id));
@@ -234,7 +242,7 @@ describe("Трубадур: production-реестры", () => {
     ).toHaveLength(15);
 
     const containers = TROUBADOUR_FEATURES.filter((feature) =>
-      /^troubadour\.feature\.(2|6|9)\.sposobnosti-[a-z]+-\d+-go-urovnya$/.test(
+      /^feature\.troubadour\.level-(2|6|9)\.(auteur|duelist|virtuoso)-abilit(y|ies)$/.test(
         feature.id,
       ),
     );
@@ -244,9 +252,7 @@ describe("Трубадур: production-реестры", () => {
     ).toHaveLength(9);
 
     const fiveChildren = TROUBADOUR_FEATURES.filter((feature) =>
-      /^troubadour\.feature\.5\.(popravim|dubl|slovesnaya|nas-ne|podderzhivayushchaya|medli)/.test(
-        feature.id,
-      ),
+      LEVEL_FIVE_CHILD_IDS.includes(feature.id),
     );
     expect(fiveChildren).toHaveLength(6);
     expect(
@@ -317,7 +323,7 @@ describe("Трубадур: ресурс Драма и замена 7-го ур�
     const start = gains.filter((gain) => gain.tag === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("1d3 + 1");
-    expect(start[0].sourceId).toBe("troubadour.feature.7.muza-muzy");
+    expect(start[0].sourceId).toBe("feature.troubadour.level-7.a-muses-muse");
     expect(gains).toHaveLength(6);
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });
@@ -335,10 +341,10 @@ describe("Трубадур: ресурс Драма и замена 7-го ур�
 
   it("записи «Драма», «Драма в бою», «Драма вне боя» и «Аплодисменты» не начисляют ресурс повторно", () => {
     for (const id of [
-      "troubadour.feature.1.drama",
-      "troubadour.feature.1.drama-v-boyu",
-      "troubadour.feature.1.drama-vne-boya",
-      "troubadour.feature.10.aplodismenty",
+      "feature.troubadour.level-1.drama",
+      "feature.troubadour.level-1.drama-in-combat",
+      "feature.troubadour.level-1.drama-outside-of-combat",
+      "feature.troubadour.level-10.applause",
     ]) {
       const mechanics = mechanicsFor(id);
       expect(mechanics?.kinds, id).toContain("resource");
@@ -405,18 +411,16 @@ describe("Трубадур: амплуа", () => {
       troubadour(8, {}, { subclass: "Неизвестное амплуа" }),
       troubadour(8, {}, { subclass: "Автор, Дуэлянт" }),
     ]) {
-      expect(
-        activeIds(hero).filter((id) => id.startsWith("troubadour.troupe.")),
-      ).toEqual([]);
+      expect(keyedTroupeIds(hero)).toEqual([]);
       expect(levelFiveIds(hero)).toEqual([]);
     }
 
     const author = troubadour(8, {}, { subclass: "Автор" });
     expect(troupeIds(author, 1)).not.toContain(
-      "troubadour.troupe.1.akrobatika",
+      "feature.troubadour.level-1.acrobatics",
     );
     expect(levelFiveIds(author)).not.toContain(
-      "troubadour.feature.5.medli",
+      "feature.troubadour.level-5.medley",
     );
   });
 
@@ -427,9 +431,7 @@ describe("Трубадур: амплуа", () => {
     );
     expect(choice?.options).toEqual(TROUPE_OPTIONS);
     expect(choice?.label).toBe("Труппа");
-    expect(
-      activeIds(hero).filter((id) => id.startsWith("troubadour.troupe.")),
-    ).toEqual([]);
+    expect(keyedTroupeIds(hero)).toEqual([]);
     expect(levelFiveIds(hero)).toEqual([]);
   });
 
@@ -447,7 +449,7 @@ describe("Трубадур: амплуа", () => {
     expect(troupeIds(selected, 1).sort()).toEqual(
       [...TROUPE_KEYED["Дуэлянт"][1]].sort(),
     );
-    expect(troupeIds(selected, 8)).toEqual(["troubadour.troupe.8.shedevr"]);
+    expect(troupeIds(selected, 8)).toEqual(["feature.troubadour.level-8.masterwork"]);
     expect(
       classFeatureChoicesForSheet(selected).some(
         (item) => item.group === "troubadour.troupe",
@@ -485,9 +487,9 @@ describe("Трубадур: амплуа", () => {
 
   it("триггеры амплуа имеют книжные событие, частоту и подпись", () => {
     const cases = [
-      ["Автор", "troubadour.troupe.1.oko-za-oko"],
-      ["Дуэлянт", "troubadour.troupe.1.ripost"],
-      ["Виртуоз", "troubadour.troupe.1.garmonizatsiya"],
+      ["Автор", "feature.ability.troubadour.level-1.turnabout-is-fair-play"],
+      ["Дуэлянт", "feature.ability.troubadour.level-1.riposte"],
+      ["Виртуоз", "feature.ability.troubadour.level-1.harmonize"],
     ] as const;
 
     for (const [troupe, featureId] of cases) {
@@ -836,10 +838,10 @@ describe("Трубадур: старый и частичный лист", () => 
       "Поправим на постпродакшене",
     );
     expect(levelFiveIds(selected)).toEqual([
-      "troubadour.feature.5.popravim-na-postprodakshene",
+      "feature.troubadour.level-5.fix-it-in-post",
     ]);
     expect(troupeIds(hero, 1)).not.toContain(
-      "troubadour.troupe.1.akrobatika",
+      "feature.troubadour.level-1.acrobatics",
     );
   });
 
@@ -873,7 +875,8 @@ describe("Трубадур: видимый текст без внутренни�
     "keyedBy",
     "when.",
     "subclass",
-    "troubadour.feature.",
+    "feature.troubadour.",
+    "feature.ability.troubadour.",
     "troubadour.troupe.",
     "troubadour.calling",
     "sourceId",

@@ -1,7 +1,7 @@
 import { CANONICAL_LEVEL_UP_RULES } from "../rules/consumer-level-up";
-import type { CharacteristicKey } from "../types";
+import type { CharacteristicKey, OriginalFields } from "../types";
 
-export interface LevelUpFeature {
+export interface LevelUpFeature extends OriginalFields {
   id: string;
   name: string;
   description: string;

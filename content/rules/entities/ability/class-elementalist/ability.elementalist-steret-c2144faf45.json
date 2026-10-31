@@ -1,5 +1,5 @@
 {
-  "id": "ability.elementalist-steret-c2144faf45",
+  "id": "feature.ability.elementalist.level-3.erase",
   "kind": "ability",
   "name": "Стереть",
   "markdown": "> **Стереть (7 Эссенции)**\n>\n> *Взмахом руки вы стираете существ из существования.*\n>\n> | **Магия, Дальний, Удар, Пустота** | **Основное действие** |\n> | ------------------------------- | --------------: |\n> | **📏 Дальний 10** |  **🎯 Особая** |\n>\n> **Особенности:** Количество существ, на которых вы можете нацелиться с помощью этой способности, определяется вашим броском силы.\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** Одно существо\n> - **12-16:** Два существа\n> - **17+:** Три существа\n>\n> **Эффект:** Каждая цель начинает исчезать из существования (до прох.). В свой первый ход, пока цель исчезает из существования, она получает помеху на броски силы. В конце ее первого хода у нее появляется двойная помеха на броски силы. В конце ее второго хода она исчезает из существования на 1 час, после чего появляется в своем первоначальном пространстве или на ближайшей свободной клетке.",
@@ -7,11 +7,8 @@
     "articleId": "0893",
     "path": "08. Классы/Элементалист/0893. 3-й Уровень Элементалиста.md"
   },
-  "legacyIds": [
-    "elementalist-steret-c2144faf45"
-  ],
   "ability": {
-    "id": "elementalist-steret-c2144faf45",
+    "id": "feature.ability.elementalist.level-3.erase",
     "name": "Стереть",
     "flavor": "Взмахом руки вы стираете существ из существования.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Элементалист",
     "level": 3,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/erase",
+    "originalName": "Erase",
+    "originalDescription": "*With a flick of the wrist, you phase creatures out of existence.*\n\n| **Magic, Ranged, Strike, Void** | **Main action** |\n|---------------------------------|----------------:|\n| **📏 Ranged 10**                |  **🎯 Special** |\n\n**Special:** The number of creatures you target with this ability is determined by your power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** One creature\n- **12-16:** Two creatures\n- **17+:** Three creatures\n\n**Effect:** Each target begins to fade from existence (save ends). On their first turn while fading from existence, a target takes a bane on power rolls. At the end of their first turn, they have a double bane on power rolls. At the end of their second turn, they fade from existence for 1 hour, after which they reappear in their original space or the nearest unoccupied space."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/erase",
+  "originalName": "Erase",
+  "originalDescription": "*With a flick of the wrist, you phase creatures out of existence.*\n\n| **Magic, Ranged, Strike, Void** | **Main action** |\n|---------------------------------|----------------:|\n| **📏 Ranged 10**                |  **🎯 Special** |\n\n**Special:** The number of creatures you target with this ability is determined by your power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** One creature\n- **12-16:** Two creatures\n- **17+:** Three creatures\n\n**Effect:** Each target begins to fade from existence (save ends). On their first turn while fading from existence, a target takes a bane on power rolls. At the end of their first turn, they have a double bane on power rolls. At the end of their second turn, they fade from existence for 1 hour, after which they reappear in their original space or the nearest unoccupied space."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-zverinyy-naskok-575ec5a122",
+  "id": "feature.ability.fury.level-6.pounce",
   "kind": "ability",
   "name": "Звериный Наскок",
   "markdown": "> **Звериный Наскок (9 Свирепости)**\n>\n> *Вы бросаетесь на цель, как истинный хищник, которым вы являетесь.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 8 урона; М < СЛАБЫЙ, схваченный\n> - **12-16:** 13 урона; М < СРЕДНИЙ, схваченный\n> - **17+:** 17 урона; М < СИЛЬНЫЙ, схваченный\n>\n> **Эффект:** Вы можете сместиться вплоть до 4 клеток, забирая цель с собой. Будучи схваченной таким образом, цель получает урон, равный двойному показателю вашей Мощи, в начале каждого вашего хода.",
@@ -7,11 +7,8 @@
     "articleId": "0806",
     "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-zverinyy-naskok-575ec5a122"
-  ],
   "ability": {
-    "id": "neistovyy-zverinyy-naskok-575ec5a122",
+    "id": "feature.ability.fury.level-6.pounce",
     "name": "Звериный Наскок",
     "flavor": "Вы бросаетесь на цель, как истинный хищник, которым вы являетесь.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Неистовый",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+    "originalName": "Pounce",
+    "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+  "originalName": "Pounce",
+  "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns."
 }

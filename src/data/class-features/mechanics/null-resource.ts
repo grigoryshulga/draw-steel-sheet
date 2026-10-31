@@ -66,7 +66,7 @@ export const NULL_RESOURCE: HeroicResourceSpec = {
  * 4/7/10 уровнях — в механиках уровней.
  */
 export const NULL_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
-  "null.feature.1.distsiplina": {
+  "feature.null.level-1.discipline": {
     kinds: ["resource"],
     notes:
       "Дисциплина — героический ресурс Нуля. Прибавки считаются " +
@@ -76,7 +76,7 @@ export const NULL_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "за Раздор — 1. Отдельных прибавок у записи нет, иначе дисциплина " +
       "начислялась бы дважды.",
   },
-  "null.feature.1.distsiplina-v-boyu": {
+  "feature.null.level-1.discipline-in-combat": {
     kinds: ["resource"],
     notes:
       "В начале боевой встречи или другой стрессовой ситуации, которую Ведущий " +
@@ -87,7 +87,7 @@ export const NULL_RESOURCE_MECHANICS: Record<string, FeatureMechanics> = {
       "Раздора, — 1. Остаток сгорает в конце боевой встречи. Отдельных " +
       "прибавок у записи нет: числа живут в спецификации ресурса.",
   },
-  "null.feature.1.distsiplina-vne-boya": {
+  "feature.null.level-1.discipline-outside-of-combat": {
     kinds: ["resource"],
     notes:
       "Вне боя дисциплина не набирается. Способность или эффект со стоимостью " +
