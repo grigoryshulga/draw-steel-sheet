@@ -430,9 +430,7 @@ describe("Элементалист: повышение уровня 4→5, 7→8
       fromLevel: hero.level,
       className: hero.className,
       subclass: hero.subclass,
-      mode: "milestone",
       choices,
-      reviewedRules: true,
     };
   }
 

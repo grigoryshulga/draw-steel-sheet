@@ -83,8 +83,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
   const { character, update } = useApp();
   const plan = useMemo(() => buildDevelopmentPlan(character), [character]);
   const [draft, setDraft] = useState<DevelopmentDraft>({});
-  const [mode, setMode] = useState<"xp" | "milestone">("milestone");
-  const [reviewed, setReviewed] = useState(false);
   const [detail, setDetail] = useState<DetailState | undefined>();
   const [closed, setClosed] = useState<Set<number>>(() => defaultClosedLevels(plan));
   const [notice, setNotice] = useState<string | undefined>();
@@ -93,7 +91,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     new Set(),
   );
 
-  const input = { draft, mode, reviewedRules: reviewed };
+  const input = { draft };
   const issues = developmentIssues(plan, input);
   const dirty = draftIsDirty(plan, draft);
   const engaged = nextLevelEngaged(plan, draft);
@@ -148,7 +146,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
 
   const reset = useCallback(() => {
     setDraft({});
-    setReviewed(false);
     setBlocked(undefined);
     setNotice("Черновик сброшен — вкладка снова показывает сохранённое состояние героя.");
   }, []);
@@ -162,7 +159,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     }
     update(() => result.next);
     setDraft({});
-    setReviewed(false);
     setBlocked(undefined);
     setClosed(defaultClosedLevels(buildDevelopmentPlan(result.next)));
     setNotice(
@@ -189,7 +185,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     });
   };
 
-  const nextLevel = plan.nextLevel;
   const nextLevelEntry = plan.levels.find((level) => level.status === "next");
   const nextSteps = (nextLevelEntry?.steps ?? [])
     .map((step) => ({
@@ -197,6 +192,29 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
       selected: stepSelection(step, draft).length,
     }))
     .filter(({ step, selected }) => selected < step.count);
+
+  // Сводка собирает всё, что уровень даст при сохранении: автоматические
+  // награды и уже сделанные выборы — чтобы не выискивать их по секции.
+  const summaryGrants = nextLevelEntry
+    ? [
+        ...nextLevelEntry.upcoming.map((feature) => ({
+          id: `feature:${feature.id}`,
+          name: feature.name,
+          summary: feature.summary,
+        })),
+        ...nextLevelEntry.granted.map((grant) => ({
+          id: `grant:${grant.id}`,
+          name: grant.name,
+          summary: grant.summary,
+        })),
+      ]
+    : [];
+  const summaryPicks = (nextLevelEntry?.steps ?? []).map((step) => ({
+    step,
+    labels: stepSelection(step, draft)
+      .map((id) => step.options.find((option) => option.id === id)?.label)
+      .filter((label): label is string => !!label),
+  }));
 
   return (
     <div className="dev-panel">
@@ -209,7 +227,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
             size="sm"
             variant="ghost"
             onClick={reset}
-            disabled={!dirty && !engaged && !reviewed}
+            disabled={!dirty && !engaged}
           >
             Сбросить
           </Button>
@@ -241,31 +259,82 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         </div>
       )}
 
-      {nextSteps.length > 0 && (
-        <div className="dev-todo" aria-label="Что осталось выбрать">
-          <span className="eyebrow">
-            {nextLevelEntry ? `${nextLevelEntry.title} · осталось выбрать` : "Осталось выбрать"}
-          </span>
-          <div className="dev-todo-list">
-            {nextSteps.map(({ step, selected }) => (
-              <button
-                type="button"
-                key={step.id}
-                className="dev-todo-item"
-                onClick={() =>
-                  document
-                    .getElementById(`dev-step-${step.id}`)
-                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                }
-              >
-                <span>{step.title}</span>
-                <span className="mono">
-                  {selected}/{step.count}
-                </span>
-              </button>
-            ))}
+      {nextLevelEntry &&
+        (summaryGrants.length > 0 ||
+          summaryPicks.length > 0 ||
+          nextSteps.length > 0) && (
+        <section
+          className="dev-summary"
+          aria-label={`Что даст ${nextLevelEntry.title}`}
+        >
+          <div className="dev-summary-head">
+            <span className="eyebrow">Сводка повышения</span>
+            <span className="dev-summary-title">{nextLevelEntry.title}</span>
+            <span className="dev-summary-echelon mono">
+              {nextLevelEntry.echelonLabel}
+            </span>
+            {nextLevelEntry.ruleTitle && (
+              <span className="dev-summary-rule">{nextLevelEntry.ruleTitle}</span>
+            )}
           </div>
-        </div>
+
+          {summaryGrants.length > 0 && (
+            <div className="dev-summary-block">
+              <span className="dev-block-title">Выдаётся автоматически</span>
+              <ul className="dev-list">
+                {summaryGrants.map((item) => (
+                  <li key={item.id}>
+                    <strong>{item.name}</strong>
+                    {item.summary && <span> — {item.summary}</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {summaryPicks.length > 0 && (
+            <div className="dev-summary-block">
+              <span className="dev-block-title">Ваши выборы</span>
+              <ul className="dev-list dev-summary-picks">
+                {summaryPicks.map(({ step, labels }) => (
+                  <li key={step.id}>
+                    <strong>{step.title}:</strong>{" "}
+                    {labels.length > 0 ? (
+                      labels.join(", ")
+                    ) : (
+                      <span className="dev-summary-empty">не выбрано</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {nextSteps.length > 0 && (
+            <div className="dev-summary-block">
+              <span className="dev-block-title">Осталось выбрать</span>
+              <div className="dev-todo-list">
+                {nextSteps.map(({ step, selected }) => (
+                  <button
+                    type="button"
+                    key={step.id}
+                    className="dev-todo-item"
+                    onClick={() =>
+                      document
+                        .getElementById(`dev-step-${step.id}`)
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }
+                  >
+                    <span>{step.title}</span>
+                    <span className="mono">
+                      {selected}/{step.count}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
       )}
 
       <div className="dev-class-choices">
@@ -457,7 +526,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                     );
                   })}
 
-                  {level.granted.length > 0 && (
+                  {level.status !== "next" && level.granted.length > 0 && (
                     <div className="dev-block">
                       <span className="dev-block-title">Выдаётся автоматически</span>
                       <ul className="dev-list">
@@ -471,7 +540,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                     </div>
                   )}
 
-                  {level.upcoming.length > 0 && (
+                  {level.status !== "next" && level.upcoming.length > 0 && (
                     <div className="dev-block">
                       <span className="dev-block-title">Появятся особенности</span>
                       <ul className="dev-list">
@@ -496,38 +565,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                     </div>
                   )}
 
-                  {level.status === "next" && level.steps.length > 0 && (
-                    <div className="dev-advance">
-                      <span className="dev-block-title">Способ повышения</span>
-                      <div className="dev-advance-row">
-                        {(["milestone", "xp"] as const).map((value) => (
-                          <Chip
-                            key={value}
-                            active={mode === value}
-                            tone="green"
-                            onClick={() => setMode(value)}
-                          >
-                            {value === "milestone" ? "Решением ведущего" : "За опыт"}
-                          </Chip>
-                        ))}
-                      </div>
-                      {nextLevel && mode === "xp" && (
-                        <p className="dev-note mono">
-                          Опыт: {nextLevel.plan.xpRequired} · не хватает{" "}
-                          {nextLevel.plan.xpMissing}
-                        </p>
-                      )}
-                      <label className="dev-review">
-                        <input
-                          type="checkbox"
-                          checked={reviewed}
-                          onChange={(event) => setReviewed(event.target.checked)}
-                        />
-                        <span>Я прочитал(а) правила нового уровня</span>
-                      </label>
-                    </div>
-                  )}
-
                   {level.status === "next" && level.steps.length === 0 && level.note && (
                     <p className="dev-note is-error">{level.note}</p>
                   )}
@@ -537,12 +574,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
           );
         })}
       </div>
-
-      {dirty && (
-        <p className="dev-footnote">
-          Черновик хранится только на этой вкладке. Несохранённые выборы не меняют лист.
-        </p>
-      )}
 
       {detail?.option.ability ? (
         <Modal

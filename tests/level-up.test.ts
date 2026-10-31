@@ -53,9 +53,7 @@ function makeRequest(
     fromLevel: character.level,
     className: character.className,
     subclass: character.subclass,
-    mode: "milestone",
     choices: {},
-    reviewedRules: true,
     ...overrides,
   };
 }
@@ -103,7 +101,7 @@ function optionLabels(plan: LevelUpPlan, choiceId: string): string[] {
 }
 
 describe("level-up XP and availability", () => {
-  it("blocks the XP mode below the cumulative threshold and keeps XP intact", () => {
+  it("levels up without spending XP or asking how the level was earned", () => {
     const short = makeHero("Талант", 1, "Телепатия", { xp: 15 });
     const plan = getLevelUpPlan(short);
     expect(plan).toMatchObject({
@@ -114,34 +112,24 @@ describe("level-up XP and availability", () => {
       xpMissing: 1,
     });
 
-    const blocked = previewLevelUp(
-      short,
-      makeRequest(short, { mode: "xp", choices: firstChoices(short) }),
-    );
-    expectIssues(blocked, "Недостаточно опыта");
-    // Nothing is spent or changed by a rejected request.
-    expect(short.xp).toBe(15);
-    expect(short.level).toBe(1);
-
-    const ready = makeHero("Талант", 1, "Телепатия", { xp: 16 });
     const result = expectOk(
       previewLevelUp(
-        ready,
-        makeRequest(ready, { mode: "xp", choices: firstChoices(ready) }),
+        short,
+        makeRequest(short, { choices: firstChoices(short) }),
       ),
     );
     expect(result.next.level).toBe(2);
-    expect(result.next.xp).toBe(16);
+    expect(result.next.xp).toBe(15);
     expect(result.next.advancements?.[0]).toMatchObject({
       fromLevel: 1,
       toLevel: 2,
-      mode: "xp",
       className: "Талант",
       subclass: "Телепатия",
     });
+    expect(result.next.advancements?.[0]).not.toHaveProperty("mode");
   });
 
-  it("allows an explicit milestone with zero XP and no XP or victory changes", () => {
+  it("keeps XP and victories when the sheet has none to give", () => {
     const character = makeHero("Талант", 1, "Телепатия", {
       xp: 0,
       victories: 7,
@@ -151,7 +139,6 @@ describe("level-up XP and availability", () => {
       previewLevelUp(
         character,
         makeRequest(character, {
-          mode: "milestone",
           choices: firstChoices(character),
         }),
       ),
@@ -160,7 +147,6 @@ describe("level-up XP and availability", () => {
     expect(result.next.xp).toBe(0);
     expect(result.next.victories).toBe(7);
     expect(result.next.epic).toBe(3);
-    expect(result.next.advancements?.[0].mode).toBe("milestone");
   });
 
   it("refuses any growth beyond level ten", () => {
@@ -170,7 +156,7 @@ describe("level-up XP and availability", () => {
     expect(plan.reason).toContain("10-го уровня");
     expect(plan.choices).toEqual([]);
     expectIssues(
-      previewLevelUp(character, makeRequest(character, { mode: "milestone" })),
+      previewLevelUp(character, makeRequest(character)),
       "10-го уровня",
     );
   });
@@ -181,7 +167,7 @@ describe("level-up XP and availability", () => {
     expect(unknownPlan.available).toBe(false);
     expect(unknownPlan.reason).toContain("не распознан");
     expectIssues(
-      previewLevelUp(unknown, makeRequest(unknown, { mode: "milestone" })),
+      previewLevelUp(unknown, makeRequest(unknown)),
       "не распознан",
     );
 
@@ -192,7 +178,7 @@ describe("level-up XP and availability", () => {
     expectIssues(
       previewLevelUp(
         summoner,
-        makeRequest(summoner, { mode: "milestone" }),
+        makeRequest(summoner),
       ),
       "нет проверенных правил",
     );
@@ -329,7 +315,7 @@ describe("level-up required choices", () => {
     expect(plan.available).toBe(false);
     expect(plan.reason).toContain("подкласс");
     expectIssues(
-      previewLevelUp(missing, makeRequest(missing, { mode: "milestone" })),
+      previewLevelUp(missing, makeRequest(missing)),
       "подкласс",
     );
 
@@ -338,7 +324,6 @@ describe("level-up required choices", () => {
       previewLevelUp(
         foreign,
         makeRequest(foreign, {
-          mode: "milestone",
           choices: firstChoices(foreign),
         }),
       ),
@@ -410,16 +395,9 @@ describe("level-up required choices", () => {
     expect(result.ok, result.ok ? "" : result.issues.join("; ")).toBe(true);
   });
 
-  it("requires reviewing the rules and validates optional manual maxima", () => {
+  it("validates optional manual maxima", () => {
     const character = makeHero("Талант", 1, "Телепатия");
     const choices = firstChoices(character);
-    expectIssues(
-      previewLevelUp(
-        character,
-        makeRequest(character, { choices, reviewedRules: false }),
-      ),
-      "правила нового уровня прочитаны",
-    );
     expectIssues(
       previewLevelUp(
         character,
@@ -893,10 +871,7 @@ describe("level-up commit invariants", () => {
 
     const plan = getLevelUpPlan(character);
     expect(plan.available).toBe(true);
-    const blocked = previewLevelUp(
-      character,
-      makeRequest(character, { reviewedRules: false }),
-    );
+    const blocked = previewLevelUp(character, makeRequest(character));
     expect(blocked.ok).toBe(false);
     previewLevelUp(
       character,
@@ -935,6 +910,7 @@ describe("level-up commit invariants", () => {
       toLevel: 2,
       className: "Старый класс",
       subclass: "Старый подкласс",
+      // Старые листы ещё хранят способ повышения: поле сохраняется как есть.
       mode: "milestone" as const,
       articleId: "0000",
       choices: { unknown_group: ["unknown-id"] },
@@ -976,7 +952,6 @@ describe("level-up commit invariants", () => {
       toLevel: 2,
       className: "Талант",
       subclass: "Телепатия",
-      mode: "milestone",
       articleId: plan.rule?.articleId,
       notes: "выбрали по совету ведущего",
     });
@@ -1008,7 +983,12 @@ describe("level-up commit invariants", () => {
     const normalized = normalizeCharacter(result.next);
     expect(normalized.advancements).toHaveLength(2);
     expect(normalized.advancements?.[1]).toEqual(record);
-    const { legacyExtra: _legacyExtra, ...canonicalLegacy } = legacyRecord;
+    // Нормализация отбрасывает старый способ повышения и неизвестные поля.
+    const {
+      legacyExtra: _legacyExtra,
+      mode: _legacyMode,
+      ...canonicalLegacy
+    } = legacyRecord;
     expect(normalized.advancements?.[0]).toEqual(canonicalLegacy);
     expect(normalized.advancements).not.toBe(result.next.advancements);
 
@@ -1243,7 +1223,7 @@ describe("level-up full automated path", () => {
       }
       const result = previewLevelUp(
         character,
-        makeRequest(character, { mode: "milestone", choices }),
+        makeRequest(character, { choices }),
       );
       expect(
         result.ok,
@@ -1751,7 +1731,6 @@ describe("level-up explicit previous-level ability windows", () => {
         previewLevelUp(
           character,
           makeRequest(character, {
-            mode: "milestone",
             choices: firstChoices(character),
           }),
         ),

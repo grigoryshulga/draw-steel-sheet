@@ -115,9 +115,6 @@ function validateAdvancements(value: JsonObject): void {
     for (const key of ["className", "subclass", "articleId", "notes", "createdAt"]) {
       if (typeof raw[key] !== "string") fail(`${path}.${key}`);
     }
-    if (raw.mode !== "xp" && raw.mode !== "milestone") {
-      fail(`${path}.mode`);
-    }
     if (!isObject(raw.choices)) fail(`${path}.choices`);
     for (const [choiceKey, ids] of Object.entries(raw.choices)) {
       if (!Array.isArray(ids) || !ids.every((id) => typeof id === "string")) {

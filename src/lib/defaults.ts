@@ -191,7 +191,9 @@ function isLevelAdvancementRecord(value: unknown): value is LevelAdvancementReco
     (toLevel as number) <= 10 &&
     typeof value.className === "string" &&
     typeof value.subclass === "string" &&
-    (value.mode === "xp" || value.mode === "milestone") &&
+    (value.mode === undefined ||
+      value.mode === "xp" ||
+      value.mode === "milestone") &&
     typeof value.articleId === "string" &&
     isObjectRecord(value.choices) &&
     Object.values(value.choices).every(
@@ -211,7 +213,6 @@ function cloneAdvancementRecord(
     toLevel: record.toLevel,
     className: record.className,
     subclass: record.subclass,
-    mode: record.mode,
     articleId: record.articleId,
     choices: Object.fromEntries(
       Object.entries(record.choices).map(([key, ids]) => [key, [...ids]]),

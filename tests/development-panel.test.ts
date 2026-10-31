@@ -42,9 +42,7 @@ function advancedHero(): Character {
       fromLevel: current.level,
       className: current.className,
       subclass: current.subclass ?? "",
-      mode: "milestone",
       choices,
-      reviewedRules: true,
     });
     if (!result.ok) throw new Error(result.issues.join("; "));
     current = result.next;
@@ -91,8 +89,23 @@ describe("вкладка «Развитие»", () => {
     expect(html).toContain("sheet-ability-card");
     expect(html).toContain("sheet-perk-card");
     expect(html).toContain('data-type="');
-    expect(html).toContain("Способ повышения");
     expect(html).toContain("Сохранить");
+  });
+
+  it("показывает сводку повышения до секций уровней", () => {
+    const html = render(hero());
+    expect(html).toContain("Сводка повышения");
+    expect(html).toContain("Выдаётся автоматически");
+    expect(html).toContain("3-й уровень");
+    // В сводке нет выбранных вариантов, пока черновик пуст.
+    expect(html).toContain("не выбрано");
+    // Сводка стоит выше первой секции уровня.
+    expect(html.indexOf("Сводка повышения")).toBeLessThan(
+      html.indexOf("dev-levels"),
+    );
+    // Подтверждения и способа повышения больше нет.
+    expect(html).not.toContain("Способ повышения");
+    expect(html).not.toContain("прочитал");
   });
 
   it("рисует особенности класса внутри секции уровня", () => {

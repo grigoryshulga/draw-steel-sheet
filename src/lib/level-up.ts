@@ -53,9 +53,7 @@ export interface LevelUpRequest {
   fromLevel: number;
   className: string;
   subclass: string;
-  mode: "xp" | "milestone";
   choices: Record<string, string[]>;
-  reviewedRules: boolean;
   notes?: string;
   manualMaxima?: { stamina?: number; recoveries?: number };
 }
@@ -980,9 +978,6 @@ function requestIssues(
   if (!plan.available) {
     issues.push(plan.reason ?? "Повышение уровня недоступно.");
   }
-  if (request.reviewedRules !== true) {
-    issues.push("Отметьте, что правила нового уровня прочитаны.");
-  }
   if (
     typeof request.characterId !== "string" ||
     request.characterId !== character.id
@@ -1004,14 +999,6 @@ function requestIssues(
   if (request.fromLevel !== character.level) {
     issues.push(
       `Запрос построен для ${request.fromLevel}-го уровня, а герой уже на ${character.level}-м. Подтвердите повышение заново.`,
-    );
-  }
-  if (request.mode !== "xp" && request.mode !== "milestone") {
-    issues.push("Выберите способ повышения: опыт или решение ведущего.");
-  }
-  if (request.mode === "xp" && plan.xpMissing > 0) {
-    issues.push(
-      `Недостаточно опыта: нужно ${plan.xpRequired}, у героя ${Number.isFinite(character.xp) ? character.xp : 0}. Можно повысить по решению ведущего.`,
     );
   }
   if (request.notes !== undefined && typeof request.notes !== "string") {
@@ -1248,7 +1235,6 @@ export function previewLevelUp(
     toLevel: plan.toLevel,
     className: character.className,
     subclass: typeof character.subclass === "string" ? character.subclass : "",
-    mode: request.mode,
     articleId: rule.articleId,
     choices: recordChoices,
     notes: typeof request.notes === "string" ? request.notes.trim() : "",

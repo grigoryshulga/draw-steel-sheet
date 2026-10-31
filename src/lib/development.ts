@@ -149,8 +149,6 @@ export type DevelopmentDraft = Record<string, string[]>;
 
 export interface DevelopmentInput {
   draft: DevelopmentDraft;
-  mode: "xp" | "milestone";
-  reviewedRules: boolean;
 }
 
 export interface DevelopmentIssue {
@@ -1056,12 +1054,6 @@ export function developmentIssues(
           });
         }
       }
-      if (!input.reviewedRules) {
-        issues.push({
-          level: next.level,
-          message: `${levelTitle(next.level)}: отметьте, что правила нового уровня прочитаны.`,
-        });
-      }
     }
   }
   return issues;
@@ -1221,7 +1213,6 @@ export function applyDevelopment(
         toLevel: level.level,
         className: character.className,
         subclass: typeof character.subclass === "string" ? character.subclass : "",
-        mode: current?.mode ?? "milestone",
         articleId: current?.articleId ?? rule?.articleId ?? "",
         choices: recordChoices,
         notes: current?.notes ?? "Дозаполнено в «Развитии»",
@@ -1355,9 +1346,7 @@ export function applyDevelopment(
       fromLevel: next.level,
       className: next.className,
       subclass: next.subclass ?? "",
-      mode: input.mode,
       choices,
-      reviewedRules: input.reviewedRules,
     };
     const preview = previewLevelUp(next, request);
     if (!preview.ok) {

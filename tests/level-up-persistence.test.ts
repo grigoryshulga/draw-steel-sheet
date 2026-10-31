@@ -8,10 +8,9 @@ const record: LevelAdvancementRecord = {
   toLevel: 5,
   className: "Тактик",
   subclass: "Командир",
-  mode: "milestone",
   articleId: "tactician-5",
   choices: { ability_group_unknown: ["unknown-ability", "other-id"] },
-  notes: "Решение ведущего",
+  notes: "старая запись",
   createdAt: "2026-10-24T10:30:00.000Z",
 };
 
@@ -44,6 +43,15 @@ describe("level-up persistence", () => {
     });
   });
 
+  it("accepts an old record with the removed advancement mode", () => {
+    const legacy = { ...record, mode: "milestone" };
+    const normalized = normalizeCharacter({ name: "Герой", advancements: [legacy] });
+
+    expect(normalized.advancements).toHaveLength(1);
+    expect(normalized.advancements?.[0]).not.toHaveProperty("mode");
+    expect(normalized.advancements?.[0]).toMatchObject({ toLevel: 5 });
+  });
+
   it("drops a malformed optional field as a whole during direct normalization", () => {
     const normalized = normalizeCharacter({
       name: "Герой",
@@ -66,7 +74,6 @@ describe("level-up persistence", () => {
   it.each([
     [{ ...record, fromLevel: 0 }, "advancements[0].fromLevel"],
     [{ ...record, toLevel: 7 }, "advancements[0].toLevel"],
-    [{ ...record, mode: "manual" }, "advancements[0].mode"],
     [{ ...record, choices: [] }, "advancements[0].choices"],
     [{ ...record, choices: { group: ["ok", 3] } }, "advancements[0].choices.group"],
     [{ ...record, createdAt: "not a date" }, "advancements[0].createdAt"],

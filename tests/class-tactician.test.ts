@@ -395,9 +395,7 @@ describe("Тактик: повышение уровня", () => {
       fromLevel: hero.level,
       className: hero.className,
       subclass: hero.subclass,
-      mode: "milestone",
       choices: firstChoices(hero),
-      reviewedRules: true,
     };
   }
 

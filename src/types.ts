@@ -67,13 +67,12 @@ export interface SelectedPerk {
   description?: string;
 }
 
-/** Историческая запись о подтверждённом переходе на следующий уровень. */
+/** Историческая запись о переходе на следующий уровень. */
 export interface LevelAdvancementRecord {
   fromLevel: number;
   toLevel: number;
   className: string;
   subclass: string;
-  mode: "xp" | "milestone";
   articleId: string;
   choices: Record<string, string[]>;
   notes: string;

@@ -959,8 +959,6 @@ function levelUpRequest(hero: Character): LevelUpRequest {
     fromLevel: hero.level,
     className: hero.className,
     subclass: hero.subclass,
-    mode: "milestone",
     choices,
-    reviewedRules: true,
   };
 }

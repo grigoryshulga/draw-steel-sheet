@@ -84,7 +84,7 @@ describe("механики уровней Проводника", () => {
     picks[groupId] = [selectedId];
     const preview = previewLevelUp(hero, {
       characterId: hero.id, fromLevel, className: "Проводник", subclass: domains,
-      mode: "milestone", choices: picks, reviewedRules: true,
+      choices: picks,
     });
     expect(preview.ok).toBe(true);
     if (!preview.ok) throw new Error(preview.issues.join("; "));

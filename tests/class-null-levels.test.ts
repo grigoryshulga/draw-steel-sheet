@@ -500,9 +500,7 @@ describe("Нуль: повышение уровня 6→7 и 9→10", () => {
       fromLevel: hero.level,
       className: hero.className,
       subclass: hero.subclass,
-      mode: "milestone",
       choices,
-      reviewedRules: true,
     };
   }
 

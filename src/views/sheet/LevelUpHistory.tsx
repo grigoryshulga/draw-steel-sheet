@@ -50,7 +50,6 @@ export function LevelUpHistory({ character }: { character: Character }) {
         return (
           <details className="level-up-history-item" key={`${record.toLevel}:${record.createdAt}:${index}`}>
             <summary>Уровень {record.toLevel} · {record.className}</summary>
-            <p>{record.mode === "xp" ? "За опыт" : "Решение ведущего"}</p>
             {Object.entries(record.choices).length ? (
               <ul className="level-up-receipt-choices">
                 {Object.entries(record.choices).map(([key, values]) => (

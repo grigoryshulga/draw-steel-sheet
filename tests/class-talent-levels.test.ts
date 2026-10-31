@@ -468,9 +468,7 @@ describe("Талант: повышение уровня 6→7, 7→8, 9→10", (
       fromLevel: hero.level,
       className: hero.className,
       subclass: hero.subclass,
-      mode: "milestone",
       choices,
-      reviewedRules: true,
     };
   }
 

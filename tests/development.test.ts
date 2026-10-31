@@ -75,9 +75,7 @@ function levelUp(hero: Character): Character {
     fromLevel: hero.level,
     className: hero.className,
     subclass: hero.subclass ?? "",
-    mode: "milestone",
     choices,
-    reviewedRules: true,
   });
   if (!result.ok) throw new Error(result.issues.join("; "));
   return result.next;
@@ -117,8 +115,8 @@ function fillNext(plan: ReturnType<typeof buildDevelopmentPlan>): DevelopmentDra
   return draft;
 }
 
-function messages(plan: ReturnType<typeof buildDevelopmentPlan>, draft: DevelopmentDraft, reviewedRules = true): string {
-  return developmentIssues(plan, { draft, mode: "milestone", reviewedRules })
+function messages(plan: ReturnType<typeof buildDevelopmentPlan>, draft: DevelopmentDraft): string {
+  return developmentIssues(plan, { draft })
     .map((issue) => issue.message)
     .join("\n");
 }
@@ -184,8 +182,6 @@ describe("saving the draft", () => {
 
     const blocked = applyDevelopment(hero, plan, {
       draft,
-      mode: "milestone",
-      reviewedRules: true,
     });
     expect(blocked.ok).toBe(false);
     expect(blocked.leveledUp).toBe(false);
@@ -194,31 +190,25 @@ describe("saving the draft", () => {
 
     const applied = applyDevelopment(hero, plan, {
       draft: fillNext(plan),
-      mode: "milestone",
-      reviewedRules: true,
     });
     expect(applied.ok, applied.issues.join("; ")).toBe(true);
     expect(applied.next.level).toBe(4);
   });
 
-  it("asks to confirm the rules before the level actually rises", () => {
+  it("raises the level once the next level is fully filled", () => {
     const hero = heroAt("Талант", 2);
     const plan = buildDevelopmentPlan(hero);
     const draft = fillNext(plan);
 
-    expect(messages(plan, draft, false)).toContain("прочитаны");
-
     const result = applyDevelopment(hero, plan, {
       draft,
-      mode: "milestone",
-      reviewedRules: true,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.leveledUp).toBe(true);
     expect(result.next.level).toBe(3);
     expect(result.next.advancements).toHaveLength(2);
     const record = result.next.advancements?.[1];
-    expect(record).toMatchObject({ fromLevel: 2, toLevel: 3, mode: "milestone" });
+    expect(record).toMatchObject({ fromLevel: 2, toLevel: 3 });
     expect(Object.keys(record?.choices ?? {}).length).toBe(nextSection(plan).steps.length);
   });
 
@@ -249,8 +239,6 @@ describe("reconfiguring an earned level", () => {
 
     const result = applyDevelopment(hero, plan, {
       draft: { [step.id]: [replacement!.id] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.leveledUp).toBe(false);
@@ -278,8 +266,6 @@ describe("reconfiguring an earned level", () => {
 
     const result = applyDevelopment(hero, plan, {
       draft: { [step.id]: [] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok).toBe(false);
     expect(result.issues.join("\n")).toContain("не заполнен шаг");
@@ -301,8 +287,6 @@ describe("reconfiguring an earned level", () => {
 
     const result = applyDevelopment(hero, plan, {
       draft: { [step.id]: [replacement!.id] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.next.skills).toContain(replacement!.id);
@@ -326,8 +310,6 @@ describe("reconfiguring an earned level", () => {
 
     const result = applyDevelopment(hero, plan, {
       draft,
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.next.level).toBe(2);
@@ -351,8 +333,6 @@ describe("reconfiguring an earned level", () => {
     )!;
     const result = applyDevelopment(hero, plan, {
       draft: { [level2.id]: [replacement.id] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.next.abilities.map((ability) => ability.id)).toContain(level3.current[0]);
@@ -394,7 +374,6 @@ describe("домены Проводника", () => {
           toLevel: 6,
           className: "Проводник",
           subclass: "Смерть, Жизнь",
-          mode: "milestone",
           articleId: "",
           notes: "",
           createdAt: "2026-01-01T00:00:00.000Z",
@@ -425,8 +404,6 @@ describe("домены Проводника", () => {
 
     const result = applyDevelopment(hero, plan, {
       draft: { [step.id]: [lifeSix], [perkStep.id]: [perkStep.options[0].id] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(result.ok, result.issues.join("; ")).toBe(true);
     expect(result.next.level).toBe(6);
@@ -472,8 +449,6 @@ describe("конфликты выбора", () => {
     };
     const issues = developmentIssues(plan, {
       draft: { "l2:g1": ["a1"], "l3:g2": ["a1"] },
-      mode: "milestone",
-      reviewedRules: false,
     });
     expect(issues.map((issue) => issue.message).join("\n")).toContain("выбрана дважды");
   });
@@ -485,8 +460,6 @@ describe("конфликты выбора", () => {
     expect(
       developmentIssues(plan, {
         draft: { "l2:g1": ["a1"], "l3:g2": ["a2"] },
-        mode: "milestone",
-        reviewedRules: false,
       }),
     ).toEqual([]);
   });
