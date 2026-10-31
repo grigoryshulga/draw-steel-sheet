@@ -1,11 +1,15 @@
 /* Чтение канонической сущности правил: та же типографика, что у статьи,
    но раздел живёт отдельно от Markdown-потока и сохраняет свой якорь. */
+
+/* Ритм задаёт сам поток статьи (`.rule-article` — flex с gap): у раздела нет
+   своих внешних отступов, только разделитель и воздух над ним. Иначе
+   gap статьи и margin раздела складывались и давали разрыв в 60px. */
 .rule-entity {
   display: flex;
   flex-direction: column;
-  gap: var(--space-7);
-  margin: var(--space-9) 0;
-  padding-top: var(--space-8);
+  gap: var(--space-6);
+  margin: 0;
+  padding-top: var(--space-7);
   border-top: 1px solid var(--line);
 }
 
@@ -54,50 +58,81 @@
   scroll-margin-top: 100px;
 }
 
-/* Краткая проекция способности: значения книги, без расчётов листа. */
-.rule-entity-ability {
-  --card-color: var(--muted);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-7);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
+/* Карточка способности в статье — «выписка из книги»: тот же компонент листа,
+   но тише. Внутри статьи уже есть своя рамка, поэтому окантовка карточки
+   приглушается, а акцент типа действия остаётся единственной цветной линией. */
+.rule-entity > .sheet-ability-card {
+  --card-accent: color-mix(in srgb, var(--card-color) 58%, var(--card-border));
+  --card-padding: var(--space-8);
+  gap: var(--space-5);
+  border-color: color-mix(in srgb, var(--card-border) 70%, transparent);
+  border-top-color: var(--card-accent);
 }
 
-.rule-entity-ability[data-action="main"] {
-  --card-color: var(--accent);
+/* Имя в карточке на ступень ниже заголовка статьи: text-2xl спорил с h1
+   и с h2 статьи, а карточка листа и так рисует имя в text-xl. */
+.rule-entity > .sheet-ability-card .rule-entity-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: var(--text-xl);
 }
 
-.rule-entity-ability[data-action="maneuver"] {
-  --card-color: var(--blue);
+/* Флейвор — реплика от автора: курсив, приглушённый цвет, тонкая планка
+   в цвете действия. Шрифт интерфейсный: Literata остаётся у имён-заголовков. */
+.rule-ability-flavor {
+  margin: 0;
+  padding-left: var(--space-6);
+  border-left: 1px solid color-mix(in srgb, var(--card-color) 40%, var(--line));
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
 }
 
-.rule-entity-ability[data-action="move"] {
-  --card-color: var(--cyan);
+/* Эффект — главный текст правила, а не сноска: в статье он читается цветом
+   --fg (на листе остаётся --muted, там карточка — один из многих элементов).
+   Абзацы в данных склеены "\n\n", pre-line оставляет между ними пустую строку,
+   поэтому дополнительных отступов не нужно — только интерлиньяж. */
+.rule-entity > .sheet-ability-card .sheet-ability-body {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--fg);
 }
 
-.rule-entity-ability[data-action="trigger"] {
-  --card-color: var(--magenta);
+/* Триггер — капс-лейбл в духе прочих меток правил, текст обычный.
+   Цвет метки совпадает с `.sheet-ability-trigger` на листе. */
+.rule-ability-trigger {
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid
+    color-mix(in srgb, var(--card-border) 70%, transparent);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  color: var(--fg);
 }
 
-.rule-entity-ability[data-action="free-trigger"] {
-  --card-color: var(--yellow);
+.rule-ability-trigger-label {
+  margin-right: var(--space-1);
+  color: var(--magenta);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
 }
 
-.rule-entity-ability[data-action="free-maneuver"] {
-  --card-color: var(--green);
+/* Допблоки источника (Поддержание, Потратить, Особое, списки, проза):
+   продолжение карточки, а не чужой кусок статьи — воздух и тонкий разделитель.
+   У всех ability-сущностей блок пока пуст, поэтому пустой контейнер не должен
+   оставлять ни линии, ни лишнего зазора в flex-потоке. */
+.rule-entity-extras {
+  padding-top: var(--space-6);
+  border-top: 1px dashed color-mix(in srgb, var(--line) 75%, transparent);
 }
 
-.rule-entity-ability .sheet-ability-body {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: unset;
-}
-
-.rule-entity-ability .sheet-ability-range {
-  color: var(--tier-color);
+.rule-entity-extras:empty {
+  display: none;
 }
 
 .rule-entity-empty {
@@ -108,11 +143,29 @@
 }
 
 @media (max-width: 700px) {
-  .rule-entity-ability {
-    padding: var(--space-6);
+  .rule-entity {
+    gap: var(--space-5);
+    padding-top: var(--space-6);
   }
 
   .rule-entity-head {
     flex-direction: column;
+  }
+
+  /* Поля карточки подстраиваются под padding статьи на узком экране
+     (CodexView.css: --space-8 --space-7), чтобы «выписка» не упиралась в рамку. */
+  .rule-entity > .sheet-ability-card {
+    --card-padding: var(--space-6);
+    gap: var(--space-4);
+  }
+
+  .rule-entity > .sheet-ability-card .rule-entity-name {
+    font-size: var(--text-lg);
+  }
+
+  /* В колонке чипы идут под именем: выравнивание по правому краю в карточке
+     листа здесь выглядело бы обрывом строки. */
+  .rule-entity > .sheet-ability-card .sheet-ability-card-tags {
+    justify-content: flex-start;
   }
 }

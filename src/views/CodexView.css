@@ -439,6 +439,15 @@
 .codex-article .rule-text strong {
   color: var(--fg-bright);
 }
+/* Допблоки ability-сущности читаются как продолжение карточки, а не как
+   новый раздел статьи: у их подзаголовков нет линии и «статейного» отступа,
+   которые статья ставит обычным h2/h3 (иначе выписка выглядела бы обрывом). */
+.codex-article .rule-text.rule-entity-extras h2,
+.codex-article .rule-text.rule-entity-extras h3 {
+  margin-top: var(--space-8);
+  padding-bottom: 0;
+  border-bottom: 0;
+}
 .codex-inline-toc {
   display: none;
   margin-bottom: var(--space-9);
