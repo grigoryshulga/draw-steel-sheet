@@ -1,0 +1,54 @@
+{
+  "id": "ability.komplekt-burevestnik-snosyaschaya-ataka-dc7b9f57ae",
+  "kind": "ability",
+  "name": "Сносящая Атака",
+  "markdown": "> **Сносящая Атака**\n> \n> *Дикий штурм заставляет вашего врага упасть на спину.*\n> \n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь:**\n> \n> - **≤11:** 4 + М урона; Л < СЛАБЫЙ, лежачий\n> - **12-16:** 7 + М урона; Л < СРЕДНИЙ, лежачий\n> - **17+:** 9 + М урона; Л < СИЛЬНЫЙ, лежачий",
+  "source": {
+    "articleId": "0924",
+    "path": "09. Комплекты/Список Комплектов/0924. Буревестник.md"
+  },
+  "legacyIds": [
+    "komplekt-burevestnik-snosyaschaya-ataka-dc7b9f57ae"
+  ],
+  "ability": {
+    "id": "komplekt-burevestnik-snosyaschaya-ataka-dc7b9f57ae",
+    "name": "Сносящая Атака",
+    "flavor": "Дикий штурм заставляет вашего врага упасть на спину.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Ближний",
+      "Удар",
+      "Оружие"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо или объект",
+    "rollCharacteristics": [
+      "might"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "4 + M",
+        "effect": "Л < СЛАБЫЙ, лежачий"
+      },
+      {
+        "damage": "7 + M",
+        "effect": "Л < СРЕДНИЙ, лежачий"
+      },
+      {
+        "damage": "9 + M",
+        "effect": "Л < СИЛЬНЫЙ, лежачий"
+      }
+    ],
+    "effect": "",
+    "source": "Комплект: Буревестник",
+    "notes": "",
+    "className": "Комплект: Буревестник",
+    "level": 1,
+    "sourceKind": "kit",
+    "preferredCharacteristic": "might"
+  }
+}

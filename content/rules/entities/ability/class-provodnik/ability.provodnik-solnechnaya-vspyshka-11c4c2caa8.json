@@ -1,0 +1,55 @@
+{
+  "id": "ability.provodnik-solnechnaya-vspyshka-11c4c2caa8",
+  "kind": "ability",
+  "name": "Солнечная Вспышка",
+  "markdown": "> **Солнечная Вспышка (11 Благочестия)**\n>\n> *Вы призываете сферу огня, которая сжигает ваших врагов дотла.*\n>\n> | **Область, Магия, Дальний** |               **Основное действие** |\n> | ----------------------- | ----------------------------: |\n> | **📏 Куб 5 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 9 урона огнем\n> - **12-16:** 14 урона огнем\n> - **17+:** 19 урона огнем",
+  "source": {
+    "articleId": "0839",
+    "path": "08. Классы/Проводник/0839. 9-й Уровень Проводника.md"
+  },
+  "legacyIds": [
+    "provodnik-solnechnaya-vspyshka-11c4c2caa8",
+    "conduit.domain.9.solnechnaya-vspyshka"
+  ],
+  "ability": {
+    "id": "provodnik-solnechnaya-vspyshka-11c4c2caa8",
+    "name": "Солнечная Вспышка",
+    "flavor": "Вы призываете сферу огня, которая сжигает ваших врагов дотла.",
+    "actionType": "main",
+    "kind": "heroic",
+    "keywords": [
+      "Область",
+      "Магия",
+      "Дальний"
+    ],
+    "distance": "Куб 5 в пределах 10",
+    "target": "Каждый враг в области",
+    "rollCharacteristics": [
+      "intuition"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 11,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "9",
+        "effect": "Огнем"
+      },
+      {
+        "damage": "14",
+        "effect": "Огнем"
+      },
+      {
+        "damage": "19",
+        "effect": "Огнем"
+      }
+    ],
+    "effect": "",
+    "source": "Проводник",
+    "notes": "",
+    "className": "Проводник",
+    "level": 9,
+    "sourceKind": "class",
+    "preferredCharacteristic": "intuition"
+  }
+}

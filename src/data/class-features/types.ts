@@ -206,8 +206,9 @@ export type FeatureKeyGroup =
   | "specialization";
 
 /**
- * Запись скелета из `class-features.generated.json`: разобранный текст книги без механики.
- * Механика живёт отдельно, ключом по `id`.
+ * Запись скелета из канонической проекции `generated/consumers/features.json`
+ * плюс рукописная структура из `legacy-rows.ts`: разобранный текст книги без
+ * механики. Механика живёт отдельно, ключом по `id`.
  */
 export interface GeneratedClassFeature {
   id: string;
@@ -220,7 +221,7 @@ export interface GeneratedClassFeature {
   /** Значение группы выбора (`"Берсерк"`) или порога (`"2"`) для вложенной записи. */
   keyValue?: string;
   articleId: string;
-  /** id записи `level-up.generated.json`; у особенностей 1-го уровня её нет. */
+  /** id записи канонического повышения уровня; у особенностей 1-го уровня её нет. */
   featureId?: string;
   description: string;
 }

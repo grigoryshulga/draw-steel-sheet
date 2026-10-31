@@ -1,0 +1,55 @@
+{
+  "id": "ability.elementalist-razdvoennoe-ispepelenie-cfc5a91690",
+  "kind": "ability",
+  "name": "Раздвоенное Испепеление",
+  "markdown": "> **Раздвоенное Испепеление **\n>\n> *Две струи пламени вырываются по вашей команде.*\n>\n> | **Огонь, Магия, Дальний, Удар** |                 **Основное действие** |\n> | ------------------------------- | ------------------------------: |\n> | **📏 Дальний 10** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона огнем\n> - **12-16:** 4 урона огнем\n> - **17+:** 6 урона огнем",
+  "source": {
+    "articleId": "0891",
+    "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+  },
+  "legacyIds": [
+    "elementalist-razdvoennoe-ispepelenie-cfc5a91690"
+  ],
+  "ability": {
+    "id": "elementalist-razdvoennoe-ispepelenie-cfc5a91690",
+    "name": "Раздвоенное Испепеление",
+    "flavor": "Две струи пламени вырываются по вашей команде.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Огонь",
+      "Магия",
+      "Дальний",
+      "Удар"
+    ],
+    "distance": "Дальний 10",
+    "target": "Два существа или объекта",
+    "rollCharacteristics": [
+      "reason"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "2",
+        "effect": "Огнем"
+      },
+      {
+        "damage": "4",
+        "effect": "Огнем"
+      },
+      {
+        "damage": "6",
+        "effect": "Огнем"
+      }
+    ],
+    "effect": "",
+    "source": "Элементалист",
+    "notes": "",
+    "className": "Элементалист",
+    "level": 1,
+    "sourceKind": "class",
+    "preferredCharacteristic": "reason"
+  }
+}

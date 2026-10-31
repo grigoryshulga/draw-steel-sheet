@@ -2,9 +2,9 @@ import type { Ability } from "../../types";
 import type { FeatureEffect } from "../class-features/types";
 
 /**
- * Запись скелета происхождения из `ancestry-features.generated.json`:
- * разобранный текст книги без механики. Механика живёт отдельно, ключом по
- * `id`, — как у классовых особенностей.
+ * Запись скелета происхождения из канонической проекции
+ * `generated/consumers/features.json`: разобранный текст книги без механики.
+ * Механика живёт отдельно, ключом по `id`, — как у классовых особенностей.
  */
 export interface GeneratedAncestryFeature {
   id: string;

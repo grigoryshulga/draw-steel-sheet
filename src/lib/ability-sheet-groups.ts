@@ -1,3 +1,4 @@
+import { BASIC_ABILITY_SOURCE } from "./rule-display";
 import { ACTION_TYPES, actionLabel, kindLabel } from "../data/actions";
 import {
   isAncestryAbility,
@@ -8,7 +9,7 @@ import {
 import type { Ability, AbilityKind, ActionType } from "../types";
 
 /** «Базовые способности» — источник, а не вид: свободные удары и маневры книги. */
-export const BASIC_ABILITY_SOURCE = "Базовые способности";
+export { BASIC_ABILITY_SOURCE } from "./rule-display";
 
 /**
  * Фильтр панели: вид способности, базовые, происхождение из подкласса или

@@ -8,7 +8,8 @@ import type {
 } from "../types";
 
 /**
- * Неистовый: механики всех 89 записей скелета (`class-features.generated.json`).
+ * Неистовый: механики всех 89 записей скелета (каноническая проекция
+ * `features.json` плюс строки таблиц из `legacy-rows.ts`).
  *
  * Источник — текст книги, сверенный с инвентаризацией
  * `docs/superpowers/specs/class-inventory/group1.json` (77 записей: аспекты,

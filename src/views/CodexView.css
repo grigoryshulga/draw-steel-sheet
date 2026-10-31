@@ -559,3 +559,63 @@
 .codex-section-links a:hover {
   color: var(--accent);
 }
+
+/* Асинхронная загрузка статьи: ожидание, повтор и отсутствующая ссылка */
+.codex-state {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+  padding: 36px var(--space-9);
+  margin: var(--space-8) 0;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: var(--surface-2);
+}
+.codex-state h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--fg-bright);
+}
+.codex-state p {
+  max-width: 62ch;
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+.codex-state-error {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--red) 42%, var(--line));
+  background: var(--red-soft);
+}
+.codex-state-error h2 {
+  color: var(--red);
+}
+.codex-state-missing .btn {
+  margin-top: var(--space-3);
+}
+.codex-state-search {
+  margin-top: 0;
+}
+.codex-state-search .btn {
+  margin-top: var(--space-3);
+}
+.codex-state-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line-strong);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: codex-spin 0.8s linear infinite;
+}
+@keyframes codex-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .codex-state-spinner {
+    animation: none;
+    border-top-color: var(--line-strong);
+  }
+}

@@ -7,7 +7,7 @@ import type { FeatureMechanics } from "../types";
  * "tradition"`, поэтому подкласс их фильтрует без дополнительного условия.
  * Способности 2-го уровня — контейнеры выбора без `keyedBy`: у них выбор
  * традиции задаёт `when.keyValue`. Конкретную пару и выбор одной способности
- * строит повышение уровня из `level-up.generated.json`.
+ * строит повышение уровня из канонической проекции `level-up.json`.
  */
 export const TALENT_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень

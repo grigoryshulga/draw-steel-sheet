@@ -1,0 +1,53 @@
+{
+  "id": "ability.trubadur-moschnyy-akkord-8cf0ac4bcd",
+  "kind": "ability",
+  "name": "Мощный Аккорд",
+  "markdown": "> **Мощный Аккорд**\n>\n> *Ваш инструмент звучит верно, и ваша музыка сносит всех с ног.*\n>\n> | **Область, Магия** |                  **Маневр** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** Толчок 1\n> - **12-16:** Толчок 2\n> - **17+:** Толчок 3",
+  "source": {
+    "articleId": "0871",
+    "path": "08. Классы/Трубадур/0871. 1-й Уровень Трубадура.md"
+  },
+  "legacyIds": [
+    "trubadur-moschnyy-akkord-8cf0ac4bcd"
+  ],
+  "ability": {
+    "id": "trubadur-moschnyy-akkord-8cf0ac4bcd",
+    "name": "Мощный Аккорд",
+    "flavor": "Ваш инструмент звучит верно, и ваша музыка сносит всех с ног.",
+    "actionType": "maneuver",
+    "kind": "other",
+    "keywords": [
+      "Область",
+      "Магия"
+    ],
+    "distance": "Взрыв 2",
+    "target": "Каждый враг в области",
+    "rollCharacteristics": [
+      "presence"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "",
+        "effect": "Толчок 1"
+      },
+      {
+        "damage": "",
+        "effect": "Толчок 2"
+      },
+      {
+        "damage": "",
+        "effect": "Толчок 3"
+      }
+    ],
+    "effect": "",
+    "source": "Трубадур",
+    "notes": "",
+    "className": "Трубадур",
+    "level": 1,
+    "sourceKind": "class",
+    "preferredCharacteristic": "presence"
+  }
+}

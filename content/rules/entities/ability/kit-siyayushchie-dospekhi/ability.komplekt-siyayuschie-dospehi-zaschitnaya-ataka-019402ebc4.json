@@ -1,0 +1,55 @@
+{
+  "id": "ability.komplekt-siyayuschie-dospehi-zaschitnaya-ataka-019402ebc4",
+  "kind": "ability",
+  "name": "Защитная Атака",
+  "markdown": "> **Защитная Атака**\n> \n> *Сила вашего нападения не позволяет вашему врагу игнорировать вас.*\n> \n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 5 + М или Л урона\n> - **12-16:** 8 + М или Л урона\n> - **17+:** 11 + М или Л урона\n> \n> **Эффект:** Цель находится в состоянии провокации до конца ее следующего хода.",
+  "source": {
+    "articleId": "0922",
+    "path": "09. Комплекты/Список Комплектов/0922. Сияющие Доспехи.md"
+  },
+  "legacyIds": [
+    "komplekt-siyayuschie-dospehi-zaschitnaya-ataka-019402ebc4"
+  ],
+  "ability": {
+    "id": "komplekt-siyayuschie-dospehi-zaschitnaya-ataka-019402ebc4",
+    "name": "Защитная Атака",
+    "flavor": "Сила вашего нападения не позволяет вашему врагу игнорировать вас.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Ближний",
+      "Удар",
+      "Оружие"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо",
+    "rollCharacteristics": [
+      "might",
+      "agility"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "5 + M или A",
+        "effect": ""
+      },
+      {
+        "damage": "8 + M или A",
+        "effect": ""
+      },
+      {
+        "damage": "11 + M или A",
+        "effect": ""
+      }
+    ],
+    "effect": "Цель находится в состоянии провокации до конца ее следующего хода.",
+    "source": "Комплект: Сияющие Доспехи",
+    "notes": "",
+    "className": "Комплект: Сияющие Доспехи",
+    "level": 1,
+    "sourceKind": "kit",
+    "preferredCharacteristic": "might"
+  }
+}

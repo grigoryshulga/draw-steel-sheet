@@ -55,9 +55,9 @@ export function PerkDetailModal({
         </div>
         <h3>{name}</h3>
         {summary && <p className="perk-detail-summary">{summary}</p>}
-        {description ? (
+        {description && description !== summary ? (
           <RichText text={description} />
-        ) : (
+        ) : description ? null : (
           <p className="muted">Полное описание этого перка недоступно.</p>
         )}
       </div>

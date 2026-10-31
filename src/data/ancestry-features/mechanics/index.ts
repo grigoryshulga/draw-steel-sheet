@@ -2,9 +2,9 @@ import type { AncestryFeatureMechanics } from "../types";
 import { ANCESTRY_ABILITY_MECHANICS } from "./abilities";
 
 /**
- * Реестр механик происхождений: ключ — `id` записи
- * `ancestry-features.generated.json`. Объект изменяемый — тесты подмешивают
- * записи и убирают их после себя.
+ * Реестр механик происхождений: ключ — `id` записи скелета из канонической
+ * проекции `generated/consumers/features.json`. Объект изменяемый — тесты
+ * подмешивают записи и убирают их после себя.
  */
 export const ANCESTRY_FEATURE_MECHANICS: Record<
   string,

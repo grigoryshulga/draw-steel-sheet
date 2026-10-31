@@ -1,12 +1,38 @@
-import raw from "./perks.generated.json";
+import {
+  CANONICAL_CAREER_PERK_TYPES,
+  CANONICAL_CLASS_PERK_RESTRICTIONS,
+  CANONICAL_PERKS,
+} from "../rules/consumer-perks";
 import type { Character, Perk, PerkType, SelectedPerk } from "../types";
 
-export const PERK_COMPENDIUM = raw.perks as Perk[];
-export const CAREER_PERK_TYPES = raw.careerPerkTypes as Record<string, PerkType>;
-export const CLASS_PERK_RESTRICTIONS = raw.classPerkRestrictions as Record<
+/** Заголовок статьи перка в книге; `Perk.source` показывается в карточке. */
+const PERK_SOURCES: Record<PerkType, string> = {
+  crafting: "Перки: Ремесло",
+  exploration: "Перки: Исследование",
+  interpersonal: "Перки: Межличностные",
+  intrigue: "Перки: Интрига",
+  lore: "Перки: Знания",
+  supernatural: "Перки: Сверхъестественное",
+};
+
+/**
+ * Проекция перков хранит краткое описание (`summary`), но не полный текст:
+ * карточка книги остаётся в канонической статье. Прежний контракт `Perk`
+ * требует `description`, поэтому подставляем summary и метку источника.
+ * Модалка и панели героя показывают только summary; полный текст читается
+ * в Кодексе, поэтому дубль в модалке не рендерится (PerkDetailModal).
+ */
+export const PERK_COMPENDIUM: Perk[] = CANONICAL_PERKS.map((perk) => ({
+  ...perk,
+  description: perk.summary,
+  source: PERK_SOURCES[perk.type],
+}));
+export const CAREER_PERK_TYPES: Record<string, PerkType> =
+  CANONICAL_CAREER_PERK_TYPES;
+export const CLASS_PERK_RESTRICTIONS: Record<
   string,
   Record<string, PerkType[]>
->;
+> = CANONICAL_CLASS_PERK_RESTRICTIONS;
 
 export const PERK_TYPE_META: Record<
   PerkType,
