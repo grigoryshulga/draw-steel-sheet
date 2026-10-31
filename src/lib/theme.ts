@@ -61,6 +61,66 @@ export const THEMES: AppTheme[] = [
       cyan: "#71d8d6", blue: "#91baff", magenta: "#d1a8f5", brown: "#c89168",
     },
   },
+  {
+    // Палитра Catppuccin Mocha; коричневого во флэйворе нет — тон подобран в тон пастелям.
+    name: "Вечер с Котучино",
+    mode: "dark",
+    colors: {
+      background: "#1e1e2e", darker_background: "#11111b", lighter_background: "#313244",
+      foreground: "#cdd6f4", bright_foreground: "#f5e0dc", dark_foreground: "#a6adc8",
+      accent: "#cba6f7", selection: "#45475a", selection_foreground: "#1e1e2e",
+      red: "#f38ba8", orange: "#fab387", yellow: "#f9e2af", green: "#a6e3a1",
+      cyan: "#94e2d5", blue: "#89b4fa", magenta: "#f5c2e7", brown: "#dcbba8",
+    },
+  },
+  {
+    // Палитра Dracula; красный, синий, розовый и приглушённый текст слегка осветлены ради WCAG AA.
+    name: "Логово вампира",
+    mode: "dark",
+    colors: {
+      background: "#282a36", darker_background: "#191a21", lighter_background: "#363949",
+      foreground: "#f8f8f2", bright_foreground: "#ffffff", dark_foreground: "#9aa5ce",
+      accent: "#bd93f9", selection: "#44475a", selection_foreground: "#282a36",
+      red: "#ff7d7d", orange: "#ffb86c", yellow: "#f1fa8c", green: "#50fa7b",
+      cyan: "#8be9fd", blue: "#a4b9ff", magenta: "#ff8fd0", brown: "#d8ac7d",
+    },
+  },
+  {
+    // Серый интерфейс + базовые классические цвета терминала (осветлённые под AA).
+    name: "Тёмная классика",
+    mode: "dark",
+    colors: {
+      background: "#121212", darker_background: "#0a0a0a", lighter_background: "#232323",
+      foreground: "#e6e6e6", bright_foreground: "#ffffff", dark_foreground: "#9e9e9e",
+      accent: "#f0f0f0", selection: "#333333", selection_foreground: "#121212",
+      red: "#ff5f5f", orange: "#ffa500", yellow: "#f5f55f", green: "#55e755",
+      cyan: "#55f5f5", blue: "#8282ff", magenta: "#ff5fff", brown: "#c98a5e",
+    },
+  },
+  {
+    // Серый интерфейс + тёмные классические цвета терминала (нормальная яркость ANSI).
+    name: "Светлая классика",
+    mode: "light",
+    colors: {
+      background: "#fafafa", darker_background: "#e6e6e6", lighter_background: "#ffffff",
+      foreground: "#242424", bright_foreground: "#000000", dark_foreground: "#5c5c5c",
+      accent: "#242424", selection: "#d9d9d9", selection_foreground: "#ffffff",
+      red: "#a80000", orange: "#b34700", yellow: "#757500", green: "#006f14",
+      cyan: "#006a7a", blue: "#0000ee", magenta: "#8b008b", brown: "#7a4a1f",
+    },
+  },
+  {
+    // Угольно-зелёное логово с кислотным акцентом и «болезненными» статусными тонами.
+    name: "Обитель некроманта",
+    mode: "dark",
+    colors: {
+      background: "#0a120d", darker_background: "#060a08", lighter_background: "#15221b",
+      foreground: "#d3e6d8", bright_foreground: "#effff2", dark_foreground: "#8fa996",
+      accent: "#7dff5a", selection: "#1d3a28", selection_foreground: "#060a08",
+      red: "#ff8a8a", orange: "#ffb35c", yellow: "#d2f06b", green: "#6be86b",
+      cyan: "#52e0b0", blue: "#8ec8f5", magenta: "#c19bf2", brown: "#c9a06b",
+    },
+  },
 ];
 
 export function readThemeChoice(): ThemeChoice {
