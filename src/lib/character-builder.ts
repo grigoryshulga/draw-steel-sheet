@@ -1,5 +1,6 @@
 import { CANONICAL_BUILDER_DATA } from "../rules/consumer-builder";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { canonicalAbilityId } from "../data/originals";
 import { classPreset } from "../data/classes";
 import {
   classFeatureGroups,
@@ -540,7 +541,7 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
   // класса, чтобы записи из истории повышения не считались нарушением.
   const forbiddenDomainCardSelected = draft.abilityIds.some((id) => {
     const ability = ABILITY_COMPENDIUM.find(
-      (entry) => entry.id === id || entry.legacyId === id,
+      (entry) => entry.id === canonicalAbilityId(id),
     );
     return (
       !!ability &&

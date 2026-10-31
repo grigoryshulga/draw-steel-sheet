@@ -1,4 +1,5 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { LEGACY_ABILITY_IDS } from "../data/originals";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
@@ -174,7 +175,9 @@ function isAbilityOwned(
 const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
   ABILITY_COMPENDIUM.flatMap((ability) => {
     const rows: [string, CompendiumAbility][] = [[ability.id, ability]];
-    if (ability.legacyId) rows.push([ability.legacyId, ability]);
+    for (const [legacyId, canonicalId] of Object.entries(LEGACY_ABILITY_IDS)) {
+      if (canonicalId === ability.id) rows.push([legacyId, ability]);
+    }
     return rows;
   }),
 );

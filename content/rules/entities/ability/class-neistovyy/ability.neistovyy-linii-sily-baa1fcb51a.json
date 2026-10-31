@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-linii-sily-baa1fcb51a",
+  "id": "feature.ability.fury.level-1.lines-of-force",
   "kind": "ability",
   "name": "Линии Силы",
   "markdown": "> **Линии Силы**\n>\n> *Вы перенаправляете энергию движения.*\n>\n> | **Магия, Ближний** | **Триггер** |\n> | ---------------- | --------------------------: |\n> | **📏 Ближний 1** | **🎯 На себя или одно существо** |\n>\n> **Триггер:** Цель должна подвергнуться принудительному движению.\n>\n> **Эффект:** Вы можете выбрать новую цель того же размера или меньше в пределах расстояния, которая подвергнется принудительному движению вместо первоначальной. Вы становитесь источником принудительного движения, определяете место назначения новой цели и можете совершить толчок цели вместо использования первоначального типа принудительного движения. Дополнительно, расстояние принудительного движения получает бонус, равный показателю вашей Мощи.\n>\n> **Потратить 1 свирепости:** Вместо этого расстояние принудительного движения получает бонус, равный двукратному показателю вашей Мощи.",
@@ -7,12 +7,8 @@
     "articleId": "0801",
     "path": "08. Классы/Неистовый/0801. 1-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-linii-sily-baa1fcb51a",
-    "fury.aspect.1.linii-sily"
-  ],
   "ability": {
-    "id": "neistovyy-linii-sily-baa1fcb51a",
+    "id": "feature.ability.fury.level-1.lines-of-force",
     "name": "Линии Силы",
     "flavor": "Вы перенаправляете энергию движения.",
     "actionType": "trigger",
@@ -47,6 +43,12 @@
     "className": "Неистовый",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/lines-of-force",
+    "originalName": "Lines of Force",
+    "originalDescription": "*You redirect the energy of motion.*\n\n| **Magic, Melee** |               **Triggered** |\n|------------------|----------------------------:|\n| **📏 Melee 1**   | **🎯 Self or one creature** |\n\n**Trigger:** The target would be force moved.\n\n**Effect:** You can select a new target of the same size or smaller within distance to be force moved instead. You become the source of the forced movement, determine the new target's destination, and can push the target instead of using the original forced movement type. Additionally, the forced movement distance gains a bonus equal to your Might score.\n\n**Spend 1 Ferocity:** The forced movement distance gains a bonus equal to twice your Might score instead."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/lines-of-force",
+  "originalName": "Lines of Force",
+  "originalDescription": "*You redirect the energy of motion.*\n\n| **Magic, Melee** |               **Triggered** |\n|------------------|----------------------------:|\n| **📏 Melee 1**   | **🎯 Self or one creature** |\n\n**Trigger:** The target would be force moved.\n\n**Effect:** You can select a new target of the same size or smaller within distance to be force moved instead. You become the source of the forced movement, determine the new target's destination, and can push the target instead of using the original forced movement type. Additionally, the forced movement distance gains a bonus equal to your Might score.\n\n**Spend 1 Ferocity:** The forced movement distance gains a bonus equal to twice your Might score instead."
 }

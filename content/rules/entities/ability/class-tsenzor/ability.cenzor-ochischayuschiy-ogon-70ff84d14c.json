@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-ochischayuschiy-ogon-70ff84d14c",
+  "id": "feature.ability.censor.level-1.purifying-fire",
   "kind": "ability",
   "name": "Очищающий Огонь",
   "markdown": "> **Очищающий Огонь (5 Гнева)**\n>\n> *Боги судят, огонь очищает.*\n>\n> | **Магия, Ближний, Дальний, Удар, Оружие** |     **Основное действие** |\n> | ---------------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 5 + М святого урона; М < СЛАБЫЙ, цель имеет уязвимость к урону огнем 3 (до прох.)\n> - **12-16:** 9 + М святого урона; М < СРЕДНИЙ, цель имеет уязвимость к урону огнем 5 (до прох.)\n> - **17+:** 12 + М святого урона; М < СИЛЬНЫЙ, цель имеет уязвимость к урону огнем 7 (до прох.)\n>\n> **Эффект:** Пока цель имеет уязвимость к урону огнем от этой способности, вы можете сделать так, чтобы ваши способности наносили цели урон огнем вместо святого урона.",
@@ -7,11 +7,8 @@
     "articleId": "0881",
     "path": "08. Классы/Цензор/0881. 1-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-ochischayuschiy-ogon-70ff84d14c"
-  ],
   "ability": {
-    "id": "cenzor-ochischayuschiy-ogon-70ff84d14c",
+    "id": "feature.ability.censor.level-1.purifying-fire",
     "name": "Очищающий Огонь",
     "flavor": "Боги судят, огонь очищает.",
     "actionType": "main",
@@ -51,6 +48,12 @@
     "className": "Цензор",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/purifying-fire",
+    "originalName": "Purifying Fire",
+    "originalDescription": "*The gods judge, fire cleanses.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage; M < WEAK, the target has fire weakness 3 (save ends)\n- **12-16:** 9 + M holy damage; M < AVERAGE, the target has fire weakness 5 (save ends)\n- **17+:** 12 + M holy damage; M < STRONG, the target has fire weakness 7 (save ends)\n\n**Effect:** While the target has fire weakness from this ability, you can choose to have your abilities deal fire damage to the target instead of holy damage."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/purifying-fire",
+  "originalName": "Purifying Fire",
+  "originalDescription": "*The gods judge, fire cleanses.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage; M < WEAK, the target has fire weakness 3 (save ends)\n- **12-16:** 9 + M holy damage; M < AVERAGE, the target has fire weakness 5 (save ends)\n- **17+:** 12 + M holy damage; M < STRONG, the target has fire weakness 7 (save ends)\n\n**Effect:** While the target has fire weakness from this ability, you can choose to have your abilities deal fire damage to the target instead of holy damage."
 }

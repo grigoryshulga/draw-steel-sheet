@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-sud-a9a95637c7",
+  "id": "feature.ability.censor.level-1.judgment",
   "kind": "ability",
   "name": "Суд",
   "markdown": "> **Суд**\n>\n> *Вы произносите молитву, которая очерчивает вашего врага святой энергией.*\n>\n> | **Магия, Дальний** |     **Маневр** |\n> | ----------------- | ---------------: |\n> | **📏 Дальний 10** | **🎯 Один враг** |\n>\n> **Эффект:** Цель осуждается вами до конца встречи, пока вы не используете эту способность снова, добровольно не завершите этот эффект (действие не требуется) или пока другой цензор не осудит цель.\n>\n> Всякий раз, когда существо, осужденное вами, использует основное действие и находится в пределах вашей линии воздействия, вы можете использовать свободный триггер, чтобы нанести ему святой урон, равный двойному показателю вашего Присутствия.\n>\n> Когда выносливость существа, осужденного вами, падает до 0, вы можете использовать свободный триггер, чтобы применить эту способность к новой цели.\n>\n> Дополнительно, вы можете потратить 1 гнев, чтобы выбрать один из следующих вариантов для свободного триггера:\n>\n> - Когда смежное с вами существо, осужденное вами, начинает смещаться, вы совершаете по нему свободный удар ближнего боя, и его скорость становится равной 0 до конца текущего хода, предотвращая смещение.\n> - Когда существо, осужденное вами, в пределах 10 клеток делает бросок силы, вы накладываете помеху на этот бросок.\n> - Когда существо, осужденное вами, в пределах 10 клеток использует способность с потенциалом, нацеленную только на одно существо, потенциал уменьшается на 1 для этого существа.\n> - Если вы наносите урон существу, осужденному вами, способностью ближнего боя, существо спровоцировано вами до конца его следующего хода.\n>\n> Вы можете выбрать только один вариант для свободного триггера за раз, даже если одно и то же событие активирует несколько вариантов.",
@@ -7,11 +7,8 @@
     "articleId": "0881",
     "path": "08. Классы/Цензор/0881. 1-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-sud-a9a95637c7"
-  ],
   "ability": {
-    "id": "cenzor-sud-a9a95637c7",
+    "id": "feature.ability.censor.level-1.judgment",
     "name": "Суд",
     "flavor": "Вы произносите молитву, которая очерчивает вашего врага святой энергией.",
     "actionType": "maneuver",
@@ -46,6 +43,12 @@
     "className": "Цензор",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/judgment",
+    "originalName": "Judgment",
+    "originalDescription": "*You utter a prayer that outlines your foe in holy energy.*\n\n| **Magic, Ranged** |     **Maneuver** |\n|-------------------|-----------------:|\n| **📏 Ranged 10**  | **🎯 One enemy** |\n\n**Effect:** The target is judged by you until the end of the encounter, you use this ability again, you willingly end this effect (no action required), or another censor judges the target.\n\nWhenever a creature judged by you uses a main action and is within your line of effect, you can use a free triggered action to deal holy damage equal to twice your Presence score to them.\n\nWhen a creature judged by you is reduced to 0 Stamina, you can use a free triggered action to use this ability against a new target.\n\nAdditionally, you can spend 1 wrath to take one of the following free triggered actions:\n\n- When an adjacent creature judged by you starts to shift, you make a melee free strike against them and their speed becomes 0 until the end of the current turn, preventing them from shifting.\n- When a creature judged by you within 10 squares makes a power roll, you cause them to take a bane on the roll.\n- When a creature judged by you within 10 squares uses an ability with a potency that targets only one creature, the potency is reduced by 1 for that creature.\n- If you damage a creature judged by you with a melee ability, the creature is taunted by you until the end of their next turn.\n  \nYou can choose only one free triggered action option at a time, even if multiple options are triggered by the same effect."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/judgment",
+  "originalName": "Judgment",
+  "originalDescription": "*You utter a prayer that outlines your foe in holy energy.*\n\n| **Magic, Ranged** |     **Maneuver** |\n|-------------------|-----------------:|\n| **📏 Ranged 10**  | **🎯 One enemy** |\n\n**Effect:** The target is judged by you until the end of the encounter, you use this ability again, you willingly end this effect (no action required), or another censor judges the target.\n\nWhenever a creature judged by you uses a main action and is within your line of effect, you can use a free triggered action to deal holy damage equal to twice your Presence score to them.\n\nWhen a creature judged by you is reduced to 0 Stamina, you can use a free triggered action to use this ability against a new target.\n\nAdditionally, you can spend 1 wrath to take one of the following free triggered actions:\n\n- When an adjacent creature judged by you starts to shift, you make a melee free strike against them and their speed becomes 0 until the end of the current turn, preventing them from shifting.\n- When a creature judged by you within 10 squares makes a power roll, you cause them to take a bane on the roll.\n- When a creature judged by you within 10 squares uses an ability with a potency that targets only one creature, the potency is reduced by 1 for that creature.\n- If you damage a creature judged by you with a melee ability, the creature is taunted by you until the end of their next turn.\n  \nYou can choose only one free triggered action option at a time, even if multiple options are triggered by the same effect."
 }

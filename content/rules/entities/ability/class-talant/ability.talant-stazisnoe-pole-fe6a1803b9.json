@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-stazisnoe-pole-fe6a1803b9",
+  "id": "feature.ability.talent.level-6.stasis-field",
   "kind": "ability",
   "name": "Стазисное Поле",
   "markdown": "> **Стазисное Поле (9 Ясности)**\n>\n> *Сохрани все так, как было. Игнорируй все, что будет.*\n>\n> | **Область, Хронопатия, Псионика, Дальний** | **Основное действие** |\n> | -------------------------------------- | ------------------------------------------: |\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждое существо и объект в области** |\n>\n> **Эффект:** Область заморожена во времени до начала вашего следующего хода. Каждый объект в области опутан и не может упасть, пока эффект не закончится. Пока эффект не закончится, существа в области, чья выносливость падает до 0 или которые должны умереть, остаются живы, а объекты в области, чья выносливость падает до 0, остаются неразрушенными.\n>\n> Сделайте бросок силы, нацеленный на каждого врага в области.\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** П < СЛАБЫЙ, цель замедлена до конца эффекта\n> - **12-16:** П < СРЕДНИЙ, скорость цели равна 0 до конца эффекта\n> - **17+:** П < СИЛЬНЫЙ, цель опутана до конца эффекта\n>\n> **Возбужденность:** Любое существо или объект, подвергнутые принудительному движению в область, получают 2 урона порчей за каждую клетку области, в которую они входят. Существа и объекты, опутанные в области, могут быть подвергнуты принудительному движению. Вы опутаны до конца эффекта.",
@@ -7,11 +7,8 @@
     "articleId": "0856",
     "path": "08. Классы/Талант/0856. 6-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-stazisnoe-pole-fe6a1803b9"
-  ],
   "ability": {
-    "id": "talant-stazisnoe-pole-fe6a1803b9",
+    "id": "feature.ability.talent.level-6.stasis-field",
     "name": "Стазисное Поле",
     "flavor": "Сохрани все так, как было. Игнорируй все, что будет.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/stasis-field",
+    "originalName": "Stasis Field",
+    "originalDescription": "*Keep everything as it was. Ignore everything that will be.*\n\n| **Area, Chronopathy, Psionic, Ranged** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each creature and object in the area** |\n\n**Effect:** The area is frozen in time until the start of your next turn. Each object in the area is restrained and can't fall until the effect ends. Until the effect ends, creatures in the area who are reduced to 0 Stamina or would die stay alive, and objects in the area that are reduced to 0 Stamina remain undestroyed.\n\nMake a power roll that targets each enemy in the area.\n\n**Power Roll + Presence:**\n\n- **≤11:** P < WEAK, the target is slowed until the effect ends\n- **12-16:** P < AVERAGE, the target's speed is 0 until the effect ends\n- **17+:** P < STRONG, the target is restrained until the effect ends\n\n**Strained:** Any creature or object force moved in the area takes 2 corruption damage for each square of the area they enter. Creatures and objects restrained in the area can be force moved. You are restrained until the effect ends."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/stasis-field",
+  "originalName": "Stasis Field",
+  "originalDescription": "*Keep everything as it was. Ignore everything that will be.*\n\n| **Area, Chronopathy, Psionic, Ranged** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each creature and object in the area** |\n\n**Effect:** The area is frozen in time until the start of your next turn. Each object in the area is restrained and can't fall until the effect ends. Until the effect ends, creatures in the area who are reduced to 0 Stamina or would die stay alive, and objects in the area that are reduced to 0 Stamina remain undestroyed.\n\nMake a power roll that targets each enemy in the area.\n\n**Power Roll + Presence:**\n\n- **≤11:** P < WEAK, the target is slowed until the effect ends\n- **12-16:** P < AVERAGE, the target's speed is 0 until the effect ends\n- **17+:** P < STRONG, the target is restrained until the effect ends\n\n**Strained:** Any creature or object force moved in the area takes 2 corruption damage for each square of the area they enter. Creatures and objects restrained in the area can be force moved. You are restrained until the effect ends."
 }

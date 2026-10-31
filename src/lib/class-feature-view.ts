@@ -1,5 +1,6 @@
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { canonicalAbilityId } from "../data/originals";
 import { classFeatureGroups } from "../data/class-feature-rules";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { mechanicsFor } from "../data/class-features/mechanics";
@@ -245,7 +246,7 @@ export function conduitLegacyDomainChoicesForSheet(character: Character): Condui
   const relevantAbilities = conduitAbilities.filter((entry) => entry.level <= character.level && [2, 6, 9].includes(entry.level) && pair.some((domain) => normalizeFeatureText(domain) === normalizeFeatureText(entry.domain)));
   const missingLevels = [2, 6, 9].filter((level) => level <= character.level && relevantAbilities.filter((entry) => entry.level === level).every((entry) => {
     const ability = ABILITY_COMPENDIUM.find(
-      (item) => item.id === entry.abilityId || item.legacyId === entry.abilityId,
+      (item) => item.id === canonicalAbilityId(entry.abilityId),
     );
     return !ability || (!owned.has(ability.id) && !owned.has(`${normalizeFeatureText(ability.name)}|${normalizeFeatureText(ability.source)}`));
   }));

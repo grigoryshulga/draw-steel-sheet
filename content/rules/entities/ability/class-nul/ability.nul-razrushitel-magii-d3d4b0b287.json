@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-razrushitel-magii-d3d4b0b287",
+  "id": "feature.ability.null.level-1.arcane-disruptor",
   "kind": "ability",
   "name": "Разрушитель Магии",
   "markdown": "> **Разрушитель Магии (5 Дисциплины)**\n>\n> *Ваш удар перестраивает тело врага, причиняя боль, если он пытается направлять колдовство.*\n>\n> | **Ближний, Псионика, Удар, Оружие** | **Основное действие** |\n> | ---------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 8 + **Л** психического урона; М < СЛАБЫЙ, ослабление (до прох.)\n> - **12-16:** 12 + **Л** психического урона; М < СРЕДНИЙ, ослабление (до прох.)\n> - **17+:** 16 + **Л** психического урона; М < СИЛЬНЫЙ, ослабление (до прох.)\n>\n> **Эффект:** Будучи ослабленной таким образом, цель получает урон, равный показателю вашей Интуиции, всякий раз, когда она использует сверхъестественную способность, которая стоит Раздор.",
@@ -7,11 +7,8 @@
     "articleId": "0811",
     "path": "08. Классы/Нуль/0811. 1-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-razrushitel-magii-d3d4b0b287"
-  ],
   "ability": {
-    "id": "nul-razrushitel-magii-d3d4b0b287",
+    "id": "feature.ability.null.level-1.arcane-disruptor",
     "name": "Разрушитель Магии",
     "flavor": "Ваш удар перестраивает тело врага, причиняя боль, если он пытается направлять колдовство.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Нуль",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/arcane-disruptor",
+    "originalName": "Arcane Disruptor",
+    "originalDescription": "*Your blow reorders a foe's body, causing pain if they attempt to channel sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + **A** psychic damage; M < WEAK, weakened (save ends)\n- **12-16:** 12 + **A** psychic damage; M < AVERAGE, weakened (save ends)\n- **17+:** 16 + **A** psychic damage; M < STRONG, weakened (save ends)\n\n**Effect:** While weakened this way, the target takes damage equal to your Intuition score whenever they use a supernatural ability that costs Malice."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/arcane-disruptor",
+  "originalName": "Arcane Disruptor",
+  "originalDescription": "*Your blow reorders a foe's body, causing pain if they attempt to channel sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + **A** psychic damage; M < WEAK, weakened (save ends)\n- **12-16:** 12 + **A** psychic damage; M < AVERAGE, weakened (save ends)\n- **17+:** 16 + **A** psychic damage; M < STRONG, weakened (save ends)\n\n**Effect:** While weakened this way, the target takes damage equal to your Intuition score whenever they use a supernatural ability that costs Malice."
 }

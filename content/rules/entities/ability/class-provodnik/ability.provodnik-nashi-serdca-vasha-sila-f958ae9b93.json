@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-nashi-serdca-vasha-sila-f958ae9b93",
+  "id": "feature.ability.conduit.level-2.our-hearts-your-strength",
   "kind": "ability",
   "name": "Наши Сердца — Ваша Сила",
   "markdown": "> **Наши Сердца — Ваша Сила (5 Благочестия)**\n>\n> *Союзник черпает силу от своих друзей.*\n>\n> | **Магия, Дальний** |             **Маневр** |\n> | ----------------- | -----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя и один союзник** |\n>\n> **Эффект:** До конца встречи или пока цель не окажется при смерти, в начале каждого своего хода цель получает бонус к скорости и бонус к выброшенному урону, равный количеству союзников в пределах 10 клеток от нее. Этот бонус длится до начала ее следующего хода.",
@@ -7,12 +7,8 @@
     "articleId": "0832",
     "path": "08. Классы/Проводник/0832. 2-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-nashi-serdca-vasha-sila-f958ae9b93",
-    "conduit.domain.2.nashi-serdtsa-vasha-sila"
-  ],
   "ability": {
-    "id": "provodnik-nashi-serdca-vasha-sila-f958ae9b93",
+    "id": "feature.ability.conduit.level-2.our-hearts-your-strength",
     "name": "Наши Сердца — Ваша Сила",
     "flavor": "Союзник черпает силу от своих друзей.",
     "actionType": "maneuver",
@@ -47,6 +43,12 @@
     "className": "Проводник",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/our-hearts-your-strength",
+    "originalName": "Our Hearts Your Strength",
+    "originalDescription": "*An ally gains strength from their friends.*\n\n| **Magic, Ranged**  |             **Maneuver** |\n|--------------------|-------------------------:|\n| **📏 Ranged 10**   | **🎯 Self and one ally** |\n\n**Effect:** Until the end of the encounter or until the target is dying, at the start of each of the target's turns, they gain a bonus to speed and a bonus to rolled damage equal to the number of allies within 10 squares of them. This bonus lasts until the start of their next turn."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/our-hearts-your-strength",
+  "originalName": "Our Hearts Your Strength",
+  "originalDescription": "*An ally gains strength from their friends.*\n\n| **Magic, Ranged**  |             **Maneuver** |\n|--------------------|-------------------------:|\n| **📏 Ranged 10**   | **🎯 Self and one ally** |\n\n**Effect:** Until the end of the encounter or until the target is dying, at the start of each of the target's turns, they gain a bonus to speed and a bonus to rolled damage equal to the number of allies within 10 squares of them. This bonus lasts until the start of their next turn."
 }

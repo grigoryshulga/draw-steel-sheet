@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-vdohnovlyayuschiy-udar-2be052a65e",
+  "id": "feature.ability.tactician.level-1.inspiring-strike",
   "kind": "ability",
   "name": "Вдохновляющий Удар",
   "markdown": "> **Вдохновляющий Удар (3 Фокуса)**\n>\n> *Ваша атака дарит союзнику надежду.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ----------------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 3 + М урона; вы или один союзник в пределах 10 клеток от вас может потратить Восстановление\n> - **12-16:** 5 + М урона; вы или один союзник в пределах 10 клеток от вас может потратить Восстановление\n> - **17+:** 8 + М урона; вы и один союзник в пределах 10 клеток от вас можете потратить Восстановление, и каждый из вас получает преимущество на следующий бросок способности, который вы сделаете во время боевой встречи",
@@ -7,11 +7,8 @@
     "articleId": "0841",
     "path": "08. Классы/Тактик/0841. 1-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-vdohnovlyayuschiy-udar-2be052a65e"
-  ],
   "ability": {
-    "id": "taktik-vdohnovlyayuschiy-udar-2be052a65e",
+    "id": "feature.ability.tactician.level-1.inspiring-strike",
     "name": "Вдохновляющий Удар",
     "flavor": "Ваша атака дарит союзнику надежду.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тактик",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/inspiring-strike",
+    "originalName": "Inspiring Strike",
+    "originalDescription": "*Your attack gives an ally hope.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **12-16:** 5 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **17+:** 8 + M damage; you and one ally within 10 squares of you can spend a Recovery, and each of you gains an edge on the next ability roll you make during the encounter"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/inspiring-strike",
+  "originalName": "Inspiring Strike",
+  "originalDescription": "*Your attack gives an ally hope.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **12-16:** 5 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **17+:** 8 + M damage; you and one ally within 10 squares of you can spend a Recovery, and each of you gains an edge on the next ability roll you make during the encounter"
 }

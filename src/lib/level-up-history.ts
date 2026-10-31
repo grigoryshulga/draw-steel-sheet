@@ -3,6 +3,7 @@ import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { ALL_CREATION_SKILLS } from "../data/creation-rules";
 import { perkById } from "../data/perks";
 import { GENERATED_CLASS_FEATURES } from "../data/class-features/skeleton";
+import { canonicalAbilityId, canonicalClassFeatureId } from "../data/originals";
 import { CHARACTERISTICS } from "./rules";
 
 /** Stable labels for saved level-up choice keys, including records from older sheets. */
@@ -30,12 +31,12 @@ export function choiceValueLabel(key: string, id: string): string {
     return CHARACTERISTICS.find((item) => item.key === id || item.label === id)?.label ?? "Характеристика (название недоступно)";
   }
   const feature = GENERATED_CLASS_FEATURES.find(
-    (item) => item.id === id || item.legacyId === id,
+    (item) => item.id === canonicalClassFeatureId(id),
   );
   if (feature) return feature.name;
   return (
     ABILITY_COMPENDIUM.find(
-      (ability) => ability.id === id || ability.legacyId === id,
+      (ability) => ability.id === canonicalAbilityId(id),
     )?.name ?? "Способность (название недоступно)"
   );
 }

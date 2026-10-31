@@ -85,13 +85,40 @@ export const maps = {
   careers: readMap("careers"),
   classes: readMap("classes"),
   complications: readMap("complications"),
-  catalog: readMap("catalog"),
+  catalog: Object.assign({}, readMap("catalog"), readMap("unmapped-catalog")),
   subclasses: readMap("subclasses"),
   conditions: readMap("conditions"),
   skills: readMap("skills"),
 };
 
 const STORMWIGHT_KIT_ID = "kit-5b78887af5df";
+
+/** Добавляет к карте английские id, чтобы декоратор работал и после миграции. */
+function withEnglishKeys(map, kind = "") {
+  const out = { ...map };
+  for (const value of Object.values(map)) {
+    if (typeof value === "string") {
+      let id = compactId(value);
+      if (kind === "catalog") id = id.replace(/^(project|treasure|title)\./, "");
+      out[id] = value;
+    } else if (value && value.id) {
+      out[value.id] = value;
+    }
+  }
+  return out;
+}
+
+maps.abilities = withEnglishKeys(maps.abilities);
+maps.classFeatures = withEnglishKeys(maps.classFeatures);
+maps.ancestryFeatures = withEnglishKeys(maps.ancestryFeatures);
+maps.kits = withEnglishKeys(maps.kits);
+maps.perks = withEnglishKeys(maps.perks);
+maps.catalog = withEnglishKeys(maps.catalog, "catalog");
+maps.ancestries = withEnglishKeys(maps.ancestries);
+maps.cultures = withEnglishKeys(maps.cultures);
+maps.careers = withEnglishKeys(maps.careers);
+maps.classes = withEnglishKeys(maps.classes);
+maps.complications = withEnglishKeys(maps.complications);
 
 export function compactId(scc) {
   return String(scc)
@@ -124,13 +151,10 @@ function englishIdFor(scc, kind = "") {
 function decorateWithScc(record, scc, { kind = "", newId } = {}) {
   const original = originalFor(scc);
   if (!original) return false;
-  const legacyId = record.legacyId ?? record.id;
   const id = newId ?? englishIdFor(scc, kind);
   Object.assign(record, original);
-  if (id !== legacyId) {
-    record.legacyId = legacyId;
-    record.id = id;
-  }
+  record.id = id;
+  delete record.legacyId;
   return true;
 }
 
@@ -146,14 +170,11 @@ function decorateByMap(record, map, { idOf = (value) => value, kind = "", newId 
   if (typeof value === "string") {
     decorateWithScc(record, value, { kind, newId });
   } else if (value.id) {
-    const legacyId = oldId;
     record.originalName = value.originalName ?? "";
     record.originalDescription = value.originalDescription ?? "";
     record.originalId = value.originalId ?? "";
-    if (value.id !== legacyId) {
-      record.legacyId = legacyId;
-      record.id = value.id;
-    }
+    record.id = value.id;
+    delete record.legacyId;
   }
   return record;
 }
@@ -164,10 +185,13 @@ export function decorateAbility(record) {
 
 export function decorateKit(record) {
   if (!record) return record;
-  if (record.legacyId === STORMWIGHT_KIT_ID || record.id === STORMWIGHT_KIT_ID) {
-    const legacyId = record.legacyId ?? record.id;
-    record.legacyId = legacyId;
+  if (
+    record.legacyId === STORMWIGHT_KIT_ID ||
+    record.id === STORMWIGHT_KIT_ID ||
+    record.id === "kit.stormwight"
+  ) {
     record.id = "kit.stormwight";
+    delete record.legacyId;
     record.originalId = "mcdm.heroes.v1/feature.fury.stormwight-kits/kit-features";
     record.originalName = "Stormwight Kits";
     record.originalDescription = cleanOriginal(
@@ -206,12 +230,9 @@ export function decorateGlossary(record) {
   record.originalName = english;
   record.originalDescription = "";
   if (english) {
-    const legacyId = record.legacyId ?? record.id;
     const id = `glossary.${slug(english)}`;
-    if (id !== legacyId) {
-      record.legacyId = legacyId;
-      record.id = id;
-    }
+    record.id = id;
+    delete record.legacyId;
   }
   return record;
 }

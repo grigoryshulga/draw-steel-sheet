@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-luchshe-poprobuy-menya-3f65b2e04d",
+  "id": "feature.ability.tactician.level-2.try-me-instead",
   "kind": "ability",
   "name": "Лучше Попробуй Меня",
   "markdown": "> **Лучше Попробуй Меня (5 Фокуса)**\n>\n> *\"Попробуй придраться к кому-нибудь моего размера.\"*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы смещаетесь вплоть до вашей скорости прямо к союзнику, заканчивая движение смежно с ним, затем меняетесь местами с этим союзником, если вы можете поместиться на местах друг друга. Союзник может потратить Восстановление, и вы можете нанести следующий удар оружием с дистанцией ближний 1 по существу.\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона; Р < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 3 + Р урона; Р < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 4 + Р урона; Р < СИЛЬНЫЙ, испуг (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0842",
     "path": "08. Классы/Тактик/0842. 2-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-luchshe-poprobuy-menya-3f65b2e04d"
-  ],
   "ability": {
-    "id": "taktik-luchshe-poprobuy-menya-3f65b2e04d",
+    "id": "feature.ability.tactician.level-2.try-me-instead",
     "name": "Лучше Попробуй Меня",
     "flavor": "\"Попробуй придраться к кому-нибудь моего размера.\"",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Тактик",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/try-me-instead",
+    "originalName": "Try Me Instead",
+    "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/try-me-instead",
+  "originalName": "Try Me Instead",
+  "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)"
 }

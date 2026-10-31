@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-chistka-magii-f4ae78d374",
+  "id": "feature.ability.null.level-8.arcane-purge",
   "kind": "ability",
   "name": "Чистка Магии",
   "markdown": "> **Чистка Магии (11 Дисциплины)**\n>\n> *Вы концентрируете свое поле нуля в удар по болевым точкам, который мешает врагу направлять колдовство.*\n>\n> | **Ближний, Псионика, Удар, Оружие** | **Основное действие** |\n> | ---------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 13 + Л урона; М < СЛАБЫЙ, цель подавлена (до прох.)\n> - **12-16:** 19 + Л урона; М < СРЕДНИЙ, цель подавлена (до прох.)\n> - **17+:** 24 + Л урона; М < СИЛЬНЫЙ, цель подавлена (до прох.)\n>\n> **Эффект:** Будучи подавленной, цель получает психический урон, равный двойному показателю вашей Интуиции, в начале своих ходов, всякий раз, когда она использует сверхъестественную способность, или всякий раз, когда она использует способность, которая стоит Раздора.",
@@ -7,11 +7,8 @@
     "articleId": "0818",
     "path": "08. Классы/Нуль/0818. 8-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-chistka-magii-f4ae78d374"
-  ],
   "ability": {
-    "id": "nul-chistka-magii-f4ae78d374",
+    "id": "feature.ability.null.level-8.arcane-purge",
     "name": "Чистка Магии",
     "flavor": "Вы концентрируете свое поле нуля в удар по болевым точкам, который мешает врагу направлять колдовство.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Нуль",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-8/arcane-purge",
+    "originalName": "Arcane Purge",
+    "originalDescription": "*You focus your null field into a pressure point strike that prevents your foe from channeling sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A damage; M < WEAK, the target is suppressed (save ends)\n- **12-16:** 19 + A damage; M < AVERAGE, the target is suppressed (save ends)\n- **17+:** 24 + A damage; M < STRONG, the target is suppressed (save ends)\n\n**Effect:** While suppressed, a target takes psychic damage equal to twice your Intuition score at the start of their turns, whenever they use a supernatural ability, or whenever they use an ability that costs Malice."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-8/arcane-purge",
+  "originalName": "Arcane Purge",
+  "originalDescription": "*You focus your null field into a pressure point strike that prevents your foe from channeling sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A damage; M < WEAK, the target is suppressed (save ends)\n- **12-16:** 19 + A damage; M < AVERAGE, the target is suppressed (save ends)\n- **17+:** 24 + A damage; M < STRONG, the target is suppressed (save ends)\n\n**Effect:** While suppressed, a target takes psychic damage equal to twice your Intuition score at the start of their turns, whenever they use a supernatural ability, or whenever they use an ability that costs Malice."
 }

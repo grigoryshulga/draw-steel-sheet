@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-srazhayuschiy-udar-1b2f628abe",
+  "id": "feature.ability.shadow.level-3.staggering-blow",
   "kind": "ability",
   "name": "Сражающий Удар",
   "markdown": "> **Сражающий Удар (7 Прозрения)**\n>\n> *От этого не оправиться.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 7 + Л урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 11 + Л урона; М < СРЕДНИЙ, лежачий и не может встать (до прох.)\n> - **17+:** 16 + Л урона; М < СИЛЬНЫЙ, лежачий и не может встать (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0863",
     "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-srazhayuschiy-udar-1b2f628abe"
-  ],
   "ability": {
-    "id": "ten-srazhayuschiy-udar-1b2f628abe",
+    "id": "feature.ability.shadow.level-3.staggering-blow",
     "name": "Сражающий Удар",
     "flavor": "От этого не оправиться.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Тень",
     "level": 3,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+    "originalName": "Staggering Blow",
+    "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+  "originalName": "Staggering Blow",
+  "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)"
 }

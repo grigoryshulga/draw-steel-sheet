@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-svyaschennye-uzy-0d43995682",
+  "id": "feature.ability.conduit.level-2.sacred-bond",
   "kind": "ability",
   "name": "Священные Узы",
   "markdown": "> **Священные Узы (5 Благочестия)**\n>\n> *Вы создаете божественную связь между двумя существами.*\n>\n> | **Магия, Дальний** |             **Маневр** |\n> | ----------------- | -----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя и один союзник** |\n>\n> **Эффект:** До конца встречи, всякий раз, когда одна из целей получает урон, другая цель может использовать свободный триггер, чтобы получить этот урон вместо нее. Первоначальная цель страдает от любых эффектов, связанных с уроном. Дополнительно, всякий раз, когда одна из целей тратит Восстановление, другая цель может использовать свободный триггер, чтобы потратить Восстановление.",
@@ -7,12 +7,8 @@
     "articleId": "0832",
     "path": "08. Классы/Проводник/0832. 2-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-svyaschennye-uzy-0d43995682",
-    "conduit.domain.2.svyashchennye-uzy"
-  ],
   "ability": {
-    "id": "provodnik-svyaschennye-uzy-0d43995682",
+    "id": "feature.ability.conduit.level-2.sacred-bond",
     "name": "Священные Узы",
     "flavor": "Вы создаете божественную связь между двумя существами.",
     "actionType": "maneuver",
@@ -47,6 +43,12 @@
     "className": "Проводник",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/sacred-bond",
+    "originalName": "Sacred Bond",
+    "originalDescription": "*You forge a divine connection between two creatures.*\n\n| **Magic, Ranged**  |             **Maneuver** |\n|--------------------|-------------------------:|\n| **📏 Ranged 10**   | **🎯 Self and one ally** |\n\n**Effect:** Until the end of the encounter, whenever one target takes damage, the other target can use a free triggered action to take the damage instead. The original target suffers any effects associated with the damage. Additionally, whenever one target spends a Recovery, the other target can use a free triggered action to spend a Recovery."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-2/sacred-bond",
+  "originalName": "Sacred Bond",
+  "originalDescription": "*You forge a divine connection between two creatures.*\n\n| **Magic, Ranged**  |             **Maneuver** |\n|--------------------|-------------------------:|\n| **📏 Ranged 10**   | **🎯 Self and one ally** |\n\n**Effect:** Until the end of the encounter, whenever one target takes damage, the other target can use a free triggered action to take the damage instead. The original target suffers any effects associated with the damage. Additionally, whenever one target spends a Recovery, the other target can use a free triggered action to spend a Recovery."
 }

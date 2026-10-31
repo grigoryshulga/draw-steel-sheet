@@ -84,14 +84,14 @@ const TROUPE_LEVEL_FIVE: Record<
     group: "troubadour.feature.5.avtor",
     children: [
       "feature.troubadour.level-5.fix-it-in-post",
-      "feature.ability.troubadour.level-5.take-two",
+      "feature.troubadour.level-5.take-two",
     ],
   },
   Дуэлянт: {
     group: "troubadour.feature.5.duelyant",
     children: [
       "feature.troubadour.level-5.verbal-duel",
-      "feature.ability.troubadour.level-5.we-cant-be-upstaged",
+      "feature.troubadour.level-5.we-cant-be-upstaged",
     ],
   },
   Виртуоз: {

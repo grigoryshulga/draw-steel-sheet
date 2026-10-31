@@ -1,5 +1,5 @@
 {
-  "id": "ability.trubadur-oshibka-povestvovaniya-6c65c0c2be",
+  "id": "feature.ability.troubadour.level-5.continuity-error",
   "kind": "ability",
   "name": "Ошибка Повествования",
   "markdown": "> **Ошибка Повествования (9 Драмы)**\n>\n> *Ваш субъект вписан в два места одновременно.*\n>\n> | **Магия, Дальний** |               **Маневр** |\n> | ----------------- | -------------------------: |\n> | **📏 Дальний 10** | **🎯 Один враг или объект** |\n>\n> **Эффект:** Цель расщепляется на две отдельные сущности, одна из которых остается в пространстве цели, а другая появляется на свободной клетке по вашему выбору в пределах расстояния. Если цель является существом, это создает новое существо под управлением Ведущего. Каждая сущность имеет половину Выносливости оригинальной цели, ослаблена и получает 1d6 урона порчей в начале каждого своего хода. Если Выносливость любой из сущностей опускается до 0, другая сущность продолжает существовать как оригинальная сущность, и этот эффект заканчивается. Эффект также заканчивается, если обе сущности занимают одно и то же пространство, что заставляет их автоматически слиться и объединить свою текущую Выносливость.",
@@ -7,11 +7,8 @@
     "articleId": "0875",
     "path": "08. Классы/Трубадур/0875. 5-й Уровень Трубадура.md"
   },
-  "legacyIds": [
-    "trubadur-oshibka-povestvovaniya-6c65c0c2be"
-  ],
   "ability": {
-    "id": "trubadur-oshibka-povestvovaniya-6c65c0c2be",
+    "id": "feature.ability.troubadour.level-5.continuity-error",
     "name": "Ошибка Повествования",
     "flavor": "Ваш субъект вписан в два места одновременно.",
     "actionType": "maneuver",
@@ -46,6 +43,12 @@
     "className": "Трубадур",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-5/continuity-error",
+    "originalName": "Continuity Error",
+    "originalDescription": "*Your subject is written into two places at once.*\n\n| **Magic, Ranged** |               **Maneuver** |\n|-------------------|---------------------------:|\n| **📏 Ranged 10**  | **🎯 One enemy or object** |\n\n**Effect:** The target is split into two separate entities, one of which remains in the target's space while the other appears in an unoccupied space of your choice within distance. If the target is a creature, this creates a new creature under the Director's control. Each entity has half the original target's Stamina, is weakened, and takes 1d6 corruption damage at the start of each of their turns. If either entity is reduced to 0 Stamina, the other entity persists as the original entity and this effect ends. The effect also ends if both entities occupy the same space, causing them to automatically merge and combine their current Stamina."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-5/continuity-error",
+  "originalName": "Continuity Error",
+  "originalDescription": "*Your subject is written into two places at once.*\n\n| **Magic, Ranged** |               **Maneuver** |\n|-------------------|---------------------------:|\n| **📏 Ranged 10**  | **🎯 One enemy or object** |\n\n**Effect:** The target is split into two separate entities, one of which remains in the target's space while the other appears in an unoccupied space of your choice within distance. If the target is a creature, this creates a new creature under the Director's control. Each entity has half the original target's Stamina, is weakened, and takes 1d6 corruption damage at the start of each of their turns. If either entity is reduced to 0 Stamina, the other entity persists as the original entity and this effect ends. The effect also ends if both entities occupy the same space, causing them to automatically merge and combine their current Stamina."
 }

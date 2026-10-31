@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-kazhdyy-shag-smert-fbf3857e78",
+  "id": "feature.ability.censor.level-1.every-step-death",
   "kind": "ability",
   "name": "Каждый Шаг... Смерть!",
   "markdown": "> **Каждый Шаг... Смерть!**\n>\n> *Вы показываете врагу проблеск его участи после смерти.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 5 + П психического урона\n> - **12-16:** 7 + П психического урона\n> - **17+:** 10 + П психического урона\n>\n> **Эффект:** Каждый раз, когда цель добровольно перемещается до конца вашего следующего хода, она получает 1 психический урон за каждую пройденную клетку.",
@@ -7,11 +7,8 @@
     "articleId": "0881",
     "path": "08. Классы/Цензор/0881. 1-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-kazhdyy-shag-smert-fbf3857e78"
-  ],
   "ability": {
-    "id": "cenzor-kazhdyy-shag-smert-fbf3857e78",
+    "id": "feature.ability.censor.level-1.every-step-death",
     "name": "Каждый Шаг... Смерть!",
     "flavor": "Вы показываете врагу проблеск его участи после смерти.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/every-step-death",
+    "originalName": "Every Step... Death!",
+    "originalDescription": "*You show your foe a glimpse of their fate after death.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P psychic damage\n- **12-16:** 7 + P psychic damage\n- **17+:** 10 + P psychic damage\n\n**Effect:** Each time the target willingly moves before the end of your next turn, they take 1 psychic damage for each square they move."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/every-step-death",
+  "originalName": "Every Step... Death!",
+  "originalDescription": "*You show your foe a glimpse of their fate after death.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P psychic damage\n- **12-16:** 7 + P psychic damage\n- **17+:** 10 + P psychic damage\n\n**Effect:** Each time the target willingly moves before the end of your next turn, they take 1 psychic damage for each square they move."
 }

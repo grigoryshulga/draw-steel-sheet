@@ -1,5 +1,5 @@
 {
-  "id": "ability.elementalist-mgnovennye-raskopki-994ae0e748",
+  "id": "feature.ability.elementalist.level-1.instantaneous-excavation",
   "kind": "ability",
   "name": "Мгновенные Раскопки",
   "markdown": "> **Мгновенные Раскопки (5 Эссенции)**\n>\n> *Поверхность мира вокруг вас разверзается, чтобы поглотить врагов.*\n>\n> | **Земля, Магия, Дальний** |   **Маневр** |\n> | ------------------------ | -------------: |\n> | **📏 Дальний 10** | **🎯 Особая** |\n>\n> **Эффект:** Вы открываете две ямы с отверстиями в 1 клетку, глубиной 4 клетки, которые могут быть размещены на любой обычной поверхности в пределах расстояния. Вы можете разместить эти ямы рядом друг с другом, чтобы создать меньше ям с более широкими отверстиями. Когда ямы открываются, сделайте отдельный бросок силы для каждого существа на земле над ямой, достаточно маленького, чтобы упасть внутрь. (Вы не можете нанести критическое попадание этой способностью, потому что она использует маневр.)\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** Цель может сместиться на 1 клетку от края ямы к ближайшему свободному пространству по своему выбору.\n> - **12-16:** Цель падает в яму.\n> - **17+:** Цель падает в яму и не может уменьшить высоту падения.\n>\n> **Поддержание 1:** В начале своего хода вы открываете еще одну яму, совершая бросок силы против каждого существа, которое могло бы упасть в яму при ее открытии, не тратя эссенцию.",
@@ -7,11 +7,8 @@
     "articleId": "0891",
     "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
   },
-  "legacyIds": [
-    "elementalist-mgnovennye-raskopki-994ae0e748"
-  ],
   "ability": {
-    "id": "elementalist-mgnovennye-raskopki-994ae0e748",
+    "id": "feature.ability.elementalist.level-1.instantaneous-excavation",
     "name": "Мгновенные Раскопки",
     "flavor": "Поверхность мира вокруг вас разверзается, чтобы поглотить врагов.",
     "actionType": "maneuver",
@@ -49,6 +46,12 @@
     "className": "Элементалист",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+    "originalName": "Instantaneous Excavation",
+    "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+  "originalName": "Instantaneous Excavation",
+  "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence."
 }

@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-misticheskiy-luchnik-vzryvayuschayasya-strela-c67361e00f",
+  "id": "feature.ability.arcane-archer.exploding-arrow",
   "kind": "ability",
   "name": "Взрывающаяся Стрела",
   "markdown": "> **Взрывающаяся Стрела**\n> \n> *Ваши боеприпасы взрываются магической энергией.*\n> \n> | **Магия, Дальний, Удар, Оружие** |             **Основное действие** |\n> | -------------------------------- | --------------------------------: |\n> | **📏 Дальний 15** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Ловкость, Разум, Интуиция или Присутствие:**\n> \n> - **≤11:** 5 + Л, Р, И или П урона огнем\n> - **12-16:** 7 + Л, Р, И или П урона огнем\n> - **17+:** 10 + Л, Р, И или П урона огнем\n> \n> **Эффект:** Одно существо или объект по вашему выбору в пределах 2 клеток от цели получает урон огнем, равный счету характеристики, использованной для броска силы этой способности.",
@@ -7,11 +7,8 @@
     "articleId": "0914",
     "path": "09. Комплекты/Список Комплектов/0914. Мистический Лучник.md"
   },
-  "legacyIds": [
-    "komplekt-misticheskiy-luchnik-vzryvayuschayasya-strela-c67361e00f"
-  ],
   "ability": {
-    "id": "komplekt-misticheskiy-luchnik-vzryvayuschayasya-strela-c67361e00f",
+    "id": "feature.ability.arcane-archer.exploding-arrow",
     "name": "Взрывающаяся Стрела",
     "flavor": "Ваши боеприпасы взрываются магической энергией.",
     "actionType": "main",
@@ -53,6 +50,12 @@
     "className": "Комплект: Мистический Лучник",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.arcane-archer/exploding-arrow",
+    "originalName": "Exploding Arrow",
+    "originalDescription": "*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.arcane-archer/exploding-arrow",
+  "originalName": "Exploding Arrow",
+  "originalDescription": "*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll."
 }

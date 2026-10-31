@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-ispepelenie-c02304dc29",
+  "id": "feature.ability.talent.level-1.incinerate",
   "kind": "ability",
   "name": "Испепеление",
   "markdown": "> **Испепеление**\n>\n> *Воздух извергается столбом бездымного пламени.*\n>\n> | **Область, Огонь, Псионика, Пирокинез, Дальний** | **Основное действие** |\n> | -------------------------------------------- | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона огнем\n> - **12-16:** 4 урона огнем\n> - **17+:** 6 урона огнем\n>\n> **Эффект:** Столб огня остается в области до начала вашего следующего хода. Каждый враг, который входит в область в первый раз за раунд боя или начинает там свой ход, получает 2 урона огнем.\n>\n> **Возбужденность:** Размер куба увеличивается на 2, но огонь исчезает в конце вашего хода.",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-ispepelenie-c02304dc29"
-  ],
   "ability": {
-    "id": "talant-ispepelenie-c02304dc29",
+    "id": "feature.ability.talent.level-1.incinerate",
     "name": "Испепеление",
     "flavor": "Воздух извергается столбом бездымного пламени.",
     "actionType": "main",
@@ -51,6 +48,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/incinerate",
+    "originalName": "Incinerate",
+    "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/incinerate",
+  "originalName": "Incinerate",
+  "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn."
 }

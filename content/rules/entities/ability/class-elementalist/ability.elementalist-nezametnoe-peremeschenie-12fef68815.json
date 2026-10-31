@@ -1,5 +1,5 @@
 {
-  "id": "ability.elementalist-nezametnoe-peremeschenie-12fef68815",
+  "id": "feature.ability.elementalist.level-1.subtle-relocation",
   "kind": "ability",
   "name": "Незаметное Перемещение",
   "markdown": "> **Незаметное Перемещение**\n>\n> *Вы призываете пустоту, чтобы поглотить и выплюнуть союзника.*\n>\n> | **Магия, Дальний, Пустота** |           **Триггер** |\n> | ----------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель начинает свой ход, перемещается или подвергается принудительному движению.\n>\n> **Эффект:** Вы телепортируете цель на количество клеток вплоть до показателя вашего Разума. Если цель перемещается, чтобы активировать эту способность, вы можете телепортировать ее в любой момент во время перемещения.\n>\n> **Потратить 1 Эссенцию:** Вы телепортируете цель на количество клеток вплоть до двойного показателя вашего Разума.",
@@ -7,12 +7,8 @@
     "articleId": "0891",
     "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
   },
-  "legacyIds": [
-    "elementalist-nezametnoe-peremeschenie-12fef68815",
-    "elementalist.specialization.1.nezametnoe-peremeshchenie"
-  ],
   "ability": {
-    "id": "elementalist-nezametnoe-peremeschenie-12fef68815",
+    "id": "feature.ability.elementalist.level-1.subtle-relocation",
     "name": "Незаметное Перемещение",
     "flavor": "Вы призываете пустоту, чтобы поглотить и выплюнуть союзника.",
     "actionType": "trigger",
@@ -48,6 +44,12 @@
     "className": "Элементалист",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+    "originalName": "Subtle Relocation",
+    "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+  "originalName": "Subtle Relocation",
+  "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead."
 }

@@ -105,6 +105,7 @@ const LEGACY_BY_CANONICAL = new Map(
 export function mechanicsFor(id: string): FeatureMechanics | undefined {
   return (
     FEATURE_MECHANICS[id] ??
+    FEATURE_MECHANICS[id.replace(/^feature\./, "feature.ability.")] ??
     FEATURE_MECHANICS[LEGACY_CLASS_FEATURE_IDS[id]] ??
     FEATURE_MECHANICS[LEGACY_BY_CANONICAL.get(id) ?? ""]
   );

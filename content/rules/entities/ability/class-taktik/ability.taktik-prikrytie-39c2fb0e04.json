@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-prikrytie-39c2fb0e04",
+  "id": "feature.ability.tactician.level-1.overwatch",
   "kind": "ability",
   "name": "Прикрытие",
   "markdown": "> **Прикрытие**\n>\n> *Под вашим руководством союзник ждет подходящего момента для удара.*\n>\n> | **Дальний** | **Триггер** |\n> | ---------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель перемещается.\n>\n> **Эффект:** В любое время во время движения цели, один союзник может нанести по ней свободный удар.\n>\n> **Потратить 1 Фокуса:** Если цель имеет Р < СРЕДНИЙ, она замедлена (КсХ).",
@@ -7,12 +7,8 @@
     "articleId": "0841",
     "path": "08. Классы/Тактик/0841. 1-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-prikrytie-39c2fb0e04",
-    "tactician.doctrine.1.prikrytie"
-  ],
   "ability": {
-    "id": "taktik-prikrytie-39c2fb0e04",
+    "id": "feature.ability.tactician.level-1.overwatch",
     "name": "Прикрытие",
     "flavor": "Под вашим руководством союзник ждет подходящего момента для удара.",
     "actionType": "trigger",
@@ -46,6 +42,12 @@
     "className": "Тактик",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/overwatch",
+    "originalName": "Overwatch",
+    "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/overwatch",
+  "originalName": "Overwatch",
+  "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT)."
 }

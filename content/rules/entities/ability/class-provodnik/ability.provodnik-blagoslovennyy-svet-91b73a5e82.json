@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-blagoslovennyy-svet-91b73a5e82",
+  "id": "feature.ability.conduit.level-1.blessed-light",
   "kind": "ability",
   "name": "Благословенный Свет",
   "markdown": "> **Благословенный Свет**\n>\n> *Обжигающее сияние падает на вашего врага, передавая часть его энергии ближайшему союзнику.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона\n> - **12-16:** 5 + И святого урона\n> - **17+:** 8 + И святого урона\n>\n> **Эффект:** Один союзник в пределах расстояния получает количество всплесков, равное результату тира вашего броска силы.",
@@ -7,11 +7,8 @@
     "articleId": "0831",
     "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-blagoslovennyy-svet-91b73a5e82"
-  ],
   "ability": {
-    "id": "provodnik-blagoslovennyy-svet-91b73a5e82",
+    "id": "feature.ability.conduit.level-1.blessed-light",
     "name": "Благословенный Свет",
     "flavor": "Обжигающее сияние падает на вашего врага, передавая часть его энергии ближайшему союзнику.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Проводник",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
+    "originalName": "Blessed Light",
+    "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
+  "originalName": "Blessed Light",
+  "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
 }

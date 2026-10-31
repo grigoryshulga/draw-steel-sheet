@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-udushenie-f82331259b",
+  "id": "feature.ability.talent.level-1.choke",
   "kind": "ability",
   "name": "Удушение",
   "markdown": "> **Удушение (3 Ясности)**\n>\n> *Вы сокрушаете врага в телекинетической хватке.*\n>\n> | **Псионика, Дальний**, **Удар, Телекинез** | **Основное действие** |\n> | -------------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 + Р урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 5 + Р урона; М < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 8 + Р урона; М < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Вы можете совершить вертикальное притягивание цели вплоть до 2 клеток. Если цель получает опутанность от этой способности, это принудительное движение игнорирует ее устойчивость.",
@@ -7,11 +7,8 @@
     "articleId": "0851",
     "path": "08. Классы/Талант/0851. 1-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-udushenie-f82331259b"
-  ],
   "ability": {
-    "id": "talant-udushenie-f82331259b",
+    "id": "feature.ability.talent.level-1.choke",
     "name": "Удушение",
     "flavor": "Вы сокрушаете врага в телекинетической хватке.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": "reason"
-  }
+    "preferredCharacteristic": "reason",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/choke",
+    "originalName": "Choke",
+    "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/choke",
+  "originalName": "Choke",
+  "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability."
 }

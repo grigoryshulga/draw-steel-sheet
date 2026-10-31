@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-zaschitnyy-perekat-56c8fd6f33",
+  "id": "feature.ability.shadow.level-1.defensive-roll",
   "kind": "ability",
   "name": "Защитный Перекат",
   "markdown": "> **Защитный Перекат**\n>\n> *Когда враг атакует, вы перекатываетесь вместе с ударом, чтобы уменьшить урон.*\n>\n> | **-** | **Триггер** |\n> | ----------- | ------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Другое существо наносит вам урон.\n>\n> **Эффект:** Вы получаете половину вызвавшего триггер урона, затем можете сместиться вплоть до 2 клеток после того, как вызвавший триггер эффект разрешится. Если вы заканчиваете это смещение с покровом или укрытием, вы можете использовать маневр Скрытности, даже если за вами наблюдают.\n>\n> **Потратить 1 Прозрения:** Потенциал любых эффектов, связанных с уроном, уменьшается на 1 для вас.",
@@ -7,12 +7,8 @@
     "articleId": "0861",
     "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-zaschitnyy-perekat-56c8fd6f33",
-    "shadow.college.1.zashchitnyy-perekat"
-  ],
   "ability": {
-    "id": "ten-zaschitnyy-perekat-56c8fd6f33",
+    "id": "feature.ability.shadow.level-1.defensive-roll",
     "name": "Защитный Перекат",
     "flavor": "Когда враг атакует, вы перекатываетесь вместе с ударом, чтобы уменьшить урон.",
     "actionType": "trigger",
@@ -44,6 +40,12 @@
     "className": "Тень",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+    "originalName": "Defensive Roll",
+    "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+  "originalName": "Defensive Roll",
+  "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you."
 }

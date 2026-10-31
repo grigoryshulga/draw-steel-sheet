@@ -1,5 +1,5 @@
 {
-  "id": "ability.elementalist-prakticheskaya-magiya-f5bbfac2c9",
+  "id": "feature.ability.elementalist.level-1.practical-magic",
   "kind": "ability",
   "name": "Практическая Магия",
   "markdown": "> **Практическая Магия**\n>\n> *Ваше мастерство над элементальной силой позволяет вам настраивать свои колдовства.*\n>\n> | **Магия** | **Маневр** |\n> | ---------------------- | -----------: |\n> | **📏 На себя; смотрите ниже** |  **🎯 На себя** |\n>\n> **Эффект:** Выберите один из следующих эффектов:\n>\n> - Вы используете маневр Отталкивания (смотрите [Маневры](#/codex/1309)), но его расстояние становится расстоянием вашей способности Бросок элемента, и вы используете Разум вместо Мощи для броска силы.\n> - Вы выбираете существо в пределах расстояния вашей способности Бросок элемента и один из следующих типов урона: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком. Это существо получает урон выбранного типа, равный показателю вашего Разума.\n> - Вы телепортируетесь на количество клеток вплоть до показателя вашего Разума. Если вы выбираете этот вариант, вы можете потратить эссенцию, чтобы телепортироваться на 1 дополнительную клетку за каждую потраченную эссенцию.",
@@ -7,11 +7,8 @@
     "articleId": "0891",
     "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
   },
-  "legacyIds": [
-    "elementalist-prakticheskaya-magiya-f5bbfac2c9"
-  ],
   "ability": {
-    "id": "elementalist-prakticheskaya-magiya-f5bbfac2c9",
+    "id": "feature.ability.elementalist.level-1.practical-magic",
     "name": "Практическая Магия",
     "flavor": "Ваше мастерство над элементальной силой позволяет вам настраивать свои колдовства.",
     "actionType": "maneuver",
@@ -45,6 +42,12 @@
     "className": "Элементалист",
     "level": 1,
     "sourceKind": "class",
-    "preferredCharacteristic": ""
-  }
+    "preferredCharacteristic": "",
+    "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+    "originalName": "Practical Magic",
+    "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+  "originalName": "Practical Magic",
+  "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent."
 }

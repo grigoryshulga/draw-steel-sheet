@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-plot-v-kamen-feb37231c4",
+  "id": "feature.ability.fury.level-5.to-stone",
   "kind": "ability",
   "name": "Плоть в Камень!",
   "markdown": "> **Плоть в Камень! (9 Свирепости)**\n>\n> *Вы направляете Первозданный Хаос в удары, которые превращают вашего врага в камень... в буквальном смысле.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 9 + М урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 13 + М урона; М < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 18 + М урона; М < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Пока цель замедлена таким образом, любой другой эффект, который заставил бы цель стать замедленной, вместо этого делает ее опутанной этой способностью. Дополнительно, существо, которое проваливает спасбросок, находясь опутанным таким образом, становится окаменевшим, пока ему не дадут сверхъестественное лечение или вы не решите отменить эффект (действие не требуется).",
@@ -7,11 +7,8 @@
     "articleId": "0805",
     "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-plot-v-kamen-feb37231c4"
-  ],
   "ability": {
-    "id": "neistovyy-plot-v-kamen-feb37231c4",
+    "id": "feature.ability.fury.level-5.to-stone",
     "name": "Плоть в Камень!",
     "flavor": "Вы направляете Первозданный Хаос в удары, которые превращают вашего врага в камень... в буквальном смысле.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Неистовый",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+    "originalName": "To Stone!",
+    "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+  "originalName": "To Stone!",
+  "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
 }

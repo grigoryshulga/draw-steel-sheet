@@ -15,9 +15,11 @@ import { canonicalClassFeatureId } from "../originals";
  * Массив изменяемый — тесты подмешивают временные записи и убирают их после себя.
  */
 function structureFor(feature: { id: string; legacyId?: string }) {
+  const abilityVariant = feature.id.replace(/^feature\./, "feature.ability.");
   const structure =
     CLASS_FEATURE_STRUCTURE[feature.legacyId ?? feature.id] ??
     CLASS_FEATURE_STRUCTURE[feature.id] ??
+    CLASS_FEATURE_STRUCTURE[abilityVariant] ??
     {};
   return {
     ...structure,

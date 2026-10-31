@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-nayti-i-unichtozhit-2f81ea4bd4",
+  "id": "feature.ability.fury.level-6.seek-and-destroy",
   "kind": "ability",
   "name": "Найти и Уничтожить",
   "markdown": "> **Найти и Уничтожить (9 Свирепости)**\n>\n> *Вы прорываетесь через линии врага, чтобы показать пример.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы смещаетесь на расстояние вплоть до вашей скорости.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 + М урона; П < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 6 + М урона; П < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 10 + М урона; П < СИЛЬНЫЙ, испуг (до прох.)\n>\n> **Эффект:** Если цель, не являющаяся лидером или соло-существом, входит в состояние утомления от этого удара, ее выносливость снижается до 0, и вы выбираете врага в пределах 5 клеток от вас. Если у этого врага П < СРЕДНИЙ, он напуган вами (до прох.).",
@@ -7,11 +7,8 @@
     "articleId": "0806",
     "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-nayti-i-unichtozhit-2f81ea4bd4"
-  ],
   "ability": {
-    "id": "neistovyy-nayti-i-unichtozhit-2f81ea4bd4",
+    "id": "feature.ability.fury.level-6.seek-and-destroy",
     "name": "Найти и Уничтожить",
     "flavor": "Вы прорываетесь через линии врага, чтобы показать пример.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Неистовый",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+    "originalName": "Seek and Destroy",
+    "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends)."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+  "originalName": "Seek and Destroy",
+  "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends)."
 }

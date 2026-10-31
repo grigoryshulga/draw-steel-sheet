@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-shipastaya-kletka-24d2ee349b",
+  "id": "feature.ability.conduit.level-9.thorn-cage",
   "kind": "ability",
   "name": "Шипастая Клетка",
   "markdown": "> **Шипастая Клетка (11 Благочестия)**\n>\n> *Лозы вырываются из-под земли и сковывают вашего врага, медленно смыкаясь вокруг него.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 10 + И урона; Л < СЛАБЫЙ, опутанность (до прох.)\n> - **12-16:** 15 + И урона; Л < СРЕДНИЙ, опутанность (до прох.)\n> - **17+:** 21 + И урона; Л < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Находясь в состоянии опутанности таким образом, цель получает 10 урона в начале каждого вашего хода.",
@@ -7,12 +7,8 @@
     "articleId": "0839",
     "path": "08. Классы/Проводник/0839. 9-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-shipastaya-kletka-24d2ee349b",
-    "conduit.domain.9.shipastaya-kletka"
-  ],
   "ability": {
-    "id": "provodnik-shipastaya-kletka-24d2ee349b",
+    "id": "feature.ability.conduit.level-9.thorn-cage",
     "name": "Шипастая Клетка",
     "flavor": "Лозы вырываются из-под земли и сковывают вашего врага, медленно смыкаясь вокруг него.",
     "actionType": "main",
@@ -50,6 +46,12 @@
     "className": "Проводник",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-9/thorn-cage",
+    "originalName": "Thorn Cage",
+    "originalDescription": "*Vines burst forth from the ground and bind your foe, slowly closing around them.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 10 + I damage; A < WEAK, restrained (save ends)\n- **12-16:** 15 + I damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 + I damage; A < STRONG, restrained (save ends)\n\n**Effect:** While restrained this way, the target takes 10 damage at the start of each of your turns."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-9/thorn-cage",
+  "originalName": "Thorn Cage",
+  "originalDescription": "*Vines burst forth from the ground and bind your foe, slowly closing around them.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 10 + I damage; A < WEAK, restrained (save ends)\n- **12-16:** 15 + I damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 + I damage; A < STRONG, restrained (save ends)\n\n**Effect:** While restrained this way, the target takes 10 damage at the start of each of your turns."
 }

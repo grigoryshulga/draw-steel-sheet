@@ -1,5 +1,5 @@
 {
-  "id": "ability.cenzor-voploschenie-uzhasa-f9386f4e83",
+  "id": "feature.ability.censor.level-9.terror-manifest",
   "kind": "ability",
   "name": "Воплощение Ужаса",
   "markdown": "> **Воплощение Ужаса (11 Гнева)**\n>\n> *\"Я знаю, чего ты боишься.\"*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 7 + П психического урона; П < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 10 + П психического урона; П < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 13 + П психического урона; П < СИЛЬНЫЙ, испуг (до прох.)\n>\n> **Эффект:** Пока цель напугана таким образом, если она является лидером или соло-существом и утомлена, она получает дополнительные 25 психического урона. Если цель, напуганная таким образом, не является лидером или соло-существом и утомлена, ее Выносливость снижается до 0.",
@@ -7,11 +7,8 @@
     "articleId": "0889",
     "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
   },
-  "legacyIds": [
-    "cenzor-voploschenie-uzhasa-f9386f4e83"
-  ],
   "ability": {
-    "id": "cenzor-voploschenie-uzhasa-f9386f4e83",
+    "id": "feature.ability.censor.level-9.terror-manifest",
     "name": "Воплощение Ужаса",
     "flavor": "\"Я знаю, чего ты боишься.\"",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Цензор",
     "level": 9,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+    "originalName": "Terror Manifest",
+    "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+  "originalName": "Terror Manifest",
+  "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
 }

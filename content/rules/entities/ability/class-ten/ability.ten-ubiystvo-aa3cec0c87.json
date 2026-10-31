@@ -1,5 +1,5 @@
 {
-  "id": "ability.ten-ubiystvo-aa3cec0c87",
+  "id": "feature.ability.shadow.level-8.assassinate",
   "kind": "ability",
   "name": "Убийство",
   "markdown": "> **Убийство (11 Прозрения)**\n>\n> *Выработанная долгими тренировками атака мгновенно убьет уже ослабленного врага.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 12 + Л урона\n> - **12-16:** 18 + Л урона\n> - **17+:** 24 + Л урона\n>\n> **Эффект:** Цель, которая не является миньоном, лидером или соло-существом и которая утомлена после получения этого урона, снижает свою выносливость до 0.",
@@ -7,11 +7,8 @@
     "articleId": "0868",
     "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
   },
-  "legacyIds": [
-    "ten-ubiystvo-aa3cec0c87"
-  ],
   "ability": {
-    "id": "ten-ubiystvo-aa3cec0c87",
+    "id": "feature.ability.shadow.level-8.assassinate",
     "name": "Убийство",
     "flavor": "Выработанная долгими тренировками атака мгновенно убьет уже ослабленного врага.",
     "actionType": "main",
@@ -49,6 +46,12 @@
     "className": "Тень",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+    "originalName": "Assassinate",
+    "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+  "originalName": "Assassinate",
+  "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
 }

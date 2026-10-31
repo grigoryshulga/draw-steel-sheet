@@ -232,12 +232,12 @@ const legacyIdMap = readJson(
 
 /**
  * Поля идентичности, добавленные миграцией на английские scc-id. Контент
- * сравнивается без них, а сами ID проверяются отдельно: `legacyId` — с
- * прежним снапшотом, `id` — с английской проекцией из карты legacy-ID.
+ * сравнивается без них, а сами ID проверяются отдельно: `id` — английский,
+ * `original*` — оригинальные поля SteelCompendium. Legacy-поле `legacyId`
+ * из проекций удалено, поэтому его наличие считается регрессией.
  */
 const IDENTITY_FIELDS = new Set([
   "id",
-  "legacyId",
   "originalId",
   "originalName",
   "originalDescription",
@@ -264,18 +264,30 @@ function stripIdentity(value: any): any {
 }
 
 /**
- * Проверяет порядок и идентичность записей проекции: `legacyId` совпадает с
- * прежним снапшотом, а `id` — с ожидаемым английским ID из карты миграции.
+ * Проверяет порядок и идентичность записей проекции. `englishIds` — это
+ * legacy-порядок снапшота, переведённый в английские ID через
+ * `src/generated/legacy-ids.json`. Legacy-поле `legacyId` в проекциях
+ * отсутствует, а вместо него записи обязаны нести оригиналы SteelCompendium.
  */
 function expectProjectionIdentity(
-  records: ReadonlyArray<{ id: string; legacyId?: string }>,
-  legacyIds: string[],
+  records: ReadonlyArray<{
+    id: string;
+    originalId?: string;
+    originalName?: string;
+    originalDescription?: string;
+  }>,
   englishIds: string[],
 ) {
-  expect(records.map((record) => record.legacyId ?? record.id)).toEqual(
-    legacyIds,
-  );
   expect(records.map((record) => record.id)).toEqual(englishIds);
+  for (const record of records) {
+    expect(record, record.id).not.toHaveProperty("legacyId");
+    expect(record.originalId, `${record.id}: originalId`).toBeDefined();
+    expect(record.originalName, `${record.id}: originalName`).toBeDefined();
+    expect(
+      record.originalDescription,
+      `${record.id}: originalDescription`,
+    ).toBeDefined();
+  }
 }
 
 const kitsProjection = readJson(
@@ -396,6 +408,44 @@ const CLASS_FEATURE_LEGACY_SYNTHETIC_ROWS = [
   "feature.ability.conduit.level-9.righteous-phalanx",
 ];
 
+/**
+ * Три legacy-строки классовых способностей, которые прежний скелет дублировал
+ * как особенности (`feature.ability.*`). В каноне те же карточки — способности,
+ * а особенностями классов стали отдельные сущности с id без `ability`.
+ */
+const CLASS_FEATURE_LEGACY_ABILITY_ROWS = [
+  "feature.ability.conduit.level-4.blessing-of-secrets",
+  "feature.ability.troubadour.level-5.take-two",
+  "feature.ability.troubadour.level-5.we-cant-be-upstaged",
+];
+
+/** Английские особенности, заменившие эти legacy-строки в порядке снапшота. */
+const CLASS_FEATURE_LEGACY_ABILITY_TARGETS: Record<string, string> = {
+  "feature.ability.conduit.level-4.blessing-of-secrets":
+    "feature.conduit.level-4.blessing-of-secrets",
+  "feature.ability.troubadour.level-5.take-two":
+    "feature.troubadour.level-5.take-two",
+  "feature.ability.troubadour.level-5.we-cant-be-upstaged":
+    "feature.troubadour.level-5.we-cant-be-upstaged",
+};
+
+/** Legacy-ID особенности класса в английском порядке с учётом замен выше. */
+function classFeatureEnglishId(legacyId: string): string {
+  const english = legacyIdMap.classFeatures[legacyId];
+  return CLASS_FEATURE_LEGACY_ABILITY_TARGETS[english] ?? english;
+}
+
+/**
+ * Старая карточка способности комплекта «Буревестник» в legacy-снапшоте
+ * сопоставлена с одноимённой особенностью, хотя в проекции способностей она
+ * живёт под `feature.ability.*`. Для порядка карточек нужен английский ID
+ * именно способности.
+ */
+const ABILITY_LEGACY_SUBSTITUTIONS: Record<string, string> = {
+  "feature.fury.level-1.beast-shape":
+    "feature.ability.fury.level-1.beast-shape",
+};
+
 describe("проекции канонических правил для потребителей", () => {
   it("сохраняет прежние идентификаторы и количество записей каталога", () => {
     expect(CATALOG.filter((entry) => entry.kind === "treasure")).toHaveLength(
@@ -419,7 +469,7 @@ describe("проекции канонических правил для потр
     );
   });
 
-  it("сохраняет прежний порядок и поля карточек способностей", () => {
+  it("сохраняет legacy-порядок и поля карточек способностей", () => {
     const expected = legacyAbilities.map((entry) => ({
       ...entry,
       preferredCharacteristic:
@@ -429,10 +479,14 @@ describe("проекции канонических правил для потр
           : (entry.rollCharacteristics[0] ?? ""),
     }));
     expect(ABILITY_COMPENDIUM).toHaveLength(512);
+    // Порядок прежнего снапшота переводится в английские ID явной картой.
     expectProjectionIdentity(
       ABILITY_COMPENDIUM,
-      legacyAbilities.map((entry) => entry.id),
-      legacyAbilities.map((entry) => legacyIdMap.abilities[entry.id]),
+      legacyAbilities.map(
+        (entry) =>
+          ABILITY_LEGACY_SUBSTITUTIONS[legacyIdMap.abilities[entry.id]] ??
+          legacyIdMap.abilities[entry.id],
+      ),
     );
     expect(stripIdentity(ABILITY_COMPENDIUM)).toEqual(stripIdentity(expected));
     expect(readJson(path.join(OUT, "abilities.json")).abilities).toHaveLength(
@@ -441,23 +495,21 @@ describe("проекции канонических правил для потр
   });
 
   it("совпадает с прежним выводом библиотеки при том же исходном Markdown", () => {
+    // projectCatalog получает статьи legacy-снапшота и карту legacy→English,
+    // поэтому порядок остаётся прежним, а id — английскими.
     const catalog = projectCatalog(legacyLibrary, identity.catalog);
     expect(catalog.entries.map((entry) => entry.id)).toEqual(
-      CATALOG.map((entry) => entry.legacyId ?? entry.id),
-    );
-    expect(CATALOG.map((entry) => entry.id)).toEqual(
-      catalog.entries.map((entry) => legacyIdMap.catalog[entry.id] ?? entry.id),
+      CATALOG.map((entry) => entry.id),
     );
     expect(stripIdentity(CATALOG)).toEqual(stripIdentity(catalog.entries));
 
     const glossary = projectGlossary(legacyLibrary, identity.glossary);
-    expect(glossary.entries.map((entry) => entry.id)).toEqual(
-      GLOSSARY.map((entry) => entry.legacyId ?? entry.id),
-    );
-    expect(GLOSSARY.map((entry) => entry.id)).toEqual(
-      glossary.entries.map((entry) =>
-        entry.english ? `glossary.${glossarySlug(entry.english)}` : entry.id,
-      ),
+    // ID глоссария в проекции — английские `glossary.<slug>`; сам генератор
+    // возвращает legacy-слаг, который декоратор переводит в английский.
+    const glossaryId = (entry: any) =>
+      entry.english ? `glossary.${glossarySlug(entry.english)}` : entry.id;
+    expect(glossary.entries.map(glossaryId)).toEqual(
+      GLOSSARY.map((entry) => entry.id),
     );
     expect(stripIdentity(GLOSSARY)).toEqual(stripIdentity(glossary.entries));
   });
@@ -544,12 +596,21 @@ describe("проекции канонических правил для потр
       (entry) => entry.articleId === "1802",
     );
     expect(renamedEntries[0].name).toBe("Цветной плащ цвета морской волны");
-    expect(renamedEntries[0].legacyId).toBe(identity.catalog["1802"][0]);
+    expect(renamedEntries[0].id).toBe(identity.catalog["1802"][0]);
+    // Тот же английский ID получается и из legacy-ключа снапшота.
     expect(renamedEntries[0].id).toBe(
-      legacyIdMap.catalog[identity.catalog["1802"][0]],
+      legacyIdMap.catalog["1802-цветной-плащ-синий"],
     );
+    expect(renamedEntries[0].originalId).toBeTruthy();
 
     const swapped = makeSandbox();
+    // Карта теперь хранит английские ID, поэтому для проверки защиты порядка
+    // подставляем legacy-порядок статьи: он и есть исходный контракт снапшота.
+    editJson(swapped.identity, (value) => {
+      value.catalog["1802"] = Object.keys(legacyIdMap.catalog).filter((id) =>
+        id.startsWith("1802-"),
+      );
+    });
     editRenderedArticle(swapped.content, "1802", (text) =>
       text.replace("#### Цветной плащ (синий)", "#### ВРЕМЕННЫЙ"),
     );
@@ -574,6 +635,14 @@ describe("проекции канонических правил для потр
 
   it("дополняет сопоставление новой записью только явной командой", () => {
     const sandbox = makeSandbox();
+    // Статья 1802 в сопоставлении хранится английскими ID. Для дополнения
+    // возвращаем legacy-порядок снапшота, чтобы проверить именно явный
+    // opt-in и сохранение уже закреплённых английских ID после декорации.
+    editJson(sandbox.identity, (value) => {
+      value.catalog["1802"] = Object.keys(legacyIdMap.catalog).filter((id) =>
+        id.startsWith("1802-"),
+      );
+    });
     appendArticleMarkdown(
       sandbox.content,
       "1802",
@@ -588,13 +657,8 @@ describe("проекции канонических правил для потр
       (entry) => entry.articleId === "1802",
     );
     const existing = added.slice(0, identity.catalog["1802"].length);
-    expect(existing.map((entry) => entry.legacyId)).toEqual(
-      identity.catalog["1802"],
-    );
     expect(existing.map((entry) => entry.id)).toEqual(
-      identity.catalog["1802"].map(
-        (legacyId: string) => legacyIdMap.catalog[legacyId],
-      ),
+      identity.catalog["1802"],
     );
     expect(added[added.length - 1].name).toBe("Добавочное сокровище");
   });
@@ -636,13 +700,12 @@ describe("проекции канонических правил для потр
 });
 
 describe("проекции комплектов, перков, особенностей и повышения уровня", () => {
-  it("проецирует все комплекты с legacy-ID, полями и порядком", () => {
+  it("проецирует все комплекты с английскими ID, полями и порядком", () => {
     // Включая составной 0924 «Буревестник»: его карточки хранятся прямо в
     // Markdown сущности, а не отдельными сущностями `ability`.
     expect(kitsProjection.kits).toHaveLength(22);
     expectProjectionIdentity(
       kitsProjection.kits,
-      legacyKits.map((kit) => kit.id),
       legacyKits.map((kit) => legacyIdMap.kits[kit.id]),
     );
     expect(stripIdentity(kitsProjection.kits)).toEqual(
@@ -663,12 +726,11 @@ describe("проекции комплектов, перков, особенно�
     expect(perksProjection.perks).toHaveLength(47);
     expectProjectionIdentity(
       perksProjection.perks,
-      legacyPerks.perks.map((perk: any) => perk.id),
       legacyPerks.perks.map((perk: any) => legacyIdMap.perks[perk.id]),
     );
     for (const legacy of legacyPerks.perks) {
       const perk = perksProjection.perks.find(
-        (entry) => entry.legacyId === legacy.id,
+        (entry) => entry.id === legacyIdMap.perks[legacy.id],
       );
       expect(perk).toMatchObject({
         id: legacyIdMap.perks[legacy.id],
@@ -730,7 +792,7 @@ describe("проекции комплектов, перков, особенно�
     });
   });
 
-  it("проецирует особенности происхождений и классов с legacy-ID", () => {
+  it("проецирует особенности происхождений и классов с английскими ID", () => {
     const ancestry = featuresProjection.features.filter(
       (feature) => feature.kind === "ancestry",
     );
@@ -739,7 +801,6 @@ describe("проекции комплектов, перков, особенно�
     );
     expectProjectionIdentity(
       ancestry,
-      legacyAncestryFeatures.map((feature) => feature.id),
       legacyAncestryFeatures.map(
         (feature) => legacyIdMap.ancestryFeatures[feature.id],
       ),
@@ -748,8 +809,8 @@ describe("проекции комплектов, перков, особенно�
     // происхождения как выбранные на 1-м уровне, поэтому проекция ставит 1.
     expect(ancestry.every((feature) => feature.level === 1)).toBe(true);
     for (const legacy of legacyAncestryFeatures) {
-      const feature = ancestry.find((entry) => entry.legacyId === legacy.id);
       const englishId = legacyIdMap.ancestryFeatures[legacy.id];
+      const feature = ancestry.find((entry) => entry.id === englishId);
       expect(feature).toMatchObject({
         id: englishId,
         name: ANCESTRY_CANONICAL_NAMES[englishId] ?? legacy.name,
@@ -763,8 +824,9 @@ describe("проекции комплектов, перков, особенно�
     const actualNameDifferences = legacyAncestryFeatures
       .filter(
         (legacy) =>
-          ancestry.find((entry) => entry.legacyId === legacy.id)?.name !==
-          legacy.name,
+          ancestry.find(
+            (entry) => entry.id === legacyIdMap.ancestryFeatures[legacy.id],
+          )?.name !== legacy.name,
       )
       .map((legacy) => legacyIdMap.ancestryFeatures[legacy.id])
       .sort();
@@ -794,27 +856,33 @@ describe("проекции комплектов, перков, особенно�
       expect(feature?.cost ?? 2, legacy.id).toBe(legacy.cost);
     }
 
-    const projectedLegacyIds = new Set(
-      classes.map((feature) => feature.legacyId),
-    );
-    const projectedLegacyOrder = legacyClassFeatures
-      .map((feature) => feature.id)
-      .filter((id) => projectedLegacyIds.has(id));
-    expectProjectionIdentity(
-      classes,
-      projectedLegacyOrder,
-      projectedLegacyOrder.map((id) => legacyIdMap.classFeatures[id]),
-    );
+    // Порядок прежнего снапшота переводится в английские ID. Три строки,
+    // которые канон перенёс в одноимённые сущности особенностей, заменяются
+    // их английскими ID на тех же позициях.
+    const projectedClassIds = new Set(classes.map((feature) => feature.id));
+    const expectedClassIds = legacyClassFeatures
+      .map((feature) => classFeatureEnglishId(feature.id))
+      .filter((id) => projectedClassIds.has(id));
+    expectProjectionIdentity(classes, expectedClassIds);
     const missing = legacyClassFeatures
-      .filter((feature) => !projectedLegacyIds.has(feature.id))
+      .filter(
+        (feature) =>
+          !projectedClassIds.has(legacyIdMap.classFeatures[feature.id]),
+      )
       .map((feature) => legacyIdMap.classFeatures[feature.id])
       .sort();
-    expect(missing).toEqual([...CLASS_FEATURE_LEGACY_SYNTHETIC_ROWS].sort());
+    expect(missing).toEqual(
+      [
+        ...CLASS_FEATURE_LEGACY_SYNTHETIC_ROWS,
+      ].sort(),
+    );
     // `description` включает карточки способностей, на которые статья
     // ссылается сразу после особенности: проекция вклеивает их так же, как
     // legacy-скелет. Расхождений текста нет, поэтому сравнение полное.
     for (const legacy of legacyClassFeatures) {
-      const feature = classes.find((entry) => entry.legacyId === legacy.id);
+      const feature = classes.find(
+        (entry) => entry.id === legacyIdMap.classFeatures[legacy.id],
+      );
       if (!feature) continue;
       expect(feature).toMatchObject({
         id: legacyIdMap.classFeatures[legacy.id],
@@ -825,14 +893,14 @@ describe("проекции комплектов, перков, особенно�
         description: legacy.description,
       });
     }
-    // D1 добавляет особенности Призывателя; любые новые записи должны быть его.
+    // Три legacy-строки способностей стали отдельными сущностями особенностей
+    // с английскими ID без `ability`; других новых записей быть не должно.
     const legacyEnglishIds = new Set(Object.values(legacyIdMap.classFeatures));
     const extras = classes.filter(
       (feature) => !legacyEnglishIds.has(feature.id),
     );
-    expect(extras.every((feature) => feature.className === "Призыватель")).toBe(
-      true,
-    );
+    expect(extras.map((feature) => feature.id)).toEqual([]);
+    expect(extras.every((feature) => feature.originalId)).toBe(true);
   });
 
   it("портирует правила повышения уровня из статей 08xx", () => {
@@ -878,63 +946,54 @@ describe("проекции комплектов, перков, особенно�
     );
   });
 
-  it("хранит в сопоставлении legacy-порядок новых наборов", () => {
-    const canonicalClassIds = new Set(
-      featuresProjection.features.map((feature) => feature.legacyId),
+  it("хранит в сопоставлении порядок новых наборов английскими ID", () => {
+    const projectedClassFeatures = featuresProjection.features.filter(
+      (feature) => feature.kind === "class",
     );
-    expect(identity.kits).toEqual(legacyKits.map((kit) => kit.id));
+    const canonicalClassIds = new Set(
+      projectedClassFeatures.map((feature) => feature.id),
+    );
+    // Порядок снапшота, переведённый в английские ID, с заменой трёх строк
+    // способностей на одноимённые сущности особенностей.
+    const classFeatureOrder = legacyClassFeatures
+      .map((feature) => classFeatureEnglishId(feature.id))
+      .filter((id) => canonicalClassIds.has(id));
+    expect(identity.kits).toEqual(
+      legacyKits.map((kit) => legacyIdMap.kits[kit.id]),
+    );
     expect(identity.perks).toEqual(
-      legacyPerks.perks.map((perk: any) => perk.id),
+      legacyPerks.perks.map((perk: any) => legacyIdMap.perks[perk.id]),
     );
     expect(identity.ancestryFeatures).toEqual(
-      legacyAncestryFeatures.map((feature) => feature.id),
+      legacyAncestryFeatures.map(
+        (feature) => legacyIdMap.ancestryFeatures[feature.id],
+      ),
     );
+    expect(identity.classFeatures).toEqual(classFeatureOrder);
     expect(identity.classFeatures).toEqual(
-      legacyClassFeatures
-        .map((feature) => feature.id)
-        .filter((id) => canonicalClassIds.has(id)),
-    );
-    // Сопоставление по-прежнему хранит legacy-ID, поэтому английский ID
-    // каждой записанной особенности сверяем с картой миграции.
-    const classFeatureIds = new Map(
-      featuresProjection.features.map((feature) => [
-        feature.legacyId,
-        feature.id,
-      ]),
-    );
-    expect(
-      identity.classFeatures.map((id: string) => classFeatureIds.get(id)),
-    ).toEqual(
-      identity.classFeatures.map((id: string) => legacyIdMap.classFeatures[id]),
+      projectedClassFeatures.map((feature) => feature.id),
     );
     expect(identity.levelUp).toEqual(
       legacyLevelUp.map((rule) => rule.articleId),
     );
-    // Порядок конструктора закреплён каноническими ID сущностей и совпадает
-    // с legacy-снапшотом.
+    // Порядок конструктора закреплён английскими ID сущностей.
     expect(identity.builder.ancestries).toEqual(
-      builderProjection.ancestries.map((entry) => `ancestry.${entry.articleId}`),
+      builderProjection.ancestries.map((entry) => entry.id),
     );
     expect(identity.builder.careers).toEqual(
-      builderProjection.careers.map((entry) => `career.${entry.articleId}`),
+      builderProjection.careers.map((entry) => entry.id),
     );
     expect(identity.builder.classes).toEqual(
-      builderProjection.classes.map((entry) => `class.${entry.articleId}`),
+      builderProjection.classes.map((entry) => entry.id),
     );
     expect(identity.builder.cultures.environment).toEqual(
-      builderProjection.cultures.environment.map(
-        (_entry, index) => `culture.0502.${String(index + 1).padStart(2, "0")}`,
-      ),
+      builderProjection.cultures.environment.map((entry) => entry.id),
     );
     expect(identity.builder.cultures.organization).toEqual(
-      builderProjection.cultures.organization.map(
-        (_entry, index) => `culture.0503.${String(index + 1).padStart(2, "0")}`,
-      ),
+      builderProjection.cultures.organization.map((entry) => entry.id),
     );
     expect(identity.builder.cultures.upbringing).toEqual(
-      builderProjection.cultures.upbringing.map(
-        (_entry, index) => `culture.0504.${String(index + 1).padStart(2, "0")}`,
-      ),
+      builderProjection.cultures.upbringing.map((entry) => entry.id),
     );
     expect(identity.builder.complications).toHaveLength(100);
   });
@@ -949,7 +1008,6 @@ describe("проекции комплектов, перков, особенно�
     const kit = readJson(kitFile);
     kit.id = "kit.test-burevestnik";
     kit.name = "Буревестник (проверка)";
-    kit.legacyIds = ["kit-test-burevestnik"];
     fs.writeFileSync(
       path.join(path.dirname(kitFile), "kit.test-burevestnik.json"),
       JSON.stringify(kit),
@@ -963,7 +1021,6 @@ describe("проекции комплектов, перков, особенно�
     const feature = readJson(featureFile);
     feature.id = "feature.summoner.test";
     feature.name = "Испытание Призывателя";
-    feature.legacyIds = ["summoner.test.feature"];
     feature.source = {
       articleId: "0821",
       path: "08. Классы/Призыватель/0821. 1-й Уровень Призывателя.md",
@@ -978,10 +1035,10 @@ describe("проекции комплектов, перков, особенно�
       path.join(sandbox.out, "kits.json"),
     ) as ConsumerKitProjection;
     expect(kits.kits.map((entry) => entry.id)).toContain(
-      "kit-test-burevestnik",
+      "kit.test-burevestnik",
     );
     expect(
-      kits.kits.find((entry) => entry.id === "kit-test-burevestnik")?.name,
+      kits.kits.find((entry) => entry.id === "kit.test-burevestnik")?.name,
     ).toBe("Буревестник (проверка)");
 
     const features = readJson(
@@ -989,7 +1046,7 @@ describe("проекции комплектов, перков, особенно�
     ) as ConsumerFeatureProjection;
     expect(
       features.features.find(
-        (entry) => entry.id === "summoner.test.feature",
+        (entry) => entry.id === "feature.summoner.test",
       ),
     ).toMatchObject({
       kind: "class",

@@ -6,7 +6,6 @@ export interface RuleEntity extends OriginalFields {
   name: string;
   markdown: string; // complete original rule block; never the lossy ability summary
   source: { articleId: string; path: string };
-  legacyIds: string[];
   ability?: CompendiumAbility; // structured projection when reliably mapped
 }
 export type RuleBlock = { type: 'markdown'; text: string } | { type: 'entity'; ref: string };

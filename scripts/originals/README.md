@@ -9,14 +9,13 @@
   "name": "Бей и Беги",
   "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/hit-and-run",
   "originalName": "Hit and Run",
-  "originalDescription": "*Staying in constant motion helps you slip out of reach…*",
-  "legacyId": "neistovyy-bey-i-begi-d49f37111e"
+  "originalDescription": "*Staying in constant motion helps you slip out of reach…*"
 }
 ```
 
-`id` — канонический английский scc-id. `legacyId` остаётся только у записей,
-которые уже успели сохраниться в листах героев; по нему `src/data/originals.ts`
-находит новую запись. Поля `originalName` и `originalDescription` могут быть
+`id` — канонический английский scc-id. Старые id сохранены только в
+`src/generated/legacy-ids.json` для чтения уже сохранённых листов героев; в
+канонических сущностях и проекциях поля `legacyId` больше нет. Поля `originalName` и `originalDescription` могут быть
 пустыми у домашних материалов, которых нет в английском компендиуме.
 
 ## Источник

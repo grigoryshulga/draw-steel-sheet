@@ -1,5 +1,5 @@
 {
-  "id": "ability.komplekt-reyndzher-vystrel-po-podzhilkam-3f4f23615e",
+  "id": "feature.ability.ranger.hamstring-shot",
   "kind": "ability",
   "name": "Выстрел по Поджилкам",
   "markdown": "> **Выстрел по Поджилкам**\n> \n> *Точный выстрел заставляет вашего врага изо всех сил пытаться сдвинуться с места.*\n> \n> | **Дальний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 3 + М или Л урона; Л < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 5 + М или Л урона; Л < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 7 + М или Л урона; Л < СИЛЬНЫЙ, замедление (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0920",
     "path": "09. Комплекты/Список Комплектов/0920. Рейнджер.md"
   },
-  "legacyIds": [
-    "komplekt-reyndzher-vystrel-po-podzhilkam-3f4f23615e"
-  ],
   "ability": {
-    "id": "komplekt-reyndzher-vystrel-po-podzhilkam-3f4f23615e",
+    "id": "feature.ability.ranger.hamstring-shot",
     "name": "Выстрел по Поджилкам",
     "flavor": "Точный выстрел заставляет вашего врага изо всех сил пытаться сдвинуться с места.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Комплект: Рейнджер",
     "level": 1,
     "sourceKind": "kit",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.ranger/hamstring-shot",
+    "originalName": "Hamstring Shot",
+    "originalDescription": "*A well-placed shot leaves your enemy struggling to move.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; A < WEAK, slowed (save ends)\n- **12-16:** 5 + M or A damage; A < AVERAGE, slowed (save ends)\n- **17+:** 7 + M or A damage; A < STRONG, slowed (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.ranger/hamstring-shot",
+  "originalName": "Hamstring Shot",
+  "originalDescription": "*A well-placed shot leaves your enemy struggling to move.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; A < WEAK, slowed (save ends)\n- **12-16:** 5 + M or A damage; A < AVERAGE, slowed (save ends)\n- **17+:** 7 + M or A damage; A < STRONG, slowed (save ends)"
 }

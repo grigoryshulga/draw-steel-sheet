@@ -1,5 +1,5 @@
 {
-  "id": "ability.taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f",
+  "id": "feature.ability.tactician.level-2.no-dying-on-my-watch",
   "kind": "ability",
   "name": "Никаких Смертей в Мою Смену",
   "markdown": "> **Никаких Смертей в Мою Смену (5 Фокуса)**\n>\n> *Вы отдаете приоритет спасению союзника, а не собственной безопасности.*\n>\n> | **Дальний, Удар, Оружие** | **Триггер** |\n> | -------------------------- | ---------------: |\n> | **📏 Дальний 5** | **🎯 Один враг** |\n>\n> **Триггер:** Цель наносит урон союзнику.\n>\n> **Эффект:** Вы перемещаетесь вплоть до вашей скорости к вызвавшему триггер союзнику, заканчивая это движение смежно с ним или на ближайшей свободной клетке, если вы не можете достичь смежной клетки. Вызвавший триггер союзник может потратить Восстановление и получает 5 очков временной выносливости за каждого врага, с которым вы стали смежны во время движения. Затем вы делаете бросок силы против цели.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Р < СЛАБЫЙ, цель напугана вызвавшим триггер союзником (до прох.)\n> - **12-16:** Р < СРЕДНИЙ, цель напугана вызвавшим триггер союзником (до прох.)\n> - **17+:** Р < СИЛЬНЫЙ, цель напугана вызвавшим триггер союзником (до прох.)",
@@ -7,11 +7,8 @@
     "articleId": "0842",
     "path": "08. Классы/Тактик/0842. 2-й Уровень Тактика.md"
   },
-  "legacyIds": [
-    "taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f"
-  ],
   "ability": {
-    "id": "taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f",
+    "id": "feature.ability.tactician.level-2.no-dying-on-my-watch",
     "name": "Никаких Смертей в Мою Смену",
     "flavor": "Вы отдаете приоритет спасению союзника, а не собственной безопасности.",
     "actionType": "trigger",
@@ -49,6 +46,12 @@
     "className": "Тактик",
     "level": 2,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/no-dying-on-my-watch",
+    "originalName": "No Dying on My Watch",
+    "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)"
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/no-dying-on-my-watch",
+  "originalName": "No Dying on My Watch",
+  "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)"
 }

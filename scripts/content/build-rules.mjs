@@ -99,12 +99,6 @@ function validateEntity(entity, file) {
   }
   assertString(entity.source.articleId, `${file}: source.articleId`);
   assertString(entity.source.path, `${file}: source.path`);
-  if (!Array.isArray(entity.legacyIds)) {
-    fail(`${file}: legacyIds должен быть массивом`);
-  }
-  entity.legacyIds.forEach((legacyId, index) =>
-    assertString(legacyId, `${file}: legacyIds[${index}]`),
-  );
   if (entity.ability !== undefined && typeof entity.ability !== "object") {
     fail(`${file}: ability должен быть объектом`);
   }
@@ -198,17 +192,6 @@ export function buildRules({
       if (!entityById.has(block.ref)) {
         fail(`статья ${article.id} ссылается на неизвестную сущность ${block.ref}`);
       }
-    }
-  }
-
-  const legacyIdOwners = new Map();
-  for (const entity of entities) {
-    for (const legacyId of entity.legacyIds) {
-      const owner = legacyIdOwners.get(legacyId);
-      if (owner && owner !== entity.id) {
-        fail(`legacy ID ${legacyId} принадлежит и ${owner}, и ${entity.id}`);
-      }
-      legacyIdOwners.set(legacyId, entity.id);
     }
   }
 

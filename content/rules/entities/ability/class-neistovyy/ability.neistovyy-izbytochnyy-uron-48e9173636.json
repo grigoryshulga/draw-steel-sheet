@@ -1,5 +1,5 @@
 {
-  "id": "ability.neistovyy-izbytochnyy-uron-48e9173636",
+  "id": "feature.ability.fury.level-8.overkill",
   "kind": "ability",
   "name": "Избыточный Урон",
   "markdown": "> **Избыточный Урон (11 Свирепости)**\n>\n> *Вы бьете так, чтобы ни капли урона не пропало даром.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 6 + М урона\n> - **12-16:** 10 + М урона\n> - **17+:** 14 + М урона\n>\n> **Эффект:** Если цель является миньоном или находится в состоянии утомления, но не является лидером или соло-существом, ее выносливость снижается до 0 до того, как наносится урон этой способностью. Если цель убита этим уроном, вы можете нанести любой урон, превышающий тот, который требовался для ее убийства, другому существу в пределах 5 клеток от цели.",
@@ -7,11 +7,8 @@
     "articleId": "0808",
     "path": "08. Классы/Неистовый/0808. 8-й Уровень Неистового.md"
   },
-  "legacyIds": [
-    "neistovyy-izbytochnyy-uron-48e9173636"
-  ],
   "ability": {
-    "id": "neistovyy-izbytochnyy-uron-48e9173636",
+    "id": "feature.ability.fury.level-8.overkill",
     "name": "Избыточный Урон",
     "flavor": "Вы бьете так, чтобы ни капли урона не пропало даром.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Неистовый",
     "level": 8,
     "sourceKind": "class",
-    "preferredCharacteristic": "might"
-  }
+    "preferredCharacteristic": "might",
+    "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/overkill",
+    "originalName": "Overkill",
+    "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/overkill",
+  "originalName": "Overkill",
+  "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target."
 }

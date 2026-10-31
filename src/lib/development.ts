@@ -1,4 +1,5 @@
 import { ABILITY_COMPENDIUM } from "../data/compendium";
+import { LEGACY_ABILITY_IDS } from "../data/originals";
 import { kindLabel } from "../data/actions";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { CONDUIT_DOMAINS } from "./class-features";
@@ -169,7 +170,9 @@ export interface DevelopmentResult {
 const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
   ABILITY_COMPENDIUM.flatMap((ability) => {
     const rows: [string, CompendiumAbility][] = [[ability.id, ability]];
-    if (ability.legacyId) rows.push([ability.legacyId, ability]);
+    for (const [legacyId, canonicalId] of Object.entries(LEGACY_ABILITY_IDS)) {
+      if (canonicalId === ability.id) rows.push([legacyId, ability]);
+    }
     return rows;
   }),
 );

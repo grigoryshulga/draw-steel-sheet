@@ -142,7 +142,7 @@
         },
         {
           "type": "entity",
-          "ref": "ability.bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610"
+          "ref": "feature.ability.common.escape-grab"
         },
         {
           "type": "markdown",
@@ -150,7 +150,7 @@
         },
         {
           "type": "entity",
-          "ref": "ability.bazovye-sposobnosti-manevr-zahvata-d711b2d4e9"
+          "ref": "feature.ability.common.grab"
         },
         {
           "type": "markdown",
@@ -158,7 +158,7 @@
         },
         {
           "type": "entity",
-          "ref": "ability.bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734"
+          "ref": "feature.ability.common.knockback"
         },
         {
           "type": "markdown",
@@ -198,7 +198,7 @@
         },
         {
           "type": "entity",
-          "ref": "ability.bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b"
+          "ref": "feature.ability.common.melee-weapon-free-strike"
         },
         {
           "type": "markdown",
@@ -206,7 +206,7 @@
         },
         {
           "type": "entity",
-          "ref": "ability.bazovye-sposobnosti-svobodnyy-udar-dalnego-boya-e62dc2c4d4"
+          "ref": "feature.ability.common.ranged-weapon-free-strike"
         }
       ],
       "originalId": "mcdm.heroes.v1/chapter/combat#free-strikes",
@@ -280,67 +280,7 @@
   ],
   "entities": [
     {
-      "id": "ability.bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734",
-      "kind": "ability",
-      "name": "Маневр Отталкивания",
-      "markdown": "> **Маневр Отталкивания**\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Толчок 1\n> - **12-16:** Толчок 2\n> - **17+:** Толчок 3\n>\n> **Эффект:** Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
-      "source": {
-        "articleId": "1309",
-        "path": "13. Ведение Боя/1309. Маневры.md"
-      },
-      "legacyIds": [
-        "bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734"
-      ],
-      "ability": {
-        "id": "feature.ability.common.knockback",
-        "name": "Маневр Отталкивания",
-        "flavor": "",
-        "actionType": "maneuver",
-        "kind": "other",
-        "keywords": [
-          "Ближний",
-          "Оружие"
-        ],
-        "distance": "Ближний 1",
-        "target": "Одно существо",
-        "rollCharacteristics": [
-          "might"
-        ],
-        "rollBonus": 0,
-        "resourceCost": 0,
-        "trigger": "",
-        "tiers": [
-          {
-            "damage": "",
-            "effect": "Толчок 1"
-          },
-          {
-            "damage": "",
-            "effect": "Толчок 2"
-          },
-          {
-            "damage": "",
-            "effect": "Толчок 3"
-          }
-        ],
-        "effect": "Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
-        "source": "Базовые способности",
-        "notes": "",
-        "className": "Базовые",
-        "level": 1,
-        "sourceKind": "basic",
-        "preferredCharacteristic": "might",
-        "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
-        "originalName": "Knockback",
-        "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.",
-        "legacyId": "bazovye-sposobnosti-manevr-ottalkivaniya-8ee3bcd734"
-      },
-      "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
-      "originalName": "Knockback",
-      "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score."
-    },
-    {
-      "id": "ability.bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610",
+      "id": "feature.ability.common.escape-grab",
       "kind": "ability",
       "name": "Маневр Ускальзывания",
       "markdown": "> **Маневр Ускальзывания**\n>\n> | **-** | **Маневр** |\n> | :--- | ---: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Бросок силы + Мощь или Ловкость:**\n>\n> - **≤11:** Без эффекта.\n> - **12-16:** Вы можете избежать захвата, но если вы это сделаете, существо, которое схватило вас, может совершить по вам свободный удар ближнего боя до того, как вы перестанете быть схваченным.\n> - **17+:** Вы больше не схвачены.\n>\n> **Эффект:** Вы получаете помеху на этот маневр, если ваш размер меньше размера существа, объекта или эффекта, который вас схватил.",
@@ -348,9 +288,6 @@
         "articleId": "1309",
         "path": "13. Ведение Боя/1309. Маневры.md"
       },
-      "legacyIds": [
-        "bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610"
-      ],
       "ability": {
         "id": "feature.ability.common.escape-grab",
         "name": "Маневр Ускальзывания",
@@ -390,15 +327,14 @@
         "preferredCharacteristic": "might",
         "originalId": "mcdm.heroes.v1/feature.ability.common/escape-grab",
         "originalName": "Escape Grab",
-        "originalDescription": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition.",
-        "legacyId": "bazovye-sposobnosti-manevr-uskalzyvaniya-a1b1d25610"
+        "originalDescription": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
       },
       "originalId": "mcdm.heroes.v1/feature.ability.common/escape-grab",
       "originalName": "Escape Grab",
       "originalDescription": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
     },
     {
-      "id": "ability.bazovye-sposobnosti-manevr-zahvata-d711b2d4e9",
+      "id": "feature.ability.common.grab",
       "kind": "ability",
       "name": "Маневр Захвата",
       "markdown": "> **Маневр Захвата**\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Без эффекта.\n> - **12-16:** Вы можете схватить цель, но если вы это сделаете, цель может совершить свободный удар ближнего боя по вам до того, как будет схвачена.\n> - **17+:** Цель схвачена вами.\n>\n> **Эффект:** Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
@@ -406,9 +342,6 @@
         "articleId": "1309",
         "path": "13. Ведение Боя/1309. Маневры.md"
       },
-      "legacyIds": [
-        "bazovye-sposobnosti-manevr-zahvata-d711b2d4e9"
-      ],
       "ability": {
         "id": "feature.ability.common.grab",
         "name": "Маневр Захвата",
@@ -450,15 +383,70 @@
         "preferredCharacteristic": "might",
         "originalId": "mcdm.heroes.v1/feature.ability.common/grab",
         "originalName": "Grab",
-        "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition.",
-        "legacyId": "bazovye-sposobnosti-manevr-zahvata-d711b2d4e9"
+        "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
       },
       "originalId": "mcdm.heroes.v1/feature.ability.common/grab",
       "originalName": "Grab",
       "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition."
     },
     {
-      "id": "ability.bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b",
+      "id": "feature.ability.common.knockback",
+      "kind": "ability",
+      "name": "Маневр Отталкивания",
+      "markdown": "> **Маневр Отталкивания**\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Толчок 1\n> - **12-16:** Толчок 2\n> - **17+:** Толчок 3\n>\n> **Эффект:** Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
+      "source": {
+        "articleId": "1309",
+        "path": "13. Ведение Боя/1309. Маневры.md"
+      },
+      "ability": {
+        "id": "feature.ability.common.knockback",
+        "name": "Маневр Отталкивания",
+        "flavor": "",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Ближний",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Толчок 1"
+          },
+          {
+            "damage": "",
+            "effect": "Толчок 2"
+          },
+          {
+            "damage": "",
+            "effect": "Толчок 3"
+          }
+        ],
+        "effect": "Обычно вы можете нацеливаться только на существ вашего размера или меньше. Если ваш счет Мощи 2 или выше, вы можете нацеливаться на любое существо, размер которого равен или меньше вашего счета Мощи.",
+        "source": "Базовые способности",
+        "notes": "",
+        "className": "Базовые",
+        "level": 1,
+        "sourceKind": "basic",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
+        "originalName": "Knockback",
+        "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.common/knockback",
+      "originalName": "Knockback",
+      "originalDescription": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score."
+    },
+    {
+      "id": "feature.ability.common.melee-weapon-free-strike",
       "kind": "ability",
       "name": "Свободный Удар Ближнего Боя",
       "markdown": "> **Свободный Удар Ближнего Боя**\n> \n> | **Рывок, Ближний, Удар, Оружие** | **Основное действие** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 2 + М или Л урона\n> - **12-16:** 5 + М или Л урона\n> - **17+:** 7 + М или Л урона",
@@ -466,9 +454,6 @@
         "articleId": "1311",
         "path": "13. Ведение Боя/1311. Свободные Удары.md"
       },
-      "legacyIds": [
-        "bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b"
-      ],
       "ability": {
         "id": "feature.ability.common.melee-weapon-free-strike",
         "name": "Свободный Удар Ближнего Боя",
@@ -513,15 +498,14 @@
         "preferredCharacteristic": "might",
         "originalId": "mcdm.heroes.v1/feature.ability.common/melee-weapon-free-strike",
         "originalName": "Melee Weapon Free Strike",
-        "originalDescription": "| **Charge, Melee, Strike, Weapon**  |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 7 + M or A damage",
-        "legacyId": "bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b"
+        "originalDescription": "| **Charge, Melee, Strike, Weapon**  |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 7 + M or A damage"
       },
       "originalId": "mcdm.heroes.v1/feature.ability.common/melee-weapon-free-strike",
       "originalName": "Melee Weapon Free Strike",
       "originalDescription": "| **Charge, Melee, Strike, Weapon**  |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 7 + M or A damage"
     },
     {
-      "id": "ability.bazovye-sposobnosti-svobodnyy-udar-dalnego-boya-e62dc2c4d4",
+      "id": "feature.ability.common.ranged-weapon-free-strike",
       "kind": "ability",
       "name": "Свободный Удар Дальнего Боя",
       "markdown": "> **Свободный Удар Дальнего Боя**\n> \n> | **Дальний, Удар, Оружие** | **Основное действие** |\n> | :--- | ---: |\n> | **📏 Дальний 5** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 2 + М или Л урона\n> - **12-16:** 4 + М или Л урона\n> - **17+:** 6 + М или Л урона",
@@ -529,9 +513,6 @@
         "articleId": "1311",
         "path": "13. Ведение Боя/1311. Свободные Удары.md"
       },
-      "legacyIds": [
-        "bazovye-sposobnosti-svobodnyy-udar-dalnego-boya-e62dc2c4d4"
-      ],
       "ability": {
         "id": "feature.ability.common.ranged-weapon-free-strike",
         "name": "Свободный Удар Дальнего Боя",
@@ -575,8 +556,7 @@
         "preferredCharacteristic": "might",
         "originalId": "mcdm.heroes.v1/feature.ability.common/ranged-weapon-free-strike",
         "originalName": "Ranged Weapon Free Strike",
-        "originalDescription": "| **Ranged, Strike, Weapon**  |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Ranged 5**             | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 4 + M or A damage\n- **17+:** 6 + M or A damage",
-        "legacyId": "bazovye-sposobnosti-svobodnyy-udar-dalnego-boya-e62dc2c4d4"
+        "originalDescription": "| **Ranged, Strike, Weapon**  |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Ranged 5**             | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 4 + M or A damage\n- **17+:** 6 + M or A damage"
       },
       "originalId": "mcdm.heroes.v1/feature.ability.common/ranged-weapon-free-strike",
       "originalName": "Ranged Weapon Free Strike",

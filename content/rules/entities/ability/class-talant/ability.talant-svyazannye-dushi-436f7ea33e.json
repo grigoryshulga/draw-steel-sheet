@@ -1,5 +1,5 @@
 {
-  "id": "ability.talant-svyazannye-dushi-436f7ea33e",
+  "id": "feature.ability.talent.level-5.soulbound",
   "kind": "ability",
   "name": "Связанные Души",
   "markdown": "> **Связанные Души (9 Ясности)**\n>\n> *Вы выпускаете пронзительный заряд психической энергии, который пронзает двух врагов и оставляет слабую неосязаемую нить между ними.*\n>\n> | **Анимапатия, Псионика, Дальний, Удар** | **Основное действие** |\n> | --------------------------------------- | -----------------: |\n> | **📏 Дальний 10** | **🎯 Два врага** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 8 урона; Л < СЛАБЫЙ, цель сшита с другой целью (до прох.)\n> - **12-16:** 13 урона; Л < СРЕДНИЙ, цель сшита с другой целью (до прох.)\n> - **17+:** 17 урона; Л < СИЛЬНЫЙ, цель сшита с другой целью (до прох.)\n>\n> **Эффект:** Если любая цель становится сшитой с другой, обе цели сшиваются вместе. Пока они сшиты вместе, цель получает помеху на броски силы, если она не находится смежно с существом, с которым сшита. Всякий раз, когда сшитая цель получает урон, который не был нанесен или также не получен другой сшитой целью, каждая другая сшитая цель получает половину урона, полученного изначальной целью.\n>\n> **Возбужденность:** Вы нацеливаетесь на себя и трех врагов вместо этого.",
@@ -7,11 +7,8 @@
     "articleId": "0855",
     "path": "08. Классы/Талант/0855. 5-й Уровень Таланта.md"
   },
-  "legacyIds": [
-    "talant-svyazannye-dushi-436f7ea33e"
-  ],
   "ability": {
-    "id": "talant-svyazannye-dushi-436f7ea33e",
+    "id": "feature.ability.talent.level-5.soulbound",
     "name": "Связанные Души",
     "flavor": "Вы выпускаете пронзительный заряд психической энергии, который пронзает двух врагов и оставляет слабую неосязаемую нить между ними.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Талант",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "presence"
-  }
+    "preferredCharacteristic": "presence",
+    "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/soulbound",
+    "originalName": "Soulbound",
+    "originalDescription": "*You fire a piercing bolt of psychic energy that lances through two foes and leaves a faint intangible thread between them.*\n\n| **Animapathy, Psionic, Ranged, Strike** |    **Main action** |\n|-----------------------------------------|-------------------:|\n| **📏 Ranged 10**                        | **🎯 Two enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 damage; A < WEAK, the target is stitched to the other target (save ends)\n- **12-16:** 13 damage; A < AVERAGE, the target is stitched to the other target (save ends)\n- **17+:** 17 damage; A < STRONG, the target is stitched to the other target (save ends)\n\n**Effect:** If any target becomes stitched to the other, both targets are stitched together. While stitched together, a target takes a bane on power rolls while not adjacent to a creature they're stitched to. Whenever a stitched target takes damage that wasn't dealt by or also taken by another stitched target, each other stitched target takes half the damage the initial target took.\n\n**Strained:** You target yourself and three enemies instead."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/soulbound",
+  "originalName": "Soulbound",
+  "originalDescription": "*You fire a piercing bolt of psychic energy that lances through two foes and leaves a faint intangible thread between them.*\n\n| **Animapathy, Psionic, Ranged, Strike** |    **Main action** |\n|-----------------------------------------|-------------------:|\n| **📏 Ranged 10**                        | **🎯 Two enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 damage; A < WEAK, the target is stitched to the other target (save ends)\n- **12-16:** 13 damage; A < AVERAGE, the target is stitched to the other target (save ends)\n- **17+:** 17 damage; A < STRONG, the target is stitched to the other target (save ends)\n\n**Effect:** If any target becomes stitched to the other, both targets are stitched together. While stitched together, a target takes a bane on power rolls while not adjacent to a creature they're stitched to. Whenever a stitched target takes damage that wasn't dealt by or also taken by another stitched target, each other stitched target takes half the damage the initial target took.\n\n**Strained:** You target yourself and three enemies instead."
 }

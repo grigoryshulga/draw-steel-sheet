@@ -1,5 +1,5 @@
 {
-  "id": "ability.nul-zheleznaya-hvatka-218b5d95a6",
+  "id": "feature.ability.null.level-5.iron-grip",
   "kind": "ability",
   "name": "Железная Хватка",
   "markdown": "> **Железная Хватка (9 Дисциплины)**\n>\n> *Вы хватаете цель со сверхъестественной силой.*\n>\n> | **Ближний, Псионика, Удар, Оружие** | **Основное действие** |\n> | ---------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 10 + Л урона; Л < СЛАБЫЙ, схваченный\n> - **12-16:** 14 + Л урона; Л < СРЕДНИЙ, схваченный\n> - **17+:** 18 + Л урона; Л < СИЛЬНЫЙ, схваченный\n>\n> **Эффект:** Будучи схваченной таким образом, цель получает помеху на маневр Ускальзывания. Каждый раз, когда она использует этот маневр, она получает урон, равный двойному показателю вашей Ловкости.",
@@ -7,11 +7,8 @@
     "articleId": "0815",
     "path": "08. Классы/Нуль/0815. 5-й Уровень Нуля.md"
   },
-  "legacyIds": [
-    "nul-zheleznaya-hvatka-218b5d95a6"
-  ],
   "ability": {
-    "id": "nul-zheleznaya-hvatka-218b5d95a6",
+    "id": "feature.ability.null.level-5.iron-grip",
     "name": "Железная Хватка",
     "flavor": "Вы хватаете цель со сверхъестественной силой.",
     "actionType": "main",
@@ -50,6 +47,12 @@
     "className": "Нуль",
     "level": 5,
     "sourceKind": "class",
-    "preferredCharacteristic": "agility"
-  }
+    "preferredCharacteristic": "agility",
+    "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/iron-grip",
+    "originalName": "Iron Grip",
+    "originalDescription": "*You grab the target with supernatural force.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; A < WEAK, grabbed\n- **12-16:** 14 + A damage; A < AVERAGE, grabbed\n- **17+:** 18 + A damage; A < STRONG, grabbed\n\n**Effect:** While grabbed this way, the target takes a bane on the Escape Grab maneuver. Each time they use that maneuver, they take damage equal to twice your Agility score."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/iron-grip",
+  "originalName": "Iron Grip",
+  "originalDescription": "*You grab the target with supernatural force.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; A < WEAK, grabbed\n- **12-16:** 14 + A damage; A < AVERAGE, grabbed\n- **17+:** 18 + A damage; A < STRONG, grabbed\n\n**Effect:** While grabbed this way, the target takes a bane on the Escape Grab maneuver. Each time they use that maneuver, they take damage equal to twice your Agility score."
 }

@@ -44,6 +44,7 @@ import {
   extractStageTwo,
   STAGE_TWO_NOTES,
 } from "./migrate-entities.mjs";
+import { applyEnglishIds } from "./english-ids.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -947,6 +948,7 @@ function main() {
       ...report,
       staleFiles,
     });
+    applyEnglishIds({ contentDir: outDir, updateIdentity: false });
   }
 
   console.log("=== import-legacy ===");

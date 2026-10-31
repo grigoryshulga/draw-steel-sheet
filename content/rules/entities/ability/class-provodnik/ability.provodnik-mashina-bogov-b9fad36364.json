@@ -1,5 +1,5 @@
 {
-  "id": "ability.provodnik-mashina-bogov-b9fad36364",
+  "id": "feature.ability.conduit.level-6.gods-machine",
   "kind": "ability",
   "name": "Машина Богов",
   "markdown": "> **Машина Богов (9 Благочестия)**\n>\n> *Вы призываете жужжащий танк, сделанный из лезвий и металла.*\n>\n> | **Магия, Дальний** | **Основное действие** |\n> | ----------------- | --------------- |\n> | **📏 Дальний 10** | **🎯 Особая** |\n>\n> **Эффект:** Вы призываете катящуюся машину размера 2, которая появляется на свободной клетке в пределах расстояния. Машина имеет Выносливость 50 и иммунитет ко всему яду и психическому урону. Она исчезает в конце встречи, если ее Выносливость падает до 0, или если вы находитесь при смерти. Когда машина появляется впервые, сделайте следующий бросок силы один раз, нацеливая его на каждого врага, смежного с ней.\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 8 урона\n>\n> Один раз на каждом последующем ходу вы можете использовать свободный маневр, чтобы переместить машину на количество клеток вплоть до вашей Интуиции, а затем повторить бросок силы.",
@@ -7,12 +7,8 @@
     "articleId": "0836",
     "path": "08. Классы/Проводник/0836. 6-й Уровень Проводника.md"
   },
-  "legacyIds": [
-    "provodnik-mashina-bogov-b9fad36364",
-    "conduit.domain.6.mashina-bogov"
-  ],
   "ability": {
-    "id": "provodnik-mashina-bogov-b9fad36364",
+    "id": "feature.ability.conduit.level-6.gods-machine",
     "name": "Машина Богов",
     "flavor": "Вы призываете жужжащий танк, сделанный из лезвий и металла.",
     "actionType": "main",
@@ -49,6 +45,12 @@
     "className": "Проводник",
     "level": 6,
     "sourceKind": "class",
-    "preferredCharacteristic": "intuition"
-  }
+    "preferredCharacteristic": "intuition",
+    "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-6/gods-machine",
+    "originalName": "Gods' Machine",
+    "originalDescription": "*You conjure a whirring tank made of blades and metal.*\n\n| **Magic, Ranged** | **Main action** |\n|-------------------|-----------------|\n| **📏 Ranged 10**  | **🎯 Special**  |\n\n**Effect:** You conjure a size 2 rolling machine that appears in an unoccupied space within distance. The machine has 50 Stamina and immunity all to poison and psychic damage. It disappears at the end of the encounter, if its Stamina drops to 0, or if you are dying. When the machine first appears, make the following power roll once, targeting each enemy adjacent to it.\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage\n\nOnce on each subsequent turn, you can use a free maneuver to move the machine a number of squares up to your Intuition score then repeat the power roll."
+  },
+  "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-6/gods-machine",
+  "originalName": "Gods' Machine",
+  "originalDescription": "*You conjure a whirring tank made of blades and metal.*\n\n| **Magic, Ranged** | **Main action** |\n|-------------------|-----------------|\n| **📏 Ranged 10**  | **🎯 Special**  |\n\n**Effect:** You conjure a size 2 rolling machine that appears in an unoccupied space within distance. The machine has 50 Stamina and immunity all to poison and psychic damage. It disappears at the end of the encounter, if its Stamina drops to 0, or if you are dying. When the machine first appears, make the following power roll once, targeting each enemy adjacent to it.\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage\n\nOnce on each subsequent turn, you can use a free maneuver to move the machine a number of squares up to your Intuition score then repeat the power roll."
 }
