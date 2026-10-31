@@ -25,6 +25,9 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-4) var(--space-7);
+  /* Снятый дубль заголовка оставляет свой id на этом блоке: оглавление
+     статьи должно прокручивать к имени раздела, а не прятать его под шапкой. */
+  scroll-margin-top: 100px;
 }
 
 .rule-entity-title {

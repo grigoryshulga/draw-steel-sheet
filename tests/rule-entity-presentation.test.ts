@@ -427,6 +427,46 @@ describe("RuleEntityView: одна полная карточка способн�
     expect(html).not.toContain("sheet-ability-card");
     expect(html).not.toContain("sheet-ability-meta");
   });
+
+  it("не дублирует заголовок сущности, повторяющий её имя", () => {
+    const entity: RuleEntity = {
+      id: "feature.elementalist.earth-acolyte",
+      kind: "feature",
+      name: "Земля: Аколит Земли",
+      markdown:
+        "##### Земля: Аколит Земли\n\nВы используете поток магии земли.\n\n##### Второй заголовок\n\nЕщё текст.",
+      source: { articleId: "0891", path: "content/rules/entities/feature/test.json" },
+      legacyIds: [],
+    };
+
+    const html = renderEntity(entity);
+
+    // Имя выводит только `h2` раздела; заголовок источника снят.
+    expect(html.match(/Земля: Аколит Земли/g) ?? []).toHaveLength(1);
+    expect(html).not.toContain(`<h4 id="земля-аколит-земли">`);
+    // Якорь снятого заголовка остаётся у шапки раздела: оглавление ведёт сюда.
+    expect(html).toContain(`id="земля-аколит-земли"`);
+    // Вложенные заголовки внутри правила не трогаем.
+    expect(html).toContain("Второй заголовок");
+    expect(html).toContain("Вы используете поток магии земли.");
+  });
+
+  it("сохраняет заголовок, если он не повторяет имя сущности", () => {
+    const entity: RuleEntity = {
+      id: "feature:test",
+      kind: "feature",
+      name: "Тестовая особенность",
+      markdown: "##### Подзаголовок\n\nТекст правила.",
+      source: { articleId: "0801", path: "content/rules/entities/feature/test.json" },
+      legacyIds: [],
+    };
+
+    const html = renderEntity(entity);
+
+    expect(html).toContain('id="подзаголовок"');
+    expect(html).toContain("Подзаголовок");
+    expect(html.match(/Тестовая особенность/g) ?? []).toHaveLength(1);
+  });
 });
 
 describe("normalizeAbilityText: сравнимая форма текста", () => {

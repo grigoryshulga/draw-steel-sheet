@@ -1,4 +1,5 @@
 import type { RuleEntity, RuleEntityKind } from "../../rules/schema";
+import { headingId } from "../../lib/codex";
 import { Chip } from "../ui";
 import {
   AbilityBody,
@@ -24,6 +25,43 @@ export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
   return `rule-entity-${entity.id.replace(/[^\p{L}\p{N}_.:-]+/gu, "-")}`;
 }
 
+const MARKDOWN_HEADING = /^(#{1,6})[ \t]+(.+?)[ \t]*$/;
+
+/** Сравнимая форма строки заголовка: без разметки и лишних пробелов. */
+function headingText(value: string): string {
+  return value
+    .replace(/<[^>]*>/g, "")
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/[*_`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * В исходнике у сущности первым идёт заголовок с её собственным именем.
+ * Раздел уже выводит имя отдельным `<h2>`, поэтому такой заголовок — дубль.
+ * Убираем его из тела, но возвращаем id: по нему оглавление статьи ведёт
+ * на раздел (id заголовков в манифесте посчитаны по исходному тексту).
+ */
+export function stripRepeatedEntityHeading(
+  markdown: string,
+  name: string,
+): { markdown: string; headingId: string } {
+  const lines = markdown.split("\n");
+  let index = 0;
+  while (index < lines.length && !lines[index].trim()) index += 1;
+  const match =
+    index < lines.length ? MARKDOWN_HEADING.exec(lines[index].trim()) : null;
+  if (!match) return { markdown, headingId: "" };
+
+  const title = headingText(match[2]);
+  if (!title || title !== headingText(name)) return { markdown, headingId: "" };
+
+  const rest = lines.slice(index + 1);
+  while (rest.length > 0 && !rest[0].trim()) rest.shift();
+  return { markdown: rest.join("\n"), headingId: headingId(title) };
+}
+
 /**
  * Чтение одной канонической сущности правил.
  *
@@ -33,12 +71,14 @@ export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
  * него берутся только «допблоки», которых в проекции нет (Поддержание,
  * Потратить, Особое, списки и проза). Остальные виды правил выводят полный
  * текст без сокращений — таблицы, ссылки, вложенные списки и заметки
- * остаются частью правила.
+ * остаются частью правила. Единственное исключение — ведущий заголовок,
+ * дословно повторяющий имя сущности: имя уже стоит в шапке раздела.
  */
 export function RuleEntityView({ entity }: { entity: RuleEntity }) {
   const anchor = ruleEntityAnchor(entity);
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
-  const hasMarkdown = entity.markdown.trim().length > 0;
+  const content = stripRepeatedEntityHeading(entity.markdown, entity.name);
+  const hasMarkdown = content.markdown.trim().length > 0;
 
   if (ability)
     return (
@@ -90,7 +130,7 @@ export function RuleEntityView({ entity }: { entity: RuleEntity }) {
       data-kind={entity.kind}
       aria-labelledby={anchor}
     >
-      <header className="rule-entity-head">
+      <header className="rule-entity-head" id={content.headingId || undefined}>
         <div className="rule-entity-title">
           <Chip className="rule-entity-kind">
             {RULE_ENTITY_KIND_LABELS[entity.kind] ?? entity.kind}
@@ -103,7 +143,7 @@ export function RuleEntityView({ entity }: { entity: RuleEntity }) {
 
       {hasMarkdown ? (
         <RuleMarkdown
-          text={entity.markdown}
+          text={content.markdown}
           articleId={entity.source.articleId}
         />
       ) : (
