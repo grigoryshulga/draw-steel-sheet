@@ -22,16 +22,22 @@ export function createAutosave<T>({
     timer = undefined;
   }
 
-  function isDirty() {
+  function hasChanges() {
     return current !== acknowledged;
+  }
+
+  function isDirty() {
+    // Even a local revert is unsafe to leave while an older write is in flight.
+    // That write can still replace the server document before the revert saves.
+    return hasChanges() || inFlight !== null;
   }
 
   function flush(): Promise<void> {
     cancelTimer();
     if (inFlight) return inFlight;
-    if (!isDirty()) return Promise.resolve();
+    if (!hasChanges()) return Promise.resolve();
     inFlight = (async () => {
-      while (current !== null && isDirty()) {
+      while (current !== null && hasChanges()) {
         const document = current;
         onStatus("saving");
         try {
@@ -66,9 +72,14 @@ export function createAutosave<T>({
       onStatus(document === null ? "idle" : "saved");
     },
     edit(document: T) {
+      if (document === current) return;
       current = document;
-      onStatus("pending");
       cancelTimer();
+      if (!hasChanges() && !inFlight) {
+        onStatus("saved");
+        return;
+      }
+      onStatus("pending");
       timer = setTimeout(() => {
         void flush().catch(() => undefined);
       }, delay);

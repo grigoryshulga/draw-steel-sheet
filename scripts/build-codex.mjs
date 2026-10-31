@@ -90,3 +90,6 @@ writeFileSync(
 console.log(
   `Кодекс: ${articles.length} статей, ${new Set(articles.map((a) => a.chapter)).size} глав`,
 );
+
+// Refresh the lightweight catalog whenever the book is rebuilt.
+await import("./build-library.mjs");

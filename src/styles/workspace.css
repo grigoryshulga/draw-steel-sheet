@@ -32,7 +32,7 @@
 }
 .workspace-progress {
   position: fixed;
-  top: 12px;
+  top: max(78px, calc(env(safe-area-inset-top) + 66px));
   left: 50%;
   transform: translateX(-50%);
   z-index: 150;
@@ -77,12 +77,77 @@
   }
 }
 @media (max-width: 640px) {
-  .main .topbar .topbar-left {
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 640px) {
   body .toasts {
     bottom: calc(78px + env(safe-area-inset-bottom));
   }
+}
+
+/* Keyboard focus and fragment navigation must clear the fixed workspace header. */
+html {
+  scroll-padding-top: 100px;
+}
+
+.boot-error-details {
+  margin-top: var(--space-9);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.boot-error-details summary {
+  cursor: pointer;
+}
+
+.boot-error-details p {
+  margin-top: var(--space-6);
+}
+
+.loading-screen {
+  letter-spacing: normal;
+  text-transform: none;
+  font-family: var(--font-ui);
+}
+
+.loading-screen::after {
+  display: none;
+}
+
+.loading-screen-content {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-6);
+  padding: var(--space-9);
+  text-align: center;
+}
+
+.loading-screen-content strong {
+  color: var(--fg);
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.loading-screen-hint {
+  font-size: var(--text-md);
+}
+
+.loading-screen-orbit {
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--space-4);
+  border: 2px solid var(--line-strong);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: workspace-spin 900ms linear infinite;
+}
+
+@keyframes workspace-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen-orbit { animation: none; }
+}
+
+@media (max-width: 460px) {
+  html { scroll-padding-top: calc(140px + env(safe-area-inset-top)); }
+  .workspace-progress { top: calc(126px + env(safe-area-inset-top)); }
 }

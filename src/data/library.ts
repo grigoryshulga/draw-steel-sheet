@@ -1,4 +1,4 @@
-import articles from "./codex.generated.json";
+import articles from "./library-articles.generated.json";
 import { headingId, searchText } from "../lib/codex";
 
 export type CatalogKind = "treasure" | "title" | "project";

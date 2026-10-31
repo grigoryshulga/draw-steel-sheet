@@ -82,3 +82,36 @@ describe("autosave", () => {
     expect(autosave.isDirty()).toBe(false);
   });
 });
+
+describe("autosave reverts", () => {
+  it("keeps navigation guarded when reverting during an older write", async () => {
+    const first = Promise.withResolvers<string>();
+    const save = vi.fn<(document: string) => Promise<string>>()
+      .mockReturnValueOnce(first.promise)
+      .mockImplementation(async (document) => document);
+    const autosave = createAutosave({ save, onStatus: vi.fn() });
+    autosave.load("original");
+    autosave.edit("changed");
+    const pending = autosave.flush();
+    autosave.edit("original");
+    expect(autosave.isDirty()).toBe(true);
+    first.resolve("changed");
+    await pending;
+    expect(save.mock.calls).toEqual([["changed"], ["original"]]);
+    expect(autosave.isDirty()).toBe(false);
+  });
+
+  it("cancels a pending edit when reverted before saving", async () => {
+    vi.useFakeTimers();
+    const save = vi.fn(async (document: string) => document);
+    const onStatus = vi.fn();
+    const autosave = createAutosave({ save, onStatus });
+    autosave.load("original");
+    autosave.edit("changed");
+    autosave.edit("original");
+    expect(onStatus).toHaveBeenLastCalledWith("saved");
+    expect(autosave.isDirty()).toBe(false);
+    await vi.runAllTimersAsync();
+    expect(save).not.toHaveBeenCalled();
+  });
+});

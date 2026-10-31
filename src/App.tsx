@@ -37,7 +37,7 @@ import {
 } from "./lib/theme";
 import { downloadJson, safeFilename } from "./lib/utils";
 import { makeId } from "./data/templates";
-import { HERO_TABS, NAV_ITEMS, TABS, type HeroTab, type Tab } from "./navigation";
+import { HERO_TABS, TAB_LABELS, TABS, isHeroTab, isLibraryTab, type HeroTab, type LibraryTab, type Tab } from "./navigation";
 import { AppContext, type SaveStatus } from "./state/AppContext";
 import type { Character, CharacterSummary, AppTheme } from "./types";
 import { deriveStats } from "./lib/rules";
@@ -118,6 +118,8 @@ function WorkspaceApp({
     useState<ThemeChoice>(readThemeChoice);
   const [tab, setTab] = useHashTab("sheet", TABS);
   const lastNonCreateTab = useRef<Tab>("sheet");
+  const lastHeroTab = useRef<HeroTab>("sheet");
+  const lastLibraryTab = useRef<LibraryTab>("codex");
   const [rollOpen, setRollOpen] = useState(false);
   const [lastRoll, setLastRoll] = useState<RollEntry | null>(null);
   const [rollLog, setRollLog] = useState<RollEntry[]>([]);
@@ -236,19 +238,7 @@ function WorkspaceApp({
   }, [autosave, beforeSignOut]);
 
   useEffect(() => {
-    const label =
-      {
-        catalog: "Каталоги",
-        glossary: "Глоссарий",
-        settings: "Настройки",
-        create: "Создание героя",
-        development: "Развитие",
-        inventory: "Инвентарь",
-        notes: "Журнал",
-        companions: "Спутники",
-      }[tab] ??
-      NAV_ITEMS.find((item) => item.id === tab)?.label ??
-      "Лист";
+    const label = TAB_LABELS[tab as Tab];
     document.title =
       tab === "create"
         ? "Создание героя — Достать листы!"
@@ -314,6 +304,8 @@ function WorkspaceApp({
 
   useEffect(() => {
     if (tab !== "create") lastNonCreateTab.current = tab as Tab;
+    if (isHeroTab(tab)) lastHeroTab.current = tab;
+    if (isLibraryTab(tab)) lastLibraryTab.current = tab;
   }, [tab]);
 
   /* ---------- Тема оформления ---------- */
@@ -546,6 +538,9 @@ function WorkspaceApp({
       </a>
       <FloatingHeader
         tab={tab as Tab}
+        heroTab={isHeroTab(tab) ? tab : lastHeroTab.current}
+        libraryTab={isLibraryTab(tab) ? tab : lastLibraryTab.current}
+        busy={booting || changingCharacter}
         character={character}
         characters={characters}
         saveStatus={saveStatus}
@@ -596,7 +591,7 @@ function WorkspaceApp({
               >
                 {booting ? (
                   <LoadingScreen label="Загрузка листа" />
-                ) : ["codex", "catalog", "glossary"].includes(tab) ? (
+                ) : isLibraryTab(tab) ? (
                   <Suspense
                     fallback={<LoadingScreen label="Загрузка библиотеки" />}
                   >

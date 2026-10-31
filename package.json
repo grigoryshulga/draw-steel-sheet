@@ -14,7 +14,10 @@
     "data:rules": "node scripts/build-codex.mjs && node scripts/build-builder.mjs && node scripts/build-ancestry-features.mjs && npm run data:level-up",
     "data:level-up": "node scripts/build-level-up.mjs",
     "data:art": "node scripts/build-art-manifest.mjs",
-    "data:art-previews": "node scripts/build-art-previews.mjs && npm run data:art"
+    "data:art-previews": "node scripts/build-art-previews.mjs && npm run data:art",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "data:library": "node scripts/build-library.mjs",
+    "check": "npm run check:architecture && npm test && npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
