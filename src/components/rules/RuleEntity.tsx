@@ -1,5 +1,7 @@
 import type { RuleEntity, RuleEntityKind } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
+import type { ArtAsset } from "../../lib/art";
+import { ArtworkFigure } from "../Artwork";
 import { Chip } from "../ui";
 import {
   AbilityBody,
@@ -74,7 +76,13 @@ export function stripRepeatedEntityHeading(
  * остаются частью правила. Единственное исключение — ведущий заголовок,
  * дословно повторяющий имя сущности: имя уже стоит в шапке раздела.
  */
-export function RuleEntityView({ entity }: { entity: RuleEntity }) {
+export function RuleEntityView({
+  entity,
+  art,
+}: {
+  entity: RuleEntity;
+  art?: ArtAsset;
+}) {
   const anchor = ruleEntityAnchor(entity);
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
   const content = stripRepeatedEntityHeading(entity.markdown, entity.name);
@@ -140,6 +148,13 @@ export function RuleEntityView({ entity }: { entity: RuleEntity }) {
           </h2>
         </div>
       </header>
+
+      {art && hasMarkdown && (
+        <ArtworkFigure
+          art={art}
+          className="codex-article-art rule-entity-art"
+        />
+      )}
 
       {hasMarkdown ? (
         <RuleMarkdown

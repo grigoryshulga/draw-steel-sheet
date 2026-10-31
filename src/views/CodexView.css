@@ -247,11 +247,26 @@
   margin-bottom: var(--space-8);
 }
 
-/* Иллюстрация стоит отдельным блоком над текстом: обтекание сужало
-   колонку правил и сдвигало весь дальнейший текст влево. */
+/* Иллюстрация встроена в первый абзац: текст обтекает её и продолжается
+   во всю ширину, как только картинка заканчивается. */
+.rule-article-lead {
+  min-width: 0;
+}
 .codex-article-art {
-  width: min(100%, 320px);
-  margin: 0 auto var(--space-9);
+  float: right;
+  width: min(34%, 300px);
+  margin: 0 0 var(--space-8) var(--space-8);
+}
+.rule-entity-art {
+  width: min(30%, 240px);
+  margin: 0 0 var(--space-7) var(--space-7);
+}
+@media (max-width: 650px) {
+  .codex-article-art {
+    float: none;
+    width: min(100%, 320px);
+    margin: 0 auto var(--space-8);
+  }
 }
 
 /* Library navigation and reading surface */

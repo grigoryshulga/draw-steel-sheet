@@ -3,14 +3,17 @@
 
 /* Ритм задаёт сам поток статьи (`.rule-article` — flex с gap): у раздела нет
    своих внешних отступов, только разделитель и воздух над ним. Иначе
-   gap статьи и margin раздела складывались и давали разрыв в 60px. */
+   gap статьи и margin раздела складывались и давали разрыв в 60px.
+   Внутри раздела — обычный поток, чтобы иллюстрация могла обтекаться
+   текстом, а не выталкивала весь блок вниз. */
 .rule-entity {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
+  display: block;
   margin: 0;
   padding-top: var(--space-7);
   border-top: 1px solid var(--line);
+}
+.rule-entity > * + * {
+  margin-top: var(--space-6);
 }
 
 .rule-article > .rule-entity:first-child {

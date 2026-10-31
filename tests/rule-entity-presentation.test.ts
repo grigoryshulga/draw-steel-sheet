@@ -9,6 +9,7 @@ import { BASIC_ABILITY_SOURCE } from "../src/lib/ability-sheet-groups";
 import { TIER_ROLL_RANGES, characteristicShort } from "../src/lib/rules";
 import { normalizeAbilityText } from "../src/lib/remark-ability-blocks";
 import { CHARACTERISTIC_KEYS, type Ability } from "../src/types";
+import type { ArtAsset } from "../src/lib/art";
 import type { RuleArticle, RuleEntity } from "../src/rules/schema";
 
 function abilityFixture(overrides: Partial<Ability> = {}): Ability {
@@ -547,6 +548,71 @@ describe("RuleArticleContent: блоки статьи", () => {
 
     expect(html.trim()).not.toBe("");
     expect(html).toContain("Тестовая способность");
+  });
+});
+
+describe("RuleArticleContent: иллюстрация", () => {
+  const art: ArtAsset = {
+    kind: "class",
+    name: "Неистовый",
+    src: "/art/classes/khorva.png",
+    width: 100,
+    height: 100,
+    origin: "generated",
+    credit: "Тест",
+    articleIds: ["0805"],
+  };
+
+  it("встраивает иллюстрацию в первый markdown-блок", () => {
+    const html = renderToStaticMarkup(
+      createElement(RuleArticleContent, {
+        article: articleFixture([
+          { type: "markdown", text: "Вступление статьи." },
+          { type: "markdown", text: "Второй абзац." },
+        ]),
+        entities: {},
+        art,
+      }),
+    );
+
+    expect(html).toContain('class="rule-article-lead"');
+    expect(html).toContain("codex-article-art");
+    expect(html.indexOf("codex-article-art")).toBeLessThan(
+      html.indexOf("Вступление статьи."),
+    );
+  });
+
+  it("встраивает иллюстрацию в первую сущность статьи", () => {
+    const html = renderToStaticMarkup(
+      createElement(RuleArticleContent, {
+        article: articleFixture([
+          { type: "entity", ref: "feature:test" },
+          { type: "markdown", text: "Второй абзац." },
+        ]),
+        entities: {
+          "feature:test": {
+            id: "feature:test",
+            kind: "feature",
+            name: "Тестовая особенность",
+            markdown: "**Эффект:** работает всегда.",
+            source: {
+              articleId: "0805",
+              path: "content/rules/entities/feature/test.json",
+            },
+            legacyIds: [],
+          },
+        },
+        art,
+      }),
+    );
+
+    expect(html).toContain("rule-entity-art");
+    expect(html.indexOf("rule-entity-art")).toBeGreaterThan(
+      html.indexOf("rule-entity-head"),
+    );
+    expect(html.indexOf("rule-entity-art")).toBeLessThan(
+      html.indexOf("работает всегда."),
+    );
   });
 });
 

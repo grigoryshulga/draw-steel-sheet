@@ -5,7 +5,6 @@ import { CatalogAction } from "../components/CatalogAction";
 import { catalogLink, readCodexLocation } from "../lib/codex";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
-import { ArtworkFigure } from "../components/Artwork";
 import { artForArticle } from "../lib/art";
 import {
   loadRuleArticle,
@@ -462,11 +461,6 @@ export function CodexView() {
                 ).map((catalogEntry) => (
                   <CatalogAction key={catalogEntry.id} entry={catalogEntry} />
                 ))}
-                <ArtworkFigure
-                  key={entry.id}
-                  art={artForArticle(entry.id)}
-                  className="codex-article-art"
-                />
                 {loading && (
                   <div className="codex-state" role="status" aria-live="polite">
                     <span className="codex-state-spinner" aria-hidden="true" />
@@ -495,6 +489,7 @@ export function CodexView() {
                     <RuleArticleContent
                       article={loaded.article}
                       entities={loaded.entities}
+                      art={artForArticle(entry.id)}
                     />
                   ))}
                 {loaded?.article.originalDescription && (
