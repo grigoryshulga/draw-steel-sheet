@@ -1,4 +1,4 @@
-/** Проверенная связь домена Проводника с карточкой способности. Источники: class-features.generated.json, level-up.generated.json, abilities.generated.json. */
+/** Проверенная связь домена Проводника с карточкой способности. Источники: канонические проекции features.json, level-up.json, abilities.json. */
 export type ConduitAbilityMapping = { level: 2 | 6 | 9; domain: string; abilityId: string; featureId: string; exception?: string };
 
 export const conduitAbilities: readonly ConduitAbilityMapping[] = [

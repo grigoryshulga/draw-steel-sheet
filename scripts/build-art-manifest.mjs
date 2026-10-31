@@ -4,9 +4,9 @@ import path from "node:path";
 const root = process.cwd();
 const readJson = (file) =>
   JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
-const builder = readJson("src/data/builder.generated.json");
-const kits = readJson("src/data/kits.generated.json");
-const codex = readJson("src/data/codex-index.generated.json");
+const builder = readJson("src/generated/consumers/builder.json");
+const kits = readJson("src/generated/consumers/kits.json").kits;
+const codex = readJson("src/generated/rules/manifest.json").articles;
 const catalogs = {
   class: builder.classes,
   ancestry: builder.ancestries,

@@ -1,0 +1,55 @@
+{
+  "id": "ability.elementalist-meteoritnoe-vstuplenie-779a36cead",
+  "kind": "ability",
+  "name": "Метеоритное Вступление",
+  "markdown": "> **Метеоритное Вступление**\n>\n> *Вы легонько касаетесь врага — как удар астероида.*\n>\n> | **Земля, Магия, Ближний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 + Р урона; толчок 2\n> - **12-16:** 5 + Р урона; толчок 3\n> - **17+:** 8 + Р урона; толчок 4",
+  "source": {
+    "articleId": "0891",
+    "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+  },
+  "legacyIds": [
+    "elementalist-meteoritnoe-vstuplenie-779a36cead"
+  ],
+  "ability": {
+    "id": "elementalist-meteoritnoe-vstuplenie-779a36cead",
+    "name": "Метеоритное Вступление",
+    "flavor": "Вы легонько касаетесь врага — как удар астероида.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Земля",
+      "Магия",
+      "Ближний",
+      "Удар"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо или объект",
+    "rollCharacteristics": [
+      "reason"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "3 + R",
+        "effect": "Толчок 2"
+      },
+      {
+        "damage": "5 + R",
+        "effect": "Толчок 3"
+      },
+      {
+        "damage": "8 + R",
+        "effect": "Толчок 4"
+      }
+    ],
+    "effect": "",
+    "source": "Элементалист",
+    "notes": "",
+    "className": "Элементалист",
+    "level": 1,
+    "sourceKind": "class",
+    "preferredCharacteristic": "reason"
+  }
+}

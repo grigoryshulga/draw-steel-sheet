@@ -123,4 +123,57 @@ describe("createStore", () => {
     await expect(fs.access(path.join(store.charactersDir, "hero-2.json"))).rejects.toThrow();
     await expect(store.remove("hero-2")).resolves.toBeUndefined();
   });
+  it("concurrent writes are ordered and never share temporary files", async () => {
+    const saves = Array.from({ length: 30 }, (_, index) =>
+      store.save("concurrent", { name: `Revision ${index}`, payload: "x".repeat(10000) }),
+    );
+    await Promise.all(saves);
+    expect((await store.get("concurrent")).name).toBe("Revision 29");
+    expect((await fs.readdir(store.charactersDir)).filter((name) => name.endsWith(".tmp"))).toEqual([]);
+  });
+
+  it("delete waits for already queued saves and does not resurrect a character", async () => {
+    const save = store.save("removed-concurrently", sampleDoc("Temporary"));
+    const remove = store.remove("removed-concurrently");
+    await Promise.all([save, remove]);
+    await expect(store.get("removed-concurrently")).rejects.toMatchObject({ status: 404 });
+  });
+
+  it("a failed mutation does not block the character queue", async () => {
+    const bad = store.save("retry", null as never);
+    const good = store.save("retry", sampleDoc("Recovered"));
+    await expect(bad).rejects.toMatchObject({ status: 400 });
+    await expect(good).resolves.toMatchObject({ name: "Recovered" });
+  });
+
+  it("list skips JSON values and documents whose identity differs from their filename", async () => {
+    await fs.writeFile(path.join(store.charactersDir, "scalar.json"), "42");
+    await fs.writeFile(path.join(store.charactersDir, "mismatch.json"), JSON.stringify({ id: "hero-1" }));
+    const list = await store.list();
+    expect(list.every((doc) => typeof doc.id === "string")).toBe(true);
+    expect(list.filter((doc) => doc.id === "hero-1")).toHaveLength(1);
+  });
+
+  it("get rejects corrupt documents instead of returning a different hero", async () => {
+    await fs.writeFile(path.join(store.charactersDir, "scalar-get.json"), "42");
+    await expect(store.get("scalar-get")).rejects.toMatchObject({ status: 500 });
+    await fs.writeFile(
+      path.join(store.charactersDir, "mismatch-get.json"),
+      JSON.stringify({ id: "hero-1", name: "Чужой" }),
+    );
+    await expect(store.get("mismatch-get")).rejects.toMatchObject({ status: 500 });
+  });
+
+  it("lists a larger team directory without dropping summaries", async () => {
+    await Promise.all(
+      Array.from({ length: 40 }, (_, index) =>
+        store.save(`team-${String(index).padStart(2, "0")}`, sampleDoc(`Герой ${index}`)),
+      ),
+    );
+    const list = await store.list();
+    const team = list.filter((doc) => doc.id.startsWith("team-"));
+    expect(team).toHaveLength(40);
+    expect(new Set(team.map((doc) => doc.id)).size).toBe(40);
+  });
+
 });

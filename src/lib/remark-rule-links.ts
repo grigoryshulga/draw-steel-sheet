@@ -5,7 +5,8 @@ import {
   catalogEntryLink,
   glossaryLink,
 } from "../data/library";
-import { CODEX_INDEX, searchText } from "./codex";
+import { codexIndex } from "../rules/codex-navigation";
+import { searchText } from "./codex";
 
 const destinations = new Map<string, string>();
 const ambiguous = new Set<string>();
@@ -17,7 +18,7 @@ function register(name: string, href: string) {
     ambiguous.add(key);
   } else destinations.set(key, href);
 }
-for (const entry of CODEX_INDEX) register(entry.title, `#/codex/${entry.id}`);
+for (const entry of codexIndex) register(entry.title, `#/codex/${entry.id}`);
 const catalogNames = new Set(CATALOG.map((entry) => searchText(entry.name)));
 for (const name of catalogNames) {
   destinations.delete(name);

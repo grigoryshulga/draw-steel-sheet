@@ -1,0 +1,55 @@
+{
+  "id": "ability.komplekt-posoh-i-roba-tuda-kuda-mne-nuzhno-232f419917",
+  "kind": "ability",
+  "name": "Туда, Куда Мне Нужно",
+  "markdown": "> **Туда, Куда Мне Нужно**\n> \n> *Когда говорит ваш посох, ваш враг двигается.*\n> \n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Ближний 2** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 + М или Л урона\n> - **12-16:** 7 + М или Л урона; швыряние 1\n> - **17+:** 10 + М или Л урона; швыряние 3",
+  "source": {
+    "articleId": "0919",
+    "path": "09. Комплекты/Список Комплектов/0919. Посох и Роба.md"
+  },
+  "legacyIds": [
+    "komplekt-posoh-i-roba-tuda-kuda-mne-nuzhno-232f419917"
+  ],
+  "ability": {
+    "id": "komplekt-posoh-i-roba-tuda-kuda-mne-nuzhno-232f419917",
+    "name": "Туда, Куда Мне Нужно",
+    "flavor": "Когда говорит ваш посох, ваш враг двигается.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Ближний",
+      "Удар",
+      "Оружие"
+    ],
+    "distance": "Ближний 2",
+    "target": "Одно существо",
+    "rollCharacteristics": [
+      "might",
+      "agility"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "4 + M или A",
+        "effect": ""
+      },
+      {
+        "damage": "7 + M или A",
+        "effect": "Швыряние 1"
+      },
+      {
+        "damage": "10 + M или A",
+        "effect": "Швыряние 3"
+      }
+    ],
+    "effect": "",
+    "source": "Комплект: Посох и Роба",
+    "notes": "",
+    "className": "Комплект: Посох и Роба",
+    "level": 1,
+    "sourceKind": "kit",
+    "preferredCharacteristic": "might"
+  }
+}

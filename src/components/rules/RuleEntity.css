@@ -1,0 +1,118 @@
+/* Чтение канонической сущности правил: та же типографика, что у статьи,
+   но раздел живёт отдельно от Markdown-потока и сохраняет свой якорь. */
+.rule-entity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  margin: var(--space-9) 0;
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--line);
+}
+
+.rule-article > .rule-entity:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.rule-entity-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-7);
+}
+
+.rule-entity-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.rule-entity-kind.chip {
+  align-self: flex-start;
+  height: 22px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.rule-entity-head .sheet-ability-card-tags .chip {
+  height: 22px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.rule-entity-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  color: var(--fg-bright);
+  overflow-wrap: anywhere;
+  scroll-margin-top: 100px;
+}
+
+/* Краткая проекция способности: значения книги, без расчётов листа. */
+.rule-entity-ability {
+  --card-color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.rule-entity-ability[data-action="main"] {
+  --card-color: var(--accent);
+}
+
+.rule-entity-ability[data-action="maneuver"] {
+  --card-color: var(--blue);
+}
+
+.rule-entity-ability[data-action="move"] {
+  --card-color: var(--cyan);
+}
+
+.rule-entity-ability[data-action="trigger"] {
+  --card-color: var(--magenta);
+}
+
+.rule-entity-ability[data-action="free-trigger"] {
+  --card-color: var(--yellow);
+}
+
+.rule-entity-ability[data-action="free-maneuver"] {
+  --card-color: var(--green);
+}
+
+.rule-entity-ability .sheet-ability-body {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.rule-entity-ability .sheet-ability-range {
+  color: var(--tier-color);
+}
+
+.rule-entity-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 700px) {
+  .rule-entity-ability {
+    padding: var(--space-6);
+  }
+
+  .rule-entity-head {
+    flex-direction: column;
+  }
+}

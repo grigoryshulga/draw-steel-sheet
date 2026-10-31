@@ -1,0 +1,56 @@
+{
+  "id": "ability.bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b",
+  "kind": "ability",
+  "name": "Свободный Удар Ближнего Боя",
+  "markdown": "> **Свободный Удар Ближнего Боя**\n> \n> | **Рывок, Ближний, Удар, Оружие** | **Основное действие** |\n> | :--- | ---: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 2 + М или Л урона\n> - **12-16:** 5 + М или Л урона\n> - **17+:** 7 + М или Л урона",
+  "source": {
+    "articleId": "1311",
+    "path": "13. Ведение Боя/1311. Свободные Удары.md"
+  },
+  "legacyIds": [
+    "bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b"
+  ],
+  "ability": {
+    "id": "bazovye-sposobnosti-svobodnyy-udar-blizhnego-boya-512d39072b",
+    "name": "Свободный Удар Ближнего Боя",
+    "flavor": "",
+    "actionType": "main",
+    "kind": "free-strike",
+    "keywords": [
+      "Рывок",
+      "Ближний",
+      "Удар",
+      "Оружие"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо или объект",
+    "rollCharacteristics": [
+      "might",
+      "agility"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "2 + M или A",
+        "effect": ""
+      },
+      {
+        "damage": "5 + M или A",
+        "effect": ""
+      },
+      {
+        "damage": "7 + M или A",
+        "effect": ""
+      }
+    ],
+    "effect": "",
+    "source": "Базовые способности",
+    "notes": "",
+    "className": "Базовые",
+    "level": 1,
+    "sourceKind": "basic",
+    "preferredCharacteristic": "might"
+  }
+}

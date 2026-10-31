@@ -1,4 +1,4 @@
-import raw from "./kits.generated.json";
+import { CANONICAL_KITS } from "../rules/consumer-kits";
 
 export interface KitBonus {
   label: string;
@@ -14,7 +14,7 @@ export interface Kit {
   signatureAbility: string;
 }
 
-export const KIT_COMPENDIUM = raw as Kit[];
+export const KIT_COMPENDIUM: Kit[] = CANONICAL_KITS;
 
 function normalizeKitName(name: string): string {
   return name.trim().toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ");

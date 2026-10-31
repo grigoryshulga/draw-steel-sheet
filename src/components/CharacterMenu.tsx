@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useOutsideClick } from "../lib/hooks";
 import { useMenuKeyboard } from "../lib/useMenuKeyboard";
 import { initials } from "../lib/utils";
@@ -7,6 +7,7 @@ import { Icon } from "./Icons";
 
 export function CharacterMenu({
   character,
+  disabled = false,
   characters,
   onSelect,
   onNew,
@@ -14,6 +15,7 @@ export function CharacterMenu({
   saveIndicator,
 }: {
   character: Character;
+  disabled?: boolean;
   characters: CharacterSummary[];
   onSelect: (id: string) => void;
   onNew: () => void;
@@ -21,12 +23,18 @@ export function CharacterMenu({
   /** Статус сохранения — стоит прямо рядом с именем. */
   saveIndicator?: ReactNode;
 }) {
+  const menuId = useId();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(ref, () => setOpen(false), open);
   const onMenuKeyDown = useMenuKeyboard({ open, setOpen, menuRef, triggerRef });
+
+  // A hero switch disables the trigger; an open menu must not stay interactive.
+  useEffect(() => {
+    if (disabled) setOpen(false);
+  }, [disabled]);
 
   return (
     <div className="char-switch" ref={ref}>
@@ -35,16 +43,18 @@ export function CharacterMenu({
         ref={triggerRef}
         className="char-switch-btn"
         onClick={() => setOpen((value) => !value)}
+        disabled={disabled}
+        aria-label={`Герой: ${character.name || "Без имени"}. Сменить героя`}
+        aria-controls={open ? menuId : undefined}
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        <span className="char-avatar">{initials(character.name)}</span>
+        <span className="char-avatar" aria-hidden="true">{initials(character.name)}</span>
         <span className="char-switch-text">
           <span className="char-switch-name-row">
             <span className="char-switch-name">
               {character.name || "Без имени"}
             </span>
-            {saveIndicator}
           </span>
           <span className="char-switch-meta">
             {[
@@ -57,15 +67,18 @@ export function CharacterMenu({
         </span>
         <Icon name="chevron-down" size={15} className="chevron" />
       </button>
+      {saveIndicator}
 
       {open && (
         <div
           className="popover char-popover"
+          id={menuId}
           role="menu"
+          aria-label="Мои герои"
           ref={menuRef}
           onKeyDown={onMenuKeyDown}
         >
-          <div className="menu-label">Мои герои</div>
+          <div className="menu-label" aria-hidden="true">Мои герои · {characters.length}</div>
           <div className="char-list">
             {characters.map((item) => (
               <button
@@ -74,9 +87,11 @@ export function CharacterMenu({
                 className={`menu-item char-list-item ${item.id === character.id ? "is-active" : ""}`.trim()}
                 onClick={() => {
                   setOpen(false);
+                  triggerRef.current?.focus();
                   onSelect(item.id);
                 }}
                 role="menuitem"
+                aria-current={item.id === character.id ? "true" : undefined}
               >
                 <span className="char-avatar small">{initials(item.name)}</span>
                 <span className="char-list-text">

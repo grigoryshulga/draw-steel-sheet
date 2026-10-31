@@ -452,5 +452,26 @@ describe("Character creation and automatic rules", () => {
     expect(BUILDER_DATA.ancestries).toHaveLength(14);
     expect(BUILDER_DATA.careers).toHaveLength(18);
     expect(BUILDER_DATA.complications).toHaveLength(100);
+    // `schemaVersion` belongs to the projection, not to the builder contract.
+    expect(BUILDER_DATA).not.toHaveProperty("schemaVersion");
+  });
+  it("survives the still-empty «Призыватель» class entry", () => {
+    const summoner = BUILDER_DATA.classes.find(
+      (entry) => entry.name === "Призыватель",
+    )!;
+    expect(summoner.features).toBe("");
+    expect(summoner.featureChoices).toEqual([]);
+    expect(summoner.subclasses).toEqual([]);
+    const draft = {
+      ...emptyBuilderDraft(),
+      name: "Герой",
+      className: "Призыватель",
+      characteristics: startingCharacteristics("Призыватель"),
+    };
+    expect(() => builderIssues(draft)).not.toThrow();
+    const hero = buildCharacter(draft);
+    expect(hero.className).toBe("Призыватель");
+    expect(hero.subclass).toBe("");
+    expect(hero.classFeatures).toBe("");
   });
 });

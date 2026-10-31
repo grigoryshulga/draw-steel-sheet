@@ -114,6 +114,24 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     expect(body).toEqual({ ok: true });
   });
 
+  it("the bare /api namespace returns JSON instead of the SPA document", async () => {
+    const res = await fetch(`${BASE}/api`);
+    expect(res.status).toBe(404);
+    expect(res.headers.get("content-type")).toContain("application/json");
+    expect(await res.json()).toEqual({ error: "Не найдено" });
+  });
+
+  it.each([
+    ["/api/health", "GET"],
+    ["/api/characters", "GET"],
+    ["/api/characters/test-hero", "GET, PUT, DELETE"],
+  ])("rejects unsupported methods on %s with Allow: %s", async (pathname, allow) => {
+    const res = await fetch(`${BASE}${pathname}`, { method: "POST" });
+    expect(res.status).toBe(405);
+    expect(res.headers.get("allow")).toBe(allow);
+    expect(await res.json()).toHaveProperty("error");
+  });
+
   it("GET /api/characters → 200 {characters:[]} на чистом каталоге", async () => {
     const { res, body } = await getJson("/api/characters");
     expect(res.status).toBe(200);
@@ -193,4 +211,16 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     const body = (await res.json()) as Record<string, unknown>;
     expect(typeof body.error).toBe("string");
   });
+  it("oversized request returns JSON 413 and leaves the server responsive", async () => {
+    const response = await fetch(`${BASE}/api/characters/oversized`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Large", notes: "x".repeat(2 * 1024 * 1024) }),
+    });
+    expect(response.status).toBe(413);
+    expect(await response.json()).toHaveProperty("error");
+    expect((await getJson("/api/health")).res.status).toBe(200);
+    expect((await getJson("/api/characters/oversized")).res.status).toBe(404);
+  });
+
 });

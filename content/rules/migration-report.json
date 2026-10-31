@@ -1,0 +1,4992 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "scripts/content/import-legacy.mjs",
+  "sourceDirectory": "src/data",
+  "sourceFiles": [
+    "abilities.generated.json",
+    "ancestry-features.generated.json",
+    "builder.generated.json",
+    "class-features.generated.json",
+    "codex-index.generated.json",
+    "codex.generated.json",
+    "kits.generated.json",
+    "level-up.generated.json",
+    "library-articles.generated.json",
+    "perks.generated.json"
+  ],
+  "counts": {
+    "articles": 296,
+    "entities": {
+      "ability": 512,
+      "feature": 860,
+      "ancestry": 14,
+      "class": 10,
+      "career": 18,
+      "culture": 13,
+      "complication": 100,
+      "kit": 22,
+      "perk": 47,
+      "item": 100,
+      "project": 19,
+      "title": 59
+    },
+    "legacy": {
+      "abilities": 512,
+      "classFeatures": 845,
+      "ancestryFeatures": 97,
+      "perks": 47,
+      "kits": 22,
+      "libraryArticles": 37
+    }
+  },
+  "coverage": {
+    "abilities": {
+      "mapped": 512,
+      "total": 512
+    },
+    "classFeatures": {
+      "mapped": 815,
+      "total": 845,
+      "heading": 578,
+      "composite": 185,
+      "abilityBlock": 52,
+      "unmapped": 30
+    },
+    "ancestryFeatures": {
+      "mapped": 97,
+      "total": 97
+    },
+    "perks": {
+      "mapped": 47,
+      "total": 47,
+      "lossyLegacyProjection": 5
+    },
+    "kits": {
+      "mapped": 22,
+      "total": 22,
+      "unmapped": 0
+    },
+    "items": {
+      "mapped": 100,
+      "total": 100,
+      "sourceArticles": 13
+    },
+    "projects": {
+      "mapped": 19,
+      "total": 19
+    },
+    "titles": {
+      "mapped": 59,
+      "total": 59,
+      "sourceArticles": 4
+    },
+    "ancestrySpecies": {
+      "mapped": 14,
+      "total": 14
+    },
+    "classes": {
+      "mapped": 10,
+      "total": 10,
+      "withText": 9
+    },
+    "careers": {
+      "mapped": 18,
+      "total": 18
+    },
+    "cultures": {
+      "mapped": 13,
+      "total": 13,
+      "environment": 5,
+      "organization": 2,
+      "upbringing": 6
+    },
+    "complications": {
+      "mapped": 100,
+      "total": 100,
+      "sourceArticles": 4
+    },
+    "summonerFeatures": {
+      "mapped": 0,
+      "total": 0,
+      "sourceArticles": 10
+    },
+    "kits0924": {
+      "mapped": 1,
+      "total": 1
+    }
+  },
+  "compositeFeatures": [
+    {
+      "id": "censor.domain.1.mogilnaya-rech",
+      "name": "Могильная речь",
+      "articleId": "0881",
+      "entityId": "feature.censor.domain.1.mogilnaya-rech"
+    },
+    {
+      "id": "censor.domain.1.ruki-tvortsa",
+      "name": "Руки Творца",
+      "articleId": "0881",
+      "entityId": "feature.censor.domain.1.ruki-tvortsa"
+    },
+    {
+      "id": "censor.domain.1.vernyy-drug",
+      "name": "Верный друг",
+      "articleId": "0881",
+      "entityId": "feature.censor.domain.1.vernyy-drug"
+    },
+    {
+      "id": "censor.domain.4.blagoslovenie-tayn",
+      "name": "Благословение тайн",
+      "articleId": "0884",
+      "entityId": "feature.censor.domain.4.blagoslovenie-tayn"
+    },
+    {
+      "id": "censor.domain.7.troitsa-khitrosti",
+      "name": "Троица хитрости",
+      "articleId": "0887",
+      "entityId": "feature.censor.domain.7.troitsa-khitrosti"
+    },
+    {
+      "id": "censor.domain.7.zavet-serdtsa",
+      "name": "Завет сердца",
+      "articleId": "0887",
+      "entityId": "feature.censor.domain.7.zavet-serdtsa"
+    },
+    {
+      "id": "censor.feature.1.moya-zhizn-za-tvoyu",
+      "name": "Моя жизнь за твою",
+      "articleId": "0881",
+      "entityId": "feature.censor.feature.1.moya-zhizn-za-tvoyu"
+    },
+    {
+      "id": "censor.feature.1.sposobnost-za-3-gneva",
+      "name": "Способность за 3 гнева",
+      "articleId": "0881",
+      "entityId": "feature.censor.feature.1.sposobnost-za-3-gneva"
+    },
+    {
+      "id": "censor.feature.1.sposobnost-za-5-gneva",
+      "name": "Способность за 5 гнева",
+      "articleId": "0881",
+      "entityId": "feature.censor.feature.1.sposobnost-za-5-gneva"
+    },
+    {
+      "id": "censor.feature.1.sud",
+      "name": "Суд",
+      "articleId": "0881",
+      "entityId": "feature.censor.feature.1.sud"
+    },
+    {
+      "id": "censor.feature.1.znakovaya-sposobnost",
+      "name": "Знаковая способность",
+      "articleId": "0881",
+      "entityId": "feature.censor.feature.1.znakovaya-sposobnost"
+    },
+    {
+      "id": "censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya",
+      "name": "Способности Экзорциста 2-го уровня",
+      "articleId": "0882",
+      "entityId": "feature.censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya"
+    },
+    {
+      "id": "censor.feature.2.sposobnosti-ideala-2-go-urovnya",
+      "name": "Способности Идеала 2-го уровня",
+      "articleId": "0882",
+      "entityId": "feature.censor.feature.2.sposobnosti-ideala-2-go-urovnya"
+    },
+    {
+      "id": "censor.feature.2.sposobnosti-orakula-2-go-urovnya",
+      "name": "Способности Оракула 2-го уровня",
+      "articleId": "0882",
+      "entityId": "feature.censor.feature.2.sposobnosti-orakula-2-go-urovnya"
+    },
+    {
+      "id": "censor.feature.3.sposobnost-za-7-gneva",
+      "name": "Способность за 7 гнева",
+      "articleId": "0883",
+      "entityId": "feature.censor.feature.3.sposobnost-za-7-gneva"
+    },
+    {
+      "id": "censor.feature.5.sposobnost-za-9-gneva",
+      "name": "Способность за 9 гнева",
+      "articleId": "0885",
+      "entityId": "feature.censor.feature.5.sposobnost-za-9-gneva"
+    },
+    {
+      "id": "censor.feature.6.sposobnosti-ekzortsista-6-go-urovnya",
+      "name": "Способности Экзорциста 6-го уровня",
+      "articleId": "0886",
+      "entityId": "feature.censor.feature.6.sposobnosti-ekzortsista-6-go-urovnya"
+    },
+    {
+      "id": "censor.feature.6.sposobnosti-ideala-6-go-urovnya",
+      "name": "Способности Идеала 6-го уровня",
+      "articleId": "0886",
+      "entityId": "feature.censor.feature.6.sposobnosti-ideala-6-go-urovnya"
+    },
+    {
+      "id": "censor.feature.6.sposobnosti-orakula-6-go-urovnya",
+      "name": "Способности Оракула 6-го уровня",
+      "articleId": "0886",
+      "entityId": "feature.censor.feature.6.sposobnosti-orakula-6-go-urovnya"
+    },
+    {
+      "id": "censor.feature.8.sposobnost-za-11-gneva",
+      "name": "Способность за 11 гнева",
+      "articleId": "0888",
+      "entityId": "feature.censor.feature.8.sposobnost-za-11-gneva"
+    },
+    {
+      "id": "censor.feature.9.sposobnosti-ekzortsista-9-go-urovnya",
+      "name": "Способности Экзорциста 9-го уровня",
+      "articleId": "0889",
+      "entityId": "feature.censor.feature.9.sposobnosti-ekzortsista-9-go-urovnya"
+    },
+    {
+      "id": "censor.feature.9.sposobnosti-ideala-9-go-urovnya",
+      "name": "Способности Идеала 9-го уровня",
+      "articleId": "0889",
+      "entityId": "feature.censor.feature.9.sposobnosti-ideala-9-go-urovnya"
+    },
+    {
+      "id": "censor.feature.9.sposobnosti-orakula-9-go-urovnya",
+      "name": "Способности Оракула 9-го уровня",
+      "articleId": "0889",
+      "entityId": "feature.censor.feature.9.sposobnosti-orakula-9-go-urovnya"
+    },
+    {
+      "id": "conduit.domain.1.mogilnaya-rech",
+      "name": "Могильная речь",
+      "articleId": "0831",
+      "entityId": "feature.conduit.domain.1.mogilnaya-rech"
+    },
+    {
+      "id": "conduit.domain.1.ruki-tvortsa",
+      "name": "Руки Творца",
+      "articleId": "0831",
+      "entityId": "feature.conduit.domain.1.ruki-tvortsa"
+    },
+    {
+      "id": "conduit.domain.1.vernyy-drug",
+      "name": "Верный друг",
+      "articleId": "0831",
+      "entityId": "feature.conduit.domain.1.vernyy-drug"
+    },
+    {
+      "id": "conduit.domain.4.blagoslovenie-tayn",
+      "name": "Благословение тайн",
+      "articleId": "0834",
+      "entityId": "feature.conduit.domain.4.blagoslovenie-tayn"
+    },
+    {
+      "id": "conduit.domain.7.troitsa-khitrosti",
+      "name": "Троица хитрости",
+      "articleId": "0837",
+      "entityId": "feature.conduit.domain.7.troitsa-khitrosti"
+    },
+    {
+      "id": "conduit.domain.7.zavet-serdtsa",
+      "name": "Завет сердца",
+      "articleId": "0837",
+      "entityId": "feature.conduit.domain.7.zavet-serdtsa"
+    },
+    {
+      "id": "conduit.feature.1.istselyayushchaya-blagodat",
+      "name": "Исцеляющая благодать",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.istselyayushchaya-blagodat"
+    },
+    {
+      "id": "conduit.feature.1.luch-gneva",
+      "name": "Луч гнева",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.luch-gneva"
+    },
+    {
+      "id": "conduit.feature.1.sposobnost-za-3-blagochestiya",
+      "name": "Способность за 3 благочестия",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.sposobnost-za-3-blagochestiya"
+    },
+    {
+      "id": "conduit.feature.1.sposobnost-za-5-blagochestiya",
+      "name": "Способность за 5 благочестия",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.sposobnost-za-5-blagochestiya"
+    },
+    {
+      "id": "conduit.feature.1.trigger-provodnika",
+      "name": "Триггер проводника",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.trigger-provodnika"
+    },
+    {
+      "id": "conduit.feature.1.znakovye-sposobnosti",
+      "name": "Знаковые способности",
+      "articleId": "0831",
+      "entityId": "feature.conduit.feature.1.znakovye-sposobnosti"
+    },
+    {
+      "id": "conduit.feature.2.sposobnost-domena-2-go-urovnya",
+      "name": "Способность домена 2-го уровня",
+      "articleId": "0832",
+      "entityId": "feature.conduit.feature.2.sposobnost-domena-2-go-urovnya"
+    },
+    {
+      "id": "conduit.feature.3.sposobnost-za-7-blagochestiya",
+      "name": "Способность за 7 благочестия",
+      "articleId": "0833",
+      "entityId": "feature.conduit.feature.3.sposobnost-za-7-blagochestiya"
+    },
+    {
+      "id": "conduit.feature.5.sposobnost-za-9-blagochestiya",
+      "name": "Способность за 9 благочестия",
+      "articleId": "0835",
+      "entityId": "feature.conduit.feature.5.sposobnost-za-9-blagochestiya"
+    },
+    {
+      "id": "conduit.feature.6.sposobnost-domena-6-go-urovnya",
+      "name": "Способность домена 6-го уровня",
+      "articleId": "0836",
+      "entityId": "feature.conduit.feature.6.sposobnost-domena-6-go-urovnya"
+    },
+    {
+      "id": "conduit.feature.8.sposobnost-za-11-blagochestiya",
+      "name": "Способность за 11 благочестия",
+      "articleId": "0838",
+      "entityId": "feature.conduit.feature.8.sposobnost-za-11-blagochestiya"
+    },
+    {
+      "id": "conduit.feature.9.sposobnost-domena-9-go-urovnya",
+      "name": "Способность домена 9-го уровня",
+      "articleId": "0839",
+      "entityId": "feature.conduit.feature.9.sposobnost-domena-9-go-urovnya"
+    },
+    {
+      "id": "elementalist.feature.1.brosok-elementa",
+      "name": "Бросок элемента",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.brosok-elementa"
+    },
+    {
+      "id": "elementalist.feature.1.prakticheskaya-magiya",
+      "name": "Практическая магия",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.prakticheskaya-magiya"
+    },
+    {
+      "id": "elementalist.feature.1.sposobnost-za-3-essentsii",
+      "name": "Способность за 3 эссенции",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.sposobnost-za-3-essentsii"
+    },
+    {
+      "id": "elementalist.feature.1.sposobnost-za-5-essentsii",
+      "name": "Способность за 5 эссенции",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.sposobnost-za-5-essentsii"
+    },
+    {
+      "id": "elementalist.feature.1.trigger-spetsializatsii",
+      "name": "Триггер специализации",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.trigger-spetsializatsii"
+    },
+    {
+      "id": "elementalist.feature.1.znakovye-sposobnosti",
+      "name": "Знаковые способности",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.feature.1.znakovye-sposobnosti"
+    },
+    {
+      "id": "elementalist.feature.2.novaya-sposobnost-za-5-essentsii",
+      "name": "Новая способность за 5 эссенции",
+      "articleId": "0892",
+      "entityId": "feature.elementalist.feature.2.novaya-sposobnost-za-5-essentsii"
+    },
+    {
+      "id": "elementalist.feature.3.sposobnost-za-7-essentsii",
+      "name": "Способность за 7 эссенции",
+      "articleId": "0893",
+      "entityId": "feature.elementalist.feature.3.sposobnost-za-7-essentsii"
+    },
+    {
+      "id": "elementalist.feature.5.sposobnost-za-9-essentsii",
+      "name": "Способность за 9 эссенции",
+      "articleId": "0895",
+      "entityId": "feature.elementalist.feature.5.sposobnost-za-9-essentsii"
+    },
+    {
+      "id": "elementalist.feature.6.novaya-sposobnost-za-9-essentsii",
+      "name": "Новая способность за 9 эссенции",
+      "articleId": "0896",
+      "entityId": "feature.elementalist.feature.6.novaya-sposobnost-za-9-essentsii"
+    },
+    {
+      "id": "elementalist.feature.8.sposobnost-za-11-essentsii",
+      "name": "Способность за 11 эссенции",
+      "articleId": "0898",
+      "entityId": "feature.elementalist.feature.8.sposobnost-za-11-essentsii"
+    },
+    {
+      "id": "elementalist.feature.9.novaya-sposobnost-za-11-essentsii",
+      "name": "Новая способность за 11 эссенции",
+      "articleId": "0899-9",
+      "entityId": "feature.elementalist.feature.9.novaya-sposobnost-za-11-essentsii"
+    },
+    {
+      "id": "elementalist.specialization.1.pobudit-zemlyu",
+      "name": "Побудить землю",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.specialization.1.pobudit-zemlyu"
+    },
+    {
+      "id": "elementalist.specialization.1.vozvrat-k-besformennosti",
+      "name": "Возврат к бесформенности",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.specialization.1.vozvrat-k-besformennosti"
+    },
+    {
+      "id": "elementalist.specialization.1.za-predelami-zreniya",
+      "name": "За пределами зрения",
+      "articleId": "0891",
+      "entityId": "feature.elementalist.specialization.1.za-predelami-zreniya"
+    },
+    {
+      "id": "elementalist.specialization.2.mezhdu-nami-net-prostranstva",
+      "name": "Между нами нет пространства",
+      "articleId": "0892",
+      "entityId": "feature.elementalist.specialization.2.mezhdu-nami-net-prostranstva"
+    },
+    {
+      "id": "elementalist.specialization.3.vspomni-rost-solntse-i-dozhd",
+      "name": "Вспомни рост, солнце и дождь",
+      "articleId": "0893",
+      "entityId": "feature.elementalist.specialization.3.vspomni-rost-solntse-i-dozhd"
+    },
+    {
+      "id": "elementalist.specialization.3.zemlya-prinimaet-menya",
+      "name": "Земля принимает меня",
+      "articleId": "0893",
+      "entityId": "feature.elementalist.specialization.3.zemlya-prinimaet-menya"
+    },
+    {
+      "id": "elementalist.specialization.8.prizyv-istochnika-zemli",
+      "name": "Призыв Источника Земли",
+      "articleId": "0898",
+      "entityId": "feature.elementalist.specialization.8.prizyv-istochnika-zemli"
+    },
+    {
+      "id": "fury.feature.1.sposobnost-za-3-svireposti",
+      "name": "Способность за 3 свирепости",
+      "articleId": "0801",
+      "entityId": "feature.fury.feature.1.sposobnost-za-3-svireposti"
+    },
+    {
+      "id": "fury.feature.1.sposobnost-za-5-svireposti",
+      "name": "Способность за 5 свирепости",
+      "articleId": "0801",
+      "entityId": "feature.fury.feature.1.sposobnost-za-5-svireposti"
+    },
+    {
+      "id": "fury.feature.1.trigger-aspekta",
+      "name": "Триггер аспекта",
+      "articleId": "0801",
+      "entityId": "feature.fury.feature.1.trigger-aspekta"
+    },
+    {
+      "id": "fury.feature.1.znakovaya-sposobnost",
+      "name": "Знаковая способность",
+      "articleId": "0801",
+      "entityId": "feature.fury.feature.1.znakovaya-sposobnost"
+    },
+    {
+      "id": "fury.feature.2.sposobnost-berserka-2-go-urovnya",
+      "name": "Способность Берсерка 2-го уровня",
+      "articleId": "0802",
+      "entityId": "feature.fury.feature.2.sposobnost-berserka-2-go-urovnya"
+    },
+    {
+      "id": "fury.feature.2.sposobnost-burevestnika-2-go-urovnya",
+      "name": "Способность Буревестника 2-го уровня",
+      "articleId": "0802",
+      "entityId": "feature.fury.feature.2.sposobnost-burevestnika-2-go-urovnya"
+    },
+    {
+      "id": "fury.feature.2.sposobnost-razoritelya-2-go-urovnya",
+      "name": "Способность Разорителя 2-го уровня",
+      "articleId": "0802",
+      "entityId": "feature.fury.feature.2.sposobnost-razoritelya-2-go-urovnya"
+    },
+    {
+      "id": "fury.feature.3.sposobnost-za-7-svireposti",
+      "name": "Способность за 7 свирепости",
+      "articleId": "0803",
+      "entityId": "feature.fury.feature.3.sposobnost-za-7-svireposti"
+    },
+    {
+      "id": "fury.feature.5.sposobnost-za-9-svireposti",
+      "name": "Способность за 9 свирепости",
+      "articleId": "0805",
+      "entityId": "feature.fury.feature.5.sposobnost-za-9-svireposti"
+    },
+    {
+      "id": "fury.feature.6.sposobnosti-berserka-6-go-urovnya",
+      "name": "Способности Берсерка 6-го уровня",
+      "articleId": "0806",
+      "entityId": "feature.fury.feature.6.sposobnosti-berserka-6-go-urovnya"
+    },
+    {
+      "id": "fury.feature.6.sposobnosti-burevestnika-6-go-urovnya",
+      "name": "Способности Буревестника 6-го уровня",
+      "articleId": "0806",
+      "entityId": "feature.fury.feature.6.sposobnosti-burevestnika-6-go-urovnya"
+    },
+    {
+      "id": "fury.feature.6.sposobnosti-razoritelya-6-go-urovnya",
+      "name": "Способности Разорителя 6-го уровня",
+      "articleId": "0806",
+      "entityId": "feature.fury.feature.6.sposobnosti-razoritelya-6-go-urovnya"
+    },
+    {
+      "id": "fury.feature.8.sposobnost-za-11-svireposti",
+      "name": "Способность за 11 свирепости",
+      "articleId": "0808",
+      "entityId": "feature.fury.feature.8.sposobnost-za-11-svireposti"
+    },
+    {
+      "id": "fury.feature.9.sposobnosti-berserka-9-go-urovnya",
+      "name": "Способности Берсерка 9-го уровня",
+      "articleId": "0809",
+      "entityId": "feature.fury.feature.9.sposobnosti-berserka-9-go-urovnya"
+    },
+    {
+      "id": "fury.feature.9.sposobnosti-burevestnika-9-go-urovnya",
+      "name": "Способности Буревестника 9-го уровня",
+      "articleId": "0809",
+      "entityId": "feature.fury.feature.9.sposobnosti-burevestnika-9-go-urovnya"
+    },
+    {
+      "id": "fury.feature.9.sposobnosti-razoritelya-9-go-urovnya",
+      "name": "Способности Разорителя 9-го уровня",
+      "articleId": "0809",
+      "entityId": "feature.fury.feature.9.sposobnosti-razoritelya-9-go-urovnya"
+    },
+    {
+      "id": "null.feature.1.inertsionnyy-shchit",
+      "name": "Инерционный щит",
+      "articleId": "0811",
+      "entityId": "feature.null.feature.1.inertsionnyy-shchit"
+    },
+    {
+      "id": "null.feature.1.pole-nulya",
+      "name": "Поле нуля",
+      "articleId": "0811",
+      "entityId": "feature.null.feature.1.pole-nulya"
+    },
+    {
+      "id": "null.feature.1.sposobnost-za-3-distsipliny",
+      "name": "Способность за 3 дисциплины",
+      "articleId": "0811",
+      "entityId": "feature.null.feature.1.sposobnost-za-3-distsipliny"
+    },
+    {
+      "id": "null.feature.1.sposobnost-za-5-distsipliny",
+      "name": "Способность за 5 дисциплины",
+      "articleId": "0811",
+      "entityId": "feature.null.feature.1.sposobnost-za-5-distsipliny"
+    },
+    {
+      "id": "null.feature.1.znakovye-sposobnosti",
+      "name": "Знаковые способности",
+      "articleId": "0811",
+      "entityId": "feature.null.feature.1.znakovye-sposobnosti"
+    },
+    {
+      "id": "null.feature.2.sposobnost-khronokinetika-2-go-urovnya",
+      "name": "Способность хронокинетика 2-го уровня",
+      "articleId": "0812",
+      "entityId": "feature.null.feature.2.sposobnost-khronokinetika-2-go-urovnya"
+    },
+    {
+      "id": "null.feature.2.sposobnost-kriokinetika-2-go-urovnya",
+      "name": "Способность криокинетика 2-го уровня",
+      "articleId": "0812",
+      "entityId": "feature.null.feature.2.sposobnost-kriokinetika-2-go-urovnya"
+    },
+    {
+      "id": "null.feature.2.sposobnost-metakinetika-2-go-urovnya",
+      "name": "Способность метакинетика 2-го уровня",
+      "articleId": "0812",
+      "entityId": "feature.null.feature.2.sposobnost-metakinetika-2-go-urovnya"
+    },
+    {
+      "id": "null.feature.3.sposobnost-za-7-distsipliny",
+      "name": "Способность за 7 дисциплины",
+      "articleId": "0813",
+      "entityId": "feature.null.feature.3.sposobnost-za-7-distsipliny"
+    },
+    {
+      "id": "null.feature.5.sposobnost-za-9-distsipliny",
+      "name": "Способность за 9 дисциплины",
+      "articleId": "0815",
+      "entityId": "feature.null.feature.5.sposobnost-za-9-distsipliny"
+    },
+    {
+      "id": "null.feature.6.sposobnosti-khronokinetika-6-go-urovnya",
+      "name": "Способности хронокинетика 6-го уровня",
+      "articleId": "0816",
+      "entityId": "feature.null.feature.6.sposobnosti-khronokinetika-6-go-urovnya"
+    },
+    {
+      "id": "null.feature.6.sposobnosti-kriokinetika-6-go-urovnya",
+      "name": "Способности криокинетика 6-го уровня",
+      "articleId": "0816",
+      "entityId": "feature.null.feature.6.sposobnosti-kriokinetika-6-go-urovnya"
+    },
+    {
+      "id": "null.feature.6.sposobnosti-metakinetika-6-go-urovnya",
+      "name": "Способности метакинетика 6-го уровня",
+      "articleId": "0816",
+      "entityId": "feature.null.feature.6.sposobnosti-metakinetika-6-go-urovnya"
+    },
+    {
+      "id": "null.feature.8.sposobnost-za-11-distsipliny",
+      "name": "Способность за 11 дисциплины",
+      "articleId": "0818",
+      "entityId": "feature.null.feature.8.sposobnost-za-11-distsipliny"
+    },
+    {
+      "id": "null.feature.9.sposobnosti-khronokinetika-9-go-urovnya",
+      "name": "Способности хронокинетика 9-го уровня",
+      "articleId": "0819",
+      "entityId": "feature.null.feature.9.sposobnosti-khronokinetika-9-go-urovnya"
+    },
+    {
+      "id": "null.feature.9.sposobnosti-kriokinetika-9-go-urovnya",
+      "name": "Способности криокинетика 9-го уровня",
+      "articleId": "0819",
+      "entityId": "feature.null.feature.9.sposobnosti-kriokinetika-9-go-urovnya"
+    },
+    {
+      "id": "null.feature.9.sposobnosti-metakinetika-9-go-urovnya",
+      "name": "Способности метакинетика 9-го уровня",
+      "articleId": "0819",
+      "entityId": "feature.null.feature.9.sposobnosti-metakinetika-9-go-urovnya"
+    },
+    {
+      "id": "shadow.college.1.smazat-klinok",
+      "name": "Смазать клинок",
+      "articleId": "0861",
+      "entityId": "feature.shadow.college.1.smazat-klinok"
+    },
+    {
+      "id": "shadow.college.1.teleportatsiya-chernogo-pepla",
+      "name": "Телепортация Черного Пепла",
+      "articleId": "0861",
+      "entityId": "feature.shadow.college.1.teleportatsiya-chernogo-pepla"
+    },
+    {
+      "id": "shadow.college.1.ya-ne-ugroza",
+      "name": "Я не угроза",
+      "articleId": "0861",
+      "entityId": "feature.shadow.college.1.ya-ne-ugroza"
+    },
+    {
+      "id": "shadow.college.8.bomba-zamedlennogo-deystviya",
+      "name": "Бомба замедленного действия",
+      "articleId": "0868",
+      "entityId": "feature.shadow.college.8.bomba-zamedlennogo-deystviya"
+    },
+    {
+      "id": "shadow.feature.1.nereshitelnost-eto-slabost",
+      "name": "Нерешительность — это слабость",
+      "articleId": "0861",
+      "entityId": "feature.shadow.feature.1.nereshitelnost-eto-slabost"
+    },
+    {
+      "id": "shadow.feature.1.sposobnost-za-3-prozreniya",
+      "name": "Способность за 3 прозрения",
+      "articleId": "0861",
+      "entityId": "feature.shadow.feature.1.sposobnost-za-3-prozreniya"
+    },
+    {
+      "id": "shadow.feature.1.sposobnost-za-5-prozreniya",
+      "name": "Способность за 5 прозрения",
+      "articleId": "0861",
+      "entityId": "feature.shadow.feature.1.sposobnost-za-5-prozreniya"
+    },
+    {
+      "id": "shadow.feature.1.trigger-kollegii",
+      "name": "Триггер коллегии",
+      "articleId": "0861",
+      "entityId": "feature.shadow.feature.1.trigger-kollegii"
+    },
+    {
+      "id": "shadow.feature.1.znakovaya-sposobnost",
+      "name": "Знаковая способность",
+      "articleId": "0861",
+      "entityId": "feature.shadow.feature.1.znakovaya-sposobnost"
+    },
+    {
+      "id": "shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya",
+      "name": "Способность Черного Пепла 2-го уровня",
+      "articleId": "0862",
+      "entityId": "feature.shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.2.sposobnost-edkoy-alkhimii-2-go-urovnya",
+      "name": "Способность Едкой Алхимии 2-го уровня",
+      "articleId": "0862",
+      "entityId": "feature.shadow.feature.2.sposobnost-edkoy-alkhimii-2-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya",
+      "name": "Способность Маски Арлекина 2-го уровня",
+      "articleId": "0862",
+      "entityId": "feature.shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.3.sposobnost-za-7-prozreniya",
+      "name": "Способность за 7 прозрения",
+      "articleId": "0863",
+      "entityId": "feature.shadow.feature.3.sposobnost-za-7-prozreniya"
+    },
+    {
+      "id": "shadow.feature.3.vnimatelnoe-nablyudenie",
+      "name": "Внимательное наблюдение",
+      "articleId": "0863",
+      "entityId": "feature.shadow.feature.3.vnimatelnoe-nablyudenie"
+    },
+    {
+      "id": "shadow.feature.4.nochnoy-dozor",
+      "name": "Ночной дозор",
+      "articleId": "0864",
+      "entityId": "feature.shadow.feature.4.nochnoy-dozor"
+    },
+    {
+      "id": "shadow.feature.5.sposobnost-za-9-prozreniya",
+      "name": "Способность за 9 прозрения",
+      "articleId": "0865",
+      "entityId": "feature.shadow.feature.5.sposobnost-za-9-prozreniya"
+    },
+    {
+      "id": "shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya",
+      "name": "Способности Черного Пепла 6-го уровня",
+      "articleId": "0866",
+      "entityId": "feature.shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.6.sposobnosti-edkoy-alkhimii-6-go-urovnya",
+      "name": "Способности Едкой Алхимии 6-го уровня",
+      "articleId": "0866",
+      "entityId": "feature.shadow.feature.6.sposobnosti-edkoy-alkhimii-6-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.6.sposobnosti-maski-arlekina-6-go-urovnya",
+      "name": "Способности Маски Арлекина 6-го уровня",
+      "articleId": "0866",
+      "entityId": "feature.shadow.feature.6.sposobnosti-maski-arlekina-6-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.8.sposobnost-za-11-prozreniya",
+      "name": "Способность за 11 прозрения",
+      "articleId": "0868",
+      "entityId": "feature.shadow.feature.8.sposobnost-za-11-prozreniya"
+    },
+    {
+      "id": "shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya",
+      "name": "Способности Черного Пепла 9-го уровня",
+      "articleId": "0869",
+      "entityId": "feature.shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.9.sposobnosti-edkoy-alkhimii-9-go-urovnya",
+      "name": "Способности Едкой Алхимии 9-го уровня",
+      "articleId": "0869",
+      "entityId": "feature.shadow.feature.9.sposobnosti-edkoy-alkhimii-9-go-urovnya"
+    },
+    {
+      "id": "shadow.feature.9.sposobnosti-maski-arlekina-9-go-urovnya",
+      "name": "Способности Маски Арлекина 9-го уровня",
+      "articleId": "0869",
+      "entityId": "feature.shadow.feature.9.sposobnosti-maski-arlekina-9-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.1.bey-seychas",
+      "name": "Бей сейчас",
+      "articleId": "0841",
+      "entityId": "feature.tactician.feature.1.bey-seychas"
+    },
+    {
+      "id": "tactician.feature.1.metka",
+      "name": "Метка",
+      "articleId": "0841",
+      "entityId": "feature.tactician.feature.1.metka"
+    },
+    {
+      "id": "tactician.feature.1.sposobnost-za-3-fokusa",
+      "name": "Способность за 3 фокуса",
+      "articleId": "0841",
+      "entityId": "feature.tactician.feature.1.sposobnost-za-3-fokusa"
+    },
+    {
+      "id": "tactician.feature.1.sposobnost-za-5-fokusa",
+      "name": "Способность за 5 фокуса",
+      "articleId": "0841",
+      "entityId": "feature.tactician.feature.1.sposobnost-za-5-fokusa"
+    },
+    {
+      "id": "tactician.feature.1.trigger-doktriny",
+      "name": "Триггер доктрины",
+      "articleId": "0841",
+      "entityId": "feature.tactician.feature.1.trigger-doktriny"
+    },
+    {
+      "id": "tactician.feature.2.sposobnost-avangarda-2-go-urovnya",
+      "name": "Способность Авангарда 2-го уровня",
+      "articleId": "0842",
+      "entityId": "feature.tactician.feature.2.sposobnost-avangarda-2-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.2.sposobnost-povstantsa-2-go-urovnya",
+      "name": "Способность Повстанца 2-го уровня",
+      "articleId": "0842",
+      "entityId": "feature.tactician.feature.2.sposobnost-povstantsa-2-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.2.sposobnost-voevody-2-go-urovnya",
+      "name": "Способность Воеводы 2-го уровня",
+      "articleId": "0842",
+      "entityId": "feature.tactician.feature.2.sposobnost-voevody-2-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.3.sposobnost-za-7-fokusa",
+      "name": "Способность за 7 фокуса",
+      "articleId": "0843",
+      "entityId": "feature.tactician.feature.3.sposobnost-za-7-fokusa"
+    },
+    {
+      "id": "tactician.feature.5.sposobnost-za-9-fokusa",
+      "name": "Способность за 9 фокуса",
+      "articleId": "0845",
+      "entityId": "feature.tactician.feature.5.sposobnost-za-9-fokusa"
+    },
+    {
+      "id": "tactician.feature.6.sposobnosti-avangarda-6-go-urovnya",
+      "name": "Способности Авангарда 6-го уровня",
+      "articleId": "0846",
+      "entityId": "feature.tactician.feature.6.sposobnosti-avangarda-6-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.6.sposobnosti-povstantsa-6-go-urovnya",
+      "name": "Способности Повстанца 6-го уровня",
+      "articleId": "0846",
+      "entityId": "feature.tactician.feature.6.sposobnosti-povstantsa-6-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.6.sposobnosti-voevody-6-go-urovnya",
+      "name": "Способности Воеводы 6-го уровня",
+      "articleId": "0846",
+      "entityId": "feature.tactician.feature.6.sposobnosti-voevody-6-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.8.sposobnost-za-11-fokusa",
+      "name": "Способность за 11 фокуса",
+      "articleId": "0848",
+      "entityId": "feature.tactician.feature.8.sposobnost-za-11-fokusa"
+    },
+    {
+      "id": "tactician.feature.9.sposobnosti-avangarda-9-go-urovnya",
+      "name": "Способности Авангарда 9-го уровня",
+      "articleId": "0849",
+      "entityId": "feature.tactician.feature.9.sposobnosti-avangarda-9-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.9.sposobnosti-povstantsa-9-go-urovnya",
+      "name": "Способности Повстанца 9-го уровня",
+      "articleId": "0849",
+      "entityId": "feature.tactician.feature.9.sposobnosti-povstantsa-9-go-urovnya"
+    },
+    {
+      "id": "tactician.feature.9.sposobnosti-voevody-9-go-urovnya",
+      "name": "Способности Воеводы 9-го уровня",
+      "articleId": "0849",
+      "entityId": "feature.tactician.feature.9.sposobnosti-voevody-9-go-urovnya"
+    },
+    {
+      "id": "talent.feature.1.ship-razuma",
+      "name": "Шип разума",
+      "articleId": "0851",
+      "entityId": "feature.talent.feature.1.ship-razuma"
+    },
+    {
+      "id": "talent.feature.1.sposobnost-za-3-yasnosti",
+      "name": "Способность за 3 ясности",
+      "articleId": "0851",
+      "entityId": "feature.talent.feature.1.sposobnost-za-3-yasnosti"
+    },
+    {
+      "id": "talent.feature.1.sposobnost-za-5-yasnosti",
+      "name": "Способность за 5 ясности",
+      "articleId": "0851",
+      "entityId": "feature.talent.feature.1.sposobnost-za-5-yasnosti"
+    },
+    {
+      "id": "talent.feature.1.znakovye-sposobnosti",
+      "name": "Знаковые способности",
+      "articleId": "0851",
+      "entityId": "feature.talent.feature.1.znakovye-sposobnosti"
+    },
+    {
+      "id": "talent.feature.2.sposobnosti-khronopatii-2-go-urovnya",
+      "name": "Способности хронопатии 2-го уровня",
+      "articleId": "0852",
+      "entityId": "feature.talent.feature.2.sposobnosti-khronopatii-2-go-urovnya"
+    },
+    {
+      "id": "talent.feature.2.sposobnosti-telekineza-2-go-urovnya",
+      "name": "Способности телекинеза 2-го уровня",
+      "articleId": "0852",
+      "entityId": "feature.talent.feature.2.sposobnosti-telekineza-2-go-urovnya"
+    },
+    {
+      "id": "talent.feature.2.sposobnosti-telepatii-2-go-urovnya",
+      "name": "Способности телепатии 2-го уровня",
+      "articleId": "0852",
+      "entityId": "feature.talent.feature.2.sposobnosti-telepatii-2-go-urovnya"
+    },
+    {
+      "id": "talent.feature.3.sposobnost-za-7-yasnosti",
+      "name": "Способность за 7 ясности",
+      "articleId": "0853",
+      "entityId": "feature.talent.feature.3.sposobnost-za-7-yasnosti"
+    },
+    {
+      "id": "talent.feature.5.sposobnost-za-9-yasnosti",
+      "name": "Способность за 9 ясности",
+      "articleId": "0855",
+      "entityId": "feature.talent.feature.5.sposobnost-za-9-yasnosti"
+    },
+    {
+      "id": "talent.feature.6.sposobnosti-khronopatii-6-go-urovnya",
+      "name": "Способности хронопатии 6-го уровня",
+      "articleId": "0856",
+      "entityId": "feature.talent.feature.6.sposobnosti-khronopatii-6-go-urovnya"
+    },
+    {
+      "id": "talent.feature.6.sposobnosti-telekineza-6-go-urovnya",
+      "name": "Способности телекинеза 6-го уровня",
+      "articleId": "0856",
+      "entityId": "feature.talent.feature.6.sposobnosti-telekineza-6-go-urovnya"
+    },
+    {
+      "id": "talent.feature.6.sposobnosti-telepatii-6-go-urovnya",
+      "name": "Способности телепатии 6-го уровня",
+      "articleId": "0856",
+      "entityId": "feature.talent.feature.6.sposobnosti-telepatii-6-go-urovnya"
+    },
+    {
+      "id": "talent.feature.8.sposobnost-za-11-yasnosti",
+      "name": "Способность за 11 ясности",
+      "articleId": "0858",
+      "entityId": "feature.talent.feature.8.sposobnost-za-11-yasnosti"
+    },
+    {
+      "id": "talent.feature.9.sposobnosti-khronopatii-9-go-urovnya",
+      "name": "Способности хронопатии 9-го уровня",
+      "articleId": "0859",
+      "entityId": "feature.talent.feature.9.sposobnosti-khronopatii-9-go-urovnya"
+    },
+    {
+      "id": "talent.feature.9.sposobnosti-telekineza-9-go-urovnya",
+      "name": "Способности телекинеза 9-го уровня",
+      "articleId": "0859",
+      "entityId": "feature.talent.feature.9.sposobnosti-telekineza-9-go-urovnya"
+    },
+    {
+      "id": "talent.feature.9.sposobnosti-telepatii-9-go-urovnya",
+      "name": "Способности телепатии 9-го уровня",
+      "articleId": "0859",
+      "entityId": "feature.talent.feature.9.sposobnosti-telepatii-9-go-urovnya"
+    },
+    {
+      "id": "talent.tradition.1.malyy-telekinez",
+      "name": "Малый телекинез",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.malyy-telekinez"
+    },
+    {
+      "id": "talent.tradition.1.otrazhenie",
+      "name": "Отражение",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.otrazhenie"
+    },
+    {
+      "id": "talent.tradition.1.petlya-obratnoy-svyazi",
+      "name": "Петля обратной связи",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.petlya-obratnoy-svyazi"
+    },
+    {
+      "id": "talent.tradition.1.snova",
+      "name": "Снова",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.snova"
+    },
+    {
+      "id": "talent.tradition.1.udalennaya-pomoshch",
+      "name": "Удаленная помощь",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.udalennaya-pomoshch"
+    },
+    {
+      "id": "talent.tradition.1.uskorenie",
+      "name": "Ускорение",
+      "articleId": "0851",
+      "entityId": "feature.talent.tradition.1.uskorenie"
+    },
+    {
+      "id": "talent.tradition.8.pole-levitatsii",
+      "name": "Поле левитации",
+      "articleId": "0858",
+      "entityId": "feature.talent.tradition.8.pole-levitatsii"
+    },
+    {
+      "id": "talent.tradition.8.stazisnyy-shchit",
+      "name": "Стазисный щит",
+      "articleId": "0858",
+      "entityId": "feature.talent.tradition.8.stazisnyy-shchit"
+    },
+    {
+      "id": "troubadour.feature.1.nomera",
+      "name": "Номера",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.feature.1.nomera"
+    },
+    {
+      "id": "troubadour.feature.1.sposobnost-za-3-dramy",
+      "name": "Способность за 3 драмы",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.feature.1.sposobnost-za-3-dramy"
+    },
+    {
+      "id": "troubadour.feature.1.sposobnost-za-5-dramy",
+      "name": "Способность за 5 драмы",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.feature.1.sposobnost-za-5-dramy"
+    },
+    {
+      "id": "troubadour.feature.1.trigger-amplua",
+      "name": "Триггер амплуа",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.feature.1.trigger-amplua"
+    },
+    {
+      "id": "troubadour.feature.1.znakovaya-sposobnost",
+      "name": "Знаковая способность",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.feature.1.znakovaya-sposobnost"
+    },
+    {
+      "id": "troubadour.feature.2.sposobnosti-avtora-2-go-urovnya",
+      "name": "Способности Автора 2-го уровня",
+      "articleId": "0872",
+      "entityId": "feature.troubadour.feature.2.sposobnosti-avtora-2-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya",
+      "name": "Способности Дуэлянта 2-го уровня",
+      "articleId": "0872",
+      "entityId": "feature.troubadour.feature.2.sposobnosti-duelyanta-2-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya",
+      "name": "Способности Виртуоза 2-го уровня",
+      "articleId": "0872",
+      "entityId": "feature.troubadour.feature.2.sposobnosti-virtuoza-2-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.3.sposobnost-za-7-dramy",
+      "name": "Способность за 7 драмы",
+      "articleId": "0873",
+      "entityId": "feature.troubadour.feature.3.sposobnost-za-7-dramy"
+    },
+    {
+      "id": "troubadour.feature.5.dubl-dva",
+      "name": "Дубль два!",
+      "articleId": "0875",
+      "entityId": "feature.troubadour.feature.5.dubl-dva"
+    },
+    {
+      "id": "troubadour.feature.5.nas-ne-zatmit",
+      "name": "Нас не затмить!",
+      "articleId": "0875",
+      "entityId": "feature.troubadour.feature.5.nas-ne-zatmit"
+    },
+    {
+      "id": "troubadour.feature.5.sposobnost-za-9-dramy",
+      "name": "Способность за 9 драмы",
+      "articleId": "0875",
+      "entityId": "feature.troubadour.feature.5.sposobnost-za-9-dramy"
+    },
+    {
+      "id": "troubadour.feature.6.sposobnosti-avtora-6-go-urovnya",
+      "name": "Способности Автора 6-го уровня",
+      "articleId": "0876",
+      "entityId": "feature.troubadour.feature.6.sposobnosti-avtora-6-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya",
+      "name": "Способности Дуэлянта 6-го уровня",
+      "articleId": "0876",
+      "entityId": "feature.troubadour.feature.6.sposobnosti-duelyanta-6-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya",
+      "name": "Способности Виртуоза 6-го уровня",
+      "articleId": "0876",
+      "entityId": "feature.troubadour.feature.6.sposobnosti-virtuoza-6-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.6.v-luchakh-prozhektora",
+      "name": "В лучах прожектора",
+      "articleId": "0876",
+      "entityId": "feature.troubadour.feature.6.v-luchakh-prozhektora"
+    },
+    {
+      "id": "troubadour.feature.8.sposobnost-za-11-dramy",
+      "name": "Способность за 11 драмы",
+      "articleId": "0878",
+      "entityId": "feature.troubadour.feature.8.sposobnost-za-11-dramy"
+    },
+    {
+      "id": "troubadour.feature.9.sposobnosti-avtora-9-go-urovnya",
+      "name": "Способности Автора 9-го уровня",
+      "articleId": "0879",
+      "entityId": "feature.troubadour.feature.9.sposobnosti-avtora-9-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya",
+      "name": "Способности Дуэлянта 9-го уровня",
+      "articleId": "0879",
+      "entityId": "feature.troubadour.feature.9.sposobnosti-duelyanta-9-go-urovnya"
+    },
+    {
+      "id": "troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya",
+      "name": "Способности Виртуоза 9-го уровня",
+      "articleId": "0879",
+      "entityId": "feature.troubadour.feature.9.sposobnosti-virtuoza-9-go-urovnya"
+    },
+    {
+      "id": "troubadour.troupe.1.akrobatika",
+      "name": "Акробатика",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.akrobatika"
+    },
+    {
+      "id": "troubadour.troupe.1.dramaticheskiy-monolog",
+      "name": "Драматический монолог",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.dramaticheskiy-monolog"
+    },
+    {
+      "id": "troubadour.troupe.1.mizanstsena",
+      "name": "Мизансцена",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.mizanstsena"
+    },
+    {
+      "id": "troubadour.troupe.1.moshchnyy-akkord",
+      "name": "Мощный аккорд",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.moshchnyy-akkord"
+    },
+    {
+      "id": "troubadour.troupe.1.vystupleniya-virtuoza",
+      "name": "Выступления виртуоза",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.vystupleniya-virtuoza"
+    },
+    {
+      "id": "troubadour.troupe.1.zvezdnaya-sila",
+      "name": "Звездная сила",
+      "articleId": "0871",
+      "entityId": "feature.troubadour.troupe.1.zvezdnaya-sila"
+    },
+    {
+      "id": "troubadour.troupe.3.vtoroy-albom",
+      "name": "Второй альбом",
+      "articleId": "0873",
+      "entityId": "feature.troubadour.troupe.3.vtoroy-albom"
+    },
+    {
+      "id": "troubadour.troupe.8.lyubimtsy-publiki",
+      "name": "Любимцы публики",
+      "articleId": "0878",
+      "entityId": "feature.troubadour.troupe.8.lyubimtsy-publiki"
+    }
+  ],
+  "unmapped": {
+    "abilities": [],
+    "classFeatures": [
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-berserka-2",
+        "name": "Растущая свирепость Берсерка: 2",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-berserka-4",
+        "name": "Растущая свирепость Берсерка: 4",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-berserka-6",
+        "name": "Растущая свирепость Берсерка: 6",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-razoritelya-2",
+        "name": "Растущая свирепость Разорителя: 2",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-razoritelya-4",
+        "name": "Растущая свирепость Разорителя: 4",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.1.rastushchaya-svirepost-razoritelya-6",
+        "name": "Растущая свирепость Разорителя: 6",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.10.rastushchaya-svirepost-berserka-12-10-y-uroven",
+        "name": "Растущая свирепость Берсерка: 12 (10-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.10.rastushchaya-svirepost-razoritelya-12-10-y-uroven",
+        "name": "Растущая свирепость Разорителя: 12 (10-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
+        "name": "Растущая свирепость Берсерка: 8 (4-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.4.rastushchaya-svirepost-razoritelya-8-4-y-uroven",
+        "name": "Растущая свирепость Разорителя: 8 (4-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.7.rastushchaya-svirepost-berserka-10-7-y-uroven",
+        "name": "Растущая свирепость Берсерка: 10 (7-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "fury.feature.7.rastushchaya-svirepost-razoritelya-10-7-y-uroven",
+        "name": "Растущая свирепость Разорителя: 10 (7-й уровень)",
+        "articleId": "0801",
+        "parentId": "fury.feature.1.rastushchaya-svirepost",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-khronokinetika-2",
+        "name": "Мастерство хронокинетика: 2",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-khronokinetika-4",
+        "name": "Мастерство хронокинетика: 4",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-khronokinetika-6",
+        "name": "Мастерство хронокинетика: 6",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-kriokinetika-2",
+        "name": "Мастерство криокинетика: 2",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-kriokinetika-4",
+        "name": "Мастерство криокинетика: 4",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-kriokinetika-6",
+        "name": "Мастерство криокинетика: 6",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-metakinetika-2",
+        "name": "Мастерство метакинетика: 2",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-metakinetika-4",
+        "name": "Мастерство метакинетика: 4",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.1.masterstvo-metakinetika-6",
+        "name": "Мастерство метакинетика: 6",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
+        "name": "Мастерство хронокинетика: 12 (10-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.10.masterstvo-kriokinetika-12-10-y-uroven",
+        "name": "Мастерство криокинетика: 12 (10-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.10.masterstvo-metakinetika-12-10-y-uroven",
+        "name": "Мастерство метакинетика: 12 (10-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.4.masterstvo-khronokinetika-8-4-y-uroven",
+        "name": "Мастерство хронокинетика: 8 (4-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.4.masterstvo-kriokinetika-8-4-y-uroven",
+        "name": "Мастерство криокинетика: 8 (4-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.4.masterstvo-metakinetika-8-4-y-uroven",
+        "name": "Мастерство метакинетика: 8 (4-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.7.masterstvo-khronokinetika-10-7-y-uroven",
+        "name": "Мастерство хронокинетика: 10 (7-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-khronokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.7.masterstvo-kriokinetika-10-7-y-uroven",
+        "name": "Мастерство криокинетика: 10 (7-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-kriokinetika",
+        "reason": "synthetic-table-row"
+      },
+      {
+        "id": "null.feature.7.masterstvo-metakinetika-10-7-y-uroven",
+        "name": "Мастерство метакинетика: 10 (7-й уровень)",
+        "articleId": "0811",
+        "parentId": "null.feature.1.masterstvo-metakinetika",
+        "reason": "synthetic-table-row"
+      }
+    ],
+    "ancestryFeatures": [],
+    "perks": [],
+    "abilityLikeBlocks": [
+      {
+        "articleId": "0301",
+        "name": "Свободный Удар Ближнего Боя",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0301",
+        "name": "Свободный Удар Дальнего Боя",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0403",
+        "name": "Драконья Гордость",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0403",
+        "name": "Драконье Дыхание",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0405",
+        "name": "Леса Защищают",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0411",
+        "name": "Слияние с Тенью",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0412",
+        "name": "Взрыв Печати",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0413",
+        "name": "Сотрясающий Удар",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0413",
+        "name": "Псионический Заряд",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0413",
+        "name": "Малая Акселерация",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0414",
+        "name": "Дать Волю",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0415",
+        "name": "Наследие драконов",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "0898",
+        "name": "Источник Земли",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1007",
+        "name": "Магический Трюк",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1007",
+        "name": "Невидимая Сила",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1007",
+        "name": "Ментальный Шепот",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1104",
+        "name": "Каменные Глаза",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1104",
+        "name": "Отдача Приказа",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1104",
+        "name": "Контакт с Духами",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1105",
+        "name": "Осквернение Духа",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1105",
+        "name": "Посмертная Отставка",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1105",
+        "name": "Поделиться Головой",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1105",
+        "name": "Психический Взрыв (Особая стоимость героического ресурса)",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1106",
+        "name": "Блуждающая Волна",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1106",
+        "name": "Телекинетическая Хватка",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1305",
+        "name": "Копать Землю",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1617",
+        "name": "Драконье Пламя",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1619",
+        "name": "Стой, Где Стоишь",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1619",
+        "name": "Нова",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1804",
+        "name": "Поле Галлюцинации",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1804",
+        "name": "Удар Нулевого Кольца",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1901",
+        "name": "Выходи Играть",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1901",
+        "name": "Священный Ужас",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1902",
+        "name": "Коронный Прием",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1902",
+        "name": "В Атаку!",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1902",
+        "name": "Чем Крупнее — Тем Громче Падает",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1902",
+        "name": "Своевременное Отвлечение",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1902",
+        "name": "Рыцарский Вызов",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      },
+      {
+        "articleId": "1903",
+        "name": "Дьявольский Аккорд",
+        "reason": "outside-legacy-ability-dataset-or-embedded-in-feature"
+      }
+    ]
+  },
+  "ambiguous": {
+    "abilities": [],
+    "classFeatures": [],
+    "ancestryFeatures": [],
+    "perks": []
+  },
+  "deferred": [],
+  "gaps": [
+    {
+      "kind": "feature",
+      "className": "Призыватель",
+      "articleIds": [
+        "0821",
+        "0822",
+        "0823",
+        "0824",
+        "0825",
+        "0826",
+        "0827",
+        "0828",
+        "0829",
+        "0830"
+      ],
+      "reason": "source-articles-empty; legacy class-features has no Призыватель rows, so no feature text can be extracted without inventing rules"
+    },
+    {
+      "kind": "career",
+      "reason": "no chapter-06 overview table in canonical articles; renown and wealth are read only from explicit **Известность**/**Богатство** lines, missing values mean 0"
+    }
+  ],
+  "fieldEncoding": {
+    "class": [
+      "#### Сводка — первый абзац статьи 1-го уровня (summary)",
+      "#### Основы — текст до «## Особенности 1-го уровня» без таблицы развития (basics)",
+      "#### Особенности 1-го уровня — особенности статьи; исходные #### стали #####, вложенные ##### стали ###### (features, featureChoices, subclasses)"
+    ],
+    "career": [
+      "Весь Markdown статьи 0601–0618: выгоды до первого '---', затем таблица d6 инцидентов",
+      "**Известность** и **Богатство** — явные строки статьи; отсутствие строки означает 0"
+    ],
+    "culture": [
+      "#### <Название> — ровно секция аспекта из статей 0502/0503/0504"
+    ],
+    "complication": [
+      "#### <Номер>. <Название> — ровно секция нюанса из статей 1103–1106"
+    ],
+    "kit0924": [
+      "Полный Markdown статьи 0924 с вложенными карточками способностей (> **...**); статьи ссылаются на сущность одним блоком"
+    ],
+    "summonerFeature": [
+      "####/##### <Название> — секция статьи уровня Призывателя; сейчас не создаются, потому что статьи 0821–0830 пусты"
+    ]
+  },
+  "stageTwo": {
+    "generatedBy": "scripts/content/migrate-entities.mjs",
+    "coverage": {
+      "kits": {
+        "mapped": 22,
+        "total": 22,
+        "unmapped": 0
+      },
+      "items": {
+        "mapped": 100,
+        "total": 100,
+        "sourceArticles": 13
+      },
+      "projects": {
+        "mapped": 19,
+        "total": 19
+      },
+      "titles": {
+        "mapped": 59,
+        "total": 59,
+        "sourceArticles": 4
+      },
+      "ancestrySpecies": {
+        "mapped": 14,
+        "total": 14
+      },
+      "classes": {
+        "mapped": 10,
+        "total": 10,
+        "withText": 9
+      },
+      "careers": {
+        "mapped": 18,
+        "total": 18
+      },
+      "cultures": {
+        "mapped": 13,
+        "total": 13,
+        "environment": 5,
+        "organization": 2,
+        "upbringing": 6
+      },
+      "complications": {
+        "mapped": 100,
+        "total": 100,
+        "sourceArticles": 4
+      },
+      "summonerFeatures": {
+        "mapped": 0,
+        "total": 0,
+        "sourceArticles": 10
+      },
+      "kits0924": {
+        "mapped": 1,
+        "total": 1
+      }
+    },
+    "mappings": {
+      "kits": [
+        {
+          "legacyId": "kit-0011f1b44f30",
+          "entityId": "kit.kit-0011f1b44f30",
+          "articleId": "0921"
+        },
+        {
+          "legacyId": "kit-08e31edf75e0",
+          "entityId": "kit.kit-08e31edf75e0",
+          "articleId": "0917"
+        },
+        {
+          "legacyId": "kit-16e4e71e1feb",
+          "entityId": "kit.kit-16e4e71e1feb",
+          "articleId": "0910"
+        },
+        {
+          "legacyId": "kit-19bd7a009762",
+          "entityId": "kit.kit-19bd7a009762",
+          "articleId": "0905"
+        },
+        {
+          "legacyId": "kit-1b3c2ee911d6",
+          "entityId": "kit.kit-1b3c2ee911d6",
+          "articleId": "0922"
+        },
+        {
+          "legacyId": "kit-3583d2d24847",
+          "entityId": "kit.kit-3583d2d24847",
+          "articleId": "0907"
+        },
+        {
+          "legacyId": "kit-362a741ee8d4",
+          "entityId": "kit.kit-362a741ee8d4",
+          "articleId": "0916"
+        },
+        {
+          "legacyId": "kit-380943319c89",
+          "entityId": "kit.kit-380943319c89",
+          "articleId": "0914"
+        },
+        {
+          "legacyId": "kit-3fc272e3de28",
+          "entityId": "kit.kit-3fc272e3de28",
+          "articleId": "0904"
+        },
+        {
+          "legacyId": "kit-5a3aec3c7dc6",
+          "entityId": "kit.kit-5a3aec3c7dc6",
+          "articleId": "0909"
+        },
+        {
+          "legacyId": "kit-5b78887af5df",
+          "entityId": "kit.kit-5b78887af5df",
+          "articleId": "0924"
+        },
+        {
+          "legacyId": "kit-6ef47b8c439a",
+          "entityId": "kit.kit-6ef47b8c439a",
+          "articleId": "0906"
+        },
+        {
+          "legacyId": "kit-860ff885b052",
+          "entityId": "kit.kit-860ff885b052",
+          "articleId": "0923"
+        },
+        {
+          "legacyId": "kit-8c0d63bd85f8",
+          "entityId": "kit.kit-8c0d63bd85f8",
+          "articleId": "0915"
+        },
+        {
+          "legacyId": "kit-9fbf8e38605a",
+          "entityId": "kit.kit-9fbf8e38605a",
+          "articleId": "0920"
+        },
+        {
+          "legacyId": "kit-a88641f62556",
+          "entityId": "kit.kit-a88641f62556",
+          "articleId": "0911"
+        },
+        {
+          "legacyId": "kit-b6316738ad7e",
+          "entityId": "kit.kit-b6316738ad7e",
+          "articleId": "0908"
+        },
+        {
+          "legacyId": "kit-be068c7ce121",
+          "entityId": "kit.kit-be068c7ce121",
+          "articleId": "0919"
+        },
+        {
+          "legacyId": "kit-c084a8383cc6",
+          "entityId": "kit.kit-c084a8383cc6",
+          "articleId": "0912"
+        },
+        {
+          "legacyId": "kit-c0b5e01eab83",
+          "entityId": "kit.kit-c0b5e01eab83",
+          "articleId": "0918"
+        },
+        {
+          "legacyId": "kit-ca0299accfad",
+          "entityId": "kit.kit-ca0299accfad",
+          "articleId": "0913"
+        },
+        {
+          "legacyId": "kit-d79a75b7ea5c",
+          "entityId": "kit.kit-d79a75b7ea5c",
+          "articleId": "0903"
+        }
+      ],
+      "projects": [
+        {
+          "legacyId": "1601",
+          "entityId": "project.1601",
+          "articleId": "1601"
+        },
+        {
+          "legacyId": "1602",
+          "entityId": "project.1602",
+          "articleId": "1602"
+        },
+        {
+          "legacyId": "1603",
+          "entityId": "project.1603",
+          "articleId": "1603"
+        },
+        {
+          "legacyId": "1604",
+          "entityId": "project.1604",
+          "articleId": "1604"
+        },
+        {
+          "legacyId": "1605",
+          "entityId": "project.1605",
+          "articleId": "1605"
+        },
+        {
+          "legacyId": "1606",
+          "entityId": "project.1606",
+          "articleId": "1606"
+        },
+        {
+          "legacyId": "1607",
+          "entityId": "project.1607",
+          "articleId": "1607"
+        },
+        {
+          "legacyId": "1608",
+          "entityId": "project.1608",
+          "articleId": "1608"
+        },
+        {
+          "legacyId": "1609",
+          "entityId": "project.1609",
+          "articleId": "1609"
+        },
+        {
+          "legacyId": "1610",
+          "entityId": "project.1610",
+          "articleId": "1610"
+        },
+        {
+          "legacyId": "1611",
+          "entityId": "project.1611",
+          "articleId": "1611"
+        },
+        {
+          "legacyId": "1612",
+          "entityId": "project.1612",
+          "articleId": "1612"
+        },
+        {
+          "legacyId": "1613",
+          "entityId": "project.1613",
+          "articleId": "1613"
+        },
+        {
+          "legacyId": "1614",
+          "entityId": "project.1614",
+          "articleId": "1614"
+        },
+        {
+          "legacyId": "1615",
+          "entityId": "project.1615",
+          "articleId": "1615"
+        },
+        {
+          "legacyId": "1616",
+          "entityId": "project.1616",
+          "articleId": "1616"
+        },
+        {
+          "legacyId": "1617",
+          "entityId": "project.1617",
+          "articleId": "1617"
+        },
+        {
+          "legacyId": "1618",
+          "entityId": "project.1618",
+          "articleId": "1618"
+        },
+        {
+          "legacyId": "1619",
+          "entityId": "project.1619",
+          "articleId": "1619"
+        }
+      ],
+      "items": [
+        {
+          "legacyCollectionId": "1801",
+          "articleId": "1801",
+          "entityIds": [
+            "item.1801.01",
+            "item.1801.02",
+            "item.1801.03"
+          ]
+        },
+        {
+          "legacyCollectionId": "1802",
+          "articleId": "1802",
+          "entityIds": [
+            "item.1802.01",
+            "item.1802.02",
+            "item.1802.03",
+            "item.1802.04",
+            "item.1802.05",
+            "item.1802.06",
+            "item.1802.07",
+            "item.1802.08",
+            "item.1802.09",
+            "item.1802.10",
+            "item.1802.11",
+            "item.1802.12"
+          ]
+        },
+        {
+          "legacyCollectionId": "1803",
+          "articleId": "1803",
+          "entityIds": [
+            "item.1803.01",
+            "item.1803.02",
+            "item.1803.03",
+            "item.1803.04",
+            "item.1803.05",
+            "item.1803.06",
+            "item.1803.07",
+            "item.1803.08"
+          ]
+        },
+        {
+          "legacyCollectionId": "1804",
+          "articleId": "1804",
+          "entityIds": [
+            "item.1804.01",
+            "item.1804.02",
+            "item.1804.03",
+            "item.1804.04",
+            "item.1804.05"
+          ]
+        },
+        {
+          "legacyCollectionId": "1805",
+          "articleId": "1805",
+          "entityIds": [
+            "item.1805.01",
+            "item.1805.02"
+          ]
+        },
+        {
+          "legacyCollectionId": "1806",
+          "articleId": "1806",
+          "entityIds": [
+            "item.1806.01",
+            "item.1806.02",
+            "item.1806.03",
+            "item.1806.04",
+            "item.1806.05",
+            "item.1806.06",
+            "item.1806.07",
+            "item.1806.08",
+            "item.1806.09",
+            "item.1806.10",
+            "item.1806.11",
+            "item.1806.12",
+            "item.1806.13",
+            "item.1806.14"
+          ]
+        },
+        {
+          "legacyCollectionId": "1807",
+          "articleId": "1807",
+          "entityIds": [
+            "item.1807.01",
+            "item.1807.02",
+            "item.1807.03",
+            "item.1807.04",
+            "item.1807.05",
+            "item.1807.06",
+            "item.1807.07",
+            "item.1807.08",
+            "item.1807.09"
+          ]
+        },
+        {
+          "legacyCollectionId": "1808",
+          "articleId": "1808",
+          "entityIds": [
+            "item.1808.01",
+            "item.1808.02",
+            "item.1808.03",
+            "item.1808.04",
+            "item.1808.05",
+            "item.1808.06",
+            "item.1808.07",
+            "item.1808.08"
+          ]
+        },
+        {
+          "legacyCollectionId": "1809",
+          "articleId": "1809",
+          "entityIds": [
+            "item.1809.01",
+            "item.1809.02",
+            "item.1809.03",
+            "item.1809.04"
+          ]
+        },
+        {
+          "legacyCollectionId": "1810",
+          "articleId": "1810",
+          "entityIds": [
+            "item.1810.01",
+            "item.1810.02",
+            "item.1810.03",
+            "item.1810.04",
+            "item.1810.05",
+            "item.1810.06",
+            "item.1810.07",
+            "item.1810.08",
+            "item.1810.09",
+            "item.1810.10"
+          ]
+        },
+        {
+          "legacyCollectionId": "1811",
+          "articleId": "1811",
+          "entityIds": [
+            "item.1811.01",
+            "item.1811.02",
+            "item.1811.03",
+            "item.1811.04",
+            "item.1811.05",
+            "item.1811.06"
+          ]
+        },
+        {
+          "legacyCollectionId": "1812",
+          "articleId": "1812",
+          "entityIds": [
+            "item.1812.01",
+            "item.1812.02",
+            "item.1812.03",
+            "item.1812.04",
+            "item.1812.05",
+            "item.1812.06",
+            "item.1812.07",
+            "item.1812.08",
+            "item.1812.09",
+            "item.1812.10",
+            "item.1812.11",
+            "item.1812.12",
+            "item.1812.13",
+            "item.1812.14"
+          ]
+        },
+        {
+          "legacyCollectionId": "1813",
+          "articleId": "1813",
+          "entityIds": [
+            "item.1813.01",
+            "item.1813.02",
+            "item.1813.03",
+            "item.1813.04",
+            "item.1813.05"
+          ]
+        }
+      ],
+      "titles": [
+        {
+          "legacyCollectionId": "1901",
+          "articleId": "1901",
+          "entityIds": [
+            "title.1901.01",
+            "title.1901.02",
+            "title.1901.03",
+            "title.1901.04",
+            "title.1901.05",
+            "title.1901.06",
+            "title.1901.07",
+            "title.1901.08",
+            "title.1901.09",
+            "title.1901.10",
+            "title.1901.11",
+            "title.1901.12",
+            "title.1901.13",
+            "title.1901.14",
+            "title.1901.15",
+            "title.1901.16",
+            "title.1901.17",
+            "title.1901.18",
+            "title.1901.19",
+            "title.1901.20"
+          ]
+        },
+        {
+          "legacyCollectionId": "1902",
+          "articleId": "1902",
+          "entityIds": [
+            "title.1902.01",
+            "title.1902.02",
+            "title.1902.03",
+            "title.1902.04",
+            "title.1902.05",
+            "title.1902.06",
+            "title.1902.07",
+            "title.1902.08",
+            "title.1902.09",
+            "title.1902.10",
+            "title.1902.11",
+            "title.1902.12",
+            "title.1902.13",
+            "title.1902.14",
+            "title.1902.15",
+            "title.1902.16"
+          ]
+        },
+        {
+          "legacyCollectionId": "1903",
+          "articleId": "1903",
+          "entityIds": [
+            "title.1903.01",
+            "title.1903.02",
+            "title.1903.03",
+            "title.1903.04",
+            "title.1903.05",
+            "title.1903.06",
+            "title.1903.07",
+            "title.1903.08",
+            "title.1903.09",
+            "title.1903.10",
+            "title.1903.11",
+            "title.1903.12",
+            "title.1903.13"
+          ]
+        },
+        {
+          "legacyCollectionId": "1904",
+          "articleId": "1904",
+          "entityIds": [
+            "title.1904.01",
+            "title.1904.02",
+            "title.1904.03",
+            "title.1904.04",
+            "title.1904.05",
+            "title.1904.06",
+            "title.1904.07",
+            "title.1904.08",
+            "title.1904.09",
+            "title.1904.10"
+          ]
+        }
+      ],
+      "ancestrySpecies": [
+        {
+          "articleId": "0402",
+          "entityId": "ancestry.0402",
+          "name": "Дьявол"
+        },
+        {
+          "articleId": "0403",
+          "entityId": "ancestry.0403",
+          "name": "Драконий Рыцарь"
+        },
+        {
+          "articleId": "0404",
+          "entityId": "ancestry.0404",
+          "name": "Дварф"
+        },
+        {
+          "articleId": "0405",
+          "entityId": "ancestry.0405",
+          "name": "Лесной Эльф"
+        },
+        {
+          "articleId": "0406",
+          "entityId": "ancestry.0406",
+          "name": "Высший Эльф"
+        },
+        {
+          "articleId": "0407",
+          "entityId": "ancestry.0407",
+          "name": "Хакаан"
+        },
+        {
+          "articleId": "0408",
+          "entityId": "ancestry.0408",
+          "name": "Человек"
+        },
+        {
+          "articleId": "0409",
+          "entityId": "ancestry.0409",
+          "name": "Меманек"
+        },
+        {
+          "articleId": "0410",
+          "entityId": "ancestry.0410",
+          "name": "Орк"
+        },
+        {
+          "articleId": "0411",
+          "entityId": "ancestry.0411",
+          "name": "Полдер"
+        },
+        {
+          "articleId": "0412",
+          "entityId": "ancestry.0412",
+          "name": "Ревенант"
+        },
+        {
+          "articleId": "0413",
+          "entityId": "ancestry.0413",
+          "name": "Рейдер Времени"
+        },
+        {
+          "articleId": "0414",
+          "entityId": "ancestry.0414",
+          "name": "Таурус"
+        },
+        {
+          "articleId": "0415",
+          "entityId": "ancestry.0415",
+          "name": "Ящер"
+        }
+      ],
+      "classes": [
+        {
+          "articleId": "0801",
+          "entityId": "class.0801",
+          "name": "Неистовый",
+          "hasText": true
+        },
+        {
+          "articleId": "0811",
+          "entityId": "class.0811",
+          "name": "Нуль",
+          "hasText": true
+        },
+        {
+          "articleId": "0821",
+          "entityId": "class.0821",
+          "name": "Призыватель",
+          "hasText": false
+        },
+        {
+          "articleId": "0831",
+          "entityId": "class.0831",
+          "name": "Проводник",
+          "hasText": true
+        },
+        {
+          "articleId": "0841",
+          "entityId": "class.0841",
+          "name": "Тактик",
+          "hasText": true
+        },
+        {
+          "articleId": "0851",
+          "entityId": "class.0851",
+          "name": "Талант",
+          "hasText": true
+        },
+        {
+          "articleId": "0861",
+          "entityId": "class.0861",
+          "name": "Тень",
+          "hasText": true
+        },
+        {
+          "articleId": "0871",
+          "entityId": "class.0871",
+          "name": "Трубадур",
+          "hasText": true
+        },
+        {
+          "articleId": "0881",
+          "entityId": "class.0881",
+          "name": "Цензор",
+          "hasText": true
+        },
+        {
+          "articleId": "0891",
+          "entityId": "class.0891",
+          "name": "Элементалист",
+          "hasText": true
+        }
+      ],
+      "careers": [
+        {
+          "articleId": "0601",
+          "entityId": "career.0601",
+          "name": "Агент"
+        },
+        {
+          "articleId": "0602",
+          "entityId": "career.0602",
+          "name": "Аристократ"
+        },
+        {
+          "articleId": "0603",
+          "entityId": "career.0603",
+          "name": "Гладиатор"
+        },
+        {
+          "articleId": "0604",
+          "entityId": "career.0604",
+          "name": "Исследователь"
+        },
+        {
+          "articleId": "0605",
+          "entityId": "career.0605",
+          "name": "Исполнитель"
+        },
+        {
+          "articleId": "0606",
+          "entityId": "career.0606",
+          "name": "Лесничий"
+        },
+        {
+          "articleId": "0607",
+          "entityId": "career.0607",
+          "name": "Моряк"
+        },
+        {
+          "articleId": "0608",
+          "entityId": "career.0608",
+          "name": "Мудрец"
+        },
+        {
+          "articleId": "0609",
+          "entityId": "career.0609",
+          "name": "Нищий"
+        },
+        {
+          "articleId": "0610",
+          "entityId": "career.0610",
+          "name": "Политик"
+        },
+        {
+          "articleId": "0611",
+          "entityId": "career.0611",
+          "name": "Послушник"
+        },
+        {
+          "articleId": "0612",
+          "entityId": "career.0612",
+          "name": "Преступник"
+        },
+        {
+          "articleId": "0613",
+          "entityId": "career.0613",
+          "name": "Работник"
+        },
+        {
+          "articleId": "0614",
+          "entityId": "career.0614",
+          "name": "Ремесленник"
+        },
+        {
+          "articleId": "0615",
+          "entityId": "career.0615",
+          "name": "Солдат"
+        },
+        {
+          "articleId": "0616",
+          "entityId": "career.0616",
+          "name": "Страж"
+        },
+        {
+          "articleId": "0617",
+          "entityId": "career.0617",
+          "name": "Ученик Мага"
+        },
+        {
+          "articleId": "0618",
+          "entityId": "career.0618",
+          "name": "Фермер"
+        }
+      ],
+      "cultures": [
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.01",
+          "name": "Кочевое"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.02",
+          "name": "Сельское"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.03",
+          "name": "Уединенное"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.04",
+          "name": "Городское"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.05",
+          "name": "Дикая местность"
+        },
+        {
+          "articleId": "0503",
+          "aspect": "culture-organization",
+          "entityId": "culture.0503.01",
+          "name": "Бюрократическая"
+        },
+        {
+          "articleId": "0503",
+          "aspect": "culture-organization",
+          "entityId": "culture.0503.02",
+          "name": "Общинная"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.01",
+          "name": "Академическое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.02",
+          "name": "Творческое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.03",
+          "name": "Трудовое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.04",
+          "name": "Беззаконное"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.05",
+          "name": "Воинское"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.06",
+          "name": "Дворянское"
+        }
+      ],
+      "complications": [
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.01",
+          "name": "1. Аварийная посадка"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.02",
+          "name": "2. Адский контракт"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.03",
+          "name": "3. Адский контракт... но типа плохой"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.04",
+          "name": "4. Амнезия"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.05",
+          "name": "5. Антигерой"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.06",
+          "name": "6. Башня из слоновой кости"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.07",
+          "name": "7. Беглец"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.08",
+          "name": "8. Беженец"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.09",
+          "name": "9. Безмолвный страж"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.10",
+          "name": "10. В долгах"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.11",
+          "name": "11. В поисках лекарства"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.12",
+          "name": "12. Вне закона"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.13",
+          "name": "13. Война убийц"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.14",
+          "name": "14. Всепоглощающий интерес"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.15",
+          "name": "15. Выращенный зверями"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.16",
+          "name": "16. Гневный дух"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.17",
+          "name": "17. Голос в голове"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.18",
+          "name": "18. Драконьи сны"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.19",
+          "name": "19. Душа молнии"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.20",
+          "name": "20. Жертва культа"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.21",
+          "name": "21. Животная форма"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.22",
+          "name": "22. Житель канализации"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.23",
+          "name": "23. Заземленный"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.24",
+          "name": "24. Запретный роман"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.25",
+          "name": "25. Знаменитый родственник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.01",
+          "name": "26. Идущий по лесу"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.02",
+          "name": "27. Идущий по стопам"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.03",
+          "name": "28. Избранный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.04",
+          "name": "29. Изгнанник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.05",
+          "name": "30. Искатель острых ощущений"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.06",
+          "name": "31. Истерзанный гноллами"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.07",
+          "name": "32. Кровь медузы"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.08",
+          "name": "33. Легкий случай ликантропии"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.09",
+          "name": "34. Ледяное сердце"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.10",
+          "name": "35. Лишенный звания"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.11",
+          "name": "36. Медиум"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.12",
+          "name": "37. Многообещающий ученик"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.13",
+          "name": "38. Мошенник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.14",
+          "name": "39. Наездник на ястребе"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.15",
+          "name": "40. Назойливый дворецкий"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.16",
+          "name": "41. Непонятый"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.17",
+          "name": "42. Несправедливо заключенный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.18",
+          "name": "43. Нечистая совесть"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.19",
+          "name": "44. Обет долга"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.20",
+          "name": "45. Обет честности"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.21",
+          "name": "46. Обыденный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.22",
+          "name": "47. Огонь и хаос"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.23",
+          "name": "48. Одиночка"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.24",
+          "name": "49. Озеленение"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.25",
+          "name": "50. Опозоренный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.01",
+          "name": "51. Оскверненный наставник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.02",
+          "name": "52. Охотник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.03",
+          "name": "53. Ошейник боевого пса"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.04",
+          "name": "54. Павший бессмертный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.05",
+          "name": "55. Первородная болезнь"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.06",
+          "name": "56. Пират"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.07",
+          "name": "57. Пламенный идеал"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.08",
+          "name": "58. Пленник Синлирии"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.09",
+          "name": "59. Подопечный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.10",
+          "name": "60. Помолвка"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.11",
+          "name": "61. Потерпевший кораблекрушение"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.12",
+          "name": "62. Потерявший голову"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.13",
+          "name": "63. Потерянный во времени"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.14",
+          "name": "64. Потомок вампира"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.15",
+          "name": "65. Преследуемый"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.16",
+          "name": "66. Продвинутое обучение"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.17",
+          "name": "67. Проклятие бедности"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.18",
+          "name": "68. Проклятие бессмертия"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.19",
+          "name": "69. Проклятие камня"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.20",
+          "name": "70. Проклятие наказания"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.21",
+          "name": "71. Проклятие неудач"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.22",
+          "name": "72. Проклятие осторожности"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.23",
+          "name": "73. Проклятое оружие"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.24",
+          "name": "74. Проповедник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.25",
+          "name": "75. Психический выброс"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.01",
+          "name": "76. Разделенный дух"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.02",
+          "name": "77. Расколотое наследие"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.03",
+          "name": "78. Рожденный в тени"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.04",
+          "name": "79. Рожденный водой"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.05",
+          "name": "80. Самоучка"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.06",
+          "name": "81. Связанные жизни"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.07",
+          "name": "82. Связь с артефактом"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.08",
+          "name": "83. Слишком стар для этого"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.09",
+          "name": "84. Сны наяву"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.10",
+          "name": "85. Соперник"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.11",
+          "name": "86. Странное наследство"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.12",
+          "name": "87. Счастливчик"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.13",
+          "name": "88. Тайная личность"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.14",
+          "name": "89. Тайный близнец"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.15",
+          "name": "90. Тело-носитель"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.16",
+          "name": "91. Тронутый феями"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.17",
+          "name": "92. Тронутый хаосом"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.18",
+          "name": "93. Трус"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.19",
+          "name": "94. Украденное лицо"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.20",
+          "name": "95. Утрата"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.21",
+          "name": "96. Шальной талант"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.22",
+          "name": "97. Шеф-повар"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.23",
+          "name": "98. Щит сиблинга"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.24",
+          "name": "99. Эванесцерия"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.25",
+          "name": "100. Элементаль внутри"
+        }
+      ],
+      "summonerFeatures": [],
+      "kit0924": [
+        {
+          "legacyId": "kit-5b78887af5df",
+          "entityId": "kit.kit-5b78887af5df",
+          "articleId": "0924"
+        }
+      ]
+    },
+    "unsupportedNested": [
+      {
+        "articleId": "1617",
+        "entityId": "project.1617",
+        "entityKind": "project",
+        "name": "Драконье Пламя",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1619",
+        "entityId": "project.1619",
+        "entityKind": "project",
+        "name": "Нова",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1619",
+        "entityId": "project.1619",
+        "entityKind": "project",
+        "name": "Стой, Где Стоишь",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1804",
+        "entityId": "item.1804.03",
+        "entityKind": "item",
+        "name": "Поле Галлюцинации",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1804",
+        "entityId": "item.1804.04",
+        "entityKind": "item",
+        "name": "Удар Нулевого Кольца",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1901",
+        "entityId": "title.1901.15",
+        "entityKind": "title",
+        "name": "Выходи Играть",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1901",
+        "entityId": "title.1901.20",
+        "entityKind": "title",
+        "name": "Священный Ужас",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1902",
+        "entityId": "title.1902.03",
+        "entityKind": "title",
+        "name": "В Атаку!",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1902",
+        "entityId": "title.1902.01",
+        "entityKind": "title",
+        "name": "Коронный Прием",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1902",
+        "entityId": "title.1902.11",
+        "entityKind": "title",
+        "name": "Рыцарский Вызов",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1902",
+        "entityId": "title.1902.10",
+        "entityKind": "title",
+        "name": "Своевременное Отвлечение",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1902",
+        "entityId": "title.1902.08",
+        "entityKind": "title",
+        "name": "Чем Крупнее — Тем Громче Падает",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      },
+      {
+        "articleId": "1903",
+        "entityId": "title.1903.07",
+        "entityKind": "title",
+        "name": "Дьявольский Аккорд",
+        "reason": "nested-structured-block-inside-entity; RuleEntity has no nested entity blocks"
+      }
+    ],
+    "inlinedAbilityBlocks": [
+      {
+        "articleId": "0924",
+        "entityId": "kit.kit-5b78887af5df",
+        "name": "Аспект Дикой Природы",
+        "reason": "ability-card-inlined-into-composite-kit-markdown"
+      },
+      {
+        "articleId": "0924",
+        "entityId": "kit.kit-5b78887af5df",
+        "name": "Взмах Крыльев",
+        "reason": "ability-card-inlined-into-composite-kit-markdown"
+      },
+      {
+        "articleId": "0924",
+        "entityId": "kit.kit-5b78887af5df",
+        "name": "Медвежьи Когти",
+        "reason": "ability-card-inlined-into-composite-kit-markdown"
+      },
+      {
+        "articleId": "0924",
+        "entityId": "kit.kit-5b78887af5df",
+        "name": "Сносящая Атака",
+        "reason": "ability-card-inlined-into-composite-kit-markdown"
+      },
+      {
+        "articleId": "0924",
+        "entityId": "kit.kit-5b78887af5df",
+        "name": "Стремительный Наскок",
+        "reason": "ability-card-inlined-into-composite-kit-markdown"
+      }
+    ],
+    "gaps": [
+      {
+        "kind": "feature",
+        "className": "Призыватель",
+        "articleIds": [
+          "0821",
+          "0822",
+          "0823",
+          "0824",
+          "0825",
+          "0826",
+          "0827",
+          "0828",
+          "0829",
+          "0830"
+        ],
+        "reason": "source-articles-empty; legacy class-features has no Призыватель rows, so no feature text can be extracted without inventing rules"
+      },
+      {
+        "kind": "career",
+        "reason": "no chapter-06 overview table in canonical articles; renown and wealth are read only from explicit **Известность**/**Богатство** lines, missing values mean 0"
+      }
+    ],
+    "stageThree": {
+      "generatedBy": "scripts/content/migrate-entities.mjs",
+      "fieldEncoding": {
+        "class": [
+          "#### Сводка — первый абзац статьи 1-го уровня (summary)",
+          "#### Основы — текст до «## Особенности 1-го уровня» без таблицы развития (basics)",
+          "#### Особенности 1-го уровня — особенности статьи; исходные #### стали #####, вложенные ##### стали ###### (features, featureChoices, subclasses)"
+        ],
+        "career": [
+          "Весь Markdown статьи 0601–0618: выгоды до первого '---', затем таблица d6 инцидентов",
+          "**Известность** и **Богатство** — явные строки статьи; отсутствие строки означает 0"
+        ],
+        "culture": [
+          "#### <Название> — ровно секция аспекта из статей 0502/0503/0504"
+        ],
+        "complication": [
+          "#### <Номер>. <Название> — ровно секция нюанса из статей 1103–1106"
+        ],
+        "kit0924": [
+          "Полный Markdown статьи 0924 с вложенными карточками способностей (> **...**); статьи ссылаются на сущность одним блоком"
+        ],
+        "summonerFeature": [
+          "####/##### <Название> — секция статьи уровня Призывателя; сейчас не создаются, потому что статьи 0821–0830 пусты"
+        ]
+      },
+      "coverage": {
+        "classes": {
+          "mapped": 10,
+          "total": 10,
+          "withText": 9
+        },
+        "careers": {
+          "mapped": 18,
+          "total": 18
+        },
+        "cultures": {
+          "mapped": 13,
+          "total": 13,
+          "environment": 5,
+          "organization": 2,
+          "upbringing": 6
+        },
+        "complications": {
+          "mapped": 100,
+          "total": 100,
+          "sourceArticles": 4
+        },
+        "summonerFeatures": {
+          "mapped": 0,
+          "total": 0,
+          "sourceArticles": 10
+        },
+        "kits0924": {
+          "mapped": 1,
+          "total": 1
+        }
+      },
+      "mappings": {
+        "classes": [
+          {
+            "articleId": "0801",
+            "entityId": "class.0801",
+            "name": "Неистовый",
+            "hasText": true
+          },
+          {
+            "articleId": "0811",
+            "entityId": "class.0811",
+            "name": "Нуль",
+            "hasText": true
+          },
+          {
+            "articleId": "0821",
+            "entityId": "class.0821",
+            "name": "Призыватель",
+            "hasText": false
+          },
+          {
+            "articleId": "0831",
+            "entityId": "class.0831",
+            "name": "Проводник",
+            "hasText": true
+          },
+          {
+            "articleId": "0841",
+            "entityId": "class.0841",
+            "name": "Тактик",
+            "hasText": true
+          },
+          {
+            "articleId": "0851",
+            "entityId": "class.0851",
+            "name": "Талант",
+            "hasText": true
+          },
+          {
+            "articleId": "0861",
+            "entityId": "class.0861",
+            "name": "Тень",
+            "hasText": true
+          },
+          {
+            "articleId": "0871",
+            "entityId": "class.0871",
+            "name": "Трубадур",
+            "hasText": true
+          },
+          {
+            "articleId": "0881",
+            "entityId": "class.0881",
+            "name": "Цензор",
+            "hasText": true
+          },
+          {
+            "articleId": "0891",
+            "entityId": "class.0891",
+            "name": "Элементалист",
+            "hasText": true
+          }
+        ],
+        "careers": [
+          {
+            "articleId": "0601",
+            "entityId": "career.0601",
+            "name": "Агент"
+          },
+          {
+            "articleId": "0602",
+            "entityId": "career.0602",
+            "name": "Аристократ"
+          },
+          {
+            "articleId": "0603",
+            "entityId": "career.0603",
+            "name": "Гладиатор"
+          },
+          {
+            "articleId": "0604",
+            "entityId": "career.0604",
+            "name": "Исследователь"
+          },
+          {
+            "articleId": "0605",
+            "entityId": "career.0605",
+            "name": "Исполнитель"
+          },
+          {
+            "articleId": "0606",
+            "entityId": "career.0606",
+            "name": "Лесничий"
+          },
+          {
+            "articleId": "0607",
+            "entityId": "career.0607",
+            "name": "Моряк"
+          },
+          {
+            "articleId": "0608",
+            "entityId": "career.0608",
+            "name": "Мудрец"
+          },
+          {
+            "articleId": "0609",
+            "entityId": "career.0609",
+            "name": "Нищий"
+          },
+          {
+            "articleId": "0610",
+            "entityId": "career.0610",
+            "name": "Политик"
+          },
+          {
+            "articleId": "0611",
+            "entityId": "career.0611",
+            "name": "Послушник"
+          },
+          {
+            "articleId": "0612",
+            "entityId": "career.0612",
+            "name": "Преступник"
+          },
+          {
+            "articleId": "0613",
+            "entityId": "career.0613",
+            "name": "Работник"
+          },
+          {
+            "articleId": "0614",
+            "entityId": "career.0614",
+            "name": "Ремесленник"
+          },
+          {
+            "articleId": "0615",
+            "entityId": "career.0615",
+            "name": "Солдат"
+          },
+          {
+            "articleId": "0616",
+            "entityId": "career.0616",
+            "name": "Страж"
+          },
+          {
+            "articleId": "0617",
+            "entityId": "career.0617",
+            "name": "Ученик Мага"
+          },
+          {
+            "articleId": "0618",
+            "entityId": "career.0618",
+            "name": "Фермер"
+          }
+        ],
+        "cultures": [
+          {
+            "articleId": "0502",
+            "aspect": "culture-environment",
+            "entityId": "culture.0502.01",
+            "name": "Кочевое"
+          },
+          {
+            "articleId": "0502",
+            "aspect": "culture-environment",
+            "entityId": "culture.0502.02",
+            "name": "Сельское"
+          },
+          {
+            "articleId": "0502",
+            "aspect": "culture-environment",
+            "entityId": "culture.0502.03",
+            "name": "Уединенное"
+          },
+          {
+            "articleId": "0502",
+            "aspect": "culture-environment",
+            "entityId": "culture.0502.04",
+            "name": "Городское"
+          },
+          {
+            "articleId": "0502",
+            "aspect": "culture-environment",
+            "entityId": "culture.0502.05",
+            "name": "Дикая местность"
+          },
+          {
+            "articleId": "0503",
+            "aspect": "culture-organization",
+            "entityId": "culture.0503.01",
+            "name": "Бюрократическая"
+          },
+          {
+            "articleId": "0503",
+            "aspect": "culture-organization",
+            "entityId": "culture.0503.02",
+            "name": "Общинная"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.01",
+            "name": "Академическое"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.02",
+            "name": "Творческое"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.03",
+            "name": "Трудовое"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.04",
+            "name": "Беззаконное"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.05",
+            "name": "Воинское"
+          },
+          {
+            "articleId": "0504",
+            "aspect": "culture-upbringing",
+            "entityId": "culture.0504.06",
+            "name": "Дворянское"
+          }
+        ],
+        "complications": [
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.01",
+            "name": "1. Аварийная посадка"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.02",
+            "name": "2. Адский контракт"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.03",
+            "name": "3. Адский контракт... но типа плохой"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.04",
+            "name": "4. Амнезия"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.05",
+            "name": "5. Антигерой"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.06",
+            "name": "6. Башня из слоновой кости"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.07",
+            "name": "7. Беглец"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.08",
+            "name": "8. Беженец"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.09",
+            "name": "9. Безмолвный страж"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.10",
+            "name": "10. В долгах"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.11",
+            "name": "11. В поисках лекарства"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.12",
+            "name": "12. Вне закона"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.13",
+            "name": "13. Война убийц"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.14",
+            "name": "14. Всепоглощающий интерес"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.15",
+            "name": "15. Выращенный зверями"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.16",
+            "name": "16. Гневный дух"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.17",
+            "name": "17. Голос в голове"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.18",
+            "name": "18. Драконьи сны"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.19",
+            "name": "19. Душа молнии"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.20",
+            "name": "20. Жертва культа"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.21",
+            "name": "21. Животная форма"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.22",
+            "name": "22. Житель канализации"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.23",
+            "name": "23. Заземленный"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.24",
+            "name": "24. Запретный роман"
+          },
+          {
+            "articleId": "1103",
+            "entityId": "complication.1103.25",
+            "name": "25. Знаменитый родственник"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.01",
+            "name": "26. Идущий по лесу"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.02",
+            "name": "27. Идущий по стопам"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.03",
+            "name": "28. Избранный"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.04",
+            "name": "29. Изгнанник"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.05",
+            "name": "30. Искатель острых ощущений"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.06",
+            "name": "31. Истерзанный гноллами"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.07",
+            "name": "32. Кровь медузы"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.08",
+            "name": "33. Легкий случай ликантропии"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.09",
+            "name": "34. Ледяное сердце"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.10",
+            "name": "35. Лишенный звания"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.11",
+            "name": "36. Медиум"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.12",
+            "name": "37. Многообещающий ученик"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.13",
+            "name": "38. Мошенник"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.14",
+            "name": "39. Наездник на ястребе"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.15",
+            "name": "40. Назойливый дворецкий"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.16",
+            "name": "41. Непонятый"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.17",
+            "name": "42. Несправедливо заключенный"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.18",
+            "name": "43. Нечистая совесть"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.19",
+            "name": "44. Обет долга"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.20",
+            "name": "45. Обет честности"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.21",
+            "name": "46. Обыденный"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.22",
+            "name": "47. Огонь и хаос"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.23",
+            "name": "48. Одиночка"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.24",
+            "name": "49. Озеленение"
+          },
+          {
+            "articleId": "1104",
+            "entityId": "complication.1104.25",
+            "name": "50. Опозоренный"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.01",
+            "name": "51. Оскверненный наставник"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.02",
+            "name": "52. Охотник"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.03",
+            "name": "53. Ошейник боевого пса"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.04",
+            "name": "54. Павший бессмертный"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.05",
+            "name": "55. Первородная болезнь"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.06",
+            "name": "56. Пират"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.07",
+            "name": "57. Пламенный идеал"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.08",
+            "name": "58. Пленник Синлирии"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.09",
+            "name": "59. Подопечный"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.10",
+            "name": "60. Помолвка"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.11",
+            "name": "61. Потерпевший кораблекрушение"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.12",
+            "name": "62. Потерявший голову"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.13",
+            "name": "63. Потерянный во времени"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.14",
+            "name": "64. Потомок вампира"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.15",
+            "name": "65. Преследуемый"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.16",
+            "name": "66. Продвинутое обучение"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.17",
+            "name": "67. Проклятие бедности"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.18",
+            "name": "68. Проклятие бессмертия"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.19",
+            "name": "69. Проклятие камня"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.20",
+            "name": "70. Проклятие наказания"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.21",
+            "name": "71. Проклятие неудач"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.22",
+            "name": "72. Проклятие осторожности"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.23",
+            "name": "73. Проклятое оружие"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.24",
+            "name": "74. Проповедник"
+          },
+          {
+            "articleId": "1105",
+            "entityId": "complication.1105.25",
+            "name": "75. Психический выброс"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.01",
+            "name": "76. Разделенный дух"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.02",
+            "name": "77. Расколотое наследие"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.03",
+            "name": "78. Рожденный в тени"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.04",
+            "name": "79. Рожденный водой"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.05",
+            "name": "80. Самоучка"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.06",
+            "name": "81. Связанные жизни"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.07",
+            "name": "82. Связь с артефактом"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.08",
+            "name": "83. Слишком стар для этого"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.09",
+            "name": "84. Сны наяву"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.10",
+            "name": "85. Соперник"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.11",
+            "name": "86. Странное наследство"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.12",
+            "name": "87. Счастливчик"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.13",
+            "name": "88. Тайная личность"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.14",
+            "name": "89. Тайный близнец"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.15",
+            "name": "90. Тело-носитель"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.16",
+            "name": "91. Тронутый феями"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.17",
+            "name": "92. Тронутый хаосом"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.18",
+            "name": "93. Трус"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.19",
+            "name": "94. Украденное лицо"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.20",
+            "name": "95. Утрата"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.21",
+            "name": "96. Шальной талант"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.22",
+            "name": "97. Шеф-повар"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.23",
+            "name": "98. Щит сиблинга"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.24",
+            "name": "99. Эванесцерия"
+          },
+          {
+            "articleId": "1106",
+            "entityId": "complication.1106.25",
+            "name": "100. Элементаль внутри"
+          }
+        ],
+        "summonerFeatures": [],
+        "kit0924": [
+          {
+            "legacyId": "kit-5b78887af5df",
+            "entityId": "kit.kit-5b78887af5df",
+            "articleId": "0924"
+          }
+        ]
+      },
+      "gaps": [
+        {
+          "kind": "feature",
+          "className": "Призыватель",
+          "articleIds": [
+            "0821",
+            "0822",
+            "0823",
+            "0824",
+            "0825",
+            "0826",
+            "0827",
+            "0828",
+            "0829",
+            "0830"
+          ],
+          "reason": "source-articles-empty; legacy class-features has no Призыватель rows, so no feature text can be extracted without inventing rules"
+        },
+        {
+          "kind": "career",
+          "reason": "no chapter-06 overview table in canonical articles; renown and wealth are read only from explicit **Известность**/**Богатство** lines, missing values mean 0"
+        }
+      ],
+      "deferred": []
+    },
+    "deferred": [],
+    "notes": [
+      "Stage two: комплекты (включая составной «Буревестник» 0924), сокровища, проекты, титулы и виды происхождений выделены в сущности из текущего канонического дерева.",
+      "Новые технические имена и каталоги — английские; исходные русские названия и пути сохранены в name, source.path и Markdown.",
+      "Идентификаторы сокровищ и титулов основаны на статье-источнике и порядке записи, поэтому переименование отображаемого названия не меняет ID.",
+      "Вложенные структурированные блоки внутри сокровищ, проектов и титулов остаются частью этих сущностей: схема не поддерживает вложенные сущности.",
+      "Stage three: классы, карьеры, культуры и нюансы — сущности конструктора; статьи читаются через них, кроме классов-агрегатов.",
+      "Класс-сущность — агрегат статьи 1-го уровня: сводка, основы и особенности под заголовками `#### Сводка`, `#### Основы`, `#### Особенности 1-го уровня`. Она не подменяет блоки статьи, чтобы не терять ссылки на особенности и способности; проекция собирает поле features из раздела «Особенности 1-го уровня».",
+      "Каталог `culture-environment` / `culture-organization` / `culture-upbringing` повторяет аспекты культуры из статей 0502–0504.",
+      "Известность и богатство карьеры берутся только из явных строк `**Известность**` и `**Богатство**` в статье; отсутствие строки означает 0 (как в прежнем конструкторе). Отдельной обзорной таблицы глав 06 в канонических статьях нет."
+    ]
+  },
+  "stageThree": {
+    "generatedBy": "scripts/content/migrate-entities.mjs",
+    "fieldEncoding": {
+      "class": [
+        "#### Сводка — первый абзац статьи 1-го уровня (summary)",
+        "#### Основы — текст до «## Особенности 1-го уровня» без таблицы развития (basics)",
+        "#### Особенности 1-го уровня — особенности статьи; исходные #### стали #####, вложенные ##### стали ###### (features, featureChoices, subclasses)"
+      ],
+      "career": [
+        "Весь Markdown статьи 0601–0618: выгоды до первого '---', затем таблица d6 инцидентов",
+        "**Известность** и **Богатство** — явные строки статьи; отсутствие строки означает 0"
+      ],
+      "culture": [
+        "#### <Название> — ровно секция аспекта из статей 0502/0503/0504"
+      ],
+      "complication": [
+        "#### <Номер>. <Название> — ровно секция нюанса из статей 1103–1106"
+      ],
+      "kit0924": [
+        "Полный Markdown статьи 0924 с вложенными карточками способностей (> **...**); статьи ссылаются на сущность одним блоком"
+      ],
+      "summonerFeature": [
+        "####/##### <Название> — секция статьи уровня Призывателя; сейчас не создаются, потому что статьи 0821–0830 пусты"
+      ]
+    },
+    "coverage": {
+      "classes": {
+        "mapped": 10,
+        "total": 10,
+        "withText": 9
+      },
+      "careers": {
+        "mapped": 18,
+        "total": 18
+      },
+      "cultures": {
+        "mapped": 13,
+        "total": 13,
+        "environment": 5,
+        "organization": 2,
+        "upbringing": 6
+      },
+      "complications": {
+        "mapped": 100,
+        "total": 100,
+        "sourceArticles": 4
+      },
+      "summonerFeatures": {
+        "mapped": 0,
+        "total": 0,
+        "sourceArticles": 10
+      },
+      "kits0924": {
+        "mapped": 1,
+        "total": 1
+      }
+    },
+    "mappings": {
+      "classes": [
+        {
+          "articleId": "0801",
+          "entityId": "class.0801",
+          "name": "Неистовый",
+          "hasText": true
+        },
+        {
+          "articleId": "0811",
+          "entityId": "class.0811",
+          "name": "Нуль",
+          "hasText": true
+        },
+        {
+          "articleId": "0821",
+          "entityId": "class.0821",
+          "name": "Призыватель",
+          "hasText": false
+        },
+        {
+          "articleId": "0831",
+          "entityId": "class.0831",
+          "name": "Проводник",
+          "hasText": true
+        },
+        {
+          "articleId": "0841",
+          "entityId": "class.0841",
+          "name": "Тактик",
+          "hasText": true
+        },
+        {
+          "articleId": "0851",
+          "entityId": "class.0851",
+          "name": "Талант",
+          "hasText": true
+        },
+        {
+          "articleId": "0861",
+          "entityId": "class.0861",
+          "name": "Тень",
+          "hasText": true
+        },
+        {
+          "articleId": "0871",
+          "entityId": "class.0871",
+          "name": "Трубадур",
+          "hasText": true
+        },
+        {
+          "articleId": "0881",
+          "entityId": "class.0881",
+          "name": "Цензор",
+          "hasText": true
+        },
+        {
+          "articleId": "0891",
+          "entityId": "class.0891",
+          "name": "Элементалист",
+          "hasText": true
+        }
+      ],
+      "careers": [
+        {
+          "articleId": "0601",
+          "entityId": "career.0601",
+          "name": "Агент"
+        },
+        {
+          "articleId": "0602",
+          "entityId": "career.0602",
+          "name": "Аристократ"
+        },
+        {
+          "articleId": "0603",
+          "entityId": "career.0603",
+          "name": "Гладиатор"
+        },
+        {
+          "articleId": "0604",
+          "entityId": "career.0604",
+          "name": "Исследователь"
+        },
+        {
+          "articleId": "0605",
+          "entityId": "career.0605",
+          "name": "Исполнитель"
+        },
+        {
+          "articleId": "0606",
+          "entityId": "career.0606",
+          "name": "Лесничий"
+        },
+        {
+          "articleId": "0607",
+          "entityId": "career.0607",
+          "name": "Моряк"
+        },
+        {
+          "articleId": "0608",
+          "entityId": "career.0608",
+          "name": "Мудрец"
+        },
+        {
+          "articleId": "0609",
+          "entityId": "career.0609",
+          "name": "Нищий"
+        },
+        {
+          "articleId": "0610",
+          "entityId": "career.0610",
+          "name": "Политик"
+        },
+        {
+          "articleId": "0611",
+          "entityId": "career.0611",
+          "name": "Послушник"
+        },
+        {
+          "articleId": "0612",
+          "entityId": "career.0612",
+          "name": "Преступник"
+        },
+        {
+          "articleId": "0613",
+          "entityId": "career.0613",
+          "name": "Работник"
+        },
+        {
+          "articleId": "0614",
+          "entityId": "career.0614",
+          "name": "Ремесленник"
+        },
+        {
+          "articleId": "0615",
+          "entityId": "career.0615",
+          "name": "Солдат"
+        },
+        {
+          "articleId": "0616",
+          "entityId": "career.0616",
+          "name": "Страж"
+        },
+        {
+          "articleId": "0617",
+          "entityId": "career.0617",
+          "name": "Ученик Мага"
+        },
+        {
+          "articleId": "0618",
+          "entityId": "career.0618",
+          "name": "Фермер"
+        }
+      ],
+      "cultures": [
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.01",
+          "name": "Кочевое"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.02",
+          "name": "Сельское"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.03",
+          "name": "Уединенное"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.04",
+          "name": "Городское"
+        },
+        {
+          "articleId": "0502",
+          "aspect": "culture-environment",
+          "entityId": "culture.0502.05",
+          "name": "Дикая местность"
+        },
+        {
+          "articleId": "0503",
+          "aspect": "culture-organization",
+          "entityId": "culture.0503.01",
+          "name": "Бюрократическая"
+        },
+        {
+          "articleId": "0503",
+          "aspect": "culture-organization",
+          "entityId": "culture.0503.02",
+          "name": "Общинная"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.01",
+          "name": "Академическое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.02",
+          "name": "Творческое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.03",
+          "name": "Трудовое"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.04",
+          "name": "Беззаконное"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.05",
+          "name": "Воинское"
+        },
+        {
+          "articleId": "0504",
+          "aspect": "culture-upbringing",
+          "entityId": "culture.0504.06",
+          "name": "Дворянское"
+        }
+      ],
+      "complications": [
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.01",
+          "name": "1. Аварийная посадка"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.02",
+          "name": "2. Адский контракт"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.03",
+          "name": "3. Адский контракт... но типа плохой"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.04",
+          "name": "4. Амнезия"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.05",
+          "name": "5. Антигерой"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.06",
+          "name": "6. Башня из слоновой кости"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.07",
+          "name": "7. Беглец"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.08",
+          "name": "8. Беженец"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.09",
+          "name": "9. Безмолвный страж"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.10",
+          "name": "10. В долгах"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.11",
+          "name": "11. В поисках лекарства"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.12",
+          "name": "12. Вне закона"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.13",
+          "name": "13. Война убийц"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.14",
+          "name": "14. Всепоглощающий интерес"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.15",
+          "name": "15. Выращенный зверями"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.16",
+          "name": "16. Гневный дух"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.17",
+          "name": "17. Голос в голове"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.18",
+          "name": "18. Драконьи сны"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.19",
+          "name": "19. Душа молнии"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.20",
+          "name": "20. Жертва культа"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.21",
+          "name": "21. Животная форма"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.22",
+          "name": "22. Житель канализации"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.23",
+          "name": "23. Заземленный"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.24",
+          "name": "24. Запретный роман"
+        },
+        {
+          "articleId": "1103",
+          "entityId": "complication.1103.25",
+          "name": "25. Знаменитый родственник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.01",
+          "name": "26. Идущий по лесу"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.02",
+          "name": "27. Идущий по стопам"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.03",
+          "name": "28. Избранный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.04",
+          "name": "29. Изгнанник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.05",
+          "name": "30. Искатель острых ощущений"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.06",
+          "name": "31. Истерзанный гноллами"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.07",
+          "name": "32. Кровь медузы"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.08",
+          "name": "33. Легкий случай ликантропии"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.09",
+          "name": "34. Ледяное сердце"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.10",
+          "name": "35. Лишенный звания"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.11",
+          "name": "36. Медиум"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.12",
+          "name": "37. Многообещающий ученик"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.13",
+          "name": "38. Мошенник"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.14",
+          "name": "39. Наездник на ястребе"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.15",
+          "name": "40. Назойливый дворецкий"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.16",
+          "name": "41. Непонятый"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.17",
+          "name": "42. Несправедливо заключенный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.18",
+          "name": "43. Нечистая совесть"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.19",
+          "name": "44. Обет долга"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.20",
+          "name": "45. Обет честности"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.21",
+          "name": "46. Обыденный"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.22",
+          "name": "47. Огонь и хаос"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.23",
+          "name": "48. Одиночка"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.24",
+          "name": "49. Озеленение"
+        },
+        {
+          "articleId": "1104",
+          "entityId": "complication.1104.25",
+          "name": "50. Опозоренный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.01",
+          "name": "51. Оскверненный наставник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.02",
+          "name": "52. Охотник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.03",
+          "name": "53. Ошейник боевого пса"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.04",
+          "name": "54. Павший бессмертный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.05",
+          "name": "55. Первородная болезнь"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.06",
+          "name": "56. Пират"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.07",
+          "name": "57. Пламенный идеал"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.08",
+          "name": "58. Пленник Синлирии"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.09",
+          "name": "59. Подопечный"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.10",
+          "name": "60. Помолвка"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.11",
+          "name": "61. Потерпевший кораблекрушение"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.12",
+          "name": "62. Потерявший голову"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.13",
+          "name": "63. Потерянный во времени"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.14",
+          "name": "64. Потомок вампира"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.15",
+          "name": "65. Преследуемый"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.16",
+          "name": "66. Продвинутое обучение"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.17",
+          "name": "67. Проклятие бедности"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.18",
+          "name": "68. Проклятие бессмертия"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.19",
+          "name": "69. Проклятие камня"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.20",
+          "name": "70. Проклятие наказания"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.21",
+          "name": "71. Проклятие неудач"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.22",
+          "name": "72. Проклятие осторожности"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.23",
+          "name": "73. Проклятое оружие"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.24",
+          "name": "74. Проповедник"
+        },
+        {
+          "articleId": "1105",
+          "entityId": "complication.1105.25",
+          "name": "75. Психический выброс"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.01",
+          "name": "76. Разделенный дух"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.02",
+          "name": "77. Расколотое наследие"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.03",
+          "name": "78. Рожденный в тени"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.04",
+          "name": "79. Рожденный водой"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.05",
+          "name": "80. Самоучка"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.06",
+          "name": "81. Связанные жизни"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.07",
+          "name": "82. Связь с артефактом"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.08",
+          "name": "83. Слишком стар для этого"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.09",
+          "name": "84. Сны наяву"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.10",
+          "name": "85. Соперник"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.11",
+          "name": "86. Странное наследство"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.12",
+          "name": "87. Счастливчик"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.13",
+          "name": "88. Тайная личность"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.14",
+          "name": "89. Тайный близнец"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.15",
+          "name": "90. Тело-носитель"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.16",
+          "name": "91. Тронутый феями"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.17",
+          "name": "92. Тронутый хаосом"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.18",
+          "name": "93. Трус"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.19",
+          "name": "94. Украденное лицо"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.20",
+          "name": "95. Утрата"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.21",
+          "name": "96. Шальной талант"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.22",
+          "name": "97. Шеф-повар"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.23",
+          "name": "98. Щит сиблинга"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.24",
+          "name": "99. Эванесцерия"
+        },
+        {
+          "articleId": "1106",
+          "entityId": "complication.1106.25",
+          "name": "100. Элементаль внутри"
+        }
+      ],
+      "summonerFeatures": [],
+      "kit0924": [
+        {
+          "legacyId": "kit-5b78887af5df",
+          "entityId": "kit.kit-5b78887af5df",
+          "articleId": "0924"
+        }
+      ]
+    },
+    "gaps": [
+      {
+        "kind": "feature",
+        "className": "Призыватель",
+        "articleIds": [
+          "0821",
+          "0822",
+          "0823",
+          "0824",
+          "0825",
+          "0826",
+          "0827",
+          "0828",
+          "0829",
+          "0830"
+        ],
+        "reason": "source-articles-empty; legacy class-features has no Призыватель rows, so no feature text can be extracted without inventing rules"
+      },
+      {
+        "kind": "career",
+        "reason": "no chapter-06 overview table in canonical articles; renown and wealth are read only from explicit **Известность**/**Богатство** lines, missing values mean 0"
+      }
+    ],
+    "deferred": []
+  },
+  "remainingConsumers": [
+    {
+      "path": "scripts/build-abilities.mjs",
+      "dataset": "abilities.generated.json"
+    },
+    {
+      "path": "tests/conduit-abilities.test.ts",
+      "dataset": "abilities.generated.json"
+    },
+    {
+      "path": "tests/rules-consumers.test.ts",
+      "dataset": "abilities.generated.json"
+    },
+    {
+      "path": "scripts/build-ancestry-features.mjs",
+      "dataset": "ancestry-features.generated.json"
+    },
+    {
+      "path": "tests/ancestry-feature-rules.test.ts",
+      "dataset": "builder.generated.json"
+    },
+    {
+      "path": "tests/ancestry-features-skeleton.test.ts",
+      "dataset": "builder.generated.json"
+    },
+    {
+      "path": "scripts/build-class-features.mjs",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "scripts/content/build-consumer-data.mjs",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "scripts/content/migrate-entities.mjs",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "tests/conduit-base-mechanics.test.ts",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "tests/conduit-domain-mechanics.test.ts",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "tests/conduit-resource.test.ts",
+      "dataset": "class-features.generated.json"
+    },
+    {
+      "path": "scripts/content/build-rules.mjs",
+      "dataset": "codex-index.generated.json"
+    },
+    {
+      "path": "scripts/build-builder.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/build-codex.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/build-level-up.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/build-library.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/check-architecture.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/content/import-legacy.mjs",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/codex-abilities.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/level-up-rules.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/library-data.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/library.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/rules-content-entities.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "tests/rules-content.test.ts",
+      "dataset": "codex.generated.json"
+    },
+    {
+      "path": "scripts/build-kits.mjs",
+      "dataset": "kits.generated.json"
+    },
+    {
+      "path": "tests/art.test.ts",
+      "dataset": "kits.generated.json"
+    },
+    {
+      "path": "scripts/build-perks.mjs",
+      "dataset": "perks.generated.json"
+    }
+  ],
+  "notes": [
+    "Legacy ability IDs не переписаны: они сохранены в legacyIds и в прежних сохранениях.",
+    "Способности хранят полный исходный Markdown; ability — только структурированная проекция.",
+    "Синтетические строки таблиц (30 class features) остаются прозой статьи и перечислены в unmapped.",
+    "Старые generated JSON не удалены: они остаются входными данными для ещё не мигрировавших потребителей.",
+    "Повторный импорт без --replace не перезаписывает канонические файлы.",
+    "Stage two: комплекты (включая составной «Буревестник» 0924), сокровища, проекты, титулы и виды происхождений выделены в сущности из текущего канонического дерева.",
+    "Новые технические имена и каталоги — английские; исходные русские названия и пути сохранены в name, source.path и Markdown.",
+    "Идентификаторы сокровищ и титулов основаны на статье-источнике и порядке записи, поэтому переименование отображаемого названия не меняет ID.",
+    "Вложенные структурированные блоки внутри сокровищ, проектов и титулов остаются частью этих сущностей: схема не поддерживает вложенные сущности.",
+    "Stage three: классы, карьеры, культуры и нюансы — сущности конструктора; статьи читаются через них, кроме классов-агрегатов.",
+    "Класс-сущность — агрегат статьи 1-го уровня: сводка, основы и особенности под заголовками `#### Сводка`, `#### Основы`, `#### Особенности 1-го уровня`. Она не подменяет блоки статьи, чтобы не терять ссылки на особенности и способности; проекция собирает поле features из раздела «Особенности 1-го уровня».",
+    "Каталог `culture-environment` / `culture-organization` / `culture-upbringing` повторяет аспекты культуры из статей 0502–0504.",
+    "Известность и богатство карьеры берутся только из явных строк `**Известность**` и `**Богатство**` в статье; отсутствие строки означает 0 (как в прежнем конструкторе). Отдельной обзорной таблицы глав 06 в канонических статьях нет."
+  ],
+  "staleFiles": []
+}

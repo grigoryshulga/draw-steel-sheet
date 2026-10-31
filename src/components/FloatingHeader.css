@@ -164,11 +164,98 @@
 }
 
 @media (max-width: 460px) {
-  .floating-header .char-switch-text {
-    display: none;
+  .floating-header-nav button {
+    padding-inline: 9px;
+  }
+}
+
+/* Save state stays outside the trigger's truncating text on every screen. */
+.floating-header .char-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.floating-header .char-switch > .save-state {
+  flex: 0 0 20px;
+}
+
+.floating-header :is(.char-switch-btn, .floating-header-nav button, .floating-header-logo, .btn) {
+  min-height: 44px;
+}
+
+.floating-header :is(.floating-header-logo, .btn-icon) {
+  min-width: 44px;
+}
+
+.floating-header :is(button, a):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.floating-header button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.floating-header .char-popover {
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 460px) {
+  .floating-header {
+    width: calc(100% - 24px);
+  }
+
+  .floating-header-inner {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .floating-header-left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .floating-header-right {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .floating-header-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
   .floating-header-nav button {
-    padding-inline: 9px;
+    flex: 1;
+  }
+
+  .floating-header .char-switch {
+    position: static;
+  }
+
+  .floating-header .char-switch-text {
+    display: flex;
+  }
+
+  .floating-header .char-switch-name {
+    max-width: min(120px, calc(100vw - 208px));
+  }
+
+  .floating-header .char-popover {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: calc(100dvh - 150px - env(safe-area-inset-top));
+  }
+
+  .workspace-main {
+    padding-top: calc(132px + env(safe-area-inset-top));
   }
 }

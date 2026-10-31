@@ -1,0 +1,55 @@
+{
+  "id": "ability.komplekt-mech-i-schit-udar-schitom-3d5879fd7d",
+  "kind": "ability",
+  "name": "Удар Щитом",
+  "markdown": "> **Удар Щитом**\n> \n> *В ваших руках щит служит не только для защиты.*\n> \n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 + М или Л урона; толчок 1\n> - **12-16:** 7 + М или Л урона; толчок 2\n> - **17+:** 9 + М или Л урона; толчок 3; М < СИЛЬНЫЙ, лежачий",
+  "source": {
+    "articleId": "0913",
+    "path": "09. Комплекты/Список Комплектов/0913. Меч и Щит.md"
+  },
+  "legacyIds": [
+    "komplekt-mech-i-schit-udar-schitom-3d5879fd7d"
+  ],
+  "ability": {
+    "id": "komplekt-mech-i-schit-udar-schitom-3d5879fd7d",
+    "name": "Удар Щитом",
+    "flavor": "В ваших руках щит служит не только для защиты.",
+    "actionType": "main",
+    "kind": "signature",
+    "keywords": [
+      "Ближний",
+      "Удар",
+      "Оружие"
+    ],
+    "distance": "Ближний 1",
+    "target": "Одно существо",
+    "rollCharacteristics": [
+      "might",
+      "agility"
+    ],
+    "rollBonus": 0,
+    "resourceCost": 0,
+    "trigger": "",
+    "tiers": [
+      {
+        "damage": "4 + M или A",
+        "effect": "Толчок 1"
+      },
+      {
+        "damage": "7 + M или A",
+        "effect": "Толчок 2"
+      },
+      {
+        "damage": "9 + M или A",
+        "effect": "Толчок 3; М < СИЛЬНЫЙ, лежачий"
+      }
+    ],
+    "effect": "",
+    "source": "Комплект: Меч и Щит",
+    "notes": "",
+    "className": "Комплект: Меч и Щит",
+    "level": 1,
+    "sourceKind": "kit",
+    "preferredCharacteristic": "might"
+  }
+}

@@ -11,7 +11,7 @@ import {
 import { addCatalogEntry } from "../src/lib/catalog-character";
 import { createCharacter, normalizeCharacter } from "../src/lib/defaults";
 import { CatalogAction } from "../src/components/CatalogAction";
-import { CODEX_INDEX } from "../src/lib/codex";
+import { codexIndex } from "../src/rules/codex-navigation";
 import { RuleText } from "../src/components/RuleText";
 import articles from "../src/data/codex.generated.json";
 
@@ -34,7 +34,7 @@ describe("Library catalogs", () => {
       expect(article.markdown, entry.id).toContain(entry.markdown);
       if (entry.heading)
         expect(
-          CODEX_INDEX.find((a) => a.id === entry.articleId)?.headings.some(
+          codexIndex.find((a) => a.id === entry.articleId)?.headings.some(
             (h) => h.id === entry.heading,
           ),
           entry.id,
