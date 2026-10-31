@@ -12,21 +12,12 @@ import { FloatingHeader } from "./components/FloatingHeader";
 import { Toasts, type ToastMessage } from "./components/Toasts";
 import { Button } from "./components/ui";
 import { WelcomeView } from "./views/WelcomeView";
-import { createAutosave } from "./lib/autosave";
 import {
   createGameSession,
   type GameAction,
   type GameHistoryEntry,
 } from "./lib/game-actions";
-import { parseCharacterImport } from "./lib/character-import";
-import { normalizeCharacter } from "./lib/defaults";
 import { useHashTab } from "./lib/hooks";
-import {
-  deleteCharacter,
-  listCharacters,
-  loadCharacter,
-  saveCharacter,
-} from "./lib/api";
 import {
   applyTheme,
   THEMES,
@@ -35,13 +26,11 @@ import {
   writeThemeChoice,
   type ThemeChoice,
 } from "./lib/theme";
-import { downloadJson, safeFilename } from "./lib/utils";
-import { makeId } from "./data/templates";
 import { HERO_TABS, NAV_ITEMS, TABS, type HeroTab, type Tab } from "./navigation";
-import { AppContext, type SaveStatus } from "./state/AppContext";
-import type { Character, CharacterSummary, AppTheme } from "./types";
+import { makeId } from "./data/templates";
+import { AppContext } from "./state/AppContext";
+import type { AppTheme } from "./types";
 import { deriveStats } from "./lib/rules";
-import { recalculateCharacter } from "./lib/character-calculations";
 import { createRollEntry, type RollConfig, type RollEntry } from "./lib/roll";
 import { RollDialog } from "./views/sheet/RollDialog";
 import { HistoryDialog } from "./views/sheet/HistoryDialog";
@@ -49,6 +38,7 @@ import "./views/sheet/SheetFabs.css";
 import "./components/BuilderPage.css";
 import { AuthGate } from "./views/AuthGate";
 import { ViewErrorBoundary } from "./components/ViewErrorBoundary";
+import { useHeroLifecycle } from "./state/useHeroLifecycle";
 import "./styles/workspace.css";
 
 const SheetView = lazy(() =>
@@ -78,21 +68,6 @@ const NewCharacterDialog = lazy(() =>
   })),
 );
 
-function toSummary(character: Character): CharacterSummary {
-  return {
-    id: character.id,
-    name: character.name,
-    className: character.className,
-    ancestry: character.ancestry,
-    level: character.level,
-    updatedAt: character.updatedAt,
-  };
-}
-
-function sortSummaries(list: CharacterSummary[]): CharacterSummary[] {
-  return [...list].sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1));
-}
-
 export default function App() {
   const beforeSignOut = useRef<() => Promise<void>>(async () => undefined);
   return (
@@ -107,12 +82,6 @@ function WorkspaceApp({
 }: {
   beforeSignOut: { current: () => Promise<void> };
 }) {
-  const [characters, setCharacters] = useState<CharacterSummary[]>([]);
-  const [character, setCharacter] = useState<Character | null>(null);
-  const [booting, setBooting] = useState(true);
-  const [bootError, setBootError] = useState("");
-  const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
-  const [saveError, setSaveError] = useState("");
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [themeChoice, setThemeChoiceState] =
     useState<ThemeChoice>(readThemeChoice);
@@ -121,32 +90,9 @@ function WorkspaceApp({
   const [rollOpen, setRollOpen] = useState(false);
   const [lastRoll, setLastRoll] = useState<RollEntry | null>(null);
   const [rollLog, setRollLog] = useState<RollEntry[]>([]);
-  const [changingCharacter, setChangingCharacter] = useState(false);
   const gameSession = useMemo(createGameSession, []);
   const [gameHistory, setGameHistory] = useState<GameHistoryEntry[]>([]);
-
-  const characterRef = useRef<Character | null>(null);
   const nextRollId = useRef(0);
-  const characterAction = useRef(false);
-  const autosave = useMemo(
-    () =>
-      createAutosave<Character>({
-        save: saveCharacter,
-        onStatus: (status, error = "") => {
-          setSaveStatus(status);
-          setSaveError(error);
-        },
-        onSaved: (saved) =>
-          setCharacters((previous) =>
-            sortSummaries(
-              previous.map((item) =>
-                item.id === saved.id ? toSummary(saved) : item,
-              ),
-            ),
-          ),
-      }),
-    [],
-  );
 
   const notify = useCallback(
     (message: string, tone: "info" | "success" | "error" = "info") => {
@@ -159,45 +105,54 @@ function WorkspaceApp({
     [],
   );
 
-  const performRoll = useCallback((config: RollConfig) => {
-    const doc = characterRef.current;
-    if (!doc) return;
-    const entry = createRollEntry(doc, config, nextRollId.current++);
-    setLastRoll(entry);
-    setRollLog((prev) => [entry, ...prev].slice(0, 5));
-  }, []);
-
   const resetRollSession = useCallback(() => {
     setRollOpen(false);
     setLastRoll(null);
     setRollLog([]);
   }, []);
 
-  const update = useCallback(
-    (recipe: (current: Character) => Character) => {
-      const previous = characterRef.current;
-      if (!previous || characterAction.current) return;
-      const next = {
-        ...recalculateCharacter(previous, recipe(previous)),
-        updatedAt: new Date().toISOString(),
-      };
-      characterRef.current = next;
-      autosave.edit(next);
-      setCharacter(next);
+  const {
+    characters,
+    character,
+    characterRef,
+    booting,
+    bootError,
+    saveStatus,
+    saveError,
+    changingCharacter,
+    autosave,
+    update,
+    patch,
+    isTransitioning,
+    handleSelectCharacter,
+    handleCreate,
+    handleDuplicate,
+    handleDelete,
+    handleExport,
+    handleImport,
+  } = useHeroLifecycle({
+    notify,
+    navigate: setTab,
+    onActivate: () => {
+      resetRollSession();
+      gameSession.reset();
+      setGameHistory([]);
     },
-    [autosave],
-  );
+    beforeSignOut,
+  });
 
-  const patch = useCallback(
-    (partial: Partial<Character>) =>
-      update((current) => ({ ...current, ...partial })),
-    [update],
-  );
+  const performRoll = useCallback((config: RollConfig) => {
+    const doc = characterRef.current;
+    if (!doc) return;
+    const entry = createRollEntry(doc, config, nextRollId.current++);
+    setLastRoll(entry);
+    setRollLog((prev) => [entry, ...prev].slice(0, 5));
+  }, [characterRef]);
 
   const performGameAction = useCallback(
     (action: GameAction, operationId = makeId()) => {
       const current = characterRef.current;
-      if (!current || characterAction.current) return false;
+      if (!current || isTransitioning()) return false;
       const result = gameSession.perform(current, action, operationId);
       if (!result.ok) {
         notify(result.reason, "error");
@@ -208,12 +163,12 @@ function WorkspaceApp({
       notify(result.label, "success");
       return true;
     },
-    [gameSession, notify, update],
+    [characterRef, gameSession, isTransitioning, notify, update],
   );
 
   const undoGameAction = useCallback(() => {
     const current = characterRef.current;
-    if (!current || characterAction.current) return;
+    if (!current || isTransitioning()) return;
     const result = gameSession.undo(current);
     if (!result.ok) {
       notify(result.reason, "error");
@@ -222,18 +177,7 @@ function WorkspaceApp({
     update(() => result.next);
     setGameHistory(gameSession.entries());
     notify(result.label);
-  }, [gameSession, notify, update]);
-
-  useEffect(() => {
-    beforeSignOut.current = async () => {
-      if (characterAction.current)
-        throw new Error("Дождитесь завершения операции с героем");
-      await autosave.flush();
-    };
-    return () => {
-      beforeSignOut.current = async () => undefined;
-    };
-  }, [autosave, beforeSignOut]);
+  }, [characterRef, gameSession, isTransitioning, notify, update]);
 
   useEffect(() => {
     const label =
@@ -256,62 +200,6 @@ function WorkspaceApp({
     if (tab !== "codex") window.scrollTo({ top: 0 });
   }, [tab, character?.id, character?.name]);
 
-  /* ---------- Первичная загрузка ---------- */
-
-  useEffect(() => {
-    let disposed = false;
-    (async () => {
-      try {
-        const list = await listCharacters();
-        if (disposed) return;
-        setCharacters(sortSummaries(list));
-        if (list.length > 0) {
-          const doc = normalizeCharacter(await loadCharacter(list[0].id));
-          if (disposed) return;
-          characterRef.current = doc;
-          autosave.load(doc);
-          setCharacter(doc);
-        }
-      } catch (error) {
-        if (!disposed) {
-          setBootError(
-            error instanceof Error ? error.message : "Сервис недоступен",
-          );
-        }
-      } finally {
-        if (!disposed) setBooting(false);
-      }
-    })();
-    return () => {
-      disposed = true;
-    };
-  }, [autosave]);
-
-  /* ---------- Автосохранение ---------- */
-
-  useEffect(() => {
-    const guardUnload = (event: BeforeUnloadEvent) => {
-      if (!autosave.isDirty()) return;
-      event.preventDefault();
-      event.returnValue = "";
-    };
-    const flush = () => {
-      void autosave.flush().catch(() => undefined);
-    };
-    const onVisibility = () => {
-      if (document.visibilityState === "hidden") flush();
-    };
-    window.addEventListener("beforeunload", guardUnload);
-    window.addEventListener("online", flush);
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => {
-      window.removeEventListener("beforeunload", guardUnload);
-      window.removeEventListener("online", flush);
-      document.removeEventListener("visibilitychange", onVisibility);
-      autosave.dispose();
-    };
-  }, [autosave]);
-
   useEffect(() => {
     if (tab !== "create") lastNonCreateTab.current = tab as Tab;
   }, [tab]);
@@ -331,145 +219,6 @@ function WorkspaceApp({
     setThemeChoiceState(choice);
     writeThemeChoice(choice);
     applyTheme(resolveTheme(THEMES, choice));
-  };
-
-  /* ---------- Действия с персонажами ---------- */
-
-  const activateCharacter = (doc: Character | null) => {
-    autosave.load(doc);
-    characterRef.current = doc;
-    setCharacter(doc);
-    resetRollSession();
-    gameSession.reset();
-    setGameHistory([]);
-  };
-
-  const changeCharacter = async (action: () => Promise<void>) => {
-    if (characterAction.current)
-      throw new Error("Дождитесь завершения операции с героем");
-    characterAction.current = true;
-    setChangingCharacter(true);
-    try {
-      // Includes the debounce window and all edits queued during an earlier write.
-      await autosave.flush();
-      await action();
-    } finally {
-      characterAction.current = false;
-      setChangingCharacter(false);
-    }
-  };
-
-  const handleSelectCharacter = async (id: string) => {
-    if (characterRef.current?.id === id) return;
-    try {
-      await changeCharacter(async () => {
-        activateCharacter(normalizeCharacter(await loadCharacter(id)));
-      });
-    } catch (error) {
-      notify(
-        error instanceof Error ? error.message : "Не удалось загрузить героя",
-        "error",
-      );
-    }
-  };
-
-  const handleCreate = async (draft: Character) => {
-    await changeCharacter(async () => {
-      const doc = await saveCharacter(draft);
-      setCharacters((prev) => sortSummaries([toSummary(doc), ...prev]));
-      activateCharacter(doc);
-      setTab("sheet");
-      notify(`Герой «${doc.name}» создан`, "success");
-    });
-  };
-
-  const handleDuplicate = async (id: string) => {
-    try {
-      await changeCharacter(async () => {
-        const source =
-          characterRef.current?.id === id
-            ? characterRef.current
-            : normalizeCharacter(await loadCharacter(id));
-        const now = new Date().toISOString();
-        const copy: Character = {
-          ...source,
-          id: makeId(),
-          name: `${source.name} — копия`,
-          createdAt: now,
-          updatedAt: now,
-        };
-        const saved = await saveCharacter(copy);
-        setCharacters((prev) => sortSummaries([toSummary(saved), ...prev]));
-        activateCharacter(saved);
-        notify("Создана копия героя", "success");
-      });
-    } catch (error) {
-      notify(
-        error instanceof Error ? error.message : "Не удалось скопировать",
-        "error",
-      );
-    }
-  };
-
-  const handleDelete = async (id: string) => {
-    try {
-      await changeCharacter(async () => {
-        const remaining = characters.filter((item) => item.id !== id);
-        const deletingCurrent = characterRef.current?.id === id;
-        // Load the replacement first: a failed read must leave the current hero intact.
-        const replacement =
-          deletingCurrent && remaining.length
-            ? normalizeCharacter(await loadCharacter(remaining[0].id))
-            : null;
-        await deleteCharacter(id);
-        setCharacters(remaining);
-        if (deletingCurrent) {
-          activateCharacter(replacement);
-          if (!replacement) setTab("sheet");
-        }
-        notify("Персонаж удалён", "success");
-      });
-    } catch (error) {
-      notify(
-        error instanceof Error ? error.message : "Не удалось удалить",
-        "error",
-      );
-      throw error;
-    }
-  };
-
-  const handleExport = async (id: string) => {
-    try {
-      const doc =
-        characterRef.current?.id === id
-          ? characterRef.current
-          : await loadCharacter(id);
-      downloadJson(`${safeFilename(doc.name)}.draw-steel.json`, doc);
-      notify("JSON сохранён", "success");
-    } catch (error) {
-      notify(
-        error instanceof Error ? error.message : "Не удалось экспортировать",
-        "error",
-      );
-    }
-  };
-
-  const handleImport = async (file: File) => {
-    try {
-      await changeCharacter(async () => {
-        const doc = await parseCharacterImport(file);
-        const saved = await saveCharacter(doc);
-        setCharacters((prev) => sortSummaries([toSummary(saved), ...prev]));
-        activateCharacter(saved);
-        setTab("sheet");
-        notify(`Импортирован герой «${saved.name}»`, "success");
-      });
-    } catch (error) {
-      notify(
-        error instanceof Error ? error.message : "Не удалось импортировать",
-        "error",
-      );
-    }
   };
 
   /* ---------- Рендер ---------- */
