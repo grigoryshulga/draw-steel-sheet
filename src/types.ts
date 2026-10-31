@@ -19,6 +19,15 @@ export type ActionType =
 
 export type AbilityKind = "free-strike" | "signature" | "heroic" | "other";
 
+/** Английский оригинал записи компендиума из SteelCompendium. */
+export interface OriginalFields {
+  originalId?: string;
+  originalName?: string;
+  originalDescription?: string;
+  /** Транслитерированный id до перехода на английские scc-id. */
+  legacyId?: string;
+}
+
 export type ItemCategory = "gear" | "consumable" | "treasure" | "trinket" | "title";
 
 export interface FeatureEquipmentFlags {
@@ -38,7 +47,7 @@ export type PerkType =
   | "lore"
   | "supernatural";
 
-export interface Perk {
+export interface Perk extends OriginalFields {
   id: string;
   name: string;
   type: PerkType;
@@ -78,7 +87,7 @@ export interface AbilityTier {
   effect: string;
 }
 
-export interface Ability {
+export interface Ability extends OriginalFields {
   id: string;
   name: string;
   flavor: string;

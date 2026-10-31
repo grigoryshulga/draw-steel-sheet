@@ -12,7 +12,7 @@ import type { FeatureMechanics } from "../types";
  * правило и граница автоматизации остаются в `notes`.
  */
 export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
-  "censor.order.2.bditelnost-svyatogo": {
+  "feature.censor.level-2.saints-vigilance": {
     kinds: ["situational"],
     notes:
       "Осуждённое вами существо не может использовать манёвр Скрытности. " +
@@ -21,7 +21,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: лист не хранит статус «осуждён» и результат поиска, " +
       "поэтому преимущество и свободный триггер применяются вручную.",
   },
-  "censor.order.2.chuvstvo-istiny": {
+  "feature.censor.level-2.a-sense-for-truth": {
     kinds: ["situational"],
     notes:
       "Если существо ниже вас по уровню, вы автоматически знаете, когда оно лжёт " +
@@ -30,7 +30,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: нет данных об уровне собеседника и о социальных тестах, " +
       "поэтому ни распознавание лжи, ни преимущество не считаются.",
   },
-  "censor.order.2.eto-bylo-predskazano": {
+  "feature.censor.level-2.it-was-foretold": {
     kinds: ["situational", "trigger"],
     trigger: {
       event: "combat-start",
@@ -47,7 +47,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "или провал», а также не ограничивает дополнительное основное действие " +
       "перед первым ходом — событие начала боя служит только напоминанием.",
   },
-  "censor.order.2.sudya-kharakterov": {
+  "feature.censor.level-2.judge-of-character": {
     kinds: ["situational"],
     notes:
       "Всякий раз, когда вы должны были бы сделать тест Интуиции, вы можете сделать " +
@@ -55,7 +55,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: замена характеристики в тестах не выражается эффектом " +
       "листа, выбор делает игрок.",
   },
-  "censor.order.2.vesti-za-soboy": {
+  "feature.censor.level-2.lead-by-example": {
     kinds: ["situational"],
     notes:
       "Пока вы смежны с существом, ваши союзники получают преимущества окружения " +
@@ -64,14 +64,14 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: лист не отслеживает смежность с существом и то, " +
       "кто кому помогает, поэтому преимущества остаются напоминанием.",
   },
-  "censor.order.2.nepokolebimyy-simvol": {
+  "feature.censor.level-2.stalwart-icon": {
     kinds: ["situational"],
     notes:
       "Вы получаете преимущество на тесты, сделанные для запугивания или убеждения " +
       "других. Не автоматизировано: социальные тесты не входят в расчёт листа, " +
       "преимущество применяется вручную.",
   },
-  "censor.order.5.zlo-raskryto": {
+  "feature.censor.level-5.evil-revealed": {
     kinds: ["situational", "trigger"],
     trigger: {
       event: "passive",
@@ -89,7 +89,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "маскировка и иллюзии не отслеживаются, преимущество и свободный триггер Суда " +
       "применяются вручную.",
   },
-  "censor.order.5.prorochestvo": {
+  "feature.censor.level-5.prophecy": {
     kinds: ["resource", "trigger"],
     trigger: {
       event: "victory",
@@ -109,7 +109,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "список бросков, их порядок и расход, а также не заменяет сумму на кубиках " +
       "в чужом броске силы — пул ведётся вручную.",
   },
-  "censor.order.5.stoy-tverdo": {
+  "feature.censor.level-5.stand-fast": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -127,7 +127,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "потраченная Выносливость и выбор эффекта вводятся вручную. Союзник в пределах " +
       "5 клеток и его согласие тоже не отслеживаются.",
   },
-  "censor.order.8.demonolog": {
+  "feature.censor.level-8.demonologist": {
     kinds: ["situational"],
     notes:
       "При взаимодействии с демонами, дьяволами и другими агентами хаоса ваша Слава " +
@@ -137,7 +137,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: лист не хранит тип существа, Славу в переговорах и их " +
       "результат; прибавка и преимущество применяются вручную.",
   },
-  "censor.order.8.ikh-proshloe-raskryto": {
+  "feature.censor.level-8.their-past-revealed": {
     kinds: ["situational"],
     notes:
       "Разговаривая с любым существом, вы можете пройти средний тест Присутствия, " +
@@ -147,7 +147,7 @@ export const CENSOR_ORDER_MECHANICS: Record<string, FeatureMechanics> = {
       "Не автоматизировано: тест и его исход вводятся вручную, лист не выбирает видения " +
       "и не вычитает Выносливость автоматически.",
   },
-  "censor.order.8.klyatva": {
+  "feature.censor.level-8.vow": {
     kinds: ["situational"],
     notes:
       "Если вы убеждаете существо дать клятву, оно не может нарушить её в течение 7 дней. " +

@@ -141,7 +141,7 @@ export function subclassAbilitySources(
       }
       for (const abilityId of grant.abilityIds) {
         add(
-          ABILITY_COMPENDIUM.find((ability) => ability.id === abilityId),
+          ABILITY_COMPENDIUM.find((ability) => ability.id === abilityId || ability.legacyId === abilityId),
           kind,
           subclass,
         );
@@ -170,7 +170,7 @@ export function subclassAbilitySources(
         if (entry.level > level) continue;
         if (normalize(entry.domain) !== normalize(domain)) continue;
         add(
-          ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId),
+          ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId || ability.legacyId === entry.abilityId),
           DOMAIN_KIND,
           entry.domain,
         );
@@ -186,7 +186,7 @@ export function subclassAbilitySources(
       );
       if (!domain) continue;
       add(
-        ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId),
+        ABILITY_COMPENDIUM.find((ability) => ability.id === entry.abilityId || ability.legacyId === entry.abilityId),
         DOMAIN_KIND,
         entry.domain,
       );

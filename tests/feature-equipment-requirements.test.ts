@@ -5,7 +5,7 @@ import { featureStatBonus } from "../src/lib/feature-modifiers";
 
 describe("conditional equipment configuration", () => {
   it("shows both controls for the selected soldier prayer across current and legacy values", () => {
-    for (const selected of ["conduit.prayer.soldier", "conduit.feature.1.molitva-o-masterstve-soldata", "Молитва о мастерстве солдата", "  молитва о мастерстве солдата  "]) {
+    for (const selected of ["conduit.prayer.soldier", "feature.conduit.level-1.prayer-of-soldiers-skill", "Молитва о мастерстве солдата", "  молитва о мастерстве солдата  "]) {
       expect(featureEquipmentRequirements("Проводник", { "conduit.prayer": selected })).toEqual({ lightArmor: true, lightWeapon: true });
     }
     expect(featureEquipmentRequirements("Проводник", { "conduit.prayer": "conduit.prayer.steel" })).toBeUndefined();

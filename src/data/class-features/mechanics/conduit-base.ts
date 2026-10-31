@@ -2,29 +2,29 @@ import type { FeatureMechanics } from "../types";
 
 /** Базовые особенности Проводника первого уровня, кроме доменных записей. */
 export const CONDUIT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "conduit.feature.1.bozhestvo-i-domeny": {
+  "feature.conduit.level-1.deity-and-domains": {
     kinds: ["grant"],
     notes: "Выбор божества и портфолио зависит от мира кампании. Пара доменов хранится в листе; особенность первого домена выбирается при создании героя или повышении уровня. Фиксированного списка вариантов в записи нет.",
   },
-  "conduit.feature.1.osobennost-domena-1-go-urovnya": {
+  "feature.conduit.level-1.1st-level-domain-feature": {
     kinds: ["grant"],
     notes: "При создании героя предлагается выбрать один из двух доменов для особенности 1-го уровня; выбранный домен сохраняется в листе. Доступные особенности и навыки определяются этим доменом.",
   },
-  "conduit.feature.1.istselyayushchaya-blagodat": {
+  "feature.conduit.level-1.healing-grace": {
     kinds: ["trigger", "resource"],
     trigger: { event: "use-ability", frequency: "turn", label: "Исцеляющая благодать", detail: "Один раз в ход: маневр, дальность 10; цель — вы или союзник — может потратить Восстановление. За каждое потраченное Благочестие выберите одно улучшение: дополнительная цель, завершить подходящий эффект, встать или потратить ещё одно Восстановление. Применение к другим персонажам не автоматизировано." },
     notes: "Каждое выбранное улучшение стоит ровно 1 Благочестие, как сказано в тексте способности.",
   },
-  "conduit.feature.1.luch-gneva": {
+  "feature.conduit.level-1.ray-of-wrath": {
     kinds: ["grant"],
     notes: "Луч Гнева можно использовать как свободный удар дальнего боя: Магия, Дальний, Удар; дальность 10, цель — одно существо или объект; бросок силы + Интуиция; урон по тиру 2/4/6 + Интуиция. Свободный удар использует урон и процедуру самой способности; отдельный бонус к урону свободного удара не должен считаться повторно как бонус к выброшенному урону. Тип урона можно выбрать святым согласно тексту способности. Тиры не являются полями листа.",
   },
-  "conduit.feature.1.trigger-provodnika": {
+  "feature.conduit.level-1.triggered-action": {
     kinds: ["trigger"],
     trigger: { event: "passive", frequency: "always", label: "Триггер проводника", detail: "Выберите один триггер. Слово наставления: когда союзник в пределах 10 делает бросок силы для наносящей урон способности, дать преимущество; за 1 Благочестие — двойное преимущество. Слово Суда: когда один союзник должен был бы получить урон от способности, использующей бросок силы, бросок силы получает помеху против этой цели; за 1 Благочестие — двойную помеху против этой цели. Выбор момента и цели ручной; автоматическое вмешательство в бросок не реализовано." },
     notes: "При создании героя показываются «Слово Наставления» и «Слово Суда»; выбрать нужно ровно одно. По скелету Слово Суда срабатывает, когда цель должна была бы получить урон от способности, использующей бросок силы; в эффекте помеха этому броску применяется против цели. Не сужать условие до вражеской цели.",
   },
-  "conduit.feature.1.molitva": {
+  "feature.conduit.level-1.prayer": {
     kinds: ["choice", "grant"],
     choice: { group: "conduit.prayer", options: [
       { id: "conduit.prayer.destruction", label: "Молитва о разрушении" },
@@ -35,9 +35,9 @@ export const CONDUIT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
     ] },
     notes: "Во время отдыха выбранную молитву можно заменить вместе с оберегом.",
   },
-  "conduit.feature.1.molitva-o-razrushenii": { kinds: ["bonus"], effects: [{ kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Магия"] } }], notes: "+1 к выброшенному урону способностей с ключевым словом Магия." },
-  "conduit.feature.1.molitva-o-distantsii": { kinds: ["bonus"], effects: [{ kind: "field", field: "distance", value: 2, filter: { keywords: ["Магия", "Дальний"] } }], notes: "+2 к дальности дальнобойных магических способностей." },
-  "conduit.feature.1.molitva-o-masterstve-soldata": {
+  "feature.conduit.level-1.prayer-of-destruction": { kinds: ["bonus"], effects: [{ kind: "field", field: "rolledDamage", value: 1, filter: { keywords: ["Магия"] } }], notes: "+1 к выброшенному урону способностей с ключевым словом Магия." },
+  "feature.conduit.level-1.prayer-of-distance": { kinds: ["bonus"], effects: [{ kind: "field", field: "distance", value: 2, filter: { keywords: ["Магия", "Дальний"] } }], notes: "+2 к дальности дальнобойных магических способностей." },
+  "feature.conduit.level-1.prayer-of-soldiers-skill": {
     kinds: ["bonus", "proficiency"],
     effects: [
       { kind: "proficiency", armor: ["light"], weapons: ["light"], treasures: true },
@@ -46,9 +46,9 @@ export const CONDUIT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
     ],
     notes: "Герой может носить лёгкую броню и владеть лёгким оружием без комплекта и использовать их сокровища. Условное владение (только без комплекта) остаётся текстом правила. С комплектом молитву нельзя выбрать. Бонус урона способности с ключевым словом Оружие включает свободные удары; отдельный бонус к свободному удару не добавляется, чтобы не удвоить урон.",
   },
-  "conduit.feature.1.molitva-o-skorosti": { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }, { kind: "field", field: "disengage", value: 1 }] },
-  "conduit.feature.1.molitva-o-stali": { kinds: ["bonus"], effects: [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }, { kind: "field", field: "stability", value: 1 }] },
-  "conduit.feature.1.obereg-provodnika": {
+  "feature.conduit.level-1.prayer-of-speed": { kinds: ["bonus"], effects: [{ kind: "field", field: "speed", value: 1 }, { kind: "field", field: "disengage", value: 1 }] },
+  "feature.conduit.level-1.prayer-of-steel": { kinds: ["bonus"], effects: [{ kind: "field", field: "stamina", value: 0, perEchelon: 6 }, { kind: "field", field: "stability", value: 1 }] },
+  "feature.conduit.level-1.conduit-ward": {
     kinds: ["choice", "grant"],
     choice: { group: "conduit.sanctuary", options: [
       { id: "conduit.sanctuary.bastion", label: "Оберег бастиона" },
@@ -58,17 +58,17 @@ export const CONDUIT_BASE_MECHANICS: Record<string, FeatureMechanics> = {
     ] },
     notes: "Выбранный оберег можно заменить вместе с молитвой во время отдыха.",
   },
-  "conduit.feature.1.obereg-bastiona": { kinds: ["bonus"], effects: [{ kind: "field", field: "save", value: 1 }] },
-  "conduit.feature.1.obereg-reaktsii": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег реакции", detail: "Когда смежное существо наносит вам урон, после этого можно сместиться на расстояние до Интуиции клеток. Перемещение выбирается вручную." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло смежное существо. Это условие включает союзника." },
-  "conduit.feature.1.obereg-svyatilishcha": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег святилища", detail: "Когда другое существо наносит вам урон, оно не может нацелить на вас удар, пока вы не навредите ему или его союзнику либо до конца его следующего хода. Учёт временного запрета на цель не поддерживается." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло другое существо. Врагом источник не ограничен." },
-  "conduit.feature.1.obereg-dukhov": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег духов", detail: "Когда смежное существо наносит вам урон, оно получает урон порчей, равный Интуиции." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло смежное существо. Урон источнику вручную применяется; условие включает союзника." },
-  "conduit.feature.1.znakovye-sposobnosti": { kinds: ["choice", "grant"], notes: "Выберите две из восьми способностей, перечисленных в скелете. При создании героя приложение записывает выбранные способности и проверяет, что их ровно две; отдельный список вариантов в механике не нужен." },
-  "conduit.feature.1.geroicheskie-sposobnosti": { kinds: ["grant"], notes: "Контейнер раздела героических способностей; варианты сгруппированы в дочерних записях." },
-  "conduit.feature.1.sposobnost-za-3-blagochestiya": { kinds: ["choice", "grant"], notes: "Выберите одну способность из каталога за 3 Благочестия. При создании героя показываются варианты из справочника способностей; нужно выбрать ровно одну способность стоимостью 3." },
-  "conduit.feature.1.sposobnost-za-5-blagochestiya": { kinds: ["choice", "grant"], notes: "Выберите одну способность из каталога за 5 Благочестия. При создании героя показываются варианты из справочника способностей; нужно выбрать ровно одну способность стоимостью 5." },
+  "feature.conduit.level-1.bastion-ward": { kinds: ["bonus"], effects: [{ kind: "field", field: "save", value: 1 }] },
+  "feature.conduit.level-1.quickness-ward": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег реакции", detail: "Когда смежное существо наносит вам урон, после этого можно сместиться на расстояние до Интуиции клеток. Перемещение выбирается вручную." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло смежное существо. Это условие включает союзника." },
+  "feature.conduit.level-1.sanctuary-ward": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег святилища", detail: "Когда другое существо наносит вам урон, оно не может нацелить на вас удар, пока вы не навредите ему или его союзнику либо до конца его следующего хода. Учёт временного запрета на цель не поддерживается." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло другое существо. Врагом источник не ограничен." },
+  "feature.conduit.level-1.spirit-ward": { kinds: ["trigger"], trigger: { event: "take-damage", frequency: "always", label: "Оберег духов", detail: "Когда смежное существо наносит вам урон, оно получает урон порчей, равный Интуиции." }, notes: "Напоминание о получении урона шире условия книги и может сработать на не смежный источник, в том числе не существо; применять оберег только когда урон нанесло смежное существо. Урон источнику вручную применяется; условие включает союзника." },
+  "feature.conduit.level-1.signature-abilities": { kinds: ["choice", "grant"], notes: "Выберите две из восьми способностей, перечисленных в скелете. При создании героя приложение записывает выбранные способности и проверяет, что их ровно две; отдельный список вариантов в механике не нужен." },
+  "feature.conduit.level-1.heroic-abilities": { kinds: ["grant"], notes: "Контейнер раздела героических способностей; варианты сгруппированы в дочерних записях." },
+  "feature.conduit.level-1.3-piety-ability": { kinds: ["choice", "grant"], notes: "Выберите одну способность из каталога за 3 Благочестия. При создании героя показываются варианты из справочника способностей; нужно выбрать ровно одну способность стоимостью 3." },
+  "feature.conduit.level-1.5-piety-ability": { kinds: ["choice", "grant"], notes: "Выберите одну способность из каталога за 5 Благочестия. При создании героя показываются варианты из справочника способностей; нужно выбрать ровно одну способность стоимостью 5." },
 };
 
 /** Записи, которым текущая модель не даёт надёжного автоматического эффекта. */
 export const CONDUIT_BASE_TEXT_ONLY: Record<string, string> = {
-  "conduit.feature.1.sposobnosti-provodnika": "Контейнер раздела; его дочерние записи отдельно описывают способности и выборы.",
+  "feature.conduit.level-1.conduit-abilities": "Контейнер раздела; его дочерние записи отдельно описывают способности и выборы.",
 };

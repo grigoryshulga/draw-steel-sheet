@@ -1,4 +1,11 @@
+import type { OriginalFields } from "../types";
+import skillOriginals from "../generated/skills-originals.json";
+
 export type SkillTone = "yellow" | "green" | "blue" | "magenta" | "accent";
+
+/** Английские оригиналы навыков из SteelCompendium, ключ — русское название. */
+export const SKILL_ORIGINALS: Record<string, OriginalFields> =
+  skillOriginals as Record<string, OriginalFields>;
 
 /** Цвет группы навыков — один и тот же на листе, в развитии и в билдере. */
 export const SKILL_GROUP_TONES: Record<SkillGroup["key"], SkillTone> = {

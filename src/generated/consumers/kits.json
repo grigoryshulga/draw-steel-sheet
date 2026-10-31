@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kits": [
     {
-      "id": "kit-d79a75b7ea5c",
+      "id": "kit.rapid-fire",
       "name": "Беглый Огонь",
       "summary": "Комплект Беглый огонь предназначен для лучников, которые хотят нанести максимальный урон, выпустив как можно больше стрел в ближайших врагов. В этом комплекте ваша боевая техника фокусируется на обстреле врагов до того, как они смогут подобраться достаточно близко для контратаки.",
       "equipment": "Вы носите легкие доспехи и владеете луком.",
@@ -28,10 +28,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Двойной Выстрел"
+      "signatureAbility": "Двойной Выстрел",
+      "originalId": "mcdm.heroes.v1/kit/rapid-fire",
+      "originalName": "Rapid-Fire",
+      "originalDescription": "The Rapid-Fire kit is for archers who want to deal maximum damage by shooting as many arrows as possible into nearby enemies. With this kit, your fighting technique focuses on peppering foes before they can get close enough to counterattack.\n\n##### Equipment\n\nYou wear light armor and wield a bow.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +2/+2/+2\n\n**Ranged Distance Bonus:** +7\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Two Shot\n\n*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage",
+      "legacyId": "kit-d79a75b7ea5c"
     },
     {
-      "id": "kit-3fc272e3de28",
+      "id": "kit.battlemind",
       "name": "Боевой Разум",
       "summary": "Кто сказал, что легкобронированных героев легко сдвинуть с места? Вам просто нужно применить немного псионики! Комплект Боевой разум использует силу вашего разума, чтобы сделать вас более устойчивым — и чтобы вам было легче отталкивать своих врагов.",
       "equipment": "Вы носите легкие доспехи и владеете средним оружием.",
@@ -53,18 +57,26 @@
           "value": "+2/+2/+2"
         }
       ],
-      "signatureAbility": "Отвязывание"
+      "signatureAbility": "Отвязывание",
+      "originalId": "mcdm.heroes.v1/kit/battlemind",
+      "originalName": "Battlemind",
+      "originalDescription": "Who says lightly armored heroes can't also be hard to move? You just need to employ some psionics! The Battlemind kit harnesses the power of your mind to make you harder to move—and to make your foes easier to push around.\n\n##### Equipment\n\nYou wear light armor and wield a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +2\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n##### Signature Ability\n\n###### Unmooring\n\n*Your weapon unleashes psionic energy that reduces your target's weight.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P damage\n- **12-16:** 8 + M, R, I, or P damage\n- **17+:** 11 + M, R, I, or P damage\n\n**Effect:** Until the end of the target's next turn, any forced movement that affects the target has its distance increased by 2.",
+      "legacyId": "kit-3fc272e3de28"
     },
     {
-      "id": "kit-5b78887af5df",
+      "id": "kit.stormwight",
       "name": "Буревестник",
       "summary": "Первозданный аспект буревестника позволяет вам направлять свою свирепость в форму животного и дает вам знание одного комплекта буревестника по вашему выбору. Вы можете освоить дополнительные комплекты буревестника в процессе игры, меняя их во время отдыха, как и любой другой комплект (смотрите Комплекты).\n#### Особенности комплекта\nВсе комплекты буревестника имеют следующие общие особенности.",
       "equipment": "Вы не носите броню и владеете только безоружными ударами — которые становятся разрушительным природным оружием по мере роста вашей свирепости.",
       "bonuses": [],
-      "signatureAbility": "Сносящая Атака"
+      "signatureAbility": "Сносящая Атака",
+      "legacyId": "kit-5b78887af5df",
+      "originalId": "mcdm.heroes.v1/feature.fury.stormwight-kits/kit-features",
+      "originalName": "Stormwight Kits",
+      "originalDescription": "All stormwight kits have the following features in common.\n\n##### Signature Ability\n\nYou gain a new signature ability from your kit."
     },
     {
-      "id": "kit-19bd7a009762",
+      "id": "kit.whirlwind",
       "name": "Вихрь",
       "summary": "Комплект Вихрь эффективно использует хлысты, предоставляя вам мобильность, урон и досягаемость. Если вы хотите быть быстро движущимся воином, который хлещет врагов цепью или хлыстом, то это комплект для вас.",
       "equipment": "Вы не носите доспехов и владеете хлыстом.",
@@ -86,10 +98,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Продолжение Моей Руки"
+      "signatureAbility": "Продолжение Моей Руки",
+      "originalId": "mcdm.heroes.v1/kit/whirlwind",
+      "originalName": "Whirlwind",
+      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you.\n\n##### Equipment\n\nYou wear no armor and wield a whip.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Extension of My Arm\n\n*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3",
+      "legacyId": "kit-19bd7a009762"
     },
     {
-      "id": "kit-6ef47b8c439a",
+      "id": "kit.warrior-priest",
       "name": "Воин-Жрец",
       "summary": "Комплект Воин-жрец наделяет ваше оружие силой богов, превращая его в разящий инструмент. Вы вступаете в схватку без страха, благодаря божественной силе... и тяжелым доспехам, которые вы носите.",
       "equipment": "Вы носите тяжелые доспехи и владеете легким оружием.",
@@ -111,10 +127,14 @@
           "value": "+1/+1/+1"
         }
       ],
-      "signatureAbility": "Ослабляющее Клеймо"
+      "signatureAbility": "Ослабляющее Клеймо",
+      "originalId": "mcdm.heroes.v1/kit/warrior-priest",
+      "originalName": "Warrior Priest",
+      "originalDescription": "The Warrior Priest kit imbues the power of the gods into your weapon, making it a smiting instrument. You wade into the fray without fear, thanks to the power of the divine... and the heavy armor you wear.\n\n##### Equipment\n\nYou wear heavy armor and wield a light weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +9 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +1/+1/+1\n\n##### Signature Ability\n\n###### Weakening Brand\n\n*The impact of your weapon brands your target for destruction.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 3 + M, R, I, or P holy damage\n- **12-16:** 5 + M, R, I, or P holy damage\n- **17+:** 8 + M, R, I, or P holy damage\n\n**Effect:** Until the end of the target's next turn, they have damage weakness equal to the characteristic score used for this ability's power roll.",
+      "legacyId": "kit-6ef47b8c439a"
     },
     {
-      "id": "kit-3583d2d24847",
+      "id": "kit.guisarmier",
       "name": "Гвизармьер",
       "summary": "Комплект Гвизармьер предназначен для тех, кто хочет использовать древковое оружие для увеличенной досягаемости, оставаясь защищенным прочными доспехами. Это комплект, который позволяет вам стать непревзойденным бойцом с алебардой, длинным копьем или глефой.",
       "equipment": "Вы носите средние доспехи и владеете древковым оружием.",
@@ -136,10 +156,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Выпад Вперед, Удар Назад"
+      "signatureAbility": "Выпад Вперед, Удар Назад",
+      "originalId": "mcdm.heroes.v1/kit/guisarmier",
+      "originalName": "Guisarmier",
+      "originalDescription": "The Guisarmier kit is for those who want to use a polearm for extended reach while remaining protected by sturdy armor. This is the kit that allows you to become the ultimate halberd, longspear, or glaive fighter.\n\n##### Equipment\n\nYou wear medium armor and wield a polearm.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Melee Distance Bonus:** +1\n\n##### Signature Ability\n\n###### Forward Thrust, Backward Smash\n\n*In your hands, the haft is as good as the head.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 2**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 7 damage\n- **17+:** 9 damage",
+      "legacyId": "kit-3583d2d24847"
     },
     {
-      "id": "kit-b6316738ad7e",
+      "id": "kit.mountain",
       "name": "Гора",
       "summary": "Комплект Гора делает именно то, что написано на упаковке. Вы надеваете тяжелые доспехи и поднимаете тяжелое оружие, чтобы стойко противостоять своим врагам, быстро сокрушая их, когда приходит ваша очередь наносить удар.",
       "equipment": "Вы носите тяжелые доспехи и владеете тяжелым оружием.",
@@ -157,10 +181,14 @@
           "value": "+0/+0/+4"
         }
       ],
-      "signatureAbility": "Боль за Боль"
+      "signatureAbility": "Боль за Боль",
+      "originalId": "mcdm.heroes.v1/kit/mountain",
+      "originalName": "Mountain",
+      "originalDescription": "The Mountain kit does exactly what it says on the tin. You don heavy armor and raise a heavy weapon to stand strong against your foes, quickly demolishing them when it's your turn to strike.\n\n##### Equipment\n\nYou wear heavy armor and wield a heavy weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +9 per echelon\n\n**Stability Bonus:** +2\n\n**Melee Damage Bonus:** +0/+0/+4\n\n##### Signature Ability\n\n###### Pain for Pain\n\n*An enemy who tagged you will pay for that.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** If the target dealt damage to you since the end of your last turn, this strike deals additional damage equal to your Might or Agility score (your choice).",
+      "legacyId": "kit-b6316738ad7e"
     },
     {
-      "id": "kit-5a3aec3c7dc6",
+      "id": "kit.swashbuckler",
       "name": "Дуэлист",
       "summary": "Если вы хотите быть мобильным и наносить много урона ударами ближнего боя, вам следует обратить внимание на комплект Дуэлист. Это отличный комплект для героев, которые хотят стать мастерами дуэлей.",
       "equipment": "Вы носите легкие доспехи и владеете средним оружием.",
@@ -182,10 +210,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Изящная Работа Ног"
+      "signatureAbility": "Изящная Работа Ног",
+      "originalId": "mcdm.heroes.v1/kit/swashbuckler",
+      "originalName": "Swashbuckler",
+      "originalDescription": "If you want to be mobile and deal a lot of damage with melee strikes, then you should reach for the Swashbuckler kit. This is a great kit for heroes who want to be master duelists.\n\n##### Equipment\n\nYou wear light armor and wield a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Fancy Footwork\n\n*All combat is a dance—and you'll be the one leading.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 7 + M or A damage; push 1\n- **17+:** 10 + M or A damage; push 2\n\n**Effect:** You can shift into any square the target leaves after you push them.",
+      "legacyId": "kit-5a3aec3c7dc6"
     },
     {
-      "id": "kit-16e4e71e1feb",
+      "id": "kit.spellsword",
       "name": "Заклинатель Клинков",
       "summary": "Комплект Заклинатель клинков сочетает в себе удары ближнего боя и немного магии, позволяя вам создать воина, которому не нужно выбирать между заклинанием и клинком.",
       "equipment": "Вы носите легкие доспехи и владеете щитом и средним оружием.",
@@ -207,10 +239,14 @@
           "value": "+2/+2/+2"
         }
       ],
-      "signatureAbility": "Прыгающая Молния"
+      "signatureAbility": "Прыгающая Молния",
+      "originalId": "mcdm.heroes.v1/kit/spellsword",
+      "originalName": "Spellsword",
+      "originalDescription": "The Spellsword kit combines melee strikes and a little bit of magic, letting you create a warrior who doesn't have to choose between the incantation and the blade.\n\n##### Equipment\n\nYou wear light armor and wield a shield and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n##### Signature Ability\n\n###### Leaping Lightning\n\n*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll.",
+      "legacyId": "kit-16e4e71e1feb"
     },
     {
-      "id": "kit-a88641f62556",
+      "id": "kit.pugilist",
       "name": "Кулачный Боец",
       "summary": "Предназначенный для драчунов и боксеров, комплект Кулачный боец дает вам доступ к стилю ближнего боя, который дает прибавку к выносливости и урону, позволяя вам порхать как бабочка. Если вы хотите быть крепким, сильным героем, который раздает наказания кулаками, то этот комплект для вас.",
       "equipment": "Вы не носите доспехов и владеете только безоружными ударами.",
@@ -232,10 +268,14 @@
           "value": "+1/+1/+1"
         }
       ],
-      "signatureAbility": "Потанцуем"
+      "signatureAbility": "Потанцуем",
+      "originalId": "mcdm.heroes.v1/kit/pugilist",
+      "originalName": "Pugilist",
+      "originalDescription": "Meant for brawlers and boxers, the Pugilist kit gives you access to a melee fighting style that grants a boost to Stamina and damage while allowing you to float like a butterfly. If you want to be a tough, strong hero who doles out punishment with your fists, then this kit is for you.\n\n##### Equipment\n\nYou wear no armor and wield only your unarmed strikes.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +2\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +1/+1/+1\n\n##### Signature Ability\n\n###### Let's Dance\n\n*Keeping your enemies stumbling around the battlefield is second nature to you.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage; slide 1\n- **17+:** 8 + M or A damage; slide 2\n\n**Effect:** You can shift into any square the target leaves after you slide them.",
+      "legacyId": "kit-a88641f62556"
     },
     {
-      "id": "kit-c084a8383cc6",
+      "id": "kit.martial-artist",
       "name": "Мастер Боевых Искусств",
       "summary": "Если вы хотите быть быстрым в бою, то Мастер боевых искусств — это комплект для вас. Не обремененный оружием или доспехами, этот боевой стиль вознаграждает быстрые, сфокусированные безоружные удары по противникам и позволяет вам быть непревзойденным застрельщиком.",
       "equipment": "Вы не носите доспехов и владеете только безоружными ударами.",
@@ -257,10 +297,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Боевая Грация"
+      "signatureAbility": "Боевая Грация",
+      "originalId": "mcdm.heroes.v1/kit/martial-artist",
+      "originalName": "Martial Artist",
+      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher.\n\n##### Equipment\n\nYou wear no armor and wield only your unarmed strikes.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Battle Grace\n\n*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage.",
+      "legacyId": "kit-c084a8383cc6"
     },
     {
-      "id": "kit-ca0299accfad",
+      "id": "kit.sword-and-board",
       "name": "Меч и Щит",
       "summary": "Комплект Меч и щит не просто дает вам щит — он делает щит частью вашего наступательного арсенала. Со средним оружием в одной руке и куском стали или цельного дуба в другой, вы защищаете себя, контролируя поле боя.",
       "equipment": "Вы носите средние доспехи и владеете щитом и средним оружием.",
@@ -282,10 +326,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Удар Щитом"
+      "signatureAbility": "Удар Щитом",
+      "originalId": "mcdm.heroes.v1/kit/sword-and-board",
+      "originalName": "Sword and Board",
+      "originalDescription": "The Sword and Board kit doesn't just give you a shield—it makes the shield part of your offensive arsenal. With a medium weapon in one hand and a block of steel or solid oak in the other, you protect yourself while you control the battlefield.\n\n##### Equipment\n\nYou wear medium armor and wield a shield and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +9 per echelon\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Shield Bash\n\n*In your hands, a shield isn't just for protection.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; push 1\n- **12-16:** 7 + M or A damage; push 2\n- **17+:** 9 + M or A damage; push 3; M < STRONG, prone",
+      "legacyId": "kit-ca0299accfad"
     },
     {
-      "id": "kit-380943319c89",
+      "id": "kit.arcane-archer",
       "name": "Мистический Лучник",
       "summary": "Комплект Мистический лучник позволяет вам объединить магию и удары оружием дальнего боя. Отсутствие доспехов сохраняет вашу мобильность, а ваша магия заставляет ваши стрелы взрываться, сокрушая ваших врагов.",
       "equipment": "Вы не носите доспехов и владеете луком.",
@@ -307,10 +355,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Взрывающаяся Стрела"
+      "signatureAbility": "Взрывающаяся Стрела",
+      "originalId": "mcdm.heroes.v1/kit/arcane-archer",
+      "originalName": "Arcane Archer",
+      "originalDescription": "The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes.\n\n##### Equipment\n\nYou wear no armor and wield a bow.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +2/+2/+2\n\n**Ranged Distance Bonus:** +10\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Exploding Arrow\n\n*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll.",
+      "legacyId": "kit-380943319c89"
     },
     {
-      "id": "kit-362a741ee8d4",
+      "id": "kit.raider",
       "name": "Налетчик",
       "summary": "Комплект Налетчик защищает вас, предоставляя при этом полную мобильность, обеспечивая прибавку к скорости и расстоянию, которая позволяет вам носиться по полю боя подобно воину-викингу.",
       "equipment": "Вы носите легкие доспехи и владеете щитом и легким оружием.",
@@ -340,10 +392,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Шок и Трепет"
+      "signatureAbility": "Шок и Трепет",
+      "originalId": "mcdm.heroes.v1/kit/raider",
+      "originalName": "Raider",
+      "originalDescription": "The Raider kit keeps you protected while granting you full mobility, providing a boost to speed and distance that lets you run around the battlefield like a Viking warrior.\n\n##### Equipment\n\nYou wear light armor and wield a shield and a light weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Ranged Damage Bonus:** +1/+1/+1\n\n**Ranged Distance Bonus:** +5\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Raider's Awe\n\n*You execute a brutal strike that leaves your foe reeling. (Previously known as \"Shock and Awe\")*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 8 + M or A damage\n\n**Effect:** The target takes a bane on their next power roll made before the end of their next turn.",
+      "legacyId": "kit-362a741ee8d4"
     },
     {
-      "id": "kit-8c0d63bd85f8",
+      "id": "kit.panther",
       "name": "Пантера",
       "summary": "Если вы хотите получить хороший баланс защиты, скорости и урона, комплект Пантера для вас. Этот комплект увеличивает вашу выносливость не за счет ношения доспехов, а за счет сфокусированной боевой подготовки тела и разума, позволяя вам быть быстрым и мобильным, размахивая тяжелым оружием против ваших врагов.",
       "equipment": "Вы не носите доспехов и владеете тяжелым оружием.",
@@ -365,10 +421,14 @@
           "value": "+0/+0/+4"
         }
       ],
-      "signatureAbility": "Разрушительный Натиск"
+      "signatureAbility": "Разрушительный Натиск",
+      "originalId": "mcdm.heroes.v1/kit/panther",
+      "originalName": "Panther",
+      "originalDescription": "If you want a good balance of protection, speed, and damage, the Panther kit is for you. This kit increases your Stamina not by wearing armor, but through the focused battle preparation of body and mind, letting you be fast and mobile while swinging a heavy weapon at your foes.\n\n##### Equipment\n\nYou wear no armor and wield a heavy weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +0/+0/+4\n\n##### Signature Ability\n\n###### Devastating Rush\n\n*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way.",
+      "legacyId": "kit-8c0d63bd85f8"
     },
     {
-      "id": "kit-08e31edf75e0",
+      "id": "kit.dual-wielder",
       "name": "Парное Оружие",
       "summary": "Комплект Парное оружие предназначен для тех, кто хочет преуспеть в использовании двух оружий одновременно. Ваш боевой стиль максимизирует силу каждого оружия, которое у вас в руках, делая вас кружащимся вестником смерти.",
       "equipment": "Вы носите средние доспехи и владеете легким оружием и средним оружием.",
@@ -390,10 +450,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Двойной Удар"
+      "signatureAbility": "Двойной Удар",
+      "originalId": "mcdm.heroes.v1/kit/dual-wielder",
+      "originalName": "Dual Wielder",
+      "originalDescription": "The Dual Wielder kit is for folks who want to excel at using two weapons at the same time. Your fighting style maximizes the power of each weapon you have in hand, making you a whirling dealer of death.\n\n##### Equipment\n\nYou wear medium armor and wield a light weapon and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +2\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Double Strike\n\n*Why strike once when you could do it twice?*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage\n\n**Effect:** If you use this ability on your turn, you can use it against one target, then use your maneuver and your move action for that turn before using the ability against a second target. You still use the same power roll for both targets.",
+      "legacyId": "kit-08e31edf75e0"
     },
     {
-      "id": "kit-c0b5e01eab83",
+      "id": "kit.cloak-and-dagger",
       "name": "Плащ и Кинжал",
       "summary": "Предоставляя метательное легкое оружие и легкие доспехи, легко скрываемые плащом для запутывания ваших врагов, комплект Плащ и кинжал делает вас более мобильным, увеличивая при этом эффективность ваших ударов на коротких дистанциях.",
       "equipment": "Вы носите легкие доспехи и владеете одним или двумя легкими оружиями.",
@@ -423,10 +487,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Растворение"
+      "signatureAbility": "Растворение",
+      "originalId": "mcdm.heroes.v1/kit/cloak-and-dagger",
+      "originalName": "Cloak and Dagger",
+      "originalDescription": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes.\n\n##### Equipment\n\nYou wear light armor and wield one or two light weapons.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +2\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Ranged Damage Bonus:** +1/+1/+1\n\n**Ranged Distance Bonus:** +5\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Fade\n\n*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares",
+      "legacyId": "kit-c0b5e01eab83"
     },
     {
-      "id": "kit-be068c7ce121",
+      "id": "kit.stick-and-robe",
       "name": "Посох и Роба",
       "summary": "Вооруженный простым оружием с досягаемостью, часто боевым посохом, персонаж, использующий комплект Посох и роба, обладает высокой мобильностью благодаря своим легким доспехам. Это позволяет вашему герою максимально использовать длину своего оружия.",
       "equipment": "Вы носите легкие доспехи и владеете древковым оружием.",
@@ -452,10 +520,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Туда, Куда Мне Нужно"
+      "signatureAbility": "Туда, Куда Мне Нужно",
+      "originalId": "mcdm.heroes.v1/kit/stick-and-robe",
+      "originalName": "Stick and Robe",
+      "originalDescription": "Armed with a simple reach weapon, often a quarterstaff, a character using the Stick and Robe kit is highly mobile thanks to their light armor. This allows your hero to make maximum use of their weapon's length.\n\n##### Equipment\n\nYou wear light armor and wield a polearm.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +2\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Where I Want You\n\n*When your stick speaks, your enemy moves.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage\n- **12-16:** 7 + M or A damage; slide 1\n- **17+:** 10 + M or A damage; slide 3",
+      "legacyId": "kit-be068c7ce121"
     },
     {
-      "id": "kit-9fbf8e38605a",
+      "id": "kit.ranger",
       "name": "Рейнджер",
       "summary": "Комплект Рейнджер экипирует вас средними доспехами и оружием для любых испытаний, позволяя вам легко переключаться между ближним и дальним боем. Этот комплект обеспечивает хороший баланс бонусов к защите и атаке для создания героя, который является мастером на все руки.",
       "equipment": "Вы носите средние доспехи и владеете луком и средним оружием.",
@@ -485,10 +557,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Выстрел по Поджилкам"
+      "signatureAbility": "Выстрел по Поджилкам",
+      "originalId": "mcdm.heroes.v1/kit/ranger",
+      "originalName": "Ranger",
+      "originalDescription": "The Ranger kit outfits you with medium armor and weapons for every challenge, letting you easily switch between melee and ranged combat. This kit provides a good balance of bonuses to defense and offense to create a hero who is a jack-of-all-trades.\n\n##### Equipment\n\nYou wear medium armor and wield a bow and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Ranged Damage Bonus:** +1/+1/+1\n\n**Ranged Distance Bonus:** +5\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Hamstring Shot\n\n*A well-placed shot leaves your enemy struggling to move.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; A < WEAK, slowed (save ends)\n- **12-16:** 5 + M or A damage; A < AVERAGE, slowed (save ends)\n- **17+:** 7 + M or A damage; A < STRONG, slowed (save ends)",
+      "legacyId": "kit-9fbf8e38605a"
     },
     {
-      "id": "kit-0011f1b44f30",
+      "id": "kit.retiarius",
       "name": "Ретиарий",
       "summary": "Ретиарий часто изображается как легкобронированный воин с сетью в одной руке и трезубцем в другой, и этот комплект дает вам снаряжение и боевую технику, чтобы воплотить это в жизнь. Свяжите своего врага сетью, а затем заколите его до смерти!",
       "equipment": "Вы носите легкие доспехи и владеете несколькими опутывающими оружиями и древковым оружием.",
@@ -514,10 +590,14 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Сеть и Укол"
+      "signatureAbility": "Сеть и Укол",
+      "originalId": "mcdm.heroes.v1/kit/retiarius",
+      "originalName": "Retiarius",
+      "originalDescription": "The retiarius is often depicted as a lightly armored warrior with a net in one hand and a trident in the other, and this kit gives you the equipment and fighting technique to make that happen. Tie up your foe with a net and then poke them to death!\n\n##### Equipment\n\nYou wear light armor and wield several ensnaring weapons and a polearm.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Net and Stab\n\n*The well-thrown net that follows your main attack leaves your foes right where you want them.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; A < WEAK, slowed (EoT)\n- **12-16:** 6 + M or A damage; A < AVERAGE, slowed (EoT)\n- **17+:** 8 + M or A damage; A < STRONG, restrained (EoT)",
+      "legacyId": "kit-0011f1b44f30"
     },
     {
-      "id": "kit-1b3c2ee911d6",
+      "id": "kit.shining-armor",
       "name": "Сияющие Доспехи",
       "summary": "Комплект Сияющие доспехи обеспечивает максимальную защиту, которую может позволить комплект, предоставляя вам меч, щит и доспехи, необходимые для отыгрыша прототипичного рыцаря.",
       "equipment": "Вы носите тяжелые доспехи и владеете щитом и средним оружием.",
@@ -535,10 +615,14 @@
           "value": "+2/+2/+2"
         }
       ],
-      "signatureAbility": "Защитная Атака"
+      "signatureAbility": "Защитная Атака",
+      "originalId": "mcdm.heroes.v1/kit/shining-armor",
+      "originalName": "Shining Armor",
+      "originalDescription": "The Shining Armor kit provides the most protection a kit can afford, providing you with the sword, shield, and armor necessary to play the prototypical knight.\n\n##### Equipment\n\nYou wear heavy armor and wield a shield and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +12 per echelon\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n##### Signature Ability\n\n###### Protective Attack\n\n*The strength of your assault makes it impossible for your foe to ignore you.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage\n- **17+:** 11 + M or A damage\n\n**Effect:** The target is taunted until the end of their next turn.",
+      "legacyId": "kit-1b3c2ee911d6"
     },
     {
-      "id": "kit-860ff885b052",
+      "id": "kit.sniper",
       "name": "Снайпер",
       "summary": "Комплект Снайпер дает вам инструменты и техники для уничтожения врагов издалека. Этот комплект может помочь вам стать лучником, который прячется за деревьями или в туннелях, отстреливая приближающихся врагов из лука или арбалета.",
       "equipment": "Вы не носите доспехов и владеете луком.",
@@ -560,7 +644,11 @@
           "value": "+1"
         }
       ],
-      "signatureAbility": "Терпеливый Выстрел"
+      "signatureAbility": "Терпеливый Выстрел",
+      "originalId": "mcdm.heroes.v1/kit/sniper",
+      "originalName": "Sniper",
+      "originalDescription": "The Sniper kit gives you the tools and techniques to take down enemies from afar. This kit can help you become the archer who lurks behind trees or down tunnels, picking off enemies with a bow or crossbow as they approach.\n\n##### Equipment\n\nYou wear no armor and wield a bow.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +0/+0/+4\n\n**Ranged Distance Bonus:** +10\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Patient Shot\n\n*Breathe... aim... wait... then strike!*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 15**           | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** If you don't take a move action this turn, this strike deals extra damage equal to your Might or Agility score (your choice).",
+      "legacyId": "kit-860ff885b052"
     }
   ]
 }

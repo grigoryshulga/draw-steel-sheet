@@ -167,7 +167,11 @@ export interface DevelopmentResult {
 }
 
 const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
-  ABILITY_COMPENDIUM.map((ability) => [ability.id, ability]),
+  ABILITY_COMPENDIUM.flatMap((ability) => {
+    const rows: [string, CompendiumAbility][] = [[ability.id, ability]];
+    if (ability.legacyId) rows.push([ability.legacyId, ability]);
+    return rows;
+  }),
 );
 
 /** Сравнение имён: регистр, крайние пробелы и ё/е не различают навыки. */

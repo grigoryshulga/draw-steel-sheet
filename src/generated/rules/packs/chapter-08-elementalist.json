@@ -340,7 +340,10 @@
           "type": "entity",
           "ref": "ability.elementalist-ispytanie-dozhdem-5aed3129d8"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level elementalist, you gain the following features."
     },
     {
       "id": "0892",
@@ -417,7 +420,10 @@
           "type": "entity",
           "ref": "ability.elementalist-obyatiya-vulkana-3acba82839"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level elementalist, you gain the following features."
     },
     {
       "id": "0893",
@@ -498,7 +504,10 @@
           "type": "entity",
           "ref": "ability.elementalist-stena-ognya-ec15cb81b3"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level elementalist, you gain the following features."
     },
     {
       "id": "0894",
@@ -547,7 +556,10 @@
           "type": "entity",
           "ref": "feature.elementalist.feature.4.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level elementalist, you gain the following features."
     },
     {
       "id": "0895",
@@ -612,7 +624,10 @@
           "type": "entity",
           "ref": "ability.elementalist-pautina-vsego-chto-bylo-do-f899ff4f58"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level elementalist, you gain the following features."
     },
     {
       "id": "0896",
@@ -665,7 +680,10 @@
           "type": "entity",
           "ref": "ability.elementalist-les-pomnit-i-vozvraschaet-727f74056c"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level elementalist, you gain the following features."
     },
     {
       "id": "0897",
@@ -694,7 +712,10 @@
           "type": "entity",
           "ref": "feature.elementalist.feature.7.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level elementalist, you gain the following features."
     },
     {
       "id": "0898",
@@ -771,7 +792,10 @@
           "type": "entity",
           "ref": "ability.elementalist-mir-razorvannyy-na-chasti-b6faeb600e"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level elementalist, you gain the following features."
     },
     {
       "id": "0899-10",
@@ -824,7 +848,10 @@
           "type": "entity",
           "ref": "feature.elementalist.feature.10.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level elementalist, you gain the following features."
     },
     {
       "id": "0899-9",
@@ -873,7 +900,10 @@
           "type": "entity",
           "ref": "ability.elementalist-neugasimyy-ogon-7c1ef4b22a"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level elementalist, you gain the following features."
     }
   ],
   "entities": [
@@ -890,7 +920,7 @@
         "elementalist-bodryaschiy-rost-97d3fbf6f3"
       ],
       "ability": {
-        "id": "elementalist-bodryaschiy-rost-97d3fbf6f3",
+        "id": "feature.ability.elementalist.level-1.invigorating-growth",
         "name": "Бодрящий Рост",
         "flavor": "Грибы прорастают из врага, истощая его жизненные силы для распространения укрепляющих спор.",
         "actionType": "main",
@@ -929,8 +959,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/invigorating-growth",
+        "originalName": "Invigorating Growth",
+        "originalDescription": "*Mushrooms erupt from a foe, sapping their vitality to spread strengthening spores.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 + R poison damage\n- **12-16:** 7 + R poison damage\n- **17+:** 11 + R poison damage\n\n**Effect:** Mushrooms cover the target's body. While the mushrooms are on the target, you and any ally adjacent to the target gain 1 surge whenever the target takes damage. The mushrooms can be removed by the target or an adjacent creature as a main action.",
+        "legacyId": "elementalist-bodryaschiy-rost-97d3fbf6f3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/invigorating-growth",
+      "originalName": "Invigorating Growth",
+      "originalDescription": "*Mushrooms erupt from a foe, sapping their vitality to spread strengthening spores.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 + R poison damage\n- **12-16:** 7 + R poison damage\n- **17+:** 11 + R poison damage\n\n**Effect:** Mushrooms cover the target's body. While the mushrooms are on the target, you and any ally adjacent to the target gain 1 surge whenever the target takes damage. The mushrooms can be removed by the target or an adjacent creature as a main action."
     },
     {
       "id": "ability.elementalist-brosok-elementa-186a245a1c",
@@ -945,7 +982,7 @@
         "elementalist-brosok-elementa-186a245a1c"
       ],
       "ability": {
-        "id": "elementalist-brosok-elementa-186a245a1c",
+        "id": "feature.ability.elementalist.level-1.hurl-element",
         "name": "Бросок Элемента",
         "flavor": "Вы бросаете шар элементальной энергии во врага.",
         "actionType": "main",
@@ -983,8 +1020,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/hurl-element",
+        "originalName": "Hurl Element",
+        "originalDescription": "*You cast a ball of elemental energy at a foe.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 4 + R damage\n- **17+:** 6 + R damage\n\n**Effect:** When you make this strike, choose the damage type from one of the following options: acid, cold, corruption, fire, lightning, poison, or sonic.",
+        "legacyId": "elementalist-brosok-elementa-186a245a1c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/hurl-element",
+      "originalName": "Hurl Element",
+      "originalDescription": "*You cast a ball of elemental energy at a foe.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 4 + R damage\n- **17+:** 6 + R damage\n\n**Effect:** When you make this strike, choose the damage type from one of the following options: acid, cold, corruption, fire, lightning, poison, or sonic."
     },
     {
       "id": "ability.elementalist-hvatka-izvne-2d5a29c14b",
@@ -999,7 +1043,7 @@
         "elementalist-hvatka-izvne-2d5a29c14b"
       ],
       "ability": {
-        "id": "elementalist-hvatka-izvne-2d5a29c14b",
+        "id": "feature.ability.elementalist.level-1.grasp-of-beyond",
         "name": "Хватка Извне",
         "flavor": "Вы поглощаете жизненную энергию другого существа и используете ее для телепортации.",
         "actionType": "main",
@@ -1038,8 +1082,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/grasp-of-beyond",
+        "originalName": "Grasp of Beyond",
+        "originalDescription": "*You absorb the life energy of another creature and use it to teleport.*\n\n| **Magic, Melee, Strike, Void** |     **Main action** |\n|--------------------------------|--------------------:|\n| **📏 Melee 1**                 | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R corruption damage\n- **12-16:** 6 + R corruption damage\n- **17+:** 9 + R corruption damage\n\n**Effect:** You can teleport up to a number of squares equal to your Reason score.",
+        "legacyId": "elementalist-hvatka-izvne-2d5a29c14b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/grasp-of-beyond",
+      "originalName": "Grasp of Beyond",
+      "originalDescription": "*You absorb the life energy of another creature and use it to teleport.*\n\n| **Magic, Melee, Strike, Void** |     **Main action** |\n|--------------------------------|--------------------:|\n| **📏 Melee 1**                 | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R corruption damage\n- **12-16:** 6 + R corruption damage\n- **17+:** 9 + R corruption damage\n\n**Effect:** You can teleport up to a number of squares equal to your Reason score."
     },
     {
       "id": "ability.elementalist-iskazhennoe-vospriyatie-prostranstva-f61823a285",
@@ -1054,7 +1105,7 @@
         "elementalist-iskazhennoe-vospriyatie-prostranstva-f61823a285"
       ],
       "ability": {
-        "id": "elementalist-iskazhennoe-vospriyatie-prostranstva-f61823a285",
+        "id": "feature.ability.elementalist.level-5.subverted-perception-of-space",
         "name": "Искаженное Восприятие Пространства",
         "flavor": "Вы разрываете мир врага надвое.",
         "actionType": "main",
@@ -1093,8 +1144,15 @@
         "className": "Элементалист",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/subverted-perception-of-space",
+        "originalName": "Subverted Perception of Space",
+        "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn",
+        "legacyId": "elementalist-iskazhennoe-vospriyatie-prostranstva-f61823a285"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/subverted-perception-of-space",
+      "originalName": "Subverted Perception of Space",
+      "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn"
     },
     {
       "id": "ability.elementalist-ispytanie-dozhdem-5aed3129d8",
@@ -1109,7 +1167,7 @@
         "elementalist-ispytanie-dozhdem-5aed3129d8"
       ],
       "ability": {
-        "id": "elementalist-ispytanie-dozhdem-5aed3129d8",
+        "id": "feature.ability.elementalist.level-1.test-of-rain",
         "name": "Испытание Дождем",
         "flavor": "Вы призываете дождь, который обжигает ваших врагов и восстанавливает ваших союзников.",
         "actionType": "main",
@@ -1148,8 +1206,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/test-of-rain",
+        "originalName": "Test of Rain",
+        "originalDescription": "*You call down a rain that burns your enemies and restores your allies.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 acid damage\n- **12-16:** 6 acid damage\n- **17+:** 10 acid damage\n\n**Effect:** You can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains this benefit.",
+        "legacyId": "elementalist-ispytanie-dozhdem-5aed3129d8"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/test-of-rain",
+      "originalName": "Test of Rain",
+      "originalDescription": "*You call down a rain that burns your enemies and restores your allies.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 acid damage\n- **12-16:** 6 acid damage\n- **17+:** 10 acid damage\n\n**Effect:** You can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains this benefit."
     },
     {
       "id": "ability.elementalist-kozha-kak-steny-zamka-d93c259759",
@@ -1165,7 +1230,7 @@
         "elementalist.specialization.1.kozha-kak-steny-zamka"
       ],
       "ability": {
-        "id": "elementalist-kozha-kak-steny-zamka-d93c259759",
+        "id": "feature.ability.elementalist.level-1.skin-like-castle-walls",
         "name": "Кожа Как Стены Замка",
         "flavor": "Вы покрываете себя или союзника защитным камнем.",
         "actionType": "trigger",
@@ -1201,8 +1266,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/skin-like-castle-walls",
+        "originalName": "Skin Like Castle Walls",
+        "originalDescription": "*You cover yourself or an ally in protective stone.*\n\n| **Earth, Magic, Ranged**  |           **Triggered** |\n|---------------------------|------------------------:|\n| **📏 Ranged 10**          | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target takes half the damage.\n\n**Spend 1 Essence:** If the damage has any potency effects associated with it, the potency is reduced by 1 for the target.",
+        "legacyId": "elementalist-kozha-kak-steny-zamka-d93c259759"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/skin-like-castle-walls",
+      "originalName": "Skin Like Castle Walls",
+      "originalDescription": "*You cover yourself or an ally in protective stone.*\n\n| **Earth, Magic, Ranged**  |           **Triggered** |\n|---------------------------|------------------------:|\n| **📏 Ranged 10**          | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target takes half the damage.\n\n**Spend 1 Essence:** If the damage has any potency effects associated with it, the potency is reduced by 1 for the target."
     },
     {
       "id": "ability.elementalist-les-pomnit-i-vozvraschaet-727f74056c",
@@ -1217,7 +1289,7 @@
         "elementalist-les-pomnit-i-vozvraschaet-727f74056c"
       ],
       "ability": {
-        "id": "elementalist-les-pomnit-i-vozvraschaet-727f74056c",
+        "id": "feature.ability.elementalist.level-6.the-wode-remembers-and-returns",
         "name": "Лес Помнит и Возвращает",
         "flavor": "Вы создаете террариум, который простирается от кроны наверху до подлеска внизу.",
         "actionType": "main",
@@ -1255,8 +1327,15 @@
         "className": "Элементалист",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/the-wode-remembers-and-returns",
+        "originalName": "The Wode Remembers and Returns",
+        "originalDescription": "*You create a terrarium that spans from canopy above to underbrush below.*\n\n| **Area, Earth, Green, Magic, Void** | **Main action** |\n|-------------------------------------|----------------:|\n| **📏 4 burst**                      |  **🎯 Special** |\n\n**Effect:** The area becomes dark and verdant, with trees and plant life appearing in unoccupied spaces within it until the start of your next turn. The area is difficult terrain for enemies, and any ally who ends their turn in the area has cover.\n\n**Persistent 2:** The area remains until the start of your next turn. Additionally, at the start of your turn, each ally in the area can spend a Recovery.",
+        "legacyId": "elementalist-les-pomnit-i-vozvraschaet-727f74056c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/the-wode-remembers-and-returns",
+      "originalName": "The Wode Remembers and Returns",
+      "originalDescription": "*You create a terrarium that spans from canopy above to underbrush below.*\n\n| **Area, Earth, Green, Magic, Void** | **Main action** |\n|-------------------------------------|----------------:|\n| **📏 4 burst**                      |  **🎯 Special** |\n\n**Effect:** The area becomes dark and verdant, with trees and plant life appearing in unoccupied spaces within it until the start of your next turn. The area is difficult terrain for enemies, and any ally who ends their turn in the area has cover.\n\n**Persistent 2:** The area remains until the start of your next turn. Additionally, at the start of your turn, each ally in the area can spend a Recovery."
     },
     {
       "id": "ability.elementalist-luch-muchitelnogo-samoanaliza-2c487031e6",
@@ -1271,7 +1350,7 @@
         "elementalist-luch-muchitelnogo-samoanaliza-2c487031e6"
       ],
       "ability": {
-        "id": "elementalist-luch-muchitelnogo-samoanaliza-2c487031e6",
+        "id": "feature.ability.elementalist.level-1.ray-of-agonizing-self-reflection",
         "name": "Луч Мучительного Самоанализа",
         "flavor": "Вы причиняете боль и сомнения в равной мере.",
         "actionType": "main",
@@ -1310,8 +1389,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ray-of-agonizing-self-reflection",
+        "originalName": "Ray of Agonizing Self-Reflection",
+        "originalDescription": "*You inflict pain and doubt in equal measure.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage; R < WEAK, slowed (save ends)\n- **12-16:** 4 + R corruption damage; R < AVERAGE, slowed (save ends)\n- **17+:** 6 + R corruption damage; R < STRONG, slowed (save ends)",
+        "legacyId": "elementalist-luch-muchitelnogo-samoanaliza-2c487031e6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ray-of-agonizing-self-reflection",
+      "originalName": "Ray of Agonizing Self-Reflection",
+      "originalDescription": "*You inflict pain and doubt in equal measure.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage; R < WEAK, slowed (save ends)\n- **12-16:** 4 + R corruption damage; R < AVERAGE, slowed (save ends)\n- **17+:** 6 + R corruption damage; R < STRONG, slowed (save ends)"
     },
     {
       "id": "ability.elementalist-magmaticheskiy-titan-eed9cc278d",
@@ -1326,7 +1412,7 @@
         "elementalist-magmaticheskiy-titan-eed9cc278d"
       ],
       "ability": {
-        "id": "elementalist-magmaticheskiy-titan-eed9cc278d",
+        "id": "feature.ability.elementalist.level-6.magma-titan",
         "name": "Магматический Титан",
         "flavor": "Их тело разбухает от лавы, грязи и мощи, возвышаясь над врагами.",
         "actionType": "maneuver",
@@ -1364,8 +1450,15 @@
         "className": "Элементалист",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/magma-titan",
+        "originalName": "Magma Titan",
+        "originalDescription": "*Their body swells with lava, mud, and might, towering over their enemies.*\n\n| **Earth, Fire, Green, Magic, Ranged** |            **Maneuver** |\n|---------------------------------------|------------------------:|\n| **📏 Ranged 10**                      | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target has the following benefits:\n\n- Their size and stability increase by 2, with any size 1 target becoming size 3. Each creature who is within the target's new space slides to the nearest unoccupied space, ignoring stability. If the target doesn't have space to grow, they grow as much as they can and become restrained until the effect ends.\n- They have fire immunity 10.\n- Their strikes deal extra fire damage equal to twice your Reason score.\n- When the target force moves a creature or object, the forced movement distance gains a +2 bonus.\n- They can use their highest characteristic instead of Might for Might power rolls.\n\n**Persistent 2:** The effect lasts until the start of your next turn. Additionally, at the start of your turn, the target can spend 2 Recoveries.",
+        "legacyId": "elementalist-magmaticheskiy-titan-eed9cc278d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/magma-titan",
+      "originalName": "Magma Titan",
+      "originalDescription": "*Their body swells with lava, mud, and might, towering over their enemies.*\n\n| **Earth, Fire, Green, Magic, Ranged** |            **Maneuver** |\n|---------------------------------------|------------------------:|\n| **📏 Ranged 10**                      | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target has the following benefits:\n\n- Their size and stability increase by 2, with any size 1 target becoming size 3. Each creature who is within the target's new space slides to the nearest unoccupied space, ignoring stability. If the target doesn't have space to grow, they grow as much as they can and become restrained until the effect ends.\n- They have fire immunity 10.\n- Their strikes deal extra fire damage equal to twice your Reason score.\n- When the target force moves a creature or object, the forced movement distance gains a +2 bonus.\n- They can use their highest characteristic instead of Might for Might power rolls.\n\n**Persistent 2:** The effect lasts until the start of your next turn. Additionally, at the start of your turn, the target can spend 2 Recoveries."
     },
     {
       "id": "ability.elementalist-meteor-3471a90ff4",
@@ -1380,7 +1473,7 @@
         "elementalist-meteor-3471a90ff4"
       ],
       "ability": {
-        "id": "elementalist-meteor-3471a90ff4",
+        "id": "feature.ability.elementalist.level-6.meteor",
         "name": "Метеор",
         "flavor": "Вы телепортируете цель в воздух, а затем позволяете земле и элементальной силе огня сделать все остальное.",
         "actionType": "main",
@@ -1420,8 +1513,15 @@
         "className": "Элементалист",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/meteor",
+        "originalName": "Meteor",
+        "originalDescription": "*You teleport the target into the air and let the ground and the elemental force of fire do the rest.*\n\n| **Earth, Fire, Magic, Ranged, Void** |               **Main action** |\n|--------------------------------------|------------------------------:|\n| **📏 Ranged 10**                     | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** You teleport the target up to 4 squares.\n- **12-16:** You teleport the target up to 6 squares.\n- **17+:** You teleport the target up to 8 squares.\n\n**Effect:** If the target is teleported to a space where they would fall, they immediately do so, treating the fall as if their Agility score were 0. The target takes fire damage from the fall, and each enemy within 3 squares of where they land takes the same amount of fire damage. The ground within 3 squares of where the target lands is difficult terrain.",
+        "legacyId": "elementalist-meteor-3471a90ff4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/meteor",
+      "originalName": "Meteor",
+      "originalDescription": "*You teleport the target into the air and let the ground and the elemental force of fire do the rest.*\n\n| **Earth, Fire, Magic, Ranged, Void** |               **Main action** |\n|--------------------------------------|------------------------------:|\n| **📏 Ranged 10**                     | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** You teleport the target up to 4 squares.\n- **12-16:** You teleport the target up to 6 squares.\n- **17+:** You teleport the target up to 8 squares.\n\n**Effect:** If the target is teleported to a space where they would fall, they immediately do so, treating the fall as if their Agility score were 0. The target takes fire damage from the fall, and each enemy within 3 squares of where they land takes the same amount of fire damage. The ground within 3 squares of where the target lands is difficult terrain."
     },
     {
       "id": "ability.elementalist-meteoritnoe-vstuplenie-779a36cead",
@@ -1436,7 +1536,7 @@
         "elementalist-meteoritnoe-vstuplenie-779a36cead"
       ],
       "ability": {
-        "id": "elementalist-meteoritnoe-vstuplenie-779a36cead",
+        "id": "feature.ability.elementalist.level-1.meteoric-introduction",
         "name": "Метеоритное Вступление",
         "flavor": "Вы легонько касаетесь врага — как удар астероида.",
         "actionType": "main",
@@ -1475,8 +1575,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/meteoric-introduction",
+        "originalName": "Meteoric Introduction",
+        "originalDescription": "*You give your enemy a gentle tap-like an asteroid impact.*\n\n| **Earth, Magic, Melee, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Melee 1**                  | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; push 2\n- **12-16:** 5 + R damage; push 3\n- **17+:** 8 + R damage; push 4",
+        "legacyId": "elementalist-meteoritnoe-vstuplenie-779a36cead"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/meteoric-introduction",
+      "originalName": "Meteoric Introduction",
+      "originalDescription": "*You give your enemy a gentle tap-like an asteroid impact.*\n\n| **Earth, Magic, Melee, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Melee 1**                  | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; push 2\n- **12-16:** 5 + R damage; push 3\n- **17+:** 8 + R damage; push 4"
     },
     {
       "id": "ability.elementalist-mezhdu-nami-net-prostranstva-603bea008c",
@@ -1491,7 +1598,7 @@
         "elementalist-mezhdu-nami-net-prostranstva-603bea008c"
       ],
       "ability": {
-        "id": "elementalist-mezhdu-nami-net-prostranstva-603bea008c",
+        "id": "feature.ability.elementalist.level-2.there-is-no-space-between",
         "name": "Между Нами Нет Пространства",
         "flavor": "Знание тайны показывает, что два пространства — это одно и то же пространство.",
         "actionType": "maneuver",
@@ -1527,8 +1634,15 @@
         "className": "Элементалист",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/there-is-no-space-between",
+        "originalName": "There Is No Space Between",
+        "originalDescription": "*Knowledge of the mystery reveals that two spaces are the same space.*\n\n| **Magic, Ranged, Void** |   **Maneuver** |\n|-------------------------|---------------:|\n| **📏 Ranged 10**        | **🎯 Special** |\n\n**Effect:** You open two size 1 portals in unoccupied spaces within distance, which last until you move beyond distance from any portal, end the effect as a maneuver, or are dying. Each portal must be placed at a height of no more than 1 square above the ground. When you or any ally touch a portal, that creature can choose to be instantly teleported to an unoccupied space of their choice adjacent to the other portal. If an enemy is force moved into a portal, their forced movement ends and they emerge from the other portal in an unoccupied space chosen by the creature who force moved them.\n\nAt the start of each of your turns while the portals are active, you can open a new portal connected to the others. If three or more portals are present, you and your allies choose which portal to emerge from when entering a portal, and a creature who force moves an enemy into a portal chooses that enemy's destination portal.",
+        "legacyId": "elementalist-mezhdu-nami-net-prostranstva-603bea008c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/there-is-no-space-between",
+      "originalName": "There Is No Space Between",
+      "originalDescription": "*Knowledge of the mystery reveals that two spaces are the same space.*\n\n| **Magic, Ranged, Void** |   **Maneuver** |\n|-------------------------|---------------:|\n| **📏 Ranged 10**        | **🎯 Special** |\n\n**Effect:** You open two size 1 portals in unoccupied spaces within distance, which last until you move beyond distance from any portal, end the effect as a maneuver, or are dying. Each portal must be placed at a height of no more than 1 square above the ground. When you or any ally touch a portal, that creature can choose to be instantly teleported to an unoccupied space of their choice adjacent to the other portal. If an enemy is force moved into a portal, their forced movement ends and they emerge from the other portal in an unoccupied space chosen by the creature who force moved them.\n\nAt the start of each of your turns while the portals are active, you can open a new portal connected to the others. If three or more portals are present, you and your allies choose which portal to emerge from when entering a portal, and a creature who force moves an enemy into a portal chooses that enemy's destination portal."
     },
     {
       "id": "ability.elementalist-mgnovennye-raskopki-994ae0e748",
@@ -1543,7 +1657,7 @@
         "elementalist-mgnovennye-raskopki-994ae0e748"
       ],
       "ability": {
-        "id": "elementalist-mgnovennye-raskopki-994ae0e748",
+        "id": "feature.ability.elementalist.level-1.instantaneous-excavation",
         "name": "Мгновенные Раскопки",
         "flavor": "Поверхность мира вокруг вас разверзается, чтобы поглотить врагов.",
         "actionType": "maneuver",
@@ -1581,8 +1695,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+        "originalName": "Instantaneous Excavation",
+        "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.",
+        "legacyId": "elementalist-mgnovennye-raskopki-994ae0e748"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+      "originalName": "Instantaneous Excavation",
+      "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence."
     },
     {
       "id": "ability.elementalist-mir-razorvannyy-na-chasti-b6faeb600e",
@@ -1597,7 +1718,7 @@
         "elementalist-mir-razorvannyy-na-chasti-b6faeb600e"
       ],
       "ability": {
-        "id": "elementalist-mir-razorvannyy-na-chasti-b6faeb600e",
+        "id": "feature.ability.elementalist.level-8.world-torn-asunder",
         "name": "Мир, Разорванный на Части",
         "flavor": "Вы топаете ногой и сотрясаете весь мир.",
         "actionType": "main",
@@ -1635,8 +1756,15 @@
         "className": "Элементалист",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/world-torn-asunder",
+        "originalName": "World Torn Asunder",
+        "originalDescription": "*You stomp your foot and quake the whole world over.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 5 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** M < WEAK, prone\n- **12-16:** M < AVERAGE, prone\n- **17+:** M < STRONG, prone\n\n**Effect:** You create a fissure in the ground adjacent to you that is a 10 x 2 line and 6 squares deep. Each creature in the area who is prone and size 2 or smaller falls in. Other creatures can enter the fissure or can shift to the nearest unoccupied space of their choice outside it.",
+        "legacyId": "elementalist-mir-razorvannyy-na-chasti-b6faeb600e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/world-torn-asunder",
+      "originalName": "World Torn Asunder",
+      "originalDescription": "*You stomp your foot and quake the whole world over.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 5 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** M < WEAK, prone\n- **12-16:** M < AVERAGE, prone\n- **17+:** M < STRONG, prone\n\n**Effect:** You create a fissure in the ground adjacent to you that is a 10 x 2 line and 6 squares deep. Each creature in the area who is prone and size 2 or smaller falls in. Other creatures can enter the fissure or can shift to the nearest unoccupied space of their choice outside it."
     },
     {
       "id": "ability.elementalist-muza-ognya-3e351890f4",
@@ -1651,7 +1779,7 @@
         "elementalist-muza-ognya-3e351890f4"
       ],
       "ability": {
-        "id": "elementalist-muza-ognya-3e351890f4",
+        "id": "feature.ability.elementalist.level-8.muse-of-fire",
         "name": "Муза Огня",
         "flavor": "Огонь горит достаточно горячо, чтобы обжечь лицо любому наблюдающему богу.",
         "actionType": "main",
@@ -1690,8 +1818,15 @@
         "className": "Элементалист",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/muse-of-fire",
+        "originalName": "Muse of Fire",
+        "originalDescription": "*The fire burns hot enough to sear the face of any god watching.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 5 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 7 fire damage; the Director loses 2 Malice (see *Draw Steel: Monsters*)\n- **12-16:** 10 fire damage; the Director loses 3 Malice\n- **17+:** 15 fire damage; the Director loses 4 Malice\n\n**Effect:** The Director's Malice can become negative as a result of this ability.",
+        "legacyId": "elementalist-muza-ognya-3e351890f4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/muse-of-fire",
+      "originalName": "Muse of Fire",
+      "originalDescription": "*The fire burns hot enough to sear the face of any god watching.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 5 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 7 fire damage; the Director loses 2 Malice (see *Draw Steel: Monsters*)\n- **12-16:** 10 fire damage; the Director loses 3 Malice\n- **17+:** 15 fire damage; the Director loses 4 Malice\n\n**Effect:** The Director's Malice can become negative as a result of this ability."
     },
     {
       "id": "ability.elementalist-ne-bolee-chem-veterok-1c47b7864c",
@@ -1706,7 +1841,7 @@
         "elementalist-ne-bolee-chem-veterok-1c47b7864c"
       ],
       "ability": {
-        "id": "elementalist-ne-bolee-chem-veterok-1c47b7864c",
+        "id": "feature.ability.elementalist.level-1.no-more-than-a-breeze",
         "name": "Не Более Чем Ветерок",
         "flavor": "Материальная сущность существа распадается по вашей команде.",
         "actionType": "maneuver",
@@ -1742,8 +1877,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/no-more-than-a-breeze",
+        "originalName": "No More Than a Breeze",
+        "originalDescription": "*The material substance of a creature shreds away at your command.*\n\n| **Magic, Ranged, Void** |            **Maneuver** |\n|-------------------------|------------------------:|\n| **📏 Ranged 10**        | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target can move through solid matter, they ignore difficult terrain, and their movement can't provoke opportunity attacks. If the target ends their turn inside solid matter, they are forced out into the space where they entered it and this effect ends.\n\n**Persistent 1:** The effect lasts until the start of your next turn.",
+        "legacyId": "elementalist-ne-bolee-chem-veterok-1c47b7864c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/no-more-than-a-breeze",
+      "originalName": "No More Than a Breeze",
+      "originalDescription": "*The material substance of a creature shreds away at your command.*\n\n| **Magic, Ranged, Void** |            **Maneuver** |\n|-------------------------|------------------------:|\n| **📏 Ranged 10**        | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target can move through solid matter, they ignore difficult terrain, and their movement can't provoke opportunity attacks. If the target ends their turn inside solid matter, they are forced out into the space where they entered it and this effect ends.\n\n**Persistent 1:** The effect lasts until the start of your next turn."
     },
     {
       "id": "ability.elementalist-nespokoynaya-zemlya-5998efbf4e",
@@ -1758,7 +1900,7 @@
         "elementalist-nespokoynaya-zemlya-5998efbf4e"
       ],
       "ability": {
-        "id": "elementalist-nespokoynaya-zemlya-5998efbf4e",
+        "id": "feature.ability.elementalist.level-1.unquiet-ground",
         "name": "Неспокойная Земля",
         "flavor": "Внезапная буря из детрита обрушивается на ваших врагов и мешает им двигаться.",
         "actionType": "main",
@@ -1797,8 +1939,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/unquiet-ground",
+        "originalName": "Unquiet Ground",
+        "originalDescription": "*A sudden storm of detritus assaults your foes and leaves them struggling to move.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The ground beneath the area is difficult terrain for enemies.",
+        "legacyId": "elementalist-nespokoynaya-zemlya-5998efbf4e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/unquiet-ground",
+      "originalName": "Unquiet Ground",
+      "originalDescription": "*A sudden storm of detritus assaults your foes and leaves them struggling to move.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The ground beneath the area is difficult terrain for enemies."
     },
     {
       "id": "ability.elementalist-neugasimyy-ogon-7c1ef4b22a",
@@ -1813,7 +1962,7 @@
         "elementalist-neugasimyy-ogon-7c1ef4b22a"
       ],
       "ability": {
-        "id": "elementalist-neugasimyy-ogon-7c1ef4b22a",
+        "id": "feature.ability.elementalist.level-9.unquenchable-fire",
         "name": "Неугасимый Огонь)",
         "flavor": "Вы запускаете огненный снаряд, сплетенный из чистой первозданной энергии.",
         "actionType": "main",
@@ -1852,8 +2001,15 @@
         "className": "Элементалист",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/unquenchable-fire",
+        "originalName": "Unquenchable Fire",
+        "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity.",
+        "legacyId": "elementalist-neugasimyy-ogon-7c1ef4b22a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/unquenchable-fire",
+      "originalName": "Unquenchable Fire",
+      "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity."
     },
     {
       "id": "ability.elementalist-nezametnoe-peremeschenie-12fef68815",
@@ -1869,7 +2025,7 @@
         "elementalist.specialization.1.nezametnoe-peremeshchenie"
       ],
       "ability": {
-        "id": "elementalist-nezametnoe-peremeschenie-12fef68815",
+        "id": "feature.ability.elementalist.level-1.subtle-relocation",
         "name": "Незаметное Перемещение",
         "flavor": "Вы призываете пустоту, чтобы поглотить и выплюнуть союзника.",
         "actionType": "trigger",
@@ -1905,8 +2061,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+        "originalName": "Subtle Relocation",
+        "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead.",
+        "legacyId": "elementalist-nezametnoe-peremeschenie-12fef68815"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+      "originalName": "Subtle Relocation",
+      "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead."
     },
     {
       "id": "ability.elementalist-o-cvetok-pomogi-o-zemlya-zaschiti-d5889806f1",
@@ -1921,7 +2084,7 @@
         "elementalist-o-cvetok-pomogi-o-zemlya-zaschiti-d5889806f1"
       ],
       "ability": {
-        "id": "elementalist-o-cvetok-pomogi-o-zemlya-zaschiti-d5889806f1",
+        "id": "feature.ability.elementalist.level-2.o-flower-aid-o-earth-defend",
         "name": "О Цветок, Помоги, О Земля, Защити",
         "flavor": "Растут оживляющие растения и зубчатые камни, помогая союзникам и мешая врагам.",
         "actionType": "maneuver",
@@ -1959,8 +2122,15 @@
         "className": "Элементалист",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/o-flower-aid-o-earth-defend",
+        "originalName": "O Flower Aid, O Earth Defend",
+        "originalDescription": "*Revitalizing plants and jagged stones grow, helping allies and hindering foes.*\n\n| **Area, Earth, Green, Magic, Ranged** |   **Maneuver** |\n|---------------------------------------|---------------:|\n| **📏 3 cube within 10**               | **🎯 Special** |\n\n**Effect:** Until the start of your next turn, the area gains the following effects:\n\n- Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.\n- The area is difficult terrain for enemies.\n- Each enemy who enters the area for the first time in a combat round or starts their turn there takes damage equal to your Reason score.\n\n**Persistent 1:** The area remains until the start of your next turn. As a maneuver, you can move the area up to 5 squares. This ability ends if the area is ever not within your line of effect.",
+        "legacyId": "elementalist-o-cvetok-pomogi-o-zemlya-zaschiti-d5889806f1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/o-flower-aid-o-earth-defend",
+      "originalName": "O Flower Aid, O Earth Defend",
+      "originalDescription": "*Revitalizing plants and jagged stones grow, helping allies and hindering foes.*\n\n| **Area, Earth, Green, Magic, Ranged** |   **Maneuver** |\n|---------------------------------------|---------------:|\n| **📏 3 cube within 10**               | **🎯 Special** |\n\n**Effect:** Until the start of your next turn, the area gains the following effects:\n\n- Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.\n- The area is difficult terrain for enemies.\n- Each enemy who enters the area for the first time in a combat round or starts their turn there takes damage equal to your Reason score.\n\n**Persistent 1:** The area remains until the start of your next turn. As a maneuver, you can move the area up to 5 squares. This ability ends if the area is ever not within your line of effect."
     },
     {
       "id": "ability.elementalist-obilnoe-razlozhenie-d212f07343",
@@ -1975,7 +2145,7 @@
         "elementalist-obilnoe-razlozhenie-d212f07343"
       ],
       "ability": {
-        "id": "elementalist-obilnoe-razlozhenie-d212f07343",
+        "id": "feature.ability.elementalist.level-1.afflict-a-bountiful-decay",
         "name": "Обильное Разложение",
         "flavor": "Ваше проклятие заставляет плоть врага отгнивать в виде спор, которые помогают вашим союзникам.",
         "actionType": "main",
@@ -2015,8 +2185,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/afflict-a-bountiful-decay",
+        "originalName": "Afflict a Bountiful Decay",
+        "originalDescription": "*Your curse causes your foe's flesh to rot off as spores that aid your allies.*\n\n| **Green, Magic, Ranged, Rot, Strike**  |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage\n- **12-16:** 4 + R corruption damage\n- **17+:** 6 + R corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can end one effect on them that is ended by a saving throw or that ends at the end of their turn.",
+        "legacyId": "elementalist-obilnoe-razlozhenie-d212f07343"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/afflict-a-bountiful-decay",
+      "originalName": "Afflict a Bountiful Decay",
+      "originalDescription": "*Your curse causes your foe's flesh to rot off as spores that aid your allies.*\n\n| **Green, Magic, Ranged, Rot, Strike**  |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage\n- **12-16:** 4 + R corruption damage\n- **17+:** 6 + R corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can end one effect on them that is ended by a saving throw or that ends at the end of their turn."
     },
     {
       "id": "ability.elementalist-obyatiya-vulkana-3acba82839",
@@ -2031,7 +2208,7 @@
         "elementalist-obyatiya-vulkana-3acba82839"
       ],
       "ability": {
-        "id": "elementalist-obyatiya-vulkana-3acba82839",
+        "id": "feature.ability.elementalist.level-2.volcanos-embrace",
         "name": "Объятия Вулкана",
         "flavor": "Оберните их огнем и плавящимся камнем.",
         "actionType": "main",
@@ -2071,8 +2248,15 @@
         "className": "Элементалист",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/volcanos-embrace",
+        "originalName": "Volcano's Embrace",
+        "originalDescription": "*Wrap them up in fire and melting stone.*\n\n| **Earth, Fire, Magic, Ranged, Strike** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage; A < WEAK, restrained (save ends)\n- **12-16:** 9 + R fire damage; A < AVERAGE, restrained (save ends)\n- **17+:** 12 + R fire damage; A < STRONG, restrained (save ends)",
+        "legacyId": "elementalist-obyatiya-vulkana-3acba82839"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/volcanos-embrace",
+      "originalName": "Volcano's Embrace",
+      "originalDescription": "*Wrap them up in fire and melting stone.*\n\n| **Earth, Fire, Magic, Ranged, Strike** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage; A < WEAK, restrained (save ends)\n- **12-16:** 9 + R fire damage; A < AVERAGE, restrained (save ends)\n- **17+:** 12 + R fire damage; A < STRONG, restrained (save ends)"
     },
     {
       "id": "ability.elementalist-otlozhennoe-vozgoranie-4096d654b7",
@@ -2087,7 +2271,7 @@
         "elementalist-otlozhennoe-vozgoranie-4096d654b7"
       ],
       "ability": {
-        "id": "elementalist-otlozhennoe-vozgoranie-4096d654b7",
+        "id": "feature.ability.elementalist.level-5.combustion-deferred",
         "name": "Отложенное Возгорание",
         "flavor": "Ваше пламя танцует от растопки к растопке.",
         "actionType": "main",
@@ -2126,8 +2310,15 @@
         "className": "Элементалист",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+        "originalName": "Combustion Deferred",
+        "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect.",
+        "legacyId": "elementalist-otlozhennoe-vozgoranie-4096d654b7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+      "originalName": "Combustion Deferred",
+      "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
     },
     {
       "id": "ability.elementalist-past-zemli-bb53d67f5c",
@@ -2142,7 +2333,7 @@
         "elementalist-past-zemli-bb53d67f5c"
       ],
       "ability": {
-        "id": "elementalist-past-zemli-bb53d67f5c",
+        "id": "feature.ability.elementalist.level-3.maw-of-earth",
         "name": "Пасть Земли",
         "flavor": "Вы разверзаете землю, извергая шрапнель из камня и обломков.",
         "actionType": "main",
@@ -2181,8 +2372,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/maw-of-earth",
+        "originalName": "Maw of Earth",
+        "originalDescription": "*You open up the ground, spewing out shrapnel of stone and debris.*\n\n| **Area, Earth, Magic, Ranged** |                **Main action** |\n|--------------------------------|-------------------------------:|\n| **📏 3 cube within 10**        |  **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 damage\n- **12-16:** 9 damage\n- **17+:** 12 damage\n\n**Effect:** The ground in or directly beneath the area drops 3 squares.",
+        "legacyId": "elementalist-past-zemli-bb53d67f5c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/maw-of-earth",
+      "originalName": "Maw of Earth",
+      "originalDescription": "*You open up the ground, spewing out shrapnel of stone and debris.*\n\n| **Area, Earth, Magic, Ranged** |                **Main action** |\n|--------------------------------|-------------------------------:|\n| **📏 3 cube within 10**        |  **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 damage\n- **12-16:** 9 damage\n- **17+:** 12 damage\n\n**Effect:** The ground in or directly beneath the area drops 3 squares."
     },
     {
       "id": "ability.elementalist-pautina-vsego-chto-bylo-do-f899ff4f58",
@@ -2197,7 +2395,7 @@
         "elementalist-pautina-vsego-chto-bylo-do-f899ff4f58"
       ],
       "ability": {
-        "id": "elementalist-pautina-vsego-chto-bylo-do-f899ff4f58",
+        "id": "feature.ability.elementalist.level-5.web-of-all-thats-come-before",
         "name": "Паутина Всего, Что Было До",
         "flavor": "Нити, которые вы плели на протяжении своих приключений, создают яркую, переливающуюся паутину.",
         "actionType": "main",
@@ -2236,8 +2434,15 @@
         "className": "Элементалист",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/web-of-all-thats-come-before",
+        "originalName": "Web of All That's Come Before",
+        "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn.",
+        "legacyId": "elementalist-pautina-vsego-chto-bylo-do-f899ff4f58"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/web-of-all-thats-come-before",
+      "originalName": "Web of All That's Come Before",
+      "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn."
     },
     {
       "id": "ability.elementalist-perenesennyy-cherez-plamya-402569297d",
@@ -2252,7 +2457,7 @@
         "elementalist-perenesennyy-cherez-plamya-402569297d"
       ],
       "ability": {
-        "id": "elementalist-perenesennyy-cherez-plamya-402569297d",
+        "id": "feature.ability.elementalist.level-2.translated-through-flame",
         "name": "Перенесенный Через Пламя",
         "flavor": "Ваш союзник исчезает, затем появляется во вспышке огня.",
         "actionType": "main",
@@ -2291,8 +2496,15 @@
         "className": "Элементалист",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/translated-through-flame",
+        "originalName": "Translated Through Flame",
+        "originalDescription": "*Your ally disappears, then reappears in a burst of fire.*\n\n| **Fire, Magic, Ranged, Void** |         **Main action** |\n|-------------------------------|------------------------:|\n| **📏 Ranged 10**              | **🎯 Self or one ally** |\n\n**Effect:** The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target's new space.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 fire damage\n- **12-16:** 5 fire damage\n- **17+:** 8 fire damage",
+        "legacyId": "elementalist-perenesennyy-cherez-plamya-402569297d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/translated-through-flame",
+      "originalName": "Translated Through Flame",
+      "originalDescription": "*Your ally disappears, then reappears in a burst of fire.*\n\n| **Fire, Magic, Ranged, Void** |         **Main action** |\n|-------------------------------|------------------------:|\n| **📏 Ranged 10**              | **🎯 Self or one ally** |\n\n**Effect:** The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target's new space.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 fire damage\n- **12-16:** 5 fire damage\n- **17+:** 8 fire damage"
     },
     {
       "id": "ability.elementalist-peschanaya-burya-120402b3db",
@@ -2307,7 +2519,7 @@
         "elementalist-peschanaya-burya-120402b3db"
       ],
       "ability": {
-        "id": "elementalist-peschanaya-burya-120402b3db",
+        "id": "feature.ability.elementalist.level-5.storm-of-sands",
         "name": "Песчаная Буря",
         "flavor": "Грязь и обломки закручиваются в темный, пульсирующий ураган.",
         "actionType": "main",
@@ -2346,8 +2558,15 @@
         "className": "Элементалист",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/storm-of-sands",
+        "originalName": "Storm of Sands",
+        "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence.",
+        "legacyId": "elementalist-peschanaya-burya-120402b3db"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/storm-of-sands",
+      "originalName": "Storm of Sands",
+      "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence."
     },
     {
       "id": "ability.elementalist-plot-eto-gornilo-31ac851fc8",
@@ -2362,7 +2581,7 @@
         "elementalist-plot-eto-gornilo-31ac851fc8"
       ],
       "ability": {
-        "id": "elementalist-plot-eto-gornilo-31ac851fc8",
+        "id": "feature.ability.elementalist.level-1.the-flesh-a-crucible",
         "name": "Плоть — Это Горнило",
         "flavor": "Огонь охватывает вашу цель и продолжает бушевать.",
         "actionType": "main",
@@ -2401,8 +2620,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-flesh-a-crucible",
+        "originalName": "The Flesh, a Crucible",
+        "originalDescription": "*Fire engulfs your target and continues to churn.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage\n- **12-16:** 8 + R fire damage\n- **17+:** 11 + R fire damage\n\n**Persistent 1:** If the target is within distance at the start of your turn, you can make the power roll again without spending essence (no action required).",
+        "legacyId": "elementalist-plot-eto-gornilo-31ac851fc8"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-flesh-a-crucible",
+      "originalName": "The Flesh, a Crucible",
+      "originalDescription": "*Fire engulfs your target and continues to churn.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage\n- **12-16:** 8 + R fire damage\n- **17+:** 11 + R fire damage\n\n**Persistent 1:** If the target is within distance at the start of your turn, you can make the power roll again without spending essence (no action required)."
     },
     {
       "id": "ability.elementalist-pobudit-zemlyu-e41f0b7514",
@@ -2417,7 +2643,7 @@
         "elementalist-pobudit-zemlyu-e41f0b7514"
       ],
       "ability": {
-        "id": "elementalist-pobudit-zemlyu-e41f0b7514",
+        "id": "feature.ability.elementalist.level-1.motivate-earth",
         "name": "Побудить Землю",
         "flavor": "Земля поднимается, опускается или разверзается по вашей команде.",
         "actionType": "main",
@@ -2453,8 +2679,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/motivate-earth",
+        "originalName": "Motivate Earth",
+        "originalDescription": "*The earth rises, falls, or opens up at your command.*\n\n| **Earth, Magic, Melee** | **Main action** |\n|-------------------------|----------------:|\n| **📏 Melee 1**          |  **🎯 Special** |\n\n**Effect:** You touch a square containing mundane dirt, stone, or metal and create a 5 wall of the same material, which rises up out of the ground and must include the square you touched.\n\nAlternatively, you touch a structure made of mundane dirt, stone, or metal that occupies 2 or more squares. You can open a 1-square opening in the structure where you touched it. You can instead touch an existing doorway or other opening that is 1 square or smaller in a mundane dirt, stone, or metal surface. The opening is sealed by the same material that makes up the surface.",
+        "legacyId": "elementalist-pobudit-zemlyu-e41f0b7514"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/motivate-earth",
+      "originalName": "Motivate Earth",
+      "originalDescription": "*The earth rises, falls, or opens up at your command.*\n\n| **Earth, Magic, Melee** | **Main action** |\n|-------------------------|----------------:|\n| **📏 Melee 1**          |  **🎯 Special** |\n\n**Effect:** You touch a square containing mundane dirt, stone, or metal and create a 5 wall of the same material, which rises up out of the ground and must include the square you touched.\n\nAlternatively, you touch a structure made of mundane dirt, stone, or metal that occupies 2 or more squares. You can open a 1-square opening in the structure where you touched it. You can instead touch an existing doorway or other opening that is 1 square or smaller in a mundane dirt, stone, or metal surface. The opening is sealed by the same material that makes up the surface."
     },
     {
       "id": "ability.elementalist-podchinit-zelen-vnutri-69079b517c",
@@ -2469,7 +2702,7 @@
         "elementalist-podchinit-zelen-vnutri-69079b517c"
       ],
       "ability": {
-        "id": "elementalist-podchinit-zelen-vnutri-69079b517c",
+        "id": "feature.ability.elementalist.level-2.subvert-the-green-within",
         "name": "Подчинить Зелень Внутри",
         "flavor": "Грибные споры прорастают в мозгу вашего врага, позволяя вам контролировать его действия.",
         "actionType": "main",
@@ -2509,8 +2742,15 @@
         "className": "Элементалист",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/subvert-the-green-within",
+        "originalName": "Subvert the Green Within",
+        "originalDescription": "*Fungal spores sprout inside your enemy's brain, allowing you to control their actions.*\n\n| **Green, Magic, Ranged, Strike, Void** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** The target uses their signature ability against a creature of your choice. This signature ability can target the creature even if it usually wouldn't. You then make a power roll against the target of this ability.\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R poison damage\n- **12-16:** 9 + R poison damage\n- **17+:** 12 + R poison damage",
+        "legacyId": "elementalist-podchinit-zelen-vnutri-69079b517c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-2/subvert-the-green-within",
+      "originalName": "Subvert the Green Within",
+      "originalDescription": "*Fungal spores sprout inside your enemy's brain, allowing you to control their actions.*\n\n| **Green, Magic, Ranged, Strike, Void** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** The target uses their signature ability against a creature of your choice. This signature ability can target the creature even if it usually wouldn't. You then make a power roll against the target of this ability.\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R poison damage\n- **12-16:** 9 + R poison damage\n- **17+:** 12 + R poison damage"
     },
     {
       "id": "ability.elementalist-pozhar-3d0744fe86",
@@ -2525,7 +2765,7 @@
         "elementalist-pozhar-3d0744fe86"
       ],
       "ability": {
-        "id": "elementalist-pozhar-3d0744fe86",
+        "id": "feature.ability.elementalist.level-1.conflagration",
         "name": "Пожар",
         "flavor": "Огненная буря обрушивается на ваших врагов.",
         "actionType": "main",
@@ -2564,8 +2804,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/conflagration",
+        "originalName": "Conflagration",
+        "originalDescription": "*A storm of fire descends upon your enemies.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence.",
+        "legacyId": "elementalist-pozhar-3d0744fe86"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/conflagration",
+      "originalName": "Conflagration",
+      "originalDescription": "*A storm of fire descends upon your enemies.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
     },
     {
       "id": "ability.elementalist-prakticheskaya-magiya-f5bbfac2c9",
@@ -2580,7 +2827,7 @@
         "elementalist-prakticheskaya-magiya-f5bbfac2c9"
       ],
       "ability": {
-        "id": "elementalist-prakticheskaya-magiya-f5bbfac2c9",
+        "id": "feature.ability.elementalist.level-1.practical-magic",
         "name": "Практическая Магия",
         "flavor": "Ваше мастерство над элементальной силой позволяет вам настраивать свои колдовства.",
         "actionType": "maneuver",
@@ -2614,8 +2861,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+        "originalName": "Practical Magic",
+        "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent.",
+        "legacyId": "elementalist-prakticheskaya-magiya-f5bbfac2c9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+      "originalName": "Practical Magic",
+      "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent."
     },
     {
       "id": "ability.elementalist-prizma-b2ad4378ce",
@@ -2630,7 +2884,7 @@
         "elementalist-prizma-b2ad4378ce"
       ],
       "ability": {
-        "id": "elementalist-prizma-b2ad4378ce",
+        "id": "feature.ability.elementalist.level-9.prism",
         "name": "Призма",
         "flavor": "Вы разделяете свою эссенцию, позволяя применять несколько эффектов одновременно.",
         "actionType": "main",
@@ -2665,8 +2919,15 @@
         "className": "Элементалист",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/prism",
+        "originalName": "Prism",
+        "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability.",
+        "legacyId": "elementalist-prizma-b2ad4378ce"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/prism",
+      "originalName": "Prism",
+      "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability."
     },
     {
       "id": "ability.elementalist-prizyv-istochnika-zemli-c9679a42db",
@@ -2681,7 +2942,7 @@
         "elementalist-prizyv-istochnika-zemli-c9679a42db"
       ],
       "ability": {
-        "id": "elementalist-prizyv-istochnika-zemli-c9679a42db",
+        "id": "feature.ability.elementalist.level-8.summon-source-of-earth",
         "name": "Призыв Источника Земли",
         "flavor": "Земля грохочет, когда элементаль вырывается наружу, готовый служить.",
         "actionType": "main",
@@ -2717,8 +2978,15 @@
         "className": "Элементалист",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/summon-source-of-earth",
+        "originalName": "Summon Source of Earth",
+        "originalDescription": "*The ground rumbles as an elemental bursts forth, ready to serve.*\n\n| **Earth, Magic, Ranged** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** A **source of earth** emerges from an unoccupied space within distance. The source takes their turn immediately after you, moving up to their speed and either taking a main action or a maneuver. The source is dismissed at the start of your next turn.\n\nThe source starts an encounter at full Stamina, but maintains their current Stamina throughout the encounter, even if they are dismissed and you use this ability again. They can't regain Stamina during the encounter. When the source's Stamina is reduced to 0, you can't use this ability again until you earn 1 or more Victories.\n\n**Persistent 2:** The source takes another turn. They are dismissed at the start of your next turn.",
+        "legacyId": "elementalist-prizyv-istochnika-zemli-c9679a42db"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/summon-source-of-earth",
+      "originalName": "Summon Source of Earth",
+      "originalDescription": "*The ground rumbles as an elemental bursts forth, ready to serve.*\n\n| **Earth, Magic, Ranged** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** A **source of earth** emerges from an unoccupied space within distance. The source takes their turn immediately after you, moving up to their speed and either taking a main action or a maneuver. The source is dismissed at the start of your next turn.\n\nThe source starts an encounter at full Stamina, but maintains their current Stamina throughout the encounter, even if they are dismissed and you use this ability again. They can't regain Stamina during the encounter. When the source's Stamina is reduced to 0, you can't use this ability again until you earn 1 or more Victories.\n\n**Persistent 2:** The source takes another turn. They are dismissed at the start of your next turn."
     },
     {
       "id": "ability.elementalist-razdelennoe-chuvstvo-pustoty-860f578d93",
@@ -2733,7 +3001,7 @@
         "elementalist-razdelennoe-chuvstvo-pustoty-860f578d93"
       ],
       "ability": {
-        "id": "elementalist-razdelennoe-chuvstvo-pustoty-860f578d93",
+        "id": "feature.ability.elementalist.level-1.shared-void-sense",
         "name": "Разделенное Чувство Пустоты",
         "flavor": "Вы дарите союзникам частицу своего неземного видения.",
         "actionType": "maneuver",
@@ -2769,8 +3037,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/shared-void-sense",
+        "originalName": "Shared Void Sense",
+        "originalDescription": "*You grant allies a taste of your unearthly vision.*\n\n| **Magic, Ranged, Void** |    **Maneuver** |\n|-------------------------|----------------:|\n| **📏 Ranged 10**        |  **🎯 Special** |\n\n**Effect:** For each Victory you have, you can target one creature. Each target gains the benefit of your A Beyonding of Vision feature until the end of your next turn, but doesn't gain the use of the Shared Void Sense ability.",
+        "legacyId": "elementalist-razdelennoe-chuvstvo-pustoty-860f578d93"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/shared-void-sense",
+      "originalName": "Shared Void Sense",
+      "originalDescription": "*You grant allies a taste of your unearthly vision.*\n\n| **Magic, Ranged, Void** |    **Maneuver** |\n|-------------------------|----------------:|\n| **📏 Ranged 10**        |  **🎯 Special** |\n\n**Effect:** For each Victory you have, you can target one creature. Each target gains the benefit of your A Beyonding of Vision feature until the end of your next turn, but doesn't gain the use of the Shared Void Sense ability."
     },
     {
       "id": "ability.elementalist-razdvoennoe-ispepelenie-cfc5a91690",
@@ -2785,7 +3060,7 @@
         "elementalist-razdvoennoe-ispepelenie-cfc5a91690"
       ],
       "ability": {
-        "id": "elementalist-razdvoennoe-ispepelenie-cfc5a91690",
+        "id": "feature.ability.elementalist.level-1.bifurcated-incineration",
         "name": "Раздвоенное Испепеление",
         "flavor": "Две струи пламени вырываются по вашей команде.",
         "actionType": "main",
@@ -2824,8 +3099,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/bifurcated-incineration",
+        "originalName": "Bifurcated Incineration",
+        "originalDescription": "*Two jets of flame lance out at your command.*\n\n| **Fire, Magic, Ranged, Strike** |                 **Main action** |\n|---------------------------------|--------------------------------:|\n| **📏 Ranged 10**                | **🎯 Two creatures or objects** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage",
+        "legacyId": "elementalist-razdvoennoe-ispepelenie-cfc5a91690"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/bifurcated-incineration",
+      "originalName": "Bifurcated Incineration",
+      "originalDescription": "*Two jets of flame lance out at your command.*\n\n| **Fire, Magic, Ranged, Strike** |                 **Main action** |\n|---------------------------------|--------------------------------:|\n| **📏 Ranged 10**                | **🎯 Two creatures or objects** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage"
     },
     {
       "id": "ability.elementalist-roy-duhov-9b3c207142",
@@ -2840,7 +3122,7 @@
         "elementalist-roy-duhov-9b3c207142"
       ],
       "ability": {
-        "id": "elementalist-roy-duhov-9b3c207142",
+        "id": "feature.ability.elementalist.level-3.swarm-of-spirits",
         "name": "Рой Духов",
         "flavor": "Духи-хранители животных окружают вас, чтобы преследовать врагов и укреплять союзников.",
         "actionType": "main",
@@ -2878,8 +3160,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/swarm-of-spirits",
+        "originalName": "Swarm of Spirits",
+        "originalDescription": "*Guardian animal spirits surround you to harry your foes and bolster your allies.*\n\n| **Area, Green, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 3 aura**          | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage\n\n**Effect:** Until the end of your next turn, each ally in the area has each of their characteristic scores treated as 1 higher for the purpose of resisting potencies, and has a +1 bonus to saving throws.\n\n**Persistent 1:** You make the power roll again to target each enemy in the area without spending essence, and the effect lasts until the start of your next turn.",
+        "legacyId": "elementalist-roy-duhov-9b3c207142"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/swarm-of-spirits",
+      "originalName": "Swarm of Spirits",
+      "originalDescription": "*Guardian animal spirits surround you to harry your foes and bolster your allies.*\n\n| **Area, Green, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 3 aura**          | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage\n\n**Effect:** Until the end of your next turn, each ally in the area has each of their characteristic scores treated as 1 higher for the purpose of resisting potencies, and has a +1 bonus to saving throws.\n\n**Persistent 1:** You make the power roll again to target each enemy in the area without spending essence, and the effect lasts until the start of your next turn."
     },
     {
       "id": "ability.elementalist-ryab-na-zemle-185cd3608e",
@@ -2894,7 +3183,7 @@
         "elementalist-ryab-na-zemle-185cd3608e"
       ],
       "ability": {
-        "id": "elementalist-ryab-na-zemle-185cd3608e",
+        "id": "feature.ability.elementalist.level-1.ripples-in-the-earth",
         "name": "Рябь на Земле",
         "flavor": "Словно камень, брошенный в пруд, волны земли расходятся от вас.",
         "actionType": "main",
@@ -2932,8 +3221,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ripples-in-the-earth",
+        "originalName": "Ripples in the Earth",
+        "originalDescription": "*Like a stone was dropped into a pond, waves in the earth radiate from you.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 2 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage; M < STRONG, prone\n\n**Effect:** You must be touching the ground to use this ability. Additionally, you can choose a square of ground in the area that is unoccupied or is occupied by you or any ally. A pillar of earth rises out of the ground in that square, with a height in squares up to your Reason score. The pillar can't collide with any creatures or objects, nor can it force creatures raised by it to collide with other creatures or objects.",
+        "legacyId": "elementalist-ryab-na-zemle-185cd3608e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ripples-in-the-earth",
+      "originalName": "Ripples in the Earth",
+      "originalDescription": "*Like a stone was dropped into a pond, waves in the earth radiate from you.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 2 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage; M < STRONG, prone\n\n**Effect:** You must be touching the ground to use this ability. Additionally, you can choose a square of ground in the area that is unoccupied or is occupied by you or any ally. A pillar of earth rises out of the ground in that square, with a height in squares up to your Reason score. The pillar can't collide with any creatures or objects, nor can it force creatures raised by it to collide with other creatures or objects."
     },
     {
       "id": "ability.elementalist-serdce-lesa-1860ac5a78",
@@ -2948,7 +3244,7 @@
         "elementalist-serdce-lesa-1860ac5a78"
       ],
       "ability": {
-        "id": "elementalist-serdce-lesa-1860ac5a78",
+        "id": "feature.ability.elementalist.level-8.heart-of-the-wode",
         "name": "Сердце Леса",
         "flavor": "Вы призываете одну из щепок Великого Древа, чтобы обеспечить все ваши нужды.",
         "actionType": "main",
@@ -2984,8 +3280,15 @@
         "className": "Элементалист",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/heart-of-the-wode",
+        "originalName": "Heart of the Wode",
+        "originalDescription": "*You call forth one of the Great Tree's many splinters to provide for your every need.*\n\n| **Green, Magic, Ranged** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** A size 5 tree appears in an unoccupied space within distance. The tree has 100 Stamina and can't be force moved. You and any ally can touch the tree to use the Catch Breath maneuver as a free maneuver. Additionally, when you start your turn with line of effect to the tree, you can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn, or you can stand up if you are prone. Each ally within distance also gains this benefit.\n\nEach enemy who ends their turn within 3 squares of the tree is restrained until the end of their next turn. A creature restrained this way can use a main action to end the effect early.",
+        "legacyId": "elementalist-serdce-lesa-1860ac5a78"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/heart-of-the-wode",
+      "originalName": "Heart of the Wode",
+      "originalDescription": "*You call forth one of the Great Tree's many splinters to provide for your every need.*\n\n| **Green, Magic, Ranged** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** A size 5 tree appears in an unoccupied space within distance. The tree has 100 Stamina and can't be force moved. You and any ally can touch the tree to use the Catch Breath maneuver as a free maneuver. Additionally, when you start your turn with line of effect to the tree, you can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn, or you can stand up if you are prone. Each ally within distance also gains this benefit.\n\nEach enemy who ends their turn within 3 squares of the tree is restrained until the end of their next turn. A creature restrained this way can use a main action to end the effect early."
     },
     {
       "id": "ability.elementalist-stena-ognya-ec15cb81b3",
@@ -3000,7 +3303,7 @@
         "elementalist-stena-ognya-ec15cb81b3"
       ],
       "ability": {
-        "id": "elementalist-stena-ognya-ec15cb81b3",
+        "id": "feature.ability.elementalist.level-3.wall-of-fire",
         "name": "Стена Огня",
         "flavor": "Пылающее, прекрасно выстроенное инферно извергается по вашей команде.",
         "actionType": "maneuver",
@@ -3037,8 +3340,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/wall-of-fire",
+        "originalName": "Wall of Fire",
+        "originalDescription": "*A blazing, beautifully organized inferno erupts at your command.*\n\n| **Area, Fire, Magic, Ranged** |   **Maneuver** |\n|-------------------------------|---------------:|\n| **📏 10 wall within 10**      | **🎯 Special** |\n\n**Effect:** The wall lasts until the start of your next turn, and can be placed in occupied squares. Creatures can enter and pass through the wall. Each enemy who enters the area for the first time in a combat round or starts their turn there takes fire damage equal to your Reason score for each square of the area they start their turn in or enter.\n\n**Persistent 1:** The wall lasts until the start of your next turn, and you can add a number of squares to the wall equal to your Reason score.",
+        "legacyId": "elementalist-stena-ognya-ec15cb81b3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/wall-of-fire",
+      "originalName": "Wall of Fire",
+      "originalDescription": "*A blazing, beautifully organized inferno erupts at your command.*\n\n| **Area, Fire, Magic, Ranged** |   **Maneuver** |\n|-------------------------------|---------------:|\n| **📏 10 wall within 10**      | **🎯 Special** |\n\n**Effect:** The wall lasts until the start of your next turn, and can be placed in occupied squares. Creatures can enter and pass through the wall. Each enemy who enters the area for the first time in a combat round or starts their turn there takes fire damage equal to your Reason score for each square of the area they start their turn in or enter.\n\n**Persistent 1:** The wall lasts until the start of your next turn, and you can add a number of squares to the wall equal to your Reason score."
     },
     {
       "id": "ability.elementalist-steret-c2144faf45",
@@ -3053,7 +3363,7 @@
         "elementalist-steret-c2144faf45"
       ],
       "ability": {
-        "id": "elementalist-steret-c2144faf45",
+        "id": "feature.ability.elementalist.level-3.erase",
         "name": "Стереть",
         "flavor": "Взмахом руки вы стираете существ из существования.",
         "actionType": "main",
@@ -3092,8 +3402,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/erase",
+        "originalName": "Erase",
+        "originalDescription": "*With a flick of the wrist, you phase creatures out of existence.*\n\n| **Magic, Ranged, Strike, Void** | **Main action** |\n|---------------------------------|----------------:|\n| **📏 Ranged 10**                |  **🎯 Special** |\n\n**Special:** The number of creatures you target with this ability is determined by your power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** One creature\n- **12-16:** Two creatures\n- **17+:** Three creatures\n\n**Effect:** Each target begins to fade from existence (save ends). On their first turn while fading from existence, a target takes a bane on power rolls. At the end of their first turn, they have a double bane on power rolls. At the end of their second turn, they fade from existence for 1 hour, after which they reappear in their original space or the nearest unoccupied space.",
+        "legacyId": "elementalist-steret-c2144faf45"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/erase",
+      "originalName": "Erase",
+      "originalDescription": "*With a flick of the wrist, you phase creatures out of existence.*\n\n| **Magic, Ranged, Strike, Void** | **Main action** |\n|---------------------------------|----------------:|\n| **📏 Ranged 10**                |  **🎯 Special** |\n\n**Special:** The number of creatures you target with this ability is determined by your power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** One creature\n- **12-16:** Two creatures\n- **17+:** Three creatures\n\n**Effect:** Each target begins to fade from existence (save ends). On their first turn while fading from existence, a target takes a bane on power rolls. At the end of their first turn, they have a double bane on power rolls. At the end of their second turn, they fade from existence for 1 hour, after which they reappear in their original space or the nearest unoccupied space."
     },
     {
       "id": "ability.elementalist-svetyaschiysya-chempion-v-vyshine-01aa908220",
@@ -3108,7 +3425,7 @@
         "elementalist-svetyaschiysya-chempion-v-vyshine-01aa908220"
       ],
       "ability": {
-        "id": "elementalist-svetyaschiysya-chempion-v-vyshine-01aa908220",
+        "id": "feature.ability.elementalist.level-6.luminous-champion-aloft",
         "name": "Светящийся Чемпион в Вышине",
         "flavor": "Они ярко сияют, как прекрасный бриллиант в ночном небе.",
         "actionType": "maneuver",
@@ -3146,8 +3463,15 @@
         "className": "Элементалист",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/luminous-champion-aloft",
+        "originalName": "Luminous Champion Aloft",
+        "originalDescription": "*They shine vibrantly, a beautiful diamond in the night sky.*\n\n| **Fire, Green, Magic, Ranged, Void** |            **Maneuver** |\n|--------------------------------------|------------------------:|\n| **📏 Ranged 10**                     | **🎯 Self or one ally** |\n\n**Effect:** The target has a +3 bonus to speed, they can fly, and their abilities ignore concealment. Additionally, whenever the target gains their Heroic Resource, they gain 1 additional Heroic Resource. This effect lasts until the start of your next turn.\n\n**Persistent 1:** The effect lasts until the start of your next turn.",
+        "legacyId": "elementalist-svetyaschiysya-chempion-v-vyshine-01aa908220"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-6/luminous-champion-aloft",
+      "originalName": "Luminous Champion Aloft",
+      "originalDescription": "*They shine vibrantly, a beautiful diamond in the night sky.*\n\n| **Fire, Green, Magic, Ranged, Void** |            **Maneuver** |\n|--------------------------------------|------------------------:|\n| **📏 Ranged 10**                     | **🎯 Self or one ally** |\n\n**Effect:** The target has a +3 bonus to speed, they can fly, and their abilities ignore concealment. Additionally, whenever the target gains their Heroic Resource, they gain 1 additional Heroic Resource. This effect lasts until the start of your next turn.\n\n**Persistent 1:** The effect lasts until the start of your next turn."
     },
     {
       "id": "ability.elementalist-uzri-taynu-fad5aeb17a",
@@ -3162,7 +3486,7 @@
         "elementalist-uzri-taynu-fad5aeb17a"
       ],
       "ability": {
-        "id": "elementalist-uzri-taynu-fad5aeb17a",
+        "id": "feature.ability.elementalist.level-1.behold-the-mystery",
         "name": "Узри Тайну",
         "flavor": "Вы открываете разлом в пустоту, чтобы изводить своих врагов.",
         "actionType": "main",
@@ -3201,8 +3525,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/behold-the-mystery",
+        "originalName": "Behold the Mystery",
+        "originalDescription": "*You open a rift into the void to harry your foes.*\n\n| **Area, Magic, Ranged, Void** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 4 psychic damage\n- **17+:** 6 psychic damage\n\n**Persistent 1:** At the start of your turn, you can use a maneuver to use this ability again without spending essence.",
+        "legacyId": "elementalist-uzri-taynu-fad5aeb17a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/behold-the-mystery",
+      "originalName": "Behold the Mystery",
+      "originalDescription": "*You open a rift into the void to harry your foes.*\n\n| **Area, Magic, Ranged, Void** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 4 psychic damage\n- **17+:** 6 psychic damage\n\n**Persistent 1:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
     },
     {
       "id": "ability.elementalist-vospominanie-o-dyhanii-rassveta-21afd4ae40",
@@ -3218,7 +3549,7 @@
         "elementalist.specialization.1.vospominanie-o-dykhanii-rassveta"
       ],
       "ability": {
-        "id": "elementalist-vospominanie-o-dyhanii-rassveta-21afd4ae40",
+        "id": "feature.ability.elementalist.level-1.breath-of-dawn-remembered",
         "name": "Воспоминание о Дыхании Рассвета",
         "flavor": "Направляемая вами сила дает возможность вернуться в бой.",
         "actionType": "trigger",
@@ -3254,8 +3585,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/breath-of-dawn-remembered",
+        "originalName": "Breath of Dawn Remembered",
+        "originalDescription": "*The power you channel grants the ability to get back in the fight.*\n\n| **Green, Magic, Ranged**          |           **Triggered** |\n|-----------------------------------|------------------------:|\n| **📏 Ranged 10**                  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Essence:** The target can spend an additional Recovery for each essence spent.",
+        "legacyId": "elementalist-vospominanie-o-dyhanii-rassveta-21afd4ae40"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/breath-of-dawn-remembered",
+      "originalName": "Breath of Dawn Remembered",
+      "originalDescription": "*The power you channel grants the ability to get back in the fight.*\n\n| **Green, Magic, Ranged**          |           **Triggered** |\n|-----------------------------------|------------------------:|\n| **📏 Ranged 10**                  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Essence:** The target can spend an additional Recovery for each essence spent."
     },
     {
       "id": "ability.elementalist-vozvraschenie-v-zabvenie-f265c272b4",
@@ -3270,7 +3608,7 @@
         "elementalist-vozvraschenie-v-zabvenie-f265c272b4"
       ],
       "ability": {
-        "id": "elementalist-vozvraschenie-v-zabvenie-f265c272b4",
+        "id": "feature.ability.elementalist.level-8.return-to-oblivion",
         "name": "Возвращение в Забвение",
         "flavor": "Вы создаете разрыв в реальности, который может поглотить все.",
         "actionType": "main",
@@ -3307,8 +3645,15 @@
         "className": "Элементалист",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/return-to-oblivion",
+        "originalName": "Return to Oblivion",
+        "originalDescription": "*You create a tear in reality that could consume everything.*\n\n| **Area, Magic, Ranged, Void** | **Main action** |\n|-------------------------------|----------------:|\n| **📏 Ranged 10**              |  **🎯 Special** |\n\n**Effect:** You create a size 1L vortex that lasts until the end of the encounter. At the start of each combat round while the vortex is unoccupied, the vortex vertical pulls 3 each enemy within 5 squares of it. Each enemy who enters the vortex or starts their turn there is knocked prone. At the end of the round, if a winded enemy who is not a leader or solo creature is in the vortex, they are instantly destroyed.",
+        "legacyId": "elementalist-vozvraschenie-v-zabvenie-f265c272b4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-8/return-to-oblivion",
+      "originalName": "Return to Oblivion",
+      "originalDescription": "*You create a tear in reality that could consume everything.*\n\n| **Area, Magic, Ranged, Void** | **Main action** |\n|-------------------------------|----------------:|\n| **📏 Ranged 10**              |  **🎯 Special** |\n\n**Effect:** You create a size 1L vortex that lasts until the end of the encounter. At the start of each combat round while the vortex is unoccupied, the vortex vertical pulls 3 each enemy within 5 squares of it. Each enemy who enters the vortex or starts their turn there is knocked prone. At the end of the round, if a winded enemy who is not a leader or solo creature is in the vortex, they are instantly destroyed."
     },
     {
       "id": "ability.elementalist-vozvrat-k-besformennosti-c9c862ec02",
@@ -3323,7 +3668,7 @@
         "elementalist-vozvrat-k-besformennosti-c9c862ec02"
       ],
       "ability": {
-        "id": "elementalist-vozvrat-k-besformennosti-c9c862ec02",
+        "id": "feature.ability.elementalist.level-1.return-to-formlessness",
         "name": "Возврат к Бесформенности",
         "flavor": "Легчайшим касанием вы заставляете объект превратиться в шлак или пепел.",
         "actionType": "main",
@@ -3359,8 +3704,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/return-to-formlessness",
+        "originalName": "Return to Formlessness",
+        "originalDescription": "*With the merest touch, you cause an object to turn to slag or ash.*\n\n| **Fire, Magic, Melee**  |           **Main action** |\n|-------------------------|--------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane object** |\n\n**Effect:** You heat the target and cause it to melt or combust, destroying it. If the object is larger than 1 square, then only the square of the object you touch is destroyed.",
+        "legacyId": "elementalist-vozvrat-k-besformennosti-c9c862ec02"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/return-to-formlessness",
+      "originalName": "Return to Formlessness",
+      "originalDescription": "*With the merest touch, you cause an object to turn to slag or ash.*\n\n| **Fire, Magic, Melee**  |           **Main action** |\n|-------------------------|--------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane object** |\n\n**Effect:** You heat the target and cause it to melt or combust, destroying it. If the object is larger than 1 square, then only the square of the object you touch is destroyed."
     },
     {
       "id": "ability.elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702",
@@ -3375,7 +3727,7 @@
         "elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702"
       ],
       "ability": {
-        "id": "elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702",
+        "id": "feature.ability.elementalist.level-3.remember-growth-and-sun-and-rain",
         "name": "Вспомни Рост, Солнце И Дождь",
         "flavor": "Вы пробуждаете память любого дерева и узнаете, что оно видело.",
         "actionType": "main",
@@ -3411,8 +3763,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/remember-growth-and-sun-and-rain",
+        "originalName": "Remember Growth and Sun and Rain",
+        "originalDescription": "*You stir any wood's memory and learn what it has seen.*\n\n| **Green, Magic, Melee** |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane wooden object** |\n\n**Effect:** You see and hear any events that have occurred within 10 squares of the object within the last 12 hours, perceiving those events from the object's location as if you were there.",
+        "legacyId": "elementalist-vspomni-rost-solnce-i-dozhd-d2229ae702"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/remember-growth-and-sun-and-rain",
+      "originalName": "Remember Growth and Sun and Rain",
+      "originalDescription": "*You stir any wood's memory and learn what it has seen.*\n\n| **Green, Magic, Melee** |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane wooden object** |\n\n**Effect:** You see and hear any events that have occurred within 10 squares of the object within the last 12 hours, perceiving those events from the object's location as if you were there."
     },
     {
       "id": "ability.elementalist-vyazkiy-ogon-6781e45c2b",
@@ -3427,7 +3786,7 @@
         "elementalist-vyazkiy-ogon-6781e45c2b"
       ],
       "ability": {
-        "id": "elementalist-vyazkiy-ogon-6781e45c2b",
+        "id": "feature.ability.elementalist.level-1.viscous-fire",
         "name": "Вязкий Огонь",
         "flavor": "Струя тяжелого огня извергается туда, куда вы бьете.",
         "actionType": "main",
@@ -3466,8 +3825,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/viscous-fire",
+        "originalName": "Viscous Fire",
+        "originalDescription": "*A jet of heavy fire erupts where you strike.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R fire damage; push 2\n- **12-16:** 5 + R fire damage; push 3\n- **17+:** 7 + R fire damage; push 4",
+        "legacyId": "elementalist-vyazkiy-ogon-6781e45c2b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/viscous-fire",
+      "originalName": "Viscous Fire",
+      "originalDescription": "*A jet of heavy fire erupts where you strike.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R fire damage; push 2\n- **12-16:** 5 + R fire damage; push 3\n- **17+:** 7 + R fire damage; push 4"
     },
     {
       "id": "ability.elementalist-vzryvnaya-pomosch-3580ef345f",
@@ -3483,7 +3849,7 @@
         "elementalist.specialization.1.vzryvnaya-pomoshch"
       ],
       "ability": {
-        "id": "elementalist-vzryvnaya-pomosch-3580ef345f",
+        "id": "feature.ability.elementalist.level-1.explosive-assistance",
         "name": "Взрывная Помощь",
         "flavor": "Вы добавляете немного магии в агрессию союзника в самый подходящий момент.",
         "actionType": "trigger",
@@ -3519,8 +3885,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/explosive-assistance",
+        "originalName": "Explosive Assistance",
+        "originalDescription": "*You add a little magic to an ally's aggression at just the right time.*\n\n| **Fire, Magic, Ranged**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target force moves a creature or object. \n\n**Effect:** The forced movement distance gains a bonus equal to your Reason score.\n\n**Spend 1 Essence:** The forced movement distance gains a bonus equal to twice your Reason score instead.",
+        "legacyId": "elementalist-vzryvnaya-pomosch-3580ef345f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/explosive-assistance",
+      "originalName": "Explosive Assistance",
+      "originalDescription": "*You add a little magic to an ally's aggression at just the right time.*\n\n| **Fire, Magic, Ranged**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target force moves a creature or object. \n\n**Effect:** The forced movement distance gains a bonus equal to your Reason score.\n\n**Spend 1 Essence:** The forced movement distance gains a bonus equal to twice your Reason score instead."
     },
     {
       "id": "ability.elementalist-zelen-vnutri-zelen-snaruzhi-2527843b0f",
@@ -3535,7 +3908,7 @@
         "elementalist-zelen-vnutri-zelen-snaruzhi-2527843b0f"
       ],
       "ability": {
-        "id": "elementalist-zelen-vnutri-zelen-snaruzhi-2527843b0f",
+        "id": "feature.ability.elementalist.level-1.the-green-within-the-green-without",
         "name": "Зелень Внутри, Зелень Снаружи",
         "flavor": "Хлещущие лозы вырываются из тела одного врага, чтобы схватить другого, находящегося рядом.",
         "actionType": "main",
@@ -3574,8 +3947,15 @@
         "className": "Элементалист",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-green-within-the-green-without",
+        "originalName": "The Green Within, the Green Without",
+        "originalDescription": "*Whipping vines erupt from a foe's body to grasp at another close by.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 7 + R damage\n\n**Effect:** You slide one creature within 10 squares of the target up to 2 squares.",
+        "legacyId": "elementalist-zelen-vnutri-zelen-snaruzhi-2527843b0f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-green-within-the-green-without",
+      "originalName": "The Green Within, the Green Without",
+      "originalDescription": "*Whipping vines erupt from a foe's body to grasp at another close by.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 7 + R damage\n\n**Effect:** You slide one creature within 10 squares of the target up to 2 squares."
     },
     {
       "id": "ability.elementalist-zelen-zaschischaet-svoih-slug-5e7826647b",
@@ -3590,7 +3970,7 @@
         "elementalist-zelen-zaschischaet-svoih-slug-5e7826647b"
       ],
       "ability": {
-        "id": "elementalist-zelen-zaschischaet-svoih-slug-5e7826647b",
+        "id": "feature.ability.elementalist.level-9.the-green-defends-its-servants",
         "name": "Зелень Защищает Своих Слуг",
         "flavor": "Светящийся зеленый щит показывает свою истинную красоту тем больше, чем сильнее он трескается.",
         "actionType": "maneuver",
@@ -3626,8 +4006,15 @@
         "className": "Элементалист",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/the-green-defends-its-servants",
+        "originalName": "The Green Defends Its Servants",
+        "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn.",
+        "legacyId": "elementalist-zelen-zaschischaet-svoih-slug-5e7826647b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/the-green-defends-its-servants",
+      "originalName": "The Green Defends Its Servants",
+      "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn."
     },
     {
       "id": "ability.elementalist-zemlya-otvergaet-tebya-00807ed6cc",
@@ -3642,7 +4029,7 @@
         "elementalist-zemlya-otvergaet-tebya-00807ed6cc"
       ],
       "ability": {
-        "id": "elementalist-zemlya-otvergaet-tebya-00807ed6cc",
+        "id": "feature.ability.elementalist.level-9.earth-rejects-you",
         "name": "Земля Отвергает Тебя",
         "flavor": "Все и вся сдувается в извержении камней и обломков.",
         "actionType": "main",
@@ -3681,8 +4068,15 @@
         "className": "Элементалист",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/earth-rejects-you",
+        "originalName": "Earth Rejects You",
+        "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence.",
+        "legacyId": "elementalist-zemlya-otvergaet-tebya-00807ed6cc"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/earth-rejects-you",
+      "originalName": "Earth Rejects You",
+      "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
     },
     {
       "id": "ability.elementalist-zemlya-prinimaet-menya-ccc45de0e7",
@@ -3697,7 +4091,7 @@
         "elementalist-zemlya-prinimaet-menya-ccc45de0e7"
       ],
       "ability": {
-        "id": "elementalist-zemlya-prinimaet-menya-ccc45de0e7",
+        "id": "feature.ability.elementalist.level-3.earth-accepts-me",
         "name": "Земля Принимает Меня",
         "flavor": "Вы можете погрузиться в камень.",
         "actionType": "main",
@@ -3732,8 +4126,15 @@
         "className": "Элементалист",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/earth-accepts-me",
+        "originalName": "Earth Accepts Me",
+        "originalDescription": "*You can slip into the stone.*\n\n| **Earth, Magic** | **Main action** |\n|------------------|----------------:|\n| **📏 Self**      |     **🎯 Self** |\n\n**Effect:** You step into a mundane dirt, metal, or stone object (including a wall) that is as large as you or larger. You can remain inside the object for as long as you like. While inside the object, you can observe events and speak to creatures outside it, but you don't have line of effect to anything outside the object and vice versa. You can travel through the object freely until you exit it. If the object you meld with is destroyed, you take 10 damage and exit the object.",
+        "legacyId": "elementalist-zemlya-prinimaet-menya-ccc45de0e7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-3/earth-accepts-me",
+      "originalName": "Earth Accepts Me",
+      "originalDescription": "*You can slip into the stone.*\n\n| **Earth, Magic** | **Main action** |\n|------------------|----------------:|\n| **📏 Self**      |     **🎯 Self** |\n\n**Effect:** You step into a mundane dirt, metal, or stone object (including a wall) that is as large as you or larger. You can remain inside the object for as long as you like. While inside the object, you can observe events and speak to creatures outside it, but you don't have line of effect to anything outside the object and vice versa. You can travel through the object freely until you exit it. If the object you meld with is destroyed, you take 10 damage and exit the object."
     },
     {
       "id": "class.0891",
@@ -3757,7 +4158,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.brosok-elementa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/hurl-element",
+      "originalName": "Hurl Element",
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
     },
     {
       "id": "feature.elementalist.feature.1.elementalnaya-spetsializatsiya",
@@ -3770,7 +4174,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.elementalnaya-spetsializatsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elemental-specialization",
+      "originalName": "Elemental Specialization",
+      "originalDescription": "Through your studies, you know and can manipulate the seven primal elements of the timescape:\n\n- **Air** is the element of movement. Air abilities allow you to manipulate speed, quickness, flight, and breath.\n- **Earth** is the element of permanence. Earth abilities bolster your body and grant the power to permanently create and shape physical terrain.\n- **Fire** is the element of destruction. Fire abilities devastate enemies and melt objects to slag.\n- **Green** is the element of creation and growth. Green abilities make and manipulate plants, fungi, and other forms of life to hamper foes and nourish your allies.\n- **Rot** is the element of decay. Rot abilities harm and debuff enemies.\n- **Void** is the element of the mystery. Void abilities warp space and reality, allowing you to teleport, create illusions, and make things incorporeal.\n- **Water** is the element of change. Water abilities enhance your allies' power, and alter your enemies' power for the worse.\n\nYou choose an elemental specialization from the following options: earth, fire, green, or void. Your elemental specialization is your subclass, and your choice of specialization determines many of the features you'll gain as you gain new levels, including one of the following benefits. (Other elemental specializations will be featured in future products.) (*Quick Build:* Fire.)"
     },
     {
       "id": "feature.elementalist.feature.1.essentsiya",
@@ -3783,7 +4190,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.essentsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/essence",
+      "originalName": "Essence",
+      "originalDescription": "You channel the substance of creation in the form of a Heroic Resource called essence, gathering and burning it to cast and maintain spells.\n\n##### Essence in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain essence equal to your Victories. At the start of each of your turns during combat, you gain 2 essence.\n\nAdditionally, the first time each combat round that you or a creature within 10 squares takes damage that isn't untyped or holy damage, you gain 1 essence.\n\nYou lose any remaining essence at the end of the encounter.\n\n##### Essence Outside of Combat\n\nThough you can't gain essence outside of combat, you can use your heroic abilities and effects that cost essence without spending it. Whenever you use an ability or effect outside of combat that costs essence, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use a persistent ability outside of combat (see Persistent Magic below), you can maintain it for a number of rounds equal to your Victories.\n\nWhen you use an ability outside of combat that lets you spend unlimited essence on its effect, you can use it as if you had spent an amount of essence equal to your Victories."
     },
     {
       "id": "feature.elementalist.feature.1.essentsiya-v-boyu",
@@ -3835,7 +4245,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.obereg-elementalista"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elementalist-ward",
+      "originalName": "Elementalist Ward",
+      "originalDescription": "You create an invisible elemental ward that protects you. Choose one of the following wards. You can change your ward and enchantment (see above) by performing a complex ritual as a respite activity. (*Quick Build:*  Ward of Surprising Reactivity.)"
     },
     {
       "id": "feature.elementalist.feature.1.obereg-prevoskhodnoy-zashchity",
@@ -3848,7 +4261,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.obereg-prevoskhodnoy-zashchity"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-excellent-protection",
+      "originalName": "Ward of Excellent Protection",
+      "originalDescription": "You weave a shield of all the elements around yourself, channeling their full protective power. You have immunity to acid, cold, corruption, fire, lightning, poison, or sonic damage equal to your Reason score."
     },
     {
       "id": "feature.elementalist.feature.1.obereg-privyazannosti-prirody",
@@ -3861,7 +4277,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.obereg-privyazannosti-prirody"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-natures-affection",
+      "originalName": "Ward of Nature's Affection",
+      "originalDescription": "The green energy writhing within your body allows you to produce powerful vines when you're in danger. Whenever a creature within a number of squares equal to your Reason score deals damage to you, you can use a free triggered action to slide that creature up to a number of squares equal to your Reason score."
     },
     {
       "id": "feature.elementalist.feature.1.obereg-udivitelnoy-reaktivnosti",
@@ -3874,7 +4293,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.obereg-udivitelnoy-reaktivnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-surprising-reactivity",
+      "originalName": "Ward of Surprising Reactivity",
+      "originalDescription": "You use the magic of fire to create a ward of explosive energy. Whenever an adjacent creature deals damage to you, you can use a free triggered action to push that creature up to a number of squares equal to twice your Reason score."
     },
     {
       "id": "feature.elementalist.feature.1.obereg-voskhititelnykh-posledstviy",
@@ -3887,7 +4309,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.obereg-voskhititelnykh-posledstviy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-delightful-consequences",
+      "originalName": "Ward of Delightful Consequences",
+      "originalDescription": "A protective field of void magic absorbs violence aimed at you, then lets you hurl it back at your enemies. The first time each round that you take damage, you gain 1 surge."
     },
     {
       "id": "feature.elementalist.feature.1.ogon-akolit-ognya",
@@ -3900,7 +4325,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.ogon-akolit-ognya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/fire-acolyte-of-fire",
+      "originalName": "Fire: Acolyte of Fire",
+      "originalDescription": "You become an expert at wielding destructive flames. Your abilities that have the Fire and Magic keywords gain a +1 bonus to rolled damage. Your Hurl Element ability (see below) also gains this bonus when you use it to deal fire damage."
     },
     {
       "id": "feature.elementalist.feature.1.osobennost-spetsializatsii-1-go-urovnya",
@@ -3913,7 +4341,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.osobennost-spetsializatsii-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/1st-level-specialization-feature",
+      "originalName": "1st-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 1st-Level Elemental Specialization Features table.\n\n###### 1st-Level Elemental Specialization Features Table\n\n| Specialization | Feature                    |\n|----------------|----------------------------|\n| Earth          | Motivate Earth             |\n| Fire           | Return to Formlessness     |\n| Green          | It Is the Soul Which Hears |\n| Void           | A Beyonding of Vision      |"
     },
     {
       "id": "feature.elementalist.feature.1.podderzhivaemaya-magiya",
@@ -3926,7 +4357,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.podderzhivaemaya-magiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/persistent-magic",
+      "originalName": "Persistent Magic",
+      "originalDescription": "Some of your heroic abilities have a persistent effect entry. For example, the Instantaneous Excavation ability has an effect noted as \"Persistent 1.\" Whenever you use a persistent ability, you decide whether you want to maintain it, and start doing so immediately after you first use the ability. If you maintain a persistent ability in combat, you reduce the amount of essence you earn at the start of your turn by an amount equal to the ability's persistent value, which enables the ability's persistent effect. All your active persistent abilities end at the end of the encounter.\n\nYou can't maintain any abilities that would make you earn a negative amount of essence at the start of your turn. You can stop maintaining an ability at any time (no action required).\n\nIf you maintain the same ability on several targets and the effect includes a power roll, you make that roll once and apply the same effect to all targets. A creature can't be affected by multiple instances of a persistent ability.\n\nIf you take damage equal to or greater than 5 times your Reason score in one turn, you stop maintaining any persistent abilities. For instance, if you have a Reason score of 2 and are maintaining Instantaneous Excavation, taking 10 or more damage in one turn causes you to stop maintaining the ability."
     },
     {
       "id": "feature.elementalist.feature.1.prakticheskaya-magiya",
@@ -3939,7 +4373,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.prakticheskaya-magiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/practical-magic",
+      "originalName": "Practical Magic",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.feature.1.pustota-akolit-tayny",
@@ -3952,7 +4389,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.pustota-akolit-tayny"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/void-acolyte-of-the-mystery",
+      "originalName": "Void: Acolyte of the Mystery",
+      "originalDescription": "You use your immersion in the mystery of void magic to expand the reach of that magic better than other mages. The distance of all your abilities that have the Magic, Ranged, and Void keywords increases by 2 squares."
     },
     {
       "id": "feature.elementalist.feature.1.sposobnost-za-3-essentsii",
@@ -3991,7 +4431,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.sposobnosti-elementalista"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elementalist-abilities",
+      "originalName": "Elementalist Abilities",
+      "originalDescription": "Your understanding of elemental magic grants you unique abilities, letting you damage, move, and debuff your enemies, empower your allies, and alter the terrain around you. You can select abilities from any elemental specialization to broaden your potential, or you can focus on abilities tied to your chosen specialization to establish your mastery of elemental power.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Bifurcated Incineration, Viscous Fire.)\n\n##### Heroic Abilities\n\nYou channel a variety of heroic abilities, all of them fueled by your essence.\n\n###### 3-Essence Ability\n\nChoose one heroic ability from the following options, each of which costs 3 essence to use. (*Quick Build:* The Flesh, a Crucible.)\n\n###### 5-Essence Ability\n\nChoose one heroic ability from the following options, each of which costs 5 essence to use. (*Quick Build:* Conflagration.)"
     },
     {
       "id": "feature.elementalist.feature.1.trigger-spetsializatsii",
@@ -4004,7 +4447,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.trigger-spetsializatsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/specialization-triggered-action",
+      "originalName": "Specialization Triggered Action",
+      "originalDescription": "Your elemental specialization grants you a triggered action, as shown on the Specialization Triggered Actions table.\n\n###### Elemental Specialization Triggered Actions Table\n\n| Specialization  | Triggered Action          |\n|-----------------|---------------------------|\n| Earth           | Skin Like Castle Walls    |\n| Fire            | Explosive Assistance      |\n| Green           | Breath of Dawn Remembered |\n| Void            | Subtle Relocation         |"
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie",
@@ -4017,7 +4463,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment",
+      "originalName": "Enchantment",
+      "originalDescription": "You weave an elemental enchantment into your body that enhances your statistics. Choose one of the following enchantments. You can change your enchantment and ward (see Elementalist Ward below) by performing a complex ritual as a respite activity. (*Quick Build:*  Enchantment of Destruction.)"
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie-bitvy",
@@ -4030,7 +4479,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie-bitvy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-battle",
+      "originalName": "Enchantment of Battle",
+      "originalDescription": "You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this enchantment."
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie-bystroty",
@@ -4043,7 +4495,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie-bystroty"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-celerity",
+      "originalName": "Enchantment of Celerity",
+      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie-distantsii",
@@ -4056,7 +4511,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie-distantsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-distance",
+      "originalName": "Enchantment of Distance",
+      "originalDescription": "You have a +2 bonus to the distance of your ranged magic abilities."
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie-postoyanstva",
@@ -4069,7 +4527,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie-postoyanstva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-permanence",
+      "originalName": "Enchantment of Permanence",
+      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
     },
     {
       "id": "feature.elementalist.feature.1.zacharovanie-razrusheniya",
@@ -4082,7 +4543,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zacharovanie-razrusheniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-destruction",
+      "originalName": "Enchantment of Destruction",
+      "originalDescription": "You gain a +1 bonus to rolled damage with magic abilities."
     },
     {
       "id": "feature.elementalist.feature.1.zelen-akolit-zeleni",
@@ -4095,7 +4559,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zelen-akolit-zeleni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/green-acolyte-of-the-green",
+      "originalName": "Green: Acolyte of the Green",
+      "originalDescription": "You harness the residual magic from your green spells to bolster yourself and your allies. Whenever you deal damage to one or more creatures using an ability that has the Green and Magic keywords and that costs essence to use (see below), you or one creature within 10 squares of you gains temporary Stamina equal to your Reason score."
     },
     {
       "id": "feature.elementalist.feature.1.zemlya-akolit-zemli",
@@ -4108,7 +4575,10 @@
       },
       "legacyIds": [
         "elementalist.feature.1.zemlya-akolit-zemli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/earth-acolyte-of-earth",
+      "originalName": "Earth: Acolyte of Earth",
+      "originalDescription": "You harness the flow of earth magic to become harder to move. Whenever you use an ability that has the Earth and Magic keywords, your stability increases by 1 until the start of your next turn. This benefit is cumulative."
     },
     {
       "id": "feature.elementalist.feature.1.znakovye-sposobnosti",
@@ -4134,7 +4604,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.edinyy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/one",
+      "originalName": "One",
+      "originalDescription": "You become the embodiment of the element of your chosen specialization. Whenever you use magic, elemental motes flit around you and your skin changes to reflect your element, taking on an earthen or stony appearance for earth, appearing like flickering flame for fire, gaining a leaf pattern for green, and becoming a starry expanse for void. Additionally, you gain one of the following benefits, as shown on the One Specialization Features table.\n\n###### One Specialization Features Table\n\n| Specialization | Feature         |\n|----------------|-----------------|\n| Earth          | Master of Earth |\n| Fire           | Master of Fire  |\n| Green          | Master of Green |\n| Void           | Master of Void  |"
     },
     {
       "id": "feature.elementalist.feature.10.navyk",
@@ -4147,7 +4620,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.elementalist.feature.10.perk",
@@ -4160,7 +4636,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.elementalist.feature.10.sushchnostnoe-bytie",
@@ -4173,7 +4652,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.sushchnostnoe-bytie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/essential-being",
+      "originalName": "Essential Being",
+      "originalDescription": "When you gain essence at the start of each of your turns during combat, you gain 4 essence instead of 3."
     },
     {
       "id": "feature.elementalist.feature.10.uvelichenie-kharakteristik",
@@ -4186,7 +4668,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Reason score increases to 5. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 5."
     },
     {
       "id": "feature.elementalist.feature.10.veyanie",
@@ -4199,7 +4684,10 @@
       },
       "legacyIds": [
         "elementalist.feature.10.veyanie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/breath",
+      "originalName": "Breath",
+      "originalDescription": "You have an epic resource called breath. Each time you finish a respite, you gain breath equal to the XP you gain. You can spend any number of breath to gain essence (no action required). When you do, 1 breath becomes 3 essence.\n\nBreath remains until you convert it to essence."
     },
     {
       "id": "feature.elementalist.feature.2.novaya-sposobnost-za-5-essentsii",
@@ -4212,7 +4700,10 @@
       },
       "legacyIds": [
         "elementalist.feature.2.novaya-sposobnost-za-5-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/new-5-essence-ability",
+      "originalName": "New 5-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 essence to use. Alternatively, you can choose one of the 5-essence abilities you didn't select at 1st level (see 1st-Level Features)."
     },
     {
       "id": "feature.elementalist.feature.2.osobennost-spetsializatsii-2-go-urovnya",
@@ -4225,7 +4716,10 @@
       },
       "legacyIds": [
         "elementalist.feature.2.osobennost-spetsializatsii-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/2nd-level-specialization-feature",
+      "originalName": "2nd-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 2nd-Level Elemental Specialization Features table.\n\n###### 2nd-Level Elemental Specialization Features Table\n\n| Specialization | Feature                   |\n|----------------|---------------------------|\n| Earth          | Disciple of Earth         |\n| Fire           | Disciple of Fire          |\n| Green          | Disciple of the Green     |\n| Void           | There Is No Space Between |"
     },
     {
       "id": "feature.elementalist.feature.2.perk",
@@ -4238,7 +4732,10 @@
       },
       "legacyIds": [
         "elementalist.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, lore, or supernatural perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.elementalist.feature.3.osobennost-spetsializatsii-3-go-urovnya",
@@ -4251,7 +4748,10 @@
       },
       "legacyIds": [
         "elementalist.feature.3.osobennost-spetsializatsii-3-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/3rd-level-specialization-feature",
+      "originalName": "3rd-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 3rd-Level Elemental Specialization Features table.\n\n###### 3rd-Level Elemental Specialization Features Table\n\n| Specialization | Feature                          |\n|----------------|----------------------------------|\n| Earth          | Earth Accepts Me                 |\n| Fire           | A Conversation With Fire         |\n| Green          | Remember Growth and Sun and Rain |\n| Void           | Distance Is Only Memory          |"
     },
     {
       "id": "feature.elementalist.feature.3.sposobnost-za-7-essentsii",
@@ -4264,7 +4764,10 @@
       },
       "legacyIds": [
         "elementalist.feature.3.sposobnost-za-7-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/7-essence-ability",
+      "originalName": "7-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 essence to use."
     },
     {
       "id": "feature.elementalist.feature.4.istochnik-essentsii",
@@ -4277,7 +4780,10 @@
       },
       "legacyIds": [
         "elementalist.feature.4.istochnik-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/font-of-essence",
+      "originalName": "Font of Essence",
+      "originalDescription": "The first time each combat round that you or a creature within 10 squares takes damage that isn't untyped or holy damage, you gain 2 essence instead of 1."
     },
     {
       "id": "feature.elementalist.feature.4.mantiya-essentsii",
@@ -4290,7 +4796,10 @@
       },
       "legacyIds": [
         "elementalist.feature.4.mantiya-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/mantle-of-essence",
+      "originalName": "Mantle of Essence",
+      "originalDescription": "While you have 3 or more essence and are not dying, you exude an aura of magic whose distance is equal to your Reason score. The effects within the area of the aura are based on your specialization, as shown on the Mantle of Essence Specialization Effects table. You can activate and deactivate the aura at will (no action required).\n\n###### Mantle of Essence Specialization Effects Table\n\n| Specialization | Feature         |\n|----------------|-----------------|\n| Earth          | Quaking Earth   |\n| Fire           | Burning Grounds |\n| Green          | Flowering Bed   |\n| Void           | Veiling Bed     |"
     },
     {
       "id": "feature.elementalist.feature.4.navyk",
@@ -4303,7 +4812,10 @@
       },
       "legacyIds": [
         "elementalist.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.elementalist.feature.4.perk",
@@ -4316,7 +4828,10 @@
       },
       "legacyIds": [
         "elementalist.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.elementalist.feature.4.uvelichenie-kharakteristik",
@@ -4329,7 +4844,10 @@
       },
       "legacyIds": [
         "elementalist.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Reason score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3."
     },
     {
       "id": "feature.elementalist.feature.5.osobennost-spetsializatsii-5-go-urovnya",
@@ -4342,7 +4860,10 @@
       },
       "legacyIds": [
         "elementalist.feature.5.osobennost-spetsializatsii-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/5th-level-specialization-feature",
+      "originalName": "5th-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 5th-Level Elemental Specialization Features table.\n\n###### 5th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                      |\n|----------------|------------------------------|\n| Earth          | The Mountain Does Not Move   |\n| Fire           | Smoldering Step              |\n| Green          | Hide of Tenfold Shields      |\n| Void           | Pierce the Veil of Substance |"
     },
     {
       "id": "feature.elementalist.feature.5.sposobnost-za-9-essentsii",
@@ -4355,7 +4876,10 @@
       },
       "legacyIds": [
         "elementalist.feature.5.sposobnost-za-9-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/9-essence-ability",
+      "originalName": "9-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 essence to use."
     },
     {
       "id": "feature.elementalist.feature.6.novaya-sposobnost-za-9-essentsii",
@@ -4368,7 +4892,10 @@
       },
       "legacyIds": [
         "elementalist.feature.6.novaya-sposobnost-za-9-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-6/new-9-essence-ability",
+      "originalName": "New 9-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 essence to use. Alternatively, you can choose one of the 9-assence abilities you didn't select at 5th level (see 5th-Level Features)."
     },
     {
       "id": "feature.elementalist.feature.6.perk",
@@ -4381,7 +4908,10 @@
       },
       "legacyIds": [
         "elementalist.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.elementalist.feature.6.virding",
@@ -4394,7 +4924,10 @@
       },
       "legacyIds": [
         "elementalist.feature.6.virding"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-6/wyrding",
+      "originalName": "Wyrding",
+      "originalDescription": "You can spend 10 uninterrupted minutes to create a freeform magic spell for a variety of situations. Choose one of the following magical effects:\n\n- You create a mundane object of a size equal to your Reason score or smaller.\n- You construct a place of shelter suitable for twenty creatures that lasts for 24 hours and can't be detected by enemies.\n- You restore all Stamina to a mundane object of a size equal to your Reason score or smaller.\n- Choose a cube with a size up to your Reason score within 5 squares. You can fill that area with difficult terrain or natural phenomena such as fire, water, or plant life, or can clear the area of those things.\n- You can preserve a corpse or up to 5 pounds of food for a week, or can cause a corpse or that amount of food to instantly rot.\n- You create a seal on a surface that can't be seen or felt by anyone but you. When a creature comes adjacent to the surface, you can see and hear through the seal for as long as the creature remains adjacent to it. When you create the seal, you can decide to limit the number of creatures who activate it by choosing a creature keyword (such as Undead) or a specific name (such as Ajax the Invincible) or organization (such as the Black Iron Pact). If you do, the seal alerts you only when creatures with the keyword, name, or organizational affiliation you provide pass by it. If you create a second seal, the first one disappears. You can dispel a seal at any time (no action required)."
     },
     {
       "id": "feature.elementalist.feature.7.burlyashchaya-essentsiya",
@@ -4407,7 +4940,10 @@
       },
       "legacyIds": [
         "elementalist.feature.7.burlyashchaya-essentsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/surging-essence",
+      "originalName": "Surging Essence",
+      "originalDescription": "When you gain essence at the start of each of your turns during combat, you gain 3 essence instead of 2."
     },
     {
       "id": "feature.elementalist.feature.7.mantiya-kvintessentsii",
@@ -4420,7 +4956,10 @@
       },
       "legacyIds": [
         "elementalist.feature.7.mantiya-kvintessentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/mantle-of-quintessence",
+      "originalName": "Mantle of Quintessence",
+      "originalDescription": "Your Mantle of Essence feature no longer requires essence.\n\nAdditionally, your Mantle of Essence now radiates magic that creates a calming air. Creatures in the area of the mantle's aura have their starting patience increased by 1 (to a maximum of 5) during any negotiation. While in the area, you and any ally gain an edge on tests that use the Handle Animals skill. If you have 5 or more Victories, the bonus to patience increases to 2 and tests that use the Handle Animals skill have a double edge."
     },
     {
       "id": "feature.elementalist.feature.7.navyk",
@@ -4433,7 +4972,10 @@
       },
       "legacyIds": [
         "elementalist.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.elementalist.feature.7.uvelichenie-kharakteristik",
@@ -4446,7 +4988,10 @@
       },
       "legacyIds": [
         "elementalist.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.elementalist.feature.8.osobennost-spetsializatsii-8-go-urovnya",
@@ -4459,7 +5004,10 @@
       },
       "legacyIds": [
         "elementalist.feature.8.osobennost-spetsializatsii-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/8th-level-specialization-feature",
+      "originalName": "8th-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 8th-Level Elemental Specialization Features table.\n\n###### 8th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                |\n|----------------|------------------------|\n| Earth          | Summon Source of Earth |\n| Fire           | The Flame Primordial   |\n| Green          | Chimeric Manifestation |\n| Void           | Black Hole Star        |"
     },
     {
       "id": "feature.elementalist.feature.8.perk",
@@ -4472,7 +5020,10 @@
       },
       "legacyIds": [
         "elementalist.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.elementalist.feature.8.sposobnost-za-11-essentsii",
@@ -4485,7 +5036,10 @@
       },
       "legacyIds": [
         "elementalist.feature.8.sposobnost-za-11-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/11-essence-ability",
+      "originalName": "11-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 essence to use."
     },
     {
       "id": "feature.elementalist.feature.9.novaya-sposobnost-za-11-essentsii",
@@ -4498,7 +5052,10 @@
       },
       "legacyIds": [
         "elementalist.feature.9.novaya-sposobnost-za-11-essentsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/new-11-essence-ability",
+      "originalName": "New 11-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 essence to use. Alternatively, you can choose one of the 11-essence abilities you didn't select at 8th level (see 8th-Level Features)."
     },
     {
       "id": "feature.elementalist.feature.9.velikiy-virding",
@@ -4511,7 +5068,10 @@
       },
       "legacyIds": [
         "elementalist.feature.9.velikiy-virding"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/grand-wyrding",
+      "originalName": "Grand Wyrding",
+      "originalDescription": "You have mastered the magic of shaping a wyrd, and can use your Wyrding feature as a main action.\n\nAdditionally, when you have 5 or more Victories, choose one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. You have immunity all to that type."
     },
     {
       "id": "feature.elementalist.specialization.1.imenno-dusha-slyshit",
@@ -4524,7 +5084,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.1.imenno-dusha-slyshit"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/it-is-the-soul-which-hears",
+      "originalName": "It Is the Soul Which Hears",
+      "originalDescription": "You can speak with and understand animals, beasts, and plant creatures, even if they don't share a language with you. Your ability to communicate with these creatures doesn't make them inherently more intelligent, but you can use Reason instead of Presence while making tests to influence them.\n\nAdditionally, you can touch a living plant that is not a plant creature to communicate with it telepathically. You can use words to communicate with the plant, but it communicates with you only by transmitting feelings and sensations that can't be overly specific."
     },
     {
       "id": "feature.elementalist.specialization.1.pobudit-zemlyu",
@@ -4537,7 +5100,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.1.pobudit-zemlyu"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/motivate-earth",
+      "originalName": "Motivate Earth",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.1.vozvrat-k-besformennosti",
@@ -4550,7 +5116,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.1.vozvrat-k-besformennosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/return-to-formlessness",
+      "originalName": "Return to Formlessness",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.1.za-predelami-zreniya",
@@ -4563,7 +5132,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.1.za-predelami-zreniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/a-beyonding-of-vision",
+      "originalName": "A Beyonding of Vision",
+      "originalDescription": "You instantly recognize illusions for what they are, you can see invisible creatures, and supernatural effects can't conceal creatures and objects from you. Additionally, you always know if an area or object you observe is magical or affected by magic, and you know the specifics of what that magic can do.\n\nYou also gain the following ability."
     },
     {
       "id": "feature.elementalist.specialization.10.master-ognya",
@@ -4576,7 +5148,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.10.master-ognya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/master-of-fire",
+      "originalName": "Master of Fire",
+      "originalDescription": "The damage bonus of your Acolyte of Fire feature increases to +5 and applies to all your magic abilities.\n\nAdditionally, your Return to Formlessness ability can be used on supernatural objects (but not on artifacts). When you melt a treasure (see Chapter 13: Rewards), you gain breath equal to its echelon."
     },
     {
       "id": "feature.elementalist.specialization.10.master-pustoty",
@@ -4589,7 +5164,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.10.master-pustoty"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/master-of-void",
+      "originalName": "Master of Void",
+      "originalDescription": "Whenever you willingly move, you can teleport.\n\nAdditionally, your mind is connected to the mystery and helps you find the answers you seek. You no longer require project sources for research projects. Whenever you use a respite activity to make a project roll for a research project, you automatically complete the project."
     },
     {
       "id": "feature.elementalist.specialization.10.master-zeleni",
@@ -4602,7 +5180,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.10.master-zeleni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/master-of-green",
+      "originalName": "Master of Green",
+      "originalDescription": "The number of Recoveries you have increases by 2, and each time you finish a respite, you can grant each ally who finished the respite with you 2 additional Recoveries. Your allies' additional Recoveries disappear when they finish their next respite.\n\nAdditionally, as a respite activity, you can perform a ritual that causes a fruit tree to spring from the ground, grow, mature, and produce 1d6 of a treasure called Life Fruit. You can use a respite activity to cause an existing tree to produce another 1d6 Life Fruit, but it does not grow these magic consumables on its own.\n\nAs a maneuver, a creature can consume a Life Fruit or feed it to an adjacent willing ally. When a creature eats a Life Fruit, they restore all their Stamina, they can end all conditions or effects on themself, and they can stand up if prone. Additionally, if the creature desires, their aging pauses for 1d10 years. If the creature eats additional Life Fruit and chooses to pause their aging, the effects don't stack. Instead, the creature gains the benefit from the Life Fruit that pauses their aging for the longest time."
     },
     {
       "id": "feature.elementalist.specialization.10.master-zemli",
@@ -4615,7 +5196,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.10.master-zemli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-10/master-of-earth",
+      "originalName": "Master of Earth",
+      "originalDescription": "You have damage immunity 5.\n\nAdditionally, as a respite activity, you can shape the mundane earth around you in a 1-mile radius. You can open sinkholes, form mountains, level mundane structures or whole settlements, create canyons, raise islands or sink them in the sea, and perform similar feats. You can't use this respite activity if another creature within 1 mile is already using it. Once you use this respite activity, you can't use it again for 10 days."
     },
     {
       "id": "feature.elementalist.specialization.2.mezhdu-nami-net-prostranstva",
@@ -4628,7 +5212,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.2.mezhdu-nami-net-prostranstva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/there-is-no-space-between",
+      "originalName": "There Is No Space Between",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.2.uchenik-ognya",
@@ -4641,7 +5228,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.2.uchenik-ognya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/disciple-of-fire",
+      "originalName": "Disciple of Fire",
+      "originalDescription": "Your connection to fire allows you to protect yourself from it, even as you rip away the protections of others. You have fire immunity equal to 5 plus your level. Additionally, fire damage you deal ignores a target's fire immunity.\n\nAt the start of a combat encounter, you gain a number of surges equal to your Victories. Whenever you spend a surge to deal extra damage, you can make that damage fire damage."
     },
     {
       "id": "feature.elementalist.specialization.2.uchenik-zeleni",
@@ -4654,7 +5244,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.2.uchenik-zeleni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/disciple-of-the-green",
+      "originalName": "Disciple of the Green",
+      "originalDescription": "You can use a maneuver to shapeshift into a type of creature on the Green Animal Forms table. While in animal form, you can speak, and you use your Reason score to make melee free strikes. Your statistics stay the same except as noted on the table.\n\nEach form has a prerequisite level that you must attain before you can adopt it. Some animal forms grant you temporary Stamina. You lose this temporary Stamina when you revert back to your true form.\n\nYou choose a specific animal and appearance while in animal form. For example, if you become a rodent, you might become a mouse, a rat, a shrew, or any other size 1T animal who fits the rodent type. When you take on an animal form, your equipment either melds into your new form or falls undamaged to the ground (your choice). When you return to your true form, any melded gear reappears on your person.\n\nYou can revert back to your true form as a maneuver. You can't enter an animal form unless you are in your true form. When you are dying, you revert to your true form and can't turn back into an animal until you are no longer dying.\n\n###### Green Animal Forms Table\n\n| Animal Type         | Level | Temporary Stamina | Speed         | Size | Stability Bonus | Melee Damage Bonus | Special                                                                                                                                                                                                                                                                         |\n|---------------------|-------|-------------------|---------------|------|-----------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Canine              | 2nd   | 5                 | 7             | 1M   | +0              | +1/+1/+1           | You gain an edge on tests that involve smell.                                                                                                                                                                                                                                   |\n| Fish                | 2nd   | 0                 | 5 (swim only) | 1T   | +0              | +0/+0/+0           | You can breathe in water but can't breathe outside of it.                                                                                                                                                                                                                       |\n| Rodent              | 2nd   | 0                 | 5 (climb)     | 1T   | +0              | +0/+0/+0           | You gain an edge on tests that involve smell.                                                                                                                                                                                                                                   |\n| Bird                | 3rd   | 0                 | 5 (fly)       | 1T   | +0              | +0/+0/+0           | -                                                                                                                                                                                                                                                                               |\n| Great cat           | 3rd   | 5                 | 6 (climb)     | 2    | +0              | +1/+1/+1           | As a maneuver, you can jump up to 3 squares in any direction. If you land on an enemy of your size or smaller, that enemy is knocked prone, and you can make a melee free strike against them (no action required).                                                       |\n| Giant frog          | 4th   | 5                 | 5 (swim)      | 2    | +0              | +0/+0/+0           | Your melee free strike has a distance of melee 3. When you take the Advance move action, you can high jump or long jump up to half your speed. This jump can allow you to move more squares than your speed.                                                              |\n| Horse               | 4th   | 5                 | 8             | 2    | +1              | +0/+0/+0           | You can use the Charge main action as a maneuver. You can't use two Charge main actions on the same turn.                                                                                                                                                                    |\n| Mohler              | 4th   | 0                 | 7 (burrow)    | 1S   | +1              | +0/+0/+0           | Your melee distance gains a +1 bonus.                                                                                                                                                                                                                                           |\n| Bear                | 5th   | 10                | 5 (climb)     | 2    | +1              | +2/+2/+2           | Your melee distance gains a +1 bonus.                                                                                                                                                                                                                                           |\n| Giant bird          | 5th   | 0                 | 7 (fly)       | 2    | +0              | +1/+1/+1           | After making a melee free strike, you can shift up to 3 squares as a free triggered action.                                                                                                                                                                                  |\n| Giant salamander | 6th   | 5                 | 5             | 1L   | +3              | +2/+2/+2           | Your melee free strike deals fire damage. Additionally, you have fire immunity 3.                                                                                                                                                                                            |\n| Giant spider        | 6th   | 0                 | 5 (climb)     | 2    | +0              | +0/+1/+2           | You have a double edge on melee free strikes against creatures you are hidden from.                                                                                                                                                                                          |\n| Giant snake         | 7th   | 5                 | 5             | 3    | +0              | +0/+1/+2           | Whenever you obtain a tier 2 or tier 3 outcome on a melee free strike, you can automatically grab the target. While grabbed this way, the target takes 2 damage at the start of each of their turns.                                                                      |\n| Kangaroo            | 7th   | 0                 | 7             | 1L   | +1              | +0/+0/+4           | When you score a critical hit with a melee free strike, the target is dazed (save ends). When you take the Advance move action, you can high jump or long jump up to half your speed. This jump can allow you to move more squares than your speed.                    |\n| Spiny armadillo     | 7th   | 10                | 5             | 1M   | +2              | +0/+0/+0           | Whenever you take damage from an adjacent creature's melee ability, that creature takes 3 damage.                                                                                                                                                                            |\n| Ostrich             | 8th   | 0                 | 10            | 2    | +0              | +1/+1/+1           | Your movement does not provoke opportunity attacks.                                                                                                                                                                                                                             |\n| Shark               | 8th   | 0                 | 8 (swim only) | 2    | +0              | +2/+2/+2           | You can breathe in water but can't breathe outside of it. Additionally, you gain an edge on strikes against targets who are bleeding or winded.                                                                                                                              |\n| Giant octopus       | 9th   | 5                 | 5 (swim)      | 3    | +2              | +0/+0/+0           | You can breathe in water. Additionally, you can target two creatures or objects with your melee free strike. Whenever you obtain a tier 2 or tier 3 outcome on a melee free strike, you can automatically grab the target. You can have up to eight creatures grabbed. |\n| Rhinoceros          | 9th   | 10                | 8             | 2    | +5              | +2/+2/+2           | Whenever you make a melee free strike as part of the Charge action, that strike gains an edge.                                                                                                                                                                               |\n| King terror lizard  | 10th  | 20                | 5             | 4    | +3              | +2/+2/+2           | Your melee free strike is a 1 burst with the Area and Strike keywords.                                                                                                                                                                                                          |"
     },
     {
       "id": "feature.elementalist.specialization.2.uchenik-zemli",
@@ -4667,7 +5260,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.2.uchenik-zemli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-2/disciple-of-earth",
+      "originalName": "Disciple of Earth",
+      "originalDescription": "Your body is strengthened by your mind's connection to the element of permanence. You have a +6 bonus to Stamina, and you gain an additional +3 bonus to Stamina whenever you gain a level past 2nd."
     },
     {
       "id": "feature.elementalist.specialization.3.rasstoyanie-eto-lish-pamyat",
@@ -4680,7 +5276,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.3.rasstoyanie-eto-lish-pamyat"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/distance-is-only-memory",
+      "originalName": "Distance Is Only Memory",
+      "originalDescription": "Each time you finish a respite, you can open a two-way portal that leads to any place you have previously been. You and your allies can pass through the portal, which remains open for 1 hour or until you dismiss it as a main action."
     },
     {
       "id": "feature.elementalist.specialization.3.razgovor-s-ognem",
@@ -4693,7 +5292,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.3.razgovor-s-ognem"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/a-conversation-with-fire",
+      "originalName": "A Conversation With Fire",
+      "originalDescription": "When you spend 1 uninterrupted minute in front of a fire, you can speak the name of another creature. If that creature is willing to speak to you, their image appears in the fire, and they can see you before them in a shimmering ball of light. The two of you can speak to each other through these images as if you were together in person. As a maneuver, you or the creature can end the conversation."
     },
     {
       "id": "feature.elementalist.specialization.3.vspomni-rost-solntse-i-dozhd",
@@ -4706,7 +5308,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.3.vspomni-rost-solntse-i-dozhd"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/remember-growth-and-sun-and-rain",
+      "originalName": "Remember Growth and Sun and Rain",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.3.zemlya-prinimaet-menya",
@@ -4719,7 +5324,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.3.zemlya-prinimaet-menya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-3/earth-accepts-me",
+      "originalName": "Earth Accepts Me",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.4.goryashchie-zemli",
@@ -4732,7 +5340,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.4.goryashchie-zemli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/burning-grounds",
+      "originalName": "Burning Grounds",
+      "originalDescription": "At the end of each of your turns, each enemy in the area takes fire damage equal to your Reason score."
     },
     {
       "id": "feature.elementalist.specialization.4.sokryvayushchaya-postel",
@@ -4745,7 +5356,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.4.sokryvayushchaya-postel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/veiling-bed",
+      "originalName": "Veiling Bed",
+      "originalDescription": "The area provides concealment for you and your allies."
     },
     {
       "id": "feature.elementalist.specialization.4.sotryasayushchayasya-zemlya",
@@ -4758,7 +5372,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.4.sotryasayushchayasya-zemlya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/quaking-earth",
+      "originalName": "Quaking Earth",
+      "originalDescription": "At the end of each of your turns, you can push each enemy in the area up to a number of squares equal to your Reason score."
     },
     {
       "id": "feature.elementalist.specialization.4.tsvetushchaya-klumba",
@@ -4771,7 +5388,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.4.tsvetushchaya-klumba"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/flowering-bed",
+      "originalName": "Flowering Bed",
+      "originalDescription": "At the end of each of your turns, each ally in the area gains temporary Stamina equal to your Reason score."
     },
     {
       "id": "feature.elementalist.specialization.5.gora-ne-sdvinetsya",
@@ -4784,7 +5404,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.5.gora-ne-sdvinetsya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/the-mountain-does-not-move",
+      "originalName": "The Mountain Does Not Move",
+      "originalDescription": "You stand firm and magnetize your allies to stay grounded. Your stability increases by your level.\n\nAdditionally, whenever an ally within distance of your Hurl Element ability is force moved, you can use a free triggered action to decrease your stability down to a minimum of 0, then increase the ally's stability by an amount equal to the stability you lost. This change lasts until the end of the round."
     },
     {
       "id": "feature.elementalist.specialization.5.probit-zavesu-materii",
@@ -4797,7 +5420,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.5.probit-zavesu-materii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/pierce-the-veil-of-substance",
+      "originalName": "Pierce the Veil of Substance",
+      "originalDescription": "Solidity is merely a suggestion to you. Mundane barriers that are 1 square thick or less do not block your senses or line of effect. You can only sense or have line of effect past one such barrier at a time.\n\nAdditionally, whenever you use a void ability, you or one ally within distance of the ability can teleport a number of squares equal to your Reason score."
     },
     {
       "id": "feature.elementalist.specialization.5.shkura-desyatikratnykh-shchitov",
@@ -4810,7 +5436,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.5.shkura-desyatikratnykh-shchitov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/hide-of-tenfold-shields",
+      "originalName": "Hide of Tenfold Shields",
+      "originalDescription": "Your animal forms become hardier. You gain temporary Stamina equal to your level when you enter an animal form in combat, which is added to any temporary Stamina provided by the animal form.\n\nAdditionally, an adjacent ally can use a maneuver to pet you. If they do so, you can lose temporary Stamina down to a minimum of 0. The ally gains temporary Stamina equal to the amount you lost."
     },
     {
       "id": "feature.elementalist.specialization.5.tleyushchiy-shag",
@@ -4823,7 +5452,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.5.tleyushchiy-shag"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/smoldering-step",
+      "originalName": "Smoldering Step",
+      "originalDescription": "You can use 1 square of movement to walk into an area of fire your size or larger and teleport to any other area of fire your size or larger within 10 squares of the first area.\n\nAdditionally, whenever you use a fire ability or are targeted by an ability that deals fire damage, each enemy adjacent to you takes fire damage equal to your Reason score."
     },
     {
       "id": "feature.elementalist.specialization.8.khimericheskoe-proyavlenie",
@@ -4836,7 +5468,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.8.khimericheskoe-proyavlenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/chimeric-manifestation",
+      "originalName": "Chimeric Manifestation",
+      "originalDescription": "Nature isn't static and unchanging, and neither are you. You can enter or exit your animal form as a free maneuver the first time you use your Disciple of the Green feature on your turn.\n\nAdditionally, whenever you use your Disciple of the Green feature, you can select an additional animal form and gain the positive benefits from both forms. You can choose the size of either animal, and if both animal forms grant you the same benefit, you can choose whichever you prefer. You gain the highest speed between the two animal forms and have all types of movement from both forms.\n\nYou can only combine animal forms whose levels add up to 12 or less. For example, you can combine a shark (8th level) with a horse (4th level), but you can't combine a shark with a bear (5th level)."
     },
     {
       "id": "feature.elementalist.specialization.8.pervozdannoe-plamya",
@@ -4849,7 +5484,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.8.pervozdannoe-plamya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/the-flame-primordial",
+      "originalName": "The Flame Primordial",
+      "originalDescription": "You produce a fire that entrances the fates, distracting them from aiding your foes. Whenever you deal fire damage to a creature or object, they take an extra 1d6 fire damage. If you deal fire damage to a mundane object, you can use a free triggered action to target it with your Return to Formlessness ability instead.\n\nAdditionally, any enemy who starts their turn adjacent to you has fire weakness equal to your Reason score until the start of their next turn. This increases to twice your Reason score if the enemy is made of or is wearing mostly metal."
     },
     {
       "id": "feature.elementalist.specialization.8.prizyv-istochnika-zemli",
@@ -4862,7 +5500,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.8.prizyv-istochnika-zemli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/summon-source-of-earth",
+      "originalName": "Summon Source of Earth",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.elementalist.specialization.8.zvezda-chernoy-dyry",
@@ -4875,7 +5516,10 @@
       },
       "legacyIds": [
         "elementalist.specialization.8.zvezda-chernoy-dyry"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-8/black-hole-star",
+      "originalName": "Black Hole Star",
+      "originalDescription": "You warp gravity around your heavenly body and can pull even the sturdiest titans toward your core. At the end of each of your turns, you target one creature or object within distance of your Hurl Element ability and vertical pull that target up to 5 squares. If their stability reduces this forced movement, they are pulled a minimum of 2 squares. This forced movement ignores stability for your allies.\n\nAdditionally, your Mantle of Essence improves. While in the area of the aura, enemies and objects have their stability reduced by an amount equal to your level."
     }
   ]
 }

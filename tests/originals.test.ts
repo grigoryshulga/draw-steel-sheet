@@ -1,49 +1,59 @@
 import { describe, expect, it } from "vitest";
-import abilities from "../src/data/abilities.generated.json";
-import classFeatures from "../src/data/class-features.generated.json";
-import ancestryFeatures from "../src/data/ancestry-features.generated.json";
-import kits from "../src/data/kits.generated.json";
-import perks from "../src/data/perks.generated.json";
-import legacy from "../src/data/legacy-ids.generated.json";
-import { perkById } from "../src/data/perks";
+import { ABILITY_COMPENDIUM } from "../src/data/compendium";
+import { CATALOG, GLOSSARY } from "../src/data/library";
+import { KIT_COMPENDIUM } from "../src/data/kits";
+import { PERK_COMPENDIUM, perkById } from "../src/data/perks";
 import { ancestryFeatureById } from "../src/data/ancestry-features/skeleton";
 import { mechanicsFor } from "../src/data/class-features/mechanics";
 import { ancestryMechanicsFor } from "../src/data/ancestry-features/mechanics";
+import {
+  CONSUMER_ANCESTRY_FEATURES,
+  CONSUMER_CLASS_FEATURES,
+} from "../src/rules/consumer-features";
+import legacy from "../src/generated/legacy-ids.json";
 import { canonicalAbilityId } from "../src/data/originals";
 
-const originalFields = (entry: Record<string, unknown>) => {
+const hasOriginal = (entry: Record<string, unknown>) => {
   expect(entry).toHaveProperty("originalName");
   expect(entry).toHaveProperty("originalDescription");
 };
 
 describe("английские оригиналы компендиума", () => {
-  it("каждая способность хранит оригинал и канонический английский id", () => {
-    for (const ability of abilities) {
-      originalFields(ability);
-      expect(ability.originalName.length).toBeGreaterThan(0);
+  it("способности хранят оригинал и канонический английский id", () => {
+    for (const ability of ABILITY_COMPENDIUM) {
+      hasOriginal(ability);
+      expect(ability.originalName?.length ?? 0).toBeGreaterThan(0);
       expect(ability.id).toMatch(/^[a-z0-9.-]+$/);
     }
   });
 
   it("классовые и происхожденческие особенности хранят оригинал", () => {
-    for (const feature of classFeatures) {
-      originalFields(feature);
-      expect(feature.originalName.length).toBeGreaterThan(0);
-    }
-    for (const feature of ancestryFeatures) {
-      originalFields(feature);
-      expect(feature.originalName.length).toBeGreaterThan(0);
+    for (const feature of [
+      ...CONSUMER_ANCESTRY_FEATURES,
+      ...CONSUMER_CLASS_FEATURES,
+    ]) {
+      hasOriginal(feature);
+      expect(feature.originalName?.length ?? 0).toBeGreaterThan(0);
     }
   });
 
-  it("комплекты и перки хранят оригинал", () => {
-    for (const kit of kits) {
-      originalFields(kit);
-      expect(kit.originalName.length).toBeGreaterThan(0);
+  it("комплекты, перки, каталог и глоссарий хранят оригинал", () => {
+    for (const kit of KIT_COMPENDIUM) {
+      hasOriginal(kit);
+      expect(kit.originalName?.length ?? 0).toBeGreaterThan(0);
     }
-    for (const perk of perks.perks) {
-      originalFields(perk);
-      expect(perk.originalName.length).toBeGreaterThan(0);
+    for (const perk of PERK_COMPENDIUM) {
+      hasOriginal(perk);
+      expect(perk.originalName?.length ?? 0).toBeGreaterThan(0);
+    }
+    for (const entry of CATALOG) {
+      hasOriginal(entry);
+      if (entry.originalId) {
+        expect(entry.originalName?.length ?? 0).toBeGreaterThan(0);
+      }
+    }
+    for (const entry of GLOSSARY) {
+      hasOriginal(entry);
     }
   });
 
@@ -75,9 +85,11 @@ describe("английские оригиналы компендиума", () =>
     );
   });
 
-  it("старые id способностей канонизируются и не остаются в данных", () => {
+  it("старые id способностей канонизируются и не остаются в проекции", () => {
     const oldAbilityId = Object.keys(legacy.abilities)[0];
     expect(canonicalAbilityId(oldAbilityId)).toBe(legacy.abilities[oldAbilityId]);
-    expect(abilities.some((ability) => ability.id === oldAbilityId)).toBe(false);
+    expect(ABILITY_COMPENDIUM.some((ability) => ability.id === oldAbilityId)).toBe(
+      false,
+    );
   });
 });

@@ -172,7 +172,11 @@ function isAbilityOwned(
 }
 
 const COMPENDIUM_BY_ID = new Map<string, CompendiumAbility>(
-  ABILITY_COMPENDIUM.map((ability) => [ability.id, ability]),
+  ABILITY_COMPENDIUM.flatMap((ability) => {
+    const rows: [string, CompendiumAbility][] = [[ability.id, ability]];
+    if (ability.legacyId) rows.push([ability.legacyId, ability]);
+    return rows;
+  }),
 );
 
 // Resolve user-entered domain spellings to one canonical catalog key. Refuse
@@ -596,7 +600,7 @@ function buildContext(character: Character): LevelUpContext {
     const options = GENERATED_CLASS_FEATURES
       .filter((feature) => feature.className === character.className &&
         feature.level === toLevel && feature.keyedBy === "domain" &&
-        feature.parentId === `conduit.feature.${toLevel}.osobennost-domena-${toLevel}-go-urovnya` &&
+        feature.parentId === `feature.conduit.level-${toLevel}.${toLevel}th-level-domain-feature` &&
         normalizedDomains.includes(normalizeToken(feature.keyValue ?? "")))
       .map((feature) => ({ id: feature.id, label: feature.name, description: feature.keyValue }));
     if (normalizedDomains.length !== 2 || options.length !== 2) {

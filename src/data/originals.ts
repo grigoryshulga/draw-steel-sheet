@@ -1,4 +1,4 @@
-import legacy from "./legacy-ids.generated.json";
+import legacy from "../generated/legacy-ids.json";
 
 /**
  * Старые транслитерированные id, которые могли попасть в сохранённые листы.

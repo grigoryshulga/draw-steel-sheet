@@ -17,7 +17,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   // ------------------------------------------------------- заголовки 1-го уровня
-  "tactician.feature.1.osobennost-doktriny-1-go-urovnya": {
+  "feature.tactician.level-1.1st-level-doctrine-feature": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт особенность 1-го уровня. Повстанец — " +
@@ -25,7 +25,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Командирское присутствие. Конкретную особенность дают вложенные записи " +
       "выбранной доктрины.",
   },
-  "tactician.feature.1.trigger-doktriny": {
+  "feature.tactician.level-1.doctrine-triggered-action": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт триггер 1-го уровня. Повстанец — " +
@@ -34,7 +34,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------------- особенности 1-го уровня
-  "tactician.doctrine.1.komandirskoe-prisutstvie": {
+  "feature.tactician.level-1.commanding-presence": {
     kinds: ["situational"],
     notes:
       "Пока герой присутствует на переговорах, каждый герой вместе с ним " +
@@ -43,7 +43,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "переговоры. Лист не хранит Славу и ход переговоров — правило " +
       "применяется вручную.",
   },
-  "tactician.doctrine.1.sekretnye-operatsii": {
+  "feature.tactician.level-1.covert-operations": {
     kinds: ["situational"],
     notes:
       "Союзники в присутствии героя или действующие по его планам получают " +
@@ -52,7 +52,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "для исследования или разведки во время переговоров. Лист не хранит " +
       "союзников и тесты — правило применяется вручную.",
   },
-  "tactician.doctrine.1.obrazovannyy-komandir": {
+  "feature.tactician.level-1.studied-commander": {
     kinds: ["situational"],
     notes:
       "Пока герой присутствует, проект отдыха «Раскрыть Знания» о войне или " +
@@ -64,7 +64,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------------- триггеры 1-го уровня
-  "tactician.doctrine.1.prodvinutaya-taktika": {
+  "feature.ability.tactician.level-1.advanced-tactics": {
     kinds: ["grant"],
     notes:
       "Способность-триггер «Продвинутая тактика» выдаётся карточкой " +
@@ -73,7 +73,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "увеличивается на 1. Лист не хранит выбор цели и трату фокуса — эффект " +
       "ведёт карточка.",
   },
-  "tactician.doctrine.1.prikrytie": {
+  "feature.ability.tactician.level-1.overwatch": {
     kinds: ["grant"],
     notes:
       "Способность-триггер «Прикрытие» выдаётся карточкой справочника. " +
@@ -82,7 +82,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "замедленной (КсХ). Лист не хранит перемещение и трату фокуса — эффект " +
       "ведёт карточка.",
   },
-  "tactician.doctrine.1.parirovanie": {
+  "feature.ability.tactician.level-1.parry": {
     kinds: ["grant"],
     notes:
       "Способность-триггер «Парирование» выдаётся карточкой справочника. " +
@@ -94,7 +94,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовки и особенности 2-го уровня
-  "tactician.feature.2.osobennost-doktriny-2-go-urovnya": {
+  "feature.tactician.level-2.2nd-level-doctrine-feature": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт особенность 2-го уровня. Повстанец — " +
@@ -102,7 +102,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Превосходство в ближнем бою. Конкретную особенность дают вложенные " +
       "записи выбранной доктрины.",
   },
-  "tactician.doctrine.2.sprovotsirovannyy": {
+  "feature.tactician.level-2.goaded": {
     kinds: ["situational"],
     notes:
       "Всякий раз, когда отмеченное существо использует удар против героя или " +
@@ -111,14 +111,14 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "должна быть в расстоянии способности и в линии воздействия атакующего. " +
       "Лист не хранит отмеченных и цели — правило применяется вручную.",
   },
-  "tactician.doctrine.2.taktika-proniknoveniya": {
+  "feature.tactician.level-2.infiltration-tactics": {
     kinds: ["situational"],
     notes:
       "Всякий раз, когда герой или союзник в 10 клетках становится скрытым, " +
       "это существо получает 1 всплеск. Лист не отслеживает скрытность и " +
       "всплески — правило применяется вручную.",
   },
-  "tactician.doctrine.2.prevoskhodstvo-v-blizhnem-boyu": {
+  "feature.tactician.level-2.melee-superiority": {
     kinds: ["situational"],
     notes:
       "Атака по возможности снижает скорость цели до 0 до конца текущего хода. " +
@@ -127,7 +127,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "свободным триггером тратит 2 фокуса и наносит по нему свободный удар " +
       "ближнего боя. Лист не ведёт перемещение и трату — применяется вручную.",
   },
-  "tactician.feature.2.sposobnost-doktriny-2-go-urovnya": {
+  "feature.tactician.level-2.2nd-level-doctrine-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: доктрина даёт на выбор одну из двух героических способностей " +
@@ -136,7 +136,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ контейнеры способностей 2-го уровня
-  "tactician.feature.2.sposobnost-povstantsa-2-go-urovnya": {
+  "feature.tactician.level-2.insurgent-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Повстанец"] },
     notes:
@@ -144,7 +144,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Лучше Попробуй Меня, обе за 5 фокуса. Выбор делается при повышении " +
       "уровня по доктрине.",
   },
-  "tactician.feature.2.sposobnost-voevody-2-go-urovnya": {
+  "feature.tactician.level-2.mastermind-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Воевода"] },
     notes:
@@ -152,7 +152,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Цели по Возможности, обе за 5 фокуса. Выбор делается при повышении " +
       "уровня по доктрине.",
   },
-  "tactician.feature.2.sposobnost-avangarda-2-go-urovnya": {
+  "feature.tactician.level-2.vanguard-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Авангард"] },
     notes:
@@ -162,7 +162,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовок и особенности 5-го уровня
-  "tactician.feature.5.osobennosti-doktriny-5-go-urovnya": {
+  "feature.tactician.level-5.5th-level-doctrine-features": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт две особенности 5-го уровня. Повстанец " +
@@ -170,13 +170,13 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Авангард — Стряхнуть и Тактическое наступление. Механику дают вложенные " +
       "записи выбранной доктрины.",
   },
-  "tactician.doctrine.5.zamysel": {
+  "feature.tactician.level-5.anticipation": {
     kinds: ["situational"],
     notes:
       "Герой может нацелиться на двух существ способностью «Метка». Лимит " +
       "отмеченных — состояние способности, лист его не хранит.",
   },
-  "tactician.doctrine.5.otvlechenie": {
+  "feature.tactician.level-5.distracted": {
     kinds: ["situational"],
     notes:
       "Когда герой или союзник пытается скрыться, ни одно отмеченное существо " +
@@ -184,13 +184,13 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "укрытие, чтобы спрятаться. Лист не хранит наблюдателей и укрытия — " +
       "правило применяется вручную.",
   },
-  "tactician.doctrine.5.ya-eto-produmal": {
+  "feature.tactician.level-5.i-predicted-that": {
     kinds: ["situational"],
     notes:
       "Герой и любой союзник в 10 клетках получают преимущество на тесты " +
       "Разума. Лист не хранит союзников и тесты — правило применяется вручную.",
   },
-  "tactician.doctrine.5.ne-ostavlyat-sledov": {
+  "feature.tactician.level-5.leave-no-trace": {
     kinds: ["situational"],
     notes:
       "Герой и любой союзник в 10 клетках могут двигаться с полной скоростью " +
@@ -198,7 +198,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "чтобы найти героя или его союзников, пока кто-то из них скрыт. Лист не " +
       "отслеживает скрытность — правило применяется вручную.",
   },
-  "tactician.doctrine.5.stryakhnut": {
+  "feature.tactician.level-5.shake-it-off": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -215,7 +215,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Трата выносливости, выбор последствия или эффекта остаются за игроком: " +
       "лист не хранит эффекты на герое и не снимает их сам.",
   },
-  "tactician.doctrine.5.takticheskoe-nastuplenie": {
+  "feature.tactician.level-5.tactical-offensive": {
     kinds: ["situational"],
     notes:
       "При основном действии «Атака с рывком» против отмеченного существа " +
@@ -225,14 +225,14 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовок и особенности 7-го уровня
-  "tactician.feature.7.osobennost-doktriny-7-go-urovnya": {
+  "feature.tactician.level-7.7th-level-doctrine-feature": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт особенность 7-го уровня. Повстанец — " +
       "Асимметричная война, Воевода — Гранд-стратегия, Авангард — Шок и " +
       "трепет. Конкретную особенность дают вложенные записи выбранной доктрины.",
   },
-  "tactician.doctrine.7.asimmetrichnaya-voyna": {
+  "feature.tactician.level-7.asymmetric-warfare": {
     kinds: ["situational"],
     notes:
       "Во время тест-монтажа или переговоров герой может получить один " +
@@ -240,7 +240,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "скрывать большие группы людей — беженцев, партизан. Лист не ведёт " +
       "тесты и группы — правило применяется вручную.",
   },
-  "tactician.doctrine.7.grand-strategiya": {
+  "feature.tactician.level-7.grand-strategy": {
     kinds: ["situational"],
     notes:
       "Во время тест-монтажа или переговоров герой может получить один " +
@@ -248,7 +248,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "бросок исследовательского проекта в дополнение к другой деятельности " +
       "отдыха. Лист не ведёт проекты — правило применяется вручную.",
   },
-  "tactician.doctrine.7.shok-i-trepet": {
+  "feature.tactician.level-7.shock-and-awe": {
     kinds: ["situational"],
     notes:
       "Во время тест-монтажа или переговоров герой может получить один " +
@@ -259,7 +259,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовок и особенности 8-го уровня
-  "tactician.feature.8.osobennost-doktriny-8-go-urovnya": {
+  "feature.tactician.level-8.8th-level-doctrine-feature": {
     kinds: ["grant"],
     notes:
       "Заголовок таблицы: доктрина даёт особенность 8-го уровня. Повстанец — " +
@@ -267,7 +267,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "враги бегут перед тобой. Все три — преимущество метки с тратой 2 " +
       "фокуса; конкретную особенность дают вложенные записи выбранной доктрины.",
   },
-  "tactician.doctrine.8.primanka-i-zasada": {
+  "feature.tactician.level-8.bait-and-ambush": {
     kinds: ["situational"],
     notes:
       "Преимущество метки: когда герой или союзник наносит удар по отмеченному " +
@@ -276,7 +276,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "«Скрытность» во время смещения. Сместиться можно до или после удара. " +
       "Лист не хранит трату и смещение — правило применяется вручную.",
   },
-  "tactician.doctrine.8.kleshchevoy-manevr": {
+  "feature.tactician.level-8.pincer-movement": {
     kinds: ["situational"],
     notes:
       "Преимущество метки: при ударе по отмеченному существу за 2 фокуса " +
@@ -285,7 +285,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "герой, сместиться может один союзник в 10 клетках. Лист не хранит трату " +
       "и смещение — правило применяется вручную.",
   },
-  "tactician.doctrine.8.videt-kak-vragi-begut-pered-toboy": {
+  "feature.tactician.level-8.see-your-enemies-driven-before-you": {
     kinds: ["situational"],
     notes:
       "Преимущество метки: при ударе ближнего боя по отмеченному существу за 2 " +
@@ -295,14 +295,14 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовок и контейнеры 6-го уровня
-  "tactician.feature.6.sposobnost-doktriny-6-go-urovnya": {
+  "feature.tactician.level-6.6th-level-doctrine-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: доктрина даёт на выбор одну из двух героических способностей " +
       "6-го уровня, обе за 9 фокуса. Конкретную пару и выбор одной способности " +
       "строит повышение уровня по доктрине; дублировать их в механике не нужно.",
   },
-  "tactician.feature.6.sposobnosti-povstantsa-6-go-urovnya": {
+  "feature.tactician.level-6.insurgent-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Повстанец"] },
     notes:
@@ -310,7 +310,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Скоординированная Казнь или Паника в Их Рядах, обе за 9 фокуса. Выбор " +
       "делается при повышении уровня по доктрине.",
   },
-  "tactician.feature.6.sposobnosti-voevody-6-go-urovnya": {
+  "feature.tactician.level-6.mastermind-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Воевода"] },
     notes:
@@ -318,7 +318,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Двигаемся!, обе за 9 фокуса. Выбор делается при повышении уровня по " +
       "доктрине.",
   },
-  "tactician.feature.6.sposobnosti-avangarda-6-go-urovnya": {
+  "feature.tactician.level-6.vanguard-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Авангард"] },
     notes:
@@ -328,14 +328,14 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ------------------------------------------------ заголовок и контейнеры 9-го уровня
-  "tactician.feature.9.sposobnost-doktriny-9-go-urovnya": {
+  "feature.tactician.level-9.9th-level-doctrine-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: доктрина даёт на выбор одну из двух героических способностей " +
       "9-го уровня, обе за 11 фокуса. Конкретную пару и выбор одной способности " +
       "строит повышение уровня по доктрине; дублировать их в механике не нужно.",
   },
-  "tactician.feature.9.sposobnosti-povstantsa-9-go-urovnya": {
+  "feature.tactician.level-9.insurgent-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Повстанец"] },
     notes:
@@ -343,7 +343,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "Беги! или Их Слабый Фокус — Их Гибель, обе за 11 фокуса. Выбор делается " +
       "при повышении уровня по доктрине.",
   },
-  "tactician.feature.9.sposobnosti-voevody-9-go-urovnya": {
+  "feature.tactician.level-9.mastermind-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Воевода"] },
     notes:
@@ -351,7 +351,7 @@ export const TACTICIAN_DOCTRINE_MECHANICS: Record<string, FeatureMechanics> = {
       "или Контрстратегия, обе за 11 фокуса. Выбор делается при повышении " +
       "уровня по доктрине.",
   },
-  "tactician.feature.9.sposobnosti-avangarda-9-go-urovnya": {
+  "feature.tactician.level-9.vanguard-abilities": {
     kinds: ["grant"],
     when: { keyValue: ["Авангард"] },
     notes:

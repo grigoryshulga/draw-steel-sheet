@@ -4,6 +4,7 @@ import {
   CANONICAL_PERKS,
 } from "../rules/consumer-perks";
 import type { Character, Perk, PerkType, SelectedPerk } from "../types";
+import { canonicalPerkId } from "./originals";
 
 /** Заголовок статьи перка в книге; `Perk.source` показывается в карточке. */
 const PERK_SOURCES: Record<PerkType, string> = {
@@ -58,7 +59,8 @@ export interface PerkSlot {
 }
 
 export function perkById(id: string): Perk | undefined {
-  return PERK_COMPENDIUM.find((perk) => perk.id === id);
+  const canonical = canonicalPerkId(id);
+  return PERK_COMPENDIUM.find((perk) => perk.id === canonical);
 }
 
 export function careerPerkType(career: string): PerkType | undefined {

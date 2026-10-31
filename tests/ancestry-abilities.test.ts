@@ -164,19 +164,19 @@ describe("способности происхождений", () => {
     expect(names(before)).toEqual([]);
     expect(ancestryFeatureChoicesForSheet(before)).toEqual([
       {
-        group: "ancestry.time-raider.psionic-gift",
+        group: "feature.trait.time-raider.psionic-gift",
         label: "Псионический дар: знаковая способность",
         options: [
           {
-            id: "ancestry.time-raider.psionic-gift.concussive-slam",
+            id: "feature.trait.time-raider.psionic-gift.concussive-slam",
             label: "Сотрясающий Удар",
           },
           {
-            id: "ancestry.time-raider.psionic-gift.psionic-bolt",
+            id: "feature.trait.time-raider.psionic-gift.psionic-bolt",
             label: "Псионический Заряд",
           },
           {
-            id: "ancestry.time-raider.psionic-gift.minor-acceleration",
+            id: "feature.trait.time-raider.psionic-gift.minor-acceleration",
             label: "Малая Акселерация",
           },
         ],
@@ -186,24 +186,24 @@ describe("способности происхождений", () => {
 
     const chosen = withAncestryFeatureSelection(
       before,
-      "ancestry.time-raider.psionic-gift",
-      "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift.psionic-bolt",
     );
     expect(names(chosen)).toEqual(["Псионический Заряд"]);
     expect(ancestryFeatureChoicesForSheet(chosen)[0].selected).toBe(
-      "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift.psionic-bolt",
     );
 
     const switched = withAncestryFeatureSelection(
       chosen,
-      "ancestry.time-raider.psionic-gift",
-      "ancestry.time-raider.psionic-gift.minor-acceleration",
+      "feature.trait.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift.minor-acceleration",
     );
     expect(names(switched)).toEqual(["Малая Акселерация"]);
 
     const cleared = withAncestryFeatureSelection(
       switched,
-      "ancestry.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift",
       "",
     );
     expect(cleared.automation?.ancestryFeatureSelections).toEqual({});
@@ -212,7 +212,7 @@ describe("способности происхождений", () => {
 
   it("не подставляет вариант из испорченного сохранения", () => {
     const broken = hero("Рейдер Времени", ["Псионический дар"], {
-      "ancestry.time-raider.psionic-gift": "unknown-option",
+      "feature.trait.time-raider.psionic-gift": "unknown-option",
     });
     expect(names(broken)).toEqual([]);
     expect(
@@ -244,7 +244,7 @@ describe("способности происхождений", () => {
     const character = hero("Дьявол", ["Светящиеся глаза"]);
     const applied = previewGameAction(character, {
       kind: "ability",
-      abilityId: "ancestry.devil.glowing-eyes",
+      abilityId: "feature.trait.devil.glowing-eyes",
       surges: 0,
       result: "15",
     });
@@ -255,13 +255,13 @@ describe("способности происхождений", () => {
   it("переживает сохранение и очищается при смене происхождения", () => {
     const chosen = withAncestryFeatureSelection(
       hero("Рейдер Времени", ["Псионический дар"]),
-      "ancestry.time-raider.psionic-gift",
-      "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift.psionic-bolt",
     );
     const stored = normalizeCharacter(JSON.parse(JSON.stringify(chosen)));
     expect(stored.automation?.ancestryFeatureSelections).toEqual({
-      "ancestry.time-raider.psionic-gift":
-        "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift":
+        "feature.trait.time-raider.psionic-gift.psionic-bolt",
     });
     expect(names(stored)).toEqual(["Псионический Заряд"]);
 
@@ -281,8 +281,8 @@ describe("способности происхождений", () => {
   it("проводит выбор через импорт персонажа", async () => {
     const chosen = withAncestryFeatureSelection(
       hero("Рейдер Времени", ["Псионический дар"]),
-      "ancestry.time-raider.psionic-gift",
-      "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift.psionic-bolt",
     );
     const text = JSON.stringify(chosen);
     const imported = await parseCharacterImport({
@@ -290,8 +290,8 @@ describe("способности происхождений", () => {
       text: async () => text,
     });
     expect(imported.automation?.ancestryFeatureSelections).toEqual({
-      "ancestry.time-raider.psionic-gift":
-        "ancestry.time-raider.psionic-gift.psionic-bolt",
+      "feature.trait.time-raider.psionic-gift":
+        "feature.trait.time-raider.psionic-gift.psionic-bolt",
     });
     expect(names(imported)).toEqual(["Псионический Заряд"]);
   });
@@ -305,17 +305,17 @@ describe("конструктор и способности происхожде�
       ancestry: "Рейдер Времени",
       traits: ["Псионический дар"],
       ancestryChoices: {
-        "ancestry.time-raider.psionic-gift":
-          "ancestry.time-raider.psionic-gift.concussive-slam",
+        "feature.trait.time-raider.psionic-gift":
+          "feature.trait.time-raider.psionic-gift.concussive-slam",
       },
     });
 
     expect(built.automation?.ancestryTraitIds).toEqual([
-      "ancestry.time-raider.psionic-gift",
+      "feature.trait.time-raider.psionic-gift",
     ]);
     expect(built.automation?.ancestryFeatureSelections).toEqual({
-      "ancestry.time-raider.psionic-gift":
-        "ancestry.time-raider.psionic-gift.concussive-slam",
+      "feature.trait.time-raider.psionic-gift":
+        "feature.trait.time-raider.psionic-gift.concussive-slam",
     });
     expect(names(built)).toEqual(["Сотрясающий Удар"]);
   });
@@ -327,8 +327,8 @@ describe("конструктор и способности происхожде�
       ancestry: "Рейдер Времени",
       traits: [],
       ancestryChoices: {
-        "ancestry.time-raider.psionic-gift":
-          "ancestry.time-raider.psionic-gift.concussive-slam",
+        "feature.trait.time-raider.psionic-gift":
+          "feature.trait.time-raider.psionic-gift.concussive-slam",
       },
     });
 

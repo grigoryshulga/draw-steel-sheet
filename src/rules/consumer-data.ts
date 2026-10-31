@@ -1,4 +1,4 @@
-import type { CharacteristicKey, CompendiumAbility } from "../types";
+import type { CharacteristicKey, CompendiumAbility, OriginalFields } from "../types";
 
 /**
  * Общие типы и нормализация проекций канонических правил для старых
@@ -11,7 +11,7 @@ import type { CharacteristicKey, CompendiumAbility } from "../types";
 
 export type CatalogKind = "treasure" | "title" | "project";
 
-export interface CatalogEntry {
+export interface CatalogEntry extends OriginalFields {
   id: string;
   kind: CatalogKind;
   name: string;
@@ -27,7 +27,7 @@ export interface CatalogEntry {
   projectCharacteristic: string;
 }
 
-export interface GlossaryEntry {
+export interface GlossaryEntry extends OriginalFields {
   id: string;
   name: string;
   english: string;
@@ -68,7 +68,7 @@ export interface ConsumerKitBonus {
 }
 
 /** Запись проекции комплектов; поля повторяют прежний каталог legacy-наборов. */
-export interface ConsumerKit {
+export interface ConsumerKit extends OriginalFields {
   id: string;
   name: string;
   summary: string;
@@ -82,7 +82,7 @@ export interface ConsumerKitProjection {
   kits: ConsumerKit[];
 }
 
-export interface ConsumerPerk {
+export interface ConsumerPerk extends OriginalFields {
   id: string;
   name: string;
   type: PerkType;
@@ -98,7 +98,7 @@ export interface ConsumerPerkProjection {
 
 export type AncestryFeatureKind = "signature" | "trait";
 
-export interface ConsumerFeature {
+export interface ConsumerFeature extends OriginalFields {
   id: string;
   kind: "ancestry" | "class";
   /** Для происхождений: знаковая черта или купленная за очки. */
@@ -116,7 +116,7 @@ export interface ConsumerFeatureProjection {
   features: ConsumerFeature[];
 }
 
-export interface ConsumerLevelUpFeature {
+export interface ConsumerLevelUpFeature extends OriginalFields {
   id: string;
   name: string;
   description: string;
@@ -161,13 +161,15 @@ export interface ConsumerLevelUpProjection {
 }
 
 /** Происхождение в проекции конструктора (`builder.json`). */
-export interface ConsumerBuilderTrait {
+export interface ConsumerBuilderTrait extends OriginalFields {
+  id?: string;
   name: string;
   cost: number;
   text: string;
 }
 
-export interface ConsumerBuilderAncestry {
+export interface ConsumerBuilderAncestry extends OriginalFields {
+  id?: string;
   name: string;
   articleId: string;
   summary: string;
@@ -176,7 +178,8 @@ export interface ConsumerBuilderAncestry {
   traits: ConsumerBuilderTrait[];
 }
 
-export interface ConsumerBuilderCultureOption {
+export interface ConsumerBuilderCultureOption extends OriginalFields {
+  id?: string;
   name: string;
   text: string;
   articleId: string;
@@ -188,7 +191,8 @@ export interface ConsumerBuilderCultures {
   upbringing: ConsumerBuilderCultureOption[];
 }
 
-export interface ConsumerBuilderCareer {
+export interface ConsumerBuilderCareer extends OriginalFields {
+  id?: string;
   name: string;
   articleId: string;
   benefits: string;
@@ -208,12 +212,14 @@ export interface ConsumerBuilderFeatureChoice {
   options: ConsumerBuilderFeatureOption[];
 }
 
-export interface ConsumerBuilderSubclass {
+export interface ConsumerBuilderSubclass extends OriginalFields {
+  id?: string;
   name: string;
   text: string;
 }
 
-export interface ConsumerBuilderClass {
+export interface ConsumerBuilderClass extends OriginalFields {
+  id?: string;
   name: string;
   articleId: string;
   summary: string;
@@ -223,7 +229,8 @@ export interface ConsumerBuilderClass {
   subclasses: ConsumerBuilderSubclass[];
 }
 
-export interface ConsumerBuilderComplication {
+export interface ConsumerBuilderComplication extends OriginalFields {
+  id?: string;
   name: string;
   text: string;
   articleId: string;

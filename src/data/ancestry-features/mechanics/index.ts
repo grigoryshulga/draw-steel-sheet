@@ -1,4 +1,5 @@
 import type { AncestryFeatureMechanics } from "../types";
+import { LEGACY_ANCESTRY_FEATURE_IDS } from "../../originals";
 import { ANCESTRY_ABILITY_MECHANICS } from "./abilities";
 
 /**
@@ -13,11 +14,22 @@ export const ANCESTRY_FEATURE_MECHANICS: Record<
   ...ANCESTRY_ABILITY_MECHANICS,
 };
 
+const LEGACY_BY_CANONICAL = new Map(
+  Object.entries(LEGACY_ANCESTRY_FEATURE_IDS).map(([legacyId, canonicalId]) => [
+    canonicalId,
+    legacyId,
+  ]),
+);
+
 /** Механика черты или `undefined`, если она пока описана только прозой. */
 export function ancestryMechanicsFor(
   id: string,
 ): AncestryFeatureMechanics | undefined {
-  return ANCESTRY_FEATURE_MECHANICS[id];
+  return (
+    ANCESTRY_FEATURE_MECHANICS[id] ??
+    ANCESTRY_FEATURE_MECHANICS[LEGACY_ANCESTRY_FEATURE_IDS[id]] ??
+    ANCESTRY_FEATURE_MECHANICS[LEGACY_BY_CANONICAL.get(id) ?? ""]
+  );
 }
 
 export { ANCESTRY_ABILITY_MECHANICS };

@@ -11,7 +11,7 @@ import type { FeatureMechanics } from "../types";
  * поэтому в механике он только назван.
  */
 export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "shadow.feature.1.kollegiya-teni": {
+  "feature.shadow.level-1.shadow-college": {
     kinds: ["choice", "grant"],
     choice: {
       group: "shadow.college",
@@ -30,7 +30,7 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "также определяет особенности 1/2/5/8 уровней, триггер 1-го уровня и " +
       "способности 2/6/9 уровней. Быстрый билд: Коллегия Черного Пепла.",
   },
-  "shadow.feature.1.osobennosti-kollegii-1-go-urovnya": {
+  "feature.shadow.level-1.1st-level-college-features": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт особенности 1-го уровня по таблице. Черный " +
@@ -38,7 +38,7 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Дымовая бомба; Маска Арлекина — Я не угроза. Механику дают вложенные " +
       "записи выбранной коллегии.",
   },
-  "shadow.feature.1.trigger-kollegii": {
+  "feature.shadow.level-1.college-triggered-action": {
     kinds: ["grant"],
     notes:
       "Контейнер: коллегия даёт триггер 1-го уровня по таблице. Черный Пепел — " +
@@ -46,7 +46,7 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Арлекина — Умный трюк. Механику дают вложенные записи выбранной " +
       "коллегии.",
   },
-  "shadow.feature.1.nereshitelnost-eto-slabost": {
+  "feature.shadow.level-1.hesitation-is-weakness": {
     kinds: ["grant"],
     notes:
       "Способность «Нерешительность — это слабость» выдаётся карточкой " +
@@ -55,21 +55,21 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "хода; герой делает свой ход после вызвавшего триггер героя. Лист не " +
       "ведёт очерёдность хода и трату — эффект остаётся на карточке.",
   },
-  "shadow.feature.1.komplekt": {
+  "feature.shadow.level-1.kit": {
     kinds: ["grant"],
     notes:
       "Герой может использовать комплект и получать его преимущества; " +
       "комплект считается частью листа и выдаётся билдером. Быстрый билд: " +
       "Плащ и Кинжал.",
   },
-  "shadow.feature.1.sposobnosti-teni": {
+  "feature.shadow.level-1.shadow-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковая способность и героические " +
       "способности 1-го уровня описаны вложенными записями, а конкретные " +
       "карточки выбираются билдером и повышением уровня.",
   },
-  "shadow.feature.1.znakovaya-sposobnost": {
+  "feature.shadow.level-1.signature-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну знаковую способность из списка: Задыхаясь от Боли, " +
@@ -79,13 +79,13 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "вариантов в листе не нужен. Быстрый билд: Для командной работы есть " +
       "свое место.",
   },
-  "shadow.feature.1.geroicheskie-sposobnosti": {
+  "feature.shadow.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3 и 5 " +
       "Прозрения описаны дочерними записями и карточками справочника.",
   },
-  "shadow.feature.1.sposobnost-za-3-prozreniya": {
+  "feature.shadow.level-1.3-insight-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 Прозрения: " +
@@ -93,7 +93,7 @@ export const SHADOW_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор идёт в билдере способностей при создании героя; отдельный список " +
       "вариантов в листе не нужен. Быстрый билд: Войти и выйти.",
   },
-  "shadow.feature.1.sposobnost-za-5-prozreniya": {
+  "feature.shadow.level-1.5-insight-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 Прозрения: " +

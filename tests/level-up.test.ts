@@ -1493,7 +1493,7 @@ describe("level-up explicit previous-level ability windows", () => {
     ).toHaveLength(4);
 
     // «Призыв Источника Земли» is a level-8 Earth grant, not a generic pick.
-    const earthGrantId = "elementalist-prizyv-istochnika-zemli-c9679a42db";
+    const earthGrantId = "feature.ability.elementalist.level-8.summon-source-of-earth";
     expect(catalogEntry(earthGrantId)).toMatchObject({
       level: 8,
       className: elementalist,
@@ -1580,7 +1580,7 @@ describe("level-up explicit previous-level ability windows", () => {
     );
 
     // The default is the exact target level: a previous level of the same class…
-    const previousLevelId = "provodnik-vytyagivanie-dushi-59f437b757";
+    const previousLevelId = "feature.ability.conduit.level-3.soul-siphon";
     expect(catalogEntry(previousLevelId)).toMatchObject({
       level: 3,
       className: conduit,
@@ -1596,7 +1596,7 @@ describe("level-up explicit previous-level ability windows", () => {
     );
 
     // …and a real level-5 ability of another class are both rejected.
-    const foreignLevelId = "elementalist-peschanaya-burya-120402b3db";
+    const foreignLevelId = "feature.ability.elementalist.level-5.storm-of-sands";
     expect(catalogEntry(foreignLevelId)).toMatchObject({
       level: 5,
       className: elementalist,
@@ -1623,7 +1623,7 @@ describe("level-up explicit previous-level ability windows", () => {
     ).toEqual([5, 6]);
 
     const legalChoices = firstChoices(character);
-    const futureLevelId = "elementalist-muza-ognya-3e351890f4";
+    const futureLevelId = "feature.ability.elementalist.level-8.muse-of-fire";
     expect(catalogEntry(futureLevelId)).toMatchObject({
       level: 8,
       className: elementalist,
@@ -1638,7 +1638,7 @@ describe("level-up explicit previous-level ability windows", () => {
       "не входит в варианты",
     );
 
-    const foreignLevelId = "provodnik-mayak-blagodati-5c85fcb46e";
+    const foreignLevelId = "feature.ability.conduit.level-5.beacon-of-grace";
     expect(catalogEntry(foreignLevelId)).toMatchObject({
       level: 5,
       className: conduit,
@@ -1776,7 +1776,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(catalogEntry(pickedAtNine[0]).level).toBe(8);
 
     // The level-8 Earth grant is awarded exactly once alongside the picks.
-    const earthGrant = "elementalist-prizyv-istochnika-zemli-c9679a42db";
+    const earthGrant = "feature.ability.elementalist.level-8.summon-source-of-earth";
     expect(
       character.abilities.filter((ability) => ability.id === earthGrant),
     ).toHaveLength(1);
@@ -1801,7 +1801,7 @@ describe("level-up explicit previous-level ability windows", () => {
     expect(result.next.advancements?.at(-1)?.choices[key]).toEqual([chosen.id]);
     expect(result.next.automation?.classFeatureSelections?.[key]).toBe("Защита");
 
-    const foreign = "provodnik-bozhestvennyy-drakon-28e9f9991d";
+    const foreign = "feature.ability.conduit.level-9.divine-dragon";
     expectIssues(previewLevelUp(character, makeRequest(character, { choices: { ...firstChoices(character), [key]: [foreign] } })), "не входит в варианты выбора");
   });
 

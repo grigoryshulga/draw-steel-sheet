@@ -200,7 +200,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-do-samogo-konca-ed7c9f1a9d"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level fury, you gain the following features."
     },
     {
       "id": "0802",
@@ -293,7 +296,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-vnutrenniy-rev-04d333351c"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level fury, you gain the following features."
     },
     {
       "id": "0803",
@@ -354,7 +360,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-vy-uzhe-mertvy-c10cbde43c"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level fury, you gain the following features."
     },
     {
       "id": "0804",
@@ -395,7 +404,10 @@
           "type": "entity",
           "ref": "feature.fury.feature.4.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level fury, you gain the following features."
     },
     {
       "id": "0805",
@@ -456,7 +468,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-plot-v-kamen-feb37231c4"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level fury, you gain the following features."
     },
     {
       "id": "0806",
@@ -541,7 +556,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-osedlavshie-buryu-56b467d86d"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level fury, you gain the following features."
     },
     {
       "id": "0807",
@@ -574,7 +592,10 @@
           "type": "entity",
           "ref": "feature.fury.feature.7.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level fury, you gain the following features."
     },
     {
       "id": "0808",
@@ -639,7 +660,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-neumolimaya-smert-73c9ebb5f8"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level fury, you gain the following features."
     },
     {
       "id": "0809",
@@ -716,7 +740,10 @@
           "type": "entity",
           "ref": "ability.neistovyy-bedstvie-62e981aae4"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level fury, you gain the following features."
     },
     {
       "id": "0810",
@@ -757,7 +784,10 @@
           "type": "entity",
           "ref": "feature.fury.feature.10.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level fury, you gain the following features."
     }
   ],
   "entities": [
@@ -774,7 +804,7 @@
         "neistovyy-bedstvie-62e981aae4"
       ],
       "ability": {
-        "id": "neistovyy-bedstvie-62e981aae4",
+        "id": "feature.ability.fury.level-9.deluge",
         "name": "Бедствие",
         "flavor": "Вы призываете свой первозданный шторм.",
         "actionType": "main",
@@ -812,8 +842,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/deluge",
+        "originalName": "Deluge",
+        "originalDescription": "*You summon your primordial storm.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage\n\n**Effect:** This ability deals your primordial damage type and ignores damage immunity.",
+        "legacyId": "neistovyy-bedstvie-62e981aae4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/deluge",
+      "originalName": "Deluge",
+      "originalDescription": "*You summon your primordial storm.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage\n\n**Effect:** This ability deals your primordial damage type and ignores damage immunity."
     },
     {
       "id": "ability.neistovyy-bey-i-begi-d49f37111e",
@@ -828,7 +865,7 @@
         "neistovyy-bey-i-begi-d49f37111e"
       ],
       "ability": {
-        "id": "neistovyy-bey-i-begi-d49f37111e",
+        "id": "feature.ability.fury.level-1.hit-and-run",
         "name": "Бей и Беги",
         "flavor": "Постоянное движение помогает вам ускользнуть от досягаемости после жестокой атаки.",
         "actionType": "main",
@@ -866,8 +903,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/hit-and-run",
+        "originalName": "Hit and Run",
+        "originalDescription": "*Staying in constant motion helps you slip out of reach after a brutal assault.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M damage\n- **12-16:** 5 + M damage\n- **17+:** 7 + M damage; A < STRONG, slowed (save ends)\n\n**Effect:** You can shift 1 square.",
+        "legacyId": "neistovyy-bey-i-begi-d49f37111e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/hit-and-run",
+      "originalName": "Hit and Run",
+      "originalDescription": "*Staying in constant motion helps you slip out of reach after a brutal assault.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M damage\n- **12-16:** 5 + M damage\n- **17+:** 7 + M damage; A < STRONG, slowed (save ends)\n\n**Effect:** You can shift 1 square."
     },
     {
       "id": "ability.neistovyy-brutalnyy-udar-c9b6b0c82f",
@@ -882,7 +926,7 @@
         "neistovyy-brutalnyy-udar-c9b6b0c82f"
       ],
       "ability": {
-        "id": "neistovyy-brutalnyy-udar-c9b6b0c82f",
+        "id": "feature.ability.fury.level-1.brutal-slam",
         "name": "Брутальный Удар",
         "flavor": "Тяжелый удар ваших атак оружием отбрасывает ваших врагов назад.",
         "actionType": "main",
@@ -920,8 +964,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/brutal-slam",
+        "originalName": "Brutal Slam",
+        "originalDescription": "*The heavy impact of your weapon attacks drives your foes ever back.*\n\n| **Melee, Strike, Weapon** |                **Main action** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            |  **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; push 1\n- **12-16:** 6 + M damage; push 2\n- **17+:** 9 + M damage; push 4",
+        "legacyId": "neistovyy-brutalnyy-udar-c9b6b0c82f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/brutal-slam",
+      "originalName": "Brutal Slam",
+      "originalDescription": "*The heavy impact of your weapon attacks drives your foes ever back.*\n\n| **Melee, Strike, Weapon** |                **Main action** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            |  **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; push 1\n- **12-16:** 6 + M damage; push 2\n- **17+:** 9 + M damage; push 4"
     },
     {
       "id": "ability.neistovyy-demon-na-vole-645401a1d0",
@@ -936,7 +987,7 @@
         "neistovyy-demon-na-vole-645401a1d0"
       ],
       "ability": {
-        "id": "neistovyy-demon-na-vole-645401a1d0",
+        "id": "feature.ability.fury.level-3.demon-unleashed",
         "name": "Демон на Воле",
         "flavor": "Враги трепещут при виде вас.",
         "actionType": "maneuver",
@@ -970,8 +1021,15 @@
         "className": "Неистовый",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/demon-unleashed",
+        "originalName": "Demon Unleashed",
+        "originalDescription": "*Foes tremble at the sight of you.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy who starts their turn adjacent to you and has P < STRONG is frightened until the end of their turn.",
+        "legacyId": "neistovyy-demon-na-vole-645401a1d0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/demon-unleashed",
+      "originalName": "Demon Unleashed",
+      "originalDescription": "*Foes tremble at the sight of you.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy who starts their turn adjacent to you and has P < STRONG is frightened until the end of their turn."
     },
     {
       "id": "ability.neistovyy-do-samogo-konca-ed7c9f1a9d",
@@ -986,7 +1044,7 @@
         "neistovyy-do-samogo-konca-ed7c9f1a9d"
       ],
       "ability": {
-        "id": "neistovyy-do-samogo-konca-ed7c9f1a9d",
+        "id": "feature.ability.fury.level-1.to-the-uttermost-end",
         "name": "До Самого Конца",
         "flavor": "Вы вытягиваете свою жизненную силу, чтобы обеспечить гибель врага.",
         "actionType": "main",
@@ -1024,8 +1082,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/to-the-uttermost-end",
+        "originalName": "To the Uttermost End",
+        "originalDescription": "*You gut your life force to ensure a foe's demise.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage\n- **12-16:** 11 + M damage\n- **17+:** 16 + M damage\n\n**Spend 1+ Ferocity:** While you are winded, this ability deals an extra 1d6 damage for each ferocity spent. While you are dying, it deals an extra 1d10 damage for each ferocity spent. In either case, you lose 1d6 Stamina after making this strike.",
+        "legacyId": "neistovyy-do-samogo-konca-ed7c9f1a9d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/to-the-uttermost-end",
+      "originalName": "To the Uttermost End",
+      "originalDescription": "*You gut your life force to ensure a foe's demise.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage\n- **12-16:** 11 + M damage\n- **17+:** 16 + M damage\n\n**Spend 1+ Ferocity:** While you are winded, this ability deals an extra 1d6 damage for each ferocity spent. While you are dying, it deals an extra 1d10 damage for each ferocity spent. In either case, you lose 1d6 Stamina after making this strike."
     },
     {
       "id": "ability.neistovyy-do-smerti-cc34e7fea6",
@@ -1040,7 +1105,7 @@
         "neistovyy-do-smerti-cc34e7fea6"
       ],
       "ability": {
-        "id": "neistovyy-do-smerti-cc34e7fea6",
+        "id": "feature.ability.fury.level-1.to-the-death",
         "name": "До Смерти!",
         "flavor": "Ваш безрассудный штурм оставляет вас тактически уязвимым.",
         "actionType": "main",
@@ -1078,8 +1143,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/to-the-death",
+        "originalName": "To the Death!",
+        "originalDescription": "*Your reckless assault leaves you tactically vulnerable.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage\n- **12-16:** 6 + M damage\n- **17+:** 9 + M damage\n\n**Effect:** You gain 2 surges, and the target can make an opportunity attack against you as a free triggered action.",
+        "legacyId": "neistovyy-do-smerti-cc34e7fea6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/to-the-death",
+      "originalName": "To the Death!",
+      "originalDescription": "*Your reckless assault leaves you tactically vulnerable.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage\n- **12-16:** 6 + M damage\n- **17+:** 9 + M damage\n\n**Effect:** You gain 2 surges, and the target can make an opportunity attack against you as a free triggered action."
     },
     {
       "id": "ability.neistovyy-elementalnaya-svirepost-e0e6be2a3b",
@@ -1094,7 +1166,7 @@
         "neistovyy-elementalnaya-svirepost-e0e6be2a3b"
       ],
       "ability": {
-        "id": "neistovyy-elementalnaya-svirepost-e0e6be2a3b",
+        "id": "feature.ability.fury.level-8.elemental-ferocity",
         "name": "Элементальная Свирепость",
         "flavor": "Ваша первозданная энергия обеспечивает мгновенное возмездие.",
         "actionType": "maneuver",
@@ -1128,8 +1200,15 @@
         "className": "Неистовый",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/elemental-ferocity",
+        "originalName": "Elemental Ferocity",
+        "originalDescription": "*Your primordial energy makes for instant retribution.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 10 temporary Stamina. Additionally, choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, whenever an enemy damages you, they take 10 damage of the chosen type. If this damage reduces the enemy to 0 Stamina, you gain 10 temporary Stamina.",
+        "legacyId": "neistovyy-elementalnaya-svirepost-e0e6be2a3b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/elemental-ferocity",
+      "originalName": "Elemental Ferocity",
+      "originalDescription": "*Your primordial energy makes for instant retribution.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 10 temporary Stamina. Additionally, choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, whenever an enemy damages you, they take 10 damage of the chosen type. If this damage reduces the enemy to 0 Stamina, you gain 10 temporary Stamina."
     },
     {
       "id": "ability.neistovyy-gromovoy-rev-b222cca75a",
@@ -1144,7 +1223,7 @@
         "neistovyy-gromovoy-rev-b222cca75a"
       ],
       "ability": {
-        "id": "neistovyy-gromovoy-rev-b222cca75a",
+        "id": "feature.ability.fury.level-1.thunder-roar",
         "name": "Громовой Рев",
         "flavor": "Вы издаете вой, который отбрасывает ваших врагов.",
         "actionType": "main",
@@ -1182,8 +1261,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/thunder-roar",
+        "originalName": "Thunder Roar",
+        "originalDescription": "*You unleash a howl that hurls your enemies back.*\n\n| **Area, Melee, Weapon**    |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 damage; push 2\n- **12-16:** 9 damage; push 4\n- **17+:** 13 damage; push 6\n\n**Effect:** The targets are force moved one at a time, starting with the target nearest to you, and can be pushed into other targets in the same line.",
+        "legacyId": "neistovyy-gromovoy-rev-b222cca75a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/thunder-roar",
+      "originalName": "Thunder Roar",
+      "originalDescription": "*You unleash a howl that hurls your enemies back.*\n\n| **Area, Melee, Weapon**    |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 damage; push 2\n- **12-16:** 9 damage; push 4\n- **17+:** 13 damage; push 6\n\n**Effect:** The targets are force moved one at a time, starting with the target nearest to you, and can be pushed into other targets in the same line."
     },
     {
       "id": "ability.neistovyy-izbytochnyy-uron-48e9173636",
@@ -1198,7 +1284,7 @@
         "neistovyy-izbytochnyy-uron-48e9173636"
       ],
       "ability": {
-        "id": "neistovyy-izbytochnyy-uron-48e9173636",
+        "id": "feature.ability.fury.level-8.overkill",
         "name": "Избыточный Урон",
         "flavor": "Вы бьете так, чтобы ни капли урона не пропало даром.",
         "actionType": "main",
@@ -1237,8 +1323,15 @@
         "className": "Неистовый",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/overkill",
+        "originalName": "Overkill",
+        "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target.",
+        "legacyId": "neistovyy-izbytochnyy-uron-48e9173636"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/overkill",
+      "originalName": "Overkill",
+      "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target."
     },
     {
       "id": "ability.neistovyy-krov-za-krov-dd0a9a2493",
@@ -1253,7 +1346,7 @@
         "neistovyy-krov-za-krov-dd0a9a2493"
       ],
       "ability": {
-        "id": "neistovyy-krov-za-krov-dd0a9a2493",
+        "id": "feature.ability.fury.level-1.blood-for-blood",
         "name": "Кровь за Кровь!",
         "flavor": "Посмотрите, как хорошо они сражаются после того, как вы обескровили их.",
         "actionType": "main",
@@ -1291,8 +1384,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/blood-for-blood",
+        "originalName": "Blood for Blood!",
+        "originalDescription": "*See how well they fight after you've bled them dry.*\n\n| **Melee, Strike, Weapon**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1**              | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; M < WEAK, bleeding and weakened (save ends)\n- **12-16:** 6 + M damage; M < AVERAGE, bleeding and weakened (save ends)\n- **17+:** 10 + M damage; M < STRONG, bleeding and weakened (save ends)\n\n**Effect:** You can deal 1d6 damage to yourself to deal an extra 1d6 damage to the target.",
+        "legacyId": "neistovyy-krov-za-krov-dd0a9a2493"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/blood-for-blood",
+      "originalName": "Blood for Blood!",
+      "originalDescription": "*See how well they fight after you've bled them dry.*\n\n| **Melee, Strike, Weapon**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1**              | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; M < WEAK, bleeding and weakened (save ends)\n- **12-16:** 6 + M damage; M < AVERAGE, bleeding and weakened (save ends)\n- **17+:** 10 + M damage; M < STRONG, bleeding and weakened (save ends)\n\n**Effect:** You can deal 1d6 damage to yourself to deal an extra 1d6 damage to the target."
     },
     {
       "id": "ability.neistovyy-krovavyy-dozhd-f2ebe05910",
@@ -1307,7 +1407,7 @@
         "neistovyy-krovavyy-dozhd-f2ebe05910"
       ],
       "ability": {
-        "id": "neistovyy-krovavyy-dozhd-f2ebe05910",
+        "id": "feature.ability.fury.level-9.shower-of-blood",
         "name": "Кровавый Дождь",
         "flavor": "Вы шокируете своих врагов жестокостью своего удара, восстанавливая баланс боя.",
         "actionType": "main",
@@ -1345,8 +1445,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/shower-of-blood",
+        "originalName": "Shower of Blood",
+        "originalDescription": "*You shock your foes with the brutality of your strike, resetting the balance of combat.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 12 + M damage\n- **12-16:** 18 + M damage\n- **17+:** 24 + M damage\n\n**Effect:** Each enemy within 5 squares of you is distracted until the end of the round. While a creature is distracted this way, they can't take triggered actions or free triggered actions, ability rolls made against them gain an edge, and their characteristic scores are considered 1 lower for the purpose of resisting potencies.",
+        "legacyId": "neistovyy-krovavyy-dozhd-f2ebe05910"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/shower-of-blood",
+      "originalName": "Shower of Blood",
+      "originalDescription": "*You shock your foes with the brutality of your strike, resetting the balance of combat.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 12 + M damage\n- **12-16:** 18 + M damage\n- **17+:** 24 + M damage\n\n**Effect:** Each enemy within 5 squares of you is distracted until the end of the round. While a creature is distracted this way, they can't take triggered actions or free triggered actions, ability rolls made against them gain an edge, and their characteristic scores are considered 1 lower for the purpose of resisting potencies."
     },
     {
       "id": "ability.neistovyy-lavinnyy-udar-de8e2a81ef",
@@ -1361,7 +1468,7 @@
         "neistovyy-lavinnyy-udar-de8e2a81ef"
       ],
       "ability": {
-        "id": "neistovyy-lavinnyy-udar-de8e2a81ef",
+        "id": "feature.ability.fury.level-6.avalanche-impact",
         "name": "Лавинный Удар",
         "flavor": "Вы прыгаете и обрушиваетесь вниз, вызывая ударную волну, которая сносит врагов.",
         "actionType": "maneuver",
@@ -1397,8 +1504,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/avalanche-impact",
+        "originalName": "Avalanche Impact",
+        "originalDescription": "*You leap and crash down, causing a shockwave that devastates foes.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You jump up to your maximum jump distance and make one power roll that targets each creature adjacent to the space where you land.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; push 1\n- **12-16:** 7 damage; push 2\n- **17+:** 11 damage; push 3",
+        "legacyId": "neistovyy-lavinnyy-udar-de8e2a81ef"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/avalanche-impact",
+      "originalName": "Avalanche Impact",
+      "originalDescription": "*You leap and crash down, causing a shockwave that devastates foes.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You jump up to your maximum jump distance and make one power roll that targets each creature adjacent to the space where you land.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; push 1\n- **12-16:** 7 damage; push 2\n- **17+:** 11 damage; push 3"
     },
     {
       "id": "ability.neistovyy-linii-sily-baa1fcb51a",
@@ -1414,7 +1528,7 @@
         "fury.aspect.1.linii-sily"
       ],
       "ability": {
-        "id": "neistovyy-linii-sily-baa1fcb51a",
+        "id": "feature.ability.fury.level-1.lines-of-force",
         "name": "Линии Силы",
         "flavor": "Вы перенаправляете энергию движения.",
         "actionType": "trigger",
@@ -1449,8 +1563,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/lines-of-force",
+        "originalName": "Lines of Force",
+        "originalDescription": "*You redirect the energy of motion.*\n\n| **Magic, Melee** |               **Triggered** |\n|------------------|----------------------------:|\n| **📏 Melee 1**   | **🎯 Self or one creature** |\n\n**Trigger:** The target would be force moved.\n\n**Effect:** You can select a new target of the same size or smaller within distance to be force moved instead. You become the source of the forced movement, determine the new target's destination, and can push the target instead of using the original forced movement type. Additionally, the forced movement distance gains a bonus equal to your Might score.\n\n**Spend 1 Ferocity:** The forced movement distance gains a bonus equal to twice your Might score instead.",
+        "legacyId": "neistovyy-linii-sily-baa1fcb51a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/lines-of-force",
+      "originalName": "Lines of Force",
+      "originalDescription": "*You redirect the energy of motion.*\n\n| **Magic, Melee** |               **Triggered** |\n|------------------|----------------------------:|\n| **📏 Melee 1**   | **🎯 Self or one creature** |\n\n**Trigger:** The target would be force moved.\n\n**Effect:** You can select a new target of the same size or smaller within distance to be force moved instead. You become the source of the forced movement, determine the new target's destination, and can push the target instead of using the original forced movement type. Additionally, the forced movement distance gains a bonus equal to your Might score.\n\n**Spend 1 Ferocity:** The forced movement distance gains a bonus equal to twice your Might score instead."
     },
     {
       "id": "ability.neistovyy-moya-ochered-a1891828ca",
@@ -1465,7 +1586,7 @@
         "neistovyy-moya-ochered-a1891828ca"
       ],
       "ability": {
-        "id": "neistovyy-moya-ochered-a1891828ca",
+        "id": "feature.ability.fury.level-5.my-turn",
         "name": "Моя Очередь!",
         "flavor": "Вы быстро наносите ответный удар врагу.",
         "actionType": "free-trigger",
@@ -1503,8 +1624,15 @@
         "className": "Неистовый",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+        "originalName": "My Turn!",
+        "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery.",
+        "legacyId": "neistovyy-moya-ochered-a1891828ca"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+      "originalName": "My Turn!",
+      "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
     },
     {
       "id": "ability.neistovyy-naskvoz-7040e8d41c",
@@ -1519,7 +1647,7 @@
         "neistovyy-naskvoz-7040e8d41c"
       ],
       "ability": {
-        "id": "neistovyy-naskvoz-7040e8d41c",
+        "id": "feature.ability.fury.level-1.impaled",
         "name": "Насквозь!",
         "flavor": "Вы пронзаете своего врага, как кабана на вертеле.",
         "actionType": "main",
@@ -1557,8 +1685,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/impaled",
+        "originalName": "Impaled!",
+        "originalDescription": "*You skewer your enemy like a boar upon a spit.*\n\n| **Melee, Strike, Weapon** |                             **Main action** |\n|---------------------------|--------------------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature of your size or smaller** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M damage; M < WEAK, grabbed\n- **12-16:** 5 + M damage; M < AVERAGE, grabbed\n- **17+:** 7 + M damage; M < STRONG, grabbed",
+        "legacyId": "neistovyy-naskvoz-7040e8d41c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/impaled",
+      "originalName": "Impaled!",
+      "originalDescription": "*You skewer your enemy like a boar upon a spit.*\n\n| **Melee, Strike, Weapon** |                             **Main action** |\n|---------------------------|--------------------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature of your size or smaller** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M damage; M < WEAK, grabbed\n- **12-16:** 5 + M damage; M < AVERAGE, grabbed\n- **17+:** 7 + M damage; M < STRONG, grabbed"
     },
     {
       "id": "ability.neistovyy-nayti-i-unichtozhit-2f81ea4bd4",
@@ -1573,7 +1708,7 @@
         "neistovyy-nayti-i-unichtozhit-2f81ea4bd4"
       ],
       "ability": {
-        "id": "neistovyy-nayti-i-unichtozhit-2f81ea4bd4",
+        "id": "feature.ability.fury.level-6.seek-and-destroy",
         "name": "Найти и Уничтожить",
         "flavor": "Вы прорываетесь через линии врага, чтобы показать пример.",
         "actionType": "main",
@@ -1611,8 +1746,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+        "originalName": "Seek and Destroy",
+        "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends).",
+        "legacyId": "neistovyy-nayti-i-unichtozhit-2f81ea4bd4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+      "originalName": "Seek and Destroy",
+      "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends)."
     },
     {
       "id": "ability.neistovyy-nazad-dd23a538d2",
@@ -1627,7 +1769,7 @@
         "neistovyy-nazad-dd23a538d2"
       ],
       "ability": {
-        "id": "neistovyy-nazad-dd23a538d2",
+        "id": "feature.ability.fury.level-1.back",
         "name": "Назад!",
         "flavor": "Вы рубите вокруг себя своим могучим оружием, отбрасывая врагов назад.",
         "actionType": "main",
@@ -1665,8 +1807,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/back",
+        "originalName": "Back!",
+        "originalDescription": "*You hew about you with your mighty weapon, hurling enemies backward.*\n\n| **Area, Melee, Weapon** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 1 burst**          | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 damage\n- **12-16:** 8 damage; push 1\n- **17+:** 11 damage; push 3",
+        "legacyId": "neistovyy-nazad-dd23a538d2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/back",
+      "originalName": "Back!",
+      "originalDescription": "*You hew about you with your mighty weapon, hurling enemies backward.*\n\n| **Area, Melee, Weapon** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 1 burst**          | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 damage\n- **12-16:** 8 damage; push 1\n- **17+:** 11 damage; push 3"
     },
     {
       "id": "ability.neistovyy-neumolimaya-smert-73c9ebb5f8",
@@ -1681,7 +1830,7 @@
         "neistovyy-neumolimaya-smert-73c9ebb5f8"
       ],
       "ability": {
-        "id": "neistovyy-neumolimaya-smert-73c9ebb5f8",
+        "id": "feature.ability.fury.level-8.relentless-death",
         "name": "Неумолимая Смерть",
         "flavor": "Им не избежать своей участи.",
         "actionType": "main",
@@ -1720,8 +1869,15 @@
         "className": "Неистовый",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/relentless-death",
+        "originalName": "Relentless Death",
+        "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies.",
+        "legacyId": "neistovyy-neumolimaya-smert-73c9ebb5f8"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/relentless-death",
+      "originalName": "Relentless Death",
+      "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies."
     },
     {
       "id": "ability.neistovyy-nezemnye-refleksy-312852bceb",
@@ -1737,7 +1893,7 @@
         "fury.aspect.1.nezemnye-refleksy"
       ],
       "ability": {
-        "id": "neistovyy-nezemnye-refleksy-312852bceb",
+        "id": "feature.ability.fury.level-1.unearthly-reflexes",
         "name": "Неземные Рефлексы",
         "flavor": "Вы неуловимы, как колибри.",
         "actionType": "trigger",
@@ -1769,8 +1925,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/unearthly-reflexes",
+        "originalName": "Unearthly Reflexes",
+        "originalDescription": "*You are as elusive as a hummingbird.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage from the triggering effect and can shift up to a number of squares equal to your Agility score.\n\n**Spend 1 Ferocity:** If the damage has any potency effects associated with it, the potency is reduced by 1 for you.",
+        "legacyId": "neistovyy-nezemnye-refleksy-312852bceb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/unearthly-reflexes",
+      "originalName": "Unearthly Reflexes",
+      "originalDescription": "*You are as elusive as a hummingbird.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage from the triggering effect and can shift up to a number of squares equal to your Agility score.\n\n**Spend 1 Ferocity:** If the damage has any potency effects associated with it, the potency is reduced by 1 for you."
     },
     {
       "id": "ability.neistovyy-osedlavshie-buryu-56b467d86d",
@@ -1785,7 +1948,7 @@
         "neistovyy-osedlavshie-buryu-56b467d86d"
       ],
       "ability": {
-        "id": "neistovyy-osedlavshie-buryu-56b467d86d",
+        "id": "feature.ability.fury.level-6.riders-on-the-storm",
         "name": "Оседлавшие Бурю",
         "flavor": "Вы концентрируете свою связь с Первозданным Хаосом в кипящий шторм.",
         "actionType": "maneuver",
@@ -1820,8 +1983,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/riders-on-the-storm",
+        "originalName": "Riders on the Storm",
+        "originalDescription": "*You focus your connection to the Primordial Chaos into a seething storm.*\n\n| **Area, Magic** |                     **Maneuver** |\n|-----------------|---------------------------------:|\n| **📏 3 aura**   | **🎯 Each creature in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy target takes damage of your primordial damage type equal to twice your Might score at the end of each of your turns. Additionally, you can fly while the aura is active. Each ally target who starts or ends their turn in the area can also fly until the start of their next turn or until the effect ends.\n\n**Special:** When you use this ability outside of combat without spending ferocity, you must spend 1 uninterrupted minute summoning a primordial storm that fills the area, and you take 1d6 damage before the ability takes effect. The storm lasts for 1 hour or until a combat encounter begins.",
+        "legacyId": "neistovyy-osedlavshie-buryu-56b467d86d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/riders-on-the-storm",
+      "originalName": "Riders on the Storm",
+      "originalDescription": "*You focus your connection to the Primordial Chaos into a seething storm.*\n\n| **Area, Magic** |                     **Maneuver** |\n|-----------------|---------------------------------:|\n| **📏 3 aura**   | **🎯 Each creature in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy target takes damage of your primordial damage type equal to twice your Might score at the end of each of your turns. Additionally, you can fly while the aura is active. Each ally target who starts or ends their turn in the area can also fly until the start of their next turn or until the effect ends.\n\n**Special:** When you use this ability outside of combat without spending ferocity, you must spend 1 uninterrupted minute summoning a primordial storm that fills the area, and you take 1d6 damage before the ability takes effect. The storm lasts for 1 hour or until a combat encounter begins."
     },
     {
       "id": "ability.neistovyy-oslablyayuschiy-udar-33a1fa07fa",
@@ -1836,7 +2006,7 @@
         "neistovyy-oslablyayuschiy-udar-33a1fa07fa"
       ],
       "ability": {
-        "id": "neistovyy-oslablyayuschiy-udar-33a1fa07fa",
+        "id": "feature.ability.fury.level-5.debilitating-strike",
         "name": "Ослабляющий Удар",
         "flavor": "Вам нужен всего один удар, чтобы саботировать вашу цель.",
         "actionType": "main",
@@ -1874,8 +2044,15 @@
         "className": "Неистовый",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/debilitating-strike",
+        "originalName": "Debilitating Strike",
+        "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement.",
+        "legacyId": "neistovyy-oslablyayuschiy-udar-33a1fa07fa"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/debilitating-strike",
+      "originalName": "Debilitating Strike",
+      "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement."
     },
     {
       "id": "ability.neistovyy-osobaya-dostavka-f71cbdccc0",
@@ -1890,7 +2067,7 @@
         "neistovyy-osobaya-dostavka-f71cbdccc0"
       ],
       "ability": {
-        "id": "neistovyy-osobaya-dostavka-f71cbdccc0",
+        "id": "feature.ability.fury.level-2.special-delivery",
         "name": "Особая Доставка",
         "flavor": "Готов?",
         "actionType": "maneuver",
@@ -1925,8 +2102,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/special-delivery",
+        "originalName": "Special Delivery",
+        "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score.",
+        "legacyId": "neistovyy-osobaya-dostavka-f71cbdccc0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/special-delivery",
+      "originalName": "Special Delivery",
+      "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score."
     },
     {
       "id": "ability.neistovyy-pervozdannaya-kara-primordial-bane-201a549d9a",
@@ -1941,7 +2125,7 @@
         "neistovyy-pervozdannaya-kara-primordial-bane-201a549d9a"
       ],
       "ability": {
-        "id": "neistovyy-pervozdannaya-kara-primordial-bane-201a549d9a",
+        "id": "feature.ability.fury.level-9.primordial-bane",
         "name": "Первозданная кара (Primordial Bane)",
         "flavor": "Вы настраиваете цель на уязвимость к определенному элементу.",
         "actionType": "main",
@@ -1980,8 +2164,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/primordial-bane",
+        "originalName": "Primordial Bane",
+        "originalDescription": "*You attune the target to be weaker to a specific element.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. The target loses any damage immunity to the chosen type and gains weakness 10 to the chosen type (save ends).",
+        "legacyId": "neistovyy-pervozdannaya-kara-primordial-bane-201a549d9a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/primordial-bane",
+      "originalName": "Primordial Bane",
+      "originalDescription": "*You attune the target to be weaker to a specific element.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. The target loses any damage immunity to the chosen type and gains weakness 10 to the chosen type (save ends)."
     },
     {
       "id": "ability.neistovyy-pervozdannaya-yarost-682dd13031",
@@ -1996,7 +2187,7 @@
         "neistovyy-pervozdannaya-yarost-682dd13031"
       ],
       "ability": {
-        "id": "neistovyy-pervozdannaya-yarost-682dd13031",
+        "id": "feature.ability.fury.level-8.primordial-rage",
         "name": "Первозданная Ярость",
         "flavor": "Ваша свирепость проявляется в первозданной силе.",
         "actionType": "maneuver",
@@ -2030,8 +2221,15 @@
         "className": "Неистовый",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/primordial-rage",
+        "originalName": "Primordial Rage",
+        "originalDescription": "*Your ferocity manifests into primordial power.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, you can choose one target of any ability you use, with that target taking an extra 15 damage of the chosen type. Additionally, whenever you gain ferocity from taking damage, the source of the damage takes 5 damage of the chosen type.",
+        "legacyId": "neistovyy-pervozdannaya-yarost-682dd13031"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/primordial-rage",
+      "originalName": "Primordial Rage",
+      "originalDescription": "*Your ferocity manifests into primordial power.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, you can choose one target of any ability you use, with that target taking an extra 15 damage of the chosen type. Additionally, whenever you gain ferocity from taking damage, the source of the damage takes 5 damage of the chosen type."
     },
     {
       "id": "ability.neistovyy-pervozdannyy-vihr-f4a556044d",
@@ -2046,7 +2244,7 @@
         "neistovyy-pervozdannyy-vihr-f4a556044d"
       ],
       "ability": {
-        "id": "neistovyy-pervozdannyy-vihr-f4a556044d",
+        "id": "feature.ability.fury.level-9.primordial-vortex",
         "name": "Первозданный Вихрь",
         "flavor": "Вы направляете силу Первозданного Хаоса, чтобы притягивать к себе врагов.",
         "actionType": "main",
@@ -2085,8 +2283,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/primordial-vortex",
+        "originalName": "Primordial Vortex",
+        "originalDescription": "*You channel the power of the Primordial Chaos to pull foes to you.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 damage; vertical pull 3\n- **12-16:** 5 damage; vertical pull 5\n- **17+:** 8 damage; vertical pull 7\n\n**Effect:** If this forced movement causes a target to slam into you, you take no damage from the collision and the target takes the damage you would have taken.",
+        "legacyId": "neistovyy-pervozdannyy-vihr-f4a556044d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/primordial-vortex",
+      "originalName": "Primordial Vortex",
+      "originalDescription": "*You channel the power of the Primordial Chaos to pull foes to you.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 damage; vertical pull 3\n- **12-16:** 5 damage; vertical pull 5\n- **17+:** 8 damage; vertical pull 7\n\n**Effect:** If this forced movement causes a target to slam into you, you take no damage from the collision and the target takes the damage you would have taken."
     },
     {
       "id": "ability.neistovyy-plot-v-kamen-feb37231c4",
@@ -2101,7 +2306,7 @@
         "neistovyy-plot-v-kamen-feb37231c4"
       ],
       "ability": {
-        "id": "neistovyy-plot-v-kamen-feb37231c4",
+        "id": "feature.ability.fury.level-5.to-stone",
         "name": "Плоть в Камень!",
         "flavor": "Вы направляете Первозданный Хаос в удары, которые превращают вашего врага в камень... в буквальном смысле.",
         "actionType": "main",
@@ -2140,8 +2345,15 @@
         "className": "Неистовый",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+        "originalName": "To Stone!",
+        "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required).",
+        "legacyId": "neistovyy-plot-v-kamen-feb37231c4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+      "originalName": "To Stone!",
+      "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
     },
     {
       "id": "ability.neistovyy-prostis-so-svoim-bogom-098a9d8f41",
@@ -2156,7 +2368,7 @@
         "neistovyy-prostis-so-svoim-bogom-098a9d8f41"
       ],
       "ability": {
-        "id": "neistovyy-prostis-so-svoim-bogom-098a9d8f41",
+        "id": "feature.ability.fury.level-1.make-peace-with-your-god",
         "name": "Простись Со Своим Богом!",
         "flavor": "Гнев — ваша энергия.",
         "actionType": "free-maneuver",
@@ -2188,8 +2400,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/make-peace-with-your-god",
+        "originalName": "Make Peace With Your God!",
+        "originalDescription": "*Anger is your energy.*\n\n| **-**       | **Free maneuver** |\n|-------------|------------------:|\n| **📏 Self** |       **🎯 Self** |\n\n**Effect:** You gain 1 surge, and the next ability roll you make this turn automatically obtains a tier 3 outcome.",
+        "legacyId": "neistovyy-prostis-so-svoim-bogom-098a9d8f41"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/make-peace-with-your-god",
+      "originalName": "Make Peace With Your God!",
+      "originalDescription": "*Anger is your energy.*\n\n| **-**       | **Free maneuver** |\n|-------------|------------------:|\n| **📏 Self** |       **🎯 Self** |\n\n**Effect:** You gain 1 surge, and the next ability roll you make this turn automatically obtains a tier 3 outcome."
     },
     {
       "id": "ability.neistovyy-razbrasyvayuschiy-shtorm-653f063a97",
@@ -2204,7 +2423,7 @@
         "neistovyy-razbrasyvayuschiy-shtorm-653f063a97"
       ],
       "ability": {
-        "id": "neistovyy-razbrasyvayuschiy-shtorm-653f063a97",
+        "id": "feature.ability.fury.level-5.rebounding-storm",
         "name": "Разбрасывающий Шторм",
         "flavor": "Вы разбрасываете врагов как игрушки.",
         "actionType": "main",
@@ -2242,8 +2461,15 @@
         "className": "Неистовый",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/rebounding-storm",
+        "originalName": "Rebounding Storm",
+        "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object.",
+        "legacyId": "neistovyy-razbrasyvayuschiy-shtorm-653f063a97"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/rebounding-storm",
+      "originalName": "Rebounding Storm",
+      "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object."
     },
     {
       "id": "ability.neistovyy-razrushitel-falang-5c4d3b0d58",
@@ -2258,7 +2484,7 @@
         "neistovyy-razrushitel-falang-5c4d3b0d58"
       ],
       "ability": {
-        "id": "neistovyy-razrushitel-falang-5c4d3b0d58",
+        "id": "feature.ability.fury.level-2.phalanx-breaker",
         "name": "Разрушитель Фаланг",
         "flavor": "Организуете свои силы, как никчемные создания Закона. Жалкое зрелище.",
         "actionType": "main",
@@ -2295,8 +2521,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/phalanx-breaker",
+        "originalName": "Phalanx-Breaker",
+        "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)",
+        "legacyId": "neistovyy-razrushitel-falang-5c4d3b0d58"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/phalanx-breaker",
+      "originalName": "Phalanx-Breaker",
+      "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.neistovyy-razrushitel-stali-90211fa030",
@@ -2311,7 +2544,7 @@
         "neistovyy-razrushitel-stali-90211fa030"
       ],
       "ability": {
-        "id": "neistovyy-razrushitel-stali-90211fa030",
+        "id": "feature.ability.fury.level-3.steelbreaker",
         "name": "Разрушитель Стали",
         "flavor": "Посмотрите, насколько бесполезно их оружие!",
         "actionType": "maneuver",
@@ -2345,8 +2578,15 @@
         "className": "Неистовый",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/steelbreaker",
+        "originalName": "Steelbreaker",
+        "originalDescription": "*See how useless their weapons are!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina.",
+        "legacyId": "neistovyy-razrushitel-stali-90211fa030"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/steelbreaker",
+      "originalName": "Steelbreaker",
+      "originalDescription": "*See how useless their weapons are!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina."
     },
     {
       "id": "ability.neistovyy-rev-smerti-c0987130c4",
@@ -2361,7 +2601,7 @@
         "neistovyy-rev-smerti-c0987130c4"
       ],
       "ability": {
-        "id": "neistovyy-rev-smerti-c0987130c4",
+        "id": "feature.ability.fury.level-9.death-rattle",
         "name": "Рев Смерти",
         "flavor": "Вы издаете потусторонний крик, который пронзает ваших врагов, убивая слабейших из них.",
         "actionType": "main",
@@ -2398,8 +2638,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-rattle",
+        "originalName": "Death Rattle",
+        "originalDescription": "*You unleash an otherworldly cry that rips through your enemies, killing the weakest of them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 psychic damage; any target who is a minion is reduced to 0 Stamina\n- **12-16:** 6 psychic damage; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature\n- **17+:** 10 psychic damage; each target who is not a leader or solo creature is winded; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature",
+        "legacyId": "neistovyy-rev-smerti-c0987130c4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-rattle",
+      "originalName": "Death Rattle",
+      "originalDescription": "*You unleash an otherworldly cry that rips through your enemies, killing the weakest of them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 psychic damage; any target who is a minion is reduced to 0 Stamina\n- **12-16:** 6 psychic damage; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature\n- **17+:** 10 psychic damage; each target who is not a leader or solo creature is winded; any target who is a minion is reduced to 0 Stamina, as does one winded target who is not a leader or solo creature"
     },
     {
       "id": "ability.neistovyy-s-dorogi-5131581e24",
@@ -2414,7 +2661,7 @@
         "neistovyy-s-dorogi-5131581e24"
       ],
       "ability": {
-        "id": "neistovyy-s-dorogi-5131581e24",
+        "id": "feature.ability.fury.level-1.out-of-the-way",
         "name": "С Дороги!",
         "flavor": "Ваши враги расчистят вам путь — хотят они того или нет.",
         "actionType": "main",
@@ -2452,8 +2699,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/out-of-the-way",
+        "originalName": "Out of the Way!",
+        "originalDescription": "*Your enemies will clear your path—whether they want to or not.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; slide 2\n- **12-16:** 5 + M damage; slide 3\n- **17+:** 8 + M damage; slide 5\n\n**Effect:** When you slide the target, you can move into any square they leave. If you take damage from an opportunity attack by moving this way, the target takes the same damage.",
+        "legacyId": "neistovyy-s-dorogi-5131581e24"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/out-of-the-way",
+      "originalName": "Out of the Way!",
+      "originalDescription": "*Your enemies will clear your path—whether they want to or not.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; slide 2\n- **12-16:** 5 + M damage; slide 3\n- **17+:** 8 + M damage; slide 5\n\n**Effect:** When you slide the target, you can move into any square they leave. If you take damage from an opportunity attack by moving this way, the target takes the same damage."
     },
     {
       "id": "ability.neistovyy-sila-shtormov-45ac646e33",
@@ -2468,7 +2722,7 @@
         "neistovyy-sila-shtormov-45ac646e33"
       ],
       "ability": {
-        "id": "neistovyy-sila-shtormov-45ac646e33",
+        "id": "feature.ability.fury.level-6.force-of-storms",
         "name": "Сила Штормов",
         "flavor": "Вы бьете врага достаточно сильно, чтобы он стал снарядом, который разбрасывает толпу существ.",
         "actionType": "main",
@@ -2506,8 +2760,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/force-of-storms",
+        "originalName": "Force of Storms",
+        "originalDescription": "*You strike an enemy hard enough to be a projectile that knocks a crowd of creatures around.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage; push 3\n- **12-16:** 11 + M damage; push 5\n- **17+:** 16 + M damage; push 7\n\n**Effect:** When the target ends this forced movement, each creature within 2 squares of the target is pushed 3 squares.",
+        "legacyId": "neistovyy-sila-shtormov-45ac646e33"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/force-of-storms",
+      "originalName": "Force of Storms",
+      "originalDescription": "*You strike an enemy hard enough to be a projectile that knocks a crowd of creatures around.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage; push 3\n- **12-16:** 11 + M damage; push 5\n- **17+:** 16 + M damage; push 7\n\n**Effect:** When the target ends this forced movement, each creature within 2 squares of the target is pushed 3 squares."
     },
     {
       "id": "ability.neistovyy-smert-prihodit-za-vsemi-14cbc215f6",
@@ -2522,7 +2783,7 @@
         "neistovyy-smert-prihodit-za-vsemi-14cbc215f6"
       ],
       "ability": {
-        "id": "neistovyy-smert-prihodit-za-vsemi-14cbc215f6",
+        "id": "feature.ability.fury.level-9.death-comes-for-you-all",
         "name": "Смерть Приходит За Всеми!",
         "flavor": "Вы используете свое оружие, чтобы создать разрушительную ударную волну.",
         "actionType": "main",
@@ -2561,8 +2822,15 @@
         "className": "Неистовый",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-comes-for-you-all",
+        "originalName": "Death Comes for You All!",
+        "originalDescription": "*You use your weapon to create a destructive shockwave.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 damage; push 3\n- **12-16:** 10 damage; push 5\n- **17+:** 15 damage; push 7\n\n**Effect:** If this forced movement causes a target to be hurled through an object, that target takes an extra 10 damage.",
+        "legacyId": "neistovyy-smert-prihodit-za-vsemi-14cbc215f6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-9/death-comes-for-you-all",
+      "originalName": "Death Comes for You All!",
+      "originalDescription": "*You use your weapon to create a destructive shockwave.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 damage; push 3\n- **12-16:** 10 damage; push 5\n- **17+:** 15 damage; push 7\n\n**Effect:** If this forced movement causes a target to be hurled through an object, that target takes an extra 10 damage."
     },
     {
       "id": "ability.neistovyy-smert-smert-61a8e0d162",
@@ -2577,7 +2845,7 @@
         "neistovyy-smert-smert-61a8e0d162"
       ],
       "ability": {
-        "id": "neistovyy-smert-smert-61a8e0d162",
+        "id": "feature.ability.fury.level-2.death-death",
         "name": "Смерть... Смерть!",
         "flavor": "Ваша безудержная ярость вселяет ужас в их сердца.",
         "actionType": "main",
@@ -2615,8 +2883,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/death-death",
+        "originalName": "Death... Death!",
+        "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)",
+        "legacyId": "neistovyy-smert-smert-61a8e0d162"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/death-death",
+      "originalName": "Death... Death!",
+      "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)"
     },
     {
       "id": "ability.neistovyy-smertelnyy-udar-dec35603e1",
@@ -2631,7 +2906,7 @@
         "neistovyy-smertelnyy-udar-dec35603e1"
       ],
       "ability": {
-        "id": "neistovyy-smertelnyy-udar-dec35603e1",
+        "id": "feature.ability.fury.level-6.death-strike",
         "name": "Смертельный Удар",
         "flavor": "Как только вы чувствуете вкус крови вашего врага, вы становитесь более эффективным и превращаете каждый смертельный удар в возможность.",
         "actionType": "free-trigger",
@@ -2667,8 +2942,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+        "originalName": "Death Strike",
+        "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike.",
+        "legacyId": "neistovyy-smertelnyy-udar-dec35603e1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+      "originalName": "Death Strike",
+      "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike."
     },
     {
       "id": "ability.neistovyy-tarannyy-shar-5aecde78f8",
@@ -2683,7 +2965,7 @@
         "neistovyy-tarannyy-shar-5aecde78f8"
       ],
       "ability": {
-        "id": "neistovyy-tarannyy-shar-5aecde78f8",
+        "id": "feature.ability.fury.level-2.wrecking-ball",
         "name": "Таранный Шар",
         "flavor": "Легче разрушать, чем создавать. Намного легче, на самом деле!",
         "actionType": "maneuver",
@@ -2720,8 +3002,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/wrecking-ball",
+        "originalName": "Wrecking Ball",
+        "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3",
+        "legacyId": "neistovyy-tarannyy-shar-5aecde78f8"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/wrecking-ball",
+      "originalName": "Wrecking Ball",
+      "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
     },
     {
       "id": "ability.neistovyy-tvoi-vnutrennosti-teper-tvoi-naruzhnosti-23236dd6fc",
@@ -2736,7 +3025,7 @@
         "neistovyy-tvoi-vnutrennosti-teper-tvoi-naruzhnosti-23236dd6fc"
       ],
       "ability": {
-        "id": "neistovyy-tvoi-vnutrennosti-teper-tvoi-naruzhnosti-23236dd6fc",
+        "id": "feature.ability.fury.level-1.your-entrails-are-your-extrails",
         "name": "Твои внутренности Теперь Твои Наружности!",
         "flavor": "Им трудно сражаться, когда они заняты удерживанием своих потрохов.",
         "actionType": "main",
@@ -2774,8 +3063,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/your-entrails-are-your-extrails",
+        "originalName": "Your Entrails Are Your Extrails!",
+        "originalDescription": "*Hard for them to fight when they're busy holding in their giblets.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; M < WEAK, bleeding (save ends)\n- **12-16:** 5 + M damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 8 + M damage; M < STRONG, bleeding (save ends)\n\n**Effect:** While bleeding this way, the target takes damage equal to your Might score at the end of each of your turns.",
+        "legacyId": "neistovyy-tvoi-vnutrennosti-teper-tvoi-naruzhnosti-23236dd6fc"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/your-entrails-are-your-extrails",
+      "originalName": "Your Entrails Are Your Extrails!",
+      "originalDescription": "*Hard for them to fight when they're busy holding in their giblets.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; M < WEAK, bleeding (save ends)\n- **12-16:** 5 + M damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 8 + M damage; M < STRONG, bleeding (save ends)\n\n**Effect:** While bleeding this way, the target takes damage equal to your Might score at the end of each of your turns."
     },
     {
       "id": "ability.neistovyy-vnutrenniy-rev-04d333351c",
@@ -2790,7 +3086,7 @@
         "neistovyy-vnutrenniy-rev-04d333351c"
       ],
       "ability": {
-        "id": "neistovyy-vnutrenniy-rev-04d333351c",
+        "id": "feature.ability.fury.level-2.visceral-roar",
         "name": "Внутренний Рев",
         "flavor": "Шум бури внутри вас ошеломляет ваших противников.",
         "actionType": "main",
@@ -2827,8 +3123,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/visceral-roar",
+        "originalName": "Visceral Roar",
+        "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits).",
+        "legacyId": "neistovyy-vnutrenniy-rev-04d333351c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/visceral-roar",
+      "originalName": "Visceral Roar",
+      "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits)."
     },
     {
       "id": "ability.neistovyy-volna-smerti-ae560a2604",
@@ -2843,7 +3146,7 @@
         "neistovyy-volna-smerti-ae560a2604"
       ],
       "ability": {
-        "id": "neistovyy-volna-smerti-ae560a2604",
+        "id": "feature.ability.fury.level-1.tide-of-death",
         "name": "Волна Смерти",
         "flavor": "Научите их как безрассудно выстраиваться перед вами.",
         "actionType": "main",
@@ -2880,8 +3183,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/tide-of-death",
+        "originalName": "Tide of Death",
+        "originalDescription": "*Teach them the folly of lining up for you.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line, and enemy squares are not difficult terrain for this movement. You can end this movement in a creature's space and move them to an adjacent unoccupied space. You make one power roll that targets each enemy whose space you move through.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Effect:** The last target you damage takes extra damage equal to your Might score for each opportunity attack you trigger during your move.",
+        "legacyId": "neistovyy-volna-smerti-ae560a2604"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/tide-of-death",
+      "originalName": "Tide of Death",
+      "originalDescription": "*Teach them the folly of lining up for you.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line, and enemy squares are not difficult terrain for this movement. You can end this movement in a creature's space and move them to an adjacent unoccupied space. You make one power roll that targets each enemy whose space you move through.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Effect:** The last target you damage takes extra damage equal to your Might score for each opportunity attack you trigger during your move."
     },
     {
       "id": "ability.neistovyy-vstret-buryu-971551c413",
@@ -2896,7 +3206,7 @@
         "neistovyy-vstret-buryu-971551c413"
       ],
       "ability": {
-        "id": "neistovyy-vstret-buryu-971551c413",
+        "id": "feature.ability.fury.level-3.face-the-storm",
         "name": "Встреть Бурю!",
         "flavor": "Потрясенные перед лицом вашей неприкрытой жестокости, инстинкты вашего врага берут верх.",
         "actionType": "maneuver",
@@ -2930,8 +3240,15 @@
         "className": "Неистовый",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/face-the-storm",
+        "originalName": "Face the Storm!",
+        "originalDescription": "*Shocked in the face of your naked brutality, your enemy's instincts take over.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each creature you make a melee strike against who has P < AVERAGE is taunted until the end of their next turn. Additionally, when you use an ability that deals rolled damage against any enemy taunted by you, the ability deals extra damage equal to twice your Might score and increases its potency by 1.",
+        "legacyId": "neistovyy-vstret-buryu-971551c413"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/face-the-storm",
+      "originalName": "Face the Storm!",
+      "originalDescription": "*Shocked in the face of your naked brutality, your enemy's instincts take over.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each creature you make a melee strike against who has P < AVERAGE is taunted until the end of their next turn. Additionally, when you use an ability that deals rolled damage against any enemy taunted by you, the ability deals extra damage equal to twice your Might score and increases its potency by 1."
     },
     {
       "id": "ability.neistovyy-vy-uzhe-mertvy-c10cbde43c",
@@ -2946,7 +3263,7 @@
         "neistovyy-vy-uzhe-mertvy-c10cbde43c"
       ],
       "ability": {
-        "id": "neistovyy-vy-uzhe-mertvy-c10cbde43c",
+        "id": "feature.ability.fury.level-3.you-are-already-dead",
         "name": "Вы Уже Мертвы",
         "flavor": "Взмах оружием. Это их конец.",
         "actionType": "main",
@@ -2982,8 +3299,15 @@
         "className": "Неистовый",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/you-are-already-dead",
+        "originalName": "You Are Already Dead",
+        "originalDescription": "*Slash. Walk away.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** If the target is not a leader or solo creature, they are reduced to 0 Stamina at the end of their next turn. If the target is a leader or solo creature, you gain 3 surges and can make a melee free strike against them.",
+        "legacyId": "neistovyy-vy-uzhe-mertvy-c10cbde43c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/you-are-already-dead",
+      "originalName": "You Are Already Dead",
+      "originalDescription": "*Slash. Walk away.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** If the target is not a leader or solo creature, they are reduced to 0 Stamina at the end of their next turn. If the target is a leader or solo creature, you gain 3 surges and can make a melee free strike against them."
     },
     {
       "id": "ability.neistovyy-vysshiy-hischnik-373d249741",
@@ -2998,7 +3322,7 @@
         "neistovyy-vysshiy-hischnik-373d249741"
       ],
       "ability": {
-        "id": "neistovyy-vysshiy-hischnik-373d249741",
+        "id": "feature.ability.fury.level-2.apex-predator",
         "name": "Высший Хищник",
         "flavor": "Я выслежу тебя.",
         "actionType": "main",
@@ -3036,8 +3360,15 @@
         "className": "Неистовый",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/apex-predator",
+        "originalName": "Apex Predator",
+        "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move.",
+        "legacyId": "neistovyy-vysshiy-hischnik-373d249741"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/apex-predator",
+      "originalName": "Apex Predator",
+      "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move."
     },
     {
       "id": "ability.neistovyy-yarostnoe-izmenenie-a514b5afec",
@@ -3053,7 +3384,7 @@
         "fury.aspect.1.yarostnoe-izmenenie"
       ],
       "ability": {
-        "id": "neistovyy-yarostnoe-izmenenie-a514b5afec",
+        "id": "feature.ability.fury.level-1.furious-change",
         "name": "Яростное Изменение",
         "flavor": "В гневе вы возвращаетесь в более звериную форму.",
         "actionType": "trigger",
@@ -3085,8 +3416,15 @@
         "className": "Неистовый",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/furious-change",
+        "originalName": "Furious Change",
+        "originalDescription": "*In your anger, you revert to a more bestial form.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** You lose Stamina and are not dying.\n\n**Effect:** You gain temporary Stamina equal to your Might score and can enter your animal form or hybrid form.\n\n**Spend 1 Ferocity:** If you are not dying, you can spend a Recovery.",
+        "legacyId": "neistovyy-yarostnoe-izmenenie-a514b5afec"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/furious-change",
+      "originalName": "Furious Change",
+      "originalDescription": "*In your anger, you revert to a more bestial form.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** You lose Stamina and are not dying.\n\n**Effect:** You gain temporary Stamina equal to your Might score and can enter your animal form or hybrid form.\n\n**Spend 1 Ferocity:** If you are not dying, you can spend a Recovery."
     },
     {
       "id": "ability.neistovyy-zverinyy-naskok-575ec5a122",
@@ -3101,7 +3439,7 @@
         "neistovyy-zverinyy-naskok-575ec5a122"
       ],
       "ability": {
-        "id": "neistovyy-zverinyy-naskok-575ec5a122",
+        "id": "feature.ability.fury.level-6.pounce",
         "name": "Звериный Наскок",
         "flavor": "Вы бросаетесь на цель, как истинный хищник, которым вы являетесь.",
         "actionType": "main",
@@ -3140,8 +3478,15 @@
         "className": "Неистовый",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+        "originalName": "Pounce",
+        "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns.",
+        "legacyId": "neistovyy-zverinyy-naskok-575ec5a122"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+      "originalName": "Pounce",
+      "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns."
     },
     {
       "id": "class.0801",
@@ -3165,7 +3510,10 @@
       },
       "legacyIds": [
         "fury.aspect.1.bezzhalostnyy-okhotnik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/relentless-hunter",
+      "originalName": "Relentless Hunter",
+      "originalDescription": "You gain an edge on tests made using the Track skill."
     },
     {
       "id": "feature.fury.aspect.1.forma-zverya",
@@ -3178,7 +3526,10 @@
       },
       "legacyIds": [
         "fury.aspect.1.forma-zverya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/beast-shape",
+      "originalName": "Beast Shape",
+      "originalDescription": "You can use and gain the benefits of a stormwight kit (see Stormwight Kits). Your stormwight kit grants you a number of benefits, including benefits tied to your Growing Ferocity feature."
     },
     {
       "id": "feature.fury.aspect.1.komplekt",
@@ -3191,7 +3542,10 @@
       },
       "legacyIds": [
         "fury.aspect.1.komplekt"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/kit",
+      "originalName": "Kit",
+      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Panther.)"
     },
     {
       "id": "feature.fury.aspect.1.pervozdannaya-khitrost",
@@ -3204,7 +3558,10 @@
       },
       "legacyIds": [
         "fury.aspect.1.pervozdannaya-khitrost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/primordial-cunning",
+      "originalName": "Primordial Cunning",
+      "originalDescription": "You are never surprised. Additionally, whenever you would push a target with forced movement, you can slide them instead.\n\nAs your ferocity grows, you gain benefits as noted on the Reaver Growing Ferocity table. Benefits are cumulative except where an improved benefit replaces a lesser benefit."
     },
     {
       "id": "feature.fury.aspect.1.pervozdannaya-sila",
@@ -3217,7 +3574,10 @@
       },
       "legacyIds": [
         "fury.aspect.1.pervozdannaya-sila"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/primordial-strength",
+      "originalName": "Primordial Strength",
+      "originalDescription": "Whenever you damage an object with a weapon strike, the strike deals extra damage equal to your Might score. Additionally, whenever you push another creature into an object, the creature takes extra damage equal to your Might score.\n\nAs your ferocity grows, you gain benefits as noted on the Berserker Growing Ferocity table. Benefits are cumulative except where an improved benefit replaces a lesser benefit."
     },
     {
       "id": "feature.fury.aspect.2.neizbezhnyy-gnev",
@@ -3230,7 +3590,10 @@
       },
       "legacyIds": [
         "fury.aspect.2.neizbezhnyy-gnev"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/inescapable-wrath",
+      "originalName": "Inescapable Wrath",
+      "originalDescription": "You have a bonus to speed equal to your Agility score, and you ignore difficult terrain."
     },
     {
       "id": "feature.fury.aspect.2.nepreodolimaya-sila",
@@ -3243,7 +3606,10 @@
       },
       "legacyIds": [
         "fury.aspect.2.nepreodolimaya-sila"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/unstoppable-force",
+      "originalName": "Unstoppable Force",
+      "originalDescription": "Whenever you use the Charge main action, you can use a strike signature ability or a strike heroic ability instead of a free strike. Additionally, you can jump as part of your charge."
     },
     {
       "id": "feature.fury.aspect.2.zub-i-kogot",
@@ -3256,7 +3622,10 @@
       },
       "legacyIds": [
         "fury.aspect.2.zub-i-kogot"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/tooth-and-claw",
+      "originalName": "Tooth and Claw",
+      "originalDescription": "At the end of each of your turns, each enemy adjacent to you takes damage equal to your Might score."
     },
     {
       "id": "feature.fury.aspect.3.nedvizhimyy-obekt",
@@ -3269,7 +3638,10 @@
       },
       "legacyIds": [
         "fury.aspect.3.nedvizhimyy-obekt"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-3/immovable-object",
+      "originalName": "Immovable Object",
+      "originalDescription": "You add your level to your effective size for the purpose of interacting with creatures and objects, including determining whether you can lift an object, are affected by forced movement, and so forth. This has no effect on whether you can be grabbed.\n\nAdditionally, you have a bonus to stability equal to your Might score."
     },
     {
       "id": "feature.fury.aspect.3.rytsar-prirody",
@@ -3282,7 +3654,10 @@
       },
       "legacyIds": [
         "fury.aspect.3.rytsar-prirody"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-3/natures-knight",
+      "originalName": "Nature's Knight",
+      "originalDescription": "You can speak with animals and elementals. Additionally, you automatically sense the presence of animals and elementals within 10 squares of you, even if they are hidden.\n\nWhen you are in a negotiation with an animal or elemental, you treat your Renown as 1 higher than usual. This stacks with the increase to your effective Renown in a negotiation with an animal of your type while in animal form (see Stormwight Kits)."
     },
     {
       "id": "feature.fury.aspect.3.videt-skvoz-ikh-ulovki",
@@ -3295,7 +3670,10 @@
       },
       "legacyIds": [
         "fury.aspect.3.videt-skvoz-ikh-ulovki"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-3/see-through-their-tricks",
+      "originalName": "See Through Their Tricks",
+      "originalDescription": "You have a double edge on tests made to search for hidden creatures, discern hidden motives, or detect lies. You also have a double edge on tests made to gamble!"
     },
     {
       "id": "feature.fury.aspect.5.prygun",
@@ -3308,7 +3686,10 @@
       },
       "legacyIds": [
         "fury.aspect.5.prygun"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/bounder",
+      "originalName": "Bounder",
+      "originalDescription": "Your jump distance and height double (see Movement Types in Chapter 10: Combat). Additionally, when you fall, you reduce the effective height of your fall by a number of squares equal to your jump distance for the purpose of determining damage and whether you land prone (see Falling in Chapter 10). You are not prone after falling and landing on another creature."
     },
     {
       "id": "feature.fury.aspect.5.raskovannyy",
@@ -3321,7 +3702,10 @@
       },
       "legacyIds": [
         "fury.aspect.5.raskovannyy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/unfettered",
+      "originalName": "Unfettered",
+      "originalDescription": "At the start of your turn, you can end any restrained condition on you. Additionally, you have a double edge on tests made to escape being confined or imprisoned."
     },
     {
       "id": "feature.fury.aspect.5.rozhdennyy-shtormom",
@@ -3334,7 +3718,10 @@
       },
       "legacyIds": [
         "fury.aspect.5.rozhdennyy-shtormom"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/stormborn",
+      "originalName": "Stormborn",
+      "originalDescription": "You and each ally within 5 squares of you ignore negative effects from inclement weather, such as banes or environmental damage. Additionally, you can use the Blessing of Fortunate Weather feature as if you were a 1st-level conduit (see 1st-Level Domain Feature in the Conduit section)."
     },
     {
       "id": "feature.fury.aspect.8.na-shag-vperedi",
@@ -3347,7 +3734,10 @@
       },
       "legacyIds": [
         "fury.aspect.8.na-shag-vperedi"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/a-step-ahead",
+      "originalName": "A Step Ahead",
+      "originalDescription": "You move with legendary grace. Whenever you make an Agility test, you can roll three dice and choose which two to use. Additionally, whenever you use the Disengage move action, the distance you can shift gains a bonus equal to your Agility score."
     },
     {
       "id": "feature.fury.aspect.8.silneyshiy",
@@ -3360,7 +3750,10 @@
       },
       "legacyIds": [
         "fury.aspect.8.silneyshiy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/strongest-there-is",
+      "originalName": "Strongest There Is",
+      "originalDescription": "Your strength is unmatched. Whenever you make a Might test, you can roll three dice and choose which two to use. Additionally, whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score."
     },
     {
       "id": "feature.fury.aspect.8.zverinets",
@@ -3373,7 +3766,10 @@
       },
       "legacyIds": [
         "fury.aspect.8.zverinets"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/menagerie",
+      "originalName": "Menagerie",
+      "originalDescription": "You can use all stormwight kits. During a respite, you can choose to swap your stormwight kit and still take another respite activity. Your Nature's Knight feature now lets you automatically sense the presence of animals within 1 mile of you. Additionally, whenever you make a test to track another creature, you can roll three dice and choose which two to use."
     },
     {
       "id": "feature.fury.feature.1.geroicheskie-sposobnosti",
@@ -3399,7 +3795,10 @@
       },
       "legacyIds": [
         "fury.feature.1.moguchie-pryzhki"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/mighty-leaps",
+      "originalName": "Mighty Leaps",
+      "originalDescription": "You can't obtain lower than a tier 2 outcome on any Might test made to jump (see Movement Types in Chapter 10: Combat)."
     },
     {
       "id": "feature.fury.feature.1.osobennosti-aspekta-1-go-urovnya",
@@ -3412,7 +3811,10 @@
       },
       "legacyIds": [
         "fury.feature.1.osobennosti-aspekta-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/1st-level-aspect-features",
+      "originalName": "1st-Level Aspect Features",
+      "originalDescription": "Your primordial aspect grants you two features, as shown on the 1st-Level Aspect Features table.\n\n###### 1st-Level Aspect Features Table\n\n| Aspect     | Feature                        |\n|------------|--------------------------------|\n| Berserker  | Kit, Primordial Strength       |\n| Reaver     | Kit, Primordial Cunning        |\n| Stormwight | Beast Shape, Relentless Hunter |"
     },
     {
       "id": "feature.fury.feature.1.pervozdannyy-aspekt",
@@ -3425,7 +3827,10 @@
       },
       "legacyIds": [
         "fury.feature.1.pervozdannyy-aspekt"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/primordial-aspect",
+      "originalName": "Primordial Aspect",
+      "originalDescription": "You are a product of customs older than warfare, older than civilization, older than most of the world. You have undergone a rite of passage that revealed the building blocks of the timescape—the Primordial Chaos—and that left an aspect of that chaos inside you. You choose a primordial aspect from the following options, each of which grants you a skill. (*Quick Build:* Berserker.)\n\n- **Berserker:** You channel your ferocity into physical might, acting as a living version of the forces that shape the world. You have the Lift skill.\n- **Reaver:** You channel your ferocity into instinct and cunning, challenging the order of civilization. You have the Hide skill.\n- **Stormwight:** You channel your ferocity into primordial storms and can take on the form of an animal or an animal hybrid form. You have the Track skill.\n\nYour primordial aspect is your subclass, and your choice of aspect determines many of the features you'll gain as you gain new levels."
     },
     {
       "id": "feature.fury.feature.1.rastushchaya-svirepost",
@@ -3438,7 +3843,10 @@
       },
       "legacyIds": [
         "fury.feature.1.rastushchaya-svirepost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/growing-ferocity",
+      "originalName": "Growing Ferocity",
+      "originalDescription": "You gain certain benefits in combat based on the amount of ferocity you have (see 1st-Level Aspect Features for details). These benefits last until the end of your turn, even if a benefit would become unavailable to you because of the amount of ferocity you spend during your turn.\n\nSome Growing Ferocity benefits can be applied only if you are a specific level or higher, with the level of those benefits noted in the various Growing Ferocity tables in this section.\n\n###### Berserker Growing Ferocity Table\n\n| Ferocity        | Benefit                                                                                                                                                                                                                        |\n|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score.                                                                                                                 |\n| 4               | The first time you push a creature on a turn, you gain 1 surge.                                                                                                                                                                |\n| 6               | You gain an edge on Might tests and the Knockback maneuver.                                                                                                                                                                    |\n| 8 (4th level)   | The first time you push a creature on a turn, you gain 2 surges.                                                                                                                                                               |\n| 10 (7th level)  | You have a double edge on Might tests and the Knockback maneuver.                                                                                                                                                              |\n| 12 (10th level) | Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Might score. |\n\n###### Reaver Growing Ferocity Table\n\n| Ferocity        | Benefit                                                                                                                                                                                                                          |\n|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Agility score.                                                                                                                 |\n| 4               | The first time you slide a creature on a turn, you gain 1 surge.                                                                                                                                                                 |\n| 6               | You gain an edge on Agility tests and the Knockback maneuver.                                                                                                                                                                    |\n| 8 (4th level)   | The first time you slide a creature on a turn, you gain 2 surges.                                                                                                                                                                |\n| 10 (7th level)  | You have a double edge on Agility tests and the Knockback maneuver.                                                                                                                                                              |\n| 12 (10th level) | Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Agility score. |"
     },
     {
       "id": "feature.fury.feature.1.sposobnost-za-3-svireposti",
@@ -3477,7 +3885,10 @@
       },
       "legacyIds": [
         "fury.feature.1.sposobnosti-neistovogo"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/fury-abilities",
+      "originalName": "Fury Abilities",
+      "originalDescription": "You specialize in dealing massive damage on the battlefield, and have mastered unique martial abilities that allow you to strike hard and keep moving.\n\n##### Signature Ability\n\nChoose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* To the Death!)\n\n##### Heroic Abilities\n\nYou fight with an array of heroic abilities, all of which cost ferocity to fuel them.\n\n###### 3-Ferocity Ability\n\nChoose one heroic ability from the following options, each of which costs 3 ferocity to use. (*Quick Build:* Back!)\n\n###### 5-Ferocity Ability\n\nChoose one heroic ability from the following options, each of which costs 5 ferocity to use. (*Quick Build:* Blood for Blood!)"
     },
     {
       "id": "feature.fury.feature.1.svirepost",
@@ -3490,7 +3901,10 @@
       },
       "legacyIds": [
         "fury.feature.1.svirepost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/ferocity",
+      "originalName": "Ferocity",
+      "originalDescription": "Within the heat of battle, your determination and anger grow, fueling a Heroic Resource called ferocity.\n\n> **Where's My Maneuver?**\n>\n> Since most other classes get a bespoke maneuver, you might find yourself asking, \"Where's the special maneuver for the fury?\" The answer is that the class doesn't need its own maneuver, because most of the time, the fantasy of the fury has them using the Grab or Knockback maneuvers in combat. They're really good at those maneuvers too, so it doesn't make sense to give you another option that you'll rarely or never use.\n\n##### Ferocity in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain ferocity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 ferocity.\n\nAdditionally, the first time each combat round that you take damage, you gain 1 ferocity. The first time you become winded or are dying in an encounter, you gain 1d3 ferocity.\n\nYou lose any remaining ferocity at the end of the encounter.\n\n##### Ferocity Outside of Combat\n\nThough you can't gain ferocity outside of combat, you can use your heroic abilities and effects that cost ferocity without spending it. Whenever you use an ability or effect outside of combat that costs ferocity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited ferocity on its effect, such as To the Uttermost End, you can use it as if you had spent an amount of ferocity equal to your Victories."
     },
     {
       "id": "feature.fury.feature.1.svirepost-v-boyu",
@@ -3529,7 +3943,10 @@
       },
       "legacyIds": [
         "fury.feature.1.trigger-aspekta"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-1/aspect-triggered-action",
+      "originalName": "Aspect Triggered Action",
+      "originalDescription": "Your primordial aspect grants you a triggered action, as shown on the Aspect Triggered Actions table.\n\n###### Aspect Triggered Actions Table\n\n| Aspect                   | Triggered Action   |\n|--------------------------|--------------------|\n| Berserker                | Lines of Force     |\n| Reaver                   | Unearthly Reflexes |\n| Stormwight               | Furious Change     |"
     },
     {
       "id": "feature.fury.feature.1.znakovaya-sposobnost",
@@ -3555,7 +3972,10 @@
       },
       "legacyIds": [
         "fury.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.fury.feature.10.perk",
@@ -3568,7 +3988,10 @@
       },
       "legacyIds": [
         "fury.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice."
     },
     {
       "id": "feature.fury.feature.10.pervozdannaya-sila",
@@ -3581,7 +4004,10 @@
       },
       "legacyIds": [
         "fury.feature.10.pervozdannaya-sila"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/primordial-power",
+      "originalName": "Primordial Power",
+      "originalDescription": "You have an epic resource called primordial power. Each time you finish a respite, you gain primordial power equal to the XP you gain. You can spend primordial power on your abilities as if it were ferocity.\n\nAdditionally, you can spend any amount of primordial power as a free maneuver, ending one effect on you for each primordial power spent.\n\nYou can also spend 3 primordial power to create a portal to Quintessence without needing a source of elemental power.\n\nPrimordial power remains until you spend it."
     },
     {
       "id": "feature.fury.feature.10.pervozdannaya-svirepost",
@@ -3594,7 +4020,10 @@
       },
       "legacyIds": [
         "fury.feature.10.pervozdannaya-svirepost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/primordial-ferocity",
+      "originalName": "Primordial Ferocity",
+      "originalDescription": "The first time you take damage each combat round, you gain 3 ferocity instead of 2."
     },
     {
       "id": "feature.fury.feature.10.uluchshenie-rastushchey-svireposti",
@@ -3607,7 +4036,10 @@
       },
       "legacyIds": [
         "fury.feature.10.uluchshenie-rastushchey-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/growing-ferocity-improvement",
+      "originalName": "Growing Ferocity Improvement",
+      "originalDescription": "Your Growing Ferocity feature provides additional benefits when you have 12 or more ferocity."
     },
     {
       "id": "feature.fury.feature.10.uvelichenie-kharakteristik",
@@ -3620,7 +4052,10 @@
       },
       "legacyIds": [
         "fury.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Agility scores each increase to 5."
     },
     {
       "id": "feature.fury.feature.10.voploshchenie-khaosa",
@@ -3633,7 +4068,10 @@
       },
       "legacyIds": [
         "fury.feature.10.voploshchenie-khaosa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-10/chaos-incarnate",
+      "originalName": "Chaos Incarnate",
+      "originalDescription": "Your mastery of elemental forces protects and emboldens you. If you are a berserker or reaver, you have immunity to acid, cold, corruption, fire, lightning, poison, and sonic damage equal to twice your Might score. If you are a stormwight, your damage immunity from your Primordial Storm feature (see Stormwight Kits) increases to three times your Might score.\n\nWhen any elemental or any other creature whose abilities deal acid, cold, corruption, fire, lightning, poison, or sonic damage first becomes aware of you in combat, if they have P < STRONG, they are frightened of you (save ends).\n\nAdditionally, when you use Primordial Strike, you can spend up to 3 ferocity, gaining 1 surge per ferocity spent to use for that strike."
     },
     {
       "id": "feature.fury.feature.2.osobennost-aspekta-2-go-urovnya",
@@ -3646,7 +4084,10 @@
       },
       "legacyIds": [
         "fury.feature.2.osobennost-aspekta-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-feature",
+      "originalName": "2nd-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 2nd-Level Aspect Features table.\n\n###### 2nd-Level Aspect Features Table\n\n| Aspect     | Feature           |\n|------------|-------------------|\n| Berserker  | Unstoppable Force |\n| Reaver     | Inescapable Wrath |\n| Stormwight | Tooth and Claw    |"
     },
     {
       "id": "feature.fury.feature.2.perk",
@@ -3659,7 +4100,10 @@
       },
       "legacyIds": [
         "fury.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.fury.feature.2.sposobnost-aspekta-2-go-urovnya",
@@ -3672,7 +4116,10 @@
       },
       "legacyIds": [
         "fury.feature.2.sposobnost-aspekta-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-ability",
+      "originalName": "2nd-Level Aspect Ability",
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Berserker Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Reaver Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Stormwight Ability\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.fury.feature.2.sposobnost-berserka-2-go-urovnya",
@@ -3724,7 +4171,10 @@
       },
       "legacyIds": [
         "fury.feature.3.osobennost-aspekta-3-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-3/3rd-level-aspect-feature",
+      "originalName": "3rd-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 3rd-Level Aspect Features table.\n\n###### 3rd-Level Aspect Features Table\n\n| Aspect                    | Feature                  |\n|---------------------------|--------------------------|\n| Berserker                 | Immovable Object         |\n| Reaver                    | See Through Their Tricks |\n| Stormwight                | Nature's Knight          |"
     },
     {
       "id": "feature.fury.feature.3.sposobnost-za-7-svireposti",
@@ -3737,7 +4187,10 @@
       },
       "legacyIds": [
         "fury.feature.3.sposobnost-za-7-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-3/7-ferocity-ability",
+      "originalName": "7-Ferocity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 ferocity to use."
     },
     {
       "id": "feature.fury.feature.4.navyk",
@@ -3750,7 +4203,10 @@
       },
       "legacyIds": [
         "fury.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.fury.feature.4.perk",
@@ -3763,7 +4219,10 @@
       },
       "legacyIds": [
         "fury.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.fury.feature.4.pervozdannaya-nastroyka",
@@ -3776,7 +4235,10 @@
       },
       "legacyIds": [
         "fury.feature.4.pervozdannaya-nastroyka"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/primordial-attunement",
+      "originalName": "Primordial Attunement",
+      "originalDescription": "As your ferocity manifests elemental forces created by the Primordial Chaos, you are aware of how elemental power interacts with those around you. You automatically sense whether any creature within 10 squares has damage immunity or damage weakness to acid, cold, corruption, fire, lightning, poison, or sonic damage, learning whether they have immunity or weakness, the value of that immunity or weakness, and the specific damage type. Additionally, you automatically sense any source of one of those damage types within 10 squares, such as a fire or a source of elemental power."
     },
     {
       "id": "feature.fury.feature.4.pervozdannyy-udar",
@@ -3789,7 +4251,10 @@
       },
       "legacyIds": [
         "fury.feature.4.pervozdannyy-udar"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/primordial-strike",
+      "originalName": "Primordial Strike",
+      "originalDescription": "You can manifest your ferocity directly as an elemental force created by the Primordial Chaos. As part of any strike, you can spend 1 ferocity to gain 1 surge that must be used for that strike. The extra damage dealt by the surge can be acid, cold, corruption, fire, lightning, poison, or sonic (your choice)."
     },
     {
       "id": "feature.fury.feature.4.uluchshenie-rastushchey-svireposti",
@@ -3802,7 +4267,10 @@
       },
       "legacyIds": [
         "fury.feature.4.uluchshenie-rastushchey-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/growing-ferocity-improvement",
+      "originalName": "Growing Ferocity Improvement",
+      "originalDescription": "Your Growing Ferocity feature provides additional benefits when you have 8 or more ferocity."
     },
     {
       "id": "feature.fury.feature.4.uron-ot-svireposti",
@@ -3815,7 +4283,10 @@
       },
       "legacyIds": [
         "fury.feature.4.uron-ot-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/damaging-ferocity",
+      "originalName": "Damaging Ferocity",
+      "originalDescription": "The first time you take damage each combat round, you gain 2 ferocity instead of 1."
     },
     {
       "id": "feature.fury.feature.4.uvelichenie-kharakteristik",
@@ -3828,7 +4299,10 @@
       },
       "legacyIds": [
         "fury.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Agility scores each increase to 3."
     },
     {
       "id": "feature.fury.feature.5.osobennost-aspekta-5-go-urovnya",
@@ -3841,7 +4315,10 @@
       },
       "legacyIds": [
         "fury.feature.5.osobennost-aspekta-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/5th-level-aspect-feature",
+      "originalName": "5th-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 5th-Level Aspect Features table.\n\n###### 5th-Level Aspect Features Table\n\n| Aspect     | Feature    |\n|------------|------------|\n| Berserker  | Bounder    |\n| Reaver     | Unfettered |\n| Stormwight | Stormborn  |"
     },
     {
       "id": "feature.fury.feature.5.sposobnost-za-9-svireposti",
@@ -3854,7 +4331,10 @@
       },
       "legacyIds": [
         "fury.feature.5.sposobnost-za-9-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/9-ferocity-ability",
+      "originalName": "9-Ferocity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 ferocity to use."
     },
     {
       "id": "feature.fury.feature.6.maroder-pervozdannogo-khaosa",
@@ -3867,7 +4347,10 @@
       },
       "legacyIds": [
         "fury.feature.6.maroder-pervozdannogo-khaosa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/marauder-of-the-primordial-chaos",
+      "originalName": "Marauder of the Primordial Chaos",
+      "originalDescription": "As your connection to the power of the Primordial Chaos grows ever stronger, you automatically sense any elemental creatures or magic sources of elemental power, such as a lava pool or a lake overlapping with Quintessence, within 1 mile of you.\n\nAdditionally, you can speak with elemental creatures, and when you are in a negotiation with an elemental, you treat your Renown as 1 higher than usual. This stacks with the increase to your effective Renown provided by the Nature's Knight aspect feature (see 3rd-Level Features). When any elemental first becomes aware of you in combat, if they have P < AVERAGE, they are frightened of you (save ends)."
     },
     {
       "id": "feature.fury.feature.6.perk",
@@ -3880,7 +4363,10 @@
       },
       "legacyIds": [
         "fury.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice."
     },
     {
       "id": "feature.fury.feature.6.pervozdannyy-portal",
@@ -3893,7 +4379,10 @@
       },
       "legacyIds": [
         "fury.feature.6.pervozdannyy-portal"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/primordial-portal",
+      "originalName": "Primordial Portal",
+      "originalDescription": "As a main action, you can touch a magic source of elemental power and use it to create a portal to Quintessence. You can then use a main action to teleport yourself and any willing creatures within 10 squares of you through the portal and onto a safe island in Quintessence, or to teleport back again. You can maintain a number of portals equal to your Might score, each leading to the same safe island in Quintessence. If a portal in your network is destroyed, it is no longer part of the network. You can remove a portal from your network no matter your distance from it, including across different worlds (no action required).\n\n(Exploring Quintessence is possible from your island, but continued safety is not guaranteed.)"
     },
     {
       "id": "feature.fury.feature.6.sposobnost-aspekta-6-go-urovnya",
@@ -3906,7 +4395,10 @@
       },
       "legacyIds": [
         "fury.feature.6.sposobnost-aspekta-6-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/6th-level-aspect-ability",
+      "originalName": "6th-Level Aspect Ability",
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 6th-Level Berserker Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Reaver Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Stormwight Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.fury.feature.6.sposobnosti-berserka-6-go-urovnya",
@@ -3958,7 +4450,10 @@
       },
       "legacyIds": [
         "fury.feature.7.elementalnaya-forma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-7/elemental-form",
+      "originalName": "Elemental Form",
+      "originalDescription": "You exhibit ever-stronger signs of how the force of the Primordial Chaos flows within you. Whenever you show strong emotion or increase your ferocity, elemental motes attuned to your mood flit around you, and your skin changes in appearance to reflect an element of your choice.\n\nAdditionally, if you are a berserker or reaver, you have immunity to acid, cold, corruption, fire, lightning, poison, and sonic damage equal to your Might score. If you are a stormwight, you have immunity to the damage type of your Primordial Storm feature equal to twice your Might score."
     },
     {
       "id": "feature.fury.feature.7.navyk",
@@ -3971,7 +4466,10 @@
       },
       "legacyIds": [
         "fury.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.fury.feature.7.uluchshenie-rastushchey-svireposti",
@@ -3984,7 +4482,10 @@
       },
       "legacyIds": [
         "fury.feature.7.uluchshenie-rastushchey-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-7/growing-ferocity-improvement",
+      "originalName": "Growing Ferocity Improvement",
+      "originalDescription": "Your Growing Ferocity feature provides additional benefits when you have 10 or more ferocity."
     },
     {
       "id": "feature.fury.feature.7.uvelichenie-kharakteristik",
@@ -3997,7 +4498,10 @@
       },
       "legacyIds": [
         "fury.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.fury.feature.7.velikaya-svirepost",
@@ -4010,7 +4514,10 @@
       },
       "legacyIds": [
         "fury.feature.7.velikaya-svirepost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-7/greater-ferocity",
+      "originalName": "Greater Ferocity",
+      "originalDescription": "When you gain ferocity at the start of each of your turns during combat, you gain 1d3 + 1 ferocity instead of 1d3."
     },
     {
       "id": "feature.fury.feature.8.osobennost-aspekta-8-go-urovnya",
@@ -4023,7 +4530,10 @@
       },
       "legacyIds": [
         "fury.feature.8.osobennost-aspekta-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/8th-level-aspect-feature",
+      "originalName": "8th-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 8th-Level Aspect Features table.\n\n###### 8th-Level Aspect Features Table\n\n| Aspect     | Feature            |\n|------------|--------------------|\n| Berserker  | Strongest There Is |\n| Reaver     | A Step Ahead       |\n| Stormwight | Menagerie          |"
     },
     {
       "id": "feature.fury.feature.8.perk",
@@ -4036,7 +4546,10 @@
       },
       "legacyIds": [
         "fury.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.fury.feature.8.sposobnost-za-11-svireposti",
@@ -4049,7 +4562,10 @@
       },
       "legacyIds": [
         "fury.feature.8.sposobnost-za-11-svireposti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-8/11-ferocity-ability",
+      "originalName": "11-Ferocity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 ferocity to use."
     },
     {
       "id": "feature.fury.feature.9.predvestnik-pervozdannogo-khaosa",
@@ -4062,7 +4578,10 @@
       },
       "legacyIds": [
         "fury.feature.9.predvestnik-pervozdannogo-khaosa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-9/harbinger-of-the-primordial-chaos",
+      "originalName": "Harbinger of the Primordial Chaos",
+      "originalDescription": "You can create a temporary source of elemental power as a respite activity. This source of elemental power lasts 24 hours after creation, and can be used to create a portal to Quintessence with your Primordial Portal feature. If you do so, the source of elemental power lasts as long as the portal is maintained in your network."
     },
     {
       "id": "feature.fury.feature.9.sposobnost-aspekta-9-go-urovnya",
@@ -4075,7 +4594,10 @@
       },
       "legacyIds": [
         "fury.feature.9.sposobnost-aspekta-9-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.fury.level-9/9th-level-aspect-ability",
+      "originalName": "9th-Level Aspect Ability",
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 9th-Level Berserker Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Reaver Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Stormwight Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.fury.feature.9.sposobnosti-berserka-9-go-urovnya",

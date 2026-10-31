@@ -13,7 +13,7 @@ import type { FeatureMechanics } from "../types";
  */
 export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   // ---------------------------------------------------------------- 2-й уровень
-  "null.feature.2.osobennost-traditsii-2-go-urovnya": {
+  "feature.null.level-2.2nd-level-tradition-feature": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт одну особенность 2-го уровня по таблице. " +
@@ -21,7 +21,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "адаптивность, Метакинетик — Инерционный сток. Механику дают вложенные " +
       "записи, размеченные по традиции.",
   },
-  "null.tradition.2.bystraya-obrabotka": {
+  "feature.null.level-2.rapid-processing": {
     kinds: ["situational"],
     notes:
       "Как маневр вы можете прочитать целую книгу или обработать аналогичный " +
@@ -29,7 +29,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "предпринять дополнительную деятельность отдыха. Лист не ведёт книги и " +
       "деятельности отдыха — правило применяется вручную.",
   },
-  "null.tradition.2.entropiynaya-adaptivnost": {
+  "feature.null.level-2.entropic-adaptability": {
     kinds: ["bonus", "immunity"],
     effects: [
       {
@@ -45,7 +45,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Игнорирование труднопроходимой местности изо льда и лазание на полной " +
       "скорости правилами листа не выражаются.",
   },
-  "null.tradition.2.inertsionnyy-stok": {
+  "feature.null.level-2.inertial-sink": {
     kinds: ["situational"],
     notes:
       "Показатель Интуиции добавляется к эффективному размеру для " +
@@ -54,14 +54,14 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "принудительного движения уменьшается на уровень героя. Размер, падение " +
       "и урон от движения лист не считает.",
   },
-  "null.feature.2.sposobnost-traditsii-2-go-urovnya": {
+  "feature.null.level-2.2nd-level-tradition-ability": {
     kinds: ["grant"],
     notes:
       "Контейнер: традиция даёт на выбор одну из двух героических способностей " +
       "2-го уровня, обе стоят 5 дисциплины. Конкретные варианты и выбор одной " +
       "способности строит повышение уровня по подклассу.",
   },
-  "null.feature.2.sposobnost-khronokinetika-2-go-urovnya": {
+  "feature.null.level-2.chronokinetic-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Хронокинетик"] },
     notes:
@@ -69,7 +69,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "или Перенаправленная Сила, обе за 5 дисциплины. Выбор делается при " +
       "повышении уровня по подклассу.",
   },
-  "null.feature.2.sposobnost-kriokinetika-2-go-urovnya": {
+  "feature.null.level-2.cryokinetic-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Криокинетик"] },
     notes:
@@ -77,7 +77,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Поле или Теплоотвод, обе за 5 дисциплины. Выбор делается при повышении " +
       "уровня по подклассу.",
   },
-  "null.feature.2.sposobnost-metakinetika-2-go-urovnya": {
+  "feature.null.level-2.metakinetic-ability": {
     kinds: ["grant"],
     when: { keyValue: ["Метакинетик"] },
     notes:
@@ -87,14 +87,14 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 3-й уровень
-  "null.feature.3.psionicheskiy-pryzhok": {
+  "feature.null.level-3.psionic-leap": {
     kinds: ["situational"],
     notes:
       "Вы можете совершать прыжки в длину и в высоту на расстояние, равное " +
       "двойному показателю Ловкости, без теста. Лист не хранит длину прыжка — " +
       "число применяется вручную.",
   },
-  "null.feature.3.perestroenie": {
+  "feature.null.level-3.reorder": {
     kinds: ["trigger"],
     trigger: {
       event: "start-of-turn",
@@ -110,7 +110,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "Выбор эффекта и существа-цели остаётся за игроком: лист не знает " +
       "наложенных состояний и не снимает их сам.",
   },
-  "null.feature.3.sposobnost-za-7-distsipliny": {
+  "feature.null.level-3.7-discipline-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 7 дисциплины: " +
@@ -120,20 +120,20 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
   },
 
   // ---------------------------------------------------------------- 4-й уровень
-  "null.feature.4.uvelichenie-kharakteristik": {
+  "feature.null.level-4.characteristic-increase": {
     kinds: ["characteristic"],
     notes:
       "Ловкость и Интуиция поднимаются до 3. Повышение уже применяет " +
       "левел-ап; аддитивный эффект здесь задвоил бы изменение, поэтому его нет.",
   },
-  "null.feature.4.uluchshenie-masterstva-distsipliny": {
+  "feature.null.level-4.discipline-mastery-improvement": {
     kinds: ["situational"],
     notes:
       "Мастерство дисциплины даёт дополнительные преимущества при 8 и более " +
       "дисциплины. Строка порога 8 уже есть в таблицах традиций: нужен 4-й " +
       "уровень героя и 8 дисциплины.",
   },
-  "null.feature.4.uluchshennoe-pole-nulya": {
+  "feature.null.level-4.enhanced-null-field": {
     kinds: ["situational"],
     notes:
       "Поле нуля разрушает сверхъестественную энергию вокруг вас. В бою " +
@@ -142,7 +142,7 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
       "перекрывается, и возвращаются после. Лист не хранит эффекты местности — " +
       "правило применяется вручную.",
   },
-  "null.feature.4.regenerativnoe-pole": {
+  "feature.null.level-4.regenerative-field": {
     kinds: ["resourceGain"],
     resource: {
       name: "Дисциплина",
@@ -171,10 +171,10 @@ export const NULL_EARLY_MECHANICS: Record<string, FeatureMechanics> = {
  * этапа.
  */
 export const NULL_EARLY_TEXT_ONLY: Record<string, string> = {
-  "null.feature.2.perk":
+  "feature.null.level-2.perk":
     "перк 2-го уровня выбирается из каталога перков (исследования, межличностный или интриги); механика его не хранит",
-  "null.feature.4.perk":
+  "feature.null.level-4.perk":
     "перк 4-го уровня выбирается из каталога перков; механика его не хранит",
-  "null.feature.4.navyk":
+  "feature.null.level-4.skill":
     "навык 4-го уровня выбирается из каталога навыков; механика его не хранит",
 };

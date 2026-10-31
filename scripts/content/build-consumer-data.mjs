@@ -50,6 +50,7 @@ import {
   walkJson,
   writeJsonText,
 } from "./lib/common.mjs";
+import { decorateConsumerProjections } from "./lib/originals.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -1822,6 +1823,16 @@ export function buildConsumerData({
     schemaVersion: CONSUMER_SCHEMA_VERSION,
     ...builder.data,
   };
+
+  decorateConsumerProjections({
+    abilities: abilityProjection,
+    library: libraryProjection,
+    kits: kitProjection,
+    perks: perkProjection,
+    features: featureProjection,
+    levelUp: levelUpProjection,
+    builder: builderProjection,
+  });
 
   const nextIdentity = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,

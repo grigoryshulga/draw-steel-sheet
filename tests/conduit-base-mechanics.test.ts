@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import generated from "../src/data/class-features.generated.json";
+import { GENERATED_CLASS_FEATURES as generated } from "../src/data/class-features/skeleton";
 import {
   CONDUIT_BASE_MECHANICS,
   CONDUIT_BASE_TEXT_ONLY,
@@ -17,8 +17,9 @@ import { classFeatureOptionAutomated } from "../src/lib/class-feature-view";
 const features = (Array.isArray(generated) ? generated : generated.features) as GeneratedClassFeature[];
 const included = features.filter((feature) =>
   feature.className === "Проводник" && feature.level === 1 &&
-  !feature.keyedBy && !feature.id.startsWith("conduit.domain.1.") &&
-  !/^conduit\.feature\.1\.blagochestie-i-effekt-domena-/.test(feature.id),
+  !feature.keyedBy &&
+  // Записи доменного благочестия описаны в CONDUIT_DOMAIN_PRAYERS, не в базе.
+  !feature.id.startsWith("feature.conduit.level-1.domain-piety-and-effects."),
 );
 const feature = (id: string) => included.find((entry) => entry.id === id)!;
 
@@ -43,7 +44,7 @@ describe("механики Проводника 1-го уровня", () => {
   });
 
   it("сохраняет адресата и условия Слова Суда и уточняет границы take-damage для оберегов", () => {
-    const judgment = CONDUIT_BASE_MECHANICS["conduit.feature.1.trigger-provodnika"].trigger!.detail;
+    const judgment = CONDUIT_BASE_MECHANICS["feature.conduit.level-1.triggered-action"].trigger!.detail;
     expect(judgment).toContain("один союзник должен был бы получить урон");
     expect(judgment).toContain("от способности, использующей бросок силы");
     expect(judgment).toContain("бросок силы получает помеху против этой цели");
@@ -51,9 +52,9 @@ describe("механики Проводника 1-го уровня", () => {
     expect(judgment).not.toContain("враг в пределах 10 должен получить урон");
 
     for (const [id, condition] of [
-      ["conduit.feature.1.obereg-reaktsii", "Когда смежное существо наносит вам урон"],
-      ["conduit.feature.1.obereg-svyatilishcha", "Когда другое существо наносит вам урон"],
-      ["conduit.feature.1.obereg-dukhov", "Когда смежное существо наносит вам урон"],
+      ["feature.conduit.level-1.quickness-ward", "Когда смежное существо наносит вам урон"],
+      ["feature.conduit.level-1.sanctuary-ward", "Когда другое существо наносит вам урон"],
+      ["feature.conduit.level-1.spirit-ward", "Когда смежное существо наносит вам урон"],
     ] as const) {
       const mechanic = CONDUIT_BASE_MECHANICS[id];
       expect(mechanic.trigger?.event).toBe("take-damage");
@@ -65,7 +66,13 @@ describe("механики Проводника 1-го уровня", () => {
   });
 
   it("сверяет пять молитв с книгой и считает stamina формулой движка на каждом рубеже", () => {
-    const ids = ["molitva-o-razrushenii", "molitva-o-distantsii", "molitva-o-masterstve-soldata", "molitva-o-skorosti", "molitva-o-stali"].map((suffix) => `conduit.feature.1.${suffix}`);
+    const ids = [
+      "feature.conduit.level-1.prayer-of-destruction",
+      "feature.conduit.level-1.prayer-of-distance",
+      "feature.conduit.level-1.prayer-of-soldiers-skill",
+      "feature.conduit.level-1.prayer-of-speed",
+      "feature.conduit.level-1.prayer-of-steel",
+    ];
     for (const id of ids) expect(CONDUIT_BASE_MECHANICS[id]).toBeDefined();
 
     expect(CONDUIT_BASE_MECHANICS[ids[0]].effects?.[0]).toMatchObject({ field: "rolledDamage", value: 1, filter: { keywords: ["Магия"] } });
@@ -108,51 +115,51 @@ describe("механики Проводника 1-го уровня", () => {
   });
 
   it("не дублирует базовые gains Благочестия и сохраняет теги замещения уровней", () => {
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie"]).toBeUndefined();
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"]).toBeUndefined();
-    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("1d6 + уровень");
-    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-v-boyu"].trigger?.detail).toContain("на 3 получите +2 Благочестия");
-    expect(CONDUIT_RESOURCE_MECHANICS["conduit.feature.1.blagochestie-i-effekty-domena"].notes).toContain("одно событие может активировать оба");
-    const level7 = CONDUIT_LEVEL_MECHANICS["conduit.feature.7.nagrada-veruyushchego-faithful-s-reward"].resource!.gains[0];
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.piety"]).toBeUndefined();
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.piety-in-combat"]).toBeUndefined();
+    expect(CONDUIT_RESOURCE_MECHANICS["feature.conduit.level-1.piety-in-combat"].trigger?.detail).toContain("1d6 + уровень");
+    expect(CONDUIT_RESOURCE_MECHANICS["feature.conduit.level-1.piety-in-combat"].trigger?.detail).toContain("на 3 получите +2 Благочестия");
+    expect(CONDUIT_RESOURCE_MECHANICS["feature.conduit.level-1.domain-piety-and-effects"].notes).toContain("одно событие может активировать оба");
+    const level7 = CONDUIT_LEVEL_MECHANICS["feature.conduit.level-7.faithfuls-reward"].resource!.gains[0];
     expect(level7).toMatchObject({ tag: "start-of-turn", event: "start-of-turn", replaces: ["start-of-turn"] });
   });
 
   it("использует реальные ключи доступных выборов и не создаёт пустых фиктивных вариантов", () => {
     const conduitGroups = classFeatureGroups("Проводник");
     expect(conduitGroups).toEqual([]);
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva"].choice).toMatchObject({ group: "conduit.prayer" });
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva"].choice!.options.map(({ id }) => id)).toEqual(["conduit.prayer.destruction", "conduit.prayer.distance", "conduit.prayer.soldier", "conduit.prayer.speed", "conduit.prayer.steel"]);
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-provodnika"].choice).toMatchObject({ group: "conduit.sanctuary" });
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-provodnika"].choice!.options.map(({ id }) => id)).toEqual(["conduit.sanctuary.bastion", "conduit.sanctuary.reaction", "conduit.sanctuary.refuge", "conduit.sanctuary.spirits"]);
-    for (const id of ["conduit.feature.1.bozhestvo-i-domeny", "conduit.feature.1.osobennost-domena-1-go-urovnya", "conduit.feature.1.znakovye-sposobnosti", "conduit.feature.1.sposobnost-za-3-blagochestiya", "conduit.feature.1.sposobnost-za-5-blagochestiya"]) {
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.prayer"].choice).toMatchObject({ group: "conduit.prayer" });
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.prayer"].choice!.options.map(({ id }) => id)).toEqual(["conduit.prayer.destruction", "conduit.prayer.distance", "conduit.prayer.soldier", "conduit.prayer.speed", "conduit.prayer.steel"]);
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.conduit-ward"].choice).toMatchObject({ group: "conduit.sanctuary" });
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.conduit-ward"].choice!.options.map(({ id }) => id)).toEqual(["conduit.sanctuary.bastion", "conduit.sanctuary.reaction", "conduit.sanctuary.refuge", "conduit.sanctuary.spirits"]);
+    for (const id of ["feature.conduit.level-1.deity-and-domains", "feature.conduit.level-1.1st-level-domain-feature", "feature.conduit.level-1.signature-abilities", "feature.conduit.level-1.3-piety-ability", "feature.conduit.level-1.5-piety-ability"]) {
       expect(CONDUIT_BASE_MECHANICS[id].choice).toBeUndefined();
       expect(CONDUIT_BASE_MECHANICS[id].notes).not.toContain("options: []");
     }
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.bozhestvo-i-domeny"].notes).toContain("Пара доменов");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.osobennost-domena-1-go-urovnya"].notes).toContain("выбранный домен");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.deity-and-domains"].notes).toContain("Пара доменов");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.1st-level-domain-feature"].notes).toContain("выбранный домен");
   });
 
   it("сохраняет точную семантику триггеров и не подменяет её событием врага", () => {
-    const reaction = CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-reaktsii"].trigger!;
+    const reaction = CONDUIT_BASE_MECHANICS["feature.conduit.level-1.quickness-ward"].trigger!;
     expect(reaction.event).toBe("take-damage");
     expect(reaction.detail).toContain("смежное существо");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-reaktsii"].notes).toContain("включает союзника");
-    const spirits = CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-dukhov"];
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.quickness-ward"].notes).toContain("включает союзника");
+    const spirits = CONDUIT_BASE_MECHANICS["feature.conduit.level-1.spirit-ward"];
     expect(spirits.trigger?.event).toBe("take-damage");
     expect(spirits.trigger?.detail).toContain("смежное существо");
     expect(spirits.notes).toContain("включает союзника");
     expect(spirits.notes).toContain("смежное существо");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-svyatilishcha"].trigger?.detail).toContain("другое существо");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.trigger-provodnika"].notes).toContain("Не сужать условие до вражеской цели");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.obereg-bastiona"].effects).toContainEqual(expect.objectContaining({ field: "save", value: 1 }));
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.istselyayushchaya-blagodat"].notes).toContain("ровно 1 Благочестие");
-    const healing = feature("conduit.feature.1.istselyayushchaya-blagodat").description;
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.sanctuary-ward"].trigger?.detail).toContain("другое существо");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.triggered-action"].notes).toContain("Не сужать условие до вражеской цели");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.bastion-ward"].effects).toContainEqual(expect.objectContaining({ field: "save", value: 1 }));
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.healing-grace"].notes).toContain("ровно 1 Благочестие");
+    const healing = feature("feature.conduit.level-1.healing-grace").description;
     expect(healing).toContain("Потратить 1+ Благочестия");
     expect(healing).toContain("За каждое потраченное благочестие выберите одно");
-    const judgmentBookText = feature("conduit.feature.1.trigger-provodnika").description;
+    const judgmentBookText = feature("feature.conduit.level-1.triggered-action").description;
     expect(judgmentBookText).toContain("должна была бы получить урон от способности, использующей бросок силы");
     expect(judgmentBookText).toContain("Бросок силы получает двойную помеху против цели");
-    expect(feature("conduit.feature.1.obereg-dukhov").description).toContain("смежное существо наносит вам урон");
+    expect(feature("feature.conduit.level-1.spirit-ward").description).toContain("смежное существо наносит вам урон");
   });
 
   it("проверяет выбор способностей Проводника через настоящий builder flow", () => {
@@ -182,8 +189,8 @@ describe("механики Проводника 1-го уровня", () => {
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, secondCost3.id, cost5.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, cost5.id, trigger.id, judgment.id] })[6]).toContain("Выберите один триггер проводника");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.znakovye-sposobnosti"].notes).toContain("ровно две");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-3-blagochestiya"].notes).toContain("стоимостью 3");
-    expect(CONDUIT_BASE_MECHANICS["conduit.feature.1.sposobnost-za-5-blagochestiya"].notes).toContain("стоимостью 5");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.signature-abilities"].notes).toContain("ровно две");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.3-piety-ability"].notes).toContain("стоимостью 3");
+    expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.5-piety-ability"].notes).toContain("стоимостью 5");
   });
 });

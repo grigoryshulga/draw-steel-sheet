@@ -23,6 +23,7 @@ import {
   walkJson,
   writeJsonText,
 } from "./lib/common.mjs";
+import { decorateRulesPack } from "./lib/originals.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -274,6 +275,8 @@ export function buildRules({
       ),
     });
   }
+
+  for (const pack of packs.values()) decorateRulesPack(pack);
 
   const manifestEntityMap = {};
   for (const entity of [...entities].sort((a, b) => compareStrings(a.id, b.id))) {

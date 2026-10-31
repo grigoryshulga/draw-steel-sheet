@@ -180,7 +180,10 @@
           "type": "entity",
           "ref": "ability.taktik-vot-k-chemu-my-gotovilis-c22b61720c"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level tactician, you gain the following features."
     },
     {
       "id": "0842",
@@ -277,7 +280,10 @@
           "type": "markdown",
           "text": "\n\n"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level tactician, you gain the following features."
     },
     {
       "id": "0843",
@@ -330,7 +336,10 @@
           "type": "markdown",
           "text": "\n\n"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level tactician, you gain the following features."
     },
     {
       "id": "0844",
@@ -363,7 +372,10 @@
           "type": "entity",
           "ref": "feature.tactician.feature.4.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level tactician, you gain the following features."
     },
     {
       "id": "0845",
@@ -436,7 +448,10 @@
           "type": "entity",
           "ref": "ability.taktik-v-tebe-esche-mnogo-sil-472f0d0b59"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level tactician, you gain the following features."
     },
     {
       "id": "0846",
@@ -517,7 +532,10 @@
           "type": "entity",
           "ref": "ability.taktik-otryad-ryvok-fe2a7a0ed9"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level tactician, you gain the following features."
     },
     {
       "id": "0847",
@@ -562,7 +580,10 @@
           "type": "entity",
           "ref": "feature.tactician.doctrine.7.shok-i-trepet"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level tactician, you gain the following features."
     },
     {
       "id": "0848",
@@ -627,7 +648,10 @@
           "type": "entity",
           "ref": "ability.taktik-ya-vskroyu-a-ty-zakroesh-dddee10d92"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level tactician, you gain the following features."
     },
     {
       "id": "0849",
@@ -704,7 +728,10 @@
           "type": "entity",
           "ref": "ability.taktik-ostavte-etogo-mne-4b48aac2bd"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level tactician, you gain the following features."
     },
     {
       "id": "0850",
@@ -741,7 +768,10 @@
           "type": "entity",
           "ref": "feature.tactician.feature.10.master-voyny"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level tactician, you gain the following features."
     }
   ],
   "entities": [
@@ -758,7 +788,7 @@
         "taktik-bey-seychas-30614f5038"
       ],
       "ability": {
-        "id": "taktik-bey-seychas-30614f5038",
+        "id": "feature.ability.tactician.level-1.strike-now",
         "name": "\"Бей Сейчас!\"",
         "flavor": "Твой враг оставил брешь. Вы указываете на это союзнику!",
         "actionType": "main",
@@ -792,8 +822,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/strike-now",
+        "originalName": "\"Strike Now!\"",
+        "originalDescription": "*Your foe left an opening. You point this out to an ally!*\n\n| **Ranged** | **Main action** |\n| ---------------------------------------|----------------:|\n| **📏 Ranged 10**  | **🎯 One ally** |\n\n**Effect:** The target can use a signature ability as a free triggered action.\n\n**Spend 5 Focus:** You target two allies instead of one.",
+        "legacyId": "taktik-bey-seychas-30614f5038"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/strike-now",
+      "originalName": "\"Strike Now!\"",
+      "originalDescription": "*Your foe left an opening. You point this out to an ally!*\n\n| **Ranged** | **Main action** |\n| ---------------------------------------|----------------:|\n| **📏 Ranged 10**  | **🎯 One ally** |\n\n**Effect:** The target can use a signature ability as a free triggered action.\n\n**Spend 5 Focus:** You target two allies instead of one."
     },
     {
       "id": "ability.taktik-bey-verno-7f54b6c8da",
@@ -808,7 +845,7 @@
         "taktik-bey-verno-7f54b6c8da"
       ],
       "ability": {
-        "id": "taktik-bey-verno-7f54b6c8da",
+        "id": "feature.ability.tactician.level-8.go-now-and-speed-well",
         "name": "Бей Верно",
         "flavor": "Вы направляете атаку так, чтобы она ударила точно в цель.",
         "actionType": "main",
@@ -842,8 +879,15 @@
         "className": "Тактик",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/go-now-and-speed-well",
+        "originalName": "Go Now and Speed Well",
+        "originalDescription": "*You direct an attack to strike true.*\n\n| **Ranged**       |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target gains 2 surges and can use a signature or heroic ability as a free triggered action. The ability has a double edge on the power roll, ignores damage immunity, and increases the potency of any potency effects by 1.",
+        "legacyId": "taktik-bey-verno-7f54b6c8da"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/go-now-and-speed-well",
+      "originalName": "Go Now and Speed Well",
+      "originalDescription": "*You direct an attack to strike true.*\n\n| **Ranged**       |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target gains 2 surges and can use a signature or heroic ability as a free triggered action. The ability has a double edge on the power roll, ignores damage immunity, and increases the potency of any potency effects by 1."
     },
     {
       "id": "ability.taktik-beyte-ih-silno-8e0149547d",
@@ -858,7 +902,7 @@
         "taktik-beyte-ih-silno-8e0149547d"
       ],
       "ability": {
-        "id": "taktik-beyte-ih-silno-8e0149547d",
+        "id": "feature.ability.tactician.level-3.hit-em-hard",
         "name": "Бейте Их Сильно!",
         "flavor": "Ваши союзники видят преимущества в атаке выбранных вами целей.",
         "actionType": "maneuver",
@@ -890,8 +934,15 @@
         "className": "Тактик",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/hit-em-hard",
+        "originalName": "Hit 'Em Hard!",
+        "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately.",
+        "legacyId": "taktik-beyte-ih-silno-8e0149547d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/hit-em-hard",
+      "originalName": "Hit 'Em Hard!",
+      "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately."
     },
     {
       "id": "ability.taktik-boevoy-klich-3d3557e939",
@@ -906,7 +957,7 @@
         "taktik-boevoy-klich-3d3557e939"
       ],
       "ability": {
-        "id": "taktik-boevoy-klich-3d3557e939",
+        "id": "feature.ability.tactician.level-1.battle-cry",
         "name": "Боевой Клич",
         "flavor": "Вы выкрикиваете фразу, которая воодушевляет вашу команду.",
         "actionType": "maneuver",
@@ -942,8 +993,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/battle-cry",
+        "originalName": "Battle Cry",
+        "originalDescription": "*You shout a phrase that galvanizes your team.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Each target gains 1 surge.\n- **12-16:** Each target gains 2 surges.\n- **17+:** Each target gains 3 surges.",
+        "legacyId": "taktik-boevoy-klich-3d3557e939"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/battle-cry",
+      "originalName": "Battle Cry",
+      "originalDescription": "*You shout a phrase that galvanizes your team.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Each target gains 1 surge.\n- **12-16:** Each target gains 2 surges.\n- **17+:** Each target gains 3 surges."
     },
     {
       "id": "ability.taktik-celi-po-vozmozhnosti-ccf93aaf4e",
@@ -958,7 +1016,7 @@
         "taktik-celi-po-vozmozhnosti-ccf93aaf4e"
       ],
       "ability": {
-        "id": "taktik-celi-po-vozmozhnosti-ccf93aaf4e",
+        "id": "feature.ability.tactician.level-2.targets-of-opportunity",
         "name": "Цели по Возможности",
         "flavor": "Вы указываете друзьям на легкие мишени, позволяя им включать в свои атаки больше врагов.",
         "actionType": "maneuver",
@@ -992,8 +1050,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/targets-of-opportunity",
+        "originalName": "Targets of Opportunity",
+        "originalDescription": "*You point out easy targets to your friends, allowing them to include more enemies in their attacks.*\n\n| **Ranged**      |         **Maneuver** |\n|-----------------|---------------------:|\n| **📏 Ranged 5** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and you gain two surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to add one additional target to the strike.",
+        "legacyId": "taktik-celi-po-vozmozhnosti-ccf93aaf4e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/targets-of-opportunity",
+      "originalName": "Targets of Opportunity",
+      "originalDescription": "*You point out easy targets to your friends, allowing them to include more enemies in their attacks.*\n\n| **Ranged**      |         **Maneuver** |\n|-----------------|---------------------:|\n| **📏 Ranged 5** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and you gain two surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to add one additional target to the strike."
     },
     {
       "id": "ability.taktik-derzhites-i-sosredotochtes-bf324ed8d9",
@@ -1008,7 +1073,7 @@
         "taktik-derzhites-i-sosredotochtes-bf324ed8d9"
       ],
       "ability": {
-        "id": "taktik-derzhites-i-sosredotochtes-bf324ed8d9",
+        "id": "feature.ability.tactician.level-3.stay-strong-and-focus",
         "name": "Держитесь и Сосредоточьтесь!",
         "flavor": "\"Мы можем это сделать! Сохраняйте веру и держитесь крепче!\"",
         "actionType": "maneuver",
@@ -1040,8 +1105,15 @@
         "className": "Тактик",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/stay-strong-and-focus",
+        "originalName": "Stay Strong and Focus!",
+        "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery.",
+        "legacyId": "taktik-derzhites-i-sosredotochtes-bf324ed8d9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/stay-strong-and-focus",
+      "originalName": "Stay Strong and Focus!",
+      "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery."
     },
     {
       "id": "ability.taktik-dvigaemsya-e3f45e7a87",
@@ -1056,7 +1128,7 @@
         "taktik-dvigaemsya-e3f45e7a87"
       ],
       "ability": {
-        "id": "taktik-dvigaemsya-e3f45e7a87",
+        "id": "feature.ability.tactician.level-6.hustle",
         "name": "Двигаемся!",
         "flavor": "Вы и ваши союзники координируетесь для формирования новой линии битвы.",
         "actionType": "maneuver",
@@ -1090,8 +1162,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/hustle",
+        "originalName": "Hustle!",
+        "originalDescription": "*You and your allies coordinate to form a new battle line.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 2 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** You mark two enemies within 10 squares of you. Each target can shift up to their speed. You and each target gain 2 surges.",
+        "legacyId": "taktik-dvigaemsya-e3f45e7a87"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/hustle",
+      "originalName": "Hustle!",
+      "originalDescription": "*You and your allies coordinate to form a new battle line.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 2 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** You mark two enemies within 10 squares of you. Each target can shift up to their speed. You and each target gain 2 surges."
     },
     {
       "id": "ability.taktik-igry-razuma-1e1d97ade5",
@@ -1106,7 +1185,7 @@
         "taktik-igry-razuma-1e1d97ade5"
       ],
       "ability": {
-        "id": "taktik-igry-razuma-1e1d97ade5",
+        "id": "feature.ability.tactician.level-1.mind-game",
         "name": "Игры Разума",
         "flavor": "Ваша атака деморализует вашего врага. Ваши союзники начинают думать, что вы можете победить.",
         "actionType": "main",
@@ -1145,8 +1224,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mind-game",
+        "originalName": "Mind Game",
+        "originalDescription": "*Your attack demoralizes your foe. Your allies begin to think you can win.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; R < WEAK, weakened (save ends)\n- **12-16:** 6 + M damage; R < AVERAGE, weakened (save ends)\n- **17+:** 10 + M damage; R < STRONG, weakened (save ends)\n\n**Effect:** Before the start of your next turn, the first time any ally deals damage to any target marked by you, that ally can spend a Recovery.",
+        "legacyId": "taktik-igry-razuma-1e1d97ade5"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mind-game",
+      "originalName": "Mind Game",
+      "originalDescription": "*Your attack demoralizes your foe. Your allies begin to think you can win.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; R < WEAK, weakened (save ends)\n- **12-16:** 6 + M damage; R < AVERAGE, weakened (save ends)\n- **17+:** 10 + M damage; R < STRONG, weakened (save ends)\n\n**Effect:** Before the start of your next turn, the first time any ally deals damage to any target marked by you, that ally can spend a Recovery."
     },
     {
       "id": "ability.taktik-ih-slabyy-fokus-ih-gibel-a605e6d2a1",
@@ -1161,7 +1247,7 @@
         "taktik-ih-slabyy-fokus-ih-gibel-a605e6d2a1"
       ],
       "ability": {
-        "id": "taktik-ih-slabyy-fokus-ih-gibel-a605e6d2a1",
+        "id": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing",
         "name": "Их Слабый Фокус — Их Гибель",
         "flavor": "Вы хитростью заставляете своих врагов атаковать друг друга и оставляете их в замешательстве от последствий.",
         "actionType": "main",
@@ -1199,8 +1285,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/their-lack-of-focus-is-their-undoing",
+        "originalName": "Their Lack of Focus Is Their Undoing",
+        "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)",
+        "legacyId": "taktik-ih-slabyy-fokus-ih-gibel-a605e6d2a1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/their-lack-of-focus-is-their-undoing",
+      "originalName": "Their Lack of Focus Is Their Undoing",
+      "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.taktik-kontrstrategiya-ec8144cc59",
@@ -1215,7 +1308,7 @@
         "taktik-kontrstrategiya-ec8144cc59"
       ],
       "ability": {
-        "id": "taktik-kontrstrategiya-ec8144cc59",
+        "id": "feature.ability.tactician.level-9.counterstrategy",
         "name": "Контрстратегия",
         "flavor": "Я определил способ свести на нет их сильные стороны.",
         "actionType": "main",
@@ -1247,8 +1340,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/counterstrategy",
+        "originalName": "Counterstrategy",
+        "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource.",
+        "legacyId": "taktik-kontrstrategiya-ec8144cc59"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/counterstrategy",
+      "originalName": "Counterstrategy",
+      "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource."
     },
     {
       "id": "ability.taktik-kontuzyaschiy-udar-8efa82c0ce",
@@ -1263,7 +1363,7 @@
         "taktik-kontuzyaschiy-udar-8efa82c0ce"
       ],
       "ability": {
-        "id": "taktik-kontuzyaschiy-udar-8efa82c0ce",
+        "id": "feature.ability.tactician.level-1.concussive-strike",
         "name": "Контузящий Удар",
         "flavor": "Ваш точный удар оставляет врага исключительно ошеломленным.",
         "actionType": "main",
@@ -1302,8 +1402,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/concussive-strike",
+        "originalName": "Concussive Strike",
+        "originalDescription": "*Your precise strike leaves your foe struggling to respond.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; M < WEAK, dazed (save ends)\n- **12-16:** 5 + M damage; M < AVERAGE, dazed (save ends)\n- **17+:** 8 + M damage; M < STRONG, dazed (save ends)",
+        "legacyId": "taktik-kontuzyaschiy-udar-8efa82c0ce"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/concussive-strike",
+      "originalName": "Concussive Strike",
+      "originalDescription": "*Your precise strike leaves your foe struggling to respond.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; M < WEAK, dazed (save ends)\n- **12-16:** 5 + M damage; M < AVERAGE, dazed (save ends)\n- **17+:** 8 + M damage; M < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.taktik-luchshe-poprobuy-menya-3f65b2e04d",
@@ -1318,7 +1425,7 @@
         "taktik-luchshe-poprobuy-menya-3f65b2e04d"
       ],
       "ability": {
-        "id": "taktik-luchshe-poprobuy-menya-3f65b2e04d",
+        "id": "feature.ability.tactician.level-2.try-me-instead",
         "name": "Лучше Попробуй Меня",
         "flavor": "\"Попробуй придраться к кому-нибудь моего размера.\"",
         "actionType": "main",
@@ -1356,8 +1463,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/try-me-instead",
+        "originalName": "Try Me Instead",
+        "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)",
+        "legacyId": "taktik-luchshe-poprobuy-menya-3f65b2e04d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/try-me-instead",
+      "originalName": "Try Me Instead",
+      "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)"
     },
     {
       "id": "ability.taktik-metka-2387737b30",
@@ -1372,7 +1486,7 @@
         "taktik-metka-2387737b30"
       ],
       "ability": {
-        "id": "taktik-metka-2387737b30",
+        "id": "feature.ability.tactician.level-1.mark",
         "name": "Метка",
         "flavor": "Вы привлекаете внимание союзников к конкретному врагу — с разрушительным эффектом.",
         "actionType": "maneuver",
@@ -1406,8 +1520,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mark",
+        "originalName": "Mark",
+        "originalDescription": "*You draw your allies' attention to a specific foe—with devastating effect.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** The target is marked by you until the end of the encounter, until you are dying, or until you use this ability again. You can willingly end your mark on a creature (no action required), and if another tactician marks a creature, your mark on that creature ends. When a creature marked by you is reduced to 0 Stamina, you can use a free triggered action to mark a new target within distance.\n\nYou can initially mark only one creature using this ability, though other tactician abilities allow you to mark additional creatures at the same time. The mastermind tactical doctrine's Anticipation feature allows you to target additional creatures with this ability starting at 5th level.\n\nWhile a creature marked by you is within your line of effect, you and allies within your line of effect gain an edge on power rolls made against that creature. Additionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 focus to gain one of the following benefits as a free triggered action:\n\n- The ability deals extra damage equal to twice your Reason score.\n- The creature dealing the damage can spend a Recovery.\n- The creature dealing the damage can shift up to a number of squares equal to your Reason score.\n- If you damage a creature marked by you with a melee ability, the creature is taunted by you until the end of their next turn.\n\nYou can't gain more than one benefit from the same trigger.",
+        "legacyId": "taktik-metka-2387737b30"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mark",
+      "originalName": "Mark",
+      "originalDescription": "*You draw your allies' attention to a specific foe—with devastating effect.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** The target is marked by you until the end of the encounter, until you are dying, or until you use this ability again. You can willingly end your mark on a creature (no action required), and if another tactician marks a creature, your mark on that creature ends. When a creature marked by you is reduced to 0 Stamina, you can use a free triggered action to mark a new target within distance.\n\nYou can initially mark only one creature using this ability, though other tactician abilities allow you to mark additional creatures at the same time. The mastermind tactical doctrine's Anticipation feature allows you to target additional creatures with this ability starting at 5th level.\n\nWhile a creature marked by you is within your line of effect, you and allies within your line of effect gain an edge on power rolls made against that creature. Additionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 focus to gain one of the following benefits as a free triggered action:\n\n- The ability deals extra damage equal to twice your Reason score.\n- The creature dealing the damage can spend a Recovery.\n- The creature dealing the damage can shift up to a number of squares equal to your Reason score.\n- If you damage a creature marked by you with a melee ability, the creature is taunted by you until the end of their next turn.\n\nYou can't gain more than one benefit from the same trigger."
     },
     {
       "id": "ability.taktik-mgnovennoe-vozmezdie-bcbf5cc792",
@@ -1422,7 +1543,7 @@
         "taktik-mgnovennoe-vozmezdie-bcbf5cc792"
       ],
       "ability": {
-        "id": "taktik-mgnovennoe-vozmezdie-bcbf5cc792",
+        "id": "feature.ability.tactician.level-6.instant-retaliation",
         "name": "Мгновенное Возмездие",
         "flavor": "Вы парируете с почти сверхъестественной скоростью.",
         "actionType": "free-trigger",
@@ -1459,8 +1580,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/instant-retaliation",
+        "originalName": "Instant Retaliation",
+        "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)",
+        "legacyId": "taktik-mgnovennoe-vozmezdie-bcbf5cc792"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/instant-retaliation",
+      "originalName": "Instant Retaliation",
+      "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.taktik-molot-i-nakovalnya-3dc8df2ff4",
@@ -1475,7 +1603,7 @@
         "taktik-molot-i-nakovalnya-3dc8df2ff4"
       ],
       "ability": {
-        "id": "taktik-molot-i-nakovalnya-3dc8df2ff4",
+        "id": "feature.ability.tactician.level-1.hammer-and-anvil",
         "name": "Молот и Наковальня",
         "flavor": "\"Давайте не будем спорить о том, кто молот, а кто наковальня!\"",
         "actionType": "main",
@@ -1514,8 +1642,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/hammer-and-anvil",
+        "originalName": "Hammer and Anvil",
+        "originalDescription": "*\"Let's not argue about who's the hammer and who's the anvil!\"*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; one ally within 10 squares of you can use a strike signature ability against the target as a free triggered action\n- **12-16:** 9 + M damage; one ally within 10 squares of you can use a strike signature ability that gains an edge against the target as a free triggered action\n- **17+:** 12 + M damage; two allies within 10 squares of you can each use a strike signature ability that gains an edge against the target as a free triggered action\n\n**Effect:** If the target is reduced to 0 Stamina before one or both chosen allies has made their strike, the ally or allies can pick a different target.",
+        "legacyId": "taktik-molot-i-nakovalnya-3dc8df2ff4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/hammer-and-anvil",
+      "originalName": "Hammer and Anvil",
+      "originalDescription": "*\"Let's not argue about who's the hammer and who's the anvil!\"*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; one ally within 10 squares of you can use a strike signature ability against the target as a free triggered action\n- **12-16:** 9 + M damage; one ally within 10 squares of you can use a strike signature ability that gains an edge against the target as a free triggered action\n- **17+:** 12 + M damage; two allies within 10 squares of you can each use a strike signature ability that gains an edge against the target as a free triggered action\n\n**Effect:** If the target is reduced to 0 Stamina before one or both chosen allies has made their strike, the ally or allies can pick a different target."
     },
     {
       "id": "ability.taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f",
@@ -1530,7 +1665,7 @@
         "taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f"
       ],
       "ability": {
-        "id": "taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f",
+        "id": "feature.ability.tactician.level-2.no-dying-on-my-watch",
         "name": "Никаких Смертей в Мою Смену",
         "flavor": "Вы отдаете приоритет спасению союзника, а не собственной безопасности.",
         "actionType": "trigger",
@@ -1568,8 +1703,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/no-dying-on-my-watch",
+        "originalName": "No Dying on My Watch",
+        "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)",
+        "legacyId": "taktik-nikakih-smertey-v-moyu-smenu-fe77d0a52f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/no-dying-on-my-watch",
+      "originalName": "No Dying on My Watch",
+      "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)"
     },
     {
       "id": "ability.taktik-oderzhim-zhe-pobedu-segodnya-733f23ec71",
@@ -1584,7 +1726,7 @@
         "taktik-oderzhim-zhe-pobedu-segodnya-733f23ec71"
       ],
       "ability": {
-        "id": "taktik-oderzhim-zhe-pobedu-segodnya-733f23ec71",
+        "id": "feature.ability.tactician.level-5.win-this-day",
         "name": "Одержим Же Победу Сегодня!",
         "flavor": "Вы вдохновляете своих союзников восстановиться и собрать свои силы.",
         "actionType": "main",
@@ -1618,8 +1760,15 @@
         "className": "Тактик",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/win-this-day",
+        "originalName": "Win This Day!",
+        "originalDescription": "*You inspire your allies to recover and gather their strength.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 2 surges. Additionally, they can spend a Recovery, remove any conditions or effects on them, and stand up if they are prone.",
+        "legacyId": "taktik-oderzhim-zhe-pobedu-segodnya-733f23ec71"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/win-this-day",
+      "originalName": "Win This Day!",
+      "originalDescription": "*You inspire your allies to recover and gather their strength.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 2 surges. Additionally, they can spend a Recovery, remove any conditions or effects on them, and stand up if they are prone."
     },
     {
       "id": "ability.taktik-ostavte-etogo-mne-4b48aac2bd",
@@ -1634,7 +1783,7 @@
         "taktik-ostavte-etogo-mne-4b48aac2bd"
       ],
       "ability": {
-        "id": "taktik-ostavte-etogo-mne-4b48aac2bd",
+        "id": "feature.ability.tactician.level-9.that-one-is-mine",
         "name": "Оставьте Этого Мне!",
         "flavor": "Вы сосредотачиваетесь на том, чтобы сделать врага нерелевантным.",
         "actionType": "main",
@@ -1673,8 +1822,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/that-one-is-mine",
+        "originalName": "That One Is Mine!",
+        "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you.",
+        "legacyId": "taktik-ostavte-etogo-mne-4b48aac2bd"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/that-one-is-mine",
+      "originalName": "That One Is Mine!",
+      "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you."
     },
     {
       "id": "ability.taktik-otryad-bey-i-begi-10c75488f4",
@@ -1689,7 +1845,7 @@
         "taktik-otryad-bey-i-begi-10c75488f4"
       ],
       "ability": {
-        "id": "taktik-otryad-bey-i-begi-10c75488f4",
+        "id": "feature.ability.tactician.level-9.squad-hit-and-run",
         "name": "Отряд! Бей и Беги!",
         "flavor": "Мне пришлось выведать этот секрет у коллегий теней.",
         "actionType": "main",
@@ -1723,8 +1879,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/squad-hit-and-run",
+        "originalName": "Squad! Hit and Run!",
+        "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed.",
+        "legacyId": "taktik-otryad-bey-i-begi-10c75488f4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/squad-hit-and-run",
+      "originalName": "Squad! Hit and Run!",
+      "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed."
     },
     {
       "id": "ability.taktik-otryad-ko-mne-e20a3a2acc",
@@ -1739,7 +1902,7 @@
         "taktik-otryad-ko-mne-e20a3a2acc"
       ],
       "ability": {
-        "id": "taktik-otryad-ko-mne-e20a3a2acc",
+        "id": "feature.ability.tactician.level-2.squad-on-me",
         "name": "Отряд! Ко мне!",
         "flavor": "Вместе мы непобедимы!",
         "actionType": "maneuver",
@@ -1773,8 +1936,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/squad-on-me",
+        "originalName": "Squad! On Me!",
+        "originalDescription": "*Together we are invincible!*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the start of your next turn, each target has a bonus to stability equal to your Might score. Additionally, each target gains 2 surges.",
+        "legacyId": "taktik-otryad-ko-mne-e20a3a2acc"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/squad-on-me",
+      "originalName": "Squad! On Me!",
+      "originalDescription": "*Together we are invincible!*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the start of your next turn, each target has a bonus to stability equal to your Might score. Additionally, each target gains 2 surges."
     },
     {
       "id": "ability.taktik-otryad-pomnite-svoi-trenirovki-d6ee7d0ff7",
@@ -1789,7 +1959,7 @@
         "taktik-otryad-pomnite-svoi-trenirovki-d6ee7d0ff7"
       ],
       "ability": {
-        "id": "taktik-otryad-pomnite-svoi-trenirovki-d6ee7d0ff7",
+        "id": "feature.ability.tactician.level-5.squad-remember-your-training",
         "name": "Отряд! Помните Свои Тренировки!",
         "flavor": "Вы напоминаете своим союзникам, как лучше всего использовать их снаряжение.",
         "actionType": "main",
@@ -1823,8 +1993,15 @@
         "className": "Тактик",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-remember-your-training",
+        "originalName": "Squad! Remember Your Training!",
+        "originalDescription": "*You remind your allies how to best use their gear.*\n\n| **Ranged**                |                         **Main action** |\n|------------------------------|----------------------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability that has a double edge.",
+        "legacyId": "taktik-otryad-pomnite-svoi-trenirovki-d6ee7d0ff7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-remember-your-training",
+      "originalName": "Squad! Remember Your Training!",
+      "originalDescription": "*You remind your allies how to best use their gear.*\n\n| **Ranged**                |                         **Main action** |\n|------------------------------|----------------------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability that has a double edge."
     },
     {
       "id": "ability.taktik-otryad-proverka-snaryazheniya-8626f7e907",
@@ -1839,7 +2016,7 @@
         "taktik-otryad-proverka-snaryazheniya-8626f7e907"
       ],
       "ability": {
-        "id": "taktik-otryad-proverka-snaryazheniya-8626f7e907",
+        "id": "feature.ability.tactician.level-5.squad-gear-check",
         "name": "Отряд! Проверка Снаряжения!",
         "flavor": "Вы отвлекаете врага, пока ваши союзники закрепляют свое защитное снаряжение.",
         "actionType": "main",
@@ -1877,8 +2054,15 @@
         "className": "Тактик",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-gear-check",
+        "originalName": "Squad! Gear Check!",
+        "originalDescription": "*You distract a foe while your allies secure their defensive gear.*\n\n| **Melee, Strike, Weapon** | **Main action**     |\n|---------------------------|---------------------|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 18 + M damage\n\n**Effect:** You and each ally adjacent to the target gain 10 temporary Stamina.",
+        "legacyId": "taktik-otryad-proverka-snaryazheniya-8626f7e907"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-gear-check",
+      "originalName": "Squad! Gear Check!",
+      "originalDescription": "*You distract a foe while your allies secure their defensive gear.*\n\n| **Melee, Strike, Weapon** | **Main action**     |\n|---------------------------|---------------------|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 18 + M damage\n\n**Effect:** You and each ally adjacent to the target gain 10 temporary Stamina."
     },
     {
       "id": "ability.taktik-otryad-ryvok-fe2a7a0ed9",
@@ -1893,7 +2077,7 @@
         "taktik-otryad-ryvok-fe2a7a0ed9"
       ],
       "ability": {
-        "id": "taktik-otryad-ryvok-fe2a7a0ed9",
+        "id": "feature.ability.tactician.level-6.to-me-squad",
         "name": "Отряд! Рывок!",
         "flavor": "Вы ведете своих союзников в рывок.",
         "actionType": "main",
@@ -1932,8 +2116,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/to-me-squad",
+        "originalName": "To Me Squad!",
+        "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target.",
+        "legacyId": "taktik-otryad-ryvok-fe2a7a0ed9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/to-me-squad",
+      "originalName": "To Me Squad!",
+      "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target."
     },
     {
       "id": "ability.taktik-otryad-vpered-e3141713e8",
@@ -1948,7 +2139,7 @@
         "taktik-otryad-vpered-e3141713e8"
       ],
       "ability": {
-        "id": "taktik-otryad-vpered-e3141713e8",
+        "id": "feature.ability.tactician.level-1.squad-forward",
         "name": "Отряд! Вперед!",
         "flavor": "По вашей команде вы и ваши союзники оттесняете вражескую линию.",
         "actionType": "maneuver",
@@ -1982,8 +2173,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/squad-forward",
+        "originalName": "Squad! Forward!",
+        "originalDescription": "*On your command, you and your allies force back the enemy line.*\n\n| **Ranged**       |               **Maneuver** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target can move up to their speed.",
+        "legacyId": "taktik-otryad-vpered-e3141713e8"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/squad-forward",
+      "originalName": "Squad! Forward!",
+      "originalDescription": "*On your command, you and your allies force back the enemy line.*\n\n| **Ranged**       |               **Maneuver** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target can move up to their speed."
     },
     {
       "id": "ability.taktik-panika-v-ih-ryadah-af8d1a2ae6",
@@ -1998,7 +2196,7 @@
         "taktik-panika-v-ih-ryadah-af8d1a2ae6"
       ],
       "ability": {
-        "id": "taktik-panika-v-ih-ryadah-af8d1a2ae6",
+        "id": "feature.ability.tactician.level-6.panic-in-their-lines",
         "name": "Паника в Их Рядах",
         "flavor": "Вы сбиваете своих врагов с толку, заставляя их ополчиться друг на друга.",
         "actionType": "main",
@@ -2037,8 +2235,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/panic-in-their-lines",
+        "originalName": "Panic in Their Lines",
+        "originalDescription": "*You confuse your foes, causing them to turn on each other.*\n\n| **Melee, Ranged, Strike, Weapon** |      **Main action** |\n|-----------------------------------|---------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; slide 1\n- **12-16:** 9 + M damage; slide 3\n- **17+:** 13 + M damage; slide 5\n\n**Effect:** If a target is force moved into another creature, they must make a free strike against that creature.",
+        "legacyId": "taktik-panika-v-ih-ryadah-af8d1a2ae6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/panic-in-their-lines",
+      "originalName": "Panic in Their Lines",
+      "originalDescription": "*You confuse your foes, causing them to turn on each other.*\n\n| **Melee, Ranged, Strike, Weapon** |      **Main action** |\n|-----------------------------------|---------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; slide 1\n- **12-16:** 9 + M damage; slide 3\n- **17+:** 13 + M damage; slide 5\n\n**Effect:** If a target is force moved into another creature, they must make a free strike against that creature."
     },
     {
       "id": "ability.taktik-parirovanie-a7266461a7",
@@ -2054,7 +2259,7 @@
         "tactician.doctrine.1.parirovanie"
       ],
       "ability": {
-        "id": "taktik-parirovanie-a7266461a7",
+        "id": "feature.ability.tactician.level-1.parry",
         "name": "Парирование",
         "flavor": "Ваши быстрые рефлексы лишают врага той точности, к которой он стремится.",
         "actionType": "trigger",
@@ -2089,8 +2294,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/parry",
+        "originalName": "Parry",
+        "originalDescription": "*Your quick reflexes cost an enemy the precision they seek.*\n\n| **Melee, Weapon** |            **Triggered** |\n|-------------------|-------------------------:|\n| **📏 Melee 2**    |  **🎯 Self or one ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** You can shift 1 square. If the target is you, or if you end this shift adjacent to the target, the target takes half the damage. If the damage has any potency effect associated with it, the potency is decreased by 1.\n\n**Spend 1 Focus:** This ability's distance becomes Melee 1 + your Reason score, and you can shift up to a number of squares equal to your Reason score instead of 1 square.",
+        "legacyId": "taktik-parirovanie-a7266461a7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/parry",
+      "originalName": "Parry",
+      "originalDescription": "*Your quick reflexes cost an enemy the precision they seek.*\n\n| **Melee, Weapon** |            **Triggered** |\n|-------------------|-------------------------:|\n| **📏 Melee 2**    |  **🎯 Self or one ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** You can shift 1 square. If the target is you, or if you end this shift adjacent to the target, the target takes half the damage. If the damage has any potency effect associated with it, the potency is decreased by 1.\n\n**Spend 1 Focus:** This ability's distance becomes Melee 1 + your Reason score, and you can shift up to a number of squares equal to your Reason score instead of 1 square."
     },
     {
       "id": "ability.taktik-plan-bitvy-c1cf94fb22",
@@ -2105,7 +2317,7 @@
         "taktik-plan-bitvy-c1cf94fb22"
       ],
       "ability": {
-        "id": "taktik-plan-bitvy-c1cf94fb22",
+        "id": "feature.ability.tactician.level-6.battle-plan",
         "name": "План Битвы",
         "flavor": "Благодаря новому пониманию ваших врагов, вы создаете идеальный план для победы в битве.",
         "actionType": "maneuver",
@@ -2139,8 +2351,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/battle-plan",
+        "originalName": "Battle Plan",
+        "originalDescription": "*With new understanding of your foes, you create the perfect plan to win the battle.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** Each target is marked by you. Immediately and until the end of the encounter, the Director tells you if any creatures marked by you have damage immunity or weakness and the value of that immunity or weakness. Additionally, you and each ally within 3 squares of you gains 2 surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to make the strike ignore damage immunity and deal extra damage equal to three times your Reason score.",
+        "legacyId": "taktik-plan-bitvy-c1cf94fb22"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/battle-plan",
+      "originalName": "Battle Plan",
+      "originalDescription": "*With new understanding of your foes, you create the perfect plan to win the battle.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** Each target is marked by you. Immediately and until the end of the encounter, the Director tells you if any creatures marked by you have damage immunity or weakness and the value of that immunity or weakness. Additionally, you and each ally within 3 squares of you gains 2 surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to make the strike ignore damage immunity and deal extra damage equal to three times your Reason score."
     },
     {
       "id": "ability.taktik-prikonchi-ih-d962180141",
@@ -2155,7 +2374,7 @@
         "taktik-prikonchi-ih-d962180141"
       ],
       "ability": {
-        "id": "taktik-prikonchi-ih-d962180141",
+        "id": "feature.ability.tactician.level-8.finish-them",
         "name": "Прикончи Их!",
         "flavor": "Вы указываете союзнику на брешь, чтобы он мог нанести смертельный удар.",
         "actionType": "free-trigger",
@@ -2189,8 +2408,15 @@
         "className": "Тактик",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/finish-them",
+        "originalName": "Finish Them!",
+        "originalDescription": "*You point out an opening to your ally so they can land a killing blow.*\n\n| **Ranged**       |  **Free triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target is not a leader or solo creature, and becomes winded.\n\n**Effect:** The target is killed. Additionally, the creature who caused the target to be winded can spend a Recovery.",
+        "legacyId": "taktik-prikonchi-ih-d962180141"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/finish-them",
+      "originalName": "Finish Them!",
+      "originalDescription": "*You point out an opening to your ally so they can land a killing blow.*\n\n| **Ranged**       |  **Free triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target is not a leader or solo creature, and becomes winded.\n\n**Effect:** The target is killed. Additionally, the creature who caused the target to be winded can spend a Recovery."
     },
     {
       "id": "ability.taktik-prikrytie-39c2fb0e04",
@@ -2206,7 +2432,7 @@
         "tactician.doctrine.1.prikrytie"
       ],
       "ability": {
-        "id": "taktik-prikrytie-39c2fb0e04",
+        "id": "feature.ability.tactician.level-1.overwatch",
         "name": "Прикрытие",
         "flavor": "Под вашим руководством союзник ждет подходящего момента для удара.",
         "actionType": "trigger",
@@ -2240,8 +2466,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/overwatch",
+        "originalName": "Overwatch",
+        "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT).",
+        "legacyId": "taktik-prikrytie-39c2fb0e04"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/overwatch",
+      "originalName": "Overwatch",
+      "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT)."
     },
     {
       "id": "ability.taktik-prodvinutaya-taktika-8c1546406c",
@@ -2257,7 +2490,7 @@
         "tactician.doctrine.1.prodvinutaya-taktika"
       ],
       "ability": {
-        "id": "taktik-prodvinutaya-taktika-8c1546406c",
+        "id": "feature.ability.tactician.level-1.advanced-tactics",
         "name": "Продвинутая Тактика",
         "flavor": "Ваше лидерство помогает союзнику.",
         "actionType": "trigger",
@@ -2291,8 +2524,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/advanced-tactics",
+        "originalName": "Advanced Tactics",
+        "originalDescription": "*Your leadership aids an ally.*\n\n| **Ranged**       |   **Triggered** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Trigger:** The target deals damage to another creature.\n\n**Effect:** The target gains 2 surges, which they can use on the triggering damage.\n\n**Spend 1 Focus:** If the damage has any potency effect associated with it, the potency is increased by 1.",
+        "legacyId": "taktik-prodvinutaya-taktika-8c1546406c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/advanced-tactics",
+      "originalName": "Advanced Tactics",
+      "originalDescription": "*Your leadership aids an ally.*\n\n| **Ranged**       |   **Triggered** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Trigger:** The target deals damage to another creature.\n\n**Effect:** The target gains 2 surges, which they can use on the triggering damage.\n\n**Spend 1 Focus:** If the damage has any potency effect associated with it, the potency is increased by 1."
     },
     {
       "id": "ability.taktik-razgrom-fbfe516f06",
@@ -2307,7 +2547,7 @@
         "taktik-razgrom-fbfe516f06"
       ],
       "ability": {
-        "id": "taktik-razgrom-fbfe516f06",
+        "id": "feature.ability.tactician.level-3.rout",
         "name": "Разгром",
         "flavor": "Ситуация начинает меняться.",
         "actionType": "maneuver",
@@ -2339,8 +2579,15 @@
         "className": "Тактик",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/rout",
+        "originalName": "Rout",
+        "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends).",
+        "legacyId": "taktik-razgrom-fbfe516f06"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/rout",
+      "originalName": "Rout",
+      "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends)."
     },
     {
       "id": "ability.taktik-shturm-s-fronta-287dd05fa9",
@@ -2355,7 +2602,7 @@
         "taktik-shturm-s-fronta-287dd05fa9"
       ],
       "ability": {
-        "id": "taktik-shturm-s-fronta-287dd05fa9",
+        "id": "feature.ability.tactician.level-3.frontal-assault",
         "name": "Штурм с Фронта",
         "flavor": "Цель атаки с рывком — сломить их моральный дух и заставить отступить.",
         "actionType": "maneuver",
@@ -2387,8 +2634,15 @@
         "className": "Тактик",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/frontal-assault",
+        "originalName": "Frontal Assault",
+        "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike.",
+        "legacyId": "taktik-shturm-s-fronta-287dd05fa9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/frontal-assault",
+      "originalName": "Frontal Assault",
+      "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike."
     },
     {
       "id": "ability.taktik-skoordinirovannaya-kazn-0d920c759c",
@@ -2403,7 +2657,7 @@
         "taktik-skoordinirovannaya-kazn-0d920c759c"
       ],
       "ability": {
-        "id": "taktik-skoordinirovannaya-kazn-0d920c759c",
+        "id": "feature.ability.tactician.level-6.coordinated-execution",
         "name": "Скоординированная Казнь",
         "flavor": "Вы направляете своего союзника нанести смертельный удар.",
         "actionType": "free-trigger",
@@ -2437,8 +2691,15 @@
         "className": "Тактик",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/coordinated-execution",
+        "originalName": "Coordinated Execution",
+        "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome.",
+        "legacyId": "taktik-skoordinirovannaya-kazn-0d920c759c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/coordinated-execution",
+      "originalName": "Coordinated Execution",
+      "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome."
     },
     {
       "id": "ability.taktik-spaseniya-net-6aac604ec5",
@@ -2453,7 +2714,7 @@
         "taktik-spaseniya-net-6aac604ec5"
       ],
       "ability": {
-        "id": "taktik-spaseniya-net-6aac604ec5",
+        "id": "feature.ability.tactician.level-9.no-escape",
         "name": "Спасения Нет",
         "flavor": "Ничто не остановит вас на пути к вашему врагу.",
         "actionType": "main",
@@ -2492,8 +2753,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+        "originalName": "No Escape",
+        "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge.",
+        "legacyId": "taktik-spaseniya-net-6aac604ec5"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+      "originalName": "No Escape",
+      "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
     },
     {
       "id": "ability.taktik-tuman-voyny-6eeccb85f7",
@@ -2508,7 +2776,7 @@
         "taktik-tuman-voyny-6eeccb85f7"
       ],
       "ability": {
-        "id": "taktik-tuman-voyny-6eeccb85f7",
+        "id": "feature.ability.tactician.level-2.fog-of-war",
         "name": "Туман Войны",
         "flavor": "Ваша неортодоксальная стратегия заставляет врагов бить в страхе, не обращая внимания на то, на кого они могут напасть.",
         "actionType": "maneuver",
@@ -2542,8 +2810,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/fog-of-war",
+        "originalName": "Fog of War",
+        "originalDescription": "*Your unorthodox strategy causes enemies to lash out in fear, heedless of who they might be attacking.*\n\n| **Ranged**       |         **Maneuver** |\n|------------------|---------------------:|\n| **📏 Ranged 10** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and must immediately make a free strike against a creature of your choice within 5 squares of them.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to force that target to make a free strike against a creature of your choice within 5 squares of them.",
+        "legacyId": "taktik-tuman-voyny-6eeccb85f7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/fog-of-war",
+      "originalName": "Fog of War",
+      "originalDescription": "*Your unorthodox strategy causes enemies to lash out in fear, heedless of who they might be attacking.*\n\n| **Ranged**       |         **Maneuver** |\n|------------------|---------------------:|\n| **📏 Ranged 10** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and must immediately make a free strike against a creature of your choice within 5 squares of them.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to force that target to make a free strike against a creature of your choice within 5 squares of them."
     },
     {
       "id": "ability.taktik-v-ataku-e90ab51579",
@@ -2558,7 +2833,7 @@
         "taktik-v-ataku-e90ab51579"
       ],
       "ability": {
-        "id": "taktik-v-ataku-e90ab51579",
+        "id": "feature.ability.tactician.level-1.now",
         "name": "В Атаку!",
         "flavor": "Ваши союзники ждут вашей команды — а затем обрушивают смерть!",
         "actionType": "maneuver",
@@ -2592,8 +2867,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/now",
+        "originalName": "Now!",
+        "originalDescription": "*Your allies wait for your command—then unleash death!*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target can make a free strike.",
+        "legacyId": "taktik-v-ataku-e90ab51579"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/now",
+      "originalName": "Now!",
+      "originalDescription": "*Your allies wait for your command—then unleash death!*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target can make a free strike."
     },
     {
       "id": "ability.taktik-v-tebe-esche-mnogo-sil-472f0d0b59",
@@ -2608,7 +2890,7 @@
         "taktik-v-tebe-esche-mnogo-sil-472f0d0b59"
       ],
       "ability": {
-        "id": "taktik-v-tebe-esche-mnogo-sil-472f0d0b59",
+        "id": "feature.ability.tactician.level-5.youve-still-got-something-left",
         "name": "В Тебе Еще Много Сил",
         "flavor": "Вы подталкиваете союзника использовать героическую способность раньше, чем он бы это сделал в противном случае.",
         "actionType": "main",
@@ -2642,8 +2924,15 @@
         "className": "Тактик",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/youve-still-got-something-left",
+        "originalName": "You've Still Got Something Left",
+        "originalDescription": "*You push an ally to use a heroic ability sooner than they otherwise would.*\n\n| **Ranged**       | **Main action** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Effect:** The target uses a heroic ability with the Strike keyword as a free triggered action, and deals extra damage with that ability equal to your Reason score. The ability has its Heroic Resource cost reduced by 1 + your Reason score (minimum cost 0).",
+        "legacyId": "taktik-v-tebe-esche-mnogo-sil-472f0d0b59"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/youve-still-got-something-left",
+      "originalName": "You've Still Got Something Left",
+      "originalDescription": "*You push an ally to use a heroic ability sooner than they otherwise would.*\n\n| **Ranged**       | **Main action** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Effect:** The target uses a heroic ability with the Strike keyword as a free triggered action, and deals extra damage with that ability equal to your Reason score. The ability has its Heroic Resource cost reduced by 1 + your Reason score (minimum cost 0)."
     },
     {
       "id": "ability.taktik-vdohnovlyayuschiy-udar-2be052a65e",
@@ -2658,7 +2947,7 @@
         "taktik-vdohnovlyayuschiy-udar-2be052a65e"
       ],
       "ability": {
-        "id": "taktik-vdohnovlyayuschiy-udar-2be052a65e",
+        "id": "feature.ability.tactician.level-1.inspiring-strike",
         "name": "Вдохновляющий Удар",
         "flavor": "Ваша атака дарит союзнику надежду.",
         "actionType": "main",
@@ -2697,8 +2986,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/inspiring-strike",
+        "originalName": "Inspiring Strike",
+        "originalDescription": "*Your attack gives an ally hope.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **12-16:** 5 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **17+:** 8 + M damage; you and one ally within 10 squares of you can spend a Recovery, and each of you gains an edge on the next ability roll you make during the encounter",
+        "legacyId": "taktik-vdohnovlyayuschiy-udar-2be052a65e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/inspiring-strike",
+      "originalName": "Inspiring Strike",
+      "originalDescription": "*Your attack gives an ally hope.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **12-16:** 5 + M damage; you or one ally within 10 squares of you can spend a Recovery\n- **17+:** 8 + M damage; you and one ally within 10 squares of you can spend a Recovery, and each of you gains an edge on the next ability roll you make during the encounter"
     },
     {
       "id": "ability.taktik-vot-k-chemu-my-gotovilis-c22b61720c",
@@ -2713,7 +3009,7 @@
         "taktik-vot-k-chemu-my-gotovilis-c22b61720c"
       ],
       "ability": {
-        "id": "taktik-vot-k-chemu-my-gotovilis-c22b61720c",
+        "id": "feature.ability.tactician.level-1.this-is-what-we-planned-for",
         "name": "Вот К Чему Мы Готовились",
         "flavor": "Все эти тренировки по координации, которые вы заставляли их делать, наконец-то окупаются.",
         "actionType": "maneuver",
@@ -2747,8 +3043,15 @@
         "className": "Тактик",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/this-is-what-we-planned-for",
+        "originalName": "This Is What We Planned For",
+        "originalDescription": "*All those coordination drills you made them do finally pay off.*\n\n| **Ranged**       |      **Maneuver** |\n|------------------|------------------:|\n| **📏 Ranged 10** | **🎯 Two allies** |\n\n**Effect:** Each target who hasn't acted yet this combat round can take their turn in any order immediately after yours.",
+        "legacyId": "taktik-vot-k-chemu-my-gotovilis-c22b61720c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/this-is-what-we-planned-for",
+      "originalName": "This Is What We Planned For",
+      "originalDescription": "*All those coordination drills you made them do finally pay off.*\n\n| **Ranged**       |      **Maneuver** |\n|------------------|------------------:|\n| **📏 Ranged 10** | **🎯 Two allies** |\n\n**Effect:** Each target who hasn't acted yet this combat round can take their turn in any order immediately after yours."
     },
     {
       "id": "ability.taktik-vrata-otkryty-794080c258",
@@ -2763,7 +3066,7 @@
         "taktik-vrata-otkryty-794080c258"
       ],
       "ability": {
-        "id": "taktik-vrata-otkryty-794080c258",
+        "id": "feature.ability.tactician.level-8.floodgates-open",
         "name": "Врата Открыты",
         "flavor": "Вы приказываете своему отряду атаковать в унисон и с разрушительным эффектом.",
         "actionType": "main",
@@ -2797,8 +3100,15 @@
         "className": "Тактик",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/floodgates-open",
+        "originalName": "Floodgates Open",
+        "originalDescription": "*You direct your squad to strike in unison and with devastating effect.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability as a free triggered action. That ability gains an edge on the power roll and increases the potency of any potency effects by 1.",
+        "legacyId": "taktik-vrata-otkryty-794080c258"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/floodgates-open",
+      "originalName": "Floodgates Open",
+      "originalDescription": "*You direct your squad to strike in unison and with devastating effect.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability as a free triggered action. That ability gains an edge on the power roll and increases the potency of any potency effects by 1."
     },
     {
       "id": "ability.taktik-ya-prikroyu-1ce63782e2",
@@ -2813,7 +3123,7 @@
         "taktik-ya-prikroyu-1ce63782e2"
       ],
       "ability": {
-        "id": "taktik-ya-prikroyu-1ce63782e2",
+        "id": "feature.ability.tactician.level-2.ive-got-your-back",
         "name": "Я Прикрою",
         "flavor": "Твой враг дважды подумает, прежде чем атаковать твоего друга.",
         "actionType": "main",
@@ -2851,8 +3161,15 @@
         "className": "Тактик",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/ive-got-your-back",
+        "originalName": "I've Got Your Back",
+        "originalDescription": "*Your enemy will think twice about attacking your friend.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R damage; taunted (EoT)\n- **12-16:** 9 + R damage; taunted (EoT)\n- **17+:** 12 + R damage; taunted (EoT)\n\n**Effect:** One ally adjacent to the target can spend a Recovery.",
+        "legacyId": "taktik-ya-prikroyu-1ce63782e2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/ive-got-your-back",
+      "originalName": "I've Got Your Back",
+      "originalDescription": "*Your enemy will think twice about attacking your friend.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R damage; taunted (EoT)\n- **12-16:** 9 + R damage; taunted (EoT)\n- **17+:** 12 + R damage; taunted (EoT)\n\n**Effect:** One ally adjacent to the target can spend a Recovery."
     },
     {
       "id": "ability.taktik-ya-vskroyu-a-ty-zakroesh-dddee10d92",
@@ -2867,7 +3184,7 @@
         "taktik-ya-vskroyu-a-ty-zakroesh-dddee10d92"
       ],
       "ability": {
-        "id": "taktik-ya-vskroyu-a-ty-zakroesh-dddee10d92",
+        "id": "feature.ability.tactician.level-8.ill-open-and-youll-close",
         "name": "Я Вскрою, а Ты Закроешь",
         "flavor": "Вы создаете брешь для союзника.",
         "actionType": "main",
@@ -2906,8 +3223,15 @@
         "className": "Тактик",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/ill-open-and-youll-close",
+        "originalName": "I'll Open and You'll Close",
+        "originalDescription": "*You create an opening for an ally.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** One ally within 10 squares of you can use a heroic ability against the target as a free triggered action without spending any of their Heroic Resource, as long as they have enough Heroic Resource to pay for the ability. If the target is reduced to 0 Stamina before the chosen ally has used their ability, the ally can pick a different target.",
+        "legacyId": "taktik-ya-vskroyu-a-ty-zakroesh-dddee10d92"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/ill-open-and-youll-close",
+      "originalName": "I'll Open and You'll Close",
+      "originalDescription": "*You create an opening for an ally.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** One ally within 10 squares of you can use a heroic ability against the target as a free triggered action without spending any of their Heroic Resource, as long as they have enough Heroic Resource to pay for the ability. If the target is reduced to 0 Stamina before the chosen ally has used their ability, the ally can pick a different target."
     },
     {
       "id": "ability.taktik-zatmit-solnce-b88b341bbc",
@@ -2922,7 +3246,7 @@
         "taktik-zatmit-solnce-b88b341bbc"
       ],
       "ability": {
-        "id": "taktik-zatmit-solnce-b88b341bbc",
+        "id": "feature.ability.tactician.level-9.blot-out-the-sun",
         "name": "Затмить Солнце!",
         "flavor": "Что делает хорошего солдата? Способность делать четыре выстрела в минуту в любую погоду.",
         "actionType": "main",
@@ -2956,8 +3280,15 @@
         "className": "Тактик",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/blot-out-the-sun",
+        "originalName": "Blot Out the Sun!",
+        "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike.",
+        "legacyId": "taktik-zatmit-solnce-b88b341bbc"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/blot-out-the-sun",
+      "originalName": "Blot Out the Sun!",
+      "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike."
     },
     {
       "id": "class.0841",
@@ -2981,7 +3312,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.1.komandirskoe-prisutstvie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/commanding-presence",
+      "originalName": "Commanding Presence",
+      "originalDescription": "You command any room you walk into. While you are present during a negotiation, each hero with you treats their Renown as 2 higher than usual. Additionally, each hero with you during a combat encounter has a double edge on tests made to stop combat and start a negotiation."
     },
     {
       "id": "feature.tactician.doctrine.1.obrazovannyy-komandir",
@@ -2994,7 +3328,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.1.obrazovannyy-komandir"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/studied-commander",
+      "originalName": "Studied Commander",
+      "originalDescription": "Your encyclopedic knowledge of the history of battle lets you apply that knowledge to current challenges. While you are present, each hero with you treats the Discover Lore project related to a war or battle as one category cheaper. This makes projects seeking common lore free, but such projects still require a respite activity to complete. (See Chapter 12: Downtime Projects for more information.)\n\nAdditionally, if you have 24 hours or more before a combat encounter or negotiation, and you have one or more clues or rumors regarding the encounter or negotiation, you can make a Reason test as a respite activity. The following test outcomes apply to a combat encounter:\n\n- **≤11:** The Director tells you the number of creatures in the encounter.\n- **12-16:** The Director tells you the number and level of the creatures in the encounter.\n- **17+:** The Director tells you the tier 2 outcome information, and when the encounter begins, all enemies are surprised.\n\nThe following test outcomes apply to a negotiation:\n\n- **≤11:** The Director gives you three motivations, one of which belongs to an NPC in the negotiation.\n- **12-16:** The Director gives you one motivation for an NPC in the negotiation.\n- **17+:** The Director tells you the tier 2 outcome information, and you and each of your allies gains an edge on tests made to influence NPCs during the negotiation.\n\nYou can make this test only once for any encounter or negotiation."
     },
     {
       "id": "feature.tactician.doctrine.1.sekretnye-operatsii",
@@ -3007,7 +3344,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.1.sekretnye-operatsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/covert-operations",
+      "originalName": "Covert Operations",
+      "originalDescription": "While in your presence or working according to your plans, each of your allies gains an edge on tests using any skill from the intrigue skill group. Additionally, you can use the Lead skill to assist another creature with any test made using a skill from the intrigue group.\n\nAt the Director's discretion, you and your allies can use skills from the intrigue skill group to attempt research or reconnaissance during a negotiation instead of outside of a negotiation."
     },
     {
       "id": "feature.tactician.doctrine.2.prevoskhodstvo-v-blizhnem-boyu",
@@ -3020,7 +3360,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.2.prevoskhodstvo-v-blizhnem-boyu"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/melee-superiority",
+      "originalName": "Melee Superiority",
+      "originalDescription": "After constant drills, you can more accurately anticipate an enemy's plan and thwart their attempts to move across the battlefield. Whenever you make an opportunity attack, the target's speed is reduced to 0 until the end of the current turn.\n\n**Mark Benefit:** When a creature marked by you attempts to move or shift within distance of your melee free strike, you can use a free triggered action and spend 2 focus to make a melee free strike against that creature."
     },
     {
       "id": "feature.tactician.doctrine.2.sprovotsirovannyy",
@@ -3033,7 +3376,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.2.sprovotsirovannyy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/goaded",
+      "originalName": "Goaded",
+      "originalDescription": "You have learned to leverage your marked foes' psychology and goad them into acting before they're tactically ready. Whenever a creature marked by you uses a strike that targets you or any ally within your line of effect, you can use a free triggered action to change one target of the strike to you or another ally within your line of effect. The new target must be within distance of the ability and within line of effect of the creature using it."
     },
     {
       "id": "feature.tactician.doctrine.2.taktika-proniknoveniya",
@@ -3046,7 +3392,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.2.taktika-proniknoveniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/infiltration-tactics",
+      "originalName": "Infiltration Tactics",
+      "originalDescription": "You have trained your squad to work together, stay silent, and wait for the opportune time to strike. Whenever you or any ally within 10 squares of you becomes hidden, that creature gains 1 surge."
     },
     {
       "id": "feature.tactician.doctrine.5.ne-ostavlyat-sledov",
@@ -3059,7 +3408,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.ne-ostavlyat-sledov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/leave-no-trace",
+      "originalName": "Leave No Trace",
+      "originalDescription": "You and any ally within 10 squares of you can move at full speed while sneaking. Additionally, enemies within 10 squares of you take a bane on tests made to search for you or your allies while any of you are hidden."
     },
     {
       "id": "feature.tactician.doctrine.5.otvlechenie",
@@ -3072,7 +3424,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.otvlechenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/distracted",
+      "originalName": "Distracted",
+      "originalDescription": "You have mastered the ability to distract your foes, allowing you and your allies to take advantage of their gaps in attention. Whenever you or any ally attempts to hide, any creature marked by you doesn't count as an observer. Additionally, you and your allies can use other allies as cover for the purpose of hiding."
     },
     {
       "id": "feature.tactician.doctrine.5.stryakhnut",
@@ -3085,7 +3440,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.stryakhnut"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/shake-it-off",
+      "originalName": "Shake It Off",
+      "originalDescription": "As a free maneuver, you can spend 1d6 Stamina to ignore a consequence from a test, or to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Any ally adjacent to you can also spend Stamina as a free maneuver to gain this benefit."
     },
     {
       "id": "feature.tactician.doctrine.5.takticheskoe-nastuplenie",
@@ -3098,7 +3456,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.takticheskoe-nastuplenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/tactical-offensive",
+      "originalName": "Tactical Offensive",
+      "originalDescription": "When you use the Charge main action to attack a creature marked by you, you can use a signature or heroic ability with the Melee and Strike keywords instead of a melee free strike."
     },
     {
       "id": "feature.tactician.doctrine.5.ya-eto-produmal",
@@ -3111,7 +3472,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.ya-eto-produmal"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/i-predicted-that",
+      "originalName": "I Predicted That",
+      "originalDescription": "Your expertise in history and lore allows you and your allies to outthink rivals in the present day. You and any ally within 10 squares of you gain an edge on Reason tests."
     },
     {
       "id": "feature.tactician.doctrine.5.zamysel",
@@ -3124,7 +3488,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.5.zamysel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/anticipation",
+      "originalName": "Anticipation",
+      "originalDescription": "You have learned to be more preemptive on the battlefield, thinking more steps ahead than your opponents. You can target two creatures with your Mark ability."
     },
     {
       "id": "feature.tactician.doctrine.7.asimmetrichnaya-voyna",
@@ -3137,7 +3504,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.7.asimmetrichnaya-voyna"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/asymmetric-warfare",
+      "originalName": "Asymmetric Warfare",
+      "originalDescription": "You have advanced your skills in subterfuge, now directing full battlefield strategy and logistics. During a montage test or negotiation, you can obtain one automatic success on a test made using a skill from the intrigue skill group. Additionally, you can use skills from the intrigue skill group to conceal large groups of people, such as escaping civilians and groups of guerilla warriors."
     },
     {
       "id": "feature.tactician.doctrine.7.grand-strategiya",
@@ -3150,7 +3520,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.7.grand-strategiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/grand-strategy",
+      "originalName": "Grand Strategy",
+      "originalDescription": "You have grown your skills in strategy, wielding intricate battlefield tactics and plans. During a montage test or negotiation, you can obtain one automatic success on a test made using a skill from the lore skill group. Additionally, when you take a respite, you can make a project roll for a research project in addition to undertaking another respite activity."
     },
     {
       "id": "feature.tactician.doctrine.7.shok-i-trepet",
@@ -3163,7 +3536,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.7.shok-i-trepet"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/shock-and-awe",
+      "originalName": "Shock and Awe",
+      "originalDescription": "You have expanded your leadership skills, strengthening your followers' morale and providing logistical support. During a montage test or negotiation, you can obtain one automatic success on a test made using a skill from the interpersonal skill group. Additionally, you can convince a group of people to help you with a crafting project during a respite. If these people are available when you take a respite, you can make a project roll for a crafting project in addition to undertaking another respite activity."
     },
     {
       "id": "feature.tactician.doctrine.8.kleshchevoy-manevr",
@@ -3176,7 +3552,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.8.kleshchevoy-manevr"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/pincer-movement",
+      "originalName": "Pincer Movement",
+      "originalDescription": "You have trained your squad to coordinate their movements to maximize combat impact.\n\n**Mark Benefit:** When you or any ally makes a strike against a creature marked by you, you can spend 2 focus to have the character making the strike shift up to a number of squares equal to your Reason score before the strike is resolved. If you didn't make the strike, you can make this shift as well. If you did make the strike, one ally within 10 squares of you can make this shift as well."
     },
     {
       "id": "feature.tactician.doctrine.8.primanka-i-zasada",
@@ -3189,7 +3568,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.8.primanka-i-zasada"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/bait-and-ambush",
+      "originalName": "Bait and Ambush",
+      "originalDescription": "You have trained your squad to be silent ambushers.\n\n**Mark Benefit:** When you or any ally makes a strike against a creature marked by you, you can spend 2 focus to let the character making the strike shift up to a number of squares equal to your Reason score and use the Hide maneuver as a free maneuver once during the shift. The creature can shift before or after the strike is resolved."
     },
     {
       "id": "feature.tactician.doctrine.8.videt-kak-vragi-begut-pered-toboy",
@@ -3202,7 +3584,10 @@
       },
       "legacyIds": [
         "tactician.doctrine.8.videt-kak-vragi-begut-pered-toboy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/see-your-enemies-driven-before-you",
+      "originalName": "See Your Enemies Driven Before You",
+      "originalDescription": "You have trained your squad to maximize impact and break enemy lines when they attack.\n\n**Mark Benefit:** When you or any ally makes a melee strike against a creature marked by you, you can spend 2 focus to have the character making the strike push the target up to a number of squares equal to your Reason score. That character can then shift up to a number of squares equal to your Reason score, ending this shift adjacent to the target."
     },
     {
       "id": "feature.tactician.feature.1.bey-seychas",
@@ -3215,7 +3600,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.bey-seychas"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/strike-now",
+      "originalName": "Strike Now",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.tactician.feature.1.fokus",
@@ -3228,7 +3616,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.fokus"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/focus",
+      "originalName": "Focus",
+      "originalDescription": "The ring of steel panics others but brings order to your mind, granting you a Heroic Resource called focus.\n\n##### Focus in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain focus equal to your Victories. At the start of each of your turns during combat, you gain 2 focus.\n\nAdditionally, the first time each combat round that you or any ally damages a creature marked by you (see Mark below), you gain 1 focus. The first time in a combat round that any ally within 10 squares of you uses a heroic ability, you gain 1 focus.\n\nYou lose any remaining focus at the end of the encounter.\n\n##### Focus Outside of Combat\n\nThough you can't gain focus outside of combat, you can use your heroic abilities and effects that cost focus without spending it. Whenever you use an ability or effect outside of combat that costs focus, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited focus on its effect, you can use it as if you had spent an amount of focus equal to your Victories. (Such abilities aren't part of the core rules for the tactician, but they might appear in future products.)\n\n> **Tactician Abilities Explained**\n>\n> Many of the tactician's abilities grant allies extra movement, damage, and actions. But what's happening in the fiction to allow this? The tactician is an incredible strategist and inspiring leader who is quick to give commands and inspiration that causes their allies to act. The tactician can quickly read the battlefield, analyze enemies, and then bark orders and encouragement that pushes their allies to greatness. Many of the names of the tactician's abilities are the actual commands they give their friends!"
     },
     {
       "id": "feature.tactician.feature.1.fokus-v-boyu",
@@ -3280,7 +3671,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.metka"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/mark",
+      "originalName": "Mark",
+      "originalDescription": "You know how to focus the attention of your allies as you push them toward victory. You have the following ability."
     },
     {
       "id": "feature.tactician.feature.1.osobennost-doktriny-1-go-urovnya",
@@ -3293,7 +3687,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.osobennost-doktriny-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/1st-level-doctrine-feature",
+      "originalName": "1st-Level Doctrine Feature",
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 1st-Level Doctrine Features table.\n\n###### 1st-Level Doctrine Features Table\n\n| Doctrine   | Feature             |\n|------------|---------------------|\n| Insurgent  | Covert Operations   |\n| Mastermind | Studied Commander   |\n| Vanguard   | Commanding Presence |"
     },
     {
       "id": "feature.tactician.feature.1.polevoy-arsenal",
@@ -3306,7 +3703,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.polevoy-arsenal"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/field-arsenal",
+      "originalName": "Field Arsenal",
+      "originalDescription": "You have drilled with a broad array of arms and armor, and have developed techniques to optimize their use. You can use and gain the benefits of two kits, including both their signature abilities. Whenever you would choose or change one kit, you can choose or change your second kit as well. See Chapter 6: Kits for more information. (*Quick Build:* Shining Armor, Sniper.)\n\nIf both kits grant you the same benefit, you take one or the other and can't change your choice until you finish a respite. (This usually means taking the higher of two bonuses.)\n\nFor example, if you take the Shining Armor and Sniper kits, you gain the following benefits overall:\n\n- Stamina Bonus: +12 per echelon\n- Stability Bonus: +1\n- Melee Damage Bonus: +2/+2/+2\n- Ranged Damage Bonus: +0/+0/+4\n- Speed Bonus: +1\n- Ranged Distance Bonus: +10\n- Disengage Bonus: +1\n- You can use the Patient Shot and Protective Attack signature abilities.\n\nKit signature abilities have their kit's bonuses already applied, which might require you to adjust the bonuses of the signature abilities you gain from a kit. For example, you might take the Martial Artist kit, which gives a melee weapon damage bonus of +2/+2/+2, and the Mountain kit, which gives a melee weapon damage bonus of +0/+0/+4. If you choose to use the Mountain kit's damage bonus, then the Battle Grace signature ability from the Martial Artist kit loses the +2/+2/+2 bonus from that kit, reducing its usual 5/8/11 damage for its tier 1, tier 2, and tier 3 outcomes to 3/6/9. It then gains the +0/+0/+4 of the Mountain kit to deal 3/6/13 damage."
     },
     {
       "id": "feature.tactician.feature.1.sposobnost-za-3-fokusa",
@@ -3332,7 +3732,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.sposobnost-za-5-fokusa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/5-focus-ability",
+      "originalName": "5-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 focus to use. (*Quick Build:* Hammer and Anvil.)"
     },
     {
       "id": "feature.tactician.feature.1.sposobnosti-taktika",
@@ -3345,7 +3748,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.sposobnosti-taktika"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/tactician-abilities",
+      "originalName": "Tactician Abilities",
+      "originalDescription": "You are a formidable combatant in your own right, but your greatest strength is the abilities you wield that let you shape control of the battlefield.\n\n##### Heroic Abilities\n\nYour heroic abilities cover a range of combat tactics, all of which require focus to use.\n\n###### 3-Focus Ability\n\nChoose one heroic ability from the following options, each of which costs 3 focus to use. (*Quick Build:* Inspiring Strike.)"
     },
     {
       "id": "feature.tactician.feature.1.takticheskaya-doktrina",
@@ -3358,7 +3764,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.takticheskaya-doktrina"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/tactical-doctrine",
+      "originalName": "Tactical Doctrine",
+      "originalDescription": "Warfare is as old as civilization—and perhaps even older. As battle became ever more complex, military leaders invented tactical doctrine, outlining how combatants should be structured, used, and deployed. Doctrine can be learned at war colleges passing on ancient martial traditions, or directly through blood and sweat on the battlefield. Whatever path brought you to your mastery of historically proven tactics, you choose a tactical doctrine from the following options, each of which grants you a skill. (*Quick Build:* Vanguard and the Intimidate skill.)\n\n- **Insurgent:** Doing your duty, playing fair, and dying honorably in battle is your opponent's job. You'll do whatever it takes to keep your allies alive. You gain a skill from the intrigue skill group.\n- **Mastermind:** You have an encyclopedic knowledge of warfare, viewing the battlefield as a game board and seeking victory by thinking steps ahead of your opponents. You gain a skill from the lore skill group.\n- **Vanguard:** You have learned the stratagems of ancient heroes, letting you lead from the front lines and seek victory through sheer force of will and personality. You gain a skill from the interpersonal skill group.\n\nYour tactical doctrine is your subclass, and your choice of doctrine determines many of the features you'll gain as you gain new levels."
     },
     {
       "id": "feature.tactician.feature.1.trigger-doktriny",
@@ -3371,7 +3780,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.trigger-doktriny"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/doctrine-triggered-action",
+      "originalName": "Doctrine Triggered Action",
+      "originalDescription": "Your tactical doctrine grants you a triggered action, as shown on the Doctrine Triggered Actions table.\n\n###### Doctrine Triggered Actions Table\n\n| Doctrine   | Triggered Action |\n|------------|------------------|\n| Insurgent  | Advanced Tactics |\n| Mastermind | Overwatch        |\n| Vanguard   | Parry            |"
     },
     {
       "id": "feature.tactician.feature.1.znakovaya-sposobnost-komplekta",
@@ -3384,7 +3796,10 @@
       },
       "legacyIds": [
         "tactician.feature.1.znakovaya-sposobnost-komplekta"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-1/kit-signature-ability",
+      "originalName": "Kit Signature Ability",
+      "originalDescription": "Each kit from your Field Arsenal feature grants you a signature ability. Signature abilities can be used at will."
     },
     {
       "id": "feature.tactician.feature.10.istinnyy-fokus",
@@ -3397,7 +3812,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.istinnyy-fokus"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/true-focus",
+      "originalName": "True Focus",
+      "originalDescription": "When you gain focus at the start of each of your turns during combat, you gain 4 focus instead of 3."
     },
     {
       "id": "feature.tactician.feature.10.komandovanie",
@@ -3410,7 +3828,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.komandovanie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/command",
+      "originalName": "Command",
+      "originalDescription": "You have an epic resource called command. Each time you finish a respite, you gain command equal to the XP you gain. You can spend command on your abilities as if it were focus.\n\nAdditionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 command as a free triggered action to increase the power roll outcome for that target by one tier. Whenever an enemy marked by you makes an ability roll, you can spend 1 command as a free triggered action to decrease the power roll outcome by one tier.\n\nCommand remains until you spend it."
     },
     {
       "id": "feature.tactician.feature.10.master-voyny",
@@ -3423,7 +3844,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.master-voyny"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/warmaster",
+      "originalName": "Warmaster",
+      "originalDescription": "You have mastered the entirety of possible strategies and tactics. Whenever you or any ally makes an ability roll against a target marked by you, the character making the roll can roll three dice and choose which two to use.\n\nAdditionally, whenever an ally uses a heroic ability that targets one or more creatures marked by you, they spend 2 fewer of their Heroic Resource on that ability (minimum 1)."
     },
     {
       "id": "feature.tactician.feature.10.navyk",
@@ -3436,7 +3860,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.tactician.feature.10.perk",
@@ -3449,7 +3876,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
     },
     {
       "id": "feature.tactician.feature.10.uvelichenie-kharakteristik",
@@ -3462,7 +3892,10 @@
       },
       "legacyIds": [
         "tactician.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Reason scores each increase to 5."
     },
     {
       "id": "feature.tactician.feature.2.osobennost-doktriny-2-go-urovnya",
@@ -3475,7 +3908,10 @@
       },
       "legacyIds": [
         "tactician.feature.2.osobennost-doktriny-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/2nd-level-doctrine-feature",
+      "originalName": "2nd-Level Doctrine Feature",
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 2nd-Level Doctrine Features table.\n\n###### 2nd-Level Doctrine Features Table\n\n| Doctrine                    | Feature              |\n|-----------------------------|----------------------|\n| Insurgent                   | Infiltration Tactics |\n| Mastermind                  | Goaded               |\n| Vanguard                    | Melee Superiority    |"
     },
     {
       "id": "feature.tactician.feature.2.perk",
@@ -3488,7 +3924,10 @@
       },
       "legacyIds": [
         "tactician.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.tactician.feature.2.sposobnost-avangarda-2-go-urovnya",
@@ -3514,7 +3953,10 @@
       },
       "legacyIds": [
         "tactician.feature.2.sposobnost-doktriny-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-2/2nd-level-doctrine-ability",
+      "originalName": "2nd-Level Doctrine Ability",
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Insurgent Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Mastermind Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Vanguard Ability\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.tactician.feature.2.sposobnost-povstantsa-2-go-urovnya",
@@ -3553,7 +3995,10 @@
       },
       "legacyIds": [
         "tactician.feature.3.sposobnost-za-7-fokusa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-3/7-focus-ability",
+      "originalName": "7-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 focus to use."
     },
     {
       "id": "feature.tactician.feature.3.vne-pozitsii",
@@ -3566,7 +4011,10 @@
       },
       "legacyIds": [
         "tactician.feature.3.vne-pozitsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-3/out-of-position",
+      "originalName": "Out of Position",
+      "originalDescription": "Even before battle begins, your enemies struggle to keep up with your tactics. At the start of an encounter, you can use a free triggered action to use your Mark ability against one enemy you have line of effect to, even if you are surprised. You can then slide the marked target up to 3 squares, ignoring stability. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect."
     },
     {
       "id": "feature.tactician.feature.4.fokus-na-ikh-slabosti",
@@ -3579,7 +4027,10 @@
       },
       "legacyIds": [
         "tactician.feature.4.fokus-na-ikh-slabosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-4/focus-on-their-weaknesses",
+      "originalName": "Focus on Their Weaknesses",
+      "originalDescription": "The first time each combat round that you or any ally damages a target marked by you, you gain 2 focus instead of 1."
     },
     {
       "id": "feature.tactician.feature.4.navyk",
@@ -3592,7 +4043,10 @@
       },
       "legacyIds": [
         "tactician.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.tactician.feature.4.perk",
@@ -3605,7 +4059,10 @@
       },
       "legacyIds": [
         "tactician.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.tactician.feature.4.uluchshennyy-polevoy-arsenal",
@@ -3618,7 +4075,10 @@
       },
       "legacyIds": [
         "tactician.feature.4.uluchshennyy-polevoy-arsenal"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-4/improved-field-arsenal",
+      "originalName": "Improved Field Arsenal",
+      "originalDescription": "Your expertise with weapons has grown. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you gain an edge."
     },
     {
       "id": "feature.tactician.feature.4.uvelichenie-kharakteristik",
@@ -3631,7 +4091,10 @@
       },
       "legacyIds": [
         "tactician.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Reason scores each increase to 3."
     },
     {
       "id": "feature.tactician.feature.5.osobennosti-doktriny-5-go-urovnya",
@@ -3644,7 +4107,10 @@
       },
       "legacyIds": [
         "tactician.feature.5.osobennosti-doktriny-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/5th-level-doctrine-features",
+      "originalName": "5th-Level Doctrine Features",
+      "originalDescription": "Your tactical doctrine grants you two features, as shown on the 5th-Level Doctrine Features table.\n\n###### 5th-Level Doctrine Features Table\n\n| Doctrine   | Features                         |\n|------------|----------------------------------|\n| Insurgent  | Distracted, Leave No Trace       |\n| Mastermind | Anticipation, I Predicted That   |\n| Vanguard   | Shake It Off, Tactical Offensive |"
     },
     {
       "id": "feature.tactician.feature.5.sposobnost-za-9-fokusa",
@@ -3657,7 +4123,10 @@
       },
       "legacyIds": [
         "tactician.feature.5.sposobnost-za-9-fokusa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-5/9-focus-ability",
+      "originalName": "9-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 focus to use."
     },
     {
       "id": "feature.tactician.feature.6.master-oruzhiya",
@@ -3670,7 +4139,10 @@
       },
       "legacyIds": [
         "tactician.feature.6.master-oruzhiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-6/master-of-arms",
+      "originalName": "Master of Arms",
+      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you can negate a bane on the power roll or reduce a double bane to a bane."
     },
     {
       "id": "feature.tactician.feature.6.perk",
@@ -3683,7 +4155,10 @@
       },
       "legacyIds": [
         "tactician.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
     },
     {
       "id": "feature.tactician.feature.6.sposobnost-doktriny-6-go-urovnya",
@@ -3696,7 +4171,10 @@
       },
       "legacyIds": [
         "tactician.feature.6.sposobnost-doktriny-6-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-6/6th-level-doctrine-ability",
+      "originalName": "6th-Level Doctrine Ability",
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 6th-Level Insurgent Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Mastermind Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Vanguard Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.tactician.feature.6.sposobnosti-avangarda-6-go-urovnya",
@@ -3748,7 +4226,10 @@
       },
       "legacyIds": [
         "tactician.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.tactician.feature.7.osobennost-doktriny-7-go-urovnya",
@@ -3761,7 +4242,10 @@
       },
       "legacyIds": [
         "tactician.feature.7.osobennost-doktriny-7-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/7th-level-doctrine-feature",
+      "originalName": "7th-Level Doctrine Feature",
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 7th-Level Doctrine Features table.\n\n###### 7th-Level Doctrine Features Table\n\n| Doctrine   | Feature            |\n|------------|--------------------|\n| Insurgent  | Asymmetric Warfare |\n| Mastermind | Grand Strategy     |\n| Vanguard   | Shock and Awe      |"
     },
     {
       "id": "feature.tactician.feature.7.povyshennyy-fokus",
@@ -3774,7 +4258,10 @@
       },
       "legacyIds": [
         "tactician.feature.7.povyshennyy-fokus"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/heightened-focus",
+      "originalName": "Heightened Focus",
+      "originalDescription": "When you gain focus at the start of each of your turns during combat, you gain 3 focus instead of 2."
     },
     {
       "id": "feature.tactician.feature.7.uvelichenie-kharakteristik",
@@ -3787,7 +4274,10 @@
       },
       "legacyIds": [
         "tactician.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.tactician.feature.7.zakhvat-initsiativy",
@@ -3800,7 +4290,10 @@
       },
       "legacyIds": [
         "tactician.feature.7.zakhvat-initsiativy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-7/seize-the-initiative",
+      "originalName": "Seize the Initiative",
+      "originalDescription": "If you are not surprised when combat begins, your side gets to go first. If an enemy has an ability that allows their side to go first, you roll as usual to determine who goes first."
     },
     {
       "id": "feature.tactician.feature.8.osobennost-doktriny-8-go-urovnya",
@@ -3813,7 +4306,10 @@
       },
       "legacyIds": [
         "tactician.feature.8.osobennost-doktriny-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/8th-level-doctrine-feature",
+      "originalName": "8th-Level Doctrine Feature",
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 8th-Level Doctrine Features table.\n\n###### 8th-Level Doctrine Features Table\n\n| Doctrine   | Feature                            |\n|------------|------------------------------------|\n| Insurgent  | Bait and Ambush                    |\n| Mastermind | Pincer Movement                    |\n| Vanguard   | See Your Enemies Driven Before You |"
     },
     {
       "id": "feature.tactician.feature.8.perk",
@@ -3826,7 +4322,10 @@
       },
       "legacyIds": [
         "tactician.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.tactician.feature.8.sposobnost-za-11-fokusa",
@@ -3839,7 +4338,10 @@
       },
       "legacyIds": [
         "tactician.feature.8.sposobnost-za-11-fokusa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/11-focus-ability",
+      "originalName": "11-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 focus to use."
     },
     {
       "id": "feature.tactician.feature.9.grandmaster-oruzhiya",
@@ -3852,7 +4354,10 @@
       },
       "legacyIds": [
         "tactician.feature.9.grandmaster-oruzhiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-9/grandmaster-of-arms",
+      "originalName": "Grandmaster of Arms",
+      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you automatically obtain a tier 3 outcome on the power roll. You can still roll to determine if you score a critical hit."
     },
     {
       "id": "feature.tactician.feature.9.sposobnost-doktriny-9-go-urovnya",
@@ -3865,7 +4370,10 @@
       },
       "legacyIds": [
         "tactician.feature.9.sposobnost-doktriny-9-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-9/9th-level-doctrine-ability",
+      "originalName": "9th-Level Doctrine Ability",
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 9th-Level Insurgent Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Mastermind Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Vanguard Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.tactician.feature.9.sposobnosti-avangarda-9-go-urovnya",

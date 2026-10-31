@@ -89,7 +89,7 @@ describe("Свирепость", () => {
     const damage = gains.filter((gain) => gain.tag === "take-damage");
     expect(damage).toHaveLength(1);
     expect(damage[0].amount).toBe("2");
-    expect(damage[0].sourceId).toBe("fury.feature.4.uron-ot-svireposti");
+    expect(damage[0].sourceId).toBe("feature.fury.level-4.damaging-ferocity");
     expect(gains.find((gain) => gain.tag === "start-of-turn")!.amount).toBe("1d3");
   });
 
@@ -98,7 +98,7 @@ describe("Свирепость", () => {
     const start = gains.filter((gain) => gain.event === "start-of-turn");
     expect(start).toHaveLength(1);
     expect(start[0].amount).toBe("1d3 + 1");
-    expect(start[0].sourceId).toBe("fury.feature.7.velikaya-svirepost");
+    expect(start[0].sourceId).toBe("feature.fury.level-7.greater-ferocity");
   });
 
   it("10-й уровень делает урон 3, теги остаются уникальными", () => {
@@ -107,7 +107,7 @@ describe("Свирепость", () => {
     expect(damage).toHaveLength(1);
     expect(damage[0].amount).toBe("3");
     expect(damage[0].sourceId).toBe(
-      "fury.feature.10.pervozdannaya-svirepost",
+      "feature.fury.level-10.primordial-ferocity",
     );
     expect(new Set(gains.map((gain) => gain.tag)).size).toBe(gains.length);
   });

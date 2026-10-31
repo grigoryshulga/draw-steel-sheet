@@ -14,7 +14,7 @@ import type { FeatureMechanics } from "../types";
  * значило бы начислить одни и те же бонусы дважды.
  */
 export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
-  "tactician.feature.1.takticheskaya-doktrina": {
+  "feature.tactician.level-1.tactical-doctrine": {
     kinds: ["choice", "grant"],
     choice: {
       group: "tactician.doctrine",
@@ -34,7 +34,7 @@ export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "и способности 2/6/9 уровней. Быстрый билд: Авангард и навык " +
       "Запугивание.",
   },
-  "tactician.feature.1.polevoy-arsenal": {
+  "feature.tactician.level-1.field-arsenal": {
     kinds: ["grant"],
     notes:
       "Герой может использовать два комплекта и получать преимущества обоих, " +
@@ -45,7 +45,7 @@ export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "двух и не может изменить выбор до отдыха; это состояние лист не " +
       "хранит. Быстрый билд: Сияющие доспехи и Снайпер.",
   },
-  "tactician.feature.1.metka": {
+  "feature.tactician.level-1.mark": {
     kinds: ["grant"],
     notes:
       "Способность «Метка» выдаётся билдером и описана карточкой справочника. " +
@@ -56,7 +56,7 @@ export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "отмеченных (1, у Воеводы с 5-го уровня — 2) — состояние способности, " +
       "лист его не хранит; трата фокуса и выбор выгоды — вручную.",
   },
-  "tactician.feature.1.bey-seychas": {
+  "feature.tactician.level-1.strike-now": {
     kinds: ["grant"],
     notes:
       "Способность «Бей сейчас!» выдаётся билдером и описана карточкой " +
@@ -64,27 +64,27 @@ export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "триггер, а за 5 фокуса герой нацеливается на двух союзников вместо " +
       "одного. Выбор целей и трата фокуса ведутся на карточке.",
   },
-  "tactician.feature.1.sposobnosti-taktika": {
+  "feature.tactician.level-1.tactician-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела способностей: знаковая способность комплекта и " +
       "героические способности 1-го уровня описаны вложенными записями, а " +
       "конкретные карточки выбираются билдером и повышением уровня.",
   },
-  "tactician.feature.1.znakovaya-sposobnost-komplekta": {
+  "feature.tactician.level-1.kit-signature-ability": {
     kinds: ["grant"],
     notes:
       "Каждый комплект героя даёт знаковую способность, и её можно использовать " +
       "по желанию. Выбор и смену знаковых способностей ведёт билдер комплектов; " +
       "отдельного списка вариантов на листе нет.",
   },
-  "tactician.feature.1.geroicheskie-sposobnosti": {
+  "feature.tactician.level-1.heroic-abilities": {
     kinds: ["grant"],
     notes:
       "Контейнер раздела героических способностей; способности за 3, 5, 7, 9 и " +
       "11 фокуса описаны дочерними записями и карточками справочника.",
   },
-  "tactician.feature.1.sposobnost-za-3-fokusa": {
+  "feature.tactician.level-1.3-focus-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 3 фокуса: " +
@@ -92,7 +92,7 @@ export const TACTICIAN_BASE_MECHANICS: Record<string, FeatureMechanics> = {
       "идёт в билдере способностей при создании героя; отдельный список " +
       "вариантов в листе не нужен. Быстрый билд: Вдохновляющий Удар.",
   },
-  "tactician.feature.1.sposobnost-za-5-fokusa": {
+  "feature.tactician.level-1.5-focus-ability": {
     kinds: ["choice", "grant"],
     notes:
       "Нужно выбрать одну героическую способность стоимостью 5 фокуса: Молот и " +

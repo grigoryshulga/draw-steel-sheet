@@ -228,7 +228,10 @@
           "type": "entity",
           "ref": "ability.ten-tenevoy-udar-ba4ac0268e"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level shadow, you gain the following features."
     },
     {
       "id": "0862",
@@ -321,7 +324,10 @@
           "type": "entity",
           "ref": "ability.ten-takoy-doverchivyy-0b00db0ef7"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level shadow, you gain the following features."
     },
     {
       "id": "0863",
@@ -378,7 +384,10 @@
           "type": "entity",
           "ref": "ability.ten-srazhayuschiy-udar-1b2f628abe"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level shadow, you gain the following features."
     },
     {
       "id": "0864",
@@ -423,7 +432,10 @@
           "type": "entity",
           "ref": "feature.shadow.feature.4.vsplesk-prozreniya"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level shadow, you gain the following features."
     },
     {
       "id": "0865",
@@ -484,7 +496,10 @@
           "type": "entity",
           "ref": "ability.ten-ty-slishkom-mnogo-boltaesh-efc5a49c51"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level shadow, you gain the following features."
     },
     {
       "id": "0866",
@@ -565,7 +580,10 @@
           "type": "entity",
           "ref": "ability.ten-niti-marionetki-c117959b78"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level shadow, you gain the following features."
     },
     {
       "id": "0867",
@@ -598,7 +616,10 @@
           "type": "entity",
           "ref": "feature.shadow.feature.7.chrevoveshchatel"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level shadow, you gain the following features."
     },
     {
       "id": "0868",
@@ -671,7 +692,10 @@
           "type": "entity",
           "ref": "ability.ten-oni-vsegda-vystraivayutsya-v-ryad-534c8b56e1"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level shadow, you gain the following features."
     },
     {
       "id": "0869",
@@ -748,7 +772,10 @@
           "type": "entity",
           "ref": "ability.ten-eto-byl-ya-vse-eto-vremya-8918c03f54"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level shadow, you gain the following features."
     },
     {
       "id": "0870",
@@ -789,7 +816,10 @@
           "type": "entity",
           "ref": "feature.shadow.feature.10.ulovka"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level shadow, you gain the following features."
     }
   ],
   "entities": [
@@ -806,7 +836,7 @@
         "ten-bomba-lipuchka-bc498169c5"
       ],
       "ability": {
-        "id": "ten-bomba-lipuchka-bc498169c5",
+        "id": "feature.ability.shadow.level-2.sticky-bomb",
         "name": "Бомба-Липучка",
         "flavor": "Взрывчатка лучше всего работает, когда она прикреплена к врагу.",
         "actionType": "main",
@@ -842,8 +872,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/sticky-bomb",
+        "originalName": "Sticky Bomb",
+        "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage",
+        "legacyId": "ten-bomba-lipuchka-bc498169c5"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/sticky-bomb",
+      "originalName": "Sticky Bomb",
+      "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage"
     },
     {
       "id": "ability.ten-bomba-zamedlennogo-deystviya-3b731f7d34",
@@ -858,7 +895,7 @@
         "ten-bomba-zamedlennogo-deystviya-3b731f7d34"
       ],
       "ability": {
-        "id": "ten-bomba-zamedlennogo-deystviya-3b731f7d34",
+        "id": "feature.ability.shadow.level-8.time-bomb",
         "name": "Бомба Замедленного Действия",
         "flavor": "Чем дольше она готовится, тем больше взрыв.",
         "actionType": "free-maneuver",
@@ -893,8 +930,15 @@
         "className": "Тень",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/time-bomb",
+        "originalName": "Time Bomb",
+        "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability.",
+        "legacyId": "ten-bomba-zamedlennogo-deystviya-3b731f7d34"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/time-bomb",
+      "originalName": "Time Bomb",
+      "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability."
     },
     {
       "id": "ability.ten-cepnaya-reakciya-e20c494709",
@@ -909,7 +953,7 @@
         "ten-cepnaya-reakciya-e20c494709"
       ],
       "ability": {
-        "id": "ten-cepnaya-reakciya-e20c494709",
+        "id": "feature.ability.shadow.level-9.chain-reaction",
         "name": "Цепная Реакция",
         "flavor": "Один взрыв — это нападение. Три взрыва — это штурм. Девять взрывов — это праздник.",
         "actionType": "main",
@@ -945,8 +989,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/chain-reaction",
+        "originalName": "Chain Reaction",
+        "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage",
+        "legacyId": "ten-cepnaya-reakciya-e20c494709"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/chain-reaction",
+      "originalName": "Chain Reaction",
+      "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage"
     },
     {
       "id": "ability.ten-demonicheskaya-dver-b9b9585037",
@@ -961,7 +1012,7 @@
         "ten-demonicheskaya-dver-b9b9585037"
       ],
       "ability": {
-        "id": "ten-demonicheskaya-dver-b9b9585037",
+        "id": "feature.ability.shadow.level-9.demon-door",
         "name": "Демоническая Дверь",
         "flavor": "Вы создаете временный портал, чтобы сквозь него могла просунуться огромная демоническая рука.",
         "actionType": "main",
@@ -1000,8 +1051,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/demon-door",
+        "originalName": "Demon Door",
+        "originalDescription": "*You create a temporary portal to allow a massive demonic hand to reach through.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 3**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A corruption damage; push 3\n- **12-16:** 18 + A corruption damage; push 5\n- **17+:** 25 + A corruption damage; push 7\n\n**Effect:** On a critical hit, the target is grabbed by the demon and pulled through the portal before it closes, never to be seen again.",
+        "legacyId": "ten-demonicheskaya-dver-b9b9585037"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/demon-door",
+      "originalName": "Demon Door",
+      "originalDescription": "*You create a temporary portal to allow a massive demonic hand to reach through.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 3**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A corruption damage; push 3\n- **12-16:** 18 + A corruption damage; push 5\n- **17+:** 25 + A corruption damage; push 7\n\n**Effect:** On a critical hit, the target is grabbed by the demon and pulled through the portal before it closes, never to be seen again."
     },
     {
       "id": "ability.ten-dezorientiruyuschiy-udar-7c312c0696",
@@ -1016,7 +1074,7 @@
         "ten-dezorientiruyuschiy-udar-7c312c0696"
       ],
       "ability": {
-        "id": "ten-dezorientiruyuschiy-udar-7c312c0696",
+        "id": "feature.ability.shadow.level-1.disorienting-strike",
         "name": "Дезориентирующий Удар",
         "flavor": "Ваша атака оставляет их пошатывающимися, даря вам больше движения.",
         "actionType": "main",
@@ -1054,8 +1112,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/disorienting-strike",
+        "originalName": "Disorienting Strike",
+        "originalDescription": "*Your attack leaves them reeling, allowing you to follow up.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; slide 2\n- **12-16:** 6 + A damage; slide 3\n- **17+:** 10 + A damage; slide 5\n\n**Effect:** You can shift into any square the target leaves when you slide them.",
+        "legacyId": "ten-dezorientiruyuschiy-udar-7c312c0696"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/disorienting-strike",
+      "originalName": "Disorienting Strike",
+      "originalDescription": "*Your attack leaves them reeling, allowing you to follow up.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; slide 2\n- **12-16:** 6 + A damage; slide 3\n- **17+:** 10 + A damage; slide 5\n\n**Effect:** You can shift into any square the target leaves when you slide them."
     },
     {
       "id": "ability.ten-dlya-komandnoy-raboty-est-svoe-mesto-5ac05de492",
@@ -1070,7 +1135,7 @@
         "ten-dlya-komandnoy-raboty-est-svoe-mesto-5ac05de492"
       ],
       "ability": {
-        "id": "ten-dlya-komandnoy-raboty-est-svoe-mesto-5ac05de492",
+        "id": "feature.ability.shadow.level-1.teamwork-has-its-place",
         "name": "Для Командной Работы Есть Свое Место",
         "flavor": "Вы атакуете врага, когда союзник обнажает его слабость.",
         "actionType": "main",
@@ -1109,8 +1174,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/teamwork-has-its-place",
+        "originalName": "Teamwork Has Its Place",
+        "originalDescription": "*You attack an enemy as an ally exposes their weakness.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If any ally is adjacent to the target, you gain 1 surge before making the power roll.",
+        "legacyId": "ten-dlya-komandnoy-raboty-est-svoe-mesto-5ac05de492"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/teamwork-has-its-place",
+      "originalName": "Teamwork Has Its Place",
+      "originalDescription": "*You attack an enemy as an ally exposes their weakness.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If any ally is adjacent to the target, you gain 1 surge before making the power roll."
     },
     {
       "id": "ability.ten-dve-glotki-razom-e6c9a75f85",
@@ -1125,7 +1197,7 @@
         "ten-dve-glotki-razom-e6c9a75f85"
       ],
       "ability": {
-        "id": "ten-dve-glotki-razom-e6c9a75f85",
+        "id": "feature.ability.shadow.level-1.two-throats-at-once",
         "name": "Две Глотки Разом",
         "flavor": "Выгодная сделка.",
         "actionType": "main",
@@ -1164,8 +1236,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/two-throats-at-once",
+        "originalName": "Two Throats at Once",
+        "originalDescription": "*A bargain.*\n\n| **Melee, Ranged, Strike, Weapon** |                 **Main action** |\n|-----------------------------------|--------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 10 damage",
+        "legacyId": "ten-dve-glotki-razom-e6c9a75f85"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/two-throats-at-once",
+      "originalName": "Two Throats at Once",
+      "originalDescription": "*A bargain.*\n\n| **Melee, Ranged, Strike, Weapon** |                 **Main action** |\n|-----------------------------------|--------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 10 damage"
     },
     {
       "id": "ability.ten-eto-byl-ya-vse-eto-vremya-8918c03f54",
@@ -1180,7 +1259,7 @@
         "ten-eto-byl-ya-vse-eto-vremya-8918c03f54"
       ],
       "ability": {
-        "id": "ten-eto-byl-ya-vse-eto-vremya-8918c03f54",
+        "id": "feature.ability.shadow.level-9.it-was-me-all-along",
         "name": "Это Был Я Все Это Время",
         "flavor": "После всего, через что вы прошли вместе, вы поворачиваете клинок и делаете боль особенно личной.",
         "actionType": "main",
@@ -1218,8 +1297,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/it-was-me-all-along",
+        "originalName": "It Was Me All Along",
+        "originalDescription": "*After everything you've been through together, you twist the blade and make the pain extra personal.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage\n\n**Effect:** If you are disguised as a creature the target knew using your I'm No Threat ability, this ability deals extra damage equal to three times your Agility score.",
+        "legacyId": "ten-eto-byl-ya-vse-eto-vremya-8918c03f54"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/it-was-me-all-along",
+      "originalName": "It Was Me All Along",
+      "originalDescription": "*After everything you've been through together, you twist the blade and make the pain extra personal.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage\n\n**Effect:** If you are disguised as a creature the target knew using your I'm No Threat ability, this ability deals extra damage equal to three times your Agility score."
     },
     {
       "id": "ability.ten-izverzhenie-chernogo-pepla-4e8f720ae0",
@@ -1234,7 +1320,7 @@
         "ten-izverzhenie-chernogo-pepla-4e8f720ae0"
       ],
       "ability": {
-        "id": "ten-izverzhenie-chernogo-pepla-4e8f720ae0",
+        "id": "feature.ability.shadow.level-6.black-ash-eruption",
         "name": "Извержение Черного Пепла",
         "flavor": "Ваша атака создает облако черного пепла, которое подбрасывает врага в воздух.",
         "actionType": "main",
@@ -1273,8 +1359,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/black-ash-eruption",
+        "originalName": "Black Ash Eruption",
+        "originalDescription": "*Your attack produces a cloud of black ash that launches an enemy into the air.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage; vertical push 5\n- **12-16:** 6 + A damage; vertical push 10\n- **17+:** 9 + A damage; vertical push 15\n\n**Effect:** A creature force moved by this ability must be moved straight upward.",
+        "legacyId": "ten-izverzhenie-chernogo-pepla-4e8f720ae0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/black-ash-eruption",
+      "originalName": "Black Ash Eruption",
+      "originalDescription": "*Your attack produces a cloud of black ash that launches an enemy into the air.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage; vertical push 5\n- **12-16:** 6 + A damage; vertical push 10\n- **17+:** 9 + A damage; vertical push 15\n\n**Effect:** A creature force moved by this ability must be moved straight upward."
     },
     {
       "id": "ability.ten-k-zvezdam-a782bf4955",
@@ -1289,7 +1382,7 @@
         "ten-k-zvezdam-a782bf4955"
       ],
       "ability": {
-        "id": "ten-k-zvezdam-a782bf4955",
+        "id": "feature.ability.shadow.level-9.to-the-stars",
         "name": "К Звездам",
         "flavor": "Вы прикрепляете самую мощную взрывчатку к своему врагу. В менее напряженных обстоятельствах вы уверены, что смогли бы вывести его на орбиту.",
         "actionType": "main",
@@ -1327,8 +1420,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/to-the-stars",
+        "originalName": "To the Stars",
+        "originalDescription": "*You attach your most potent explosive to your foe. Under less pressing circumstances, you're sure you could launch them into orbit.*\n\n| **Melee, Ranged, Strike**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage; vertical push 8\n- **12-16:** 7 + A fire damage; vertical push 10\n- **17+:** 11 + A fire damage; vertical push 15\n\n**Effect:** The ground beneath a 3-cube area around the target's starting position is difficult terrain.",
+        "legacyId": "ten-k-zvezdam-a782bf4955"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/to-the-stars",
+      "originalName": "To the Stars",
+      "originalDescription": "*You attach your most potent explosive to your foe. Under less pressing circumstances, you're sure you could launch them into orbit.*\n\n| **Melee, Ranged, Strike**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage; vertical push 8\n- **12-16:** 7 + A fire damage; vertical push 10\n- **17+:** 11 + A fire damage; vertical push 15\n\n**Effect:** The ground beneath a 3-cube area around the target's starting position is difficult terrain."
     },
     {
       "id": "ability.ten-kakofoniya-pepla-6ac58a514f",
@@ -1343,7 +1443,7 @@
         "ten-kakofoniya-pepla-6ac58a514f"
       ],
       "ability": {
-        "id": "ten-kakofoniya-pepla-6ac58a514f",
+        "id": "feature.ability.shadow.level-9.cacophony-of-cinders",
         "name": "Какофония Пепла",
         "flavor": "Вы кувыркаетесь в битве, нанося удары врагам и телепортируя союзников.",
         "actionType": "main",
@@ -1381,8 +1481,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/cacophony-of-cinders",
+        "originalName": "Cacophony of Cinders",
+        "originalDescription": "*You tumble through the battle, stabbing foes and teleporting allies.*\n\n| **Magic, Melee, Weapon** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Self; see below**   |     **🎯 Self** |\n\n**Effect:** You shift up to twice your speed, making one power roll that targets each creature you come adjacent to during the shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** An enemy takes 6 damage; an ally can teleport up to 3 squares.\n- **12-16:** An enemy takes 10 damage; an ally can teleport up to 5 squares.\n- **17+:** An enemy takes 14 damage; an ally can teleport up to 7 squares.",
+        "legacyId": "ten-kakofoniya-pepla-6ac58a514f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/cacophony-of-cinders",
+      "originalName": "Cacophony of Cinders",
+      "originalDescription": "*You tumble through the battle, stabbing foes and teleporting allies.*\n\n| **Magic, Melee, Weapon** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Self; see below**   |     **🎯 Self** |\n\n**Effect:** You shift up to twice your speed, making one power roll that targets each creature you come adjacent to during the shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** An enemy takes 6 damage; an ally can teleport up to 3 squares.\n- **12-16:** An enemy takes 10 damage; an ally can teleport up to 5 squares.\n- **17+:** An enemy takes 14 damage; an ally can teleport up to 7 squares."
     },
     {
       "id": "ability.ten-nereshitelnost-eto-slabost-68aa9c5bc6",
@@ -1397,7 +1504,7 @@
         "ten-nereshitelnost-eto-slabost-68aa9c5bc6"
       ],
       "ability": {
-        "id": "ten-nereshitelnost-eto-slabost-68aa9c5bc6",
+        "id": "feature.ability.shadow.level-1.hesitation-is-weakness",
         "name": "Нерешительность — Это Слабость",
         "flavor": "Продолжайте атаку. Никогда не давайте им ни минуты покоя.",
         "actionType": "free-trigger",
@@ -1429,8 +1536,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/hesitation-is-weakness",
+        "originalName": "Hesitation Is Weakness",
+        "originalDescription": "*Keep up the attack. Never give them a moment's grace.*\n\n| **-**       | **Free triggered** |\n|-------------|-------------------:|\n| **📏 Self** |        **🎯 Self** |\n\n**Trigger:** Another hero ends their turn. That hero can't have used this ability to start their turn.\n\n**Effect:** You take your turn after the triggering hero.",
+        "legacyId": "ten-nereshitelnost-eto-slabost-68aa9c5bc6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/hesitation-is-weakness",
+      "originalName": "Hesitation Is Weakness",
+      "originalDescription": "*Keep up the attack. Never give them a moment's grace.*\n\n| **-**       | **Free triggered** |\n|-------------|-------------------:|\n| **📏 Self** |        **🎯 Self** |\n\n**Trigger:** Another hero ends their turn. That hero can't have used this ability to start their turn.\n\n**Effect:** You take your turn after the triggering hero."
     },
     {
       "id": "ability.ten-niti-marionetki-c117959b78",
@@ -1445,7 +1559,7 @@
         "ten-niti-marionetki-c117959b78"
       ],
       "ability": {
-        "id": "ten-niti-marionetki-c117959b78",
+        "id": "feature.ability.shadow.level-6.puppet-strings",
         "name": "Нити Марионетки",
         "flavor": "Вы втыкаете маленькие иглы на кончиках ваших пальцев в нервы ваших врагов и заставляете их потерять контроль.",
         "actionType": "main",
@@ -1484,8 +1598,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/puppet-strings",
+        "originalName": "Puppet Strings",
+        "originalDescription": "*You prick little needles on the tips of your fingers into the nerves of your enemies and cause them to lose control.*\n\n| **Magic, Melee**, **Strike, Weapon** |    **Main action** |\n|--------------------------------------|-------------------:|\n| **📏 Melee 1**                       | **🎯 Two enemies** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 damage; if the target has R < WEAK, before the damage is resolved, they make a free strike.\n- **12-16:** 5 damage; if the target has R < AVERAGE, before the damage is resolved, they use a main action ability of your choice.\n- **17+:** 7 damage; if the target has R < STRONG, before the damage is resolved, they can shift up to their speed and use a main action ability of your choice.\n\n**Effect:** You choose the new targets for the original target's free strike or ability. Additionally, if you are hidden or disguised, using this ability doesn't cause you to be revealed.",
+        "legacyId": "ten-niti-marionetki-c117959b78"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/puppet-strings",
+      "originalName": "Puppet Strings",
+      "originalDescription": "*You prick little needles on the tips of your fingers into the nerves of your enemies and cause them to lose control.*\n\n| **Magic, Melee**, **Strike, Weapon** |    **Main action** |\n|--------------------------------------|-------------------:|\n| **📏 Melee 1**                       | **🎯 Two enemies** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 damage; if the target has R < WEAK, before the damage is resolved, they make a free strike.\n- **12-16:** 5 damage; if the target has R < AVERAGE, before the damage is resolved, they use a main action ability of your choice.\n- **17+:** 7 damage; if the target has R < STRONG, before the damage is resolved, they can shift up to their speed and use a main action ability of your choice.\n\n**Effect:** You choose the new targets for the original target's free strike or ability. Additionally, if you are hidden or disguised, using this ability doesn't cause you to be revealed."
     },
     {
       "id": "ability.ten-nochnoy-dozor-ae28536624",
@@ -1500,7 +1621,7 @@
         "ten-nochnoy-dozor-ae28536624"
       ],
       "ability": {
-        "id": "ten-nochnoy-dozor-ae28536624",
+        "id": "feature.ability.shadow.level-4.night-watch",
         "name": "Ночной Дозор",
         "flavor": "Стальной кинжал из ниоткуда сбивает другое оружие с курса.",
         "actionType": "trigger",
@@ -1535,8 +1656,15 @@
         "className": "Тень",
         "level": 4,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-4/night-watch",
+        "originalName": "Night Watch",
+        "originalDescription": "*A steely dagger from out of the blue knocks another weapon off course.*\n\n| **Ranged, Weapon** |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 5**    | **🎯 One ally** |\n\n**Trigger:** The target takes damage from another creature's ability while you are hidden.\n\n**Effect:** The target takes half the damage. You remain hidden.",
+        "legacyId": "ten-nochnoy-dozor-ae28536624"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-4/night-watch",
+      "originalName": "Night Watch",
+      "originalDescription": "*A steely dagger from out of the blue knocks another weapon off course.*\n\n| **Ranged, Weapon** |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 5**    | **🎯 One ally** |\n\n**Trigger:** The target takes damage from another creature's ability while you are hidden.\n\n**Effect:** The target takes half the damage. You remain hidden."
     },
     {
       "id": "ability.ten-odin-flakon-delaet-tebya-bystree-0354b44b4c",
@@ -1551,7 +1679,7 @@
         "ten-odin-flakon-delaet-tebya-bystree-0354b44b4c"
       ],
       "ability": {
-        "id": "ten-odin-flakon-delaet-tebya-bystree-0354b44b4c",
+        "id": "feature.ability.shadow.level-6.one-vial-makes-you-faster",
         "name": "Один Флакон Делает Тебя Быстрее",
         "flavor": "Каждый союзник, поймавший брошенное вами зелье, может поднять битву на новый уровень.",
         "actionType": "main",
@@ -1587,8 +1715,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/one-vial-makes-you-faster",
+        "originalName": "One Vial Makes You Faster",
+        "originalDescription": "*Each ally who catches a potion you throw can take the battle to the next level.*\n\n| **Ranged**       |        **Main action** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** You ready, hand, or lob a potion to each target, who can immediately quaff the potion (no action required). If they don't drink the potion right away, they must use the Use Consumable maneuver to consume it later. The potion loses its potency at the end of the encounter.\n\nA creature who drinks the potion receives benefits based on your power roll.\n\n**Power Roll + Agility:**\n\n- **≤11:** The creature's speed is increased by 2 until the end of the encounter.\n- **12-16:** The creature can fly until the end of the encounter.\n- **17+:** The creature turns invisible until the end of their next turn.",
+        "legacyId": "ten-odin-flakon-delaet-tebya-bystree-0354b44b4c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/one-vial-makes-you-faster",
+      "originalName": "One Vial Makes You Faster",
+      "originalDescription": "*Each ally who catches a potion you throw can take the battle to the next level.*\n\n| **Ranged**       |        **Main action** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** You ready, hand, or lob a potion to each target, who can immediately quaff the potion (no action required). If they don't drink the potion right away, they must use the Use Consumable maneuver to consume it later. The potion loses its potency at the end of the encounter.\n\nA creature who drinks the potion receives benefits based on your power roll.\n\n**Power Roll + Agility:**\n\n- **≤11:** The creature's speed is increased by 2 until the end of the encounter.\n- **12-16:** The creature can fly until the end of the encounter.\n- **17+:** The creature turns invisible until the end of their next turn."
     },
     {
       "id": "ability.ten-odin-flakon-delaet-tebya-luchshe-1e90c0fc04",
@@ -1603,7 +1738,7 @@
         "ten-odin-flakon-delaet-tebya-luchshe-1e90c0fc04"
       ],
       "ability": {
-        "id": "ten-odin-flakon-delaet-tebya-luchshe-1e90c0fc04",
+        "id": "feature.ability.shadow.level-6.one-vial-makes-you-better",
         "name": "Один Флакон Делает Тебя Лучше",
         "flavor": "Своевременный бросок зелья поможет вашим союзникам остаться в бою.",
         "actionType": "maneuver",
@@ -1637,8 +1772,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/one-vial-makes-you-better",
+        "originalName": "One Vial Makes You Better",
+        "originalDescription": "*A well-timed throw of a potion will keep your allies in the fight.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** You ready, hand, or lob a potion to each target, who can immediately quaff the potion (no action required). If they don't drink the potion right away, they must use the Use Consumable maneuver to consume it later. The potion loses its potency at the end of the encounter.\n\nA creature who drinks the potion can spend up to 2 Recoveries, and has acid immunity, fire immunity, or poison immunity (their choice) equal to your level until the end of the encounter.",
+        "legacyId": "ten-odin-flakon-delaet-tebya-luchshe-1e90c0fc04"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/one-vial-makes-you-better",
+      "originalName": "One Vial Makes You Better",
+      "originalDescription": "*A well-timed throw of a potion will keep your allies in the fight.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** You ready, hand, or lob a potion to each target, who can immediately quaff the potion (no action required). If they don't drink the potion right away, they must use the Use Consumable maneuver to consume it later. The potion loses its potency at the end of the encounter.\n\nA creature who drinks the potion can spend up to 2 Recoveries, and has acid immunity, fire immunity, or poison immunity (their choice) equal to your level until the end of the encounter."
     },
     {
       "id": "ability.ten-oni-vsegda-vystraivayutsya-v-ryad-534c8b56e1",
@@ -1653,7 +1795,7 @@
         "ten-oni-vsegda-vystraivayutsya-v-ryad-534c8b56e1"
       ],
       "ability": {
-        "id": "ten-oni-vsegda-vystraivayutsya-v-ryad-534c8b56e1",
+        "id": "feature.ability.shadow.level-8.they-always-line-up",
         "name": "Они Всегда Выстраиваются в Ряд",
         "flavor": "Вы выпускаете снаряд так быстро, что он проходит сквозь строй врагов, подрезая им поджилки.",
         "actionType": "main",
@@ -1691,8 +1833,15 @@
         "className": "Тень",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/they-always-line-up",
+        "originalName": "They Always Line Up",
+        "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)",
+        "legacyId": "ten-oni-vsegda-vystraivayutsya-v-ryad-534c8b56e1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/they-always-line-up",
+      "originalName": "They Always Line Up",
+      "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)"
     },
     {
       "id": "ability.ten-otvlekayuschiy-udar-efd2047001",
@@ -1707,7 +1856,7 @@
         "ten-otvlekayuschiy-udar-efd2047001"
       ],
       "ability": {
-        "id": "ten-otvlekayuschiy-udar-efd2047001",
+        "id": "feature.ability.shadow.level-3.misdirecting-strike",
         "name": "Отвлекающий Удар",
         "flavor": "\"Почему ты смотришь на МЕНЯ?!\"",
         "actionType": "main",
@@ -1746,8 +1895,15 @@
         "className": "Тень",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/misdirecting-strike",
+        "originalName": "Misdirecting Strike",
+        "originalDescription": "*\"Why are you looking at ME?!\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 9 + A damage\n- **12-16:** 13 + A damage\n- **17+:** 18 + A damage\n\n**Effect:** The target is taunted by a willing ally within 5 squares of you until the end of the target's next turn.",
+        "legacyId": "ten-otvlekayuschiy-udar-efd2047001"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/misdirecting-strike",
+      "originalName": "Misdirecting Strike",
+      "originalDescription": "*\"Why are you looking at ME?!\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 9 + A damage\n- **12-16:** 13 + A damage\n- **17+:** 18 + A damage\n\n**Effect:** The target is taunted by a willing ally within 5 squares of you until the end of the target's next turn."
     },
     {
       "id": "ability.ten-padenie-teni-ecc704cb3d",
@@ -1762,7 +1918,7 @@
         "ten-padenie-teni-ecc704cb3d"
       ],
       "ability": {
-        "id": "ten-padenie-teni-ecc704cb3d",
+        "id": "feature.ability.shadow.level-5.shadowfall",
         "name": "Падение Тени",
         "flavor": "Вы исчезаете. Они падают. Вы снова появляетесь.",
         "actionType": "main",
@@ -1800,8 +1956,15 @@
         "className": "Тень",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/shadowfall",
+        "originalName": "Shadowfall",
+        "originalDescription": "*You vanish. They fall. You reappear.*\n\n| **Area, Melee, Weapon**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 damage\n- **12-16:** 14 damage\n- **17+:** 20 damage\n\n**Effect:** You disappear before making the power roll. After the power roll is resolved, you appear in the first unoccupied space at the far end of the line.",
+        "legacyId": "ten-padenie-teni-ecc704cb3d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/shadowfall",
+      "originalName": "Shadowfall",
+      "originalDescription": "*You vanish. They fall. You reappear.*\n\n| **Area, Melee, Weapon**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 damage\n- **12-16:** 14 damage\n- **17+:** 20 damage\n\n**Effect:** You disappear before making the power roll. After the power roll is resolved, you appear in the first unoccupied space at the far end of the line."
     },
     {
       "id": "ability.ten-pepelnaya-burya-705d529473",
@@ -1816,7 +1979,7 @@
         "ten-pepelnaya-burya-705d529473"
       ],
       "ability": {
-        "id": "ten-pepelnaya-burya-705d529473",
+        "id": "feature.ability.shadow.level-6.cinderstorm",
         "name": "Пепельная Буря",
         "flavor": "Вы телепортируете своих друзей во взрыве пепла и огня.",
         "actionType": "maneuver",
@@ -1850,8 +2013,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/cinderstorm",
+        "originalName": "Cinderstorm",
+        "originalDescription": "*You teleport your friends in a burst of ash and fire.*\n\n| **Magic**      |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 4 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can teleport up to 5 squares. For each target in addition to you who teleports away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score. Additionally, a target who ends this movement in concealment or cover can use the Hide maneuver even if they are observed.",
+        "legacyId": "ten-pepelnaya-burya-705d529473"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/cinderstorm",
+      "originalName": "Cinderstorm",
+      "originalDescription": "*You teleport your friends in a burst of ash and fire.*\n\n| **Magic**      |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 4 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can teleport up to 5 squares. For each target in addition to you who teleports away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score. Additionally, a target who ends this movement in concealment or cover can use the Hide maneuver even if they are observed."
     },
     {
       "id": "ability.ten-podgotovka-b67b91af64",
@@ -1866,7 +2036,7 @@
         "ten-podgotovka-b67b91af64"
       ],
       "ability": {
-        "id": "ten-podgotovka-b67b91af64",
+        "id": "feature.ability.shadow.level-1.setup",
         "name": "Подготовка",
         "flavor": "Твои друзья будут тебе благодарны.",
         "actionType": "main",
@@ -1904,8 +2074,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+        "originalName": "Setup",
+        "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)",
+        "legacyId": "ten-podgotovka-b67b91af64"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+      "originalName": "Setup",
+      "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
     },
     {
       "id": "ability.ten-potroshenie-1b7fea430f",
@@ -1920,7 +2097,7 @@
         "ten-potroshenie-1b7fea430f"
       ],
       "ability": {
-        "id": "ten-potroshenie-1b7fea430f",
+        "id": "feature.ability.shadow.level-1.eviscerate",
         "name": "Потрошение",
         "flavor": "Вы оставляете своего врага истекать кровью после разрушительной атаки.",
         "actionType": "main",
@@ -1959,8 +2136,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+        "originalName": "Eviscerate",
+        "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)",
+        "legacyId": "ten-potroshenie-1b7fea430f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+      "originalName": "Eviscerate",
+      "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)"
     },
     {
       "id": "ability.ten-prigvozhdayuschiy-vystrel-be13c7e29b",
@@ -1975,7 +2159,7 @@
         "ten-prigvozhdayuschiy-vystrel-be13c7e29b"
       ],
       "ability": {
-        "id": "ten-prigvozhdayuschiy-vystrel-be13c7e29b",
+        "id": "feature.ability.shadow.level-3.pinning-shot",
         "name": "Пригвождающий Выстрел",
         "flavor": "Один снаряд — пущенный точно и жестко.",
         "actionType": "main",
@@ -2013,8 +2197,15 @@
         "className": "Тень",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/pinning-shot",
+        "originalName": "Pinning Shot",
+        "originalDescription": "*One missile—placed well and placed hard.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A damage; A < WEAK, restrained (save ends)\n- **12-16:** 12 + A damage; A < AVERAGE, restrained (save ends)\n- **17+:** 16 + A damage; A < STRONG, restrained (save ends)",
+        "legacyId": "ten-prigvozhdayuschiy-vystrel-be13c7e29b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/pinning-shot",
+      "originalName": "Pinning Shot",
+      "originalDescription": "*One missile—placed well and placed hard.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A damage; A < WEAK, restrained (save ends)\n- **12-16:** 12 + A damage; A < AVERAGE, restrained (save ends)\n- **17+:** 16 + A damage; A < STRONG, restrained (save ends)"
     },
     {
       "id": "ability.ten-skorost-teney-9f64b3f2a3",
@@ -2029,7 +2220,7 @@
         "ten-skorost-teney-9f64b3f2a3"
       ],
       "ability": {
-        "id": "ten-skorost-teney-9f64b3f2a3",
+        "id": "feature.ability.shadow.level-8.speed-of-shadows",
         "name": "Скорость Теней",
         "flavor": "Вы наносите несколько ударов врагу еще до того, как он поймет, что мертв.",
         "actionType": "main",
@@ -2063,8 +2254,15 @@
         "className": "Тень",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/speed-of-shadows",
+        "originalName": "Speed of Shadows",
+        "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use.",
+        "legacyId": "ten-skorost-teney-9f64b3f2a3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/speed-of-shadows",
+      "originalName": "Speed of Shadows",
+      "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use."
     },
     {
       "id": "ability.ten-slishkom-medlenno-5e4c880592",
@@ -2079,7 +2277,7 @@
         "ten-slishkom-medlenno-5e4c880592"
       ],
       "ability": {
-        "id": "ten-slishkom-medlenno-5e4c880592",
+        "id": "feature.ability.shadow.level-2.too-slow",
         "name": "Слишком Медленно",
         "flavor": "Твой враг совершил большую ошибку.",
         "actionType": "free-trigger",
@@ -2111,8 +2309,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/too-slow",
+        "originalName": "Too Slow",
+        "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery.",
+        "legacyId": "ten-slishkom-medlenno-5e4c880592"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/too-slow",
+      "originalName": "Too Slow",
+      "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery."
     },
     {
       "id": "ability.ten-smazat-klinok-60ad7995be",
@@ -2127,7 +2332,7 @@
         "ten-smazat-klinok-60ad7995be"
       ],
       "ability": {
-        "id": "ten-smazat-klinok-60ad7995be",
+        "id": "feature.ability.shadow.level-1.coat-the-blade",
         "name": "Смазать Клинок",
         "flavor": "Немного яда может сделать многое.",
         "actionType": "maneuver",
@@ -2159,8 +2364,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coat-the-blade",
+        "originalName": "Coat the Blade",
+        "originalDescription": "*A little poison goes a long way.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 2 surges. Additionally, whenever you use a surge before the end of the encounter, you can choose to have it deal poison damage.\n\n**Spend 1+ Insight:** For each insight you spend, you gain 1 additional surge.",
+        "legacyId": "ten-smazat-klinok-60ad7995be"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coat-the-blade",
+      "originalName": "Coat the Blade",
+      "originalDescription": "*A little poison goes a long way.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 2 surges. Additionally, whenever you use a surge before the end of the encounter, you can choose to have it deal poison damage.\n\n**Spend 1+ Insight:** For each insight you spend, you gain 1 additional surge."
     },
     {
       "id": "ability.ten-smotri-4fceb928e1",
@@ -2175,7 +2387,7 @@
         "ten-smotri-4fceb928e1"
       ],
       "ability": {
-        "id": "ten-smotri-4fceb928e1",
+        "id": "feature.ability.shadow.level-6.look",
         "name": "Смотри!",
         "flavor": "Вы отвлекаете своих врагов, позволяя союзникам воспользоваться этим отвлечением.",
         "actionType": "maneuver",
@@ -2210,8 +2422,15 @@
         "className": "Тень",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/look",
+        "originalName": "Look!",
+        "originalDescription": "*You distract your foes, allowing your allies to take advantage of that distraction.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Until the start of your next turn, any ability roll made against a target gains an edge.",
+        "legacyId": "ten-smotri-4fceb928e1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-6/look",
+      "originalName": "Look!",
+      "originalDescription": "*You distract your foes, allowing your allies to take advantage of that distraction.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Until the start of your next turn, any ability roll made against a target gains an edge."
     },
     {
       "id": "ability.ten-sotnya-glotok-d8b31aa55b",
@@ -2226,7 +2445,7 @@
         "ten-sotnya-glotok-d8b31aa55b"
       ],
       "ability": {
-        "id": "ten-sotnya-glotok-d8b31aa55b",
+        "id": "feature.ability.shadow.level-1.one-hundred-throats",
         "name": "Сотня Глоток",
         "flavor": "Когда вы перемещаетесь по полю боя, каждый враг в пределах досягаемости чувствует ваш гнев.",
         "actionType": "main",
@@ -2263,8 +2482,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/one-hundred-throats",
+        "originalName": "One Hundred Throats",
+        "originalDescription": "*As you move across the battlefield, every foe within reach feels your wrath.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies who came adjacent to you during the move.\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage",
+        "legacyId": "ten-sotnya-glotok-d8b31aa55b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/one-hundred-throats",
+      "originalName": "One Hundred Throats",
+      "originalDescription": "*As you move across the battlefield, every foe within reach feels your wrath.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies who came adjacent to you during the move.\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage"
     },
     {
       "id": "ability.ten-srazhayuschiy-udar-1b2f628abe",
@@ -2279,7 +2505,7 @@
         "ten-srazhayuschiy-udar-1b2f628abe"
       ],
       "ability": {
-        "id": "ten-srazhayuschiy-udar-1b2f628abe",
+        "id": "feature.ability.shadow.level-3.staggering-blow",
         "name": "Сражающий Удар",
         "flavor": "От этого не оправиться.",
         "actionType": "main",
@@ -2318,8 +2544,15 @@
         "className": "Тень",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+        "originalName": "Staggering Blow",
+        "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)",
+        "legacyId": "ten-srazhayuschiy-udar-1b2f628abe"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+      "originalName": "Staggering Blow",
+      "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)"
     },
     {
       "id": "ability.ten-takoy-doverchivyy-0b00db0ef7",
@@ -2334,7 +2567,7 @@
         "ten-takoy-doverchivyy-0b00db0ef7"
       ],
       "ability": {
-        "id": "ten-takoy-doverchivyy-0b00db0ef7",
+        "id": "feature.ability.shadow.level-2.so-gullible",
         "name": "Такой Доверчивый",
         "flavor": "Когда ваш враг наносит удар, вы обнаруживаете, что все это время были в другом месте.",
         "actionType": "free-trigger",
@@ -2368,8 +2601,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/so-gullible",
+        "originalName": "So Gullible",
+        "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery.",
+        "legacyId": "ten-takoy-doverchivyy-0b00db0ef7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/so-gullible",
+      "originalName": "So Gullible",
+      "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery."
     },
     {
       "id": "ability.ten-tancor-a82270280b",
@@ -2384,7 +2624,7 @@
         "ten-tancor-a82270280b"
       ],
       "ability": {
-        "id": "ten-tancor-a82270280b",
+        "id": "feature.ability.shadow.level-3.dancer",
         "name": "Танцор",
         "flavor": "Вы входите в состояние потока, из-за которого вас почти невозможно загнать в угол.",
         "actionType": "maneuver",
@@ -2416,8 +2656,15 @@
         "className": "Тень",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/dancer",
+        "originalName": "Dancer",
+        "originalDescription": "*You enter a flow state that makes you nearly impossible to pin down.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever an enemy moves or is force moved adjacent to you or damages you, you can take the Disengage move action as a free triggered action.",
+        "legacyId": "ten-tancor-a82270280b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/dancer",
+      "originalName": "Dancer",
+      "originalDescription": "*You enter a flow state that makes you nearly impossible to pin down.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever an enemy moves or is force moved adjacent to you or damages you, you can take the Disengage move action as a free triggered action."
     },
     {
       "id": "ability.ten-teleportaciya-chernogo-pepla-59a147a43e",
@@ -2432,7 +2679,7 @@
         "ten-teleportaciya-chernogo-pepla-59a147a43e"
       ],
       "ability": {
-        "id": "ten-teleportaciya-chernogo-pepla-59a147a43e",
+        "id": "feature.ability.shadow.level-1.black-ash-teleport",
         "name": "Телепортация Черного Пепла",
         "flavor": "В вихре черного пепла вы шагаете из одного места в другое.",
         "actionType": "maneuver",
@@ -2466,8 +2713,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/black-ash-teleport",
+        "originalName": "Black Ash Teleport",
+        "originalDescription": "*In a swirl of black ash, you step from one place to another.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You teleport up to 5 squares. If you have concealment or cover at your destination, you can use the Hide maneuver even if you are observed. If you successfully hide using this maneuver, you gain 1 surge.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent.",
+        "legacyId": "ten-teleportaciya-chernogo-pepla-59a147a43e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/black-ash-teleport",
+      "originalName": "Black Ash Teleport",
+      "originalDescription": "*In a swirl of black ash, you step from one place to another.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You teleport up to 5 squares. If you have concealment or cover at your destination, you can use the Hide maneuver even if you are observed. If you successfully hide using this maneuver, you gain 1 surge.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
     },
     {
       "id": "ability.ten-tenevaya-hvatka-d6274f7dc0",
@@ -2482,7 +2736,7 @@
         "ten-tenevaya-hvatka-d6274f7dc0"
       ],
       "ability": {
-        "id": "ten-tenevaya-hvatka-d6274f7dc0",
+        "id": "feature.ability.shadow.level-8.shadowgrasp",
         "name": "Теневая Хватка",
         "flavor": "Тени вокруг вас расступаются, позволяя созданию мрака внутри вас схватить ваших врагов.",
         "actionType": "main",
@@ -2519,8 +2773,15 @@
         "className": "Тень",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/shadowgrasp",
+        "originalName": "Shadowgrasp",
+        "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)",
+        "legacyId": "ten-tenevaya-hvatka-d6274f7dc0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/shadowgrasp",
+      "originalName": "Shadowgrasp",
+      "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)"
     },
     {
       "id": "ability.ten-tenevoy-udar-ba4ac0268e",
@@ -2535,7 +2796,7 @@
         "ten-tenevoy-udar-ba4ac0268e"
       ],
       "ability": {
-        "id": "ten-tenevoy-udar-ba4ac0268e",
+        "id": "feature.ability.shadow.level-1.shadowstrike",
         "name": "Теневой Удар",
         "flavor": "Они понятия не имеют, чему вас учили в коллегии.",
         "actionType": "main",
@@ -2571,8 +2832,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/shadowstrike",
+        "originalName": "Shadowstrike",
+        "originalDescription": "*They have no idea what the college taught you.*\n\n| **Magic, Melee, Ranged** | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You use a strike signature ability twice.",
+        "legacyId": "ten-tenevoy-udar-ba4ac0268e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/shadowstrike",
+      "originalName": "Shadowstrike",
+      "originalDescription": "*They have no idea what the college taught you.*\n\n| **Magic, Melee, Ranged** | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You use a strike signature ability twice."
     },
     {
       "id": "ability.ten-ty-slishkom-mnogo-boltaesh-efc5a49c51",
@@ -2587,7 +2855,7 @@
         "ten-ty-slishkom-mnogo-boltaesh-efc5a49c51"
       ],
       "ability": {
-        "id": "ten-ty-slishkom-mnogo-boltaesh-efc5a49c51",
+        "id": "feature.ability.shadow.level-5.you-talk-too-much",
         "name": "Ты Слишком Много Болтаешь",
         "flavor": "Молчание — добродетель. Нож, пригвоздивший их рот закрытым, — следующая лучшая вещь.",
         "actionType": "main",
@@ -2626,8 +2894,15 @@
         "className": "Тень",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/you-talk-too-much",
+        "originalName": "You Talk Too Much",
+        "originalDescription": "*Silence is a virtue. A knife pinning their mouth shut is the next best thing.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; P < WEAK, dazed (save ends)\n- **12-16:** 15 + A damage; P < AVERAGE, dazed (save ends)\n- **17+:** 21 + A damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target can't communicate with anyone until the end of the encounter.",
+        "legacyId": "ten-ty-slishkom-mnogo-boltaesh-efc5a49c51"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/you-talk-too-much",
+      "originalName": "You Talk Too Much",
+      "originalDescription": "*Silence is a virtue. A knife pinning their mouth shut is the next best thing.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; P < WEAK, dazed (save ends)\n- **12-16:** 15 + A damage; P < AVERAGE, dazed (save ends)\n- **17+:** 21 + A damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target can't communicate with anyone until the end of the encounter."
     },
     {
       "id": "ability.ten-ty-smotrel-ne-na-togo-c4e2dfac81",
@@ -2642,7 +2917,7 @@
         "ten-ty-smotrel-ne-na-togo-c4e2dfac81"
       ],
       "ability": {
-        "id": "ten-ty-smotrel-ne-na-togo-c4e2dfac81",
+        "id": "feature.ability.shadow.level-1.you-were-watching-the-wrong-one",
         "name": "Ты Смотрел не на Того",
         "flavor": "Они не могут следить за вами обоими одновременно.",
         "actionType": "main",
@@ -2680,8 +2955,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/you-were-watching-the-wrong-one",
+        "originalName": "You Were Watching the Wrong One",
+        "originalDescription": "*They can't watch both of you at once.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage\n\n**Effect:** As long as you have one or more allies within 5 squares of the target, you gain 1 surge. If you are flanking the target when you use this ability, choose one ally who is flanking with you. That ally also gains 1 surge.",
+        "legacyId": "ten-ty-smotrel-ne-na-togo-c4e2dfac81"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/you-were-watching-the-wrong-one",
+      "originalName": "You Were Watching the Wrong One",
+      "originalDescription": "*They can't watch both of you at once.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage\n\n**Effect:** As long as you have one or more allies within 5 squares of the target, you gain 1 surge. If you are flanking the target when you use this ability, choose one ally who is flanking with you. That ally also gains 1 surge."
     },
     {
       "id": "ability.ten-ubiystvo-aa3cec0c87",
@@ -2696,7 +2978,7 @@
         "ten-ubiystvo-aa3cec0c87"
       ],
       "ability": {
-        "id": "ten-ubiystvo-aa3cec0c87",
+        "id": "feature.ability.shadow.level-8.assassinate",
         "name": "Убийство",
         "flavor": "Выработанная долгими тренировками атака мгновенно убьет уже ослабленного врага.",
         "actionType": "main",
@@ -2734,8 +3016,15 @@
         "className": "Тень",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+        "originalName": "Assassinate",
+        "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina.",
+        "legacyId": "ten-ubiystvo-aa3cec0c87"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+      "originalName": "Assassinate",
+      "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
     },
     {
       "id": "ability.ten-udar-miloserdiya-cc21823f7c",
@@ -2750,7 +3039,7 @@
         "ten-udar-miloserdiya-cc21823f7c"
       ],
       "ability": {
-        "id": "ten-udar-miloserdiya-cc21823f7c",
+        "id": "feature.ability.shadow.level-1.coup-de-grace",
         "name": "Удар Милосердия",
         "flavor": "Твой клинок может стать последним, что они увидят.",
         "actionType": "main",
@@ -2789,8 +3078,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coup-de-grace",
+        "originalName": "Coup de Grace",
+        "originalDescription": "*Your blade might be the last thing they see.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2d6 + 7 + A damage\n- **12-16:** 2d6 + 11 + A damage\n- **17+:** 2d6 + 16 + A damage",
+        "legacyId": "ten-udar-miloserdiya-cc21823f7c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coup-de-grace",
+      "originalName": "Coup de Grace",
+      "originalDescription": "*Your blade might be the last thing they see.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2d6 + 7 + A damage\n- **12-16:** 2d6 + 11 + A damage\n- **17+:** 2d6 + 16 + A damage"
     },
     {
       "id": "ability.ten-umnyy-tryuk-0144ffb541",
@@ -2806,7 +3102,7 @@
         "shadow.college.1.umnyy-tryuk"
       ],
       "ability": {
-        "id": "ten-umnyy-tryuk-0144ffb541",
+        "id": "feature.ability.shadow.level-1.clever-trick",
         "name": "Умный Трюк",
         "flavor": "Вы сеете мгновение замешательства в бою, приближаяя ваших врагов к погибели.",
         "actionType": "trigger",
@@ -2840,8 +3136,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/clever-trick",
+        "originalName": "Clever Trick",
+        "originalDescription": "*You sow a moment of confusion in combat, to your enemy's peril.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** An enemy targets you with a strike.\n\n**Effect:** Choose an enemy within distance of the triggering strike, including the enemy who targeted you. The strike targets that enemy instead.",
+        "legacyId": "ten-umnyy-tryuk-0144ffb541"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/clever-trick",
+      "originalName": "Clever Trick",
+      "originalDescription": "*You sow a moment of confusion in combat, to your enemy's peril.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** An enemy targets you with a strike.\n\n**Effect:** Choose an enemy within distance of the triggering strike, including the enemy who targeted you. The strike targets that enemy instead."
     },
     {
       "id": "ability.ten-v-oblake-pepla-630cf9f29c",
@@ -2856,7 +3159,7 @@
         "ten-v-oblake-pepla-630cf9f29c"
       ],
       "ability": {
-        "id": "ten-v-oblake-pepla-630cf9f29c",
+        "id": "feature.ability.shadow.level-2.in-a-puff-of-ash",
         "name": "В Облаке Пепла",
         "flavor": "Вы зачаровываете удар своей магией телепортации.",
         "actionType": "main",
@@ -2896,8 +3199,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/in-a-puff-of-ash",
+        "originalName": "In a Puff of Ash",
+        "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares",
+        "legacyId": "ten-v-oblake-pepla-630cf9f29c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/in-a-puff-of-ash",
+      "originalName": "In a Puff of Ash",
+      "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares"
     },
     {
       "id": "ability.ten-vnimatelnoe-nablyudenie-0e1275c4b7",
@@ -2912,7 +3222,7 @@
         "ten-vnimatelnoe-nablyudenie-0e1275c4b7"
       ],
       "ability": {
-        "id": "ten-vnimatelnoe-nablyudenie-0e1275c4b7",
+        "id": "feature.ability.shadow.level-3.careful-observation",
         "name": "Внимательное Наблюдение",
         "flavor": "Момент концентрации оставляет врага под вашим пристальным прицелом.",
         "actionType": "maneuver",
@@ -2946,8 +3256,15 @@
         "className": "Тень",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/careful-observation",
+        "originalName": "Careful Observation",
+        "originalDescription": "*A moment of focus leaves a foe firmly in your sights.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 20** | **🎯 One creature** |\n\n**Effect:** As long as you remain within distance of the target, maintain line of effect to them, and strike no other creature first, you gain an edge on the next strike you make against the assessed creature, and gain 1 surge you can use only on that strike.",
+        "legacyId": "ten-vnimatelnoe-nablyudenie-0e1275c4b7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/careful-observation",
+      "originalName": "Careful Observation",
+      "originalDescription": "*A moment of focus leaves a foe firmly in your sights.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 20** | **🎯 One creature** |\n\n**Effect:** As long as you remain within distance of the target, maintain line of effect to them, and strike no other creature first, you gain an edge on the next strike you make against the assessed creature, and gain 1 surge you can use only on that strike."
     },
     {
       "id": "ability.ten-vo-tmu-42232a9495",
@@ -2962,7 +3279,7 @@
         "ten-vo-tmu-42232a9495"
       ],
       "ability": {
-        "id": "ten-vo-tmu-42232a9495",
+        "id": "feature.ability.shadow.level-5.into-the-shadows",
         "name": "Во Тьму",
         "flavor": "Вы сбиваете врага с ног и погружаете его в абсолютную тьму.",
         "actionType": "main",
@@ -3001,8 +3318,15 @@
         "className": "Тень",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/into-the-shadows",
+        "originalName": "Into the Shadows",
+        "originalDescription": "*You sweep your foe off their feet and plunge them into absolute darkness.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Effect:** You and the target are removed from the encounter map until the start of your next turn. You reappear in the spaces you left or the nearest unoccupied spaces. Make a power roll upon your return.\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A corruption damage\n- **12-16:** 13 + A corruption damage\n- **17+:** 17 + A corruption damage",
+        "legacyId": "ten-vo-tmu-42232a9495"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/into-the-shadows",
+      "originalName": "Into the Shadows",
+      "originalDescription": "*You sweep your foe off their feet and plunge them into absolute darkness.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Effect:** You and the target are removed from the encounter map until the start of your next turn. You reappear in the spaces you left or the nearest unoccupied spaces. Make a power roll upon your return.\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A corruption damage\n- **12-16:** 13 + A corruption damage\n- **17+:** 17 + A corruption damage"
     },
     {
       "id": "ability.ten-vo-vsey-etoy-nerazberihe-d7da0d7a18",
@@ -3018,7 +3342,7 @@
         "shadow.college.1.vo-vsey-etoy-nerazberikhe"
       ],
       "ability": {
-        "id": "ten-vo-vsey-etoy-nerazberihe-d7da0d7a18",
+        "id": "feature.ability.shadow.level-1.in-all-this-confusion",
         "name": "Во Всей Этой Неразберихе",
         "flavor": "Вы исчезаете в облаке черного дыма, чтобы избежать опасности.",
         "actionType": "trigger",
@@ -3052,8 +3376,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/in-all-this-confusion",
+        "originalName": "In All This Confusion",
+        "originalDescription": "*You vanish in a plume of black smoke to avoid danger.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage, then can teleport up to 4 squares after the triggering effect resolves.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent.",
+        "legacyId": "ten-vo-vsey-etoy-nerazberihe-d7da0d7a18"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/in-all-this-confusion",
+      "originalName": "In All This Confusion",
+      "originalDescription": "*You vanish in a plume of black smoke to avoid danger.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage, then can teleport up to 4 squares after the triggering effect resolves.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
     },
     {
       "id": "ability.ten-vonyuchaya-bomba-c31fc8b942",
@@ -3068,7 +3399,7 @@
         "ten-vonyuchaya-bomba-c31fc8b942"
       ],
       "ability": {
-        "id": "ten-vonyuchaya-bomba-c31fc8b942",
+        "id": "feature.ability.shadow.level-2.stink-bomb",
         "name": "Вонючая Бомба",
         "flavor": "Гнилой желтый газ вырывается из брошенной вами бомбы.",
         "actionType": "main",
@@ -3105,8 +3436,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+        "originalName": "Stink Bomb",
+        "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends).",
+        "legacyId": "ten-vonyuchaya-bomba-c31fc8b942"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+      "originalName": "Stink Bomb",
+      "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
     },
     {
       "id": "ability.ten-voyti-i-vyyti-f172314091",
@@ -3121,7 +3459,7 @@
         "ten-voyti-i-vyyti-f172314091"
       ],
       "ability": {
-        "id": "ten-voyti-i-vyyti-f172314091",
+        "id": "feature.ability.shadow.level-1.get-in-get-out",
         "name": "Войти и Выйти",
         "flavor": "Двигайся неожиданно, бей быстро и исчезай!",
         "actionType": "main",
@@ -3159,8 +3497,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/get-in-get-out",
+        "originalName": "Get In Get Out",
+        "originalDescription": "*Move unexpectedly, strike fast, and be gone!*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 11 + A damage\n\n**Effect:** You can shift up to your speed, dividing that movement before or after your strike as desired.",
+        "legacyId": "ten-voyti-i-vyyti-f172314091"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/get-in-get-out",
+      "originalName": "Get In Get Out",
+      "originalDescription": "*Move unexpectedly, strike fast, and be gone!*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 11 + A damage\n\n**Effect:** You can shift up to your speed, dividing that movement before or after your strike as desired."
     },
     {
       "id": "ability.ten-ya-eto-ty-874997969d",
@@ -3175,7 +3520,7 @@
         "ten-ya-eto-ty-874997969d"
       ],
       "ability": {
-        "id": "ten-ya-eto-ty-874997969d",
+        "id": "feature.ability.shadow.level-9.i-am-you",
         "name": "Я — Это Ты",
         "flavor": "Ваша маска отражает лицо вашего врага. Наверняка оно ему больше не понадобится.",
         "actionType": "maneuver",
@@ -3210,8 +3555,15 @@
         "className": "Тень",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/i-am-you",
+        "originalName": "I Am You",
+        "originalDescription": "*Your mask reflects your foe's face. Surely they won't need it much longer.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  |     **🎯 One creature** |\n\n**Effect:** Until the end of the encounter, you gain the target's damage immunities and speed (if they are better than yours), and can use any types of movement they can use. You can also use the target's signature ability, using their bonus for the power roll.",
+        "legacyId": "ten-ya-eto-ty-874997969d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/i-am-you",
+      "originalName": "I Am You",
+      "originalDescription": "*Your mask reflects your foe's face. Surely they won't need it much longer.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  |     **🎯 One creature** |\n\n**Effect:** Until the end of the encounter, you gain the target's damage immunities and speed (if they are better than yours), and can use any types of movement they can use. You can also use the target's signature ability, using their bonus for the power roll."
     },
     {
       "id": "ability.ten-ya-ne-ugroza-b2a16a7ffa",
@@ -3226,7 +3578,7 @@
         "ten-ya-ne-ugroza-b2a16a7ffa"
       ],
       "ability": {
-        "id": "ten-ya-ne-ugroza-b2a16a7ffa",
+        "id": "feature.ability.shadow.level-1.im-no-threat",
         "name": "Я не Угроза",
         "flavor": "Принятие иллюзорного облика дает вам преимущество в уловках.",
         "actionType": "maneuver",
@@ -3260,8 +3612,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/im-no-threat",
+        "originalName": "I'm No Threat",
+        "originalDescription": "*Taking on an illusory countenance gives you an advantage on subterfuge.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Effect:** You envelop yourself in an illusion that makes you appear nonthreatening and harmless to your enemies. You might take on the appearance of a harmless animal of your size, such as a sheep or capybara, or you might appear as a less heroic and unarmed version of yourself. While this illusion lasts, your strikes gain an edge, and when you take the Disengage move action, you gain a +1 bonus to the distance you can shift.\n\nThe illusion ends when you harm another creature, when you physically interact with a creature, when you use this ability again, or when you end the illusion (no action required). If you end this illusion by harming another creature, you gain 1 surge.\n\n**Spend 1 Insight:** Choose a creature whose size is no more than 1 greater than yours and who is within 10 squares. This ability's illusion makes you appear as that creature. This illusion covers your entire body, including clothing and armor, and alters your voice to sound like that of the creature. You gain an edge on tests made to convince the creature's allies that you are the creature.",
+        "legacyId": "ten-ya-ne-ugroza-b2a16a7ffa"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/im-no-threat",
+      "originalName": "I'm No Threat",
+      "originalDescription": "*Taking on an illusory countenance gives you an advantage on subterfuge.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Effect:** You envelop yourself in an illusion that makes you appear nonthreatening and harmless to your enemies. You might take on the appearance of a harmless animal of your size, such as a sheep or capybara, or you might appear as a less heroic and unarmed version of yourself. While this illusion lasts, your strikes gain an edge, and when you take the Disengage move action, you gain a +1 bonus to the distance you can shift.\n\nThe illusion ends when you harm another creature, when you physically interact with a creature, when you use this ability again, or when you end the illusion (no action required). If you end this illusion by harming another creature, you gain 1 surge.\n\n**Spend 1 Insight:** Choose a creature whose size is no more than 1 greater than yours and who is within 10 squares. This ability's illusion makes you appear as that creature. This illusion covers your entire body, including clothing and armor, and alters your voice to sound like that of the creature. You gain an edge on tests made to convince the creature's allies that you are the creature."
     },
     {
       "id": "ability.ten-ya-rabotayu-luchshe-odin-f2da2cdc25",
@@ -3276,7 +3635,7 @@
         "ten-ya-rabotayu-luchshe-odin-f2da2cdc25"
       ],
       "ability": {
-        "id": "ten-ya-rabotayu-luchshe-odin-f2da2cdc25",
+        "id": "feature.ability.shadow.level-1.i-work-better-alone",
         "name": "Я Работаю Лучше Один",
         "flavor": "\"Так лучше, только ты и я. Не так ли?\"",
         "actionType": "main",
@@ -3315,8 +3674,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/i-work-better-alone",
+        "originalName": "I Work Better Alone",
+        "originalDescription": "*\"It's better, just you and me. Isn't it?\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If the target has none of your allies adjacent to them, you gain 1 surge before making the power roll.",
+        "legacyId": "ten-ya-rabotayu-luchshe-odin-f2da2cdc25"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/i-work-better-alone",
+      "originalName": "I Work Better Alone",
+      "originalDescription": "*\"It's better, just you and me. Isn't it?\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If the target has none of your allies adjacent to them, you gain 1 surge before making the power roll."
     },
     {
       "id": "ability.ten-zadyhayas-ot-boli-6f97bc8941",
@@ -3331,7 +3697,7 @@
         "ten-zadyhayas-ot-boli-6f97bc8941"
       ],
       "ability": {
-        "id": "ten-zadyhayas-ot-boli-6f97bc8941",
+        "id": "feature.ability.shadow.level-1.gasping-in-pain",
         "name": "Задыхаясь от Боли",
         "flavor": "Ваши точные удары позволяют союзникам воспользоваться агонией цели.",
         "actionType": "main",
@@ -3369,8 +3735,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/gasping-in-pain",
+        "originalName": "Gasping in Pain",
+        "originalDescription": "*Your precise strikes let your allies take advantage of a target's agony.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage; I < STRONG, prone\n\n**Effect:** One ally within 5 squares of the target gains 1 surge.",
+        "legacyId": "ten-zadyhayas-ot-boli-6f97bc8941"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/gasping-in-pain",
+      "originalName": "Gasping in Pain",
+      "originalDescription": "*Your precise strikes let your allies take advantage of a target's agony.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage; I < STRONG, prone\n\n**Effect:** One ally within 5 squares of the target gains 1 surge."
     },
     {
       "id": "ability.ten-zaschitnyy-perekat-56c8fd6f33",
@@ -3386,7 +3759,7 @@
         "shadow.college.1.zashchitnyy-perekat"
       ],
       "ability": {
-        "id": "ten-zaschitnyy-perekat-56c8fd6f33",
+        "id": "feature.ability.shadow.level-1.defensive-roll",
         "name": "Защитный Перекат",
         "flavor": "Когда враг атакует, вы перекатываетесь вместе с ударом, чтобы уменьшить урон.",
         "actionType": "trigger",
@@ -3418,8 +3791,15 @@
         "className": "Тень",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+        "originalName": "Defensive Roll",
+        "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you.",
+        "legacyId": "ten-zaschitnyy-perekat-56c8fd6f33"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+      "originalName": "Defensive Roll",
+      "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you."
     },
     {
       "id": "ability.ten-zatemnenie-4de2fdeb2e",
@@ -3434,7 +3814,7 @@
         "ten-zatemnenie-4de2fdeb2e"
       ],
       "ability": {
-        "id": "ten-zatemnenie-4de2fdeb2e",
+        "id": "feature.ability.shadow.level-5.blackout",
         "name": "Затемнение",
         "flavor": "Вы заставляете тень вырваться из ваших глаз и создаете облако тьмы.",
         "actionType": "maneuver",
@@ -3469,8 +3849,15 @@
         "className": "Тень",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/blackout",
+        "originalName": "Blackout",
+        "originalDescription": "*You cause a plume of shadow to erupt from your eyes and create a cloud of darkness.*\n\n| **Area, Magic** |   **Maneuver** |\n|-----------------|---------------:|\n| **📏 3 burst**  | **🎯 Special** |\n\n**Effect:** A black cloud fills the area until the end of your next turn, granting you and your allies concealment against enemies. While you are in the area, whenever an enemy ends their turn in the area, you can use a free triggered action to shift to a new location within the area and make a free strike against them.",
+        "legacyId": "ten-zatemnenie-4de2fdeb2e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-5/blackout",
+      "originalName": "Blackout",
+      "originalDescription": "*You cause a plume of shadow to erupt from your eyes and create a cloud of darkness.*\n\n| **Area, Magic** |   **Maneuver** |\n|-----------------|---------------:|\n| **📏 3 burst**  | **🎯 Special** |\n\n**Effect:** A black cloud fills the area until the end of your next turn, granting you and your allies concealment against enemies. While you are in the area, whenever an enemy ends their turn in the area, you can use a free triggered action to shift to a new location within the area and make a free strike against them."
     },
     {
       "id": "ability.ten-zvukovye-mahinacii-081b060463",
@@ -3485,7 +3872,7 @@
         "ten-zvukovye-mahinacii-081b060463"
       ],
       "ability": {
-        "id": "ten-zvukovye-mahinacii-081b060463",
+        "id": "feature.ability.shadow.level-2.machinations-of-sound",
         "name": "Звуковые Махинации",
         "flavor": "Иллюзорные звуки заставляют ваших врагов менять позиции, пока они разбредаются в суматохе или расследуют беспокойство.",
         "actionType": "maneuver",
@@ -3523,8 +3910,15 @@
         "className": "Тень",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "agility"
-      }
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/machinations-of-sound",
+        "originalName": "Machinations of Sound",
+        "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score.",
+        "legacyId": "ten-zvukovye-mahinacii-081b060463"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/machinations-of-sound",
+      "originalName": "Machinations of Sound",
+      "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score."
     },
     {
       "id": "class.0861",
@@ -3548,7 +3942,10 @@
       },
       "legacyIds": [
         "shadow.college.1.dymovaya-bomba"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/smoke-bomb",
+      "originalName": "Smoke Bomb",
+      "originalDescription": "You always carry a supply of smoke bombs to use for distractions and easy getaways. You can use the Hide maneuver even if you are observed and don't initially have cover or concealment. When you do so, you can shift a number of squares equal to your Agility score. If you end this movement with cover or concealment, you are automatically hidden."
     },
     {
       "id": "feature.shadow.college.1.smazat-klinok",
@@ -3561,7 +3958,10 @@
       },
       "legacyIds": [
         "shadow.college.1.smazat-klinok"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/coat-the-blade",
+      "originalName": "Coat the Blade",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.shadow.college.1.teleportatsiya-chernogo-pepla",
@@ -3574,7 +3974,10 @@
       },
       "legacyIds": [
         "shadow.college.1.teleportatsiya-chernogo-pepla"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/black-ash-teleport",
+      "originalName": "Black Ash Teleport",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.shadow.college.1.ya-ne-ugroza",
@@ -3587,7 +3990,10 @@
       },
       "legacyIds": [
         "shadow.college.1.ya-ne-ugroza"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/im-no-threat",
+      "originalName": "I'm No Threat",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.shadow.college.2.drug",
@@ -3600,7 +4006,10 @@
       },
       "legacyIds": [
         "shadow.college.2.drug"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/friend",
+      "originalName": "Friend!",
+      "originalDescription": "Your illusions make your enemies believe you are their friend in critical moments. Whenever an enemy uses an ability or trait that targets multiple allies and you are within distance of the effect, you can choose to be a target of the effect as well.\n\nAdditionally, when you use your I'm No Threat ability, you can take the Disengage move action as part of that ability."
     },
     {
       "id": "feature.shadow.college.2.goryashchiy-pepel",
@@ -3613,7 +4022,10 @@
       },
       "legacyIds": [
         "shadow.college.2.goryashchiy-pepel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/burning-ash",
+      "originalName": "Burning Ash",
+      "originalDescription": "The ash you leave behind burns your foes. The first time on a turn that you use a shadow ability to teleport away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score."
     },
     {
       "id": "feature.shadow.college.2.obuchennyy-ubiytsa",
@@ -3626,7 +4038,10 @@
       },
       "legacyIds": [
         "shadow.college.2.obuchennyy-ubiytsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/trained-assassin",
+      "originalName": "Trained Assassin",
+      "originalDescription": "You know just where to cut your enemies. Whenever you make a strike that has no bane or double bane, and that incorporates 1 or more surges, you gain 1 additional surge that you can use only on that strike."
     },
     {
       "id": "feature.shadow.college.5.gambit-arlekina",
@@ -3639,7 +4054,10 @@
       },
       "legacyIds": [
         "shadow.college.5.gambit-arlekina"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-5/harlequin-gambit",
+      "originalName": "Harlequin Gambit",
+      "originalDescription": "Whenever you reduce an adjacent non-minion creature to 0 Stamina, you can immediately use a free maneuver to use your I'm No Threat ability and then move up to your speed.\n\nIf the creature is the same size as you, you can disguise yourself as them using I'm No Threat without spending insight. If you do, while I'm No Threat is active, the creature's body is disguised to look like your body. The illusion ends on their body if another creature physically interacts with it. When the illusion would end for either you or the creature's body, it ends for both."
     },
     {
       "id": "feature.shadow.college.5.nestabilnye-reagenty",
@@ -3652,7 +4070,10 @@
       },
       "legacyIds": [
         "shadow.college.5.nestabilnye-reagenty"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-5/volatile-reagents",
+      "originalName": "Volatile Reagents",
+      "originalDescription": "Whenever you take damage, each enemy adjacent to you takes fire, acid, or poison damage (your choice) equal to your Agility score.\n\nAdditionally, your Defensive Roll ability now allows you to shift up to 5 squares, including shifting vertically. If you don't end this shift on solid ground and are not flying, you fall."
     },
     {
       "id": "feature.shadow.college.5.sled-pepla",
@@ -3665,7 +4086,10 @@
       },
       "legacyIds": [
         "shadow.college.5.sled-pepla"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-5/trail-of-cinders",
+      "originalName": "Trail of Cinders",
+      "originalDescription": "Whenever you reduce a non-minion creature to 0 Stamina, you can immediately use a free maneuver to use your Black Ash Teleport ability.\n\nAdditionally, you can now bring an adjacent willing creature along with you whenever you use a shadow ability to teleport. The creature appears in an unoccupied space adjacent to the space into which you teleported. If no such space exists, they can't teleport with you."
     },
     {
       "id": "feature.shadow.college.8.bomba-zamedlennogo-deystviya",
@@ -3678,7 +4102,10 @@
       },
       "legacyIds": [
         "shadow.college.8.bomba-zamedlennogo-deystviya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/time-bomb",
+      "originalName": "Time Bomb",
+      "originalDescription": "You have damage immunity against area abilities and effects equal to your Agility score. You also have the following ability, which you can use once per round on your turn."
     },
     {
       "id": "feature.shadow.college.8.parkur",
@@ -3691,7 +4118,10 @@
       },
       "legacyIds": [
         "shadow.college.8.parkur"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/parkour",
+      "originalName": "Parkour",
+      "originalDescription": "Your movement no longer provokes opportunity attacks. Additionally, you can use your Harlequin Gambit feature as a free triggered action when a creature is reduced to 0 Stamina by your Clever Trick ability."
     },
     {
       "id": "feature.shadow.college.8.pepelnyy-shag",
@@ -3704,7 +4134,10 @@
       },
       "legacyIds": [
         "shadow.college.8.pepelnyy-shag"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/cinder-step",
+      "originalName": "Cinder Step",
+      "originalDescription": "Whenever you willingly move, you can teleport. When you teleport this way, it counts as using a shadow ability for the purpose of using your Burning Ash and Trail of Cinders features."
     },
     {
       "id": "feature.shadow.feature.1.geroicheskie-sposobnosti",
@@ -3730,7 +4163,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.kollegiya-teni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/shadow-college",
+      "originalName": "Shadow College",
+      "originalDescription": "Shadow colleges are secret institutions that turn ordinary folk into something else. Finding a college is the first step in a rigorous initiation process that tests the mettle of an applicant. Even those who make the cut often wash out—or are kicked out—as the master shadows who teach stealth, magic, and assassination to their students are often less than gentle in their approach.\n\nYou graduated from a shadow college chosen from the following options, each of which grants you a skill. (*Quick Build:* College of Black Ash.)\n\n- College of Black Ash: The College of Black Ash founded the art of being a shadow. Its graduates are unmatched in mobility, using sorcery to teleport around the battlefield, manipulate shadows, and summon darkness. You have the Magic skill.\n- College of Caustic Alchemy: The College of Caustic Alchemy teaches its students recipes for the acids, bombs, and poisons used in their grim work. Graduates of the college are exceptional assassins. You have the Alchemy skill.\n- College of the Harlequin Mask: Graduates of the College of the Harlequin Mask learn illusion magic, which they use to infiltrate enemy strongholds and create orchestrated chaos in combat. You have the Lie skill.\n\nYour shadow college is your subclass, and your choice of college determines many of the features you'll gain as you gain new levels."
     },
     {
       "id": "feature.shadow.feature.1.komplekt",
@@ -3743,7 +4179,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.komplekt"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/kit",
+      "originalName": "Kit",
+      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Cloak and Dagger.)"
     },
     {
       "id": "feature.shadow.feature.1.nereshitelnost-eto-slabost",
@@ -3756,7 +4195,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.nereshitelnost-eto-slabost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/hesitation-is-weakness",
+      "originalName": "Hesitation Is Weakness",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.shadow.feature.1.osobennosti-kollegii-1-go-urovnya",
@@ -3769,7 +4211,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.osobennosti-kollegii-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/1st-level-college-features",
+      "originalName": "1st-Level College Features",
+      "originalDescription": "Your shadow college grants you one or two features, as shown on the 1st-Level College Features table.\n\n###### 1st-Level College Features Table\n\n| College         | Feature                    |\n|-----------------|----------------------------|\n| Black Ash       | Black Ash Teleport         |\n| Caustic Alchemy | Coat the Blade, Smoke Bomb |\n| Harlequin Mask  | I'm No Threat              |"
     },
     {
       "id": "feature.shadow.feature.1.prozrenie",
@@ -3782,7 +4227,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.prozrenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/insight",
+      "originalName": "Insight",
+      "originalDescription": "By observing your enemy, you learn how to use their weaknesses against them, building up a Heroic Resource called insight.\n\n##### Insight in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain insight equal to your Victories. At the start of each of your turns during combat, you gain 1d3 insight.\n\nAdditionally, the first time each combat round that you deal damage incorporating 1 or more surges, you gain 1 insight.\n\nWhenever you use a heroic ability that makes use of a power roll, that ability costs 1 fewer insight if you have an edge or double edge on it. If the ability has multiple targets, the cost is reduced even if the ability gains an edge or has a double edge against only one target.\n\nYou lose any remaining insight at the end of the encounter.\n\n##### Insight Outside of Combat\n\nAlthough you can't gain insight outside of combat, you can use your heroic abilities and effects that cost insight without spending it. Whenever you use an ability or effect outside of combat that costs insight, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited insight on its effect, such as Black Ash Teleport, you can use it as if you had spent an amount of insight equal to your Victories."
     },
     {
       "id": "feature.shadow.feature.1.prozrenie-v-boyu",
@@ -3847,7 +4295,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.sposobnosti-teni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/shadow-abilities",
+      "originalName": "Shadow Abilities",
+      "originalDescription": "You specialize in dealing damage, then getting out of harm's way before the inevitable counterattack. You know a number of unique martial abilities that define your presence on the battlefield.\n\n##### Signature Ability\n\nChoose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Teamwork Has Its Place.)\n\n##### Heroic Abilities\n\nA range of heroic abilities define your combat prowess, all of which make use of your insight.\n\n###### 3-Insight Ability\n\nChoose one heroic ability from the following options, each of which costs 3 insight to use. (*Quick Build:* Get In Get Out.)\n\n##### 5-Insight Ability\n\nChoose one heroic ability from the following options, each of which costs 5 insight to use. (Quick Build: Coup de Grace.)"
     },
     {
       "id": "feature.shadow.feature.1.trigger-kollegii",
@@ -3860,7 +4311,10 @@
       },
       "legacyIds": [
         "shadow.feature.1.trigger-kollegii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/college-triggered-action",
+      "originalName": "College Triggered Action",
+      "originalDescription": "Your shadow college grants you a triggered action, as shown on the College Triggered Actions table.\n\n###### College Triggered Actions Table\n\n| College         | Triggered Action      |\n|-----------------|-----------------------|\n| Black Ash       | In All This Confusion |\n| Caustic Alchemy | Defensive Roll        |\n| Harlequin Mask  | Clever Trick          |"
     },
     {
       "id": "feature.shadow.feature.1.znakovaya-sposobnost",
@@ -3886,7 +4340,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.shadow.feature.10.perk",
@@ -3899,7 +4356,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.shadow.feature.10.resurs-smerti",
@@ -3912,7 +4372,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.resurs-smerti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/death-pool",
+      "originalName": "Death Pool",
+      "originalDescription": "The first time each combat round that you deal damage incorporating 1 or more surges, you gain 3 insight instead of 2."
     },
     {
       "id": "feature.shadow.feature.10.ulovka",
@@ -3925,7 +4388,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.ulovka"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/subterfuge",
+      "originalName": "Subterfuge",
+      "originalDescription": "You have an epic resource called subterfuge. Each time you finish a respite, you gain subterfuge equal to the XP you gain. You can spend subterfuge on your abilities as if it were insight.\n\nAdditionally, you can spend subterfuge to take additional maneuvers on your turn. You can use one maneuver for each subterfuge you spend.\n\nSubterfuge remains until you spend it."
     },
     {
       "id": "feature.shadow.feature.10.uluchshenie-vnimatelnogo-nablyudeniya",
@@ -3938,7 +4404,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.uluchshenie-vnimatelnogo-nablyudeniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/careful-observation-improvement",
+      "originalName": "Careful Observation Improvement",
+      "originalDescription": "You can target three creatures simultaneously with your Careful Observation ability."
     },
     {
       "id": "feature.shadow.feature.10.uluchshennaya-tenevaya-forma",
@@ -3951,7 +4420,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.uluchshennaya-tenevaya-forma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/improved-umbral-form",
+      "originalName": "Improved Umbral Form",
+      "originalDescription": "You gain full control over the shadow creature you become with your Umbral Form feature, and you can end the transformation at will (no action required). Additionally, you are always wreathed in darkness that grants you concealment while in this form, and creatures no longer gain an edge on strikes against you.\n\nWhile you are in your umbral form, you can spend 1 uninterrupted minute concentrating on a location where you've been before. At the end of that minute, you and each willing creature of your choice within 10 squares of you can teleport to unoccupied spaces of your choice within that location. Each creature who teleports this way is invisible for 1 hour or until they use an ability."
     },
     {
       "id": "feature.shadow.feature.10.uvelichenie-kharakteristik",
@@ -3964,7 +4436,10 @@
       },
       "legacyIds": [
         "shadow.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Agility score increases to 5. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 5."
     },
     {
       "id": "feature.shadow.feature.2.osobennost-kollegii-2-go-urovnya",
@@ -3977,7 +4452,10 @@
       },
       "legacyIds": [
         "shadow.feature.2.osobennost-kollegii-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-feature",
+      "originalName": "2nd-Level College Feature",
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 2nd-Level College Features table.\n\n###### 2nd-Level College Features Table\n\n| College                    | Feature          |\n|----------------------------|------------------|\n| Black Ash                  | Burning Ash      |\n| Caustic Alchemy            | Trained Assassin |\n| Harlequin Mask             | Friend!          |"
     },
     {
       "id": "feature.shadow.feature.2.perk",
@@ -3990,7 +4468,10 @@
       },
       "legacyIds": [
         "shadow.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.shadow.feature.2.sposobnost-chernogo-pepla-2-go-urovnya",
@@ -4029,7 +4510,10 @@
       },
       "legacyIds": [
         "shadow.feature.2.sposobnost-kollegii-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-ability",
+      "originalName": "2nd-Level College Ability",
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Black Ash Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Caustic Alchemy Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Harlequin Mask Ability\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.shadow.feature.2.sposobnost-maski-arlekina-2-go-urovnya",
@@ -4055,7 +4539,10 @@
       },
       "legacyIds": [
         "shadow.feature.3.sposobnost-za-7-prozreniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-3/7-insight-ability",
+      "originalName": "7-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 insight to use."
     },
     {
       "id": "feature.shadow.feature.3.vnimatelnoe-nablyudenie",
@@ -4068,7 +4555,10 @@
       },
       "legacyIds": [
         "shadow.feature.3.vnimatelnoe-nablyudenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-3/careful-observation",
+      "originalName": "Careful Observation",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.shadow.feature.4.navyk",
@@ -4081,7 +4571,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.shadow.feature.4.nochnoy-dozor",
@@ -4094,7 +4587,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.nochnoy-dozor"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/night-watch",
+      "originalName": "Night Watch",
+      "originalDescription": "Your sense for stealth shows those around you how to evade notice. While you are hidden, enemies take a bane on tests made to search for you or other hidden creatures within 10 squares of you.\n\nAdditionally, you have the following ability."
     },
     {
       "id": "feature.shadow.feature.4.perk",
@@ -4107,7 +4603,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.shadow.feature.4.potishe",
@@ -4120,7 +4619,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.potishe"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/keep-it-down",
+      "originalName": "Keep It Down",
+      "originalDescription": "While conversing with any creature you share a language with, you can decide whether anyone else can perceive what you're conveying, even while yelling."
     },
     {
       "id": "feature.shadow.feature.4.uvelichenie-kharakteristik",
@@ -4133,7 +4635,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Agility score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3."
     },
     {
       "id": "feature.shadow.feature.4.vsplesk-prozreniya",
@@ -4146,7 +4651,10 @@
       },
       "legacyIds": [
         "shadow.feature.4.vsplesk-prozreniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-4/surge-of-insight",
+      "originalName": "Surge of Insight",
+      "originalDescription": "The first time each combat round that you deal damage incorporating 1 or more surges, you gain 2 insight instead of 1."
     },
     {
       "id": "feature.shadow.feature.5.osobennost-kollegii-5-go-urovnya",
@@ -4159,7 +4667,10 @@
       },
       "legacyIds": [
         "shadow.feature.5.osobennost-kollegii-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-5/5th-level-college-feature",
+      "originalName": "5th-Level College Feature",
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 5th-Level College Features table.\n\n###### 5th-Level College Features Table\n\n| College         | Feature           |\n|-----------------|-------------------|\n| Black Ash       | Trail of Cinders  |\n| Caustic Alchemy | Volatile Reagents |\n| Harlequin Mask  | Harlequin Gambit  |"
     },
     {
       "id": "feature.shadow.feature.5.sposobnost-za-9-prozreniya",
@@ -4172,7 +4683,10 @@
       },
       "legacyIds": [
         "shadow.feature.5.sposobnost-za-9-prozreniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-5/9-insight-ability",
+      "originalName": "9-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 insight to use."
     },
     {
       "id": "feature.shadow.feature.6.perk",
@@ -4185,7 +4699,10 @@
       },
       "legacyIds": [
         "shadow.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.shadow.feature.6.sposobnost-kollegii-6-go-urovnya",
@@ -4198,7 +4715,10 @@
       },
       "legacyIds": [
         "shadow.feature.6.sposobnost-kollegii-6-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-6/6th-level-college-ability",
+      "originalName": "6th-Level College Ability",
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 6th-Level Black Ash Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Caustic Alchemy Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Harlequin Mask Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.shadow.feature.6.sposobnosti-chernogo-pepla-6-go-urovnya",
@@ -4250,7 +4770,10 @@
       },
       "legacyIds": [
         "shadow.feature.6.tenevaya-forma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-6/umbral-form",
+      "originalName": "Umbral Form",
+      "originalDescription": "As a maneuver, you lose control of yourself, becoming a shadow creature dripping with ash. This transformation lasts until the end of the encounter, until you are dying, or after 1 uninterrupted hour of quiet focus outside of combat. You gain the following effects while in this form:\n\n- You can automatically climb at full speed while moving.\n- Enemies' spaces don't count as difficult terrain for you. An enemy takes corruption damage equal to your Agility score the first time you pass through their space on a turn.\n- If you end your turn with cover or concealment from another creature, you are automatically hidden from that creature.\n- You gain 1 surge at the start of each of your turns.\n- You have corruption immunity equal to 5 + your level.\n- Creatures gain an edge on strikes against you.\n- You take a bane on Presence tests made to interact with other creatures."
     },
     {
       "id": "feature.shadow.feature.7.chrevoveshchatel",
@@ -4263,7 +4786,10 @@
       },
       "legacyIds": [
         "shadow.feature.7.chrevoveshchatel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-7/ventriloquist",
+      "originalName": "Ventriloquist",
+      "originalDescription": "Whenever you communicate, you can throw your voice so that it seems to originate from a creature or object within 10 squares. If you are hidden, talking this way doesn't cause you to be revealed."
     },
     {
       "id": "feature.shadow.feature.7.navyk",
@@ -4276,7 +4802,10 @@
       },
       "legacyIds": [
         "shadow.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.shadow.feature.7.ostroe-prozrenie",
@@ -4289,7 +4818,10 @@
       },
       "legacyIds": [
         "shadow.feature.7.ostroe-prozrenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-7/keen-insight",
+      "originalName": "Keen Insight",
+      "originalDescription": "At the start of each of your turns during combat, you gain 1d3 + 1 insight instead of 1d3."
     },
     {
       "id": "feature.shadow.feature.7.uluchshenie-vnimatelnogo-nablyudeniya",
@@ -4302,7 +4834,10 @@
       },
       "legacyIds": [
         "shadow.feature.7.uluchshenie-vnimatelnogo-nablyudeniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-7/careful-observation-improvement",
+      "originalName": "Careful Observation Improvement",
+      "originalDescription": "You can target two creatures simultaneously with your Careful Observation ability, observing both simultaneously. Making a strike against one target doesn't end your observation of the other target."
     },
     {
       "id": "feature.shadow.feature.7.uvelichenie-kharakteristik",
@@ -4315,7 +4850,10 @@
       },
       "legacyIds": [
         "shadow.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.shadow.feature.8.osobennost-kollegii-8-go-urovnya",
@@ -4328,7 +4866,10 @@
       },
       "legacyIds": [
         "shadow.feature.8.osobennost-kollegii-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/8th-level-college-feature",
+      "originalName": "8th-Level College Feature",
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 8th-Level College Features table.\n\n###### 8th-Level College Features Table\n\n| College         | Feature     |\n|-----------------|-------------|\n| Black Ash       | Cinder Step |\n| Caustic Alchemy | Time Bomb   |\n| Harlequin Mask  | Parkour     |"
     },
     {
       "id": "feature.shadow.feature.8.perk",
@@ -4341,7 +4882,10 @@
       },
       "legacyIds": [
         "shadow.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.shadow.feature.8.sposobnost-za-11-prozreniya",
@@ -4354,7 +4898,10 @@
       },
       "legacyIds": [
         "shadow.feature.8.sposobnost-za-11-prozreniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/11-insight-ability",
+      "originalName": "11-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 insight to use."
     },
     {
       "id": "feature.shadow.feature.9.mrachnyy-otryad",
@@ -4367,7 +4914,10 @@
       },
       "legacyIds": [
         "shadow.feature.9.mrachnyy-otryad"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-9/gloom-squad",
+      "originalName": "Gloom Squad",
+      "originalDescription": "At the start of each of your turns, you can forgo gaining insight to create 1d6 clones of yourself in unoccupied adjacent spaces. A clone acts on your turn and uses your statistics, except they have 1 Stamina. They are affected by any conditions and effects on you, and last until the start of your next turn. A clone doesn't have insight and can't use the Careful Observation ability, the Umbral Form feature, or any triggered actions. On their turn, a clone has a move action, a maneuver, and a main action that they can use only to make a free strike. While making a free strike, a clone must choose targets that you or another clone aren't also striking.\n\nOutside of combat, you can have one clone active for every 2 Victories you have. If a clone is destroyed, you must wait 1 hour before creating another one."
     },
     {
       "id": "feature.shadow.feature.9.sposobnost-kollegii-9-go-urovnya",
@@ -4380,7 +4930,10 @@
       },
       "legacyIds": [
         "shadow.feature.9.sposobnost-kollegii-9-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-9/9th-level-college-ability",
+      "originalName": "9th-Level College Ability",
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 9th-Level Black Ash Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Caustic Alchemy Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Harlequin Mask Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.shadow.feature.9.sposobnosti-chernogo-pepla-9-go-urovnya",

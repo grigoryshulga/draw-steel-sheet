@@ -1,8 +1,9 @@
 import { CONDUIT_BASE_MECHANICS } from "../data/class-features/mechanics/conduit-base";
+import { canonicalClassFeatureId } from "../data/originals";
 import type { FeatureEquipmentFlags } from "../types";
 import { resolveConduitFeatureChoice } from "./class-features";
 
-const conduitSoldierPrayer = CONDUIT_BASE_MECHANICS["conduit.feature.1.molitva-o-masterstve-soldata"];
+const conduitSoldierPrayer = CONDUIT_BASE_MECHANICS[canonicalClassFeatureId("conduit.feature.1.molitva-o-masterstve-soldata")];
 const talentBattleIds = new Set(["talent.augmentation.battle", "Боевая аугментация"]);
 const elementalistBattleIds = new Set(["elementalist.enchantment.battle", "Зачарование битвы"]);
 

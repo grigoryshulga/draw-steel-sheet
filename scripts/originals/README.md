@@ -40,19 +40,19 @@
   - `unmapped-*.json` — английские id и названия для структурных заголовков,
     контейнеров и домашних материалов без отдельного `scc`;
   - `codex-*.json` — статьи Кодекса → разделы английской книги.
-- `scripts/build-originals.mjs` — применяет карты к `src/data/*.generated.json`,
-  обновляет `src/data/legacy-ids.generated.json` и справочники состояний,
-  навыков и Кодекса.
+- `scripts/content/lib/originals.mjs` — применяет карты к проекциям
+  `src/generated/consumers/*.json` и пакетам `src/generated/rules/packs/*.json`
+  внутри `content:build`.
 
 ## Обновление
 
 ```bash
-npm run data:originals   # только пересобрать оригиналы
-npm run data             # полная пересборка данных, включая оригиналы
+npm run content:build    # канонические правила + проекции с оригиналами
+npm run content:check    # проверка, что проекции совпадают с каноном
 ```
 
-`npm run data` требует соседний checkout `drawsteel-ru`; `data:originals`
-работает по уже сгенерированным JSON и закоммиченной выгрузке.
+`npm run data` остаётся командой миграции старых снапшотов и требует
+соседний checkout `drawsteel-ru`.
 
 Если в SteelCompendium появились новые сущности, обновите `reference/` и
 добавьте пары в соответствующую карту. Скрипт печатает предупреждения о

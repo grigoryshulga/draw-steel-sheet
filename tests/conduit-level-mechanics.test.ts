@@ -56,9 +56,9 @@ afterEach(() => {
 
 describe("механики уровней Проводника", () => {
   it.each([
-    [2, 3, "0833-g01", "conduit.feature.3.sposobnost-za-7-blagochestiya"],
-    [4, 5, "0835-g01", "conduit.feature.5.sposobnost-za-9-blagochestiya"],
-    [7, 8, "0838-g01", "conduit.feature.8.sposobnost-za-11-blagochestiya"],
+    [2, 3, "0833-g01", "feature.conduit.level-3.7-piety-ability"],
+    [4, 5, "0835-g01", "feature.conduit.level-5.9-piety-ability"],
+    [7, 8, "0838-g01", "feature.conduit.level-8.11-piety-ability"],
   ] as const)("предлагает и принимает настоящую способность Проводника при переходе %i→%i", (fromLevel, toLevel, groupId, featureId) => {
     const domains = "Жизнь, Защита";
     const selections: Record<string, string> = { "conduit.domain": domains };
@@ -117,7 +117,7 @@ describe("механики уровней Проводника", () => {
       gains: [{ amount: "= Опыт", label: "Завершаешь отдых" }],
     });
     const skeleton = (id: string) => scope.find((feature) => feature.id === id)!;
-    const faithful = "conduit.feature.7.nagrada-veruyushchego-faithful-s-reward";
+    const faithful = "feature.conduit.level-7.faithfuls-reward";
     const faithfulText = skeleton(faithful).description;
     const reward = inventoryFeature("Награда верующего (Faithful's Reward)");
     const pietyBase = inventoryFeature("Благочестие");
@@ -131,15 +131,15 @@ describe("механики уровней Проводника", () => {
     const base = CONDUIT_LEVEL_MECHANICS[faithful].resource!.gains[0];
     expect(base.amount).toBe("1d3 + 1");
     expect(base.replaces).toContain("start-of-turn");
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.10.samyy-blagochestivyy"].resource?.gains[0]).toMatchObject({
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.most-pious"].resource?.gains[0]).toMatchObject({
       tag: "prayer-bonus", event: "start-of-turn", amount: "1", frequency: "turn",
     });
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.10.samyy-blagochestivyy"].resource?.gains[0].replaces).toBeUndefined();
-    expect(skeleton("conduit.feature.10.samyy-blagochestivyy").description).toContain("молитесь");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.most-pious"].resource?.gains[0].replaces).toBeUndefined();
+    expect(skeleton("feature.conduit.level-10.most-pious").description).toContain("молитесь");
     expect(inventoryFeature("Самый благочестивый").notes).toContain("при молитве в начале хода +1 благочестие");
     const blessedDomains = inventoryFeature("Благословенные домены (Blessed Domain)");
     expect(blessedDomains.notes).toContain("+1 благочестие при получении благочестия от эффекта домена");
-    const blessed = CONDUIT_LEVEL_MECHANICS["conduit.feature.4.blagoslovennye-domeny-blessed-domain"];
+    const blessed = CONDUIT_LEVEL_MECHANICS["feature.conduit.level-4.blessed-domain"];
     expect(blessed.kinds).not.toContain("resourceGain");
     expect(blessed.resource).toBeUndefined();
     expect(blessed.trigger).toMatchObject({
@@ -149,7 +149,7 @@ describe("механики уровней Проводника", () => {
     expect(blessed.notes).toContain("не поддерживает событие получения ресурса от эффекта домена");
     expect(blessed.notes).toContain("не включена как постоянное начисление");
     expect(blessed.resource?.gains).toBeUndefined();
-    const lists = CONDUIT_LEVEL_MECHANICS["conduit.feature.2.spiski-nebes-the-lists-of-heaven"].trigger!;
+    const lists = CONDUIT_LEVEL_MECHANICS["feature.conduit.level-2.the-lists-of-heaven"].trigger!;
     expect(lists.label).toBe("Существо тратит Восстановление");
     expect(lists.detail).toContain("другому существу потратить Восстановление");
     expect(lists.event).toBe("spend-recovery");
@@ -161,16 +161,16 @@ describe("механики уровней Проводника", () => {
     const hero = createCharacter({ className: "Проводник", level: 10 });
     const gains = resolvedResourceGains(hero);
     expect(gains.filter((gain) => gain.event === "start-of-turn")).toEqual([
-      expect.objectContaining({ tag: "start-of-turn", amount: "1d3 + 1", sourceId: "conduit.feature.7.nagrada-veruyushchego-faithful-s-reward" }),
-      expect.objectContaining({ tag: "prayer-bonus", amount: "1", sourceId: "conduit.feature.10.samyy-blagochestivyy" }),
+      expect.objectContaining({ tag: "start-of-turn", amount: "1d3 + 1", sourceId: "feature.conduit.level-7.faithfuls-reward" }),
+      expect.objectContaining({ tag: "prayer-bonus", amount: "1", sourceId: "feature.conduit.level-10.most-pious" }),
     ]);
     expect(gains.filter((gain) => gain.tag === "start-of-turn")).toHaveLength(1);
   });
 
   it("моделирует Расцветающего святого выбором одного иммунитета и показывает damage-trigger", () => {
     registerLevelMechanics();
-    const feature = CONDUIT_LEVEL_MECHANICS["conduit.feature.6.rastsvetayushchiy-svyatoy"];
-    const description = scope.find(({ id }) => id === "conduit.feature.6.rastsvetayushchiy-svyatoy")!.description;
+    const feature = CONDUIT_LEVEL_MECHANICS["feature.conduit.level-6.burgeoning-saint"];
+    const description = scope.find(({ id }) => id === "feature.conduit.level-6.burgeoning-saint")!.description;
     expect(description).toContain("можете потратить Восстановление");
     expect(feature.trigger).toMatchObject({ event: "deal-damage", detail: expect.stringContaining("потратить Восстановление") });
     expect(feature.choice?.options).toEqual([{ id: "corruption", label: "Порча 10" }, { id: "holy", label: "Святой урон 10" }]);
@@ -187,7 +187,7 @@ describe("механики уровней Проводника", () => {
     expect(featureDamageImmunities(hero)).toEqual([expect.objectContaining({ types: ["святой"], value: 10 })]);
 
     const triggers = classFeatureTriggers(hero);
-    expect(triggers).toContainEqual(expect.objectContaining({ featureId: "conduit.feature.6.rastsvetayushchiy-svyatoy", event: "deal-damage" }));
+    expect(triggers).toContainEqual(expect.objectContaining({ featureId: "feature.conduit.level-6.burgeoning-saint", event: "deal-damage" }));
   });
 
   it("без выбора у Расцветающего святого нет иммунитета, а L4 напоминание есть в триггерах", () => {
@@ -200,25 +200,29 @@ describe("механики уровней Проводника", () => {
     const level4Hero = createCharacter({ className: "Проводник", level: 4 });
     const triggers = classFeatureTriggers(level4Hero);
     expect(triggers).toContainEqual(expect.objectContaining({
-      featureId: "conduit.feature.4.blagoslovennye-domeny-blessed-domain",
+      featureId: "feature.conduit.level-4.blessed-domain",
       event: "passive",
       detail: expect.stringContaining("получаете ещё +1 Благочестие"),
     }));
   });
 
   it("согласует доменные выборы с повышением уровня и проверяет понятные заметки способностей и ресурса", () => {
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.4.osobennost-domena-4-go-urovnya"].choice?.group).toBe("conduit.domain.4");
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.7.osobennost-domena-7-go-urovnya"].choice?.group).toBe("conduit.domain.7");
-    for (const level of [2, 6, 9]) {
-      expect(CONDUIT_LEVEL_MECHANICS[`conduit.feature.${level}.sposobnost-domena-${level}-go-urovnya`].choice?.group).toBe(`conduit.ability.domain.${level}`);
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-4.4th-level-domain-feature"].choice?.group).toBe("conduit.domain.4");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-7.7th-level-domain-feature"].choice?.group).toBe("conduit.domain.7");
+    for (const [level, featureId] of [
+      [2, "feature.conduit.level-2.2nd-level-domain-ability"],
+      [6, "feature.conduit.level-6.6th-level-domain-ability"],
+      [9, "feature.conduit.level-9.9th-level-domain-ability"],
+    ] as const) {
+      expect(CONDUIT_LEVEL_MECHANICS[featureId].choice?.group).toBe(`conduit.ability.domain.${level}`);
     }
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.2.osobennost-domena-2-go-urovnya"].kinds).toContain("grant");
-    expect(CONDUIT_LEVEL_TEXT_ONLY["conduit.feature.3.maloe-chudo-minor-miracle"]).toContain("половину своих Восстановлений");
-    expect(CONDUIT_LEVEL_MECHANICS["conduit.feature.9.mech-very-faith-s-sword"].trigger?.detail).toContain("1 очко его Героического Ресурса за каждые 2");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-2.2nd-level-domain-feature"].kinds).toContain("grant");
+    expect(CONDUIT_LEVEL_TEXT_ONLY["feature.conduit.level-3.minor-miracle"]).toContain("половину своих Восстановлений");
+    expect(CONDUIT_LEVEL_MECHANICS["feature.conduit.level-9.faiths-sword"].trigger?.detail).toContain("1 очко его Героического Ресурса за каждые 2");
     const abilityNotes = [
-      ["conduit.feature.3.sposobnost-za-7-blagochestiya", "3-го", "7 Благочестия"],
-      ["conduit.feature.5.sposobnost-za-9-blagochestiya", "5-го", "9 Благочестия"],
-      ["conduit.feature.8.sposobnost-za-11-blagochestiya", "8-го", "11 Благочестия"],
+      ["feature.conduit.level-3.7-piety-ability", "3-го", "7 Благочестия"],
+      ["feature.conduit.level-5.9-piety-ability", "5-го", "9 Благочестия"],
+      ["feature.conduit.level-8.11-piety-ability", "8-го", "11 Благочестия"],
     ] as const;
     for (const [featureId, level, cost] of abilityNotes) {
       const notes = CONDUIT_LEVEL_MECHANICS[featureId].notes!;
@@ -228,7 +232,7 @@ describe("механики уровней Проводника", () => {
       expect(notes).toContain("Благочестие тратится отдельно");
       expect(notes).not.toMatch(/083[358]-g01|CONDUIT_RESOURCE|ResourceGain/);
     }
-    const divinePowerNotes = CONDUIT_LEVEL_MECHANICS["conduit.feature.10.bozhestvennaya-sila"].notes!;
+    const divinePowerNotes = CONDUIT_LEVEL_MECHANICS["feature.conduit.level-10.divine-power"].notes!;
     expect(divinePowerNotes).toContain("После каждого отдыха");
     expect(divinePowerNotes).toContain("количестве Опыта, полученного после этого отдыха");
     expect(divinePowerNotes).toContain("остаток нужно учитывать вручную");

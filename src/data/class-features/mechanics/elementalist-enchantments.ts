@@ -12,7 +12,7 @@ export const ELEMENTALIST_ENCHANTMENT_MECHANICS: Record<
   string,
   FeatureMechanics
 > = {
-  "elementalist.feature.1.zacharovanie-bitvy": {
+  "feature.elementalist.level-1.enchantment-of-battle": {
     kinds: ["bonus", "proficiency"],
     when: { keyValue: ["Зачарование битвы"] },
     effects: [
@@ -46,7 +46,7 @@ export const ELEMENTALIST_ENCHANTMENT_MECHANICS: Record<
       "свободные удары. Условия независимы: броня даёт выносливость, оружие — " +
       "урон. С любым комплектом это зачарование взять нельзя.",
   },
-  "elementalist.feature.1.zacharovanie-bystroty": {
+  "feature.elementalist.level-1.enchantment-of-celerity": {
     kinds: ["bonus"],
     when: { keyValue: ["Зачарование быстроты"] },
     effects: [
@@ -56,7 +56,7 @@ export const ELEMENTALIST_ENCHANTMENT_MECHANICS: Record<
     notes:
       "Скорость +1 и +1 к расстоянию отхода. Оба числа не растут по эшелонам.",
   },
-  "elementalist.feature.1.zacharovanie-razrusheniya": {
+  "feature.elementalist.level-1.enchantment-of-destruction": {
     kinds: ["bonus"],
     when: { keyValue: ["Зачарование разрушения"] },
     effects: [
@@ -72,7 +72,7 @@ export const ELEMENTALIST_ENCHANTMENT_MECHANICS: Record<
       "Бонус не применяется к способности без броска силы с числовым уроном: " +
       "так же считает и остальной лист.",
   },
-  "elementalist.feature.1.zacharovanie-distantsii": {
+  "feature.elementalist.level-1.enchantment-of-distance": {
     kinds: ["bonus"],
     when: { keyValue: ["Зачарование дистанции"] },
     effects: [
@@ -87,7 +87,7 @@ export const ELEMENTALIST_ENCHANTMENT_MECHANICS: Record<
       "Дальнобойные магические способности получают +2 к расстоянию. Фильтр " +
       "требует оба ключевых слова, как в книге.",
   },
-  "elementalist.feature.1.zacharovanie-postoyanstva": {
+  "feature.elementalist.level-1.enchantment-of-permanence": {
     kinds: ["bonus"],
     when: { keyValue: ["Зачарование постоянства"] },
     effects: [

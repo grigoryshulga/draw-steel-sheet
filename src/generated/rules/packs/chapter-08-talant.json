@@ -308,7 +308,10 @@
           "type": "entity",
           "ref": "ability.talant-idealnaya-yasnost-f658074933"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level talent, you gain the following features."
     },
     {
       "id": "0852",
@@ -401,7 +404,10 @@
           "type": "entity",
           "ref": "ability.talant-sinapticheskoe-pereopredelenie-da231176a7"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level talent, you gain the following features."
     },
     {
       "id": "0853",
@@ -450,7 +456,10 @@
           "type": "entity",
           "ref": "ability.talant-ozhog-dushi-dcdaeaaaf9"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level talent, you gain the following features."
     },
     {
       "id": "0854",
@@ -487,7 +496,10 @@
           "type": "entity",
           "ref": "feature.talent.feature.4.podveshivayushchee-pole"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level talent, you gain the following features."
     },
     {
       "id": "0855",
@@ -560,7 +572,10 @@
           "type": "entity",
           "ref": "ability.talant-svyazannye-dushi-436f7ea33e"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level talent, you gain the following features."
     },
     {
       "id": "0856",
@@ -669,7 +684,10 @@
           "type": "entity",
           "ref": "ability.talant-sinapticheskoe-rasseivanie-acbf4bd4bd"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level talent, you gain the following features."
     },
     {
       "id": "0857",
@@ -702,7 +720,10 @@
           "type": "entity",
           "ref": "feature.talent.feature.7.navyk"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level talent, you gain the following features."
     },
     {
       "id": "0858",
@@ -795,7 +816,10 @@
           "type": "entity",
           "ref": "ability.talant-stal-8f6e7fcb00"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level talent, you gain the following features."
     },
     {
       "id": "0859",
@@ -872,7 +896,10 @@
           "type": "entity",
           "ref": "ability.talant-sinapticheskiy-uzhas-0145e9debe"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level talent, you gain the following features."
     },
     {
       "id": "0860",
@@ -913,7 +940,10 @@
           "type": "entity",
           "ref": "feature.talent.feature.10.videnie"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level talent, you gain the following features."
     }
   ],
   "entities": [
@@ -930,7 +960,7 @@
         "talant-brosok-skvoz-vremya-44ccdf4877"
       ],
       "ability": {
-        "id": "talant-brosok-skvoz-vremya-44ccdf4877",
+        "id": "feature.ability.talent.level-3.fling-through-time",
         "name": "Бросок Сквозь Время",
         "flavor": "Вы швыряете цель сквозь анналы времени, заставляя ее быть свидетелем каждого момента своего существования одновременно.",
         "actionType": "main",
@@ -969,8 +999,15 @@
         "className": "Талант",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/fling-through-time",
+        "originalName": "Fling Through Time",
+        "originalDescription": "*You hurl the target through the annals of time, forcing them to witness every moment of their existence all at once.*\n\n| **Chronopathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P corruption damage; P < WEAK, weakened (save ends)\n- **12-16:** 5 + P corruption damage; the target is flung through time, and if P < AVERAGE, they are weakened (save ends)\n- **17+:** 8 + P corruption damage; the target is flung through time, and if P < STRONG, they are weakened (save ends)\n\n**Effect:** A target who is flung through time is removed from the encounter map until the end of their next turn, reappearing in their original space or the nearest unoccupied space.\n\n**Strained:** You take 2d6 damage and permanently grow visibly older (the equivalent of 10 years for a human). If you obtain a tier 3 outcome on the power roll, you gain 2 clarity.",
+        "legacyId": "talant-brosok-skvoz-vremya-44ccdf4877"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/fling-through-time",
+      "originalName": "Fling Through Time",
+      "originalDescription": "*You hurl the target through the annals of time, forcing them to witness every moment of their existence all at once.*\n\n| **Chronopathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P corruption damage; P < WEAK, weakened (save ends)\n- **12-16:** 5 + P corruption damage; the target is flung through time, and if P < AVERAGE, they are weakened (save ends)\n- **17+:** 8 + P corruption damage; the target is flung through time, and if P < STRONG, they are weakened (save ends)\n\n**Effect:** A target who is flung through time is removed from the encounter map until the end of their next turn, reappearing in their original space or the nearest unoccupied space.\n\n**Strained:** You take 2d6 damage and permanently grow visibly older (the equivalent of 10 years for a human). If you obtain a tier 3 outcome on the power roll, you gain 2 clarity."
     },
     {
       "id": "ability.talant-duhovnyy-mech-e471e7321b",
@@ -985,7 +1022,7 @@
         "talant-duhovnyy-mech-e471e7321b"
       ],
       "ability": {
-        "id": "talant-duhovnyy-mech-e471e7321b",
+        "id": "feature.ability.talent.level-1.spirit-sword",
         "name": "Духовный Меч",
         "flavor": "Вы формируете клинок из энергии разума и пронзаете свою цель, воодушевляя себя.",
         "actionType": "main",
@@ -1024,8 +1061,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/spirit-sword",
+        "originalName": "Spirit Sword",
+        "originalDescription": "*You form a blade of mind energy and stab your target, invigorating yourself.*\n\n| **Animapathy, Melee, Psionic, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Melee 2**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** You gain 1 surge.\n\n**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way.",
+        "legacyId": "talant-duhovnyy-mech-e471e7321b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/spirit-sword",
+      "originalName": "Spirit Sword",
+      "originalDescription": "*You form a blade of mind energy and stab your target, invigorating yourself.*\n\n| **Animapathy, Melee, Psionic, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Melee 2**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** You gain 1 surge.\n\n**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way."
     },
     {
       "id": "ability.talant-ekzotermicheskiy-schit-d4f82f3b15",
@@ -1040,7 +1084,7 @@
         "talant-ekzotermicheskiy-schit-d4f82f3b15"
       ],
       "ability": {
-        "id": "talant-ekzotermicheskiy-schit-d4f82f3b15",
+        "id": "feature.ability.talent.level-5.exothermic-shield",
         "name": "Экзотермический Щит",
         "flavor": "Вы заключаете цель в псионическое пламя и позволяете ей мерцать, без страха огня.",
         "actionType": "maneuver",
@@ -1076,8 +1120,15 @@
         "className": "Талант",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/exothermic-shield",
+        "originalName": "Exothermic Shield",
+        "originalDescription": "*You encase the target in psionic flame and allow them to flicker without fear of burning out.*\n\n| **Pyrokinesis, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target has cold immunity 10 and fire immunity 10, and their strikes deal extra fire damage equal to twice your Reason score. Additionally, whenever an enemy uses a melee ability against the target while they are under this effect, the enemy takes 5 fire damage.\n\n**Strained:** The target gains 2 surges. You are weakened and slowed (save ends).",
+        "legacyId": "talant-ekzotermicheskiy-schit-d4f82f3b15"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/exothermic-shield",
+      "originalName": "Exothermic Shield",
+      "originalDescription": "*You encase the target in psionic flame and allow them to flicker without fear of burning out.*\n\n| **Pyrokinesis, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target has cold immunity 10 and fire immunity 10, and their strikes deal extra fire damage equal to twice your Reason score. Additionally, whenever an enemy uses a melee ability against the target while they are under this effect, the enemy takes 5 fire damage.\n\n**Strained:** The target gains 2 surges. You are weakened and slowed (save ends)."
     },
     {
       "id": "ability.talant-entropiynyy-zaryad-b5ace9973e",
@@ -1092,7 +1143,7 @@
         "talant-entropiynyy-zaryad-b5ace9973e"
       ],
       "ability": {
-        "id": "talant-entropiynyy-zaryad-b5ace9973e",
+        "id": "feature.ability.talent.level-1.entropic-bolt",
         "name": "Энтропийный Заряд",
         "flavor": "Вы на мгновение ускоряете старение врага.",
         "actionType": "main",
@@ -1131,8 +1182,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/entropic-bolt",
+        "originalName": "Entropic Bolt",
+        "originalDescription": "*You advance an enemy's age for a moment.*\n\n| **Chronopathy, Psionic, Ranged, Strike** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P corruption damage; P < WEAK, slowed (save ends)\n- **12-16:** 3 + P corruption damage; P < AVERAGE, slowed (save ends)\n- **17+:** 5 + P corruption damage; P < STRONG, slowed (save ends)\n\n**Effect:** The target takes an extra 1 corruption damage for each additional time they are targeted by this ability during the encounter.\n\n**Strained:** You gain 1 clarity when you obtain a tier 2 or tier 3 outcome on the power roll.",
+        "legacyId": "talant-entropiynyy-zaryad-b5ace9973e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/entropic-bolt",
+      "originalName": "Entropic Bolt",
+      "originalDescription": "*You advance an enemy's age for a moment.*\n\n| **Chronopathy, Psionic, Ranged, Strike** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P corruption damage; P < WEAK, slowed (save ends)\n- **12-16:** 3 + P corruption damage; P < AVERAGE, slowed (save ends)\n- **17+:** 5 + P corruption damage; P < STRONG, slowed (save ends)\n\n**Effect:** The target takes an extra 1 corruption damage for each additional time they are targeted by this ability during the encounter.\n\n**Strained:** You gain 1 clarity when you obtain a tier 2 or tier 3 outcome on the power roll."
     },
     {
       "id": "ability.talant-giperzvuk-6592f61f78",
@@ -1147,7 +1205,7 @@
         "talant-giperzvuk-6592f61f78"
       ],
       "ability": {
-        "id": "talant-giperzvuk-6592f61f78",
+        "id": "feature.ability.talent.level-5.hypersonic",
         "name": "Гиперзвук",
         "flavor": "Вы двигаетесь с такой скоростью, что успеваете оглянуться на свой разрушительный потенциал.",
         "actionType": "main",
@@ -1186,8 +1244,15 @@
         "className": "Талант",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/hypersonic",
+        "originalName": "Hypersonic",
+        "originalDescription": "*You move fast enough to turn around and watch your foes feel the aftermath.*\n\n| **Area, Charge, Psionic, Telekinesis** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 5 x 2 line within 1**             | **🎯 Each enemy in the area** |\n\n**Effect:** You teleport to a square on the opposite side of the area before making the power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** 12 sonic damage\n- **12-16:** 18 sonic damage\n- **17+:** 24 sonic damage\n\n**Strained:** If you obtain a tier 2 outcome or better, you are slowed until the end of your turn and each target is slowed until the end of their turn.",
+        "legacyId": "talant-giperzvuk-6592f61f78"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/hypersonic",
+      "originalName": "Hypersonic",
+      "originalDescription": "*You move fast enough to turn around and watch your foes feel the aftermath.*\n\n| **Area, Charge, Psionic, Telekinesis** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 5 x 2 line within 1**             | **🎯 Each enemy in the area** |\n\n**Effect:** You teleport to a square on the opposite side of the area before making the power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** 12 sonic damage\n- **12-16:** 18 sonic damage\n- **17+:** 24 sonic damage\n\n**Strained:** If you obtain a tier 2 outcome or better, you are slowed until the end of your turn and each target is slowed until the end of their turn."
     },
     {
       "id": "ability.talant-gravitacionnaya-sverhnova-224a679447",
@@ -1202,7 +1267,7 @@
         "talant-gravitacionnaya-sverhnova-224a679447"
       ],
       "ability": {
-        "id": "talant-gravitacionnaya-sverhnova-224a679447",
+        "id": "feature.ability.talent.level-9.gravitic-nova",
         "name": "Гравитационная Сверхнова",
         "flavor": "Неудержимая псионическая энергия вырывается из вашего тела и вспыхивает наружу, отбрасывая врагов.",
         "actionType": "main",
@@ -1240,8 +1305,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/gravitic-nova",
+        "originalName": "Gravitic Nova",
+        "originalDescription": "*Unbridled psionic energy erupts from your body and flashes outward, hurling your foes back.*\n\n| **Area, Psionic, Telekinesis** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage; push 7\n- **12-16:** 9 damage; push 10\n- **17+:** 13 damage; push 15\n\n**Effect:** On a critical hit, the size of the area increases by 3, and this ability deals an extra 10 damage.\n\n**Strained:** You are weakened (save ends). If you scored a critical hit with this ability, you die.",
+        "legacyId": "talant-gravitacionnaya-sverhnova-224a679447"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/gravitic-nova",
+      "originalName": "Gravitic Nova",
+      "originalDescription": "*Unbridled psionic energy erupts from your body and flashes outward, hurling your foes back.*\n\n| **Area, Psionic, Telekinesis** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 3 burst**                 | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage; push 7\n- **12-16:** 9 damage; push 10\n- **17+:** 13 damage; push 15\n\n**Effect:** On a critical hit, the size of the area increases by 3, and this ability deals an extra 10 damage.\n\n**Strained:** You are weakened (save ends). If you scored a critical hit with this ability, you die."
     },
     {
       "id": "ability.talant-gravitacionnyy-kolodec-ee8ce9734d",
@@ -1256,7 +1328,7 @@
         "talant-gravitacionnyy-kolodec-ee8ce9734d"
       ],
       "ability": {
-        "id": "talant-gravitacionnyy-kolodec-ee8ce9734d",
+        "id": "feature.ability.talent.level-6.gravitic-well",
         "name": "Гравитационный Колодец",
         "flavor": "Вы сгибаете гравитацию в тонкую точку и притягиваете врагов к ней.",
         "actionType": "main",
@@ -1295,8 +1367,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/gravitic-well",
+        "originalName": "Gravitic Well",
+        "originalDescription": "*You bend gravity into a fine point and pull your foes toward it.*\n\n| **Area, Psionic, Ranged, Telekinesis** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage; vertical pull 5 toward the center of the area\n- **12-16:** 9 damage; vertical pull 7 toward the center of the area\n- **17+:** 13 damage; vertical pull 10 toward the center of the area\n\n**Effect:** Targets closest to the center of the area are pulled first.\n\n**Strained:** The size of the area increases by 2. You also target yourself and each ally within distance.",
+        "legacyId": "talant-gravitacionnyy-kolodec-ee8ce9734d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/gravitic-well",
+      "originalName": "Gravitic Well",
+      "originalDescription": "*You bend gravity into a fine point and pull your foes toward it.*\n\n| **Area, Psionic, Ranged, Telekinesis** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage; vertical pull 5 toward the center of the area\n- **12-16:** 9 damage; vertical pull 7 toward the center of the area\n- **17+:** 13 damage; vertical pull 10 toward the center of the area\n\n**Effect:** Targets closest to the center of the area are pulled first.\n\n**Strained:** The size of the area increases by 2. You also target yourself and each ally within distance."
     },
     {
       "id": "ability.talant-gravitacionnyy-vzryv-d2f9a478c5",
@@ -1311,7 +1390,7 @@
         "talant-gravitacionnyy-vzryv-d2f9a478c5"
       ],
       "ability": {
-        "id": "talant-gravitacionnyy-vzryv-d2f9a478c5",
+        "id": "feature.ability.talent.level-2.gravitic-burst",
         "name": "Гравитационный Взрыв",
         "flavor": "Всем отойти от меня!",
         "actionType": "main",
@@ -1349,8 +1428,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/gravitic-burst",
+        "originalName": "Gravitic Burst",
+        "originalDescription": "*Everyone get away from me!*\n\n| **Area, Psionic, Telekinesis** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 1 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage; vertical push 2\n- **12-16:** 6 damage; vertical push 4\n- **17+:** 9 damage; vertical push 6\n\n**Strained:** The size of the burst increases by 1, and you are weakened until the end of your turn.",
+        "legacyId": "talant-gravitacionnyy-vzryv-d2f9a478c5"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/gravitic-burst",
+      "originalName": "Gravitic Burst",
+      "originalDescription": "*Everyone get away from me!*\n\n| **Area, Psionic, Telekinesis** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 1 burst**                 | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage; vertical push 2\n- **12-16:** 6 damage; vertical push 4\n- **17+:** 9 damage; vertical push 6\n\n**Strained:** The size of the burst increases by 1, and you are weakened until the end of your turn."
     },
     {
       "id": "ability.talant-idealnaya-yasnost-f658074933",
@@ -1365,7 +1451,7 @@
         "talant-idealnaya-yasnost-f658074933"
       ],
       "ability": {
-        "id": "talant-idealnaya-yasnost-f658074933",
+        "id": "feature.ability.talent.level-1.perfect-clarity",
         "name": "Идеальная Ясность",
         "flavor": "Вы очищаете разум от всего, кроме цели.",
         "actionType": "maneuver",
@@ -1401,8 +1487,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/perfect-clarity",
+        "originalName": "Perfect Clarity",
+        "originalDescription": "*You clear the mind of nothing but the goal.*\n\n| **Psionic, Ranged, Telepathy** |            **Maneuver** |\n|--------------------------------|------------------------:|\n| **📏 Ranged 10**               | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target gains a +3 bonus to speed, and they have a double edge on the next power roll they make. If the target obtains a tier 3 outcome on that roll, you gain 1 clarity.\n\n**Strained:** You take 1d6 damage, and you can't use triggered actions (save ends).",
+        "legacyId": "talant-idealnaya-yasnost-f658074933"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/perfect-clarity",
+      "originalName": "Perfect Clarity",
+      "originalDescription": "*You clear the mind of nothing but the goal.*\n\n| **Psionic, Ranged, Telepathy** |            **Maneuver** |\n|--------------------------------|------------------------:|\n| **📏 Ranged 10**               | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target gains a +3 bonus to speed, and they have a double edge on the next power roll they make. If the target obtains a tier 3 outcome on that roll, you gain 1 clarity.\n\n**Strained:** You take 1d6 damage, and you can't use triggered actions (save ends)."
     },
     {
       "id": "ability.talant-ispepelenie-c02304dc29",
@@ -1417,7 +1510,7 @@
         "talant-ispepelenie-c02304dc29"
       ],
       "ability": {
-        "id": "talant-ispepelenie-c02304dc29",
+        "id": "feature.ability.talent.level-1.incinerate",
         "name": "Испепеление",
         "flavor": "Воздух извергается столбом бездымного пламени.",
         "actionType": "main",
@@ -1457,8 +1550,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/incinerate",
+        "originalName": "Incinerate",
+        "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn.",
+        "legacyId": "talant-ispepelenie-c02304dc29"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/incinerate",
+      "originalName": "Incinerate",
+      "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn."
     },
     {
       "id": "ability.talant-izmoroz-5d29d7b130",
@@ -1473,7 +1573,7 @@
         "talant-izmoroz-5d29d7b130"
       ],
       "ability": {
-        "id": "talant-izmoroz-5d29d7b130",
+        "id": "feature.ability.talent.level-1.hoarfrost",
         "name": "Изморозь",
         "flavor": "Вы поражаете врага импульсом холодной энергии.",
         "actionType": "main",
@@ -1512,8 +1612,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/hoarfrost",
+        "originalName": "Hoarfrost",
+        "originalDescription": "*You blast a foe with a pulse of cold energy.*\n\n| **Cryokinesis, Psionic, Ranged**, **Strike** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R cold damage; M < WEAK, slowed (EoT)\n- **12-16:** 4 + R cold damage; M < AVERAGE, slowed (EoT)\n- **17+:** 6 + R cold damage; M < STRONG, slowed (EoT)\n\n**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead.",
+        "legacyId": "talant-izmoroz-5d29d7b130"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/hoarfrost",
+      "originalName": "Hoarfrost",
+      "originalDescription": "*You blast a foe with a pulse of cold energy.*\n\n| **Cryokinesis, Psionic, Ranged**, **Strike** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R cold damage; M < WEAK, slowed (EoT)\n- **12-16:** 4 + R cold damage; M < AVERAGE, slowed (EoT)\n- **17+:** 6 + R cold damage; M < STRONG, slowed (EoT)\n\n**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead."
     },
     {
       "id": "ability.talant-kineticheskiy-impuls-78473183a4",
@@ -1528,7 +1635,7 @@
         "talant-kineticheskiy-impuls-78473183a4"
       ],
       "ability": {
-        "id": "talant-kineticheskiy-impuls-78473183a4",
+        "id": "feature.ability.talent.level-1.kinetic-pulse",
         "name": "Кинетический Импульс",
         "flavor": "Сила вашего разума отбрасывает врагов назад.",
         "actionType": "main",
@@ -1566,8 +1673,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-pulse",
+        "originalName": "Kinetic Pulse",
+        "originalDescription": "*The force of your mind hurls enemies backward.*\n\n| **Area, Psionic, Telepathy** |               **Main action** |\n|------------------------------|------------------------------:|\n| **📏 1 burst**               | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 5 psychic damage; push 1\n- **17+:** 7 psychic damage; push 2\n\n**Strained:** The size of the burst increases by 2, and you are bleeding until the start of your next turn.",
+        "legacyId": "talant-kineticheskiy-impuls-78473183a4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-pulse",
+      "originalName": "Kinetic Pulse",
+      "originalDescription": "*The force of your mind hurls enemies backward.*\n\n| **Area, Psionic, Telepathy** |               **Main action** |\n|------------------------------|------------------------------:|\n| **📏 1 burst**               | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 5 psychic damage; push 1\n- **17+:** 7 psychic damage; push 2\n\n**Strained:** The size of the burst increases by 2, and you are bleeding until the start of your next turn."
     },
     {
       "id": "ability.talant-kineticheskiy-zahvat-a296eca603",
@@ -1582,7 +1696,7 @@
         "talant-kineticheskiy-zahvat-a296eca603"
       ],
       "ability": {
-        "id": "talant-kineticheskiy-zahvat-a296eca603",
+        "id": "feature.ability.talent.level-1.kinetic-grip",
         "name": "Кинетический Захват",
         "flavor": "Вы поднимаете и отбрасываете своего врага от себя.",
         "actionType": "main",
@@ -1620,8 +1734,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-grip",
+        "originalName": "Kinetic Grip",
+        "originalDescription": "*You lift and hurl your foe away from you.*\n\n| **Psionic, Ranged, Telekinesis** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Ranged 10**                 | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 2 + R\n- **12-16:** Slide 4 + R\n- **17+:** Slide 6 + R; prone\n\n**Strained:** You must vertical push the target instead of sliding them.",
+        "legacyId": "talant-kineticheskiy-zahvat-a296eca603"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-grip",
+      "originalName": "Kinetic Grip",
+      "originalDescription": "*You lift and hurl your foe away from you.*\n\n| **Psionic, Ranged, Telekinesis** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Ranged 10**                 | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 2 + R\n- **12-16:** Slide 4 + R\n- **17+:** Slide 6 + R; prone\n\n**Strained:** You must vertical push the target instead of sliding them."
     },
     {
       "id": "ability.talant-levitaciya-i-gravitaciya-b60bcc0b50",
@@ -1636,7 +1757,7 @@
         "talant-levitaciya-i-gravitaciya-b60bcc0b50"
       ],
       "ability": {
-        "id": "talant-levitaciya-i-gravitaciya-b60bcc0b50",
+        "id": "feature.ability.talent.level-2.levity-and-gravity",
         "name": "Левитация и Гравитация",
         "flavor": "Вы слегка поднимаете цель в воздух, а затем разбиваете ее об землю.",
         "actionType": "main",
@@ -1675,8 +1796,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/levity-and-gravity",
+        "originalName": "Levity and Gravity",
+        "originalDescription": "*You raise the target slightly into the air, then smother them against the ground.*\n\n| **Psionic, Ranged, Strike, Telekinesis** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 + R damage; M < WEAK, prone\n- **12-16:** 10 + R damage; M < AVERAGE, prone\n- **17+:** 14 + R damage; M < STRONG, prone and can't stand (save ends)\n\n**Strained:** You take half the damage the target takes.",
+        "legacyId": "talant-levitaciya-i-gravitaciya-b60bcc0b50"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/levity-and-gravity",
+      "originalName": "Levity and Gravity",
+      "originalDescription": "*You raise the target slightly into the air, then smother them against the ground.*\n\n| **Psionic, Ranged, Strike, Telekinesis** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 + R damage; M < WEAK, prone\n- **12-16:** 10 + R damage; M < AVERAGE, prone\n- **17+:** 14 + R damage; M < STRONG, prone and can't stand (save ends)\n\n**Strained:** You take half the damage the target takes."
     },
     {
       "id": "ability.talant-lovushka-razuma-f602141a4f",
@@ -1691,7 +1819,7 @@
         "talant-lovushka-razuma-f602141a4f"
       ],
       "ability": {
-        "id": "talant-lovushka-razuma-f602141a4f",
+        "id": "feature.ability.talent.level-5.mind-snare",
         "name": "Ловушка Разума",
         "flavor": "Вы вцепляетесь в мозг вашей жертвы и не отпускаете, словно песня, которую они не могут выбросить из головы.",
         "actionType": "main",
@@ -1730,8 +1858,15 @@
         "className": "Талант",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/mind-snare",
+        "originalName": "Mind Snare",
+        "originalDescription": "*You latch onto your prey's brain and don't let go, like a song they can't get out of their head.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 + R psychic damage; R < WEAK, slowed (save ends)\n- **12-16:** 14 + R psychic damage; R < AVERAGE, slowed (save ends)\n- **17+:** 20 + R psychic damage; R < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 3 psychic damage for each square they willingly leave.\n\n**Strained:** While slowed this way, the target instead takes 5 psychic damage for each square they willingly leave. You have a double bane on ability rolls made against the target while they are slowed this way.",
+        "legacyId": "talant-lovushka-razuma-f602141a4f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/mind-snare",
+      "originalName": "Mind Snare",
+      "originalDescription": "*You latch onto your prey's brain and don't let go, like a song they can't get out of their head.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 + R psychic damage; R < WEAK, slowed (save ends)\n- **12-16:** 14 + R psychic damage; R < AVERAGE, slowed (save ends)\n- **17+:** 20 + R psychic damage; R < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 3 psychic damage for each square they willingly leave.\n\n**Strained:** While slowed this way, the target instead takes 5 psychic damage for each square they willingly leave. You have a double bane on ability rolls made against the target while they are slowed this way."
     },
     {
       "id": "ability.talant-malyy-telekinez-4870eb096b",
@@ -1746,7 +1881,7 @@
         "talant-malyy-telekinez-4870eb096b"
       ],
       "ability": {
-        "id": "talant-malyy-telekinez-4870eb096b",
+        "id": "feature.ability.talent.level-1.minor-telekinesis",
         "name": "Малый Телекинез",
         "flavor": "Пучки психической энергии видимо исходят от вашего мозга, когда вы заставляете цель двигаться, используя только свой разум.",
         "actionType": "maneuver",
@@ -1781,8 +1916,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/minor-telekinesis",
+        "originalName": "Minor Telekinesis",
+        "originalDescription": "*Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.*\n\n| **Psionic, Ranged** |                                 **Maneuver** |\n|---------------------|---------------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one size 1 creature or object** |\n\n**Effect:** You slide the target up to a number of squares equal to your Reason score.\n\n**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target.",
+        "legacyId": "talant-malyy-telekinez-4870eb096b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/minor-telekinesis",
+      "originalName": "Minor Telekinesis",
+      "originalDescription": "*Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.*\n\n| **Psionic, Ranged** |                                 **Maneuver** |\n|---------------------|---------------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one size 1 creature or object** |\n\n**Effect:** You slide the target up to a number of squares equal to your Reason score.\n\n**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target."
     },
     {
       "id": "ability.talant-materializaciya-765be63b96",
@@ -1797,7 +1939,7 @@
         "talant-materializaciya-765be63b96"
       ],
       "ability": {
-        "id": "talant-materializaciya-765be63b96",
+        "id": "feature.ability.talent.level-1.materialize",
         "name": "Материализация",
         "flavor": "Вы представляете объект в своем уме и придаете ему форму — прямо над головой вашего противника.",
         "actionType": "main",
@@ -1836,8 +1978,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/materialize",
+        "originalName": "Materialize",
+        "originalDescription": "*You picture an object in your mind and give it form—directly above your opponent's head.*\n\n| **Psionic, Ranged, Resopathy, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 8 + R damage\n\n**Effect:** A worthless size 1M object drops onto the target to deal the damage, then rolls into an adjacent unoccupied space of your choice. The object is made of wood, stone, or metal (your choice).\n\n**Strained:** The object explodes after the damage is dealt, and each creature adjacent to the target takes damage equal to your Reason score. You also take damage equal to your Reason score that can't be reduced in any way.",
+        "legacyId": "talant-materializaciya-765be63b96"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/materialize",
+      "originalName": "Materialize",
+      "originalDescription": "*You picture an object in your mind and give it form—directly above your opponent's head.*\n\n| **Psionic, Ranged, Resopathy, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 8 + R damage\n\n**Effect:** A worthless size 1M object drops onto the target to deal the damage, then rolls into an adjacent unoccupied space of your choice. The object is made of wood, stone, or metal (your choice).\n\n**Strained:** The object explodes after the damage is dealt, and each creature adjacent to the target takes damage equal to your Reason score. You also take damage equal to your Reason score that can't be reduced in any way."
     },
     {
       "id": "ability.talant-omolozhenie-76cce55c24",
@@ -1852,7 +2001,7 @@
         "talant-omolozhenie-76cce55c24"
       ],
       "ability": {
-        "id": "talant-omolozhenie-76cce55c24",
+        "id": "feature.ability.talent.level-8.rejuvenate",
         "name": "Омоложение",
         "flavor": "Вы изменяете поток времени в теле цели, чтобы вернуть его в более раннее состояние.",
         "actionType": "maneuver",
@@ -1888,8 +2037,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/rejuvenate",
+        "originalName": "Rejuvenate",
+        "originalDescription": "*You reshape the flow of time in the target's body to return it to an earlier state.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** Choose two of the following effects:\n\n- The target can spend any number of Recoveries.\n- The target gains 1 of their Heroic Resource, and can end any effects on them that are ended by a saving throw or that end at the end of their turn.\n- The target gains 2 surges, and gains a +3 bonus to speed until the end of the encounter.\n\n**Strained:** You and the target both permanently grow visibly younger (the equivalent of 20 human years, to the minimum of an 18-year-old). Additionally, you are weakened and slowed (save ends).",
+        "legacyId": "talant-omolozhenie-76cce55c24"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/rejuvenate",
+      "originalName": "Rejuvenate",
+      "originalDescription": "*You reshape the flow of time in the target's body to return it to an earlier state.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** Choose two of the following effects:\n\n- The target can spend any number of Recoveries.\n- The target gains 1 of their Heroic Resource, and can end any effects on them that are ended by a saving throw or that end at the end of their turn.\n- The target gains 2 surges, and gains a +3 bonus to speed until the end of the encounter.\n\n**Strained:** You and the target both permanently grow visibly younger (the equivalent of 20 human years, to the minimum of an 18-year-old). Additionally, you are weakened and slowed (save ends)."
     },
     {
       "id": "ability.talant-opticheskiy-vzryv-db6ef14fc7",
@@ -1904,7 +2060,7 @@
         "talant-opticheskiy-vzryv-db6ef14fc7"
       ],
       "ability": {
-        "id": "talant-opticheskiy-vzryv-db6ef14fc7",
+        "id": "feature.ability.talent.level-1.optic-blast",
         "name": "Оптический Взрыв",
         "flavor": "Ваши глаза извергают лучи ослабляющей энергии.",
         "actionType": "main",
@@ -1943,8 +2099,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/optic-blast",
+        "originalName": "Optic Blast",
+        "originalDescription": "*Your eyes emit rays of powerful enervating force.*\n\n| **Metamorphosis, Psionic, Ranged**, **Strike** |               **Main action** |\n|------------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                               | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; M < WEAK, prone\n- **12-16:** 4 + R damage; M < AVERAGE, prone\n- **17+:** 6 + R damage; M < STRONG, prone\n\n**Effect:** When targeting an object with a solid reflective surface or a creature carrying or wearing such an object (such as a mirror, an unpainted metal shield, or shiny metal plate armor), you can target one additional creature or object within 3 squares of the first target.\n\n**Strained:** You gain 1 surge that you can use immediately, and you take damage equal to your Reason score that can't be reduced in any way.",
+        "legacyId": "talant-opticheskiy-vzryv-db6ef14fc7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/optic-blast",
+      "originalName": "Optic Blast",
+      "originalDescription": "*Your eyes emit rays of powerful enervating force.*\n\n| **Metamorphosis, Psionic, Ranged**, **Strike** |               **Main action** |\n|------------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                               | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; M < WEAK, prone\n- **12-16:** 4 + R damage; M < AVERAGE, prone\n- **17+:** 6 + R damage; M < STRONG, prone\n\n**Effect:** When targeting an object with a solid reflective surface or a creature carrying or wearing such an object (such as a mirror, an unpainted metal shield, or shiny metal plate armor), you can target one additional creature or object within 3 squares of the first target.\n\n**Strained:** You gain 1 surge that you can use immediately, and you take damage equal to your Reason score that can't be reduced in any way."
     },
     {
       "id": "ability.talant-otrazhayuschee-pole-1bf667e25a",
@@ -1959,7 +2122,7 @@
         "talant-otrazhayuschee-pole-1bf667e25a"
       ],
       "ability": {
-        "id": "talant-otrazhayuschee-pole-1bf667e25a",
+        "id": "feature.ability.talent.level-3.reflector-field",
         "name": "Отражающее Поле",
         "flavor": "Защитное поле обращает вспять импульс входящих атак.",
         "actionType": "main",
@@ -1995,8 +2158,15 @@
         "className": "Талант",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/reflector-field",
+        "originalName": "Reflector Field",
+        "originalDescription": "*A protective field reverses the momentum of incoming attacks.*\n\n| **Area, Psionic, Telepathy** | **Main action** |\n|------------------------------|----------------:|\n| **📏 3 aura**                |  **🎯 Special** |\n\n**Effect:** The aura lasts until the start of your next turn. Whenever an enemy targets an ally in the area with a ranged ability, the ability is negated on the ally and reflected back at the enemy. The ability deals half the damage to the enemy that it would have dealt to the ally and loses any additional effects.\n\n**Strained:** The size of the aura increases by 1. Whenever your aura reflects an ability, you take 2d6 damage and forget a memory, as determined by you and the Director.",
+        "legacyId": "talant-otrazhayuschee-pole-1bf667e25a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/reflector-field",
+      "originalName": "Reflector Field",
+      "originalDescription": "*A protective field reverses the momentum of incoming attacks.*\n\n| **Area, Psionic, Telepathy** | **Main action** |\n|------------------------------|----------------:|\n| **📏 3 aura**                |  **🎯 Special** |\n\n**Effect:** The aura lasts until the start of your next turn. Whenever an enemy targets an ally in the area with a ranged ability, the ability is negated on the ally and reflected back at the enemy. The ability deals half the damage to the enemy that it would have dealt to the ally and loses any additional effects.\n\n**Strained:** The size of the aura increases by 1. Whenever your aura reflects an ability, you take 2d6 damage and forget a memory, as determined by you and the Director."
     },
     {
       "id": "ability.talant-otrazhenie-3785a7c474",
@@ -2011,7 +2181,7 @@
         "talant-otrazhenie-3785a7c474"
       ],
       "ability": {
-        "id": "talant-otrazhenie-3785a7c474",
+        "id": "feature.ability.talent.level-1.repel",
         "name": "Отражение",
         "flavor": "Они останутся на месте, ты возможно нет!",
         "actionType": "trigger",
@@ -2046,8 +2216,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
+        "originalName": "Repel",
+        "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score.",
+        "legacyId": "talant-otrazhenie-3785a7c474"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
+      "originalName": "Repel",
+      "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
     },
     {
       "id": "ability.talant-ozhog-dushi-dcdaeaaaf9",
@@ -2062,7 +2239,7 @@
         "talant-ozhog-dushi-dcdaeaaaf9"
       ],
       "ability": {
-        "id": "talant-ozhog-dushi-dcdaeaaaf9",
+        "id": "feature.ability.talent.level-3.soul-burn",
         "name": "Ожог Души",
         "flavor": "Вы выбиваете их душу из тела, оставляя ее беспомощно плыть обратно к ослабленной оболочке.",
         "actionType": "main",
@@ -2101,8 +2278,15 @@
         "className": "Талант",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/soul-burn",
+        "originalName": "Soul Burn",
+        "originalDescription": "*You blast their soul out of their body, leaving it to helplessly float back to a weakened husk.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |     **Main action** |\n|---------------------------------------------|--------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 + P damage; P < WEAK, dazed (save ends)\n- **12-16:** 10 + P damage; P < AVERAGE, dazed (save ends)\n- **17+:** 14 + P damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target takes a bane on Presence tests until the end of the encounter.\n\n**Strained:** The potency of this ability increases by 1. You take 2d6 damage and gain 3 surges that you can use immediately.",
+        "legacyId": "talant-ozhog-dushi-dcdaeaaaf9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/soul-burn",
+      "originalName": "Soul Burn",
+      "originalDescription": "*You blast their soul out of their body, leaving it to helplessly float back to a weakened husk.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |     **Main action** |\n|---------------------------------------------|--------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 + P damage; P < WEAK, dazed (save ends)\n- **12-16:** 10 + P damage; P < AVERAGE, dazed (save ends)\n- **17+:** 14 + P damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target takes a bane on Presence tests until the end of the encounter.\n\n**Strained:** The potency of this ability increases by 1. You take 2d6 damage and gain 3 surges that you can use immediately."
     },
     {
       "id": "ability.talant-peregruzka-c321c6f3cb",
@@ -2117,7 +2301,7 @@
         "talant-peregruzka-c321c6f3cb"
       ],
       "ability": {
-        "id": "talant-peregruzka-c321c6f3cb",
+        "id": "feature.ability.talent.level-2.overwhelm",
         "name": "Перегрузка",
         "flavor": "Вы перегружаете их чувства, превращая все их подсознательные мысли в сознательные.",
         "actionType": "main",
@@ -2156,8 +2340,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/overwhelm",
+        "originalName": "Overwhelm",
+        "originalDescription": "*You overload their senses, turning all their subconscious thoughts into conscious ones.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 + R psychic damage; I < WEAK, slowed (save ends)\n- **12-16:** 10 + R psychic damage; I < AVERAGE, weakened (save ends)\n- **17+:** 14 + R psychic damage; I < STRONG, dazed (save ends)\n\n**Strained:** You start crying, and you can't use triggered actions or make free strikes until the end of the target's next turn.",
+        "legacyId": "talant-peregruzka-c321c6f3cb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/overwhelm",
+      "originalName": "Overwhelm",
+      "originalDescription": "*You overload their senses, turning all their subconscious thoughts into conscious ones.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 + R psychic damage; I < WEAK, slowed (save ends)\n- **12-16:** 10 + R psychic damage; I < AVERAGE, weakened (save ends)\n- **17+:** 14 + R psychic damage; I < STRONG, dazed (save ends)\n\n**Strained:** You start crying, and you can't use triggered actions or make free strikes until the end of the target's next turn."
     },
     {
       "id": "ability.talant-petlya-obratnoy-svyazi-35ffb2400b",
@@ -2172,7 +2363,7 @@
         "talant-petlya-obratnoy-svyazi-35ffb2400b"
       ],
       "ability": {
-        "id": "talant-petlya-obratnoy-svyazi-35ffb2400b",
+        "id": "feature.ability.talent.level-1.feedback-loop",
         "name": "Петля Обратной Связи",
         "flavor": "Создание краткой психической связи между врагом и его целью дает этому врагу попробовать собственное лекарство.",
         "actionType": "trigger",
@@ -2207,8 +2398,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/feedback-loop",
+        "originalName": "Feedback Loop",
+        "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage.",
+        "legacyId": "talant-petlya-obratnoy-svyazi-35ffb2400b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/feedback-loop",
+      "originalName": "Feedback Loop",
+      "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage."
     },
     {
       "id": "ability.talant-pogloschenie-inercii-3aa5ce90b5",
@@ -2223,7 +2421,7 @@
         "talant-pogloschenie-inercii-3aa5ce90b5"
       ],
       "ability": {
-        "id": "talant-pogloschenie-inercii-3aa5ce90b5",
+        "id": "feature.ability.talent.level-1.inertia-soak",
         "name": "Поглощение Инерции",
         "flavor": "Ваша псионическая энергия окружает цель и отталкивает от нее все остальное.",
         "actionType": "maneuver",
@@ -2259,8 +2457,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/inertia-soak",
+        "originalName": "Inertia Soak",
+        "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus.",
+        "legacyId": "talant-pogloschenie-inercii-3aa5ce90b5"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/inertia-soak",
+      "originalName": "Inertia Soak",
+      "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus."
     },
     {
       "id": "ability.talant-pole-levitacii-c51c097676",
@@ -2275,7 +2480,7 @@
         "talant-pole-levitacii-c51c097676"
       ],
       "ability": {
-        "id": "talant-pole-levitacii-c51c097676",
+        "id": "feature.ability.talent.level-8.levitation-field",
         "name": "Поле Левитации",
         "flavor": "Вы управляете воздухом вокруг ваших союзников, чтобы они могли двигаться по небу так же свободно, как и вы.",
         "actionType": "maneuver",
@@ -2310,8 +2515,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/levitation-field",
+        "originalName": "Levitation Field",
+        "originalDescription": "*You manipulate the air around your allies so they can move as freely through the sky as you can.*\n\n| **Area, Psionic** |                 **Maneuver** |\n|-------------------|-----------------------------:|\n| **📏 3 burst**    | **🎯 Each ally in the area** |\n\n**Effect:** Each target can fly until the start of your next turn, and can immediately shift up to their speed. You can also shift up to your speed. While flying, a target's stability is reduced to 0 and can't be increased.\n\n**Spend 5 Clarity:** The effects last for 1 hour instead.",
+        "legacyId": "talant-pole-levitacii-c51c097676"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/levitation-field",
+      "originalName": "Levitation Field",
+      "originalDescription": "*You manipulate the air around your allies so they can move as freely through the sky as you can.*\n\n| **Area, Psionic** |                 **Maneuver** |\n|-------------------|-----------------------------:|\n| **📏 3 burst**    | **🎯 Each ally in the area** |\n\n**Effect:** Each target can fly until the start of your next turn, and can immediately shift up to their speed. You can also shift up to your speed. While flying, a target's stability is reduced to 0 and can't be increased.\n\n**Spend 5 Clarity:** The effects last for 1 hour instead."
     },
     {
       "id": "ability.talant-pole-uskoreniya-ef09af01f2",
@@ -2326,7 +2538,7 @@
         "talant-pole-uskoreniya-ef09af01f2"
       ],
       "ability": {
-        "id": "talant-pole-uskoreniya-ef09af01f2",
+        "id": "feature.ability.talent.level-9.acceleration-field",
         "name": "Поле Ускорения",
         "flavor": "Вы насильно втискиваете больше моментов в критическую точку времени, прекрасно зная, что вам, возможно, придется украсть часть из своего собственного.",
         "actionType": "main",
@@ -2364,8 +2576,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/acceleration-field",
+        "originalName": "Acceleration Field",
+        "originalDescription": "*You forcibly stuff more moments into a critical point in time, knowing full well you might need to steal some of your own.*\n\n| **Chronopathy, Psionic, Ranged** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Ranged 5**                  | **🎯 Three allies** |\n\n**Effect:** Each target can use any main action available to them as a free triggered action, but they lose their main action on their next turn.\n\n**Strained:** Make a power roll that targets you and each enemy within distance.\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 corruption damage; slowed (save ends)\n- **12-16:** 6 corruption damage; slowed (save ends)\n- **17+:** 10 corruption damage; slowed (save ends)",
+        "legacyId": "talant-pole-uskoreniya-ef09af01f2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/acceleration-field",
+      "originalName": "Acceleration Field",
+      "originalDescription": "*You forcibly stuff more moments into a critical point in time, knowing full well you might need to steal some of your own.*\n\n| **Chronopathy, Psionic, Ranged** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Ranged 5**                  | **🎯 Three allies** |\n\n**Effect:** Each target can use any main action available to them as a free triggered action, but they lose their main action on their next turn.\n\n**Strained:** Make a power roll that targets you and each enemy within distance.\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 corruption damage; slowed (save ends)\n- **12-16:** 6 corruption damage; slowed (save ends)\n- **17+:** 10 corruption damage; slowed (save ends)"
     },
     {
       "id": "ability.talant-predubezhdenie-b1aab277a4",
@@ -2380,7 +2599,7 @@
         "talant-predubezhdenie-b1aab277a4"
       ],
       "ability": {
-        "id": "talant-predubezhdenie-b1aab277a4",
+        "id": "feature.ability.talent.level-8.doubt",
         "name": "Предубеждение",
         "flavor": "Вы тянете за нити анимы врага и распутываете их, позволяя кому-то другому воспользоваться его уверенностью.",
         "actionType": "main",
@@ -2419,8 +2638,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/doubt",
+        "originalName": "Doubt",
+        "originalDescription": "*You tug at the strings of the foe's anima and unravel them, allowing someone else to take advantage of their drive.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|---------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 10 + P damage; P < WEAK, weakened (save ends)\n- **12-16:** 14 + P damage; P < AVERAGE, weakened (save ends)\n- **17+:** 20 + P damage; P < STRONG, weakened and slowed (save ends)\n\n**Effect:** This ability gains an edge against a target with a soul (see *Draw Steel: Monsters*). After you make the power roll, you or one ally within distance have a double edge on the next power roll you make before the end of the encounter.\n\n**Strained:** You feel dispirited until you finish a respite. If you obtain a tier 3 outcome on the power roll, you and the target each have damage weakness 5 (save ends).",
+        "legacyId": "talant-predubezhdenie-b1aab277a4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/doubt",
+      "originalName": "Doubt",
+      "originalDescription": "*You tug at the strings of the foe's anima and unravel them, allowing someone else to take advantage of their drive.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|---------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 10 + P damage; P < WEAK, weakened (save ends)\n- **12-16:** 14 + P damage; P < AVERAGE, weakened (save ends)\n- **17+:** 20 + P damage; P < STRONG, weakened and slowed (save ends)\n\n**Effect:** This ability gains an edge against a target with a soul (see *Draw Steel: Monsters*). After you make the power roll, you or one ally within distance have a double edge on the next power roll you make before the end of the encounter.\n\n**Strained:** You feel dispirited until you finish a respite. If you obtain a tier 3 outcome on the power roll, you and the target each have damage weakness 5 (save ends)."
     },
     {
       "id": "ability.talant-predvidenie-0360b242b7",
@@ -2435,7 +2661,7 @@
         "talant-predvidenie-0360b242b7"
       ],
       "ability": {
-        "id": "talant-predvidenie-0360b242b7",
+        "id": "feature.ability.talent.level-1.precognition",
         "name": "Предвидение",
         "flavor": "Вы даете цели проблеск будущего, чтобы она была готова к тому, что произойдет дальше.",
         "actionType": "main",
@@ -2471,8 +2697,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/precognition",
+        "originalName": "Precognition",
+        "originalDescription": "*You give a target a glimpse into the future so that they're ready for what comes next.*\n\n| **Chronopathy, Melee, Psionic** |         **Main action** |\n|---------------------------------|------------------------:|\n| **📏 Melee 2**                  | **🎯 Self or one ally** |\n\n**Effect:** Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage.",
+        "legacyId": "talant-predvidenie-0360b242b7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/precognition",
+      "originalName": "Precognition",
+      "originalDescription": "*You give a target a glimpse into the future so that they're ready for what comes next.*\n\n| **Chronopathy, Melee, Psionic** |         **Main action** |\n|---------------------------------|------------------------:|\n| **📏 Melee 2**                  | **🎯 Self or one ally** |\n\n**Effect:** Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage."
     },
     {
       "id": "ability.talant-prikladnaya-hronometriya-d5fe9ed1ca",
@@ -2487,7 +2720,7 @@
         "talant-prikladnaya-hronometriya-d5fe9ed1ca"
       ],
       "ability": {
-        "id": "talant-prikladnaya-hronometriya-d5fe9ed1ca",
+        "id": "feature.ability.talent.level-2.applied-chronometrics",
         "name": "Прикладная Хронометрия",
         "flavor": "Время замедляется вокруг вас. Ваше сердцебиение — единственный показатель дополнительных моментов, которые вы выиграли.",
         "actionType": "maneuver",
@@ -2525,8 +2758,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/applied-chronometrics",
+        "originalName": "Applied Chronometrics",
+        "originalDescription": "*Time slows down around you. Your heartbeat is the only gauge of the extra moments you've gained.*\n\n| **Chronopathy, Psionic, Ranged** |   **Maneuver** |\n|----------------------------------|---------------:|\n| **📏 Ranged 10**                 | **🎯 Special** |\n\n**Power Roll + Presence:**\n\n- **≤11:** You target two creatures, one of which can be you.\n- **12-16:** You target three creatures, one of which can be you.\n- **17+:** You target four creatures, one of which can be you.\n\n**Effect:** Until the start of your next turn, each target gains a +5 bonus to speed, they can't be made dazed, and they can use an additional maneuver on their turn. If a target is already dazed, that condition ends for them.\n\n**Strained:** Your speed is halved until the end of the encounter.",
+        "legacyId": "talant-prikladnaya-hronometriya-d5fe9ed1ca"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/applied-chronometrics",
+      "originalName": "Applied Chronometrics",
+      "originalDescription": "*Time slows down around you. Your heartbeat is the only gauge of the extra moments you've gained.*\n\n| **Chronopathy, Psionic, Ranged** |   **Maneuver** |\n|----------------------------------|---------------:|\n| **📏 Ranged 10**                 | **🎯 Special** |\n\n**Power Roll + Presence:**\n\n- **≤11:** You target two creatures, one of which can be you.\n- **12-16:** You target three creatures, one of which can be you.\n- **17+:** You target four creatures, one of which can be you.\n\n**Effect:** Until the start of your next turn, each target gains a +5 bonus to speed, they can't be made dazed, and they can use an additional maneuver on their turn. If a target is already dazed, that condition ends for them.\n\n**Strained:** Your speed is halved until the end of the encounter."
     },
     {
       "id": "ability.talant-rezoniruyuschiy-ship-razuma-73eb33d4ff",
@@ -2541,7 +2781,7 @@
         "talant-rezoniruyuschiy-ship-razuma-73eb33d4ff"
       ],
       "ability": {
-        "id": "talant-rezoniruyuschiy-ship-razuma-73eb33d4ff",
+        "id": "feature.ability.talent.level-9.resonant-mind-spike",
         "name": "Резонирующий Шип Разума",
         "flavor": "Вы выпускаете телепатический заряд, усиленный каждым сознанием в пределах досягаемости, прямо в мозг врага.",
         "actionType": "main",
@@ -2580,8 +2820,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/resonant-mind-spike",
+        "originalName": "Resonant Mind Spike",
+        "originalDescription": "*You fire a telepathic bolt empowered by every consciousness within reach directly into your foe's mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n| ------------------------------------|--------------------:|\n| **📏 Ranged 10**  | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 15 + R psychic damage\n- **12-16:** 24 + R psychic damage\n- **17+:** 28 + R psychic damage\n\n**Effect:** This ability ignores cover and concealment.\n\n**Strained:** The ability roll scores a critical hit on a natural 17 or higher. You take half the damage the target takes, and you can't reduce this damage in any way.",
+        "legacyId": "talant-rezoniruyuschiy-ship-razuma-73eb33d4ff"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/resonant-mind-spike",
+      "originalName": "Resonant Mind Spike",
+      "originalDescription": "*You fire a telepathic bolt empowered by every consciousness within reach directly into your foe's mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n| ------------------------------------|--------------------:|\n| **📏 Ranged 10**  | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 15 + R psychic damage\n- **12-16:** 24 + R psychic damage\n- **17+:** 28 + R psychic damage\n\n**Effect:** This ability ignores cover and concealment.\n\n**Strained:** The ability roll scores a critical hit on a natural 17 or higher. You take half the damage the target takes, and you can't reduce this damage in any way."
     },
     {
       "id": "ability.talant-sfery-sily-70a3209e49",
@@ -2596,7 +2843,7 @@
         "talant-sfery-sily-70a3209e49"
       ],
       "ability": {
-        "id": "talant-sfery-sily-70a3209e49",
+        "id": "feature.ability.talent.level-3.force-orbs",
         "name": "Сферы Силы",
         "flavor": "Вокруг вас плавают сферы твердой псионической энергии.",
         "actionType": "main",
@@ -2635,8 +2882,15 @@
         "className": "Талант",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/force-orbs",
+        "originalName": "Force Orbs",
+        "originalDescription": "*Spheres of solid psionic energy float around you.*\n\n| **Psionic, Ranged, Strike, Telekinesis** | **Main action** |\n|------------------------------------------|----------------:|\n| **📏 Self; see below**                   |     **🎯 Self** |\n\n**Effect:** You create three size 1T orbs that orbit your body. Each orb gives you a cumulative damage immunity 1. Each time you take damage, you lose 1 orb.\n\nOnce on each of your turns, you can use a free maneuver to fire an orb at a creature or object within 5 squares as a ranged strike, losing the orb after the strike.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Strained:** You create five orbs, and you are weakened while you have any orbs active.",
+        "legacyId": "talant-sfery-sily-70a3209e49"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/force-orbs",
+      "originalName": "Force Orbs",
+      "originalDescription": "*Spheres of solid psionic energy float around you.*\n\n| **Psionic, Ranged, Strike, Telekinesis** | **Main action** |\n|------------------------------------------|----------------:|\n| **📏 Self; see below**                   |     **🎯 Self** |\n\n**Effect:** You create three size 1T orbs that orbit your body. Each orb gives you a cumulative damage immunity 1. Each time you take damage, you lose 1 orb.\n\nOnce on each of your turns, you can use a free maneuver to fire an orb at a creature or object within 5 squares as a ranged strike, losing the orb after the strike.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Strained:** You create five orbs, and you are weakened while you have any orbs active."
     },
     {
       "id": "ability.talant-ship-razuma-9989c932ac",
@@ -2651,7 +2905,7 @@
         "talant-ship-razuma-9989c932ac"
       ],
       "ability": {
-        "id": "talant-ship-razuma-9989c932ac",
+        "id": "feature.ability.talent.level-1.mind-spike",
         "name": "Шип Разума",
         "flavor": "Телепатический заряд мгновенно поражает мозг существа.",
         "actionType": "main",
@@ -2690,8 +2944,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/mind-spike",
+        "originalName": "Mind Spike",
+        "originalDescription": "*A telepathic bolt instantly zaps a creature's brain.*\n\n| **Psionic, Ranged**, **Strike, Telepathy** |     **Main action** |\n|--------------------------------------------|--------------------:|\n| **📏 Ranged 10**                           | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R psychic damage\n- **12-16:** 4 + R psychic damage\n- **17+:** 6 + R psychic damage\n\n**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way.",
+        "legacyId": "talant-ship-razuma-9989c932ac"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/mind-spike",
+      "originalName": "Mind Spike",
+      "originalDescription": "*A telepathic bolt instantly zaps a creature's brain.*\n\n| **Psionic, Ranged**, **Strike, Telepathy** |     **Main action** |\n|--------------------------------------------|--------------------:|\n| **📏 Ranged 10**                           | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R psychic damage\n- **12-16:** 4 + R psychic damage\n- **17+:** 6 + R psychic damage\n\n**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way."
     },
     {
       "id": "ability.talant-sinapticheskiy-uzhas-0145e9debe",
@@ -2706,7 +2967,7 @@
         "talant-sinapticheskiy-uzhas-0145e9debe"
       ],
       "ability": {
-        "id": "talant-sinapticheskiy-uzhas-0145e9debe",
+        "id": "feature.ability.talent.level-9.synaptic-terror",
         "name": "Синаптический Ужас",
         "flavor": "Вы проецируете ужасающий образ в мозг ваших врагов, и их страх псионически воодушевляет ваших союзников.",
         "actionType": "main",
@@ -2744,8 +3005,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/synaptic-terror",
+        "originalName": "Synaptic Terror",
+        "originalDescription": "*You project a terrifying image into the brains of your foes, and their fear psionically invigorates your allies.*\n\n| **Area, Psionic, Telepathy** |                        **Main action** |\n|------------------------------|---------------------------------------:|\n| **📏 3 burst**               | **🎯 Each ally and enemy in the area** |\n\n**Effect:** You and each target ally can't obtain lower than a tier 2 outcome on power rolls until the start of your next turn. Each target enemy is affected by the ability's power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** R < WEAK, frightened (save ends)\n- **12-16:** R < AVERAGE, frightened (save ends)\n- **17+:** R < STRONG, frightened (save ends)\n\n**Strained:** You can't use this ability if doing so would cause you to have negative clarity.",
+        "legacyId": "talant-sinapticheskiy-uzhas-0145e9debe"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/synaptic-terror",
+      "originalName": "Synaptic Terror",
+      "originalDescription": "*You project a terrifying image into the brains of your foes, and their fear psionically invigorates your allies.*\n\n| **Area, Psionic, Telepathy** |                        **Main action** |\n|------------------------------|---------------------------------------:|\n| **📏 3 burst**               | **🎯 Each ally and enemy in the area** |\n\n**Effect:** You and each target ally can't obtain lower than a tier 2 outcome on power rolls until the start of your next turn. Each target enemy is affected by the ability's power roll.\n\n**Power Roll + Reason:**\n\n- **≤11:** R < WEAK, frightened (save ends)\n- **12-16:** R < AVERAGE, frightened (save ends)\n- **17+:** R < STRONG, frightened (save ends)\n\n**Strained:** You can't use this ability if doing so would cause you to have negative clarity."
     },
     {
       "id": "ability.talant-sinapticheskoe-kondicionirovanie-24973fe029",
@@ -2760,7 +3028,7 @@
         "talant-sinapticheskoe-kondicionirovanie-24973fe029"
       ],
       "ability": {
-        "id": "talant-sinapticheskoe-kondicionirovanie-24973fe029",
+        "id": "feature.ability.talent.level-6.synaptic-conditioning",
         "name": "Синаптическое Кондиционирование",
         "flavor": "Это тонкое изменение мышления. Дело не в том, что они ваш враг — они вам просто не нравятся!",
         "actionType": "main",
@@ -2799,8 +3067,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/synaptic-conditioning",
+        "originalName": "Synaptic Conditioning",
+        "originalDescription": "*It's a subtle mindset shift. It's not that they're your enemy—you just don't like them!*\n\n| **Psionic, Melee**, **Strike, Telepathy** |     **Main action** |\n|-------------------------------------------|--------------------:|\n| **📏 Melee 2**                            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 psychic damage; the target takes a bane on ability rolls made to harm you or your allies (save ends)\n- **12-16:** 14 psychic damage; the target has a double bane on ability rolls made to harm you or your allies (save ends)\n- **17+:** 20 psychic damage; the target considers you and your allies to be their allies when using abilities and features (save ends)\n\n**Strained:** While the target is under this effect, you no longer consider your enemies to be your enemies when using your abilities and features.",
+        "legacyId": "talant-sinapticheskoe-kondicionirovanie-24973fe029"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/synaptic-conditioning",
+      "originalName": "Synaptic Conditioning",
+      "originalDescription": "*It's a subtle mindset shift. It's not that they're your enemy—you just don't like them!*\n\n| **Psionic, Melee**, **Strike, Telepathy** |     **Main action** |\n|-------------------------------------------|--------------------:|\n| **📏 Melee 2**                            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 10 psychic damage; the target takes a bane on ability rolls made to harm you or your allies (save ends)\n- **12-16:** 14 psychic damage; the target has a double bane on ability rolls made to harm you or your allies (save ends)\n- **17+:** 20 psychic damage; the target considers you and your allies to be their allies when using abilities and features (save ends)\n\n**Strained:** While the target is under this effect, you no longer consider your enemies to be your enemies when using your abilities and features."
     },
     {
       "id": "ability.talant-sinapticheskoe-pereopredelenie-da231176a7",
@@ -2815,7 +3090,7 @@
         "talant-sinapticheskoe-pereopredelenie-da231176a7"
       ],
       "ability": {
-        "id": "talant-sinapticheskoe-pereopredelenie-da231176a7",
+        "id": "feature.ability.talent.level-2.synaptic-override",
         "name": "Синаптическое Переопределение",
         "flavor": "Вы управляете нервной системой врага. Как приятно для него.",
         "actionType": "main",
@@ -2853,8 +3128,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/synaptic-override",
+        "originalName": "Synaptic Override",
+        "originalDescription": "*You control an enemy's nervous system. How pleasant for them.*\n\n| **Psionic, Ranged, Telepathy** |  **Main action** |\n|--------------------------------|-----------------:|\n| **📏 Ranged 10**               | **🎯 One enemy** |\n\n**Power Roll + Reason:**\n\n- **≤11:** The target makes a free strike against one enemy of your choice.\n- **12-16:** The target shifts up to their speed and uses their signature ability against any enemies of your choice.\n- **17+:** The target moves up to their speed and uses their signature ability against any enemies of your choice.\n\n**Effect:** You control the target's movement. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect. However, you can move them to provoke opportunity attacks.\n\n**Strained:** You take 1d6 damage and are weakened until the end of your turn.",
+        "legacyId": "talant-sinapticheskoe-pereopredelenie-da231176a7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/synaptic-override",
+      "originalName": "Synaptic Override",
+      "originalDescription": "*You control an enemy's nervous system. How pleasant for them.*\n\n| **Psionic, Ranged, Telepathy** |  **Main action** |\n|--------------------------------|-----------------:|\n| **📏 Ranged 10**               | **🎯 One enemy** |\n\n**Power Roll + Reason:**\n\n- **≤11:** The target makes a free strike against one enemy of your choice.\n- **12-16:** The target shifts up to their speed and uses their signature ability against any enemies of your choice.\n- **17+:** The target moves up to their speed and uses their signature ability against any enemies of your choice.\n\n**Effect:** You control the target's movement. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect. However, you can move them to provoke opportunity attacks.\n\n**Strained:** You take 1d6 damage and are weakened until the end of your turn."
     },
     {
       "id": "ability.talant-sinapticheskoe-rasseivanie-acbf4bd4bd",
@@ -2869,7 +3151,7 @@
         "talant-sinapticheskoe-rasseivanie-acbf4bd4bd"
       ],
       "ability": {
-        "id": "talant-sinapticheskoe-rasseivanie-acbf4bd4bd",
+        "id": "feature.ability.talent.level-6.synaptic-dissipation",
         "name": "Синаптическое Рассеивание",
         "flavor": "Вы манипулируете разумами своих врагов и заставляете их задуматься, были ли вы вообще там изначально.",
         "actionType": "maneuver",
@@ -2908,8 +3190,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/synaptic-dissipation",
+        "originalName": "Synaptic Dissipation",
+        "originalDescription": "*You manipulate your enemies' minds and make them wonder if you were ever really there in the first place.*\n\n| **Psionic, Ranged, Strike, Telepathy** |   **Maneuver** |\n|----------------------------------------|---------------:|\n| **📏 Ranged 10**                       | **🎯 Special** |\n\n**Effect:** You target a number of creatures with this ability determined by the outcome of your power roll. You and your allies are invisible to each target until the start of your next turn.\n\n**Power Roll + Reason:**\n\n- **≤11:** Two creatures\n- **12-16:** Three creatures\n- **17+:** Five creatures\n\n**Strained:** The effect ends early if you take damage from an enemy's ability.",
+        "legacyId": "talant-sinapticheskoe-rasseivanie-acbf4bd4bd"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/synaptic-dissipation",
+      "originalName": "Synaptic Dissipation",
+      "originalDescription": "*You manipulate your enemies' minds and make them wonder if you were ever really there in the first place.*\n\n| **Psionic, Ranged, Strike, Telepathy** |   **Maneuver** |\n|----------------------------------------|---------------:|\n| **📏 Ranged 10**                       | **🎯 Special** |\n\n**Effect:** You target a number of creatures with this ability determined by the outcome of your power roll. You and your allies are invisible to each target until the start of your next turn.\n\n**Power Roll + Reason:**\n\n- **≤11:** Two creatures\n- **12-16:** Three creatures\n- **17+:** Five creatures\n\n**Strained:** The effect ends early if you take damage from an enemy's ability."
     },
     {
       "id": "ability.talant-snova-f3af616660",
@@ -2924,7 +3213,7 @@
         "talant-snova-f3af616660"
       ],
       "ability": {
-        "id": "talant-snova-f3af616660",
+        "id": "feature.ability.talent.level-1.again",
         "name": "Снова",
         "flavor": "Вы отступаете на долю секунды назад, чтобы посмотреть, не пойдет ли все немного иначе.",
         "actionType": "trigger",
@@ -2959,8 +3248,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/again",
+        "originalName": "Again",
+        "originalDescription": "*You step back a split second to see if things play out a little differently.*\n\n| **Psionic, Ranged** |               **Triggered** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Trigger:** The target makes an ability roll.\n\n**Effect:** You can use this ability after seeing the result of the triggering roll. The target must reroll the power roll and use the new roll.",
+        "legacyId": "talant-snova-f3af616660"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/again",
+      "originalName": "Again",
+      "originalDescription": "*You step back a split second to see if things play out a little differently.*\n\n| **Psionic, Ranged** |               **Triggered** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Trigger:** The target makes an ability roll.\n\n**Effect:** You can use this ability after seeing the result of the triggering roll. The target must reroll the power roll and use the new roll."
     },
     {
       "id": "ability.talant-stal-8f6e7fcb00",
@@ -2975,7 +3271,7 @@
         "talant-stal-8f6e7fcb00"
       ],
       "ability": {
-        "id": "talant-stal-8f6e7fcb00",
+        "id": "feature.ability.talent.level-8.steel",
         "name": "Сталь",
         "flavor": "Кожа цели покрывается прочным металлом.",
         "actionType": "maneuver",
@@ -3011,8 +3307,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/steel",
+        "originalName": "Steel",
+        "originalDescription": "*The target's skin becomes covered in tough metal.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target has damage immunity 5 and can't be made slowed or weakened until the start of your next turn. Whenever the target force moves a creature or object while under this effect, the forced movement distance gains a +5 bonus.\n\n**Strained:** You can't use maneuvers (save ends).",
+        "legacyId": "talant-stal-8f6e7fcb00"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/steel",
+      "originalName": "Steel",
+      "originalDescription": "*The target's skin becomes covered in tough metal.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target has damage immunity 5 and can't be made slowed or weakened until the start of your next turn. Whenever the target force moves a creature or object while under this effect, the forced movement distance gains a +5 bonus.\n\n**Strained:** You can't use maneuvers (save ends)."
     },
     {
       "id": "ability.talant-stazisnoe-pole-fe6a1803b9",
@@ -3027,7 +3330,7 @@
         "talant-stazisnoe-pole-fe6a1803b9"
       ],
       "ability": {
-        "id": "talant-stazisnoe-pole-fe6a1803b9",
+        "id": "feature.ability.talent.level-6.stasis-field",
         "name": "Стазисное Поле",
         "flavor": "Сохрани все так, как было. Игнорируй все, что будет.",
         "actionType": "main",
@@ -3066,8 +3369,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/stasis-field",
+        "originalName": "Stasis Field",
+        "originalDescription": "*Keep everything as it was. Ignore everything that will be.*\n\n| **Area, Chronopathy, Psionic, Ranged** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each creature and object in the area** |\n\n**Effect:** The area is frozen in time until the start of your next turn. Each object in the area is restrained and can't fall until the effect ends. Until the effect ends, creatures in the area who are reduced to 0 Stamina or would die stay alive, and objects in the area that are reduced to 0 Stamina remain undestroyed.\n\nMake a power roll that targets each enemy in the area.\n\n**Power Roll + Presence:**\n\n- **≤11:** P < WEAK, the target is slowed until the effect ends\n- **12-16:** P < AVERAGE, the target's speed is 0 until the effect ends\n- **17+:** P < STRONG, the target is restrained until the effect ends\n\n**Strained:** Any creature or object force moved in the area takes 2 corruption damage for each square of the area they enter. Creatures and objects restrained in the area can be force moved. You are restrained until the effect ends.",
+        "legacyId": "talant-stazisnoe-pole-fe6a1803b9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/stasis-field",
+      "originalName": "Stasis Field",
+      "originalDescription": "*Keep everything as it was. Ignore everything that will be.*\n\n| **Area, Chronopathy, Psionic, Ranged** |                             **Main action** |\n|----------------------------------------|--------------------------------------------:|\n| **📏 4 cube within 10**                | **🎯 Each creature and object in the area** |\n\n**Effect:** The area is frozen in time until the start of your next turn. Each object in the area is restrained and can't fall until the effect ends. Until the effect ends, creatures in the area who are reduced to 0 Stamina or would die stay alive, and objects in the area that are reduced to 0 Stamina remain undestroyed.\n\nMake a power roll that targets each enemy in the area.\n\n**Power Roll + Presence:**\n\n- **≤11:** P < WEAK, the target is slowed until the effect ends\n- **12-16:** P < AVERAGE, the target's speed is 0 until the effect ends\n- **17+:** P < STRONG, the target is restrained until the effect ends\n\n**Strained:** Any creature or object force moved in the area takes 2 corruption damage for each square of the area they enter. Creatures and objects restrained in the area can be force moved. You are restrained until the effect ends."
     },
     {
       "id": "ability.talant-stazisnyy-schit-b4f19a14ce",
@@ -3082,7 +3392,7 @@
         "talant-stazisnyy-schit-b4f19a14ce"
       ],
       "ability": {
-        "id": "talant-stazisnyy-schit-b4f19a14ce",
+        "id": "feature.ability.talent.level-8.stasis-shield",
         "name": "Стазисный Щит",
         "flavor": "Вы замораживаете время ровно на столько, чтобы увести жертву в безопасное место!",
         "actionType": "trigger",
@@ -3117,8 +3427,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/stasis-shield",
+        "originalName": "Stasis Shield",
+        "originalDescription": "*You freeze time just long enough to bring the victim to safety!*\n\n| **Psionic, Ranged** |                          **Triggered** |\n|---------------------|---------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self, or one creature or object** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target is teleported to an unoccupied space adjacent to you, taking no damage and suffering no additional effects if this movement would get them out of harm's way.\n\n**Strained:** You can't target yourself, and you take the damage and any additional effects instead of the target.",
+        "legacyId": "talant-stazisnyy-schit-b4f19a14ce"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/stasis-shield",
+      "originalName": "Stasis Shield",
+      "originalDescription": "*You freeze time just long enough to bring the victim to safety!*\n\n| **Psionic, Ranged** |                          **Triggered** |\n|---------------------|---------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self, or one creature or object** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target is teleported to an unoccupied space adjacent to you, taking no damage and suffering no additional effects if this movement would get them out of harm's way.\n\n**Strained:** You can't target yourself, and you take the damage and any additional effects instead of the target."
     },
     {
       "id": "ability.talant-stimulyaciya-6032fdc82d",
@@ -3133,7 +3450,7 @@
         "talant-stimulyaciya-6032fdc82d"
       ],
       "ability": {
-        "id": "talant-stimulyaciya-6032fdc82d",
+        "id": "feature.ability.talent.level-1.awe",
         "name": "Стимуляция",
         "flavor": "Вы проецируете псионическую энергию на существо и принимаете нужный облик в его разуме.",
         "actionType": "main",
@@ -3172,8 +3489,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/awe",
+        "originalName": "Awe",
+        "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)",
+        "legacyId": "talant-stimulyaciya-6032fdc82d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/awe",
+      "originalName": "Awe",
+      "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)"
     },
     {
       "id": "ability.talant-stiranie-pamyati-01c3ae771b",
@@ -3188,7 +3512,7 @@
         "talant-stiranie-pamyati-01c3ae771b"
       ],
       "ability": {
-        "id": "talant-stiranie-pamyati-01c3ae771b",
+        "id": "feature.ability.talent.level-8.mindwipe",
         "name": "Стирание Памяти",
         "flavor": "Вы пытаетесь заставить их забыть все свои тренировки.",
         "actionType": "main",
@@ -3227,8 +3551,15 @@
         "className": "Талант",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/mindwipe",
+        "originalName": "Mindwipe",
+        "originalDescription": "*You attempt to make them forget all their training.*\n\n| **Melee, Psionic, Strike, Telepathy** |     **Main action** |\n|---------------------------------------|--------------------:|\n| **📏 Melee 2**                        | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 12 + R damage; R < WEAK, the target takes a bane on their next power roll\n- **12-16:** 17 + R damage; R < AVERAGE, the target takes a bane on power rolls (save ends)\n- **17+:** 23 + R damage; R < STRONG, the target has a double bane on power rolls (save ends)\n\n**Effect:** The target can't communicate with anyone until the end of the encounter.\n\n**Strained:** You take 3d6 damage.",
+        "legacyId": "talant-stiranie-pamyati-01c3ae771b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-8/mindwipe",
+      "originalName": "Mindwipe",
+      "originalDescription": "*You attempt to make them forget all their training.*\n\n| **Melee, Psionic, Strike, Telepathy** |     **Main action** |\n|---------------------------------------|--------------------:|\n| **📏 Melee 2**                        | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 12 + R damage; R < WEAK, the target takes a bane on their next power roll\n- **12-16:** 17 + R damage; R < AVERAGE, the target takes a bane on power rolls (save ends)\n- **17+:** 23 + R damage; R < STRONG, the target has a double bane on power rolls (save ends)\n\n**Effect:** The target can't communicate with anyone until the end of the encounter.\n\n**Strained:** You take 3d6 damage."
     },
     {
       "id": "ability.talant-sudba-fca7e6ea95",
@@ -3243,7 +3574,7 @@
         "talant-sudba-fca7e6ea95"
       ],
       "ability": {
-        "id": "talant-sudba-fca7e6ea95",
+        "id": "feature.ability.talent.level-6.fate",
         "name": "Судьба",
         "flavor": "Ваш враг получает проблеск того, чем все для него закончится.",
         "actionType": "main",
@@ -3281,8 +3612,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/fate",
+        "originalName": "Fate",
+        "originalDescription": "*Your foe gets a glimpse of how it will end for them.*\n\n| **Chronopathy, Psionic, Melee** |  **Main action** |\n|---------------------------------|-----------------:|\n| **📏 Melee 2**                  | **🎯 One enemy** |\n\n**Effect:** The target has damage weakness 5 until the end of your next turn. Whenever the target takes damage while they have this weakness, they are knocked prone.\n\n**Strained:** This ability gains the Strike keyword as the vision hurts the target's psyche. You make a power roll, then are weakened (save ends).\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 + P psychic damage\n- **12-16:** 13 + P psychic damage\n- **17+:** 17 + P psychic damage",
+        "legacyId": "talant-sudba-fca7e6ea95"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/fate",
+      "originalName": "Fate",
+      "originalDescription": "*Your foe gets a glimpse of how it will end for them.*\n\n| **Chronopathy, Psionic, Melee** |  **Main action** |\n|---------------------------------|-----------------:|\n| **📏 Melee 2**                  | **🎯 One enemy** |\n\n**Effect:** The target has damage weakness 5 until the end of your next turn. Whenever the target takes damage while they have this weakness, they are knocked prone.\n\n**Strained:** This ability gains the Strike keyword as the vision hurts the target's psyche. You make a power roll, then are weakened (save ends).\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 + P psychic damage\n- **12-16:** 13 + P psychic damage\n- **17+:** 17 + P psychic damage"
     },
     {
       "id": "ability.talant-svyazannye-dushi-436f7ea33e",
@@ -3297,7 +3635,7 @@
         "talant-svyazannye-dushi-436f7ea33e"
       ],
       "ability": {
-        "id": "talant-svyazannye-dushi-436f7ea33e",
+        "id": "feature.ability.talent.level-5.soulbound",
         "name": "Связанные Души",
         "flavor": "Вы выпускаете пронзительный заряд психической энергии, который пронзает двух врагов и оставляет слабую неосязаемую нить между ними.",
         "actionType": "main",
@@ -3336,8 +3674,15 @@
         "className": "Талант",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/soulbound",
+        "originalName": "Soulbound",
+        "originalDescription": "*You fire a piercing bolt of psychic energy that lances through two foes and leaves a faint intangible thread between them.*\n\n| **Animapathy, Psionic, Ranged, Strike** |    **Main action** |\n|-----------------------------------------|-------------------:|\n| **📏 Ranged 10**                        | **🎯 Two enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 damage; A < WEAK, the target is stitched to the other target (save ends)\n- **12-16:** 13 damage; A < AVERAGE, the target is stitched to the other target (save ends)\n- **17+:** 17 damage; A < STRONG, the target is stitched to the other target (save ends)\n\n**Effect:** If any target becomes stitched to the other, both targets are stitched together. While stitched together, a target takes a bane on power rolls while not adjacent to a creature they're stitched to. Whenever a stitched target takes damage that wasn't dealt by or also taken by another stitched target, each other stitched target takes half the damage the initial target took.\n\n**Strained:** You target yourself and three enemies instead.",
+        "legacyId": "talant-svyazannye-dushi-436f7ea33e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-5/soulbound",
+      "originalName": "Soulbound",
+      "originalDescription": "*You fire a piercing bolt of psychic energy that lances through two foes and leaves a faint intangible thread between them.*\n\n| **Animapathy, Psionic, Ranged, Strike** |    **Main action** |\n|-----------------------------------------|-------------------:|\n| **📏 Ranged 10**                        | **🎯 Two enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 damage; A < WEAK, the target is stitched to the other target (save ends)\n- **12-16:** 13 damage; A < AVERAGE, the target is stitched to the other target (save ends)\n- **17+:** 17 damage; A < STRONG, the target is stitched to the other target (save ends)\n\n**Effect:** If any target becomes stitched to the other, both targets are stitched together. While stitched together, a target takes a bane on power rolls while not adjacent to a creature they're stitched to. Whenever a stitched target takes damage that wasn't dealt by or also taken by another stitched target, each other stitched target takes half the damage the initial target took.\n\n**Strained:** You target yourself and three enemies instead."
     },
     {
       "id": "ability.talant-tlenie-7b6cc5adbb",
@@ -3352,7 +3697,7 @@
         "talant-tlenie-7b6cc5adbb"
       ],
       "ability": {
-        "id": "talant-tlenie-7b6cc5adbb",
+        "id": "feature.ability.talent.level-1.smolder",
         "name": "Тление",
         "flavor": "Дым течет из вашего врага, как слезы, пока его кожа начинает чернеть и отслаиваться.",
         "actionType": "main",
@@ -3391,8 +3736,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/smolder",
+        "originalName": "Smolder",
+        "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)",
+        "legacyId": "talant-tlenie-7b6cc5adbb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/smolder",
+      "originalName": "Smolder",
+      "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)"
     },
     {
       "id": "ability.talant-tochka-opory-eb1db41250",
@@ -3407,7 +3759,7 @@
         "talant-tochka-opory-eb1db41250"
       ],
       "ability": {
-        "id": "talant-tochka-opory-eb1db41250",
+        "id": "feature.ability.talent.level-9.fulcrum",
         "name": "Точка Опоры",
         "flavor": "Вы точно манипулируете существами вокруг вас.",
         "actionType": "main",
@@ -3445,8 +3797,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/fulcrum",
+        "originalName": "Fulcrum",
+        "originalDescription": "*You precisely manipulate the creatures around you.*\n\n| **Area, Psionic, Telekinesis** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 Special**                 | **🎯 Each enemy and object in the area** |\n\n**Effect:** Make a power roll to determine the area of this ability. Each target is vertical pushed 6 squares. You can target only objects of size 1L or smaller.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 burst\n- **12-16:** 3 burst\n- **17+:** 4 burst\n\n**Strained:** You can choose to reduce the size of the burst by 2 (to a minimum of 1 burst) to give the forced movement distance a +2 bonus. You take half the total damage all targets take from forced movement.",
+        "legacyId": "talant-tochka-opory-eb1db41250"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/fulcrum",
+      "originalName": "Fulcrum",
+      "originalDescription": "*You precisely manipulate the creatures around you.*\n\n| **Area, Psionic, Telekinesis** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 Special**                 | **🎯 Each enemy and object in the area** |\n\n**Effect:** Make a power roll to determine the area of this ability. Each target is vertical pushed 6 squares. You can target only objects of size 1L or smaller.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 burst\n- **12-16:** 3 burst\n- **17+:** 4 burst\n\n**Strained:** You can choose to reduce the size of the burst by 2 (to a minimum of 1 burst) to give the forced movement distance a +2 bonus. You take half the total damage all targets take from forced movement."
     },
     {
       "id": "ability.talant-udalennaya-pomosch-12a640b599",
@@ -3461,7 +3820,7 @@
         "talant-udalennaya-pomosch-12a640b599"
       ],
       "ability": {
-        "id": "talant-udalennaya-pomosch-12a640b599",
+        "id": "feature.ability.talent.level-1.remote-assistance",
         "name": "Удаленная Помощь",
         "flavor": "Союзник получает преимущество от вашего интеллекта.",
         "actionType": "maneuver",
@@ -3496,8 +3855,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/remote-assistance",
+        "originalName": "Remote Assistance",
+        "originalDescription": "*An ally gains the benefit of your intellect.*\n\n| **Psionic, Ranged** |                  **Maneuver** |\n|---------------------|------------------------------:|\n| **📏 Ranged 10**    | **🎯 One creature or object** |\n\n\n**Effect:** The next ability roll an ally makes against the target before the start of your next turn gains an edge.\n\n**Spend 1 Clarity:** You target one additional creature or object.",
+        "legacyId": "talant-udalennaya-pomosch-12a640b599"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/remote-assistance",
+      "originalName": "Remote Assistance",
+      "originalDescription": "*An ally gains the benefit of your intellect.*\n\n| **Psionic, Ranged** |                  **Maneuver** |\n|---------------------|------------------------------:|\n| **📏 Ranged 10**    | **🎯 One creature or object** |\n\n\n**Effect:** The next ability roll an ally makes against the target before the start of your next turn gains an edge.\n\n**Spend 1 Clarity:** You target one additional creature or object."
     },
     {
       "id": "ability.talant-udushenie-f82331259b",
@@ -3512,7 +3878,7 @@
         "talant-udushenie-f82331259b"
       ],
       "ability": {
-        "id": "talant-udushenie-f82331259b",
+        "id": "feature.ability.talent.level-1.choke",
         "name": "Удушение",
         "flavor": "Вы сокрушаете врага в телекинетической хватке.",
         "actionType": "main",
@@ -3551,8 +3917,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/choke",
+        "originalName": "Choke",
+        "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability.",
+        "legacyId": "talant-udushenie-f82331259b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/choke",
+      "originalName": "Choke",
+      "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability."
     },
     {
       "id": "ability.talant-uskorenie-4d33dc96e7",
@@ -3567,7 +3940,7 @@
         "talant-uskorenie-4d33dc96e7"
       ],
       "ability": {
-        "id": "talant-uskorenie-4d33dc96e7",
+        "id": "feature.ability.talent.level-1.accelerate",
         "name": "Ускорение",
         "flavor": "Вашему союзнику кажется, что мир замедлился.",
         "actionType": "maneuver",
@@ -3602,8 +3975,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/accelerate",
+        "originalName": "Accelerate",
+        "originalDescription": "*To your ally, it seems as though the world has slowed down.*\n\n| **Psionic, Ranged** |                **Maneuver** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Effect:** The target shifts up to a number of squares equal to your Reason score.\n\n**Spend 2 Clarity:** The target can use a maneuver.",
+        "legacyId": "talant-uskorenie-4d33dc96e7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/accelerate",
+      "originalName": "Accelerate",
+      "originalDescription": "*To your ally, it seems as though the world has slowed down.*\n\n| **Psionic, Ranged** |                **Maneuver** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Effect:** The target shifts up to a number of squares equal to your Reason score.\n\n**Spend 2 Clarity:** The target can use a maneuver."
     },
     {
       "id": "ability.talant-velikiy-kineticheskiy-zahvat-c15688eed1",
@@ -3618,7 +3998,7 @@
         "talant-velikiy-kineticheskiy-zahvat-c15688eed1"
       ],
       "ability": {
-        "id": "talant-velikiy-kineticheskiy-zahvat-c15688eed1",
+        "id": "feature.ability.talent.level-6.greater-kinetic-grip",
         "name": "Великий Кинетический Захват",
         "flavor": "Вы поднимаете цель в воздух, даже не вспотев.",
         "actionType": "main",
@@ -3657,8 +4037,15 @@
         "className": "Талант",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "reason"
-      }
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/greater-kinetic-grip",
+        "originalName": "Greater Kinetic Grip",
+        "originalDescription": "*You raise the target into the air without breaking a sweat.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 4 + R; M < WEAK, the forced movement is vertical\n- **12-16:** Slide 8 + R; M < AVERAGE, the forced movement is vertical\n- **17+:** Slide 12 + R; prone; M < STRONG, the forced movement is vertical\n\n**Strained:** The forced movement ignores stability. You take 2d6 damage and are weakened (save ends).",
+        "legacyId": "talant-velikiy-kineticheskiy-zahvat-c15688eed1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-6/greater-kinetic-grip",
+      "originalName": "Greater Kinetic Grip",
+      "originalDescription": "*You raise the target into the air without breaking a sweat.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 4 + R; M < WEAK, the forced movement is vertical\n- **12-16:** Slide 8 + R; M < AVERAGE, the forced movement is vertical\n- **17+:** Slide 12 + R; prone; M < STRONG, the forced movement is vertical\n\n**Strained:** The forced movement ignores stability. You take 2d6 damage and are weakened (save ends)."
     },
     {
       "id": "ability.talant-vospominanie-0f3d9537df",
@@ -3673,7 +4060,7 @@
         "talant-vospominanie-0f3d9537df"
       ],
       "ability": {
-        "id": "talant-vospominanie-0f3d9537df",
+        "id": "feature.ability.talent.level-1.flashback",
         "name": "Воспоминание",
         "flavor": "Цель отбрасывается на несколько секунд назад во времени и получает возможность сделать все заново.",
         "actionType": "maneuver",
@@ -3709,8 +4096,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/flashback",
+        "originalName": "Flashback",
+        "originalDescription": "*The target is thrown several seconds back through time and gets to do it all again.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual.\n\n**Strained:** You take 1d6 damage and are slowed (save ends).",
+        "legacyId": "talant-vospominanie-0f3d9537df"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/flashback",
+      "originalName": "Flashback",
+      "originalDescription": "*The target is thrown several seconds back through time and gets to do it all again.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual.\n\n**Strained:** You take 1d6 damage and are slowed (save ends)."
     },
     {
       "id": "ability.talant-zamedlivanie-64ccb3b9bb",
@@ -3725,7 +4119,7 @@
         "talant-zamedlivanie-64ccb3b9bb"
       ],
       "ability": {
-        "id": "talant-zamedlivanie-64ccb3b9bb",
+        "id": "feature.ability.talent.level-2.slow",
         "name": "Замедливание",
         "flavor": "Возможно, они задаются вопросом, почему все остальные двигаются так быстро?",
         "actionType": "maneuver",
@@ -3763,8 +4157,15 @@
         "className": "Талант",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/slow",
+        "originalName": "Slow",
+        "originalDescription": "*Perhaps they wonder why everyone else is moving so quickly?*\n\n| **Chronopathy, Psionic, Ranged** |                      **Maneuver** |\n|----------------------------------|----------------------------------:|\n| **📏 Ranged 10**                 | **🎯 Three creatures or objects** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target's speed is halved (save ends), or if P < WEAK, the target is slowed (save ends).\n- **12-16:** The target is slowed (save ends), or if P < AVERAGE, the target's speed is 0 (save ends).\n- **17+:** The target is slowed (save ends), or if P < STRONG, the target's speed is 0 (save ends).\n\n**Effect:** A target can't use triggered actions while their speed is reduced this way.\n\n**Strained:** The potency of this ability increases by 1 and you take 1d6 damage. At the start of each combat round while any target is affected by this ability, you take 1d6 damage. You can end the effect on all affected targets at any time (no action required).",
+        "legacyId": "talant-zamedlivanie-64ccb3b9bb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-2/slow",
+      "originalName": "Slow",
+      "originalDescription": "*Perhaps they wonder why everyone else is moving so quickly?*\n\n| **Chronopathy, Psionic, Ranged** |                      **Maneuver** |\n|----------------------------------|----------------------------------:|\n| **📏 Ranged 10**                 | **🎯 Three creatures or objects** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target's speed is halved (save ends), or if P < WEAK, the target is slowed (save ends).\n- **12-16:** The target is slowed (save ends), or if P < AVERAGE, the target's speed is 0 (save ends).\n- **17+:** The target is slowed (save ends), or if P < STRONG, the target's speed is 0 (save ends).\n\n**Effect:** A target can't use triggered actions while their speed is reduced this way.\n\n**Strained:** The potency of this ability increases by 1 and you take 1d6 damage. At the start of each combat round while any target is affected by this ability, you take 1d6 damage. You can end the effect on all affected targets at any time (no action required)."
     },
     {
       "id": "ability.talant-zaymy-iz-buduschego-6f15422539",
@@ -3779,7 +4180,7 @@
         "talant-zaymy-iz-buduschego-6f15422539"
       ],
       "ability": {
-        "id": "talant-zaymy-iz-buduschego-6f15422539",
+        "id": "feature.ability.talent.level-9.borrow-from-the-future",
         "name": "Займы из Будущего",
         "flavor": "Вы опираетесь на будущий героизм, чтобы помочь себе сейчас.",
         "actionType": "maneuver",
@@ -3815,8 +4216,15 @@
         "className": "Талант",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/borrow-from-the-future",
+        "originalName": "Borrow From the Future",
+        "originalDescription": "*You lean on future heroism to assist you in the now.*\n\n| **Area, Chronopathy, Psionic** |                 **Maneuver** |\n|--------------------------------|-----------------------------:|\n| **📏 2 burst**                 | **🎯 Each ally in the area** |\n\n**Effect:** The targets share 6 of their Heroic Resource among themselves, as you determine. A target can't gain more than 3 of their Heroic Resource this way. After using this ability, you can't gain any clarity until the end of the next combat round.",
+        "legacyId": "talant-zaymy-iz-buduschego-6f15422539"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-9/borrow-from-the-future",
+      "originalName": "Borrow From the Future",
+      "originalDescription": "*You lean on future heroism to assist you in the now.*\n\n| **Area, Chronopathy, Psionic** |                 **Maneuver** |\n|--------------------------------|-----------------------------:|\n| **📏 2 burst**                 | **🎯 Each ally in the area** |\n\n**Effect:** The targets share 6 of their Heroic Resource among themselves, as you determine. A target can't gain more than 3 of their Heroic Resource this way. After using this ability, you can't gain any clarity until the end of the next combat round."
     },
     {
       "id": "ability.talant-zhelezo-d91cdef9e3",
@@ -3831,7 +4239,7 @@
         "talant-zhelezo-d91cdef9e3"
       ],
       "ability": {
-        "id": "talant-zhelezo-d91cdef9e3",
+        "id": "feature.ability.talent.level-1.iron",
         "name": "Железо",
         "flavor": "Кожа цели превращается в твердый темный металл, непробиваемый и плотный.",
         "actionType": "maneuver",
@@ -3867,8 +4275,15 @@
         "className": "Талант",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/iron",
+        "originalName": "Iron",
+        "originalDescription": "*The target's skin turns to hard, dark metal, impenetrable and dense.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target's stability increases by an amount equal to your Reason score, and they gain 10 temporary Stamina and 2 surges. This stability increase lasts until the target no longer has temporary Stamina from this ability.\n\n**Strained:** You can't use maneuvers (save ends).",
+        "legacyId": "talant-zhelezo-d91cdef9e3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/iron",
+      "originalName": "Iron",
+      "originalDescription": "*The target's skin turns to hard, dark metal, impenetrable and dense.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target's stability increases by an amount equal to your Reason score, and they gain 10 temporary Stamina and 2 surges. This stability increase lasts until the target no longer has temporary Stamina from this ability.\n\n**Strained:** You can't use maneuvers (save ends)."
     },
     {
       "id": "class.0851",
@@ -3892,7 +4307,10 @@
       },
       "legacyIds": [
         "talent.feature.1.augmentatsiya-distantsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/distance-augmentation",
+      "originalName": "Distance Augmentation",
+      "originalDescription": "Your ranged psionic abilities gain a +2 bonus to distance."
     },
     {
       "id": "feature.talent.feature.1.augmentatsiya-plotnosti",
@@ -3905,7 +4323,10 @@
       },
       "legacyIds": [
         "talent.feature.1.augmentatsiya-plotnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/density-augmentation",
+      "originalName": "Density Augmentation",
+      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
     },
     {
       "id": "feature.talent.feature.1.augmentatsiya-sily",
@@ -3918,7 +4339,10 @@
       },
       "legacyIds": [
         "talent.feature.1.augmentatsiya-sily"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/force-augmentation",
+      "originalName": "Force Augmentation",
+      "originalDescription": "Your damage-dealing psionic abilities gain a +1 bonus to rolled damage."
     },
     {
       "id": "feature.talent.feature.1.augmentatsiya-skorosti",
@@ -3931,7 +4355,10 @@
       },
       "legacyIds": [
         "talent.feature.1.augmentatsiya-skorosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/speed-augmentation",
+      "originalName": "Speed Augmentation",
+      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
     },
     {
       "id": "feature.talent.feature.1.boevaya-augmentatsiya",
@@ -3944,7 +4371,10 @@
       },
       "legacyIds": [
         "talent.feature.1.boevaya-augmentatsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/battle-augmentation",
+      "originalName": "Battle Augmentation",
+      "originalDescription": "You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this augmentation."
     },
     {
       "id": "feature.talent.feature.1.geroicheskie-sposobnosti",
@@ -3970,7 +4400,10 @@
       },
       "legacyIds": [
         "talent.feature.1.ischezayushchiy-obereg"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/vanishing-ward",
+      "originalName": "Vanishing Ward",
+      "originalDescription": "Your ward allows you to slip away from threats. Whenever you take damage, you become invisible until the end of your next turn."
     },
     {
       "id": "feature.talent.feature.1.obereg-entropii",
@@ -3983,7 +4416,10 @@
       },
       "legacyIds": [
         "talent.feature.1.obereg-entropii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/entropy-ward",
+      "originalName": "Entropy Ward",
+      "originalDescription": "Your ward slows time for your enemies. Whenever a creature deals damage to you, their speed is reduced by an amount equal to your Reason score and they can't use triggered actions until the end of their next turn."
     },
     {
       "id": "feature.talent.feature.1.obereg-talanta",
@@ -3996,7 +4432,10 @@
       },
       "legacyIds": [
         "talent.feature.1.obereg-talanta"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-ward",
+      "originalName": "Talent Ward",
+      "originalDescription": "Through meditation, you create a ward that protects you. Choose one of the following wards. You can change your ward and psionic augmentation (see above) by undergoing a psionic meditation as a respite activity. (*Quick Build:* Repulsive Ward.)"
     },
     {
       "id": "feature.talent.feature.1.osobennosti-traditsii-1-go-urovnya",
@@ -4009,7 +4448,10 @@
       },
       "legacyIds": [
         "talent.feature.1.osobennosti-traditsii-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/1st-level-tradition-features",
+      "originalName": "1st-Level Tradition Features",
+      "originalDescription": "Your talent tradition grants you two features, as shown on the 1st-Level Tradition Features table.\n\n###### 1st-Level Tradition Features Table\n\n| Tradition   | Features                         |\n|-------------|----------------------------------|\n| Chronopathy | Accelerate, Again                |\n| Telekinesis | Minor Telekinesis, Repel         |\n| Telepathy   | Feedback Loop, Remote Assistance |"
     },
     {
       "id": "feature.talent.feature.1.ottalkivayushchiy-obereg",
@@ -4022,7 +4464,10 @@
       },
       "legacyIds": [
         "talent.feature.1.ottalkivayushchiy-obereg"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/repulsive-ward",
+      "originalName": "Repulsive Ward",
+      "originalDescription": "You surround yourself with an invisible ward of telekinetic energy. Whenever an adjacent creature deals damage to you, you can use a free triggered action to push them up to a number of squares equal to your Reason score."
     },
     {
       "id": "feature.talent.feature.1.psionicheskaya-augmentatsiya",
@@ -4035,7 +4480,10 @@
       },
       "legacyIds": [
         "talent.feature.1.psionicheskaya-augmentatsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/psionic-augmentation",
+      "originalName": "Psionic Augmentation",
+      "originalDescription": "Through meditation, you create pathways in your mind that enhance your statistics. Choose one of the following augmentations. You can change your augmentation and ward (see Talent Ward below) by undergoing a psionic meditation as a respite activity. (*Quick Build:*  Force Augmentation.)"
     },
     {
       "id": "feature.talent.feature.1.ship-razuma",
@@ -4048,7 +4496,10 @@
       },
       "legacyIds": [
         "talent.feature.1.ship-razuma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/mind-spike",
+      "originalName": "Mind Spike",
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
     },
     {
       "id": "feature.talent.feature.1.sposobnost-za-3-yasnosti",
@@ -4087,7 +4538,10 @@
       },
       "legacyIds": [
         "talent.feature.1.sposobnosti-talanta"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-abilities",
+      "originalName": "Talent Abilities",
+      "originalDescription": "You manifest a variety of psionic powers that let you impact the environment, bolster your allies, and empower yourself. You can choose abilities across different talent traditions or focus on abilities tied to your chosen tradition to dedicate yourself to its power.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Incinerate, Kinetic Grip.)\n\n##### Heroic Abilities\n\nYou know a range of heroic abilities, all of which cost clarity to fuel them.\n\n###### 3-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 3 clarity to use. (*Quick Build:* Choke.)\n\n###### 5-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 5 clarity to use. (*Quick Build:* Inertia Soak.)"
     },
     {
       "id": "feature.talent.feature.1.stalnoy-obereg",
@@ -4100,7 +4554,10 @@
       },
       "legacyIds": [
         "talent.feature.1.stalnoy-obereg"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/steel-ward",
+      "originalName": "Steel Ward",
+      "originalDescription": "Your ward reacts to danger, protecting you from future harm. Whenever you take damage, after the damage resolves, you gain damage immunity equal to your Reason score until the end of your next turn."
     },
     {
       "id": "feature.talent.feature.1.telepaticheskaya-rech",
@@ -4113,7 +4570,10 @@
       },
       "legacyIds": [
         "talent.feature.1.telepaticheskaya-rech"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/telepathic-speech",
+      "originalName": "Telepathic Speech",
+      "originalDescription": "You know the Mindspeech language (see Languages in Orden in Chapter 4: Background). Additionally, you can telepathically communicate with any creatures within distance of your Mind Spike ability if they share a language with you and you know of each other. When you communicate with someone this way, they can respond telepathically."
     },
     {
       "id": "feature.talent.feature.1.traditsiya-talanta",
@@ -4126,7 +4586,10 @@
       },
       "legacyIds": [
         "talent.feature.1.traditsiya-talanta"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-tradition",
+      "originalName": "Talent Tradition",
+      "originalDescription": "Psionic abilities are grouped into categories according to their effects, with each category comprising one of many talent traditions:\n\n- **Animapathy** abilities allow you to manipulate, meld, and exchange the souls of living things.\n- **Chronopathy** abilities allow you to view future and past events, and to manipulate time to aid allies and hinder foes.\n- **Cryokinesis** abilities allow you to manifest and manipulate absolute cold to enemies and the environment alike.\n- **Metamorphosis** abilities allow you to strengthen and manipulate your body and the bodies of others to perform preternatural exploits.\n- **Pyrokinesis** abilities allow you to create and manipulate fire by interacting with the potential energy found in all things.\n- **Resopathy** abilities allow you to manipulate matter and space to create, alter, or displace your environment and the creatures and objects in it.\n- **Telekinesis** abilities allow you to physically manipulate creatures and objects.\n- **Telepathy** abilities allow you to communicate with, read, and influence the minds of other creatures.\n\nYou choose a talent tradition from the following options: chronopathy, telekinesis, or telepathy. Your talent tradition is your subclass, and your choice of tradition determines many of the features you'll gain as you gain new levels. (Other talent traditions will be featured in future products.) (*Quick Build:* Telekinesis.)"
     },
     {
       "id": "feature.talent.feature.1.yasnost-i-vozbuzhdennost",
@@ -4139,7 +4602,10 @@
       },
       "legacyIds": [
         "talent.feature.1.yasnost-i-vozbuzhdennost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/clarity-and-strain",
+      "originalName": "Clarity and Strain",
+      "originalDescription": "The focus and precision of your thoughts grant you a Heroic Resource called clarity that empowers your psionic abilities.\n\n##### Clarity in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 clarity.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 1 clarity.\n\nYou can spend clarity you don't have, pushing that Heroic Resource into negative numbers to a maximum negative value equal to 1 + your Reason score. At the end of each of your turns, you take 1 damage for each negative point of clarity.\n\nWhenever you have clarity below 0, you are strained. Some psionic abilities have additional effects if you are already strained or become strained when you use them. Strained effects can still impact you even after you are no longer strained.\n\nYou lose any remaining clarity or reset any negative clarity at the end of the encounter.\n\n##### Clarity Outside of Combat\n\nThough you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it. Whenever you use an ability or effect outside of combat that costs clarity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nAdditionally, whenever you use any ability or effect that costs clarity within 1 minute of using another such ability, you take 1d6 damage and incur any strain effect from using the new ability. Whenever you use an ability with a strain effect outside of combat, you can take 1d6 damage and incur the effect if you don't incur it for other reasons.\n\nWhen you use an ability outside of combat that lets you spend unlimited clarity on its effect, such as Minor Telekinesis, you can use it as if you had spent an amount of clarity equal to your Victories."
     },
     {
       "id": "feature.talent.feature.1.yasnost-v-boyu",
@@ -4191,7 +4657,10 @@
       },
       "legacyIds": [
         "talent.feature.10.chistyy-razum"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/clear-mind",
+      "originalName": "Clear Mind",
+      "originalDescription": "The first time each combat round that a creature is force moved, you gain 3 clarity instead of 2."
     },
     {
       "id": "feature.talent.feature.10.navyk",
@@ -4204,7 +4673,10 @@
       },
       "legacyIds": [
         "talent.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.talent.feature.10.omnisensorika",
@@ -4217,7 +4689,10 @@
       },
       "legacyIds": [
         "talent.feature.10.omnisensorika"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/omnisensory",
+      "originalName": "Omnisensory",
+      "originalDescription": "You have a +10 bonus to the distance of your ranged abilities. Additionally, you don't need line of effect to a target of a ranged ability if the target is a creature capable of thought who you have previously had line of effect to."
     },
     {
       "id": "feature.talent.feature.10.perk",
@@ -4230,7 +4705,10 @@
       },
       "legacyIds": [
         "talent.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.talent.feature.10.psion",
@@ -4243,7 +4721,10 @@
       },
       "legacyIds": [
         "talent.feature.10.psion"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/psion",
+      "originalName": "Psion",
+      "originalDescription": "At the start of each of your turns during combat, you gain 1d3 + 2 clarity instead of 1d3 + 1.\n\nAdditionally, you can choose to not take damage from having negative clarity. You can also choose to take on any ability's strained effect even if you're not strained."
     },
     {
       "id": "feature.talent.feature.10.uvelichenie-kharakteristik",
@@ -4256,7 +4737,10 @@
       },
       "legacyIds": [
         "talent.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Reason and Presence scores each increase to 5."
     },
     {
       "id": "feature.talent.feature.10.videnie",
@@ -4269,7 +4753,10 @@
       },
       "legacyIds": [
         "talent.feature.10.videnie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-10/vision",
+      "originalName": "Vision",
+      "originalDescription": "You have an epic resource called vision. Each time you finish a respite, you gain vision equal to the XP you gain. You can spend vision on your abilities as if it were clarity.\n\nAdditionally, you can spend vision to use one additional psionic ability on your turn, provided you pay the entire cost of the ability in vision. If you choose to use a psionic ability that usually costs no clarity, you must spend 1 vision to use it.\n\nVision remains until you spend it."
     },
     {
       "id": "feature.talent.feature.2.osobennost-traditsii-2-go-urovnya",
@@ -4282,7 +4769,10 @@
       },
       "legacyIds": [
         "talent.feature.2.osobennost-traditsii-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/2nd-level-tradition-feature",
+      "originalName": "2nd-Level Tradition Feature",
+      "originalDescription": "Your talent tradition grants you a feature, as shown on the 2nd-Level Tradition Features table.\n\n###### 2nd-Level Tradition Features Table\n\n| Tradition                    | Features        |\n|------------------------------|-----------------|\n| Chronopathy                  | Ease the Hours  |\n| Telekinesis                  | Ease Their Fall |\n| Telepathy                    | Ease the Mind   |"
     },
     {
       "id": "feature.talent.feature.2.perk",
@@ -4295,7 +4785,10 @@
       },
       "legacyIds": [
         "talent.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.talent.feature.2.sposobnost-traditsii-2-go-urovnya",
@@ -4308,7 +4801,10 @@
       },
       "legacyIds": [
         "talent.feature.2.sposobnost-traditsii-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/2nd-level-tradition-ability",
+      "originalName": "2nd-Level Tradition Ability",
+      "originalDescription": "Your talent tradition grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Chronopathy Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Telekinesis Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Telepathy Ability\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.talent.feature.2.sposobnosti-khronopatii-2-go-urovnya",
@@ -4360,7 +4856,10 @@
       },
       "legacyIds": [
         "talent.feature.3.skanirovanie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-3/scan",
+      "originalName": "Scan",
+      "originalDescription": "You can extend your psionic senses beyond their usual range. Once on each of your turns, you can search for hidden creatures as a free maneuver (see Hide and Sneak in Chapter 9: Tests). Additionally, once you establish line of effect to a thinking creature within distance of your Mind Spike ability, you always have line of effect to that creature until they move beyond that distance."
     },
     {
       "id": "feature.talent.feature.3.sposobnost-za-7-yasnosti",
@@ -4373,7 +4872,10 @@
       },
       "legacyIds": [
         "talent.feature.3.sposobnost-za-7-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-3/7-clarity-ability",
+      "originalName": "7-Clarity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 clarity to use."
     },
     {
       "id": "feature.talent.feature.4.navyk",
@@ -4386,7 +4888,10 @@
       },
       "legacyIds": [
         "talent.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.talent.feature.4.perk",
@@ -4399,7 +4904,10 @@
       },
       "legacyIds": [
         "talent.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.talent.feature.4.podveshivayushchee-pole",
@@ -4412,7 +4920,10 @@
       },
       "legacyIds": [
         "talent.feature.4.podveshivayushchee-pole"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/suspensor-field",
+      "originalName": "Suspensor Field",
+      "originalDescription": "You can fly. While flying, your stability is reduced to 0 and can't be increased. If you can already fly, you have a +2 bonus to speed while flying instead.\n\nIf you are strained while flying and are force moved, the forced movement distance gains a +2 bonus."
     },
     {
       "id": "feature.talent.feature.4.proektsiya-razuma",
@@ -4425,7 +4936,10 @@
       },
       "legacyIds": [
         "talent.feature.4.proektsiya-razuma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/mind-projection",
+      "originalName": "Mind Projection",
+      "originalDescription": "As a maneuver, you project your mind outside your body. While you are in this state, your body remains unconscious and prone, and your mind is a separate entity with size 1T. Your mind automatically has concealment, and can freely move through solid matter. If you end your turn inside solid matter, you are forced out into the space where you entered it.\n\nAny abilities or features you use originate from your mind. Both your mind and your body can take damage while separated, with any such damage applied to your Stamina. Your mind is instantly forced back into your body if you take any damage, and you can immediately return to your body as a free maneuver."
     },
     {
       "id": "feature.talent.feature.4.uvelichenie-kharakteristik",
@@ -4438,7 +4952,10 @@
       },
       "legacyIds": [
         "talent.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Reason and Presence scores each increase to 3."
     },
     {
       "id": "feature.talent.feature.4.vosstanovlenie-razuma",
@@ -4451,7 +4968,10 @@
       },
       "legacyIds": [
         "talent.feature.4.vosstanovlenie-razuma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-4/mind-recovery",
+      "originalName": "Mind Recovery",
+      "originalDescription": "Whenever you spend a Recovery to regain Stamina while strained, you can forgo the Stamina and gain 3 clarity instead.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 2 clarity instead of 1."
     },
     {
       "id": "feature.talent.feature.5.osobennosti-traditsii-5-go-urovnya",
@@ -4464,7 +4984,10 @@
       },
       "legacyIds": [
         "talent.feature.5.osobennosti-traditsii-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/5th-level-tradition-features",
+      "originalName": "5th-Level Tradition Features",
+      "originalDescription": "Your talent tradition grants you two features, as shown on the 5th-Level Tradition Features table.\n\n###### 5th-Level Tradition Features Table\n\n| Tradition   | Features                              |\n|-------------|---------------------------------------|\n| Chronopathy | Distortion Temporal, Speed of Thought |\n| Telekinesis | Kinetic Amplifier, Triangulate        |\n| Telepathy   | Compulsion, Remote Amplification      |"
     },
     {
       "id": "feature.talent.feature.5.sposobnost-za-9-yasnosti",
@@ -4477,7 +5000,10 @@
       },
       "legacyIds": [
         "talent.feature.5.sposobnost-za-9-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/9-clarity-ability",
+      "originalName": "9-Clarity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 clarity to use."
     },
     {
       "id": "feature.talent.feature.6.dinamicheskaya-sila-1-yasnosti",
@@ -4490,7 +5016,10 @@
       },
       "legacyIds": [
         "talent.feature.6.dinamicheskaya-sila-1-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/dynamic-power",
+      "originalName": "Dynamic Power",
+      "originalDescription": "If the ability force moves a target, the forced movement distance gains a bonus equal to your Reason score."
     },
     {
       "id": "feature.talent.feature.6.obostrennaya-sila-1-yasnosti",
@@ -4503,7 +5032,10 @@
       },
       "legacyIds": [
         "talent.feature.6.obostrennaya-sila-1-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/sharpened-power",
+      "originalName": "Sharpened Power",
+      "originalDescription": "If the ability has any power roll, that roll gains an edge."
     },
     {
       "id": "feature.talent.feature.6.perk",
@@ -4516,7 +5048,10 @@
       },
       "legacyIds": [
         "talent.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.talent.feature.6.potentsialnaya-sila-5-yasnosti",
@@ -4529,7 +5064,10 @@
       },
       "legacyIds": [
         "talent.feature.6.potentsialnaya-sila-5-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/magnified-power",
+      "originalName": "Magnified Power",
+      "originalDescription": "If the ability has a potency, you increase that potency by an amount equal to your Reason score."
     },
     {
       "id": "feature.talent.feature.6.prodlennaya-sila-1-yasnosti",
@@ -4542,7 +5080,10 @@
       },
       "legacyIds": [
         "talent.feature.6.prodlennaya-sila-1-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/extended-power",
+      "originalName": "Extended Power",
+      "originalDescription": "If the ability is ranged, the distance gains a bonus equal to your Reason score. If the ability is melee, the distance gains a +2 bonus."
     },
     {
       "id": "feature.talent.feature.6.psi-usilenie-psi-boost",
@@ -4555,7 +5096,10 @@
       },
       "legacyIds": [
         "talent.feature.6.psi-usilenie-psi-boost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/psi-boost",
+      "originalName": "Psi Boost",
+      "originalDescription": "Whenever you use an ability that is a main action or a maneuver with the Psionic keyword, you can spend additional clarity to apply a psi boost to it and enhance its effects. A psi boost's effects only last until the end of the turn which the ability is first used. You can apply multiple psi boosts to an ability, but only one instance of each specific boost. You can use the following psi boosts."
     },
     {
       "id": "feature.talent.feature.6.rasshirennaya-sila-3-yasnosti",
@@ -4568,7 +5112,10 @@
       },
       "legacyIds": [
         "talent.feature.6.rasshirennaya-sila-3-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/expanded-power",
+      "originalName": "Expanded Power",
+      "originalDescription": "If the ability targets an area, you increase the size of the area by 1. If the area is a line, you increase the size of one dimension, not both."
     },
     {
       "id": "feature.talent.feature.6.razdelennaya-sila-5-yasnosti",
@@ -4581,7 +5128,10 @@
       },
       "legacyIds": [
         "talent.feature.6.razdelennaya-sila-5-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/shared-power",
+      "originalName": "Shared Power",
+      "originalDescription": "If the ability targets individual creatures or objects, you target one additional creature or object within distance."
     },
     {
       "id": "feature.talent.feature.6.sposobnost-traditsii-6-go-urovnya",
@@ -4594,7 +5144,10 @@
       },
       "legacyIds": [
         "talent.feature.6.sposobnost-traditsii-6-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/6th-level-tradition-ability",
+      "originalName": "6th-Level Tradition Ability",
+      "originalDescription": "Your talent tradition grants your choice of one of two heroic abilities.\n\n##### 6th-Level Chronopathy Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Telekinesis Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Telepathy Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.talent.feature.6.sposobnosti-khronopatii-6-go-urovnya",
@@ -4646,7 +5199,10 @@
       },
       "legacyIds": [
         "talent.feature.6.uvelichennaya-sila-1-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-6/heightened-power",
+      "originalName": "Heightened Power",
+      "originalDescription": "If the ability deals rolled damage, it deals extra damage equal to your Reason score."
     },
     {
       "id": "feature.talent.feature.7.kaskadnaya-vozbuzhdennost",
@@ -4659,7 +5215,10 @@
       },
       "legacyIds": [
         "talent.feature.7.kaskadnaya-vozbuzhdennost"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-7/cascading-strain",
+      "originalName": "Cascading Strain",
+      "originalDescription": "Whenever you take damage from a strained effect or from having negative clarity, you can choose one enemy within distance of your Mind Spike ability to take the same damage."
     },
     {
       "id": "feature.talent.feature.7.navyk",
@@ -4672,7 +5231,10 @@
       },
       "legacyIds": [
         "talent.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.talent.feature.7.osoznannyy-razum",
@@ -4685,7 +5247,10 @@
       },
       "legacyIds": [
         "talent.feature.7.osoznannyy-razum"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-7/lucid-mind",
+      "originalName": "Lucid Mind",
+      "originalDescription": "At the start of each of your turns during combat, you gain 1d3 + 1 clarity instead of 1d3."
     },
     {
       "id": "feature.talent.feature.7.pamyat-predkov",
@@ -4698,7 +5263,10 @@
       },
       "legacyIds": [
         "talent.feature.7.pamyat-predkov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-7/ancestral-memory",
+      "originalName": "Ancestral Memory",
+      "originalDescription": "Each time you finish a respite, you can choose a number of skills you have up to your Reason score and replace them with an equal number of skills from the interpersonal and lore skill groups. These replacements last until the end of your next respite."
     },
     {
       "id": "feature.talent.feature.7.uvelichenie-kharakteristik",
@@ -4711,7 +5279,10 @@
       },
       "legacyIds": [
         "talent.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.talent.feature.8.osobennosti-traditsii-8-go-urovnya",
@@ -4724,7 +5295,10 @@
       },
       "legacyIds": [
         "talent.feature.8.osobennosti-traditsii-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/8th-level-tradition-features",
+      "originalName": "8th-Level Tradition Features",
+      "originalDescription": "Your talent tradition grants you two features, as shown on the 8th-Level Tradition Features table.\n\n###### 8th-Level Tradition Features Table\n\n| Tradition   | Features                          |\n|-------------|-----------------------------------|\n| Chronopathy | Doubling the Hours, Stasis Shield |\n| Telekinesis | Levitation Field, Low Gravity     |\n| Telepathy   | Mindlink, Universal Connection    |"
     },
     {
       "id": "feature.talent.feature.8.perk",
@@ -4737,7 +5311,10 @@
       },
       "legacyIds": [
         "talent.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.talent.feature.8.sposobnost-za-11-yasnosti",
@@ -4750,7 +5327,10 @@
       },
       "legacyIds": [
         "talent.feature.8.sposobnost-za-11-yasnosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/11-clarity-ability",
+      "originalName": "11-Clarity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 clarity to use."
     },
     {
       "id": "feature.talent.feature.9.krepost-idealnoy-mysli",
@@ -4763,7 +5343,10 @@
       },
       "legacyIds": [
         "talent.feature.9.krepost-idealnoy-mysli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-9/fortress-of-perfect-thought",
+      "originalName": "Fortress of Perfect Thought",
+      "originalDescription": "Your mind is an impenetrable palace that shields you from danger. You gain the following effects:\n\n- You can breathe even when there is no breathable air.\n- You have psychic immunity 10.\n- Creatures can't read your thoughts unless you allow them to.\n- Your Reason and Intuition are treated as 2 higher for the purpose of resisting the potency of abilities.\n- You can't be made taunted or frightened."
     },
     {
       "id": "feature.talent.feature.9.sposobnost-traditsii-9-go-urovnya",
@@ -4776,7 +5359,10 @@
       },
       "legacyIds": [
         "talent.feature.9.sposobnost-traditsii-9-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-9/9th-level-tradition-ability",
+      "originalName": "9th-Level Tradition Ability",
+      "originalDescription": "Your talent tradition grants your choice of one of two heroic abilities.\n\n##### 9th-Level Chronopathy Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Telekinesis Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Telepathy Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.talent.feature.9.sposobnosti-khronopatii-9-go-urovnya",
@@ -4828,7 +5414,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.malyy-telekinez"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/minor-telekinesis",
+      "originalName": "Minor Telekinesis",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.1.otrazhenie",
@@ -4841,7 +5430,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.otrazhenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/repel",
+      "originalName": "Repel",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.1.petlya-obratnoy-svyazi",
@@ -4854,7 +5446,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.petlya-obratnoy-svyazi"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/feedback-loop",
+      "originalName": "Feedback Loop",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.1.snova",
@@ -4867,7 +5462,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.snova"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/again",
+      "originalName": "Again",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.1.udalennaya-pomoshch",
@@ -4880,7 +5478,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.udalennaya-pomoshch"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/remote-assistance",
+      "originalName": "Remote Assistance",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.1.uskorenie",
@@ -4893,7 +5494,10 @@
       },
       "legacyIds": [
         "talent.tradition.1.uskorenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-1/accelerate",
+      "originalName": "Accelerate",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.2.oblegchenie-chasov",
@@ -4906,7 +5510,10 @@
       },
       "legacyIds": [
         "talent.tradition.2.oblegchenie-chasov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/ease-the-hours",
+      "originalName": "Ease the Hours",
+      "originalDescription": "You can increase the number of rounds in a montage test by 1 if the test would end before the heroes hit the success limit."
     },
     {
       "id": "feature.talent.tradition.2.oblegchenie-padeniya",
@@ -4919,7 +5526,10 @@
       },
       "legacyIds": [
         "talent.tradition.2.oblegchenie-padeniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/ease-their-fall",
+      "originalName": "Ease Their Fall",
+      "originalDescription": "Whenever you land after a fall, or if any falling creature lands within 2 squares of you, you can use a free triggered action to reduce the falling damage by an amount equal to 2 + your Reason score."
     },
     {
       "id": "feature.talent.tradition.2.oblegchenie-razuma",
@@ -4932,7 +5542,10 @@
       },
       "legacyIds": [
         "talent.tradition.2.oblegchenie-razuma"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-2/ease-the-mind",
+      "originalName": "Ease the Mind",
+      "originalDescription": "You gain an edge on tests made to stop combat and start a negotiation. Additionally, if you are present during a negotiation, any NPC who has a hostile or suspicious starting attitude has their patience increased by 1 (to a maximum of 5)."
     },
     {
       "id": "feature.talent.tradition.5.iskazhenie-vremeni",
@@ -4945,7 +5558,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.iskazhenie-vremeni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/distortion-temporal",
+      "originalName": "Distortion Temporal",
+      "originalDescription": "While you are not dying, time behaves irregularly around you in a 3 aura. That area is difficult terrain for enemies. Additionally, when an ally enters the area for the first time in a combat round or starts their turn there, they gain a +2 bonus to speed until the end of the turn."
     },
     {
       "id": "feature.talent.tradition.5.kineticheskiy-usilitel",
@@ -4958,7 +5574,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.kineticheskiy-usilitel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/kinetic-amplifier",
+      "originalName": "Kinetic Amplifier",
+      "originalDescription": "Whenever you force move a creature, you can spend up to 2 surges. For each surge spent, the forced movement distance gains a bonus equal to your Reason score."
     },
     {
       "id": "feature.talent.tradition.5.prinuzhdenie",
@@ -4971,7 +5590,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.prinuzhdenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/compulsion",
+      "originalName": "Compulsion",
+      "originalDescription": "Whenever you obtain a success on a test using a skill from the interpersonal skill group while interacting with an NPC, you can ask them a question using your Telepathic Speech feature. The NPC must answer the question truthfully to the best of their ability."
     },
     {
       "id": "feature.talent.tradition.5.skorost-mysli",
@@ -4984,7 +5606,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.skorost-mysli"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/speed-of-thought",
+      "originalName": "Speed of Thought",
+      "originalDescription": "Once per combat round while you are not dying, you can spend 2 clarity when you use a triggered action to turn it into a free triggered action."
     },
     {
       "id": "feature.talent.tradition.5.triangulyatsiya",
@@ -4997,7 +5622,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.triangulyatsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/triangulate",
+      "originalName": "Triangulate",
+      "originalDescription": "Whenever an ally uses a ranged ability while you are within the ability's distance, you can spend 1 clarity as a free triggered action to allow them to use the ability as if they were in your space."
     },
     {
       "id": "feature.talent.tradition.5.udalennoe-usilenie",
@@ -5010,7 +5638,10 @@
       },
       "legacyIds": [
         "talent.tradition.5.udalennoe-usilenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-5/remote-amplification",
+      "originalName": "Remote Amplification",
+      "originalDescription": "The distance of your ranged psionic abilities increases by 5. Additionally, the range of your Telepathic Speech feature increases to 1 mile."
     },
     {
       "id": "feature.talent.tradition.8.bezgranichnaya-svyaz",
@@ -5023,7 +5654,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.bezgranichnaya-svyaz"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/universal-connection",
+      "originalName": "Universal Connection",
+      "originalDescription": "The range of your Telepathic Speech feature increases to anywhere on the same world."
     },
     {
       "id": "feature.talent.tradition.8.nizkaya-gravitatsiya",
@@ -5036,7 +5670,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.nizkaya-gravitatsiya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/low-gravity",
+      "originalName": "Low Gravity",
+      "originalDescription": "Your mind can carry your body through tough times. You ignore difficult terrain and don't need to spend additional movement while prone."
     },
     {
       "id": "feature.talent.tradition.8.pole-levitatsii",
@@ -5049,7 +5686,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.pole-levitatsii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/levitation-field",
+      "originalName": "Levitation Field",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.8.stazisnyy-shchit",
@@ -5062,7 +5702,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.stazisnyy-shchit"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/stasis-shield",
+      "originalName": "Stasis Shield",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.talent.tradition.8.svyaz-razumov",
@@ -5075,7 +5718,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.svyaz-razumov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/mindlink",
+      "originalName": "Mindlink",
+      "originalDescription": "During a respite, you can choose a number of creatures up to your Reason score who you have communicated with using your Telepathic Speech feature, creating a telepathic link among all of you. Whenever a linked creature spends one or more Recoveries, each other linked creature can spend a Recovery."
     },
     {
       "id": "feature.talent.tradition.8.udvoenie-chasov",
@@ -5088,7 +5734,10 @@
       },
       "legacyIds": [
         "talent.tradition.8.udvoenie-chasov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.talent.level-8/doubling-the-hours",
+      "originalName": "Doubling the Hours",
+      "originalDescription": "While you have 5 or more Victories, you can undertake an additional respite activity during a respite."
     }
   ]
 }

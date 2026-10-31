@@ -219,6 +219,64 @@ const legacyBuilder = readJson(
   path.join(ROOT, "src/data/builder.generated.json"),
 ) as any;
 const identity = readJson(IDENTITY) as any;
+const legacyIdMap = readJson(
+  path.join(ROOT, "src/generated/legacy-ids.json"),
+) as {
+  abilities: Record<string, string>;
+  classFeatures: Record<string, string>;
+  ancestryFeatures: Record<string, string>;
+  kits: Record<string, string>;
+  perks: Record<string, string>;
+  catalog: Record<string, string>;
+};
+
+/**
+ * Поля идентичности, добавленные миграцией на английские scc-id. Контент
+ * сравнивается без них, а сами ID проверяются отдельно: `legacyId` — с
+ * прежним снапшотом, `id` — с английской проекцией из карты legacy-ID.
+ */
+const IDENTITY_FIELDS = new Set([
+  "id",
+  "legacyId",
+  "originalId",
+  "originalName",
+  "originalDescription",
+]);
+
+/** Английский термин глоссария превращается в `glossary.<slug>`. */
+function glossarySlug(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function stripIdentity(value: any): any {
+  if (Array.isArray(value)) return value.map(stripIdentity);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([key]) => !IDENTITY_FIELDS.has(key))
+        .map(([key, item]) => [key, stripIdentity(item)]),
+    );
+  }
+  return value;
+}
+
+/**
+ * Проверяет порядок и идентичность записей проекции: `legacyId` совпадает с
+ * прежним снапшотом, а `id` — с ожидаемым английским ID из карты миграции.
+ */
+function expectProjectionIdentity(
+  records: ReadonlyArray<{ id: string; legacyId?: string }>,
+  legacyIds: string[],
+  englishIds: string[],
+) {
+  expect(records.map((record) => record.legacyId ?? record.id)).toEqual(
+    legacyIds,
+  );
+  expect(records.map((record) => record.id)).toEqual(englishIds);
+}
 
 const kitsProjection = readJson(
   path.join(OUT, "kits.json"),
@@ -242,8 +300,8 @@ const builderProjection = readJson(
  * каноническое имя, а прежний вариант зафиксирован здесь как известное отличие.
  */
 const ANCESTRY_CANONICAL_NAMES: Record<string, string> = {
-  "ancestry.hakaan.signature.bolshoy": "Большой",
-  "ancestry.polder.signature.malenkiy": "Маленький",
+  "feature.trait.hakaan.big": "Большой",
+  "feature.trait.polder.small": "Маленький",
 };
 
 /**
@@ -254,88 +312,88 @@ const ANCESTRY_CANONICAL_NAMES: Record<string, string> = {
  * Markdown родительских особенностей, поэтому это не потеря контента.
  */
 const CLASS_FEATURE_LEGACY_SYNTHETIC_ROWS = [
-  "fury.feature.1.rastushchaya-svirepost-berserka-2",
-  "fury.feature.1.rastushchaya-svirepost-berserka-4",
-  "fury.feature.1.rastushchaya-svirepost-berserka-6",
-  "fury.feature.4.rastushchaya-svirepost-berserka-8-4-y-uroven",
-  "fury.feature.7.rastushchaya-svirepost-berserka-10-7-y-uroven",
-  "fury.feature.10.rastushchaya-svirepost-berserka-12-10-y-uroven",
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-2",
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-4",
-  "fury.feature.1.rastushchaya-svirepost-razoritelya-6",
-  "fury.feature.4.rastushchaya-svirepost-razoritelya-8-4-y-uroven",
-  "fury.feature.7.rastushchaya-svirepost-razoritelya-10-7-y-uroven",
-  "fury.feature.10.rastushchaya-svirepost-razoritelya-12-10-y-uroven",
-  "fury.aspect.1.linii-sily",
-  "fury.aspect.1.nezemnye-refleksy",
-  "fury.aspect.1.yarostnoe-izmenenie",
-  "null.feature.1.masterstvo-khronokinetika-2",
-  "null.feature.1.masterstvo-khronokinetika-4",
-  "null.feature.1.masterstvo-khronokinetika-6",
-  "null.feature.4.masterstvo-khronokinetika-8-4-y-uroven",
-  "null.feature.7.masterstvo-khronokinetika-10-7-y-uroven",
-  "null.feature.10.masterstvo-khronokinetika-12-10-y-uroven",
-  "null.feature.1.masterstvo-kriokinetika-2",
-  "null.feature.1.masterstvo-kriokinetika-4",
-  "null.feature.1.masterstvo-kriokinetika-6",
-  "null.feature.4.masterstvo-kriokinetika-8-4-y-uroven",
-  "null.feature.7.masterstvo-kriokinetika-10-7-y-uroven",
-  "null.feature.10.masterstvo-kriokinetika-12-10-y-uroven",
-  "null.feature.1.masterstvo-metakinetika-2",
-  "null.feature.1.masterstvo-metakinetika-4",
-  "null.feature.1.masterstvo-metakinetika-6",
-  "null.feature.4.masterstvo-metakinetika-8-4-y-uroven",
-  "null.feature.7.masterstvo-metakinetika-10-7-y-uroven",
-  "null.feature.10.masterstvo-metakinetika-12-10-y-uroven",
-  "tactician.doctrine.1.prodvinutaya-taktika",
-  "tactician.doctrine.1.prikrytie",
-  "tactician.doctrine.1.parirovanie",
-  "shadow.college.1.vo-vsey-etoy-nerazberikhe",
-  "shadow.college.1.zashchitnyy-perekat",
-  "shadow.college.1.umnyy-tryuk",
-  "troubadour.troupe.1.oko-za-oko",
-  "troubadour.troupe.1.ripost",
-  "troubadour.troupe.1.garmonizatsiya",
-  "elementalist.specialization.1.kozha-kak-steny-zamka",
-  "elementalist.specialization.1.vzryvnaya-pomoshch",
-  "elementalist.specialization.1.vospominanie-o-dykhanii-rassveta",
-  "elementalist.specialization.1.nezametnoe-peremeshchenie",
-  "conduit.domain.2.statuya-sily",
-  "conduit.domain.2.zhatva",
-  "conduit.domain.2.blagoslovenie-roka-i-sudby",
-  "conduit.domain.2.bogi-povelevayut-vam-povinovatsya",
-  "conduit.domain.2.istochnik-blagodati",
-  "conduit.domain.2.nashi-serdtsa-vasha-sila",
-  "conduit.domain.2.priroda-sudit-tebya",
-  "conduit.domain.2.svyashchennye-uzy",
-  "conduit.domain.2.burya-svyatogo",
-  "conduit.domain.2.utrenniy-svet",
-  "conduit.domain.2.bozhestvennaya-komediya",
-  "conduit.domain.2.blagoslovenie-prozreniya",
-  "conduit.domain.6.mashina-bogov",
-  "conduit.domain.6.aura-dush",
-  "conduit.domain.6.tvoya-istoriya-zakanchivaetsya-zdes",
-  "conduit.domain.6.prizyv-razrusheniya",
-  "conduit.domain.6.vosstanavlivayushchaya-blagodat",
-  "conduit.domain.6.voskhvalennyy-bogom",
-  "conduit.domain.6.natisk-dukhov",
-  "conduit.domain.6.kirasa-bogov",
-  "conduit.domain.6.povelitel-molniy",
-  "conduit.domain.6.blagoslovenie-poludennogo-solntsa",
-  "conduit.domain.6.prizyv-tayny",
-  "conduit.domain.6.klinok-nebes",
-  "conduit.domain.9.bozhestvennyy-drakon",
-  "conduit.domain.9.slovo-okonchatelnogo-iskupleniya",
-  "conduit.domain.9.iskrivlenie-sudby",
-  "conduit.domain.9.slovo-oslableniya",
-  "conduit.domain.9.siyanie-blagodati",
-  "conduit.domain.9.zhivost-serdtsa",
-  "conduit.domain.9.shipastaya-kletka",
-  "conduit.domain.9.blagoslovenie-kreposti",
-  "conduit.domain.9.bozhestvennyy-shtorm",
-  "conduit.domain.9.solnechnaya-vspyshka",
-  "conduit.domain.9.nastupaet-noch",
-  "conduit.domain.9.pravednaya-falanga",
+  "feature.fury.level-1.growing-ferocity-berserker-2",
+  "feature.fury.level-1.growing-ferocity-berserker-4",
+  "feature.fury.level-1.growing-ferocity-berserker-6",
+  "feature.fury.level-4.growing-ferocity-berserker-8",
+  "feature.fury.level-7.growing-ferocity-berserker-10",
+  "feature.fury.level-10.growing-ferocity-berserker-12",
+  "feature.fury.level-1.growing-ferocity-reaver-2",
+  "feature.fury.level-1.growing-ferocity-reaver-4",
+  "feature.fury.level-1.growing-ferocity-reaver-6",
+  "feature.fury.level-4.growing-ferocity-reaver-8",
+  "feature.fury.level-7.growing-ferocity-reaver-10",
+  "feature.fury.level-10.growing-ferocity-reaver-12",
+  "feature.ability.fury.level-1.lines-of-force",
+  "feature.ability.fury.level-1.unearthly-reflexes",
+  "feature.ability.fury.level-1.furious-change",
+  "feature.null.level-1.chronokinetic-mastery-2",
+  "feature.null.level-1.chronokinetic-mastery-4",
+  "feature.null.level-1.chronokinetic-mastery-6",
+  "feature.null.level-4.chronokinetic-mastery-8",
+  "feature.null.level-7.chronokinetic-mastery-10",
+  "feature.null.level-10.chronokinetic-mastery-12",
+  "feature.null.level-1.cryokinetic-mastery-2",
+  "feature.null.level-1.cryokinetic-mastery-4",
+  "feature.null.level-1.cryokinetic-mastery-6",
+  "feature.null.level-4.cryokinetic-mastery-8",
+  "feature.null.level-7.cryokinetic-mastery-10",
+  "feature.null.level-10.cryokinetic-mastery-12",
+  "feature.null.level-1.metakinetic-mastery-2",
+  "feature.null.level-1.metakinetic-mastery-4",
+  "feature.null.level-1.metakinetic-mastery-6",
+  "feature.null.level-4.metakinetic-mastery-8",
+  "feature.null.level-7.metakinetic-mastery-10",
+  "feature.null.level-10.metakinetic-mastery-12",
+  "feature.ability.tactician.level-1.advanced-tactics",
+  "feature.ability.tactician.level-1.overwatch",
+  "feature.ability.tactician.level-1.parry",
+  "feature.ability.shadow.level-1.in-all-this-confusion",
+  "feature.ability.shadow.level-1.defensive-roll",
+  "feature.ability.shadow.level-1.clever-trick",
+  "feature.ability.troubadour.level-1.turnabout-is-fair-play",
+  "feature.ability.troubadour.level-1.riposte",
+  "feature.ability.troubadour.level-1.harmonize",
+  "feature.ability.elementalist.level-1.skin-like-castle-walls",
+  "feature.ability.elementalist.level-1.explosive-assistance",
+  "feature.ability.elementalist.level-1.breath-of-dawn-remembered",
+  "feature.ability.elementalist.level-1.subtle-relocation",
+  "feature.ability.conduit.level-2.statue-of-power",
+  "feature.ability.conduit.level-2.reap",
+  "feature.ability.conduit.level-2.blessing-of-fate-and-destiny",
+  "feature.ability.conduit.level-2.the-gods-command-you-obey",
+  "feature.ability.conduit.level-2.wellspring-of-grace",
+  "feature.ability.conduit.level-2.our-hearts-your-strength",
+  "feature.ability.conduit.level-2.nature-judges-thee",
+  "feature.ability.conduit.level-2.sacred-bond",
+  "feature.ability.conduit.level-2.saints-tempest",
+  "feature.ability.conduit.level-2.morning-light",
+  "feature.ability.conduit.level-2.divine-comedy",
+  "feature.ability.conduit.level-2.blessing-of-insight",
+  "feature.ability.conduit.level-6.gods-machine",
+  "feature.ability.conduit.level-6.aura-of-souls",
+  "feature.ability.conduit.level-6.your-story-ends-here",
+  "feature.ability.conduit.level-6.invocation-of-undoing",
+  "feature.ability.conduit.level-6.revitalizing-grace",
+  "feature.ability.conduit.level-6.lauded-by-god",
+  "feature.ability.conduit.level-6.spirit-stampede",
+  "feature.ability.conduit.level-6.cuirass-of-the-gods",
+  "feature.ability.conduit.level-6.lightning-lord",
+  "feature.ability.conduit.level-6.blessing-of-the-midday-sun",
+  "feature.ability.conduit.level-6.invocation-of-mystery",
+  "feature.ability.conduit.level-6.blade-of-the-heavens",
+  "feature.ability.conduit.level-9.divine-dragon",
+  "feature.ability.conduit.level-9.word-of-final-redemption",
+  "feature.ability.conduit.level-9.bend-fate",
+  "feature.ability.conduit.level-9.word-of-weakening",
+  "feature.ability.conduit.level-9.radiance-of-grace",
+  "feature.ability.conduit.level-9.alacrity-of-the-heart",
+  "feature.ability.conduit.level-9.thorn-cage",
+  "feature.ability.conduit.level-9.blessing-of-the-fortress",
+  "feature.ability.conduit.level-9.godstorm",
+  "feature.ability.conduit.level-9.solar-flare",
+  "feature.ability.conduit.level-9.night-falls",
+  "feature.ability.conduit.level-9.righteous-phalanx",
 ];
 
 describe("проекции канонических правил для потребителей", () => {
@@ -371,10 +429,12 @@ describe("проекции канонических правил для потр
           : (entry.rollCharacteristics[0] ?? ""),
     }));
     expect(ABILITY_COMPENDIUM).toHaveLength(512);
-    expect(ABILITY_COMPENDIUM.map((entry) => entry.id)).toEqual(
+    expectProjectionIdentity(
+      ABILITY_COMPENDIUM,
       legacyAbilities.map((entry) => entry.id),
+      legacyAbilities.map((entry) => legacyIdMap.abilities[entry.id]),
     );
-    expect(ABILITY_COMPENDIUM).toEqual(expected);
+    expect(stripIdentity(ABILITY_COMPENDIUM)).toEqual(stripIdentity(expected));
     expect(readJson(path.join(OUT, "abilities.json")).abilities).toHaveLength(
       ABILITY_COMPENDIUM.length,
     );
@@ -382,9 +442,24 @@ describe("проекции канонических правил для потр
 
   it("совпадает с прежним выводом библиотеки при том же исходном Markdown", () => {
     const catalog = projectCatalog(legacyLibrary, identity.catalog);
-    expect(catalog.entries).toEqual(CATALOG);
+    expect(catalog.entries.map((entry) => entry.id)).toEqual(
+      CATALOG.map((entry) => entry.legacyId ?? entry.id),
+    );
+    expect(CATALOG.map((entry) => entry.id)).toEqual(
+      catalog.entries.map((entry) => legacyIdMap.catalog[entry.id] ?? entry.id),
+    );
+    expect(stripIdentity(CATALOG)).toEqual(stripIdentity(catalog.entries));
+
     const glossary = projectGlossary(legacyLibrary, identity.glossary);
-    expect(glossary.entries).toEqual(GLOSSARY);
+    expect(glossary.entries.map((entry) => entry.id)).toEqual(
+      GLOSSARY.map((entry) => entry.legacyId ?? entry.id),
+    );
+    expect(GLOSSARY.map((entry) => entry.id)).toEqual(
+      glossary.entries.map((entry) =>
+        entry.english ? `glossary.${glossarySlug(entry.english)}` : entry.id,
+      ),
+    );
+    expect(stripIdentity(GLOSSARY)).toEqual(stripIdentity(glossary.entries));
   });
 
   it("собирается детерминированно и проверяется без записи", () => {
@@ -429,7 +504,7 @@ describe("проекции канонических правил для потр
     );
     expect(record).toMatchObject({
       effect: "Проверочный эффект.",
-      id: "bazovye-sposobnosti-manevr-zahvata-d711b2d4e9",
+      id: "feature.ability.common.grab",
     });
     expect(withPreferredCharacteristic(record!).name).toBe(
       "Маневр Захвата (проверка)",
@@ -447,7 +522,7 @@ describe("проекции канонических правил для потр
     );
     runGenerator(sandboxArgs(sandbox));
     const library = generatedLibrary(sandbox);
-    const project = library.catalog.find((entry) => entry.id === "1608");
+    const project = library.catalog.find((entry) => entry.id === "learn-new-language");
     expect(project?.markdown).toContain("Проверка проекта.");
     const term = library.glossary.find((entry) =>
       entry.markdown.includes("проверенный довод"),
@@ -469,7 +544,10 @@ describe("проекции канонических правил для потр
       (entry) => entry.articleId === "1802",
     );
     expect(renamedEntries[0].name).toBe("Цветной плащ цвета морской волны");
-    expect(renamedEntries[0].id).toBe(identity.catalog["1802"][0]);
+    expect(renamedEntries[0].legacyId).toBe(identity.catalog["1802"][0]);
+    expect(renamedEntries[0].id).toBe(
+      legacyIdMap.catalog[identity.catalog["1802"][0]],
+    );
 
     const swapped = makeSandbox();
     editRenderedArticle(swapped.content, "1802", (text) =>
@@ -509,8 +587,14 @@ describe("проекции канонических правил для потр
     const added = library.catalog.filter(
       (entry) => entry.articleId === "1802",
     );
-    expect(added.slice(0, identity.catalog["1802"].length).map((entry) => entry.id)).toEqual(
+    const existing = added.slice(0, identity.catalog["1802"].length);
+    expect(existing.map((entry) => entry.legacyId)).toEqual(
       identity.catalog["1802"],
+    );
+    expect(existing.map((entry) => entry.id)).toEqual(
+      identity.catalog["1802"].map(
+        (legacyId: string) => legacyIdMap.catalog[legacyId],
+      ),
     );
     expect(added[added.length - 1].name).toBe("Добавочное сокровище");
   });
@@ -556,9 +640,16 @@ describe("проекции комплектов, перков, особенно�
     // Включая составной 0924 «Буревестник»: его карточки хранятся прямо в
     // Markdown сущности, а не отдельными сущностями `ability`.
     expect(kitsProjection.kits).toHaveLength(22);
-    expect(kitsProjection.kits).toEqual(legacyKits);
+    expectProjectionIdentity(
+      kitsProjection.kits,
+      legacyKits.map((kit) => kit.id),
+      legacyKits.map((kit) => legacyIdMap.kits[kit.id]),
+    );
+    expect(stripIdentity(kitsProjection.kits)).toEqual(
+      stripIdentity(legacyKits),
+    );
     expect(
-      kitsProjection.kits.find((kit) => kit.id === "kit-5b78887af5df"),
+      kitsProjection.kits.find((kit) => kit.id === "kit.stormwight"),
     ).toMatchObject({
       name: "Буревестник",
       signatureAbility: "Сносящая Атака",
@@ -570,12 +661,17 @@ describe("проекции комплектов, перков, особенно�
 
   it("проецирует перки, типы карьер и ограничения классов", () => {
     expect(perksProjection.perks).toHaveLength(47);
-    expect(perksProjection.perks.map((perk) => perk.id)).toEqual(
+    expectProjectionIdentity(
+      perksProjection.perks,
       legacyPerks.perks.map((perk: any) => perk.id),
+      legacyPerks.perks.map((perk: any) => legacyIdMap.perks[perk.id]),
     );
     for (const legacy of legacyPerks.perks) {
-      const perk = perksProjection.perks.find((entry) => entry.id === legacy.id);
+      const perk = perksProjection.perks.find(
+        (entry) => entry.legacyId === legacy.id,
+      );
       expect(perk).toMatchObject({
+        id: legacyIdMap.perks[legacy.id],
         name: legacy.name,
         type: legacy.type,
         summary: legacy.summary,
@@ -588,10 +684,32 @@ describe("проекции комплектов, перков, особенно�
   });
 
   it("проецирует данные конструктора из канонических сущностей", () => {
-    expect(builderProjection).toEqual({
+    expect(stripIdentity(builderProjection)).toEqual({
       schemaVersion: 1,
-      ...legacyBuilder,
+      ...stripIdentity(legacyBuilder),
     });
+    // Английские ID появились у записей конструктора и черт происхождений;
+    // они должны быть заполнены, уникальны и совпадать с проекцией особенностей.
+    const builderEntries = [
+      ...builderProjection.ancestries,
+      ...builderProjection.careers,
+      ...builderProjection.classes,
+      ...builderProjection.complications,
+      ...Object.values(builderProjection.cultures).flat(),
+    ];
+    expect(builderEntries.every((entry) => entry.id)).toBe(true);
+    expect(new Set(builderEntries.map((entry) => entry.id)).size).toBe(
+      builderEntries.length,
+    );
+    const projectedFeatureIds = new Set(
+      featuresProjection.features.map((feature) => feature.id),
+    );
+    for (const ancestry of builderProjection.ancestries) {
+      for (const trait of ancestry.traits) {
+        expect(trait.id, `${ancestry.name}: ${trait.name}`).toBeDefined();
+        expect(projectedFeatureIds.has(trait.id!)).toBe(true);
+      }
+    }
     expect(builderProjection.ancestries).toHaveLength(14);
     expect(
       Object.values(builderProjection.cultures).flat(),
@@ -619,16 +737,22 @@ describe("проекции комплектов, перков, особенно�
     const classes = featuresProjection.features.filter(
       (feature) => feature.kind === "class",
     );
-    expect(ancestry.map((feature) => feature.id)).toEqual(
+    expectProjectionIdentity(
+      ancestry,
       legacyAncestryFeatures.map((feature) => feature.id),
+      legacyAncestryFeatures.map(
+        (feature) => legacyIdMap.ancestryFeatures[feature.id],
+      ),
     );
     // Legacy-скелет происхождений не хранил level; канон трактует все черты
     // происхождения как выбранные на 1-м уровне, поэтому проекция ставит 1.
     expect(ancestry.every((feature) => feature.level === 1)).toBe(true);
     for (const legacy of legacyAncestryFeatures) {
-      const feature = ancestry.find((entry) => entry.id === legacy.id);
+      const feature = ancestry.find((entry) => entry.legacyId === legacy.id);
+      const englishId = legacyIdMap.ancestryFeatures[legacy.id];
       expect(feature).toMatchObject({
-        name: ANCESTRY_CANONICAL_NAMES[legacy.id] ?? legacy.name,
+        id: englishId,
+        name: ANCESTRY_CANONICAL_NAMES[englishId] ?? legacy.name,
         ancestryKind: legacy.kind,
         ancestryName: legacy.ancestryName,
         articleId: legacy.articleId,
@@ -639,9 +763,10 @@ describe("проекции комплектов, перков, особенно�
     const actualNameDifferences = legacyAncestryFeatures
       .filter(
         (legacy) =>
-          ancestry.find((entry) => entry.id === legacy.id)?.name !== legacy.name,
+          ancestry.find((entry) => entry.legacyId === legacy.id)?.name !==
+          legacy.name,
       )
-      .map((legacy) => legacy.id)
+      .map((legacy) => legacyIdMap.ancestryFeatures[legacy.id])
       .sort();
     expect(actualNameDifferences).toEqual(
       Object.keys(ANCESTRY_CANONICAL_NAMES).sort(),
@@ -657,7 +782,9 @@ describe("проекции комплектов, перков, особенно�
     );
     for (const legacy of legacyAncestryFeatures) {
       if (legacy.cost === undefined) continue;
-      const feature = projectedCosts.get(legacy.id);
+      const feature = projectedCosts.get(
+        legacyIdMap.ancestryFeatures[legacy.id],
+      );
       expect(feature, legacy.id).toBeDefined();
       if (legacy.cost !== 2) {
         expect("cost" in feature, `${legacy.id}: явный джойн стоимости`).toBe(
@@ -667,19 +794,30 @@ describe("проекции комплектов, перков, особенно�
       expect(feature?.cost ?? 2, legacy.id).toBe(legacy.cost);
     }
 
-    const classIds = new Set(classes.map((feature) => feature.id));
-    const missing = legacyClassFeatures
-      .filter((feature) => !classIds.has(feature.id))
+    const projectedLegacyIds = new Set(
+      classes.map((feature) => feature.legacyId),
+    );
+    const projectedLegacyOrder = legacyClassFeatures
       .map((feature) => feature.id)
+      .filter((id) => projectedLegacyIds.has(id));
+    expectProjectionIdentity(
+      classes,
+      projectedLegacyOrder,
+      projectedLegacyOrder.map((id) => legacyIdMap.classFeatures[id]),
+    );
+    const missing = legacyClassFeatures
+      .filter((feature) => !projectedLegacyIds.has(feature.id))
+      .map((feature) => legacyIdMap.classFeatures[feature.id])
       .sort();
     expect(missing).toEqual([...CLASS_FEATURE_LEGACY_SYNTHETIC_ROWS].sort());
     // `description` включает карточки способностей, на которые статья
     // ссылается сразу после особенности: проекция вклеивает их так же, как
     // legacy-скелет. Расхождений текста нет, поэтому сравнение полное.
     for (const legacy of legacyClassFeatures) {
-      const feature = classes.find((entry) => entry.id === legacy.id);
+      const feature = classes.find((entry) => entry.legacyId === legacy.id);
       if (!feature) continue;
       expect(feature).toMatchObject({
+        id: legacyIdMap.classFeatures[legacy.id],
         name: legacy.name,
         className: legacy.className,
         level: legacy.level,
@@ -688,8 +826,10 @@ describe("проекции комплектов, перков, особенно�
       });
     }
     // D1 добавляет особенности Призывателя; любые новые записи должны быть его.
-    const legacyIds = new Set(legacyClassFeatures.map((feature) => feature.id));
-    const extras = classes.filter((feature) => !legacyIds.has(feature.id));
+    const legacyEnglishIds = new Set(Object.values(legacyIdMap.classFeatures));
+    const extras = classes.filter(
+      (feature) => !legacyEnglishIds.has(feature.id),
+    );
     expect(extras.every((feature) => feature.className === "Призыватель")).toBe(
       true,
     );
@@ -697,12 +837,50 @@ describe("проекции комплектов, перков, особенно�
 
   it("портирует правила повышения уровня из статей 08xx", () => {
     expect(levelUpProjection.rules).toHaveLength(81);
-    expect(levelUpProjection.rules).toEqual(legacyLevelUp);
+    expect(levelUpProjection.rules.map((rule) => rule.articleId)).toEqual(
+      legacyLevelUp.map((rule: any) => rule.articleId),
+    );
+    // ID карточек остаются прежними (`0802-f01`), а ссылки на способности
+    // переводятся в английские ID через карту миграции.
+    expect(
+      levelUpProjection.rules.map((rule) =>
+        rule.features.map((feature) => feature.id),
+      ),
+    ).toEqual(
+      legacyLevelUp.map((rule: any) =>
+        rule.features.map((feature: any) => feature.id),
+      ),
+    );
+    expect(
+      levelUpProjection.rules.map((rule) =>
+        rule.abilityChoices.map((choice) => choice.id),
+      ),
+    ).toEqual(
+      legacyLevelUp.map((rule: any) =>
+        rule.abilityChoices.map((choice: any) => choice.id),
+      ),
+    );
+    const translateAbilityIds = (ids: string[]) =>
+      ids.map((id) => legacyIdMap.abilities[id] ?? id);
+    const expected = legacyLevelUp.map((rule: any) => ({
+      ...rule,
+      abilityChoices: rule.abilityChoices.map((choice: any) => ({
+        ...choice,
+        abilityIds: translateAbilityIds(choice.abilityIds),
+      })),
+      grantedAbilities: rule.grantedAbilities.map((grant: any) => ({
+        ...grant,
+        abilityIds: translateAbilityIds(grant.abilityIds),
+      })),
+    }));
+    expect(stripIdentity(levelUpProjection.rules)).toEqual(
+      stripIdentity(expected),
+    );
   });
 
   it("хранит в сопоставлении legacy-порядок новых наборов", () => {
     const canonicalClassIds = new Set(
-      featuresProjection.features.map((feature) => feature.id),
+      featuresProjection.features.map((feature) => feature.legacyId),
     );
     expect(identity.kits).toEqual(legacyKits.map((kit) => kit.id));
     expect(identity.perks).toEqual(
@@ -715,6 +893,19 @@ describe("проекции комплектов, перков, особенно�
       legacyClassFeatures
         .map((feature) => feature.id)
         .filter((id) => canonicalClassIds.has(id)),
+    );
+    // Сопоставление по-прежнему хранит legacy-ID, поэтому английский ID
+    // каждой записанной особенности сверяем с картой миграции.
+    const classFeatureIds = new Map(
+      featuresProjection.features.map((feature) => [
+        feature.legacyId,
+        feature.id,
+      ]),
+    );
+    expect(
+      identity.classFeatures.map((id: string) => classFeatureIds.get(id)),
+    ).toEqual(
+      identity.classFeatures.map((id: string) => legacyIdMap.classFeatures[id]),
     );
     expect(identity.levelUp).toEqual(
       legacyLevelUp.map((rule) => rule.articleId),

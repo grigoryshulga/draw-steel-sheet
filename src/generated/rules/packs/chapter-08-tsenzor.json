@@ -252,7 +252,10 @@
           "type": "entity",
           "ref": "ability.cenzor-ochischayuschiy-ogon-70ff84d14c"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level censor, you gain the following features."
     },
     {
       "id": "0882",
@@ -357,7 +360,10 @@
           "type": "entity",
           "ref": "ability.cenzor-prigovoren-ff4aa335e0"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level censor, you gain the following features."
     },
     {
       "id": "0883",
@@ -406,7 +412,10 @@
           "type": "entity",
           "ref": "ability.cenzor-edikt-nepodvizhnosti-11397fb6c6"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level censor, you gain the following features."
     },
     {
       "id": "0884",
@@ -495,7 +504,10 @@
           "type": "entity",
           "ref": "feature.censor.domain.4.lesnaya-doroga"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level censor, you gain the following features."
     },
     {
       "id": "0885",
@@ -556,7 +568,10 @@
           "type": "entity",
           "ref": "ability.cenzor-schit-pravednika-a73cf6da02"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level censor, you gain the following features."
     },
     {
       "id": "0886",
@@ -637,7 +652,10 @@
           "type": "entity",
           "ref": "ability.cenzor-zastupitsya-e69f33e922"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level censor, you gain the following features."
     },
     {
       "id": "0887",
@@ -730,7 +748,10 @@
           "type": "entity",
           "ref": "feature.censor.domain.7.vashi-triumfy-pomnyat"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
+      "originalName": "7th-Level Features",
+      "originalDescription": "As a 7th-level censor, you gain the following features."
     },
     {
       "id": "0888",
@@ -795,7 +816,10 @@
           "type": "entity",
           "ref": "ability.cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level censor, you gain the following features."
     },
     {
       "id": "0889",
@@ -872,7 +896,10 @@
           "type": "entity",
           "ref": "ability.cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level censor, you gain the following features."
     },
     {
       "id": "0890",
@@ -909,7 +936,10 @@
           "type": "entity",
           "ref": "feature.censor.feature.10.gnev-bogov"
         }
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level censor, you gain the following features."
     }
   ],
   "entities": [
@@ -926,7 +956,7 @@
         "cenzor-arest-7c04688a30"
       ],
       "ability": {
-        "id": "cenzor-arest-7c04688a30",
+        "id": "feature.ability.censor.level-1.arrest",
         "name": "Арест",
         "flavor": "\"Ты попался, сукин сын.\"",
         "actionType": "main",
@@ -965,8 +995,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/arrest",
+        "originalName": "Arrest",
+        "originalDescription": "*\"I got you, you son of a bitch.\"*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M holy damage; grabbed\n- **12-16:** 9 + M holy damage; grabbed\n- **17+:** 13 + M holy damage; grabbed\n\n**Effect:** If the target makes a strike against a creature while grabbed this way, you can spend 3 wrath to deal holy damage to them equal to your Presence score, then change the target of the strike to another target within the strike's distance.",
+        "legacyId": "cenzor-arest-7c04688a30"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/arrest",
+      "originalName": "Arrest",
+      "originalDescription": "*\"I got you, you son of a bitch.\"*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M holy damage; grabbed\n- **12-16:** 9 + M holy damage; grabbed\n- **17+:** 13 + M holy damage; grabbed\n\n**Effect:** If the target makes a strike against a creature while grabbed this way, you can spend 3 wrath to deal holy damage to them equal to your Presence score, then change the target of the strike to another target within the strike's distance."
     },
     {
       "id": "ability.cenzor-blagoslovenie-i-proklyatie-5d84c431e0",
@@ -981,7 +1018,7 @@
         "cenzor-blagoslovenie-i-proklyatie-5d84c431e0"
       ],
       "ability": {
-        "id": "cenzor-blagoslovenie-i-proklyatie-5d84c431e0",
+        "id": "feature.ability.censor.level-9.blessing-and-a-curse",
         "name": "Благословение и Проклятие",
         "flavor": "Боги благословляют и проклинают в равной мере.",
         "actionType": "trigger",
@@ -1016,8 +1053,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/blessing-and-a-curse",
+        "originalName": "Blessing and a Curse",
+        "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll.",
+        "legacyId": "cenzor-blagoslovenie-i-proklyatie-5d84c431e0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/blessing-and-a-curse",
+      "originalName": "Blessing and a Curse",
+      "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll."
     },
     {
       "id": "ability.cenzor-blagoslovenie-tayn-495d24a291",
@@ -1032,7 +1076,7 @@
         "cenzor-blagoslovenie-tayn-495d24a291"
       ],
       "ability": {
-        "id": "cenzor-blagoslovenie-tayn-495d24a291",
+        "id": "feature.ability.censor.level-4.blessing-of-secrets",
         "name": "Благословение тайн",
         "flavor": "Вы проецируете иллюзорную ауру, которая делает вас и союзников менее заметными.",
         "actionType": "maneuver",
@@ -1067,8 +1111,15 @@
         "className": "Цензор",
         "level": 4,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-4/blessing-of-secrets",
+        "originalName": "Blessing of Secrets",
+        "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object.",
+        "legacyId": "cenzor-blagoslovenie-tayn-495d24a291"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-4/blessing-of-secrets",
+      "originalName": "Blessing of Secrets",
+      "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object."
     },
     {
       "id": "ability.cenzor-blagoslovenie-veruyuschih-4a5a324076",
@@ -1083,7 +1134,7 @@
         "cenzor-blagoslovenie-veruyuschih-4a5a324076"
       ],
       "ability": {
-        "id": "cenzor-blagoslovenie-veruyuschih-4a5a324076",
+        "id": "feature.ability.censor.level-2.blessing-of-the-faithful",
         "name": "Благословение Верующих",
         "flavor": "Боги вознаграждают вашу веру.",
         "actionType": "maneuver",
@@ -1118,8 +1169,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/blessing-of-the-faithful",
+        "originalName": "Blessing of the Faithful",
+        "originalDescription": "*The gods reward your faith.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target gains 1 surge at the end of each of your turns.",
+        "legacyId": "cenzor-blagoslovenie-veruyuschih-4a5a324076"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/blessing-of-the-faithful",
+      "originalName": "Blessing of the Faithful",
+      "originalDescription": "*The gods reward your faith.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target gains 1 surge at the end of each of your turns."
     },
     {
       "id": "ability.cenzor-bogi-daruyut-tebe-silu-651558adc0",
@@ -1134,7 +1192,7 @@
         "cenzor-bogi-daruyut-tebe-silu-651558adc0"
       ],
       "ability": {
-        "id": "cenzor-bogi-daruyut-tebe-silu-651558adc0",
+        "id": "feature.ability.censor.level-5.gods-grant-thee-strength",
         "name": "Боги Даруют Тебе Силу",
         "flavor": "Вы направляете божественную силу для движения, которое невозможно остановить.",
         "actionType": "main",
@@ -1168,8 +1226,15 @@
         "className": "Цензор",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/gods-grant-thee-strength",
+        "originalName": "Gods Grant Thee Strength",
+        "originalDescription": "*You channel divine force for movement that cannot be stopped.*\n\n| **Ranged** |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target ends any condition or effect on them that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up. The target then gains 2 surges, can shift up to their speed while ignoring difficult terrain, and can use a strike signature ability as a free triggered action.",
+        "legacyId": "cenzor-bogi-daruyut-tebe-silu-651558adc0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/gods-grant-thee-strength",
+      "originalName": "Gods Grant Thee Strength",
+      "originalDescription": "*You channel divine force for movement that cannot be stopped.*\n\n| **Ranged** |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target ends any condition or effect on them that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up. The target then gains 2 surges, can shift up to their speed while ignoring difficult terrain, and can use a strike signature ability as a free triggered action."
     },
     {
       "id": "ability.cenzor-bogi-karayut-i-zaschischayut-8be1b5d3d2",
@@ -1184,7 +1249,7 @@
         "cenzor-bogi-karayut-i-zaschischayut-8be1b5d3d2"
       ],
       "ability": {
-        "id": "cenzor-bogi-karayut-i-zaschischayut-8be1b5d3d2",
+        "id": "feature.ability.censor.level-1.the-gods-punish-and-defend",
         "name": "Боги Карают и Защищают",
         "flavor": "Вы направляете святую энергию, чтобы поразить врага и исцелить союзника.",
         "actionType": "main",
@@ -1223,8 +1288,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/the-gods-punish-and-defend",
+        "originalName": "The Gods Punish and Defend",
+        "originalDescription": "*You channel holy energy to smite a foe and heal an ally.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage\n- **12-16:** 8 + M holy damage\n- **17+:** 11 + M holy damage\n\n**Effect:** You can spend a Recovery to allow yourself or one ally within 10 squares to regain Stamina equal to your recovery value.",
+        "legacyId": "cenzor-bogi-karayut-i-zaschischayut-8be1b5d3d2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/the-gods-punish-and-defend",
+      "originalName": "The Gods Punish and Defend",
+      "originalDescription": "*You channel holy energy to smite a foe and heal an ally.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage\n- **12-16:** 8 + M holy damage\n- **17+:** 11 + M holy damage\n\n**Effect:** You can spend a Recovery to allow yourself or one ally within 10 squares to regain Stamina equal to your recovery value."
     },
     {
       "id": "ability.cenzor-bol-sozdannaya-toboy-3f0d1121d6",
@@ -1239,7 +1311,7 @@
         "cenzor-bol-sozdannaya-toboy-3f0d1121d6"
       ],
       "ability": {
-        "id": "cenzor-bol-sozdannaya-toboy-3f0d1121d6",
+        "id": "feature.ability.censor.level-6.pain-of-your-own-making",
         "name": "Боль, Созданная Тобой",
         "flavor": "Вы обращаете эффекты от злодея вспять.",
         "actionType": "free-trigger",
@@ -1274,8 +1346,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/pain-of-your-own-making",
+        "originalName": "Pain of Your Own Making",
+        "originalDescription": "*You reverse the effects from an evildoer.*\n\n| **Magic, Ranged** |      **Free triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target gains a condition or effect that is ended by a saving throw or that ends at the end of their turn.\n\n**Effect:** The effect ends on the target and is applied to the creature who imposed the effect on them. That creature also takes damage equal to three times your Presence score.",
+        "legacyId": "cenzor-bol-sozdannaya-toboy-3f0d1121d6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/pain-of-your-own-making",
+      "originalName": "Pain of Your Own Making",
+      "originalDescription": "*You reverse the effects from an evildoer.*\n\n| **Magic, Ranged** |      **Free triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target gains a condition or effect that is ended by a saving throw or that ends at the end of their turn.\n\n**Effect:** The effect ends on the target and is applied to the creature who imposed the effect on them. That creature also takes damage equal to three times your Presence score."
     },
     {
       "id": "ability.cenzor-bremya-zla-5c3d96a6bf",
@@ -1290,7 +1369,7 @@
         "cenzor-bremya-zla-5c3d96a6bf"
       ],
       "ability": {
-        "id": "cenzor-bremya-zla-5c3d96a6bf",
+        "id": "feature.ability.censor.level-6.burden-of-evil",
         "name": "Бремя Зла",
         "flavor": "Вы раскрываете врагам видение их судьбы, заставляя их разбегаться и ошеломляя их.",
         "actionType": "maneuver",
@@ -1328,8 +1407,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/burden-of-evil",
+        "originalName": "Burden of Evil",
+        "originalDescription": "*You reveal a vision of your enemies' fate that causes them to scramble as it staggers them.*\n\n| **Magic, Ranged, Strike** |         **Maneuver** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 3; I < WEAK, dazed (save ends)\n- **12-16:** Slide 5; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 7; I < STRONG, dazed (save ends)",
+        "legacyId": "cenzor-bremya-zla-5c3d96a6bf"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/burden-of-evil",
+      "originalName": "Burden of Evil",
+      "originalDescription": "*You reveal a vision of your enemies' fate that causes them to scramble as it staggers them.*\n\n| **Magic, Ranged, Strike** |         **Maneuver** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 3; I < WEAK, dazed (save ends)\n- **12-16:** Slide 5; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 7; I < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.cenzor-edikt-idealnogo-poryadka-fe65a39036",
@@ -1344,7 +1430,7 @@
         "cenzor-edikt-idealnogo-poryadka-fe65a39036"
       ],
       "ability": {
-        "id": "cenzor-edikt-idealnogo-poryadka-fe65a39036",
+        "id": "feature.ability.censor.level-3.edict-of-perfect-order",
         "name": "Эдикт Идеального Порядка",
         "flavor": "В пределах вашего божественного присутствия враги пожалеют об использовании своих зловещих способностей.",
         "actionType": "maneuver",
@@ -1379,8 +1465,15 @@
         "className": "Цензор",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-perfect-order",
+        "originalName": "Edict of Perfect Order",
+        "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage.",
+        "legacyId": "cenzor-edikt-idealnogo-poryadka-fe65a39036"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-perfect-order",
+      "originalName": "Edict of Perfect Order",
+      "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage."
     },
     {
       "id": "ability.cenzor-edikt-mira-d204ddca35",
@@ -1395,7 +1488,7 @@
         "cenzor-edikt-mira-d204ddca35"
       ],
       "ability": {
-        "id": "cenzor-edikt-mira-d204ddca35",
+        "id": "feature.ability.censor.level-6.edict-of-peace",
         "name": "Эдикт Мира",
         "flavor": "Вы предугадываете шаги своих врагов и пресекаете их.",
         "actionType": "maneuver",
@@ -1430,8 +1523,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/edict-of-peace",
+        "originalName": "Edict of Peace",
+        "originalDescription": "*You anticipate your foes' moves and deny them.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever any target takes a triggered action or a free triggered action, that action is negated and the target takes holy damage equal to your Presence score.",
+        "legacyId": "cenzor-edikt-mira-d204ddca35"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/edict-of-peace",
+      "originalName": "Edict of Peace",
+      "originalDescription": "*You anticipate your foes' moves and deny them.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever any target takes a triggered action or a free triggered action, that action is negated and the target takes holy damage equal to your Presence score."
     },
     {
       "id": "ability.cenzor-edikt-nepodvizhnosti-11397fb6c6",
@@ -1446,7 +1546,7 @@
         "cenzor-edikt-nepodvizhnosti-11397fb6c6"
       ],
       "ability": {
-        "id": "cenzor-edikt-nepodvizhnosti-11397fb6c6",
+        "id": "feature.ability.censor.level-3.edict-of-stillness",
         "name": "Эдикт Неподвижности",
         "flavor": "Святая аура, которую вы проецируете, делает болезненным для злодеев попытки покинуть зону вашей досягаемости.",
         "actionType": "maneuver",
@@ -1481,8 +1581,15 @@
         "className": "Цензор",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-stillness",
+        "originalName": "Edict of Stillness",
+        "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage.",
+        "legacyId": "cenzor-edikt-nepodvizhnosti-11397fb6c6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-stillness",
+      "originalName": "Edict of Stillness",
+      "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage."
     },
     {
       "id": "ability.cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4",
@@ -1497,7 +1604,7 @@
         "cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4"
       ],
       "ability": {
-        "id": "cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4",
+        "id": "feature.ability.censor.level-9.edict-of-unyielding-resolve",
         "name": "Эдикт Непреклонной Решимости",
         "flavor": "Вы и ваши союзники облачены в мерцающую броню.",
         "actionType": "maneuver",
@@ -1532,8 +1639,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/edict-of-unyielding-resolve",
+        "originalName": "Edict of Unyielding Resolve",
+        "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina.",
+        "legacyId": "cenzor-edikt-nepreklonnoy-reshimosti-0fff29aed4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/edict-of-unyielding-resolve",
+      "originalName": "Edict of Unyielding Resolve",
+      "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina."
     },
     {
       "id": "ability.cenzor-edikt-ochischayuschego-pacifizma-34717a4bf6",
@@ -1548,7 +1662,7 @@
         "cenzor-edikt-ochischayuschego-pacifizma-34717a4bf6"
       ],
       "ability": {
-        "id": "cenzor-edikt-ochischayuschego-pacifizma-34717a4bf6",
+        "id": "feature.ability.censor.level-3.edict-of-purifying-pacifism",
         "name": "Эдикт Очищающего Пацифизма",
         "flavor": "Вы излучаете праведную энергию, которая наказывает врагов, желающих навредить вам или вашим союзникам.",
         "actionType": "maneuver",
@@ -1583,8 +1697,15 @@
         "className": "Цензор",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-purifying-pacifism",
+        "originalName": "Edict of Purifying Pacifism",
+        "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage.",
+        "legacyId": "cenzor-edikt-ochischayuschego-pacifizma-34717a4bf6"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-purifying-pacifism",
+      "originalName": "Edict of Purifying Pacifism",
+      "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage."
     },
     {
       "id": "ability.cenzor-edikt-razrushitelnoy-izolyacii-457408b5fb",
@@ -1599,7 +1720,7 @@
         "cenzor-edikt-razrushitelnoy-izolyacii-457408b5fb"
       ],
       "ability": {
-        "id": "cenzor-edikt-razrushitelnoy-izolyacii-457408b5fb",
+        "id": "feature.ability.censor.level-3.edict-of-disruptive-isolation",
         "name": "Эдикт Разрушительной Изоляции",
         "flavor": "Зло внутри ваших врагов детонирует святым огнем, который сжигает только виновных.",
         "actionType": "maneuver",
@@ -1634,8 +1755,15 @@
         "className": "Цензор",
         "level": 3,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-disruptive-isolation",
+        "originalName": "Edict of Disruptive Isolation",
+        "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy.",
+        "legacyId": "cenzor-edikt-razrushitelnoy-izolyacii-457408b5fb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-disruptive-isolation",
+      "originalName": "Edict of Disruptive Isolation",
+      "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy."
     },
     {
       "id": "ability.cenzor-ispolni-svoyu-sudbu-ffac1de2ba",
@@ -1650,7 +1778,7 @@
         "cenzor-ispolni-svoyu-sudbu-ffac1de2ba"
       ],
       "ability": {
-        "id": "cenzor-ispolni-svoyu-sudbu-ffac1de2ba",
+        "id": "feature.ability.censor.level-9.fulfill-your-destiny",
         "name": "Исполни Свою Судьбу",
         "flavor": "Вы рассмотрели различные варианты будущего, и работает только этот.",
         "actionType": "trigger",
@@ -1685,8 +1813,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/fulfill-your-destiny",
+        "originalName": "Fulfill Your Destiny",
+        "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls.",
+        "legacyId": "cenzor-ispolni-svoyu-sudbu-ffac1de2ba"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/fulfill-your-destiny",
+      "originalName": "Fulfill Your Destiny",
+      "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls."
     },
     {
       "id": "ability.cenzor-izgnanie-1f6e318fce",
@@ -1701,7 +1836,7 @@
         "cenzor-izgnanie-1f6e318fce"
       ],
       "ability": {
-        "id": "cenzor-izgnanie-1f6e318fce",
+        "id": "feature.ability.censor.level-9.banish",
         "name": "Изгнание",
         "flavor": "Вы разрываете слабую связь цели с миром.",
         "actionType": "main",
@@ -1739,8 +1874,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+        "originalName": "Banish",
+        "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape.",
+        "legacyId": "cenzor-izgnanie-1f6e318fce"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+      "originalName": "Banish",
+      "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
     },
     {
       "id": "ability.cenzor-izydi-1817345fb2",
@@ -1755,7 +1897,7 @@
         "cenzor-izydi-1817345fb2"
       ],
       "ability": {
-        "id": "cenzor-izydi-1817345fb2",
+        "id": "feature.ability.censor.level-6.begone",
         "name": "Изыди!",
         "flavor": "Вы вселяете ужас в своих врагов, заставляя их отступать и сея хаос в их рядах.",
         "actionType": "main",
@@ -1792,8 +1934,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/begone",
+        "originalName": "Begone!",
+        "originalDescription": "*You terrify your enemies into retreating, creating chaos in their ranks.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 psychic damage; slide 3\n- **12-16:** 6 psychic damage; slide 5\n- **17+:** 8 psychic damage; slide 7",
+        "legacyId": "cenzor-izydi-1817345fb2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/begone",
+      "originalName": "Begone!",
+      "originalDescription": "*You terrify your enemies into retreating, creating chaos in their ranks.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 psychic damage; slide 3\n- **12-16:** 6 psychic damage; slide 5\n- **17+:** 8 psychic damage; slide 7"
     },
     {
       "id": "ability.cenzor-kazhdyy-shag-smert-fbf3857e78",
@@ -1808,7 +1957,7 @@
         "cenzor-kazhdyy-shag-smert-fbf3857e78"
       ],
       "ability": {
-        "id": "cenzor-kazhdyy-shag-smert-fbf3857e78",
+        "id": "feature.ability.censor.level-1.every-step-death",
         "name": "Каждый Шаг... Смерть!",
         "flavor": "Вы показываете врагу проблеск его участи после смерти.",
         "actionType": "main",
@@ -1846,8 +1995,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/every-step-death",
+        "originalName": "Every Step... Death!",
+        "originalDescription": "*You show your foe a glimpse of their fate after death.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P psychic damage\n- **12-16:** 7 + P psychic damage\n- **17+:** 10 + P psychic damage\n\n**Effect:** Each time the target willingly moves before the end of your next turn, they take 1 psychic damage for each square they move.",
+        "legacyId": "cenzor-kazhdyy-shag-smert-fbf3857e78"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/every-step-death",
+      "originalName": "Every Step... Death!",
+      "originalDescription": "*You show your foe a glimpse of their fate after death.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P psychic damage\n- **12-16:** 7 + P psychic damage\n- **17+:** 10 + P psychic damage\n\n**Effect:** Each time the target willingly moves before the end of your next turn, they take 1 psychic damage for each square they move."
     },
     {
       "id": "ability.cenzor-mogilnaya-rech-9278e7b3ff",
@@ -1862,7 +2018,7 @@
         "cenzor-mogilnaya-rech-9278e7b3ff"
       ],
       "ability": {
-        "id": "cenzor-mogilnaya-rech-9278e7b3ff",
+        "id": "feature.ability.censor.level-1.grave-speech",
         "name": "Могильная речь",
         "flavor": "Вы общаетесь с задержавшейся душой недавно умершего.",
         "actionType": "maneuver",
@@ -1896,8 +2052,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/grave-speech",
+        "originalName": "Grave Speech",
+        "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |             **Maneuver** |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice.",
+        "legacyId": "cenzor-mogilnaya-rech-9278e7b3ff"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/grave-speech",
+      "originalName": "Grave Speech",
+      "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |             **Maneuver** |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice."
     },
     {
       "id": "ability.cenzor-molitva-o-pobede-1496542b6b",
@@ -1912,7 +2075,7 @@
         "cenzor-molitva-o-pobede-1496542b6b"
       ],
       "ability": {
-        "id": "cenzor-molitva-o-pobede-1496542b6b",
+        "id": "feature.ability.censor.level-5.orison-of-victory",
         "name": "Молитва о Победе",
         "flavor": "Вы направляете волю своего бога на преодоление трудностей и причинение боли.",
         "actionType": "maneuver",
@@ -1948,8 +2111,15 @@
         "className": "Цензор",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/orison-of-victory",
+        "originalName": "Orison of Victory",
+        "originalDescription": "*You channel your god's will to overcome hardship and inflict pain.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Each target gains 1 surge.\n- **12-16:** Each target gains 2 surges.\n- **17+:** Each target gains 3 surges.\n\n**Effect:** A target can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up.",
+        "legacyId": "cenzor-molitva-o-pobede-1496542b6b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/orison-of-victory",
+      "originalName": "Orison of Victory",
+      "originalDescription": "*You channel your god's will to overcome hardship and inflict pain.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Each target gains 1 surge.\n- **12-16:** Each target gains 2 surges.\n- **17+:** Each target gains 3 surges.\n\n**Effect:** A target can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up."
     },
     {
       "id": "ability.cenzor-moya-zhizn-za-tvoyu-03b5eaf069",
@@ -1964,7 +2134,7 @@
         "cenzor-moya-zhizn-za-tvoyu-03b5eaf069"
       ],
       "ability": {
-        "id": "cenzor-moya-zhizn-za-tvoyu-03b5eaf069",
+        "id": "feature.ability.censor.level-1.my-life-for-yours",
         "name": "Моя Жизнь за Твою",
         "flavor": "Вы направляете часть своей жизненной силы в повышение стойкости для себя или союзника.",
         "actionType": "trigger",
@@ -1999,8 +2169,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/my-life-for-yours",
+        "originalName": "My Life for Yours",
+        "originalDescription": "*You channel some of your vitality into more resilience for you or an ally.*\n\n| **Magic, Ranged** |           **Triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** You spend a Recovery and the target regains Stamina equal to your recovery value.\n\n**Spend 1 Wrath:** You can end one effect on the target that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up.",
+        "legacyId": "cenzor-moya-zhizn-za-tvoyu-03b5eaf069"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/my-life-for-yours",
+      "originalName": "My Life for Yours",
+      "originalDescription": "*You channel some of your vitality into more resilience for you or an ally.*\n\n| **Magic, Ranged** |           **Triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** You spend a Recovery and the target regains Stamina equal to your recovery value.\n\n**Spend 1 Wrath:** You can end one effect on the target that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up."
     },
     {
       "id": "ability.cenzor-nazad-bogohulnik-5cecef505c",
@@ -2015,7 +2192,7 @@
         "cenzor-nazad-bogohulnik-5cecef505c"
       ],
       "ability": {
-        "id": "cenzor-nazad-bogohulnik-5cecef505c",
+        "id": "feature.ability.censor.level-1.back-blasphemer",
         "name": "Назад, Богохульник!",
         "flavor": "Вы направляете силу через свое оружие, чтобы отбросить врагов.",
         "actionType": "main",
@@ -2054,8 +2231,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/back-blasphemer",
+        "originalName": "Back Blasphemer!",
+        "originalDescription": "*You channel power through your weapon to repel foes.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 1**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 holy damage; push 1\n- **12-16:** 4 holy damage; push 2\n- **17+:** 6 holy damage; push 3",
+        "legacyId": "cenzor-nazad-bogohulnik-5cecef505c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/back-blasphemer",
+      "originalName": "Back Blasphemer!",
+      "originalDescription": "*You channel power through your weapon to repel foes.*\n\n| **Area, Magic, Melee, Weapon** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 1**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 holy damage; push 1\n- **12-16:** 4 holy damage; push 2\n- **17+:** 6 holy damage; push 3"
     },
     {
       "id": "ability.cenzor-ochischayuschiy-ogon-70ff84d14c",
@@ -2070,7 +2254,7 @@
         "cenzor-ochischayuschiy-ogon-70ff84d14c"
       ],
       "ability": {
-        "id": "cenzor-ochischayuschiy-ogon-70ff84d14c",
+        "id": "feature.ability.censor.level-1.purifying-fire",
         "name": "Очищающий Огонь",
         "flavor": "Боги судят, огонь очищает.",
         "actionType": "main",
@@ -2110,8 +2294,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/purifying-fire",
+        "originalName": "Purifying Fire",
+        "originalDescription": "*The gods judge, fire cleanses.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage; M < WEAK, the target has fire weakness 3 (save ends)\n- **12-16:** 9 + M holy damage; M < AVERAGE, the target has fire weakness 5 (save ends)\n- **17+:** 12 + M holy damage; M < STRONG, the target has fire weakness 7 (save ends)\n\n**Effect:** While the target has fire weakness from this ability, you can choose to have your abilities deal fire damage to the target instead of holy damage.",
+        "legacyId": "cenzor-ochischayuschiy-ogon-70ff84d14c"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/purifying-fire",
+      "originalName": "Purifying Fire",
+      "originalDescription": "*The gods judge, fire cleanses.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage; M < WEAK, the target has fire weakness 3 (save ends)\n- **12-16:** 9 + M holy damage; M < AVERAGE, the target has fire weakness 5 (save ends)\n- **17+:** 12 + M holy damage; M < STRONG, the target has fire weakness 7 (save ends)\n\n**Effect:** While the target has fire weakness from this ability, you can choose to have your abilities deal fire damage to the target instead of holy damage."
     },
     {
       "id": "ability.cenzor-osuzhden-cd32caa56b",
@@ -2126,7 +2317,7 @@
         "cenzor-osuzhden-cd32caa56b"
       ],
       "ability": {
-        "id": "cenzor-osuzhden-cd32caa56b",
+        "id": "feature.ability.censor.level-1.censored",
         "name": "Осужден",
         "flavor": "Осужден и приговорен.",
         "actionType": "main",
@@ -2164,8 +2355,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/censored",
+        "originalName": "Censored",
+        "originalDescription": "*Judged and sentenced.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage\n- **12-16:** 3 + M holy damage\n- **17+:** 5 + M holy damage\n\n**Effect:** When a target who is not a leader or solo creature is made winded by this ability, they are reduced to 0 Stamina.",
+        "legacyId": "cenzor-osuzhden-cd32caa56b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/censored",
+      "originalName": "Censored",
+      "originalDescription": "*Judged and sentenced.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage\n- **12-16:** 3 + M holy damage\n- **17+:** 5 + M holy damage\n\n**Effect:** When a target who is not a leader or solo creature is made winded by this ability, they are reduced to 0 Stamina."
     },
     {
       "id": "ability.cenzor-otkrovitel-0915b8d6f9",
@@ -2180,7 +2378,7 @@
         "cenzor-otkrovitel-0915b8d6f9"
       ],
       "ability": {
-        "id": "cenzor-otkrovitel-0915b8d6f9",
+        "id": "feature.ability.censor.level-2.revelator",
         "name": "Откровитель",
         "flavor": "Вы направляете святую энергию, чтобы нанести вред неверным и раскрыть тех, кто скрыт от вашего суда.",
         "actionType": "maneuver",
@@ -2215,8 +2413,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/revelator",
+        "originalName": "Revelator",
+        "originalDescription": "*You channel holy energy to harm unbelievers and reveal those hidden from your judgment.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes holy damage equal to twice your Presence score. Additionally, each hidden target is automatically revealed and can't become hidden again until the start of your next turn. You can then use your Judgment ability against one target as a free triggered action.",
+        "legacyId": "cenzor-otkrovitel-0915b8d6f9"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/revelator",
+      "originalName": "Revelator",
+      "originalDescription": "*You channel holy energy to harm unbelievers and reveal those hidden from your judgment.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes holy damage equal to twice your Presence score. Additionally, each hidden target is automatically revealed and can't become hidden again until the start of your next turn. You can then use your Judgment ability against one target as a free triggered action."
     },
     {
       "id": "ability.cenzor-otluchenie-6cd6f11b6e",
@@ -2231,7 +2436,7 @@
         "cenzor-otluchenie-6cd6f11b6e"
       ],
       "ability": {
-        "id": "cenzor-otluchenie-6cd6f11b6e",
+        "id": "feature.ability.censor.level-8.excommunication",
         "name": "Отлучение",
         "flavor": "Вы проклинаете врага стать угрозой для его союзников.",
         "actionType": "main",
@@ -2269,8 +2474,15 @@
         "className": "Цензор",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/excommunication",
+        "originalName": "Excommunication",
+        "originalDescription": "*You curse your foe to become a bane to their allies.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, weakened (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, weakened (save ends)\n- **17+:** 18 + M damage; I < STRONG, weakened (save ends)\n\n**Effect:** At the end of each of your turns, a target weakened this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them. Additionally, a target weakened this way can't be targeted by their allies' abilities.",
+        "legacyId": "cenzor-otluchenie-6cd6f11b6e"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/excommunication",
+      "originalName": "Excommunication",
+      "originalDescription": "*You curse your foe to become a bane to their allies.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, weakened (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, weakened (save ends)\n- **17+:** 18 + M damage; I < STRONG, weakened (save ends)\n\n**Effect:** At the end of each of your turns, a target weakened this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them. Additionally, a target weakened this way can't be targeted by their allies' abilities."
     },
     {
       "id": "ability.cenzor-otstupnik-0fc4a6948d",
@@ -2285,7 +2497,7 @@
         "cenzor-otstupnik-0fc4a6948d"
       ],
       "ability": {
-        "id": "cenzor-otstupnik-0fc4a6948d",
+        "id": "feature.ability.censor.level-9.apostate",
         "name": "Отступник",
         "flavor": "Вы направляете святую энергию, чтобы решить судьбу врага.",
         "actionType": "main",
@@ -2323,8 +2535,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/apostate",
+        "originalName": "Apostate",
+        "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10.",
+        "legacyId": "cenzor-otstupnik-0fc4a6948d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/apostate",
+      "originalName": "Apostate",
+      "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10."
     },
     {
       "id": "ability.cenzor-pastva-c1ecbebc56",
@@ -2339,7 +2558,7 @@
         "cenzor-pastva-c1ecbebc56"
       ],
       "ability": {
-        "id": "cenzor-pastva-c1ecbebc56",
+        "id": "feature.ability.censor.level-6.congregation",
         "name": "Паства",
         "flavor": "Вы концентрируете гнев ваших союзников на выбранном враге.",
         "actionType": "main",
@@ -2377,8 +2596,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/congregation",
+        "originalName": "Congregation",
+        "originalDescription": "*You focus your allies' wrath on a chosen foe.*\n\n| **Melee, Strike, Weapon** |   **Main action** |\n|---------------------------|------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability against the target\n- **12-16:** 12 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability that gains an edge against the target\n- **17+:** 16 + M damage; as a free triggered action, two allies within 10 squares of the target can each use a strike signature ability that gains an edge against the target\n\n**Effect:** Each ally can shift up to 2 squares and gains 2 surges before making the strike.",
+        "legacyId": "cenzor-pastva-c1ecbebc56"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/congregation",
+      "originalName": "Congregation",
+      "originalDescription": "*You focus your allies' wrath on a chosen foe.*\n\n| **Melee, Strike, Weapon** |   **Main action** |\n|---------------------------|------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability against the target\n- **12-16:** 12 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability that gains an edge against the target\n- **17+:** 16 + M damage; as a free triggered action, two allies within 10 squares of the target can each use a strike signature ability that gains an edge against the target\n\n**Effect:** Each ally can shift up to 2 squares and gains 2 surges before making the strike."
     },
     {
       "id": "ability.cenzor-pokaysya-ab65853603",
@@ -2393,7 +2619,7 @@
         "cenzor-pokaysya-ab65853603"
       ],
       "ability": {
-        "id": "cenzor-pokaysya-ab65853603",
+        "id": "feature.ability.censor.level-1.repent",
         "name": "Покайся!",
         "flavor": "Вы вызываете воспоминания об их грехах, чтобы извести своих врагов.",
         "actionType": "main",
@@ -2431,8 +2657,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/repent",
+        "originalName": "Repent!",
+        "originalDescription": "*You conjure memories of their sins to harry your foes.*\n\n| **Magic, Ranged, Strike**  |    **Main action**  |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P holy damage; I < WEAK, dazed (save ends)\n- **12-16:** 8 + P holy damage; I < AVERAGE, dazed (save ends)\n- **17+:** 11 + P holy damage; I < STRONG, dazed (save ends)",
+        "legacyId": "cenzor-pokaysya-ab65853603"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/repent",
+      "originalName": "Repent!",
+      "originalDescription": "*You conjure memories of their sins to harry your foes.*\n\n| **Magic, Ranged, Strike**  |    **Main action**  |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P holy damage; I < WEAK, dazed (save ends)\n- **12-16:** 8 + P holy damage; I < AVERAGE, dazed (save ends)\n- **17+:** 11 + P holy damage; I < STRONG, dazed (save ends)"
     },
     {
       "id": "ability.cenzor-pravednyy-sud-c6a7167b9a",
@@ -2447,7 +2680,7 @@
         "cenzor-pravednyy-sud-c6a7167b9a"
       ],
       "ability": {
-        "id": "cenzor-pravednyy-sud-c6a7167b9a",
+        "id": "feature.ability.censor.level-5.righteous-judgment",
         "name": "Праведный Суд",
         "flavor": "Вы усиливаете мощь своего суда.",
         "actionType": "main",
@@ -2485,8 +2718,15 @@
         "className": "Цензор",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/righteous-judgment",
+        "originalName": "Righteous Judgment",
+        "originalDescription": "*You amplify the power of your judgment.*\n\n| **Melee, Strike, Weapon**   |          **Main action** |\n|----------------------------|-------------------------:|\n| **📏 Melee 1**             |      **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 14 + M damage\n- **17+:** 20 + M damage\n\n**Effect:** Until the end of the encounter, whenever any ally deals damage to a target judged by you, that ally gains 1 surge.",
+        "legacyId": "cenzor-pravednyy-sud-c6a7167b9a"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/righteous-judgment",
+      "originalName": "Righteous Judgment",
+      "originalDescription": "*You amplify the power of your judgment.*\n\n| **Melee, Strike, Weapon**   |          **Main action** |\n|----------------------------|-------------------------:|\n| **📏 Melee 1**             |      **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 14 + M damage\n- **17+:** 20 + M damage\n\n**Effect:** Until the end of the encounter, whenever any ally deals damage to a target judged by you, that ally gains 1 surge."
     },
     {
       "id": "ability.cenzor-pravosudiya-vy-boites-f4a2e8c977",
@@ -2501,7 +2741,7 @@
         "cenzor-pravosudiya-vy-boites-f4a2e8c977"
       ],
       "ability": {
-        "id": "cenzor-pravosudiya-vy-boites-f4a2e8c977",
+        "id": "feature.ability.censor.level-2.it-is-justice-you-fear",
         "name": "Правосудия Вы Боитесь",
         "flavor": "Я всего лишь сосуд. Ваши собственные деяния давят на вас.",
         "actionType": "main",
@@ -2539,8 +2779,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/it-is-justice-you-fear",
+        "originalName": "It Is Justice You Fear",
+        "originalDescription": "*I am but a vessel. Your own deeds weigh upon you.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M holy damage; P < WEAK, frightened (save ends)\n- **12-16:** 12 + M holy damage; P < AVERAGE, frightened (save ends)\n- **17+:** 15 + M holy damage; P < STRONG, frightened (save ends)\n\n**Effect:** If the target is already frightened of you or another creature and this ability would frighten them again, they instead take psychic damage equal to twice your Presence score.",
+        "legacyId": "cenzor-pravosudiya-vy-boites-f4a2e8c977"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/it-is-justice-you-fear",
+      "originalName": "It Is Justice You Fear",
+      "originalDescription": "*I am but a vessel. Your own deeds weigh upon you.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M holy damage; P < WEAK, frightened (save ends)\n- **12-16:** 12 + M holy damage; P < AVERAGE, frightened (save ends)\n- **17+:** 15 + M holy damage; P < STRONG, frightened (save ends)\n\n**Effect:** If the target is already frightened of you or another creature and this ability would frighten them again, they instead take psychic damage equal to twice your Presence score."
     },
     {
       "id": "ability.cenzor-prigovoren-ff4aa335e0",
@@ -2555,7 +2802,7 @@
         "cenzor-prigovoren-ff4aa335e0"
       ],
       "ability": {
-        "id": "cenzor-prigovoren-ff4aa335e0",
+        "id": "feature.ability.censor.level-2.sentenced",
         "name": "Приговорен",
         "flavor": "Шок от вашего осуждения замораживает врага на месте.",
         "actionType": "main",
@@ -2594,8 +2841,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/sentenced",
+        "originalName": "Sentenced",
+        "originalDescription": "*The shock of your condemnation freezes your enemy in their boots.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; P < WEAK, restrained (save ends)\n- **12-16:** 9 + P damage; P < AVERAGE, restrained (save ends)\n- **17+:** 12 + P damage; P < STRONG, restrained (save ends)\n\n**Effect:** While the target is restrained this way, your abilities that impose forced movement can still move them.",
+        "legacyId": "cenzor-prigovoren-ff4aa335e0"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/sentenced",
+      "originalName": "Sentenced",
+      "originalDescription": "*The shock of your condemnation freezes your enemy in their boots.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; P < WEAK, restrained (save ends)\n- **12-16:** 9 + P damage; P < AVERAGE, restrained (save ends)\n- **17+:** 12 + P damage; P < STRONG, restrained (save ends)\n\n**Effect:** While the target is restrained this way, your abilities that impose forced movement can still move them."
     },
     {
       "id": "ability.cenzor-providcheskaya-blagodat-1a5cbd864d",
@@ -2610,7 +2864,7 @@
         "cenzor-providcheskaya-blagodat-1a5cbd864d"
       ],
       "ability": {
-        "id": "cenzor-providcheskaya-blagodat-1a5cbd864d",
+        "id": "feature.ability.censor.level-2.prescient-grace",
         "name": "Провидческая Благодать",
         "flavor": "Одаренный провидческим видением, вы предупреждаете союзника о надвигающейся атаке.",
         "actionType": "trigger",
@@ -2645,8 +2899,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/prescient-grace",
+        "originalName": "Prescient Grace",
+        "originalDescription": "*Gifted by a prescient vision, you warn an ally of an impending attack.*\n\n| **Magic, Ranged** |          **Triggered** |\n|-------------------|-----------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** An enemy within 10 squares starts their turn.\n\n**Effect:** You can spend a Recovery to allow the target to regain Stamina equal to your recovery value. The target can then take their turn immediately before the triggering enemy.",
+        "legacyId": "cenzor-providcheskaya-blagodat-1a5cbd864d"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/prescient-grace",
+      "originalName": "Prescient Grace",
+      "originalDescription": "*Gifted by a prescient vision, you warn an ally of an impending attack.*\n\n| **Magic, Ranged** |          **Triggered** |\n|-------------------|-----------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** An enemy within 10 squares starts their turn.\n\n**Effect:** You can spend a Recovery to allow the target to regain Stamina equal to your recovery value. The target can then take their turn immediately before the triggering enemy."
     },
     {
       "id": "ability.cenzor-ruka-bogov-f6cf16c471",
@@ -2661,7 +2922,7 @@
         "cenzor-ruka-bogov-f6cf16c471"
       ],
       "ability": {
-        "id": "cenzor-ruka-bogov-f6cf16c471",
+        "id": "feature.ability.censor.level-8.hand-of-the-gods",
         "name": "Рука Богов",
         "flavor": "Вы используете врага как инструмент против своих врагов.",
         "actionType": "main",
@@ -2699,8 +2960,15 @@
         "className": "Цензор",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/hand-of-the-gods",
+        "originalName": "Hand of the Gods",
+        "originalDescription": "*You use your foe as a tool against your enemies.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 15 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Until the end of the encounter, while the target is judged by you, you can choose to make them the source of any of your abilities. Additionally, the target counts as an ally for the purpose of flanking.",
+        "legacyId": "cenzor-ruka-bogov-f6cf16c471"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/hand-of-the-gods",
+      "originalName": "Hand of the Gods",
+      "originalDescription": "*You use your foe as a tool against your enemies.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 15 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Until the end of the encounter, while the target is judged by you, you can choose to make them the source of any of your abilities. Additionally, the target counts as an ally for the purpose of flanking."
     },
     {
       "id": "ability.cenzor-ruki-tvorca-3425397e10",
@@ -2715,7 +2983,7 @@
         "cenzor-ruki-tvorca-3425397e10"
       ],
       "ability": {
-        "id": "cenzor-ruki-tvorca-3425397e10",
+        "id": "feature.ability.censor.level-1.hands-of-the-maker",
         "name": "Руки Творца",
         "flavor": "Вы создаете объекты силой своего разума.",
         "actionType": "maneuver",
@@ -2749,8 +3017,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/hands-of-the-maker",
+        "originalName": "Hands of the Maker",
+        "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**   | **Maneuver** |\n|-------------|------------:|\n| **📏 Self** | **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Presence score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required).",
+        "legacyId": "cenzor-ruki-tvorca-3425397e10"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/hands-of-the-maker",
+      "originalName": "Hands of the Maker",
+      "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**   | **Maneuver** |\n|-------------|------------:|\n| **📏 Self** | **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Presence score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required)."
     },
     {
       "id": "ability.cenzor-s-moim-blagosloveniem-06c92fccea",
@@ -2765,7 +3040,7 @@
         "cenzor-s-moim-blagosloveniem-06c92fccea"
       ],
       "ability": {
-        "id": "cenzor-s-moim-blagosloveniem-06c92fccea",
+        "id": "feature.ability.censor.level-2.with-my-blessing",
         "name": "С Моим Благословением",
         "flavor": "Слово в молитве, и боги указывают путь.",
         "actionType": "main",
@@ -2800,8 +3075,15 @@
         "className": "Цензор",
         "level": 2,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/with-my-blessing",
+        "originalName": "With My Blessing",
+        "originalDescription": "*A word in prayer, and the gods show the way.*\n\n| **Magic, Ranged** |         **Main action** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** The target can use a free triggered action to use a strike signature ability or a strike heroic ability, and has a double edge on that ability. If a heroic ability is chosen, reduce its Heroic Resource cost by 3 (to a minimum cost of 0).",
+        "legacyId": "cenzor-s-moim-blagosloveniem-06c92fccea"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/with-my-blessing",
+      "originalName": "With My Blessing",
+      "originalDescription": "*A word in prayer, and the gods show the way.*\n\n| **Magic, Ranged** |         **Main action** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** The target can use a free triggered action to use a strike signature ability or a strike heroic ability, and has a double edge on that ability. If a heroic ability is chosen, reduce its Heroic Resource cost by 3 (to a minimum cost of 0)."
     },
     {
       "id": "ability.cenzor-schit-pravednika-a73cf6da02",
@@ -2816,7 +3098,7 @@
         "cenzor-schit-pravednika-a73cf6da02"
       ],
       "ability": {
-        "id": "cenzor-schit-pravednika-a73cf6da02",
+        "id": "feature.ability.censor.level-5.shield-of-the-righteous",
         "name": "Щит Праведника",
         "flavor": "Вы бьете врага и создаете флот божественных щитов, защищающих ваших союзников.",
         "actionType": "main",
@@ -2854,8 +3136,15 @@
         "className": "Цензор",
         "level": 5,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/shield-of-the-righteous",
+        "originalName": "Shield of the Righteous",
+        "originalDescription": "*You strike a foe and create a fleet of divine shields that protect your allies.*\n\n| **Melee, Strike, Weapon** |          **Main action** |\n|---------------------------|-------------------------:|\n| **📏 Melee 1**            |      **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; you and each ally adjacent to you gain 10 temporary Stamina\n- **12-16:** 14 + M damage; you and each ally adjacent to you gain 15 temporary Stamina\n- **17+:** 20 + M damage; you and each ally adjacent to you gain 20 temporary Stamina",
+        "legacyId": "cenzor-schit-pravednika-a73cf6da02"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-5/shield-of-the-righteous",
+      "originalName": "Shield of the Righteous",
+      "originalDescription": "*You strike a foe and create a fleet of divine shields that protect your allies.*\n\n| **Melee, Strike, Weapon** |          **Main action** |\n|---------------------------|-------------------------:|\n| **📏 Melee 1**            |      **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; you and each ally adjacent to you gain 10 temporary Stamina\n- **12-16:** 14 + M damage; you and each ally adjacent to you gain 15 temporary Stamina\n- **17+:** 20 + M damage; you and each ally adjacent to you gain 20 temporary Stamina"
     },
     {
       "id": "ability.cenzor-sokrushitelnyy-shturm-082551100b",
@@ -2870,7 +3159,7 @@
         "cenzor-sokrushitelnyy-shturm-082551100b"
       ],
       "ability": {
-        "id": "cenzor-sokrushitelnyy-shturm-082551100b",
+        "id": "feature.ability.censor.level-1.driving-assault",
         "name": "Сокрушительный Штурм",
         "flavor": "Оттесняя врага своим оружием, вы используете свою веру, чтобы оставаться рядом.",
         "actionType": "main",
@@ -2908,8 +3197,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/driving-assault",
+        "originalName": "Driving Assault",
+        "originalDescription": "*As you force your enemy back with your weapon, you use your faith to stay close.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; push 1\n- **12-16:** 6 + M damage; push 3\n- **17+:** 9 + M damage; push 5\n\n**Effect:** You can shift up to your speed in a straight line toward the target after pushing them.",
+        "legacyId": "cenzor-sokrushitelnyy-shturm-082551100b"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/driving-assault",
+      "originalName": "Driving Assault",
+      "originalDescription": "*As you force your enemy back with your weapon, you use your faith to stay close.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; push 1\n- **12-16:** 6 + M damage; push 3\n- **17+:** 9 + M damage; push 5\n\n**Effect:** You can shift up to your speed in a straight line toward the target after pushing them."
     },
     {
       "id": "ability.cenzor-stolp-svyatogo-ognya-8e695eace1",
@@ -2924,7 +3220,7 @@
         "cenzor-stolp-svyatogo-ognya-8e695eace1"
       ],
       "ability": {
-        "id": "cenzor-stolp-svyatogo-ognya-8e695eace1",
+        "id": "feature.ability.censor.level-8.pillar-of-holy-fire",
         "name": "Столп Святого Огня",
         "flavor": "Вина вашего врага подпитывает святое пламя, которое сжигает ваших врагов.",
         "actionType": "main",
@@ -2962,8 +3258,15 @@
         "className": "Цензор",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/pillar-of-holy-fire",
+        "originalName": "Pillar of Holy Fire",
+        "originalDescription": "*Your enemy's guilt fuels a holy flame that burns your foes.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, dazed (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, dazed (save ends)\n- **17+:** 18 + M damage; I < STRONG, dazed (save ends)\n\n**Effect:** At the end of each of your turns, a target dazed this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them.",
+        "legacyId": "cenzor-stolp-svyatogo-ognya-8e695eace1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/pillar-of-holy-fire",
+      "originalName": "Pillar of Holy Fire",
+      "originalDescription": "*Your enemy's guilt fuels a holy flame that burns your foes.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, dazed (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, dazed (save ends)\n- **17+:** 18 + M damage; I < STRONG, dazed (save ends)\n\n**Effect:** At the end of each of your turns, a target dazed this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them."
     },
     {
       "id": "ability.cenzor-stoy-zlodey-08d8e972c2",
@@ -2978,7 +3281,7 @@
         "cenzor-stoy-zlodey-08d8e972c2"
       ],
       "ability": {
-        "id": "cenzor-stoy-zlodey-08d8e972c2",
+        "id": "feature.ability.censor.level-1.halt-miscreant",
         "name": "Стой, Злодей!",
         "flavor": "Вы наполняете свое оружие святой магией, которая мешает вашему врагу скрыться.",
         "actionType": "main",
@@ -3016,8 +3319,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/halt-miscreant",
+        "originalName": "Halt Miscreant!",
+        "originalDescription": "*You infuse your weapon with holy magic that makes it difficult for your foe to get away.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 + M holy damage; P < AVERAGE, slowed (save ends)\n- **17+:** 7 + M holy damage; P < STRONG, slowed (save ends)",
+        "legacyId": "cenzor-stoy-zlodey-08d8e972c2"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/halt-miscreant",
+      "originalName": "Halt Miscreant!",
+      "originalDescription": "*You infuse your weapon with holy magic that makes it difficult for your foe to get away.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M holy damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 + M holy damage; P < AVERAGE, slowed (save ends)\n- **17+:** 7 + M holy damage; P < STRONG, slowed (save ends)"
     },
     {
       "id": "ability.cenzor-sud-a9a95637c7",
@@ -3032,7 +3342,7 @@
         "cenzor-sud-a9a95637c7"
       ],
       "ability": {
-        "id": "cenzor-sud-a9a95637c7",
+        "id": "feature.ability.censor.level-1.judgment",
         "name": "Суд",
         "flavor": "Вы произносите молитву, которая очерчивает вашего врага святой энергией.",
         "actionType": "maneuver",
@@ -3067,8 +3377,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/judgment",
+        "originalName": "Judgment",
+        "originalDescription": "*You utter a prayer that outlines your foe in holy energy.*\n\n| **Magic, Ranged** |     **Maneuver** |\n|-------------------|-----------------:|\n| **📏 Ranged 10**  | **🎯 One enemy** |\n\n**Effect:** The target is judged by you until the end of the encounter, you use this ability again, you willingly end this effect (no action required), or another censor judges the target.\n\nWhenever a creature judged by you uses a main action and is within your line of effect, you can use a free triggered action to deal holy damage equal to twice your Presence score to them.\n\nWhen a creature judged by you is reduced to 0 Stamina, you can use a free triggered action to use this ability against a new target.\n\nAdditionally, you can spend 1 wrath to take one of the following free triggered actions:\n\n- When an adjacent creature judged by you starts to shift, you make a melee free strike against them and their speed becomes 0 until the end of the current turn, preventing them from shifting.\n- When a creature judged by you within 10 squares makes a power roll, you cause them to take a bane on the roll.\n- When a creature judged by you within 10 squares uses an ability with a potency that targets only one creature, the potency is reduced by 1 for that creature.\n- If you damage a creature judged by you with a melee ability, the creature is taunted by you until the end of their next turn.\n  \nYou can choose only one free triggered action option at a time, even if multiple options are triggered by the same effect.",
+        "legacyId": "cenzor-sud-a9a95637c7"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/judgment",
+      "originalName": "Judgment",
+      "originalDescription": "*You utter a prayer that outlines your foe in holy energy.*\n\n| **Magic, Ranged** |     **Maneuver** |\n|-------------------|-----------------:|\n| **📏 Ranged 10**  | **🎯 One enemy** |\n\n**Effect:** The target is judged by you until the end of the encounter, you use this ability again, you willingly end this effect (no action required), or another censor judges the target.\n\nWhenever a creature judged by you uses a main action and is within your line of effect, you can use a free triggered action to deal holy damage equal to twice your Presence score to them.\n\nWhen a creature judged by you is reduced to 0 Stamina, you can use a free triggered action to use this ability against a new target.\n\nAdditionally, you can spend 1 wrath to take one of the following free triggered actions:\n\n- When an adjacent creature judged by you starts to shift, you make a melee free strike against them and their speed becomes 0 until the end of the current turn, preventing them from shifting.\n- When a creature judged by you within 10 squares makes a power roll, you cause them to take a bane on the roll.\n- When a creature judged by you within 10 squares uses an ability with a potency that targets only one creature, the potency is reduced by 1 for that creature.\n- If you damage a creature judged by you with a melee ability, the creature is taunted by you until the end of their next turn.\n  \nYou can choose only one free triggered action option at a time, even if multiple options are triggered by the same effect."
     },
     {
       "id": "ability.cenzor-troica-hitrosti-2ecc3107cb",
@@ -3083,7 +3400,7 @@
         "cenzor-troica-hitrosti-2ecc3107cb"
       ],
       "ability": {
-        "id": "cenzor-troica-hitrosti-2ecc3107cb",
+        "id": "feature.ability.censor.level-7.trinity-of-trickery",
         "name": "Троица Хитрости",
         "flavor": "Эй! Я здесь. Нет, здесь, тупица.",
         "actionType": "maneuver",
@@ -3118,8 +3435,15 @@
         "className": "Цензор",
         "level": 7,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-7/trinity-of-trickery",
+        "originalName": "Trinity of Trickery",
+        "originalDescription": "*Hey! I'm over here. No, here, numbskull.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** You create two illusory duplicates of the target, which appear anywhere within distance. These duplicates last until the end of the encounter. On each of their turns, the target can move each duplicate up to their speed. If the target is targeted by an ability, they can use a free triggered action to switch places with a duplicate within their line of effect, making the duplicate the target of the ability instead. When either duplicate takes damage, it is destroyed.",
+        "legacyId": "cenzor-troica-hitrosti-2ecc3107cb"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-7/trinity-of-trickery",
+      "originalName": "Trinity of Trickery",
+      "originalDescription": "*Hey! I'm over here. No, here, numbskull.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** You create two illusory duplicates of the target, which appear anywhere within distance. These duplicates last until the end of the encounter. On each of their turns, the target can move each duplicate up to their speed. If the target is targeted by an ability, they can use a free triggered action to switch places with a duplicate within their line of effect, making the duplicate the target of the ability instead. When either duplicate takes damage, it is destroyed."
     },
     {
       "id": "ability.cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426",
@@ -3134,7 +3458,7 @@
         "cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426"
       ],
       "ability": {
-        "id": "cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426",
+        "id": "feature.ability.censor.level-8.your-allies-turn-on-you",
         "name": "Твои Союзники Ополчились на Тебя!",
         "flavor": "Вы обращаете гнев врагов на цель.",
         "actionType": "main",
@@ -3172,8 +3496,15 @@
         "className": "Цензор",
         "level": 8,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/your-allies-turn-on-you",
+        "originalName": "Your Allies Turn on You!",
+        "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead.",
+        "legacyId": "cenzor-tvoi-soyuzniki-opolchilis-na-tebya-4809f83426"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/your-allies-turn-on-you",
+      "originalName": "Your Allies Turn on You!",
+      "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead."
     },
     {
       "id": "ability.cenzor-tvoi-soyuzniki-tebya-ne-spasut-be256b4e0f",
@@ -3188,7 +3519,7 @@
         "cenzor-tvoi-soyuzniki-tebya-ne-spasut-be256b4e0f"
       ],
       "ability": {
-        "id": "cenzor-tvoi-soyuzniki-tebya-ne-spasut-be256b4e0f",
+        "id": "feature.ability.censor.level-1.your-allies-cannot-save-you",
         "name": "Твои Союзники Тебя не Спасут!",
         "flavor": "Ваш магический удар превращает вину врага во вспышку святой силы.",
         "actionType": "main",
@@ -3226,8 +3557,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/your-allies-cannot-save-you",
+        "originalName": "Your Allies Cannot Save You!",
+        "originalDescription": "*Your magic strike turns your foe's guilt into a burst of holy power.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage\n- **12-16:** 5 + M holy damage\n- **17+:** 8 + M holy damage\n\n**Effect:** Each enemy adjacent to the target is pushed away from the target up to a number of squares equal to your Presence score.",
+        "legacyId": "cenzor-tvoi-soyuzniki-tebya-ne-spasut-be256b4e0f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/your-allies-cannot-save-you",
+      "originalName": "Your Allies Cannot Save You!",
+      "originalDescription": "*Your magic strike turns your foe's guilt into a burst of holy power.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage\n- **12-16:** 5 + M holy damage\n- **17+:** 8 + M holy damage\n\n**Effect:** Each enemy adjacent to the target is pushed away from the target up to a number of squares equal to your Presence score."
     },
     {
       "id": "ability.cenzor-uzri-lik-pravosudiya-4e6ac7a455",
@@ -3242,7 +3580,7 @@
         "cenzor-uzri-lik-pravosudiya-4e6ac7a455"
       ],
       "ability": {
-        "id": "cenzor-uzri-lik-pravosudiya-4e6ac7a455",
+        "id": "feature.ability.censor.level-1.behold-the-face-of-justice",
         "name": "Узри Лик Правосудия!",
         "flavor": "Вы атакуете врага, и ваши враги видят видение истинной природы вашей решимости.",
         "actionType": "main",
@@ -3282,8 +3620,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/behold-the-face-of-justice",
+        "originalName": "Behold the Face of Justice!",
+        "originalDescription": "*You attack a foe and your enemies behold a vision of the true nature of your resolve.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage; if the target has P < WEAK, each enemy within 2 squares of them is frightened of you (save ends)\n- **12-16:** 5 + M holy damage; if the target has P < AVERAGE, each enemy within 2 squares of them is frightened of you (save ends)\n- **17+:** 8 + M holy damage; if the target has P < STRONG, each enemy within 2 squares of them is frightened of you (save ends)\n\n**Effect:** Each enemy frightened this way is pushed up to 2 squares away from the target and takes psychic damage equal to your Presence score.",
+        "legacyId": "cenzor-uzri-lik-pravosudiya-4e6ac7a455"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/behold-the-face-of-justice",
+      "originalName": "Behold the Face of Justice!",
+      "originalDescription": "*You attack a foe and your enemies behold a vision of the true nature of your resolve.*\n\n| **Magic, Melee, Ranged, Strike, Weapon**  |               **Main action** |\n|-------------------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**                |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage; if the target has P < WEAK, each enemy within 2 squares of them is frightened of you (save ends)\n- **12-16:** 5 + M holy damage; if the target has P < AVERAGE, each enemy within 2 squares of them is frightened of you (save ends)\n- **17+:** 8 + M holy damage; if the target has P < STRONG, each enemy within 2 squares of them is frightened of you (save ends)\n\n**Effect:** Each enemy frightened this way is pushed up to 2 squares away from the target and takes psychic damage equal to your Presence score."
     },
     {
       "id": "ability.cenzor-uzri-schit-very-b2883e624f",
@@ -3298,7 +3643,7 @@
         "cenzor-uzri-schit-very-b2883e624f"
       ],
       "ability": {
-        "id": "cenzor-uzri-schit-very-b2883e624f",
+        "id": "feature.ability.censor.level-1.behold-a-shield-of-faith",
         "name": "Узри Щит Веры!",
         "flavor": "Могучий удар превращает жизненную силу вашего врага в святой свет, который окутывает вас и союзника, обескураживая врагов, которые могут атаковать вас.",
         "actionType": "main",
@@ -3336,8 +3681,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": "might"
-      }
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/behold-a-shield-of-faith",
+        "originalName": "Behold a Shield of Faith!",
+        "originalDescription": "*A mighty blow turns your foe's vitality into a holy light that envelops you and an ally, discouraging enemies who might attack you.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage\n- **12-16:** 6 + M holy damage\n- **17+:** 9 + M holy damage\n\n**Effect:** Until the start of your next turn, enemies take a bane on ability rolls made against you or any ally adjacent to you.",
+        "legacyId": "cenzor-uzri-schit-very-b2883e624f"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/behold-a-shield-of-faith",
+      "originalName": "Behold a Shield of Faith!",
+      "originalDescription": "*A mighty blow turns your foe's vitality into a holy light that envelops you and an ally, discouraging enemies who might attack you.*\n\n| **Melee, Strike, Weapon**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Melee 1**             | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M holy damage\n- **12-16:** 6 + M holy damage\n- **17+:** 9 + M holy damage\n\n**Effect:** Until the start of your next turn, enemies take a bane on ability rolls made against you or any ally adjacent to you."
     },
     {
       "id": "ability.cenzor-vedomyy-k-tebe-b7901eb438",
@@ -3352,7 +3704,7 @@
         "cenzor-vedomyy-k-tebe-b7901eb438"
       ],
       "ability": {
-        "id": "cenzor-vedomyy-k-tebe-b7901eb438",
+        "id": "feature.ability.censor.level-7.guided-to-your-side",
         "name": "Ведомый к Тебе",
         "flavor": "Вы сосредотачиваетесь на друге и телепортируетесь к нему.",
         "actionType": "main",
@@ -3387,8 +3739,15 @@
         "className": "Цензор",
         "level": 7,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-7/guided-to-your-side",
+        "originalName": "Guided to Your Side",
+        "originalDescription": "*You concentrate on a friend and teleport to them.*\n\n| **Magic, Ranged** |           **Main action** |\n|-------------------|--------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and each ally** |\n\n**Effect:** Each target is teleported to unoccupied spaces within 5 squares of a willing creature who you are bonded to with your Invocation of the Heart feature. You don't need line of effect to the bonded creature but you must be on the same world.",
+        "legacyId": "cenzor-vedomyy-k-tebe-b7901eb438"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-7/guided-to-your-side",
+      "originalName": "Guided to Your Side",
+      "originalDescription": "*You concentrate on a friend and teleport to them.*\n\n| **Magic, Ranged** |           **Main action** |\n|-------------------|--------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and each ally** |\n\n**Effect:** Each target is teleported to unoccupied spaces within 5 squares of a willing creature who you are bonded to with your Invocation of the Heart feature. You don't need line of effect to the bonded creature but you must be on the same world."
     },
     {
       "id": "ability.cenzor-vernyy-drug-225ee009e1",
@@ -3403,7 +3762,7 @@
         "cenzor-vernyy-drug-225ee009e1"
       ],
       "ability": {
-        "id": "cenzor-vernyy-drug-225ee009e1",
+        "id": "feature.ability.censor.level-1.faithful-friend",
         "name": "Верный друг",
         "flavor": "К вам притягивается дух животного, который делится с вами своими чувствами и преданно вам служит.",
         "actionType": "main",
@@ -3437,8 +3796,15 @@
         "className": "Цензор",
         "level": 1,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/faithful-friend",
+        "originalName": "Faithful Friend",
+        "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way.",
+        "legacyId": "cenzor-vernyy-drug-225ee009e1"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/faithful-friend",
+      "originalName": "Faithful Friend",
+      "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way."
     },
     {
       "id": "ability.cenzor-voploschenie-uzhasa-f9386f4e83",
@@ -3453,7 +3819,7 @@
         "cenzor-voploschenie-uzhasa-f9386f4e83"
       ],
       "ability": {
-        "id": "cenzor-voploschenie-uzhasa-f9386f4e83",
+        "id": "feature.ability.censor.level-9.terror-manifest",
         "name": "Воплощение Ужаса",
         "flavor": "\"Я знаю, чего ты боишься.\"",
         "actionType": "main",
@@ -3491,8 +3857,15 @@
         "className": "Цензор",
         "level": 9,
         "sourceKind": "class",
-        "preferredCharacteristic": "presence"
-      }
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+        "originalName": "Terror Manifest",
+        "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina.",
+        "legacyId": "cenzor-voploschenie-uzhasa-f9386f4e83"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+      "originalName": "Terror Manifest",
+      "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
     },
     {
       "id": "ability.cenzor-zastupitsya-e69f33e922",
@@ -3507,7 +3880,7 @@
         "cenzor-zastupitsya-e69f33e922"
       ],
       "ability": {
-        "id": "cenzor-zastupitsya-e69f33e922",
+        "id": "feature.ability.censor.level-6.intercede",
         "name": "Заступиться",
         "flavor": "Вы занимаете место своего союзника.",
         "actionType": "free-trigger",
@@ -3542,8 +3915,15 @@
         "className": "Цензор",
         "level": 6,
         "sourceKind": "class",
-        "preferredCharacteristic": ""
-      }
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/intercede",
+        "originalName": "Intercede",
+        "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges.",
+        "legacyId": "cenzor-zastupitsya-e69f33e922"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/intercede",
+      "originalName": "Intercede",
+      "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges."
     },
     {
       "id": "class.0881",
@@ -3567,7 +3947,10 @@
       },
       "legacyIds": [
         "censor.domain.1.blagoslovenie-ponimaniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/blessing-of-comprehension",
+      "originalName": "Blessing of Comprehension",
+      "originalDescription": "You can interpret diagrams and charts even if you don't understand the language associated with them. You are considered fluent in all languages for the purpose of understanding the project source for any crafting or research project (see Chapter 12: Downtime Projects)."
     },
     {
       "id": "feature.censor.domain.1.blagoslovenie-sostradaniya",
@@ -3580,7 +3963,10 @@
       },
       "legacyIds": [
         "censor.domain.1.blagoslovenie-sostradaniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/blessing-of-compassion",
+      "originalName": "Blessing of Compassion",
+      "originalDescription": "You exude a magic presence that can soothe those willing to socially engage with you. You gain an edge on any test made to assist another creature with a test.\n\nAdditionally, when you are present at the start of a negotiation, one NPC of your choice has their patience increased by 1 (to a maximum of 5), and the first test made to influence them gains an edge."
     },
     {
       "id": "feature.censor.domain.1.blagoslovenie-udachnoy-pogody",
@@ -3593,7 +3979,10 @@
       },
       "legacyIds": [
         "censor.domain.1.blagoslovenie-udachnoy-pogody"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/blessing-of-fortunate-weather",
+      "originalName": "Blessing of Fortunate Weather",
+      "originalDescription": "Each time you finish a respite, you can decide the weather conditions within 100 squares. Until you finish another respite, the weather conditions you establish follow you through any mundane outdoor locations. Choose one of the following types of weather, each of which grants a benefit to you and your allies:\n\n**Clear:** You and your allies gain an edge on tests that use the Search or Navigate skills.\n\n**Foggy:** You and your allies gain an edge on tests that use the Hide skill.\n\n**Overcast:** You and your allies gain an edge on tests that use the Endurance skill.\n\n**Precipitation:** When the ground is muddy or snowy, you and your allies gain an edge on tests that use the Track skill.\n\nIf you are in the same area as a creature using this or a similar feature who has chosen a different weather effect, the features negate each other where their areas overlap."
     },
     {
       "id": "feature.censor.domain.1.mogilnaya-rech",
@@ -3606,7 +3995,10 @@
       },
       "legacyIds": [
         "censor.domain.1.mogilnaya-rech"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/grave-speech",
+      "originalName": "Grave Speech",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.censor.domain.1.osvyashchennoe-oruzhie",
@@ -3619,7 +4011,10 @@
       },
       "legacyIds": [
         "censor.domain.1.osvyashchennoe-oruzhie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/sanctified-weapon",
+      "originalName": "Sanctified Weapon",
+      "originalDescription": "As a respite activity, you can bless a weapon. Any creature who wields the weapon gains a +1 bonus to rolled damage with abilities that use the weapon. This benefit lasts until you finish another respite."
     },
     {
       "id": "feature.censor.domain.1.ruki-tvortsa",
@@ -3632,7 +4027,10 @@
       },
       "legacyIds": [
         "censor.domain.1.ruki-tvortsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/hands-of-the-maker",
+      "originalName": "Hands of the Maker",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.censor.domain.1.vdokhnovennyy-obman",
@@ -3645,7 +4043,10 @@
       },
       "legacyIds": [
         "censor.domain.1.vdokhnovennyy-obman"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/inspired-deception",
+      "originalName": "Inspired Deception",
+      "originalDescription": "The gods favor your thievery with magic. Whenever you make a test that uses a skill you have from the intrigue skill group, you can use Presence on the test instead of another characteristic."
     },
     {
       "id": "feature.censor.domain.1.vernyy-drug",
@@ -3658,7 +4059,10 @@
       },
       "legacyIds": [
         "censor.domain.1.vernyy-drug"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/faithful-friend",
+      "originalName": "Faithful Friend",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.censor.domain.1.videniya-orakula",
@@ -3671,7 +4075,10 @@
       },
       "legacyIds": [
         "censor.domain.1.videniya-orakula"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/oracular-visions",
+      "originalName": "Oracular Visions",
+      "originalDescription": "Your deity rewards you with hazy visions of things to come. Each time you earn 1 or more Victories, you earn an equal number of fate points. Whenever you or a creature within 10 squares makes a test, you can spend 1 fate point to tap into a vision of the outcome, granting that creature an edge on the test. You lose any remaining fate points when you finish a respite."
     },
     {
       "id": "feature.censor.domain.1.vnutrenniy-svet",
@@ -3684,7 +4091,10 @@
       },
       "legacyIds": [
         "censor.domain.1.vnutrenniy-svet"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/inner-light",
+      "originalName": "Inner Light",
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. You place a ray of morning light into the chosen character's soul, granting them a +1 bonus to saving throws that lasts until you finish another respite."
     },
     {
       "id": "feature.censor.domain.1.vosstanavlivayushchiy-ritual",
@@ -3697,7 +4107,10 @@
       },
       "legacyIds": [
         "censor.domain.1.vosstanavlivayushchiy-ritual"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/revitalizing-ritual",
+      "originalName": "Revitalizing Ritual",
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. The chosen character gains a bonus to their recovery value equal to your level that lasts until you finish another respite."
     },
     {
       "id": "feature.censor.domain.1.zashchitnyy-krug",
@@ -3710,7 +4123,10 @@
       },
       "legacyIds": [
         "censor.domain.1.zashchitnyy-krug"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/protective-circle",
+      "originalName": "Protective Circle",
+      "originalDescription": "You can spend 10 uninterrupted minutes to create a protective circle on the ground large enough to hold one size 1 creature. The circle lasts for 24 hours, until you create another, or until you dismiss it (no action required). Only creatures you designate at the time of drawing the circle can enter and exit the area. While in the protective circle, a creature can't be targeted by strikes."
     },
     {
       "id": "feature.censor.domain.4.blagoslovenie-tayn",
@@ -3723,7 +4139,10 @@
       },
       "legacyIds": [
         "censor.domain.4.blagoslovenie-tayn"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/blessing-of-secrets",
+      "originalName": "Blessing of Secrets",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.censor.domain.4.blagoslovenie-zhizni",
@@ -3736,7 +4155,10 @@
       },
       "legacyIds": [
         "censor.domain.4.blagoslovenie-zhizni"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/blessing-of-life",
+      "originalName": "Blessing of Life",
+      "originalDescription": "Your divine presence causes those you deem worthy to recover quickly from a fight. Whenever an ally within distance of your My Life for Yours ability regains Stamina, they regain additional Stamina equal to your Presence score."
     },
     {
       "id": "feature.censor.domain.4.lesnaya-doroga",
@@ -3749,7 +4171,10 @@
       },
       "legacyIds": [
         "censor.domain.4.lesnaya-doroga"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/wode-road",
+      "originalName": "Wode Road",
+      "originalDescription": "As a main action, you touch a living tree and make it part of a divine transportation network. You can maintain a number of trees in your network equal to your Presence score. Whenever you touch any tree in your network, you can use a main action to teleport yourself and any willing creatures within 10 squares of you to a tree in your network on the same world. If a tree in your network dies, it is no longer part of the network. You can remove a tree from your network no matter your distance from it, including across different worlds (no action required)."
     },
     {
       "id": "feature.censor.domain.4.nepronitsaemoe-prikosnovenie",
@@ -3762,7 +4187,10 @@
       },
       "legacyIds": [
         "censor.domain.4.nepronitsaemoe-prikosnovenie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/impervious-touch",
+      "originalName": "Impervious Touch",
+      "originalDescription": "As a maneuver, you can touch an object with a size equal to your Presence score or smaller and place a protective spell on it. The object has immunity all to untyped damage. You can maintain this spell on a number of objects equal to your Presence score, and you can end the spell on any object at any time (no action required).\n\nAdditionally, you can place this spell on a building or vehicle (or a similar structure with the Director's approval) that is of a size larger than your Presence score. You can place the spell on only one such target at a time, and you can maintain the spell on a larger target and a number of objects equal to your Presence score simultaneously."
     },
     {
       "id": "feature.censor.domain.4.postup-vetra",
@@ -3775,7 +4203,10 @@
       },
       "legacyIds": [
         "censor.domain.4.postup-vetra"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/windwalk",
+      "originalName": "Windwalk",
+      "originalDescription": "While you have 5 or more Victories, you can fly. If you can already fly, you have a +2 bonus to speed while flying instead."
     },
     {
       "id": "feature.censor.domain.4.preduprezhdenie-orakula",
@@ -3788,7 +4219,10 @@
       },
       "legacyIds": [
         "censor.domain.4.preduprezhdenie-orakula"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/oracular-warning",
+      "originalName": "Oracular Warning",
+      "originalDescription": "Each time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you. These premonitions help you and your allies stay alive, granting each of you temporary Stamina equal to 10 + your level that lasts until you finish another respite."
     },
     {
       "id": "feature.censor.domain.4.prizyv-serdtsa",
@@ -3801,7 +4235,10 @@
       },
       "legacyIds": [
         "censor.domain.4.prizyv-serdtsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/invocation-of-the-heart",
+      "originalName": "Invocation of the Heart",
+      "originalDescription": "As a main action, you forge a bond of love and friendship with one willing creature you touch. While this bond is active, you can telepathically speak with the creature over any distance, including across different worlds. Additionally, while this bond is active, you can attempt to assist the creature with any test they make regardless of their proximity to you. You can maintain only one bond at a time, and you can end a bond at any time (no action required)."
     },
     {
       "id": "feature.censor.domain.4.prozrenie-svyatogo",
@@ -3814,7 +4251,10 @@
       },
       "legacyIds": [
         "censor.domain.4.prozrenie-svyatogo"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/saints-epiphany",
+      "originalName": "Saint's Epiphany",
+      "originalDescription": "At the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge. If the target makes a project roll during this respite, they can add 1d10 plus your Presence score to the roll."
     },
     {
       "id": "feature.censor.domain.4.spiriticheskiy-seans",
@@ -3827,7 +4267,10 @@
       },
       "legacyIds": [
         "censor.domain.4.spiriticheskiy-seans"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/seance",
+      "originalName": "Seance",
+      "originalDescription": "You can commune with a network of spirits. As a respite activity, you speak the name of a creature who died and isn't undead. If the creature's spirit is free and willing to speak with you, they appear and you can have a conversation with them. During this time, the creature responds to you as they would have in life. If the creature isn't free or willing to appear, you can speak another name or choose another respite activity."
     },
     {
       "id": "feature.censor.domain.4.svet-otkroveniya",
@@ -3840,7 +4283,10 @@
       },
       "legacyIds": [
         "censor.domain.4.svet-otkroveniya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/light-of-revelation",
+      "originalName": "Light of Revelation",
+      "originalDescription": "As a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares until you dismiss the light (no action required). This light shines through any darkness. Hidden creatures in the area are automatically revealed, and creatures in the light, including you, can't hide. While this feature is active, you gain an edge on tests made to notice hidden objects and entrances and to detect supernatural illusions."
     },
     {
       "id": "feature.censor.domain.4.uluchshennoe-osvyashchennoe-oruzhie",
@@ -3853,7 +4299,10 @@
       },
       "legacyIds": [
         "censor.domain.4.uluchshennoe-osvyashchennoe-oruzhie"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/improved-sanctified-weapon",
+      "originalName": "Improved Sanctified Weapon",
+      "originalDescription": "The weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1."
     },
     {
       "id": "feature.censor.domain.4.uluchshennye-ruki-tvortsa",
@@ -3866,7 +4315,10 @@
       },
       "legacyIds": [
         "censor.domain.4.uluchshennye-ruki-tvortsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/improved-hands-of-the-maker",
+      "originalName": "Improved Hands of the Maker",
+      "originalDescription": "When you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller."
     },
     {
       "id": "feature.censor.domain.7.biblioteka-bogov",
@@ -3879,7 +4331,10 @@
       },
       "legacyIds": [
         "censor.domain.7.biblioteka-bogov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/gods-library",
+      "originalName": "Gods' Library",
+      "originalDescription": "You can gain access to information you need through prayer, so that you no longer require research materials for crafting and research projects (see Chapter 12: Downtime Projects). Additionally, you add your level to project rolls you make for crafting and research projects. You also have any skills in the lore skill group you don't already have, and you gain a number of skills from any other skill groups equal to the number of skills you had in the lore skill group before you gained this feature."
     },
     {
       "id": "feature.censor.domain.7.blagoslovenie-zheleza",
@@ -3892,7 +4347,10 @@
       },
       "legacyIds": [
         "censor.domain.7.blagoslovenie-zheleza"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/blessing-of-iron",
+      "originalName": "Blessing of Iron",
+      "originalDescription": "The gods send divine favor to you and your allies. While you are not dying, enemies take a bane on strikes against you or any ally within 3 squares of you."
     },
     {
       "id": "feature.censor.domain.7.bozhestvennyy-intendant",
@@ -3905,7 +4363,10 @@
       },
       "legacyIds": [
         "censor.domain.7.bozhestvennyy-intendant"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/divine-quartermaster",
+      "originalName": "Divine Quartermaster",
+      "originalDescription": "Each time you finish a respite, you can choose a treasure with a project goal equal to 50 times your level or less. You gain a divine version of this treasure that lasts until you finish another respite or it is consumed."
     },
     {
       "id": "feature.censor.domain.7.dary-prirody",
@@ -3918,7 +4379,10 @@
       },
       "legacyIds": [
         "censor.domain.7.dary-prirody"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/natures-bounty",
+      "originalName": "Nature's Bounty",
+      "originalDescription": "When you finish a respite, you can prepare a magic meal using local flora for any companions who rested with you. Choose two of the following benefits for creatures who consume the meal:\n\n- Each creature gains immunity to acid, cold, corruption, fire, lightning, poison, or sonic damage equal to your level. You can choose this benefit twice, choosing a different damage immunity each time.\n- Each creature gains 20 temporary Stamina.\n- Each creature gains a +1 bonus to speed.\n- Each creature gains a +1 bonus to saving throws.\n- Each creature gains an edge on tests made to influence other creatures.\n\nEach benefit lasts until the creature who gains it finishes another respite."
     },
     {
       "id": "feature.censor.domain.7.istochnik-blagodati",
@@ -3931,7 +4395,10 @@
       },
       "legacyIds": [
         "censor.domain.7.istochnik-blagodati"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/font-of-grace",
+      "originalName": "Font of Grace",
+      "originalDescription": "Each time you use your My Life for Yours ability, you gain 1 wrath that can be spent only on that ability during the same turn. If you don't use this wrath, it is lost. Additionally, the target of My Life for Yours gains 10 temporary Stamina."
     },
     {
       "id": "feature.censor.domain.7.slovo-otklonennoy-sudby",
@@ -3944,7 +4411,10 @@
       },
       "legacyIds": [
         "censor.domain.7.slovo-otklonennoy-sudby"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/word-of-fate-denied",
+      "originalName": "Word of Fate Denied",
+      "originalDescription": "When an ally within 10 squares takes damage that would leave them dying, you can use a free triggered action to make yourself or another willing creature within 10 squares of you the target of the triggering damage instead. The creature you choose takes the damage and suffers any effects associated with it, and that damage can't be reduced in any way."
     },
     {
       "id": "feature.censor.domain.7.slovo-otlozhennoy-smerti",
@@ -3957,7 +4427,10 @@
       },
       "legacyIds": [
         "censor.domain.7.slovo-otlozhennoy-smerti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/word-of-death-deferred",
+      "originalName": "Word of Death Deferred",
+      "originalDescription": "You can stop death from taking your allies. When an ally within distance of your My Life for Yours ability dies and you are not dying, you can use a free triggered action to instead have that ally fall unconscious until they regain Stamina.\n\nAdditionally, your abilities deal an extra 5 damage to winded creatures."
     },
     {
       "id": "feature.censor.domain.7.svet-palyashchego-solntsa",
@@ -3970,7 +4443,10 @@
       },
       "legacyIds": [
         "censor.domain.7.svet-palyashchego-solntsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/light-of-the-burning-sun",
+      "originalName": "Light of the Burning Sun",
+      "originalDescription": "Sun infuses your body. Whenever you use an ability to deal rolled damage to another creature, that ability deals an extra 5 fire damage, or an extra 15 fire damage if the creature is undead. Additionally, you have fire immunity equal to your level, which is added to any other fire immunity you have."
     },
     {
       "id": "feature.censor.domain.7.troitsa-khitrosti",
@@ -3983,7 +4459,10 @@
       },
       "legacyIds": [
         "censor.domain.7.troitsa-khitrosti"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/trinity-of-trickery",
+      "originalName": "Trinity of Trickery",
+      "originalDescription": "You have the following ability."
     },
     {
       "id": "feature.censor.domain.7.vashi-triumfy-pomnyat",
@@ -3996,7 +4475,10 @@
       },
       "legacyIds": [
         "censor.domain.7.vashi-triumfy-pomnyat"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/your-triumphs-are-remembered",
+      "originalName": "Your Triumphs Are Remembered",
+      "originalDescription": "The gods allow you and your companions to bask in the glory of past successes. Whenever you finish a respite, you and any other heroes who rested with you regain 1 Victory after your Victories are converted to XP. This Victory isn't converted into XP at the end of a subsequent respite."
     },
     {
       "id": "feature.censor.domain.7.verkhom-na-molnii",
@@ -4009,7 +4491,10 @@
       },
       "legacyIds": [
         "censor.domain.7.verkhom-na-molnii"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/ride-the-lightning",
+      "originalName": "Ride the Lightning",
+      "originalDescription": "Lightning and thunder infuse your body. Whenever you use an ability to deal rolled damage to another creature, the ability deals extra lightning damage equal to your Presence score. Additionally, if you use an ability that force moves a creature, the forced movement distance gains a bonus equal to your Presence score. While you are under the effect of your Windwalk feature, lightning enhances your locomotion to grant you a bonus to speed equal to your Might score. If Windwalk already grants you a bonus to speed, this bonus adds to that."
     },
     {
       "id": "feature.censor.domain.7.zavet-serdtsa",
@@ -4022,7 +4507,10 @@
       },
       "legacyIds": [
         "censor.domain.7.zavet-serdtsa"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/covenant-of-the-heart",
+      "originalName": "Covenant of the Heart",
+      "originalDescription": "You can maintain bonds with up to three willing creatures using your Invocation of the Heart feature. Additionally, you have the following ability."
     },
     {
       "id": "feature.censor.feature.1.bozhestvo-i-domeny",
@@ -4035,7 +4523,10 @@
       },
       "legacyIds": [
         "censor.feature.1.bozhestvo-i-domeny"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/deity-and-domains",
+      "originalName": "Deity and Domains",
+      "originalDescription": "Choose a god or saint who your character reveres from Chapter 14: Gods and Religion, or ask your Director about the deities in your campaign world. With the Director's permission, you can also create your own deity and choose four domains to be part of their portfolio.\n\nAfter choosing your deity, pick one domain from their portfolio. Your choice of domain determines many of the features you'll gain from this class. (*Quick Build:* Cavall as deity and War as domain.)"
     },
     {
       "id": "feature.censor.feature.1.geroicheskie-sposobnosti",
@@ -4061,7 +4552,10 @@
       },
       "legacyIds": [
         "censor.feature.1.gnev"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/wrath",
+      "originalName": "Wrath",
+      "originalDescription": "The power you serve grants you a Heroic Resource called wrath, fueling your abilities as you censor those your church deems to be heretics.\n\n##### Wrath in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain wrath equal to your Victories. At the start of each of your turns during combat, you gain 2 wrath.\n\nAdditionally, the first time each combat round that a creature judged by you (see Judgment below) deals damage to you, you gain 1 wrath. The first time each combat round that you deal damage to a creature judged by you, you gain 1 wrath.\n\nYou lose any remaining wrath at the end of the encounter.\n\n##### Wrath Outside of Combat\n\nThough you can't gain wrath outside of combat, you can use your heroic abilities and effects that cost wrath without spending it. Whenever you use an ability or effect outside of combat that costs wrath, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited wrath on its effect, you can use it as if you had spent an amount of wrath equal to your Victories. (Such abilities aren't part of the core rules for the censor, but they might appear in future products.)"
     },
     {
       "id": "feature.censor.feature.1.gnev-v-boyu",
@@ -4100,7 +4594,10 @@
       },
       "legacyIds": [
         "censor.feature.1.komplekt"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/kit",
+      "originalName": "Kit",
+      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Warrior Priest.)"
     },
     {
       "id": "feature.censor.feature.1.moya-zhizn-za-tvoyu",
@@ -4113,7 +4610,10 @@
       },
       "legacyIds": [
         "censor.feature.1.moya-zhizn-za-tvoyu"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/my-life-for-yours",
+      "originalName": "My Life for Yours",
+      "originalDescription": "You channel your will to mend your wounds or the wounds of your allies. You have the following ability."
     },
     {
       "id": "feature.censor.feature.1.orden-tsenzora",
@@ -4126,7 +4626,10 @@
       },
       "legacyIds": [
         "censor.feature.1.orden-tsenzora"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/censor-order",
+      "originalName": "Censor Order",
+      "originalDescription": "Censors are the will of their god made physically manifest, and you act as your god's agent in the world. As you shoulder that responsibility, you choose a censor order from the following options, each of which grants you a skill. (*Quick Build:* Paragon.)\n\n- **Exorcist:** You specialize in hunting your order's hidden enemies, knowing that an open mind is an unguarded fortress. You have the Read Person skill.\n- **Oracle:** Corruption has deep tendrils that can be missed, leading you to specialize in uncovering clandestine threats to your order. You have the Magic skill.\n- **Paragon:** Without a strong example and a firm hand, the weak will be corrupted. You specialize in setting an example for your order. You have the Lead skill.\n\nYour censor order is your subclass, and your choice of order determines many of the features you'll gain as you gain new levels."
     },
     {
       "id": "feature.censor.feature.1.osobennost-domena-1-go-urovnya",
@@ -4139,7 +4642,10 @@
       },
       "legacyIds": [
         "censor.feature.1.osobennost-domena-1-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/1st-level-domain-feature",
+      "originalName": "1st-Level Domain Feature",
+      "originalDescription": "You gain a domain feature from your domain, as shown on the 1st-Level Censor Domain Features table. Additionally, you gain a skill from your domain, chosen from the skill group indicated on the table.\n\n###### 1st-Level Censor Domain Features Table\n\n| Domain                           | Feature                       | Skill Group   |\n|----------------------------------|-------------------------------|---------------|\n| Creation                         | Hands of the Maker            | Crafting      |\n| Death                            | Grave Speech                  | Lore          |\n| Fate                             | Oracular Visions              | Lore          |\n| Knowledge                        | Blessing of Comprehension     | Lore          |\n| Life                             | Revitalizing Ritual           | Exploration   |\n| Love                             | Blessing of Compassion        | Interpersonal |\n| Nature                           | Faithful Friend               | Exploration   |\n| Protection                       | Protective Circle             | Exploration   |\n| Storm                            | Blessing of Fortunate Weather | Exploration   |\n| Sun                              | Inner Light                   | Lore          |\n| Trickery                         | Inspired Deception            | Intrigue      |\n| War                              | Sanctified Weapon             | Exploration   |"
     },
     {
       "id": "feature.censor.feature.1.preimushchestvo-ordena-dlya-suda",
@@ -4152,7 +4658,10 @@
       },
       "legacyIds": [
         "censor.feature.1.preimushchestvo-ordena-dlya-suda"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/judgment-order-benefit",
+      "originalName": "Judgment Order Benefit",
+      "originalDescription": "The first time on a turn that you use your Judgment ability to judge a creature, you gain the following benefit based on your order:\n\n- **Exorcist:** You can teleport up to a number of squares equal to twice your Presence score. This movement must take you closer to the judged creature. You do not need line of effect to your destination.\n- **Oracle:** You can deal holy damage equal to twice your Presence score to the judged creature.\n- **Paragon:** You can vertical pull the judged creature up to a number of squares equal to twice your Presence score."
     },
     {
       "id": "feature.censor.feature.1.sposobnost-za-3-gneva",
@@ -4191,7 +4700,10 @@
       },
       "legacyIds": [
         "censor.feature.1.sposobnosti-tsenzora"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/censor-abilities",
+      "originalName": "Censor Abilities",
+      "originalDescription": "You use a blend of martial techniques and divine magic to attack your foes and defend your allies.\n\n##### Signature Ability\n\nChoose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Your Allies Cannot Save You!)\n\n##### Heroic Abilities\n\nYou call upon a number of heroic abilities, all of them bound to your wrath.\n\n###### 3-Wrath Ability\n\nChoose one heroic ability from the following options, each of which costs 3 wrath to use. (*Quick Build:* The Gods Punish and Defend.)\n\n###### 5-Wrath Ability\n\nChoose one heroic ability from the following options, each of which costs 5 wrath to use. (*Quick Build:* Purifying Fire.)"
     },
     {
       "id": "feature.censor.feature.1.sud",
@@ -4204,7 +4716,10 @@
       },
       "legacyIds": [
         "censor.feature.1.sud"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-1/judgment",
+      "originalName": "Judgment",
+      "originalDescription": "You pick out the enemies most worthy of your wrath and place a divine judgment upon them, censoring them with the power of your god. You have the following ability."
     },
     {
       "id": "feature.censor.feature.1.znakovaya-sposobnost",
@@ -4230,7 +4745,10 @@
       },
       "legacyIds": [
         "censor.feature.10.dobrodetel"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/virtue",
+      "originalName": "Virtue",
+      "originalDescription": "You have an epic resource called virtue. Each time you finish a respite, you gain virtue equal to the XP you gain. You can spend virtue on your abilities as if it were wrath.\n\nAdditionally, you can spend 3 virtue to access one of your deity's domains that you usually don't have access to. When you do, you can use that domain's features until you finish another respite.\n\nVirtue remains until you spend it."
     },
     {
       "id": "feature.censor.feature.10.gnev-bogov",
@@ -4243,7 +4761,10 @@
       },
       "legacyIds": [
         "censor.feature.10.gnev-bogov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/wrath-of-the-gods",
+      "originalName": "Wrath of the Gods",
+      "originalDescription": "When you gain wrath at the start of each of your turns during combat, you gain 4 wrath instead of 3."
     },
     {
       "id": "feature.censor.feature.10.khramovnik",
@@ -4256,7 +4777,10 @@
       },
       "legacyIds": [
         "censor.feature.10.khramovnik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/templar",
+      "originalName": "Templar",
+      "originalDescription": "You are the ultimate representation of your god's justice in the timescape. Whenever you use your Judgment ability, you can use a free triggered action to use a conduit domain effect (see Domain Piety and Effects in the Conduit section) associated with your chosen domain, or a domain you access with virtue (see below). If the effect calls for the use of your Intuition score, you use your Presence score instead. If the effect uses your conduit level, use your censor level instead.\n\nAdditionally, whenever you take a respite, you can open a portal to rest in the presence of your deity and bring along any allies. When you do, you can ask your deity three questions, which the Director must answer honestly if your deity knows the answers (though they might answer cryptically or incompletely). When you finish your respite, you and your allies can appear at any location in the timescape where someone worships your deity.\n\nWhile you rest in their presence, your god might also give you priority targets to enact justice upon. You and your allies each have a double edge on power rolls made against such targets. If you attempt to open a portal to your deity again before you have defeated your priority targets, you suffer your god's wrath, as determined by the Director."
     },
     {
       "id": "feature.censor.feature.10.navyk",
@@ -4269,7 +4793,10 @@
       },
       "legacyIds": [
         "censor.feature.10.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.censor.feature.10.perk",
@@ -4282,7 +4809,10 @@
       },
       "legacyIds": [
         "censor.feature.10.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.censor.feature.10.uvelichenie-kharakteristik",
@@ -4295,7 +4825,10 @@
       },
       "legacyIds": [
         "censor.feature.10.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Presence scores each increase to 5."
     },
     {
       "id": "feature.censor.feature.2.osobennosti-ordena-2-go-urovnya",
@@ -4308,7 +4841,10 @@
       },
       "legacyIds": [
         "censor.feature.2.osobennosti-ordena-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/2nd-level-order-features",
+      "originalName": "2nd-Level Order Features",
+      "originalDescription": "Your censor order grants you two features, as shown on the 2nd-Level Order Features table.\n\n###### 2nd-Level Order Features Table\n\n| Order                    | Features                             |\n|--------------------------|--------------------------------------|\n| Exorcist                 | Saint's Vigilance, A Sense for Truth |\n| Oracle                   | It Was Foretold, Judge of Character  |\n| Paragon                  | Lead by Example, Stalwart Icon       |"
     },
     {
       "id": "feature.censor.feature.2.perk",
@@ -4321,7 +4857,10 @@
       },
       "legacyIds": [
         "censor.feature.2.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice. See Chapter 7: Perks."
     },
     {
       "id": "feature.censor.feature.2.sposobnost-ordena-2-go-urovnya",
@@ -4334,7 +4873,10 @@
       },
       "legacyIds": [
         "censor.feature.2.sposobnost-ordena-2-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/2nd-level-order-ability",
+      "originalName": "2nd-Level Order Ability",
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Exorcist Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Oracle Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Paragon Ability\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.censor.feature.2.sposobnosti-ekzortsista-2-go-urovnya",
@@ -4386,7 +4928,10 @@
       },
       "legacyIds": [
         "censor.feature.3.sposobnost-za-7-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-3/7-wrath-ability",
+      "originalName": "7-Wrath Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 wrath to use."
     },
     {
       "id": "feature.censor.feature.3.uzrite-moi-dela-i-otchaytes",
@@ -4399,7 +4944,10 @@
       },
       "legacyIds": [
         "censor.feature.3.uzrite-moi-dela-i-otchaytes"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-3/look-on-my-work-and-despair",
+      "originalName": "Look On My Work and Despair",
+      "originalDescription": "Your judgment has grown in divine power, instilling fear in those you condemn. Whenever you use your Judgment ability, you can spend 1 wrath, and if the target has P < AVERAGE, they are frightened of you (save ends). Additionally, whenever a creature judged by you is reduced to 0 Stamina and you use Judgment as a free triggered action, if the new target has P < STRONG, they are frightened of you (save ends). If the target is already frightened of you, they instead take holy damage equal to twice your Presence score."
     },
     {
       "id": "feature.censor.feature.4.gnev-za-predelami-gneva",
@@ -4412,7 +4960,10 @@
       },
       "legacyIds": [
         "censor.feature.4.gnev-za-predelami-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/wrath-beyond-wrath",
+      "originalName": "Wrath Beyond Wrath",
+      "originalDescription": "The first time each combat round that you deal damage to a creature judged by you, you gain 2 wrath instead of 1."
     },
     {
       "id": "feature.censor.feature.4.navyk",
@@ -4425,7 +4976,10 @@
       },
       "legacyIds": [
         "censor.feature.4.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
     },
     {
       "id": "feature.censor.feature.4.osobennost-domena-4-go-urovnya",
@@ -4438,7 +4992,10 @@
       },
       "legacyIds": [
         "censor.feature.4.osobennost-domena-4-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/4th-level-domain-feature",
+      "originalName": "4th-Level Domain Feature",
+      "originalDescription": "You gain a domain feature from your domain, as shown on the 4th-Level Censor Domain Features table.\n\n###### 4th-Level Censor Domain Features Table\n\n| Domain                           | Feature                     |\n|----------------------------------|-----------------------------|\n| Creation                         | Improved Hands of the Maker |\n| Death                            | Seance                      |\n| Fate                             | Oracular Warning            |\n| Knowledge                        | Saint's Epiphany            |\n| Life                             | Blessing of Life            |\n| Love                             | Invocation of the Heart     |\n| Nature                           | Wode Road                   |\n| Protection                       | Impervious Touch            |\n| Storm                            | Windwalk                    |\n| Sun                              | Light of Revelation         |\n| Trickery                         | Blessing of Secrets         |\n| War                              | Improved Sanctified Weapon  |"
     },
     {
       "id": "feature.censor.feature.4.perk",
@@ -4451,7 +5008,10 @@
       },
       "legacyIds": [
         "censor.feature.4.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.censor.feature.4.uvelichenie-kharakteristik",
@@ -4464,7 +5024,10 @@
       },
       "legacyIds": [
         "censor.feature.4.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Presence scores each increase to 3."
     },
     {
       "id": "feature.censor.feature.5.osobennost-ordena-5-go-urovnya",
@@ -4477,7 +5040,10 @@
       },
       "legacyIds": [
         "censor.feature.5.osobennost-ordena-5-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-5/5th-level-order-feature",
+      "originalName": "5th-Level Order Feature",
+      "originalDescription": "Your censor order grants you a feature, as shown on the 5th-Level Order Features table.\n\n###### 5th-Level Order Features Table\n\n| Order                    | Feature       |\n|--------------------------|---------------|\n| Exorcist                 | Evil Revealed |\n| Oracle                   | Prophecy      |\n| Paragon                  | Stand Fast!   |"
     },
     {
       "id": "feature.censor.feature.5.sposobnost-za-9-gneva",
@@ -4490,7 +5056,10 @@
       },
       "legacyIds": [
         "censor.feature.5.sposobnost-za-9-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-5/9-wrath-ability",
+      "originalName": "9-Wrath Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 wrath to use."
     },
     {
       "id": "feature.censor.feature.6.orudie-gneva",
@@ -4503,7 +5072,10 @@
       },
       "legacyIds": [
         "censor.feature.6.orudie-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-6/implement-of-wrath",
+      "originalName": "Implement of Wrath",
+      "originalDescription": "Each time you finish a respite, you can choose one hero's weapon, including your own, to channel supernatural power as an implement of your god's wrath. The weapon becomes magic and gains the following benefits until your next respite:\n\n- Strikes with the weapon deal extra holy damage equal to the wielder's highest characteristic score.\n- Any creature struck by the weapon who has holy weakness and has P < STRONG is frightened and weakened (save ends).\n- Any minion targeted by a strike using the weapon dies. That minion's Stamina maximum is removed from the minion Stamina pool before any damage is applied to the rest of the squad.\n- The weapon's wielder can't be made frightened."
     },
     {
       "id": "feature.censor.feature.6.perk",
@@ -4516,7 +5088,10 @@
       },
       "legacyIds": [
         "censor.feature.6.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
     },
     {
       "id": "feature.censor.feature.6.sposobnost-ordena-6-go-urovnya",
@@ -4529,7 +5104,10 @@
       },
       "legacyIds": [
         "censor.feature.6.sposobnost-ordena-6-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-6/6th-level-order-ability",
+      "originalName": "6th-Level Order Ability",
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 6th-Level Exorcist Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Oracle Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Paragon Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.censor.feature.6.sposobnosti-ekzortsista-6-go-urovnya",
@@ -4581,7 +5159,10 @@
       },
       "legacyIds": [
         "censor.feature.7.navyk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
     },
     {
       "id": "feature.censor.feature.7.osobennost-domena-7-go-urovnya",
@@ -4594,7 +5175,10 @@
       },
       "legacyIds": [
         "censor.feature.7.osobennost-domena-7-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/7th-level-domain-feature",
+      "originalName": "7th-Level Domain Feature",
+      "originalDescription": "You gain a domain feature from your domain, as shown on the 7th-Level Censor Domain Features table.\n\n###### 7th-Level Censor Domain Features Table\n\n| Domain     | Feature                      |\n|------------|------------------------------|\n| Creation   | Divine Quartermaster         |\n| Death      | Word of Death Deferred       |\n| Fate       | Word of Fate Denied          |\n| Knowledge  | Gods' Library                |\n| Life       | Font of Grace                |\n| Love       | Covenant of the Heart        |\n| Nature     | Nature's Bounty              |\n| Protection | Blessing of Iron             |\n| Storm      | Ride the Lightning           |\n| Sun        | Light of the Burning Sun     |\n| Trickery   | Trinity of Trickery          |\n| War        | Your Triumphs Are Remembered |"
     },
     {
       "id": "feature.censor.feature.7.sosredotochennyy-gnev",
@@ -4607,7 +5191,10 @@
       },
       "legacyIds": [
         "censor.feature.7.sosredotochennyy-gnev"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/focused-wrath",
+      "originalName": "Focused Wrath",
+      "originalDescription": "When you gain wrath at the start of each of your turns during combat, you gain 3 wrath instead of 2."
     },
     {
       "id": "feature.censor.feature.7.uvelichenie-kharakteristik",
@@ -4620,7 +5207,10 @@
       },
       "legacyIds": [
         "censor.feature.7.uvelichenie-kharakteristik"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-7/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
     },
     {
       "id": "feature.censor.feature.8.osobennost-ordena-8-go-urovnya",
@@ -4633,7 +5223,10 @@
       },
       "legacyIds": [
         "censor.feature.8.osobennost-ordena-8-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/8th-level-order-feature",
+      "originalName": "8th-Level Order Feature",
+      "originalDescription": "Your censor order grants you a feature, as shown on the 8th-Level Order Features table.\n\n###### 8th-Level Order Features Table\n\n| Order                    | Feature             |\n|--------------------------|---------------------|\n| Exorcist                 | Demonologist        |\n| Oracle                   | Their Past Revealed |\n| Paragon                  | Vow                 |"
     },
     {
       "id": "feature.censor.feature.8.perk",
@@ -4646,7 +5239,10 @@
       },
       "legacyIds": [
         "censor.feature.8.perk"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
     },
     {
       "id": "feature.censor.feature.8.sposobnost-za-11-gneva",
@@ -4659,7 +5255,10 @@
       },
       "legacyIds": [
         "censor.feature.8.sposobnost-za-11-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/11-wrath-ability",
+      "originalName": "11-Wrath Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 wrath to use."
     },
     {
       "id": "feature.censor.feature.9.sposobnost-ordena-9-go-urovnya",
@@ -4672,7 +5271,10 @@
       },
       "legacyIds": [
         "censor.feature.9.sposobnost-ordena-9-go-urovnya"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-9/9th-level-order-ability",
+      "originalName": "9th-Level Order Ability",
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 9th-Level Exorcist Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Oracle Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Paragon Abilities\n\nChoose one of the following abilities."
     },
     {
       "id": "feature.censor.feature.9.sposobnosti-ekzortsista-9-go-urovnya",
@@ -4724,7 +5326,10 @@
       },
       "legacyIds": [
         "censor.feature.9.uluchshennoe-orudie-gneva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-9/improved-implement-of-wrath",
+      "originalName": "Improved Implement of Wrath",
+      "originalDescription": "The weapon you target with your Implement of Wrath feature gains the following additional benefits:\n\n- The weapon's wielder and each ally adjacent to them gain a +2 bonus to saving throws.\n- At the end of each of the weapon wielder's turns, each ally adjacent to the wielder makes a saving throw against each effect on them that is ended by a saving throw.\n- The weapon's wielder has corruption immunity 10."
     },
     {
       "id": "feature.censor.order.2.bditelnost-svyatogo",
@@ -4737,7 +5342,10 @@
       },
       "legacyIds": [
         "censor.order.2.bditelnost-svyatogo"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/saints-vigilance",
+      "originalName": "Saint's Vigilance",
+      "originalDescription": "You have honed your ability to detect sin and can use it to find those who hide from justice. Any creature judged by you can't use the Hide maneuver. Additionally, you gain an edge when searching for hidden creatures. If you find a hidden creature, you can use your Judgment ability against them as a free triggered action."
     },
     {
       "id": "feature.censor.order.2.chuvstvo-istiny",
@@ -4750,7 +5358,10 @@
       },
       "legacyIds": [
         "censor.order.2.chuvstvo-istiny"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/a-sense-for-truth",
+      "originalName": "A Sense for Truth",
+      "originalDescription": "You are trained in secret techniques from your order that allow you to discern the truth with supernatural precision. If a creature is of a lower level than you, you automatically know when they are lying, though you don't necessarily know the actual truth behind their lie. Additionally, you gain an edge on tests made to detect lies or hidden motives."
     },
     {
       "id": "feature.censor.order.2.eto-bylo-predskazano",
@@ -4763,7 +5374,10 @@
       },
       "legacyIds": [
         "censor.order.2.eto-bylo-predskazano"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/it-was-foretold",
+      "originalName": "It Was Foretold",
+      "originalDescription": "Your order has trained you to understand fragments of the visions granted to you by your deity, giving you a momentary advantage in challenging situations. At the start of an encounter, you can take one main action before any other creature and before your first turn. Additionally, whenever the Director calls for a montage test, you can make one free test before the montage begins, which counts as an earned success or failure as usual."
     },
     {
       "id": "feature.censor.order.2.nepokolebimyy-simvol",
@@ -4776,7 +5390,10 @@
       },
       "legacyIds": [
         "censor.order.2.nepokolebimyy-simvol"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/stalwart-icon",
+      "originalName": "Stalwart Icon",
+      "originalDescription": "You exhibit a small spark of your deity's power, causing creatures to trust or fear you, depending on what you need. You gain an edge on tests made to intimidate or persuade others."
     },
     {
       "id": "feature.censor.order.2.sudya-kharakterov",
@@ -4789,7 +5406,10 @@
       },
       "legacyIds": [
         "censor.order.2.sudya-kharakterov"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/judge-of-character",
+      "originalName": "Judge of Character",
+      "originalDescription": "Your focus on your fragmentary visions grants divine insight into the world and its creatures beyond your usual senses. Whenever you would make an Intuition test, you can make a Presence test instead."
     },
     {
       "id": "feature.censor.order.2.vesti-za-soboy",
@@ -4802,7 +5422,10 @@
       },
       "legacyIds": [
         "censor.order.2.vesti-za-soboy"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-2/lead-by-example",
+      "originalName": "Lead by Example",
+      "originalDescription": "Your devotion to your deity allows you to take command of the battlefield, letting your allies benefit from your wisdom. While you are adjacent to a creature, your allies gain the benefits of flanking against that creature. Additionally, your allies gain an edge on tests made to aid other creatures with their tests."
     },
     {
       "id": "feature.censor.order.5.prorochestvo",
@@ -4815,7 +5438,10 @@
       },
       "legacyIds": [
         "censor.order.5.prorochestvo"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-5/prophecy",
+      "originalName": "Prophecy",
+      "originalDescription": "You can better sift through the constant fragmentary visions from your deity and act to make them manifest. Each time you earn 1 or more Victories, you can make a number of 2d10 rolls equal to the number of Victories you earned. Record each roll in order. Then whenever you or a creature within 10 squares makes a power roll, you can use a free triggered action to replace the total on the dice with your first recorded roll.\n\nYou discard each roll as it is used, and each time you earn Victories, you add new rolls to the bottom of the list. Any unused rolls are discarded when you finish a respite."
     },
     {
       "id": "feature.censor.order.5.stoy-tverdo",
@@ -4828,7 +5454,10 @@
       },
       "legacyIds": [
         "censor.order.5.stoy-tverdo"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-5/stand-fast",
+      "originalName": "Stand Fast!",
+      "originalDescription": "Your divine spark grows in power, allowing you and your allies to focus and endure. At the start of each of your turns, you can spend 1d6 Stamina to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Any ally who starts their turn within 5 squares of you can also spend Stamina to gain this benefit."
     },
     {
       "id": "feature.censor.order.5.zlo-raskryto",
@@ -4841,7 +5470,10 @@
       },
       "legacyIds": [
         "censor.order.5.zlo-raskryto"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-5/evil-revealed",
+      "originalName": "Evil Revealed",
+      "originalDescription": "Your order has taught you methods to discern the disguises of both mortals and monsters. You automatically see through disguises and illusions created by creatures of your level or lower, and you gain an edge on tests made to see through the disguises and illusions of more powerful creatures. Whenever you see through a creature's disguise or illusion, you can use your Judgment ability against them as a free triggered action."
     },
     {
       "id": "feature.censor.order.8.demonolog",
@@ -4854,7 +5486,10 @@
       },
       "legacyIds": [
         "censor.order.8.demonolog"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/demonologist",
+      "originalName": "Demonologist",
+      "originalDescription": "The most esoteric secrets of your order teach you that to defeat your enemy, you must understand them. You treat your Renown as 2 higher than usual when dealing with demons, devils, and other agents of chaos. If you successfully complete a negotiation with one of these creatures, you gain an edge on power rolls made against them and can use your Judgment ability against them as a free triggered action before an encounter begins."
     },
     {
       "id": "feature.censor.order.8.ikh-proshloe-raskryto",
@@ -4867,7 +5502,10 @@
       },
       "legacyIds": [
         "censor.order.8.ikh-proshloe-raskryto"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/their-past-revealed",
+      "originalName": "Their Past Revealed",
+      "originalDescription": "Your constant fragmentary visions become clearer, and can be honed to understand the past of creatures you interact with. While speaking with any creature, you can make a medium Presence test to see visions from their past. On a success, you see a clear view of any subject related to the creature's past that you wish to understand. On a success with a consequence, you see two visions, one false and one true. On a failure, you lose 2d6 Stamina."
     },
     {
       "id": "feature.censor.order.8.klyatva",
@@ -4880,7 +5518,10 @@
       },
       "legacyIds": [
         "censor.order.8.klyatva"
-      ]
+      ],
+      "originalId": "mcdm.heroes.v1/feature.censor.level-8/vow",
+      "originalName": "Vow",
+      "originalDescription": "Your words take on the power of your deity, with all the authority that entails. If you convince a creature to take an oath, they can't break it for 7 days. If you take an oath, you can't break it for 7 days."
     }
   ]
 }
