@@ -247,20 +247,11 @@
   margin-bottom: var(--space-8);
 }
 
+/* Иллюстрация стоит отдельным блоком над текстом: обтекание сужало
+   колонку правил и сдвигало весь дальнейший текст влево. */
 .codex-article-art {
-  float: right;
-  width: min(38%, 320px);
-  margin: 0 0 var(--space-9) 28px;
-}
-.codex-paging {
-  clear: both;
-}
-@media (max-width: 650px) {
-  .codex-article-art {
-    float: none;
-    width: min(100%, 320px);
-    margin: 0 auto var(--space-9);
-  }
+  width: min(100%, 320px);
+  margin: 0 auto var(--space-9);
 }
 
 /* Library navigation and reading surface */
