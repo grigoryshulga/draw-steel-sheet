@@ -109,6 +109,102 @@ export const THEMES: AppTheme[] = [
       cyan: "#52e0b0", blue: "#8ec8f5", magenta: "#c19bf2", brown: "#c9a06b",
     },
   },
+  {
+    // Истинный чёрный для OLED: максимальный контраст, статусные цвета яркие.
+    name: "Чёрный бархат",
+    mode: "dark",
+    colors: {
+      background: "#000000", darker_background: "#000000", lighter_background: "#16161a",
+      foreground: "#e8e8ec", bright_foreground: "#ffffff", dark_foreground: "#9c9ca6",
+      accent: "#82aaff", selection: "#26262e", selection_foreground: "#0a0a0a",
+      red: "#ff6b6b", orange: "#ffb36b", yellow: "#ffe066", green: "#69db7c",
+      cyan: "#4dd7d0", blue: "#82aaff", magenta: "#e29aff", brown: "#d0a06a",
+    },
+  },
+  {
+    // Палитра Nord; красный и коричневый слегка осветлены ради WCAG AA.
+    name: "Полярная ночь",
+    mode: "dark",
+    colors: {
+      background: "#2e3440", darker_background: "#232831", lighter_background: "#3b4252",
+      foreground: "#eceff4", bright_foreground: "#f8fafc", dark_foreground: "#b9c4d4",
+      accent: "#88c0d0", selection: "#434c5e", selection_foreground: "#2e3440",
+      red: "#f09999", orange: "#eab886", yellow: "#ead9a0", green: "#a3be8c",
+      cyan: "#8fbcbb", blue: "#96b3d3", magenta: "#c9a8c4", brown: "#ceac8a",
+    },
+  },
+  {
+    // Палитра Rose Pine; зелёный и синий подобраны в тон — во флэйворе их нет.
+    name: "Лунная роза",
+    mode: "dark",
+    colors: {
+      background: "#191724", darker_background: "#131120", lighter_background: "#1f1d2e",
+      foreground: "#e0def4", bright_foreground: "#f4f2fe", dark_foreground: "#908caa",
+      accent: "#ebbcba", selection: "#403d52", selection_foreground: "#191724",
+      red: "#eb6f92", orange: "#f6c177", yellow: "#f0d29b", green: "#9ed4a3",
+      cyan: "#9ccfd8", blue: "#a9b8e8", magenta: "#c4a7e7", brown: "#d4a98c",
+    },
+  },
+  {
+    // Палитра Synthwave '84; красный чуть ярче канона ради WCAG AA.
+    name: "Неоновый драйв",
+    mode: "dark",
+    colors: {
+      background: "#1a1721", darker_background: "#14111c", lighter_background: "#2a2338",
+      foreground: "#efeaff", bright_foreground: "#ffffff", dark_foreground: "#a99fc0",
+      accent: "#ff7edb", selection: "#34294f", selection_foreground: "#1a1721",
+      red: "#ff5d68", orange: "#ffb469", yellow: "#fede5d", green: "#72f1b8",
+      cyan: "#36f9f6", blue: "#7aa2ff", magenta: "#f97ffb", brown: "#d5a46f",
+    },
+  },
+  {
+    // Палитра Solarized Dark; текст и статусы заметно осветлены — канон темнее AA.
+    name: "Медный закат",
+    mode: "dark",
+    colors: {
+      background: "#002b36", darker_background: "#001e26", lighter_background: "#073642",
+      foreground: "#a8b6b6", bright_foreground: "#eee8d5", dark_foreground: "#a5b4b4",
+      accent: "#d6a312", selection: "#0d4653", selection_foreground: "#002b36",
+      red: "#ff6b61", orange: "#f4793f", yellow: "#d6a312", green: "#b3cf50",
+      cyan: "#3fc1b3", blue: "#4aa8e0", magenta: "#ef6eab", brown: "#d19a6c",
+    },
+  },
+  {
+    // Деловой минимал-лайт в духе GitHub Primer.
+    name: "Чистый лист",
+    mode: "light",
+    colors: {
+      background: "#ffffff", darker_background: "#eff2f5", lighter_background: "#f6f8fa",
+      foreground: "#1f2328", bright_foreground: "#000000", dark_foreground: "#59636e",
+      accent: "#0969da", selection: "#ddf4ff", selection_foreground: "#ffffff",
+      red: "#cf222e", orange: "#bc4c00", yellow: "#956400", green: "#1a7f37",
+      cyan: "#1b7c83", blue: "#0969da", magenta: "#8250df", brown: "#953800",
+    },
+  },
+  {
+    // Catppuccin Latte — светлая пара к Моче; тёплые статусы затемнены ради AA.
+    name: "Утренний латте",
+    mode: "light",
+    colors: {
+      background: "#eff1f5", darker_background: "#dce0e8", lighter_background: "#e6e9ef",
+      foreground: "#4c4f69", bright_foreground: "#232433", dark_foreground: "#5f6278",
+      accent: "#8437e8", selection: "#ccd0e5", selection_foreground: "#ffffff",
+      red: "#c30d35", orange: "#a94c0c", yellow: "#7e6419", green: "#2c761d",
+      cyan: "#237171", blue: "#2b5fd9", magenta: "#7a2fa8", brown: "#7a4a1f",
+    },
+  },
+  {
+    // Палитра Everforest; красный, синий, розовый и коричневый чуть светлее канона ради AA.
+    name: "Хвойный лес",
+    mode: "dark",
+    colors: {
+      background: "#2b3339", darker_background: "#252c31", lighter_background: "#3a464c",
+      foreground: "#d3c6aa", bright_foreground: "#f2efdf", dark_foreground: "#b5c0b7",
+      accent: "#a7c080", selection: "#454f55", selection_foreground: "#2b3339",
+      red: "#f09da3", orange: "#f0a97e", yellow: "#dbbc7f", green: "#a7c080",
+      cyan: "#8fc9be", blue: "#92b8cb", magenta: "#daa5be", brown: "#d1ae7e",
+    },
+  },
 ];
 
 export function readThemeChoice(): ThemeChoice {
