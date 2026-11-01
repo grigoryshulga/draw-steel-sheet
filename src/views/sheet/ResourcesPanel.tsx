@@ -218,9 +218,6 @@ function ResourceGains({
                 {" · "}
                 {gain.frequency}
               </span>
-              {gain.used && (
-                <span className="resource-gain-state">отмечено</span>
-              )}
               <Button
                 size="sm"
                 variant={gain.used ? "ghost" : "soft"}
