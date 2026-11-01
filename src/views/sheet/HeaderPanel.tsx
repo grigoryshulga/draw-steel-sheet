@@ -1,10 +1,9 @@
-import { Button } from "../../components/ui";
 import { useApp } from "../../state/AppContext";
 import { HeaderDomainChoices } from "./HeaderDomainChoices";
 import { codexIndex, codexLink } from "../../rules/codex-navigation";
 
 export function HeaderPanel() {
-  const { character, goTo } = useApp();
+  const { character } = useApp();
   const classArticle = codexIndex.find(
     (a) => a.group === character.className && /1-й Уровень/.test(a.title),
   );
@@ -75,15 +74,6 @@ export function HeaderPanel() {
             <HeaderDomainChoices key={character.id} />
           </div>
         </div>
-        <Button
-          size="sm"
-          variant="ghost"
-          icon="edit"
-          className="sheet-edit-button"
-          onClick={() => goTo("development")}
-        >
-          Редактировать героя
-        </Button>
       </div>
     </header>
   );

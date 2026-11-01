@@ -1,9 +1,9 @@
 import type { KeyboardEvent, ReactNode } from "react";
+import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 import type { Ability, Character } from "../types";
 import {
   AbilityBody,
   AbilityTags,
-  abilityRollSummary,
 } from "./rules/AbilitySheet";
 import { abilityCardView } from "./rules/abilityCardView";
 import "./AbilityCard.css";
@@ -67,7 +67,7 @@ export function AbilityCard({
         : {})}
     >
       <header className="sheet-ability-card-head">
-        <h4>
+        <h4 title={ability.name || "Без названия"}>
           {onOpen ? (
             <button
               type="button"
@@ -87,17 +87,14 @@ export function AbilityCard({
         <AbilityTags view={view} />
       </header>
 
+      {ability.trigger && (
+        <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
+      )}
       <AbilityBody view={view} full={full} />
 
       {details}
 
-      <footer className="sheet-ability-footer">
-        <span title="Бросок силы">
-          <em>Бросок</em> {abilityRollSummary(ability)}
-        </span>
-        {ability.trigger && (
-          <span className="sheet-ability-trigger">триггер</span>
-        )}
+      {footerAction && <footer className="sheet-ability-footer">
         {footerAction && (
           <span
             onClick={(event) => event.stopPropagation()}
@@ -106,7 +103,7 @@ export function AbilityCard({
             {footerAction}
           </span>
         )}
-      </footer>
+      </footer>}
     </article>
   );
 }

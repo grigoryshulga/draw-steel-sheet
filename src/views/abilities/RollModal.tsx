@@ -236,7 +236,7 @@ export function RollModal({ ability, character, onClose }: RollModalProps) {
       {ability.trigger && (
         <div className="ability-use-trigger">
           <strong>Триггер</strong>
-          <RichText text={ability.trigger} />
+          <RichText characteristicGlyphs text={ability.trigger} />
         </div>
       )}
       <div className="abil-roll-layout">
@@ -465,7 +465,7 @@ export function RollModal({ ability, character, onClose }: RollModalProps) {
                   </div>
                 )}
                 {tier?.effect && (
-                  <RichText text={tier.effect} className="abil-tier-effect" />
+                  <RichText characteristicGlyphs text={tier.effect} className="abil-tier-effect" />
                 )}
               </div>
             </>
@@ -497,13 +497,13 @@ export function RollModal({ ability, character, onClose }: RollModalProps) {
       {ability.effect && (
         <div className="ability-use-effect">
           <span className="eyebrow">Эффект</span>
-          <RichText text={ability.effect} />
+          <RichText characteristicGlyphs text={ability.effect} />
         </div>
       )}
       {ability.notes && (
         <details className="ability-use-notes">
           <summary>Заметки к способности</summary>
-          <RichText text={ability.notes} />
+          <RichText characteristicGlyphs text={ability.notes} />
         </details>
       )}
     </Modal>

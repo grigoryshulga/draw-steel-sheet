@@ -263,23 +263,6 @@
   color: var(--muted);
 }
 
-.sheet-ability-detail-facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-4);
-}
-
-.sheet-ability-detail-facts > div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-4) var(--space-5);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
-  font-size: var(--text-md);
-}
-
 .sheet-ability-detail-block {
   display: flex;
   flex-direction: column;
@@ -308,12 +291,9 @@
 .sheet-ability-detail-tier {
   --tier-color: var(--tier2);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
   gap: var(--space-3);
-  padding: var(--space-5) var(--space-6);
-  border: 1px solid color-mix(in srgb, var(--tier-color) 30%, var(--line));
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--tier-color) 5%, var(--surface-2));
   font-size: var(--text-md);
 }
 
@@ -338,7 +318,7 @@
 
 .sheet-ability-detail-range {
   font-size: var(--text-sm);
-  color: var(--muted);
+  color: var(--tier-color);
 }
 
 .sheet-ability-cost.is-paid {

@@ -55,9 +55,7 @@ export function ProjectsPanel() {
       actions={
         <>
           <a href="#/catalog/project">Каталог проектов</a>
-          <Button size="sm" variant="soft" icon="plus" onClick={addProject}>
-            Добавить проект
-          </Button>
+          <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить проект" title="Добавить проект" onClick={addProject} />
         </>
       }
     >

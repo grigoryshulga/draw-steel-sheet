@@ -127,9 +127,7 @@ export function SheetPerksPanel() {
         icon="spark"
         className="sheet-perks-panel"
         actions={
-          <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("development")}>
-            Изменить
-          </Button>
+          <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить перки" title="Изменить перки" onClick={() => goTo("development")} />
         }
       >
         <div className="perk-card-grid">

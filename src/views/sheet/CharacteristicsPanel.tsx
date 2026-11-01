@@ -1,10 +1,12 @@
 import { Field, Panel, Stepper, TextInput } from "../../components/ui";
+import { CharacteristicGlyph } from "../../components/CharacteristicGlyph";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { effectiveCharacteristics } from "../../lib/feature-modifiers";
 import { useApp } from "../../state/AppContext";
 import { StatBreakdown } from "./StatBreakdown";
+import "./CharacteristicsPanel.css";
 
 /** Пять характеристик с тестами и порогами тиров. */
 export function CharacteristicsPanel() {
@@ -48,7 +50,10 @@ export function CharacteristicsPanel() {
           return (
             <div className="stat-card" key={meta.key}>
               <div className="stat-card-head">
-                <span className="stat-name">{meta.label}</span>
+                <span className="stat-name-with-glyph">
+                  <span aria-hidden="true"><CharacteristicGlyph characteristic={meta.key} /></span>
+                  <span className="stat-name">{meta.label}</span>
+                </span>
                 {bonus !== 0 && (
                   <span
                     className="stat-effective"

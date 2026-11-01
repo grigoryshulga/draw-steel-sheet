@@ -1,3 +1,4 @@
+import { CharacteristicGlyphText } from "../CharacteristicGlyph";
 import type { RuleEntity, RuleEntityKind } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
 import type { ArtAsset } from "../../lib/art";
@@ -117,7 +118,7 @@ export function RuleEntityView({
           {ability.trigger && (
             <p className="rule-ability-trigger">
               <strong className="rule-ability-trigger-label">Триггер:</strong>{" "}
-              {ability.trigger}
+              <CharacteristicGlyphText text={ability.trigger} />
             </p>
           )}
         </article>

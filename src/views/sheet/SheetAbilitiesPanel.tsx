@@ -1,18 +1,18 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
+import { AbilityFacts } from "../../components/rules/AbilitySheet";
+import { abilityCardView } from "../../components/rules/abilityCardView";
+import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
-import { TierBadge } from "../../components/TierBadge";
 import { RollModal } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Modal, Panel, Select } from "../../components/ui";
 import { RichText } from "../../components/RichText";
-import { actionLabel, kindLabel } from "../../data/actions";
-import { abilityDistance } from "../../lib/character-calculations";
+import { kindLabel } from "../../data/actions";
 import {
-  characteristicShort,
   evaluateAbilityDamage,
   TIER_ROLL_RANGES,
   type Tier,
@@ -21,16 +21,9 @@ import { inferDamageType } from "../../lib/damageType";
 import { useApp } from "../../state/AppContext";
 import type { Ability } from "../../types";
 import {
-  TierRequirementSummary,
   blankAbility,
   kindTone,
-  rollSummary,
 } from "../abilities/shared";
-import {
-  abilityTierRequirements,
-  preferredCharacteristic,
-  tierRequirementText,
-} from "../../lib/abilities";
 import {
   BASIC_ABILITY_SOURCE,
   abilityFilterOptions,
@@ -261,10 +254,11 @@ export function SheetAbilitiesPanel() {
             size="sm"
             variant="soft"
             icon="plus"
+            iconOnly
+            aria-label="Добавить способность"
+            title="Добавить способность"
             onClick={() => setAddMode("catalog")}
-          >
-            Добавить способность
-          </Button>
+          />
         }
       >
         {sheetAbilities.length === 0 && ancestryChoices.length === 0 ? (
@@ -527,7 +521,6 @@ function AbilityDetailModal({
   const origin =
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
-  const requirements = abilityTierRequirements(ability, character);
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
     .filter((tier) => tier.damage || tier.effect);
@@ -603,54 +596,20 @@ function AbilityDetailModal({
         </div>
 
         {ability.flavor && (
-          <p className="sheet-ability-detail-flavor">{ability.flavor}</p>
+          <p className="sheet-ability-detail-flavor"><CharacteristicGlyphText text={ability.flavor} /></p>
         )}
 
-        <div className="sheet-ability-detail-facts">
-          <div>
-            <span className="eyebrow">Дистанция</span>
-            <span>{abilityDistance(ability, character) || "—"}</span>
-          </div>
-          <div>
-            <span className="eyebrow">Цель</span>
-            <span>{ability.target || "—"}</span>
-          </div>
-          <div>
-            <span className="eyebrow">Бросок силы</span>
-            <span className="mono">{rollSummary(ability)}</span>
-          </div>
-          {preferredCharacteristic(ability) && (
-            <div>
-              <span className="eyebrow">Предпочтительная</span>
-              <span className="mono">
-                {characteristicShort(preferredCharacteristic(ability)!)}
-              </span>
-            </div>
-          )}
-          <div>
-            <span className="eyebrow">Стоимость</span>
-            <span>
-              {ability.resourceCost > 0
-                ? `${ability.resourceCost} ресурса`
-                : "—"}
-            </span>
-          </div>
-          <div>
-            <span className="eyebrow">Тип действия</span>
-            <span>{actionLabel(ability.actionType)}</span>
-          </div>
-        </div>
+        <AbilityFacts view={abilityCardView(ability, character)} />
 
         {ability.trigger && (
           <div className="sheet-ability-detail-block sheet-ability-detail-trigger">
             <span className="eyebrow">Триггер</span>
-            <RichText text={ability.trigger} />
+            <RichText characteristicGlyphs text={ability.trigger} />
           </div>
         )}
 
         {tiers.length > 0 && (
           <>
-            <TierRequirementSummary ability={ability} character={character} />
             <div className="sheet-ability-detail-tiers">
               {tiers.map((tier) => {
                 const damage = evaluateAbilityDamage(
@@ -665,11 +624,8 @@ function AbilityDetailModal({
                     key={tier.tier}
                   >
                     <div className="sheet-ability-detail-tier-head">
-                      <TierBadge tier={tier.tier} size="md" />
-                      <span className="sheet-ability-detail-range mono">
-                        {requirements
-                          ? tierRequirementText(requirements, tier.tier)
-                          : TIER_ROLL_RANGES[tier.tier]}
+                      <span className="sheet-ability-detail-range" title="Диапазон суммы броска силы" aria-label={TIER_ROLL_RANGES[tier.tier]}>
+                        <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
                       </span>
                       {tier.damage && (
                         <DamageChip
@@ -678,7 +634,7 @@ function AbilityDetailModal({
                         />
                       )}
                     </div>
-                    {tier.effect && <RichText text={tier.effect} />}
+                    {tier.effect && <RichText characteristicGlyphs text={tier.effect} />}
                   </div>
                 );
               })}
@@ -689,14 +645,14 @@ function AbilityDetailModal({
         {ability.effect && (
           <div className="sheet-ability-detail-block">
             <span className="eyebrow">Эффект</span>
-            <RichText text={ability.effect} />
+            <RichText characteristicGlyphs text={ability.effect} />
           </div>
         )}
 
         {ability.notes && (
           <div className="sheet-ability-detail-block sheet-ability-detail-notes">
             <span className="eyebrow">Заметки</span>
-            <RichText text={ability.notes} />
+            <RichText characteristicGlyphs text={ability.notes} />
           </div>
         )}
       </div>

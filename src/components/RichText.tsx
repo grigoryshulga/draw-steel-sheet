@@ -1,7 +1,8 @@
 import { Fragment, type ReactNode } from "react";
+import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 
 /** Текст с абзацами, переносами и маркированными списками. */
-export function RichText({ text, className = "" }: { text: string; className?: string }) {
+export function RichText({ text, className = "", characteristicGlyphs = false }: { text: string; className?: string; characteristicGlyphs?: boolean }) {
   const blocks = text
     .replace(/\r\n/g, "\n")
     .trim()
@@ -11,13 +12,13 @@ export function RichText({ text, className = "" }: { text: string; className?: s
   return (
     <div className={`rich-text ${className}`.trim()}>
       {blocks.map((block, index) => (
-        <TextBlock key={index} text={block} />
+        <TextBlock key={index} text={block} characteristicGlyphs={characteristicGlyphs} />
       ))}
     </div>
   );
 }
 
-function TextBlock({ text }: { text: string }) {
+function TextBlock({ text, characteristicGlyphs }: { text: string; characteristicGlyphs: boolean }) {
   const lines = text.split("\n");
   const parts: ReactNode[] = [];
   let paragraph: string[] = [];
@@ -30,7 +31,7 @@ function TextBlock({ text }: { text: string }) {
         {paragraph.map((line, index) => (
           <Fragment key={index}>
             {index > 0 && <br />}
-            {line}
+            {characteristicGlyphs ? <CharacteristicGlyphText text={line} /> : line}
           </Fragment>
         ))}
       </p>,
@@ -43,7 +44,7 @@ function TextBlock({ text }: { text: string }) {
     parts.push(
       <ul key={`ul-${parts.length}`}>
         {list.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>{characteristicGlyphs ? <CharacteristicGlyphText text={item} /> : item}</li>
         ))}
       </ul>,
     );

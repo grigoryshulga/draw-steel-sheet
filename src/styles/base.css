@@ -91,18 +91,6 @@ pre {
   font-family: var(--font-code);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(900px 520px at 8% -8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 68%),
-    radial-gradient(800px 560px at 104% -2%, color-mix(in srgb, var(--magenta) 7%, transparent), transparent 70%),
-    linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg-deep) 60%, transparent) 80%);
-}
-
 ::selection {
   background: color-mix(in srgb, var(--accent) 35%, transparent);
   color: var(--fg-bright);
