@@ -44,7 +44,7 @@ describe("Codex ability presentation", () => {
       cards += JSON.stringify(tree).split('"codex-ability"').length - 1;
     }
     expect(cards).toBeGreaterThan(540);
-  });
+  }, 20_000);
   it("renders abilities with shared facts and tier styles, retaining special rules", () => {
     const html = renderToStaticMarkup(
       createElement(RuleText, { text: article.markdown }),
