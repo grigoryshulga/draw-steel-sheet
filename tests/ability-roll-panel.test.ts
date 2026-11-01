@@ -42,7 +42,7 @@ describe("подготовка применения способности", () 
     expect(html).toContain('aria-label="Бросок силы"');
     expect(html).toContain("Бросить 2d10");
     expect(html).toContain('role="switch" aria-checked="true" aria-label="Бросок в приложении"');
-    expect(html).toContain("Вручную");
+    expect(html).not.toContain("Вручную");
     expect(html).toContain("В приложении");
     expect(html).toMatch(/<button[^>]*disabled[^>]*>Применить<\/button>/);
     expect(html).not.toContain("abil-roll-result");

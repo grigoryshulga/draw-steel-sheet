@@ -216,7 +216,6 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
               <div className="ability-roll-choice">
                 <span className="field-label">Кубики</span>
                 <div className="ability-roll-source">
-                  <span data-active={source === "physical"}>Вручную</span>
                   <Toggle
                     checked={source === "digital"}
                     label="Бросок в приложении"
@@ -225,7 +224,7 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
                       setDice(null);
                     }}
                   />
-                  <span data-active={source === "digital"}>В приложении</span>
+                  <span>{source === "digital" ? "В приложении" : "Вручную"}</span>
                 </div>
               </div>
               {characteristics.length > 1 && (
