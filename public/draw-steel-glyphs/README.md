@@ -1,0 +1,1 @@
+Draw Steel Glyphs Font © 2025 MCDM Productions, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). SVGs are adapted from the font by Kevin Dion and licensed under CC BY-SA 4.0. See FontLicense.txt and LICENSE.txt.

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { abilityFromTemplate, BASIC_ABILITIES } from "../src/data/templates";
+import { abilityCardView } from "../src/components/rules/abilityCardView";
 import { createCharacter } from "../src/lib/defaults";
 import {
   abilityTierRequirements,
@@ -66,5 +67,32 @@ describe("способности: пороги тиров", () => {
     const ability = abilityFromTemplate(BASIC_ABILITIES[2]);
     expect(ability.rollCharacteristics).toEqual([]);
     expect(abilityTierRequirements(ability, testCharacter())).toBeNull();
+  });
+});
+
+
+describe("карточка способности: бросок силы", () => {
+  it("сохраняет стандартные диапазоны и показывает полный бонус выбранной характеристики", () => {
+    const ability = abilityFromTemplate(BASIC_ABILITIES[0]);
+    ability.rollCharacteristics = ["might", "reason"];
+    ability.preferredCharacteristic = "reason";
+    ability.rollBonus = 1;
+    ability.tiers = [
+      { damage: "1", effect: "" },
+      { damage: "2", effect: "" },
+      { damage: "3", effect: "" },
+    ];
+    const view = abilityCardView(ability, testCharacter());
+    expect(view.tiers.map((tier) => tier.range)).toEqual(["≤ 11", "12–16", "17+"]);
+    expect(view.roll).toEqual({ characteristic: "reason", bonus: 4 });
+    expect(view.facts.find((fact) => fact.label === "Бросок")).toMatchObject({
+      value: "+4 · или М",
+      title: "Бросок силы: Р +4; также М",
+    });
+  });
+
+  it("не показывает бонус для способности без броска", () => {
+    const ability = abilityFromTemplate(BASIC_ABILITIES[2]);
+    expect(abilityCardView(ability, testCharacter()).roll).toBeNull();
   });
 });

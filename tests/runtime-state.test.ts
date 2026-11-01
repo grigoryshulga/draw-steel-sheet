@@ -127,6 +127,29 @@ describe("runtime state", () => {
 });
 
 describe("runtime game actions", () => {
+  it("начинает и завершает битву, сохраняя состояние и позволяя отмену", () => {
+    const session = createGameSession();
+    const original = markTrigger(beginRound(hero()), "f1", true);
+    const started = session.perform(original, { kind: "combat-start" }, "combat-start");
+    expect(started.ok).toBe(true);
+    if (!started.ok) return;
+    expect(started.next.runtime).toMatchObject({ combatActive: true, round: 1, encounter: 2, triggers: {} });
+    expect(normalizeCharacter(started.next).runtime?.combatActive).toBe(true);
+    expect(previewGameAction(started.next, { kind: "combat-start" }).ok).toBe(false);
+
+    const ended = session.perform(started.next, { kind: "combat-end" }, "combat-end");
+    expect(ended.ok).toBe(true);
+    if (!ended.ok) return;
+    expect(ended.next.runtime?.combatActive).toBe(false);
+    expect(normalizeCharacter(ended.next).runtime?.combatActive).toBe(false);
+    expect(previewGameAction(ended.next, { kind: "combat-end" }).ok).toBe(false);
+    const undoEnd = session.undo(ended.next);
+    expect(undoEnd.ok && undoEnd.next.runtime?.combatActive).toBe(true);
+    if (!undoEnd.ok) return;
+    const undoStart = session.undo(undoEnd.next);
+    expect(undoStart.ok && undoStart.next.runtime).toEqual(original.runtime);
+  });
+
   it("отметка триггера проходит через журнал действий и отменяется", () => {
     const character = hero();
     const preview = previewGameAction(character, {

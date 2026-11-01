@@ -1534,6 +1534,10 @@
   color: var(--accent);
 }
 
+.sheet-view .sheet-ability-card[data-basic="true"]:hover h4 {
+  color: var(--fg-bright);
+}
+
 .sheet-view .sheet-ability-card:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: 2px;
@@ -1559,7 +1563,7 @@
 }
 
 .sheet-view .sheet-ability-card:hover {
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+  background: color-mix(in srgb, var(--card-color) 4%, var(--surface-2));
 }
 
 .sheet-view .sheet-perk-card {
@@ -1580,10 +1584,10 @@
   border-radius: 0;
 }
 
-/* Больше пространства между тировыми исходами */
+/* Компактный список исходов на листе. */
 .sheet-ability-tiers {
-  gap: var(--space-5);
-  padding: var(--space-5) 0;
+  gap: var(--space-2);
+  padding: 0;
 }
 
 .sheet-ability-tier {
@@ -1633,10 +1637,9 @@
   }
 }
 
-/* Карточки способностей: одна ширина и одна высота в пределах секции —
-   сетка выглядит ровной, как просил игрок. */
+/* Карточки выравниваются по самой высокой в своей строке. */
 .sheet-view .sheet-ability-grid {
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
   align-items: stretch;
 }
 

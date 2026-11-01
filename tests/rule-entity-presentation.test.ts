@@ -140,9 +140,8 @@ describe("RuleEntityView: одна полная карточка способн�
     expect(html).toContain("Одно существо");
     expect(html).toContain("sheet-ability-keyword");
     expect(html).toContain("Магия");
-    expect(html).toContain(
-      `<em>Бросок</em> ${characteristicShort("might")} +1`,
-    );
+    expect(html).toContain(`aria-label="${characteristicShort("might")}"`);
+    expect(html).toContain(" +1");
 
     // Карточка полная: у каждого тира есть и урон, и эффект.
     for (const tier of [1, 2, 3]) {
@@ -386,6 +385,7 @@ describe("RuleEntityView: одна полная карточка способн�
     );
 
     expect(html).toContain("Базовая");
+    expect(html).toContain('data-basic="true"');
   });
 
   it("подписи броска и тиров совпадают с правилами листа", () => {
@@ -398,9 +398,8 @@ describe("RuleEntityView: одна полная карточка способн�
           }),
         }),
       );
-      expect(html).toContain(
-        `<em>Бросок</em> ${characteristicShort(key)} +2`,
-      );
+      expect(html).toContain(`aria-label="${characteristicShort(key)}"`);
+      expect(html).toContain(" +2");
     }
 
     const html = renderEntity(abilityEntity());
@@ -638,8 +637,19 @@ describe("AbilityCard: совместимость с листом", () => {
     expect(html).toContain('data-tier="1"');
     expect(html).toContain("sheet-ability-body");
     expect(html).toContain("Первый эффект.");
-    expect(html).toContain("sheet-ability-footer");
+    expect(html).toContain("sheet-ability-fact");
     expect(html).toContain("Бросок");
+  });
+
+  it("помечает базовую способность независимо от типа действия", () => {
+    for (const actionType of ["main", "maneuver", "trigger", "free-trigger", "free-maneuver", "move", "none"] as const) {
+      const html = renderToStaticMarkup(createElement(AbilityCard, {
+        ability: abilityFixture({ source: BASIC_ABILITY_SOURCE, actionType }),
+        character: createCharacter({ name: "Герой" }),
+      }));
+      expect(html).toContain(`data-action="${actionType}"`);
+      expect(html).toContain('data-basic="true"');
+    }
   });
 
   it("использует те же части презентации, что и чтение правил", () => {

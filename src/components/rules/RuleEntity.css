@@ -24,8 +24,8 @@
 
 .rule-entity-head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-4) var(--space-7);
   /* Снятый дубль заголовка оставляет свой id на этом блоке: оглавление
@@ -154,9 +154,6 @@
     padding-top: var(--space-6);
   }
 
-  .rule-entity-head {
-    flex-direction: column;
-  }
 
   /* Поля карточки подстраиваются под padding статьи на узком экране
      (CodexView.css: --space-8 --space-7), чтобы «выписка» не упиралась в рамку. */

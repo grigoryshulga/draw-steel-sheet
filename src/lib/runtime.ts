@@ -22,6 +22,7 @@ export function currentRuntime(character: Character): CharacterRuntime {
   return {
     round: runtime.round,
     encounter: runtime.encounter,
+    ...(typeof runtime.combatActive === "boolean" ? { combatActive: runtime.combatActive } : {}),
     triggers: runtime.triggers,
     forms: runtime.forms,
     resources: runtime.resources,

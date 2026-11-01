@@ -1,18 +1,18 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
+import { AbilityFacts } from "../../components/rules/AbilitySheet";
+import { abilityCardView } from "../../components/rules/abilityCardView";
+import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
-import { TierBadge } from "../../components/TierBadge";
-import { RollModal } from "../abilities/RollModal";
+import { AbilityRollPanel } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Modal, Panel, Select } from "../../components/ui";
 import { RichText } from "../../components/RichText";
-import { actionLabel, kindLabel } from "../../data/actions";
-import { abilityDistance } from "../../lib/character-calculations";
+import { kindLabel } from "../../data/actions";
 import {
-  characteristicShort,
   evaluateAbilityDamage,
   TIER_ROLL_RANGES,
   type Tier,
@@ -21,16 +21,9 @@ import { inferDamageType } from "../../lib/damageType";
 import { useApp } from "../../state/AppContext";
 import type { Ability } from "../../types";
 import {
-  TierRequirementSummary,
   blankAbility,
   kindTone,
-  rollSummary,
 } from "../abilities/shared";
-import {
-  abilityTierRequirements,
-  preferredCharacteristic,
-  tierRequirementText,
-} from "../../lib/abilities";
 import {
   BASIC_ABILITY_SOURCE,
   abilityFilterOptions,
@@ -63,6 +56,26 @@ const AbilityPicker = lazy(() =>
 
 /** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
 type AddMode = "catalog" | "templates" | "custom" | null;
+
+function CardSummaryToggle({ label, compact, onToggle }: {
+  label: string;
+  compact: boolean;
+  onToggle: () => void;
+}) {
+  const action = compact ? "Развернуть карточки" : "Свернуть карточки до заголовков";
+  return (
+    <button
+      type="button"
+      className="sheet-ability-summary-toggle"
+      aria-label={`${action}: ${label}`}
+      aria-expanded={!compact}
+      title={action}
+      onClick={onToggle}
+    >
+      <Icon name={compact ? "plus" : "minus"} size={14} />
+    </button>
+  );
+}
 
 /** Выбор способности, которую выдаёт черта происхождения (например, дар Рейдера Времени). */
 function AncestryFeatureChoices() {
@@ -109,9 +122,9 @@ function AncestryFeatureChoices() {
 export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
-  const [using, setUsing] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+  const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
   const [passivesCollapsed, setPassivesCollapsed] = useState(false);
@@ -191,22 +204,19 @@ export function SheetAbilitiesPanel() {
         ancestryAbilitySource(ancestrySources, ability)
       }
       onOpen={() => openAbility(ability)}
-      footerAction={
-        <Button
-          size="sm"
-          variant="soft"
-          icon="abilities"
-          aria-label={`Использовать: ${ability.name}`}
-          onClick={() => setUsing(ability)}
-        >
-          Использовать
-        </Button>
-      }
+      openOnCardClick
     />
   );
 
   const toggleGroup = (key: string) =>
     setCollapsed((current) => {
+      const next = new Set(current);
+      if (!next.delete(key)) next.add(key);
+      return next;
+    });
+
+  const toggleCardSummary = (key: string) =>
+    setCompactSections((current) => {
       const next = new Set(current);
       if (!next.delete(key)) next.add(key);
       return next;
@@ -261,10 +271,11 @@ export function SheetAbilitiesPanel() {
             size="sm"
             variant="soft"
             icon="plus"
+            iconOnly
+            aria-label="Добавить способность"
+            title="Добавить способность"
             onClick={() => setAddMode("catalog")}
-          >
-            Добавить способность
-          </Button>
+          />
         }
       >
         {sheetAbilities.length === 0 && ancestryChoices.length === 0 ? (
@@ -282,31 +293,50 @@ export function SheetAbilitiesPanel() {
           <div className="sheet-ability-sections">
             <AncestryFeatureChoices />
             {sheetAbilities.length > 0 && (
-              <div className="sheet-ability-search">
-                <Icon name="search" size={15} />
-                <input
-                  type="search"
-                  value={query}
-                  autoComplete="off"
-                  placeholder="Поиск по названию, эффекту, триггеру…"
-                  aria-label="Поиск по способностям"
-                  onChange={(event) => setQuery(event.target.value)}
-                />
-                {hasQuery && (
-                  <>
-                    <span className="sheet-ability-search-count mono">
-                      {totalMatches} из {totalVisible}
-                    </span>
-                    <button
-                      type="button"
-                      className="sheet-ability-search-clear"
-                      aria-label="Очистить поиск"
-                      title="Очистить поиск"
-                      onClick={() => setQuery("")}
-                    >
-                      <Icon name="close" size={13} />
-                    </button>
-                  </>
+              <div className="sheet-ability-toolbar">
+                <div className="sheet-ability-search">
+                  <Icon name="search" size={15} />
+                  <input
+                    type="search"
+                    value={query}
+                    autoComplete="off"
+                    placeholder="Поиск по названию, эффекту, триггеру…"
+                    aria-label="Поиск по способностям"
+                    onChange={(event) => setQuery(event.target.value)}
+                  />
+                  {hasQuery && (
+                    <>
+                      <span className="sheet-ability-search-count mono">
+                        {totalMatches} из {totalVisible}
+                      </span>
+                      <button
+                        type="button"
+                        className="sheet-ability-search-clear"
+                        aria-label="Очистить поиск"
+                        title="Очистить поиск"
+                        onClick={() => setQuery("")}
+                      >
+                        <Icon name="close" size={13} />
+                      </button>
+                    </>
+                  )}
+                </div>
+                {hasFilter && (
+                  <Select
+                    className="sheet-ability-filter"
+                    aria-label="Фильтр способностей по виду"
+                    value={activeFilter}
+                    onChange={(event) => {
+                      const option = filterOptions.find((item) => item.key === event.target.value);
+                      if (option) setFilter(option.key);
+                    }}
+                  >
+                    {filterOptions.map((option) => (
+                      <option key={option.key} value={option.key}>
+                        {option.key === "all" ? "Все способности" : option.label} ({option.count})
+                      </option>
+                    ))}
+                  </Select>
                 )}
               </div>
             )}
@@ -316,34 +346,9 @@ export function SheetAbilitiesPanel() {
                 в название, эффект, триггер, тиры, заметки и пассивные эффекты.
               </p>
             )}
-            {hasFilter && (
-              <div
-                className="sheet-ability-filters"
-                role="group"
-                aria-label="Фильтр способностей по виду"
-              >
-                {filterOptions.map((option) => (
-                  <Chip
-                    key={option.key}
-                    active={activeFilter === option.key}
-                    onClick={() => setFilter(option.key)}
-                    title={
-                      option.key === "all"
-                        ? "Показать все способности"
-                        : `Показать: ${option.label.toLowerCase()}`
-                    }
-                  >
-                    {option.label}
-                    <span className="sheet-ability-filter-count mono">
-                      {option.count}
-                    </span>
-                  </Chip>
-                ))}
-              </div>
-            )}
             {hasQuery && topMatches.length > 0 && (
               <section
-                className="sheet-ability-section is-search-results"
+                className={`sheet-ability-section is-search-results${compactSections.has("search") ? " is-compact" : ""}`}
                 data-action="search"
                 aria-label="Совпадения поиска"
               >
@@ -356,6 +361,7 @@ export function SheetAbilitiesPanel() {
                     </span>
                   </span>
                   <span className="sheet-ability-rule" />
+                  <CardSummaryToggle label="Совпадения" compact={compactSections.has("search")} onToggle={() => toggleCardSummary("search")} />
                 </header>
                 <div className="sheet-ability-grid">
                   {topMatches.map(renderAbilityCard)}
@@ -364,7 +370,7 @@ export function SheetAbilitiesPanel() {
             )}
             {activeFilter === "all" && passives.length > 0 && (
               <section
-                className={`sheet-ability-section${passivesCollapsed ? " is-collapsed" : ""}`}
+                className={`sheet-ability-section${passivesCollapsed ? " is-collapsed" : ""}${compactSections.has("passive") ? " is-compact" : ""}`}
                 data-action="passive"
                 aria-label="Пассивные эффекты"
               >
@@ -382,6 +388,7 @@ export function SheetAbilitiesPanel() {
                     </span>
                   </button>
                   <span className="sheet-ability-rule" />
+                  <CardSummaryToggle label="Пассивные эффекты" compact={compactSections.has("passive")} onToggle={() => toggleCardSummary("passive")} />
                 </header>
                 {!passivesCollapsed && (
                   <div className="sheet-ability-grid">
@@ -396,7 +403,7 @@ export function SheetAbilitiesPanel() {
               const isCollapsed = collapsed.has(group.key);
               return (
                 <section
-                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}`}
+                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}${compactSections.has(group.key) ? " is-compact" : ""}`}
                   key={group.key}
                   data-action={group.key}
                 >
@@ -414,6 +421,7 @@ export function SheetAbilitiesPanel() {
                       </span>
                     </button>
                     <span className="sheet-ability-rule" />
+                    <CardSummaryToggle label={group.label} compact={compactSections.has(group.key)} onToggle={() => toggleCardSummary(group.key)} />
                   </header>
 
                   {!isCollapsed && (
@@ -433,10 +441,6 @@ export function SheetAbilitiesPanel() {
           ability={selected}
           derived={ancestryAbilitySource(ancestrySources, selected) !== undefined}
           onClose={() => setSelected(null)}
-          onUse={() => {
-            setUsing(selected);
-            setSelected(null);
-          }}
           onEdit={() => {
             setEditing({ ability: selected, isNew: false });
             setSelected(null);
@@ -484,14 +488,7 @@ export function SheetAbilitiesPanel() {
           onSave={saveAbility}
         />
       )}
-      {using && (
-        <RollModal
-          key={using.id}
-          ability={using}
-          character={character}
-          onClose={() => setUsing(null)}
-        />
-      )}
+
     </>
   );
 }
@@ -503,7 +500,6 @@ function AbilityDetailModal({
   onEdit,
   onDuplicate,
   onDelete,
-  onUse,
 }: {
   ability: Ability;
   /** Карточка выдана происхождением: её нельзя править или удалить на листе. */
@@ -512,7 +508,6 @@ function AbilityDetailModal({
   onEdit: () => void;
   onDuplicate: () => void;
   onDelete: () => void;
-  onUse: () => void;
 }) {
   const { character } = useApp();
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -527,7 +522,6 @@ function AbilityDetailModal({
   const origin =
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
-  const requirements = abilityTierRequirements(ability, character);
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
     .filter((tier) => tier.damage || tier.effect);
@@ -537,6 +531,7 @@ function AbilityDetailModal({
       open
       onClose={onClose}
       className="sheet-ability-modal"
+      sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} />}
       headerActions={
         derived ? undefined : (
           <>
@@ -560,8 +555,9 @@ function AbilityDetailModal({
         )
       }
       title={
-        <span className="sheet-ability-detail-title">
-          {ability.name || "Без названия"}
+        <span className="sheet-ability-detail-title" data-basic={ability.source === BASIC_ABILITY_SOURCE ? "true" : undefined}>
+          <span>{ability.name || "Без названия"}</span>
+          <Chip tone={ability.source === BASIC_ABILITY_SOURCE ? "default" : kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
         </span>
       }
       footer={
@@ -582,75 +578,33 @@ function AbilityDetailModal({
               Выдана происхождением
             </span>
           )}
-          <span className="grow" />
-          <Button variant="primary" onClick={onUse}>
-            Использовать
-          </Button>
         </>
       }
     >
       <div className="sheet-ability-detail">
-        <div className="hstack wrap">
-          <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
-          {origin && <Chip tone="accent">{origin.text}</Chip>}
-          {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
-          {ability.resourceCost > 0 && (
-            <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>
-          )}
-          {ability.keywords.map((keyword) => (
-            <Chip key={keyword}>{keyword}</Chip>
-          ))}
-        </div>
-
-        {ability.flavor && (
-          <p className="sheet-ability-detail-flavor">{ability.flavor}</p>
+        {(origin || ability.source === BASIC_ABILITY_SOURCE || ability.resourceCost > 0) && (
+          <div className="hstack wrap">
+            {origin && <Chip tone="accent">{origin.text}</Chip>}
+            {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
+            {ability.resourceCost > 0 && <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>}
+          </div>
         )}
 
-        <div className="sheet-ability-detail-facts">
-          <div>
-            <span className="eyebrow">Дистанция</span>
-            <span>{abilityDistance(ability, character) || "—"}</span>
-          </div>
-          <div>
-            <span className="eyebrow">Цель</span>
-            <span>{ability.target || "—"}</span>
-          </div>
-          <div>
-            <span className="eyebrow">Бросок силы</span>
-            <span className="mono">{rollSummary(ability)}</span>
-          </div>
-          {preferredCharacteristic(ability) && (
-            <div>
-              <span className="eyebrow">Предпочтительная</span>
-              <span className="mono">
-                {characteristicShort(preferredCharacteristic(ability)!)}
-              </span>
-            </div>
-          )}
-          <div>
-            <span className="eyebrow">Стоимость</span>
-            <span>
-              {ability.resourceCost > 0
-                ? `${ability.resourceCost} ресурса`
-                : "—"}
-            </span>
-          </div>
-          <div>
-            <span className="eyebrow">Тип действия</span>
-            <span>{actionLabel(ability.actionType)}</span>
-          </div>
-        </div>
+        {ability.flavor && (
+          <p className="sheet-ability-detail-flavor"><CharacteristicGlyphText text={ability.flavor} /></p>
+        )}
+
+        <AbilityFacts view={abilityCardView(ability, character)} />
 
         {ability.trigger && (
           <div className="sheet-ability-detail-block sheet-ability-detail-trigger">
             <span className="eyebrow">Триггер</span>
-            <RichText text={ability.trigger} />
+            <RichText characteristicGlyphs text={ability.trigger} />
           </div>
         )}
 
         {tiers.length > 0 && (
           <>
-            <TierRequirementSummary ability={ability} character={character} />
             <div className="sheet-ability-detail-tiers">
               {tiers.map((tier) => {
                 const damage = evaluateAbilityDamage(
@@ -665,11 +619,8 @@ function AbilityDetailModal({
                     key={tier.tier}
                   >
                     <div className="sheet-ability-detail-tier-head">
-                      <TierBadge tier={tier.tier} size="md" />
-                      <span className="sheet-ability-detail-range mono">
-                        {requirements
-                          ? tierRequirementText(requirements, tier.tier)
-                          : TIER_ROLL_RANGES[tier.tier]}
+                      <span className="sheet-ability-detail-range" title="Диапазон суммы броска силы" aria-label={TIER_ROLL_RANGES[tier.tier]}>
+                        <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
                       </span>
                       {tier.damage && (
                         <DamageChip
@@ -678,7 +629,7 @@ function AbilityDetailModal({
                         />
                       )}
                     </div>
-                    {tier.effect && <RichText text={tier.effect} />}
+                    {tier.effect && <RichText characteristicGlyphs text={tier.effect} />}
                   </div>
                 );
               })}
@@ -689,14 +640,14 @@ function AbilityDetailModal({
         {ability.effect && (
           <div className="sheet-ability-detail-block">
             <span className="eyebrow">Эффект</span>
-            <RichText text={ability.effect} />
+            <RichText characteristicGlyphs text={ability.effect} />
           </div>
         )}
 
         {ability.notes && (
           <div className="sheet-ability-detail-block sheet-ability-detail-notes">
             <span className="eyebrow">Заметки</span>
-            <RichText text={ability.notes} />
+            <RichText characteristicGlyphs text={ability.notes} />
           </div>
         )}
       </div>

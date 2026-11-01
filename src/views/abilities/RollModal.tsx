@@ -11,12 +11,11 @@ import {
   Button,
   Chip,
   Field,
-  Modal,
   NumberInput,
   Stepper,
+  Toggle,
 } from "../../components/ui";
 import { preferredCharacteristic } from "../../lib/abilities";
-import { abilityDistance } from "../../lib/character-calculations";
 import {
   previewGameAction,
   undoReason,
@@ -24,23 +23,55 @@ import {
 } from "../../lib/game-actions";
 import { heroicResourceName } from "../../data/classes";
 import { makeId } from "../../data/templates";
-import { actionLabel } from "../../data/actions";
-import { Icon } from "../../components/Icons";
 import { RichText } from "../../components/RichText";
-import { TierBadge } from "../../components/TierBadge";
+import { CharacteristicGlyph } from "../../components/CharacteristicGlyph";
 import { useApp } from "../../state/AppContext";
 import "../../components/AbilityPresentation.css";
 import "../AbilitiesView.css";
 import "./RollModal.css";
 
-export interface RollModalProps {
+export interface AbilityRollPanelProps {
   ability: Ability;
   character: Character;
-  onClose: () => void;
+}
+
+function RollMarks({
+  label,
+  one,
+  two,
+  value,
+  onChange,
+  tone,
+}: {
+  label: string;
+  one: string;
+  two: string;
+  value: number;
+  onChange: (value: number) => void;
+  tone: "advantage" | "bane";
+}) {
+  return (
+    <div className="ability-roll-choice">
+      <span className="field-label">{label}</span>
+      <div className="ability-roll-marks" role="group" aria-label={label} data-tone={tone}>
+        {([1, 2] as const).map((amount) => (
+          <button
+            key={amount}
+            type="button"
+            className="ability-roll-mark"
+            aria-label={`${label}: ${amount === 1 ? one : two}`}
+            aria-pressed={value >= amount}
+            title={amount === 1 ? one : two}
+            onClick={() => onChange(value === amount ? 0 : amount)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 /** Rolls are previews. Only applying the action changes resources, once per operation. */
-export function RollModal({ ability, character, onClose }: RollModalProps) {
+export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) {
   const { performGameAction, undoGameAction, gameHistory } = useApp();
   const characteristics = ability.rollCharacteristics;
   const hasRoll = characteristics.length > 0;
@@ -117,6 +148,7 @@ export function RollModal({ ability, character, onClose }: RollModalProps) {
           )
       : damage?.display;
   const canUseSurges = Boolean(damage);
+  const canDealDamage = hasRoll && ability.tiers.some((item) => item.damage.trim() !== "");
   const action: GameAction = {
     kind: "ability",
     abilityId: ability.id,
@@ -168,344 +200,195 @@ export function RollModal({ ability, character, onClose }: RollModalProps) {
   };
 
   return (
-    <Modal
-      open
-      onClose={onClose}
-      className="abil-roll-modal"
-      title={
-        <span className="abil-roll-title">
-          <Icon name="abilities" size={18} />
-          {ability.name || "Без названия"}
+    <section className="ability-roll-panel" aria-label={hasRoll ? "Бросок силы" : "Применение способности"}>
+      <header className="ability-roll-header">
+        <h3 className="ability-roll-heading">{hasRoll ? "Бросок силы" : "Применение"}</h3>
+        <span className="ability-roll-resource">
+          {resourceName}: {character.heroicResource.current} · расход {waiveCost ? 0 : ability.resourceCost + additionalCost}
         </span>
-      }
-      footer={
-        <div className="abil-roll-footer">
-          <Button variant="ghost" onClick={onClose}>
-            Закрыть
-          </Button>
-          <span className="grow" />
-          {!applied && (
-            <span className="ability-use-cost small muted">
-              Расход: {waiveCost ? 0 : ability.resourceCost + additionalCost} ·
-              всплески: {canUseSurges ? surges : 0}
-            </span>
-          )}
-          {applied ? (
-            <>
-              {canUndo && (
-                <Button variant="ghost" onClick={undoGameAction}>
-                  Отменить применение
-                </Button>
-              )}
-              <Button variant="soft" onClick={newUse}>
-                Новое применение
-              </Button>
-            </>
-          ) : (
-            <>
-              {hasRoll && (
-                <Button
-                  variant={result ? "soft" : "primary"}
-                  icon="dice"
-                  onClick={roll}
-                >
-                  {source === "physical"
-                    ? "Рассчитать"
-                    : result
-                      ? "Перебросить"
-                      : "Бросить 2d10"}
-                </Button>
-              )}
-              <Button
-                variant="primary"
-                onClick={apply}
-                disabled={(hasRoll && !result) || !preview.ok}
-              >
-                Применить
-              </Button>
-            </>
-          )}
-        </div>
-      }
-    >
-      <div className="ability-use-facts small muted">
-        <span>{actionLabel(ability.actionType)}</span>
-        <span>{abilityDistance(ability, character)}</span>
-        <span>{ability.target}</span>
-      </div>
-      {ability.trigger && (
-        <div className="ability-use-trigger">
-          <strong>Триггер</strong>
-          <RichText text={ability.trigger} />
-        </div>
-      )}
-      <div className="abil-roll-layout">
-        <fieldset
-          className="abil-roll-settings ability-use-settings"
-          disabled={applied}
-        >
-          <legend className="sr-only">Параметры применения способности</legend>
-          {hasRoll && (
-            <>
-              <div
-                className="abil-chips"
-                role="group"
-                aria-label="Источник броска"
-              >
-                <Chip
-                  active={source === "digital"}
-                  onClick={() => {
-                    setSource("digital");
-                    setDice(null);
-                  }}
-                >
-                  В приложении
-                </Chip>
-                <Chip
-                  active={source === "physical"}
-                  onClick={() => {
-                    setSource("physical");
-                    setDice(null);
-                  }}
-                >
-                  Свои кубики
-                </Chip>
-              </div>
-              {source === "physical" && (
-                <div className="abil-roll-grid">
-                  {[0, 1].map((index) => (
-                    <Field
-                      key={index}
-                      label={"Кубик " + (index + 1) + " (d10)"}
-                    >
-                      <NumberInput
-                        value={manualDice[index]}
-                        min={1}
-                        max={10}
-                        label={"Кубик " + (index + 1)}
-                        onChange={(value) => {
-                          setManualDice((previous) =>
-                            index === 0
-                              ? [value, previous[1]]
-                              : [previous[0], value],
-                          );
-                          setDice(null);
-                        }}
-                      />
-                    </Field>
-                  ))}
-                </div>
-              )}
-              <div className="field">
-                <span className="field-label">Характеристика</span>
-                <div className="abil-chips">
-                  {characteristics.map((key) => (
-                    <Chip
-                      key={key}
-                      active={charKey === key}
-                      onClick={() => setCharKey(key)}
-                      title={
-                        CHARACTERISTICS.find((item) => item.key === key)?.label
-                      }
-                    >
-                      {CHARACTERISTICS.find((item) => item.key === key)?.short}{" "}
-                      {character.characteristics[key]}
-                    </Chip>
-                  ))}
+      </header>
+
+      <fieldset className="ability-use-settings" disabled={applied}>
+        <legend className="sr-only">Параметры применения способности</legend>
+        {hasRoll && (
+          <>
+            <div className="ability-roll-choices">
+              <div className="ability-roll-choice">
+                <span className="field-label">Кубики</span>
+                <div className="ability-roll-source">
+                  <Toggle
+                    checked={source === "digital"}
+                    label="Бросок в приложении"
+                    onChange={(digital) => {
+                      setSource(digital ? "digital" : "physical");
+                      setDice(null);
+                    }}
+                  />
+                  <span>{source === "digital" ? "В приложении" : "Вручную"}</span>
                 </div>
               </div>
-              <div className="abil-roll-grid">
-                <Field label="Преимущества">
-                  <Stepper
-                    value={edges}
-                    onChange={setEdges}
-                    min={0}
-                    max={2}
-                    label="Преимущества"
-                  />
-                </Field>
-                <Field label="Помехи">
-                  <Stepper
-                    value={banes}
-                    onChange={setBanes}
-                    min={0}
-                    max={2}
-                    label="Помехи"
-                  />
-                </Field>
-                <Field label="Бонус">
-                  <NumberInput
-                    value={bonus}
-                    onChange={setBonus}
-                    min={-10}
-                    max={20}
-                    label="Бонус броска"
-                  />
-                </Field>
-                {canUseSurges && (
-                  <Field
-                    label={"Всплески к урону · доступно " + character.surges}
-                  >
-                    <Stepper
-                      value={surges}
-                      onChange={setSurges}
-                      min={0}
-                      max={Math.min(3, character.surges)}
-                      label="Всплески для способности"
+              {characteristics.length > 1 && (
+                <div className="ability-roll-choice">
+                  <span className="field-label">Характеристика</span>
+                  <div className="abil-chips" role="group" aria-label="Характеристика броска">
+                    {characteristics.map((key) => (
+                      <Chip
+                        key={key}
+                        active={charKey === key}
+                        onClick={() => setCharKey(key)}
+                        title={CHARACTERISTICS.find((item) => item.key === key)?.label}
+                      >
+                        <CharacteristicGlyph characteristic={key} />
+                        {character.characteristics[key]}
+                      </Chip>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {source === "physical" && (
+              <div className="ability-roll-dice-inputs">
+                {[0, 1].map((index) => (
+                  <Field key={index} label={"Кубик " + (index + 1) + " (d10)"}>
+                    <NumberInput
+                      value={manualDice[index]}
+                      min={1}
+                      max={10}
+                      label={"Кубик " + (index + 1)}
+                      onChange={(value) => {
+                        setManualDice((previous) => index === 0 ? [value, previous[1]] : [previous[0], value]);
+                        setDice(null);
+                      }}
                     />
                   </Field>
-                )}
+                ))}
               </div>
-              {ability.keywords.includes("Ближний") &&
-                ability.keywords.includes("Дальний") && (
-                  <div
-                    className="abil-chips"
-                    role="group"
-                    aria-label="Способ атаки"
-                  >
-                    <Chip
-                      active={weaponMode === "melee"}
-                      onClick={() => setWeaponMode("melee")}
-                    >
-                      Ближний бой
-                    </Chip>
-                    <Chip
-                      active={weaponMode === "ranged"}
-                      onClick={() => setWeaponMode("ranged")}
-                    >
-                      Дальний бой
-                    </Chip>
-                  </div>
-                )}
-            </>
-          )}
-          <p className="small muted">
-            {resourceName}: {character.heroicResource.current}. Стоимость:{" "}
-            {ability.resourceCost}.
-          </p>
-          <details className="ability-use-notes">
-            <summary>Дополнительный расход</summary>
-            <Field label={`Дополнительно потратить: ${resourceName}`}>
-              <NumberInput
-                value={additionalCost}
-                onChange={setAdditionalCost}
-                min={0}
-                max={9999}
-                label="Дополнительный расход ресурса"
-              />
-            </Field>
-            <p className="small muted">
-              Для усилений и других расходов из текста способности.
-            </p>
-          </details>
+            )}
+
+            <div className="ability-roll-modifiers">
+              <RollMarks label="Преимущества" one="одно преимущество" two="два преимущества" value={edges} onChange={setEdges} tone="advantage" />
+              <RollMarks label="Помехи" one="одна помеха" two="две помехи" value={banes} onChange={setBanes} tone="bane" />
+            </div>
+
+            <div className="ability-roll-numbers">
+              <Field label="Бонус к броску">
+                <NumberInput value={bonus} onChange={setBonus} min={-10} max={20} label="Бонус броска" />
+              </Field>
+              {canDealDamage && (
+                <fieldset className="ability-roll-surge" disabled={!canUseSurges} title={!canUseSurges ? "Всплески доступны после результата с уроном" : undefined}>
+                  <legend className="sr-only">Всплески к урону</legend>
+                  <Field label={`Всплески · ${character.surges}`}>
+                    <Stepper value={canUseSurges ? surges : 0} onChange={setSurges} min={0} max={Math.min(3, character.surges)} label="Всплески для способности" />
+                  </Field>
+                </fieldset>
+              )}
+            </div>
+            {ability.keywords.includes("Ближний") && ability.keywords.includes("Дальний") && (
+              <div className="ability-roll-choice">
+                <span className="field-label">Способ атаки</span>
+                <div className="abil-chips" role="group" aria-label="Способ атаки">
+                  <Chip active={weaponMode === "melee"} onClick={() => setWeaponMode("melee")}>Ближний бой</Chip>
+                  <Chip active={weaponMode === "ranged"} onClick={() => setWeaponMode("ranged")}>Дальний бой</Chip>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+
+        <details className="ability-use-notes">
+          <summary>Дополнительный расход</summary>
+          <Field label={`Дополнительно потратить: ${resourceName}`}>
+            <NumberInput value={additionalCost} onChange={setAdditionalCost} min={0} max={9999} label="Дополнительный расход ресурса" />
+          </Field>
+          <p className="small muted">Для усилений и других расходов из текста способности.</p>
           {(ability.resourceCost > 0 || additionalCost > 0) && (
             <label className="ability-use-exception">
-              <input
-                type="checkbox"
-                checked={waiveCost}
-                onChange={(event) => setWaiveCost(event.target.checked)}
-              />
+              <input type="checkbox" checked={waiveCost} onChange={(event) => setWaiveCost(event.target.checked)} />
               Без расхода ресурса (исключение)
             </label>
           )}
-        </fieldset>
-        <div className="abil-roll-result" aria-live="polite">
+        </details>
+      </fieldset>
+
+      {(result || !hasRoll) && (
+        <div className="abil-roll-result" aria-live="polite" data-tier={result?.tier} title={result ? `Тир ${result.tier}` : undefined}>
           {!hasRoll ? (
             <p className="muted">Способность применяется без броска.</p>
-          ) : !result ? (
-            <div className="abil-roll-placeholder">
-              <Icon name="dice" size={30} />
-              <p className="muted">
-                {source === "physical"
-                  ? "Введите оба d10 и нажмите «Рассчитать»"
-                  : "Настройте бросок и бросьте 2d10"}
-              </p>
-            </div>
-          ) : (
+          ) : result && (
             <>
               <div className="abil-roll-dice">
                 <span className="abil-die mono">{result.die1}</span>
                 <span className="abil-die mono">{result.die2}</span>
                 <div className="abil-roll-nums">
-                  <span className="small muted">
-                    Натуральный: {result.natural}
-                  </span>
+                  <span className="small muted">Натуральный: {result.natural}</span>
                   <strong className="mono">Итог: {result.total}</strong>
                 </div>
+                <span className="sr-only">Тир {result.tier}</span>
               </div>
-              <div className="abil-roll-badges">
-                <TierBadge tier={result.tier} size="lg" />
-                {result.crit && (
-                  <span className="abil-crit-badge">
-                    Критическое попадание!
-                  </span>
-                )}
-                {result.note && (
-                  <span className="abil-note-badge">{result.note}</span>
-                )}
-              </div>
+              {(result.crit || result.note) && (
+                <div className="abil-roll-badges">
+                  {result.crit && <span className="abil-crit-badge">Критическое попадание!</span>}
+                  {result.note && <span className="abil-note-badge">{result.note}</span>}
+                </div>
+              )}
               <div className="abil-roll-outcome">
                 {damage && (
                   <div className="abil-damage">
                     <div className="abil-damage-row">
                       <span className="abil-block-label">Урон</span>
-                      <strong
-                        className="abil-damage-value mono"
-                        title={tier?.damage}
-                      >
-                        {surgeFinal}
-                      </strong>
+                      <strong className="abil-damage-value mono" title={tier?.damage}>{surgeFinal}</strong>
                     </div>
                     {surges > 0 && (
-                      <p className="small muted">
-                        Включено {surges} × {surgeDamage(character)} = +
-                        {surgeBonus} от всплесков.
-                      </p>
+                      <p className="small muted">Включено {surges} × {surgeDamage(character)} = +{surgeBonus} от всплесков.</p>
                     )}
                   </div>
                 )}
-                {tier?.effect && (
-                  <RichText text={tier.effect} className="abil-tier-effect" />
-                )}
+                {tier?.effect && <RichText characteristicGlyphs text={tier.effect} className="abil-tier-effect" />}
               </div>
             </>
           )}
         </div>
-      </div>
-      <div
-        className={"ability-use-preview " + (applied ? "is-applied" : "")}
-        role="status"
-      >
-        <strong>
-          {isUndone
-            ? "Применение отменено"
-            : applied
-              ? "Применено"
-              : "Изменения на листе"}
-        </strong>
-        <p>
-          {applied ? receipt : preview.ok ? preview.detail : preview.reason}
-        </p>
-        {!applied && (
-          <p className="small muted">
-            {hasRoll ? "Бросок не расходует ресурсы. " : ""}Расход
-            подтверждается кнопкой «Применить». Эффект на цель разрешается за
-            игровым столом.
-          </p>
-        )}
-      </div>
-      {ability.effect && (
-        <div className="ability-use-effect">
-          <span className="eyebrow">Эффект</span>
-          <RichText text={ability.effect} />
+      )}
+
+      {(applied || !preview.ok) && (
+        <div className={"ability-use-preview " + (applied ? "is-applied" : "")} role="status">
+          <strong>{isUndone ? "Применение отменено" : applied ? "Применено" : "Нельзя применить"}</strong>
+          <p>{applied ? receipt : preview.ok ? preview.detail : preview.reason}</p>
         </div>
       )}
-      {ability.notes && (
-        <details className="ability-use-notes">
-          <summary>Заметки к способности</summary>
-          <RichText text={ability.notes} />
-        </details>
+      {!applied && (ability.resourceCost + additionalCost > 0 || surges > 0) && (
+        <p className="ability-roll-hint">Ресурсы спишутся после нажатия «Применить».</p>
       )}
-    </Modal>
+
+      <div className="abil-roll-footer">
+        {applied ? (
+          <>
+            {canUndo && <Button variant="ghost" onClick={undoGameAction}>Отменить применение</Button>}
+            <Button variant="soft" onClick={newUse}>Новое применение</Button>
+          </>
+        ) : (
+          <>
+            {hasRoll && (
+              <Button
+                variant={result ? "soft" : "primary"}
+                icon={source === "digital" && result ? "refresh" : "dice"}
+                iconOnly={source === "digital" && !!result}
+                aria-label={source === "digital" && result ? "Перебросить 2d10" : undefined}
+                title={source === "digital" && result ? "Перебросить 2d10" : undefined}
+                onClick={roll}
+              >
+                {source === "physical" ? "Рассчитать" : "Бросить 2d10"}
+              </Button>
+            )}
+            <Button variant="primary" onClick={apply} disabled={(hasRoll && !result) || !preview.ok}>
+              Применить
+            </Button>
+          </>
+        )}
+      </div>
+
+
+    </section>
   );
 }

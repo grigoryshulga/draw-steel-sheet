@@ -71,11 +71,11 @@
 }
 
 .sheet-ability-section[data-action="main"] {
-  --section-accent: var(--accent);
+  --section-accent: var(--ability-main);
 }
 
 .sheet-ability-section[data-action="maneuver"] {
-  --section-accent: var(--blue);
+  --section-accent: var(--ability-maneuver);
 }
 
 .sheet-ability-section[data-action="move"] {
@@ -83,15 +83,15 @@
 }
 
 .sheet-ability-section[data-action="trigger"] {
-  --section-accent: var(--magenta);
+  --section-accent: var(--ability-trigger);
 }
 
 .sheet-ability-section[data-action="free-trigger"] {
-  --section-accent: var(--yellow);
+  --section-accent: var(--ability-trigger);
 }
 
 .sheet-ability-section[data-action="free-maneuver"] {
-  --section-accent: var(--green);
+  --section-accent: var(--ability-maneuver);
 }
 
 .sheet-ability-section[data-action="none"] {
@@ -133,6 +133,46 @@
   background: var(--line);
 }
 
+.sheet-ability-summary-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.sheet-ability-summary-toggle:hover,
+.sheet-ability-summary-toggle[aria-expanded="false"] {
+  color: var(--section-accent, var(--fg-bright));
+  border-color: var(--section-accent, var(--line-strong));
+}
+
+.sheet-ability-summary-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sheet-view .sheet-ability-section.is-compact .sheet-ability-grid > .sheet-ability-card {
+  padding: 0;
+  gap: 0;
+}
+
+.sheet-view .sheet-ability-section.is-compact .sheet-ability-grid > .sheet-ability-card > :not(.sheet-ability-card-head) {
+  display: none;
+}
+
+.sheet-view .sheet-ability-section.is-compact .sheet-ability-grid > .sheet-ability-card > .sheet-ability-card-head {
+  margin: 0;
+  border-bottom: 0;
+  border-radius: calc(var(--card-radius) - 1px);
+}
+
 .sheet-ability-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
@@ -140,9 +180,18 @@
   gap: var(--space-5);
 }
 
-/* Поиск по названию и содержимому: строка над фильтрами. */
+/* Поиск и фильтр занимают одну строку. */
+.sheet-ability-toolbar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
 .sheet-ability-search {
   display: flex;
+  flex: 1 1 0;
+  min-width: 0;
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4) var(--space-6);
@@ -150,6 +199,13 @@
   border-radius: var(--radius-sm);
   background: var(--surface-2);
   color: var(--muted);
+}
+
+.sheet-ability-toolbar .sheet-ability-filter {
+  flex: 0 1 200px;
+  width: min(40%, 200px);
+  min-width: 110px;
+  font-size: var(--text-md);
 }
 
 .sheet-ability-search:focus-within {
@@ -221,20 +277,6 @@
   cursor: default;
 }
 
-/* Фильтр по виду: чипы над секциями, чтобы 10–12 карточек не приходилось
-   просматривать целиком. */
-.sheet-ability-filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.sheet-ability-filter-count {
-  margin-left: var(--space-3);
-  font-size: var(--text-2xs);
-  opacity: 0.7;
-}
 
 @media (max-width: 560px) {
   .sheet-ability-grid {
@@ -244,10 +286,25 @@
 
 /* ---------- Поп-ап способности ---------- */
 
+.sheet-ability-modal .modal-head h2 {
+  min-width: 0;
+}
+
 .sheet-ability-detail-title {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.sheet-ability-detail-title .chip {
+  flex: none;
+}
+
+.sheet-ability-detail-title[data-basic="true"] .chip {
+  color: var(--ability-basic);
+  border-color: var(--ability-basic);
 }
 
 .sheet-ability-detail {
@@ -261,23 +318,6 @@
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-}
-
-.sheet-ability-detail-facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-4);
-}
-
-.sheet-ability-detail-facts > div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-4) var(--space-5);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
-  font-size: var(--text-md);
 }
 
 .sheet-ability-detail-block {
@@ -308,12 +348,9 @@
 .sheet-ability-detail-tier {
   --tier-color: var(--tier2);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
   gap: var(--space-3);
-  padding: var(--space-5) var(--space-6);
-  border: 1px solid color-mix(in srgb, var(--tier-color) 30%, var(--line));
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--tier-color) 5%, var(--surface-2));
   font-size: var(--text-md);
 }
 
@@ -338,7 +375,7 @@
 
 .sheet-ability-detail-range {
   font-size: var(--text-sm);
-  color: var(--muted);
+  color: var(--tier-color);
 }
 
 .sheet-ability-cost.is-paid {
@@ -351,21 +388,76 @@
   opacity: 0.8;
 }
 
-.modal.sheet-ability-modal {
-  width: min(700px, 100%);
+.modal.sheet-ability-modal.modal-with-sidecar {
+  position: relative;
+  display: block;
+  width: min(600px, 100%);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.sheet-ability-modal .modal-main {
+  display: flex;
+  min-width: 0;
+  max-height: min(88vh, 900px);
+  flex-direction: column;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+}
+
+.sheet-ability-modal .modal-sidecar {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + var(--space-6));
+  width: min(320px, calc(50vw - 300px - var(--space-9) - var(--space-6)));
+  min-width: 0;
+  max-height: min(88vh, 900px);
+  transform: translateY(-50%);
+  overflow: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-pop);
+}
+
+@media (max-width: 1240px) {
+  .modal.sheet-ability-modal.modal-with-sidecar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-6);
+    overflow: auto;
+  }
+
+  .sheet-ability-modal .modal-sidecar {
+    position: static;
+    align-self: center;
+    width: min(320px, 100%);
+    transform: none;
+  }
+
+  .sheet-ability-modal .modal-main,
+  .sheet-ability-modal .modal-sidecar {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sheet-ability-modal .modal-main .modal-body {
+    overflow: visible;
+  }
 }
 
 /* Пассивные эффекты: та же карточка, что у способности, но без действия. */
 .sheet-ability-section[data-action="passive"] {
-  --section-accent: var(--green);
+  --section-accent: var(--ability-passive);
 }
 
 .sheet-passive-card {
-  --card-color: var(--accent);
-}
-
-.sheet-passive-card[data-category="subclass"] {
-  --card-color: var(--blue);
+  --card-color: var(--ability-passive);
 }
 
 .sheet-passive-level {
@@ -376,35 +468,38 @@
   text-transform: uppercase;
 }
 
-.sheet-passive-details {
+.sheet-passive-summary {
   margin: 0;
-}
-
-.sheet-passive-details > summary {
-  color: var(--muted);
-  font-size: var(--text-body);
-  line-height: var(--leading-normal);
-  cursor: pointer;
-}
-
-.sheet-passive-details > summary:hover {
   color: var(--fg);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
 }
 
-.sheet-passive-details .rich-text {
-  margin-top: var(--space-2);
-  padding-left: var(--space-4);
-  border-left: 2px solid var(--line);
+.sheet-passive-preview {
+  /* 6 строк с межстрочным интервалом 1.45. */
+  max-height: 8.7em;
+  gap: 0;
+  overflow: hidden;
   color: var(--muted);
   font-size: var(--text-body);
   line-height: var(--leading-normal);
 }
 
-.sheet-passive-details .rich-text p {
-  margin: 0 0 var(--space-2);
+.sheet-passive-preview :is(p, ul, li) {
+  margin: 0;
+  line-height: inherit;
 }
 
-.sheet-passive-details .rich-text ul {
-  margin: var(--space-2) 0;
-  padding-left: var(--space-7);
+.sheet-passive-preview ul {
+  gap: 0;
+}
+
+.sheet-passive-full {
+  color: var(--fg);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+}
+
+.sheet-passive-full .sheet-passive-summary {
+  margin-bottom: var(--space-4);
 }

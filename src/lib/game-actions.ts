@@ -23,6 +23,8 @@ export type GameAction =
   | { kind: "resource"; resource: ResourceName; value: number }
   | { kind: "round" }
   | { kind: "encounter" }
+  | { kind: "combat-start" }
+  | { kind: "combat-end" }
   | { kind: "trigger"; featureId: string; used: boolean }
   | {
       kind: "ability";
@@ -220,6 +222,16 @@ export function previewGameAction(
             : { [action.resource]: action.value };
       return finish(label, `${label}: ${before} → ${action.value}.`, patch);
     }
+    case "combat-start": {
+      if (currentRuntime(character).combatActive) return invalid("Битва уже началась");
+      const runtime = { ...currentRuntime(beginEncounter(character)), round: 1, combatActive: true };
+      return finish("Начало битвы", "Началась новая битва, отметки триггеров сняты.", { runtime });
+    }
+    case "combat-end": {
+      const runtime = currentRuntime(character);
+      if (!runtime.combatActive) return invalid("Битва ещё не началась");
+      return finish("Конец битвы", "Битва завершена.", { runtime: { ...runtime, combatActive: false } });
+    }
     case "round": {
       const runtime = currentRuntime(beginRound(character));
       const removed =
@@ -327,6 +339,7 @@ function runtimeKey(runtime: CharacterRuntime | undefined): string {
   return JSON.stringify([
     runtime.round,
     runtime.encounter,
+    !!runtime.combatActive,
     Object.keys(runtime.triggers)
       .sort()
       .map((id) => [id, runtime.triggers[id]]),

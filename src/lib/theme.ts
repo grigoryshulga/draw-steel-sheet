@@ -10,6 +10,7 @@ export const THEMES: AppTheme[] = [
     name: "Стальная ночь",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb36b", ability_main: "#8db9ff", ability_maneuver: "#83d6a3", ability_trigger: "#c9a6f5", ability_basic: "#b1b1b1",
       background: "#11151b", darker_background: "#0b0e12", lighter_background: "#1d242d",
       foreground: "#e8edf2", bright_foreground: "#f8fbff", dark_foreground: "#aab6c2",
       accent: "#73d9b2", selection: "#283a38", selection_foreground: "#11151b",
@@ -21,6 +22,7 @@ export const THEMES: AppTheme[] = [
     name: "Тёплый костёр",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb36b", ability_main: "#9bbcff", ability_maneuver: "#9bd29a", ability_trigger: "#caa6f0", ability_basic: "#b4b4b4",
       background: "#19120f", darker_background: "#100b09", lighter_background: "#2a1e19",
       foreground: "#f2e8dd", bright_foreground: "#fff8f0", dark_foreground: "#c0aa97",
       accent: "#ffb36b", selection: "#493026", selection_foreground: "#19120f",
@@ -32,6 +34,7 @@ export const THEMES: AppTheme[] = [
     name: "Лиловые сумерки",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb47d", ability_main: "#a3baff", ability_maneuver: "#91d6a4", ability_trigger: "#d0a7f5", ability_basic: "#b6b6b6",
       background: "#15121c", darker_background: "#0d0b13", lighter_background: "#24202f",
       foreground: "#eee8f7", bright_foreground: "#fcf9ff", dark_foreground: "#b9afc8",
       accent: "#c5a3ff", selection: "#382d4c", selection_foreground: "#15121c",
@@ -43,6 +46,7 @@ export const THEMES: AppTheme[] = [
     name: "Светлый пергамент",
     mode: "light",
     colors: {
+      ability_passive: "#8f4a16", ability_main: "#315a9b", ability_maneuver: "#286b3c", ability_trigger: "#713e96", ability_basic: "#5c5c5c",
       background: "#f3eedf", darker_background: "#e5decc", lighter_background: "#fffaf0",
       foreground: "#29251f", bright_foreground: "#171410", dark_foreground: "#655b4e",
       light_foreground: "#655b4e", accent: "#245b52", selection: "#d9e5d7", selection_foreground: "#ffffff",
@@ -54,6 +58,7 @@ export const THEMES: AppTheme[] = [
     name: "Синяя глубина",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb477", ability_main: "#91baff", ability_maneuver: "#83d7a6", ability_trigger: "#c7a8f5", ability_basic: "#b4b4b4",
       background: "#0d1724", darker_background: "#08101a", lighter_background: "#17283a",
       foreground: "#e7f0fa", bright_foreground: "#f7fbff", dark_foreground: "#a8bcd2",
       accent: "#78c8f4", selection: "#203c52", selection_foreground: "#0d1724",
@@ -66,6 +71,7 @@ export const THEMES: AppTheme[] = [
     name: "Вечер с Котучино",
     mode: "dark",
     colors: {
+      ability_passive: "#fab387", ability_main: "#89b4fa", ability_maneuver: "#a6e3a1", ability_trigger: "#cba6f7", ability_basic: "#b7b7b7",
       background: "#1e1e2e", darker_background: "#11111b", lighter_background: "#313244",
       foreground: "#cdd6f4", bright_foreground: "#f5e0dc", dark_foreground: "#a6adc8",
       accent: "#cba6f7", selection: "#45475a", selection_foreground: "#1e1e2e",
@@ -78,6 +84,7 @@ export const THEMES: AppTheme[] = [
     name: "Тёмная классика",
     mode: "dark",
     colors: {
+      ability_passive: "#ffa500", ability_main: "#8282ff", ability_maneuver: "#55e755", ability_trigger: "#d5a4ff", ability_basic: "#b3b3b3",
       background: "#121212", darker_background: "#0a0a0a", lighter_background: "#232323",
       foreground: "#e6e6e6", bright_foreground: "#ffffff", dark_foreground: "#9e9e9e",
       accent: "#f0f0f0", selection: "#333333", selection_foreground: "#121212",
@@ -90,6 +97,7 @@ export const THEMES: AppTheme[] = [
     name: "Светлая классика",
     mode: "light",
     colors: {
+      ability_passive: "#b34700", ability_main: "#0000c5", ability_maneuver: "#006f14", ability_trigger: "#7100a0", ability_basic: "#595959",
       background: "#fafafa", darker_background: "#e6e6e6", lighter_background: "#ffffff",
       foreground: "#242424", bright_foreground: "#000000", dark_foreground: "#5c5c5c",
       accent: "#242424", selection: "#d9d9d9", selection_foreground: "#ffffff",
@@ -102,6 +110,7 @@ export const THEMES: AppTheme[] = [
     name: "Обитель некроманта",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb35c", ability_main: "#8ec8f5", ability_maneuver: "#6be86b", ability_trigger: "#c19bf2", ability_basic: "#adadad",
       background: "#0a120d", darker_background: "#060a08", lighter_background: "#15221b",
       foreground: "#d3e6d8", bright_foreground: "#effff2", dark_foreground: "#8fa996",
       accent: "#7dff5a", selection: "#1d3a28", selection_foreground: "#060a08",
@@ -114,6 +123,7 @@ export const THEMES: AppTheme[] = [
     name: "Чёрный бархат",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb36b", ability_main: "#82aaff", ability_maneuver: "#69db7c", ability_trigger: "#d0a0ff", ability_basic: "#adadad",
       background: "#000000", darker_background: "#000000", lighter_background: "#16161a",
       foreground: "#e8e8ec", bright_foreground: "#ffffff", dark_foreground: "#9c9ca6",
       accent: "#82aaff", selection: "#26262e", selection_foreground: "#0a0a0a",
@@ -126,6 +136,7 @@ export const THEMES: AppTheme[] = [
     name: "Полярная ночь",
     mode: "dark",
     colors: {
+      ability_passive: "#eab886", ability_main: "#96b3d3", ability_maneuver: "#a3be8c", ability_trigger: "#d2b2ed", ability_basic: "#c0c0c0",
       background: "#2e3440", darker_background: "#232831", lighter_background: "#3b4252",
       foreground: "#eceff4", bright_foreground: "#f8fafc", dark_foreground: "#b9c4d4",
       accent: "#88c0d0", selection: "#434c5e", selection_foreground: "#2e3440",
@@ -138,6 +149,7 @@ export const THEMES: AppTheme[] = [
     name: "Лунная роза",
     mode: "dark",
     colors: {
+      ability_passive: "#f6c177", ability_main: "#a9b8e8", ability_maneuver: "#9ed4a3", ability_trigger: "#c4a7e7", ability_basic: "#b2b2b2",
       background: "#191724", darker_background: "#131120", lighter_background: "#1f1d2e",
       foreground: "#e0def4", bright_foreground: "#f4f2fe", dark_foreground: "#908caa",
       accent: "#ebbcba", selection: "#403d52", selection_foreground: "#191724",
@@ -150,6 +162,7 @@ export const THEMES: AppTheme[] = [
     name: "Неоновый драйв",
     mode: "dark",
     colors: {
+      ability_passive: "#ffb469", ability_main: "#7aa2ff", ability_maneuver: "#72f1b8", ability_trigger: "#ce9fff", ability_basic: "#b8b8b8",
       background: "#1a1721", darker_background: "#14111c", lighter_background: "#2a2338",
       foreground: "#efeaff", bright_foreground: "#ffffff", dark_foreground: "#a99fc0",
       accent: "#ff7edb", selection: "#34294f", selection_foreground: "#1a1721",
@@ -162,6 +175,7 @@ export const THEMES: AppTheme[] = [
     name: "Медный закат",
     mode: "dark",
     colors: {
+      ability_passive: "#f4793f", ability_main: "#4aa8e0", ability_maneuver: "#b3cf50", ability_trigger: "#c6a1f4", ability_basic: "#b1b1b1",
       background: "#002b36", darker_background: "#001e26", lighter_background: "#073642",
       foreground: "#a8b6b6", bright_foreground: "#eee8d5", dark_foreground: "#a5b4b4",
       accent: "#d6a312", selection: "#0d4653", selection_foreground: "#002b36",
@@ -174,6 +188,7 @@ export const THEMES: AppTheme[] = [
     name: "Чистый лист",
     mode: "light",
     colors: {
+      ability_passive: "#bc4c00", ability_main: "#0969da", ability_maneuver: "#1a7f37", ability_trigger: "#713bc3", ability_basic: "#5c5c5c",
       background: "#ffffff", darker_background: "#eff2f5", lighter_background: "#f6f8fa",
       foreground: "#1f2328", bright_foreground: "#000000", dark_foreground: "#59636e",
       accent: "#0969da", selection: "#ddf4ff", selection_foreground: "#ffffff",
@@ -186,6 +201,7 @@ export const THEMES: AppTheme[] = [
     name: "Утренний латте",
     mode: "light",
     colors: {
+      ability_passive: "#a94c0c", ability_main: "#2b5fd9", ability_maneuver: "#2c761d", ability_trigger: "#7134a6", ability_basic: "#595959",
       background: "#eff1f5", darker_background: "#dce0e8", lighter_background: "#e6e9ef",
       foreground: "#4c4f69", bright_foreground: "#232433", dark_foreground: "#5f6278",
       accent: "#8437e8", selection: "#ccd0e5", selection_foreground: "#ffffff",
@@ -198,6 +214,7 @@ export const THEMES: AppTheme[] = [
     name: "Хвойный лес",
     mode: "dark",
     colors: {
+      ability_passive: "#f0a97e", ability_main: "#92b8cb", ability_maneuver: "#a7c080", ability_trigger: "#d1afea", ability_basic: "#bdbdbd",
       background: "#2b3339", darker_background: "#252c31", lighter_background: "#3a464c",
       foreground: "#d3c6aa", bright_foreground: "#f2efdf", dark_foreground: "#b5c0b7",
       accent: "#a7c080", selection: "#454f55", selection_foreground: "#2b3339",
@@ -260,6 +277,11 @@ export function themeToTokens(theme: AppTheme): Record<string, string> {
     "--blue": pick(c, "blue") || "#92a8fa",
     "--magenta": pick(c, "magenta") || "#cd98ed",
     "--brown": pick(c, "brown") || "#995b23",
+    "--ability-passive": pick(c, "ability_passive", "orange") || "#ff983b",
+    "--ability-main": pick(c, "ability_main", "blue") || "#92a8fa",
+    "--ability-maneuver": pick(c, "ability_maneuver", "green") || "#85dd88",
+    "--ability-trigger": pick(c, "ability_trigger", "magenta") || "#cd98ed",
+    "--ability-basic": pick(c, "ability_basic", "dark_foreground") || "#999999",
     "--tier1": pick(c, "red", "orange") || "#ff8618",
     "--tier2": pick(c, "yellow", "orange") || "#d8e378",
     "--tier3": pick(c, "green", "cyan") || "#85dd88",

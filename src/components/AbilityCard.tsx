@@ -1,9 +1,9 @@
 import type { KeyboardEvent, ReactNode } from "react";
+import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 import type { Ability, Character } from "../types";
 import {
   AbilityBody,
   AbilityTags,
-  abilityRollSummary,
 } from "./rules/AbilitySheet";
 import { abilityCardView } from "./rules/abilityCardView";
 import "./AbilityCard.css";
@@ -14,6 +14,8 @@ export interface AbilityCardProps {
   /** Происхождение из подкласса: «Орден», «Домен», «Доктрина» и т. п. */
   origin?: { label: string; value?: string } | null;
   onOpen?: () => void;
+  /** Клик по карточке открывает её; клавиатурное управление — через заголовок. */
+  openOnCardClick?: boolean;
   /** Карточка участвует в выборе: клик выбирает, заголовок открывает превью. */
   onSelect?: () => void;
   selected?: boolean;
@@ -31,6 +33,7 @@ export function AbilityCard({
   character,
   origin,
   onOpen,
+  openOnCardClick = false,
   onSelect,
   selected = false,
   full = false,
@@ -56,6 +59,13 @@ export function AbilityCard({
       className={`sheet-ability-card${selected ? " is-selected" : ""}${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
       data-action={ability.actionType}
       data-kind={ability.kind}
+      data-basic={view.basic ? "true" : undefined}
+      data-openable={openOnCardClick && onOpen ? "true" : undefined}
+      onClick={openOnCardClick && onOpen && !onSelect ? (event) => {
+        const target = event.target;
+        if (target instanceof Element && target.closest("button, a, input, select, textarea, summary, details")) return;
+        onOpen();
+      } : undefined}
       {...(onSelect
         ? {
             role: "button",
@@ -67,7 +77,7 @@ export function AbilityCard({
         : {})}
     >
       <header className="sheet-ability-card-head">
-        <h4>
+        <h4 title={ability.name || "Без названия"}>
           {onOpen ? (
             <button
               type="button"
@@ -87,17 +97,14 @@ export function AbilityCard({
         <AbilityTags view={view} />
       </header>
 
+      {ability.trigger && (
+        <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
+      )}
       <AbilityBody view={view} full={full} />
 
       {details}
 
-      <footer className="sheet-ability-footer">
-        <span title="Бросок силы">
-          <em>Бросок</em> {abilityRollSummary(ability)}
-        </span>
-        {ability.trigger && (
-          <span className="sheet-ability-trigger">триггер</span>
-        )}
+      {footerAction && <footer className="sheet-ability-footer">
         {footerAction && (
           <span
             onClick={(event) => event.stopPropagation()}
@@ -106,7 +113,7 @@ export function AbilityCard({
             {footerAction}
           </span>
         )}
-      </footer>
+      </footer>}
     </article>
   );
 }

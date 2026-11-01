@@ -32,6 +32,11 @@
   --blue: #92a8fa;
   --magenta: #cd98ed;
   --brown: #995b23;
+  --ability-passive: #ff983b;
+  --ability-main: #92a8fa;
+  --ability-maneuver: #85dd88;
+  --ability-trigger: #cd98ed;
+  --ability-basic: #a8a8a8;
   --tier1: #ff8618;
   --tier2: #d8e378;
   --tier3: #85dd88;
@@ -89,18 +94,6 @@ body {
 code,
 pre {
   font-family: var(--font-code);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(900px 520px at 8% -8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 68%),
-    radial-gradient(800px 560px at 104% -2%, color-mix(in srgb, var(--magenta) 7%, transparent), transparent 70%),
-    linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg-deep) 60%, transparent) 80%);
 }
 
 ::selection {

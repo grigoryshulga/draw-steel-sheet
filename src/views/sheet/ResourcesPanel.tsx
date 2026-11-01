@@ -224,6 +224,8 @@ function ResourceGains({
               <Button
                 size="sm"
                 variant={gain.used ? "ghost" : "soft"}
+                icon="check"
+                iconOnly
                 aria-pressed={gain.used}
                 aria-label={`${gain.used ? "Снять отметку" : "Отметить прибавку"}: ${gain.label}`}
                 title={`${gain.label}: ${amountText} (${gain.frequency})`}
@@ -234,9 +236,7 @@ function ResourceGains({
                     used: !gain.used,
                   })
                 }
-              >
-                {gain.used ? "Снять" : "получено"}
-              </Button>
+              />
             </li>
           );
         })}

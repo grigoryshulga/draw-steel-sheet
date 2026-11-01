@@ -3,13 +3,7 @@
   min-width: 0;
   border: 1px solid var(--sheet-warm-line);
   border-radius: var(--radius);
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      color-mix(in srgb, var(--sheet-warm) 4%, transparent),
-      transparent 68%
-    ),
-    color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
+  background: color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
   overflow: clip;
 }
 

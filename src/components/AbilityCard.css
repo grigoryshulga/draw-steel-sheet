@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Draw Steel Glyphs";
+  src: url("/draw-steel-glyphs/DrawSteelGlyphs-Regular.otf") format("opentype");
+  font-display: swap;
+}
+.sheet-roll-glyph { font-family: "Draw Steel Glyphs"; font-size: 1.3em; }
+
 .sheet-ability-card {
   position: relative;
   --card-color: var(--muted);
@@ -19,43 +26,29 @@
     transform 120ms var(--ease);
 }
 
-/* Окантовка карточки по типу действия: цвета берутся из активной темы,
-   поэтому правило работает и на светлом пергаменте. */
-.sheet-ability-card[data-action="main"] {
-  --card-color: var(--accent);
-}
-
-.sheet-ability-card[data-action="maneuver"] {
-  --card-color: var(--blue);
-}
-
-.sheet-ability-card[data-action="move"] {
-  --card-color: var(--cyan);
-}
-
-.sheet-ability-card[data-action="trigger"] {
-  --card-color: var(--magenta);
-}
-
-.sheet-ability-card[data-action="free-trigger"] {
-  --card-color: var(--yellow);
-}
-
-.sheet-ability-card[data-action="free-maneuver"] {
-  --card-color: var(--green);
-}
-
-.sheet-ability-card[data-action="none"] {
-  --card-color: var(--muted);
-}
+/* Цвет типа действия общий для рамки и шапки; базовые способности всегда серые. */
+.sheet-ability-card { --ability-kind-color: var(--card-color); }
+.sheet-ability-card[data-action="main"] { --card-color: var(--ability-main); }
+.sheet-ability-card[data-action="maneuver"],
+.sheet-ability-card[data-action="free-maneuver"] { --card-color: var(--ability-maneuver); }
+.sheet-ability-card[data-action="trigger"],
+.sheet-ability-card[data-action="free-trigger"] { --card-color: var(--ability-trigger); }
+.sheet-ability-card[data-action="move"] { --card-color: var(--cyan); }
+.sheet-ability-card[data-action="none"] { --card-color: var(--muted); }
+.sheet-ability-card[data-basic="true"] { --card-color: var(--ability-basic); }
 
 .sheet-ability-card:hover {
   border-color: color-mix(in srgb, var(--card-color, var(--muted)) 45%, var(--line));
   border-top-color: var(--card-accent);
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+  background: color-mix(in srgb, var(--card-color) 4%, var(--surface-2));
 }
 
-.sheet-ability-card[role="button"] {
+.sheet-ability-card[data-basic="true"]:hover h4 {
+  color: var(--fg-bright);
+}
+
+.sheet-ability-card[role="button"],
+.sheet-ability-card[data-openable="true"] {
   cursor: pointer;
 }
 
@@ -79,12 +72,39 @@
   transform: translateY(1px);
 }
 
+.sheet-ability-card > .sheet-ability-card-head,
+.sheet-ability-card > .rule-entity-head {
+  margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) 0;
+  padding: var(--space-6) var(--card-padding);
+  border-radius: calc(var(--card-radius) - 1px) calc(var(--card-radius) - 1px) 0 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-bottom-color: color-mix(in srgb, var(--ability-kind-color) 52%, var(--line));
+  background-color: var(--surface);
+  background-color: color-mix(in srgb, var(--ability-kind-color) var(--card-header-tint), transparent);
+}
+
+.sheet-ability-card.is-flat > .sheet-ability-card-head,
+.sheet-ability-card.is-flat > .rule-entity-head {
+  margin: 0;
+  padding: var(--space-6);
+  border: 1px solid color-mix(in srgb, var(--ability-kind-color) 32%, var(--line));
+  border-radius: var(--radius-sm);
+}
+
 .sheet-ability-card-head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+}
+
+.sheet-ability-card :is(.sheet-ability-card-head h4, .rule-entity-head h2) {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sheet-ability-card-head h4 {
@@ -103,6 +123,11 @@
   color: inherit;
   background: transparent;
   font: inherit;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: left;
   cursor: pointer;
 }
@@ -120,7 +145,8 @@
 
 .sheet-ability-card-tags {
   display: flex;
-  flex-wrap: wrap;
+  position: relative;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-end;
   gap: var(--space-3);
@@ -131,14 +157,61 @@
   height: 22px;
   padding: 0 var(--space-3);
   font-size: var(--text-xs);
+  color: var(--fg-bright);
+  border-color: color-mix(in srgb, var(--card-color) 50%, var(--line));
+}
+
+.sheet-ability-tags-measure {
+  position: absolute;
+  display: flex;
+  gap: var(--space-3);
+  visibility: hidden;
+  pointer-events: none;
+  width: max-content;
+}
+.sheet-ability-tags-more { position: relative; flex: none; }
+.sheet-ability-tags-more summary {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--fg);
+  background: var(--surface);
+  cursor: pointer;
+  list-style: none;
+}
+.sheet-ability-tags-more summary::-webkit-details-marker { display: none; }
+.sheet-ability-tags-popover {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: max-content;
+  max-width: min(260px, 80vw);
+  padding: var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-pop);
+}
+
+.sheet-ability-card-tags .sheet-passive-level {
+  color: var(--fg-bright);
 }
 
 .sheet-ability-cost-stamp {
   display: grid;
   place-items: center;
   flex: none;
-  width: 26px;
-  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  padding: 0 var(--space-2);
+  white-space: nowrap;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   background: color-mix(in srgb, var(--surface-3) 70%, transparent);
@@ -155,43 +228,62 @@
   color: var(--yellow);
 }
 
+.sheet-ability-card[data-basic="true"] .sheet-ability-cost-stamp.is-paid {
+  color: var(--fg);
+  border-color: var(--ability-basic);
+  background: color-mix(in srgb, var(--ability-basic) 13%, transparent);
+}
+
+.sheet-ability-card[data-basic="true"] .sheet-ability-fact-mark {
+  color: var(--ability-basic);
+  background: color-mix(in srgb, var(--ability-basic) 14%, transparent);
+}
+
 .sheet-ability-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
+  align-items: stretch;
+  gap: var(--space-2);
+  min-width: 0;
   font-size: var(--text-body);
   line-height: var(--leading-snug);
-  color: var(--muted);
 }
 
-.sheet-ability-meta em {
-  font-style: normal;
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.sheet-ability-keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.sheet-ability-keyword {
-  padding: var(--space-1) var(--space-3);
+.sheet-ability-fact {
+  display: inline-flex;
+  align-items: stretch;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  font-size: var(--text-2xs);
-  color: var(--muted);
+  border-radius: var(--radius-xs);
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+.sheet-ability-fact-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  min-height: 22px;
+  border-right: 1px solid var(--line);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.sheet-ability-fact-value {
+  min-width: 0;
+  padding: var(--space-1) var(--space-2);
+  align-self: center;
+  overflow-wrap: anywhere;
 }
 
 .sheet-ability-tiers {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-5) 0;
+  gap: var(--space-2);
+  padding: 0;
 }
 
 /* Диапазон, урон и эффект тира — одной строкой: урон слева, текст сразу за ним. */
@@ -238,24 +330,40 @@
   white-space: pre-line;
 }
 
-/* Эффект в карточке — первые 6 строк; полный текст живёт в превью. */
-.sheet-ability-body {
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Полный текст нужен во время игры, включая длинные эффекты. */
+.sheet-ability-body, .sheet-ability-trigger-text {
   margin: 0;
   font-size: var(--text-body);
-  line-height: var(--leading-relaxed);
+  line-height: var(--leading-normal);
   color: var(--muted);
   white-space: pre-line;
 }
-
-.sheet-ability-card.is-full .sheet-ability-body,
-.sheet-ability-body.is-full-body {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: unset;
+.sheet-ability-trigger-text strong { color: var(--fg); }
+.sheet-ability-fact-icon, .sheet-ability-tier-glyph {
+  display: inline-block;
+  background: currentColor;
+  mask: center / contain no-repeat;
+  vertical-align: middle;
+}
+.sheet-ability-fact-icon { width: 14px; height: 14px; }
+.sheet-ability-fact-icon.is-action { mask-image: url('/draw-steel-glyphs/activation.svg'); }
+.sheet-ability-fact-icon.is-distance { mask-image: url('/draw-steel-glyphs/distance.svg'); }
+.sheet-ability-fact-icon.is-target { mask-image: url('/draw-steel-glyphs/target.svg'); }
+.sheet-ability-tier-glyph { width: 38px; height: 25px; }
+.sheet-ability-tier-glyph.tier-1 { mask-image: url('/draw-steel-glyphs/power-roll-t1.svg'); }
+.sheet-ability-tier-glyph.tier-2 { mask-image: url('/draw-steel-glyphs/power-roll-t2.svg'); }
+.sheet-ability-tier-glyph.tier-3 { mask-image: url('/draw-steel-glyphs/power-roll-t3.svg'); }
+.sheet-ability-range .sr-only,
+.sheet-ability-meta .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Строка принудительного движения: добавка особенностей, а не текст тира. */
@@ -298,12 +406,6 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 560px) {
-  .sheet-ability-card-head {
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-}
 
 .sheet-ability-card.is-disabled {
   opacity: 0.5;

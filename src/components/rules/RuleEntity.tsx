@@ -1,3 +1,4 @@
+import { CharacteristicGlyphText } from "../CharacteristicGlyph";
 import type { RuleEntity, RuleEntityKind } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
 import type { ArtAsset } from "../../lib/art";
@@ -100,6 +101,7 @@ export function RuleEntityView({
           className="sheet-ability-card is-full"
           data-action={ability.actionType}
           data-kind={ability.kind}
+          data-basic={ability.basic ? "true" : undefined}
         >
           <header className="rule-entity-head">
             <h2 className="rule-entity-name" id={anchor}>
@@ -117,7 +119,7 @@ export function RuleEntityView({
           {ability.trigger && (
             <p className="rule-ability-trigger">
               <strong className="rule-ability-trigger-label">Триггер:</strong>{" "}
-              {ability.trigger}
+              <CharacteristicGlyphText text={ability.trigger} />
             </p>
           )}
         </article>

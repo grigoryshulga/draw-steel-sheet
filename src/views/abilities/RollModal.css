@@ -1,80 +1,254 @@
-.ability-use-facts {
+.ability-roll-panel {
+  min-width: 0;
+  container-type: inline-size;
+  padding: var(--space-7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.ability-roll-header {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3) var(--space-8);
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
   margin-bottom: var(--space-7);
 }
+
+.ability-roll-heading {
+  margin: 0;
+  color: var(--fg-bright);
+  font-size: var(--text-lg);
+}
+
+.ability-roll-resource {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
 .ability-use-settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
   margin: 0;
   padding: 0;
-  min-width: 0;
   border: 0;
 }
+
 .ability-use-settings:disabled {
   opacity: 0.7;
 }
-.ability-use-trigger,
-.ability-use-effect,
+
+.ability-roll-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-8);
+}
+
+.ability-roll-choice {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ability-roll-source {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--fg-bright);
+  font-size: var(--text-sm);
+}
+
+.ability-roll-source .toggle {
+  flex: none;
+}
+
+.ability-roll-modifiers,
+.ability-roll-dice-inputs,
+.ability-roll-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.ability-roll-modifiers .field,
+.ability-roll-dice-inputs .field,
+.ability-roll-numbers .field {
+  min-width: 0;
+}
+
+.ability-roll-numbers .number-counter,
+.ability-roll-numbers .stepper {
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg-deep) 46%, var(--surface));
+}
+
+.ability-roll-numbers .stepper-btn {
+  flex: none;
+  width: 30px;
+  height: 100%;
+}
+
+.ability-roll-numbers .stepper-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.ability-roll-numbers .stepper-value {
+  flex: 1;
+  min-width: 0;
+  color: var(--fg);
+  font-size: var(--text-base);
+}
+
+.ability-roll-marks {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: var(--space-2);
+  --mark-color: var(--green);
+}
+
+.ability-roll-marks[data-tone="bane"] {
+  --mark-color: var(--red);
+}
+
+.ability-roll-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  cursor: pointer;
+}
+
+.ability-roll-mark::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 2px solid color-mix(in srgb, var(--mark-color) 48%, var(--line-strong));
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--mark-color) 8%, var(--surface));
+  transition: border-color 120ms var(--ease), background-color 120ms var(--ease), box-shadow 120ms var(--ease);
+}
+
+.ability-roll-mark[aria-pressed="true"]::before {
+  border-color: var(--mark-color);
+  background: var(--mark-color);
+  box-shadow: inset 0 0 0 4px var(--surface-2);
+}
+
+.ability-roll-mark:hover::before {
+  border-color: var(--mark-color);
+}
+
+.ability-roll-mark:focus-visible {
+  outline: 2px solid var(--mark-color);
+  outline-offset: 1px;
+}
+
+.ability-roll-surge {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ability-roll-surge:disabled {
+  opacity: 0.55;
+}
+
+.ability-roll-panel .abil-roll-footer {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: var(--space-7) 0 0;
+}
+
+.ability-roll-hint {
+  margin: var(--space-4) 0 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.ability-roll-panel .abil-roll-result {
+  min-height: 0;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+}
+
+.ability-roll-panel .abil-roll-result[data-tier="1"] { --result-tier-color: var(--tier1); }
+.ability-roll-panel .abil-roll-result[data-tier="2"] { --result-tier-color: var(--tier2); }
+.ability-roll-panel .abil-roll-result[data-tier="3"] { --result-tier-color: var(--tier3); }
+
+.ability-roll-panel .abil-roll-result[data-tier] {
+  border-color: color-mix(in srgb, var(--result-tier-color) 65%, var(--line));
+  background: color-mix(in srgb, var(--result-tier-color) 12%, var(--surface-2));
+}
+
 .ability-use-preview {
-  padding: var(--space-6) var(--space-7);
+  padding: var(--space-6);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface-2);
-  margin: var(--space-6) 0;
+  margin: var(--space-6) 0 0;
   overflow-wrap: anywhere;
 }
-.ability-use-trigger {
-  border-left: 2px solid var(--magenta);
-}
-.ability-use-trigger p,
+
 .ability-use-preview p {
   margin: var(--space-3) 0 0;
   font-size: var(--text-md);
   line-height: var(--leading-relaxed);
 }
+
 .ability-use-preview.is-applied {
   border-color: color-mix(in srgb, var(--green) 45%, var(--line));
 }
+
 .ability-use-exception {
   display: flex;
   align-items: flex-start;
   gap: var(--space-4);
   font-size: var(--text-body);
   color: var(--muted);
+  margin-top: var(--space-4);
 }
+
 .ability-use-exception input {
   margin-top: var(--space-1);
   accent-color: var(--accent);
 }
+
 .ability-use-notes {
-  font-size: var(--text-md);
-  margin-top: var(--space-6);
+  font-size: var(--text-body);
 }
+
 .ability-use-notes summary {
   cursor: pointer;
   color: var(--muted);
 }
-.abil-roll-modal .abil-roll-footer {
-  flex-wrap: wrap;
+
+.ability-use-notes > .field {
+  margin-top: var(--space-4);
 }
-.ability-use-cost {
-  flex-basis: 100%;
-  text-align: right;
-}
+
 @media (max-width: 560px) {
-  .abil-roll-modal .modal-body {
-    padding: var(--space-7);
-  }
-  .abil-roll-modal .abil-roll-footer .btn {
+  .ability-roll-panel .abil-roll-footer .btn {
     min-height: 42px;
   }
-  .abil-roll-modal .abil-roll-footer {
-    gap: var(--space-3);
-  }
-  .abil-roll-modal .abil-roll-footer .grow {
-    display: none;
-  }
-  .abil-roll-modal .abil-roll-footer .btn-primary {
-    flex-grow: 1;
+
+  .ability-roll-panel .abil-roll-footer .btn-icon {
+    width: 42px;
   }
 }
