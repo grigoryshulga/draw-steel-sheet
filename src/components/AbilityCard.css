@@ -330,13 +330,18 @@
   white-space: pre-line;
 }
 
-/* Полный текст нужен во время игры, включая длинные эффекты. */
 .sheet-ability-body, .sheet-ability-trigger-text {
   margin: 0;
   font-size: var(--text-body);
   line-height: var(--leading-normal);
   color: var(--muted);
   white-space: pre-line;
+}
+.sheet-ability-body:not(.is-full-body) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 15;
+  overflow: hidden;
 }
 .sheet-ability-trigger-text strong { color: var(--fg); }
 .sheet-ability-fact-icon, .sheet-ability-tier-glyph {

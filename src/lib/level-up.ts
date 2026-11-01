@@ -381,7 +381,11 @@ function buildContext(character: Character): LevelUpContext {
     MAX_CHARACTER_LEVEL,
     Math.max(1, level + 1),
   );
-  const xpRequired = levelUpXpRequirement(toLevel);
+  const customThreshold = character.xpThreshold;
+  const xpRequired = customThreshold?.level === toLevel &&
+    Number.isSafeInteger(customThreshold.value) && customThreshold.value >= 0 && customThreshold.value <= 999999
+    ? customThreshold.value
+    : levelUpXpRequirement(toLevel);
   const xp = Number.isFinite(character.xp) ? Number(character.xp) : 0;
   const xpMissing = Math.max(0, xpRequired - xp);
   const grown = baseCharacteristics(character);

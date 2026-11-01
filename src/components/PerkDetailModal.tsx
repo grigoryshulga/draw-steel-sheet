@@ -37,16 +37,17 @@ export function PerkDetailModal({
     <Modal
       open={open}
       onClose={onClose}
-      title="Перк"
+      title={
+        <span className="perk-detail-heading">
+          <span className="perk-detail-name">{name || "Перк"}</span>
+          {eyebrow && <span className="perk-detail-source">{eyebrow}</span>}
+          {meta && <Chip tone={meta.tone}>{meta.label}</Chip>}
+        </span>
+      }
       className="perk-detail-dialog"
       footer={action}
     >
       <div className="perk-detail-modal">
-        <div className="hstack wrap">
-          {meta && <Chip tone={meta.tone}>{meta.label}</Chip>}
-          {eyebrow && <span className="small muted">{eyebrow}</span>}
-        </div>
-        <h3>{name}</h3>
         {description || summary ? (
           <RuleText text={description || summary || ""} />
         ) : (

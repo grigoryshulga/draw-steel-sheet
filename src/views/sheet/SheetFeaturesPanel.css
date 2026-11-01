@@ -1,0 +1,32 @@
+.sheet-features-title-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sheet-features-title-toggle:hover {
+  color: var(--fg-bright);
+}
+
+.sheet-features-title-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.sheet-view .sheet-features-panel.is-compact .sheet-ability-grid > .sheet-ability-card {
+  padding: 0;
+  gap: 0;
+}
+
+.sheet-view .sheet-features-panel.is-compact .sheet-ability-grid > .sheet-ability-card > :not(.sheet-ability-card-head) {
+  display: none;
+}
+
+.sheet-view .sheet-features-panel.is-compact .sheet-ability-grid > .sheet-ability-card > .sheet-ability-card-head {
+  margin: 0;
+  border-bottom: 0;
+  border-radius: calc(var(--card-radius) - 1px);
+}

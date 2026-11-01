@@ -3,7 +3,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("../src/components/ui", () => ({
-  Modal: ({ children }: { children: ReactNode }) => createElement("div", null, children),
+  Modal: ({ children, title }: { children: ReactNode; title: ReactNode }) =>
+    createElement("div", null, createElement("header", null, title), createElement("main", null, children)),
   Button: () => null,
   Chip: ({ children }: { children: ReactNode }) => createElement("span", null, children),
 }));
@@ -11,6 +12,15 @@ vi.mock("../src/components/ui", () => ({
 import { PerkDetailModal } from "../src/components/PerkDetailModal";
 
 describe("описание перка", () => {
+  it("помещает название, источник и тип в шапку, а описание — в содержимое", () => {
+    const html = renderToStaticMarkup(createElement(PerkDetailModal, {
+      open: true, onClose: () => {}, name: "Находка", type: "exploration",
+      eyebrow: "Карьера", description: "Текст перка.",
+    }));
+    expect(html).toMatch(/<header>.*Находка.*Карьера.*Исследование.*<\/header>/);
+    expect(html).toMatch(/<main>.*Текст перка\..*<\/main>/);
+    expect(html).not.toMatch(/<main>.*Находка.*<\/main>/);
+  });
   it("не повторяет сокращённый текст перед полным описанием", () => {
     const html = renderToStaticMarkup(createElement(PerkDetailModal, {
       open: true, onClose: () => {}, name: "Перк",

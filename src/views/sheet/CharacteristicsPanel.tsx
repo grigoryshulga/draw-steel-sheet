@@ -150,6 +150,29 @@ export function CharacteristicsPanel() {
             />
           </div>
         </div>
+        <div className="field potency-group">
+          <span className="field-label stat-label-with-help">
+            Потенциал
+            <HelpTooltip label="Расчёт и применение потенциала">
+              <strong>Потенциал</strong>
+              <p>Наивысшая характеристика: {derived.highestCharacteristic}.</p>
+              <p>Слабый: {derived.potency.weak} · Средний: {derived.potency.average} · Сильный: {derived.potency.strong}.</p>
+              <p>Эффект применяется, если характеристика цели строго ниже порога.</p>
+            </HelpTooltip>
+          </span>
+          <div className="potency-group-values">
+            {([
+              ["Слабый", derived.potency.weak],
+              ["Средний", derived.potency.average],
+              ["Сильный", derived.potency.strong],
+            ] as const).map(([label, value]) => (
+              <output className="input numeric potency-compact" key={label} aria-label={`${label} потенциал: ${value}`}>
+                <span className="potency-compact-label" aria-hidden="true">{label}</span>
+                <span aria-hidden="true">{value}</span>
+              </output>
+            ))}
+          </div>
+        </div>
       </div>
     </Panel>
   );

@@ -5,8 +5,39 @@
   min-width: 0;
 }
 
+.modal-backdrop:has(.perk-detail-dialog) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.perk-detail-dialog {
+  flex: 0 0 auto;
+  max-height: none;
+  margin: auto 0;
+}
+
+.perk-detail-dialog .modal-head h2 {
+  min-width: 0;
+}
+
+.perk-detail-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.perk-detail-source {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-body);
+  font-weight: 400;
+}
+
 .perk-detail-dialog .modal-body {
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .perk-detail-modal .rule-text {
@@ -15,12 +46,7 @@
   overflow-wrap: anywhere;
 }
 
-.perk-detail-modal h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-  color: var(--fg-bright);
+.perk-detail-name {
   overflow-wrap: anywhere;
+  min-width: 0;
 }

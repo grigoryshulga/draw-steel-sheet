@@ -25,6 +25,8 @@ describe("карточка пассивной особенности", () => {
     expect(html).toContain('aria-label="Примечание: Особенность"');
     expect(html).not.toContain("Текст особенности</summary>");
     expect(html).not.toContain("Примечание</summary>");
+    expect(html).not.toContain("Класс</span>");
+    expect(html).not.toContain("2 ур.");
     expect(html.match(/Краткий фрагмент/g)).toHaveLength(1);
   });
 

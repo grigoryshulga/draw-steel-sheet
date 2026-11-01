@@ -30,77 +30,20 @@
   display: none;
 }
 
-.sheet-perk-groups {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-7);
-}
-
-.sheet-perk-group-head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-4);
-}
-
-.sheet-perk-group-head h3 {
-  margin: 0;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.sheet-perk-group-count {
-  color: var(--muted);
-  font-size: var(--text-2xs);
-}
-
-.sheet-perk-group-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding: 0;
-  border: 0;
-  color: inherit;
-  background: transparent;
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  cursor: pointer;
-}
-
-.sheet-perk-group-toggle:hover {
-  color: var(--fg-bright);
-}
-
-.sheet-perk-group-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.sheet-perk-group-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-
-.sheet-perks-panel .sheet-perk-group .perk-card-grid {
+.sheet-perks-panel .perk-card-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: var(--space-4);
   border: 0;
 }
 
-.sheet-perks-panel .sheet-perk-group .sheet-perk-card {
+.sheet-perks-panel .sheet-perk-card {
   padding: var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface-2);
 }
 
-.sheet-perks-panel .sheet-perk-group .sheet-perk-card.is-filled {
+.sheet-perks-panel .sheet-perk-card.is-filled {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-content: start;
@@ -109,11 +52,11 @@
   padding: 0;
 }
 
-.sheet-perks-panel .sheet-perk-group .sheet-perk-card.is-filled[data-type] {
+.sheet-perks-panel .sheet-perk-card.is-filled[data-type] {
   border-color: color-mix(in srgb, var(--perk-tone) 52%, var(--line));
 }
 
-.sheet-perks-panel .sheet-perk-group .sheet-perk-card.is-filled[data-type]:hover {
+.sheet-perks-panel .sheet-perk-card.is-filled[data-type]:hover {
   border-color: color-mix(in srgb, var(--perk-tone) 78%, var(--line));
 }
 
@@ -128,23 +71,23 @@
 }
 
 .sheet-perks-panel .sheet-perk-card.is-filled h3 {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 1;
   min-width: 0;
   margin: 0;
-  padding: var(--space-5) 0 var(--space-5) var(--space-5);
+  padding: var(--space-5);
   position: relative;
 }
 
 .sheet-perks-panel .sheet-perk-card.is-filled .sheet-perk-head {
-  grid-column: 2;
-  grid-row: 1;
-  padding: var(--space-5) var(--space-5) var(--space-5) 0;
-  position: relative;
-}
-
-.sheet-perks-panel .sheet-perk-card.is-filled .sheet-perk-head .chip {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .sheet-perks-panel .sheet-perk-card.is-filled :is(.sheet-perk-summary, .sheet-perk-card-actions) {
@@ -156,31 +99,12 @@
   -webkit-line-clamp: 6;
 }
 
-.sheet-perk-group.is-compact .sheet-perk-card.is-filled {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0 var(--space-4);
-}
-
-.sheet-perks-panel .sheet-perk-group.is-compact .sheet-perk-card.is-filled::before {
+.sheet-perks-panel.is-compact .sheet-perk-card.is-filled::before {
   border-bottom: 0;
   border-radius: calc(var(--radius-sm) - 1px);
 }
 
-.sheet-perk-group.is-compact .sheet-perk-card.is-filled h3 {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0;
-}
-
-.sheet-perk-group.is-compact .sheet-perk-card.is-filled .sheet-perk-head {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.sheet-perk-group.is-compact .sheet-perk-summary,
-.sheet-perk-group.is-compact .sheet-perk-card-actions {
+.sheet-perks-panel.is-compact .sheet-perk-card.is-filled :is(.sheet-perk-summary, .sheet-perk-card-actions) {
   display: none;
 }
 

@@ -155,6 +155,12 @@ function validateCharacterShape(value: JsonObject): void {
   const numbers = ["level", "xp", "epic", "victories", "surges", "heroTokens"];
   for (const key of strings) optionalString(value, key);
   for (const key of numbers) optionalNumber(value, key);
+  if ("xpThreshold" in value) {
+    const threshold = value.xpThreshold;
+    if (!isObject(threshold)) fail("xpThreshold");
+    if (!Number.isSafeInteger(threshold.level) || (threshold.level as number) < 2 || (threshold.level as number) > 10) fail("xpThreshold.level");
+    if (!Number.isSafeInteger(threshold.value) || (threshold.value as number) < 0 || (threshold.value as number) > 999999) fail("xpThreshold.value");
+  }
 
   if ("characteristics" in value) {
     const characteristics = value.characteristics;

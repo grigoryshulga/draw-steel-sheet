@@ -11,9 +11,8 @@ import { ConditionsPanel } from "./sheet/ConditionsPanel";
 import { DevelopmentPanel } from "./sheet/DevelopmentPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
+import { SheetFeaturesPanel } from "./sheet/SheetFeaturesPanel";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
-import { PotencyPanel } from "./sheet/PotencyPanel";
-import { ProgressPanel } from "./sheet/ProgressPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
@@ -32,9 +31,8 @@ type PanelId =
   | "characteristics"
   | "conditions"
   | "abilities"
+  | "features"
   | "perks"
-  | "potency"
-  | "progress"
   | "skills"
   | "vitals"
   | "resources";
@@ -43,24 +41,19 @@ const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
   conditions: ConditionsPanel,
   abilities: SheetAbilitiesPanel,
+  features: SheetFeaturesPanel,
   perks: SheetPerksPanel,
-  potency: PotencyPanel,
-  progress: ProgressPanel,
   skills: SkillsPanel,
   vitals: VitalsPanel,
   resources: ResourcesPanel,
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
-const MAIN_COLUMN: PanelId[] = ["vitals", "characteristics", "abilities"];
-const SIDE_COLUMN: PanelId[] = [
-  "progress",
-  "potency",
-  "resources",
-  "conditions",
-  "skills",
-  "perks",
-];
+const UPPER_MAIN: PanelId[] = ["vitals", "characteristics"];
+const UPPER_SIDE: PanelId[] = ["resources"];
+const LOWER_MAIN: PanelId[] = ["perks", "features"];
+const LOWER_SIDE: PanelId[] = ["conditions", "skills"];
+const FULL_WIDTH: PanelId[] = ["abilities"];
 
 const SHEET_TABS: { id: HeroTab; label: string; icon: IconName }[] = [
   { id: "sheet", label: "Лист", icon: "sheet" },
@@ -167,8 +160,15 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
           {tab === "sheet" && (
             <div className="sheet-layout-host">
               <div className="sheet-layout">
-                <Column className="sheet-col-main" ids={MAIN_COLUMN} />
-                <Column className="sheet-col-side" ids={SIDE_COLUMN} />
+                <div className="sheet-upper">
+                  <Column className="sheet-col-main" ids={UPPER_MAIN} />
+                  <Column className="sheet-col-side" ids={UPPER_SIDE} />
+                </div>
+                <div className="sheet-lower">
+                  <Column className="sheet-col-main" ids={LOWER_MAIN} />
+                  <Column className="sheet-col-side" ids={LOWER_SIDE} />
+                </div>
+                <Column className="sheet-col-full" ids={FULL_WIDTH} />
               </div>
             </div>
           )}

@@ -301,8 +301,15 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     level: input.level,
   });
 
-  const { advancements: rawAdvancements, ...inputWithoutAdvancements } =
-    input as Partial<Character> & { advancements?: unknown };
+  const { advancements: rawAdvancements, xpThreshold: rawXpThreshold, ...inputWithoutAdvancements } =
+    input as Partial<Character> & { advancements?: unknown; xpThreshold?: unknown };
+  const threshold = rawXpThreshold && typeof rawXpThreshold === "object" && !Array.isArray(rawXpThreshold)
+    ? rawXpThreshold as Record<string, unknown> : undefined;
+  const normalizedThreshold = threshold && Number.isSafeInteger(threshold.level) &&
+    (threshold.level as number) >= 2 && (threshold.level as number) <= 10 &&
+    Number.isSafeInteger(threshold.value) && (threshold.value as number) >= 0 &&
+    (threshold.value as number) <= 999999
+    ? { level: threshold.level as number, value: threshold.value as number } : undefined;
   const normalizedAdvancements = Array.isArray(rawAdvancements) &&
     rawAdvancements.every(isLevelAdvancementRecord)
     ? rawAdvancements.map(cloneAdvancementRecord)
@@ -377,6 +384,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
   return {
     ...base,
     ...inputWithoutAdvancements,
+    ...(normalizedThreshold ? { xpThreshold: normalizedThreshold } : {}),
     schemaVersion: 1,
     id: input.id || base.id,
     characteristics: {

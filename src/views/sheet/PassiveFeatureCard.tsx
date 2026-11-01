@@ -33,17 +33,13 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
               {item.name}
             </button>
           </h4>
-          <div className="sheet-ability-card-tags">
-            {item.notes && (
+          {item.notes && (
+            <div className="sheet-ability-card-tags">
               <HelpTooltip label={`Примечание: ${item.name}`}>
                 <div className="rich-text"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.notes}</ReactMarkdown></div>
               </HelpTooltip>
-            )}
-            <Chip tone={item.category === "subclass" ? "blue" : "default"}>
-              {FEATURE_CATEGORY_LABELS[item.category]}
-            </Chip>
-            <span className="sheet-passive-level mono">{item.level} ур.</span>
-          </div>
+            </div>
+          )}
         </header>
 
         {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
@@ -51,12 +47,15 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
           <div className="sheet-passive-preview sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>
         )}
 
-        <footer className="sheet-ability-footer">
-          <span><em>Пассивно</em> не требует действия</span>
-        </footer>
       </article>
       <Modal open={open} onClose={() => setOpen(false)} title={item.name}>
         <div className="sheet-passive-full">
+          <div className="hstack wrap">
+            <Chip tone={item.category === "subclass" ? "blue" : "default"}>
+              {FEATURE_CATEGORY_LABELS[item.category]}
+            </Chip>
+            <span className="sheet-passive-level mono">{item.level} ур.</span>
+          </div>
           {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
           {description && <div className="sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>}
         </div>

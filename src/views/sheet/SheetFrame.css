@@ -1,9 +1,6 @@
-/* Рамка листа: закладки приклеены к верхней кромке панели. */
+/* Закладки и содержимое листа. */
 .sheet-frame {
   min-width: 0;
-  border: 1px solid var(--sheet-warm-line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
   overflow: clip;
 }
 
@@ -141,11 +138,6 @@
 
   .sheet-quick-actions {
     margin-inline: var(--space-4);
-  }
-
-  .sheet-frame {
-    border-inline: 0;
-    border-radius: 0;
   }
 
   .sheet-frame-head {

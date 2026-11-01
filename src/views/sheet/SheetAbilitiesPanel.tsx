@@ -41,11 +41,6 @@ import {
   ancestryFeatureChoicesForSheet,
   withAncestryFeatureSelection,
 } from "../../lib/ancestry-features";
-import {
-  matchesFeatureQuery,
-  passiveClassFeatures,
-} from "../../lib/class-feature-view";
-import { PassiveFeatureCard } from "./PassiveFeatureCard";
 import "./SheetAbilitiesPanel.css";
 
 const AbilityPicker = lazy(() =>
@@ -127,7 +122,6 @@ export function SheetAbilitiesPanel() {
   const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
-  const [passivesCollapsed, setPassivesCollapsed] = useState(false);
   const [editing, setEditing] = useState<{
     ability: Ability;
     isNew: boolean;
@@ -166,14 +160,6 @@ export function SheetAbilitiesPanel() {
     subclassSources,
     ancestrySources,
   );
-  const allPassives = useMemo(
-    () => passiveClassFeatures(character),
-    [character],
-  );
-  const passives = useMemo(
-    () => allPassives.filter((item) => matchesFeatureQuery(item, query)),
-    [allPassives, query],
-  );
   // Удаление последней способности категории не должно оставлять пустой лист:
   // неизвестный фильтр откатывается к «Все».
   const activeFilter = filterOptions.some((option) => option.key === filter)
@@ -188,11 +174,8 @@ export function SheetAbilitiesPanel() {
   );
   const hasFilter = filterOptions.length > 2;
   const hasQuery = query.trim().length > 0;
-  // Пассивные эффекты участвуют в поиске и счётчике, но не в фильтре по виду.
-  const passiveMatches = activeFilter === "all" ? passives.length : 0;
-  const totalMatches = topMatches.length + passiveMatches;
-  const totalVisible =
-    visible + (activeFilter === "all" ? allPassives.length : 0);
+  const totalMatches = topMatches.length;
+  const totalVisible = visible;
 
   const renderAbilityCard = (ability: Ability) => (
     <AbilityCard
@@ -343,7 +326,7 @@ export function SheetAbilitiesPanel() {
             {hasQuery && totalMatches === 0 && (
               <p className="sheet-ability-search-empty" role="status">
                 Ничего не найдено. Попробуйте другое слово — поиск смотрит
-                в название, эффект, триггер, тиры, заметки и пассивные эффекты.
+                в название, эффект, триггер, тиры и заметки.
               </p>
             )}
             {hasQuery && topMatches.length > 0 && (
@@ -366,37 +349,6 @@ export function SheetAbilitiesPanel() {
                 <div className="sheet-ability-grid">
                   {topMatches.map(renderAbilityCard)}
                 </div>
-              </section>
-            )}
-            {activeFilter === "all" && passives.length > 0 && (
-              <section
-                className={`sheet-ability-section${passivesCollapsed ? " is-collapsed" : ""}${compactSections.has("passive") ? " is-compact" : ""}`}
-                data-action="passive"
-                aria-label="Пассивные эффекты"
-              >
-                <header className="sheet-ability-section-head">
-                  <button
-                    type="button"
-                    className="sheet-ability-section-toggle"
-                    aria-expanded={!passivesCollapsed}
-                    onClick={() => setPassivesCollapsed((value) => !value)}
-                  >
-                    <Icon name="chevron-down" size={14} />
-                    <h3>Пассивные эффекты</h3>
-                    <span className="sheet-ability-count mono">
-                      {passives.length}
-                    </span>
-                  </button>
-                  <span className="sheet-ability-rule" />
-                  <CardSummaryToggle label="Пассивные эффекты" compact={compactSections.has("passive")} onToggle={() => toggleCardSummary("passive")} />
-                </header>
-                {!passivesCollapsed && (
-                  <div className="sheet-ability-grid">
-                    {passives.map((item) => (
-                      <PassiveFeatureCard key={item.id} item={item} />
-                    ))}
-                  </div>
-                )}
               </section>
             )}
             {groups.map((group) => {

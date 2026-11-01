@@ -88,6 +88,23 @@ describe("game actions", () => {
     expect(undone.next.surges).toBe(1);
   });
 
+  it("converts victories to experience on rest, avoids double credit and undoes both values", () => {
+    const c = { ...hero(), xp: 12, victories: 5 };
+    const session = createGameSession();
+    const rested = session.perform(c, { kind: "rest" }, "rest-xp");
+    expect(rested.ok).toBe(true);
+    if (!rested.ok) return;
+    expect(rested.next).toMatchObject({ xp: 17, victories: 0 });
+    expect(rested.detail).toContain("опыт: 12 → 17");
+    expect(session.perform(rested.next, { kind: "rest" }, "rest-xp").ok).toBe(false);
+    const repeated = previewGameAction(rested.next, { kind: "rest" });
+    expect(repeated.ok && repeated.next.xp).toBe(17);
+    const changedXp = { ...rested.next, xp: 18 };
+    expect(session.undo(changedXp).ok).toBe(false);
+    const undone = session.undo(rested.next);
+    expect(undone.ok && undone.next).toMatchObject({ xp: 12, victories: 5 });
+  });
+
   it("spends ability resource and selected surges atomically, with waiveCost waiving only resource", () => {
     const c = hero();
     const ability = {

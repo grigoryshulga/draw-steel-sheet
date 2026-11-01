@@ -102,12 +102,13 @@ function ResourceRow({
   return (
     <div className="resource-row">
       <div className="resource-row-head">
-        {help && <HelpTip label={label} lines={help} />}
-        <span className="resource-title">{label}</span>
-        {extra}
+        <div className="resource-row-label">
+          {help && <HelpTip label={label} lines={help} />}
+          <span className="resource-title">{label}</span>
+          {extra}
+        </div>
         <span className="resource-row-value vitals-current">
           <Button
-            size="sm"
             variant="ghost"
             iconOnly
             icon="minus"
@@ -162,7 +163,6 @@ function ResourceRow({
             </span>
           )}
           <Button
-            size="sm"
             variant="ghost"
             iconOnly
             icon="plus"
@@ -184,8 +184,8 @@ function ResourceRow({
 /**
  * Компактный блок «Откуда капает»: триггер, количество и частота каждой
  * прибавки. Отметка идёт через журнал игры (`{kind:"trigger"}`), поэтому
- * её можно отменить, а ключ отметки — тег прибавки. Блок показывается
- * всегда, в том числе при выключенном авторасчёте: это чтение данных класса,
+ * её можно отменить, а ключ отметки — тег прибавки. Блок доступен
+ * и при выключенном авторасчёте: это чтение данных класса,
  * а не пересчёт листа.
  */
 function ResourceGains({
@@ -199,8 +199,8 @@ function ResourceGains({
   const { performGameAction } = useApp();
   if (gains.length === 0) return null;
   return (
-    <section className="resource-gains" aria-label={title}>
-      <h3 className="resource-gains-title">{title}</h3>
+    <details className="resource-gains" open>
+      <summary className="resource-gains-title">{title}</summary>
       <ul className="resource-gains-list">
         {gains.map((gain) => {
           // «= Победы» уже равенство, плюс к нему не ставится.
@@ -238,7 +238,7 @@ function ResourceGains({
           );
         })}
       </ul>
-    </section>
+    </details>
   );
 }
 
