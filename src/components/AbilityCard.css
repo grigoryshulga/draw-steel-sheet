@@ -91,15 +91,19 @@
   transform: translateY(1px);
 }
 
-.sheet-ability-card :is(.sheet-ability-card-head, .rule-entity-head) {
+.sheet-ability-card > .sheet-ability-card-head,
+.sheet-ability-card > .rule-entity-head {
   margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) 0;
   padding: var(--space-6) var(--card-padding);
   border-radius: calc(var(--card-radius) - 1px) calc(var(--card-radius) - 1px) 0 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--ability-kind-color) 52%, var(--line));
-  background: color-mix(in srgb, var(--ability-kind-color) 20%, transparent);
+  border-bottom: 1px solid var(--line-strong);
+  border-bottom-color: color-mix(in srgb, var(--ability-kind-color) 52%, var(--line));
+  background-color: var(--surface);
+  background-color: color-mix(in srgb, var(--ability-kind-color) 28%, transparent);
 }
 
-.sheet-ability-card.is-flat :is(.sheet-ability-card-head, .rule-entity-head) {
+.sheet-ability-card.is-flat > .sheet-ability-card-head,
+.sheet-ability-card.is-flat > .rule-entity-head {
   margin: 0;
   padding: var(--space-6);
   border: 1px solid color-mix(in srgb, var(--ability-kind-color) 32%, var(--line));
