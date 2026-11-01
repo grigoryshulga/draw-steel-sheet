@@ -30,16 +30,17 @@ describe("Codex ability presentation", () => {
       );
     }
     const normalize = (s: string) => s.replace(/[\s,*]/g, "");
+    const parser = unified().use(remarkParse).use(remarkGfm);
+    const abilityBlocks = remarkAbilityBlocks();
+    const ruleFields = remarkRuleFields();
+    const ruleLinks = remarkRuleLinks();
     let cards = 0;
     for (const article of articles) {
-      const tree = unified()
-        .use(remarkParse)
-        .use(remarkGfm)
-        .parse(article.markdown);
+      const tree = parser.parse(article.markdown);
       const before = normalize(content(tree));
-      remarkAbilityBlocks()(tree);
-      remarkRuleFields()(tree);
-      remarkRuleLinks()(tree);
+      abilityBlocks(tree);
+      ruleFields(tree);
+      ruleLinks(tree);
       expect(normalize(content(tree)), article.id).toBe(before);
       cards += JSON.stringify(tree).split('"codex-ability"').length - 1;
     }

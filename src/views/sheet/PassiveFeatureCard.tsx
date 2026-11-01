@@ -3,7 +3,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Chip, Modal } from "../../components/ui";
 import { HelpTooltip } from "../../components/HelpTooltip";
-import { RichText } from "../../components/RichText";
 import {
   FEATURE_CATEGORY_LABELS,
   type FeatureSheetItem,
