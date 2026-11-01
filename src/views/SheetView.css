@@ -1580,10 +1580,10 @@
   border-radius: 0;
 }
 
-/* Больше пространства между тировыми исходами */
+/* Компактный список исходов на листе. */
 .sheet-ability-tiers {
-  gap: var(--space-5);
-  padding: var(--space-5) 0;
+  gap: var(--space-2);
+  padding: 0;
 }
 
 .sheet-ability-tier {
@@ -1633,15 +1633,14 @@
   }
 }
 
-/* Карточки способностей: одна ширина и одна высота в пределах секции —
-   сетка выглядит ровной, как просил игрок. */
+/* Высота каждой карточки определяется её содержимым. */
 .sheet-view .sheet-ability-grid {
-  grid-auto-rows: 1fr;
-  align-items: stretch;
+  grid-auto-rows: auto;
+  align-items: start;
 }
 
 .sheet-view .sheet-ability-card {
-  height: 100%;
+  height: auto;
   min-height: 0;
   padding: var(--space-7);
   gap: var(--space-4);

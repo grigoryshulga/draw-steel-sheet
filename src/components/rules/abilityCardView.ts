@@ -3,7 +3,7 @@ import {
   abilityDistance,
   abilityForcedMovementLine,
 } from "../../lib/character-calculations";
-import { evaluateAbilityDamage, TIER_ROLL_RANGES } from "../../lib/rules";
+import { characteristicShort, evaluateAbilityDamage, TIER_ROLL_RANGES } from "../../lib/rules";
 import { actionLabel, actionShort } from "../../data/actions";
 import { inferDamageType } from "../../lib/damageType";
 import {
@@ -27,6 +27,16 @@ export function abilityCardView(
   origin?: AbilityOrigin | null,
 ): AbilitySheetView {
   const requirements = abilityTierRequirements(ability, character);
+  const alternatives = requirements
+    ? ability.rollCharacteristics.filter((key) => key !== requirements.characteristic).map(characteristicShort)
+    : [];
+  const bonus = requirements
+    ? `${requirements.totalBonus >= 0 ? "+" : "−"}${Math.abs(requirements.totalBonus)}`
+    : "—";
+  const rollValue = alternatives.length ? `${bonus} · или ${alternatives.join(" или ")}` : bonus;
+  const rollTitle = requirements
+    ? `Бросок силы: ${characteristicShort(requirements.characteristic)} ${bonus}${alternatives.length ? `; также ${alternatives.join(" или ")}` : ""}`
+    : "Бросок силы";
   return {
     ...abilitySheetBase(ability),
     origin,
@@ -40,7 +50,7 @@ export function abilityCardView(
         title: "Дистанция",
       },
       { label: "Цель", value: ability.target, title: "Цель" },
-      { label: "Бросок", value: requirements ? `${requirements.totalBonus >= 0 ? "+" : "−"}${Math.abs(requirements.totalBonus)}` : "—", title: "Бросок силы" },
+      { label: "Бросок", value: rollValue, title: rollTitle },
     ],
     tiers: visibleAbilityTiers(ability).map((tier) => ({
       tier: tier.tier,

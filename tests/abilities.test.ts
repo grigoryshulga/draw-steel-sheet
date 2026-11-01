@@ -85,6 +85,10 @@ describe("карточка способности: бросок силы", () =>
     const view = abilityCardView(ability, testCharacter());
     expect(view.tiers.map((tier) => tier.range)).toEqual(["≤ 11", "12–16", "17+"]);
     expect(view.roll).toEqual({ characteristic: "reason", bonus: 4 });
+    expect(view.facts.find((fact) => fact.label === "Бросок")).toMatchObject({
+      value: "+4 · или М",
+      title: "Бросок силы: Р +4; также М",
+    });
   });
 
   it("не показывает бонус для способности без броска", () => {
