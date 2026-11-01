@@ -6,3 +6,36 @@
 }
 
 .stat-name-with-glyph .characteristic-glyph { font-size: 14px; color: var(--fg-bright); }
+
+.movement-grid .potency-group {
+  grid-column: span 3;
+  margin-left: var(--space-4);
+}
+
+.potency-group-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.movement-grid .potency-compact.input.numeric {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-2);
+  white-space: nowrap;
+}
+
+.potency-compact-label {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  opacity: 0.7;
+}
+
+@container sheet (max-width: 399px) {
+  .movement-grid .potency-group {
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+}

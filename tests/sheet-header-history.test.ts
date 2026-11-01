@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { HeaderPanel } from "../src/views/sheet/HeaderPanel";
+import { ProgressPanel } from "../src/views/sheet/ProgressPanel";
 import { GameHistory } from "../src/views/sheet/GameHistory";
 import { AppContext, type AppContextValue } from "../src/state/AppContext";
 import { createCharacter } from "../src/lib/defaults";
@@ -42,6 +43,17 @@ function render(node: ReturnType<typeof createElement>, value: AppContextValue) 
 }
 
 describe("шапка героя", () => {
+  it("показывает повышение уровня только при достижении порога опыта", () => {
+    const hero = { ...censor(), xpThreshold: { level: 3, value: 50 } };
+    const html = (xp: number, level = 2) => render(
+      createElement(ProgressPanel), context({ ...hero, xp, level }),
+    );
+    expect(html(49)).not.toContain('aria-label="Повысить уровень"');
+    expect(html(50)).toContain('aria-label="Повысить уровень"');
+    expect(html(51)).toContain('aria-label="Повысить уровень"');
+    expect(html(999, 10)).not.toContain('aria-label="Повысить уровень"');
+  });
+
   it("показывает домен компактным чипом в строке идентичности", () => {
     const html = render(createElement(HeaderPanel), context(censor()));
     expect(html).toContain("sheet-domain-chip");

@@ -9,7 +9,6 @@
 
 .sheet-workspace-view > .sheet-header {
   position: relative;
-  border-bottom-color: var(--sheet-warm-line);
 }
 
 .sheet-identity-heading h1 {
@@ -18,34 +17,13 @@
 
 .sheet-identity-heading h1::after {
   display: block;
-  width: min(104px, 36%);
+  width: min(120px, 40%);
   height: 1px;
-  margin-top: var(--space-3);
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--sheet-warm) 65%, transparent),
-    color-mix(in srgb, var(--sheet-warm) 10%, transparent),
-    transparent
-  );
+  margin-top: var(--space-4);
+  background: linear-gradient(90deg, var(--line-strong), transparent);
   content: "";
 }
 
-.sheet-identity-heading > div > .eyebrow {
-  color: color-mix(in srgb, var(--muted) 76%, var(--sheet-warm));
-  letter-spacing: 0.1em;
-}
-
-.sheet-crest {
-  position: absolute;
-  right: 180px;
-  top: 50%;
-  width: 112px;
-  height: 112px;
-  transform: translateY(-50%);
-  color: var(--sheet-warm);
-  opacity: 0.26;
-  pointer-events: none;
-}
 .sheet-identity-heading {
   position: relative;
 }
@@ -53,14 +31,6 @@
   display: block;
   color: var(--sheet-warm);
   opacity: 0.8;
-}
-@media (max-width: 900px) {
-  .sheet-crest {
-    right: 30px;
-    width: 90px;
-    height: 90px;
-    opacity: 0.18;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .sheet-workspace-view .meter-fill {

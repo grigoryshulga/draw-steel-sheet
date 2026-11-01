@@ -1,61 +1,51 @@
-import { useState } from "react";
 import "./ProgressPanel.css";
 import { Icon } from "../../components/Icons";
-import { Button, Field, Modal, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
-import { getLevelUpPlan } from "../../lib/level-up";
+import { Button, Field, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
+import { getLevelUpPlan, MAX_CHARACTER_LEVEL } from "../../lib/level-up";
 import { openSheetTab } from "../../lib/sheet-tabs";
 import { echelon } from "../../lib/progression";
 import { useApp } from "../../state/AppContext";
-import { LevelUpHistory } from "./LevelUpHistory";
 
 /** Уровень и эшелон героя, победы, опыт, богатство и известность. */
 export function ProgressPanel() {
   const { character, patch } = useApp();
-  const [historyOpen, setHistoryOpen] = useState(false);
   const levelUpPlan = getLevelUpPlan(character);
   const currentEchelon = echelon(character.level);
+  const maxLevel = character.level >= MAX_CHARACTER_LEVEL;
+  const xpTarget = levelUpPlan.xpRequired;
+  const xpProgress = maxLevel || xpTarget <= 0
+    ? 1
+    : Math.max(0, Math.min(1, character.xp / xpTarget));
 
   return (
-    <Panel
-      title="Развитие"
-      icon="spark"
-      className="progress-panel"
-      actions={(
-        <>
-          {character.advancements?.length ? (
-            <Button size="sm" variant="ghost" onClick={() => setHistoryOpen(true)}>
-              История · {character.advancements.length}
-            </Button>
-          ) : null}
-          <span className="progress-echelon">{currentEchelon}-й эшелон</span>
-        </>
-      )}
-      dense
-    >
+    <Panel className="progress-panel" dense>
       <div className="progress-layout">
         <div className="progress-header" role="group" aria-label="Уровень и эшелон">
           <div className="progress-level-summary">
             <span className="progress-level-value">
               <span className="sr-only">Уровень {character.level}</span>
               <span aria-hidden="true">{character.level}</span>
-              <span className="progress-level-unit" aria-hidden="true">ур</span>
+              <span className="progress-level-unit" aria-hidden="true">уровень</span>
             </span>
+            <span className="progress-echelon">{currentEchelon}-й эшелон</span>
           </div>
-          <span
-            className="progress-level-up-wrap"
-            title={!levelUpPlan.available ? levelUpPlan.reason : undefined}
-          >
-            <Button
-              variant="soft"
-              className="progress-level-up-trigger"
-              disabled={!levelUpPlan.available}
-              title="Повысить уровень — вкладка «Развитие»"
-              aria-label="Повысить уровень"
-              onClick={() => openSheetTab("development")}
+          {!maxLevel && levelUpPlan.xpMissing === 0 && (
+            <span
+              className="progress-level-up-wrap"
+              title={!levelUpPlan.available ? levelUpPlan.reason : undefined}
             >
-              <Icon name="arrow-up" size={20} />
-            </Button>
-          </span>
+              <Button
+                variant="soft"
+                className="progress-level-up-trigger"
+                disabled={!levelUpPlan.available}
+                title="Повысить уровень — вкладка «Развитие»"
+                aria-label="Повысить уровень"
+                onClick={() => openSheetTab("development")}
+              >
+                <Icon name="arrow-up" size={20} />
+              </Button>
+            </span>
+          )}
         </div>
 
         <div className="progress-counters">
@@ -68,15 +58,29 @@ export function ProgressPanel() {
               onChange={(victories) => patch({ victories })}
             />
           </Field>
-          <Field label="Опыт">
-            <NumberInput
-              min={0}
-              max={999999}
-              value={character.xp}
-              label="Опыт"
-              onChange={(xp) => patch({ xp })}
-            />
-          </Field>
+          <div className="progress-xp">
+            <div className="progress-xp-label">
+              <span>Опыт</span>
+              <div className="progress-xp-value">
+                <NumberInput showButtons={false} min={0} max={999999} value={character.xp}
+                  label="Опыт" onChange={(xp) => patch({ xp })} />
+                {maxLevel ? <span>максимальный уровень</span> : (
+                  <>
+                    <span>/</span>
+                    <NumberInput showButtons={false} min={0} max={999999} value={xpTarget}
+                      label="Порог опыта для следующего уровня"
+                      onChange={(value) => patch({ xpThreshold: { level: levelUpPlan.toLevel, value } })} />
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="meter progress-xp-meter" role="progressbar"
+              aria-label="Опыт до следующего уровня" aria-valuemin={0} aria-valuemax={100}
+              aria-valuenow={Math.round(xpProgress * 100)}
+              aria-valuetext={maxLevel ? "Максимальный уровень" : `${character.xp} из ${xpTarget}; осталось ${levelUpPlan.xpMissing}`}>
+              <span className="meter-fill" style={{ width: `${xpProgress * 100}%` }} />
+            </div>
+          </div>
         </div>
 
         <div className="progress-standing">
@@ -96,9 +100,6 @@ export function ProgressPanel() {
           </Field>
         </div>
       </div>
-      <Modal open={historyOpen} onClose={() => setHistoryOpen(false)} title="История повышений уровня" className="level-up-history-modal">
-        <LevelUpHistory character={character} />
-      </Modal>
     </Panel>
   );
 }

@@ -6,7 +6,7 @@ import "./PerkCard.css";
 
 export interface PerkCardProps {
   /** Надпись над названием: слот, источник или «Перк». */
-  eyebrow: ReactNode;
+  eyebrow?: ReactNode;
   name: string;
   type?: PerkType | null;
   summary?: string;
@@ -63,7 +63,7 @@ export function PerkCard({
         : {})}
     >
       <header className="sheet-perk-head">
-        <span className="eyebrow">{eyebrow}</span>
+        {eyebrow && <span className="eyebrow">{eyebrow}</span>}
         {meta && <Chip tone={meta.tone}>{meta.short}</Chip>}
       </header>
       <h3>

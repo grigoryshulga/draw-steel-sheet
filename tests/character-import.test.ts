@@ -10,6 +10,15 @@ function fileWith(
 }
 
 describe("parseCharacterImport", () => {
+  it("preserves a custom XP threshold and rejects malformed thresholds", async () => {
+    const source = { ...createCharacter({ name: "Герой" }), xpThreshold: { level: 2, value: 25 } };
+    const imported = await parseCharacterImport(fileWith(JSON.stringify(source)));
+    expect(imported.xpThreshold).toEqual({ level: 2, value: 25 });
+    await expect(parseCharacterImport(fileWith(JSON.stringify({
+      ...source, xpThreshold: { level: 2, value: -1 },
+    })))).rejects.toThrow();
+  });
+
   it("imports a valid character and refreshes identity and timestamps", async () => {
     const source = createCharacter({ name: "  Арвен  ", className: "Тактик" });
     source.createdAt = source.updatedAt = "2025-01-01T00:00:00.000Z";

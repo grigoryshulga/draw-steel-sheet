@@ -101,6 +101,17 @@ function optionLabels(plan: LevelUpPlan, choiceId: string): string[] {
 }
 
 describe("level-up XP and availability", () => {
+  it("uses a saved custom XP threshold only for its designated level", () => {
+    const hero = makeHero("Талант", 1, "Телепатия", {
+      xp: 12,
+      xpThreshold: { level: 2, value: 30 },
+    });
+    const restored = normalizeCharacter(JSON.parse(JSON.stringify(hero)));
+    expect(getLevelUpPlan(restored)).toMatchObject({ xpRequired: 30, xpMissing: 18 });
+    expect(getLevelUpPlan({ ...restored, level: 2 })).toMatchObject({ xpRequired: 32, xpMissing: 20 });
+    expect(getLevelUpPlan({ ...restored, xpThreshold: undefined })).toMatchObject({ xpRequired: 16, xpMissing: 4 });
+  });
+
   it("levels up without spending XP or asking how the level was earned", () => {
     const short = makeHero("Талант", 1, "Телепатия", { xp: 15 });
     const plan = getLevelUpPlan(short);

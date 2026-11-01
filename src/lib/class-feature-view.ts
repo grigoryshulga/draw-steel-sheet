@@ -1013,7 +1013,7 @@ export function classFeatureGroupsForSheet(
   return copyGroups(groups);
 }
 
-/** Пассивные эффекты класса и подкласса — для панели способностей. */
+/** Пассивные эффекты класса и подкласса для листа героя. */
 export function passiveClassFeatures(
   character: Character,
 ): FeatureSheetItem[] {

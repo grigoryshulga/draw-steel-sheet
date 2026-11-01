@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Icon } from "../../components/Icons";
 import { PerkCard } from "../../components/PerkCard";
 import { PerkDetailModal } from "../../components/PerkDetailModal";
 import { RichText } from "../../components/RichText";
@@ -46,23 +45,19 @@ export function SheetPerksPanel() {
   const [editing, setEditing] = useState<SelectedPerk | null>(null);
   const [pickingSlot, setPickingSlot] = useState<PerkSlot | null>(null);
   const [pickingFree, setPickingFree] = useState(false);
-  const [compactTypes, setCompactTypes] = useState<Set<PerkType>>(new Set());
-  const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set());
   const [panelCollapsed, setPanelCollapsed] = useState(false);
+  const [compact, setCompact] = useState(false);
   const [fullTexts, setFullTexts] = useState<Record<string, string>>({});
 
   const slots = perkSlots(character);
   const customPerks = character.perks.filter((perk) => perk.source === "custom");
   const slotEntries = slots.map((slot) => ({ slot, selected: selectedPerkForSlot(character, slot) }));
   const emptySlots = slotEntries.filter((entry) => !entry.selected);
-  const groupedPerks = ALL_PERK_TYPES.map((type) => ({
-    type,
-    entries: [
-      ...slotEntries.flatMap(({ slot, selected }) => selected?.type === type ? [{ selected, slot }] : []),
-      ...customPerks.filter((selected) => selected.type === type).map((selected) => ({ selected, slot: undefined })),
-    ],
-  })).filter((group) => group.entries.length > 0);
-  const catalogIds = [...new Set(groupedPerks.flatMap((group) => group.entries)
+  const entries = [
+    ...slotEntries.flatMap(({ slot, selected }) => selected ? [{ selected, slot }] : []),
+    ...customPerks.map((selected) => ({ selected, slot: undefined })),
+  ];
+  const catalogIds = [...new Set(entries
     .filter(({ selected }) => perkById(selected.perkId))
     .map(({ selected }) => canonicalPerkId(selected.perkId)))].sort().join("|");
 
@@ -85,17 +80,6 @@ export function SheetPerksPanel() {
     });
     return () => { active = false; };
   }, [catalogIds]);
-
-  const toggleCompact = (type: PerkType) => setCompactTypes((current) => {
-    const next = new Set(current);
-    if (!next.delete(type)) next.add(type);
-    return next;
-  });
-  const toggleGroup = (key: string) => setCollapsedGroups((current) => {
-    const next = new Set(current);
-    if (!next.delete(key)) next.add(key);
-    return next;
-  });
 
   const saveCustom = (draft: CustomPerkDraft, initial?: SelectedPerk) => {
     const next: SelectedPerk = {
@@ -178,92 +162,58 @@ export function SheetPerksPanel() {
       <Panel
         title={<button type="button" className="sheet-perks-title-toggle" aria-expanded={!panelCollapsed} title={panelCollapsed ? "Развернуть раздел перков" : "Свернуть раздел перков"} onClick={() => setPanelCollapsed((current) => !current)}>Перки</button>}
         icon="spark"
-        className={`sheet-perks-panel${panelCollapsed ? " is-collapsed" : ""}`}
+        className={`sheet-perks-panel${panelCollapsed ? " is-collapsed" : ""}${compact ? " is-compact" : ""}`}
         actions={
           <>
+            {!panelCollapsed && entries.length > 0 && (
+              <Button size="sm" variant="ghost" icon={compact ? "plus" : "minus"} iconOnly
+                aria-label={compact ? "Развернуть карточки перков" : "Свернуть карточки перков до заголовков"}
+                aria-expanded={!compact}
+                title={compact ? "Развернуть карточки" : "Свернуть карточки до заголовков"}
+                onClick={() => setCompact((value) => !value)} />
+            )}
             <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить перки" title="Изменить перки" onClick={() => goTo("development")} />
             <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить перк" title="Добавить перк" onClick={() => setPickingFree(true)} />
           </>
         }
       >
-        {!panelCollapsed && <>
-        <div className="sheet-perk-groups">
-          {groupedPerks.map(({ type, entries }) => {
-            const compact = compactTypes.has(type);
-            const collapsed = collapsedGroups.has(type);
-            const label = PERK_TYPE_META[type].label;
-            return (
-              <section className={`sheet-perk-group${compact ? " is-compact" : ""}`} key={type}>
-                <header className="sheet-perk-group-head">
-                  <h3><button type="button" className="sheet-perk-group-toggle" aria-expanded={!collapsed} onClick={() => toggleGroup(type)}>
-                    <Icon name={collapsed ? "chevron-right" : "chevron-down"} size={14} />
-                    {label}<span className="sheet-perk-group-count">{entries.length}</span>
-                  </button></h3>
-                  <span className="sheet-perk-group-rule" />
-                  <Button
-                    size="sm" variant="ghost" icon={compact ? "plus" : "minus"} iconOnly
-                    aria-label={`${compact ? "Развернуть перки" : "Свернуть перки до заголовков"}: ${label}`}
-                    aria-expanded={!compact}
-                    title={compact ? "Развернуть перки" : "Свернуть перки до заголовков"}
-                    onClick={() => toggleCompact(type)}
-                  />
-                </header>
-                {!collapsed && <div className="perk-card-grid">
-                  {entries.map(({ selected, slot }) => {
-                    const perk = perkById(selected.perkId);
-                    const isCustom = selected.source === "custom";
-                    const fullText = fullTexts[canonicalPerkId(selected.perkId)];
-                    const customText = isCustom && selected.description && selected.description !== perk?.description
-                      ? selected.description : undefined;
-                    const preview = (customText || fullText || (isCustom
-                      ? (selected.description || selected.summary || "Описание не заполнено.")
-                      : (perk?.description || perk?.summary || selected.description || selected.summary || "Описание перка недоступно.")))
-                      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-                      .replace(/[*_`#]/g, "");
-                    return (
-                      <PerkCard
-                        key={slot?.key ?? `custom-${selected.perkId}`}
-                        eyebrow={slot?.title ?? (perk ? "Из списка" : "Свой перк")}
-                        name={selected.name}
-                        type={selected.type}
-                        summary={preview}
-                        className={isCustom ? "is-custom" : undefined}
-                        onOpen={() => setDetail({ selected, slot })}
-                        footerAction={isCustom ? (
-                          <Button size="sm" variant="ghost" icon="edit" onClick={() => setEditing(selected)}>Изменить</Button>
-                        ) : undefined}
-                      />
-                    );
-                  })}
-                </div>}
-              </section>
-            );
-          })}
-
-          {emptySlots.length > 0 && (
-            <section className="sheet-perk-group">
-              <header className="sheet-perk-group-head">
-                <h3><button type="button" className="sheet-perk-group-toggle" aria-expanded={!collapsedGroups.has("empty")} onClick={() => toggleGroup("empty")}>
-                  <Icon name={collapsedGroups.has("empty") ? "chevron-right" : "chevron-down"} size={14} />
-                  Не выбраны<span className="sheet-perk-group-count">{emptySlots.length}</span>
-                </button></h3>
-                <span className="sheet-perk-group-rule" />
-              </header>
-              {!collapsedGroups.has("empty") && <div className="perk-card-grid">
-                {emptySlots.map(({ slot }) => (
-                  <article className="sheet-perk-card is-empty" key={slot.key}>
-                    <header className="sheet-perk-head"><span className="eyebrow">{slot.title}</span></header>
-                    <button type="button" className="sheet-perk-empty" onClick={() => setPickingSlot(slot)} title="Выбрать перк из списка">
-                      <span className="sheet-perk-empty-title">Не выбран</span>
-                    </button>
-                  </article>
-                ))}
-              </div>}
-            </section>
-          )}
-        </div>
-
-        </>}
+        {!panelCollapsed && (
+          <div className="perk-card-grid">
+            {entries.map(({ selected, slot }) => {
+              const perk = perkById(selected.perkId);
+              const isCustom = selected.source === "custom";
+              const fullText = fullTexts[canonicalPerkId(selected.perkId)];
+              const customText = isCustom && selected.description && selected.description !== perk?.description
+                ? selected.description : undefined;
+              const preview = (customText || fullText || (isCustom
+                ? (selected.description || selected.summary || "Описание не заполнено.")
+                : (perk?.description || perk?.summary || selected.description || selected.summary || "Описание перка недоступно.")))
+                .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+                .replace(/[*_`#]/g, "");
+              return (
+                <PerkCard
+                  key={slot?.key ?? `custom-${selected.perkId}`}
+                  name={selected.name}
+                  type={selected.type}
+                  summary={preview}
+                  className={isCustom ? "is-custom" : undefined}
+                  onOpen={() => setDetail({ selected, slot })}
+                  footerAction={isCustom ? (
+                    <Button size="sm" variant="ghost" icon="edit" onClick={() => setEditing(selected)}>Изменить</Button>
+                  ) : undefined}
+                />
+              );
+            })}
+            {emptySlots.map(({ slot }) => (
+              <article className="sheet-perk-card is-empty" key={slot.key}>
+                <header className="sheet-perk-head"><span className="eyebrow">{slot.title}</span></header>
+                <button type="button" className="sheet-perk-empty" onClick={() => setPickingSlot(slot)} title="Выбрать перк из списка">
+                  <span className="sheet-perk-empty-title">Не выбран</span>
+                </button>
+              </article>
+            ))}
+          </div>
+        )}
 
       </Panel>
 

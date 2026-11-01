@@ -4,9 +4,9 @@
   gap: var(--space-8);
 }
 .sheet-workspace-view > .sheet-header {
-  padding: var(--space-6) 0 var(--space-8);
+  padding: var(--space-6) 0 var(--space-6);
+  margin-bottom: calc(-1 * var(--space-6));
   border: 0;
-  border-bottom: 1px solid var(--line);
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -14,8 +14,23 @@
 .sheet-identity-heading {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   gap: var(--space-8);
+}
+.sheet-identity-heading > div:first-child {
+  min-width: 0;
+}
+.sheet-header-progress {
+  flex: 0 1 380px;
+  min-width: 0;
+}
+@media (max-width: 760px) {
+  .sheet-identity-heading {
+    flex-wrap: wrap;
+  }
+  .sheet-header-progress {
+    flex: 1 1 100%;
+  }
 }
 .sheet-identity-heading h1 {
   color: var(--fg-bright);
@@ -23,10 +38,6 @@
   font-weight: 500;
   font-size: clamp(28px, 4vw, 44px);
   line-height: var(--leading-tight);
-}
-.sheet-identity-heading .eyebrow {
-  display: inline-block;
-  margin-bottom: var(--space-5);
 }
 .sheet-identity-summary {
   display: flex;
@@ -265,9 +276,6 @@
   }
   .sheet-toolbar > a {
     display: none;
-  }
-  .sheet-identity-heading {
-    align-items: start;
   }
   .sheet-block .char-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));

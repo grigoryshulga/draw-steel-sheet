@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Field, Panel, Select } from "../../components/ui";
+import { Button, Panel, Select } from "../../components/ui";
 import {
   CONDITIONS,
   CONDITION_END_OPTIONS,
@@ -12,19 +12,22 @@ import "./ConditionsPanel.css";
 
 const INACTIVE: ConditionState = { active: false, ends: "save" };
 
-/** Состояния героя: активные сверху с выбором окончания, остальные — для наложения. */
+/** Состояния героя: активные карточки и форма наложения. */
 export function ConditionsPanel() {
   const { character, patch, notify } = useApp();
   const [newCondition, setNewCondition] = useState("");
+  const [newEnd, setNewEnd] = useState<ConditionEnd>("save");
   const [lastSaveRoll, setLastSaveRoll] = useState<Record<string, string>>({});
+  const [compact, setCompact] = useState(false);
   const saveBonus = featureStatBonus(character, "save");
   const saveContributions = featureStatContributions(character, "save");
   const saveSources = saveContributions.map((contribution) => contribution.sourceName).join(", ");
 
-  const entries = CONDITIONS.map((condition) => ({
-    ...condition,
-    state: character.conditions[condition.key] ?? INACTIVE,
-  }));
+  const entries = CONDITIONS.map((condition) => {
+    const state = character.conditions[condition.key] ?? INACTIVE;
+    const endLabel = CONDITION_END_OPTIONS.find((option) => option.key === state.ends)?.label ?? state.ends;
+    return { ...condition, state, endLabel };
+  });
   const active = entries.filter((entry) => entry.state.active);
   const inactive = entries.filter((entry) => !entry.state.active);
   const selectedKey = inactive.some((entry) => entry.key === newCondition)
@@ -36,16 +39,13 @@ export function ConditionsPanel() {
     patch({ conditions: { ...character.conditions, [key]: state } });
   };
 
-  const activate = (key: string, state: ConditionState) => {
-    setCondition(key, { active: true, ends: state.ends });
+  const activate = (key: string) => {
+    setCondition(key, { active: true, ends: newEnd });
+    setNewEnd("save");
   };
 
   const deactivate = (key: string, state: ConditionState) => {
     setCondition(key, { ...state, active: false });
-  };
-
-  const setEnd = (key: string, state: ConditionState, ends: ConditionEnd) => {
-    setCondition(key, { ...state, ends });
   };
 
   const rollSave = (key: string, label: string, state: ConditionState) => {
@@ -72,20 +72,27 @@ export function ConditionsPanel() {
     <Panel
       title="Состояния"
       icon="warning"
-      className="conditions-panel"
-      actions={saveBonus !== 0 ? (
-        <span className="chip chip-static chip-accent" title={saveSources || undefined}>
-          Спасбросок {saveBonus > 0 ? "+" : "−"}{Math.abs(saveBonus)}
-        </span>
-      ) : undefined}
+      className={`conditions-panel${compact ? " is-compact" : ""}`}
+      actions={(
+        <>
+          {saveBonus !== 0 && (
+            <span className="chip chip-static chip-accent" title={saveSources || undefined}>
+              Спасбросок {saveBonus > 0 ? "+" : "−"}{Math.abs(saveBonus)}
+            </span>
+          )}
+          {active.length > 0 && (
+            <Button size="sm" variant="ghost" icon={compact ? "plus" : "minus"} iconOnly
+              aria-label={compact ? "Развернуть карточки состояний" : "Свернуть карточки состояний до заголовков"}
+              aria-expanded={!compact}
+              title={compact ? "Развернуть карточки" : "Свернуть карточки до заголовков"}
+              onClick={() => setCompact((value) => !value)} />
+          )}
+          <span className="condition-count" aria-label={`Активных состояний: ${active.length}`}>{active.length}</span>
+        </>
+      )}
       dense
     >
       <div className="conditions-active">
-        <div className="conditions-block-head">
-          <span className="eyebrow">Активные</span>
-          <span className="condition-count" aria-label={`Активных состояний: ${active.length}`}>{active.length}</span>
-        </div>
-
         {active.length === 0 ? (
           <p className="conditions-empty">Нет активных состояний.</p>
         ) : (
@@ -93,7 +100,26 @@ export function ConditionsPanel() {
             {active.map((entry) => (
               <article className="condition-card" key={entry.key}>
                 <header className="condition-card-head">
-                  <h3>{entry.label}</h3>
+                  <h3
+                    title={`Оканчивается: ${entry.endLabel}`}
+                    aria-label={`${entry.label}. Оканчивается: ${entry.endLabel}`}
+                  >
+                    {entry.label}
+                  </h3>
+                  <Button
+                    size="sm"
+                    variant="soft"
+                    icon="dice"
+                    iconOnly
+                    disabled={entry.state.ends !== "save"}
+                    aria-label={`Спасбросок против состояния: ${entry.label}`}
+                    onClick={() => rollSave(entry.key, entry.label, entry.state)}
+                    title={entry.state.ends !== "save"
+                      ? "Доступно для состояния до спасброска"
+                      : lastSaveRoll[entry.key]
+                        ? `Последний бросок: ${lastSaveRoll[entry.key]}`
+                        : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
+                  />
                   <Button
                     size="sm"
                     variant="ghost"
@@ -105,38 +131,11 @@ export function ConditionsPanel() {
                   />
                 </header>
 
-                <p className="condition-summary">{entry.summary}</p>
-
-                <div className="condition-controls">
-                  <Field label="Оканчивается">
-                    <Select
-                      value={entry.state.ends}
-                      aria-label={`Когда оканчивается: ${entry.label}`}
-                      onChange={(event) =>
-                        setEnd(entry.key, entry.state, event.target.value as ConditionEnd)
-                      }
-                    >
-                      {CONDITION_END_OPTIONS.map((option) => (
-                        <option key={option.key} value={option.key}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </Select>
-                  </Field>
-                  {entry.state.ends === "save" && (
-                    <Button
-                      size="sm"
-                      variant="soft"
-                      icon="dice"
-                      iconOnly
-                      aria-label={`Спасбросок против состояния: ${entry.label}`}
-                      onClick={() => rollSave(entry.key, entry.label, entry.state)}
-                      title={lastSaveRoll[entry.key]
-                        ? `Последний бросок: ${lastSaveRoll[entry.key]}`
-                        : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
-                    />
-                  )}
-                </div>
+                {!compact && (
+                  <div className="condition-card-body">
+                    <p className="condition-summary">{entry.summary}</p>
+                  </div>
+                )}
               </article>
             ))}
           </div>
@@ -162,6 +161,17 @@ export function ConditionsPanel() {
                 </option>
               ))}
             </Select>
+            <Select
+              value={newEnd}
+              aria-label="Когда оканчивается новое состояние"
+              onChange={(event) => setNewEnd(event.target.value as ConditionEnd)}
+            >
+              {CONDITION_END_OPTIONS.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {option.label}
+                </option>
+              ))}
+            </Select>
             <Button
               icon="plus"
               iconOnly
@@ -170,7 +180,7 @@ export function ConditionsPanel() {
               title="Наложить выбранное состояние"
               disabled={!selectedEntry}
               onClick={() => {
-                if (selectedEntry) activate(selectedEntry.key, selectedEntry.state);
+                if (selectedEntry) activate(selectedEntry.key);
               }}
             />
           </div>

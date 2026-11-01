@@ -169,6 +169,8 @@ export interface Character {
   subclass: string;
   level: number;
   xp: number;
+  /** Индивидуальный порог опыта для указанного следующего уровня. */
+  xpThreshold?: { level: number; value: number };
   epic: number;
   victories: number;
   wealth: string;

@@ -172,12 +172,14 @@ export function previewGameAction(
     case "rest":
       return finish(
         "Отдых",
-        `Выносливость: ${stamina.current} → ${stamina.max}; временная: ${stamina.temp} → 0; восстановления: ${recoveries.current} → ${recoveries.max}; ${resourceName}: ${heroicResource.current} → 0; всплески: ${character.surges} → 0.`,
+        `Выносливость: ${stamina.current} → ${stamina.max}; временная: ${stamina.temp} → 0; восстановления: ${recoveries.current} → ${recoveries.max}; ${resourceName}: ${heroicResource.current} → 0; всплески: ${character.surges} → 0; победы: ${character.victories} → 0; опыт: ${character.xp} → ${character.xp + character.victories}.`,
         {
           stamina: { ...stamina, current: stamina.max, temp: 0 },
           recoveries: { ...recoveries, current: recoveries.max },
           heroicResource: { ...heroicResource, current: 0 },
           surges: 0,
+          xp: character.xp + character.victories,
+          victories: 0,
         },
       );
     case "resource": {
@@ -327,6 +329,8 @@ const values = (c: Character) => ({
   resource: c.heroicResource.current,
   surges: c.surges,
   tokens: c.heroTokens,
+  xp: c.xp,
+  victories: c.victories,
 });
 type ValueKey = keyof ReturnType<typeof values>;
 
@@ -469,6 +473,8 @@ export function createGameSession() {
         },
         surges: restored.surges,
         heroTokens: restored.tokens,
+        xp: restored.xp,
+        victories: restored.victories,
       };
       const reverted = entry.runtime
         ? entry.runtime.before

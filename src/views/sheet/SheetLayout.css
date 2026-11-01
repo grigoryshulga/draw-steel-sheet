@@ -12,6 +12,8 @@
   background: color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
   overflow: clip;
 }
+.sheet-upper,
+.sheet-lower,
 .sheet-col {
   display: contents;
 }
@@ -31,9 +33,6 @@
 .sheet-block[data-panel="resources"] {
   order: 2;
 }
-.sheet-block[data-panel="potency"] {
-  order: 6;
-}
 .sheet-block[data-panel="conditions"] {
   order: 3;
 }
@@ -44,17 +43,17 @@
   order: 5;
 }
 .sheet-block[data-panel="abilities"] {
-  order: 7;
+  order: 10;
 }
-/* Особенности класса — сразу после способностей: они объясняют их числа. */
+/* Особенности следуют за перками и предшествуют способностям. */
 .sheet-block[data-panel="features"] {
-  order: 8;
+  order: 7;
 }
 .sheet-block[data-panel="skills"] {
   order: 9;
 }
 .sheet-block[data-panel="perks"] {
-  order: 10;
+  order: 6;
 }
 @container sheet (max-width: 639px) {
   .sheet-layout {
@@ -63,9 +62,10 @@
   }
 }
 
-/* От 760 px: две независимые колонки с естественной высотой блоков */
+/* От 760 px: верхние блоки выровнены, нижние колонки независимы. */
 @container sheet (min-width: 760px) {
-  .sheet-layout {
+  .sheet-upper,
+  .sheet-lower {
     display: grid;
     grid-template-columns: minmax(0, 1fr) clamp(300px, 36cqw, 460px);
   }
@@ -94,5 +94,12 @@
   }
   .sheet-col-side > .sheet-block:first-child {
     border-top: 0;
+  }
+  .sheet-upper .sheet-col-side > .sheet-block,
+  .sheet-upper .sheet-col-main > .sheet-block:last-child {
+    flex: 1 0 auto;
+  }
+  .sheet-lower .sheet-col > .sheet-block:first-child {
+    border-top: 1px solid var(--sheet-warm-line);
   }
 }
