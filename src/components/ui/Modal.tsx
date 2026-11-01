@@ -13,6 +13,8 @@ export interface ModalProps {
   footer?: ReactNode;
   /** Кнопки в шапке слева от крестика. */
   headerActions?: ReactNode;
+  /** Соседняя панель внутри общего диалога и фокусной области. */
+  sidecar?: ReactNode;
   wide?: boolean;
   className?: string;
 }
@@ -24,6 +26,7 @@ export function Modal({
   children,
   footer,
   headerActions,
+  sidecar,
   wide = false,
   className = "",
 }: ModalProps) {
@@ -85,31 +88,42 @@ export function Modal({
 
   if (!open) return null;
 
+  const content = (
+    <>
+      <header className="modal-head">
+        <h2 id={titleId}>{title}</h2>
+        <div className="modal-head-actions">
+          {headerActions}
+          <Button
+            variant="ghost"
+            icon="close"
+            iconOnly
+            aria-label="Закрыть"
+            onClick={onClose}
+          />
+        </div>
+      </header>
+      <div className="modal-body">{children}</div>
+      {footer && <footer className="modal-footer">{footer}</footer>}
+    </>
+  );
+
   return createPortal(
     <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
       <div
         ref={dialogRef}
-        className={`modal ${wide ? "modal-wide" : ""} ${className}`.trim()}
+        className={`modal ${sidecar ? "modal-with-sidecar" : ""} ${wide ? "modal-wide" : ""} ${className}`.trim()}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <header className="modal-head">
-          <h2 id={titleId}>{title}</h2>
-          <div className="modal-head-actions">
-            {headerActions}
-            <Button
-              variant="ghost"
-              icon="close"
-              iconOnly
-              aria-label="Закрыть"
-              onClick={onClose}
-            />
-          </div>
-        </header>
-        <div className="modal-body">{children}</div>
-        {footer && <footer className="modal-footer">{footer}</footer>}
+        {sidecar ? (
+          <>
+            <div className="modal-main">{content}</div>
+            <div className="modal-sidecar">{sidecar}</div>
+          </>
+        ) : content}
       </div>
     </div>,
     document.body,

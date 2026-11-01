@@ -101,6 +101,7 @@ export function RuleEntityView({
           className="sheet-ability-card is-full"
           data-action={ability.actionType}
           data-kind={ability.kind}
+          data-basic={ability.basic ? "true" : undefined}
         >
           <header className="rule-entity-head">
             <h2 className="rule-entity-name" id={anchor}>

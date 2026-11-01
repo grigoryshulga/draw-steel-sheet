@@ -1534,6 +1534,10 @@
   color: var(--accent);
 }
 
+.sheet-view .sheet-ability-card[data-basic="true"]:hover h4 {
+  color: var(--fg-bright);
+}
+
 .sheet-view .sheet-ability-card:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: 2px;
@@ -1559,7 +1563,7 @@
 }
 
 .sheet-view .sheet-ability-card:hover {
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+  background: color-mix(in srgb, var(--card-color) 4%, var(--surface-2));
 }
 
 .sheet-view .sheet-perk-card {

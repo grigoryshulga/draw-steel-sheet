@@ -14,6 +14,8 @@ export interface AbilityCardProps {
   /** Происхождение из подкласса: «Орден», «Домен», «Доктрина» и т. п. */
   origin?: { label: string; value?: string } | null;
   onOpen?: () => void;
+  /** Клик по карточке открывает её; клавиатурное управление — через заголовок. */
+  openOnCardClick?: boolean;
   /** Карточка участвует в выборе: клик выбирает, заголовок открывает превью. */
   onSelect?: () => void;
   selected?: boolean;
@@ -31,6 +33,7 @@ export function AbilityCard({
   character,
   origin,
   onOpen,
+  openOnCardClick = false,
   onSelect,
   selected = false,
   full = false,
@@ -56,6 +59,13 @@ export function AbilityCard({
       className={`sheet-ability-card${selected ? " is-selected" : ""}${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
       data-action={ability.actionType}
       data-kind={ability.kind}
+      data-basic={view.basic ? "true" : undefined}
+      data-openable={openOnCardClick && onOpen ? "true" : undefined}
+      onClick={openOnCardClick && onOpen && !onSelect ? (event) => {
+        const target = event.target;
+        if (target instanceof Element && target.closest("button, a, input, select, textarea, summary, details")) return;
+        onOpen();
+      } : undefined}
       {...(onSelect
         ? {
             role: "button",

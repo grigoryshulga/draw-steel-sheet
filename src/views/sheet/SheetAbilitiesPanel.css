@@ -71,11 +71,11 @@
 }
 
 .sheet-ability-section[data-action="main"] {
-  --section-accent: var(--accent);
+  --section-accent: var(--ability-main);
 }
 
 .sheet-ability-section[data-action="maneuver"] {
-  --section-accent: var(--blue);
+  --section-accent: var(--ability-maneuver);
 }
 
 .sheet-ability-section[data-action="move"] {
@@ -83,15 +83,15 @@
 }
 
 .sheet-ability-section[data-action="trigger"] {
-  --section-accent: var(--magenta);
+  --section-accent: var(--ability-trigger);
 }
 
 .sheet-ability-section[data-action="free-trigger"] {
-  --section-accent: var(--yellow);
+  --section-accent: var(--ability-trigger);
 }
 
 .sheet-ability-section[data-action="free-maneuver"] {
-  --section-accent: var(--green);
+  --section-accent: var(--ability-maneuver);
 }
 
 .sheet-ability-section[data-action="none"] {
@@ -244,10 +244,25 @@
 
 /* ---------- Поп-ап способности ---------- */
 
+.sheet-ability-modal .modal-head h2 {
+  min-width: 0;
+}
+
 .sheet-ability-detail-title {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.sheet-ability-detail-title .chip {
+  flex: none;
+}
+
+.sheet-ability-detail-title[data-basic="true"] .chip {
+  color: var(--ability-basic);
+  border-color: var(--ability-basic);
 }
 
 .sheet-ability-detail {
@@ -331,23 +346,76 @@
   opacity: 0.8;
 }
 
-.modal.sheet-ability-modal {
-  width: min(700px, 100%);
+.modal.sheet-ability-modal.modal-with-sidecar {
+  position: relative;
+  display: block;
+  width: min(600px, 100%);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.sheet-ability-modal .modal-main {
+  display: flex;
+  min-width: 0;
+  max-height: min(88vh, 900px);
+  flex-direction: column;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+}
+
+.sheet-ability-modal .modal-sidecar {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + var(--space-6));
+  width: min(320px, calc(50vw - 300px - var(--space-9) - var(--space-6)));
+  min-width: 0;
+  max-height: min(88vh, 900px);
+  transform: translateY(-50%);
+  overflow: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-pop);
+}
+
+@media (max-width: 1240px) {
+  .modal.sheet-ability-modal.modal-with-sidecar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-6);
+    overflow: auto;
+  }
+
+  .sheet-ability-modal .modal-sidecar {
+    position: static;
+    align-self: center;
+    width: min(320px, 100%);
+    transform: none;
+  }
+
+  .sheet-ability-modal .modal-main,
+  .sheet-ability-modal .modal-sidecar {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sheet-ability-modal .modal-main .modal-body {
+    overflow: visible;
+  }
 }
 
 /* Пассивные эффекты: та же карточка, что у способности, но без действия. */
 .sheet-ability-section[data-action="passive"] {
-  --section-accent: var(--green);
+  --section-accent: var(--ability-passive);
 }
 
 .sheet-passive-card {
-  --card-color: var(--accent);
-  --ability-kind-color: var(--accent);
-}
-
-.sheet-passive-card[data-category="subclass"] {
-  --card-color: var(--blue);
-  --ability-kind-color: var(--blue);
+  --card-color: var(--ability-passive);
 }
 
 .sheet-passive-level {

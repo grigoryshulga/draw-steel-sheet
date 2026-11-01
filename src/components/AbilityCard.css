@@ -26,48 +26,29 @@
     transform 120ms var(--ease);
 }
 
-/* Окантовка карточки по типу действия: цвета берутся из активной темы,
-   поэтому правило работает и на светлом пергаменте. */
-.sheet-ability-card[data-action="main"] {
-  --card-color: var(--accent);
-}
-
-.sheet-ability-card[data-action="maneuver"] {
-  --card-color: var(--blue);
-}
-
-.sheet-ability-card[data-action="move"] {
-  --card-color: var(--cyan);
-}
-
-.sheet-ability-card[data-action="trigger"] {
-  --card-color: var(--magenta);
-}
-
-.sheet-ability-card[data-action="free-trigger"] {
-  --card-color: var(--yellow);
-}
-
-.sheet-ability-card[data-action="free-maneuver"] {
-  --card-color: var(--green);
-}
-
-.sheet-ability-card[data-action="none"] {
-  --card-color: var(--muted);
-}
-
-.sheet-ability-card { --ability-kind-color: var(--muted); }
-.sheet-ability-card[data-kind="signature"] { --ability-kind-color: var(--accent); }
-.sheet-ability-card[data-kind="heroic"] { --ability-kind-color: var(--magenta); }
-.sheet-ability-card[data-kind="free-strike"] { --ability-kind-color: var(--blue); }
+/* Цвет типа действия общий для рамки и шапки; базовые способности всегда серые. */
+.sheet-ability-card { --ability-kind-color: var(--card-color); }
+.sheet-ability-card[data-action="main"] { --card-color: var(--ability-main); }
+.sheet-ability-card[data-action="maneuver"],
+.sheet-ability-card[data-action="free-maneuver"] { --card-color: var(--ability-maneuver); }
+.sheet-ability-card[data-action="trigger"],
+.sheet-ability-card[data-action="free-trigger"] { --card-color: var(--ability-trigger); }
+.sheet-ability-card[data-action="move"] { --card-color: var(--cyan); }
+.sheet-ability-card[data-action="none"] { --card-color: var(--muted); }
+.sheet-ability-card[data-basic="true"] { --card-color: var(--ability-basic); }
 
 .sheet-ability-card:hover {
   border-color: color-mix(in srgb, var(--card-color, var(--muted)) 45%, var(--line));
   border-top-color: var(--card-accent);
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
+  background: color-mix(in srgb, var(--card-color) 4%, var(--surface-2));
 }
 
-.sheet-ability-card[role="button"] {
+.sheet-ability-card[data-basic="true"]:hover h4 {
+  color: var(--fg-bright);
+}
+
+.sheet-ability-card[role="button"],
+.sheet-ability-card[data-openable="true"] {
   cursor: pointer;
 }
 
@@ -176,6 +157,8 @@
   height: 22px;
   padding: 0 var(--space-3);
   font-size: var(--text-xs);
+  color: var(--fg-bright);
+  border-color: color-mix(in srgb, var(--card-color) 50%, var(--line));
 }
 
 .sheet-ability-tags-measure {
@@ -217,6 +200,10 @@
   box-shadow: var(--shadow-pop);
 }
 
+.sheet-ability-card-tags .sheet-passive-level {
+  color: var(--fg-bright);
+}
+
 .sheet-ability-cost-stamp {
   display: grid;
   place-items: center;
@@ -239,6 +226,17 @@
   border-color: color-mix(in srgb, var(--yellow) 48%, transparent);
   background: color-mix(in srgb, var(--yellow) 13%, transparent);
   color: var(--yellow);
+}
+
+.sheet-ability-card[data-basic="true"] .sheet-ability-cost-stamp.is-paid {
+  color: var(--fg);
+  border-color: var(--ability-basic);
+  background: color-mix(in srgb, var(--ability-basic) 13%, transparent);
+}
+
+.sheet-ability-card[data-basic="true"] .sheet-ability-fact-mark {
+  color: var(--ability-basic);
+  background: color-mix(in srgb, var(--ability-basic) 14%, transparent);
 }
 
 .sheet-ability-meta {

@@ -5,7 +5,7 @@ import { AbilityFacts } from "../../components/rules/AbilitySheet";
 import { abilityCardView } from "../../components/rules/abilityCardView";
 import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
-import { RollModal } from "../abilities/RollModal";
+import { AbilityRollPanel } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
@@ -102,7 +102,6 @@ function AncestryFeatureChoices() {
 export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
-  const [using, setUsing] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
@@ -184,17 +183,7 @@ export function SheetAbilitiesPanel() {
         ancestryAbilitySource(ancestrySources, ability)
       }
       onOpen={() => openAbility(ability)}
-      footerAction={
-        <Button
-          size="sm"
-          variant="soft"
-          icon="abilities"
-          aria-label={`Использовать: ${ability.name}`}
-          onClick={() => setUsing(ability)}
-        >
-          Использовать
-        </Button>
-      }
+      openOnCardClick
     />
   );
 
@@ -427,10 +416,6 @@ export function SheetAbilitiesPanel() {
           ability={selected}
           derived={ancestryAbilitySource(ancestrySources, selected) !== undefined}
           onClose={() => setSelected(null)}
-          onUse={() => {
-            setUsing(selected);
-            setSelected(null);
-          }}
           onEdit={() => {
             setEditing({ ability: selected, isNew: false });
             setSelected(null);
@@ -478,14 +463,7 @@ export function SheetAbilitiesPanel() {
           onSave={saveAbility}
         />
       )}
-      {using && (
-        <RollModal
-          key={using.id}
-          ability={using}
-          character={character}
-          onClose={() => setUsing(null)}
-        />
-      )}
+
     </>
   );
 }
@@ -497,7 +475,6 @@ function AbilityDetailModal({
   onEdit,
   onDuplicate,
   onDelete,
-  onUse,
 }: {
   ability: Ability;
   /** Карточка выдана происхождением: её нельзя править или удалить на листе. */
@@ -506,7 +483,6 @@ function AbilityDetailModal({
   onEdit: () => void;
   onDuplicate: () => void;
   onDelete: () => void;
-  onUse: () => void;
 }) {
   const { character } = useApp();
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -530,6 +506,7 @@ function AbilityDetailModal({
       open
       onClose={onClose}
       className="sheet-ability-modal"
+      sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} />}
       headerActions={
         derived ? undefined : (
           <>
@@ -553,8 +530,9 @@ function AbilityDetailModal({
         )
       }
       title={
-        <span className="sheet-ability-detail-title">
-          {ability.name || "Без названия"}
+        <span className="sheet-ability-detail-title" data-basic={ability.source === BASIC_ABILITY_SOURCE ? "true" : undefined}>
+          <span>{ability.name || "Без названия"}</span>
+          <Chip tone={ability.source === BASIC_ABILITY_SOURCE ? "default" : kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
         </span>
       }
       footer={
@@ -575,22 +553,17 @@ function AbilityDetailModal({
               Выдана происхождением
             </span>
           )}
-          <span className="grow" />
-          <Button variant="primary" onClick={onUse}>
-            Использовать
-          </Button>
         </>
       }
     >
       <div className="sheet-ability-detail">
-        <div className="hstack wrap">
-          <Chip tone={kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
-          {origin && <Chip tone="accent">{origin.text}</Chip>}
-          {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
-          {ability.resourceCost > 0 && (
-            <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>
-          )}
-        </div>
+        {(origin || ability.source === BASIC_ABILITY_SOURCE || ability.resourceCost > 0) && (
+          <div className="hstack wrap">
+            {origin && <Chip tone="accent">{origin.text}</Chip>}
+            {ability.source === BASIC_ABILITY_SOURCE && <Chip>Базовая</Chip>}
+            {ability.resourceCost > 0 && <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>}
+          </div>
+        )}
 
         {ability.flavor && (
           <p className="sheet-ability-detail-flavor"><CharacteristicGlyphText text={ability.flavor} /></p>
