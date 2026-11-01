@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-ten",
+  "name": "Демо: Вейра Пепельная Маска",
+  "ancestry": "Дьявол",
+  "className": "Тень",
+  "career": "Агент",
+  "subclass": "Коллегия Черного Пепла",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "0",
+  "characteristics": {
+    "might": 3,
+    "agility": 3,
+    "reason": 1,
+    "intuition": 0,
+    "presence": 0
+  },
+  "stamina": {
+    "current": 48,
+    "max": 48,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 8,
+    "max": 8
+  },
+  "heroicResource": {
+    "name": "Прозрение",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "7",
+  "stability": "0",
+  "disengage": "2",
+  "kit": "Беглый Огонь",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "5135b346-0ed4-4ab7-845a-c62b7e0d833e",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "840922e5-d1f8-4915-b916-a9074f656309",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.in-all-this-confusion",
+      "name": "Во Всей Этой Неразберихе",
+      "flavor": "Вы исчезаете в облаке черного дыма, чтобы избежать опасности.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Магия"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Вы получаете урон.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы получаете половину урона, затем можете телепортироваться вплоть до 4 клеток после того, как вызвавший триггер эффект разрешится.\n\nПотратить 1+ Прозрения: Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+      "source": "Тень",
+      "notes": "",
+      "className": "Тень",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/in-all-this-confusion",
+      "originalName": "In All This Confusion",
+      "originalDescription": "*You vanish in a plume of black smoke to avoid danger.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage, then can teleport up to 4 squares after the triggering effect resolves.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.get-in-get-out",
+      "name": "Войти и Выйти",
+      "flavor": "Двигайся неожиданно, бей быстро и исчезай!",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "5 + A",
+          "effect": ""
+        },
+        {
+          "damage": "8 + A",
+          "effect": ""
+        },
+        {
+          "damage": "11 + A",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете сместиться вплоть до вашей скорости, разделив это движение до или после вашего удара по желанию.",
+      "source": "Тень",
+      "notes": "",
+      "className": "Тень",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/get-in-get-out",
+      "originalName": "Get In Get Out",
+      "originalDescription": "*Move unexpectedly, strike fast, and be gone!*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 11 + A damage\n\n**Effect:** You can shift up to your speed, dividing that movement before or after your strike as desired."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.teamwork-has-its-place",
+      "name": "Для Командной Работы Есть Свое Место",
+      "flavor": "Вы атакуете врага, когда союзник обнажает его слабость.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1 или дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + A",
+          "effect": ""
+        },
+        {
+          "damage": "9 + A",
+          "effect": ""
+        }
+      ],
+      "effect": "Если любой союзник смежен с целью, вы получаете 1 всплеск перед тем, как сделать бросок силы.",
+      "source": "Тень",
+      "notes": "",
+      "className": "Тень",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/teamwork-has-its-place",
+      "originalName": "Teamwork Has Its Place",
+      "originalDescription": "*You attack an enemy as an ally exposes their weakness.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If any ally is adjacent to the target, you gain 1 surge before making the power roll."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.setup",
+      "name": "Подготовка",
+      "flavor": "Твои друзья будут тебе благодарны.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "6 + A",
+          "effect": "Р < СЛАБЫЙ, цель имеет уязвимость к урону 5 (до прох.)"
+        },
+        {
+          "damage": "9 + A",
+          "effect": "Р < СРЕДНИЙ, цель имеет уязвимость к урону 5 (до прох.)"
+        },
+        {
+          "damage": "13 + A",
+          "effect": "Р < СИЛЬНЫЙ, цель имеет уязвимость к урону 5 (до прох.)"
+        }
+      ],
+      "effect": "",
+      "source": "Тень",
+      "notes": "",
+      "className": "Тень",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+      "originalName": "Setup",
+      "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.black-ash-teleport",
+      "name": "Телепортация Черного Пепла",
+      "flavor": "В вихре черного пепла вы шагаете из одного места в другое.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Магия"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы телепортируетесь вплоть до 5 клеток. Если в месте назначения у вас есть покров или укрытие, вы можете использовать маневр Скрытности, даже если за вами наблюдают. Если вы успешно спрячетесь с помощью этого маневра, вы получите 1 всплеск.\n\nПотратить 1+ Прозрения: Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+      "source": "Тень",
+      "notes": "",
+      "className": "Тень",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/black-ash-teleport",
+      "originalName": "Black Ash Teleport",
+      "originalDescription": "*In a swirl of black ash, you step from one place to another.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You teleport up to 5 squares. If you have concealment or cover at your destination, you can use the Hide maneuver even if you are observed. If you successfully hide using this maneuver, you gain 1 surge.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "name": "Двойной Выстрел",
+      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 12",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "6",
+          "effect": ""
+        },
+        {
+          "damage": "8",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Беглый Огонь",
+      "notes": "",
+      "className": "Комплект: Беглый Огонь",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.shadow.level-2.in-a-puff-of-ash",
+      "name": "В Облаке Пепла",
+      "flavor": "Вы зачаровываете удар своей магией телепортации.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Ближний",
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1 или дальний 5",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "preferredCharacteristic": "agility",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "6 + A",
+          "effect": "Вы можете телепортировать цель на 1 клетку"
+        },
+        {
+          "damage": "10 + A",
+          "effect": "Вы можете телепортировать цель вплоть до 3 клеток"
+        },
+        {
+          "damage": "14 + A",
+          "effect": "Вы можете телепортировать цель вплоть до 5 клеток"
+        }
+      ],
+      "effect": "",
+      "source": "Тень",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.shadow.level-3.misdirecting-strike",
+      "name": "Отвлекающий Удар",
+      "flavor": "\"Почему ты смотришь на МЕНЯ?!\"",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1 или дальний 5",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "preferredCharacteristic": "agility",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "9 + A",
+          "effect": ""
+        },
+        {
+          "damage": "13 + A",
+          "effect": ""
+        },
+        {
+          "damage": "18 + A",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель спровоцирована согласным союзником в пределах 5 клеток от вас до конца следующего хода цели.",
+      "source": "Тень",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.shadow.level-3.careful-observation",
+      "name": "Внимательное Наблюдение",
+      "flavor": "Момент концентрации оставляет врага под вашим пристальным прицелом.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 20",
+      "target": "Одно существо",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Пока вы остаетесь в пределах расстояния до цели, сохраняете к ней линию воздействия и не бьете ни по какому другому существу первым, вы получаете преимущество на следующий удар, который вы наносите по оцениваемому существу, и получаете 1 всплеск, который вы можете использовать только на этот удар.",
+      "source": "Тень",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.shadow.level-4.night-watch",
+      "name": "Ночной Дозор",
+      "flavor": "Стальной кинжал из ниоткуда сбивает другое оружие с курса.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Дальний",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Один союзник",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Цель получает урон от способности другого существа, пока вы скрыты.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель получает половину урона. Вы остаетесь скрытыми.",
+      "source": "Тень",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.shadow.level-5.into-the-shadows",
+      "name": "Во Тьму",
+      "flavor": "Вы сбиваете врага с ног и погружаете его в абсолютную тьму.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "preferredCharacteristic": "agility",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "8 + A",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "13 + A",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "17 + A",
+          "effect": "Порчей"
+        }
+      ],
+      "effect": "Вы и цель убираетесь с карты боевой встречи до начала вашего следующего хода. Вы снова появляетесь на клетках, которые вы покинули, или на ближайших свободных клетках. Сделайте бросок силы по возвращении.",
+      "source": "Тень",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.lucky-dog",
+      "name": "Везунчик",
+      "type": "intrigue",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.ive-got-you",
+      "name": "Держу тебя!",
+      "type": "exploration",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Бравада",
+    "Скалолазание",
+    "Эмпатия",
+    "Криминальный мир",
+    "Скрытность",
+    "Флирт",
+    "Внимательность",
+    "Подкрадывание",
+    "Прыжки",
+    "Первая помощь",
+    "Гимнастика",
+    "Стойкость",
+    "Магия",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "Вы работали шпионом для правительства или организации. При определении вашей карьеры подумайте над следующими вопросами:\n\n- На кого вы работали?\n- За кем вы шпионили?\n- Кто не должен знать вашу истинную личность и преданность, но знает?\n- Кого вы предали или оставили позади, чтобы выполнить работу?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Скрытность из группы интриги, плюс один навык из группы межличностных и один другой навык из группы интриги (*Быстрый Билд*: Маскировка, Обман, Скрытность.)\n\nЯзыки: Два языка\n\nПерк: Один перк группы интриги (*Быстрый Билд*: Забываемое лицо.)\n",
+    "details": "",
+    "incitingIncident": "Отречение: выполняя опасное шпионское задание, все пошло наперекосяк. Хотя вы спасли свою жизнь, миссия провалилась публично из-за ложной информации, которую дало вам агентство. Они отказались от вас, и вы пустились в бега. Героическая работа позволит вам выжить и очистить свое имя."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Серебряный Язык\nВы можете искажать то, как воспринимаются ваши слова, чтобы лучше понимать людей. Вы владеете одним дополнительным навыком из группы межличностных навыков (см. [Навыки](#/codex/1208)), и вы получаете преимущество при попытке обнаружить Мотивации и Опасные Темы НПС во время переговоров (см. [Переговоры](#/codex/1401)).\n\nКолючий хвост (1): ваш заостренный хвост позволяет вам подчеркивать все ваши действия. Один раз за раунд, когда вы наносите удар в ближнем бою, вы можете нанести дополнительный урон этим ударом равный значению вашей сильнейшей характеристики.\n\nЗвериные ноги (1): ваши мощные ноги делают вас заметно быстрее. Ваша скорость равна 6.\n\nСветящиеся глаза (1): ваши глаза сплошного, яркого цвета, который вспыхивает, показывая ваше возбуждение или ярость. Всякий раз, когда вы получаете урон от существа, вы можете использовать триггер, чтобы проклясть это существо за то, что оно посмело причинить вам вред. Существо получает 1d10 + ваш уровень психического урона.",
+  "classFeatures": "Коллегия Черного Пепла основала искусство быть тенью. Ее выпускники не имеют себе равных в мобильности, используя колдовство для телепортации по полю боя, манипулирования тенями и призыва тьмы. У вас есть навык Магия.",
+  "notes": {
+    "story": "Дьявол из Коллегии Черного Пепла — разведчик и мастер внезапного удара.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Колючий хвост",
+      "Звериные ноги",
+      "Светящиеся глаза"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.devil.barbed-tail",
+      "feature.trait.devil.beast-legs",
+      "feature.trait.devil.glowing-eyes"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {}
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Тень",
+      "subclass": "Коллегия Черного Пепла",
+      "articleId": "0862",
+      "choices": {
+        "0862-g01": [
+          "feature.ability.shadow.level-2.in-a-puff-of-ash"
+        ],
+        "perk": [
+          "perk.ive-got-you"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.107Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Тень",
+      "subclass": "Коллегия Черного Пепла",
+      "articleId": "0863",
+      "choices": {
+        "0863-g01": [
+          "feature.ability.shadow.level-3.misdirecting-strike"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.110Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Тень",
+      "subclass": "Коллегия Черного Пепла",
+      "articleId": "0864",
+      "choices": {
+        "characteristic": [
+          "might"
+        ],
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.112Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Тень",
+      "subclass": "Коллегия Черного Пепла",
+      "articleId": "0865",
+      "choices": {
+        "0865-g01": [
+          "feature.ability.shadow.level-5.into-the-shadows"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.115Z"
+    }
+  ]
+}

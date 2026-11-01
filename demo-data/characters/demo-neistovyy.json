@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-neistovyy",
+  "name": "Демо: Орна Воронья Кость",
+  "ancestry": "Орк",
+  "className": "Неистовый",
+  "career": "Гладиатор",
+  "subclass": "Берсерк",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "2",
+  "characteristics": {
+    "might": 3,
+    "agility": 3,
+    "reason": 1,
+    "intuition": 1,
+    "presence": -1
+  },
+  "stamina": {
+    "current": 63,
+    "max": 63,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 10,
+    "max": 10
+  },
+  "heroicResource": {
+    "name": "Свирепость",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "6",
+  "stability": "3",
+  "disengage": "2",
+  "kit": "Беглый Огонь",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "f70b8124-2ed6-4951-9e1d-a62a65bfe4cf",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "85e057ac-10ce-4644-886d-edc3b6e73ebb",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.fury.level-1.hit-and-run",
+      "name": "Бей и Беги",
+      "flavor": "Постоянное движение помогает вам ускользнуть от досягаемости после жестокой атаки.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M",
+          "effect": "Л < СИЛЬНЫЙ, замедление (до прох.)"
+        }
+      ],
+      "effect": "Вы можете сместиться на 1 клетку.",
+      "source": "Неистовый",
+      "notes": "",
+      "className": "Неистовый",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/hit-and-run",
+      "originalName": "Hit and Run",
+      "originalDescription": "*Staying in constant motion helps you slip out of reach after a brutal assault.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 + M damage\n- **12-16:** 5 + M damage\n- **17+:** 7 + M damage; A < STRONG, slowed (save ends)\n\n**Effect:** You can shift 1 square."
+    },
+    {
+      "id": "feature.ability.fury.level-1.tide-of-death",
+      "name": "Волна Смерти",
+      "flavor": "Научите их как безрассудно выстраиваться перед вами.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Оружие"
+      ],
+      "distance": "На себя; смотрите ниже",
+      "target": "На себя",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2",
+          "effect": ""
+        },
+        {
+          "damage": "3",
+          "effect": ""
+        },
+        {
+          "damage": "5",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы перемещаетесь на расстояние вплоть до вашей скорости по прямой линии, и клетки врагов не являются для вас труднопроходимой местностью во время этого движения. Вы можете закончить это движение в пространстве существа и переместить его на соседнюю свободную клетку. Вы делаете один бросок силы, который нацелен на каждого врага, через чье пространство вы проходите.\n\nПоследняя цель, которой вы наносите урон, получает дополнительный урон, равный показателю вашей Мощи, за каждую атаку по возможности, которую вы провоцируете во время вашего движения.",
+      "source": "Неистовый",
+      "notes": "",
+      "className": "Неистовый",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/tide-of-death",
+      "originalName": "Tide of Death",
+      "originalDescription": "*Teach them the folly of lining up for you.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line, and enemy squares are not difficult terrain for this movement. You can end this movement in a creature's space and move them to an adjacent unoccupied space. You make one power roll that targets each enemy whose space you move through.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Effect:** The last target you damage takes extra damage equal to your Might score for each opportunity attack you trigger during your move."
+    },
+    {
+      "id": "feature.ability.fury.level-1.thunder-roar",
+      "name": "Громовой Рев",
+      "flavor": "Вы издаете вой, который отбрасывает ваших врагов.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Ближний",
+        "Оружие"
+      ],
+      "distance": "Линия 5 x 1 в пределах 1",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "6",
+          "effect": "Толчок 2"
+        },
+        {
+          "damage": "9",
+          "effect": "Толчок 4"
+        },
+        {
+          "damage": "13",
+          "effect": "Толчок 6"
+        }
+      ],
+      "effect": "Цели подвергаются принудительному движению по одной, начиная с ближайшей к вам цели, и могут быть оттолкнуты в других целей на той же линии.",
+      "source": "Неистовый",
+      "notes": "",
+      "className": "Неистовый",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/thunder-roar",
+      "originalName": "Thunder Roar",
+      "originalDescription": "*You unleash a howl that hurls your enemies back.*\n\n| **Area, Melee, Weapon**    |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 1** | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 damage; push 2\n- **12-16:** 9 damage; push 4\n- **17+:** 13 damage; push 6\n\n**Effect:** The targets are force moved one at a time, starting with the target nearest to you, and can be pushed into other targets in the same line."
+    },
+    {
+      "id": "feature.ability.fury.level-1.lines-of-force",
+      "name": "Линии Силы",
+      "flavor": "Вы перенаправляете энергию движения.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Ближний"
+      ],
+      "distance": "Ближний 1",
+      "target": "На себя или одно существо",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Цель должна подвергнуться принудительному движению.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете выбрать новую цель того же размера или меньше в пределах расстояния, которая подвергнется принудительному движению вместо первоначальной. Вы становитесь источником принудительного движения, определяете место назначения новой цели и можете совершить толчок цели вместо использования первоначального типа принудительного движения. Дополнительно, расстояние принудительного движения получает бонус, равный показателю вашей Мощи.\n\nПотратить 1 свирепости: Вместо этого расстояние принудительного движения получает бонус, равный двукратному показателю вашей Мощи.",
+      "source": "Неистовый",
+      "notes": "",
+      "className": "Неистовый",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-1/lines-of-force",
+      "originalName": "Lines of Force",
+      "originalDescription": "*You redirect the energy of motion.*\n\n| **Magic, Melee** |               **Triggered** |\n|------------------|----------------------------:|\n| **📏 Melee 1**   | **🎯 Self or one creature** |\n\n**Trigger:** The target would be force moved.\n\n**Effect:** You can select a new target of the same size or smaller within distance to be force moved instead. You become the source of the forced movement, determine the new target's destination, and can push the target instead of using the original forced movement type. Additionally, the forced movement distance gains a bonus equal to your Might score.\n\n**Spend 1 Ferocity:** The forced movement distance gains a bonus equal to twice your Might score instead."
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "name": "Двойной Выстрел",
+      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 12",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "6",
+          "effect": ""
+        },
+        {
+          "damage": "8",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Беглый Огонь",
+      "notes": "",
+      "className": "Комплект: Беглый Огонь",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.fury.level-2.special-delivery",
+      "name": "Особая Доставка",
+      "flavor": "Готов?",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Один согласный союзник",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы вертикально отталкиваете цель вплоть до 4 клеток. Это принудительное движение игнорирует устойчивость цели, и цель не получает урона от столкновения с существами или объектами. В конце этого движения цель может совершить свободный удар, который наносит дополнительный урон, равный показателю вашей Мощи.",
+      "source": "Неистовый",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.fury.level-3.face-the-storm",
+      "name": "Встреть Бурю!",
+      "flavor": "Потрясенные перед лицом вашей неприкрытой жестокости, инстинкты вашего врага берут верх.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Магия"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, каждое существо, против которого вы совершаете удар ближнего боя и у которого П < СРЕДНИЙ, спровоцировано вами до конца его следующего хода. Дополнительно, когда вы используете способность, которая наносит выброшенный урон любому врагу, спровоцированному вами, способность наносит дополнительный урон, равный двойному показателю вашей Мощи, и увеличивает свой потенциал на 1.",
+      "source": "Неистовый",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.fury.level-5.my-turn",
+      "name": "Моя Очередь!",
+      "flavor": "Вы быстро наносите ответный удар врагу.",
+      "actionType": "free-trigger",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Вызвавшее триггер существо",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "preferredCharacteristic": "might",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "Существо заставляет вас войти в состояние утомления или быть при смерти, или наносит вам урон, пока вы находитесь в состоянии утомления или при смерти.",
+      "tiers": [
+        {
+          "damage": "6 + M",
+          "effect": ""
+        },
+        {
+          "damage": "9 + M",
+          "effect": ""
+        },
+        {
+          "damage": "13 + M",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете потратить Восстановление.",
+      "source": "Неистовый",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.ive-got-you",
+      "name": "Держу тебя!",
+      "type": "exploration",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.improvisation-creation",
+      "name": "Импровизация и созидание",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "Стойкость",
+    "Вождение",
+    "Природа",
+    "Первая помощь",
+    "Гимнастика",
+    "Лифтинг",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "В прошлом вы развлекали массы эффектными проявлениями насилия на арене. При определении вашей карьеры подумайте над следующими вопросами:\n\n- Что привело вас к этой жизни жестоких развлечений?\n- Каково было ваше гладиаторское имя и образ?\n- Кто был вашим величайшим соперником?\n- Что случилось во время вашего самого знаменитого поединка?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Два навыка из группы исследования (*Быстрый Билд*: Гимнастика, Прыжки.)\n\nЯзыки: Один язык\n\nИзвестность: +2\n\nПерк: Один перк группы исследования (*Быстрый Билд*: Дружеская катапульта.)\n",
+    "details": "",
+    "incitingIncident": "Предательство: местный криминальный авторитет предложил вам деньги за проигрыш в последнем бою, пообещав, что вы переживете испытание и получите долю от всех ставок, сделанных на поединок. Вы выполнили свою часть сделки — что сделало нож в спину после боя таким неожиданным. Вы очнулись в неглубокой могиле, едва живой и готовый вершить правосудие."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Неумолимость\nВсякий раз, когда существо наносит вам урон, который оставляет вас при смерти, вы можете нанести свободный удар по любому существу. Если существо сводится до 0 Выносливости вашим ударом, вы можете потратить Восстановление.\n\nНатиск кровавого огня (1): магия, текущая в ваших венах, заставляет вас бежать быстрее в пылу битвы. Первый раз в любом раунде боя, когда вы получаете урон, вы получаете +2 бонус к скорости до конца раунда.\n\nСветящееся восстановление (2): ваш кровавый огонь позволяет вам восстанавливать силы быстрее других. Всякий раз, когда вы используете маневр передышки, вы можете потратить столько Восстановлений, сколько хотите.",
+  "classFeatures": "Вы направляете свою свирепость в физическую мощь, действуя как живая версия сил, формирующих мир. У вас есть навык Лифтинг.",
+  "notes": {
+    "story": "Орк-берсерк, который принимает каждый вызов лично.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Натиск кровавого огня",
+      "Светящееся восстановление"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.orc.bloodfire-rush",
+      "feature.trait.orc.glowing-recovery"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {}
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Неистовый",
+      "subclass": "Берсерк",
+      "articleId": "0802",
+      "choices": {
+        "0802-g01": [
+          "feature.ability.fury.level-2.special-delivery"
+        ],
+        "perk": [
+          "perk.inspired-artisan"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:27.944Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Неистовый",
+      "subclass": "Берсерк",
+      "articleId": "0803",
+      "choices": {
+        "0803-g01": [
+          "feature.ability.fury.level-3.face-the-storm"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:27.954Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Неистовый",
+      "subclass": "Берсерк",
+      "articleId": "0804",
+      "choices": {
+        "perk": [
+          "perk.improvisation-creation"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:27.973Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Неистовый",
+      "subclass": "Берсерк",
+      "articleId": "0805",
+      "choices": {
+        "0805-g01": [
+          "feature.ability.fury.level-5.my-turn"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:27.989Z"
+    }
+  ]
+}

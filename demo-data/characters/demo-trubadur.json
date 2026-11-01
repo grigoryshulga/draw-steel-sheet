@@ -1,0 +1,928 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-trubadur",
+  "name": "Демо: Тавра Последний Аккорд",
+  "ancestry": "Таурус",
+  "className": "Трубадур",
+  "career": "Исполнитель",
+  "subclass": "Виртуоз",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "2",
+  "characteristics": {
+    "might": 1,
+    "agility": 3,
+    "reason": 1,
+    "intuition": -1,
+    "presence": 3
+  },
+  "stamina": {
+    "current": 48,
+    "max": 48,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 8,
+    "max": 8
+  },
+  "heroicResource": {
+    "name": "Драма",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "7",
+  "stability": "1",
+  "disengage": "2",
+  "kit": "Беглый Огонь",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "2305a92b-89de-4ddb-a3b0-9f401f6f95c8",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "11133f20-c181-44de-ae94-a81617d2944a",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.ballad-of-the-beast",
+      "name": "\"Баллада о Звере\"",
+      "flavor": "Зубы оскалены! ♪ Глаза черны! ♪ От зверя не спастись!♪",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Выступление"
+      ],
+      "distance": "Аура 5",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Пока это выступление активно, каждая цель, начинающая свой ход в области, получает 1 всплеск.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/ballad-of-the-beast",
+      "originalName": "\"Ballad of the Beast\"",
+      "originalDescription": "*Teeth are bare! ♪ Eyes black! ♪ No escaping the beast!♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 surge."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.thunder-mother",
+      "name": "\"Громовая Мать\"",
+      "flavor": "Все ради громовой ма-а-атери! ♪ Прячьтесь в укры-ы-ытия!♪",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Выступление",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Урон молнией, равный вашему уровню"
+        },
+        {
+          "damage": "",
+          "effect": "Урон молнией, равный 5 + ваш уровень"
+        },
+        {
+          "damage": "",
+          "effect": "Урон молнией, равный 10 + ваш уровень"
+        }
+      ],
+      "effect": "В конце каждого раунда боя, пока это выступление активно, вы можете сделать бросок силы против цели, который игнорирует укрытие. Вы не можете нацелиться на одно и то же существо дважды с помощью этого эффекта.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/thunder-mother",
+      "originalName": "\"Thunder Mother\"",
+      "originalDescription": "*All for thunder motherrr! ♪ Run and hide for coverrr!♪*\n\n| **Magic, Performance, Ranged, Strike** |       **No action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** At the end of each combat round while this performance is active, you can make a power roll against the target that ignores cover. You can't target the same creature twice with this effect.\n\n**Power Roll + Presence:**\n\n- **≤11:** Lightning damage equal to your level\n- **12-16:** Lightning damage equal to 5 + your level\n- **17+:** Lightning damage equal to 10 + your level"
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.quick-rewrite",
+      "name": "Быстрое Переписывание",
+      "flavor": "Вы вписываете в сцену что-то неожиданное, что мешает вашему врагу.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Куб 3 в пределах 10",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": "П < СЛАБЫЙ, замедление (до прох.)"
+        },
+        {
+          "damage": "5",
+          "effect": "П < СРЕДНИЙ, замедление (до прох.)"
+        },
+        {
+          "damage": "6",
+          "effect": "П < СИЛЬНЫЙ, опутанность (до прох.)"
+        }
+      ],
+      "effect": "Область является труднопроходимой местностью для врагов.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/quick-rewrite",
+      "originalName": "Quick Rewrite",
+      "originalDescription": "*You write something unexpected into the scene that hinders your enemy.*\n\n| **Area, Magic, Ranged**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 3 cube within 10**     | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 damage; P < AVERAGE, slowed (save ends)\n- **17+:** 6 damage; P < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain for enemies."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.harmonize",
+      "name": "Гармонизация",
+      "flavor": "Добавьте хору немного энергии.",
+      "actionType": "trigger",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 5",
+      "target": "Один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "Цель использует способность, которая нацелена только на одного врага и стоит 3 или меньше ее героического ресурса.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель может выбрать одну дополнительную цель для вызвавшей триггер способности. Любой урон, нанесенный дополнительной цели, является уроном звуком.\n\nПотратить 1+ Драмы: Вы можете применить эту способность, когда цель использует способность, стоимость которой составляет 3 + каждая дополнительно потраченная драма героического ресурса.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/harmonize",
+      "originalName": "Harmonize",
+      "originalDescription": "*Give the chorus a little punch.*\n\n| **Ranged**      |   **Triggered** |\n|-----------------|----------------:|\n| **📏 Ranged 5** | **🎯 One ally** |\n\n**Trigger:** The target uses an ability that targets only one enemy and costs 3 or fewer of their Heroic Resource.\n\n**Effect:** The target can choose one additional target for the triggering ability. Any damage dealt to the additional target is sonic damage.\n\n**Spend 1+ Drama:** You can trigger this ability when a target uses an ability that has a Heroic Resource cost of 3 + each additional drama spent."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.dramatic-reversal",
+      "name": "Драматический Поворот",
+      "flavor": "Преподнесите публике сюрприз.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия"
+      ],
+      "distance": "Взрыв 3",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Цель может сместиться на 1 клетку и сделать свободный удар."
+        },
+        {
+          "damage": "",
+          "effect": "Цель может сместиться вплоть до 2 клеток и сделать свободный удар, который получает преимущество."
+        },
+        {
+          "damage": "",
+          "effect": "Цель может сместиться вплоть до 3 клеток и сделать свободный удар, который получает преимущество, затем может потратить Восстановление."
+        }
+      ],
+      "effect": "",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/dramatic-reversal",
+      "originalName": "Dramatic Reversal",
+      "originalDescription": "*Give the audience a surprise.*\n\n| **Area, Magic** |                       **Main action** |\n|-----------------|--------------------------------------:|\n| **📏 3 burst**  | **🎯 Self and each ally in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target can shift 1 square and make a free strike.\n- **12-16:** The target can shift up to 2 squares and make a free strike that gains an edge.\n- **17+:** The target can shift up to 3 squares and make a free strike that gains an edge, then can spend a Recovery."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.revitalizing-limerick",
+      "name": "Живительный Лимерик",
+      "flavor": "Жил-был один парень в Столице...",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Выступление"
+      ],
+      "distance": "Аура 5",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "В конце каждого вашего хода, пока это выступление активно, вы можете выбрать вплоть до числа целей, равного показателю вашего Присутствия. Каждая выбранная цель может потратить Восстановление.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/revitalizing-limerick",
+      "originalName": "Revitalizing Limerick",
+      "originalDescription": "*There once was a man from Capital...*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score. Each chosen target can spend a Recovery."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.instigator",
+      "name": "Зачинщик",
+      "flavor": "Я этого не делал! Что?",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + P",
+          "effect": ""
+        },
+        {
+          "damage": "6 + P",
+          "effect": ""
+        },
+        {
+          "damage": "9 + P",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель спровоцирована вами или согласным союзником, смежным с вами, до конца ее следующего хода.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/instigator",
+      "originalName": "Instigator",
+      "originalDescription": "*I didn't do it! What?*\n\n| **Melee, Strike, Weapon**             | **Main action** |\n|---------------------------------------|----------------:|\n| **📏 Melee 1**                        | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** The target is taunted by you or a willing ally adjacent to you until the end of the target's next turn."
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.power-chord",
+      "name": "Мощный Аккорд",
+      "flavor": "Ваш инструмент звучит верно, и ваша музыка сносит всех с ног.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия"
+      ],
+      "distance": "Взрыв 2",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Толчок 1"
+        },
+        {
+          "damage": "",
+          "effect": "Толчок 2"
+        },
+        {
+          "damage": "",
+          "effect": "Толчок 3"
+        }
+      ],
+      "effect": "",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/power-chord",
+      "originalName": "Power Chord",
+      "originalDescription": "*Your instrument rings true and your music blows everyone away.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
+    },
+    {
+      "id": "feature.ability.troubadour.level-1.choreography",
+      "name": "Хореография",
+      "flavor": "Топы, кики, степы. Все это \"хореография\".",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Выступление"
+      ],
+      "distance": "Аура 5",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Пока это выступление активно, каждый целевой союзник, начинающий свой ход в области, получает бонус +2 к скорости до конца своего хода.",
+      "source": "Трубадур",
+      "notes": "",
+      "className": "Трубадур",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/choreography",
+      "originalName": "Choreography",
+      "originalDescription": "*Taps, kicks, steps. It's all \"choreography.\"*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains a +2 bonus to speed until the end of their turn."
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "name": "Двойной Выстрел",
+      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 12",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "6",
+          "effect": ""
+        },
+        {
+          "damage": "8",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Беглый Огонь",
+      "notes": "",
+      "className": "Комплект: Беглый Огонь",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.troubadour.level-2.encore",
+      "name": "На Бис",
+      "flavor": "Еще! Еще!",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Удар"
+      ],
+      "distance": "Особая",
+      "target": "Особая",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы используете способность, применение которой вы наблюдали в этом раунде боя. Способность должна иметь ключевое слово Удар, стоить 5 или меньше Героического Ресурса и не стоить Раздора. Когда вы наносите этот удар, вы используете показатель Присутствия для любых бросков силы, и любой наносимый вами урон является уроном звуком.",
+      "source": "Трубадур",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.troubadour.level-3.infernal-gavotte",
+      "name": "Адский Гавот",
+      "flavor": "Жгучее выступление разжигает огонь под ногами ваших союзников.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Ближний",
+        "Оружие"
+      ],
+      "distance": "Взрыв 3",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "preferredCharacteristic": "presence",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "5",
+          "effect": "Огнем; Л < СЛАБЫЙ, ослабление (до прох.)"
+        },
+        {
+          "damage": "7",
+          "effect": "Огнем; Л < СРЕДНИЙ, ослабление (до прох.)"
+        },
+        {
+          "damage": "10",
+          "effect": "Огнем; Л < СИЛЬНЫЙ, ослабление (до прох.)"
+        }
+      ],
+      "effect": "Каждый союзник в области может сместиться вплоть до 2 клеток.",
+      "source": "Трубадур",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.troubadour.level-3.fire-up-the-night",
+      "name": "\"Зажги Эту Ночь\"",
+      "flavor": "Может быть, мы с тобой ♪ Еще сможем зажечь свет!♪",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Выступление"
+      ],
+      "distance": "Аура 5",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Пока это выступление активно, каждая цель, начинающая свой ход в области, не получает помеху на удары по существам с покровом. Один раз во время своего хода она может попытаться найти скрытых существ как свободный маневр (смотрите Скрытность и Подкрадывание).",
+      "source": "Трубадур",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.troubadour.level-3.never-ending-hero",
+      "name": "\"Неустанный Герой\"",
+      "flavor": "И сегооодня мы можем смело сказать ♪ Они всегдааа найдут путь!♪",
+      "actionType": "none",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Магия",
+        "Выступление"
+      ],
+      "distance": "Аура 5",
+      "target": "На себя и каждого союзника в области",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Пока это выступление активно, каждая цель, которая начинает свой ход при смерти, находясь в области, получает преимущество на броски силы и игнорирует эффекты кровотечения до конца своего хода.",
+      "source": "Трубадур",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.troubadour.level-5.action-hero",
+      "name": "Герой Боевика",
+      "flavor": "Вы владеете своим оружием с невероятной скоростью, оставляя всех вокруг бороться за свои жизни.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Ближний",
+        "Оружие"
+      ],
+      "distance": "Взрыв 3",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "preferredCharacteristic": "agility",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "10",
+          "effect": ""
+        },
+        {
+          "damage": "14",
+          "effect": ""
+        },
+        {
+          "damage": "20",
+          "effect": ""
+        }
+      ],
+      "effect": "Если вы не выбросите критическое попадание, эта способность не может опустить Выносливость цели, не являющейся миньоном, ниже 1.",
+      "source": "Трубадур",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.harmonizer",
+      "name": "Гармонист",
+      "type": "interpersonal",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.lie-detector",
+      "name": "Детектор лжи",
+      "type": "interpersonal",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Вождение",
+    "Бравада",
+    "Криминальный мир",
+    "Музыка",
+    "Флирт",
+    "Эмпатия",
+    "Чтение личности",
+    "Обращение с животными",
+    "Азарт",
+    "Внимательность",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "Вы умеете петь, играть или танцевать достаточно хорошо, чтобы люди действительно платили вам за это. Представьте себе! При определении вашей карьеры подумайте над следующими вопросами:\n\n- Каков тон ваших выступлений?\n- Какой песней, ролью или танцем вы наиболее известны?\n- Выступали ли вы в одном месте на протяжении всей карьеры, или путешествовали?\n- Были ли вы частью трупы, или работали соло?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Музыка или Выступление из группы межличностных, плюс еще два навыка из группы межличностных (*Быстрый Билд*: Флирт, Музыка, Выступление.)\n\nИзвестность: +2\n\nПерк: Один перк группы межличностных (*Быстрый Билд*: Гармонизатор.)\n",
+    "details": "",
+    "incitingIncident": "Проклятая аудитория: во время выступления вы с ужасом наблюдали, как аудитория внезапно была охвачена проклятием, заставившим их распасться на ваших глазах. Вы не уверены, что произошло, но поиски ответа быстро привели вас в места, куда отваживаются идти только герои."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Зов Горизонта\nВаши врожденные умения в навигации впечатляют. Вы владеете одним дополнительным навыком из группы исследования (см. [Навыки](#/codex/1208)).\n\n#### Знаковая Черта: Зверь Все Еще Внутри\nЗверь все еще бьется внутри вашей души, и его гнев делает вас сильнее. Когда вы применяете принудительное движение на существо или объект, дистанция принудительного движения получает +1 бонус.\n\nПронзающие рога (1): ваши рога не просто внушительные, они заостренные. Один раз за раунд когда вы совершаете удар ближнего боя, вы можете нанести дополнительный урон вместе с ударом равным значению вашей самой высокой характеристики.\n\nЗвериные ноги (1): ваши мощные ноги делают вас заметно быстрее. Ваша скорость равна 6.\n\nЗаземленность (1): вы сдвинетесь тогда, когда посчитаете нужным. У вас есть +1 бонус к устойчивости.",
+  "classFeatures": "Вы находите драму в музыке и песне, сплетая магию из вибраций и наполняя аудиторию своим пафосом. У вас есть навык Музыка, и вы умеете играть на инструменте.",
+  "notes": {
+    "story": "Таурус-виртуоз, который ведет союзников через бой силой музыки.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Пронзающие рога",
+      "Звериные ноги",
+      "Заземленность"
+    ],
+    "ancestryTraitIds": [
+      "ancestry.tauros.piercing-horns",
+      "ancestry.tauros.beast-legs",
+      "ancestry.tauros.grounded"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {}
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Трубадур",
+      "subclass": "Виртуоз",
+      "articleId": "0872",
+      "choices": {
+        "0872-g03": [
+          "feature.ability.troubadour.level-2.encore"
+        ],
+        "perk": [
+          "perk.lie-detector"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.157Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Трубадур",
+      "subclass": "Виртуоз",
+      "articleId": "0873",
+      "choices": {
+        "0873-g01": [
+          "feature.ability.troubadour.level-3.infernal-gavotte"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.161Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Трубадур",
+      "subclass": "Виртуоз",
+      "articleId": "0874",
+      "choices": {
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.167Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Трубадур",
+      "subclass": "Виртуоз",
+      "articleId": "0875",
+      "choices": {
+        "0875-g01": [
+          "feature.ability.troubadour.level-5.action-hero"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.173Z"
+    }
+  ]
+}

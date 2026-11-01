@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-provodnik",
+  "name": "Демо: Мира Золотой Отблеск",
+  "ancestry": "Человек",
+  "className": "Проводник",
+  "career": "Послушник",
+  "subclass": "Жизнь, Солнце",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "0",
+  "characteristics": {
+    "might": 3,
+    "agility": 1,
+    "reason": 0,
+    "intuition": 3,
+    "presence": 0
+  },
+  "stamina": {
+    "current": 42,
+    "max": 42,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 8,
+    "max": 8
+  },
+  "heroicResource": {
+    "name": "Благочестие",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "5",
+  "stability": "0",
+  "disengage": "1",
+  "kit": "",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "adc62412-2f5d-4af2-9ad4-77c2610e86ce",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "5a05a3cc-e7e3-484c-b169-ea894d79d4e8",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.blessed-light",
+      "name": "Благословенный Свет",
+      "flavor": "Обжигающее сияние падает на вашего врага, передавая часть его энергии ближайшему союзнику.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + I",
+          "effect": ""
+        },
+        {
+          "damage": "5 + I",
+          "effect": ""
+        },
+        {
+          "damage": "8 + I",
+          "effect": ""
+        }
+      ],
+      "effect": "Один союзник в пределах расстояния получает количество всплесков, равное результату тира вашего броска силы.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "intuition",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
+      "originalName": "Blessed Light",
+      "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.faith-is-our-armor",
+      "name": "Вера — Наша Броня",
+      "flavor": "Броня героев светится золотым светом, даруя божественную защиту.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Четыре союзника",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Цель получает 5 очков временной выносливости."
+        },
+        {
+          "damage": "",
+          "effect": "Цель получает 10 очков временной выносливости."
+        },
+        {
+          "damage": "",
+          "effect": "Цель получает 15 очков временной выносливости."
+        }
+      ],
+      "effect": "Вы можете выбрать себя вместо одного союзника для этой способности.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "intuition",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faith-is-our-armor",
+      "originalName": "Faith Is Our Armor",
+      "originalDescription": "*The heroes' armor glows with golden light, granting divine protection.*\n\n| **Magic, Ranged**        |       **Maneuver** |\n|--------------------------|-------------------:|\n| **📏 Ranged 10**         | **🎯 Four allies** |\n\n**Effect:** You can target yourself instead of one ally with this ability.\n\n**Power Roll + Intuition:**\n\n- **≤11:** The target gains 5 temporary Stamina.\n- **12-16:** The target gains 10 temporary Stamina.\n- **17+:** The target gains 15 temporary Stamina."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.sacrificial-offer",
+      "name": "Жертвенное Предложение",
+      "flavor": "Божественная магия терзает вашего врага и защищает ближайшего друга.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + I",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "4 + I",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "6 + I",
+          "effect": "Порчей"
+        }
+      ],
+      "effect": "Выберите себя или одного союзника в пределах расстояния. Этот персонаж может наложить помеху на один бросок силы, сделанный против него, до конца своего следующего хода.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "intuition",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sacrificial-offer",
+      "originalName": "Sacrificial Offer",
+      "originalDescription": "*Divine magic tears at your foe and defends a nearby friend.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 4 + I corruption damage\n- **17+:** 6 + I corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.font-of-wrath",
+      "name": "Источник Гнева",
+      "flavor": "Ослепительный столб святого света появляется на поле боя, поражая ближайших врагов.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Особая",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы призываете духа размера 2, которому нельзя причинить вред, и который появляется на свободной клетке в пределах расстояния. Дух остается до конца вашего следующего хода. Вы и ваши союзники можете проходить через пространство духа, но враги не могут. Любой враг, который приближается на расстояние 2 клеток от духа в первый раз в раунде боя или начинает там свой ход, получает святой урон, равный показателю вашей Интуиции.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/font-of-wrath",
+      "originalName": "Font of Wrath",
+      "originalDescription": "*A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.*\n\n| **Magic, Ranged**  | **Main action** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   |  **🎯 Special** |\n\n**Effect:** You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.healing-grace",
+      "name": "Исцеляющая Благодать",
+      "flavor": "Ваша божественная энергия исцеляет праведников.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель может потратить Восстановление.\n\nПотратить 1+ Благочестия: За каждое потраченное благочестие выберите одно из следующих улучшений:\n- Вы можете нацелиться на одного дополнительного союзника в пределах расстояния.\n- Вы можете завершить один эффект на цели, который заканчивается спасброском или который заканчивается в конце ее хода.\n- Лежачая цель может встать.\n- Цель может потратить 1 дополнительное Восстановление.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/healing-grace",
+      "originalName": "Healing Grace",
+      "originalDescription": "*Your divine energy restores the righteous.*\n\n| **Magic, Ranged**          |            **Maneuver** |\n|----------------------------|------------------------:|\n| **📏 Ranged 10**           | **🎯 Self or one ally** |\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.ray-of-wrath",
+      "name": "Луч Гнева",
+      "flavor": "Вы обрушиваете на врага заряд святого света.",
+      "actionType": "main",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + I",
+          "effect": ""
+        },
+        {
+          "damage": "4 + I",
+          "effect": ""
+        },
+        {
+          "damage": "6 + I",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете сделать так, чтобы эта способность наносила святой урон.",
+      "source": "Проводник",
+      "notes": "",
+      "className": "Проводник",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "intuition",
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/ray-of-wrath",
+      "originalName": "Ray of Wrath",
+      "originalDescription": "*You unleash a blast of holy light upon your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I damage\n- **12-16:** 4 + I damage\n- **17+:** 6 + I damage\n\n**Effect:** You can have this ability deal holy damage."
+    },
+    {
+      "id": "feature.ability.conduit.level-2.wellspring-of-grace",
+      "name": "Источник Благодати",
+      "flavor": "Святой свет исходит от вашего тела, исцеляя союзников.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия"
+      ],
+      "distance": "Аура 3",
+      "target": "Каждый союзник в области",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель начинает свой ход в области, она может потратить Восстановление.",
+      "source": "Проводник",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.conduit.level-3.soul-siphon",
+      "name": "Вытягивание Души",
+      "flavor": "Луч энергии соединяет врага с другом, вытягивая жизнь из одного, чтобы исцелить другого.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Один враг",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "preferredCharacteristic": "intuition",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "7 + I",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "10 + I",
+          "effect": "Порчей"
+        },
+        {
+          "damage": "15 + I",
+          "effect": "Порчей"
+        }
+      ],
+      "effect": "Один союзник в пределах расстояния может потратить любое количество Восстановлений.",
+      "source": "Проводник",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.conduit.level-5.beacon-of-grace",
+      "name": "Маяк Благодати",
+      "flavor": "Вы воспламеняете врага святым сиянием, вознаграждая союзников, которые его атакуют.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "preferredCharacteristic": "intuition",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "8 + I",
+          "effect": ""
+        },
+        {
+          "damage": "13 + I",
+          "effect": ""
+        },
+        {
+          "damage": "17 + I",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца встречи, всякий раз, когда вы или любой союзник наносит урон цели с помощью способности, это существо может потратить Восстановление. Если Выносливость цели снижается до 0 до конца встречи, вы можете использовать свободный триггер, чтобы переместить этот эффект на другое существо в пределах расстояния.",
+      "source": "Проводник",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.arcane-trick",
+      "name": "Магический трюк",
+      "type": "supernatural",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.improvisation-creation",
+      "name": "Импровизация и созидание",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "Религия",
+    "История",
+    "Культура",
+    "Флирт",
+    "Эмпатия",
+    "Вождение",
+    "Магия",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "Вы работали в церкви, храме или другом религиозном учреждении как часть духовенства. При определении вашей карьеры подумайте над следующими вопросами:\n\n- Каких богов или святых почитало ваше учреждение?\n- Какие обряды посвящения вы прошли, чтобы получить эту работу?\n- Каковы были ваши обязанности как послушника?\n- Как ваше учреждение воспринималось членами местного сообщества?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Религия из группы знаний, плюс два навыка из группы знаний (*Быстрый Билд*: Культура, Магия, Религия.)\n\nОчки проектов: 240\n\nПерк: Один перк группы сверхъестественного (*Быстрый Билд*: Ритуалист.)\n",
+    "details": "",
+    "incitingIncident": "Адвокат ангела: поддавшись злой вере, ваш культ собирался обрушить ужасы на мир, когда вмешался ангел (в переносном или буквальном смысле). Он убедил вас остановить заговоры культа. Теперь вы следуете по стопам ангела, который показал вам праведный путь."
+  },
+  "ancestryTraits": "#### Знаковая Черта:  Видение Сверхъестественного\nВ качестве маневра вы можете открыть свое сознание для обнаружения сверхъестественных существ и явлений. До конца вашего следующего хода вы знаете местоположение любого сверхъестественного предмета или любой нежити, конструкта или существа из другого мира в пределах 5 клеток, даже если у вас нет линии воздействия на этот предмет или существо. Вы знаете, обнаруживаете ли вы предмет или существо, и вы знаете природу любого существа, которое обнаруживаете.\n\nНе удержать (1): ваша связь с естественным миром позволяет вам сопротивляться определенным сверхъестественным эффектам. Вы игнорируете временную труднопроходимую местность, созданную магическими и псионическими способностями. Кроме того, когда вас принудительно перемещают магической или псионической способностью, вы можете сократить расстояние принудительного движения на 1.\n\nРешимость (2): терпимость к боли и страданиям позволяет вам преодолевать трудные ситуации. Если вы напуганы, замедлены или ослаблены, вы можете использовать маневр, чтобы немедленно прекратить одно из этих состояний.",
+  "classFeatures": "",
+  "notes": {
+    "story": "Человек-проводник, чьи молитвы исцеляют союзников и карают врагов.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Не удержать",
+      "Решимость"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.human.cant-take-hold",
+      "feature.trait.human.determination"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {
+      "conduit.prayer": "conduit.prayer.destruction",
+      "conduit.sanctuary": "conduit.sanctuary.bastion",
+      "conduit.domain": "Жизнь, Солнце",
+      "conduit.domain.1": "Жизнь",
+      "conduit.ability.domain.2": "Жизнь",
+      "conduit.domain.4": "Жизнь"
+    }
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Проводник",
+      "subclass": "Жизнь, Солнце",
+      "articleId": "0832",
+      "choices": {
+        "conduit.ability.domain.2": [
+          "feature.ability.conduit.level-2.wellspring-of-grace"
+        ],
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "conduit.domain.skill.2": [
+          "Магия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.043Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Проводник",
+      "subclass": "Жизнь, Солнце",
+      "articleId": "0833",
+      "choices": {
+        "0833-g01": [
+          "feature.ability.conduit.level-3.soul-siphon"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.047Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Проводник",
+      "subclass": "Жизнь, Солнце",
+      "articleId": "0834",
+      "choices": {
+        "characteristic": [
+          "might"
+        ],
+        "conduit.domain.4": [
+          "feature.conduit.level-4.4th-level-domain-feature.life"
+        ],
+        "perk": [
+          "perk.improvisation-creation"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.050Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Проводник",
+      "subclass": "Жизнь, Солнце",
+      "articleId": "0835",
+      "choices": {
+        "0835-g01": [
+          "feature.ability.conduit.level-5.beacon-of-grace"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.055Z"
+    }
+  ]
+}

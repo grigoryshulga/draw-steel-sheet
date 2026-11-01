@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-taktik",
+  "name": "Демо: Ардаш Воевода",
+  "ancestry": "Хакаан",
+  "className": "Тактик",
+  "career": "Солдат",
+  "subclass": "Воевода",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "1",
+  "characteristics": {
+    "might": 3,
+    "agility": 1,
+    "reason": 3,
+    "intuition": 1,
+    "presence": -1
+  },
+  "stamina": {
+    "current": 63,
+    "max": 63,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 10,
+    "max": 10
+  },
+  "heroicResource": {
+    "name": "Фокус",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1L",
+  "speed": "7",
+  "stability": "1",
+  "disengage": "2",
+  "kit": "Беглый Огонь",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "29b5f131-9323-4f4f-ad92-be648f8e8b1b",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "446f7732-9463-4519-a434-cbcb63f5ddc7",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.tactician.level-1.strike-now",
+      "name": "\"Бей Сейчас!\"",
+      "flavor": "Твой враг оставил брешь. Вы указываете на это союзнику!",
+      "actionType": "main",
+      "kind": "other",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель может использовать знаковую способность как свободный триггер.\n\nПотратить 5 Фокуса: Вы нацеливаетесь на двух союзников вместо одного.",
+      "source": "Тактик",
+      "notes": "",
+      "className": "Тактик",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/strike-now",
+      "originalName": "\"Strike Now!\"",
+      "originalDescription": "*Your foe left an opening. You point this out to an ally!*\n\n| **Ranged** | **Main action** |\n| ---------------------------------------|----------------:|\n| **📏 Ranged 10**  | **🎯 One ally** |\n\n**Effect:** The target can use a signature ability as a free triggered action.\n\n**Spend 5 Focus:** You target two allies instead of one."
+    },
+    {
+      "id": "feature.ability.tactician.level-1.battle-cry",
+      "name": "Боевой Клич",
+      "flavor": "Вы выкрикиваете фразу, которая воодушевляет вашу команду.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Три союзника",
+      "rollCharacteristics": [
+        "reason"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Каждая цель получает 1 всплеск."
+        },
+        {
+          "damage": "",
+          "effect": "Каждая цель получает 2 всплеска."
+        },
+        {
+          "damage": "",
+          "effect": "Каждая цель получает 3 всплеска."
+        }
+      ],
+      "effect": "",
+      "source": "Тактик",
+      "notes": "",
+      "className": "Тактик",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "reason",
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/battle-cry",
+      "originalName": "Battle Cry",
+      "originalDescription": "*You shout a phrase that galvanizes your team.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Each target gains 1 surge.\n- **12-16:** Each target gains 2 surges.\n- **17+:** Each target gains 3 surges."
+    },
+    {
+      "id": "feature.ability.tactician.level-1.now",
+      "name": "В Атаку!",
+      "flavor": "Ваши союзники ждут вашей команды — а затем обрушивают смерть!",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Три союзника",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Каждая цель может нанести свободный удар.",
+      "source": "Тактик",
+      "notes": "",
+      "className": "Тактик",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/now",
+      "originalName": "Now!",
+      "originalDescription": "*Your allies wait for your command—then unleash death!*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target can make a free strike."
+    },
+    {
+      "id": "feature.ability.tactician.level-1.mark",
+      "name": "Метка",
+      "flavor": "Вы привлекаете внимание союзников к конкретному врагу — с разрушительным эффектом.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель отмечена вами до конца боевой встречи, пока вы не окажетесь при смерти, или пока вы не используете эту способность снова. Вы можете добровольно завершить свою метку на существе (действие не требуется), и если другой тактик отмечает существо, ваша метка на этом существе заканчивается. Когда существо, отмеченное вами, снижает свою выносливость до 0, вы можете использовать свободный триггер, чтобы отметить новую цель в пределах расстояния.\n\nИзначально вы можете отметить только одно существо с помощью этой способности, хотя другие способности тактика позволяют вам отмечать дополнительных существ одновременно. Особенность Замысел тактической доктрины Воевода позволяет вам нацеливаться на дополнительных существ с помощью этой способности, начиная с 5-го уровня.\n\nПока существо, отмеченное вами, находится в пределах вашей линии воздействия, вы и союзники в пределах вашей линии воздействия получаете преимущество на броски силы, сделанные против этого существа. Дополнительно, всякий раз, когда вы или любой союзник используете способность для нанесения выброшенного урона существу, отмеченному вами, вы можете потратить 1 фокус, чтобы получить одно из следующих преимуществ в качестве свободного триггера:\n- Способность наносит дополнительный урон, равный двойному показателю вашего Разума.\n- Существо, наносящее урон, может потратить Восстановление.\n- Существо, наносящее урон, может сместиться на количество клеток вплоть до показателя вашего Разума.\n- Если вы наносите урон существу, отмеченному вами, с помощью способности ближнего боя, существо спровоцировано вами до конца его следующего хода.\n\nВы не можете получить более одного преимущества от одного и того же триггера.",
+      "source": "Тактик",
+      "notes": "",
+      "className": "Тактик",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/mark",
+      "originalName": "Mark",
+      "originalDescription": "*You draw your allies' attention to a specific foe—with devastating effect.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** The target is marked by you until the end of the encounter, until you are dying, or until you use this ability again. You can willingly end your mark on a creature (no action required), and if another tactician marks a creature, your mark on that creature ends. When a creature marked by you is reduced to 0 Stamina, you can use a free triggered action to mark a new target within distance.\n\nYou can initially mark only one creature using this ability, though other tactician abilities allow you to mark additional creatures at the same time. The mastermind tactical doctrine's Anticipation feature allows you to target additional creatures with this ability starting at 5th level.\n\nWhile a creature marked by you is within your line of effect, you and allies within your line of effect gain an edge on power rolls made against that creature. Additionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 focus to gain one of the following benefits as a free triggered action:\n\n- The ability deals extra damage equal to twice your Reason score.\n- The creature dealing the damage can spend a Recovery.\n- The creature dealing the damage can shift up to a number of squares equal to your Reason score.\n- If you damage a creature marked by you with a melee ability, the creature is taunted by you until the end of their next turn.\n\nYou can't gain more than one benefit from the same trigger."
+    },
+    {
+      "id": "feature.ability.tactician.level-1.overwatch",
+      "name": "Прикрытие",
+      "flavor": "Под вашим руководством союзник ждет подходящего момента для удара.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Цель перемещается.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "В любое время во время движения цели, один союзник может нанести по ней свободный удар.\n\nПотратить 1 Фокуса: Если цель имеет Р < СРЕДНИЙ, она замедлена (КсХ).",
+      "source": "Тактик",
+      "notes": "",
+      "className": "Тактик",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-1/overwatch",
+      "originalName": "Overwatch",
+      "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT)."
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "name": "Двойной Выстрел",
+      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 12",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "6",
+          "effect": ""
+        },
+        {
+          "damage": "8",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Беглый Огонь",
+      "notes": "",
+      "className": "Комплект: Беглый Огонь",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.battlemind.unmooring",
+      "name": "Отвязывание",
+      "flavor": "Ваше оружие высвобождает псионическую энергию, которая уменьшает вес вашей цели.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "might",
+        "reason",
+        "intuition",
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "5 + M, R, I или P",
+          "effect": ""
+        },
+        {
+          "damage": "8 + M, R, I или P",
+          "effect": ""
+        },
+        {
+          "damage": "11 + M, R, I или P",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца следующего хода цели любое принудительное движение, воздействующее на цель, имеет свое расстояние увеличенным на 2.",
+      "source": "Комплект: Боевой Разум",
+      "notes": "",
+      "className": "Комплект: Боевой Разум",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.battlemind/unmooring",
+      "originalName": "Unmooring",
+      "originalDescription": "*Your weapon unleashes psionic energy that reduces your target's weight.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P damage\n- **12-16:** 8 + M, R, I, or P damage\n- **17+:** 11 + M, R, I, or P damage\n\n**Effect:** Until the end of the target's next turn, any forced movement that affects the target has its distance increased by 2."
+    },
+    {
+      "id": "feature.ability.tactician.level-2.targets-of-opportunity",
+      "name": "Цели по Возможности",
+      "flavor": "Вы указываете друзьям на легкие мишени, позволяя им включать в свои атаки больше врагов.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 5",
+      "target": "Два существа",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Каждая цель отмечена вами, и вы получаете два всплеска.\n\nПреимущество метки: До конца боевой встречи, всякий раз, когда вы или любой союзник наносите удар по существу, отмеченному вами, вы можете потратить 2 фокуса, чтобы добавить к удару одну дополнительную цель.",
+      "source": "Тактик",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.tactician.level-3.hit-em-hard",
+      "name": "Бейте Их Сильно!",
+      "flavor": "Ваши союзники видят преимущества в атаке выбранных вами целей.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, это существо получает 2 всплеска, которые оно может использовать немедленно.",
+      "source": "Тактик",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.tactician.level-5.youve-still-got-something-left",
+      "name": "В Тебе Еще Много Сил",
+      "flavor": "Вы подталкиваете союзника использовать героическую способность раньше, чем он бы это сделал в противном случае.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Один союзник",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель использует героическую способность с ключевым словом Удар как свободный триггер, и наносит дополнительный урон этой способностью, равный вашему показателю Разума. Стоимость этой способности в героическом ресурсе снижается на 1 + ваш показатель Разума (минимальная стоимость 0).",
+      "source": "Тактик",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.ive-got-you",
+      "name": "Держу тебя!",
+      "type": "exploration",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.friend-catapult",
+      "name": "Дружеская катапульта",
+      "type": "exploration",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "Вождение",
+    "Внимательность",
+    "Лидерство",
+    "Гимнастика",
+    "Стойкость",
+    "Культура",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "В годы прошедшие вы неустанно сражались в стычках и кампаниях против вражеских сил. Определяя свою карьеру, подумайте над следующими вопросами:\n\n- В какой армии и роте вы служили?\n- В каких конфликтах вы участвовали?\n- Какого звания вы достигли?\n- Какие героические поступки вы совершили в пылу битвы?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Один навык из группы исследования и один навык из группы интриги (*Быстрый Билд*: Внимательность, Стойкость.)\n\nЯзыки: Два языка\n\nИзвестность: +1\n\nПерк: Один перк группы исследования (*Быстрый Билд*: Командная работа.)\n",
+    "details": "",
+    "incitingIncident": "Бесчестная отставка: вы поступили на военную службу, чтобы защищать других, но ваш командир приказал вам избивать и убивать мирных жителей. Когда вы отказались, дело дошло до насилия. Вы едва избежали последовавшей драки, но теперь клянетесь помогать людям на своих условиях."
+  },
+  "ancestryTraits": "#### Знаковая Черта:  Большой!\nВаш рост отражает ваших предков-великанов. Ваш размер 1L.\n\nВсе как перышко (1): вы исключительно сильны. Вы получаете преимущество на тесты подъема и перетаскивания тяжелых предметов.\n\nВидение Рока (2): работая с вашим Ведущим, вы можете предопределить столкновение, в котором вы умрете. Когда это столкновение начинается, вы становитесь обреченным. Пока вы обречены, вы автоматически получаете исход 3-го уровня на тестах и бросках способностей, и вы не умираете, неважно, как низко падает ваша Выносливость. Затем вы немедленно умираете в конце столкновения и не можете быть возвращены к жизни никакими способами.\n\nЕсли вы не предопределили свое смертельное столкновение, вы можете выбрать стать обреченным, пока находитесь при смерти, с одобрения Ведущего (не требует действия). Это следует оставлять для столкновений, в которых вы умираете в результате подходящего героизма, такого как последний бой против босса или спасение мирных жителей, или когда последствия ваших действий наконец настигли вас — а не потому, что вы играете одноразовую игру и вам нечего терять, Хакаарл.\n\nДополнительно, когда ваша Выносливость достигает отрицательного значения вашего Утомления и вы не обречены, вы превращаетесь в щебень вместо смерти. Вы не осознаете своего окружения в этом состоянии, и вы не можете восстановить Выносливость или отменить этот эффект каким-либо способом. Через 12 часов вы восстанавливаете Выносливость, равную вашему значению Восстановления.",
+  "classFeatures": "У вас есть энциклопедические знания о ведении войны, вы рассматриваете поле боя как игровую доску и ищете победу, продумывая шаги наперед ваших противников. Вы получаете навык из группы навыков знаний.",
+  "notes": {
+    "story": "Хакаан-стратег, который превращает строй союзников в оружие.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "Боевой Разум",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Все как перышко",
+      "Видение Рока"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.hakaan.all-is-a-feather",
+      "feature.trait.hakaan.doomsight"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {}
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Тактик",
+      "subclass": "Воевода",
+      "articleId": "0842",
+      "choices": {
+        "0842-g02": [
+          "feature.ability.tactician.level-2.targets-of-opportunity"
+        ],
+        "perk": [
+          "perk.friend-catapult"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.060Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Тактик",
+      "subclass": "Воевода",
+      "articleId": "0843",
+      "choices": {
+        "0843-g01": [
+          "feature.ability.tactician.level-3.hit-em-hard"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.062Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Тактик",
+      "subclass": "Воевода",
+      "articleId": "0844",
+      "choices": {
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.065Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Тактик",
+      "subclass": "Воевода",
+      "articleId": "0845",
+      "choices": {
+        "0845-g01": [
+          "feature.ability.tactician.level-5.youve-still-got-something-left"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.068Z"
+    }
+  ]
+}

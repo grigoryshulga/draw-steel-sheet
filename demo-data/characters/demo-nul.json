@@ -1,0 +1,681 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-nul",
+  "name": "Демо: Бран Каменный Покой",
+  "ancestry": "Дварф",
+  "className": "Нуль",
+  "career": "Страж",
+  "subclass": "Криокинетик",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "0",
+  "characteristics": {
+    "might": 1,
+    "agility": 3,
+    "reason": 1,
+    "intuition": 3,
+    "presence": -1
+  },
+  "stamina": {
+    "current": 69,
+    "max": 69,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 8,
+    "max": 8
+  },
+  "heroicResource": {
+    "name": "Дисциплина",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "8",
+  "stability": "2",
+  "disengage": "4",
+  "kit": "",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "353f7467-d474-4cd3-8c27-eb36b2ff0cc8",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "91ab2aaa-0e49-4f19-92be-18e5ae844531",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.null.level-1.pressure-points",
+      "name": "Болевые Точки",
+      "flavor": "Вы бьете по ключевым нервным узлам, чтобы оставить врага пошатывающимся.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4 + A",
+          "effect": "Л < СЛАБЫЙ, ослабление (до прох.)"
+        },
+        {
+          "damage": "7 + A",
+          "effect": "Л < СРЕДНИЙ, ослабление (до прох.)"
+        },
+        {
+          "damage": "9 + A",
+          "effect": "Л < СИЛЬНЫЙ, ослабление (до прох.)"
+        }
+      ],
+      "effect": "",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/pressure-points",
+      "originalName": "Pressure Points",
+      "originalDescription": "*You strike at key nerve clusters to leave your foe staggered.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, weakened (save ends)\n- **12-16:** 7 + A damage; A < AVERAGE, weakened (save ends)\n- **17+:** 9 + A damage; A < STRONG, weakened (save ends)"
+    },
+    {
+      "id": "feature.ability.null.level-1.faster-than-the-eye",
+      "name": "Быстрее Чем Взгляд",
+      "flavor": "Вы бьете так быстро, что ваши руки превращаются в размытое пятно.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "5",
+          "effect": ""
+        },
+        {
+          "damage": "7",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете нанести урон, равный показателю вашей Ловкости, одному существу или объекту, смежному с вами.",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/faster-than-the-eye",
+      "originalName": "Faster Than the Eye",
+      "originalDescription": "*You strike so quickly that your hands become a blur.*\n\n| **Melee, Psionic, Strike, Weapon** |                 **Main action** |\n|------------------------------------|--------------------------------:|\n| **📏 Melee 1**                     | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** You can deal damage equal to your Agility score to one creature or object adjacent to you."
+    },
+    {
+      "id": "feature.ability.null.level-1.inertial-shield",
+      "name": "Инерционный Щит",
+      "flavor": "Вы интуитивно чувствуете курс приближающейся атаки, уменьшая ее эффекты.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Псионика"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Вы получаете урон.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы получаете половину урона.\n\nПотратить 1 дисциплины: Потенциал одного эффекта, связанного с уроном, уменьшается на 1 для вас.",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/inertial-shield",
+      "originalName": "Inertial Shield",
+      "originalDescription": "*You intuit the course of an incoming attack, reducing its effects.*\n\n| **Psionic** | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage.\n\n**Spend 1 Discipline:** The potency of one effect associated with the damage is reduced by 1 for you."
+    },
+    {
+      "id": "feature.ability.null.level-1.relentless-nemesis",
+      "name": "Неостановимый Мститель",
+      "flavor": "Вы бьете, и на следующие несколько мгновений ваш враг не сможет от вас сбежать.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "6 + A",
+          "effect": ""
+        },
+        {
+          "damage": "8 + A",
+          "effect": ""
+        },
+        {
+          "damage": "12 + A",
+          "effect": ""
+        }
+      ],
+      "effect": "До начала вашего следующего хода, всякий раз, когда цель завершает движение или подвергается принудительному движению, вы можете использовать свободный триггер, чтобы сместиться на расстояние вплоть до вашей скорости. Вы должны закончить это смещение смежно с целью.",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "agility",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/relentless-nemesis",
+      "originalName": "Relentless Nemesis",
+      "originalDescription": "*You strike, and for the next few moments, your enemy can't escape you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 12 + A damage\n\n**Effect:** Until the start of your next turn, whenever the target finishes moving or being force moved, you can use a free triggered action to shift up to your speed. You must end this shift adjacent to the target."
+    },
+    {
+      "id": "feature.ability.null.level-1.impart-force",
+      "name": "Передача Силы",
+      "flavor": "Одно ваше прикосновение, и ваш враг летит назад.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "intuition"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": "Толчок 3"
+        },
+        {
+          "damage": "",
+          "effect": "Толчок 5"
+        },
+        {
+          "damage": "",
+          "effect": "Толчок 7"
+        }
+      ],
+      "effect": "Объект, на который вы нацеливаетесь, должен быть вашего размера или меньше. Вы получаете преимущество на эту способность. Дополнительно, за каждую клетку, на которую вы совершаете толчок цели, она получает 1 психический урон.",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "intuition",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/impart-force",
+      "originalName": "Impart Force",
+      "originalDescription": "*A single touch from you, and your enemy flies backward.*\n\n| **Melee, Psionic, Strike, Weapon** |                  **Maneuver** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Push 3\n- **12-16:** Push 5\n- **17+:** Push 7\n\n**Effect:** An object you target must be your size or smaller. You gain an edge on this ability. Additionally, for each square you push the target, they take 1 psychic damage."
+    },
+    {
+      "id": "feature.ability.null.level-1.null-field",
+      "name": "Поле Нуля",
+      "flavor": "Вы проецируете ауру, которая ослабляет силу ваших врагов.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Область",
+        "Псионика"
+      ],
+      "distance": "Аура 1",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Каждая цель уменьшает свои потенциалы на 1.\n\nОдин раз как свободный маневр в каждый ваш ход, вы можете потратить 1 дисциплины и дать вашему Полю нуля один из следующих дополнительных эффектов до начала вашего следующего хода:\n- Гравитационное разрушение (Gravitic Disruption): В первый раз в ход, когда цель получает урон, вы можете совершить ее швыряние вплоть до 2 клеток.\n- Инерционный якорь (Inertial Anchor): Любая цель, которая начинает свой ход в области, не может смещаться.\n- Синаптический разрыв (Synaptic Break): Всякий раз, когда вы или любой союзник используете способность против цели, которая имеет эффект потенциала, потенциал увеличивается на 1.\n\nЭта способность остается активной даже после окончания столкновения. Она заканчивается только если вы находитесь при смерти или если вы добровольно завершаете ее (действие не требуется).",
+      "source": "Нуль",
+      "notes": "",
+      "className": "Нуль",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/null-field",
+      "originalName": "Null Field",
+      "originalDescription": "*You project an aura that dampens the power of your foes.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 1 aura**     | **🎯 Each enemy in the area** |\n\n**Effect:** Each target reduces their potencies by 1.\n\nOnce as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required)."
+    },
+    {
+      "id": "feature.ability.null.level-2.heat-sink",
+      "name": "Теплоотвод",
+      "flavor": "Вы поглощаете тепло окружающей среды, покрывая землю инеем и осаждая снег из воздуха.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Псионика"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До начала вашего следующего хода размер вашей способности Поле нуля увеличивается на 1, и вы и любой союзник получаете выгоду от покрова, находясь в области. В конце этого хода каждый враг в области получает урон холодом, равный показателю вашей Интуиции.",
+      "source": "Нуль",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.null.level-3.molecular-rearrangement-field",
+      "name": "Поле Молекулярной Перестройки",
+      "flavor": "Раны ваших врагов открываются, раны ваших союзников закрываются.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Псионика"
+      ],
+      "distance": "На себя",
+      "target": "На себя",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца боевой встречи размер вашей способности Поле нуля увеличивается на 1. Пока область этой способности увеличена таким образом, каждый враг с И < СРЕДНИЙ, который входит в область в первый раз за раунд боя или начинает свой ход там, получает кровотечение (до прох.). Каждый союзник, который входит в область в первый раз за раунд боя или начинает свой ход там, получает очки временной выносливости, равные показателю вашей Интуиции.",
+      "source": "Нуль",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.null.level-5.iron-grip",
+      "name": "Железная Хватка",
+      "flavor": "Вы хватаете цель со сверхъестественной силой.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Ближний",
+        "Псионика",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "agility"
+      ],
+      "preferredCharacteristic": "agility",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "10 + A",
+          "effect": "Л < СЛАБЫЙ, схваченный"
+        },
+        {
+          "damage": "14 + A",
+          "effect": "Л < СРЕДНИЙ, схваченный"
+        },
+        {
+          "damage": "18 + A",
+          "effect": "Л < СИЛЬНЫЙ, схваченный"
+        }
+      ],
+      "effect": "Будучи схваченной таким образом, цель получает помеху на маневр Ускальзывания. Каждый раз, когда она использует этот маневр, она получает урон, равный двойному показателю вашей Ловкости.",
+      "source": "Нуль",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.ive-got-you",
+      "name": "Держу тебя!",
+      "type": "exploration",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.friend-catapult",
+      "name": "Дружеская катапульта",
+      "type": "exploration",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "Внимательность",
+    "Маскировка",
+    "Запрятывание",
+    "Псионика",
+    "Флирт",
+    "Эмпатия",
+    "Алхимия",
+    "Архитектура"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "Вы служили офицером закона при местном правительстве. Определяя свою карьеру, подумайте над следующими вопросами:\n\n- Какой тип поселения вы защищали?\n- Были ли вы блюстителем буквы закона, более снисходительным, но справедливым типом, или полностью коррумпированным?\n- Какой преступник до сих пор ускользает от вашего правосудия?\n- Чью жизнь вы спасли при исполнении служебных обязанностей?\n- На какой самый абсурдный вызов вы откликались и как с ним справились?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Внимательность из группы интриги, плюс два навыка из группы интриги (*Быстрый Билд*: Внимательность, Поиск, Выслеживание.)\n\nЯзыки: Два языка\n\nПерк: Один перк группы исследования (*Быстрый Билд*: Лидер команды.)\n",
+    "details": "",
+    "incitingIncident": "Крупная рыба: вы устали и разочаровались в погоне за мелкими воришками и заключении под стражу людей, которые просто пытаются выжить. Наверняка в мире есть более серьезные угрозы. Вы найдете это зло, где бы оно ни скрывалось, и остановите его."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Рунная Резьба\nВы можете вырезать руну на своей коже за 10 непрерывных минут работы, которая активируется магией внутри вашего тела. Руна, которую вы вырезаете, определяет получаемое преимущество, выбранное из следующих:\n\n**Обнаружение**: выберите определенный тип существа (например, гоблины или люди) или предмет (например, драгоценности или зелья). Ваша руна мягко светится, когда вы находитесь в пределах 20 клеток от любого существа или предмета этого типа, даже если у вас нет линии воздействия на существо или предмет. Вы можете изменить тип существа или предмета маневром.\n\n**Свет**: ваша кожа излучает свет на 10 клеток. Вы можете включать и выключать этот свет как маневр.\n\n**Голос**: в качестве маневра вы можете телепатически общаться с желающим существом, которое вы встречали раньше и которое находится в пределах 1 мили от вас. Вы должны знать имя существа, и оно должно говорить и понимать язык, который вы знаете. Вы и существо можете отвечать друг другу, как если бы вели устную беседу. Вы можете общаться с другим существом, изменив руну.\n\nУ вас может быть активна одна руна одновременно, и вы можете изменить или удалить руну за 10 непрерывных минут работы.\n\nВеликая стойкость (2): ваше крепкое телосложение не позволяет вам терять силу. Вы игнорируете эффект состояния ослабления.\n\nЗаземленность (1): ваше тяжелое каменное тело и связь с землей затрудняют другим ваше перемещение. У вас есть +1 бонус к устойчивости.",
+  "classFeatures": "Вы можете подключиться к абсолютному холоду, самой важной энергии бесчисленных манифольдов, и проявить ее эффекты в своем теле. Вы получаете один навык из группы ремесла.",
+  "notes": {
+    "story": "Дварф-криокинетик, удерживающий линию и глушащий вражескую магию.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Великая стойкость",
+      "Заземленность"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.dwarf.great-fortitude",
+      "feature.trait.dwarf.grounded"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {
+      "null.augmentation": "null.augmentation.density"
+    }
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Нуль",
+      "subclass": "Криокинетик",
+      "articleId": "0812",
+      "choices": {
+        "0812-g02": [
+          "feature.ability.null.level-2.heat-sink"
+        ],
+        "perk": [
+          "perk.friend-catapult"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.004Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Нуль",
+      "subclass": "Криокинетик",
+      "articleId": "0813",
+      "choices": {
+        "0813-g01": [
+          "feature.ability.null.level-3.molecular-rearrangement-field"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.014Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Нуль",
+      "subclass": "Криокинетик",
+      "articleId": "0814",
+      "choices": {
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Архитектура"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.025Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Нуль",
+      "subclass": "Криокинетик",
+      "articleId": "0815",
+      "choices": {
+        "0815-g01": [
+          "feature.ability.null.level-5.iron-grip"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.035Z"
+    }
+  ]
+}

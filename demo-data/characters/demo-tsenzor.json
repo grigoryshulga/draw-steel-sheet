@@ -1,0 +1,678 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-tsenzor",
+  "name": "Демо: Валентин Драконья Клятва",
+  "ancestry": "Драконий Рыцарь",
+  "className": "Цензор",
+  "career": "Страж",
+  "subclass": "Экзорцист",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "0",
+  "characteristics": {
+    "might": 3,
+    "agility": 1,
+    "reason": 1,
+    "intuition": -1,
+    "presence": 3
+  },
+  "stamina": {
+    "current": 63,
+    "max": 63,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 12,
+    "max": 12
+  },
+  "heroicResource": {
+    "name": "Гнев",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "6",
+  "stability": "0",
+  "disengage": "2",
+  "kit": "Беглый Огонь",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "fecead06-5bcc-4487-bb57-8c33f46acb47",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "7d984e2e-61fb-43f2-bbac-8a2f022cf624",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.censor.level-1.arrest",
+      "name": "Арест",
+      "flavor": "\"Ты попался, сукин сын.\"",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "6 + M",
+          "effect": "Схваченный"
+        },
+        {
+          "damage": "9 + M",
+          "effect": "Схваченный"
+        },
+        {
+          "damage": "13 + M",
+          "effect": "Схваченный"
+        }
+      ],
+      "effect": "Если цель совершает удар по существу, будучи схваченной таким образом, вы можете потратить 3 гнева, чтобы нанести ей святой урон, равный показателю вашего Присутствия, а затем изменить цель удара на другую цель в пределах расстояния удара.",
+      "source": "Цензор",
+      "notes": "",
+      "className": "Цензор",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/arrest",
+      "originalName": "Arrest",
+      "originalDescription": "*\"I got you, you son of a bitch.\"*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M holy damage; grabbed\n- **12-16:** 9 + M holy damage; grabbed\n- **17+:** 13 + M holy damage; grabbed\n\n**Effect:** If the target makes a strike against a creature while grabbed this way, you can spend 3 wrath to deal holy damage to them equal to your Presence score, then change the target of the strike to another target within the strike's distance."
+    },
+    {
+      "id": "feature.ability.censor.level-1.the-gods-punish-and-defend",
+      "name": "Боги Карают и Защищают",
+      "flavor": "Вы направляете святую энергию, чтобы поразить врага и исцелить союзника.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Магия",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "5 + M",
+          "effect": ""
+        },
+        {
+          "damage": "8 + M",
+          "effect": ""
+        },
+        {
+          "damage": "11 + M",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы можете потратить Восстановление, чтобы позволить себе или одному союзнику в пределах 10 клеток восстановить Выносливость, равную вашему значению восстановления.",
+      "source": "Цензор",
+      "notes": "",
+      "className": "Цензор",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/the-gods-punish-and-defend",
+      "originalName": "The Gods Punish and Defend",
+      "originalDescription": "*You channel holy energy to smite a foe and heal an ally.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M holy damage\n- **12-16:** 8 + M holy damage\n- **17+:** 11 + M holy damage\n\n**Effect:** You can spend a Recovery to allow yourself or one ally within 10 squares to regain Stamina equal to your recovery value."
+    },
+    {
+      "id": "feature.ability.censor.level-1.every-step-death",
+      "name": "Каждый Шаг... Смерть!",
+      "flavor": "Вы показываете врагу проблеск его участи после смерти.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Магия",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "5 + P",
+          "effect": ""
+        },
+        {
+          "damage": "7 + P",
+          "effect": ""
+        },
+        {
+          "damage": "10 + P",
+          "effect": ""
+        }
+      ],
+      "effect": "Каждый раз, когда цель добровольно перемещается до конца вашего следующего хода, она получает 1 психический урон за каждую пройденную клетку.",
+      "source": "Цензор",
+      "notes": "",
+      "className": "Цензор",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/every-step-death",
+      "originalName": "Every Step... Death!",
+      "originalDescription": "*You show your foe a glimpse of their fate after death.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P psychic damage\n- **12-16:** 7 + P psychic damage\n- **17+:** 10 + P psychic damage\n\n**Effect:** Each time the target willingly moves before the end of your next turn, they take 1 psychic damage for each square they move."
+    },
+    {
+      "id": "feature.ability.censor.level-1.my-life-for-yours",
+      "name": "Моя Жизнь за Твою",
+      "flavor": "Вы направляете часть своей жизненной силы в повышение стойкости для себя или союзника.",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Цель начинает свой ход или получает урон.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы тратите Восстановление, и цель восстанавливает Выносливость, равную вашему значению восстановления.\n\nПотратить 1 Гнев: Вы можете завершить один эффект на цели, который заканчивается спасброском или который заканчивается в конце ее хода, или лежачая цель может встать.",
+      "source": "Цензор",
+      "notes": "",
+      "className": "Цензор",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/my-life-for-yours",
+      "originalName": "My Life for Yours",
+      "originalDescription": "*You channel some of your vitality into more resilience for you or an ally.*\n\n| **Magic, Ranged** |           **Triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** You spend a Recovery and the target regains Stamina equal to your recovery value.\n\n**Spend 1 Wrath:** You can end one effect on the target that is ended by a saving throw or that ends at the end of their turn, or a prone target can stand up."
+    },
+    {
+      "id": "feature.ability.censor.level-1.judgment",
+      "name": "Суд",
+      "flavor": "Вы произносите молитву, которая очерчивает вашего врага святой энергией.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Магия",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "Один враг",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель осуждается вами до конца встречи, пока вы не используете эту способность снова, добровольно не завершите этот эффект (действие не требуется) или пока другой цензор не осудит цель.\n\nВсякий раз, когда существо, осужденное вами, использует основное действие и находится в пределах вашей линии воздействия, вы можете использовать свободный триггер, чтобы нанести ему святой урон, равный двойному показателю вашего Присутствия.\n\nКогда выносливость существа, осужденного вами, падает до 0, вы можете использовать свободный триггер, чтобы применить эту способность к новой цели.\n\nДополнительно, вы можете потратить 1 гнев, чтобы выбрать один из следующих вариантов для свободного триггера:\n- Когда смежное с вами существо, осужденное вами, начинает смещаться, вы совершаете по нему свободный удар ближнего боя, и его скорость становится равной 0 до конца текущего хода, предотвращая смещение.\n- Когда существо, осужденное вами, в пределах 10 клеток делает бросок силы, вы накладываете помеху на этот бросок.\n- Когда существо, осужденное вами, в пределах 10 клеток использует способность с потенциалом, нацеленную только на одно существо, потенциал уменьшается на 1 для этого существа.\n- Если вы наносите урон существу, осужденному вами, способностью ближнего боя, существо спровоцировано вами до конца его следующего хода.\n\nВы можете выбрать только один вариант для свободного триггера за раз, даже если одно и то же событие активирует несколько вариантов.",
+      "source": "Цензор",
+      "notes": "",
+      "className": "Цензор",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-1/judgment",
+      "originalName": "Judgment",
+      "originalDescription": "*You utter a prayer that outlines your foe in holy energy.*\n\n| **Magic, Ranged** |     **Maneuver** |\n|-------------------|-----------------:|\n| **📏 Ranged 10**  | **🎯 One enemy** |\n\n**Effect:** The target is judged by you until the end of the encounter, you use this ability again, you willingly end this effect (no action required), or another censor judges the target.\n\nWhenever a creature judged by you uses a main action and is within your line of effect, you can use a free triggered action to deal holy damage equal to twice your Presence score to them.\n\nWhen a creature judged by you is reduced to 0 Stamina, you can use a free triggered action to use this ability against a new target.\n\nAdditionally, you can spend 1 wrath to take one of the following free triggered actions:\n\n- When an adjacent creature judged by you starts to shift, you make a melee free strike against them and their speed becomes 0 until the end of the current turn, preventing them from shifting.\n- When a creature judged by you within 10 squares makes a power roll, you cause them to take a bane on the roll.\n- When a creature judged by you within 10 squares uses an ability with a potency that targets only one creature, the potency is reduced by 1 for that creature.\n- If you damage a creature judged by you with a melee ability, the creature is taunted by you until the end of their next turn.\n  \nYou can choose only one free triggered action option at a time, even if multiple options are triggered by the same effect."
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "name": "Двойной Выстрел",
+      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 12",
+      "target": "Два существа или объекта",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "4",
+          "effect": ""
+        },
+        {
+          "damage": "6",
+          "effect": ""
+        },
+        {
+          "damage": "8",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Беглый Огонь",
+      "notes": "",
+      "className": "Комплект: Беглый Огонь",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.censor.level-2.revelator",
+      "name": "Откровитель",
+      "flavor": "Вы направляете святую энергию, чтобы нанести вред неверным и раскрыть тех, кто скрыт от вашего суда.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия"
+      ],
+      "distance": "Взрыв 3",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Каждая цель получает святой урон, равный двойному показателю вашего Присутствия. Дополнительно, каждая скрытая цель автоматически раскрывается и не может снова стать скрытой до начала вашего следующего хода. Затем вы можете использовать свою способность Суд против одной цели как свободный триггер.",
+      "source": "Цензор",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.censor.level-3.edict-of-perfect-order",
+      "name": "Эдикт Идеального Порядка",
+      "flavor": "В пределах вашего божественного присутствия враги пожалеют об использовании своих зловещих способностей.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Магия"
+      ],
+      "distance": "Аура 2",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель использует способность, которая стоит Раздора (смотрите Draw Steel: Monsters), она получает святой урон, равный трехкратному показателю вашего Присутствия. Цель, осужденная вами, получает дополнительные 2d6 святого урона.",
+      "source": "Цензор",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.censor.level-5.gods-grant-thee-strength",
+      "name": "Боги Даруют Тебе Силу",
+      "flavor": "Вы направляете божественную силу для движения, которое невозможно остановить.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "preferredCharacteristic": "",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель завершает любое состояние или эффект на себе, который заканчивается спасброском или который заканчивается в конце ее хода, или лежачая цель может встать. Затем цель получает 2 всплеска, может сместиться вплоть до своей скорости, игнорируя труднопроходимую местность, и может использовать знаковую способность удара как свободный триггер.",
+      "source": "Цензор",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.ive-got-you",
+      "name": "Держу тебя!",
+      "type": "exploration",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.harmonizer",
+      "name": "Гармонист",
+      "type": "interpersonal",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "Внимательность",
+    "Маскировка",
+    "Запрятывание",
+    "Флирт",
+    "Эмпатия",
+    "Чтение личности",
+    "Вождение",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "Вы служили офицером закона при местном правительстве. Определяя свою карьеру, подумайте над следующими вопросами:\n\n- Какой тип поселения вы защищали?\n- Были ли вы блюстителем буквы закона, более снисходительным, но справедливым типом, или полностью коррумпированным?\n- Какой преступник до сих пор ускользает от вашего правосудия?\n- Чью жизнь вы спасли при исполнении служебных обязанностей?\n- На какой самый абсурдный вызов вы откликались и как с ним справились?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Внимательность из группы интриги, плюс два навыка из группы интриги (*Быстрый Билд*: Внимательность, Поиск, Выслеживание.)\n\nЯзыки: Два языка\n\nПерк: Один перк группы исследования (*Быстрый Билд*: Лидер команды.)\n",
+    "details": "",
+    "incitingIncident": "Крупная рыба: вы устали и разочаровались в погоне за мелкими воришками и заключении под стражу людей, которые просто пытаются выжить. Наверняка в мире есть более серьезные угрозы. Вы найдете это зло, где бы оно ни скрывалось, и остановите его."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Броня Дрейка\nВаша затвердевшая чешуя дает вам иммунитет к урону, равный вашему уровню, к одному из следующих типов урона: кислота, холод, порча, огонь, молния или яд. Вы можете изменить тип иммунитета к урону, когда заканчиваете отдых.\n\nДраконий страж (1): всякий раз, когда вы или смежное существо получаете урон от удара, вы можете использовать триггер для защиты от удара. Вы уменьшаете любой урон от удара на количество, равное вашему уровню.\n\nДраконья гордость (2): у вас есть следующая знаковая способность.\n\n> **Драконья Гордость**\n> _\"Вы издаете могучий рев что колеблет ваших противников.\"_\n> \n> | **Область, Магия** |      **Основное действие** |\n> | -------------- | -------------------------: |\n> | **📏 Взрыв 1**   | **🎯 Каждый враг в области** |\n> \n> **Бросок силы + Мощь или Присутствие:**\n> - **≤11:** 2 урона\n> - **12-16:** 5 урона; толчок 1\n> - **17+:** 7 урона; толчок 2",
+  "classFeatures": "Вы специализируетесь на охоте на скрытых врагов вашего ордена, зная, что открытый разум — это неохраняемая крепость. У вас есть навык Чтение личности.\n\nДомен: Война",
+  "notes": {
+    "story": "Драконий рыцарь-экзорцист, преследующий чудовищ по следу их вины.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Драконий страж",
+      "Драконья гордость"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.dragon-knight.draconian-guard",
+      "feature.trait.dragon-knight.draconian-pride"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {
+      "censor.domain": "Война"
+    }
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Цензор",
+      "subclass": "Экзорцист",
+      "articleId": "0882",
+      "choices": {
+        "0882-g01": [
+          "feature.ability.censor.level-2.revelator"
+        ],
+        "perk": [
+          "perk.harmonizer"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.179Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Цензор",
+      "subclass": "Экзорцист",
+      "articleId": "0883",
+      "choices": {
+        "0883-g01": [
+          "feature.ability.censor.level-3.edict-of-perfect-order"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.181Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Цензор",
+      "subclass": "Экзорцист",
+      "articleId": "0884",
+      "choices": {
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.184Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Цензор",
+      "subclass": "Экзорцист",
+      "articleId": "0885",
+      "choices": {
+        "0885-g01": [
+          "feature.ability.censor.level-5.gods-grant-thee-strength"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.187Z"
+    }
+  ]
+}

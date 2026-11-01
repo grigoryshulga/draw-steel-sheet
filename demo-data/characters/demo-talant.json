@@ -1,0 +1,730 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-talant",
+  "name": "Демо: Сайрен Тихий Гром",
+  "ancestry": "Высший Эльф",
+  "className": "Талант",
+  "career": "Мудрец",
+  "subclass": "Телекинез",
+  "level": 5,
+  "xp": 64,
+  "epic": 0,
+  "victories": 4,
+  "wealth": "0",
+  "renown": "0",
+  "characteristics": {
+    "might": 1,
+    "agility": 1,
+    "reason": 3,
+    "intuition": -1,
+    "presence": 3
+  },
+  "stamina": {
+    "current": 42,
+    "max": 42,
+    "temp": 0
+  },
+  "recoveries": {
+    "current": 8,
+    "max": 8
+  },
+  "heroicResource": {
+    "name": "Ясность",
+    "current": 0,
+    "max": 6
+  },
+  "surges": 0,
+  "heroTokens": 3,
+  "size": "1М",
+  "speed": "5",
+  "stability": "0",
+  "disengage": "2",
+  "kit": "",
+  "weapon": "",
+  "armor": "",
+  "equipmentEffects": "",
+  "conditions": {
+    "bleeding": {
+      "active": false,
+      "ends": "save"
+    },
+    "dazed": {
+      "active": false,
+      "ends": "save"
+    },
+    "frightened": {
+      "active": false,
+      "ends": "save"
+    },
+    "grabbed": {
+      "active": false,
+      "ends": "save"
+    },
+    "prone": {
+      "active": false,
+      "ends": "save"
+    },
+    "restrained": {
+      "active": false,
+      "ends": "save"
+    },
+    "slowed": {
+      "active": false,
+      "ends": "save"
+    },
+    "taunted": {
+      "active": false,
+      "ends": "save"
+    },
+    "weakened": {
+      "active": false,
+      "ends": "save"
+    }
+  },
+  "abilities": [
+    {
+      "name": "Свободный удар ближнего боя",
+      "flavor": "Удар безоружной рукой, импровизированным оружием или клинком, который всегда под рукой.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Рывок",
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "7 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "2977551d-41d8-46f5-a556-6563b6f2aa16",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "name": "Свободный удар дальнего боя",
+      "flavor": "Быстрый выстрел или бросок импровизированным оружием.",
+      "actionType": "main",
+      "kind": "free-strike",
+      "keywords": [
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Дальний 5",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "4 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "",
+      "source": "Базовые способности",
+      "notes": "",
+      "id": "798b16b3-d4c6-450b-bb12-d1915b117fa0",
+      "preferredCharacteristic": "might"
+    },
+    {
+      "id": "feature.ability.talent.level-1.flashback",
+      "name": "Воспоминание",
+      "flavor": "Цель отбрасывается на несколько секунд назад во времени и получает возможность сделать все заново.",
+      "actionType": "maneuver",
+      "kind": "heroic",
+      "keywords": [
+        "Хронопатия",
+        "Псионика",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель использует способность с базовой стоимостью Героического Ресурса 7 или ниже, которую она ранее использовала в этом раунде, без необходимости оплачивать базовую стоимость. За усиление способности нужно платить как обычно.\n\nВозбужденность: Вы получаете 1d6 урона и замедление (до прох.).",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/flashback",
+      "originalName": "Flashback",
+      "originalDescription": "*The target is thrown several seconds back through time and gets to do it all again.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual.\n\n**Strained:** You take 1d6 damage and are slowed (save ends)."
+    },
+    {
+      "id": "feature.ability.talent.level-1.spirit-sword",
+      "name": "Духовный Меч",
+      "flavor": "Вы формируете клинок из энергии разума и пронзаете свою цель, воодушевляя себя.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Анимапатия",
+        "Ближний",
+        "Псионика",
+        "Удар"
+      ],
+      "distance": "Ближний 2",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + P",
+          "effect": ""
+        },
+        {
+          "damage": "6 + P",
+          "effect": ""
+        },
+        {
+          "damage": "9 + P",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы получаете 1 всплеск.\n\nВозбужденность: Цель получает дополнительно 3 урона. Вы также получаете 3 урона, который не может быть уменьшен никаким образом.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "presence",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/spirit-sword",
+      "originalName": "Spirit Sword",
+      "originalDescription": "*You form a blade of mind energy and stab your target, invigorating yourself.*\n\n| **Animapathy, Melee, Psionic, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Melee 2**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** You gain 1 surge.\n\n**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way."
+    },
+    {
+      "id": "feature.ability.talent.level-1.hoarfrost",
+      "name": "Изморозь",
+      "flavor": "Вы поражаете врага импульсом холодной энергии.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Криокинез",
+        "Псионика",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "reason"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + R",
+          "effect": "Холодом; М < СЛАБЫЙ, замедление (КсХ)"
+        },
+        {
+          "damage": "4 + R",
+          "effect": "Холодом; М < СРЕДНИЙ, замедление (КсХ)"
+        },
+        {
+          "damage": "6 + R",
+          "effect": "Холодом; М < СИЛЬНЫЙ, замедление (КсХ)"
+        }
+      ],
+      "effect": "Возбужденность: Вы замедлены до конца вашего следующего хода. Дополнительно, цель, замедленная этой способностью, вместо этого получает опутанность.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "reason",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/hoarfrost",
+      "originalName": "Hoarfrost",
+      "originalDescription": "*You blast a foe with a pulse of cold energy.*\n\n| **Cryokinesis, Psionic, Ranged**, **Strike** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R cold damage; M < WEAK, slowed (EoT)\n- **12-16:** 4 + R cold damage; M < AVERAGE, slowed (EoT)\n- **17+:** 6 + R cold damage; M < STRONG, slowed (EoT)\n\n**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead."
+    },
+    {
+      "id": "feature.ability.talent.level-1.minor-telekinesis",
+      "name": "Малый Телекинез",
+      "flavor": "Пучки психической энергии видимо исходят от вашего мозга, когда вы заставляете цель двигаться, используя только свой разум.",
+      "actionType": "maneuver",
+      "kind": "other",
+      "keywords": [
+        "Псионика",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или одно существо либо объект размера 1",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Вы совершаете швыряние цели вплоть до числа клеток, равного показателю вашего Разума.\n\nПотратить 2+ Ясности: Размер существа или объекта, на который вы можете нацелиться, увеличивается на 1 за каждые 2 потраченные ясности.\n\nПотратить 3 Ясности: Вы можете совершить вертикальное швыряние цели.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/minor-telekinesis",
+      "originalName": "Minor Telekinesis",
+      "originalDescription": "*Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.*\n\n| **Psionic, Ranged** |                                 **Maneuver** |\n|---------------------|---------------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one size 1 creature or object** |\n\n**Effect:** You slide the target up to a number of squares equal to your Reason score.\n\n**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target."
+    },
+    {
+      "id": "feature.ability.talent.level-1.repel",
+      "name": "Отражение",
+      "flavor": "Они останутся на месте, ты возможно нет!",
+      "actionType": "trigger",
+      "kind": "other",
+      "keywords": [
+        "Псионика",
+        "Дальний"
+      ],
+      "distance": "Дальний 10",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "Цель получает урон или подвергается принудительному движению.",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Цель получает половину вызвавшего триггер урона, или расстояние вызвавшего триггер принудительного движения уменьшается на количество клеток, равное показателю вашего Разума. Если цель получила урон и подверглась принудительному движению, вы выбираете эффект. Если принудительное движение уменьшается до 0 клеток, цель может совершить толчок источника принудительного движения на количество клеток, равное показателю вашего Разума.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
+      "originalName": "Repel",
+      "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
+    },
+    {
+      "id": "feature.ability.talent.level-1.precognition",
+      "name": "Предвидение",
+      "flavor": "Вы даете цели проблеск будущего, чтобы она была готова к тому, что произойдет дальше.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Хронопатия",
+        "Ближний",
+        "Псионика"
+      ],
+      "distance": "Ближний 2",
+      "target": "На себя или один союзник",
+      "rollCharacteristics": [],
+      "rollBonus": 0,
+      "resourceCost": 3,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        },
+        {
+          "damage": "",
+          "effect": ""
+        }
+      ],
+      "effect": "Броски способностей, сделанные против цели, получают помеху до начала вашего следующего хода. Всякий раз, когда цель получает урон, находясь под этим эффектом, она может использовать триггер, чтобы нанести свободный удар по источнику урона.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/precognition",
+      "originalName": "Precognition",
+      "originalDescription": "*You give a target a glimpse into the future so that they're ready for what comes next.*\n\n| **Chronopathy, Melee, Psionic** |         **Main action** |\n|---------------------------------|------------------------:|\n| **📏 Melee 2**                  | **🎯 Self or one ally** |\n\n**Effect:** Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage."
+    },
+    {
+      "id": "feature.ability.talent.level-1.mind-spike",
+      "name": "Шип Разума",
+      "flavor": "Телепатический заряд мгновенно поражает мозг существа.",
+      "actionType": "main",
+      "kind": "other",
+      "keywords": [
+        "Псионика",
+        "Дальний",
+        "Удар",
+        "Телепатия"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "reason"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "2 + R",
+          "effect": ""
+        },
+        {
+          "damage": "4 + R",
+          "effect": ""
+        },
+        {
+          "damage": "6 + R",
+          "effect": ""
+        }
+      ],
+      "effect": "Возбужденность: Цель получает дополнительно 2 психического урона. Вы также получаете 2 психического урона, который не может быть уменьшен никаким образом.",
+      "source": "Талант",
+      "notes": "",
+      "className": "Талант",
+      "level": 1,
+      "sourceKind": "class",
+      "preferredCharacteristic": "reason",
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/mind-spike",
+      "originalName": "Mind Spike",
+      "originalDescription": "*A telepathic bolt instantly zaps a creature's brain.*\n\n| **Psionic, Ranged**, **Strike, Telepathy** |     **Main action** |\n|--------------------------------------------|--------------------:|\n| **📏 Ranged 10**                           | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R psychic damage\n- **12-16:** 4 + R psychic damage\n- **17+:** 6 + R psychic damage\n\n**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way."
+    },
+    {
+      "id": "feature.ability.talent.level-2.gravitic-burst",
+      "name": "Гравитационный Взрыв",
+      "flavor": "Всем отойти от меня!",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Псионика",
+        "Телекинез"
+      ],
+      "distance": "Взрыв 1",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "reason"
+      ],
+      "preferredCharacteristic": "reason",
+      "rollBonus": 0,
+      "resourceCost": 5,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3",
+          "effect": "Вертикальный толчок 2"
+        },
+        {
+          "damage": "6",
+          "effect": "Вертикальный толчок 4"
+        },
+        {
+          "damage": "9",
+          "effect": "Вертикальный толчок 6"
+        }
+      ],
+      "effect": "Возбужденность: Размер взрыва увеличивается на 1, и вы получаете ослабление до конца вашего хода.",
+      "source": "Талант",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.talent.level-3.fling-through-time",
+      "name": "Бросок Сквозь Время",
+      "flavor": "Вы швыряете цель сквозь анналы времени, заставляя ее быть свидетелем каждого момента своего существования одновременно.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Хронопатия",
+        "Псионика",
+        "Дальний",
+        "Удар"
+      ],
+      "distance": "Дальний 10",
+      "target": "Одно существо или объект",
+      "rollCharacteristics": [
+        "presence"
+      ],
+      "preferredCharacteristic": "presence",
+      "rollBonus": 0,
+      "resourceCost": 7,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + P",
+          "effect": "Порчей; П < СЛАБЫЙ, ослабление (до прох.)"
+        },
+        {
+          "damage": "5 + P",
+          "effect": "Порчей; цель бросается сквозь время, и если П < СРЕДНИЙ, она получает ослабление (до прох.)"
+        },
+        {
+          "damage": "8 + P",
+          "effect": "Порчей; цель бросается сквозь время, и если П < СИЛЬНЫЙ, она получает ослабление (до прох.)"
+        }
+      ],
+      "effect": "Цель, брошенная сквозь время, удаляется с карты боевой встречи до конца своего следующего хода, вновь появляясь в своем первоначальном пространстве или на ближайшей свободной клетке.\n\nВозбужденность: Вы получаете 2d6 урона и навсегда становитесь визуально старше (эквивалент 10 лет для человека). Если вы получаете результат третьего тира на броске силы, вы получаете 2 ясности.",
+      "source": "Талант",
+      "notes": ""
+    },
+    {
+      "id": "feature.ability.talent.level-5.hypersonic",
+      "name": "Гиперзвук",
+      "flavor": "Вы двигаетесь с такой скоростью, что успеваете оглянуться на свой разрушительный потенциал.",
+      "actionType": "main",
+      "kind": "heroic",
+      "keywords": [
+        "Область",
+        "Рывок",
+        "Псионика",
+        "Телекинез"
+      ],
+      "distance": "Линия 5 x 2 в пределах 1",
+      "target": "Каждый враг в области",
+      "rollCharacteristics": [
+        "reason"
+      ],
+      "preferredCharacteristic": "reason",
+      "rollBonus": 0,
+      "resourceCost": 9,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "12",
+          "effect": "Звуком"
+        },
+        {
+          "damage": "18",
+          "effect": "Звуком"
+        },
+        {
+          "damage": "24",
+          "effect": "Звуком"
+        }
+      ],
+      "effect": "Вы телепортируетесь на клетку на противоположной стороне области перед совершением броска силы.\n\nВозбужденность: Если вы получаете результат второго тира или лучше, вы замедлены до конца вашего хода, и каждая цель замедлена до конца ее хода.",
+      "source": "Талант",
+      "notes": ""
+    }
+  ],
+  "perks": [
+    {
+      "perkId": "perk.linguist",
+      "name": "Лингвист",
+      "type": "lore",
+      "source": "career",
+      "level": 0
+    },
+    {
+      "perkId": "perk.harmonizer",
+      "name": "Гармонист",
+      "type": "interpersonal",
+      "source": "class",
+      "level": 2
+    },
+    {
+      "perkId": "perk.inspired-artisan",
+      "name": "Вдохновленный мастер",
+      "type": "crafting",
+      "source": "class",
+      "level": 4
+    }
+  ],
+  "skills": [
+    "Скалолазание",
+    "Бравада",
+    "Криминальный мир",
+    "История",
+    "Культура",
+    "Псионика",
+    "Чтение личности",
+    "Флирт",
+    "Эмпатия",
+    "Алхимия"
+  ],
+  "languages": [
+    "Общий"
+  ],
+  "culture": {
+    "environment": "Кочевое",
+    "organization": "Бюрократическая",
+    "upbringing": "Академическое"
+  },
+  "careerInfo": {
+    "benefits": "С раннего возраста вы посвятили себя учению, делились ли вы знаниями мира с другими или искали тайные знания только для себя. Определяя свою карьеру, подумайте над следующими вопросами:\n\n- Какие предметы вы изучали?\n- Где проходили ваши занятия?\n- Как вы приобретали книги и другие материалы, необходимые для работы?\n- Кто больше всего выиграл от ваших исследований?\n   \nВы получаете следующие преимущества карьеры:\n\nНавыки: Два навыка из группы знаний (*Быстрый Билд*: История, Магия.)\n\nЯзыки: Один язык\n\nОчки проектов: 240\n\nПерк: Один перк группы знаний (*Быстрый Билд*: Эксперт-мудрец.)\n",
+    "details": "",
+    "incitingIncident": "Книжные идеи: вы всегда довольствовались мирной жизнью в своей библиотеке, пока не нашли ту единственную книгу - ту, что рассказывала историю героев, спасших вселенную. Они не проводили дни за столом. Они делали реальные изменения. Пришло время вам сделать то же самое."
+  },
+  "ancestryTraits": "#### Знаковая Черта: Эльфийское Очарование\nМагическое очарование заставляет других воспринимать вас как интересного и обаятельного, даруя вам преимущество на тесты Присутствия, использующие навыки флирта или убеждения. Это очарование заставляет вас выглядеть и звучать немного по-разному для каждого существа, которое вы встречаете, поскольку то, что обаятельно для одного, может отличаться для другого. Однако вы никогда не выглядите как кто-то другой, кроме себя.\n\nОчарование ужаса (2): когда враг наносит удар, вы обращаете магию своего очарования, чтобы вселить страх в их сердце. Всякий раз, когда вы получаете урон от существа, вы можете использовать триггер, чтобы сделать это существо испуганным вас до конца их следующего хода.\n\nГрациозное отступление (1): вы получаете бонус +1 к расстоянию, на которое можете переместиться, когда совершаете Действие отхода.",
+  "classFeatures": "",
+  "notes": {
+    "story": "Высший эльф-телекинетик, меняющий позиции врагов одним жестом.\n\nДемо-персонаж 5-го уровня для просмотра классовых особенностей, способностей и ресурсов.",
+    "contacts": "Создан для знакомства с листом и его классом.",
+    "debts": "",
+    "secrets": "",
+    "misc": ""
+  },
+  "inventory": [],
+  "projects": [],
+  "createdAt": "2026-11-01T10:04:27.925Z",
+  "updatedAt": "2026-11-01T10:04:27.925Z",
+  "secondaryKit": "",
+  "automation": {
+    "enabled": true,
+    "adjustments": {},
+    "ancestryTraits": [
+      "Очарование ужаса",
+      "Грациозное отступление"
+    ],
+    "ancestryTraitIds": [
+      "feature.trait.high-elf.glamor-of-terror",
+      "feature.trait.high-elf.graceful-retreat"
+    ],
+    "equipment": {
+      "lightArmor": false,
+      "lightWeapon": false
+    },
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {
+      "talent.augmentation": "talent.augmentation.battle",
+      "talent.sanctuary": "talent.sanctuary.entropy"
+    }
+  },
+  "advancements": [
+    {
+      "fromLevel": 1,
+      "toLevel": 2,
+      "className": "Талант",
+      "subclass": "Телекинез",
+      "articleId": "0852",
+      "choices": {
+        "0852-g02": [
+          "feature.ability.talent.level-2.gravitic-burst"
+        ],
+        "perk": [
+          "perk.harmonizer"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.077Z"
+    },
+    {
+      "fromLevel": 2,
+      "toLevel": 3,
+      "className": "Талант",
+      "subclass": "Телекинез",
+      "articleId": "0853",
+      "choices": {
+        "0853-g01": [
+          "feature.ability.talent.level-3.fling-through-time"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.085Z"
+    },
+    {
+      "fromLevel": 3,
+      "toLevel": 4,
+      "className": "Талант",
+      "subclass": "Телекинез",
+      "articleId": "0854",
+      "choices": {
+        "perk": [
+          "perk.inspired-artisan"
+        ],
+        "skill": [
+          "Алхимия"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.093Z"
+    },
+    {
+      "fromLevel": 4,
+      "toLevel": 5,
+      "className": "Талант",
+      "subclass": "Телекинез",
+      "articleId": "0855",
+      "choices": {
+        "0855-g01": [
+          "feature.ability.talent.level-5.hypersonic"
+        ]
+      },
+      "notes": "Автоматически выбран первый доступный вариант для демо-персонажа.",
+      "createdAt": "2026-11-01T10:04:28.101Z"
+    }
+  ]
+}
