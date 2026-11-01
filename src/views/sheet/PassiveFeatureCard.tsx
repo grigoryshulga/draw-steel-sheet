@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Chip, Modal } from "../../components/ui";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { RichText } from "../../components/RichText";
@@ -35,7 +37,7 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
           <div className="sheet-ability-card-tags">
             {item.notes && (
               <HelpTooltip label={`Примечание: ${item.name}`}>
-                <RichText text={item.notes} characteristicGlyphs />
+                <div className="rich-text"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.notes}</ReactMarkdown></div>
               </HelpTooltip>
             )}
             <Chip tone={item.category === "subclass" ? "blue" : "default"}>
@@ -45,9 +47,9 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
           </div>
         </header>
 
-        {showSummary && <p className="sheet-passive-summary">{item.summary}</p>}
+        {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
         {description && (
-          <RichText text={description} className="sheet-passive-preview" characteristicGlyphs />
+          <div className="sheet-passive-preview sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>
         )}
 
         <footer className="sheet-ability-footer">
@@ -56,8 +58,8 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
       </article>
       <Modal open={open} onClose={() => setOpen(false)} title={item.name}>
         <div className="sheet-passive-full">
-          {showSummary && <p className="sheet-passive-summary">{item.summary}</p>}
-          {description && <RichText text={description} characteristicGlyphs />}
+          {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
+          {description && <div className="sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>}
         </div>
       </Modal>
     </>

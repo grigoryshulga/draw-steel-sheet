@@ -475,6 +475,9 @@
   line-height: var(--leading-normal);
 }
 
+.sheet-passive-markdown > :first-child { margin-top: 0; }
+.sheet-passive-markdown > :last-child { margin-bottom: 0; }
+
 .sheet-passive-preview {
   /* 6 строк с межстрочным интервалом 1.45. */
   max-height: 8.7em;
