@@ -40,9 +40,15 @@
 }
 
 .progress-panel .progress-echelon {
-  color: var(--fg);
-  font-size: var(--text-base);
-  font-weight: 600;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.progress-panel .panel-head {
+  align-items: center;
 }
 
 .progress-panel .progress-level-up-wrap {

@@ -20,9 +20,7 @@ export function SkillsPanel() {
       icon="check"
       className="skills-panel"
       actions={
-        <Button size="sm" variant="ghost" icon="edit" onClick={() => goTo("development")}>
-          Изменить
-        </Button>
+        <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить навыки" title="Изменить навыки" onClick={() => goTo("development")} />
       }
     >
       {character.skills.length === 0 ? (

@@ -20,11 +20,16 @@ export function ProgressPanel() {
       title="Развитие"
       icon="spark"
       className="progress-panel"
-      actions={character.advancements?.length ? (
-        <Button size="sm" variant="ghost" onClick={() => setHistoryOpen(true)}>
-          История · {character.advancements.length}
-        </Button>
-      ) : undefined}
+      actions={(
+        <>
+          {character.advancements?.length ? (
+            <Button size="sm" variant="ghost" onClick={() => setHistoryOpen(true)}>
+              История · {character.advancements.length}
+            </Button>
+          ) : null}
+          <span className="progress-echelon">{currentEchelon}-й эшелон</span>
+        </>
+      )}
       dense
     >
       <div className="progress-layout">
@@ -35,7 +40,6 @@ export function ProgressPanel() {
               <span aria-hidden="true">{character.level}</span>
               <span className="progress-level-unit" aria-hidden="true">ур</span>
             </span>
-            <span className="progress-echelon">{currentEchelon}-й эшелон</span>
           </div>
           <span
             className="progress-level-up-wrap"

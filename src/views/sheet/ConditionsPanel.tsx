@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Field, Panel, Select, Toggle } from "../../components/ui";
+import { Button, Field, Panel, Select } from "../../components/ui";
 import {
   CONDITIONS,
   CONDITION_END_OPTIONS,
@@ -73,29 +73,39 @@ export function ConditionsPanel() {
       title="Состояния"
       icon="warning"
       className="conditions-panel"
+      actions={saveBonus !== 0 ? (
+        <span className="chip chip-static chip-accent" title={saveSources || undefined}>
+          Спасбросок {saveBonus > 0 ? "+" : "−"}{Math.abs(saveBonus)}
+        </span>
+      ) : undefined}
       dense
     >
       <div className="conditions-active">
-        <p className="condition-summary">
-          Спасбросок: d10 {saveBonus >= 0 ? "+" : "−"}{Math.abs(saveBonus)}
-          {saveSources ? ` · ${saveSources}` : ""}
-        </p>
         <div className="conditions-block-head">
           <span className="eyebrow">Активные</span>
+          <span className="condition-count" aria-label={`Активных состояний: ${active.length}`}>{active.length}</span>
         </div>
 
-        {active.length === 0 ? null : (
+        {active.length === 0 ? (
+          <p className="conditions-empty">Нет активных состояний.</p>
+        ) : (
           <div className="condition-active-list">
             {active.map((entry) => (
               <article className="condition-card" key={entry.key}>
                 <header className="condition-card-head">
-                  <Toggle
-                    checked
-                    label={`Состояние: ${entry.label}`}
-                    onChange={() => deactivate(entry.key, entry.state)}
-                  />
                   <h3>{entry.label}</h3>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    icon="close"
+                    iconOnly
+                    aria-label={`Снять состояние: ${entry.label}`}
+                    title={`Снять состояние: ${entry.label}`}
+                    onClick={() => deactivate(entry.key, entry.state)}
+                  />
                 </header>
+
+                <p className="condition-summary">{entry.summary}</p>
 
                 <div className="condition-controls">
                   <Field label="Оканчивается">
@@ -118,17 +128,15 @@ export function ConditionsPanel() {
                       size="sm"
                       variant="soft"
                       icon="dice"
+                      iconOnly
+                      aria-label={`Спасбросок против состояния: ${entry.label}`}
                       onClick={() => rollSave(entry.key, entry.label, entry.state)}
                       title={lastSaveRoll[entry.key]
                         ? `Последний бросок: ${lastSaveRoll[entry.key]}`
                         : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
-                    >
-                      Спасбросок d10
-                    </Button>
+                    />
                   )}
                 </div>
-
-                <p className="condition-summary">{entry.summary}</p>
               </article>
             ))}
           </div>

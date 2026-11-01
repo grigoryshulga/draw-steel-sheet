@@ -57,6 +57,26 @@ const AbilityPicker = lazy(() =>
 /** Окно добавления: каталог, базовые действия или своя способность — по одному за раз. */
 type AddMode = "catalog" | "templates" | "custom" | null;
 
+function CardSummaryToggle({ label, compact, onToggle }: {
+  label: string;
+  compact: boolean;
+  onToggle: () => void;
+}) {
+  const action = compact ? "Развернуть карточки" : "Свернуть карточки до заголовков";
+  return (
+    <button
+      type="button"
+      className="sheet-ability-summary-toggle"
+      aria-label={`${action}: ${label}`}
+      aria-expanded={!compact}
+      title={action}
+      onClick={onToggle}
+    >
+      <Icon name={compact ? "plus" : "minus"} size={14} />
+    </button>
+  );
+}
+
 /** Выбор способности, которую выдаёт черта происхождения (например, дар Рейдера Времени). */
 function AncestryFeatureChoices() {
   const { character, update } = useApp();
@@ -104,6 +124,7 @@ export function SheetAbilitiesPanel() {
   const [selected, setSelected] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+  const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
   const [passivesCollapsed, setPassivesCollapsed] = useState(false);
@@ -194,6 +215,13 @@ export function SheetAbilitiesPanel() {
       return next;
     });
 
+  const toggleCardSummary = (key: string) =>
+    setCompactSections((current) => {
+      const next = new Set(current);
+      if (!next.delete(key)) next.add(key);
+      return next;
+    });
+
   const openAbility = (ability: Ability) => setSelected(ability);
 
   const addAbility = (ability: Ability, message: string) => {
@@ -265,31 +293,50 @@ export function SheetAbilitiesPanel() {
           <div className="sheet-ability-sections">
             <AncestryFeatureChoices />
             {sheetAbilities.length > 0 && (
-              <div className="sheet-ability-search">
-                <Icon name="search" size={15} />
-                <input
-                  type="search"
-                  value={query}
-                  autoComplete="off"
-                  placeholder="Поиск по названию, эффекту, триггеру…"
-                  aria-label="Поиск по способностям"
-                  onChange={(event) => setQuery(event.target.value)}
-                />
-                {hasQuery && (
-                  <>
-                    <span className="sheet-ability-search-count mono">
-                      {totalMatches} из {totalVisible}
-                    </span>
-                    <button
-                      type="button"
-                      className="sheet-ability-search-clear"
-                      aria-label="Очистить поиск"
-                      title="Очистить поиск"
-                      onClick={() => setQuery("")}
-                    >
-                      <Icon name="close" size={13} />
-                    </button>
-                  </>
+              <div className="sheet-ability-toolbar">
+                <div className="sheet-ability-search">
+                  <Icon name="search" size={15} />
+                  <input
+                    type="search"
+                    value={query}
+                    autoComplete="off"
+                    placeholder="Поиск по названию, эффекту, триггеру…"
+                    aria-label="Поиск по способностям"
+                    onChange={(event) => setQuery(event.target.value)}
+                  />
+                  {hasQuery && (
+                    <>
+                      <span className="sheet-ability-search-count mono">
+                        {totalMatches} из {totalVisible}
+                      </span>
+                      <button
+                        type="button"
+                        className="sheet-ability-search-clear"
+                        aria-label="Очистить поиск"
+                        title="Очистить поиск"
+                        onClick={() => setQuery("")}
+                      >
+                        <Icon name="close" size={13} />
+                      </button>
+                    </>
+                  )}
+                </div>
+                {hasFilter && (
+                  <Select
+                    className="sheet-ability-filter"
+                    aria-label="Фильтр способностей по виду"
+                    value={activeFilter}
+                    onChange={(event) => {
+                      const option = filterOptions.find((item) => item.key === event.target.value);
+                      if (option) setFilter(option.key);
+                    }}
+                  >
+                    {filterOptions.map((option) => (
+                      <option key={option.key} value={option.key}>
+                        {option.key === "all" ? "Все способности" : option.label} ({option.count})
+                      </option>
+                    ))}
+                  </Select>
                 )}
               </div>
             )}
@@ -299,34 +346,9 @@ export function SheetAbilitiesPanel() {
                 в название, эффект, триггер, тиры, заметки и пассивные эффекты.
               </p>
             )}
-            {hasFilter && (
-              <div
-                className="sheet-ability-filters"
-                role="group"
-                aria-label="Фильтр способностей по виду"
-              >
-                {filterOptions.map((option) => (
-                  <Chip
-                    key={option.key}
-                    active={activeFilter === option.key}
-                    onClick={() => setFilter(option.key)}
-                    title={
-                      option.key === "all"
-                        ? "Показать все способности"
-                        : `Показать: ${option.label.toLowerCase()}`
-                    }
-                  >
-                    {option.label}
-                    <span className="sheet-ability-filter-count mono">
-                      {option.count}
-                    </span>
-                  </Chip>
-                ))}
-              </div>
-            )}
             {hasQuery && topMatches.length > 0 && (
               <section
-                className="sheet-ability-section is-search-results"
+                className={`sheet-ability-section is-search-results${compactSections.has("search") ? " is-compact" : ""}`}
                 data-action="search"
                 aria-label="Совпадения поиска"
               >
@@ -339,6 +361,7 @@ export function SheetAbilitiesPanel() {
                     </span>
                   </span>
                   <span className="sheet-ability-rule" />
+                  <CardSummaryToggle label="Совпадения" compact={compactSections.has("search")} onToggle={() => toggleCardSummary("search")} />
                 </header>
                 <div className="sheet-ability-grid">
                   {topMatches.map(renderAbilityCard)}
@@ -347,7 +370,7 @@ export function SheetAbilitiesPanel() {
             )}
             {activeFilter === "all" && passives.length > 0 && (
               <section
-                className={`sheet-ability-section${passivesCollapsed ? " is-collapsed" : ""}`}
+                className={`sheet-ability-section${passivesCollapsed ? " is-collapsed" : ""}${compactSections.has("passive") ? " is-compact" : ""}`}
                 data-action="passive"
                 aria-label="Пассивные эффекты"
               >
@@ -365,6 +388,7 @@ export function SheetAbilitiesPanel() {
                     </span>
                   </button>
                   <span className="sheet-ability-rule" />
+                  <CardSummaryToggle label="Пассивные эффекты" compact={compactSections.has("passive")} onToggle={() => toggleCardSummary("passive")} />
                 </header>
                 {!passivesCollapsed && (
                   <div className="sheet-ability-grid">
@@ -379,7 +403,7 @@ export function SheetAbilitiesPanel() {
               const isCollapsed = collapsed.has(group.key);
               return (
                 <section
-                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}`}
+                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}${compactSections.has(group.key) ? " is-compact" : ""}`}
                   key={group.key}
                   data-action={group.key}
                 >
@@ -397,6 +421,7 @@ export function SheetAbilitiesPanel() {
                       </span>
                     </button>
                     <span className="sheet-ability-rule" />
+                    <CardSummaryToggle label={group.label} compact={compactSections.has(group.key)} onToggle={() => toggleCardSummary(group.key)} />
                   </header>
 
                   {!isCollapsed && (

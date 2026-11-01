@@ -80,7 +80,7 @@
   border-bottom: 1px solid var(--line-strong);
   border-bottom-color: color-mix(in srgb, var(--ability-kind-color) 52%, var(--line));
   background-color: var(--surface);
-  background-color: color-mix(in srgb, var(--ability-kind-color) 28%, transparent);
+  background-color: color-mix(in srgb, var(--ability-kind-color) var(--card-header-tint), transparent);
 }
 
 .sheet-ability-card.is-flat > .sheet-ability-card-head,

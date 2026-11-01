@@ -142,6 +142,8 @@ export interface ProjectRow {
 export interface CharacterRuntime {
   round: number;
   encounter: number;
+  /** Текущая битва начата и ещё не завершена. Старые листы считаются вне битвы. */
+  combatActive?: boolean;
   /** Отметки триггеров и прибавок ресурса: ключ — id фичи или тег прибавки; round/encounter — номер, в котором отмечено; count — сколько раз. */
   triggers: Record<string, { round?: number; encounter?: number; count?: number }>;
   /**

@@ -59,7 +59,7 @@ describe("доступность цветовых схем", () => {
         const color = tokens[key];
         expect(color, `${theme.name}: ${key}`).toMatch(/^#[0-9a-f]{6}$/i);
         for (const background of ["--bg", "--surface"]) {
-          expect(contrastRatio(tokens["--fg-bright"], mix(color, tokens[background], 0.28)), `${theme.name}: ${key} на ${background}`).toBeGreaterThanOrEqual(4.5);
+          expect(contrastRatio(tokens["--fg-bright"], mix(color, tokens[background], 0.16)), `${theme.name}: ${key} на ${background}`).toBeGreaterThanOrEqual(4.5);
         }
       }
       const rgb = (key: typeof hues[number]) => [1, 3, 5].map((i) => parseInt(tokens[key].slice(i, i + 2), 16));

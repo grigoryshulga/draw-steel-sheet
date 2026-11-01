@@ -41,11 +41,23 @@
 }
 
 .condition-card-head h3 {
+  flex: 1;
+  min-width: 0;
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 600;
   color: var(--fg-bright);
+}
+
+.condition-count {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.condition-card-head .btn {
+  flex: none;
 }
 
 .condition-controls {
@@ -66,6 +78,7 @@
 
 .condition-controls .btn {
   flex: none;
+  width: 32px;
   height: 32px;
   font-size: var(--text-body);
 }
@@ -79,7 +92,8 @@
 
 .conditions-empty {
   margin: 0;
-  padding: var(--space-4) 0;
+  color: var(--muted);
+  font-size: var(--text-body);
 }
 
 .conditions-add-row {

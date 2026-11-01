@@ -281,6 +281,7 @@ function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
   return {
     round: positiveInt(source.round) ?? 1,
     encounter: positiveInt(source.encounter) ?? 1,
+    ...(typeof source.combatActive === "boolean" ? { combatActive: source.combatActive } : {}),
     triggers: normalizeRuntimeMarks(source.triggers),
     forms: Array.isArray(source.forms)
       ? source.forms.filter(

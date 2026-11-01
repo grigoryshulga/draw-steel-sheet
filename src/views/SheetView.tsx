@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
 import { onSheetTabRequest } from "../lib/sheet-tabs";
+import { currentRuntime } from "../lib/runtime";
 import type { HeroTab } from "../navigation";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
@@ -85,7 +86,7 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
 }
 
 function SheetWorkspace({ tab }: { tab: HeroTab }) {
-  const { character, patch, goTo } = useApp();
+  const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
 
   const switchTab = (next: HeroTab) => {
@@ -107,16 +108,8 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
     [tab, developmentDirty],
   );
 
-  const toggleAutomation = () =>
-    patch({
-      automation: {
-        ...(character.automation ?? {
-          adjustments: {},
-          ancestryTraits: [],
-        }),
-        enabled: !character.automation?.enabled,
-      },
-    });
+  const runtime = currentRuntime(character);
+  const combatActive = !!runtime.combatActive;
 
   return (
     <div className="sheet-view sheet-workspace-view">
@@ -148,14 +141,19 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
           <div className="sheet-frame-actions">
             <Button
               size="sm"
-              variant={character.automation?.enabled ? "soft" : "ghost"}
-              aria-pressed={!!character.automation?.enabled}
-              onClick={toggleAutomation}
-              title="Пересчитывать класс, уровень, комплекты, числовые черты класса и бонусы спасброска. При включённом авторасчёте ручные изменения сохраняются как поправки."
+              variant={combatActive ? "ghost" : "soft"}
+              onClick={() => performGameAction({ kind: combatActive ? "combat-end" : "combat-start" })}
             >
-              {character.automation?.enabled
-                ? "Авторасчёт включён"
-                : "Включить авторасчёт"}
+              {combatActive ? "Конец битвы" : "Начало битвы"}
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => performGameAction({ kind: "round" })}
+              title="Снять отметки триггеров раунда"
+              aria-label={`Новый раунд: сейчас ${runtime.round}`}
+            >
+              Новый раунд · {runtime.round}
             </Button>
           </div>
         </div>

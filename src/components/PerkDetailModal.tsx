@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { PERK_TYPE_META } from "../data/perks";
-import { RichText } from "./RichText";
-import { Button, Chip, Modal } from "./ui";
+import { RuleText } from "./RuleText";
+import { Chip, Modal } from "./ui";
 import type { PerkType } from "../types";
 import "./PerkDetailModal.css";
 
@@ -38,15 +38,8 @@ export function PerkDetailModal({
       open={open}
       onClose={onClose}
       title="Перк"
-      footer={
-        <>
-          {action}
-          {action && <span className="grow" />}
-          <Button variant="primary" onClick={onClose}>
-            Закрыть
-          </Button>
-        </>
-      }
+      className="perk-detail-dialog"
+      footer={action}
     >
       <div className="perk-detail-modal">
         <div className="hstack wrap">
@@ -54,10 +47,9 @@ export function PerkDetailModal({
           {eyebrow && <span className="small muted">{eyebrow}</span>}
         </div>
         <h3>{name}</h3>
-        {summary && <p className="perk-detail-summary">{summary}</p>}
-        {description && description !== summary ? (
-          <RichText text={description} />
-        ) : description ? null : (
+        {description || summary ? (
+          <RuleText text={description || summary || ""} />
+        ) : (
           <p className="muted">Полное описание этого перка недоступно.</p>
         )}
       </div>
