@@ -590,9 +590,6 @@ function AbilityDetailModal({
           {ability.resourceCost > 0 && (
             <Chip tone="yellow">Стоимость: {ability.resourceCost}</Chip>
           )}
-          {ability.keywords.map((keyword) => (
-            <Chip key={keyword}>{keyword}</Chip>
-          ))}
         </div>
 
         {ability.flavor && (

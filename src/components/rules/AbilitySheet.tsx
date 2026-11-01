@@ -224,6 +224,19 @@ export function AbilityFacts({ view }: { view: AbilitySheetView }) {
           </span>
         </span>
       ))}
+      {view.keywords.length > 0 && (
+        <span className="sheet-ability-fact sheet-ability-keywords" title="Ключевые слова">
+          <span className="sheet-ability-fact-mark" aria-hidden="true"><Icon name="tag" size={14} /></span>
+          <span className="sheet-ability-fact-value">
+            <span className="sr-only">Ключевые слова: </span>
+            {view.keywords.map((keyword, index) => (
+              <span className="sheet-ability-keyword" key={`${keyword}-${index}`}>
+                {index > 0 && ", "}{keyword}
+              </span>
+            ))}
+          </span>
+        </span>
+      )}
     </div>
   );
 }
@@ -245,16 +258,6 @@ export function AbilityBody({
   return (
     <>
       <AbilityFacts view={view} />
-
-      {view.keywords.length > 0 && (
-        <div className="sheet-ability-keywords">
-          {view.keywords.map((keyword) => (
-            <span className="sheet-ability-keyword" key={keyword}>
-              {keyword}
-            </span>
-          ))}
-        </div>
-      )}
 
       {tiers.length > 0 && (
         <div className="sheet-ability-tiers">

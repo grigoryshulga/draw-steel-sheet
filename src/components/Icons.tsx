@@ -31,9 +31,11 @@ export type IconName =
   | "warning"
   | "book"
   | "library"
-  | "users";
+  | "users"
+  | "tag";
 
 const paths: Record<IconName, ReactNode> = {
+  tag: <><path d="M3 4h8l10 10-7 7L3 10z" /><circle cx="7.5" cy="8.5" r="1" /></>,
   library: <><path d="M12 5c-3-2-7-2-10-1v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1zM12 5v15" /><path d="M5 8h4M5 12h4M15 8h4M15 12h4" /></>,
   sheet: (
     <>
