@@ -356,35 +356,38 @@
   text-transform: uppercase;
 }
 
-.sheet-passive-details {
+.sheet-passive-summary {
   margin: 0;
-}
-
-.sheet-passive-details > summary {
-  color: var(--muted);
-  font-size: var(--text-body);
-  line-height: var(--leading-normal);
-  cursor: pointer;
-}
-
-.sheet-passive-details > summary:hover {
   color: var(--fg);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
 }
 
-.sheet-passive-details .rich-text {
-  margin-top: var(--space-2);
-  padding-left: var(--space-4);
-  border-left: 2px solid var(--line);
+.sheet-passive-preview {
+  /* 6 строк с межстрочным интервалом 1.45. */
+  max-height: 8.7em;
+  gap: 0;
+  overflow: hidden;
   color: var(--muted);
   font-size: var(--text-body);
   line-height: var(--leading-normal);
 }
 
-.sheet-passive-details .rich-text p {
-  margin: 0 0 var(--space-2);
+.sheet-passive-preview :is(p, ul, li) {
+  margin: 0;
+  line-height: inherit;
 }
 
-.sheet-passive-details .rich-text ul {
-  margin: var(--space-2) 0;
-  padding-left: var(--space-7);
+.sheet-passive-preview ul {
+  gap: 0;
+}
+
+.sheet-passive-full {
+  color: var(--fg);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+}
+
+.sheet-passive-full .sheet-passive-summary {
+  margin-bottom: var(--space-4);
 }
