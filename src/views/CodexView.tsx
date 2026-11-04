@@ -3,16 +3,24 @@ import { LibraryHeader } from "../components/LibraryHeader";
 import { CATALOG } from "../data/library";
 import { CatalogAction } from "../components/CatalogAction";
 import { catalogLink, readCodexLocation } from "../lib/codex";
+import { useCodexBookmarks } from "../lib/codex-bookmarks";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
 import { artForArticle } from "../lib/art";
+import {
+  classLandings,
+  classLandingForArticle,
+  classLandingHref,
+  codexArticleHref,
+  readingParts,
+} from "../rules/codex-navigation";
 import {
   loadRuleArticle,
   loadRuleSearchIndex,
   resolveRuleIndexEntry,
   ruleIndex,
 } from "../rules/repository";
-import type { RuleArticle, RuleEntity, RuleSearchIndex } from "../rules/schema";
+import type { RuleArticle, RuleEntity, RuleIndexEntry, RuleSearchIndex } from "../rules/schema";
 import {
   createRuleSearcher,
   createSearchSequencer,
@@ -22,15 +30,16 @@ import {
 import { RuleArticleContent } from "../components/rules/RuleArticle";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
 
-const chapterCatalog = (chapter: string) =>
-  chapter.startsWith("18.")
-    ? "treasure"
-    : chapter.startsWith("19.")
-      ? "title"
-      : chapter.startsWith("16.")
-        ? "project"
-        : "";
-const chapters = [...new Set(ruleIndex.map((article) => article.chapter))];
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+/** Карточка результата поиска или закладки: статья либо лендинг класса. */
+type ResultEntry = Pick<RuleIndexEntry, "id" | "title" | "chapter"> & {
+  group?: string;
+};
+
+function articleTitle(articleId: string): string {
+  return ruleIndex.find((entry) => entry.id === articleId)?.title ?? articleId;
+}
 
 interface LoadedArticle {
   article: RuleArticle;
@@ -42,19 +51,6 @@ type ArticleContent =
   | { status: "loading" }
   | { status: "ready"; entryId: string; data: LoadedArticle }
   | { status: "error"; entryId: string; message: string };
-
-function readBookmarks(): string[] {
-  try {
-    const value = JSON.parse(
-      localStorage.getItem("ds-codex-bookmarks") || "[]",
-    );
-    return Array.isArray(value)
-      ? value.filter((id) => typeof id === "string")
-      : [];
-  } catch {
-    return [];
-  }
-}
 
 function headingLabel(title: string): string {
   return title.replace(/\*\*/g, "").trim();
@@ -75,7 +71,7 @@ export function CodexView() {
   const [query, setQuery] = useState("");
   const needle = normalizeSearchText(useDeferredValue(query));
 
-  const [bookmarks, setBookmarks] = useState(readBookmarks);
+  const { bookmarks, toggleBookmark } = useCodexBookmarks();
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
   const [content, setContent] = useState<ArticleContent>({ status: "idle" });
   const [attempt, setAttempt] = useState(0);
@@ -161,10 +157,17 @@ export function CodexView() {
         : [],
     [searcher, needle, chapter, group, bookmarks, onlyBookmarks],
   );
-  const bookmarkEntries = useMemo(
+  const bookmarkEntries = useMemo<ResultEntry[]>(
     () =>
       onlyBookmarks
-        ? ruleIndex.filter((article) => bookmarks.includes(article.id))
+        ? bookmarks.flatMap((id) => {
+            const article = ruleIndex.find((a) => a.id === id);
+            if (article) return [article];
+            const landing = classLandings.find((l) => l.classId === id);
+            return landing
+              ? [{ id, title: landing.name, chapter: "Справочник · Классы" }]
+              : [];
+          })
         : [],
     [onlyBookmarks, bookmarks],
   );
@@ -215,8 +218,12 @@ export function CodexView() {
     };
   }, [entryId, attempt]);
 
+  // Статьи-уровни классов живут на лендинге класса: старые адреса — редирект.
   useEffect(() => {
-    if (entryId === "0102") window.location.replace("#/glossary/");
+    if (!entryId) return;
+    const landing = classLandingForArticle(entryId);
+    if (landing)
+      window.location.replace(classLandingHref(landing.slug, landing.level));
   }, [entryId]);
   useEffect(() => {
     const change = () => setLocation(readCodexLocation());
@@ -229,28 +236,13 @@ export function CodexView() {
       : document.getElementById(entry ? "codex-article" : "codex-catalog");
     target?.scrollIntoView({ block: "start" });
   }, [location, entry, loaded]);
-  const toggleBookmark = (id: string) =>
-    setBookmarks((prev) => {
-      const next = prev.includes(id)
-        ? prev.filter((x) => x !== id)
-        : [...prev, id];
-      try {
-        localStorage.setItem("ds-codex-bookmarks", JSON.stringify(next));
-      } catch {
-        /* storage can be unavailable */
-      }
-      return next;
-    });
   const open = (id: string) => {
-    window.location.hash = `/codex/${id}`;
+    window.location.hash = codexArticleHref(id);
   };
 
   return (
     <div className="codex-view">
-      <LibraryHeader
-        current="codex"
-        description="Правила Draw Steel — от первого героя до последней битвы."
-      />
+      <LibraryHeader title="Книга" />
       <div className="codex-layout">
         <aside className="codex-nav" aria-label="Разделы Кодекса">
           <TextInput
@@ -291,77 +283,94 @@ export function CodexView() {
             >
               Оглавление
             </a>
-            {chapters.map((c) => (
-              <details key={c} open={chapter === c || undefined}>
-                <summary>{c.replace(/^\d+\.\s*/, "")}</summary>
-                <div className="codex-tree-children">
-                  <a
-                    href={
-                      chapterCatalog(c)
-                        ? `#/catalog/${chapterCatalog(c)}`
-                        : catalogLink(c)
-                    }
-                    onClick={() => {
-                      if (!chapterCatalog(c)) browse(c);
-                    }}
-                    className={
-                      chapter === c && !group && !entry ? "is-active" : ""
-                    }
-                  >
-                    {chapterCatalog(c) ? "Открыть каталог" : "Читать главу"}
-                  </a>
-                  {[
-                    ...new Set(
-                      ruleIndex
-                        .filter((article) => article.chapter === c)
-                        .map((article) => article.group),
-                    ),
-                  ].map((g) => {
-                    const entries = ruleIndex.filter(
-                      (article) =>
-                        article.chapter === c && article.group === g,
-                    );
-                    const links = entries.map((article) => (
-                      <a
-                        key={article.id}
-                        href={
-                          article.id === "0102"
-                            ? "#/glossary/"
-                            : `#/codex/${article.id}`
-                        }
-                        aria-current={entry?.id === article.id ? "page" : undefined}
-                      >
-                        {article.title}
-                      </a>
-                    ));
-                    return g ? (
-                      <details
-                        key={g}
-                        open={(chapter === c && group === g) || undefined}
-                      >
-                        <summary>{g}</summary>
-                        <div className="codex-tree-children">
+            {readingParts.map((part, partIndex) => (
+              <div className="codex-part" key={part.id}>
+                <p className="codex-part-title">
+                  <span className="codex-part-number" aria-hidden="true">
+                    {ROMAN[partIndex] ?? partIndex + 1}
+                  </span>
+                  {part.title}
+                </p>
+                {part.chapters.map((c) => (
+                  <details key={c} open={chapter === c || undefined}>
+                    <summary>{c.replace(/^\d+\.\s*/, "")}</summary>
+                    <div className="codex-tree-children">
+                      {[
+                        ...new Set(
+                          ruleIndex
+                            .filter((article) => article.chapter === c)
+                            .map((article) => article.group),
+                        ),
+                      ].map((g) => {
+                        const entries = ruleIndex.filter(
+                          (article) =>
+                            article.chapter === c && article.group === g,
+                        );
+                        const links = entries.map((article) => (
                           <a
-                            href={catalogLink(c, g)}
-                            onClick={() => browse(c, g)}
-                            className={
-                              chapter === c && group === g && !entry
-                                ? "is-active"
-                                : ""
+                            key={article.id}
+                            href={codexArticleHref(article.id)}
+                            aria-current={
+                              entry?.id === article.id ? "page" : undefined
                             }
                           >
-                            Читать: {g}
+                            {article.title}
                           </a>
-                          {links}
-                        </div>
-                      </details>
-                    ) : (
-                      <div key="articles">{links}</div>
-                    );
-                  })}
-                </div>
-              </details>
+                        ));
+                        return g ? (
+                          <details
+                            key={g}
+                            open={(chapter === c && group === g) || undefined}
+                          >
+                            <summary>{g}</summary>
+                            <div className="codex-tree-children">
+                              <a
+                                href={catalogLink(c, g)}
+                                onClick={() => browse(c, g)}
+                                className={
+                                  chapter === c && group === g && !entry
+                                    ? "is-active"
+                                    : ""
+                                }
+                              >
+                                Читать: {g}
+                              </a>
+                              {links}
+                            </div>
+                          </details>
+                        ) : (
+                          <div key="articles">{links}</div>
+                        );
+                      })}
+                    </div>
+                  </details>
+                ))}
+                {part.extras.map((extra) => (
+                  <details
+                    key={extra.id}
+                    open={
+                      extra.articleIds.includes(entry?.id ?? "") || undefined
+                    }
+                  >
+                    <summary>{extra.title}</summary>
+                    <div className="codex-tree-children">
+                      {extra.articleIds.map((id) => (
+                        <a
+                          key={id}
+                          href={codexArticleHref(id)}
+                          aria-current={entry?.id === id ? "page" : undefined}
+                        >
+                          {articleTitle(id)}
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
             ))}
+            <a className="codex-nav-reference" href="#/reference/">
+              Справочник: классы, каталоги, глоссарий →
+            </a>
           </nav>
           <a
             className="codex-source muted small"
@@ -428,26 +437,6 @@ export function CodexView() {
                       : "В закладки"}
                   </Button>
                 </header>
-                {chapter === "08. Классы" && siblings.length > 1 && (
-                  <nav
-                    className="codex-level-switcher"
-                    aria-label="Уровень класса"
-                  >
-                    <span className="eyebrow">Уровень</span>
-                    {siblings.map((sibling) => (
-                      <a
-                        key={sibling.id}
-                        href={`#/codex/${sibling.id}`}
-                        aria-current={
-                          sibling.id === entry.id ? "page" : undefined
-                        }
-                        title={sibling.title}
-                      >
-                        {sibling.title.match(/^(\d+)-й/)?.[1] || sibling.title}
-                      </a>
-                    ))}
-                  </nav>
-                )}
                 {headings.length > 0 && (
                   <details className="codex-inline-toc">
                     <summary>В этой статье · {headings.length}</summary>
@@ -510,6 +499,32 @@ export function CodexView() {
                     </div>
                   </details>
                 )}
+                {loaded && entry.id === "0701" && (
+                  <section
+                    className="codex-class-overview"
+                    aria-labelledby="codex-class-overview-title"
+                  >
+                    <h2 id="codex-class-overview-title">Десять классов</h2>
+                    <p className="muted">
+                      Полные описания с особенностями, способностями и всеми
+                      десятью уровнями — в Справочнике.
+                    </p>
+                    <div className="codex-class-grid">
+                      {classLandings.map((landing) => (
+                        <a
+                          className="codex-class-card"
+                          key={landing.classId}
+                          href={classLandingHref(landing.slug)}
+                        >
+                          <strong>{landing.name}</strong>
+                          <span className="muted">
+                            {landing.levelArticleIds.length} уровней
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </section>
+                )}
                 <footer className="codex-paging">
                   {position > 0 && (
                     <Button
@@ -561,17 +576,13 @@ export function CodexView() {
                           chapter.replace(/^\d+\.\s*/, "") ||
                           "Оглавление"}
                   </h2>
-                  <p className="muted">
-                    {needle || onlyBookmarks
-                      ? searchPending
+                  {(needle || onlyBookmarks) && (
+                    <p className="muted">
+                      {searchPending
                         ? "Ищем по всему Кодексу…"
-                        : `Найдено статей: ${resultEntries.length}`
-                      : !chapter
-                        ? `${chapters.length} глав · ${ruleIndex.length} статей. Выберите главу, чтобы начать чтение.`
-                        : group
-                          ? "Правила и развитие — в порядке чтения."
-                          : "Выберите раздел или статью этой главы."}
-                  </p>
+                        : `Найдено статей: ${resultEntries.length}`}
+                    </p>
+                  )}
                 </div>
                 {chapter && (
                   <a
@@ -623,71 +634,98 @@ export function CodexView() {
                 </div>
               )}
               {!needle && !onlyBookmarks && (
-                <div className="codex-collections">
-                  {chapters.map((name, i) => {
-                    const entries = ruleIndex.filter(
-                      (article) => article.chapter === name,
-                    );
-                    const sections = [
-                      ...new Set(
-                        entries.map((article) => article.group).filter(Boolean),
-                      ),
-                    ];
-                    return (
-                      <section className="codex-collection" key={name}>
+                <>
+                  <a className="codex-reference-banner" href="#/reference/">
+                    <span>
+                      <strong>Справочник</strong> — классы, происхождения,
+                      карьеры, комплекты, перки, каталоги наград и глоссарий
+                    </span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                  {readingParts.map((part, partIndex) => (
+                    <section
+                      className="codex-part-collection"
+                      key={part.id}
+                    >
+                      <div className="codex-part-head">
                         <span className="eyebrow">
-                          Глава {String(i + 1).padStart(2, "0")}
+                          Часть {ROMAN[partIndex] ?? partIndex + 1}
                         </span>
-                        <h3>
-                          <a
-                            href={
-                              chapterCatalog(name)
-                                ? `#/catalog/${chapterCatalog(name)}`
-                                : catalogLink(name)
-                            }
-                          >
-                            {name.replace(/^\d+\.\s*/, "")}
-                          </a>
-                        </h3>
-                        {sections.length && !chapterCatalog(name) ? (
-                          <nav
-                            className="codex-section-links"
-                            aria-label={name}
-                          >
-                            {sections.map((section) => (
-                              <a
-                                key={section}
-                                href={catalogLink(name, section)}
-                              >
-                                {section}
+                        <h2>{part.title}</h2>
+                      </div>
+                      <div className="codex-collections">
+                        {part.chapters.map((name) => {
+                          const entries = ruleIndex.filter(
+                            (article) => article.chapter === name,
+                          );
+                          const sections = [
+                            ...new Set(
+                              entries
+                                .map((article) => article.group)
+                                .filter(Boolean),
+                            ),
+                          ];
+                          return (
+                            <section className="codex-collection" key={name}>
+                              <span className="eyebrow">
+                                Глава {name.slice(0, 2)}
+                              </span>
+                              <h3>
+                                <a href={catalogLink(name)}>
+                                  {name.replace(/^\d+\.\s*/, "")}
+                                </a>
+                              </h3>
+                              {sections.length ? (
+                                <nav
+                                  className="codex-section-links"
+                                  aria-label={name}
+                                >
+                                  {sections.map((section) => (
+                                    <a
+                                      key={section}
+                                      href={catalogLink(name, section)}
+                                    >
+                                      {section}
+                                    </a>
+                                  ))}
+                                </nav>
+                              ) : (
+                                <p>
+                                  {entries
+                                    .slice(0, 3)
+                                    .map((article) => article.title)
+                                    .join(" · ")}
+                                </p>
+                              )}
+                            </section>
+                          );
+                        })}
+                        {part.extras.map((extra) => (
+                          <section className="codex-collection" key={extra.id}>
+                            <span className="eyebrow">Подборка</span>
+                            <h3>
+                              <a href={codexArticleHref(extra.articleIds[0])}>
+                                {extra.title}
                               </a>
-                            ))}
-                          </nav>
-                        ) : (
-                          <p>
-                            {entries
-                              .slice(0, 3)
-                              .map((article) => article.title)
-                              .join(" · ")}
-                          </p>
-                        )}
-                        <a
-                          className="codex-collection-footer"
-                          href={
-                            chapterCatalog(name)
-                              ? `#/catalog/${chapterCatalog(name)}`
-                              : catalogLink(name)
-                          }
-                        >
-                          {chapterCatalog(name)
-                            ? "Открыть каталог"
-                            : "Читать главу"}{" "}
-                          <span aria-hidden="true">→</span>
-                        </a>
-                      </section>
-                    );
-                  })}
-                </div>
+                            </h3>
+                            <p>
+                              {extra.articleIds
+                                .slice(0, 3)
+                                .map((id) => articleTitle(id))
+                                .join(" · ")}
+                            </p>
+                            <a
+                              className="codex-collection-footer"
+                              href={codexArticleHref(extra.articleIds[0])}
+                            >
+                              Открыть <span aria-hidden="true">→</span>
+                            </a>
+                          </section>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </>
               )}
               <div className="codex-results">
                 {(needle || onlyBookmarks ? resultEntries : []).map(
@@ -697,11 +735,7 @@ export function CodexView() {
                       <a
                         className="codex-result"
                         key={article.id}
-                        href={
-                          article.id === "0102"
-                            ? "#/glossary/"
-                            : `#/codex/${article.id}`
-                        }
+                        href={codexArticleHref(article.id)}
                       >
                         <span className="eyebrow">
                           {article.chapter}

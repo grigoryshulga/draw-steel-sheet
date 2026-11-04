@@ -421,7 +421,8 @@ describe("RuleEntityView: одна полная карточка способн�
 
     const html = renderEntity(entity);
 
-    expect(html).toContain("Особенность");
+    // Чип вида сущности не выводится: раздел и так назван заголовком.
+    expect(html).not.toContain("rule-entity-kind");
     expect(html).toContain("Тестовая особенность");
     expect(html).toContain("работает всегда.");
     expect(html).toContain("<li>Один</li>");

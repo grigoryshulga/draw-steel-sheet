@@ -13,15 +13,14 @@ import { LoadingScreen } from "../components/Topbar";
 const CodexView = lazy(() =>
   import("./CodexView").then((module) => ({ default: module.CodexView })),
 );
-const CatalogView = lazy(() =>
-  import("./CatalogView").then((module) => ({ default: module.CatalogView })),
-);
-const GlossaryView = lazy(() =>
-  import("./GlossaryView").then((module) => ({ default: module.GlossaryView })),
+const ReferenceView = lazy(() =>
+  import("./ReferenceView").then((module) => ({
+    default: module.ReferenceView,
+  })),
 );
 
 /** Разделы, которые можно смотреть без входа: справочные, без данных героя. */
-export const GUEST_TABS = ["codex", "catalog", "glossary"];
+export const GUEST_TABS = ["codex", "reference", "catalog", "glossary"];
 
 /** Режим «только чтение»: библиотека правил без аккаунта. */
 export function GuestApp({
@@ -61,13 +60,7 @@ export function GuestApp({
       <div className="main">
         <main className="content" id="main-content" tabIndex={-1}>
           <Suspense fallback={<LoadingScreen label="Загрузка библиотеки" />}>
-            {tab === "catalog" ? (
-              <CatalogView />
-            ) : tab === "glossary" ? (
-              <GlossaryView />
-            ) : (
-              <CodexView />
-            )}
+            {tab === "codex" ? <CodexView /> : <ReferenceView />}
           </Suspense>
         </main>
       </div>

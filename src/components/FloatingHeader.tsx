@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { CharacterMenu } from "./CharacterMenu";
 import { Icon } from "./Icons";
 import { SaveIndicator } from "./SaveIndicator";
@@ -5,10 +6,15 @@ import { SiteLogo } from "./SiteLogo";
 import { Button } from "./ui";
 import type { SaveStatus } from "../state/AppContext";
 import type { Character, CharacterSummary } from "../types";
-import { isHeroTab, isLibraryTab, type Tab, type HeroTab, type LibraryTab } from "../navigation";
+import { isHeroTab, isLibraryTab, type Tab, type HeroTab } from "../navigation";
 import { useAccount } from "../state/StorageScope";
 
 import "./FloatingHeader.css";
+
+const LIBRARY_OPTIONS = [
+  { id: "codex", label: "Книга", icon: "book" },
+  { id: "reference", label: "Справочник", icon: "library" },
+] as const;
 
 
 /**
@@ -19,7 +25,6 @@ import "./FloatingHeader.css";
 export function FloatingHeader({
   tab,
   heroTab = "sheet",
-  libraryTab = "codex",
   busy = false,
   character,
   characters,
@@ -31,7 +36,6 @@ export function FloatingHeader({
 }: {
   tab: Tab;
   heroTab?: HeroTab;
-  libraryTab?: LibraryTab;
   busy?: boolean;
   character: Character | null;
   characters: CharacterSummary[];
@@ -44,6 +48,26 @@ export function FloatingHeader({
   const heroActive = isHeroTab(tab);
   const codexActive = isLibraryTab(tab);
   const account = useAccount();
+  const librarySection = tab === "codex" ? "codex" : "reference";
+  const libraryTrigger = useRef<HTMLButtonElement>(null);
+  const libraryMenu = useRef<HTMLDivElement>(null);
+  const skipNextFocus = useRef(false);
+  const [libraryMenuOpen, setLibraryMenuOpen] = useState(false);
+
+  const closeLibraryMenu = (returnFocus = false) => {
+    if (returnFocus) {
+      skipNextFocus.current = true;
+      libraryTrigger.current?.focus();
+    }
+    setLibraryMenuOpen(false);
+    window.requestAnimationFrame(() => {
+      skipNextFocus.current = false;
+    });
+  };
+  const selectLibrarySection = (next: "codex" | "reference") => {
+    closeLibraryMenu(true);
+    onNavigate(next);
+  };
 
   return (
     <header className="floating-header">
@@ -70,15 +94,80 @@ export function FloatingHeader({
             <Icon name="hero" size={15} aria-hidden="true" />
             Герой
           </button>
-          <button
-            type="button"
-            className={codexActive ? "is-active" : ""}
-            aria-current={codexActive ? "page" : undefined}
-            onClick={() => onNavigate(libraryTab)}
+          <div
+            className="floating-header-library"
+            onMouseEnter={() => setLibraryMenuOpen(true)}
+            onMouseLeave={() => {
+              const wrapper = libraryMenu.current?.parentElement;
+              if (!wrapper?.contains(document.activeElement))
+                setLibraryMenuOpen(false);
+            }}
+            onFocusCapture={() => {
+              if (!skipNextFocus.current) setLibraryMenuOpen(true);
+            }}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+                setLibraryMenuOpen(false);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Escape" && libraryMenuOpen) {
+                event.preventDefault();
+                closeLibraryMenu(true);
+              }
+            }}
           >
-            <Icon name="book" size={15} aria-hidden="true" />
-            Кодекс
-          </button>
+            <button
+              ref={libraryTrigger}
+              type="button"
+              className={`floating-header-library-trigger${codexActive ? " is-active" : ""}`}
+              aria-current={codexActive ? "page" : undefined}
+              aria-haspopup="listbox"
+              aria-expanded={libraryMenuOpen}
+              aria-controls="floating-library-menu"
+              onClick={() => setLibraryMenuOpen(true)}
+            >
+              <Icon name="book" size={15} aria-hidden="true" />
+              Кодекс
+              <Icon
+                name="chevron-down"
+                size={12}
+                aria-hidden="true"
+                className="floating-header-library-chevron"
+              />
+            </button>
+            <div
+              ref={libraryMenu}
+              className={`floating-header-library-menu${libraryMenuOpen ? " is-open" : ""}`}
+            >
+              <ul id="floating-library-menu" role="listbox" aria-label="Разделы Кодекса">
+                {LIBRARY_OPTIONS.map((option) => {
+                  const selected = librarySection === option.id;
+                  return (
+                    <li key={option.id} role="none">
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={selected}
+                        className={`library-option${selected ? " is-selected" : ""}`}
+                        onClick={() => selectLibrarySection(option.id)}
+                      >
+                        <Icon name={option.icon} size={16} aria-hidden="true" />
+                        <span>{option.label}</span>
+                        {selected && (
+                          <Icon
+                            name="check"
+                            size={14}
+                            aria-hidden="true"
+                            className="library-option-check"
+                          />
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </nav>
 
         <div className="floating-header-right">

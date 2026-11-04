@@ -1,6 +1,97 @@
 .codex-view {
   min-width: 0;
 }
+
+/* Части чтения в сайдбаре и на главной */
+.codex-part {
+  display: grid;
+  gap: var(--space-1);
+}
+.codex-part-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-2);
+  padding: 0 var(--space-5);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.codex-part-number {
+  font-family: var(--font-display);
+  color: var(--accent);
+}
+.codex-nav-reference {
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  color: var(--accent);
+}
+.codex-reference-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--fg);
+  text-decoration: none;
+  margin-bottom: var(--space-9);
+}
+.codex-reference-banner:hover {
+  border-color: var(--accent);
+}
+.codex-reference-banner strong {
+  color: var(--accent);
+}
+.codex-part-collection {
+  margin-bottom: var(--space-9);
+}
+.codex-part-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.codex-part-head h2 {
+  font-size: var(--text-xl);
+}
+
+/* Сетка классов в обзорной статье «О Классах» */
+.codex-class-overview {
+  margin-top: var(--space-9);
+}
+.codex-class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-4);
+}
+.codex-class-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg);
+  text-decoration: none;
+}
+.codex-class-card:hover {
+  border-color: var(--accent);
+}
+.codex-class-card strong {
+  font-size: var(--text-md);
+}
+
+@media (max-width: 700px) {
+  .codex-reference-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--space-7);
+  }
+}
 .codex-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr) auto;
@@ -142,11 +233,6 @@
 }
 .rule-text blockquote > * + * {
   margin-top: var(--space-5);
-}
-.rule-text hr {
-  border: 0;
-  border-top: 1px solid var(--line);
-  margin: 28px 0;
 }
 .rule-table {
   max-width: 100%;
@@ -367,18 +453,6 @@
   margin: 0 0 var(--space-9);
   max-width: 34ch;
 }
-.codex-collection:has(img) h3,
-.codex-collection:has(img) p {
-  padding-right: 65px;
-}
-.codex-collection img {
-  position: absolute;
-  right: 8px;
-  top: 32px;
-  width: 80px;
-  height: 115px;
-  object-fit: contain;
-}
 .codex-collection-footer {
   display: flex;
   justify-content: space-between;
@@ -421,8 +495,7 @@
 }
 .codex-article-head {
   align-items: start;
-  padding-bottom: var(--space-9);
-  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-7);
 }
 .codex-article-head .btn {
   flex-shrink: 0;
@@ -431,8 +504,7 @@
   line-height: var(--leading-relaxed);
 }
 .codex-article .rule-text h2 {
-  padding-bottom: var(--space-6);
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 0;
   margin-top: 40px;
   font-family: var(--font-display);
 }

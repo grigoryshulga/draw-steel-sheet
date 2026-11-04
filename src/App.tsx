@@ -52,14 +52,9 @@ const SettingsView = lazy(() =>
 const CodexView = lazy(() =>
   import("./views/CodexView").then((module) => ({ default: module.CodexView })),
 );
-const CatalogView = lazy(() =>
-  import("./views/CatalogView").then((module) => ({
-    default: module.CatalogView,
-  })),
-);
-const GlossaryView = lazy(() =>
-  import("./views/GlossaryView").then((module) => ({
-    default: module.GlossaryView,
+const ReferenceView = lazy(() =>
+  import("./views/ReferenceView").then((module) => ({
+    default: module.ReferenceView,
   })),
 );
 const NewCharacterDialog = lazy(() =>
@@ -333,17 +328,15 @@ function WorkspaceApp({
               >
                 {booting ? (
                   <LoadingScreen label="Загрузка листа" />
-                ) : ["codex", "catalog", "glossary"].includes(tab) ? (
+                ) : ["codex", "reference", "catalog", "glossary"].includes(tab) ? (
                   <Suspense
                     fallback={<LoadingScreen label="Загрузка библиотеки" />}
                   >
                     <AppContext.Provider value={contextValue}>
                       {tab === "codex" ? (
                         <CodexView />
-                      ) : tab === "catalog" ? (
-                        <CatalogView />
                       ) : (
-                        <GlossaryView />
+                        <ReferenceView />
                       )}
                     </AppContext.Provider>
                   </Suspense>

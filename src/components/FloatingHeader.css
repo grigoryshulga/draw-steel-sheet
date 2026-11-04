@@ -116,6 +116,94 @@
   color: var(--accent);
 }
 
+/* Кодекс — триггер листбокса «Книга / Справочник»: меню висит под кнопкой. */
+.floating-header-library {
+  position: relative;
+  display: flex;
+}
+
+.floating-header-library-chevron {
+  margin-left: -4px;
+  opacity: 0.7;
+  transition: transform 160ms var(--ease);
+}
+
+.floating-header-library-trigger[aria-expanded="true"] .floating-header-library-chevron {
+  transform: rotate(180deg);
+}
+
+.floating-header-library-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 60;
+  padding-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -4px);
+  transition:
+    opacity 140ms var(--ease),
+    transform 140ms var(--ease),
+    visibility 0s linear 140ms;
+}
+
+.floating-header-library-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition-delay: 0s;
+}
+
+.floating-header-library-menu ul {
+  min-width: 220px;
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 93%, transparent);
+  box-shadow: var(--shadow-pop);
+  backdrop-filter: blur(18px) saturate(1.1);
+  list-style: none;
+}
+
+.floating-header-nav .floating-header-library-menu .library-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--fg);
+  font-size: var(--text-md);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.floating-header-nav .floating-header-library-menu .library-option svg {
+  flex: none;
+  opacity: 0.85;
+}
+
+.floating-header-nav .floating-header-library-menu .library-option:hover {
+  background: var(--surface-2);
+  color: var(--fg-bright);
+}
+
+.floating-header-nav .floating-header-library-menu .library-option.is-selected {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.library-option-check {
+  margin-left: auto;
+}
+
 .floating-header-logo {
   display: grid;
   place-items: center;
@@ -256,6 +344,30 @@
     justify-content: center;
     gap: var(--space-2);
     padding: 5px 8px;
+  }
+
+  .floating-header-library {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .floating-header-library-trigger {
+    width: 100%;
+  }
+
+  .floating-header-library-menu {
+    left: 0;
+    transform: translate(0, -4px);
+  }
+
+  .floating-header-library-menu.is-open {
+    transform: translate(0, 0);
+  }
+
+  .floating-header-nav .floating-header-library-menu .library-option {
+    flex: none;
+    justify-content: flex-start;
+    padding: 10px 12px;
   }
 
   /* Поп-ап героя раскрывается на всю ширину панели, а не от аватарки. */

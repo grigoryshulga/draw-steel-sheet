@@ -1,6 +1,96 @@
 .library-view {
   min-width: 0;
 }
+
+.catalog-global-search {
+  margin-bottom: var(--space-7);
+}
+
+.catalog-global-search input {
+  width: 100%;
+  font-size: var(--text-lg);
+}
+
+.catalog-global-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.catalog-global-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.catalog-global-heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: var(--leading-tight);
+}
+
+.catalog-global-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.catalog-global-group h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--fg-bright);
+}
+
+.catalog-global-group h3 span {
+  margin-left: var(--space-3);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+.catalog-global-rows {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-2) var(--space-7);
+}
+
+.catalog-global-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-xs);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.catalog-global-row:hover {
+  background: var(--surface-2);
+}
+
+.catalog-global-name {
+  font-weight: 600;
+}
+
+.catalog-global-eyebrow {
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.catalog-global-excerpt {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
 .catalog-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -59,13 +149,140 @@
   gap: var(--space-6);
 }
 .catalog-card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
   padding: var(--space-8);
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--fg);
   text-decoration: none;
 }
+/* Карточка с портретом: картинка — подложка слева, текст чуть заходит на неё. */
+.catalog-card.has-art {
+  padding: 0;
+}
+.catalog-card-art {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -22px;
+  z-index: 0;
+  width: 194px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 20% 34%,
+    color-mix(in srgb, var(--accent) 11%, transparent),
+    transparent 72%
+  );
+  /* Мягкое круговое растворение большого радиуса: картинка уходит в фон. */
+  -webkit-mask-image: radial-gradient(
+    130% 150% at 6% 44%,
+    #000 0%,
+    #000 20%,
+    transparent 54%
+  );
+  mask-image: radial-gradient(
+    130% 150% at 6% 44%,
+    #000 0%,
+    #000 20%,
+    transparent 54%
+  );
+}
+.catalog-card-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.06);
+  transform-origin: 50% 16%;
+}
+.catalog-card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+.catalog-card.has-art .catalog-card-body {
+  padding: var(--space-8) var(--space-8) var(--space-8)
+    calc(var(--space-8) + 96px);
+}
+
+/* Глоссарий как словарь: алфавит и термины в несколько колонок. */
+.catalog-glossary-alphabet {
+  width: 100%;
+  margin-top: 0;
+}
+
+.catalog-glossary {
+  column-width: 300px;
+  column-gap: var(--space-9);
+}
+
+.catalog-glossary-letter {
+  margin: var(--space-7) 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  color: var(--accent);
+  break-after: avoid;
+}
+
+.catalog-glossary-letter:first-child {
+  margin-top: 0;
+}
+
+.catalog-glossary-entry {
+  margin-bottom: var(--space-5);
+  break-inside: avoid;
+  min-width: 0;
+}
+
+.catalog-glossary-term {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  color: var(--fg-bright);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.catalog-glossary-term em {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.catalog-glossary-def {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.catalog-glossary-def > :first-child {
+  margin-top: 0;
+}
+
+.catalog-glossary-def > :last-child {
+  margin-bottom: 0;
+}
+
+.catalog-glossary-def p {
+  margin: 0;
+}
+
+.catalog-glossary-def p + p {
+  margin-top: var(--space-2);
+}
+
 .catalog-card:hover,
 .catalog-card[aria-current] {
   border-color: var(--accent);
@@ -107,16 +324,17 @@
   border-radius: var(--radius);
   scroll-margin-top: calc(100px + var(--rail-h));
 }
-.catalog-back {
-  display: block;
-  margin-bottom: var(--space-8);
-}
 .catalog-detail h1 {
   font-family: var(--font-display);
   font-size: clamp(25px, 3vw, 36px);
   line-height: var(--leading-tight);
   margin: var(--space-6) 0 var(--space-9);
 }
+.catalog-detail-class {
+  padding: 0;
+  overflow: hidden;
+}
+
 .catalog-detail > a,
 .catalog-action a {
   color: var(--accent);

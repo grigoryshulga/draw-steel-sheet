@@ -1,9 +1,8 @@
 import { CharacteristicGlyphText } from "../CharacteristicGlyph";
-import type { RuleEntity, RuleEntityKind } from "../../rules/schema";
+import type { RuleEntity } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
 import type { ArtAsset } from "../../lib/art";
 import { ArtworkFigure } from "../Artwork";
-import { Chip } from "../ui";
 import {
   AbilityBody,
   AbilityTags,
@@ -11,17 +10,6 @@ import {
 } from "./AbilitySheet";
 import { RuleMarkdown } from "./RuleMarkdown";
 import "./RuleEntity.css";
-
-export const RULE_ENTITY_KIND_LABELS: Record<RuleEntityKind, string> = {
-  ability: "Способность",
-  feature: "Особенность",
-  ancestry: "Происхождение",
-  kit: "Комплект",
-  perk: "Перк",
-  item: "Предмет",
-  project: "Проект",
-  title: "Титул",
-};
 
 /** Стабильный якорь раздела: зависит от id, а не от перевода названия. */
 export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
@@ -80,14 +68,21 @@ export function stripRepeatedEntityHeading(
 export function RuleEntityView({
   entity,
   art,
+  onOpen,
+  withAnchor = true,
 }: {
   entity: RuleEntity;
   art?: ArtAsset;
+  /** Открыть полную карточку в поп-апе; работает только для способностей. */
+  onOpen?: () => void;
+  /** В поп-апе якоря не нужны: они уже есть у карточки на странице. */
+  withAnchor?: boolean;
 }) {
-  const anchor = ruleEntityAnchor(entity);
+  const anchor = withAnchor ? ruleEntityAnchor(entity) : undefined;
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
   const content = stripRepeatedEntityHeading(entity.markdown, entity.name);
   const hasMarkdown = content.markdown.trim().length > 0;
+  const openable = Boolean(ability && onOpen);
 
   if (ability)
     return (
@@ -102,6 +97,21 @@ export function RuleEntityView({
           data-action={ability.actionType}
           data-kind={ability.kind}
           data-basic={ability.basic ? "true" : undefined}
+          data-openable={openable ? "true" : undefined}
+          role={openable ? "button" : undefined}
+          tabIndex={openable ? 0 : undefined}
+          aria-label={openable ? `Открыть карточку: ${entity.name}` : undefined}
+          onClick={openable ? onOpen : undefined}
+          onKeyDown={
+            openable
+              ? (event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    onOpen?.();
+                  }
+                }
+              : undefined
+          }
         >
           <header className="rule-entity-head card-band">
             <h2 className="rule-entity-name" id={anchor}>
@@ -140,11 +150,11 @@ export function RuleEntityView({
       data-kind={entity.kind}
       aria-labelledby={anchor}
     >
-      <header className="rule-entity-head" id={content.headingId || undefined}>
+      <header
+        className="rule-entity-head"
+        id={withAnchor ? content.headingId || undefined : undefined}
+      >
         <div className="rule-entity-title">
-          <Chip className="rule-entity-kind">
-            {RULE_ENTITY_KIND_LABELS[entity.kind] ?? entity.kind}
-          </Chip>
           <h2 className="rule-entity-name" id={anchor}>
             {entity.name}
           </h2>

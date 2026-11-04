@@ -1,5 +1,5 @@
 import type { CompendiumAbility, OriginalFields } from '../types';
-export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'kit' | 'perk' | 'item' | 'project' | 'title';
+export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'career' | 'kit' | 'perk' | 'item' | 'project' | 'title';
 export interface RuleEntity extends OriginalFields {
   id: string; // namespaced stable identity; not derived anew from translated names
   kind: RuleEntityKind;
@@ -41,6 +41,47 @@ export interface RuleManifest {
   schemaVersion: 1;
   articles: RuleIndexEntry[];
   entities: Record<string, { packId: string; kind: RuleEntityKind }>;
+  /** Дерево «Читать»: части книги из глав и обзорных статей. */
+  parts: RuleReadingPart[];
+  /** Секции Справочника: вторые точки входа к тем же статьям и сущностям. */
+  reference: RuleReferenceSection[];
+  /** Лендинги классов: агрегированная страница вместо 10 статей-уровней. */
+  classLandings: RuleClassLanding[];
+}
+/** Раздел чтения внутри части: обзорные статьи вместо ушедшей в Справочник главы. */
+export interface RuleReadingExtra {
+  id: string;
+  title: string;
+  articleIds: string[];
+}
+export interface RuleReadingPart {
+  id: string;
+  title: string;
+  /** Полные имена глав («08. Классы») в порядке чтения. */
+  chapters: string[];
+  extras: RuleReadingExtra[];
+}
+export interface RuleReferenceSection {
+  id: string;
+  title: string;
+  kind: "classes" | "articles" | "catalog" | "glossary";
+  /** Статьи-единицы секции (kind: "articles"). */
+  items?: string[];
+  /** Вид каталога потребителя (kind: "catalog"). */
+  catalogKind?: string;
+  /** Количество единиц для карточки секции. */
+  count?: number;
+}
+export interface RuleClassLanding {
+  classId: string;
+  /** Английский слаг класса из id («class.fury» → «fury»). */
+  slug: string;
+  /** Русское имя класса — оно же группа статей главы 08. */
+  name: string;
+  /** Статьи-уровни в порядке уровней 1..N. */
+  levelArticleIds: string[];
+  featureIds: string[];
+  abilityIds: string[];
 }
 /**
  * Ленивый поисковый корпус. `text` хранится в исходном регистре, чтобы

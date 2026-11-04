@@ -30,10 +30,13 @@ export function RuleArticleContent({
   article,
   entities,
   art,
+  onOpenEntity,
 }: {
   article: RuleArticle;
   entities: Record<string, RuleEntity>;
   art?: ArtAsset;
+  /** Клик по карточке сущности: используется страницей класса для поп-апа. */
+  onOpenEntity?: (entity: RuleEntity) => void;
 }) {
   const leadIndex = article.blocks.findIndex((block) =>
     block.type === "markdown"
@@ -76,6 +79,7 @@ export function RuleArticleContent({
             key={`${block.ref}-${index}`}
             entity={entity}
             art={isLead ? art : undefined}
+            onOpen={onOpenEntity ? () => onOpenEntity(entity) : undefined}
           />
         );
       })}

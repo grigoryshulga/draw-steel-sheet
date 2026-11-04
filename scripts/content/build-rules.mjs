@@ -127,6 +127,261 @@ function manifestHeadings(text) {
   return headings;
 }
 
+/** Номер уровня из заголовка «N-й Уровень …»; устойчив к id вроде 0899-10. */
+function levelNumber(article) {
+  const match = /^(\d+)-й/.exec(article.title);
+  return match ? Number(match[1]) : Number.NaN;
+}
+
+/** Порядок статей-уровней: по номеру из заголовка, нечитаемые — в конец по id. */
+function compareLevelArticles(a, b) {
+  const la = levelNumber(a);
+  const lb = levelNumber(b);
+  const aOk = Number.isFinite(la);
+  const bOk = Number.isFinite(lb);
+  if (aOk && bOk && la !== lb) return la - lb;
+  if (aOk !== bOk) return aOk ? -1 : 1;
+  return compareStrings(a.id, b.id);
+}
+
+/**
+ * Редакционная политика чтения: какие главы образуют части «Читать» и какие
+ * обзорные статьи остаются в чтении, когда глава целиком уходит в Справочник.
+ * Главы задаются номером, статьи — каноническим ID: сборка падает, если
+ * чего-то не хватает, поэтому политика не может молча разойтись с данными.
+ */
+const READING_PARTS = [
+  {
+    id: "how-to-play",
+    title: "Как играть",
+    chapters: ["01", "02", "12", "13", "14", "11"],
+  },
+  {
+    id: "creating-hero",
+    title: "Создание героя",
+    chapters: ["03", "04", "05", "07"],
+    extras: [
+      { id: "classes", title: "Классы", articleIds: ["0701"] },
+      { id: "kits", title: "Комплекты", articleIds: ["0901", "0902"] },
+      { id: "perks", title: "Перки", articleIds: ["1001"] },
+    ],
+  },
+  { id: "downtime", title: "Между боями", chapters: ["15", "17"] },
+  { id: "for-director", title: "Ведущему", chapters: ["20", "21"] },
+];
+
+/** Секции Справочника: вторые точки входа к тем же статьям и сущностям. */
+const REFERENCE_SECTIONS = [
+  { id: "classes", title: "Классы", kind: "classes" },
+  {
+    id: "ancestries",
+    title: "Происхождения",
+    kind: "articles",
+    chapter: "04",
+    entityKind: "ancestry",
+  },
+  {
+    id: "careers",
+    title: "Карьеры",
+    kind: "articles",
+    chapter: "06",
+    entityKind: "career",
+  },
+  {
+    id: "kits",
+    title: "Комплекты",
+    kind: "articles",
+    chapter: "09",
+    entityKind: "kit",
+  },
+  {
+    id: "perks",
+    title: "Перки",
+    kind: "articles",
+    chapter: "10",
+    entityKind: "perk",
+  },
+  { id: "treasures", title: "Сокровища", kind: "catalog", catalogKind: "treasure" },
+  { id: "titles", title: "Титулы", kind: "catalog", catalogKind: "title" },
+  { id: "projects", title: "Проекты", kind: "catalog", catalogKind: "project" },
+  { id: "glossary", title: "Глоссарий", kind: "glossary" },
+];
+
+/** Каталоги потребителя и соответствующие им виды сущностей. */
+const CATALOG_ENTITY_KINDS = {
+  treasure: "item",
+  title: "title",
+  project: "project",
+};
+
+/** Главы, чьи статьи доступны только через каталоги Справочника. */
+const CATALOG_CHAPTER_NUMBERS = ["16", "18", "19"];
+
+/**
+ * Собирает читательскую навигацию: части чтения, секции Справочника и
+ * лендинги классов. Всё выводится из канонического дерева; политика задана
+ * константами выше и валидируется, поэтому UI не содержит номеров глав.
+ */
+export function buildReadingStructure({ articles, articleById, entities, entityById, fail }) {
+  const chapterNames = [...new Set(articles.map((article) => article.chapter))].sort(
+    compareStrings,
+  );
+  const chapterByNumber = new Map(
+    chapterNames.map((name) => [name.split(".")[0], name]),
+  );
+  const requireChapter = (number, label) => {
+    const name = chapterByNumber.get(number);
+    if (!name) fail(`${label}: глава ${number} не найдена в каноническом дереве`);
+    return name;
+  };
+
+  const parts = READING_PARTS.map((part) => ({
+    id: part.id,
+    title: part.title,
+    chapters: part.chapters.map((number) =>
+      requireChapter(number, `часть ${part.id}`),
+    ),
+    extras: (part.extras ?? []).map((extra) => {
+      for (const id of extra.articleIds) {
+        if (!articleById.has(id)) {
+          fail(`часть ${part.id}, раздел ${extra.id}: статья ${id} не найдена`);
+        }
+      }
+      return { id: extra.id, title: extra.title, articleIds: [...extra.articleIds] };
+    }),
+  }));
+
+  // Лендинги классов: статьи главы 08 по группе = русскому имени класса.
+  const classChapterPrefix = "08.";
+  const levelArticlesByGroup = new Map();
+  for (const article of articles) {
+    if (!article.chapter.startsWith(classChapterPrefix)) continue;
+    const list = levelArticlesByGroup.get(article.group) ?? [];
+    list.push(article);
+    levelArticlesByGroup.set(article.group, list);
+  }
+  const classEntities = entities
+    .filter((entity) => entity.kind === "class")
+    .sort((a, b) => compareStrings(a.id, b.id));
+  const classLandings = [];
+  for (const classEntity of classEntities) {
+    const levels = [...(levelArticlesByGroup.get(classEntity.name) ?? [])].sort(
+      compareLevelArticles,
+    );
+    if (levels.length === 0) {
+      fail(`класс ${classEntity.id}: нет статей-уровней в главе 08`);
+    }
+    const levelIds = new Set(levels.map((article) => article.id));
+    const features = entities
+      .filter(
+        (entity) =>
+          entity.kind === "feature" && levelIds.has(entity.source.articleId),
+      )
+      .map((entity) => entity.id)
+      .sort(compareStrings);
+    const abilities = entities
+      .filter(
+        (entity) =>
+          entity.kind === "ability" && levelIds.has(entity.source.articleId),
+      )
+      .map((entity) => entity.id)
+      .sort(compareStrings);
+    classLandings.push({
+      classId: classEntity.id,
+      slug: classEntity.id.slice("class.".length),
+      name: classEntity.name,
+      levelArticleIds: levels.map((article) => article.id),
+      featureIds: features,
+      abilityIds: abilities,
+    });
+  }
+  const assignedLevelIds = new Set(
+    classLandings.flatMap((landing) => landing.levelArticleIds),
+  );
+  for (const [group, list] of levelArticlesByGroup) {
+    if (list.some((article) => !assignedLevelIds.has(article.id))) {
+      fail(
+        `глава 08, группа «${group}»: статьи без сущности класса (нет лендинга)`,
+      );
+    }
+  }
+
+  const reference = REFERENCE_SECTIONS.map((section) => {
+    if (section.kind === "articles") {
+      const chapter = requireChapter(section.chapter, `справочник ${section.id}`);
+      const prefix = `${chapter.split(".")[0]}.`;
+      const items = articles
+        .filter(
+          (article) =>
+            article.chapter.startsWith(prefix) &&
+            article.blocks.some(
+              (block) =>
+                block.type === "entity" &&
+                entityById.get(block.ref)?.kind === section.entityKind,
+            ),
+        )
+        .sort((a, b) => compareStrings(a.id, b.id))
+        .map((article) => article.id);
+      if (items.length === 0) {
+        fail(`справочник ${section.id}: в главе ${chapter} нет статей с сущностями «${section.entityKind}»`);
+      }
+      return { id: section.id, title: section.title, kind: "articles", items };
+    }
+    if (section.kind === "catalog") {
+      const entityKind = CATALOG_ENTITY_KINDS[section.catalogKind];
+      return {
+        id: section.id,
+        title: section.title,
+        kind: "catalog",
+        catalogKind: section.catalogKind,
+        count: entities.filter((entity) => entity.kind === entityKind).length,
+      };
+    }
+    if (section.kind === "classes") {
+      return {
+        id: section.id,
+        title: section.title,
+        kind: "classes",
+        count: classLandings.length,
+      };
+    }
+    return { id: section.id, title: section.title, kind: "glossary" };
+  });
+
+  // Каждая статья должна быть достижима: из чтения, из Справочника или из
+  // главы-источника каталога. Иначе оглавление молча потеряет материал.
+  const reachable = new Set();
+  const markChapter = (name) => {
+    for (const article of articles) {
+      if (article.chapter === name) reachable.add(article.id);
+    }
+  };
+  for (const part of parts) {
+    part.chapters.forEach(markChapter);
+    for (const extra of part.extras) {
+      for (const id of extra.articleIds) reachable.add(id);
+    }
+  }
+  for (const section of reference) {
+    for (const id of section.items ?? []) reachable.add(id);
+  }
+  for (const landing of classLandings) {
+    for (const id of landing.levelArticleIds) reachable.add(id);
+  }
+  for (const number of CATALOG_CHAPTER_NUMBERS) {
+    const name = chapterByNumber.get(number);
+    if (name) markChapter(name);
+  }
+  const unreachable = articles
+    .filter((article) => !reachable.has(article.id))
+    .map((article) => article.id);
+  if (unreachable.length > 0) {
+    fail(`статьи вне навигации: ${unreachable.join(", ")}`);
+  }
+
+  return { parts, reference, classLandings };
+}
+
 export function buildRules({
   root = REPO_ROOT,
   contentDir = path.join(root, "content/rules"),
@@ -269,10 +524,21 @@ export function buildRules({
     };
   }
 
+  const reading = buildReadingStructure({
+    articles,
+    articleById,
+    entities,
+    entityById,
+    fail,
+  });
+
   const manifest = {
     schemaVersion: 1,
     articles: manifestArticles,
     entities: manifestEntityMap,
+    parts: reading.parts,
+    reference: reading.reference,
+    classLandings: reading.classLandings,
   };
 
   const searchIndex = {
@@ -337,6 +603,7 @@ export function buildRules({
     articles: articles.length,
     entities: entities.length,
     packs: packs.size,
+    classes: reading.classLandings.length,
     unreferenced,
     bytes: [...expected.values()].reduce(
       (sum, text) => sum + Buffer.byteLength(text, "utf8"),
@@ -381,6 +648,7 @@ function main() {
   console.log(`Статей:       ${result.stats.articles}`);
   console.log(`Сущностей:    ${result.stats.entities}`);
   console.log(`Пакетов:      ${result.stats.packs}`);
+  console.log(`Классов:      ${result.stats.classes} лендингов`);
   console.log(`Размер:       ${(result.stats.bytes / 1024).toFixed(1)} КБ`);
   console.log(
     `Поиск:        ${(result.stats.searchBytes / 1024).toFixed(1)} КБ (лениво)`,

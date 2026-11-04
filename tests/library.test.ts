@@ -107,7 +107,7 @@ describe("Library catalogs", () => {
         text: "Замедление. Замедление. Выучить Новый Язык. [Замедление](#/codex/1301) `Замедление`",
       }),
     );
-    expect(html.match(/href="#\/glossary\//g)).toHaveLength(1);
+    expect(html.match(/href="#\/catalog\/glossary\//g)).toHaveLength(1);
     expect(html).toContain('href="#/catalog/project/learn-new-language"');
     expect(html).toContain('<a href="#/codex/1301">Замедление</a>');
     expect(html).toContain("<code>Замедление</code>");

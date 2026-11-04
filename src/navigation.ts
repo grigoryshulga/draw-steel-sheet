@@ -11,6 +11,7 @@ export type HeroTab = (typeof HERO_TABS)[number];
 export const TABS = [
   ...HERO_TABS,
   "codex",
+  "reference",
   "catalog",
   "glossary",
   "settings",
@@ -27,13 +28,14 @@ export const TAB_LABELS: Record<Tab, string> = {
   notes: "Журнал",
   companions: "Спутники",
   codex: "Кодекс",
+  reference: "Справочник",
   catalog: "Каталоги",
   glossary: "Глоссарий",
   settings: "Настройки",
   create: "Создание героя",
 };
 
-export const LIBRARY_TABS = ["codex", "catalog", "glossary"] as const;
+export const LIBRARY_TABS = ["codex", "reference", "catalog", "glossary"] as const;
 export type LibraryTab = (typeof LIBRARY_TABS)[number];
 
 export function isHeroTab(tab: string): tab is HeroTab {

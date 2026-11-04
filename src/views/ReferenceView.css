@@ -1,0 +1,68 @@
+/* Справочник: оболочка поверх общих стилей Кодекса (CodexView.css). */
+
+.reference-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.reference-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.reference-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.reference-breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reference-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.reference-article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.reference-article-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms var(--ease);
+}
+
+.reference-article-card:hover {
+  border-color: var(--accent-line);
+}
+
+.reference-article-title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--accent);
+}
+
+.reference-article-chapter {
+  margin-top: auto;
+  font-size: var(--text-sm);
+}

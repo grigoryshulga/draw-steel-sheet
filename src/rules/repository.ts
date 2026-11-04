@@ -58,6 +58,12 @@ const repository: RuleRepository = createRuleRepository({
 });
 
 export const ruleIndex = repository.ruleIndex;
+/** Части чтения, секции Справочника и лендинги классов из манифеста. */
+export const ruleReading = {
+  parts: manifest.parts,
+  reference: manifest.reference,
+  classLandings: manifest.classLandings,
+};
 export const loadRuleArticle = (id: string): Promise<LoadedRuleArticle> =>
   repository.loadRuleArticle(id);
 export const loadRuleEntity = repository.loadRuleEntity;

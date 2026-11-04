@@ -51,7 +51,7 @@ export function sourceLink(entry: CatalogEntry) {
 }
 
 export function glossaryLink(id = "") {
-  return `#/glossary/${encodeURIComponent(id)}`;
+  return `#/catalog/glossary/${encodeURIComponent(id)}`;
 }
 
 export function matchesLibraryQuery(query: string, ...fields: string[]) {

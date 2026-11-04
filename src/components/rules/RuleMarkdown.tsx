@@ -112,16 +112,25 @@ export function RuleMarkdown({
           h6: ({ children }) => (
             <h4 id={headingId(plain(children))}>{children}</h4>
           ),
+          /* Горизонтальные линии из источника (`---`, `***`, `___`) — типографский
+             мусор: разделы уже отделены заголовками и отступами. */
+          hr: () => null,
           table: ({ children }) => (
             <div className="rule-table">
               <table>{children}</table>
             </div>
           ),
           a: ({ href, children, className: linkClassName }) => {
-            const term = href?.startsWith("#/glossary/")
+            const glossaryPrefix = href?.startsWith("#/catalog/glossary/")
+              ? "#/catalog/glossary/"
+              : href?.startsWith("#/glossary/")
+                ? "#/glossary/"
+                : "";
+            const term = glossaryPrefix
               ? GLOSSARY.find(
                   (candidate) =>
-                    candidate.id === decodeURIComponent(href.slice(11)),
+                    candidate.id ===
+                    decodeURIComponent(href!.slice(glossaryPrefix.length)),
                 )
               : undefined;
             if (term)

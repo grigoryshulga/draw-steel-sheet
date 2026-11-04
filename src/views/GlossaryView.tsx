@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { GLOSSARY, glossaryLink, matchesLibraryQuery } from "../data/library";
 import { useLibraryLocation } from "../lib/library-location";
-import { LibraryHeader } from "../components/LibraryHeader";
 import { RuleText } from "../components/RuleText";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
@@ -31,10 +30,6 @@ export function GlossaryView() {
   }, [id]);
   return (
     <div className="library-view glossary-view">
-      <LibraryHeader
-        current="glossary"
-        description={`Терминов: ${GLOSSARY.length}. Короткие определения на русском, поиск также по английским названиям.`}
-      />
       <div className="glossary-tools">
         <TextInput
           type="search"

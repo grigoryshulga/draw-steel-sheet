@@ -2,15 +2,13 @@
    но раздел живёт отдельно от Markdown-потока и сохраняет свой якорь. */
 
 /* Ритм задаёт сам поток статьи (`.rule-article` — flex с gap): у раздела нет
-   своих внешних отступов, только разделитель и воздух над ним. Иначе
-   gap статьи и margin раздела складывались и давали разрыв в 60px.
-   Внутри раздела — обычный поток, чтобы иллюстрация могла обтекаться
-   текстом, а не выталкивала весь блок вниз. */
+   своих внешних отступов, только воздух над ним. Иначе gap статьи и margin
+   раздела складывались и давали разрыв в 60px. Внутри раздела — обычный поток,
+   чтобы иллюстрация могла обтекаться текстом, а не выталкивала весь блок вниз. */
 .rule-entity {
   display: block;
   margin: 0;
   padding-top: var(--space-7);
-  border-top: 1px solid var(--line);
 }
 .rule-entity > * + * {
   margin-top: var(--space-6);
@@ -19,7 +17,6 @@
 .rule-article > .rule-entity:first-child {
   margin-top: 0;
   padding-top: 0;
-  border-top: 0;
 }
 
 .rule-entity-head {
@@ -38,13 +35,6 @@
   flex-direction: column;
   gap: var(--space-3);
   min-width: 0;
-}
-
-.rule-entity-kind.chip {
-  align-self: flex-start;
-  height: 22px;
-  padding: 0 var(--space-3);
-  font-size: var(--text-xs);
 }
 
 .rule-entity-head .sheet-ability-card-tags .chip {
