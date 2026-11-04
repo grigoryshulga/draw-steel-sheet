@@ -286,23 +286,8 @@
 
 /* ---------- Поп-ап способности ---------- */
 
-.sheet-ability-modal .modal-head h2 {
-  min-width: 0;
-}
-
-.sheet-ability-detail-title {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-3);
-  overflow-wrap: anywhere;
-}
-
-.sheet-ability-detail-title .chip {
-  flex: none;
-}
-
-.sheet-ability-detail-title[data-basic="true"] .chip {
+/* Базовая способность красит чип вида в свой серый — шапка поп-апа общая. */
+.sheet-ability-modal.is-basic .card-detail-heading .chip {
   color: var(--ability-basic);
   border-color: var(--ability-basic);
 }
@@ -458,14 +443,6 @@
 
 .sheet-passive-card {
   --card-color: var(--ability-passive);
-}
-
-.sheet-passive-level {
-  flex: none;
-  color: var(--muted);
-  font-size: var(--text-2xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .sheet-passive-summary {

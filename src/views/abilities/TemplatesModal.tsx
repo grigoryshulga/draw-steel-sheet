@@ -31,14 +31,6 @@ export function TemplatesModal({ existing, onClose, onAdd }: TemplatesModalProps
           Базовые действия
         </span>
       }
-      footer={
-        <div className="abil-templates-footer">
-          <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
-            Закрыть
-          </Button>
-        </div>
-      }
     >
       {BASIC_ABILITIES.length === 0 ? (
         <EmptyState icon="sword" title="Шаблоны недоступны" />

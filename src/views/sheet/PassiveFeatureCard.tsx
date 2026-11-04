@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Card, CardHeader, CardTitle, Chip, Modal } from "../../components/ui";
+import { Card, CardHeader, CardTitle, Chip } from "../../components/ui";
+import { CardDetailModal } from "../../components/CardDetailModal";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import {
   FEATURE_CATEGORY_LABELS,
@@ -46,18 +47,23 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
         )}
 
       </Card>
-      <Modal open={open} onClose={() => setOpen(false)} title={item.name}>
+      <CardDetailModal
+        open={open}
+        onClose={() => setOpen(false)}
+        title={item.name}
+        source={`${item.level} ур.`}
+        meta={
+          <Chip tone={item.category === "subclass" ? "blue" : "default"}>
+            {FEATURE_CATEGORY_LABELS[item.category]}
+          </Chip>
+        }
+        autoHeight
+      >
         <div className="sheet-passive-full">
-          <div className="hstack wrap">
-            <Chip tone={item.category === "subclass" ? "blue" : "default"}>
-              {FEATURE_CATEGORY_LABELS[item.category]}
-            </Chip>
-            <span className="sheet-passive-level mono">{item.level} ур.</span>
-          </div>
           {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
           {description && <div className="sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>}
         </div>
-      </Modal>
+      </CardDetailModal>
     </>
   );
 }

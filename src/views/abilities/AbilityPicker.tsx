@@ -156,9 +156,6 @@ export function AbilityPicker({
             </Button>
           )}
           <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
-            Закрыть
-          </Button>
           <Button
             variant="primary"
             icon="plus"

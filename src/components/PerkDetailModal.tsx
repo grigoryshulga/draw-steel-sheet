@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { PERK_TYPE_META } from "../data/perks";
 import { RuleText } from "./RuleText";
-import { Chip, Modal } from "./ui";
+import { CardDetailModal } from "./CardDetailModal";
+import { Chip } from "./ui";
 import type { PerkType } from "../types";
-import "./PerkDetailModal.css";
 
 export interface PerkDetailModalProps {
   open: boolean;
@@ -34,26 +34,20 @@ export function PerkDetailModal({
 }: PerkDetailModalProps) {
   const meta = type ? PERK_TYPE_META[type] : null;
   return (
-    <Modal
+    <CardDetailModal
       open={open}
       onClose={onClose}
-      title={
-        <span className="perk-detail-heading">
-          <span className="perk-detail-name">{name || "Перк"}</span>
-          {eyebrow && <span className="perk-detail-source">{eyebrow}</span>}
-          {meta && <Chip tone={meta.tone}>{meta.label}</Chip>}
-        </span>
-      }
-      className="perk-detail-dialog"
+      title={name || "Перк"}
+      source={eyebrow}
+      meta={meta ? <Chip tone={meta.tone}>{meta.label}</Chip> : undefined}
       footer={action}
+      autoHeight
     >
-      <div className="perk-detail-modal">
-        {description || summary ? (
-          <RuleText text={description || summary || ""} />
-        ) : (
-          <p className="muted">Полное описание этого перка недоступно.</p>
-        )}
-      </div>
-    </Modal>
+      {description || summary ? (
+        <RuleText text={description || summary || ""} />
+      ) : (
+        <p className="muted">Полное описание этого перка недоступно.</p>
+      )}
+    </CardDetailModal>
   );
 }

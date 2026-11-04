@@ -22,7 +22,8 @@ import { createCharacter } from "../lib/defaults";
 import { CHARACTERISTICS, deriveStats } from "../lib/rules";
 import type { Ability, Character, Perk } from "../types";
 import { useStorageScope } from "../state/StorageScope";
-import { Button, Modal } from "./ui";
+import { Button } from "./ui";
+import { CardDetailModal } from "./CardDetailModal";
 import { RuleText } from "./RuleText";
 import { AbilityCard } from "./AbilityCard";
 import { PerkDetailModal } from "./PerkDetailModal";
@@ -308,69 +309,43 @@ export function NewCharacterDialog({
       summary={perkDetail?.summary}
       description={perkDetail?.description}
     />
-    <Modal
+    <CardDetailModal
       open={Boolean(traitDetail)}
       onClose={() => setTraitDetail(null)}
-      title={traitDetail ? `Черта: ${traitDetail.name}` : "Черта"}
-      footer={
-        <>
-          <span className="grow" />
-          <Button variant="primary" onClick={() => setTraitDetail(null)}>
-            Закрыть
-          </Button>
-        </>
-      }
+      title={traitDetail?.name ?? "Черта"}
+      source="Черта"
+      autoHeight
     >
       {traitDetail && <RuleText text={traitDetail.text} />}
-    </Modal>
-    <Modal
+    </CardDetailModal>
+    <CardDetailModal
       open={Boolean(incidentDetail)}
       onClose={() => setIncidentDetail(null)}
-      title={incidentDetail ? `Инцидент: ${incidentDetail.title}` : "Инцидент"}
-      footer={
-        <>
-          <span className="grow" />
-          <Button variant="primary" onClick={() => setIncidentDetail(null)}>
-            Закрыть
-          </Button>
-        </>
-      }
+      title={incidentDetail?.title ?? "Инцидент"}
+      source="Инцидент"
+      autoHeight
     >
       {incidentDetail && <p>{incidentDetail.text}</p>}
-    </Modal>
-    <Modal
+    </CardDetailModal>
+    <CardDetailModal
       open={Boolean(subclassDetail)}
       onClose={() => setSubclassDetail(null)}
-      title={subclassDetail ? subclassDetail.title : "Подкласс"}
-      footer={
-        <>
-          <span className="grow" />
-          <Button variant="primary" onClick={() => setSubclassDetail(null)}>
-            Закрыть
-          </Button>
-        </>
-      }
+      title={subclassDetail?.title ?? "Подкласс"}
+      source="Подкласс"
+      autoHeight
     >
       {subclassDetail && <RuleText text={subclassDetail.text} />}
-    </Modal>
-    <Modal
+    </CardDetailModal>
+    <CardDetailModal
       open={Boolean(abilityDetail)}
       onClose={() => setAbilityDetail(null)}
       title="Способность"
       wide
-      footer={
-        <>
-          <span className="grow" />
-          <Button variant="primary" onClick={() => setAbilityDetail(null)}>
-            Закрыть
-          </Button>
-        </>
-      }
     >
       {abilityDetail && (
         <AbilityCard ability={abilityDetail} character={hero} full flat />
       )}
-    </Modal>
+    </CardDetailModal>
     </>
   );
 }

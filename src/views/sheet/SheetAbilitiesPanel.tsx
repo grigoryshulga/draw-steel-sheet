@@ -9,7 +9,8 @@ import { AbilityRollPanel } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
-import { Button, Chip, EmptyState, Modal, Panel, Select } from "../../components/ui";
+import { Button, Chip, EmptyState, Panel, Select } from "../../components/ui";
+import { CardDetailModal } from "../../components/CardDetailModal";
 import { RichText } from "../../components/RichText";
 import { kindLabel } from "../../data/actions";
 import {
@@ -479,10 +480,10 @@ function AbilityDetailModal({
     .filter((tier) => tier.damage || tier.effect);
 
   return (
-    <Modal
+    <CardDetailModal
       open
       onClose={onClose}
-      className="sheet-ability-modal"
+      className={`sheet-ability-modal${ability.source === BASIC_ABILITY_SOURCE ? " is-basic" : ""}`}
       sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} />}
       headerActions={
         derived ? undefined : (
@@ -506,11 +507,11 @@ function AbilityDetailModal({
           </>
         )
       }
-      title={
-        <span className="sheet-ability-detail-title" data-basic={ability.source === BASIC_ABILITY_SOURCE ? "true" : undefined}>
-          <span>{ability.name || "Без названия"}</span>
-          <Chip tone={ability.source === BASIC_ABILITY_SOURCE ? "default" : kindTone(ability.kind)}>{kindLabel(ability.kind)}</Chip>
-        </span>
+      title={ability.name || "Без названия"}
+      meta={
+        <Chip tone={ability.source === BASIC_ABILITY_SOURCE ? "default" : kindTone(ability.kind)}>
+          {kindLabel(ability.kind)}
+        </Chip>
       }
       footer={
         <>
@@ -603,6 +604,6 @@ function AbilityDetailModal({
           </div>
         )}
       </div>
-    </Modal>
+    </CardDetailModal>
   );
 }

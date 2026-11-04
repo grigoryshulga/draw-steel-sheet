@@ -4,7 +4,8 @@ import { AbilityCard } from "../../components/AbilityCard";
 import { PerkCard } from "../../components/PerkCard";
 import { Icon } from "../../components/Icons";
 import { PerkDetailModal } from "../../components/PerkDetailModal";
-import { Button, Chip, Modal } from "../../components/ui";
+import { Button, Chip } from "../../components/ui";
+import { CardDetailModal } from "../../components/CardDetailModal";
 import { ALL_PERK_TYPES, PERK_TYPE_META } from "../../data/perks";
 import type { PerkType } from "../../types";
 import {
@@ -576,16 +577,13 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
       </div>
 
       {detail?.option.ability ? (
-        <Modal
+        <CardDetailModal
           open
           onClose={() => setDetail(undefined)}
           title="Способность"
           wide
           footer={
             <div className="dev-detail-footer">
-              <Button variant="soft" onClick={() => setDetail(undefined)}>
-                Закрыть
-              </Button>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -606,7 +604,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
             full
             flat
           />
-        </Modal>
+        </CardDetailModal>
       ) : detail ? (
         <PerkDetailModal
           open

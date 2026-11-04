@@ -1,0 +1,60 @@
+/* Общий поп-ап карточки: шапка «имя + источник + чип», тело с одним ритмом. */
+
+.card-detail-modal .modal-head h2 {
+  min-width: 0;
+}
+
+.card-detail-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  overflow-wrap: anywhere;
+}
+
+.card-detail-heading .chip {
+  flex: none;
+}
+
+.card-detail-name {
+  min-width: 0;
+}
+
+.card-detail-source {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-body);
+  font-weight: 400;
+}
+
+.card-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  min-width: 0;
+}
+
+.card-detail-body .rule-text {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Диалог по высоте содержимого: длинный текст прокручивается страницей,
+   а не телом, поэтому шапка не уезжает при чтении. */
+.modal-backdrop:has(.card-detail-modal.is-auto) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.card-detail-modal.is-auto {
+  flex: 0 0 auto;
+  max-height: none;
+  margin: auto 0;
+}
+
+.card-detail-modal.is-auto .modal-body {
+  overflow: visible;
+}
