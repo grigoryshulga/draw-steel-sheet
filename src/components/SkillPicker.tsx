@@ -139,8 +139,6 @@ export function SkillPicker({
                           {skill}
                           {isSelected ? <Icon name="check" size={14} aria-hidden="true" /> : null}
                         </span>
-                        {isAutomatic ? <span className="skill-picker__status">Автоматически</span> : null}
-                        {isKnown ? <span className="skill-picker__status">Уже есть</span> : null}
                         {reason ? (
                           <span className="skill-picker__sr-only" id={reasonId}>{reason}</span>
                         ) : null}

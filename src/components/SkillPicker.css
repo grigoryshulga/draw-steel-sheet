@@ -125,9 +125,8 @@
 }
 
 .skill-picker__chip label {
-  display: grid;
-  justify-items: start;
-  gap: var(--space-1);
+  display: inline-flex;
+  align-items: center;
   min-width: 0;
   max-width: 100%;
   min-height: 2.25rem;
@@ -141,8 +140,7 @@
   transition: border-color 130ms ease, background-color 130ms ease, color 130ms ease;
 }
 
-.skill-picker__skill-name,
-.skill-picker__status {
+.skill-picker__skill-name {
   max-width: 100%;
   overflow-wrap: anywhere;
 }
@@ -169,12 +167,6 @@
 
 .skill-picker__skill-name svg {
   flex: 0 0 auto;
-}
-
-.skill-picker__status {
-  color: var(--muted);
-  font-size: var(--text-sm);
-  line-height: var(--leading-snug);
 }
 
 .skill-picker__checkbox:not(:disabled):not(:checked) + label:hover {
