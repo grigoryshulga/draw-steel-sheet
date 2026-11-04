@@ -181,6 +181,13 @@ export function CodexView() {
     Boolean(needle) && !searcher && searchStatus !== "error";
   const searchFailed =
     Boolean(needle) && !searcher && searchStatus === "error";
+  // Пустой список уместен только для поиска и закладок: в оглавлении
+  // результатами считаются карточки глав, а не `resultEntries`.
+  const showEmptyState =
+    (Boolean(needle) || onlyBookmarks) &&
+    !searchPending &&
+    !searchFailed &&
+    resultEntries.length === 0;
 
   useEffect(() => {
     if (!entryId) {
@@ -600,7 +607,7 @@ export function CodexView() {
                   </Button>
                 </div>
               )}
-              {!searchPending && !searchFailed && resultEntries.length === 0 && (
+              {showEmptyState && (
                 <div className="codex-empty">
                   <h3>
                     {onlyBookmarks
