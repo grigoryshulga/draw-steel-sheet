@@ -86,7 +86,7 @@ export function PerksPanel() {
                   }
                 }}
               >
-                <header className="sheet-perk-head">
+                <header className="card-header sheet-perk-head">
                   <span className="eyebrow">{slot.title}</span>
                 </header>
                 <button

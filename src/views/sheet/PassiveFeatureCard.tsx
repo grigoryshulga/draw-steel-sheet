@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Chip, Modal } from "../../components/ui";
+import { Card, CardHeader, CardTitle, Chip, Modal } from "../../components/ui";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import {
   FEATURE_CATEGORY_LABELS,
@@ -18,21 +18,19 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
 
   return (
     <>
-      <article
+      <Card
         className="sheet-ability-card sheet-passive-card"
         data-category={item.category}
       >
-        <header className="sheet-ability-card-head">
-          <h4 title={item.name}>
-            <button
-              type="button"
-              className="sheet-ability-title"
-              aria-label={`Открыть особенность: ${item.name}`}
-              onClick={() => setOpen(true)}
-            >
-              {item.name}
-            </button>
-          </h4>
+        <CardHeader className="sheet-ability-card-head card-band">
+          <CardTitle
+            as="h4"
+            title={item.name}
+            onOpen={() => setOpen(true)}
+            openLabel={`Открыть особенность: ${item.name}`}
+          >
+            {item.name}
+          </CardTitle>
           {item.notes && (
             <div className="sheet-ability-card-tags">
               <HelpTooltip label={`Примечание: ${item.name}`}>
@@ -40,14 +38,14 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
               </HelpTooltip>
             </div>
           )}
-        </header>
+        </CardHeader>
 
         {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}
         {description && (
           <div className="sheet-passive-preview sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{description}</ReactMarkdown></div>
         )}
 
-      </article>
+      </Card>
       <Modal open={open} onClose={() => setOpen(false)} title={item.name}>
         <div className="sheet-passive-full">
           <div className="hstack wrap">

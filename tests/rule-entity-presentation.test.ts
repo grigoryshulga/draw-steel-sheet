@@ -131,6 +131,7 @@ describe("RuleEntityView: одна полная карточка способн�
     expect(html).toContain('data-rule-entity="ability:test"');
     expect(html).toContain('id="rule-entity-ability:test"');
     expect(html).toContain("class=\"sheet-ability-card is-full\"");
+    expect(html).toContain('class="rule-entity-head card-band"');
     expect(html).toContain('data-action="main"');
     expect(html).toContain('data-kind="signature"');
 
@@ -627,6 +628,8 @@ describe("AbilityCard: совместимость с листом", () => {
     );
 
     expect(html).toContain("sheet-ability-card");
+    expect(html).toContain('class="card-header sheet-ability-card-head card-band"');
+    expect(html).toContain('class="card-title"');
     expect(html).toContain("is-selected");
     expect(html).toContain('data-action="main"');
     expect(html).toContain('data-kind="signature"');

@@ -1,4 +1,5 @@
 // Stable public entry point; implementation lives in independently editable modules.
+export * from "./ui/Card";
 export * from "./ui/Panel";
 export * from "./ui/Button";
 export * from "./ui/Fields";

@@ -1,7 +1,7 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { PERK_TYPE_META } from "../data/perks";
 import type { PerkType } from "../types";
-import { Chip } from "./ui";
+import { Card, CardHeader, CardTitle, Chip } from "./ui";
 import "./PerkCard.css";
 
 export interface PerkCardProps {
@@ -17,6 +17,8 @@ export interface PerkCardProps {
   onOpen?: () => void;
   /** Действия внизу карточки: выбор, изменение, удаление. */
   footerAction?: ReactNode;
+  /** Цветная полоса шапки вокруг имени, как у карточки способности. */
+  banded?: boolean;
   className?: string;
 }
 
@@ -33,56 +35,30 @@ export function PerkCard({
   selected = false,
   onOpen,
   footerAction,
+  banded = false,
   className = "",
 }: PerkCardProps) {
   const meta = type ? PERK_TYPE_META[type] : null;
-  const interactive = Boolean(onSelect || onOpen);
-  const onCardClick = onSelect ?? onOpen;
-  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (!onCardClick || event.target !== event.currentTarget) return;
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      onCardClick();
-    }
-  };
   return (
-    <article
-      className={`sheet-perk-card is-filled${selected ? " is-selected" : ""}${
-        interactive ? " is-interactive" : ""
-      }${className ? ` ${className}` : ""}`}
+    <Card
+      className={`sheet-perk-card is-filled${className ? ` ${className}` : ""}`}
       data-selected={selected || undefined}
       data-type={type ?? undefined}
-      {...(onCardClick
-        ? {
-            role: "button",
-            tabIndex: 0,
-            "aria-pressed": onSelect ? selected : undefined,
-            onClick: onCardClick,
-            onKeyDown,
-          }
-        : {})}
+      selected={selected}
+      onSelect={onSelect}
+      onOpen={onOpen}
     >
-      <header className="sheet-perk-head">
-        {eyebrow && <span className="eyebrow">{eyebrow}</span>}
+      <CardHeader className="sheet-perk-head" eyebrow={eyebrow} reserveSpace>
         {meta && <Chip tone={meta.tone}>{meta.short}</Chip>}
-      </header>
-      <h3>
-        {onOpen ? (
-          <button
-            type="button"
-            className="sheet-perk-title"
-            aria-label={`Открыть перк: ${name}`}
-            onClick={(event) => {
-              event.stopPropagation();
-              onOpen();
-            }}
-          >
-            {name}
-          </button>
-        ) : (
-          name
-        )}
-      </h3>
+      </CardHeader>
+      <CardTitle
+        as="h3"
+        className={banded ? "card-band" : undefined}
+        onOpen={onOpen}
+        openLabel={`Открыть перк: ${name}`}
+      >
+        {name}
+      </CardTitle>
       {summary && <p className="sheet-perk-summary">{summary}</p>}
       {footerAction && (
         <div
@@ -93,6 +69,6 @@ export function PerkCard({
           {footerAction}
         </div>
       )}
-    </article>
+    </Card>
   );
 }

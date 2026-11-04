@@ -1,4 +1,5 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { Card, CardHeader, CardTitle } from "./ui";
 import "./ChoiceCard.css";
 
 export interface ChoiceCardProps {
@@ -33,58 +34,26 @@ export function ChoiceCard({
   children,
   className = "",
 }: ChoiceCardProps) {
-  const interactive = Boolean(onSelect || onOpen) && !disabled;
-  const onCardClick = disabled ? undefined : (onSelect ?? onOpen);
-  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (!onCardClick || event.target !== event.currentTarget) return;
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      onCardClick();
-    }
-  };
-
   return (
-    <article
-      className={`choice-card${selected ? " is-selected" : ""}${
-        disabled ? " is-disabled" : ""
-      }${interactive ? " is-interactive" : ""}${
-        className ? ` ${className}` : ""
-      }`}
-      aria-pressed={onSelect ? selected : undefined}
-      {...(onCardClick
-        ? {
-            role: "button",
-            tabIndex: 0,
-            onClick: onCardClick,
-            onKeyDown,
-          }
-        : {})}
+    <Card
+      className={`choice-card${className ? ` ${className}` : ""}`}
+      selected={selected}
+      disabled={disabled}
+      onSelect={onSelect}
+      onOpen={onOpen}
     >
-      {(eyebrow || meta) && (
-        <header className="choice-card-head">
-          {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-          {meta && <span className="choice-card-meta">{meta}</span>}
-        </header>
-      )}
-      <h3>
-        {onOpen && !disabled ? (
-          <button
-            type="button"
-            className="choice-card-title"
-            aria-label={`Открыть: ${title}`}
-            onClick={(event) => {
-              event.stopPropagation();
-              onOpen();
-            }}
-          >
-            {title}
-          </button>
-        ) : (
-          title
-        )}
-      </h3>
+      <CardHeader className="choice-card-head" eyebrow={eyebrow}>
+        {meta && <span className="choice-card-meta">{meta}</span>}
+      </CardHeader>
+      <CardTitle
+        as="h3"
+        onOpen={disabled ? undefined : onOpen}
+        openLabel={`Открыть: ${title}`}
+      >
+        {title}
+      </CardTitle>
       {summary && <div className="choice-card-summary">{summary}</div>}
       {children}
-    </article>
+    </Card>
   );
 }

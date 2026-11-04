@@ -103,7 +103,7 @@ export function RuleEntityView({
           data-kind={ability.kind}
           data-basic={ability.basic ? "true" : undefined}
         >
-          <header className="rule-entity-head">
+          <header className="rule-entity-head card-band">
             <h2 className="rule-entity-name" id={anchor}>
               {entity.name}
             </h2>

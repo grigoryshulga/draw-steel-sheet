@@ -1,6 +1,7 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Artwork } from "./Artwork";
 import { RuleText } from "./RuleText";
+import { Card } from "./ui";
 import { artFor, type ArtKind } from "../lib/art";
 import "./BuilderOptionCard.css";
 
@@ -36,25 +37,14 @@ export function BuilderOptionCard({
   className = "",
 }: BuilderOptionCardProps) {
   const hasArt = Boolean(artFor(kind, name));
-  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (disabled || event.target !== event.currentTarget) return;
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      onSelect();
-    }
-  };
 
   return (
-    <article
-      className={`builder-option-card${hasArt ? " with-art" : ""}${
-        selected ? " is-selected" : ""
-      }${disabled ? " is-disabled" : ""}${className ? ` ${className}` : ""}`}
-      role="button"
-      tabIndex={disabled ? -1 : 0}
-      aria-pressed={selected}
-      aria-disabled={disabled || undefined}
-      onClick={disabled ? undefined : onSelect}
-      onKeyDown={onKeyDown}
+    <Card
+      className={`builder-option-card${hasArt ? " with-art" : ""}${className ? ` ${className}` : ""}`}
+      selected={selected}
+      disabled={disabled}
+      onSelect={onSelect}
+      alwaysFocusable
     >
       {hasArt && <Artwork kind={kind} name={name} className="builder-option-art" />}
       <div className="builder-option-body">
@@ -68,6 +58,6 @@ export function BuilderOptionCard({
         ) : null}
         {children}
       </div>
-    </article>
+    </Card>
   );
 }

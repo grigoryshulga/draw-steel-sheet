@@ -1,5 +1,7 @@
 /* Единая карточка перка: лист героя и вкладка «Развитие». */
 .sheet-perk-card {
+  /* Общий категорийный цвет карточек: у перка это цвет его типа. */
+  --card-color: var(--perk-tone, var(--muted));
   display: flex;
   flex-direction: column;
   gap: var(--card-gap);
@@ -37,28 +39,28 @@
   color: var(--accent);
 }
 
+/* Шапка общая (`src/components/ui/Card.css`); перку нужна её высота,
+   чтобы строка слота держала ритм даже без чипа типа. */
 .sheet-perk-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
   min-height: var(--space-8);
 }
 
 .sheet-perk-head .chip {
-  height: 21px;
+  height: 22px;
   padding: 0 var(--space-3);
   font-size: var(--text-xs);
 }
 
-.sheet-perk-card h3 {
-  margin: var(--space-1) 0 0;
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-  color: var(--fg-bright);
-  overflow-wrap: anywhere;
+/* Надпись-слот стоит над именем, поэтому имя отступает на шаг больше. */
+.sheet-perk-card .card-title {
+  margin-top: var(--space-1);
+}
+
+/* Полоса шапки перка: тот же `.card-band`, что у карточки способности,
+   поэтому имя получает её поля и прижимается к краям карточки. */
+.sheet-perk-card > .card-title.card-band {
+  margin: 0;
+  padding: var(--space-6) var(--card-padding);
 }
 
 .sheet-perk-summary {
@@ -156,28 +158,7 @@
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--perk-tone) 48%, transparent);
 }
 
-/* Заголовок-кнопка перка: без браузерной плашки и рамки. */
-.sheet-perk-title {
-  display: inline;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.sheet-perk-title:hover {
-  color: var(--accent);
-}
-
-.sheet-perk-title:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-xs);
-}
-
-.sheet-perk-card.is-selected .sheet-perk-title {
+/* Выбранный перк красит имя в цвет своего типа. */
+.sheet-perk-card.is-selected .card-title-button {
   color: var(--perk-tone, var(--accent));
 }

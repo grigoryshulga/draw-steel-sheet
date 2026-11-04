@@ -196,6 +196,7 @@ export function SheetPerksPanel() {
                   name={selected.name}
                   type={selected.type}
                   summary={preview}
+                  banded
                   className={isCustom ? "is-custom" : undefined}
                   onOpen={() => setDetail({ selected, slot })}
                   footerAction={isCustom ? (
@@ -206,7 +207,7 @@ export function SheetPerksPanel() {
             })}
             {emptySlots.map(({ slot }) => (
               <article className="sheet-perk-card is-empty" key={slot.key}>
-                <header className="sheet-perk-head"><span className="eyebrow">{slot.title}</span></header>
+                <header className="card-header sheet-perk-head"><span className="eyebrow">{slot.title}</span></header>
                 <button type="button" className="sheet-perk-empty" onClick={() => setPickingSlot(slot)} title="Выбрать перк из списка">
                   <span className="sheet-perk-empty-title">Не выбран</span>
                 </button>

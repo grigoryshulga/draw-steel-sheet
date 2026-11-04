@@ -1,6 +1,7 @@
-import type { KeyboardEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 import type { Ability, Character } from "../types";
+import { Card, CardHeader, CardTitle } from "./ui";
 import {
   AbilityBody,
   AbilityTags,
@@ -46,56 +47,30 @@ export function AbilityCard({
   // готовые значения и не знает, есть ли у читателя герой.
   const view = abilityCardView(ability, character, origin);
 
-  const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (!onSelect || event.target !== event.currentTarget) return;
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      onSelect();
-    }
-  };
-
   return (
-    <article
-      className={`sheet-ability-card${selected ? " is-selected" : ""}${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
+    <Card
+      className={`sheet-ability-card${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
       data-action={ability.actionType}
       data-kind={ability.kind}
       data-basic={view.basic ? "true" : undefined}
       data-openable={openOnCardClick && onOpen ? "true" : undefined}
-      onClick={openOnCardClick && onOpen && !onSelect ? (event) => {
-        const target = event.target;
-        if (target instanceof Element && target.closest("button, a, input, select, textarea, summary, details")) return;
-        onOpen();
-      } : undefined}
-      {...(onSelect
-        ? {
-            role: "button",
-            tabIndex: 0,
-            "aria-pressed": selected,
-            onClick: onSelect,
-            onKeyDown,
-          }
-        : {})}
+      selected={selected}
+      onSelect={onSelect}
+      onOpen={onOpen}
+      openOnCardClick={openOnCardClick}
+      keyboardTarget="title"
     >
-      <header className="sheet-ability-card-head">
-        <h4 title={ability.name || "Без названия"}>
-          {onOpen ? (
-            <button
-              type="button"
-              className="sheet-ability-title"
-              aria-label={`Открыть способность: ${ability.name || "без названия"}`}
-              onClick={(event) => {
-                event.stopPropagation();
-                onOpen();
-              }}
-            >
-              {ability.name || "Без названия"}
-            </button>
-          ) : (
-            ability.name || "Без названия"
-          )}
-        </h4>
+      <CardHeader className="sheet-ability-card-head card-band">
+        <CardTitle
+          as="h4"
+          title={ability.name || "Без названия"}
+          onOpen={onOpen}
+          openLabel={`Открыть способность: ${ability.name || "без названия"}`}
+        >
+          {ability.name || "Без названия"}
+        </CardTitle>
         <AbilityTags view={view} />
-      </header>
+      </CardHeader>
 
       {ability.trigger && (
         <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
@@ -114,6 +89,6 @@ export function AbilityCard({
           </span>
         )}
       </footer>}
-    </article>
+    </Card>
   );
 }

@@ -72,15 +72,12 @@
   transform: translateY(1px);
 }
 
+/* Полосу шапки рисует общий `.card-band`; карточке остаётся выпустить её
+   за внутренние поля. */
 .sheet-ability-card > .sheet-ability-card-head,
 .sheet-ability-card > .rule-entity-head {
   margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) 0;
   padding: var(--space-6) var(--card-padding);
-  border-radius: calc(var(--card-radius) - 1px) calc(var(--card-radius) - 1px) 0 0;
-  border-bottom: 1px solid var(--line-strong);
-  border-bottom-color: color-mix(in srgb, var(--ability-kind-color) 52%, var(--line));
-  background-color: var(--surface);
-  background-color: color-mix(in srgb, var(--ability-kind-color) var(--card-header-tint), transparent);
 }
 
 .sheet-ability-card.is-flat > .sheet-ability-card-head,
@@ -91,14 +88,8 @@
   border-radius: var(--radius-sm);
 }
 
-.sheet-ability-card-head {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-
+/* Шапка и заголовок общие (`src/components/ui/Card.css`); здесь только
+   обрезка длинного имени в одну строку. */
 .sheet-ability-card :is(.sheet-ability-card-head h4, .rule-entity-head h2) {
   flex: 1 1 auto;
   min-width: 0;
@@ -107,40 +98,16 @@
   white-space: nowrap;
 }
 
-.sheet-ability-card-head h4 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-  color: var(--fg-bright);
-  overflow-wrap: anywhere;
-}
-
-.sheet-ability-title {
-  border: 0;
-  padding: 0;
-  color: inherit;
-  background: transparent;
-  font: inherit;
+/* Кнопка имени занимает всю строку: длинное имя обрезается многоточием. */
+.sheet-ability-card .card-title-button {
   display: block;
-  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-align: left;
-  cursor: pointer;
 }
 
-.sheet-ability-title:hover,
 .sheet-ability-card:hover h4 {
   color: var(--accent);
-}
-
-.sheet-ability-title:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-xs);
 }
 
 .sheet-ability-card-tags {
