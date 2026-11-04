@@ -32,6 +32,7 @@ import {
   resolveFeatureValue,
   type FeatureDamageImmunity,
 } from "./feature-modifiers";
+import { damageTypeDative } from "./damageType";
 import { CHARACTERISTICS, deriveStats } from "./rules";
 import { resourceGenitive } from "./resources";
 import { triggerMark } from "./runtime";
@@ -477,22 +478,6 @@ function amountSource(effect: NumericEffect): string | undefined {
 }
 
 /**
- * Винительный падеж типов урона для фразы «иммунитет к огню 6». Словарь
- * неполный: незнакомый тип показывается как есть — это не ошибка данных.
- */
-const DAMAGE_TYPE_DATIVE: Record<string, string> = {
-  кислота: "кислоте",
-  холод: "холоду",
-  порча: "порче",
-  огонь: "огню",
-  молния: "молнии",
-  яд: "яду",
-  звук: "звуку",
-  психический: "психическому",
-};
-
-
-/**
  * Иммунитет движка строками: по одной на тип урона, с итоговым значением
  * («увеличивается до» уже применено в `featureDamageImmunities`).
  */
@@ -504,7 +489,7 @@ function immunityLines(immunity: FeatureDamageImmunity): string[] {
     return [`иммунитет к урону ${immunity.value}`];
   }
   return types.map((type) => {
-    const dative = DAMAGE_TYPE_DATIVE[normalizeFeatureText(type)];
+    const dative = damageTypeDative(normalizeFeatureText(type));
     return dative
       ? `иммунитет к ${dative} ${immunity.value}`
       : `иммунитет ${immunity.value} (${type})`;

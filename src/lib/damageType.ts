@@ -29,6 +29,34 @@ const DAMAGE_TYPES: DamageType[] = [
   { key: "sonic", label: "Звук", pattern: /(звук|громов|акустич)/i },
 ];
 
+/** Типы урона для ручных записей: значение хранится так же, как в эффектах. */
+export const DAMAGE_TYPE_OPTIONS: ReadonlyArray<{ value: string; label: string }> =
+  DAMAGE_TYPES.map((type) => ({
+    value: type.label.toLowerCase(),
+    label: type.label,
+  }));
+
+/**
+ * Дательный падеж для фразы «иммунитет к огню 5». Незнакомый тип показывается
+ * как есть: это не ошибка данных.
+ */
+const DAMAGE_TYPE_DATIVE: Record<string, string> = {
+  кислота: "кислоте",
+  холод: "холоду",
+  порча: "порче",
+  огонь: "огню",
+  святой: "святому",
+  молния: "молнии",
+  яд: "яду",
+  психический: "психическому",
+  звук: "звуку",
+  урон: "урону",
+};
+
+export function damageTypeDative(type: string): string | undefined {
+  return DAMAGE_TYPE_DATIVE[type.trim().toLowerCase()];
+}
+
 /**
  * Пытается определить тип урона по тексту тира, эффекту, названию и ключевым словам.
  * Данные правил не всегда содержат структурный тип, поэтому это эвристика.

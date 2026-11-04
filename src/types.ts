@@ -138,6 +138,19 @@ export interface ProjectRow {
   points: string;
 }
 
+/** Ручная запись на листе: напоминание, а не изменение расчёта урона. */
+export type DamageTraitKind = "immunity" | "weakness";
+
+export interface DamageTrait {
+  id: string;
+  kind: DamageTraitKind;
+  /** Тип урона по-русски: «огонь», «яд», «урон» для всех видов. */
+  type: string;
+  value: number;
+  /** Источник или пояснение: сценарий, временный эффект. */
+  note?: string;
+}
+
 /** Состояние схватки: раунд, схватка, отметки триггеров, формы и пулы ресурсов. */
 export interface CharacterRuntime {
   round: number;
@@ -206,6 +219,12 @@ export interface Character {
   conditions: Record<string, ConditionState>;
   abilities: Ability[];
   perks: SelectedPerk[];
+
+  /**
+   * Иммунитеты и уязвимости, добавленные вручную. Автоматические иммунитеты
+   * считаются из особенностей и сюда не дублируются.
+   */
+  damageTraits?: DamageTrait[];
 
   /** Необязательная история повышений; отсутствует в старых листах. */
   advancements?: LevelAdvancementRecord[];

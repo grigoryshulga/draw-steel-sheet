@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="ru" data-theme="light" data-traits="present">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Здоровье — иммунитеты и уязвимости · концепты</title>
+<style>
+  @font-face {
+    font-family: "Golos Text";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("../../public/fonts/GolosText-cyrillic.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  @font-face {
+    font-family: "Golos Text";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("../../public/fonts/GolosText-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Literata";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("../../public/fonts/Literata-cyrillic.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  @font-face {
+    font-family: "Literata";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("../../public/fonts/Literata-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    --font-ui: "Golos Text", "Segoe UI", system-ui, sans-serif;
+    --font-display: "Literata", "Golos Text", Georgia, serif;
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 6px;
+    --space-4: 8px;
+    --space-5: 10px;
+    --space-6: 12px;
+    --space-7: 16px;
+    --space-8: 20px;
+    --space-9: 24px;
+    --radius-sm: 9px;
+    --radius: 14px;
+    --pill: 999px;
+    --text-2xs: 9px;
+    --text-xs: 10px;
+    --text-sm: 11px;
+    --text-body: 12px;
+    --text-md: 13px;
+    --text-base: 15px;
+    --text-lg: 16px;
+    --text-xl: 18px;
+    --text-2xl: 22px;
+  }
+
+  /* Светлый пергамент — палитра из src/lib/theme.ts */
+  html[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f3eedf;
+    --bg-deep: #e5decc;
+    --surface: #fffaf0;
+    --fg: #29251f;
+    --fg-bright: #171410;
+    --muted: #655b4e;
+    --accent: #245b52;
+    --accent-soft: color-mix(in srgb, var(--accent) 10%, transparent);
+    --green: #286b3c;
+    --red: #a52e36;
+    --cyan: #176a69;
+    --yellow: #765500;
+    --orange: #8f4a16;
+    --blue: #315a9b;
+    --line: color-mix(in srgb, var(--muted) 26%, transparent);
+    --line-strong: color-mix(in srgb, var(--muted) 48%, transparent);
+    --surface-2: color-mix(in srgb, var(--surface) 72%, var(--bg));
+    --surface-3: color-mix(in srgb, var(--surface) 48%, var(--bg));
+    --panel-bg: color-mix(in srgb, color-mix(in srgb, #b9966f 5%, var(--surface)) 34%, var(--surface));
+    --panel-border: color-mix(in srgb, color-mix(in srgb, #b9966f 26%, var(--line)) 80%, var(--line));
+    --shadow: 0 14px 34px rgba(23, 20, 16, 0.14);
+  }
+
+  /* Стальная ночь — проверка контраста на тёмной теме */
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #11151b;
+    --bg-deep: #0b0e12;
+    --surface: #1d242d;
+    --fg: #e8edf2;
+    --fg-bright: #f8fbff;
+    --muted: #aab6c2;
+    --accent: #73d9b2;
+    --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+    --green: #83d6a3;
+    --red: #ff8e91;
+    --cyan: #72d8d2;
+    --yellow: #f2d46f;
+    --orange: #ffb36b;
+    --blue: #8db9ff;
+    --line: color-mix(in srgb, var(--muted) 26%, transparent);
+    --line-strong: color-mix(in srgb, var(--muted) 48%, transparent);
+    --surface-2: color-mix(in srgb, var(--surface) 72%, var(--bg));
+    --surface-3: color-mix(in srgb, var(--surface) 48%, var(--bg));
+    --panel-bg: color-mix(in srgb, var(--surface) 88%, transparent);
+    --panel-border: var(--line);
+    --shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 44px 24px 88px;
+    background:
+      radial-gradient(circle at 18% -10%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 46%),
+      var(--bg);
+    color: var(--fg);
+    font: 400 13px/1.45 var(--font-ui);
+  }
+
+  .page { max-width: 980px; margin: 0 auto; }
+
+  .kicker {
+    margin: 0 0 var(--space-3);
+    color: var(--accent);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0 0 var(--space-4);
+    font: 500 clamp(26px, 4vw, 34px)/1.18 var(--font-display);
+    color: var(--fg-bright);
+    letter-spacing: -0.01em;
+  }
+
+  .lead {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-base);
+    line-height: 1.55;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+  }
+
+  .seg {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid var(--line);
+    border-radius: var(--pill);
+    background: var(--surface-2);
+  }
+
+  .seg button {
+    height: 28px;
+    padding: 0 var(--space-5);
+    border: 0;
+    border-radius: var(--pill);
+    background: transparent;
+    color: var(--muted);
+    font: 500 var(--text-md)/1 var(--font-ui);
+    cursor: pointer;
+  }
+
+  .seg button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 650;
+  }
+
+  .controls-note {
+    align-self: center;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
+
+  .concept { margin-top: 40px; }
+
+  .concept-head {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
+  }
+
+  .concept-num {
+    min-width: 34px;
+    color: color-mix(in srgb, var(--muted) 55%, transparent);
+    font: 500 26px/1 var(--font-display);
+  }
+
+  .concept-copy { flex: 1; min-width: 0; }
+
+  .concept-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin: 0;
+    color: var(--fg-bright);
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
+
+  .tag {
+    padding: 3px 8px;
+    border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+    border-radius: var(--pill);
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .tag.delta-zero {
+    color: var(--green);
+    border-color: color-mix(in srgb, var(--green) 40%, transparent);
+    background: color-mix(in srgb, var(--green) 8%, transparent);
+  }
+
+  .tag.delta-plus {
+    color: var(--yellow);
+    border-color: color-mix(in srgb, var(--yellow) 38%, transparent);
+    background: color-mix(in srgb, var(--yellow) 8%, transparent);
+  }
+
+  .concept-desc {
+    max-width: 74ch;
+    margin: var(--space-3) 0 0;
+    color: var(--muted);
+    font-size: var(--text-md);
+  }
+
+  .demo {
+    width: min(900px, 100%);
+    margin-left: 42px;
+  }
+
+  .notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5) var(--space-8);
+    margin: var(--space-5) 0 0 42px;
+  }
+
+  .note {
+    display: flex;
+    gap: var(--space-2);
+    max-width: 44ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .note b { font-weight: 600; }
+  .note.pro b { color: var(--green); }
+  .note.con b { color: var(--orange); }
+  .note.empty b { color: var(--muted); }
+
+  .divider {
+    height: 1px;
+    margin: 44px 0 0;
+    border: 0;
+    background: linear-gradient(90deg, var(--line-strong), transparent 80%);
+  }
+
+  /* ---------- Панель «Здоровье» ---------- */
+
+  .panel {
+    position: relative;
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 0 color-mix(in srgb, #fff 35%, transparent) inset;
+    overflow: visible;
+  }
+
+  .panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-5);
+    min-height: 34px;
+    padding: var(--space-6) var(--space-7) var(--space-4);
+  }
+
+  .panel-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .panel-title svg {
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .panel-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    min-height: 24px;
+  }
+
+  .panel-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-3) var(--space-7) var(--space-6);
+  }
+
+  .status-chip {
+    padding: 4px var(--space-5);
+    border: 1px solid color-mix(in srgb, var(--green) 40%, transparent);
+    border-radius: var(--pill);
+    background: color-mix(in srgb, var(--green) 12%, transparent);
+    color: var(--green);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .vitals-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+    min-height: 36px;
+  }
+
+  .vitals-current {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .eyebrow {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .recovery-num { color: var(--fg-bright); font-size: var(--text-2xl); line-height: 1; }
+  .slash { color: var(--muted); font-size: var(--text-base); }
+
+  .big {
+    color: var(--fg-bright);
+    font-size: 34px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .big-max { color: var(--muted); font-size: var(--text-base); }
+
+  .help {
+    width: 15px;
+    height: 15px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    color: var(--muted);
+    font-size: var(--text-2xs);
+    line-height: 1;
+    cursor: help;
+  }
+
+  .meter {
+    position: relative;
+    height: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--pill);
+    background: var(--surface-3);
+    overflow: hidden;
+  }
+
+  .meter-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--green);
+  }
+
+  .meter-tick {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: 50%;
+    width: 2px;
+    background: color-mix(in srgb, var(--fg) 55%, transparent);
+  }
+
+  .health-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .amount {
+    width: 84px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--muted);
+    font-size: var(--text-xl);
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    height: 36px;
+    padding: 0 var(--space-6);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--fg);
+    font: 500 var(--text-md)/1 var(--font-ui);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .btn svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.9;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .btn-damage {
+    border-color: color-mix(in srgb, var(--red) 30%, transparent);
+    background: color-mix(in srgb, var(--red) 7%, transparent);
+    color: var(--red);
+  }
+
+  .btn-soft {
+    border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+    background: color-mix(in srgb, var(--accent) 7%, transparent);
+    color: var(--accent);
+  }
+
+  .btn-ghost {
+    border-color: transparent;
+    background: transparent;
+    color: var(--muted);
+    padding: 0 var(--space-4);
+  }
+
+  .health-rest { margin-left: auto; }
+
+  .row-tail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-left: auto;
+  }
+
+  .row-tail .health-rest { margin-left: 0; }
+
+  /* ---------- Чипы особенностей ---------- */
+
+  .trait {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    padding: 0 var(--space-4) 0 7px;
+    border: 1px solid;
+    border-radius: var(--pill);
+    font-size: var(--text-sm);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .trait svg {
+    width: 12px;
+    height: 12px;
+    flex: none;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .trait-immunity {
+    border-color: color-mix(in srgb, var(--cyan) 30%, transparent);
+    background: color-mix(in srgb, var(--cyan) 9%, transparent);
+    color: var(--cyan);
+  }
+
+  .trait-weakness {
+    border-color: color-mix(in srgb, var(--red) 28%, transparent);
+    background: color-mix(in srgb, var(--red) 7%, transparent);
+    color: var(--red);
+  }
+
+  .trait-name { opacity: 0.92; }
+  .trait-value { font-weight: 650; font-variant-numeric: tabular-nums; }
+
+  .trait-more {
+    border-color: var(--line-strong);
+    background: transparent;
+    color: var(--muted);
+    padding: 0 var(--space-3);
+    cursor: pointer;
+  }
+
+  .traits-shelf {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .trait-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .trait-group + .trait-group {
+    padding-left: var(--space-4);
+    border-left: 1px solid var(--line);
+  }
+
+  .trait-group-label {
+    color: var(--muted);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .shelf-add {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    margin-left: var(--space-1);
+    padding: 0;
+    border: 1px dashed var(--line-strong);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .shelf-add svg, .icon-add svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .shelf-add:hover, .icon-add:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .icon-add {
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px dashed var(--line-strong);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .icon-add.subtle { opacity: 0.55; }
+  .icon-add.subtle:hover { opacity: 1; }
+
+  /* Чипы в шапке */
+  .header-traits {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-right: var(--space-4);
+    margin-right: var(--space-1);
+    border-right: 1px solid var(--line);
+  }
+
+  /* Сводка в строке действий */
+  .summary-wrap {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .trait-summary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    height: 30px;
+    padding: 0 var(--space-5);
+    border: 1px solid var(--line);
+    border-radius: var(--pill);
+    background: var(--surface-2);
+    color: var(--fg);
+    font: 500 var(--text-body)/1 var(--font-ui);
+    cursor: pointer;
+  }
+
+  .trait-summary:hover { border-color: var(--line-strong); background: var(--surface); }
+
+  .trait-summary svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sum-imm { display: inline-flex; align-items: center; gap: 4px; color: var(--cyan); }
+  .sum-weak { display: inline-flex; align-items: center; gap: 4px; color: var(--red); }
+  .trait-summary b { font-weight: 650; font-variant-numeric: tabular-nums; }
+  .sum-sep { color: var(--line-strong); }
+
+  /* Счётчики в шапке */
+  .trait-anchor {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .trait-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    height: 24px;
+    padding: 0 7px;
+    border: 1px solid;
+    border-radius: var(--pill);
+    background: transparent;
+    font: 600 var(--text-sm)/1 var(--font-ui);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+  }
+
+  .trait-counter svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .trait-counter.tone-immunity {
+    border-color: color-mix(in srgb, var(--cyan) 32%, transparent);
+    background: color-mix(in srgb, var(--cyan) 8%, transparent);
+    color: var(--cyan);
+  }
+
+  .trait-counter.tone-weakness {
+    border-color: color-mix(in srgb, var(--red) 30%, transparent);
+    background: color-mix(in srgb, var(--red) 7%, transparent);
+    color: var(--red);
+  }
+
+  .trait-counter:hover { filter: brightness(0.96); }
+
+  /* ---------- Поповер ---------- */
+
+  .popover {
+    position: absolute;
+    z-index: 30;
+    display: none;
+    width: 306px;
+    padding: var(--space-4);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--space-6);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    text-align: left;
+  }
+
+  .popover.is-open { display: block; }
+  .trait-anchor > .popover { top: calc(100% + var(--space-2)); right: 0; }
+  .summary-wrap > .popover { right: 0; bottom: calc(100% + var(--space-2)); }
+
+  .popover-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: 0 var(--space-2) var(--space-3);
+  }
+
+  .popover-title {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .popover-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-2);
+    border-top: 1px solid var(--line);
+  }
+
+  .popover-ico {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  .popover-ico svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .popover-ico.tone-immunity {
+    background: color-mix(in srgb, var(--cyan) 12%, transparent);
+    color: var(--cyan);
+  }
+
+  .popover-ico.tone-weakness {
+    background: color-mix(in srgb, var(--red) 10%, transparent);
+    color: var(--red);
+  }
+
+  .popover-label { margin: 0; color: var(--fg); font-size: var(--text-md); line-height: 1.35; }
+  .popover-label b { font-weight: 650; }
+  .popover-source { margin: 2px 0 0; color: var(--muted); font-size: var(--text-xs); }
+
+  .popover-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    height: 30px;
+    margin-top: var(--space-3);
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--muted);
+    font: 500 var(--text-body)/1 var(--font-ui);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .popover-add svg { flex: none; }
+
+  .popover-add:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+
+  /* ---------- Итоги ---------- */
+
+  .outro { margin-top: 56px; }
+  .outro h2 {
+    margin: 0 0 var(--space-4);
+    color: var(--fg-bright);
+    font: 500 var(--text-xl)/1.3 var(--font-display);
+  }
+
+  .outro p { max-width: 78ch; margin: 0 0 var(--space-4); color: var(--muted); font-size: var(--text-md); }
+  .outro b { color: var(--fg); font-weight: 600; }
+
+  .verdict {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-7);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+
+  .verdict-mark {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: var(--text-md);
+  }
+
+  .verdict p { margin: 0; }
+
+  .outro .fineprint {
+    margin: var(--space-5) 0 0;
+    color: color-mix(in srgb, var(--muted) 88%, transparent);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+
+  .fineprint code {
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: var(--surface-2);
+    color: var(--fg);
+    font: 500 var(--text-xs)/1.4 var(--font-ui);
+  }
+
+  /* Детали по клику */
+  .detail-demo {
+    display: grid;
+    place-items: center;
+    width: min(520px, 100%);
+    margin: var(--space-7) 0 0 42px;
+    padding: var(--space-8);
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--surface) 55%, transparent);
+  }
+
+  .detail-demo .popover { position: static; display: block; }
+
+  .only-present, .only-empty { display: none; }
+  html[data-traits="present"] .only-present { display: flex; }
+  html[data-traits="present"] .icon-add.only-present,
+  html[data-traits="present"] .shelf-add.only-present { display: inline-grid; }
+  html[data-traits="empty"] .only-empty { display: inline-grid; }
+  html[data-traits="present"] .only-empty { display: none !important; }
+  html[data-traits="empty"] .only-present { display: none !important; }
+
+  @media (max-width: 760px) {
+    .demo, .notes, .detail-demo { margin-left: 0; }
+    .concept-head { gap: var(--space-3); }
+    .header-traits { padding-right: var(--space-2); }
+    .trait-group-label { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <p class="kicker">Концепты · лист персонажа</p>
+    <h1>Иммунитеты и уязвимости<br>в разделе «Здоровье»</h1>
+    <p class="lead">
+      Четыре способа показать особенности героя, не растягивая панель.
+      Переключите состояние: у героя может не быть ни одного иммунитета —
+      тогда панель выглядит ровно как сегодня.
+    </p>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Состояние особенностей">
+        <button type="button" data-traits-set="present" aria-pressed="true">Есть особенности</button>
+        <button type="button" data-traits-set="empty" aria-pressed="false">Нет особенностей</button>
+      </div>
+      <div class="seg" role="group" aria-label="Тема оформления">
+        <button type="button" data-theme-set="light" aria-pressed="true">Светлая</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">Тёмная</button>
+      </div>
+      <p class="controls-note">Чипы и счётчики кликабельны там, где есть поповер.</p>
+    </div>
+  </header>
+
+  <main id="concepts"></main>
+
+  <section class="outro">
+    <h2>Детали по клику</h2>
+    <p>
+      Общий поповер для вариантов 3 и 4: полные формулировки, источник и добавление.
+      Автоматические иммунитеты из классовых особенностей показываются с источником и
+      не удаляются вручную; уязвимости и напоминания добавляются вручную.
+    </p>
+    <div class="detail-demo">
+      <div class="popover" style="position: static;">
+        <div class="popover-head">
+          <span class="popover-title">Иммунитеты и уязвимости</span>
+          <span class="tag">3</span>
+        </div>
+        <div class="popover-row">
+          <span class="popover-ico tone-immunity" data-icon="shield"></span>
+          <div>
+            <p class="popover-label">Иммунитет к огню <b>5</b></p>
+            <p class="popover-source">Драконья броня · происхождение</p>
+          </div>
+        </div>
+        <div class="popover-row">
+          <span class="popover-ico tone-immunity" data-icon="shield"></span>
+          <div>
+            <p class="popover-label">Иммунитет к яду <b>5</b></p>
+            <p class="popover-source">Драконья броня · происхождение</p>
+          </div>
+        </div>
+        <div class="popover-row">
+          <span class="popover-ico tone-weakness" data-icon="warning"></span>
+          <div>
+            <p class="popover-label">Уязвимость к холоду <b>5</b></p>
+            <p class="popover-source">Добавлено вручную · сценарий «Морозный перевал»</p>
+          </div>
+        </div>
+        <button type="button" class="popover-add">
+          <span data-icon="plus"></span> Добавить иммунитет или уязвимость
+        </button>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 40px;">Что предлагаю взять</h2>
+    <p>
+      Основной — <b>вариант 2</b>: чипы живут в пустой правой части шапки, панель
+      не растёт ни на пиксель ни с особенностями, ни без них. Если важнее явные
+      подписи «Иммунитет / Уязвимость» и переносимость длинных списков —
+      <b>вариант 1</b> с тонкой полкой под шкалой (+28 px только когда особенности есть).
+      Варианты 3 и 4 — экономные альтернативы для узкой колонки.
+    </p>
+    <div class="verdict">
+      <span class="verdict-mark">2</span>
+      <p>
+        В шапке помещается 2–3 чипа; дальше — «+N» и поповер. На узких экранах
+        чипы сворачиваются в два счётчика, как в варианте 4, и высота шапки
+        остаётся прежней.
+      </p>
+    </div>
+    <p class="fineprint">
+      Технически: чипы берут данные из уже существующего
+      <code>featureDamageImmunities</code> (автоиммунитеты классовых особенностей),
+      а уязвимости и ручные напоминания хранятся отдельным списком. Поповеры
+      рендерятся порталом: у панели <code>overflow: hidden</code>, и обычный
+      абсолютный блок обрежется.
+    </p>
+  </section>
+</div>
+
+<script>
+  const ICONS = {
+    heart: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-4.5-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.5-8 10-8 10z"/></svg>',
+    sword: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6-2-2 6-8 8-4-4z"/><path d="M6 12l-2 6 6-2M7 17l-3 3"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>',
+    shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 10-4.1-1.8-7-5.6-7-10V6z" fill="currentColor" fill-opacity="0.16"/><path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 10-4.1-1.8-7-5.6-7-10V6z"/></svg>',
+    warning: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 9v5M12 17.5v.5"/></svg>',
+    plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+  };
+
+  const TRAITS = {
+    immunities: [
+      { type: "огонь", value: 5, source: "Драконья броня · происхождение" },
+      { type: "яд", value: 5, source: "Драконья броня · происхождение" },
+    ],
+    weaknesses: [
+      { type: "холод", value: 5, source: "Добавлено вручную · сценарий «Морозный перевал»" },
+    ],
+  };
+
+  function chip(trait, tone, extraClass = "") {
+    const icon = tone === "immunity" ? ICONS.shield : ICONS.warning;
+    const kind = tone === "immunity" ? "Иммунитет" : "Уязвимость";
+    return `<span class="trait trait-${tone} ${extraClass}" title="${kind} к ${trait.type} ${trait.value} — ${trait.source}" aria-label="${kind} к ${trait.type} ${trait.value}">
+      ${icon}<span class="trait-name">${trait.type}</span><span class="trait-value">${trait.value}</span>
+    </span>`;
+  }
+
+  function moreChip(count) {
+    return `<button type="button" class="trait trait-more" title="Ещё ${count} особенности">+${count}</button>`;
+  }
+
+  function popoverRows() {
+    const rows = [
+      ...TRAITS.immunities.map((t) => ({ ...t, tone: "immunity", icon: ICONS.shield })),
+      ...TRAITS.weaknesses.map((t) => ({ ...t, tone: "weakness", icon: ICONS.warning })),
+    ];
+    return rows
+      .map(
+        (r) => `<div class="popover-row">
+          <span class="popover-ico tone-${r.tone}">${r.icon}</span>
+          <div>
+            <p class="popover-label">${r.tone === "immunity" ? "Иммунитет" : "Уязвимость"} к ${r.type} <b>${r.value}</b></p>
+            <p class="popover-source">${r.source}</p>
+          </div>
+        </div>`,
+      )
+      .join("");
+  }
+
+  function popover(id, align) {
+    return `<div class="popover${align === "up" ? " popover-up" : ""}" id="${id}" role="dialog" aria-label="Иммунитеты и уязвимости">
+      <div class="popover-head">
+        <span class="popover-title">Иммунитеты и уязвимости</span>
+        <span class="tag">3</span>
+      </div>
+      ${popoverRows()}
+      <button type="button" class="popover-add">${ICONS.plus} Добавить иммунитет или уязвимость</button>
+    </div>`;
+  }
+
+  function headerTraits() {
+    return `<div class="header-traits only-present" aria-label="Иммунитеты и уязвимости">
+      ${TRAITS.immunities.map((t) => chip(t, "immunity")).join("")}
+      ${TRAITS.weaknesses.map((t) => chip(t, "weakness")).join("")}
+    </div>`;
+  }
+
+  function shelf() {
+    return `<div class="traits-shelf only-present" aria-label="Иммунитеты и уязвимости">
+      <span class="trait-group">
+        <span class="trait-group-label">Иммунитет</span>
+        ${TRAITS.immunities.map((t) => chip(t, "immunity")).join("")}
+      </span>
+      <span class="trait-group">
+        <span class="trait-group-label">Уязвимость</span>
+        ${TRAITS.weaknesses.map((t) => chip(t, "weakness")).join("")}
+      </span>
+      <button type="button" class="shelf-add" title="Добавить иммунитет или уязвимость" aria-label="Добавить иммунитет или уязвимость">${ICONS.plus}</button>
+    </div>`;
+  }
+
+  function panelHead(extra = "", emptyAdd = true) {
+    return `<div class="panel-head">
+      <h3 class="panel-title">${ICONS.heart}<span>Здоровье</span></h3>
+      <div class="panel-actions">
+        ${extra}
+        ${emptyAdd ? `<button type="button" class="icon-add only-empty" title="Добавить иммунитет или уязвимость" aria-label="Добавить иммунитет или уязвимость">${ICONS.plus}</button>` : ""}
+        <span class="status-chip">В строю</span>
+      </div>
+    </div>`;
+  }
+
+  function panel({ extraHead = "", afterMeter = "", actionTail = "", emptyAdd = true, rowClass = "" }) {
+    return `<article class="panel">
+      ${panelHead(extraHead, emptyAdd)}
+      <div class="panel-body">
+        <div class="vitals-head">
+          <div class="vitals-current">
+            <span class="eyebrow">Восстановления</span>
+            <span class="recovery-num">8</span>
+            <span class="slash">/</span>
+            <span class="recovery-num">8</span>
+            <span class="help" title="Восстановления: сколько раз можно передохнуть">?</span>
+          </div>
+          <div class="vitals-current">
+            <span class="big">42</span>
+            <span class="slash big-max">/</span>
+            <span class="big-max">42</span>
+            <span class="help" title="Текущая и максимальная выносливость">?</span>
+          </div>
+        </div>
+        <div class="meter" role="img" aria-label="Выносливость 42 из 42">
+          <span class="meter-fill"></span>
+          <span class="meter-tick" title="Порог утомления"></span>
+        </div>
+        ${afterMeter}
+        <div class="health-controls">
+          <div class="health-row ${rowClass}">
+            <input class="amount" value="0" readonly aria-label="Количество">
+            <button type="button" class="btn btn-damage">${ICONS.sword} Урон</button>
+            <button type="button" class="btn btn-soft">${ICONS.heart} Лечение</button>
+            <button type="button" class="btn btn-soft">Врем.</button>
+            <button type="button" class="btn btn-soft">${ICONS.heart} Передышка +14</button>
+            ${actionTail || `<button type="button" class="btn btn-ghost health-rest">${ICONS.sun} Отдых</button>`}
+          </div>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  const concepts = [
+    {
+      num: "01",
+      title: "Полка под шкалой",
+      tags: `<span class="tag delta-plus">+32 px, только при наличии</span><span class="tag">без особенностей — 0 px</span>`,
+      desc:
+        "Отдельная тонкая строка между шкалой и действиями: сначала иммунитеты, затем уязвимости. Подписи групп снимают вопрос «что это за чип», а «+» сразу добавляет новую запись. Если особенностей нет, строки нет вовсе — кнопка добавления уходит в шапку.",
+      panel: panel({ afterMeter: shelf() }),
+      pros: "Сразу читается, работает с длинными названиями и не требует клика.",
+      cons: "Единственный вариант с приростом высоты; при большом списке нужен «+N».",
+      empty: "Строка исчезает целиком, в шапке остаётся пунктирный «+».",
+    },
+    {
+      num: "02",
+      title: "Нашивки в шапке панели",
+      tags: `<span class="tag delta-zero">0 px всегда</span><span class="tag">рекомендую</span>`,
+      desc:
+        "Чипы занимают пустое место между заголовком и статусом «В строю». Высота шапки не меняется, тело панели остаётся ровно таким, как сейчас. Различаются иконкой и цветом: щит — иммунитет, треугольник — уязвимость; полный текст — в подсказке. Лишние сворачиваются в «+N».",
+      panel: panel({ extraHead: headerTraits() }),
+      pros: "Ноль роста высоты; особенности видны без прокрутки и без клика.",
+      cons: "В шапку помещается 2–3 чипа; смысл пары «иконка + цвет» надо выучить.",
+      empty: "Остаётся только пунктирный «+» рядом со статусом.",
+    },
+    {
+      num: "03",
+      title: "Сводка в строке действий",
+      tags: `<span class="tag delta-zero">0 px всегда</span><span class="tag">поповер</span>`,
+      desc:
+        "Справа, перед «Отдыхом», живёт компактная сводка «щит 2 · треугольник 1». Клик открывает поповер со списком, источниками и добавлением. Место в строке действий пустует и сейчас, поэтому панель не меняется ни в одном состоянии.",
+      panel: panel({
+        actionTail: `<div class="row-tail">
+          <div class="summary-wrap">
+            <button type="button" class="trait-summary only-present" data-popover="pop-summary" aria-haspopup="dialog" aria-label="Иммунитеты и уязвимости: 2 и 1">
+              <span class="sum-imm">${ICONS.shield}<b>2</b></span>
+              <span class="sum-sep">·</span>
+              <span class="sum-weak">${ICONS.warning}<b>1</b></span>
+            </button>
+            ${popover("pop-summary", "up")}
+            <button type="button" class="icon-add subtle only-empty" title="Добавить иммунитет или уязвимость" aria-label="Добавить иммунитет или уязвимость">${ICONS.plus}</button>
+          </div>
+          <button type="button" class="btn btn-ghost health-rest">${ICONS.sun} Отдых</button>
+        </div>`,
+        emptyAdd: false,
+      }),
+      pros: "Совсем не трогает тело панели; масштабируется на любое число записей.",
+      cons: "Детали спрятаны за кликом; сводку легко не заметить.",
+      empty: "Сводка пропадает; «+» показывается при наведении на строку действий.",
+    },
+    {
+      num: "04",
+      title: "Счётчики в шапке",
+      tags: `<span class="tag delta-zero">0 px всегда</span><span class="tag">самый компактный</span>`,
+      desc:
+        "В шапке только две иконки с числами: сколько иммунитетов и сколько уязвимостей. Клик по любой открывает тот же поповер. Это крайняя экономия: шапка не растёт даже при десяти записях, а на узкой колонке такой вид остаётся читаемым.",
+      panel: panel({
+        extraHead: `<div class="trait-anchor">
+          <button type="button" class="trait-counter tone-immunity only-present" data-popover="pop-counters" aria-haspopup="dialog" aria-label="Иммунитеты: 2">
+            ${ICONS.shield}<b>2</b>
+          </button>
+          <button type="button" class="trait-counter tone-weakness only-present" data-popover="pop-counters" aria-haspopup="dialog" aria-label="Уязвимости: 1">
+            ${ICONS.warning}<b>1</b>
+          </button>
+          ${popover("pop-counters")}
+        </div>`,
+      }),
+      pros: "Максимально компактно и предсказуемо по высоте.",
+      cons: "Без клика не видно ни типов, ни значений — только количество.",
+      empty: "Счётчики исчезают, остаётся пунктирный «+».",
+    },
+  ];
+
+  document.getElementById("concepts").innerHTML = concepts
+    .map(
+      (c) => `<section class="concept">
+        <div class="concept-head">
+          <span class="concept-num">${c.num}</span>
+          <div class="concept-copy">
+            <h2 class="concept-title">${c.title} ${c.tags}</h2>
+            <p class="concept-desc">${c.desc}</p>
+          </div>
+        </div>
+        <div class="demo">${c.panel}</div>
+        <div class="notes">
+          <p class="note pro"><b>+</b> ${c.pros}</p>
+          <p class="note con"><b>−</b> ${c.cons}</p>
+          <p class="note empty"><b>∅</b> ${c.empty}</p>
+        </div>
+        ${c.num === "04" ? "" : '<hr class="divider">'}
+      </section>`,
+    )
+    .join("");
+
+  // Иконки в статичной витрине поповера
+  document.querySelectorAll("[data-icon]").forEach((el) => {
+    el.innerHTML = ICONS[el.dataset.icon] || "";
+  });
+
+  // Поповеры
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".popover")) return;
+    const trigger = event.target.closest("[data-popover]");
+    const openId = trigger ? trigger.dataset.popover : null;
+    document.querySelectorAll(".popover.is-open").forEach((pop) => {
+      if (pop.id !== openId) pop.classList.remove("is-open");
+    });
+    if (openId) {
+      const pop = document.getElementById(openId);
+      if (pop) pop.classList.toggle("is-open");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      document.querySelectorAll(".popover.is-open").forEach((pop) => pop.classList.remove("is-open"));
+    }
+  });
+
+  // Переключатель состояния
+  document.querySelectorAll("[data-traits-set]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.documentElement.dataset.traits = button.dataset.traitsSet;
+      document.querySelectorAll("[data-traits-set]").forEach((b) => {
+        b.setAttribute("aria-pressed", String(b === button));
+      });
+      document.querySelectorAll(".popover.is-open").forEach((pop) => pop.classList.remove("is-open"));
+    });
+  });
+
+  // Переключатель темы
+  document.querySelectorAll("[data-theme-set]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.documentElement.dataset.theme = button.dataset.themeSet;
+      document.querySelectorAll("[data-theme-set]").forEach((b) => {
+        b.setAttribute("aria-pressed", String(b === button));
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+/* Иммунитеты и уязвимости в шапке «Здоровья». */
+
+.damage-traits {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.damage-trait {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 150px;
+  height: 22px;
+  padding: 0 var(--space-3) 0 7px;
+  border: 1px solid;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font: 500 var(--text-sm)/1 var(--font-ui);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.damage-trait svg {
+  flex: none;
+  opacity: 0.9;
+}
+
+.damage-trait-type {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.damage-trait-value {
+  flex: none;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.damage-trait.is-immunity {
+  border-color: color-mix(in srgb, var(--cyan) 30%, transparent);
+  background: color-mix(in srgb, var(--cyan) 9%, transparent);
+  color: var(--cyan);
+}
+
+.damage-trait.is-weakness {
+  border-color: color-mix(in srgb, var(--red) 28%, transparent);
+  background: color-mix(in srgb, var(--red) 7%, transparent);
+  color: var(--red);
+}
+
+.damage-trait:hover {
+  border-color: currentColor;
+}
+
+.damage-trait:focus-visible,
+.damage-trait-more:focus-visible,
+.damage-trait-add:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.damage-trait-more {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font: 600 var(--text-sm)/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.damage-trait-more:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.damage-trait-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 var(--space-4) 0 var(--space-3);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font: 500 var(--text-sm)/1 var(--font-ui);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.damage-trait-add:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.damage-trait-add svg {
+  flex: none;
+}
+
+/* ---------- Диалог ---------- */
+
+.damage-traits-dialog .modal-body {
+  gap: var(--space-6);
+}
+
+.damage-traits-hint {
+  margin: 0;
+  line-height: var(--leading-normal);
+}
+
+.damage-trait-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg-deep) 28%, transparent);
+}
+
+.damage-trait-form .eyebrow {
+  margin: 0;
+}
+
+.damage-trait-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.damage-trait-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  gap: var(--space-3);
+}
+
+.damage-trait-value-input {
+  min-width: 0;
+}
+
+.damage-trait-form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.damage-traits-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.damage-traits-section .eyebrow {
+  margin: 0;
+}
+
+.damage-traits-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.damage-trait-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--line);
+}
+
+.damage-trait-row:first-child {
+  border-top: 0;
+}
+
+.damage-trait-row-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.damage-trait-row-icon.is-immunity {
+  background: color-mix(in srgb, var(--cyan) 12%, transparent);
+  color: var(--cyan);
+}
+
+.damage-trait-row-icon.is-weakness {
+  background: color-mix(in srgb, var(--red) 10%, transparent);
+  color: var(--red);
+}
+
+.damage-trait-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.damage-trait-row-title {
+  margin: 0;
+  color: var(--fg);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+}
+
+.damage-trait-row-source {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.damage-trait-row .btn {
+  flex: none;
+}
+
+.damage-traits-empty {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .damage-trait-form-row {
+    grid-template-columns: minmax(0, 1fr) 84px;
+  }
+}

@@ -4,6 +4,7 @@ import { clamp, vitalStatus } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { useApp } from "../../state/AppContext";
 import { HealthControls, RecoveriesReadout } from "./HealthControls";
+import { DamageTraits } from "./DamageTraits";
 import { StatBreakdown } from "./StatBreakdown";
 
 /** Здоровье: выносливость, урон, восстановления и отдых. */
@@ -51,9 +52,12 @@ export function VitalsPanel() {
       icon="heart"
       className="vitals-panel"
       actions={
-        <span className={`status-chip tone-${status.tone}`}>
-          {status.label}
-        </span>
+        <>
+          <DamageTraits />
+          <span className={`status-chip tone-${status.tone}`}>
+            {status.label}
+          </span>
+        </>
       }
     >
       <div className="vitals-head">

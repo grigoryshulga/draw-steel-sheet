@@ -3,6 +3,7 @@ import { emptyNotes } from "../data/notes";
 import { classPreset, heroicResourceName } from "../data/classes";
 import { DEFAULT_ABILITIES, makeId } from "../data/templates";
 import { canonicalCatalogId } from "../data/originals";
+import { normalizeDamageTraits } from "./damage-traits";
 import type {
   Ability,
   Character,
@@ -311,9 +312,20 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     level: input.level,
   });
 
-  const { advancements: rawAdvancements, xpThreshold: rawXpThreshold, avatar: rawAvatar, ...inputWithoutAdvancements } =
-    input as Partial<Character> & { advancements?: unknown; xpThreshold?: unknown; avatar?: unknown };
+  const {
+    advancements: rawAdvancements,
+    xpThreshold: rawXpThreshold,
+    avatar: rawAvatar,
+    damageTraits: rawDamageTraits,
+    ...inputWithoutAdvancements
+  } = input as Partial<Character> & {
+    advancements?: unknown;
+    xpThreshold?: unknown;
+    avatar?: unknown;
+    damageTraits?: unknown;
+  };
   const normalizedAvatar = normalizeAvatar(rawAvatar);
+  const normalizedDamageTraits = normalizeDamageTraits(rawDamageTraits);
   const threshold = rawXpThreshold && typeof rawXpThreshold === "object" && !Array.isArray(rawXpThreshold)
     ? rawXpThreshold as Record<string, unknown> : undefined;
   const normalizedThreshold = threshold && Number.isSafeInteger(threshold.level) &&
@@ -436,6 +448,9 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     notes: normalizeNotes((input as unknown as { notes?: unknown }).notes),
     ...(normalizedAdvancements
       ? { advancements: normalizedAdvancements }
+      : {}),
+    ...(normalizedDamageTraits.length > 0
+      ? { damageTraits: normalizedDamageTraits }
       : {}),
     ...(normalizedRuntime ? { runtime: normalizedRuntime } : {}),
     ...(rawAutomation

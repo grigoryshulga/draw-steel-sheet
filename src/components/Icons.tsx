@@ -25,6 +25,7 @@ export type IconName =
   | "edit"
   | "sword"
   | "heart"
+  | "shield"
   | "spark"
   | "sun"
   | "palette"
@@ -139,6 +140,9 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   heart: <path d="M12 20s-8-4.5-8-10a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.5-8 10-8 10z" />,
+  shield: (
+    <path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 10-4.1-1.8-7-5.6-7-10V6z" />
+  ),
   spark: (
     <>
       <path d="M12 3v5M12 16v5M3 12h5M16 12h5" />
