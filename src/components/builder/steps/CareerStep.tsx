@@ -1,48 +1,41 @@
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
-import { BuilderOptionCard } from "../../BuilderOptionCard";
+import { BuilderSelection } from "../BuilderSelection";
 import { useBuilderStep } from "../BuilderStepContext";
-import { selectedFirst } from "../selectedFirst";
 
 export function CareerStep() {
   const { draft, patch } = useBuilderStep();
+  const selectedSource = data.careers.find((c) => c.name === draft.career);
+  const selected = draft.career
+    ? {
+        name: draft.career,
+        description: selectedSource?.benefits,
+        articleId: selectedSource?.articleId,
+      }
+    : null;
 
   return (
     <>
       <p className="builder-intro">
-        Выберите прошлую карьеру, чтобы раскрыть её полный текст прямо в карточке.
+        Выберите прошлую карьеру: портрет и полное описание появятся в колонке
+        справа.
       </p>
-      <div
-        className="builder-option-grid builder-pinned-options builder-career-options"
-        role="group"
-        aria-label="Карьера"
-      >
-        {selectedFirst(data.careers, (c) => c.name === draft.career).map((c) => {
-          const selected = c.name === draft.career;
-          const benefits = c.benefits.split(
-            "Вы получаете следующие преимущества карьеры:",
-          )[0];
-          return (
-            <BuilderOptionCard
-              key={c.name}
-              kind="career"
-              name={c.name}
-              summary={benefits}
-              snippet={`${benefits.slice(0, 155)}…`}
-              selected={selected}
-              onSelect={() => {
-                if (c.name !== draft.career) {
-                  patch({
-                    career: c.name,
-                    careerSkills: [],
-                    perkId: "",
-                    incident: "",
-                  });
-                }
-              }}
-            />
-          );
-        })}
-      </div>
+      <BuilderSelection
+        label="Карьера"
+        kind="career"
+        options={data.careers.map((c) => ({ name: c.name }))}
+        selected={selected}
+        codexLabel="Карьера в Кодексе"
+        onSelect={(name) => {
+          if (name !== draft.career) {
+            patch({
+              career: name,
+              careerSkills: [],
+              perkId: "",
+              incident: "",
+            });
+          }
+        }}
+      />
     </>
   );
 }

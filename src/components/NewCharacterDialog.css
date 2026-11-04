@@ -273,9 +273,6 @@
 .builder-option-card.is-expanded .builder-option.with-art > strong {
   font-size: clamp(26px, 3vw, 34px);
 }
-.builder-career-options {
-  padding-right: var(--space-3);
-}
 .builder-option:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -523,14 +520,6 @@
   margin-top: var(--space-2);
 }
 
-/* Выбранный класс поднимается над сеткой и остаётся на виду при прокрутке. */
-.builder-class-options .builder-option-card.is-selected {
-  flex-basis: 100%;
-  position: sticky;
-  top: var(--space-4);
-  z-index: 6;
-}
-
 /* Свободные очки: главный счётчик шага, а не мелкий бейдж. */
 .builder-budget {
   display: flex;
@@ -620,25 +609,6 @@
 @media (max-width: 860px) {
   .builder-subclass-grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* Сетка классов — flex, чтобы выбранная карточка могла липнуть к верху
-   всей группы вариантов, а не только своей строки. */
-.builder-class-options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.builder-class-options .builder-option-card {
-  flex: 1 1 calc(50% - var(--space-5));
-  min-width: min(100%, 280px);
-}
-
-@media (max-width: 860px) {
-  .builder-class-options .builder-option-card {
-    flex-basis: 100%;
   }
 }
 

@@ -30,3 +30,23 @@
   color: inherit;
   text-underline-offset: 3px;
 }
+
+/* Подпись поверх картинки: не добавляет высоту и живёт в углу. */
+.artwork-figure.has-overlay-caption {
+  position: relative;
+}
+
+.artwork-figure.has-overlay-caption figcaption {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  max-width: calc(100% - var(--space-7));
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--bg-deep) 72%, transparent);
+  color: var(--muted);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-snug);
+  text-align: right;
+}

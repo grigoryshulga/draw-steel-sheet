@@ -31,13 +31,18 @@ export function Artwork({
 export function ArtworkFigure({
   art,
   className = "",
+  overlayCaption = false,
 }: {
   art?: ArtAsset;
   className?: string;
+  /** Подпись поверх картинки в верхнем углу: не занимает место в макете. */
+  overlayCaption?: boolean;
 }) {
   if (!art) return null;
   return (
-    <figure className={`artwork-figure ${className}`}>
+    <figure
+      className={`artwork-figure ${className}${overlayCaption ? " has-overlay-caption" : ""}`}
+    >
       <img
         key={art.src}
         src={art.src}
