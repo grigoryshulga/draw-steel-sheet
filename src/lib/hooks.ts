@@ -17,6 +17,26 @@ export function useOutsideClick(
   }, [ref, onOutside, active]);
 }
 
+/**
+ * Подписка на CSS-медиазапрос. Нужна там, где одна и та же разметка на
+ * телефоне и на десктопе собирается по-разному, а не просто прячется стилями.
+ */
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches,
+  );
+
+  useEffect(() => {
+    const list = window.matchMedia(query);
+    const update = () => setMatches(list.matches);
+    update();
+    list.addEventListener("change", update);
+    return () => list.removeEventListener("change", update);
+  }, [query]);
+
+  return matches;
+}
+
 export function useHashTab(
   fallback: string,
   allowed: readonly string[],

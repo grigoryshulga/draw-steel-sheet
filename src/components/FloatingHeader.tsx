@@ -1,4 +1,5 @@
 import { CharacterMenu } from "./CharacterMenu";
+import { Icon } from "./Icons";
 import { SaveIndicator } from "./SaveIndicator";
 import { SiteLogo } from "./SiteLogo";
 import { Button } from "./ui";
@@ -66,6 +67,7 @@ export function FloatingHeader({
             aria-current={heroActive ? "page" : undefined}
             onClick={() => onNavigate(heroTab)}
           >
+            <Icon name="hero" size={15} aria-hidden="true" />
             Герой
           </button>
           <button
@@ -74,6 +76,7 @@ export function FloatingHeader({
             aria-current={codexActive ? "page" : undefined}
             onClick={() => onNavigate(libraryTab)}
           >
+            <Icon name="book" size={15} aria-hidden="true" />
             Кодекс
           </button>
         </nav>

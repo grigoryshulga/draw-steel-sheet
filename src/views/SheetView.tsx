@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
 import { onSheetTabRequest } from "../lib/sheet-tabs";
+import { useMediaQuery } from "../lib/hooks";
 import { currentRuntime } from "../lib/runtime";
 import type { HeroTab } from "../navigation";
 import { useApp } from "../state/AppContext";
@@ -16,7 +17,6 @@ import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
-import { SheetQuickActions } from "./sheet/SheetQuickActions";
 import { HeroView } from "./HeroView";
 import { CompanionsView } from "./sheet/CompanionsView";
 import { InventoryView } from "./InventoryView";
@@ -63,9 +63,38 @@ const SHEET_TABS: { id: HeroTab; label: string; icon: IconName }[] = [
   { id: "companions", label: "Спутники", icon: "users" },
 ];
 
-function Column({ className, ids }: { className: string; ids: PanelId[] }) {
+/** Блоки листа на телефоне: три раздела вместо длинной колонки. */
+type SheetSectionId = "main" | "features" | "abilities";
+
+const SHEET_SECTIONS: {
+  id: SheetSectionId;
+  label: string;
+  icon: IconName;
+  panels: PanelId[];
+}[] = [
+  {
+    id: "main",
+    label: "Основное",
+    icon: "heart",
+    panels: ["vitals", "resources", "conditions", "characteristics"],
+  },
+  {
+    id: "features",
+    label: "Особенности",
+    icon: "spark",
+    panels: ["perks", "features", "skills"],
+  },
+  {
+    id: "abilities",
+    label: "Способности",
+    icon: "abilities",
+    panels: ["abilities"],
+  },
+];
+
+function Blocks({ ids }: { ids: PanelId[] }) {
   return (
-    <div className={`sheet-col ${className}`}>
+    <>
       {ids.map((id) => {
         const Component = PANELS[id];
         return (
@@ -74,6 +103,51 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
           </section>
         );
       })}
+    </>
+  );
+}
+
+function Column({ className, ids }: { className: string; ids: PanelId[] }) {
+  return (
+    <div className={`sheet-col ${className}`}>
+      <Blocks ids={ids} />
+    </div>
+  );
+}
+
+/** Телефон: разделы листа переключаются вкладками, остальное скрыто. */
+function CompactSheet() {
+  const [section, setSection] = useState<SheetSectionId>("main");
+  const active = SHEET_SECTIONS.find((item) => item.id === section) ?? SHEET_SECTIONS[0];
+
+  return (
+    <div className="sheet-layout sheet-layout-compact">
+      <nav
+        className="sheet-section-tabs"
+        role="tablist"
+        aria-label="Блоки листа"
+      >
+        {SHEET_SECTIONS.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            role="tab"
+            className={`sheet-section-tab${active.id === item.id ? " is-active" : ""}`}
+            aria-selected={active.id === item.id}
+            onClick={() => setSection(item.id)}
+          >
+            <Icon name={item.icon} size={15} aria-hidden="true" />
+            {item.label}
+          </button>
+        ))}
+      </nav>
+      <div
+        className="sheet-section-body"
+        role="tabpanel"
+        aria-label={active.label}
+      >
+        <Blocks ids={active.panels} />
+      </div>
     </div>
   );
 }
@@ -81,6 +155,8 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
 function SheetWorkspace({ tab }: { tab: HeroTab }) {
   const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
+  // Телефон получает разделы вместо длинной колонки; на десктопе остаются колонки.
+  const compact = useMediaQuery("(max-width: 700px)");
 
   const switchTab = (next: HeroTab) => {
     if (next === tab) return;
@@ -107,7 +183,6 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
   return (
     <div className="sheet-view sheet-workspace-view">
       <HeaderPanel />
-      <SheetQuickActions />
       <section className="sheet-frame">
         <div className="sheet-frame-head">
           <div className="sheet-tablist" role="tablist" aria-label="Разделы героя">
@@ -159,17 +234,21 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
         >
           {tab === "sheet" && (
             <div className="sheet-layout-host">
-              <div className="sheet-layout">
-                <div className="sheet-upper">
-                  <Column className="sheet-col-main" ids={UPPER_MAIN} />
-                  <Column className="sheet-col-side" ids={UPPER_SIDE} />
+              {compact ? (
+                <CompactSheet />
+              ) : (
+                <div className="sheet-layout">
+                  <div className="sheet-upper">
+                    <Column className="sheet-col-main" ids={UPPER_MAIN} />
+                    <Column className="sheet-col-side" ids={UPPER_SIDE} />
+                  </div>
+                  <div className="sheet-lower">
+                    <Column className="sheet-col-main" ids={LOWER_MAIN} />
+                    <Column className="sheet-col-side" ids={LOWER_SIDE} />
+                  </div>
+                  <Column className="sheet-col-full" ids={FULL_WIDTH} />
                 </div>
-                <div className="sheet-lower">
-                  <Column className="sheet-col-main" ids={LOWER_MAIN} />
-                  <Column className="sheet-col-side" ids={LOWER_SIDE} />
-                </div>
-                <Column className="sheet-col-full" ids={FULL_WIDTH} />
-              </div>
+              )}
             </div>
           )}
           {tab === "development" && (

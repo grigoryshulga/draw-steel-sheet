@@ -17,7 +17,7 @@
   gap: var(--space-2);
   width: fit-content;
   max-width: 100%;
-  min-height: 56px;
+  min-height: 52px;
   padding: 4px 8px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
@@ -58,9 +58,11 @@
   border-radius: 999px;
 }
 
+/* Герой — круглая аватарка: кнопка-круг, без «таблетки» вокруг. */
 .floating-header .char-avatar {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   font-size: var(--text-body);
 }
 
@@ -85,6 +87,9 @@
 }
 
 .floating-header-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   padding: 6px 18px;
   border: 0;
   border-radius: 999px;
@@ -95,6 +100,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: color 140ms var(--ease), background 140ms var(--ease);
+}
+
+.floating-header-nav button svg {
+  flex: none;
+  opacity: 0.85;
 }
 
 .floating-header-nav button:hover {
@@ -139,18 +149,27 @@
   }
 
   .floating-header-inner {
-    min-height: 50px;
+    min-height: 48px;
     gap: var(--space-2);
   }
 
-  .floating-header .char-switch-name {
-    max-width: 88px;
-    font-size: var(--text-body);
-  }
-
-  .floating-header .char-switch-meta,
+  /* На телефоне герой — только круглая аватарка, без имени и класса. */
+  .floating-header .char-switch-text,
   .floating-header .char-switch-btn .chevron {
     display: none;
+  }
+
+  .floating-header .char-switch-btn {
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .floating-header .char-avatar {
+    width: 40px;
+    height: 40px;
   }
 
   .floating-header-nav button {
@@ -188,6 +207,11 @@
   min-width: 44px;
 }
 
+/* Кнопки-иконки шапки круглые: настройки и другие одиночные действия. */
+.floating-header .btn-icon {
+  border-radius: 50%;
+}
+
 .floating-header :is(button, a):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -206,56 +230,47 @@
 
 @media (max-width: 460px) {
   .floating-header {
-    width: calc(100% - 24px);
+    width: calc(100% - 16px);
   }
 
   .floating-header-inner {
-    display: grid;
-    grid-template-columns: 44px minmax(0, 1fr);
+    gap: var(--space-1);
     width: 100%;
-    padding: var(--space-2) var(--space-4);
+    min-height: 48px;
+    padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-lg);
   }
 
+  /* На узком экране место важнее логотипа: остаются разделы, герой и настройки. */
   .floating-header-left {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .floating-header-right {
-    grid-column: 2;
-    grid-row: 1;
+    display: none;
   }
 
   .floating-header-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
+    flex: 1;
+    min-width: 0;
   }
 
   .floating-header-nav button {
     flex: 1;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 5px 8px;
   }
 
+  /* Поп-ап героя раскрывается на всю ширину панели, а не от аватарки. */
   .floating-header .char-switch {
     position: static;
-  }
-
-  .floating-header .char-switch-text {
-    display: flex;
-  }
-
-  .floating-header .char-switch-name {
-    max-width: min(120px, calc(100vw - 208px));
   }
 
   .floating-header .char-popover {
     left: 0;
     right: 0;
     width: 100%;
-    max-height: calc(100dvh - 150px - env(safe-area-inset-top));
+    max-height: calc(100dvh - 92px - env(safe-area-inset-top));
   }
 
   .workspace-main {
-    padding-top: calc(132px + env(safe-area-inset-top));
+    padding-top: calc(76px + env(safe-area-inset-top));
   }
 }

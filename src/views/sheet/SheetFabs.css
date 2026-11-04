@@ -109,8 +109,8 @@
   width: min(380px, calc(100vw - 32px));
 }
 
-/* На телефоне кнопки стоят над нижней панелью навигации */
-@media (max-width: 640px) {
+/* На телефоне кнопки стоят над нижними закладками */
+@media (max-width: 700px) {
   .sheet-fab-stack {
     bottom: calc(76px + env(safe-area-inset-bottom));
   }
