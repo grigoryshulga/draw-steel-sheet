@@ -72,6 +72,16 @@ describe("parseCharacterImport", () => {
     expect(imported.updatedAt).toBe(imported.createdAt);
   });
 
+  it("drops the source portrait because its file belongs to the old hero", async () => {
+    const source = createCharacter({ name: "С портретом" });
+    source.avatar = {
+      url: "https://cdn.example.test/user-1/old-hero.webp",
+      updatedAt: "2026-01-01T00:00:00Z",
+    };
+    const imported = await parseCharacterImport(fileWith(JSON.stringify(source)));
+    expect(imported.avatar).toBeUndefined();
+  });
+
   it("fills fields omitted by older valid files", async () => {
     const imported = await parseCharacterImport(
       fileWith(

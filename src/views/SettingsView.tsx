@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
+import { CharacterAvatar } from "../components/CharacterAvatar";
 import { Icon } from "../components/Icons";
 import { Button, EmptyState, Modal, Panel } from "../components/ui";
 import { useApp } from "../state/AppContext";
 import { useAccount } from "../state/StorageScope";
 import type { ThemeChoice } from "../lib/theme";
-import { initials } from "../lib/utils";
 import type { AppTheme, CharacterSummary } from "../types";
 import "./SettingsView.css";
 import { ART_ASSETS } from "../lib/art";
@@ -99,7 +99,7 @@ export function SettingsView({
                 key={item.id}
                 className={`character-row ${item.id === currentId ? "is-current" : ""}`.trim()}
               >
-                <span className="char-avatar">{initials(item.name)}</span>
+                <CharacterAvatar name={item.name} url={item.avatarUrl} />
                 <div className="character-row-text">
                   <button
                     type="button"

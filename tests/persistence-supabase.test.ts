@@ -9,7 +9,7 @@ function setup() {
     global: { fetch },
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
   });
-  return { fetch, repository: createSupabaseRepository(client) };
+  return { fetch, client, repository: createSupabaseRepository(client) };
 }
 
 describe("Supabase character repository", () => {
@@ -18,10 +18,18 @@ describe("Supabase character repository", () => {
     fetch.mockResolvedValueOnce(Response.json([{
       id: "hero", name: "Герой", class_name: "Неистовый", ancestry: "Человек",
       level: 2, updated_at: "2026-01-01T00:00:00Z",
+      avatar_url: "https://cdn.example.test/hero.webp",
+    }, {
+      id: "plain", name: "Без портрета", class_name: "", ancestry: "",
+      level: 1, updated_at: "2026-01-02T00:00:00Z", avatar_url: null,
     }]));
     expect(await repository.listCharacters()).toEqual([{
       id: "hero", name: "Герой", className: "Неистовый", ancestry: "Человек",
       level: 2, updatedAt: "2026-01-01T00:00:00Z",
+      avatarUrl: "https://cdn.example.test/hero.webp",
+    }, {
+      id: "plain", name: "Без портрета", className: "", ancestry: "",
+      level: 1, updatedAt: "2026-01-02T00:00:00Z",
     }]);
   });
 
@@ -30,12 +38,14 @@ describe("Supabase character repository", () => {
     fetch.mockResolvedValueOnce(new Response(null, { status: 201 }));
     const character = createCharacter({ name: "Герой" });
     character.updatedAt = "2020-01-01T00:00:00Z";
+    character.avatar = { url: "https://cdn.example.test/avatar.webp", updatedAt: "2026-01-01T00:00:00Z" };
     const saved = await repository.saveCharacter(character);
     expect(saved.updatedAt).not.toBe(character.updatedAt);
     expect(character.updatedAt).toBe("2020-01-01T00:00:00Z");
     const body = JSON.parse(fetch.mock.calls[0][1]!.body as string);
     expect(body.document).toEqual(saved);
     expect(body.updated_at).toBe(saved.updatedAt);
+    expect(body.avatar_url).toBe(character.avatar.url);
     expect(body).not.toHaveProperty("user_id");
   });
 
@@ -48,6 +58,58 @@ describe("Supabase character repository", () => {
     await repository.deleteCharacter(character.id);
     expect(fetch.mock.calls[1][1]!.method).toBe("DELETE");
     expect(new URL(String(fetch.mock.calls[1][0])).searchParams.get("id")).toBe(`eq.${character.id}`);
+  });
+
+  it("uploads avatars to the user's folder and deletes them", async () => {
+    const { fetch, client, repository } = setup();
+    vi.spyOn(client.auth, "getUser").mockResolvedValue({
+      data: { user: { id: "user-1" } },
+      error: null,
+    } as never);
+    fetch.mockImplementation(async (input, init) => {
+      const url = String(input);
+      if (url.includes("/storage/v1/object/avatars/") && init?.method === "POST") {
+        return Response.json({ Key: "uploaded" });
+      }
+      if (url.endsWith("/storage/v1/object/avatars") && init?.method === "DELETE") {
+        return Response.json([]);
+      }
+      return Response.json({ message: "unexpected request" }, { status: 500 });
+    });
+
+    const avatar = await repository.uploadAvatar(
+      "hero",
+      new Blob(["RIFF....WEBP"], { type: "image/webp" }),
+    );
+    expect(avatar.url).toContain("/storage/v1/object/public/avatars/user-1/hero.webp?v=");
+    expect(avatar.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+
+    const upload = fetch.mock.calls.find(([url]) =>
+      String(url).includes("/storage/v1/object/avatars/"),
+    );
+    expect(upload?.[0]).toBe(
+      "https://storage.example.test/storage/v1/object/avatars/user-1/hero.webp",
+    );
+    expect(upload?.[1]?.method).toBe("POST");
+
+    await expect(repository.deleteAvatar("hero")).resolves.toBeUndefined();
+    const removal = fetch.mock.calls.find(([url, init]) =>
+      String(url).endsWith("/storage/v1/object/avatars") && init?.method === "DELETE",
+    );
+    expect(JSON.parse(removal?.[1]?.body as string)).toEqual({
+      prefixes: ["user-1/hero.webp"],
+    });
+  });
+
+  it("rejects avatar uploads without a signed-in user", async () => {
+    const { client, repository } = setup();
+    vi.spyOn(client.auth, "getUser").mockResolvedValue({
+      data: { user: null },
+      error: null,
+    } as never);
+    await expect(
+      repository.uploadAvatar("hero", new Blob(["x"], { type: "image/webp" })),
+    ).rejects.toThrow("Войдите");
   });
 
   it("rejects a missing cloud document instead of returning undefined", async () => {

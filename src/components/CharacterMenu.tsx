@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useOutsideClick } from "../lib/hooks";
 import { useMenuKeyboard } from "../lib/useMenuKeyboard";
-import { initials } from "../lib/utils";
 import type { Character, CharacterSummary } from "../types";
+import { CharacterAvatar } from "./CharacterAvatar";
 import { Icon } from "./Icons";
 
 export function CharacterMenu({
@@ -49,7 +49,7 @@ export function CharacterMenu({
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        <span className="char-avatar" aria-hidden="true">{initials(character.name)}</span>
+        <CharacterAvatar name={character.name} url={character.avatar?.url} />
         <span className="char-switch-text">
           <span className="char-switch-name-row">
             <span className="char-switch-name">
@@ -93,7 +93,7 @@ export function CharacterMenu({
                 role="menuitem"
                 aria-current={item.id === character.id ? "true" : undefined}
               >
-                <span className="char-avatar small">{initials(item.name)}</span>
+                <CharacterAvatar name={item.name} url={item.avatarUrl} className="small" />
                 <span className="char-list-text">
                   <span className="char-list-name">{item.name}</span>
                   <span className="char-list-meta">

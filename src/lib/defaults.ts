@@ -293,6 +293,16 @@ function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
   };
 }
 
+function normalizeAvatar(value: unknown): Character["avatar"] | undefined {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+  const { url, updatedAt } = value as Record<string, unknown>;
+  if (typeof url !== "string" || !url.trim()) return undefined;
+  return {
+    url: url.trim(),
+    updatedAt: typeof updatedAt === "string" ? updatedAt : "",
+  };
+}
+
 export function normalizeCharacter(input: Partial<Character>): Character {
   const base = createCharacter({
     name: input.name,
@@ -301,8 +311,9 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     level: input.level,
   });
 
-  const { advancements: rawAdvancements, xpThreshold: rawXpThreshold, ...inputWithoutAdvancements } =
-    input as Partial<Character> & { advancements?: unknown; xpThreshold?: unknown };
+  const { advancements: rawAdvancements, xpThreshold: rawXpThreshold, avatar: rawAvatar, ...inputWithoutAdvancements } =
+    input as Partial<Character> & { advancements?: unknown; xpThreshold?: unknown; avatar?: unknown };
+  const normalizedAvatar = normalizeAvatar(rawAvatar);
   const threshold = rawXpThreshold && typeof rawXpThreshold === "object" && !Array.isArray(rawXpThreshold)
     ? rawXpThreshold as Record<string, unknown> : undefined;
   const normalizedThreshold = threshold && Number.isSafeInteger(threshold.level) &&
@@ -384,6 +395,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
   return {
     ...base,
     ...inputWithoutAdvancements,
+    ...(normalizedAvatar ? { avatar: normalizedAvatar } : {}),
     ...(normalizedThreshold ? { xpThreshold: normalizedThreshold } : {}),
     schemaVersion: 1,
     id: input.id || base.id,

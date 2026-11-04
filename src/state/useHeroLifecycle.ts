@@ -31,6 +31,7 @@ function toSummary(character: Character): CharacterSummary {
     ancestry: character.ancestry,
     level: character.level,
     updatedAt: character.updatedAt,
+    ...(character.avatar?.url ? { avatarUrl: character.avatar.url } : {}),
   };
 }
 
@@ -226,6 +227,8 @@ export function useHeroLifecycle({
           ...source,
           id: makeId(),
           name: `${source.name} — копия`,
+          // Файл портрета принадлежит исходному герою; копия начинает без него.
+          avatar: undefined,
           createdAt: now,
           updatedAt: now,
         };

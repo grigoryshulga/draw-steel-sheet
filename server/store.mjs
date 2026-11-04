@@ -4,6 +4,8 @@ import path from "node:path";
 
 const ID_PATTERN = /^[A-Za-z0-9_-]{1,80}$/;
 const MAX_BYTES = 2 * 1024 * 1024;
+/** Подготовленный портрет приходит уже сжатым; запас только на служебные заголовки. */
+const MAX_AVATAR_BYTES = 512 * 1024;
 // Enough parallel reads to keep large team directories fast without exhausting
 // the descriptor pool on modest servers.
 const LIST_CONCURRENCY = 16;
@@ -18,6 +20,7 @@ function corruptDocument() {
 
 export function createStore(dataDir) {
   const charactersDir = path.join(dataDir, "characters");
+  const avatarsDir = path.join(dataDir, "avatars");
 
   // Serialize mutations per character; unrelated characters remain independent.
   const mutations = new Map();
@@ -36,6 +39,10 @@ export function createStore(dataDir) {
     await fs.mkdir(charactersDir, { recursive: true });
   }
 
+  async function ensureAvatarsDir() {
+    await fs.mkdir(avatarsDir, { recursive: true });
+  }
+
   function fileFor(id) {
     if (typeof id !== "string" || !ID_PATTERN.test(id)) {
       throw Object.assign(new Error("Некорректный идентификатор персонажа"), {
@@ -43,6 +50,15 @@ export function createStore(dataDir) {
       });
     }
     return path.join(charactersDir, `${id}.json`);
+  }
+
+  function avatarFileFor(id) {
+    if (typeof id !== "string" || !ID_PATTERN.test(id)) {
+      throw Object.assign(new Error("Некорректный идентификатор персонажа"), {
+        status: 400,
+      });
+    }
+    return path.join(avatarsDir, `${id}.webp`);
   }
 
   async function list() {
@@ -76,6 +92,9 @@ export function createStore(dataDir) {
         ancestry: doc.ancestry || "",
         level: doc.level ?? 1,
         updatedAt: doc.updatedAt || "",
+        ...(doc.avatar && typeof doc.avatar.url === "string" && doc.avatar.url
+          ? { avatarUrl: doc.avatar.url }
+          : {}),
       };
     } catch {
       // Повреждённый файл не должен ломать список.
@@ -152,7 +171,67 @@ export function createStore(dataDir) {
     } catch (error) {
       if (error.code !== "ENOENT") throw error;
     }
+    // Портрет не должен переживать героя.
+    await fs.rm(avatarFileFor(id), { force: true }).catch(() => {});
   }
 
-  return { list, get, save, remove, charactersDir };
+  function saveAvatar(id, buffer) {
+    return mutate(id, () => writeAvatar(id, buffer));
+  }
+
+  async function writeAvatar(id, buffer) {
+    if (!Buffer.isBuffer(buffer) || buffer.length === 0) {
+      throw Object.assign(new Error("Пустой файл портрета"), { status: 400 });
+    }
+    if (buffer.length > MAX_AVATAR_BYTES) {
+      throw Object.assign(new Error("Портрет больше 512 КБ"), { status: 413 });
+    }
+    const isWebp =
+      buffer.length > 12 &&
+      buffer.toString("ascii", 0, 4) === "RIFF" &&
+      buffer.toString("ascii", 8, 12) === "WEBP";
+    if (!isWebp) {
+      throw Object.assign(new Error("Поддерживается только WebP"), {
+        status: 415,
+      });
+    }
+    await ensureAvatarsDir();
+    const target = avatarFileFor(id);
+    const temp = `${target}.${randomUUID()}.tmp`;
+    try {
+      await fs.writeFile(temp, buffer, { flag: "wx" });
+      await fs.rename(temp, target);
+    } finally {
+      await fs.rm(temp, { force: true }).catch(() => {});
+    }
+  }
+
+  async function readAvatar(id) {
+    try {
+      return await fs.readFile(avatarFileFor(id));
+    } catch (error) {
+      if (error.code === "ENOENT") return null;
+      throw error;
+    }
+  }
+
+  function removeAvatar(id) {
+    return mutate(id, () => removeAvatarFile(id));
+  }
+
+  async function removeAvatarFile(id) {
+    await fs.rm(avatarFileFor(id), { force: true });
+  }
+
+  return {
+    list,
+    get,
+    save,
+    remove,
+    saveAvatar,
+    readAvatar,
+    removeAvatar,
+    charactersDir,
+    avatarsDir,
+  };
 }

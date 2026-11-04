@@ -4,8 +4,8 @@
   gap: var(--space-8);
 }
 .sheet-workspace-view > .sheet-header {
-  padding: var(--space-6) 0 var(--space-6);
-  margin-bottom: calc(-1 * var(--space-6));
+  padding: var(--space-4) 0 var(--space-4);
+  margin-bottom: calc(-1 * var(--space-7));
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -17,8 +17,9 @@
   align-items: start;
   gap: var(--space-8);
 }
-.sheet-identity-heading > div:first-child {
+.sheet-identity-heading > .sheet-identity-body {
   min-width: 0;
+  flex: 1 1 0;
 }
 .sheet-header-progress {
   flex: 0 1 380px;

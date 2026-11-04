@@ -453,6 +453,7 @@ svg {
   place-items: center;
   width: 38px;
   height: 38px;
+  overflow: hidden;
   border-radius: var(--radius-sm);
   border: 1px solid var(--accent-line);
   background:
@@ -462,6 +463,13 @@ svg {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
+}
+
+.char-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .char-switch-text {

@@ -2,6 +2,7 @@ import { useApp } from "../../state/AppContext";
 import { HeaderDomainChoices } from "./HeaderDomainChoices";
 import { codexIndex, codexLink } from "../../rules/codex-navigation";
 import { ProgressPanel } from "./ProgressPanel";
+import { Portrait } from "./Portrait";
 
 export function HeaderPanel() {
   const { character } = useApp();
@@ -11,7 +12,8 @@ export function HeaderPanel() {
   return (
     <header className="sheet-header">
       <div className="sheet-identity-heading">
-        <div>
+        <Portrait />
+        <div className="sheet-identity-body">
           <h1>{character.name}</h1>
           <div className="sheet-identity-summary">
             {character.ancestry && (

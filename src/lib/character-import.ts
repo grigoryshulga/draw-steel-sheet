@@ -436,6 +436,8 @@ export async function parseCharacterImport(
     ...character,
     name: character.name.trim(),
     id: makeId(),
+    // Ссылка на портрет принадлежит старому герою и другому хранилищу.
+    avatar: undefined,
     createdAt: now,
     updatedAt: now,
   };

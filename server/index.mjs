@@ -54,4 +54,5 @@ server.listen(PORT, HOST, () => {
     `Достать листы!: http://${HOST}:${boundPort} (${DEV ? "разработка" : "продакшен"})`,
   );
   console.log(`Данные персонажей: ${store.charactersDir}`);
+  console.log(`Портреты: ${store.avatarsDir}`);
 });

@@ -1,4 +1,4 @@
-import type { Character, CharacterSummary } from "../../types";
+import type { Character, CharacterAvatar, CharacterSummary } from "../../types";
 import type { CharacterRepository } from "./repository";
 
 export class StorageRequestError extends Error {
@@ -77,5 +77,13 @@ export function createHttpRepository({
       body: JSON.stringify(character),
     }),
     deleteCharacter: (id) => request<void>(path(id), { method: "DELETE" }),
+    uploadAvatar: (id, image) => request<CharacterAvatar>(`${path(id)}/avatar`, {
+      method: "PUT",
+      body: image,
+      headers: { "Content-Type": "image/webp" },
+    }),
+    deleteAvatar: async (id) => {
+      await request<void>(`${path(id)}/avatar`, { method: "DELETE" });
+    },
   };
 }

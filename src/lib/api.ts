@@ -7,4 +7,11 @@ const repository = supabase
   ? createSupabaseRepository(supabase)
   : createHttpRepository();
 
-export const { listCharacters, loadCharacter, saveCharacter, deleteCharacter } = repository;
+export const {
+  listCharacters,
+  loadCharacter,
+  saveCharacter,
+  deleteCharacter,
+  uploadAvatar,
+  deleteAvatar,
+} = repository;

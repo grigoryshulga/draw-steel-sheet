@@ -125,6 +125,7 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     ["/api/health", "GET"],
     ["/api/characters", "GET"],
     ["/api/characters/test-hero", "GET, PUT, DELETE"],
+    ["/api/characters/test-hero/avatar", "GET, PUT, DELETE"],
   ])("rejects unsupported methods on %s with Allow: %s", async (pathname, allow) => {
     const res = await fetch(`${BASE}${pathname}`, { method: "POST" });
     expect(res.status).toBe(405);
@@ -223,4 +224,88 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     expect((await getJson("/api/characters/oversized")).res.status).toBe(404);
   });
 
+  it("stores, serves and deletes a WebP portrait", async () => {
+    const image = webpBytes("portrait");
+    await fetch(`${BASE}/api/characters/avatar-hero`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Портрет" }),
+    });
+
+    // A portrait must belong to an existing hero.
+    const orphan = await fetch(`${BASE}/api/characters/missing-hero/avatar`, {
+      method: "PUT",
+      headers: { "Content-Type": "image/webp" },
+      body: image,
+    });
+    expect(orphan.status).toBe(404);
+
+    const wrongType = await fetch(`${BASE}/api/characters/avatar-hero/avatar`, {
+      method: "PUT",
+      headers: { "Content-Type": "image/png" },
+      body: image,
+    });
+    expect(wrongType.status).toBe(415);
+
+    const put = await fetch(`${BASE}/api/characters/avatar-hero/avatar`, {
+      method: "PUT",
+      headers: { "Content-Type": "image/webp" },
+      body: image,
+    });
+    expect(put.status).toBe(200);
+    const body = (await put.json()) as { url: string; updatedAt: string };
+    expect(body.url).toMatch(/^\/api\/characters\/avatar-hero\/avatar\?v=\d+$/);
+    expect(body.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+
+    const get = await fetch(`${BASE}${body.url}`);
+    expect(get.status).toBe(200);
+    expect(get.headers.get("content-type")).toBe("image/webp");
+    expect(get.headers.get("cache-control")).toContain("immutable");
+    expect(Buffer.from(await get.arrayBuffer()).equals(image)).toBe(true);
+
+    const remove = await fetch(`${BASE}/api/characters/avatar-hero/avatar`, { method: "DELETE" });
+    expect(remove.status).toBe(200);
+    expect((await fetch(`${BASE}/api/characters/avatar-hero/avatar`)).status).toBe(404);
+  });
+
+  it("rejects portrait bodies over 512 KB and keeps the server responsive", async () => {
+    await fetch(`${BASE}/api/characters/avatar-large`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Большой портрет" }),
+    });
+    const oversized = await fetch(`${BASE}/api/characters/avatar-large/avatar`, {
+      method: "PUT",
+      headers: { "Content-Type": "image/webp" },
+      body: Buffer.concat([webpBytes("start"), Buffer.alloc(513 * 1024)]),
+    });
+    expect(oversized.status).toBe(413);
+    expect(await oversized.json()).toHaveProperty("error");
+    expect((await getJson("/api/health")).res.status).toBe(200);
+  });
+
+  it("deleting a hero removes its portrait file", async () => {
+    await fetch(`${BASE}/api/characters/avatar-owner`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Владелец" }),
+    });
+    const put = await fetch(`${BASE}/api/characters/avatar-owner/avatar`, {
+      method: "PUT",
+      headers: { "Content-Type": "image/webp" },
+      body: webpBytes("owner"),
+    });
+    expect(put.status).toBe(200);
+
+    await fetch(`${BASE}/api/characters/avatar-owner`, { method: "DELETE" });
+    expect((await fetch(`${BASE}/api/characters/avatar-owner/avatar`)).status).toBe(404);
+  });
+
 });
+
+function webpBytes(payload: string): Buffer {
+  return Buffer.concat([
+    Buffer.from("RIFF\x00\x00\x00\x00WEBP", "binary"),
+    Buffer.from(payload, "utf8"),
+  ]);
+}

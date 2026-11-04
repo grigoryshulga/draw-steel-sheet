@@ -159,6 +159,14 @@ export interface CharacterRuntime {
   resources: Record<string, number>;
 }
 
+/** Портрет героя: файл лежит в хранилище, документ хранит только ссылку. */
+export interface CharacterAvatar {
+  /** Публичный адрес WebP-файла; для локального сервера — `/api/...`. */
+  url: string;
+  /** Время загрузки; входит в адрес, чтобы обновить кэш браузера. */
+  updatedAt: string;
+}
+
 export interface Character {
   schemaVersion: 1;
   id: string;
@@ -227,6 +235,9 @@ export interface Character {
   inventory: InventoryItem[];
   projects: ProjectRow[];
 
+  /** Необязательный портрет; старые листы остаются без него. */
+  avatar?: CharacterAvatar;
+
   createdAt: string;
   updatedAt: string;
   /** Opt-in keeps existing manually calculated sheets unchanged. */
@@ -257,6 +268,8 @@ export interface CharacterSummary {
   ancestry: string;
   level: number;
   updatedAt: string;
+  /** Аватар для списков; отсутствует у героев без портрета. */
+  avatarUrl?: string;
 }
 
 export interface AppTheme {

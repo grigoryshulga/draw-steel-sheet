@@ -12,6 +12,7 @@ interface CharacterSummaryLike {
   ancestry: string;
   level: number;
   updatedAt: string;
+  avatarUrl?: string;
 }
 
 interface CharacterStore {
@@ -19,7 +20,11 @@ interface CharacterStore {
   get(id: string): Promise<Record<string, unknown>>;
   save(id: string, doc: object): Promise<CharacterSummaryLike & Record<string, unknown>>;
   remove(id: string): Promise<void>;
+  saveAvatar(id: string, image: Buffer): Promise<void>;
+  readAvatar(id: string): Promise<Buffer | null>;
+  removeAvatar(id: string): Promise<void>;
   charactersDir: string;
+  avatarsDir: string;
 }
 
 let dataDir: string;
@@ -176,4 +181,44 @@ describe("createStore", () => {
     expect(new Set(team.map((doc) => doc.id)).size).toBe(40);
   });
 
+  it("stores a WebP portrait beside the hero and includes it in the summary", async () => {
+    const image = webpBuffer("portrait-data");
+    await store.save("portrait-hero", { ...sampleDoc("С портретом"), avatar: { url: "/api/characters/portrait-hero/avatar?v=1" } });
+    await store.saveAvatar("portrait-hero", image);
+
+    const saved = await store.readAvatar("portrait-hero");
+    expect(saved?.equals(image)).toBe(true);
+
+    const summary = (await store.list()).find((doc) => doc.id === "portrait-hero");
+    expect(summary?.avatarUrl).toBe("/api/characters/portrait-hero/avatar?v=1");
+
+    await store.removeAvatar("portrait-hero");
+    expect(await store.readAvatar("portrait-hero")).toBeNull();
+  });
+
+  it("rejects non-WebP and oversized portrait files without leftovers", async () => {
+    await store.save("bad-avatar", sampleDoc("Портрет"));
+    await expect(store.saveAvatar("bad-avatar", Buffer.from("PNG"))).rejects.toMatchObject({ status: 415 });
+    await expect(
+      store.saveAvatar("bad-avatar", Buffer.concat([webpBuffer("x"), Buffer.alloc(512 * 1024)])),
+    ).rejects.toMatchObject({ status: 413 });
+
+    const files = await fs.readdir(store.avatarsDir).catch(() => []);
+    expect(files).toEqual([]);
+  });
+
+  it("removing a hero also removes the portrait file", async () => {
+    await store.save("avatar-owner", sampleDoc("Владелец"));
+    await store.saveAvatar("avatar-owner", webpBuffer("avatar"));
+    await store.remove("avatar-owner");
+    expect(await store.readAvatar("avatar-owner")).toBeNull();
+  });
+
 });
+
+function webpBuffer(payload: string): Buffer {
+  return Buffer.concat([
+    Buffer.from("RIFF\x00\x00\x00\x00WEBP", "binary"),
+    Buffer.from(payload, "utf8"),
+  ]);
+}

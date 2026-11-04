@@ -1,4 +1,5 @@
 const MAX_BODY_BYTES = 2 * 1024 * 1024;
+const MAX_AVATAR_BYTES = 512 * 1024;
 
 function sendJson(res, status, payload, headers = {}) {
   const body = JSON.stringify(payload);
@@ -43,6 +44,27 @@ async function readBody(req) {
   }
 }
 
+async function readRawBody(req, limit) {
+  const chunks = [];
+  let size = 0;
+  let tooLarge = false;
+  // Like readBody, drain the request before answering so the client sees the error.
+  for await (const chunk of req) {
+    if (tooLarge) continue;
+    size += chunk.length;
+    if (size > limit) {
+      tooLarge = true;
+      chunks.length = 0;
+      continue;
+    }
+    chunks.push(chunk);
+  }
+  if (tooLarge) {
+    throw Object.assign(new Error("Портрет больше 512 КБ"), { status: 413 });
+  }
+  return Buffer.concat(chunks);
+}
+
 export function createApi({ store }) {
   return async function handleApi(req, res) {
     let pathname;
@@ -76,6 +98,48 @@ export function createApi({ store }) {
           return true;
         }
         sendJson(res, 200, { characters: await store.list() });
+        return true;
+      }
+
+      const avatarMatch = pathname.match(/^\/api\/characters\/([^/]+)\/avatar$/);
+      if (avatarMatch) {
+        const id = avatarMatch[1];
+        if (req.method === "GET") {
+          const image = await store.readAvatar(id);
+          if (!image) {
+            sendJson(res, 404, { error: "Портрет не найден" });
+            return true;
+          }
+          res.writeHead(200, {
+            "Content-Type": "image/webp",
+            "Content-Length": image.length,
+            "Cache-Control": "public, max-age=31536000, immutable",
+          });
+          res.end(image);
+          return true;
+        }
+        if (req.method === "PUT") {
+          if (!/^image\/webp\b/i.test(req.headers["content-type"] || "")) {
+            sendJson(res, 415, { error: "Поддерживается только WebP" });
+            return true;
+          }
+          // A portrait must belong to an existing hero, not create orphan files.
+          await store.get(id);
+          const image = await readRawBody(req, MAX_AVATAR_BYTES);
+          await store.saveAvatar(id, image);
+          const updatedAt = new Date().toISOString();
+          sendJson(res, 200, {
+            url: `/api/characters/${encodeURIComponent(id)}/avatar?v=${Date.parse(updatedAt)}`,
+            updatedAt,
+          });
+          return true;
+        }
+        if (req.method === "DELETE") {
+          await store.removeAvatar(id);
+          sendJson(res, 200, { ok: true });
+          return true;
+        }
+        methodNotAllowed(res, "GET, PUT, DELETE");
         return true;
       }
 

@@ -1,0 +1,141 @@
+/* Портрет в шапке листа: силуэт в пустом слоте, действия — на наведении. */
+.sheet-portrait {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(84px, 10vw, 126px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--sheet-warm-line, var(--line));
+  border-radius: var(--radius);
+  background:
+    radial-gradient(
+      circle at 50% 16%,
+      color-mix(in srgb, var(--sheet-warm, var(--accent)) 12%, transparent),
+      transparent 62%
+    ),
+    var(--surface-2);
+  box-shadow: var(--shadow-sm, none);
+}
+
+.sheet-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Полупрозрачный бюст: голова и плечи, без текста-подсказки. */
+.sheet-portrait-silhouette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: color-mix(in srgb, var(--fg) 15%, transparent);
+  fill: currentColor;
+}
+
+.sheet-portrait-input {
+  display: none;
+}
+
+/* Кнопка-глиф в пустом слоте: только иконка загрузки. */
+.sheet-portrait-upload {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--sheet-warm-line, var(--line)) 78%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    color 140ms var(--ease),
+    border-color 140ms var(--ease),
+    background 140ms var(--ease);
+}
+
+.sheet-portrait-upload:hover:not(:disabled),
+.sheet-portrait-upload:focus-visible:not(:disabled) {
+  border-color: var(--accent-line);
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+/* Действия у загруженного портрета: по центру, только иконки, только на ховере. */
+.sheet-portrait-actions {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: rgba(10, 9, 7, 0.4);
+  opacity: 0;
+  transition: opacity 140ms var(--ease);
+}
+
+.sheet-portrait.has-image:hover .sheet-portrait-actions,
+.sheet-portrait.has-image:focus-within .sheet-portrait-actions,
+.sheet-portrait.has-image.is-busy .sheet-portrait-actions {
+  opacity: 1;
+}
+
+.sheet-portrait-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 50%;
+  background: rgba(20, 16, 12, 0.62);
+  color: #f7f2ea;
+  cursor: pointer;
+  transition:
+    background 140ms var(--ease),
+    border-color 140ms var(--ease);
+}
+
+.sheet-portrait-icon-btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(32, 26, 20, 0.84);
+}
+
+.sheet-portrait-icon-btn.is-danger:hover:not(:disabled) {
+  border-color: color-mix(in srgb, #d97757 70%, transparent);
+  color: #f0b6a4;
+}
+
+.sheet-portrait-upload:focus-visible,
+.sheet-portrait-icon-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sheet-portrait-upload:disabled,
+.sheet-portrait-icon-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Без наведения (телефон) действия всё равно должны быть доступны. */
+@media (hover: none) {
+  .sheet-portrait.has-image .sheet-portrait-actions {
+    opacity: 1;
+    align-items: flex-end;
+    padding-bottom: var(--space-3);
+    background: linear-gradient(transparent 58%, rgba(10, 9, 7, 0.6));
+  }
+}
+
+@media (max-width: 560px) {
+  .sheet-portrait {
+    width: 76px;
+  }
+}

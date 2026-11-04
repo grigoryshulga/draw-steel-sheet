@@ -55,6 +55,26 @@ describe("HTTP character repository", () => {
     });
   });
 
+  it("uploads prepared avatars as binary WebP and removes them", async () => {
+    const avatar = { url: "/api/characters/hero/avatar?v=1", updatedAt: "2026-01-01T00:00:00.000Z" };
+    const image = new Blob(["RIFF....WEBP"], { type: "image/webp" });
+    const fetch = vi.fn<typeof globalThis.fetch>()
+      .mockResolvedValueOnce(Response.json(avatar))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    const repository = createHttpRepository({ fetch });
+
+    expect(await repository.uploadAvatar("hero", image)).toEqual(avatar);
+    const [url, init] = fetch.mock.calls[0];
+    expect(url).toBe("/api/characters/hero/avatar");
+    expect(init?.method).toBe("PUT");
+    expect(init?.body).toBe(image);
+    expect(new Headers(init?.headers).get("Content-Type")).toBe("image/webp");
+
+    await expect(repository.deleteAvatar("hero")).resolves.toBeUndefined();
+    expect(fetch.mock.calls[1][0]).toBe("/api/characters/hero/avatar");
+    expect(fetch.mock.calls[1][1]?.method).toBe("DELETE");
+  });
+
   it("aborts stalled requests and lets a subsequent explicit retry succeed", async () => {
     vi.useFakeTimers();
     const fetch = vi.fn<typeof globalThis.fetch>()
