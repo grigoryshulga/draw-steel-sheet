@@ -31,12 +31,15 @@ export function RuleArticleContent({
   entities,
   art,
   onOpenEntity,
+  headingOffset = 0,
 }: {
   article: RuleArticle;
   entities: Record<string, RuleEntity>;
   art?: ArtAsset;
   /** Клик по карточке сущности: используется страницей класса для поп-апа. */
   onOpenEntity?: (entity: RuleEntity) => void;
+  /** Сдвиг заголовков статьи относительно её собственного заголовка. */
+  headingOffset?: number;
 }) {
   const leadIndex = article.blocks.findIndex((block) =>
     block.type === "markdown"
@@ -55,13 +58,18 @@ export function RuleArticleContent({
                 key={`markdown-${index}`}
                 text={block.text}
                 articleId={article.id}
+                headingOffset={headingOffset}
               />
             );
           }
           return (
             <div className="rule-article-lead" key={`markdown-${index}`}>
               <ArtworkFigure art={art} className="codex-article-art" />
-              <RuleMarkdown text={block.text} articleId={article.id} />
+              <RuleMarkdown
+                text={block.text}
+                articleId={article.id}
+                headingOffset={headingOffset}
+              />
             </div>
           );
         }
@@ -80,6 +88,7 @@ export function RuleArticleContent({
             entity={entity}
             art={isLead ? art : undefined}
             onOpen={onOpenEntity ? () => onOpenEntity(entity) : undefined}
+            headingLevel={2 + headingOffset}
           />
         );
       })}

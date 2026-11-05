@@ -8,7 +8,7 @@ import {
   AbilityTags,
   referenceAbilityView,
 } from "./AbilitySheet";
-import { RuleMarkdown } from "./RuleMarkdown";
+import { RuleMarkdown, headingTag } from "./RuleMarkdown";
 import "./RuleEntity.css";
 
 /** Стабильный якорь раздела: зависит от id, а не от перевода названия. */
@@ -70,6 +70,7 @@ export function RuleEntityView({
   art,
   onOpen,
   withAnchor = true,
+  headingLevel = 2,
 }: {
   entity: RuleEntity;
   art?: ArtAsset;
@@ -77,12 +78,16 @@ export function RuleEntityView({
   onOpen?: () => void;
   /** В поп-апе якоря не нужны: они уже есть у карточки на странице. */
   withAnchor?: boolean;
+  /** Уровень заголовка имени сущности: на странице класса он ниже заголовка уровня. */
+  headingLevel?: number;
 }) {
   const anchor = withAnchor ? ruleEntityAnchor(entity) : undefined;
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
   const content = stripRepeatedEntityHeading(entity.markdown, entity.name);
   const hasMarkdown = content.markdown.trim().length > 0;
   const openable = Boolean(ability && onOpen);
+  const Heading = headingTag(headingLevel);
+  const nestedHeadingOffset = headingLevel === 2 ? 0 : headingLevel - 1;
 
   if (ability)
     return (
@@ -114,9 +119,9 @@ export function RuleEntityView({
           }
         >
           <header className="rule-entity-head card-band">
-            <h2 className="rule-entity-name" id={anchor}>
+            <Heading className="rule-entity-name" id={anchor}>
               {entity.name}
-            </h2>
+            </Heading>
             <AbilityTags view={ability} />
           </header>
 
@@ -138,6 +143,7 @@ export function RuleEntityView({
           text={entity.markdown}
           articleId={entity.source.articleId}
           className="rule-text rule-entity-extras"
+          headingOffset={nestedHeadingOffset}
           abilityCardRemainder={{ shownText: entity.ability?.effect }}
         />
       </section>
@@ -155,9 +161,9 @@ export function RuleEntityView({
         id={withAnchor ? content.headingId || undefined : undefined}
       >
         <div className="rule-entity-title">
-          <h2 className="rule-entity-name" id={anchor}>
+          <Heading className="rule-entity-name" id={anchor}>
             {entity.name}
-          </h2>
+          </Heading>
         </div>
       </header>
 
@@ -172,6 +178,7 @@ export function RuleEntityView({
         <RuleMarkdown
           text={content.markdown}
           articleId={entity.source.articleId}
+          headingOffset={nestedHeadingOffset}
         />
       ) : (
         <p className="rule-entity-empty">

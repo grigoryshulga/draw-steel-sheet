@@ -34,6 +34,8 @@ export interface RuleMarkdownProps {
   /** Статья источника: по ней подбирается ссылка «Карточка в каталоге». */
   articleId?: string;
   className?: string;
+  /** Сдвиг уровней заголовков: вложенный текст не спорит с заголовком раздела. */
+  headingOffset?: number;
   /**
    * Текст уже показан полной карточкой способности: из источника берём только
    * «допблоки» (Поддержание, Потратить, Особое, списки и прозу), а не дубль
@@ -42,6 +44,15 @@ export interface RuleMarkdownProps {
    */
   abilityCardRemainder?: boolean | AbilityCardRemainderOptions;
 }
+
+export const headingTag = (level: number) =>
+  `h${Math.min(6, Math.max(1, level))}` as
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6";
 
 /**
  * Единый низкоуровневый рендер правилского Markdown.
@@ -55,6 +66,7 @@ export function RuleMarkdown({
   text,
   articleId,
   className = "rule-text",
+  headingOffset = 0,
   abilityCardRemainder = false,
 }: RuleMarkdownProps) {
   const remainder =
@@ -74,17 +86,21 @@ export function RuleMarkdown({
       <Markdown
         remarkPlugins={plugins}
         components={{
-          h1: ({ children }) => (
-            <h2 id={headingId(plain(children))}>{children}</h2>
-          ),
-          h2: ({ children }) => (
-            <h2 id={headingId(plain(children))}>{children}</h2>
-          ),
-          h3: ({ children }) => (
-            <h3 id={headingId(plain(children))}>{children}</h3>
-          ),
+          h1: ({ children }) => {
+            const Heading = headingTag(2 + headingOffset);
+            return <Heading id={headingId(plain(children))}>{children}</Heading>;
+          },
+          h2: ({ children }) => {
+            const Heading = headingTag(2 + headingOffset);
+            return <Heading id={headingId(plain(children))}>{children}</Heading>;
+          },
+          h3: ({ children }) => {
+            const Heading = headingTag(3 + headingOffset);
+            return <Heading id={headingId(plain(children))}>{children}</Heading>;
+          },
           h4: ({ children }) => {
             const id = headingId(plain(children));
+            const Heading = headingTag(3 + headingOffset);
             const entry = articleId
               ? CATALOG.find(
                   (candidate) =>
@@ -94,7 +110,7 @@ export function RuleMarkdown({
               : undefined;
             return (
               <>
-                <h3 id={id}>{children}</h3>
+                <Heading id={id}>{children}</Heading>
                 {entry && (
                   <a
                     className="rule-catalog-link"
@@ -106,12 +122,14 @@ export function RuleMarkdown({
               </>
             );
           },
-          h5: ({ children }) => (
-            <h4 id={headingId(plain(children))}>{children}</h4>
-          ),
-          h6: ({ children }) => (
-            <h4 id={headingId(plain(children))}>{children}</h4>
-          ),
+          h5: ({ children }) => {
+            const Heading = headingTag(4);
+            return <Heading id={headingId(plain(children))}>{children}</Heading>;
+          },
+          h6: ({ children }) => {
+            const Heading = headingTag(4);
+            return <Heading id={headingId(plain(children))}>{children}</Heading>;
+          },
           /* Горизонтальные линии из источника (`---`, `***`, `___`) — типографский
              мусор: разделы уже отделены заголовками и отступами. */
           hr: () => null,

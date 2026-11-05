@@ -661,10 +661,11 @@ export function ClassLandingView({
                       id={`level-${item.level}`}
                       className="class-landing-level"
                     >
-                      <h3>{article.title}</h3>
+                      <h2>{article.title}</h2>
                       <RuleArticleContent
                         article={article}
                         entities={item.entities}
+                        headingOffset={1}
                         onOpenEntity={(entity) => {
                           if (entity.ability) setOpenedAbility(entity);
                         }}
