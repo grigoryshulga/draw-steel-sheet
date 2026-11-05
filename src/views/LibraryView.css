@@ -147,6 +147,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
   gap: var(--space-6);
+  margin-top: var(--space-7);
 }
 .catalog-card {
   position: relative;
@@ -222,6 +223,7 @@
 .catalog-glossary {
   column-width: 300px;
   column-gap: var(--space-9);
+  margin-top: var(--space-7);
 }
 
 .catalog-glossary-letter {
@@ -360,6 +362,9 @@
   padding: 32px;
   border: 1px dashed var(--line);
   border-radius: var(--radius-sm);
+}
+.catalog-browser .library-empty {
+  margin-top: var(--space-7);
 }
 .library-empty p {
   margin: var(--space-6) 0;

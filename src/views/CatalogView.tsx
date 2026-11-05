@@ -283,9 +283,6 @@ export function CatalogView() {
                 )}
               </div>
             )}
-            <p className="muted small catalog-count">
-              Найдено: {results.length}
-            </p>
             {results.length === 0 && (
               <div className="library-empty">
                 <h3>Ничего не найдено</h3>
