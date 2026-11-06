@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { AppContext } from "../state/AppContext";
 import type { CatalogEntry } from "../data/library";
 import { addCatalogEntry, ownsCatalogEntry } from "../lib/catalog-character";
-import { CHARACTERISTICS } from "../lib/rules";
+import { CHARACTERISTICS } from "../lib/rule-display";
 import { makeId } from "../data/templates";
 import { Button, Field, Select, TextInput } from "./ui";
 

@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import http from "node:http";
+import { compressAssets } from "../scripts/compress-assets.mjs";
 import { createStaticHandler } from "../server/static.mjs";
 
 let root: string;
@@ -17,6 +18,9 @@ beforeAll(async () => {
   await fs.writeFile(path.join(dist, "index.html"), "<main>Application</main>");
   await fs.writeFile(path.join(dist, "app.js"), "export default 1;");
   await fs.writeFile(path.join(root, "dist-private", "secret.txt"), "secret");
+  await fs.mkdir(path.join(dist, "assets"));
+  await fs.writeFile(path.join(dist, "assets", "rules-aBc12345.js"), "export default " + JSON.stringify("Правила героя ".repeat(1000)));
+  await compressAssets(dist);
   server = http.createServer(createStaticHandler(dist));
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const address = server.address();
@@ -30,6 +34,39 @@ afterAll(async () => {
 });
 
 describe("production static handler", () => {
+  it("serves precompressed assets with immutable caching and validators", async () => {
+    const url = `${base}/assets/rules-aBc12345.js`;
+    const identity = await fetch(url, { headers: { "Accept-Encoding": "identity" } });
+    const plain = await identity.text();
+    for (const encoding of ["br", "gzip"]) {
+      const response = await fetch(url, { headers: { "Accept-Encoding": encoding } });
+      expect(response.headers.get("content-encoding")).toBe(encoding);
+      expect(response.headers.get("vary")).toBe("Accept-Encoding");
+      expect(response.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+      expect(Number(response.headers.get("content-length"))).toBeLessThan(Number(identity.headers.get("content-length")) / 5);
+      expect(await response.text()).toBe(plain);
+      const cached = await fetch(url, { headers: { "Accept-Encoding": encoding, "If-None-Match": response.headers.get("etag")! } });
+      expect(cached.status).toBe(304);
+      expect(await cached.text()).toBe("");
+    }
+  });
+
+  it("honors encoding quality and keeps HTML revalidatable", async () => {
+    const url = `${base}/assets/rules-aBc12345.js`;
+    const disabled = await fetch(url, { headers: { "Accept-Encoding": "br;q=0, gzip;q=0" } });
+    expect(disabled.headers.get("content-encoding")).toBeNull();
+    const preferred = await fetch(url, { headers: { "Accept-Encoding": "br;q=0.1, gzip;q=1" } });
+    expect(preferred.headers.get("content-encoding")).toBe("gzip");
+    const head = await fetch(url, { method: "HEAD", headers: { "Accept-Encoding": "br" } });
+    expect(head.headers.get("content-encoding")).toBe("br");
+    expect(await head.text()).toBe("");
+    const html = await fetch(`${base}/characters/hero`);
+    expect(html.headers.get("cache-control")).toBe("no-cache");
+    const cached = await fetch(`${base}/characters/hero`, { headers: { "If-None-Match": html.headers.get("etag")! } });
+    expect(cached.status).toBe(304);
+    expect((await fetch(`${base}/app.js`)).headers.get("cache-control")).not.toContain("immutable");
+  });
+
   it("serves assets with their type and SPA routes as HTML", async () => {
     const asset = await fetch(`${base}/app.js`);
     expect(asset.status).toBe(200);

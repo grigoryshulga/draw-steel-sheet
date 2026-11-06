@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
 import { onSheetTabRequest } from "../lib/sheet-tabs";
@@ -9,7 +9,6 @@ import type { HeroTab } from "../navigation";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
 import { ConditionsPanel } from "./sheet/ConditionsPanel";
-import { DevelopmentPanel } from "./sheet/DevelopmentPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
 import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
 import { SheetFeaturesPanel } from "./sheet/SheetFeaturesPanel";
@@ -17,15 +16,27 @@ import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
-import { HeroView } from "./HeroView";
-import { CompanionsView } from "./sheet/CompanionsView";
-import { InventoryView } from "./InventoryView";
-import { NotesView } from "./NotesView";
 import "./SheetView.css";
 import "./sheet/Workspace.css";
 import "./sheet/SheetLayout.css";
 import "./sheet/SheetFrame.css";
 import "./SheetAtmosphere.css";
+
+const DevelopmentPanel = lazy(() =>
+  import("./sheet/DevelopmentPanel").then((module) => ({ default: module.DevelopmentPanel })),
+);
+const HeroView = lazy(() =>
+  import("./HeroView").then((module) => ({ default: module.HeroView })),
+);
+const CompanionsView = lazy(() =>
+  import("./sheet/CompanionsView").then((module) => ({ default: module.CompanionsView })),
+);
+const InventoryView = lazy(() =>
+  import("./InventoryView").then((module) => ({ default: module.InventoryView })),
+);
+const NotesView = lazy(() =>
+  import("./NotesView").then((module) => ({ default: module.NotesView })),
+);
 
 type PanelId =
   | "characteristics"

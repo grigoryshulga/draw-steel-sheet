@@ -20,6 +20,7 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    manifest: true,
     // Каталог способностей — отдельный ленивый чанк с данными.
     chunkSizeWarningLimit: 700,
   },

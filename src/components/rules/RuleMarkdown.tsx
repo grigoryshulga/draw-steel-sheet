@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { PluggableList } from "unified";
-import { Children, isValidElement, type ReactNode } from "react";
+import { memo, Children, isValidElement, type ReactNode } from "react";
 import {
   CATALOG,
   GLOSSARY,
@@ -62,7 +62,7 @@ export const headingTag = (level: number) =>
  * в этот рендер. Якоря заголовков, ссылки, вложенные списки, таблицы и заметки
  * сохраняются как в исходнике.
  */
-export function RuleMarkdown({
+export const RuleMarkdown = memo(function RuleMarkdown({
   text,
   articleId,
   className = "rule-text",
@@ -185,4 +185,4 @@ export function RuleMarkdown({
       </Markdown>
     </div>
   );
-}
+});

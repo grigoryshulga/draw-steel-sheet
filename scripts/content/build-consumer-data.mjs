@@ -1841,9 +1841,21 @@ export function buildConsumerData({
     careerPerkTypes: perks.careerPerkTypes,
     classPerkRestrictions: perks.classPerkRestrictions,
   };
+  // Resolve ancestry prices at build time: the sheet must not load the entire
+  // character builder just to price its selected traits.
+  const normalizeTraitName = (value) => value.trim().toLocaleLowerCase("ru").replaceAll("ё", "е");
+  const traitKey = (ancestry, name) => `${normalizeTraitName(ancestry)}|${normalizeTraitName(name)}`;
+  const traitCosts = new Map(builder.data.ancestries.flatMap((ancestry) =>
+    ancestry.traits.map((trait) => [traitKey(ancestry.name, trait.name), trait.cost]),
+  ));
   const featureProjection = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,
-    features: features.features,
+    features: features.features.map((feature) => {
+      const cost = feature.kind === "ancestry" && (feature.ancestryKind ?? "trait") === "trait"
+        ? traitCosts.get(traitKey(feature.ancestryName ?? "", feature.name))
+        : undefined;
+      return cost === undefined ? feature : { ...feature, cost };
+    }),
   };
   const levelUpProjection = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,

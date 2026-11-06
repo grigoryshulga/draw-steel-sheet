@@ -103,6 +103,8 @@ export interface ConsumerFeature extends OriginalFields {
   kind: "ancestry" | "class";
   /** Для происхождений: знаковая черта или купленная за очки. */
   ancestryKind?: AncestryFeatureKind;
+  /** Цена купленной черты, вычисленная при сборке проекции. */
+  cost?: number;
   ancestryName?: string;
   className?: string;
   level: number;

@@ -12,7 +12,7 @@
 | `src/lib/persistence` | HTTP and Supabase storage adapters | Implement `CharacterRepository`; reject failed writes |
 | `src/lib/api.ts` | Select storage adapter | Preserve the public API consumed by the app |
 | `src/lib/autosave.ts` | Serialize writes and track unsaved changes | A failed save must remain retryable; flush before changing heroes |
-| `src/state`, `src/App.tsx` | Application orchestration and context | Own navigation, active hero and transitions |
+| `src/state`, `src/App.tsx`, `src/WorkspaceApp.tsx` | Application orchestration and context | Own navigation, active hero and transitions |
 | `src/views` | User workflows | Call domain functions instead of duplicating rules |
 | `src/components/ui` | Generic controls and dialogs | No game data or context dependencies; `components/ui.tsx` is the stable public entry point |
 | `server/api.mjs` | HTTP API | Existing character routes and response shapes |
@@ -45,7 +45,7 @@ The compendium, catalog, glossary, kits, perks, features, level-up rules and bui
 
 ## Quality gate
 
-`npm run check` runs import-boundary checks, generated-content freshness checks, all Vitest tests, then TypeScript and the production build. GitHub Actions runs the same command. API tests start an isolated server and use temporary storage, leaving user characters untouched.
+`npm run check` runs import-boundary checks, generated-content freshness checks, all Vitest tests, then TypeScript, the production build and static JavaScript size budgets (`perf:check`). GitHub Actions runs the same command. API tests start an isolated server and use temporary storage, leaving user characters untouched.
 
 Browser layout, keyboard interaction and live Supabase policies require separate validation. Passing unit tests does not establish those results.
 
@@ -53,8 +53,9 @@ Browser layout, keyboard interaction and live Supabase policies require separate
 
 - The filesystem store serializes mutations within one server process. Multiple processes or simultaneous editors still use last-write-wins semantics; distributed deployment needs revision checks or transactional storage.
 
-- `NewCharacterDialog.tsx` orchestrates the seven-stage creation flow from `lib/builder-flow.ts`. Individual decisions keep the legacy draft and step contracts; the v3 position key restores older v1/v2 positions. `BuilderSelection` stages list choices for the current decision; `advanceBuilderFlow` applies and validates them on Next before resolving the next dynamic step. Back and sidebar navigation discard uncommitted choices. `ReferenceList` and its card styles are shared with `CatalogView`; canonical entries are passed through without creating builder entities. The desktop builder keeps stages on the left and the character summary on the right. `RuleArticleReader` is shared by the catalog and builder; class previews reuse `ClassLandingView` with all levels available. `App.tsx` still owns hero lifecycle transitions.
+- `NewCharacterDialog.tsx` orchestrates the seven-stage creation flow from `lib/builder-flow.ts`. Individual decisions keep the legacy draft and step contracts; the v3 position key restores older v1/v2 positions. `BuilderSelection` stages list choices for the current decision; `advanceBuilderFlow` applies and validates them on Next before resolving the next dynamic step. Back and sidebar navigation discard uncommitted choices. `ReferenceList` and its card styles are shared with `CatalogView`; canonical entries are passed through without creating builder entities. The desktop builder keeps stages on the left and the character summary on the right. `RuleArticleReader` is shared by the catalog and builder; class previews reuse `ClassLandingView` with all levels available. `WorkspaceApp.tsx` still owns hero lifecycle transitions.
 - Codex loads packs by chapter/class and its full-text corpus only on first search. Content migration is complete: every runtime consumer reads canonical projections (see `content/rules/migration-report.json`); legacy snapshots are parity fixtures only. Transliterated historical paths/IDs are deliberately preserved until the deferred rename.
-- The eager bundle still ships the `features`/`builder`/`level-up` projections (~2.5 MB raw, ~446 KB gzip in one chunk) because SheetView and NewCharacterDialog import the skeletons statically; the old 3 MB rulebook monolith is gone from the eager graph. Splitting those consumers behind `React.lazy` is future UI work, not a content-pipeline task.
+- The application shell loads `WorkspaceApp` lazily, so guest reading and sign-in do not import hero calculations. `consumer-features` reads precomputed trait prices instead of importing the builder. Sheet development, inventory, notes and companions are separate lazy views. The sheet still needs large shared mechanics and rule projections; further class-specific splitting needs explicit async domain contracts. See [the performance audit](performance-audit.md).
+- Production builds create Brotli/gzip sidecars. The Node static handler negotiates them, streams files, revalidates HTML with ETags and caches hashed assets for one year. Other hosting providers must supply equivalent compression/cache headers themselves.
 - Several historical tests inspect source text. Prefer behavioral tests for future changes; do not count string assertions as browser coverage.
 - Preserve historical design/audit documents as context. Their test counts and file references describe prior iterations, not the current inventory.
