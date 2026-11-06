@@ -3,7 +3,8 @@ import {
   ancestryTraitAbilities,
   ancestryTraitChoice,
 } from "../../../lib/ancestry-features";
-import { AbilityCard } from "../../AbilityCard";
+import { AbilityCardContent } from "../../AbilityCard";
+import { normalizeFeatureText } from "../../../lib/utils";
 import { ChoiceCard } from "../../ChoiceCard";
 import { RuleText } from "../../RuleText";
 import { SkillPicker } from "../../SkillPicker";
@@ -67,11 +68,7 @@ export function AncestryOptionsStep() {
               return (
                 <ChoiceCard
                   key={t.name}
-                  eyebrow={
-                    choice || abilities.length > 0
-                      ? "Знаковая способность"
-                      : "Черта происхождения"
-                  }
+                  eyebrow="Черта происхождения"
                   title={t.name}
                   meta={`${t.cost} очк.`}
                   selected={chosen}
@@ -86,10 +83,11 @@ export function AncestryOptionsStep() {
                   onOpen={() => openTrait({ name: t.name, text: t.text })}
                 >
                   {abilities.map((ability) => (
-                    <AbilityCard
+                    <AbilityCardContent
                       key={ability.id}
                       ability={ability}
                       character={hero}
+                      showName={normalizeFeatureText(ability.name) !== normalizeFeatureText(t.name)}
                     />
                   ))}
                   {choice && (
@@ -125,7 +123,7 @@ export function AncestryOptionsStep() {
                             </Select>
                           </label>
                           {selectedAbility && (
-                            <AbilityCard
+                            <AbilityCardContent
                               ability={selectedAbility}
                               character={hero}
                             />
@@ -140,9 +138,7 @@ export function AncestryOptionsStep() {
                     </div>
                   )}
                   {!choice && abilities.length === 0 && (
-                    <div className="choice-card-clamp">
-                      <RuleText text={t.text} />
-                    </div>
+                    <RuleText text={t.text} />
                   )}
                 </ChoiceCard>
               );

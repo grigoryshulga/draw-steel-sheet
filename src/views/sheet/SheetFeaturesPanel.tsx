@@ -1,15 +1,15 @@
 import { useMemo, useState } from "react";
 import { Button, Panel } from "../../components/ui";
-import { passiveClassFeatures } from "../../lib/class-feature-view";
+import { sheetFeatures } from "../../lib/sheet-features";
 import { useApp } from "../../state/AppContext";
 import { PassiveFeatureCard } from "./PassiveFeatureCard";
 import "./SheetAbilitiesPanel.css";
 import "./SheetFeaturesPanel.css";
 
-/** Пассивные особенности класса и подкласса на листе героя. */
+/** Знаковые черты происхождения и пассивные особенности класса на листе героя. */
 export function SheetFeaturesPanel() {
   const { character } = useApp();
-  const features = useMemo(() => passiveClassFeatures(character), [character]);
+  const features = useMemo(() => sheetFeatures(character), [character]);
   const [collapsed, setCollapsed] = useState(false);
   const [compact, setCompact] = useState(false);
 

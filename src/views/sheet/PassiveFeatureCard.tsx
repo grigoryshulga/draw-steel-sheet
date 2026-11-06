@@ -32,11 +32,12 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
           >
             {item.name}
           </CardTitle>
-          {item.notes && (
+          {(item.notes || item.category === "ancestry") && (
             <div className="sheet-ability-card-tags">
-              <HelpTooltip label={`Примечание: ${item.name}`}>
+              {item.category === "ancestry" && <Chip title={item.source}>Знаковая черта</Chip>}
+              {item.notes && <HelpTooltip label={`Примечание: ${item.name}`}>
                 <div className="rich-text"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.notes}</ReactMarkdown></div>
-              </HelpTooltip>
+              </HelpTooltip>}
             </div>
           )}
         </CardHeader>
@@ -51,7 +52,7 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
         open={open}
         onClose={() => setOpen(false)}
         title={item.name}
-        source={`${item.level} ур.`}
+        source={item.source ?? `${item.level} ур.`}
         meta={
           <Chip tone={item.category === "subclass" ? "blue" : "default"}>
             {FEATURE_CATEGORY_LABELS[item.category]}

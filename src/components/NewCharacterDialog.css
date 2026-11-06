@@ -586,13 +586,6 @@
   gap: var(--space-5);
 }
 
-.choice-card-clamp {
-  max-height: 10em;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
-}
-
 /* Выбор способности внутри черты происхождения: не переключает саму черту. */
 .builder-trait-choice {
   display: flex;

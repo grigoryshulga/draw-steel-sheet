@@ -81,6 +81,8 @@ export interface FeatureSheetItem {
   id: string;
   name: string;
   level: number;
+  /** Источник для особенностей, не привязанных к уровню класса. */
+  source?: string;
   /** Категория для фильтра и подписи карточки на листе. */
   category: FeatureSheetCategory;
   /**
@@ -116,6 +118,7 @@ export interface FeatureSheetGroup {
 
 /** Смысловая категория записи — вторая ось после уровня. */
 export type FeatureSheetCategory =
+  | "ancestry"
   | "class"
   | "subclass"
   | "resource"
@@ -123,6 +126,7 @@ export type FeatureSheetCategory =
   | "trigger";
 
 export const FEATURE_CATEGORY_LABELS: Record<FeatureSheetCategory, string> = {
+  ancestry: "Знаковая черта",
   class: "Класс",
   subclass: "Подкласс",
   resource: "Ресурс",
@@ -131,6 +135,7 @@ export const FEATURE_CATEGORY_LABELS: Record<FeatureSheetCategory, string> = {
 };
 
 const FEATURE_CATEGORY_ORDER: FeatureSheetCategory[] = [
+  "ancestry",
   "class",
   "subclass",
   "resource",

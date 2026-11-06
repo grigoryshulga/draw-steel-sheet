@@ -5,9 +5,39 @@ import { Card, CardHeader, CardTitle } from "./ui";
 import {
   AbilityBody,
   AbilityTags,
+  type AbilitySheetView,
 } from "./rules/AbilitySheet";
 import { abilityCardView } from "./rules/abilityCardView";
 import "./AbilityCard.css";
+
+function AbilityContent({ ability, view, full }: {
+  ability: Ability;
+  view: AbilitySheetView;
+  full: boolean;
+}) {
+  return <>
+    {ability.trigger && (
+      <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
+    )}
+    <AbilityBody view={view} full={full} />
+  </>;
+}
+
+/** Содержимое способности внутри карточки выбора: без второй оболочки и шапки. */
+export function AbilityCardContent({ ability, character, showName = false }: {
+  ability: Ability;
+  character: Character;
+  showName?: boolean;
+}) {
+  const view = abilityCardView(ability, character);
+  return (
+    <div className="ability-card-content">
+      {showName && <strong className="ability-card-content-name">{ability.name}</strong>}
+      <AbilityTags view={view} />
+      <AbilityContent ability={ability} view={view} full />
+    </div>
+  );
+}
 
 export interface AbilityCardProps {
   ability: Ability;
@@ -72,10 +102,7 @@ export function AbilityCard({
         <AbilityTags view={view} />
       </CardHeader>
 
-      {ability.trigger && (
-        <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
-      )}
-      <AbilityBody view={view} full={full} />
+      <AbilityContent ability={ability} view={view} full={full} />
 
       {details}
 

@@ -79,7 +79,7 @@ export function CareerOptionsStep({ part }: { part: string }) {
                       key={i}
                       eyebrow="Инцидент"
                       title={title}
-                      summary={<div className="choice-card-clamp">{text}</div>}
+                      summary={text}
                       selected={draft.incident === incident}
                       onSelect={() => patch({ incident })}
                       onOpen={() => openIncident({ title, text })}
