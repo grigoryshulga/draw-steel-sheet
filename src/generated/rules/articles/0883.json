@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0883",
+      "title": "3-й Уровень Цензора",
+      "chapter": "08. Классы",
+      "group": "Цензор",
+      "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи цензором 3-го уровня, вы получаете следующие Особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-3.look-on-my-work-and-despair"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-3.7-wrath-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-3.edict-of-disruptive-isolation"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-3.edict-of-perfect-order"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-3.edict-of-purifying-pacifism"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-3.edict-of-stillness"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level censor, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.censor.level-3.look-on-my-work-and-despair",
+      "kind": "feature",
+      "name": "Узрите мои дела и отчайтесь",
+      "markdown": "#### Узрите мои дела и отчайтесь\n\nВаше правосудие выросло в божественной силе, внушая страх тем, кого вы осуждаете. Всякий раз, когда вы используете свою способность Суд, вы можете потратить 1 гнев, и если у цели П < СРЕДНИЙ, она напугана вами (до прох.). Дополнительно, всякий раз, когда существо, осужденное вами, доводится до 0 Выносливости, и вы используете Суд как свободный триггер, если у новой цели П < СИЛЬНЫЙ, она напугана вами (до прох.). Если цель уже напугана вами, она вместо этого получает святой урон, равный двойному показателю вашего Присутствия.\n\n---\n",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.censor.level-3/look-on-my-work-and-despair",
+      "originalName": "Look On My Work and Despair",
+      "originalDescription": "Your judgment has grown in divine power, instilling fear in those you condemn. Whenever you use your Judgment ability, you can spend 1 wrath, and if the target has P < AVERAGE, they are frightened of you (save ends). Additionally, whenever a creature judged by you is reduced to 0 Stamina and you use Judgment as a free triggered action, if the new target has P < STRONG, they are frightened of you (save ends). If the target is already frightened of you, they instead take holy damage equal to twice your Presence score."
+    },
+    {
+      "id": "feature.censor.level-3.7-wrath-ability",
+      "kind": "feature",
+      "name": "Способность за 7 гнева",
+      "markdown": "#### Способность за 7 гнева\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 7 гнева для использования.\n\n",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.censor.level-3/7-wrath-ability",
+      "originalName": "7-Wrath Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 wrath to use."
+    },
+    {
+      "id": "feature.ability.censor.level-3.edict-of-disruptive-isolation",
+      "kind": "ability",
+      "name": "Эдикт Разрушительной Изоляции",
+      "markdown": "> **Эдикт Разрушительной Изоляции (7 Гнева)**\n>\n> *Зло внутри ваших врагов детонирует святым огнем, который сжигает только виновных.*\n>\n> | **Область, Магия** |                  **Маневр** |\n> | --------------- | ----------------------------: |\n> | **📏 Аура 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, каждая цель получает святой урон, равный показателю вашего Присутствия, в конце каждого вашего хода. Цель получает дополнительные 2d6 святого урона, если она осуждена вами или если она смежна с любым врагом.",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-3.edict-of-disruptive-isolation",
+        "name": "Эдикт Разрушительной Изоляции",
+        "flavor": "Зло внутри ваших врагов детонирует святым огнем, который сжигает только виновных.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, каждая цель получает святой урон, равный показателю вашего Присутствия, в конце каждого вашего хода. Цель получает дополнительные 2d6 святого урона, если она осуждена вами или если она смежна с любым врагом.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-disruptive-isolation",
+        "originalName": "Edict of Disruptive Isolation",
+        "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-disruptive-isolation",
+      "originalName": "Edict of Disruptive Isolation",
+      "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy."
+    },
+    {
+      "id": "feature.ability.censor.level-3.edict-of-perfect-order",
+      "kind": "ability",
+      "name": "Эдикт Идеального Порядка",
+      "markdown": "> **Эдикт Идеального Порядка (7 Гнева)**\n>\n> *В пределах вашего божественного присутствия враги пожалеют об использовании своих зловещих способностей.*\n>\n> | **Область, Магия** |                  **Маневр** |\n> | --------------- | ----------------------------: |\n> | **📏 Аура 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель использует способность, которая стоит Раздора (смотрите *Draw Steel: Monsters*), она получает святой урон, равный трехкратному показателю вашего Присутствия. Цель, осужденная вами, получает дополнительные 2d6 святого урона.",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-3.edict-of-perfect-order",
+        "name": "Эдикт Идеального Порядка",
+        "flavor": "В пределах вашего божественного присутствия враги пожалеют об использовании своих зловещих способностей.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель использует способность, которая стоит Раздора (смотрите Draw Steel: Monsters), она получает святой урон, равный трехкратному показателю вашего Присутствия. Цель, осужденная вами, получает дополнительные 2d6 святого урона.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-perfect-order",
+        "originalName": "Edict of Perfect Order",
+        "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-perfect-order",
+      "originalName": "Edict of Perfect Order",
+      "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage."
+    },
+    {
+      "id": "feature.ability.censor.level-3.edict-of-purifying-pacifism",
+      "kind": "ability",
+      "name": "Эдикт Очищающего Пацифизма",
+      "markdown": "> **Эдикт Очищающего Пацифизма (7 Гнева)**\n>\n> *Вы излучаете праведную энергию, которая наказывает врагов, желающих навредить вам или вашим союзникам.*\n>\n> | **Область, Магия** |                  **Маневр** |\n> | --------------- | ----------------------------: |\n> | **📏 Аура 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель совершает удар, она получает святой урон, равный двойному показателю вашего Присутствия. Цель, осужденная вами, получает дополнительные 2d6 святого урона.",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-3.edict-of-purifying-pacifism",
+        "name": "Эдикт Очищающего Пацифизма",
+        "flavor": "Вы излучаете праведную энергию, которая наказывает врагов, желающих навредить вам или вашим союзникам.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель совершает удар, она получает святой урон, равный двойному показателю вашего Присутствия. Цель, осужденная вами, получает дополнительные 2d6 святого урона.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-purifying-pacifism",
+        "originalName": "Edict of Purifying Pacifism",
+        "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-purifying-pacifism",
+      "originalName": "Edict of Purifying Pacifism",
+      "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage."
+    },
+    {
+      "id": "feature.ability.censor.level-3.edict-of-stillness",
+      "kind": "ability",
+      "name": "Эдикт Неподвижности",
+      "markdown": "> **Эдикт Неподвижности (7 Гнева)**\n>\n> *Святая аура, которую вы проецируете, делает болезненным для злодеев попытки покинуть зону вашей досягаемости.*\n>\n> | **Область, Магия** |                  **Маневр** |\n> | --------------- | ----------------------------: |\n> | **📏 Аура 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель перемещается или подвергается принудительному движению за пределы области, она получает святой урон, равный двойному показателю вашего Присутствия. Цель, осужденная вами, которая добровольно перемещается, получает дополнительные 2d6 святого урона.",
+      "source": {
+        "articleId": "0883",
+        "path": "08. Классы/Цензор/0883. 3-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-3.edict-of-stillness",
+        "name": "Эдикт Неподвижности",
+        "flavor": "Святая аура, которую вы проецируете, делает болезненным для злодеев попытки покинуть зону вашей досягаемости.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, всякий раз, когда цель перемещается или подвергается принудительному движению за пределы области, она получает святой урон, равный двойному показателю вашего Присутствия. Цель, осужденная вами, которая добровольно перемещается, получает дополнительные 2d6 святого урона.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-stillness",
+        "originalName": "Edict of Stillness",
+        "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-stillness",
+      "originalName": "Edict of Stillness",
+      "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage."
+    }
+  ]
+}

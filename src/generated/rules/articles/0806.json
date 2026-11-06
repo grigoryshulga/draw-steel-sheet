@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0806",
+      "title": "6-й Уровень Неистового",
+      "chapter": "08. Классы",
+      "group": "Неистовый",
+      "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи неистовым 6-го уровня, вы получаете следующие особенности.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.marauder-of-the-primordial-chaos"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.primordial-portal"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.6th-level-aspect-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.berserker-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.avalanche-impact"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.force-of-storms"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.reaver-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.death-strike"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.seek-and-destroy"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-6.stormwight-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.pounce"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-6.riders-on-the-storm"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level fury, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.fury.level-6.marauder-of-the-primordial-chaos",
+      "kind": "feature",
+      "name": "Мародер Первозданного Хаоса",
+      "markdown": "#### Мародер Первозданного Хаоса\nПо мере того, как ваша связь с силой Первозданного Хаоса становится все сильнее, вы автоматически ощущаете любых элементальных существ или магические источники элементальной силы, такие как лужа лавы или озеро, пересекающееся с Квинтэссенцией, в пределах 1 мили от вас.\n\nДополнительно, вы можете разговаривать с элементальными существами, и когда вы находитесь в переговорах с элементалем, вы считаете свою Славу на 1 выше, чем обычно. Это суммируется с увеличением вашей эффективной Славы, обеспечиваемым особенностью аспекта Рыцарь природы (смотрите [Особенности 3-го уровня](#/codex/0803)). Когда любой элементаль впервые понимает что находится с вами в бою, если у него П < СРЕДНИЙ, он напуган вами (до прох.).\n\n---\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/marauder-of-the-primordial-chaos",
+      "originalName": "Marauder of the Primordial Chaos",
+      "originalDescription": "As your connection to the power of the Primordial Chaos grows ever stronger, you automatically sense any elemental creatures or magic sources of elemental power, such as a lava pool or a lake overlapping with Quintessence, within 1 mile of you.\n\nAdditionally, you can speak with elemental creatures, and when you are in a negotiation with an elemental, you treat your Renown as 1 higher than usual. This stacks with the increase to your effective Renown provided by the Nature's Knight aspect feature (see 3rd-Level Features). When any elemental first becomes aware of you in combat, if they have P < AVERAGE, they are frightened of you (save ends)."
+    },
+    {
+      "id": "feature.fury.level-6.primordial-portal",
+      "kind": "feature",
+      "name": "Первозданный портал",
+      "markdown": "#### Первозданный портал\nКак основное действие вы можете коснуться магического источника элементальной силы и использовать его для создания портала в Квинтэссенцию. Затем вы можете использовать основное действие, чтобы телепортировать себя и любых согласных существ в пределах 10 клеток от вас через портал на безопасный остров в Квинтэссенции, или телепортироваться обратно. Вы можете поддерживать количество порталов, равное показателю вашей Мощи, каждый из которых ведет на один и тот же безопасный остров в Квинтэссенции. Если портал в вашей сети уничтожен, он больше не является частью сети. Вы можете удалить портал из вашей сети независимо от вашего расстояния до него, в том числе через разные миры (действие не требуется).\n\n(Исследование Квинтэссенции возможно с вашего острова, но постоянная безопасность не гарантируется.)\n\n---\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/primordial-portal",
+      "originalName": "Primordial Portal",
+      "originalDescription": "As a main action, you can touch a magic source of elemental power and use it to create a portal to Quintessence. You can then use a main action to teleport yourself and any willing creatures within 10 squares of you through the portal and onto a safe island in Quintessence, or to teleport back again. You can maintain a number of portals equal to your Might score, each leading to the same safe island in Quintessence. If a portal in your network is destroyed, it is no longer part of the network. You can remove a portal from your network no matter your distance from it, including across different worlds (no action required).\n\n(Exploring Quintessence is possible from your island, but continued safety is not guaranteed.)"
+    },
+    {
+      "id": "feature.fury.level-6.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\nВы получаете один перк ремесла, исследования или интриги по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice."
+    },
+    {
+      "id": "feature.fury.level-6.6th-level-aspect-ability",
+      "kind": "feature",
+      "name": "Способность аспекта 6-го уровня",
+      "markdown": "#### Способность аспекта 6-го уровня\nВаш первозданный аспект дает вам на выбор одну из двух героических способностей.\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-6/6th-level-aspect-ability",
+      "originalName": "6th-Level Aspect Ability",
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 6th-Level Berserker Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Reaver Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Stormwight Abilities\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.fury.level-6.berserker-abilities",
+      "kind": "feature",
+      "name": "Способности Берсерка 6-го уровня",
+      "markdown": "##### Способности Берсерка 6-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Berserker Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-6.avalanche-impact",
+      "kind": "ability",
+      "name": "Лавинный Удар",
+      "markdown": "> **Лавинный Удар (9 Свирепости)**\n>\n> *Вы прыгаете и обрушиваетесь вниз, вызывая ударную волну, которая сносит врагов.*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы прыгаете на максимальное расстояние прыжка и делаете один бросок силы, который нацелен на каждое существо, смежное с клеткой, где вы приземляетесь.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 урона; толчок 1\n> - **12-16:** 7 урона; толчок 2\n> - **17+:** 11 урона; толчок 3",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.avalanche-impact",
+        "name": "Лавинный Удар",
+        "flavor": "Вы прыгаете и обрушиваетесь вниз, вызывая ударную волну, которая сносит врагов.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": "Толчок 1"
+          },
+          {
+            "damage": "7",
+            "effect": "Толчок 2"
+          },
+          {
+            "damage": "11",
+            "effect": "Толчок 3"
+          }
+        ],
+        "effect": "Вы прыгаете на максимальное расстояние прыжка и делаете один бросок силы, который нацелен на каждое существо, смежное с клеткой, где вы приземляетесь.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/avalanche-impact",
+        "originalName": "Avalanche Impact",
+        "originalDescription": "*You leap and crash down, causing a shockwave that devastates foes.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You jump up to your maximum jump distance and make one power roll that targets each creature adjacent to the space where you land.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; push 1\n- **12-16:** 7 damage; push 2\n- **17+:** 11 damage; push 3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/avalanche-impact",
+      "originalName": "Avalanche Impact",
+      "originalDescription": "*You leap and crash down, causing a shockwave that devastates foes.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You jump up to your maximum jump distance and make one power roll that targets each creature adjacent to the space where you land.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; push 1\n- **12-16:** 7 damage; push 2\n- **17+:** 11 damage; push 3"
+    },
+    {
+      "id": "feature.ability.fury.level-6.force-of-storms",
+      "kind": "ability",
+      "name": "Сила Штормов",
+      "markdown": "> **Сила Штормов (9 Свирепости)**\n>\n> *Вы бьете врага достаточно сильно, чтобы он стал снарядом, который разбрасывает толпу существ.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 7 + М урона; толчок 3\n> - **12-16:** 11 + М урона; толчок 5\n> - **17+:** 16 + М урона; толчок 7\n>\n> **Эффект:** Когда цель завершает это принудительное движение, каждое существо в пределах 2 клеток от цели получает толчок на 3 клетки.",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.force-of-storms",
+        "name": "Сила Штормов",
+        "flavor": "Вы бьете врага достаточно сильно, чтобы он стал снарядом, который разбрасывает толпу существ.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "7 + M",
+            "effect": "Толчок 3"
+          },
+          {
+            "damage": "11 + M",
+            "effect": "Толчок 5"
+          },
+          {
+            "damage": "16 + M",
+            "effect": "Толчок 7"
+          }
+        ],
+        "effect": "Когда цель завершает это принудительное движение, каждое существо в пределах 2 клеток от цели получает толчок на 3 клетки.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/force-of-storms",
+        "originalName": "Force of Storms",
+        "originalDescription": "*You strike an enemy hard enough to be a projectile that knocks a crowd of creatures around.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage; push 3\n- **12-16:** 11 + M damage; push 5\n- **17+:** 16 + M damage; push 7\n\n**Effect:** When the target ends this forced movement, each creature within 2 squares of the target is pushed 3 squares."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/force-of-storms",
+      "originalName": "Force of Storms",
+      "originalDescription": "*You strike an enemy hard enough to be a projectile that knocks a crowd of creatures around.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 7 + M damage; push 3\n- **12-16:** 11 + M damage; push 5\n- **17+:** 16 + M damage; push 7\n\n**Effect:** When the target ends this forced movement, each creature within 2 squares of the target is pushed 3 squares."
+    },
+    {
+      "id": "feature.fury.level-6.reaver-abilities",
+      "kind": "feature",
+      "name": "Способности Разорителя 6-го уровня",
+      "markdown": "##### Способности Разорителя 6-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Reaver Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-6.death-strike",
+      "kind": "ability",
+      "name": "Смертельный Удар",
+      "markdown": "> **Смертельный Удар (9 Свирепости)**\n>\n> *Как только вы чувствуете вкус крови вашего врага, вы становитесь более эффективным и превращаете каждый смертельный удар в возможность.*\n>\n> | **Ближний, Удар, Оружие** | **Свободный триггер** |\n> | ------------------------- | -----------------: |\n> | **📏 Ближний 1** | **🎯 На себя** |\n>\n> **Триггер:** Вы снижаете выносливость существа до 0 с помощью удара.\n>\n> **Эффект:** Вы нацеливаетесь на существо, смежное с вами, тем же ударом, используя тот же бросок силы, что и вызвавший триггер удар.",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.death-strike",
+        "name": "Смертельный Удар",
+        "flavor": "Как только вы чувствуете вкус крови вашего врага, вы становитесь более эффективным и превращаете каждый смертельный удар в возможность.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "Вы снижаете выносливость существа до 0 с помощью удара.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы нацеливаетесь на существо, смежное с вами, тем же ударом, используя тот же бросок силы, что и вызвавший триггер удар.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+        "originalName": "Death Strike",
+        "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/death-strike",
+      "originalName": "Death Strike",
+      "originalDescription": "*Once you taste your foe's blood, you become more efficient and turn every killing blow into an opportunity.*\n\n| **Melee, Strike, Weapon** | **Free triggered** |\n|---------------------------|-------------------:|\n| **📏 Melee 1**            |        **🎯 Self** |\n\n**Trigger:** You reduce a creature to 0 Stamina with a strike.\n\n**Effect:** You target a creature adjacent to you with the same strike, using the same power roll as the triggering strike."
+    },
+    {
+      "id": "feature.ability.fury.level-6.seek-and-destroy",
+      "kind": "ability",
+      "name": "Найти и Уничтожить",
+      "markdown": "> **Найти и Уничтожить (9 Свирепости)**\n>\n> *Вы прорываетесь через линии врага, чтобы показать пример.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы смещаетесь на расстояние вплоть до вашей скорости.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 + М урона; П < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 6 + М урона; П < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 10 + М урона; П < СИЛЬНЫЙ, испуг (до прох.)\n>\n> **Эффект:** Если цель, не являющаяся лидером или соло-существом, входит в состояние утомления от этого удара, ее выносливость снижается до 0, и вы выбираете врага в пределах 5 клеток от вас. Если у этого врага П < СРЕДНИЙ, он напуган вами (до прох.).",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.seek-and-destroy",
+        "name": "Найти и Уничтожить",
+        "flavor": "Вы прорываетесь через линии врага, чтобы показать пример.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + M",
+            "effect": "П < СЛАБЫЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "6 + M",
+            "effect": "П < СРЕДНИЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "10 + M",
+            "effect": "П < СИЛЬНЫЙ, испуг (до прох.)"
+          }
+        ],
+        "effect": "Вы смещаетесь на расстояние вплоть до вашей скорости.\n\nЕсли цель, не являющаяся лидером или соло-существом, входит в состояние утомления от этого удара, ее выносливость снижается до 0, и вы выбираете врага в пределах 5 клеток от вас. Если у этого врага П < СРЕДНИЙ, он напуган вами (до прох.).",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+        "originalName": "Seek and Destroy",
+        "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/seek-and-destroy",
+      "originalName": "Seek and Destroy",
+      "originalDescription": "*You break through the enemy lines to make an example.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You shift up to your speed.\n\n**Power Roll + Might:**\n\n- **≤11:** 4 + M damage; P < WEAK, frightened (save ends)\n- **12-16:** 6 + M damage; P < AVERAGE, frightened (save ends)\n- **17+:** 10 + M damage; P < STRONG, frightened (save ends)\n\n**Effect:** If a target who is not a leader or solo creature is winded by this strike, they are reduced to 0 Stamina and you choose an enemy within 5 squares of you. If that enemy has P < AVERAGE, they are frightened of you (save ends)."
+    },
+    {
+      "id": "feature.fury.level-6.stormwight-abilities",
+      "kind": "feature",
+      "name": "Способности Буревестника 6-го уровня",
+      "markdown": "##### Способности Буревестника 6-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Stormwight Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-6.pounce",
+      "kind": "ability",
+      "name": "Звериный Наскок",
+      "markdown": "> **Звериный Наскок (9 Свирепости)**\n>\n> *Вы бросаетесь на цель, как истинный хищник, которым вы являетесь.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 8 урона; М < СЛАБЫЙ, схваченный\n> - **12-16:** 13 урона; М < СРЕДНИЙ, схваченный\n> - **17+:** 17 урона; М < СИЛЬНЫЙ, схваченный\n>\n> **Эффект:** Вы можете сместиться вплоть до 4 клеток, забирая цель с собой. Будучи схваченной таким образом, цель получает урон, равный двойному показателю вашей Мощи, в начале каждого вашего хода.",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.pounce",
+        "name": "Звериный Наскок",
+        "flavor": "Вы бросаетесь на цель, как истинный хищник, которым вы являетесь.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "8",
+            "effect": "М < СЛАБЫЙ, схваченный"
+          },
+          {
+            "damage": "13",
+            "effect": "М < СРЕДНИЙ, схваченный"
+          },
+          {
+            "damage": "17",
+            "effect": "М < СИЛЬНЫЙ, схваченный"
+          }
+        ],
+        "effect": "Вы можете сместиться вплоть до 4 клеток, забирая цель с собой. Будучи схваченной таким образом, цель получает урон, равный двойному показателю вашей Мощи, в начале каждого вашего хода.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+        "originalName": "Pounce",
+        "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/pounce",
+      "originalName": "Pounce",
+      "originalDescription": "*You strike at the target like the ultimate predator you are.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 damage; M < WEAK, grabbed\n- **12-16:** 13 damage; M < AVERAGE, grabbed\n- **17+:** 17 damage; M < STRONG, grabbed\n\n**Effect:** You can shift up to 4 squares, bringing the target with you. While grabbed this way, the target takes damage equal to twice your Might score at the start of each of your turns."
+    },
+    {
+      "id": "feature.ability.fury.level-6.riders-on-the-storm",
+      "kind": "ability",
+      "name": "Оседлавшие Бурю",
+      "markdown": "> **Оседлавшие Бурю (9 Свирепости)**\n>\n> *Вы концентрируете свою связь с Первозданным Хаосом в кипящий шторм.*\n>\n> | **Область, Магия** | **Маневр** |\n> | --------------- | -------------------------------: |\n> | **📏 Аура 3** | **🎯 Каждое существо в области** |\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, каждая вражеская цель получает урон вашего первозданного типа урона, равный двойному показателю вашей Мощи, в конце каждого вашего хода. Дополнительно, вы можете летать, пока аура активна. Каждая союзная цель, которая начинает или заканчивает свой ход в области, также может летать до начала своего следующего хода или до окончания эффекта.\n>\n> **Особое:** Когда вы используете эту способность вне боя, не тратя свирепости, вы должны потратить 1 непрерывную минуту, призывая первозданный шторм, который заполняет область, и вы получаете 1d6 урона, прежде чем способность вступит в силу. Шторм длится 1 час или до начала боевой встречи.",
+      "source": {
+        "articleId": "0806",
+        "path": "08. Классы/Неистовый/0806. 6-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-6.riders-on-the-storm",
+        "name": "Оседлавшие Бурю",
+        "flavor": "Вы концентрируете свою связь с Первозданным Хаосом в кипящий шторм.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 3",
+        "target": "Каждое существо в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, каждая вражеская цель получает урон вашего первозданного типа урона, равный двойному показателю вашей Мощи, в конце каждого вашего хода. Дополнительно, вы можете летать, пока аура активна. Каждая союзная цель, которая начинает или заканчивает свой ход в области, также может летать до начала своего следующего хода или до окончания эффекта.\n\nОсобое: Когда вы используете эту способность вне боя, не тратя свирепости, вы должны потратить 1 непрерывную минуту, призывая первозданный шторм, который заполняет область, и вы получаете 1d6 урона, прежде чем способность вступит в силу. Шторм длится 1 час или до начала боевой встречи.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/riders-on-the-storm",
+        "originalName": "Riders on the Storm",
+        "originalDescription": "*You focus your connection to the Primordial Chaos into a seething storm.*\n\n| **Area, Magic** |                     **Maneuver** |\n|-----------------|---------------------------------:|\n| **📏 3 aura**   | **🎯 Each creature in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy target takes damage of your primordial damage type equal to twice your Might score at the end of each of your turns. Additionally, you can fly while the aura is active. Each ally target who starts or ends their turn in the area can also fly until the start of their next turn or until the effect ends.\n\n**Special:** When you use this ability outside of combat without spending ferocity, you must spend 1 uninterrupted minute summoning a primordial storm that fills the area, and you take 1d6 damage before the ability takes effect. The storm lasts for 1 hour or until a combat encounter begins."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-6/riders-on-the-storm",
+      "originalName": "Riders on the Storm",
+      "originalDescription": "*You focus your connection to the Primordial Chaos into a seething storm.*\n\n| **Area, Magic** |                     **Maneuver** |\n|-----------------|---------------------------------:|\n| **📏 3 aura**   | **🎯 Each creature in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy target takes damage of your primordial damage type equal to twice your Might score at the end of each of your turns. Additionally, you can fly while the aura is active. Each ally target who starts or ends their turn in the area can also fly until the start of their next turn or until the effect ends.\n\n**Special:** When you use this ability outside of combat without spending ferocity, you must spend 1 uninterrupted minute summoning a primordial storm that fills the area, and you take 1d6 damage before the ability takes effect. The storm lasts for 1 hour or until a combat encounter begins."
+    }
+  ]
+}

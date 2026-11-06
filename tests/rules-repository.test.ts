@@ -427,3 +427,44 @@ describe("rules index navigation", () => {
     ).toBeUndefined();
   });
 });
+
+describe("single-article delivery", () => {
+  it("deduplicates concurrent reads and resolves cross-chapter entities without fetching chapters", async () => {
+    const loadPack = vi.fn();
+    const loadArticlePack = vi.fn(async () => ({ schemaVersion: 1 as const,
+      articles: [coreArticle], entities: [coreEntity, expandedEntity] }));
+    const repo = createRuleRepository({ manifest, loadPack, loadArticlePack, loadSearchIndex: async () => searchIndex });
+    const [first, second] = await Promise.all([repo.loadRuleArticle("a1"), repo.loadRuleArticle("a1")]);
+    expect(first).toBe(second);
+    expect(first.entities[expandedEntity.id]).toEqual(expandedEntity);
+    expect(await repo.loadRuleEntity(expandedEntity.id)).toEqual(expandedEntity);
+    expect(loadArticlePack).toHaveBeenCalledTimes(1);
+    expect(loadPack).not.toHaveBeenCalled();
+  });
+
+  it("reuses an in-flight chapter when a class page opens an entity and its articles together", async () => {
+    const data = packs();
+    const loadPack = vi.fn(async (id: string) => data[id]);
+    const loadArticlePack = vi.fn();
+    const repo = createRuleRepository({ manifest, loadPack, loadArticlePack, loadSearchIndex: async () => searchIndex });
+    const [entity, first, second] = await Promise.all([
+      repo.loadRuleEntity(coreEntity.id), repo.loadRuleArticle("a1"), repo.loadRuleArticle("a2"),
+    ]);
+    expect(entity).toEqual(coreEntity);
+    expect(first.article).toEqual(coreArticle);
+    expect(second.article).toEqual(secondCoreArticle);
+    expect(loadArticlePack).not.toHaveBeenCalled();
+    expect(loadPack.mock.calls.filter(([id]) => id === "core")).toHaveLength(1);
+  });
+
+  it("retries a failed article and does not cache the rejection", async () => {
+    const loadArticlePack = vi.fn().mockRejectedValueOnce(new Error("offline"))
+      .mockResolvedValue({ schemaVersion: 1, articles: [coreArticle], entities: [coreEntity, expandedEntity] });
+    const repo = createRuleRepository({ manifest, loadPack: vi.fn(), loadArticlePack, loadSearchIndex: async () => searchIndex });
+    await expect(repo.loadRuleArticle("a1")).rejects.toMatchObject({ code: "pack-failed", ruleId: "a1" });
+    expect((await repo.loadRuleArticle("a1")).article).toEqual(coreArticle);
+    expect(loadArticlePack).toHaveBeenCalledTimes(2);
+    await expect(repo.loadRuleArticle("unknown")).rejects.toMatchObject({ code: "unknown-article" });
+    expect(loadArticlePack).toHaveBeenCalledTimes(2);
+  });
+});

@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0853",
+      "title": "3-й Уровень Таланта",
+      "chapter": "08. Классы",
+      "group": "Талант",
+      "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи талантом 3-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.talent.level-3.scan"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.talent.level-3.7-clarity-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.talent.level-3.fling-through-time"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.talent.level-3.force-orbs"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.talent.level-3.reflector-field"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.talent.level-3.soul-burn"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level talent, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.talent.level-3.scan",
+      "kind": "feature",
+      "name": "Сканирование",
+      "markdown": "#### Сканирование\n\nВы можете расширить свои псионические чувства за пределы их обычного радиуса действия. Один раз в каждый свой ход вы можете искать скрытых существ как свободный маневр (смотрите [Скрытность и Подкрадывание](#/codex/1209)). Дополнительно, как только вы устанавливаете линию воздействия с мыслящим существом в пределах расстояния вашей способности Шип разума, у вас всегда есть линия воздействия с этим существом, пока оно не переместится за пределы этого расстояния.\n\n---\n",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.talent.level-3/scan",
+      "originalName": "Scan",
+      "originalDescription": "You can extend your psionic senses beyond their usual range. Once on each of your turns, you can search for hidden creatures as a free maneuver (see Hide and Sneak in Chapter 9: Tests). Additionally, once you establish line of effect to a thinking creature within distance of your Mind Spike ability, you always have line of effect to that creature until they move beyond that distance."
+    },
+    {
+      "id": "feature.talent.level-3.7-clarity-ability",
+      "kind": "feature",
+      "name": "Способность за 7 ясности",
+      "markdown": "#### Способность за 7 ясности\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 7 ясности для использования.\n\n",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.talent.level-3/7-clarity-ability",
+      "originalName": "7-Clarity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 clarity to use."
+    },
+    {
+      "id": "feature.ability.talent.level-3.fling-through-time",
+      "kind": "ability",
+      "name": "Бросок Сквозь Время",
+      "markdown": "> **Бросок Сквозь Время (7 Ясности)**\n>\n> *Вы швыряете цель сквозь анналы времени, заставляя ее быть свидетелем каждого момента своего существования одновременно.*\n>\n> | **Хронопатия, Псионика, Дальний**, **Удар** | **Основное действие** |\n> | -------------------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 3 + П урона порчей; П < СЛАБЫЙ, ослабление (до прох.)\n> - **12-16:** 5 + П урона порчей; цель бросается сквозь время, и если П < СРЕДНИЙ, она получает ослабление (до прох.)\n> - **17+:** 8 + П урона порчей; цель бросается сквозь время, и если П < СИЛЬНЫЙ, она получает ослабление (до прох.)\n>\n> **Эффект:** Цель, брошенная сквозь время, удаляется с карты боевой встречи до конца своего следующего хода, вновь появляясь в своем первоначальном пространстве или на ближайшей свободной клетке.\n>\n> **Возбужденность:** Вы получаете 2d6 урона и навсегда становитесь визуально старше (эквивалент 10 лет для человека). Если вы получаете результат третьего тира на броске силы, вы получаете 2 ясности.",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "ability": {
+        "id": "feature.ability.talent.level-3.fling-through-time",
+        "name": "Бросок Сквозь Время",
+        "flavor": "Вы швыряете цель сквозь анналы времени, заставляя ее быть свидетелем каждого момента своего существования одновременно.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Хронопатия",
+          "Псионика",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + P",
+            "effect": "Порчей; П < СЛАБЫЙ, ослабление (до прох.)"
+          },
+          {
+            "damage": "5 + P",
+            "effect": "Порчей; цель бросается сквозь время, и если П < СРЕДНИЙ, она получает ослабление (до прох.)"
+          },
+          {
+            "damage": "8 + P",
+            "effect": "Порчей; цель бросается сквозь время, и если П < СИЛЬНЫЙ, она получает ослабление (до прох.)"
+          }
+        ],
+        "effect": "Цель, брошенная сквозь время, удаляется с карты боевой встречи до конца своего следующего хода, вновь появляясь в своем первоначальном пространстве или на ближайшей свободной клетке.\n\nВозбужденность: Вы получаете 2d6 урона и навсегда становитесь визуально старше (эквивалент 10 лет для человека). Если вы получаете результат третьего тира на броске силы, вы получаете 2 ясности.",
+        "source": "Талант",
+        "notes": "",
+        "className": "Талант",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/fling-through-time",
+        "originalName": "Fling Through Time",
+        "originalDescription": "*You hurl the target through the annals of time, forcing them to witness every moment of their existence all at once.*\n\n| **Chronopathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P corruption damage; P < WEAK, weakened (save ends)\n- **12-16:** 5 + P corruption damage; the target is flung through time, and if P < AVERAGE, they are weakened (save ends)\n- **17+:** 8 + P corruption damage; the target is flung through time, and if P < STRONG, they are weakened (save ends)\n\n**Effect:** A target who is flung through time is removed from the encounter map until the end of their next turn, reappearing in their original space or the nearest unoccupied space.\n\n**Strained:** You take 2d6 damage and permanently grow visibly older (the equivalent of 10 years for a human). If you obtain a tier 3 outcome on the power roll, you gain 2 clarity."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/fling-through-time",
+      "originalName": "Fling Through Time",
+      "originalDescription": "*You hurl the target through the annals of time, forcing them to witness every moment of their existence all at once.*\n\n| **Chronopathy, Psionic, Ranged**, **Strike** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P corruption damage; P < WEAK, weakened (save ends)\n- **12-16:** 5 + P corruption damage; the target is flung through time, and if P < AVERAGE, they are weakened (save ends)\n- **17+:** 8 + P corruption damage; the target is flung through time, and if P < STRONG, they are weakened (save ends)\n\n**Effect:** A target who is flung through time is removed from the encounter map until the end of their next turn, reappearing in their original space or the nearest unoccupied space.\n\n**Strained:** You take 2d6 damage and permanently grow visibly older (the equivalent of 10 years for a human). If you obtain a tier 3 outcome on the power roll, you gain 2 clarity."
+    },
+    {
+      "id": "feature.ability.talent.level-3.force-orbs",
+      "kind": "ability",
+      "name": "Сферы Силы",
+      "markdown": "> **Сферы Силы (7 Ясности)**\n>\n> *Вокруг вас плавают сферы твердой псионической энергии.*\n>\n> | **Псионика, Дальний, Удар, Телекинез** | **Основное действие** |\n> | ---------------------------------------- | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы создаете три сферы размера 1T, которые вращаются вокруг вашего тела. Каждая сфера дает вам суммирующийся иммунитет к урону 1. Каждый раз, когда вы получаете урон, вы теряете 1 сферу.\n>\n> Один раз в каждый свой ход вы можете использовать свободный маневр, чтобы выстрелить сферой в существо или объект в пределах 5 клеток как дальний удар, теряя сферу после удара.\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 3 урона\n> - **17+:** 5 урона\n>\n> **Возбужденность:** Вы создаете пять сфер, и вы получаете ослабление, пока у вас есть активные сферы.",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "ability": {
+        "id": "feature.ability.talent.level-3.force-orbs",
+        "name": "Сферы Силы",
+        "flavor": "Вокруг вас плавают сферы твердой псионической энергии.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Псионика",
+          "Дальний",
+          "Удар",
+          "Телекинез"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": ""
+          },
+          {
+            "damage": "3",
+            "effect": ""
+          },
+          {
+            "damage": "5",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы создаете три сферы размера 1T, которые вращаются вокруг вашего тела. Каждая сфера дает вам суммирующийся иммунитет к урону 1. Каждый раз, когда вы получаете урон, вы теряете 1 сферу.\n\nОдин раз в каждый свой ход вы можете использовать свободный маневр, чтобы выстрелить сферой в существо или объект в пределах 5 клеток как дальний удар, теряя сферу после удара.\n\nВозбужденность: Вы создаете пять сфер, и вы получаете ослабление, пока у вас есть активные сферы.",
+        "source": "Талант",
+        "notes": "",
+        "className": "Талант",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/force-orbs",
+        "originalName": "Force Orbs",
+        "originalDescription": "*Spheres of solid psionic energy float around you.*\n\n| **Psionic, Ranged, Strike, Telekinesis** | **Main action** |\n|------------------------------------------|----------------:|\n| **📏 Self; see below**                   |     **🎯 Self** |\n\n**Effect:** You create three size 1T orbs that orbit your body. Each orb gives you a cumulative damage immunity 1. Each time you take damage, you lose 1 orb.\n\nOnce on each of your turns, you can use a free maneuver to fire an orb at a creature or object within 5 squares as a ranged strike, losing the orb after the strike.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Strained:** You create five orbs, and you are weakened while you have any orbs active."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/force-orbs",
+      "originalName": "Force Orbs",
+      "originalDescription": "*Spheres of solid psionic energy float around you.*\n\n| **Psionic, Ranged, Strike, Telekinesis** | **Main action** |\n|------------------------------------------|----------------:|\n| **📏 Self; see below**                   |     **🎯 Self** |\n\n**Effect:** You create three size 1T orbs that orbit your body. Each orb gives you a cumulative damage immunity 1. Each time you take damage, you lose 1 orb.\n\nOnce on each of your turns, you can use a free maneuver to fire an orb at a creature or object within 5 squares as a ranged strike, losing the orb after the strike.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 3 damage\n- **17+:** 5 damage\n\n**Strained:** You create five orbs, and you are weakened while you have any orbs active."
+    },
+    {
+      "id": "feature.ability.talent.level-3.reflector-field",
+      "kind": "ability",
+      "name": "Отражающее Поле",
+      "markdown": "> **Отражающее Поле (7 Ясности)**\n>\n> *Защитное поле обращает вспять импульс входящих атак.*\n>\n> | **Область, Псионика, Телепатия** | **Основное действие** |\n> | ---------------------------- | --------------: |\n> | **📏 Аура 3** | **🎯 Особая** |\n>\n> **Эффект:** Аура длится до начала вашего следующего хода. Всякий раз, когда враг нацеливается на союзника в области дальнобойной способностью, способность отменяется на союзнике и отражается обратно во врага. Способность наносит половину урона врагу, который она нанесла бы союзнику, и теряет любые дополнительные эффекты.\n>\n> **Возбужденность:** Размер ауры увеличивается на 1. Всякий раз, когда ваша аура отражает способность, вы получаете 2d6 урона и забываете одно воспоминание, как определяете вы и Ведущий.",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "ability": {
+        "id": "feature.ability.talent.level-3.reflector-field",
+        "name": "Отражающее Поле",
+        "flavor": "Защитное поле обращает вспять импульс входящих атак.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Псионика",
+          "Телепатия"
+        ],
+        "distance": "Аура 3",
+        "target": "Особая",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Аура длится до начала вашего следующего хода. Всякий раз, когда враг нацеливается на союзника в области дальнобойной способностью, способность отменяется на союзнике и отражается обратно во врага. Способность наносит половину урона врагу, который она нанесла бы союзнику, и теряет любые дополнительные эффекты.\n\nВозбужденность: Размер ауры увеличивается на 1. Всякий раз, когда ваша аура отражает способность, вы получаете 2d6 урона и забываете одно воспоминание, как определяете вы и Ведущий.",
+        "source": "Талант",
+        "notes": "",
+        "className": "Талант",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/reflector-field",
+        "originalName": "Reflector Field",
+        "originalDescription": "*A protective field reverses the momentum of incoming attacks.*\n\n| **Area, Psionic, Telepathy** | **Main action** |\n|------------------------------|----------------:|\n| **📏 3 aura**                |  **🎯 Special** |\n\n**Effect:** The aura lasts until the start of your next turn. Whenever an enemy targets an ally in the area with a ranged ability, the ability is negated on the ally and reflected back at the enemy. The ability deals half the damage to the enemy that it would have dealt to the ally and loses any additional effects.\n\n**Strained:** The size of the aura increases by 1. Whenever your aura reflects an ability, you take 2d6 damage and forget a memory, as determined by you and the Director."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/reflector-field",
+      "originalName": "Reflector Field",
+      "originalDescription": "*A protective field reverses the momentum of incoming attacks.*\n\n| **Area, Psionic, Telepathy** | **Main action** |\n|------------------------------|----------------:|\n| **📏 3 aura**                |  **🎯 Special** |\n\n**Effect:** The aura lasts until the start of your next turn. Whenever an enemy targets an ally in the area with a ranged ability, the ability is negated on the ally and reflected back at the enemy. The ability deals half the damage to the enemy that it would have dealt to the ally and loses any additional effects.\n\n**Strained:** The size of the aura increases by 1. Whenever your aura reflects an ability, you take 2d6 damage and forget a memory, as determined by you and the Director."
+    },
+    {
+      "id": "feature.ability.talent.level-3.soul-burn",
+      "kind": "ability",
+      "name": "Ожог Души",
+      "markdown": "> **Ожог Души (7 Ясности)**\n>\n> *Вы выбиваете их душу из тела, оставляя ее беспомощно плыть обратно к ослабленной оболочке.*\n>\n> | **Анимапатия, Псионика, Дальний**, **Удар** | **Основное действие** |\n> | ------------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 6 + П урона; П < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** 10 + П урона; П < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** 14 + П урона; П < СИЛЬНЫЙ, оглушение (до прох.)\n>\n> **Эффект:** Цель получает помеху на тесты Присутствия до конца боевой встречи.\n>\n> **Возбужденность:** Потенциал этой способности увеличивается на 1. Вы получаете 2d6 урона и 3 всплеска, которые можете использовать немедленно.",
+      "source": {
+        "articleId": "0853",
+        "path": "08. Классы/Талант/0853. 3-й Уровень Таланта.md"
+      },
+      "ability": {
+        "id": "feature.ability.talent.level-3.soul-burn",
+        "name": "Ожог Души",
+        "flavor": "Вы выбиваете их душу из тела, оставляя ее беспомощно плыть обратно к ослабленной оболочке.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Анимапатия",
+          "Псионика",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6 + P",
+            "effect": "П < СЛАБЫЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "10 + P",
+            "effect": "П < СРЕДНИЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "14 + P",
+            "effect": "П < СИЛЬНЫЙ, оглушение (до прох.)"
+          }
+        ],
+        "effect": "Цель получает помеху на тесты Присутствия до конца боевой встречи.\n\nВозбужденность: Потенциал этой способности увеличивается на 1. Вы получаете 2d6 урона и 3 всплеска, которые можете использовать немедленно.",
+        "source": "Талант",
+        "notes": "",
+        "className": "Талант",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/soul-burn",
+        "originalName": "Soul Burn",
+        "originalDescription": "*You blast their soul out of their body, leaving it to helplessly float back to a weakened husk.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |     **Main action** |\n|---------------------------------------------|--------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 + P damage; P < WEAK, dazed (save ends)\n- **12-16:** 10 + P damage; P < AVERAGE, dazed (save ends)\n- **17+:** 14 + P damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target takes a bane on Presence tests until the end of the encounter.\n\n**Strained:** The potency of this ability increases by 1. You take 2d6 damage and gain 3 surges that you can use immediately."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.talent.level-3/soul-burn",
+      "originalName": "Soul Burn",
+      "originalDescription": "*You blast their soul out of their body, leaving it to helplessly float back to a weakened husk.*\n\n| **Animapathy, Psionic, Ranged**, **Strike** |     **Main action** |\n|---------------------------------------------|--------------------:|\n| **📏 Ranged 10**                            | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 + P damage; P < WEAK, dazed (save ends)\n- **12-16:** 10 + P damage; P < AVERAGE, dazed (save ends)\n- **17+:** 14 + P damage; P < STRONG, dazed (save ends)\n\n**Effect:** The target takes a bane on Presence tests until the end of the encounter.\n\n**Strained:** The potency of this ability increases by 1. You take 2d6 damage and gain 3 surges that you can use immediately."
+    }
+  ]
+}

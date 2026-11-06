@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0835",
+      "title": "5-й Уровень Проводника",
+      "chapter": "08. Классы",
+      "group": "Проводник",
+      "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи проводником 5-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-5.5th-level-domain-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-5.9-piety-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-5.beacon-of-grace"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-5.penance"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-5.sanctuary"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-5.vessel-of-retribution"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level conduit, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.conduit.level-5.5th-level-domain-feature",
+      "kind": "feature",
+      "name": "Особенность домена 5-го уровня",
+      "markdown": "#### Особенность домена 5-го уровня\n\nВы получаете особенность домена 4-го уровня для домена, особенность которого вы не выбрали на этом уровне (смотрите [Особенность домена 4-го уровня](#/codex/0834)).\n\n---\n",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-5/5th-level-domain-feature",
+      "originalName": "5th-Level Domain Feature",
+      "originalDescription": "You gain the 4th-level domain feature for the domain whose feature you didn't select at that level (see 4th-Level Domain Feature)."
+    },
+    {
+      "id": "feature.conduit.level-5.9-piety-ability",
+      "kind": "feature",
+      "name": "Способность за 9 благочестия",
+      "markdown": "#### Способность за 9 благочестия\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 9 благочестия для использования.\n\n",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-5/9-piety-ability",
+      "originalName": "9-Piety Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 piety to use."
+    },
+    {
+      "id": "feature.ability.conduit.level-5.beacon-of-grace",
+      "kind": "ability",
+      "name": "Маяк Благодати",
+      "markdown": "> **Маяк Благодати (9 Благочестия)**\n>\n> *Вы воспламеняете врага святым сиянием, вознаграждая союзников, которые его атакуют.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 8 + И святого урона\n> - **12-16:** 13 + И святого урона\n> - **17+:** 17 + И святого урона\n>\n> **Эффект:** До конца встречи, всякий раз, когда вы или любой союзник наносит урон цели с помощью способности, это существо может потратить Восстановление. Если Выносливость цели снижается до 0 до конца встречи, вы можете использовать свободный триггер, чтобы переместить этот эффект на другое существо в пределах расстояния.",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-5.beacon-of-grace",
+        "name": "Маяк Благодати",
+        "flavor": "Вы воспламеняете врага святым сиянием, вознаграждая союзников, которые его атакуют.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "8 + I",
+            "effect": ""
+          },
+          {
+            "damage": "13 + I",
+            "effect": ""
+          },
+          {
+            "damage": "17 + I",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи, всякий раз, когда вы или любой союзник наносит урон цели с помощью способности, это существо может потратить Восстановление. Если Выносливость цели снижается до 0 до конца встречи, вы можете использовать свободный триггер, чтобы переместить этот эффект на другое существо в пределах расстояния.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/beacon-of-grace",
+        "originalName": "Beacon of Grace",
+        "originalDescription": "*You ignite a foe with holy radiance, rewarding allies who attack them.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 8 + I holy damage\n- **12-16:** 13 + I holy damage\n- **17+:** 17 + I holy damage\n\n**Effect:** Until the end of the encounter, whenever you or any ally damages the target using an ability, that creature can spend a Recovery. If the target is reduced to 0 Stamina before the end of the encounter, you can use a free triggered action to move this effect to another creature within distance."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/beacon-of-grace",
+      "originalName": "Beacon of Grace",
+      "originalDescription": "*You ignite a foe with holy radiance, rewarding allies who attack them.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 8 + I holy damage\n- **12-16:** 13 + I holy damage\n- **17+:** 17 + I holy damage\n\n**Effect:** Until the end of the encounter, whenever you or any ally damages the target using an ability, that creature can spend a Recovery. If the target is reduced to 0 Stamina before the end of the encounter, you can use a free triggered action to move this effect to another creature within distance."
+    },
+    {
+      "id": "feature.ability.conduit.level-5.penance",
+      "kind": "ability",
+      "name": "Покаяние",
+      "markdown": "> **Покаяние (9 Благочестия)**\n>\n> *\"Если вы не преклоните колени, боги заставят вас.\"*\n>\n> | **Область, Магия, Дальний** |               **Основное действие** |\n> | ----------------------- | ----------------------------: |\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 4 урона порчей; И < СЛАБЫЙ, лежачий и не может встать (до прох.)\n> - **12-16:** 7 урона порчей; И < СРЕДНИЙ, лежачий и не может встать (до прох.)\n> - **17+:** 11 урона порчей; И < СИЛЬНЫЙ, лежачий и не может встать (до прох.)",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-5.penance",
+        "name": "Покаяние",
+        "flavor": "\"Если вы не преклоните колени, боги заставят вас.\"",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 4 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": "Порчей; И < СЛАБЫЙ, лежачий и не может встать (до прох.)"
+          },
+          {
+            "damage": "7",
+            "effect": "Порчей; И < СРЕДНИЙ, лежачий и не может встать (до прох.)"
+          },
+          {
+            "damage": "11",
+            "effect": "Порчей; И < СИЛЬНЫЙ, лежачий и не может встать (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/penance",
+        "originalName": "Penance",
+        "originalDescription": "*\"If you won't kneel, the gods will make you.\"*\n\n| **Area, Magic, Ranged**  |               **Main action** |\n|--------------------------|------------------------------:|\n| **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 4 corruption damage; I < WEAK, prone and can't stand (save ends)\n- **12-16:** 7 corruption damage; I < AVERAGE, prone and can't stand (save ends)\n- **17+:** 11 corruption damage; I < STRONG, prone and can't stand (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/penance",
+      "originalName": "Penance",
+      "originalDescription": "*\"If you won't kneel, the gods will make you.\"*\n\n| **Area, Magic, Ranged**  |               **Main action** |\n|--------------------------|------------------------------:|\n| **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 4 corruption damage; I < WEAK, prone and can't stand (save ends)\n- **12-16:** 7 corruption damage; I < AVERAGE, prone and can't stand (save ends)\n- **17+:** 11 corruption damage; I < STRONG, prone and can't stand (save ends)"
+    },
+    {
+      "id": "feature.ability.conduit.level-5.sanctuary",
+      "kind": "ability",
+      "name": "Убежище",
+      "markdown": "> **Убежище (9 Благочестия)**\n>\n> *Вы отправляете себя или союзника в божественный манифольд, чтобы мгновенно восстановить здоровье.*\n>\n> | **Магия, Дальний** |            **Маневр** |\n> | ----------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** Цель удаляется с карты боевой встречи до начала своего следующего хода и может потратить любое количество Восстановлений. В начале своего хода цель вновь появляется в покинутом пространстве или в ближайшей свободной клетке по своему выбору.",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-5.sanctuary",
+        "name": "Убежище",
+        "flavor": "Вы отправляете себя или союзника в божественный манифольд, чтобы мгновенно восстановить здоровье.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель удаляется с карты боевой встречи до начала своего следующего хода и может потратить любое количество Восстановлений. В начале своего хода цель вновь появляется в покинутом пространстве или в ближайшей свободной клетке по своему выбору.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/sanctuary",
+        "originalName": "Sanctuary",
+        "originalDescription": "*You send yourself or an ally to a divine manifold to instantaneously regain health.*\n\n| **Magic, Ranged**  |            **Maneuver** |\n|--------------------|------------------------:|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The target is removed from the encounter map until the start of their next turn and can spend any number of Recoveries. At the start of their turn, the target reappears in the space they left or the nearest unoccupied space of their choice."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/sanctuary",
+      "originalName": "Sanctuary",
+      "originalDescription": "*You send yourself or an ally to a divine manifold to instantaneously regain health.*\n\n| **Magic, Ranged**  |            **Maneuver** |\n|--------------------|------------------------:|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The target is removed from the encounter map until the start of their next turn and can spend any number of Recoveries. At the start of their turn, the target reappears in the space they left or the nearest unoccupied space of their choice."
+    },
+    {
+      "id": "feature.ability.conduit.level-5.vessel-of-retribution",
+      "kind": "ability",
+      "name": "Сосуд Возмездия",
+      "markdown": "> **Сосуд Возмездия (9 Благочестия)**\n>\n> *Вы наполняете себя или союзника карающей энергией богов, ожидающей высвобождения.*\n>\n> | **Магия, Дальний** | **Маневр** |\n> | ----------------- | ----------------------- |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** В первый раз, когда цель становится утомленной или оказывается при смерти до конца встречи, каждый враг в пределах 5 клеток от нее получает 15 святого урона.",
+      "source": {
+        "articleId": "0835",
+        "path": "08. Классы/Проводник/0835. 5-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-5.vessel-of-retribution",
+        "name": "Сосуд Возмездия",
+        "flavor": "Вы наполняете себя или союзника карающей энергией богов, ожидающей высвобождения.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "В первый раз, когда цель становится утомленной или оказывается при смерти до конца встречи, каждый враг в пределах 5 клеток от нее получает 15 святого урона.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/vessel-of-retribution",
+        "originalName": "Vessel of Retribution",
+        "originalDescription": "*You infuse yourself or an ally with the retributive energy of the gods, waiting to be unleashed.*\n\n| **Magic, Ranged**  | **Maneuver**            |\n|--------------------|-------------------------|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The first time the target is dying or winded before the end of the encounter, each enemy within 5 squares of them takes 15 holy damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-5/vessel-of-retribution",
+      "originalName": "Vessel of Retribution",
+      "originalDescription": "*You infuse yourself or an ally with the retributive energy of the gods, waiting to be unleashed.*\n\n| **Magic, Ranged**  | **Maneuver**            |\n|--------------------|-------------------------|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The first time the target is dying or winded before the end of the encounter, each enemy within 5 squares of them takes 15 holy damage."
+    }
+  ]
+}

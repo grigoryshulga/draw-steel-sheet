@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "1007",
+      "title": "Сверхъестественные Перки",
+      "chapter": "10. Перки",
+      "group": "",
+      "path": "10. Перки/1007. Сверхъестественные Перки.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "В этом разделе представлены сверхъестественные перки.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.arcane-trick"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.creature-sense"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.familiar"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.invisible-force"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.psychic-whisper"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.ritualist"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.thingspeaker"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/perks#supernatural-perks",
+      "originalName": "Supernatural Perks",
+      "originalDescription": "This section presents supernatural perks in alphabetical order."
+    }
+  ],
+  "entities": [
+    {
+      "id": "perk.arcane-trick",
+      "kind": "perk",
+      "name": "Магический трюк",
+      "markdown": "#### Магический трюк\n\nУ вас есть следующая способность.\n\n> **Магический Трюк**\n>\n> *Вы применяете скромное заклинание, которое создает незначительный, но впечатляющий магический эффект.*\n>\n> | **Магия** | **Основное действие** |\n> | :--- | ---: |\n> | **📏 На себя; см. ниже** | **🎯 На себя** |\n>\n> **Эффект:** Выберите один из следующих эффектов:\n>\n> - Вы телепортируете смежный с вами объект размера 1S или меньше в свободную клетку, смежную с вами.\n> - До начала вашего следующего хода часть вашего тела извергает фонтан безвредных шумных искр, которые освещают каждую клетку, смежную с вами.\n> - Вы зажигаете или гасите (по вашему выбору) каждый обыденный источник света размером 1L или меньше, смежный с вами.\n> - Вы преобразуете до 1 фунта съедобной еды, к которой прикасаетесь, чтобы она стала вкусной или отвратительной.\n> - До начала вашего следующего хода вы заставляете свое тело источать определенный запах, который вы уже чувствовали раньше. Этот запах может почувствовать каждое существо в пределах 5 клеток от вас, но он не может наложить какое-либо состояние или другой недостаток на этих существ.\n> - Вы наносите небольшую магическую надпись на поверхность обыденного объекта, к которому прикасаетесь, или вы можете удалить надпись, которая была сделана вами или другим существом с помощью Магического трюка.\n> - Вы прикасаетесь к объекту размера 1T, чтобы покрыть его иллюзией, которая заставляет его выглядеть как другой объект. Любое существо, которое берет в руки объект, узнает об иллюзии. Иллюзия заканчивается, когда вы перестаете касаться объекта.\n\n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/arcane-trick",
+      "originalName": "Arcane Trick",
+      "originalDescription": "You have the following ability.\n\n> ###### Arcane Trick\n>\n> *You cast an entertaining spell that creates a minor but impressive magical effect.*\n>\n> | **Magic**              | **Main action** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** |     **🎯 Self** |\n>\n> **Effect:** Choose one of the following effects:\n>\n> - You teleport a size 1S or smaller object adjacent to you into an unoccupied space adjacent to you.\n> - Until the start of your next turn, a part of your body shoots a shower of harmless noisy sparks that light up each square adjacent to you.\n> - You ignite or snuff out (your choice) every mundane light source of 1L or smaller adjacent to you.\n> - You transform up to 1 pound of edible food you touch to make it taste delicious or disgusting.\n> - Until the start of your next turn, you make your body exude a particular odor you've smelled before. This smell can be sensed by each creature within 5 squares of you, but can't impose any condition or other drawback on those creatures.\n> - You place a small magical inscription on the surface of a mundane object you touch, or you can remove an inscription that was made by you or by another creature using Arcane Trick.\n> - You touch a size 1T object to cover it with an illusion that makes it look like a different object. Any creature who handles the object becomes aware of the illusion. The illusion ends when you stop touching the object."
+    },
+    {
+      "id": "perk.creature-sense",
+      "kind": "perk",
+      "name": "Чувство существ",
+      "markdown": "#### Чувство существ\n\nВ качестве маневра выберите существо в пределах 10 клеток. Если это существо вашего уровня или ниже, вы узнаете ключевые слова в его блоке характеристик (Демон, Гуманоид, Нежить и так далее).\n\n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/creature-sense",
+      "originalName": "Creature Sense",
+      "originalDescription": "As a maneuver, choose a creature within 10 squares. If that creature is your level or lower, you learn the keywords in their stat block (Demon, Humanoid, Undead, and so forth)."
+    },
+    {
+      "id": "perk.familiar",
+      "kind": "perk",
+      "name": "Фамильяр",
+      "markdown": "#### Фамильяр\n\nСверхъестественный дух, принявший форму конкретного маленького животного или одушевленного объекта, решил стать вашим фамильяром — или выбрать вас своим фамильяром.\n\nДух использует блок характеристик фамильяра.\n\nФамильяр может держать мелкие предметы во рту или когтях, но не может выполнять действия, для которых обычно требуются руки (открывать дверь, разворачивать свиток и так далее). Он не может навредить другим существам или объектам. Он может окружать в бою, но только вместе с вами.\n\nЕсли ваш фамильяр уничтожен, вы можете восстановить его в качестве деятельности отдыха, или потратив восстановление как основное действие, чтобы вернуть его к жизни в свободном пространстве, смежном с вами.\n\n> **Фамильяр**\n> \n> | Фамильяр | - | Уровень - | - | EV - |\n> | :---: | :---: | :---: | :---: | :---: |\n> | **1T** ·  Размер | **5** ·  Скорость | **Уровень х 2** ·  Выносливость | **0** ·  Устойчивость | **-** ·  Свободный удар |\n> | **-** ·  Иммунитеты | **-** ·  Движение | | **-** ·  С Капитаном | **-** ·  Уязвимости |\n> | **-3** ·  Мощь | **+2** ·  Ловкость | **0** ·  Разум | **0** ·  Интуиция | **+1** ·  Присутствие |\n> \n> **Телепатия**\n>\n> Пока вы и ваш фамильяр находитесь в пределах 10 клеток друг от друга, вы можете общаться телепатически и делиться чувствами друг друга. При совместном использовании чувств каждый из вас также извлекает выгоду из своих собственных чувств одновременно.\n> \n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/familiar",
+      "originalName": "Familiar",
+      "originalDescription": "A supernatural spirit who has taken the form of a specific small animal or animated object has chosen to be your familiar—or to adopt you as their familiar.\n\nThe spirit uses the familiar stat block.\n\nThe familiar can hold small objects in their mouth or claws, but can't perform activities that would typically require hands (opening a door, unrolling a scroll, and so forth). They can't harm other creatures or objects. They can flank in combat, but only with you.\n\nIf your familiar is destroyed, you can restore them as a respite activity, or by spending a Recovery as a main action to bring them back into existence in an unoccupied space adjacent to you.\n\n###### Familiar Statblock\n\n**Familiar**\n\n|      Familiar       |         -         |           Level -            |           -           |         EV -         |\n|:-------------------:|:-----------------:|:----------------------------:|:---------------------:|:--------------------:|\n|   **1T**<br>Size    |  **5**<br>Speed   | **2x your level**<br>Stamina |  **0**<br>Stability   | **-**<br>Free Strike |\n| **-**<br>Immunities | **-**<br>Movement |                              | **-**<br>With Captain | **-**<br>Weaknesses  |\n|   **-3**<br>Might   | **+2**<br>Agility |       **0**<br>Reason        |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> **Telepathic**\n> \n> While you and your familiar are within 10 squares of each other, you can communicate telepathically and share each other's senses. While sharing senses, each of you also benefits from your own senses at the same time."
+    },
+    {
+      "id": "perk.invisible-force",
+      "kind": "perk",
+      "name": "Невидимая сила",
+      "markdown": "#### Невидимая сила\n\nУ вас есть следующая способность.\n\n> **Невидимая Сила**\n>\n> *Вы управляете крошечным предметом своим разумом.*\n>\n> | **Псионика, Дальний** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Дальний 10** | **🎯 Один объект размера 1T** |\n>\n> **Эффект:** Вы можете захватить или манипулировать целевым объектом своим разумом, перемещая объект вплоть до количества клеток, равного вашему счету Разума, Интуиции или Присутствия (на ваш выбор). Вы можете использовать эту способность, чтобы поворачивать дверные ручки, тянуть за рычаги и так далее. Вы можете манипулировать любой небольшой подвижной частью более крупного объекта, если эта часть бесхозная и имеет размер 1T. Вы не можете использовать эту способность, чтобы отломить меньший кусок от более крупного объекта.\n\n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/invisible-force",
+      "originalName": "Invisible Force",
+      "originalDescription": "You have the following ability.\n\n> ###### Invisible Force\n>\n> *You manipulate a tiny object with your mind.*\n>\n> | **Psionic, Ranged** |              **Maneuver** |\n> |---------------------|--------------------------:|\n> | **📏 Ranged 10**    | **🎯 One size 1T object** |\n>\n> **Effect:** You can grab or manipulate the target object with your mind, moving the object up to a number of squares equal to your Reason, Intuition, or Presence score (your choice). You can use this ability to turn doorknobs, pull levers, and so forth. You can manipulate any small movable piece of a larger object as long as the piece is unattended and size 1T. You can't use this ability to break a smaller piece off a larger object."
+    },
+    {
+      "id": "perk.psychic-whisper",
+      "kind": "perk",
+      "name": "Ментальный шепот",
+      "markdown": "#### Ментальный шепот\n\nУ вас есть следующая способность.\n\n> **Ментальный Шепот**\n>\n> *Вы отправляете одностороннее телепатическое сообщение другу.*\n>\n> | **Псионика, Дальний** | **Маневр** |\n> | :--- | ---: |\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Эффект:** До тех пор, пока цель понимает один или несколько языков, вы отправляете ей телепатическое сообщение, на произнесение которого уходит 10 секунд или меньше. Цель знает, от кого это сообщение, и может решить игнорировать его и последующие сообщения.\n\n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/psychic-whisper",
+      "originalName": "Psychic Whisper",
+      "originalDescription": "You have the following ability.\n\n> ###### Psychic Whisper\n>\n> *You send a one-way telepathic message to a friend.*\n>\n> | **Psionic, Ranged** |    **Maneuver** |\n> |---------------------|----------------:|\n> | **📏 Ranged 10**    | **🎯 One ally** |\n>\n> **Effect:** As long as the target understands one or more languages, you send a telepathic message to them that takes 10 seconds or less to speak. The target knows who the message is from and can decide to ignore it and subsequent messages."
+    },
+    {
+      "id": "perk.ritualist",
+      "kind": "perk",
+      "name": "Ритуалист",
+      "markdown": "#### Ритуалист\n\nВы можете потратить 1 непрерывную минуту, чтобы выполнить магический ритуал благословения, нацеленный на вас или одно согласное существо, к которому вы прикасаетесь. Цель имеет двойное преимущество на следующий тест, который она сделает в течение следующей минуты. Цель не может использовать это преимущество для деятельности, которая занимает более 1 минуты.\n\n",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/ritualist",
+      "originalName": "Ritualist",
+      "originalDescription": "You can spend 1 uninterrupted minute to perform a magic ritual of blessing, targeting yourself or one willing creature you touch. The target has a double edge on the next test they make within the next minute. A target can't use this benefit on an activity that takes longer than 1 minute."
+    },
+    {
+      "id": "perk.thingspeaker",
+      "kind": "perk",
+      "name": "Резонатор",
+      "markdown": "#### Резонатор\n\nКогда вы держите объект в руке в течение 1 непрерывной минуты, вы можете почувствовать, несет ли он эмоциональный резонанс. Объекты с эмоциональным резонансом могут включать дорогие подарки, орудия убийства или личные сувениры на память. Если ведущий определяет, что объект несет эмоциональный резонанс, вы узнаете самую доминирующую эмоцию, связанную с объектом, а затем получаете видение, которое отвечает на один из следующих вопросов:\n\n- Как звали человека, чья эмоция запечатлена на этом объекте?\n- Почему эта эмоция задерживается на объекте?\n- Сколько времени прошло с тех пор, как объект держал человек, чья эмоция на нем задерживается?\n\nЗадав один вопрос, вы можете решить углубиться, задав один дополнительный вопрос из списка, но тогда вас охватывают эмоции, которые вам не принадлежат. Вы получаете помеху на тесты Интуиции и Присутствия до тех пор, пока не закончите отдых, и вы не можете использовать этот перк снова, пока страдаете от этой помехи.",
+      "source": {
+        "articleId": "1007",
+        "path": "10. Перки/1007. Сверхъестественные Перки.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/thingspeaker",
+      "originalName": "Thingspeaker",
+      "originalDescription": "When you hold an object in your hand for 1 uninterrupted minute, you can sense whether it bears emotional resonance. Objects with emotional resonance could include treasured gifts, murder weapons, or personal keepsakes. If the Director determines that the object bears emotional resonance, you learn the most dominant emotion associated with the object, then receive a vision that answers one of the following questions:\n\n- What was the name of the person whose emotion is imprinted on this object?\n- Why does this emotion linger on the object?\n- How long has it been since the object was held by the person whose emotion lingers on it?\n\nAfter asking one question, you can choose to delve deeper by asking one additional question from the list, but you are then overcome with emotions that do not belong to you. You take a bane on Intuition and Presence tests until you finish a respite, and you can't use this perk again while you suffer this bane."
+    }
+  ]
+}

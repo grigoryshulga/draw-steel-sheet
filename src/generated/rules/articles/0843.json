@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0843",
+      "title": "3-й Уровень Тактика",
+      "chapter": "08. Классы",
+      "group": "Тактик",
+      "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тактиком 3-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-3.out-of-position"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-3.7-focus-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-3.frontal-assault"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-3.hit-em-hard"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-3.rout"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-3.stay-strong-and-focus"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level tactician, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.tactician.level-3.out-of-position",
+      "kind": "feature",
+      "name": "Вне позиции",
+      "markdown": "#### Вне позиции\n\nДаже до начала битвы ваши враги изо всех сил пытаются поспеть за вашей тактикой. В начале боевой встречи вы можете использовать свободный триггер, чтобы использовать способность Метка против одного врага, к которому у вас есть линия воздействия, даже если вы застигнуты врасплох. Затем вы можете совершить швыряние отмеченной цели вплоть до 3 клеток, игнорируя устойчивость. Цель не может быть перемещена таким образом, чтобы причинить ей вред (например, с обрыва), оставить ее при смерти или привести к тому, что она пострадает от состояния или другого негативного эффекта.\n\n---\n",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-3/out-of-position",
+      "originalName": "Out of Position",
+      "originalDescription": "Even before battle begins, your enemies struggle to keep up with your tactics. At the start of an encounter, you can use a free triggered action to use your Mark ability against one enemy you have line of effect to, even if you are surprised. You can then slide the marked target up to 3 squares, ignoring stability. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect."
+    },
+    {
+      "id": "feature.tactician.level-3.7-focus-ability",
+      "kind": "feature",
+      "name": "Способность за 7 фокуса",
+      "markdown": "#### Способность за 7 фокуса\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 7 фокуса для использования.\n\n",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-3/7-focus-ability",
+      "originalName": "7-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 focus to use."
+    },
+    {
+      "id": "feature.ability.tactician.level-3.frontal-assault",
+      "kind": "ability",
+      "name": "Штурм с Фронта",
+      "markdown": "> **Штурм с Фронта (7 Фокуса)**\n>\n> *Цель атаки с рывком — сломить их моральный дух и заставить отступить.*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, в первый раз за ход, когда вы или любой союзник наносите урон цели, отмеченной вами, существо, нанесшее урон, может совершить толчок цели вплоть до 2 клеток, а затем сместиться вплоть до 2 клеток. Дополнительно, любой союзник, использующий основное действие Атака с рывком, чтобы нацелиться на существо, отмеченное вами, может использовать знаковую способность удара ближнего боя или героическую способность удара ближнего боя вместо свободного удара ближнего боя.",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-3.frontal-assault",
+        "name": "Штурм с Фронта",
+        "flavor": "Цель атаки с рывком — сломить их моральный дух и заставить отступить.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, в первый раз за ход, когда вы или любой союзник наносите урон цели, отмеченной вами, существо, нанесшее урон, может совершить толчок цели вплоть до 2 клеток, а затем сместиться вплоть до 2 клеток. Дополнительно, любой союзник, использующий основное действие Атака с рывком, чтобы нацелиться на существо, отмеченное вами, может использовать знаковую способность удара ближнего боя или героическую способность удара ближнего боя вместо свободного удара ближнего боя.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/frontal-assault",
+        "originalName": "Frontal Assault",
+        "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/frontal-assault",
+      "originalName": "Frontal Assault",
+      "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike."
+    },
+    {
+      "id": "feature.ability.tactician.level-3.hit-em-hard",
+      "kind": "ability",
+      "name": "Бейте Их Сильно!",
+      "markdown": "> **Бейте Их Сильно! (7 Фокуса)**\n>\n> *Ваши союзники видят преимущества в атаке выбранных вами целей.*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, это существо получает 2 всплеска, которые оно может использовать немедленно.",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-3.hit-em-hard",
+        "name": "Бейте Их Сильно!",
+        "flavor": "Ваши союзники видят преимущества в атаке выбранных вами целей.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, это существо получает 2 всплеска, которые оно может использовать немедленно.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/hit-em-hard",
+        "originalName": "Hit 'Em Hard!",
+        "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/hit-em-hard",
+      "originalName": "Hit 'Em Hard!",
+      "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately."
+    },
+    {
+      "id": "feature.ability.tactician.level-3.rout",
+      "kind": "ability",
+      "name": "Разгром",
+      "markdown": "> **Разгром (7 Фокуса)**\n>\n> *Ситуация начинает меняться.*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, которая имеет Р < СРЕДНИЙ, цель напугана существом, которое нанесло урон (до прох.).",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-3.rout",
+        "name": "Разгром",
+        "flavor": "Ситуация начинает меняться.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, которая имеет Р < СРЕДНИЙ, цель напугана существом, которое нанесло урон (до прох.).",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/rout",
+        "originalName": "Rout",
+        "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/rout",
+      "originalName": "Rout",
+      "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends)."
+    },
+    {
+      "id": "feature.ability.tactician.level-3.stay-strong-and-focus",
+      "kind": "ability",
+      "name": "Держитесь и Сосредоточьтесь!",
+      "markdown": "> **Держитесь и Сосредоточьтесь! (7 Фокуса)**\n>\n> *\"Мы можем это сделать! Сохраняйте веру и держитесь крепче!\"*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, существо, нанесшее урон, может потратить Восстановление.",
+      "source": {
+        "articleId": "0843",
+        "path": "08. Классы/Тактик/0843. 3-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-3.stay-strong-and-focus",
+        "name": "Держитесь и Сосредоточьтесь!",
+        "flavor": "\"Мы можем это сделать! Сохраняйте веру и держитесь крепче!\"",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда вы или любой союзник наносите урон цели, отмеченной вами, существо, нанесшее урон, может потратить Восстановление.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/stay-strong-and-focus",
+        "originalName": "Stay Strong and Focus!",
+        "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/stay-strong-and-focus",
+      "originalName": "Stay Strong and Focus!",
+      "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery."
+    }
+  ]
+}

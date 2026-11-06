@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0863",
+      "title": "3-й Уровень Тени",
+      "chapter": "08. Классы",
+      "group": "Тень",
+      "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тенью 3-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-3.careful-observation"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-3.careful-observation"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-3.7-insight-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-3.dancer"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-3.misdirecting-strike"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-3.pinning-shot"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-3.staggering-blow"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
+      "originalName": "3rd-Level Features",
+      "originalDescription": "As a 3rd-level shadow, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.shadow.level-3.careful-observation",
+      "kind": "feature",
+      "name": "Внимательное наблюдение",
+      "markdown": "#### Внимательное наблюдение\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-3/careful-observation",
+      "originalName": "Careful Observation",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.shadow.level-3.careful-observation",
+      "kind": "ability",
+      "name": "Внимательное Наблюдение",
+      "markdown": "> **Внимательное Наблюдение**\n>\n> *Момент концентрации оставляет врага под вашим пристальным прицелом.*\n>\n> | **Дальний** | **Маневр** |\n> | ---------------- | ------------------: |\n> | **📏 Дальний 20** | **🎯 Одно существо** |\n>\n> **Эффект:** Пока вы остаетесь в пределах расстояния до цели, сохраняете к ней линию воздействия и не бьете ни по какому другому существу первым, вы получаете преимущество на следующий удар, который вы наносите по оцениваемому существу, и получаете 1 всплеск, который вы можете использовать только на этот удар.",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-3.careful-observation",
+        "name": "Внимательное Наблюдение",
+        "flavor": "Момент концентрации оставляет врага под вашим пристальным прицелом.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 20",
+        "target": "Одно существо",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Пока вы остаетесь в пределах расстояния до цели, сохраняете к ней линию воздействия и не бьете ни по какому другому существу первым, вы получаете преимущество на следующий удар, который вы наносите по оцениваемому существу, и получаете 1 всплеск, который вы можете использовать только на этот удар.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/careful-observation",
+        "originalName": "Careful Observation",
+        "originalDescription": "*A moment of focus leaves a foe firmly in your sights.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 20** | **🎯 One creature** |\n\n**Effect:** As long as you remain within distance of the target, maintain line of effect to them, and strike no other creature first, you gain an edge on the next strike you make against the assessed creature, and gain 1 surge you can use only on that strike."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/careful-observation",
+      "originalName": "Careful Observation",
+      "originalDescription": "*A moment of focus leaves a foe firmly in your sights.*\n\n| **Ranged**       |        **Maneuver** |\n|------------------|--------------------:|\n| **📏 Ranged 20** | **🎯 One creature** |\n\n**Effect:** As long as you remain within distance of the target, maintain line of effect to them, and strike no other creature first, you gain an edge on the next strike you make against the assessed creature, and gain 1 surge you can use only on that strike."
+    },
+    {
+      "id": "feature.shadow.level-3.7-insight-ability",
+      "kind": "feature",
+      "name": "Способность за 7 прозрения",
+      "markdown": "#### Способность за 7 прозрения\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 7 прозрения для использования.\n\n",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-3/7-insight-ability",
+      "originalName": "7-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 insight to use."
+    },
+    {
+      "id": "feature.ability.shadow.level-3.dancer",
+      "kind": "ability",
+      "name": "Танцор",
+      "markdown": "> **Танцор (7 Прозрения)**\n>\n> *Вы входите в состояние потока, из-за которого вас почти невозможно загнать в угол.*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До конца боевой встречи, всякий раз, когда враг перемещается или подвергается принудительному движению смежно с вами или наносит вам урон, вы можете использовать Действие отхода как свободный триггер.",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-3.dancer",
+        "name": "Танцор",
+        "flavor": "Вы входите в состояние потока, из-за которого вас почти невозможно загнать в угол.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца боевой встречи, всякий раз, когда враг перемещается или подвергается принудительному движению смежно с вами или наносит вам урон, вы можете использовать Действие отхода как свободный триггер.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/dancer",
+        "originalName": "Dancer",
+        "originalDescription": "*You enter a flow state that makes you nearly impossible to pin down.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever an enemy moves or is force moved adjacent to you or damages you, you can take the Disengage move action as a free triggered action."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/dancer",
+      "originalName": "Dancer",
+      "originalDescription": "*You enter a flow state that makes you nearly impossible to pin down.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever an enemy moves or is force moved adjacent to you or damages you, you can take the Disengage move action as a free triggered action."
+    },
+    {
+      "id": "feature.ability.shadow.level-3.misdirecting-strike",
+      "kind": "ability",
+      "name": "Отвлекающий Удар",
+      "markdown": "> **Отвлекающий Удар (7 Прозрения)**\n>\n> *\"Почему ты смотришь на МЕНЯ?!\"*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 9 + Л урона\n> - **12-16:** 13 + Л урона\n> - **17+:** 18 + Л урона\n>\n> **Эффект:** Цель спровоцирована согласным союзником в пределах 5 клеток от вас до конца следующего хода цели.",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-3.misdirecting-strike",
+        "name": "Отвлекающий Удар",
+        "flavor": "\"Почему ты смотришь на МЕНЯ?!\"",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "9 + A",
+            "effect": ""
+          },
+          {
+            "damage": "13 + A",
+            "effect": ""
+          },
+          {
+            "damage": "18 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель спровоцирована согласным союзником в пределах 5 клеток от вас до конца следующего хода цели.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/misdirecting-strike",
+        "originalName": "Misdirecting Strike",
+        "originalDescription": "*\"Why are you looking at ME?!\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 9 + A damage\n- **12-16:** 13 + A damage\n- **17+:** 18 + A damage\n\n**Effect:** The target is taunted by a willing ally within 5 squares of you until the end of the target's next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/misdirecting-strike",
+      "originalName": "Misdirecting Strike",
+      "originalDescription": "*\"Why are you looking at ME?!\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 9 + A damage\n- **12-16:** 13 + A damage\n- **17+:** 18 + A damage\n\n**Effect:** The target is taunted by a willing ally within 5 squares of you until the end of the target's next turn."
+    },
+    {
+      "id": "feature.ability.shadow.level-3.pinning-shot",
+      "kind": "ability",
+      "name": "Пригвождающий Выстрел",
+      "markdown": "> **Пригвождающий Выстрел (7 Прозрения)**\n>\n> *Один снаряд — пущенный точно и жестко.*\n>\n> | **Дальний, Удар, Оружие** | **Основное действие** |\n> | -------------------------- | ------------------: |\n> | **📏 Дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 8 + Л урона; Л < СЛАБЫЙ, опутанность (до прох.)\n> - **12-16:** 12 + Л урона; Л < СРЕДНИЙ, опутанность (до прох.)\n> - **17+:** 16 + Л урона; Л < СИЛЬНЫЙ, опутанность (до прох.)",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-3.pinning-shot",
+        "name": "Пригвождающий Выстрел",
+        "flavor": "Один снаряд — пущенный точно и жестко.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "8 + A",
+            "effect": "Л < СЛАБЫЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "12 + A",
+            "effect": "Л < СРЕДНИЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "16 + A",
+            "effect": "Л < СИЛЬНЫЙ, опутанность (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/pinning-shot",
+        "originalName": "Pinning Shot",
+        "originalDescription": "*One missile—placed well and placed hard.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A damage; A < WEAK, restrained (save ends)\n- **12-16:** 12 + A damage; A < AVERAGE, restrained (save ends)\n- **17+:** 16 + A damage; A < STRONG, restrained (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/pinning-shot",
+      "originalName": "Pinning Shot",
+      "originalDescription": "*One missile—placed well and placed hard.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + A damage; A < WEAK, restrained (save ends)\n- **12-16:** 12 + A damage; A < AVERAGE, restrained (save ends)\n- **17+:** 16 + A damage; A < STRONG, restrained (save ends)"
+    },
+    {
+      "id": "feature.ability.shadow.level-3.staggering-blow",
+      "kind": "ability",
+      "name": "Сражающий Удар",
+      "markdown": "> **Сражающий Удар (7 Прозрения)**\n>\n> *От этого не оправиться.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 7 + Л урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 11 + Л урона; М < СРЕДНИЙ, лежачий и не может встать (до прох.)\n> - **17+:** 16 + Л урона; М < СИЛЬНЫЙ, лежачий и не может встать (до прох.)",
+      "source": {
+        "articleId": "0863",
+        "path": "08. Классы/Тень/0863. 3-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-3.staggering-blow",
+        "name": "Сражающий Удар",
+        "flavor": "От этого не оправиться.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 7,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "7 + A",
+            "effect": "М < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "11 + A",
+            "effect": "М < СРЕДНИЙ, лежачий и не может встать (до прох.)"
+          },
+          {
+            "damage": "16 + A",
+            "effect": "М < СИЛЬНЫЙ, лежачий и не может встать (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 3,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+        "originalName": "Staggering Blow",
+        "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-3/staggering-blow",
+      "originalName": "Staggering Blow",
+      "originalDescription": "*There's no recovering from this.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; M < WEAK, slowed (save ends)\n- **12-16:** 11 + A damage; M < AVERAGE, prone and can't stand (save ends)\n- **17+:** 16 + A damage; M < STRONG, prone and can't stand (save ends)"
+    }
+  ]
+}

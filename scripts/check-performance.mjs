@@ -26,9 +26,9 @@ async function measure(key) {
 const budgets = {
   'index.html': { raw: 512, gzip: 160 },
   'src/WorkspaceApp.tsx': { raw: 3100, gzip: 650 },
-  'src/views/CodexView.tsx': { raw: 2300, gzip: 500 },
-  'src/views/CatalogView.tsx': { raw: 3500, gzip: 850 },
-  'src/views/SheetView.tsx': { raw: 6600, gzip: 1400 },
+  'src/views/CodexView.tsx': { raw: 1500, gzip: 360 },
+  'src/views/CatalogView.tsx': { raw: 2600, gzip: 620 },
+  'src/views/SheetView.tsx': { raw: 5000, gzip: 1080 },
 };
 const routes = Object.keys(budgets);
 for (const route of routes) {
@@ -41,3 +41,21 @@ for (const route of routes) {
     throw new Error(`${route} exceeds the ${budget.raw} KiB raw / ${budget.gzip} KiB gzip budget`);
   }
 }
+
+// Article prose must remain separate from JavaScript, even for tiny articles.
+const rules = JSON.parse(await fs.readFile('src/generated/rules/manifest.json', 'utf8'));
+const articleSizes = [];
+for (const entry of rules.articles) {
+  const asset = manifest[`src/generated/rules/articles/${entry.id}.json`];
+  if (!asset || !asset.file.endsWith('.json')) throw new Error(`Article is not a separate JSON asset: ${entry.id}`);
+  const data = await fs.readFile(path.join(directory, asset.file));
+  const payload = JSON.parse(data);
+  if (payload.articles.length !== 1 || payload.articles[0].id !== entry.id) {
+    throw new Error(`Article asset includes an unexpected article: ${entry.id}`);
+  }
+  articleSizes.push(gzipSync(data).length);
+}
+articleSizes.sort((a, b) => a - b);
+const medianArticle = articleSizes[Math.floor(articleSizes.length / 2)];
+console.log(`Article JSON: ${articleSizes.length} separate assets, median gzip ${(medianArticle / 1024).toFixed(1)} KiB`);
+if (medianArticle > 8 * 1024) throw new Error('Median article payload exceeds 8 KiB gzip');

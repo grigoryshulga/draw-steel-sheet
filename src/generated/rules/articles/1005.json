@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "1005",
+      "title": "Перки Интриги",
+      "chapter": "10. Перки",
+      "group": "",
+      "path": "10. Перки/1005. Перки Интриги.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "В этом разделе представлены перки интриги.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.criminal-contacts"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.forgettable-face"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.gum-up-the-works"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.lucky-dog"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.master-of-disguise"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.slipped-lead"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/perks#intrigue-perks",
+      "originalName": "Intrigue Perks",
+      "originalDescription": "This section presents intrigue perks in alphabetical order."
+    }
+  ],
+  "entities": [
+    {
+      "id": "perk.criminal-contacts",
+      "kind": "perk",
+      "name": "Криминальные контакты",
+      "markdown": "#### Криминальные контакты\n\nУ вас есть доступ к сети криминальных контактов. В качестве деятельности отдыха, пока вы берете отдых в поселении, вы можете задать вопрос своим контактам, пройдя тест Присутствия. При результате второго тира вы узнаете одну часть информации, которая была бы распространена среди преступников — секретные входы в здание, местонахождение скрывающегося местного преступника, имя лидера местной гильдии воров и так далее. При результате третьего тира вы можете вместо этого получить знания, которые были бы необычными среди преступников, при условии, что такая информация существует — местонахождение местного тайника с сокровищами, местонахождение орудия убийства, использованного при убийстве дворянина, имя НПС, тайно финансирующего местную гильдию убийц, и так далее.\n\n",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/criminal-contacts",
+      "originalName": "Criminal Contacts",
+      "originalDescription": "You have access to a network of criminal contacts. As a respite activity while you take a respite in a settlement, you can ask a question of your contacts by making a Presence test. On a tier 2 outcome, you learn one piece of information that would be common among criminals—the secret entrances into a building, the location of a local criminal in hiding, the name of a local thieves' guild leader, and so forth. On a tier 3 outcome, you can instead gain knowledge that would be uncommon among criminals as long as such information exists—the location of a local treasure cache, the location of a murder weapon used in a noble's assassination, the name of an NPC secretly bankrolling a local assassin's guild, and so forth."
+    },
+    {
+      "id": "perk.forgettable-face",
+      "kind": "perk",
+      "name": "Забываемое лицо",
+      "markdown": "#### Забываемое лицо\n\nЕсли вы проводите 10 минут или меньше во взаимодействии с существом, которое раньше с вами не встречалось, вы можете заставить его забыть ваше лицо при расставании. Если попросить описать вас, существо даст лишь расплывчатое, пустое и бесполезное описание. Кроме того, если вы потратите 1 час или более на сборку маскировки, вы автоматически получаете результат второго тира в любом тесте, где может быть использован навык Маскировка. Если у вас есть навык Маскировка, вы автоматически получаете результат третьего тира в тесте.\n\n",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/forgettable-face",
+      "originalName": "Forgettable Face",
+      "originalDescription": "If you spend 10 minutes or less interacting with a creature who hasn't met you before, you can cause them to forget your face when you part. If asked to describe you, the creature gives only a vague, blank, and unhelpful description. Additionally, if you spend 1 hour or more assembling a disguise, you automatically obtain a tier 2 outcome on any test that could make use of the Disguise skill. If you have the Disguise skill, you automatically obtain a tier 3 outcome on the test."
+    },
+    {
+      "id": "perk.gum-up-the-works",
+      "kind": "perk",
+      "name": "Запутать механизмы",
+      "markdown": "#### Запутать механизмы\n\nВсякий раз, когда обыденная ловушка активируется в пределах 3 клеток, вы можете использовать триггер, чтобы переместиться вплоть до 3 клеток к ней. Если это движение приближает вас к любому из механизмов ловушки, вы можете заклинить ловушку, предотвратив ее активацию. Пока вы остаетесь рядом с механизмом, ловушка не может сработать, если только попытка обезвредить ее не провалится.\n\n",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/gum-up-the-works",
+      "originalName": "Gum Up the Works",
+      "originalDescription": "Whenever a mundane trap activates within 3 squares, you can use a triggered action to move up to 3 squares toward it. If this movement brings you adjacent to any of the trap's mechanisms, you can jam the trap, preventing it from activating. As long as you stay adjacent to the mechanism, the trap can't go off unless an attempt to disarm it fails."
+    },
+    {
+      "id": "perk.lucky-dog",
+      "kind": "perk",
+      "name": "Везунчик",
+      "markdown": "#### Везунчик\n\nВсякий раз, когда вы проваливаете тест с использованием любого навыка из группы интриг, вы можете потерять выносливость, равную 1d6 + ваш уровень, чтобы улучшить результат теста на один тир. Вы можете использовать этот перк только один раз за тест.\n\n",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/lucky-dog",
+      "originalName": "Lucky Dog",
+      "originalDescription": "Whenever you fail a test using any skill from the intrigue skill group, you can lose Stamina equal to 1d6 + your level to improve the outcome of the test by one tier. You can use this perk only once per test."
+    },
+    {
+      "id": "perk.master-of-disguise",
+      "kind": "perk",
+      "name": "Эксперт маскировки",
+      "markdown": "#### Эксперт маскировки\n\nВы можете надеть или снять маскировку как часть любого теста, который вы делаете с использованием навыка Скрытность, или во время использования маневра скрытности.\n\n",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/master-of-disguise",
+      "originalName": "Master of Disguise",
+      "originalDescription": "You can don or remove a disguise as part of any test you make using the Hide skill, or while using the Hide maneuver."
+    },
+    {
+      "id": "perk.slipped-lead",
+      "kind": "perk",
+      "name": "Скользкие путы",
+      "markdown": "#### Скользкие путы\n\nВы получаете преимущество на тесты, сделанные для побега от пут. Имея 1 непрерывную минуту, вы можете выбраться из любых обыденных пут без прохождения теста. Кроме того, не сразу становится очевидно, когда вы избежали пут, пока вы не сделаете что-то, что ясно дает понять, что вы это сделали (сбросите их, используете способность, которая вредит одному или нескольким существам, и так далее).",
+      "source": {
+        "articleId": "1005",
+        "path": "10. Перки/1005. Перки Интриги.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/slipped-lead",
+      "originalName": "Slipped Lead",
+      "originalDescription": "You gain an edge on tests made to escape bonds. Given 1 uninterrupted minute, you can escape any mundane bonds without making a test. Additionally, it's not immediately obvious when you've escaped bonds until you do something that makes it clear you have done so (cast them off, use an ability that harms one or more creatures, and so forth)."
+    }
+  ]
+}

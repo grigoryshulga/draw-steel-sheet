@@ -1,0 +1,564 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0876",
+      "title": "6-й Уровень Трубадура",
+      "chapter": "08. Классы",
+      "group": "Трубадур",
+      "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи трубадуром 6-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.spotlight"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.spotlight"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.6th-level-class-act-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.auteur-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.heres-how-your-story-ends"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.youre-all-my-understudies"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.duelist-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.blood-on-the-stage"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.fight-choreography"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-6.virtuoso-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.feedback"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-6.legendary-drum-fill"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
+      "originalName": "6th-Level Features",
+      "originalDescription": "As a 6th-level troubadour, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.troubadour.level-6.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один межличностный перк, перк знаний или сверхъестественный перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
+    },
+    {
+      "id": "feature.troubadour.level-6.spotlight",
+      "kind": "feature",
+      "name": "В лучах прожектора",
+      "markdown": "#### В лучах прожектора\n\nУ вас есть следующая способность выступления, которую можно использовать с вашей особенностью Номера.\n\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/spotlight",
+      "originalName": "Spotlight",
+      "originalDescription": "You have the following performance ability, which is usable with your Routines feature."
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.spotlight",
+      "kind": "ability",
+      "name": "В лучах Прожектора",
+      "markdown": "> **В лучах Прожектора**\n>\n> *Зрители смотрят, так что вам лучше устроить им шоу.*\n>\n> | **Область, Магия, Выступление** |                         **Без действия** |\n> | ---------------------------- | ------------------------------------: |\n> | **📏 Аура 5** | **🎯 На себя и каждого союзника в области** |\n>\n> **Эффект:** Пока это выступление активно, каждая цель, начинающая свой ход в области, получает 1 Героический Ресурс. Этот Героический Ресурс исчезает в конце хода цели, если она его не потратит.",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.spotlight",
+        "name": "В лучах Прожектора",
+        "flavor": "Зрители смотрят, так что вам лучше устроить им шоу.",
+        "actionType": "none",
+        "kind": "other",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Выступление"
+        ],
+        "distance": "Аура 5",
+        "target": "На себя и каждого союзника в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Пока это выступление активно, каждая цель, начинающая свой ход в области, получает 1 Героический Ресурс. Этот Героический Ресурс исчезает в конце хода цели, если она его не потратит.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/spotlight",
+        "originalName": "Spotlight",
+        "originalDescription": "*The audience is watching, so you'd better give them a show.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 of their Heroic Resource. This Heroic Resource disappears at the end of the target's turn if they don't spend it."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/spotlight",
+      "originalName": "Spotlight",
+      "originalDescription": "*The audience is watching, so you'd better give them a show.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 of their Heroic Resource. This Heroic Resource disappears at the end of the target's turn if they don't spend it."
+    },
+    {
+      "id": "feature.troubadour.level-6.6th-level-class-act-ability",
+      "kind": "feature",
+      "name": "Способность амплуа 6-го уровня",
+      "markdown": "#### Способность амплуа 6-го уровня\n\nВаше амплуа трубадура дает вам на выбор одну из двух героических способностей.\n\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/6th-level-class-act-ability",
+      "originalName": "6th-Level Class Act Ability",
+      "originalDescription": "Your troubadour class act grants your choice of one of two heroic abilities.\n\n##### 6th-Level Auteur Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Duelist Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Virtuoso Abilities\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.troubadour.level-6.auteur-abilities",
+      "kind": "feature",
+      "name": "Способности Автора 6-го уровня",
+      "markdown": "##### Способности Автора 6-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Auteur Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.heres-how-your-story-ends",
+      "kind": "ability",
+      "name": "Вот Как Закончится Ваша История",
+      "markdown": "> **Вот Как Закончится Ваша История (9 Драмы)**\n>\n> *Вы выдаете концовку этой битвы, и для них она не слишком радостная.*\n>\n> | **Область, Магия** |               **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 2 психического урона; П < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 5 психического урона; П < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 7 психического урона; П < СИЛЬНЫЙ, испуг (до прох.)",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.heres-how-your-story-ends",
+        "name": "Вот Как Закончится Ваша История",
+        "flavor": "Вы выдаете концовку этой битвы, и для них она не слишком радостная.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 5",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "П < СЛАБЫЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "5",
+            "effect": "П < СРЕДНИЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "7",
+            "effect": "П < СИЛЬНЫЙ, испуг (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/heres-how-your-story-ends",
+        "originalName": "Here's How Your Story Ends",
+        "originalDescription": "*You give away the ending of this battle, and it's not great for them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 5 psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 7 psychic damage; P < STRONG, frightened (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/heres-how-your-story-ends",
+      "originalName": "Here's How Your Story Ends",
+      "originalDescription": "*You give away the ending of this battle, and it's not great for them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 5 psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 7 psychic damage; P < STRONG, frightened (save ends)"
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.youre-all-my-understudies",
+      "kind": "ability",
+      "name": "Все Вы Мои Дублеры",
+      "markdown": "> **Все Вы Мои Дублеры (9 Драмы)**\n>\n> *Важно, чтобы каждый знал чужие реплики, на всякий случай...*\n>\n> | **Область, Магия** |                 **Маневр** |\n> | --------------- | ---------------------------: |\n> | **📏 Взрыв 5** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** До конца столкновения каждая цель получает бонус к скорости, бонус к расстоянию оружия, бонус к отходу и бонус к устойчивости вашего экипированного в данный момент комплекта в дополнение к бонусам собственного комплекта.",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.youre-all-my-understudies",
+        "name": "Все Вы Мои Дублеры",
+        "flavor": "Важно, чтобы каждый знал чужие реплики, на всякий случай...",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 5",
+        "target": "Каждый союзник в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца столкновения каждая цель получает бонус к скорости, бонус к расстоянию оружия, бонус к отходу и бонус к устойчивости вашего экипированного в данный момент комплекта в дополнение к бонусам собственного комплекта.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/youre-all-my-understudies",
+        "originalName": "You're All My Understudies",
+        "originalDescription": "*It's important for everyone to know each other's lines, just in case...*\n\n| **Area, Magic** |                 **Maneuver** |\n|-----------------|-----------------------------:|\n| **📏 5 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Until the end of the encounter, each target gains the speed bonus, weapon distance bonus, disengage bonus, and stability bonus of your currently equipped kit in addition to their own kit's bonuses."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/youre-all-my-understudies",
+      "originalName": "You're All My Understudies",
+      "originalDescription": "*It's important for everyone to know each other's lines, just in case...*\n\n| **Area, Magic** |                 **Maneuver** |\n|-----------------|-----------------------------:|\n| **📏 5 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Until the end of the encounter, each target gains the speed bonus, weapon distance bonus, disengage bonus, and stability bonus of your currently equipped kit in addition to their own kit's bonuses."
+    },
+    {
+      "id": "feature.troubadour.level-6.duelist-abilities",
+      "kind": "feature",
+      "name": "Способности Дуэлянта 6-го уровня",
+      "markdown": "##### Способности Дуэлянта 6-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Duelist Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.blood-on-the-stage",
+      "kind": "ability",
+      "name": "Кровь на Сцене",
+      "markdown": "> **Кровь на Сцене (9 Драмы)**\n>\n> *Это любовь и кровь, или драма и кровь. Как ни крути, кровь есть всегда.*\n>\n> | **Ближний, Удар, Оружие** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 12 + Л урона; М < СЛАБЫЙ, кровотечение (до прох.)\n> - **12-16:** 18 + Л урона; М < СРЕДНИЙ, кровотечение (до прох.)\n> - **17+:** 24 + Л урона; кровотечение (КсХ), или если М < СИЛЬНЫЙ, кровотечение (до прох.)",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.blood-on-the-stage",
+        "name": "Кровь на Сцене",
+        "flavor": "Это любовь и кровь, или драма и кровь. Как ни крути, кровь есть всегда.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "12 + A",
+            "effect": "М < СЛАБЫЙ, кровотечение (до прох.)"
+          },
+          {
+            "damage": "18 + A",
+            "effect": "М < СРЕДНИЙ, кровотечение (до прох.)"
+          },
+          {
+            "damage": "24 + A",
+            "effect": "Кровотечение (КсХ), или если М < СИЛЬНЫЙ, кровотечение (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/blood-on-the-stage",
+        "originalName": "Blood on the Stage",
+        "originalDescription": "*It's love and blood or drama and blood. Either way, there's always blood.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage; M < WEAK, bleeding (save ends)\n- **12-16:** 18 + A damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 24 + A damage; bleeding (EoT), or if M < STRONG, bleeding (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/blood-on-the-stage",
+      "originalName": "Blood on the Stage",
+      "originalDescription": "*It's love and blood or drama and blood. Either way, there's always blood.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage; M < WEAK, bleeding (save ends)\n- **12-16:** 18 + A damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 24 + A damage; bleeding (EoT), or if M < STRONG, bleeding (save ends)"
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.fight-choreography",
+      "kind": "ability",
+      "name": "Хореография Боя",
+      "markdown": "> **Хореография Боя (9 Драмы)**\n>\n> *Вы и ваш партнер устраиваете эффектное шоу безрассудной отваги, а затем расходитесь по углам.*\n>\n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы и цель делаете по одному свободному удару ближнего боя, которые нацеливаются на каждого врага в пределах 3 клеток от любого из вас, разделяя врагов между вами двумя. Вы выбираете, в каких врагов попадает ваш свободный удар, а в каких — свободный удар целевого существа. Затем вы швыряете цель на 5 клеток, игнорируя устойчивость.",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.fight-choreography",
+        "name": "Хореография Боя",
+        "flavor": "Вы и ваш партнер устраиваете эффектное шоу безрассудной отваги, а затем расходитесь по углам.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы и цель делаете по одному свободному удару ближнего боя, которые нацеливаются на каждого врага в пределах 3 клеток от любого из вас, разделяя врагов между вами двумя. Вы выбираете, в каких врагов попадает ваш свободный удар, а в каких — свободный удар целевого существа. Затем вы швыряете цель на 5 клеток, игнорируя устойчивость.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/fight-choreography",
+        "originalName": "Fight Choreography",
+        "originalDescription": "*You and your partner make a flashy show of derring-do, then get back to your corners.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You and the target each make a melee free strike that targets each enemy within 3 squares of either of you, dividing the enemies between each of you. You choose which enemies your free strike targets and which enemies the target creature's free strike targets. You then slide the target 5 squares, ignoring stability."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/fight-choreography",
+      "originalName": "Fight Choreography",
+      "originalDescription": "*You and your partner make a flashy show of derring-do, then get back to your corners.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You and the target each make a melee free strike that targets each enemy within 3 squares of either of you, dividing the enemies between each of you. You choose which enemies your free strike targets and which enemies the target creature's free strike targets. You then slide the target 5 squares, ignoring stability."
+    },
+    {
+      "id": "feature.troubadour.level-6.virtuoso-abilities",
+      "kind": "feature",
+      "name": "Способности Виртуоза 6-го уровня",
+      "markdown": "##### Способности Виртуоза 6-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "originalId": "",
+      "originalName": "6th-Level Virtuoso Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.feedback",
+      "kind": "ability",
+      "name": "Обратная Связь",
+      "markdown": "> **Обратная Связь (9 Драмы)**\n>\n> *Ваша музыка бьет по толпе в такт, пока их сердца не перестают выдерживать.*\n>\n> | **Область, Магия** |               **Основное действие** |\n> | ----------------------------- | ----------------------------: |\n> | **📏 Три куба 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Лежачая цель игнорирует эту способность.\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 7 урона звуком; П < СЛАБЫЙ, лежачий\n> - **12-16:** 10 урона звуком; П < СРЕДНИЙ, лежачий\n> - **17+:** 13 урона звуком; П < СИЛЬНЫЙ, лежачий",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.feedback",
+        "name": "Обратная Связь",
+        "flavor": "Ваша музыка бьет по толпе в такт, пока их сердца не перестают выдерживать.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Три куба 3 в пределах 1",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "7",
+            "effect": "Звуком; П < СЛАБЫЙ, лежачий"
+          },
+          {
+            "damage": "10",
+            "effect": "Звуком; П < СРЕДНИЙ, лежачий"
+          },
+          {
+            "damage": "13",
+            "effect": "Звуком; П < СИЛЬНЫЙ, лежачий"
+          }
+        ],
+        "effect": "Лежачая цель игнорирует эту способность.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/feedback",
+        "originalName": "Feedback",
+        "originalDescription": "*Your music pounds the crowd to the beat until their hearts can't stand it anymore.*\n\n| **Area, Magic**               |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 Three 3 cubes within 1** | **🎯 Each enemy in the area** |\n\n**Effect:** A prone target ignores this ability.\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 sonic damage; P < WEAK, prone\n- **12-16:** 10 sonic damage; P < AVERAGE, prone\n- **17+:** 13 sonic damage; P < STRONG, prone"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/feedback",
+      "originalName": "Feedback",
+      "originalDescription": "*Your music pounds the crowd to the beat until their hearts can't stand it anymore.*\n\n| **Area, Magic**               |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 Three 3 cubes within 1** | **🎯 Each enemy in the area** |\n\n**Effect:** A prone target ignores this ability.\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 sonic damage; P < WEAK, prone\n- **12-16:** 10 sonic damage; P < AVERAGE, prone\n- **17+:** 13 sonic damage; P < STRONG, prone"
+    },
+    {
+      "id": "feature.ability.troubadour.level-6.legendary-drum-fill",
+      "kind": "ability",
+      "name": "Легендарная Барабанная Сбивка",
+      "markdown": "> **Легендарная Барабанная Сбивка (9 Драмы)**\n>\n> *Вы начинаете барабанную дробь, которая гремит как гром с каждым ударом, наносимым героями.*\n>\n> | **Область, Магия** |                          **Маневр** |\n> | --------------- | ------------------------------------: |\n> | **📏 Взрыв 4** | **🎯 На себя и каждого союзника в области** |\n>\n> **Эффект:** Каждая цель получает 1 всплеск, а затем получает 1 всплеск в начале каждого раунда боя до конца столкновения.",
+      "source": {
+        "articleId": "0876",
+        "path": "08. Классы/Трубадур/0876. 6-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-6.legendary-drum-fill",
+        "name": "Легендарная Барабанная Сбивка",
+        "flavor": "Вы начинаете барабанную дробь, которая гремит как гром с каждым ударом, наносимым героями.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 4",
+        "target": "На себя и каждого союзника в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель получает 1 всплеск, а затем получает 1 всплеск в начале каждого раунда боя до конца столкновения.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 6,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/legendary-drum-fill",
+        "originalName": "Legendary Drum Fill",
+        "originalDescription": "*You start a drumroll that roars like thunder with every impact the heroes make.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 4 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 1 surge, then gains 1 surge at the start of each combat round until the end of the encounter."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/legendary-drum-fill",
+      "originalName": "Legendary Drum Fill",
+      "originalDescription": "*You start a drumroll that roars like thunder with every impact the heroes make.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 4 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 1 surge, then gains 1 surge at the start of each combat round until the end of the encounter."
+    }
+  ]
+}

@@ -1916,6 +1916,31 @@ export function buildConsumerData({
     jsonText(builderProjection),
   );
 
+  const tooltip = (text) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/[#*_>`|]/g, "").replace(/\s+/g, " ").trim().slice(0, 180);
+  expected.set(path.join(outDir, "reading.json"), jsonText({
+    schemaVersion: CONSUMER_SCHEMA_VERSION,
+    catalog: libraryProjection.catalog.map(({ id, kind, name, articleId, heading }) =>
+      ({ id, kind, name, articleId, heading })),
+    glossary: libraryProjection.glossary.map(({ id, name, english, markdown }) =>
+      ({ id, name, english, summary: tooltip(markdown) })),
+  }));
+  expected.set(path.join(outDir, "reference-preview.json"), jsonText({
+    schemaVersion: CONSUMER_SCHEMA_VERSION,
+    ancestries: builderProjection.ancestries.map(({ articleId, name, summary, signature }) =>
+      ({ articleId, name, summary, signature })),
+    careers: builderProjection.careers.map(({ articleId, name, benefits }) =>
+      ({ articleId, name, benefits })),
+    classes: builderProjection.classes.map(({ name, summary, basics }) =>
+      ({ name, summary, basics })),
+  }));
+
+  expected.set(path.join(outDir, "level-up-grants.json"), jsonText({
+    schemaVersion: CONSUMER_SCHEMA_VERSION,
+    rules: levelUpProjection.rules.map(({ className, level, grantedAbilities }) =>
+      ({ className, level, ...(grantedAbilities ? { grantedAbilities } : {}) })),
+  }));
+
   const differences = [];
   if (check) {
     const actualFiles = walkJson(outDir);

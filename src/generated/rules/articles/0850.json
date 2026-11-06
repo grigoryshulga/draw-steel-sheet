@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0850",
+      "title": "10-й Уровень Тактика",
+      "chapter": "08. Классы",
+      "group": "Тактик",
+      "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тактиком 10-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.characteristic-increase"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.command"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.skill"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.true-focus"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-10.warmaster"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level tactician, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.tactician.level-10.characteristic-increase",
+      "kind": "feature",
+      "name": "Увеличение характеристик",
+      "markdown": "#### Увеличение характеристик\n\nВаши показатели Мощи и Разума каждый увеличивается до 5.\n\n---\n",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Might and Reason scores each increase to 5."
+    },
+    {
+      "id": "feature.tactician.level-10.command",
+      "kind": "feature",
+      "name": "Командование",
+      "markdown": "#### Командование\n\nУ вас есть эпический ресурс, называемый командованием. Каждый раз, когда вы заканчиваете отдых, вы получаете командование, равное полученному вами Опыту. Вы можете тратить командование на свои способности так, как если бы это был фокус.\n\nДополнительно, всякий раз, когда вы или любой союзник используете способность для нанесения выброшенного урона существу, отмеченному вами, вы можете потратить 1 командование как свободный триггер, чтобы увеличить результат броска силы для этой цели на один тир. Всякий раз, когда враг, отмеченный вами, делает бросок способности, вы можете потратить 1 командование как свободный триггер, чтобы уменьшить результат броска силы на один тир.\n\nКомандование сохраняется, пока вы его не потратите.\n\n---\n",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/command",
+      "originalName": "Command",
+      "originalDescription": "You have an epic resource called command. Each time you finish a respite, you gain command equal to the XP you gain. You can spend command on your abilities as if it were focus.\n\nAdditionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 command as a free triggered action to increase the power roll outcome for that target by one tier. Whenever an enemy marked by you makes an ability roll, you can spend 1 command as a free triggered action to decrease the power roll outcome by one tier.\n\nCommand remains until you spend it."
+    },
+    {
+      "id": "feature.tactician.level-10.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк исследования, межличностных навыков или интриги по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
+    },
+    {
+      "id": "feature.tactician.level-10.skill",
+      "kind": "feature",
+      "name": "Навык",
+      "markdown": "#### Навык\n\nВы получаете один навык по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
+    },
+    {
+      "id": "feature.tactician.level-10.true-focus",
+      "kind": "feature",
+      "name": "Истинный фокус",
+      "markdown": "#### Истинный фокус\n\nКогда вы получаете фокус в начале каждого вашего хода во время боя, вы получаете 4 фокуса вместо 3.\n\n---\n",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/true-focus",
+      "originalName": "True Focus",
+      "originalDescription": "When you gain focus at the start of each of your turns during combat, you gain 4 focus instead of 3."
+    },
+    {
+      "id": "feature.tactician.level-10.warmaster",
+      "kind": "feature",
+      "name": "Мастер войны",
+      "markdown": "#### Мастер войны\n\nВы овладели всей полнотой возможных стратегий и тактик. Всякий раз, когда вы или любой союзник делаете бросок способности против цели, отмеченной вами, персонаж, делающий бросок, может бросить три кубика и выбрать, какие два использовать.\n\nДополнительно, всякий раз, когда союзник использует героическую способность, нацеленную на одно или несколько существ, отмеченных вами, он тратит на 2 меньше своего героического ресурса на эту способность (минимум 1).",
+      "source": {
+        "articleId": "0850",
+        "path": "08. Классы/Тактик/0850. 10-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-10/warmaster",
+      "originalName": "Warmaster",
+      "originalDescription": "You have mastered the entirety of possible strategies and tactics. Whenever you or any ally makes an ability roll against a target marked by you, the character making the roll can roll three dice and choose which two to use.\n\nAdditionally, whenever an ally uses a heroic ability that targets one or more creatures marked by you, they spend 2 fewer of their Heroic Resource on that ability (minimum 1)."
+    }
+  ]
+}

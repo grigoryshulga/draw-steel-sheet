@@ -1,0 +1,1511 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0861",
+      "title": "1-й Уровень Тени",
+      "chapter": "08. Классы",
+      "group": "Тень",
+      "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Скрытность — это ваше искусство, острие клинка — ваша кисть. Вы обучались в тайной коллегии, специализируясь на алхимии, иллюзиях или теневой магии. Ваше обучение и знания ставят вас в один ряд с элитными убийцами, шпионами и коммандос. Но более могущественным, чем любое оружие или колдовство, является ваше прозрение относительно слабостей ваших врагов.\n\n**Будучи тенью, вы обладаете способностями, которые наносят значительный урон, позволяют вам быстро перемещаться по полю боя и избегать опасностей, а также исчезать из виду даже в разгар самых напряженных боевых столкновений. Вы также обладаете большим количеством навыков, чем любой другой герой.**\n\n---\n## Основы\n\n**Начальные характеристики:** Вы начинаете с Ловкостью 2, и вы можете выбрать один из следующих наборов для ваших остальных характеристик:\n\n- 2, 2, −1, −1\n- 2, 1, 1, −1\n- 2, 1, 0, 0\n- 1, 1, 1, 0\n\n**Слабый потенциал:** Ловкость − 2\n\n**Средний потенциал:** Ловкость − 1\n\n**Сильный потенциал:** Ловкость\n\n**Начальная выносливость на 1-м уровне:** 18\n\n**Выносливость, получаемая на 2-м и последующих уровнях:** 6\n\n**Восстановления:** 8\n\n**Навыки:** Вы получаете навыки Скрытность и Подкрадывание (смотрите [Навыки](#/codex/1208)). Затем выберите любые пять навыков из Криминального мира или навыков группы исследования, межличностных навыков или навыков интриги. (*Быстрый Билд:* Криминальный мир, Скрытность, Обман, Взлом замков, Карманное дело, Саботаж, Подкрадывание.)\n\n###### Таблица развития тени\n\n| Уровень | Особенности | Способности | Способности коллегии |\n| ----- | ------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------------- |\n| 1-й | Коллегия тени, Прозрение, Особенности коллегии, Триггер коллегии, Нерешительность — это слабость, Комплект, Способности тени | Знаковая, 3, 5 | - |\n| 2-й | Особенность коллегии, Перк, Способность коллегии | Знаковая, 3, 5 | 5 |\n| 3-й | Внимательное наблюдение, Способность за 7 прозрения | Знаковая, 3, 5, 7 | 5 |\n| 4-й | Увеличение характеристик, Потише, Ночной дозор, Перк, Навык, Всплеск прозрения | Знаковая, 3, 5, 7 | 5 |\n| 5-й | Особенность коллегии, Способность за 9 прозрения | Знаковая, 3, 5, 7, 9 | 5 |\n| 6-й | Перк, Теневая форма, Способность коллегии | Знаковая, 3, 5, 7, 9 | 5, 9 |\n| 7-й | Увеличение характеристик, Острое прозрение, Навык, Улучшение внимательного наблюдения, Чревовещатель | Знаковая, 3, 5, 7, 9 | 5, 9 |\n| 8-й | Особенность коллегии, Перк, Способность за 11 прозрения | Знаковая, 3, 5, 7, 9, 11 | 5, 9 |\n| 9-й | Мрачный отряд, Способность коллегии | Знаковая, 3, 5, 7, 9, 11 | 5, 9, 11 |\n| 10-й | Увеличение характеристик, Бассейн смерти, Перк, Навык, Улучшение внимательного наблюдения, Улучшенная теневая форма, Уловка | Знаковая, 3, 5, 7, 9, 11 | 5, 9, 11 |\n\n---\n## Особенности 1-го уровня\n\nБудучи тенью 1-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.shadow-college"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.insight"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.insight-in-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.insight-outside-of-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.1st-level-college-features"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.black-ash-teleport"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.black-ash-teleport"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.coat-the-blade"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.coat-the-blade"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.im-no-threat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.im-no-threat"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.smoke-bomb"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.college-triggered-action"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.clever-trick"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.defensive-roll"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.in-all-this-confusion"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.hesitation-is-weakness"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.hesitation-is-weakness"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.kit"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.shadow-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.signature-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.gasping-in-pain"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.i-work-better-alone"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.teamwork-has-its-place"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.you-were-watching-the-wrong-one"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.heroic-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.3-insight-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.disorienting-strike"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.eviscerate"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.get-in-get-out"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.two-throats-at-once"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-1.5-insight-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.coup-de-grace"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.one-hundred-throats"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.setup"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-1.shadowstrike"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level shadow, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.shadow.level-1.shadow-college",
+      "kind": "feature",
+      "name": "Коллегия тени",
+      "markdown": "#### Коллегия тени\n\nКоллегии теней — это тайные учреждения, которые превращают обычных людей в нечто иное. Поиск коллегии — это первый шаг в строгом процессе посвящения, который проверяет характер претендента. Даже те, кто проходит отбор, часто вылетают — или их выгоняют, — поскольку мастера-тени, которые обучают студентов скрытности, магии и убийствам, часто бывают далеко не мягкими в своем подходе.\n\nВы окончили коллегию теней, выбранную из следующих вариантов, каждая из которых дает вам навык. (*Быстрый Билд:* Коллегия Черного Пепла.)\n\n- **Коллегия Черного Пепла (College of Black Ash):** Коллегия Черного Пепла основала искусство быть тенью. Ее выпускники не имеют себе равных в мобильности, используя колдовство для телепортации по полю боя, манипулирования тенями и призыва тьмы. У вас есть навык Магия.\n- **Коллегия Едкой Алхимии (College of Caustic Alchemy):** Коллегия Едкой Алхимии учит своих студентов рецептам кислот, бомб и ядов, используемых в их мрачной работе. Выпускники коллегии — исключительные убийцы. У вас есть навык Алхимия.\n- **Коллегия Маски Арлекина (College of the Harlequin Mask):** Выпускники Коллегии Маски Арлекина изучают магию иллюзий, которую они используют для проникновения во вражеские твердыни и создания спланированного хаоса в бою. У вас есть навык Обман.\n\nВаша коллегия тени является вашим подклассом, и ваш выбор коллегии определяет многие особенностии, которые вы получите по мере повышения уровней.\n\n---\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/shadow-college",
+      "originalName": "Shadow College",
+      "originalDescription": "Shadow colleges are secret institutions that turn ordinary folk into something else. Finding a college is the first step in a rigorous initiation process that tests the mettle of an applicant. Even those who make the cut often wash out—or are kicked out—as the master shadows who teach stealth, magic, and assassination to their students are often less than gentle in their approach.\n\nYou graduated from a shadow college chosen from the following options, each of which grants you a skill. (*Quick Build:* College of Black Ash.)\n\n- College of Black Ash: The College of Black Ash founded the art of being a shadow. Its graduates are unmatched in mobility, using sorcery to teleport around the battlefield, manipulate shadows, and summon darkness. You have the Magic skill.\n- College of Caustic Alchemy: The College of Caustic Alchemy teaches its students recipes for the acids, bombs, and poisons used in their grim work. Graduates of the college are exceptional assassins. You have the Alchemy skill.\n- College of the Harlequin Mask: Graduates of the College of the Harlequin Mask learn illusion magic, which they use to infiltrate enemy strongholds and create orchestrated chaos in combat. You have the Lie skill.\n\nYour shadow college is your subclass, and your choice of college determines many of the features you'll gain as you gain new levels."
+    },
+    {
+      "id": "feature.shadow.level-1.insight",
+      "kind": "feature",
+      "name": "Прозрение",
+      "markdown": "#### Прозрение\n\nНаблюдая за врагом, вы учитесь использовать его слабости против него самого, накапливая героический ресурс, называемый прозрением.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/insight",
+      "originalName": "Insight",
+      "originalDescription": "By observing your enemy, you learn how to use their weaknesses against them, building up a Heroic Resource called insight.\n\n##### Insight in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain insight equal to your Victories. At the start of each of your turns during combat, you gain 1d3 insight.\n\nAdditionally, the first time each combat round that you deal damage incorporating 1 or more surges, you gain 1 insight.\n\nWhenever you use a heroic ability that makes use of a power roll, that ability costs 1 fewer insight if you have an edge or double edge on it. If the ability has multiple targets, the cost is reduced even if the ability gains an edge or has a double edge against only one target.\n\nYou lose any remaining insight at the end of the encounter.\n\n##### Insight Outside of Combat\n\nAlthough you can't gain insight outside of combat, you can use your heroic abilities and effects that cost insight without spending it. Whenever you use an ability or effect outside of combat that costs insight, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited insight on its effect, such as Black Ash Teleport, you can use it as if you had spent an amount of insight equal to your Victories."
+    },
+    {
+      "id": "feature.shadow.level-1.insight-in-combat",
+      "kind": "feature",
+      "name": "Прозрение в бою",
+      "markdown": "##### Прозрение в бою\n\nВ начале боевой встречи или другой стрессовой ситуации, отслеживаемой в раундах боя (по решению Ведущего), вы получаете прозрение, равное вашим Победам. В начале каждого вашего хода во время боя вы получаете 1d3 прозрения.\n\nДополнительно, первый раз за раунд боя, когда вы наносите урон, включающий 1 или более всплесков, вы получаете 1 прозрения.\n\nВсякий раз, когда вы используете героическую способность, которая использует бросок силы, эта способность стоит на 1 прозрение меньше, если у вас есть преимущество или двойное преимущество на нее. Если у способности несколько целей, стоимость снижается, даже если способность получает преимущество или имеет двойное преимущество только против одной цели.\n\nВы теряете все оставшееся прозрение в конце боевой встречи.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "Insight in Combat",
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain insight equal to your Victories."
+    },
+    {
+      "id": "feature.shadow.level-1.insight-outside-of-combat",
+      "kind": "feature",
+      "name": "Прозрение вне боя",
+      "markdown": "##### Прозрение вне боя\n\nХотя вы не можете получать прозрение вне боя, вы можете использовать свои героические способности и эффекты, которые стоят прозрения, не тратя его. Всякий раз, когда вы используете способность или эффект вне боя, который стоит прозрения, вы не можете использовать ту же способность или эффект вне боя снова, пока не заработаете 1 или более Побед или не завершите отдых.\n\nКогда вы используете способность вне боя, которая позволяет вам потратить неограниченное количество прозрения на ее эффект, такую как Телепортация Черного Пепла, вы можете использовать ее так, как если бы вы потратили количество прозрения, равное вашим Победам.\n\n---\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "Insight Outside of Combat",
+      "originalDescription": "Although you can't gain insight outside of combat, you can use your heroic abilities and effects that cost insight without spending it."
+    },
+    {
+      "id": "feature.shadow.level-1.1st-level-college-features",
+      "kind": "feature",
+      "name": "Особенности коллегии 1-го уровня",
+      "markdown": "#### Особенности коллегии 1-го уровня\n\nВаша коллегия тени дает вам одну или две особенностии, как показано в таблице Особенностей коллегии 1-го уровня.\n\n###### Таблица особенностей коллегии 1-го уровня\n\n| Коллегия | Особенность |\n| --------------- | -------------------------- |\n| Черный Пепел | Телепортация Черного Пепла |\n| Едкая Алхимия | Смазать клинок, Дымовая бомба |\n| Маска Арлекина | Я не угроза |\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/1st-level-college-features",
+      "originalName": "1st-Level College Features",
+      "originalDescription": "Your shadow college grants you one or two features, as shown on the 1st-Level College Features table.\n\n###### 1st-Level College Features Table\n\n| College         | Feature                    |\n|-----------------|----------------------------|\n| Black Ash       | Black Ash Teleport         |\n| Caustic Alchemy | Coat the Blade, Smoke Bomb |\n| Harlequin Mask  | I'm No Threat              |"
+    },
+    {
+      "id": "feature.shadow.level-1.black-ash-teleport",
+      "kind": "feature",
+      "name": "Телепортация Черного Пепла",
+      "markdown": "##### Телепортация Черного Пепла\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/black-ash-teleport",
+      "originalName": "Black Ash Teleport",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.black-ash-teleport",
+      "kind": "ability",
+      "name": "Телепортация Черного Пепла",
+      "markdown": "> **Телепортация Черного Пепла**\n>\n> *В вихре черного пепла вы шагаете из одного места в другое.*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы телепортируетесь вплоть до 5 клеток. Если в месте назначения у вас есть покров или укрытие, вы можете использовать маневр Скрытности, даже если за вами наблюдают. Если вы успешно спрячетесь с помощью этого маневра, вы получите 1 всплеск.\n>\n> **Потратить 1+ Прозрения:** Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.black-ash-teleport",
+        "name": "Телепортация Черного Пепла",
+        "flavor": "В вихре черного пепла вы шагаете из одного места в другое.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы телепортируетесь вплоть до 5 клеток. Если в месте назначения у вас есть покров или укрытие, вы можете использовать маневр Скрытности, даже если за вами наблюдают. Если вы успешно спрячетесь с помощью этого маневра, вы получите 1 всплеск.\n\nПотратить 1+ Прозрения: Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/black-ash-teleport",
+        "originalName": "Black Ash Teleport",
+        "originalDescription": "*In a swirl of black ash, you step from one place to another.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You teleport up to 5 squares. If you have concealment or cover at your destination, you can use the Hide maneuver even if you are observed. If you successfully hide using this maneuver, you gain 1 surge.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/black-ash-teleport",
+      "originalName": "Black Ash Teleport",
+      "originalDescription": "*In a swirl of black ash, you step from one place to another.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You teleport up to 5 squares. If you have concealment or cover at your destination, you can use the Hide maneuver even if you are observed. If you successfully hide using this maneuver, you gain 1 surge.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+    },
+    {
+      "id": "feature.shadow.level-1.coat-the-blade",
+      "kind": "feature",
+      "name": "Смазать клинок",
+      "markdown": "##### Смазать клинок\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/coat-the-blade",
+      "originalName": "Coat the Blade",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.coat-the-blade",
+      "kind": "ability",
+      "name": "Смазать Клинок",
+      "markdown": "> **Смазать Клинок**\n>\n> *Немного яда может сделать многое.*\n>\n> | **-** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы получаете 2 всплеска. Дополнительно, всякий раз, когда вы используете всплеск до конца боевой встречи, вы можете выбрать, чтобы он наносил урон ядом.\n>\n> **Потратить 1+ Прозрения:** За каждое потраченное прозрение вы получаете 1 дополнительный всплеск.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.coat-the-blade",
+        "name": "Смазать Клинок",
+        "flavor": "Немного яда может сделать многое.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы получаете 2 всплеска. Дополнительно, всякий раз, когда вы используете всплеск до конца боевой встречи, вы можете выбрать, чтобы он наносил урон ядом.\n\nПотратить 1+ Прозрения: За каждое потраченное прозрение вы получаете 1 дополнительный всплеск.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coat-the-blade",
+        "originalName": "Coat the Blade",
+        "originalDescription": "*A little poison goes a long way.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 2 surges. Additionally, whenever you use a surge before the end of the encounter, you can choose to have it deal poison damage.\n\n**Spend 1+ Insight:** For each insight you spend, you gain 1 additional surge."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coat-the-blade",
+      "originalName": "Coat the Blade",
+      "originalDescription": "*A little poison goes a long way.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 2 surges. Additionally, whenever you use a surge before the end of the encounter, you can choose to have it deal poison damage.\n\n**Spend 1+ Insight:** For each insight you spend, you gain 1 additional surge."
+    },
+    {
+      "id": "feature.shadow.level-1.im-no-threat",
+      "kind": "feature",
+      "name": "Я не угроза",
+      "markdown": "##### Я не угроза\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/im-no-threat",
+      "originalName": "I'm No Threat",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.im-no-threat",
+      "kind": "ability",
+      "name": "Я не Угроза",
+      "markdown": "> **Я не Угроза**\n>\n> *Принятие иллюзорного облика дает вам преимущество в уловках.*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы обволакиваете себя иллюзией, которая делает вас неопасным и безвредным для врагов. Вы можете принять вид безобидного животного вашего размера, например овцы или капибары, или вы можете выглядеть как менее героическая и безоружная версия себя. Пока длится эта иллюзия, ваши удары получают преимущество, и когда вы используете Действие отхода, вы получаете бонус +1 к расстоянию, на которое можете сместиться.\n>\n> Иллюзия заканчивается, когда вы наносите вред другому существу, когда вы физически взаимодействуете с существом, когда вы снова используете эту способность или когда вы заканчиваете иллюзию (действие не требуется). Если вы заканчиваете эту иллюзию, нанося вред другому существу, вы получаете 1 всплеск.\n>\n> **Потратить 1 Прозрения:** Выберите существо, чей размер не более чем на 1 превышает ваш и которое находится в пределах 10 клеток. Иллюзия этой способности заставляет вас выглядеть как это существо. Эта иллюзия покрывает все ваше тело, включая одежду и доспехи, и изменяет ваш голос, чтобы он звучал как голос этого существа. Вы получаете преимущество на тесты, сделанные, чтобы убедить союзников существа, что вы — это существо.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.im-no-threat",
+        "name": "Я не Угроза",
+        "flavor": "Принятие иллюзорного облика дает вам преимущество в уловках.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы обволакиваете себя иллюзией, которая делает вас неопасным и безвредным для врагов. Вы можете принять вид безобидного животного вашего размера, например овцы или капибары, или вы можете выглядеть как менее героическая и безоружная версия себя. Пока длится эта иллюзия, ваши удары получают преимущество, и когда вы используете Действие отхода, вы получаете бонус +1 к расстоянию, на которое можете сместиться.\n\nИллюзия заканчивается, когда вы наносите вред другому существу, когда вы физически взаимодействуете с существом, когда вы снова используете эту способность или когда вы заканчиваете иллюзию (действие не требуется). Если вы заканчиваете эту иллюзию, нанося вред другому существу, вы получаете 1 всплеск.\n\nПотратить 1 Прозрения: Выберите существо, чей размер не более чем на 1 превышает ваш и которое находится в пределах 10 клеток. Иллюзия этой способности заставляет вас выглядеть как это существо. Эта иллюзия покрывает все ваше тело, включая одежду и доспехи, и изменяет ваш голос, чтобы он звучал как голос этого существа. Вы получаете преимущество на тесты, сделанные, чтобы убедить союзников существа, что вы — это существо.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/im-no-threat",
+        "originalName": "I'm No Threat",
+        "originalDescription": "*Taking on an illusory countenance gives you an advantage on subterfuge.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Effect:** You envelop yourself in an illusion that makes you appear nonthreatening and harmless to your enemies. You might take on the appearance of a harmless animal of your size, such as a sheep or capybara, or you might appear as a less heroic and unarmed version of yourself. While this illusion lasts, your strikes gain an edge, and when you take the Disengage move action, you gain a +1 bonus to the distance you can shift.\n\nThe illusion ends when you harm another creature, when you physically interact with a creature, when you use this ability again, or when you end the illusion (no action required). If you end this illusion by harming another creature, you gain 1 surge.\n\n**Spend 1 Insight:** Choose a creature whose size is no more than 1 greater than yours and who is within 10 squares. This ability's illusion makes you appear as that creature. This illusion covers your entire body, including clothing and armor, and alters your voice to sound like that of the creature. You gain an edge on tests made to convince the creature's allies that you are the creature."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/im-no-threat",
+      "originalName": "I'm No Threat",
+      "originalDescription": "*Taking on an illusory countenance gives you an advantage on subterfuge.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |    **🎯 Self** |\n\n**Effect:** You envelop yourself in an illusion that makes you appear nonthreatening and harmless to your enemies. You might take on the appearance of a harmless animal of your size, such as a sheep or capybara, or you might appear as a less heroic and unarmed version of yourself. While this illusion lasts, your strikes gain an edge, and when you take the Disengage move action, you gain a +1 bonus to the distance you can shift.\n\nThe illusion ends when you harm another creature, when you physically interact with a creature, when you use this ability again, or when you end the illusion (no action required). If you end this illusion by harming another creature, you gain 1 surge.\n\n**Spend 1 Insight:** Choose a creature whose size is no more than 1 greater than yours and who is within 10 squares. This ability's illusion makes you appear as that creature. This illusion covers your entire body, including clothing and armor, and alters your voice to sound like that of the creature. You gain an edge on tests made to convince the creature's allies that you are the creature."
+    },
+    {
+      "id": "feature.shadow.level-1.smoke-bomb",
+      "kind": "feature",
+      "name": "Дымовая бомба",
+      "markdown": "##### Дымовая бомба\n\nВы всегда носите с собой запас дымовых бомб, которые можно использовать для отвлечения внимания и легкого побега. Вы можете использовать маневр Скрытности, даже если за вами наблюдают и изначально у вас нет укрытия или покрова. Когда вы это делаете, вы можете сместиться на количество клеток, равное показателю вашей Ловкости. Если вы заканчиваете это движение с укрытием или покровом, вы автоматически скрыты.\n\n---\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/smoke-bomb",
+      "originalName": "Smoke Bomb",
+      "originalDescription": "You always carry a supply of smoke bombs to use for distractions and easy getaways. You can use the Hide maneuver even if you are observed and don't initially have cover or concealment. When you do so, you can shift a number of squares equal to your Agility score. If you end this movement with cover or concealment, you are automatically hidden."
+    },
+    {
+      "id": "feature.shadow.level-1.college-triggered-action",
+      "kind": "feature",
+      "name": "Триггер коллегии",
+      "markdown": "#### Триггер коллегии\n\nВаша коллегия тени дает вам триггер, как показано в таблице Триггеров коллегии.\n\n###### Таблица триггеров коллегии\n\n| Коллегия       | Триггер                  |\n| -------------- | ------------------------ |\n| Черный Пепел   | Во всей этой неразберихе |\n| Едкая Алхимия  | Защитный перекат         |\n| Маска Арлекина | Умный трюк               |\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/college-triggered-action",
+      "originalName": "College Triggered Action",
+      "originalDescription": "Your shadow college grants you a triggered action, as shown on the College Triggered Actions table.\n\n###### College Triggered Actions Table\n\n| College         | Triggered Action      |\n|-----------------|-----------------------|\n| Black Ash       | In All This Confusion |\n| Caustic Alchemy | Defensive Roll        |\n| Harlequin Mask  | Clever Trick          |"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.clever-trick",
+      "kind": "ability",
+      "name": "Умный Трюк",
+      "markdown": "> **Умный Трюк (1 Прозрения)**\n>\n> *Вы сеете мгновение замешательства в бою, приближаяя ваших врагов к погибели.*\n>\n> | **Магия** | **Триггер** |\n> | ----------- | ------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Враг нацеливается на вас ударом.\n>\n> **Эффект:** Выберите врага в пределах расстояния вызвавшего триггер удара, включая врага, который нацелился на вас. Удар вместо этого нацеливается на этого врага.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.clever-trick",
+        "name": "Умный Трюк",
+        "flavor": "Вы сеете мгновение замешательства в бою, приближаяя ваших врагов к погибели.",
+        "actionType": "trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 1,
+        "trigger": "Враг нацеливается на вас ударом.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Выберите врага в пределах расстояния вызвавшего триггер удара, включая врага, который нацелился на вас. Удар вместо этого нацеливается на этого врага.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/clever-trick",
+        "originalName": "Clever Trick",
+        "originalDescription": "*You sow a moment of confusion in combat, to your enemy's peril.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** An enemy targets you with a strike.\n\n**Effect:** Choose an enemy within distance of the triggering strike, including the enemy who targeted you. The strike targets that enemy instead."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/clever-trick",
+      "originalName": "Clever Trick",
+      "originalDescription": "*You sow a moment of confusion in combat, to your enemy's peril.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** An enemy targets you with a strike.\n\n**Effect:** Choose an enemy within distance of the triggering strike, including the enemy who targeted you. The strike targets that enemy instead."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.defensive-roll",
+      "kind": "ability",
+      "name": "Защитный Перекат",
+      "markdown": "> **Защитный Перекат**\n>\n> *Когда враг атакует, вы перекатываетесь вместе с ударом, чтобы уменьшить урон.*\n>\n> | **-** | **Триггер** |\n> | ----------- | ------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Другое существо наносит вам урон.\n>\n> **Эффект:** Вы получаете половину вызвавшего триггер урона, затем можете сместиться вплоть до 2 клеток после того, как вызвавший триггер эффект разрешится. Если вы заканчиваете это смещение с покровом или укрытием, вы можете использовать маневр Скрытности, даже если за вами наблюдают.\n>\n> **Потратить 1 Прозрения:** Потенциал любых эффектов, связанных с уроном, уменьшается на 1 для вас.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.defensive-roll",
+        "name": "Защитный Перекат",
+        "flavor": "Когда враг атакует, вы перекатываетесь вместе с ударом, чтобы уменьшить урон.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Другое существо наносит вам урон.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы получаете половину вызвавшего триггер урона, затем можете сместиться вплоть до 2 клеток после того, как вызвавший триггер эффект разрешится. Если вы заканчиваете это смещение с покровом или укрытием, вы можете использовать маневр Скрытности, даже если за вами наблюдают.\n\nПотратить 1 Прозрения: Потенциал любых эффектов, связанных с уроном, уменьшается на 1 для вас.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+        "originalName": "Defensive Roll",
+        "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/defensive-roll",
+      "originalName": "Defensive Roll",
+      "originalDescription": "*When an enemy attacks, you roll with the impact to reduce the harm.*\n\n| **-**       | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** Another creature damages you.\n\n**Effect:** You take half the triggering damage, then can shift up to 2 squares after the triggering effect resolves. If you end this shift with concealment or cover, you can use the Hide maneuver even if you are observed.\n\n**Spend 1 Insight:** The potency of any effects associated with the damage are reduced by 1 for you."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.in-all-this-confusion",
+      "kind": "ability",
+      "name": "Во Всей Этой Неразберихе",
+      "markdown": "> **Во Всей Этой Неразберихе**\n>\n> *Вы исчезаете в облаке черного дыма, чтобы избежать опасности.*\n>\n> | **Магия** | **Триггер** |\n> | ----------- | ------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Вы получаете урон.\n>\n> **Эффект:** Вы получаете половину урона, затем можете телепортироваться вплоть до 4 клеток после того, как вызвавший триггер эффект разрешится.\n>\n> **Потратить 1+ Прозрения:** Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.in-all-this-confusion",
+        "name": "Во Всей Этой Неразберихе",
+        "flavor": "Вы исчезаете в облаке черного дыма, чтобы избежать опасности.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Вы получаете урон.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы получаете половину урона, затем можете телепортироваться вплоть до 4 клеток после того, как вызвавший триггер эффект разрешится.\n\nПотратить 1+ Прозрения: Вы телепортируетесь на 1 дополнительную клетку за каждое потраченное прозрение.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/in-all-this-confusion",
+        "originalName": "In All This Confusion",
+        "originalDescription": "*You vanish in a plume of black smoke to avoid danger.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage, then can teleport up to 4 squares after the triggering effect resolves.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/in-all-this-confusion",
+      "originalName": "In All This Confusion",
+      "originalDescription": "*You vanish in a plume of black smoke to avoid danger.*\n\n| **Magic**   | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage, then can teleport up to 4 squares after the triggering effect resolves.\n\n**Spend 1+ Insight:** You teleport 1 additional square for each insight spent."
+    },
+    {
+      "id": "feature.shadow.level-1.hesitation-is-weakness",
+      "kind": "feature",
+      "name": "Нерешительность — это слабость",
+      "markdown": "#### Нерешительность — это слабость\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/hesitation-is-weakness",
+      "originalName": "Hesitation Is Weakness",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.hesitation-is-weakness",
+      "kind": "ability",
+      "name": "Нерешительность — Это Слабость",
+      "markdown": "> **Нерешительность — Это Слабость (1 Прозрения)**\n>\n> *Продолжайте атаку. Никогда не давайте им ни минуты покоя.*\n>\n> | **-** | **Свободный триггер** |\n> | ----------- | -----------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Другой герой заканчивает свой ход. Тот герой не мог использовать эту способность для начала своего хода.\n>\n> **Эффект:** Вы делаете свой ход после вызвавшего триггер героя.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.hesitation-is-weakness",
+        "name": "Нерешительность — Это Слабость",
+        "flavor": "Продолжайте атаку. Никогда не давайте им ни минуты покоя.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 1,
+        "trigger": "Другой герой заканчивает свой ход. Тот герой не мог использовать эту способность для начала своего хода.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы делаете свой ход после вызвавшего триггер героя.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/hesitation-is-weakness",
+        "originalName": "Hesitation Is Weakness",
+        "originalDescription": "*Keep up the attack. Never give them a moment's grace.*\n\n| **-**       | **Free triggered** |\n|-------------|-------------------:|\n| **📏 Self** |        **🎯 Self** |\n\n**Trigger:** Another hero ends their turn. That hero can't have used this ability to start their turn.\n\n**Effect:** You take your turn after the triggering hero."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/hesitation-is-weakness",
+      "originalName": "Hesitation Is Weakness",
+      "originalDescription": "*Keep up the attack. Never give them a moment's grace.*\n\n| **-**       | **Free triggered** |\n|-------------|-------------------:|\n| **📏 Self** |        **🎯 Self** |\n\n**Trigger:** Another hero ends their turn. That hero can't have used this ability to start their turn.\n\n**Effect:** You take your turn after the triggering hero."
+    },
+    {
+      "id": "feature.shadow.level-1.kit",
+      "kind": "feature",
+      "name": "Комплект",
+      "markdown": "#### Комплект\n\nВы можете использовать и получать преимущества от комплекта. Смотрите [Комплекты](#/codex/0901) для получения дополнительной информации. (*Быстрый Билд:* Плащ и Кинжал.)\n\n---\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/kit",
+      "originalName": "Kit",
+      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Cloak and Dagger.)"
+    },
+    {
+      "id": "feature.shadow.level-1.shadow-abilities",
+      "kind": "feature",
+      "name": "Способности тени",
+      "markdown": "#### Способности тени\n\nВы специализируетесь на нанесении урона, а затем уходите с линии огня до того, как последует неизбежная контратака. Вы знаете ряд уникальных боевых способностей, которые определяют ваше присутствие на поле боя.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-1/shadow-abilities",
+      "originalName": "Shadow Abilities",
+      "originalDescription": "You specialize in dealing damage, then getting out of harm's way before the inevitable counterattack. You know a number of unique martial abilities that define your presence on the battlefield.\n\n##### Signature Ability\n\nChoose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Teamwork Has Its Place.)\n\n##### Heroic Abilities\n\nA range of heroic abilities define your combat prowess, all of which make use of your insight.\n\n###### 3-Insight Ability\n\nChoose one heroic ability from the following options, each of which costs 3 insight to use. (*Quick Build:* Get In Get Out.)\n\n##### 5-Insight Ability\n\nChoose one heroic ability from the following options, each of which costs 5 insight to use. (Quick Build: Coup de Grace.)"
+    },
+    {
+      "id": "feature.shadow.level-1.signature-ability",
+      "kind": "feature",
+      "name": "Знаковая способность",
+      "markdown": "##### Знаковая способность\n\nВыберите одну знаковую способность из следующих вариантов. Знаковые способности можно использовать по желанию. (*Быстрый Билд:* Для командной работы есть свое место.)\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "Signature Ability",
+      "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (Quick Build: Teamwork Has Its Place.)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.gasping-in-pain",
+      "kind": "ability",
+      "name": "Задыхаясь от Боли",
+      "markdown": "> **Задыхаясь от Боли**\n>\n> *Ваши точные удары позволяют союзникам воспользоваться агонией цели.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 3 + Л урона\n> - **12-16:** 5 + Л урона\n> - **17+:** 8 + Л урона; И < СИЛЬНЫЙ, лежачий\n>\n> **Эффект:** Один союзник в пределах 5 клеток от цели получает 1 всплеск.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.gasping-in-pain",
+        "name": "Задыхаясь от Боли",
+        "flavor": "Ваши точные удары позволяют союзникам воспользоваться агонией цели.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + A",
+            "effect": ""
+          },
+          {
+            "damage": "5 + A",
+            "effect": ""
+          },
+          {
+            "damage": "8 + A",
+            "effect": "И < СИЛЬНЫЙ, лежачий"
+          }
+        ],
+        "effect": "Один союзник в пределах 5 клеток от цели получает 1 всплеск.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/gasping-in-pain",
+        "originalName": "Gasping in Pain",
+        "originalDescription": "*Your precise strikes let your allies take advantage of a target's agony.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage; I < STRONG, prone\n\n**Effect:** One ally within 5 squares of the target gains 1 surge."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/gasping-in-pain",
+      "originalName": "Gasping in Pain",
+      "originalDescription": "*Your precise strikes let your allies take advantage of a target's agony.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage; I < STRONG, prone\n\n**Effect:** One ally within 5 squares of the target gains 1 surge."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.i-work-better-alone",
+      "kind": "ability",
+      "name": "Я Работаю Лучше Один",
+      "markdown": "> **Я Работаю Лучше Один**\n>\n> *\"Так лучше, только ты и я. Не так ли?\"*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 3 + Л урона\n> - **12-16:** 6 + Л урона\n> - **17+:** 9 + Л урона\n>\n> **Эффект:** Если рядом с целью нет ваших союзников, вы получаете 1 всплеск перед тем, как сделать бросок силы.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.i-work-better-alone",
+        "name": "Я Работаю Лучше Один",
+        "flavor": "\"Так лучше, только ты и я. Не так ли?\"",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + A",
+            "effect": ""
+          },
+          {
+            "damage": "6 + A",
+            "effect": ""
+          },
+          {
+            "damage": "9 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Если рядом с целью нет ваших союзников, вы получаете 1 всплеск перед тем, как сделать бросок силы.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/i-work-better-alone",
+        "originalName": "I Work Better Alone",
+        "originalDescription": "*\"It's better, just you and me. Isn't it?\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If the target has none of your allies adjacent to them, you gain 1 surge before making the power roll."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/i-work-better-alone",
+      "originalName": "I Work Better Alone",
+      "originalDescription": "*\"It's better, just you and me. Isn't it?\"*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If the target has none of your allies adjacent to them, you gain 1 surge before making the power roll."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.teamwork-has-its-place",
+      "kind": "ability",
+      "name": "Для Командной Работы Есть Свое Место",
+      "markdown": "> **Для Командной Работы Есть Свое Место**\n>\n> *Вы атакуете врага, когда союзник обнажает его слабость.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ----------------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 3 + Л урона\n> - **12-16:** 6 + Л урона\n> - **17+:** 9 + Л урона\n>\n> **Эффект:** Если любой союзник смежен с целью, вы получаете 1 всплеск перед тем, как сделать бросок силы.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.teamwork-has-its-place",
+        "name": "Для Командной Работы Есть Свое Место",
+        "flavor": "Вы атакуете врага, когда союзник обнажает его слабость.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + A",
+            "effect": ""
+          },
+          {
+            "damage": "6 + A",
+            "effect": ""
+          },
+          {
+            "damage": "9 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Если любой союзник смежен с целью, вы получаете 1 всплеск перед тем, как сделать бросок силы.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/teamwork-has-its-place",
+        "originalName": "Teamwork Has Its Place",
+        "originalDescription": "*You attack an enemy as an ally exposes their weakness.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If any ally is adjacent to the target, you gain 1 surge before making the power roll."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/teamwork-has-its-place",
+      "originalName": "Teamwork Has Its Place",
+      "originalDescription": "*You attack an enemy as an ally exposes their weakness.*\n\n| **Melee, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 6 + A damage\n- **17+:** 9 + A damage\n\n**Effect:** If any ally is adjacent to the target, you gain 1 surge before making the power roll."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.you-were-watching-the-wrong-one",
+      "kind": "ability",
+      "name": "Ты Смотрел не на Того",
+      "markdown": "> **Ты Смотрел не на Того**\n>\n> *Они не могут следить за вами обоими одновременно.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 3 + Л урона\n> - **12-16:** 5 + Л урона\n> - **17+:** 8 + Л урона\n>\n> **Эффект:** Пока у вас есть один или несколько союзников в пределах 5 клеток от цели, вы получаете 1 всплеск. Если вы окружаете цель при использовании этой способности, выберите одного союзника, который окружает вместе с вами. Этот союзник также получает 1 всплеск.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.you-were-watching-the-wrong-one",
+        "name": "Ты Смотрел не на Того",
+        "flavor": "Они не могут следить за вами обоими одновременно.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + A",
+            "effect": ""
+          },
+          {
+            "damage": "5 + A",
+            "effect": ""
+          },
+          {
+            "damage": "8 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Пока у вас есть один или несколько союзников в пределах 5 клеток от цели, вы получаете 1 всплеск. Если вы окружаете цель при использовании этой способности, выберите одного союзника, который окружает вместе с вами. Этот союзник также получает 1 всплеск.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/you-were-watching-the-wrong-one",
+        "originalName": "You Were Watching the Wrong One",
+        "originalDescription": "*They can't watch both of you at once.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage\n\n**Effect:** As long as you have one or more allies within 5 squares of the target, you gain 1 surge. If you are flanking the target when you use this ability, choose one ally who is flanking with you. That ally also gains 1 surge."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/you-were-watching-the-wrong-one",
+      "originalName": "You Were Watching the Wrong One",
+      "originalDescription": "*They can't watch both of you at once.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A damage\n- **12-16:** 5 + A damage\n- **17+:** 8 + A damage\n\n**Effect:** As long as you have one or more allies within 5 squares of the target, you gain 1 surge. If you are flanking the target when you use this ability, choose one ally who is flanking with you. That ally also gains 1 surge."
+    },
+    {
+      "id": "feature.shadow.level-1.heroic-abilities",
+      "kind": "feature",
+      "name": "Героические способности",
+      "markdown": "##### Героические способности\n\nРяд героических способностей определяет ваше боевое мастерство, и все они используют ваше прозрение.\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "Heroic Abilities",
+      "originalDescription": "A range of heroic abilities define your combat prowess, all of which make use of your insight."
+    },
+    {
+      "id": "feature.shadow.level-1.3-insight-ability",
+      "kind": "feature",
+      "name": "Способность за 3 прозрения",
+      "markdown": "###### Способность за 3 прозрения\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 3 прозрения для использования. (*Быстрый Билд:* Войти и выйти.)\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "3-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 insight to use. (Quick Build: Get In Get Out.)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.disorienting-strike",
+      "kind": "ability",
+      "name": "Дезориентирующий Удар",
+      "markdown": "> **Дезориентирующий Удар (3 Прозрения)**\n>\n> *Ваша атака оставляет их пошатывающимися, даря вам больше движения.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 4 + Л урона; швыряние 2\n> - **12-16:** 6 + Л урона; швыряние 3\n> - **17+:** 10 + Л урона; швыряние 5\n>\n> **Эффект:** Вы можете сместиться на любую клетку, которую покидает цель, когда вы совершаете ее швыряние.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.disorienting-strike",
+        "name": "Дезориентирующий Удар",
+        "flavor": "Ваша атака оставляет их пошатывающимися, даря вам больше движения.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + A",
+            "effect": "Швыряние 2"
+          },
+          {
+            "damage": "6 + A",
+            "effect": "Швыряние 3"
+          },
+          {
+            "damage": "10 + A",
+            "effect": "Швыряние 5"
+          }
+        ],
+        "effect": "Вы можете сместиться на любую клетку, которую покидает цель, когда вы совершаете ее швыряние.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/disorienting-strike",
+        "originalName": "Disorienting Strike",
+        "originalDescription": "*Your attack leaves them reeling, allowing you to follow up.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; slide 2\n- **12-16:** 6 + A damage; slide 3\n- **17+:** 10 + A damage; slide 5\n\n**Effect:** You can shift into any square the target leaves when you slide them."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/disorienting-strike",
+      "originalName": "Disorienting Strike",
+      "originalDescription": "*Your attack leaves them reeling, allowing you to follow up.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; slide 2\n- **12-16:** 6 + A damage; slide 3\n- **17+:** 10 + A damage; slide 5\n\n**Effect:** You can shift into any square the target leaves when you slide them."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.eviscerate",
+      "kind": "ability",
+      "name": "Потрошение",
+      "markdown": "> **Потрошение (3 Прозрения)**\n>\n> *Вы оставляете своего врага истекать кровью после разрушительной атаки.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 4 + Л урона; Л < СЛАБЫЙ, кровотечение (до прох.)\n> - **12-16:** 6 + Л урона; Л < СРЕДНИЙ, кровотечение (до прох.)\n> - **17+:** 10 + Л урона; Л < СИЛЬНЫЙ, кровотечение (до прох.)",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.eviscerate",
+        "name": "Потрошение",
+        "flavor": "Вы оставляете своего врага истекать кровью после разрушительной атаки.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + A",
+            "effect": "Л < СЛАБЫЙ, кровотечение (до прох.)"
+          },
+          {
+            "damage": "6 + A",
+            "effect": "Л < СРЕДНИЙ, кровотечение (до прох.)"
+          },
+          {
+            "damage": "10 + A",
+            "effect": "Л < СИЛЬНЫЙ, кровотечение (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+        "originalName": "Eviscerate",
+        "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/eviscerate",
+      "originalName": "Eviscerate",
+      "originalDescription": "*You leave your foe bleeding out after a devastating attack.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, bleeding (save ends)\n- **12-16:** 6 + A damage; A < AVERAGE, bleeding (save ends)\n- **17+:** 10 + A damage; A < STRONG, bleeding (save ends)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.get-in-get-out",
+      "kind": "ability",
+      "name": "Войти и Выйти",
+      "markdown": "> **Войти и Выйти (3 Прозрения)**\n>\n> *Двигайся неожиданно, бей быстро и исчезай!*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 5 + Л урона\n> - **12-16:** 8 + Л урона\n> - **17+:** 11 + Л урона\n>\n> **Эффект:** Вы можете сместиться вплоть до вашей скорости, разделив это движение до или после вашего удара по желанию.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.get-in-get-out",
+        "name": "Войти и Выйти",
+        "flavor": "Двигайся неожиданно, бей быстро и исчезай!",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "5 + A",
+            "effect": ""
+          },
+          {
+            "damage": "8 + A",
+            "effect": ""
+          },
+          {
+            "damage": "11 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете сместиться вплоть до вашей скорости, разделив это движение до или после вашего удара по желанию.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/get-in-get-out",
+        "originalName": "Get In Get Out",
+        "originalDescription": "*Move unexpectedly, strike fast, and be gone!*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 11 + A damage\n\n**Effect:** You can shift up to your speed, dividing that movement before or after your strike as desired."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/get-in-get-out",
+      "originalName": "Get In Get Out",
+      "originalDescription": "*Move unexpectedly, strike fast, and be gone!*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 11 + A damage\n\n**Effect:** You can shift up to your speed, dividing that movement before or after your strike as desired."
+    },
+    {
+      "id": "feature.ability.shadow.level-1.two-throats-at-once",
+      "kind": "ability",
+      "name": "Две Глотки Разом",
+      "markdown": "> **Две Глотки Разом (3 Прозрения)**\n>\n> *Выгодная сделка.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона\n> - **17+:** 10 урона",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.two-throats-at-once",
+        "name": "Две Глотки Разом",
+        "flavor": "Выгодная сделка.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Два существа или объекта",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": ""
+          },
+          {
+            "damage": "6",
+            "effect": ""
+          },
+          {
+            "damage": "10",
+            "effect": ""
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/two-throats-at-once",
+        "originalName": "Two Throats at Once",
+        "originalDescription": "*A bargain.*\n\n| **Melee, Ranged, Strike, Weapon** |                 **Main action** |\n|-----------------------------------|--------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 10 damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/two-throats-at-once",
+      "originalName": "Two Throats at Once",
+      "originalDescription": "*A bargain.*\n\n| **Melee, Ranged, Strike, Weapon** |                 **Main action** |\n|-----------------------------------|--------------------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 10 damage"
+    },
+    {
+      "id": "feature.shadow.level-1.5-insight-ability",
+      "kind": "feature",
+      "name": "Способность за 5 прозрения",
+      "markdown": "##### Способность за 5 прозрения\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 5 прозрения для использования. (*Быстрый Билд:* Удар милосердия.)\n\n",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "5-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 insight to use. (Quick Build: Coup de Grace.)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.coup-de-grace",
+      "kind": "ability",
+      "name": "Удар Милосердия",
+      "markdown": "> **Удар Милосердия (5 Прозрения)**\n>\n> *Твой клинок может стать последним, что они увидят.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 2d6 + 7 + Л урона\n> - **12-16:** 2d6 + 11 + Л урона\n> - **17+:** 2d6 + 16 + Л урона",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.coup-de-grace",
+        "name": "Удар Милосердия",
+        "flavor": "Твой клинок может стать последним, что они увидят.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2d6 + 7 + A",
+            "effect": ""
+          },
+          {
+            "damage": "2d6 + 11 + A",
+            "effect": ""
+          },
+          {
+            "damage": "2d6 + 16 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coup-de-grace",
+        "originalName": "Coup de Grace",
+        "originalDescription": "*Your blade might be the last thing they see.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2d6 + 7 + A damage\n- **12-16:** 2d6 + 11 + A damage\n- **17+:** 2d6 + 16 + A damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/coup-de-grace",
+      "originalName": "Coup de Grace",
+      "originalDescription": "*Your blade might be the last thing they see.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2d6 + 7 + A damage\n- **12-16:** 2d6 + 11 + A damage\n- **17+:** 2d6 + 16 + A damage"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.one-hundred-throats",
+      "kind": "ability",
+      "name": "Сотня Глоток",
+      "markdown": "> **Сотня Глоток (5 Прозрения)**\n>\n> *Когда вы перемещаетесь по полю боя, каждый враг в пределах досягаемости чувствует ваш гнев.*\n>\n> | **Ближний, Оружие** | **Основное действие** |\n> | ---------------------- | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы смещаетесь на расстояние вплоть до вашей скорости и делаете один бросок силы, который нацелен вплоть до трех врагов, с которыми вы становитесь смежными во время движения.\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 6 урона\n> - **17+:** 9 урона",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.one-hundred-throats",
+        "name": "Сотня Глоток",
+        "flavor": "Когда вы перемещаетесь по полю боя, каждый враг в пределах досягаемости чувствует ваш гнев.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Оружие"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3",
+            "effect": ""
+          },
+          {
+            "damage": "6",
+            "effect": ""
+          },
+          {
+            "damage": "9",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы смещаетесь на расстояние вплоть до вашей скорости и делаете один бросок силы, который нацелен вплоть до трех врагов, с которыми вы становитесь смежными во время движения.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/one-hundred-throats",
+        "originalName": "One Hundred Throats",
+        "originalDescription": "*As you move across the battlefield, every foe within reach feels your wrath.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies who came adjacent to you during the move.\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/one-hundred-throats",
+      "originalName": "One Hundred Throats",
+      "originalDescription": "*As you move across the battlefield, every foe within reach feels your wrath.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies who came adjacent to you during the move.\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 6 damage\n- **17+:** 9 damage"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.setup",
+      "kind": "ability",
+      "name": "Подготовка",
+      "markdown": "> **Подготовка (5 Прозрения)**\n>\n> *Твои друзья будут тебе благодарны.*\n>\n> | **Дальний, Удар, Оружие** | **Основное действие** |\n> | -------------------------- | ------------------: |\n> | **📏 Дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 6 + Л урона; Р < СЛАБЫЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **12-16:** 9 + Л урона; Р < СРЕДНИЙ, цель имеет уязвимость к урону 5 (до прох.)\n> - **17+:** 13 + Л урона; Р < СИЛЬНЫЙ, цель имеет уязвимость к урону 5 (до прох.)",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.setup",
+        "name": "Подготовка",
+        "flavor": "Твои друзья будут тебе благодарны.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6 + A",
+            "effect": "Р < СЛАБЫЙ, цель имеет уязвимость к урону 5 (до прох.)"
+          },
+          {
+            "damage": "9 + A",
+            "effect": "Р < СРЕДНИЙ, цель имеет уязвимость к урону 5 (до прох.)"
+          },
+          {
+            "damage": "13 + A",
+            "effect": "Р < СИЛЬНЫЙ, цель имеет уязвимость к урону 5 (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+        "originalName": "Setup",
+        "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/setup",
+      "originalName": "Setup",
+      "originalDescription": "*Your friends will thank you.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; R < WEAK, the target has damage weakness 5 (save ends)\n- **12-16:** 9 + A damage; R < AVERAGE, the target has damage weakness 5 (save ends)\n- **17+:** 13 + A damage; R < STRONG, the target has damage weakness 5 (save ends)"
+    },
+    {
+      "id": "feature.ability.shadow.level-1.shadowstrike",
+      "kind": "ability",
+      "name": "Теневой Удар",
+      "markdown": "> **Теневой Удар (5 Прозрения)**\n>\n> *Они понятия не имеют, чему вас учили в коллегии.*\n>\n> | **Магия, Ближний, Дальний** | **Основное действие** |\n> | ------------------------ | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы используете знаковую способность удара дважды.",
+      "source": {
+        "articleId": "0861",
+        "path": "08. Классы/Тень/0861. 1-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-1.shadowstrike",
+        "name": "Теневой Удар",
+        "flavor": "Они понятия не имеют, чему вас учили в коллегии.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Дальний"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы используете знаковую способность удара дважды.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/shadowstrike",
+        "originalName": "Shadowstrike",
+        "originalDescription": "*They have no idea what the college taught you.*\n\n| **Magic, Melee, Ranged** | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You use a strike signature ability twice."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-1/shadowstrike",
+      "originalName": "Shadowstrike",
+      "originalDescription": "*They have no idea what the college taught you.*\n\n| **Magic, Melee, Ranged** | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You use a strike signature ability twice."
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0899-9",
+      "title": "9-й Уровень Элементалиста",
+      "chapter": "08. Классы",
+      "group": "Элементалист",
+      "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи элементалистом 9-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-9.grand-wyrding"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-9.new-11-essence-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-9.earth-rejects-you"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-9.the-green-defends-its-servants"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-9.prism"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-9.unquenchable-fire"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level elementalist, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.elementalist.level-9.grand-wyrding",
+      "kind": "feature",
+      "name": "Великий вирдинг",
+      "markdown": "#### Великий вирдинг\n\nВы овладели магией созидания и можете использовать вашу особенность Вирдинг как основное действие.\n\nДополнительно, когда у вас есть 5 или более Побед, выберите один из следующих типов урона: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком. Вы получаете иммунитет ко всему этому типу.\n\n---\n",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/grand-wyrding",
+      "originalName": "Grand Wyrding",
+      "originalDescription": "You have mastered the magic of shaping a wyrd, and can use your Wyrding feature as a main action.\n\nAdditionally, when you have 5 or more Victories, choose one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. You have immunity all to that type."
+    },
+    {
+      "id": "feature.elementalist.level-9.new-11-essence-ability",
+      "kind": "feature",
+      "name": "Новая способность за 11 эссенции",
+      "markdown": "#### Новая способность за 11 эссенции\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 11 эссенции для использования. В качестве альтернативы вы можете выбрать одну из способностей за 11 эссенции, которую вы не выбрали на 8-м уровне (смотрите [Особенности 8-го уровня](#/codex/0898)).\n\n",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/new-11-essence-ability",
+      "originalName": "New 11-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 essence to use. Alternatively, you can choose one of the 11-essence abilities you didn't select at 8th level (see 8th-Level Features)."
+    },
+    {
+      "id": "feature.ability.elementalist.level-9.earth-rejects-you",
+      "kind": "ability",
+      "name": "Земля Отвергает Тебя",
+      "markdown": "> **Земля Отвергает Тебя (11 Эссенции)**\n>\n> *Все и вся сдувается в извержении камней и обломков.*\n>\n> | **Область, Земля, Магия, Дальний** |                          **Основное действие** |\n> | ------------------------------ | ---------------------------------------: |\n> | **📏 Куб 5 в пределах 10** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 13 урона\n>\n> **Поддержание 2:** В начале вашего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-9.earth-rejects-you",
+        "name": "Земля Отвергает Тебя",
+        "flavor": "Все и вся сдувается в извержении камней и обломков.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Земля",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 5 в пределах 10",
+        "target": "Каждый враг и объект в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6",
+            "effect": ""
+          },
+          {
+            "damage": "9",
+            "effect": ""
+          },
+          {
+            "damage": "13",
+            "effect": ""
+          }
+        ],
+        "effect": "Поддержание 2: В начале вашего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/earth-rejects-you",
+        "originalName": "Earth Rejects You",
+        "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/earth-rejects-you",
+      "originalName": "Earth Rejects You",
+      "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+    },
+    {
+      "id": "feature.ability.elementalist.level-9.the-green-defends-its-servants",
+      "kind": "ability",
+      "name": "Зелень Защищает Своих Слуг",
+      "markdown": "> **Зелень Защищает Своих Слуг (11 Эссенции)**\n>\n> *Светящийся зеленый щит показывает свою истинную красоту тем больше, чем сильнее он трескается.*\n>\n> | **Зелень, Магия, Дальний** |            **Маневр** |\n> | ------------------------ | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** Вы создаете элементальный щит, который защищает цель до конца вашего следующего хода. Пока щит активен, цель может предпринять основное действие Защита как маневр на каждом из своих ходов. Цель получает 30 очков временной Выносливости, которые длятся до их утомления или до окончания эффекта. Если эта временная Выносливость исчезает, эффект заканчивается, и щит взрывается, нанося 10 урона каждому врагу в пределах 5 клеток от цели.\n>\n> **Поддержание 2:** Эффект длится до начала вашего следующего хода.",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-9.the-green-defends-its-servants",
+        "name": "Зелень Защищает Своих Слуг",
+        "flavor": "Светящийся зеленый щит показывает свою истинную красоту тем больше, чем сильнее он трескается.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Зелень",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы создаете элементальный щит, который защищает цель до конца вашего следующего хода. Пока щит активен, цель может предпринять основное действие Защита как маневр на каждом из своих ходов. Цель получает 30 очков временной Выносливости, которые длятся до их утомления или до окончания эффекта. Если эта временная Выносливость исчезает, эффект заканчивается, и щит взрывается, нанося 10 урона каждому врагу в пределах 5 клеток от цели.\n\nПоддержание 2: Эффект длится до начала вашего следующего хода.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/the-green-defends-its-servants",
+        "originalName": "The Green Defends Its Servants",
+        "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/the-green-defends-its-servants",
+      "originalName": "The Green Defends Its Servants",
+      "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn."
+    },
+    {
+      "id": "feature.ability.elementalist.level-9.prism",
+      "kind": "ability",
+      "name": "Призма",
+      "markdown": "> **Призма (11 Эссенции)**\n>\n> *Вы разделяете свою эссенцию, позволяя применять несколько эффектов одновременно.*\n>\n> | **Магия, Пустота** | **Основное действие** |\n> | --------------- | --------------: |\n> | **📏 На себя** |     **🎯 На себя** |\n>\n> **Эффект:** Вы используете до трех героических способностей, общая стоимость которых в эссенции составляет 11 или меньше, не тратя дополнительной эссенции помимо стоимости этой способности. Вы можете сместиться вплоть до 2 клеток между использованием каждой способности.",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-9.prism",
+        "name": "Призма",
+        "flavor": "Вы разделяете свою эссенцию, позволяя применять несколько эффектов одновременно.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Пустота"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы используете до трех героических способностей, общая стоимость которых в эссенции составляет 11 или меньше, не тратя дополнительной эссенции помимо стоимости этой способности. Вы можете сместиться вплоть до 2 клеток между использованием каждой способности.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/prism",
+        "originalName": "Prism",
+        "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/prism",
+      "originalName": "Prism",
+      "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability."
+    },
+    {
+      "id": "feature.ability.elementalist.level-9.unquenchable-fire",
+      "kind": "ability",
+      "name": "Неугасимый Огонь)",
+      "markdown": "> **Неугасимый Огонь) (11 Эссенции)**\n>\n> *Вы запускаете огненный снаряд, сплетенный из чистой первозданной энергии.*\n>\n> | **Огонь, Магия, Дальний, Удар** |            **Основное действие** |\n> | ------------------------------- | -------------------------: |\n> | **📏 Дальний 10** | **🎯 Один враг или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 13 + Р урона огнем; И < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** 18 + Р урона огнем; И < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** 25 + Р урона огнем; И < СИЛЬНЫЙ, оглушение (до прох.)\n>\n> **Эффект:** Этот урон игнорирует иммунитет.",
+      "source": {
+        "articleId": "0899-9",
+        "path": "08. Классы/Элементалист/0899. 9-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-9.unquenchable-fire",
+        "name": "Неугасимый Огонь)",
+        "flavor": "Вы запускаете огненный снаряд, сплетенный из чистой первозданной энергии.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Один враг или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "13 + R",
+            "effect": "Огнем; И < СЛАБЫЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "18 + R",
+            "effect": "Огнем; И < СРЕДНИЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "25 + R",
+            "effect": "Огнем; И < СИЛЬНЫЙ, оглушение (до прох.)"
+          }
+        ],
+        "effect": "Этот урон игнорирует иммунитет.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/unquenchable-fire",
+        "originalName": "Unquenchable Fire",
+        "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/unquenchable-fire",
+      "originalName": "Unquenchable Fire",
+      "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity."
+    }
+  ]
+}

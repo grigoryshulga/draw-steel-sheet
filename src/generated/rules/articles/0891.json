@@ -1,0 +1,2199 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0891",
+      "title": "1-й Уровень Элементалиста",
+      "chapter": "08. Классы",
+      "group": "Элементалист",
+      "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Воздух для движения. Земля для постоянства. Огонь для разрушения. Вода для перемен. Зелень для роста. Гниль для смерти. Пустота для тайны, которую невозможно познать. Годы изучения, практики и корпения над фолиантами принесли вам откровения, которые позволяют манипулировать этими строительными блоками реальности. Теперь вы используете свое мастерство над семью элементами, чтобы разрушать, создавать и искажать мир с помощью магии.\n\n**Будучи элементалистом, вы можете обрушить свой гнев на поле врагов, ослабить противников, защитить себя и союзников, управлять ландшафтом, искажать пространство и многое другое. Ваша элементальная специализация определяет, в каких из этих талантов вы преуспеете.**\n\n---\n## Основы\n\n**Начальные характеристики:** Вы начинаете с Разумом 2, и вы можете выбрать один из следующих наборов для ваших остальных характеристик:\n\n- 2, 2, −1, −1\n- 2, 1, 1, −1\n- 2, 1, 0, 0\n- 1, 1, 1, 0\n\n**Слабый потенциал:** Разум − 2\n\n**Средний потенциал:** Разум − 1\n\n**Сильный потенциал:** Разум\n\n**Начальная выносливость на 1-м уровне:** 18\n\n**Выносливость, получаемая на 2-м и последующих уровнях:** 6\n\n**Восстановления:** 8\n\n**Навыки:** Вы получаете навык Магия (смотрите [Навыки](#/codex/1208)). Затем выберите любые три навыка из группы ремесла или знаний. (*Быстрый Билд:* Алхимия, Кузнечное дело, История, Магия.)\n\n###### Таблица развития элементалиста\n\n| Уровень | Особенности                                                                                                                                                                                                      | Способности                        |\n| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |\n| 1-й     | Элементальная специализация, Эссенция, Бросок элемента, Поддерживаемая магия, Практическая магия, Особенность специализации, Триггер специализации, Зачарование, Оберег элементалиста, Способности элементалиста | Две знаковые, 3, 5                 |\n| 2-й     | Перк, Особенность специализации, Новая способность за 5 эссенции                                                                                                                                                 | Две знаковые, 3, 5, 5              |\n| 3-й     | Особенность специализации, Способность за 7 эссенции                                                                                                                                                             | Две знаковые, 3, 5, 5, 7           |\n| 4-й     | Увеличение характеристик, Источник эссенции, Мантия эссенции, Перк, Навык                                                                                                                                        | Две знаковые, 3, 5, 5, 7           |\n| 5-й     | Особенность специализации, Способность за 9 эссенции                                                                                                                                                             | Две знаковые, 3, 5, 5, 7, 9        |\n| 6-й     | Перк, Вирдинг, Новая способность за 9 эссенции                                                                                                                                                                   | Две знаковые, 3, 5, 5, 7, 9, 9     |\n| 7-й     | Увеличение характеристик, Мантия квинтэссенции, Бурлящая эссенция, Навык                                                                                                                                         | Две знаковые, 3, 5, 5, 7, 9, 9     |\n| 8-й     | Перк, Особенность специализации, Способность за 11 эссенции                                                                                                                                                      | Две знаковые, 3, 5, 5, 7, 9, 9, 11 |\n| 9-й     | Великий вирдинг, Новая способность за 11 эссенции                                                                                                                                                                | Две знаковые, 3, 5, 5, 7, 9, 9, 11 |\n| 10-й    | Увеличение характеристик, Веяние, Сущностное бытие, Единый, Перк, Навык                                                                                                                                          | Две знаковые, 3, 5, 5, 7, 9, 9, 11 |\n\n---\n## Особенности 1-го уровня\n\nБудучи элементалистом 1-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.elemental-specialization"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.earth-acolyte-of-earth"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.fire-acolyte-of-fire"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.green-acolyte-of-the-green"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.void-acolyte-of-the-mystery"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.essence"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.essence-in-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.essence-outside-of-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.hurl-element"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.hurl-element"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.persistent-magic"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.practical-magic"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.practical-magic"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.1st-level-specialization-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.a-beyonding-of-vision"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.shared-void-sense"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.it-is-the-soul-which-hears"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.motivate-earth"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.motivate-earth"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.return-to-formlessness"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.return-to-formlessness"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.specialization-triggered-action"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.breath-of-dawn-remembered"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.explosive-assistance"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.skin-like-castle-walls"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.subtle-relocation"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment-of-battle"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment-of-celerity"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment-of-destruction"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment-of-distance"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.enchantment-of-permanence"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.elementalist-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.ward-of-delightful-consequences"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.ward-of-excellent-protection"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.ward-of-natures-affection"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.ward-of-surprising-reactivity"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.elementalist-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.signature-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.afflict-a-bountiful-decay"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.bifurcated-incineration"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.grasp-of-beyond"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.the-green-within-the-green-without"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.meteoric-introduction"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.ray-of-agonizing-self-reflection"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.unquiet-ground"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.viscous-fire"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.heroic-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.3-essence-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.behold-the-mystery"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.the-flesh-a-crucible"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.invigorating-growth"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.ripples-in-the-earth"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-1.5-essence-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.conflagration"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.instantaneous-excavation"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.no-more-than-a-breeze"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-1.test-of-rain"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a 1st-level elementalist, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.elementalist.level-1.elemental-specialization",
+      "kind": "feature",
+      "name": "Элементальная специализация",
+      "markdown": "#### Элементальная специализация\n\nБлагодаря своим исследованиям, вы знаете и можете манипулировать семью первозданными элементами мультивселенной:\n\n- **Воздух** — элемент движения. Способности воздуха позволяют манипулировать скоростью, проворством, полетом и дыханием.\n- **Земля** — элемент постоянства. Способности земли укрепляют ваше тело и даруют силу навсегда создавать и изменять физический ландшафт.\n- **Огонь** — элемент разрушения. Способности огня опустошают врагов и расплавляют объекты до шлака.\n- **Зелень** — элемент творения и роста. Способности зелени создают и управляют растениями, грибами и другими формами жизни, чтобы мешать врагам и питать ваших союзников.\n- **Гниль** — элемент разложения. Способности гнили наносят вред и ослабляют врагов.\n- **Пустота** — элемент тайны. Способности пустоты искажают пространство и реальность, позволяя вам телепортироваться, создавать иллюзии и делать вещи бестелесными.\n- **Вода** — элемент перемен. Способности воды усиливают мощь ваших союзников и изменяют силу ваших врагов к худшему.\n\nВы выбираете элементальную специализацию из следующих вариантов: **земля**, **огонь**, **зелень** или **пустота**. Ваша элементальная специализация является вашим подклассом, и ваш выбор специализации определяет многие особенности, которые вы получите по мере повышения уровней, включая одно из следующих преимуществ. (Другие элементальные специализации будут представлены в будущих продуктах.) (*Быстрый Билд:* Огонь.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elemental-specialization",
+      "originalName": "Elemental Specialization",
+      "originalDescription": "Through your studies, you know and can manipulate the seven primal elements of the timescape:\n\n- **Air** is the element of movement. Air abilities allow you to manipulate speed, quickness, flight, and breath.\n- **Earth** is the element of permanence. Earth abilities bolster your body and grant the power to permanently create and shape physical terrain.\n- **Fire** is the element of destruction. Fire abilities devastate enemies and melt objects to slag.\n- **Green** is the element of creation and growth. Green abilities make and manipulate plants, fungi, and other forms of life to hamper foes and nourish your allies.\n- **Rot** is the element of decay. Rot abilities harm and debuff enemies.\n- **Void** is the element of the mystery. Void abilities warp space and reality, allowing you to teleport, create illusions, and make things incorporeal.\n- **Water** is the element of change. Water abilities enhance your allies' power, and alter your enemies' power for the worse.\n\nYou choose an elemental specialization from the following options: earth, fire, green, or void. Your elemental specialization is your subclass, and your choice of specialization determines many of the features you'll gain as you gain new levels, including one of the following benefits. (Other elemental specializations will be featured in future products.) (*Quick Build:* Fire.)"
+    },
+    {
+      "id": "feature.elementalist.level-1.earth-acolyte-of-earth",
+      "kind": "feature",
+      "name": "Земля: Аколит Земли",
+      "markdown": "##### Земля: Аколит Земли\n\nВы используете поток магии земли, чтобы вас было труднее сдвинуть с места. Всякий раз, когда вы используете способность, имеющую ключевые слова Земля и Магия, ваша устойчивость увеличивается на 1 до начала вашего следующего хода. Это преимущество суммируется.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/earth-acolyte-of-earth",
+      "originalName": "Earth: Acolyte of Earth",
+      "originalDescription": "You harness the flow of earth magic to become harder to move. Whenever you use an ability that has the Earth and Magic keywords, your stability increases by 1 until the start of your next turn. This benefit is cumulative."
+    },
+    {
+      "id": "feature.elementalist.level-1.fire-acolyte-of-fire",
+      "kind": "feature",
+      "name": "Огонь: Аколит Огня",
+      "markdown": "##### Огонь: Аколит Огня\n\nВы становитесь экспертом во владении разрушительным пламенем. Ваши способности, имеющие ключевые слова Огонь и Магия, получают бонус +1 к выброшенному урону. Ваша способность Бросок элемента (смотрите Бросок элемента) также получает этот бонус, когда вы используете ее для нанесения урона огнем.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/fire-acolyte-of-fire",
+      "originalName": "Fire: Acolyte of Fire",
+      "originalDescription": "You become an expert at wielding destructive flames. Your abilities that have the Fire and Magic keywords gain a +1 bonus to rolled damage. Your Hurl Element ability (see below) also gains this bonus when you use it to deal fire damage."
+    },
+    {
+      "id": "feature.elementalist.level-1.green-acolyte-of-the-green",
+      "kind": "feature",
+      "name": "Зелень: Аколит Зелени",
+      "markdown": "##### Зелень: Аколит Зелени\n\nВы используете остаточную магию от ваших заклинаний зелени, чтобы поддержать себя и своих союзников. Всякий раз, когда вы наносите урон одному или нескольким существам с помощью способности, которая имеет ключевые слова Зелень и Магия и которая стоит эссенции для использования (смотрите ниже), вы или одно существо в пределах 10 клеток от вас получает временную Выносливость, равную показателю вашего Разума.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/green-acolyte-of-the-green",
+      "originalName": "Green: Acolyte of the Green",
+      "originalDescription": "You harness the residual magic from your green spells to bolster yourself and your allies. Whenever you deal damage to one or more creatures using an ability that has the Green and Magic keywords and that costs essence to use (see below), you or one creature within 10 squares of you gains temporary Stamina equal to your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-1.void-acolyte-of-the-mystery",
+      "kind": "feature",
+      "name": "Пустота: Аколит Тайны",
+      "markdown": "##### Пустота: Аколит Тайны\n\nВы используете свое погружение в тайну магии пустоты, чтобы расширить радиус действия этой магии лучше, чем другие маги. Расстояние всех ваших способностей, имеющих ключевые слова Магия, Дальний и Пустота, увеличивается на 2 клетки.\n\n---\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/void-acolyte-of-the-mystery",
+      "originalName": "Void: Acolyte of the Mystery",
+      "originalDescription": "You use your immersion in the mystery of void magic to expand the reach of that magic better than other mages. The distance of all your abilities that have the Magic, Ranged, and Void keywords increases by 2 squares."
+    },
+    {
+      "id": "feature.elementalist.level-1.essence",
+      "kind": "feature",
+      "name": "Эссенция",
+      "markdown": "#### Эссенция\n\nВы направляете субстанцию творения в форме Героического Ресурса, называемого эссенцией, собирая и сжигая ее для сотворения и поддержания заклинаний.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/essence",
+      "originalName": "Essence",
+      "originalDescription": "You channel the substance of creation in the form of a Heroic Resource called essence, gathering and burning it to cast and maintain spells.\n\n##### Essence in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain essence equal to your Victories. At the start of each of your turns during combat, you gain 2 essence.\n\nAdditionally, the first time each combat round that you or a creature within 10 squares takes damage that isn't untyped or holy damage, you gain 1 essence.\n\nYou lose any remaining essence at the end of the encounter.\n\n##### Essence Outside of Combat\n\nThough you can't gain essence outside of combat, you can use your heroic abilities and effects that cost essence without spending it. Whenever you use an ability or effect outside of combat that costs essence, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use a persistent ability outside of combat (see Persistent Magic below), you can maintain it for a number of rounds equal to your Victories.\n\nWhen you use an ability outside of combat that lets you spend unlimited essence on its effect, you can use it as if you had spent an amount of essence equal to your Victories."
+    },
+    {
+      "id": "feature.elementalist.level-1.essence-in-combat",
+      "kind": "feature",
+      "name": "Эссенция в бою",
+      "markdown": "##### Эссенция в бою\n\nВ начале боевой встречи или другой стрессовой ситуации, отслеживаемой в раундах боя (по решению Ведущего), вы получаете эссенцию, равную вашим Победам. В начале каждого вашего хода во время боя вы получаете 2 эссенции.\n\nДополнительно, первый раз за раунд боя, когда вы или существо в пределах 10 клеток получает урон, не являющийся нетиповым уроном или святым уроном, вы получаете 1 эссенцию.\n\nВы теряете всю оставшуюся эссенцию в конце боевой встречи.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "Essence in Combat",
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain essence equal to your Victories."
+    },
+    {
+      "id": "feature.elementalist.level-1.essence-outside-of-combat",
+      "kind": "feature",
+      "name": "Эссенция вне боя",
+      "markdown": "##### Эссенция вне боя\n\nХотя вы не можете получать эссенцию вне боя, вы можете использовать свои героические способности и эффекты, которые стоят эссенции, не тратя ее. Всякий раз, когда вы используете способность или эффект вне боя, который стоит эссенции, вы не можете использовать ту же способность или эффект вне боя снова, пока не заработаете 1 или более Побед или не завершите отдых.\n\nКогда вы используете поддерживаемую способность вне боя (смотрите Поддерживаемая магия ниже), вы можете поддерживать ее в течение количества раундов, равного вашим Победам.\n\nКогда вы используете способность вне боя, которая позволяет вам потратить неограниченное количество эссенции на ее эффект, вы можете использовать ее так, как если бы вы потратили количество эссенции, равное вашим Победам.\n\n---\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "Essence Outside of Combat",
+      "originalDescription": "Though you can't gain essence outside of combat, you can use your heroic abilities and effects that cost essence without spending it."
+    },
+    {
+      "id": "feature.elementalist.level-1.hurl-element",
+      "kind": "feature",
+      "name": "Бросок элемента",
+      "markdown": "#### Бросок элемента\n\nУ вас есть следующая способность, которую можно использовать как дальний свободный удар.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/hurl-element",
+      "originalName": "Hurl Element",
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.hurl-element",
+      "kind": "ability",
+      "name": "Бросок Элемента",
+      "markdown": "> **Бросок Элемента**\n>\n> *Вы бросаете шар элементальной энергии во врага.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона\n> - **12-16:** 4 + Р урона\n> - **17+:** 6 + Р урона\n>\n> **Эффект:** Делая этот удар, выберите тип урона из следующих вариантов: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.hurl-element",
+        "name": "Бросок Элемента",
+        "flavor": "Вы бросаете шар элементальной энергии во врага.",
+        "actionType": "main",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + R",
+            "effect": ""
+          },
+          {
+            "damage": "4 + R",
+            "effect": ""
+          },
+          {
+            "damage": "6 + R",
+            "effect": ""
+          }
+        ],
+        "effect": "Делая этот удар, выберите тип урона из следующих вариантов: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/hurl-element",
+        "originalName": "Hurl Element",
+        "originalDescription": "*You cast a ball of elemental energy at a foe.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 4 + R damage\n- **17+:** 6 + R damage\n\n**Effect:** When you make this strike, choose the damage type from one of the following options: acid, cold, corruption, fire, lightning, poison, or sonic."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/hurl-element",
+      "originalName": "Hurl Element",
+      "originalDescription": "*You cast a ball of elemental energy at a foe.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 4 + R damage\n- **17+:** 6 + R damage\n\n**Effect:** When you make this strike, choose the damage type from one of the following options: acid, cold, corruption, fire, lightning, poison, or sonic."
+    },
+    {
+      "id": "feature.elementalist.level-1.persistent-magic",
+      "kind": "feature",
+      "name": "Поддерживаемая магия",
+      "markdown": "#### Поддерживаемая магия\n\nНекоторые из ваших героических способностей имеют пункт эффекта поддержания. Например, способность Мгновенные раскопки имеет эффект, отмеченный как \"Поддержание 1\". Всякий раз, когда вы используете поддерживаемую способность, вы решаете, хотите ли вы ее поддерживать, и начинаете делать это сразу после первого использования способности. Если вы поддерживаете поддерживаемую способность в бою, вы уменьшаете количество эссенции, которое вы получаете в начале своего хода, на величину, равную значению поддержания способности, что активирует эффект поддержания способности. Все ваши активные поддерживаемые способности заканчиваются в конце встречи.\n\nВы не можете поддерживать никакие способности, которые заставили бы вас получать отрицательное количество эссенции в начале вашего хода. Вы можете прекратить поддержку способности в любое время (действие не требуется).\n\nЕсли вы поддерживаете одну и ту же способность на нескольких целях, и эффект включает бросок силы, вы делаете этот бросок один раз и применяете один и тот же эффект ко всем целям. Существо не может быть подвержено множественным экземплярам поддерживаемой способности.\n\nЕсли вы получаете урон, равный или превышающий 5-кратный показатель вашего Разума за один ход, вы прекращаете поддержку любых поддерживаемых способностей. Например, если ваш показатель Разума равен 2, и вы поддерживаете Мгновенные раскопки, получение 10 или более урона за один ход заставляет вас прекратить поддержку этой способности.\n\n---\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/persistent-magic",
+      "originalName": "Persistent Magic",
+      "originalDescription": "Some of your heroic abilities have a persistent effect entry. For example, the Instantaneous Excavation ability has an effect noted as \"Persistent 1.\" Whenever you use a persistent ability, you decide whether you want to maintain it, and start doing so immediately after you first use the ability. If you maintain a persistent ability in combat, you reduce the amount of essence you earn at the start of your turn by an amount equal to the ability's persistent value, which enables the ability's persistent effect. All your active persistent abilities end at the end of the encounter.\n\nYou can't maintain any abilities that would make you earn a negative amount of essence at the start of your turn. You can stop maintaining an ability at any time (no action required).\n\nIf you maintain the same ability on several targets and the effect includes a power roll, you make that roll once and apply the same effect to all targets. A creature can't be affected by multiple instances of a persistent ability.\n\nIf you take damage equal to or greater than 5 times your Reason score in one turn, you stop maintaining any persistent abilities. For instance, if you have a Reason score of 2 and are maintaining Instantaneous Excavation, taking 10 or more damage in one turn causes you to stop maintaining the ability."
+    },
+    {
+      "id": "feature.elementalist.level-1.practical-magic",
+      "kind": "feature",
+      "name": "Практическая магия",
+      "markdown": "#### Практическая магия\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/practical-magic",
+      "originalName": "Practical Magic",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.practical-magic",
+      "kind": "ability",
+      "name": "Практическая Магия",
+      "markdown": "> **Практическая Магия**\n>\n> *Ваше мастерство над элементальной силой позволяет вам настраивать свои колдовства.*\n>\n> | **Магия** | **Маневр** |\n> | ---------------------- | -----------: |\n> | **📏 На себя; смотрите ниже** |  **🎯 На себя** |\n>\n> **Эффект:** Выберите один из следующих эффектов:\n>\n> - Вы используете маневр Отталкивания (смотрите [Маневры](#/codex/1309)), но его расстояние становится расстоянием вашей способности Бросок элемента, и вы используете Разум вместо Мощи для броска силы.\n> - Вы выбираете существо в пределах расстояния вашей способности Бросок элемента и один из следующих типов урона: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком. Это существо получает урон выбранного типа, равный показателю вашего Разума.\n> - Вы телепортируетесь на количество клеток вплоть до показателя вашего Разума. Если вы выбираете этот вариант, вы можете потратить эссенцию, чтобы телепортироваться на 1 дополнительную клетку за каждую потраченную эссенцию.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.practical-magic",
+        "name": "Практическая Магия",
+        "flavor": "Ваше мастерство над элементальной силой позволяет вам настраивать свои колдовства.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Выберите один из следующих эффектов:\n- Вы используете маневр Отталкивания (смотрите Маневры), но его расстояние становится расстоянием вашей способности Бросок элемента, и вы используете Разум вместо Мощи для броска силы.\n- Вы выбираете существо в пределах расстояния вашей способности Бросок элемента и один из следующих типов урона: урон кислотой, урон холодом, урон порчей, урон огнем, урон молнией, урон ядом или урон звуком. Это существо получает урон выбранного типа, равный показателю вашего Разума.\n- Вы телепортируетесь на количество клеток вплоть до показателя вашего Разума. Если вы выбираете этот вариант, вы можете потратить эссенцию, чтобы телепортироваться на 1 дополнительную клетку за каждую потраченную эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+        "originalName": "Practical Magic",
+        "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/practical-magic",
+      "originalName": "Practical Magic",
+      "originalDescription": "*Your mastery of elemental power lets you customize your conjurations.*\n\n| **Magic**              | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** Choose one of the following effects:\n\n- You use the Knockback maneuver (see Chapter 10: Combat), but its distance becomes the range of your Hurl Element ability, and you use Reason instead of Might for the power roll.\n- You choose a creature within the distance of your Hurl Element ability and one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. That creature takes damage of the chosen type equal to your Reason score.\n- You teleport up to a number of squares equal to your Reason score. If you choose this option, you can spend essence to teleport 1 additional square for each essence spent."
+    },
+    {
+      "id": "feature.elementalist.level-1.1st-level-specialization-feature",
+      "kind": "feature",
+      "name": "Особенность специализации 1-го уровня",
+      "markdown": "#### Особенность специализации 1-го уровня\n\nВаша элементальная специализация дает вам особенность, как показано в таблице Особенностей элементальной специализации 1-го уровня.\n\n###### Таблица особенностейостей элементальной специализации 1-го уровня\n\n| Специализация | Особенность                    |\n| -------------- | -------------------------- |\n| Земля          | Побудить землю            |\n| Огонь           | Возврат к бесформенности     |\n| Зелень          | Именно душа слышит |\n| Пустота           | За пределами зрения      |\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/1st-level-specialization-feature",
+      "originalName": "1st-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 1st-Level Elemental Specialization Features table.\n\n###### 1st-Level Elemental Specialization Features Table\n\n| Specialization | Feature                    |\n|----------------|----------------------------|\n| Earth          | Motivate Earth             |\n| Fire           | Return to Formlessness     |\n| Green          | It Is the Soul Which Hears |\n| Void           | A Beyonding of Vision      |"
+    },
+    {
+      "id": "feature.elementalist.level-1.a-beyonding-of-vision",
+      "kind": "feature",
+      "name": "За пределами зрения",
+      "markdown": "##### За пределами зрения\n\nВы мгновенно распознаете иллюзии как таковые, вы можете видеть невидимых существ, и сверхъестественные эффекты не могут скрыть от вас существ и объекты. Дополнительно, вы всегда знаете, является ли область или объект, за которым вы наблюдаете, магическим или подверженным магии, и знаете особенности того, что эта магия может делать.\n\nВы также получаете следующую способность.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/a-beyonding-of-vision",
+      "originalName": "A Beyonding of Vision",
+      "originalDescription": "You instantly recognize illusions for what they are, you can see invisible creatures, and supernatural effects can't conceal creatures and objects from you. Additionally, you always know if an area or object you observe is magical or affected by magic, and you know the specifics of what that magic can do.\n\nYou also gain the following ability."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.shared-void-sense",
+      "kind": "ability",
+      "name": "Разделенное Чувство Пустоты",
+      "markdown": "> **Разделенное Чувство Пустоты**\n>\n> *Вы дарите союзникам частицу своего неземного видения.*\n>\n> | **Магия, Дальний, Пустота** |   **Маневр** |\n> | ----------------------- | -------------: |\n> | **📏 Дальний 10** | **🎯 Особая** |\n>\n> **Эффект:** За каждую Победу, которая у вас есть, вы можете выбрать одну цель. Каждая цель получает преимущество вашей особенности За пределами зрения до конца вашего следующего хода, но не получает возможности использовать способность Разделенное чувство пустоты.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.shared-void-sense",
+        "name": "Разделенное Чувство Пустоты",
+        "flavor": "Вы дарите союзникам частицу своего неземного видения.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Пустота"
+        ],
+        "distance": "Дальний 10",
+        "target": "Особая",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "За каждую Победу, которая у вас есть, вы можете выбрать одну цель. Каждая цель получает преимущество вашей особенности За пределами зрения до конца вашего следующего хода, но не получает возможности использовать способность Разделенное чувство пустоты.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/shared-void-sense",
+        "originalName": "Shared Void Sense",
+        "originalDescription": "*You grant allies a taste of your unearthly vision.*\n\n| **Magic, Ranged, Void** |    **Maneuver** |\n|-------------------------|----------------:|\n| **📏 Ranged 10**        |  **🎯 Special** |\n\n**Effect:** For each Victory you have, you can target one creature. Each target gains the benefit of your A Beyonding of Vision feature until the end of your next turn, but doesn't gain the use of the Shared Void Sense ability."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/shared-void-sense",
+      "originalName": "Shared Void Sense",
+      "originalDescription": "*You grant allies a taste of your unearthly vision.*\n\n| **Magic, Ranged, Void** |    **Maneuver** |\n|-------------------------|----------------:|\n| **📏 Ranged 10**        |  **🎯 Special** |\n\n**Effect:** For each Victory you have, you can target one creature. Each target gains the benefit of your A Beyonding of Vision feature until the end of your next turn, but doesn't gain the use of the Shared Void Sense ability."
+    },
+    {
+      "id": "feature.elementalist.level-1.it-is-the-soul-which-hears",
+      "kind": "feature",
+      "name": "Именно душа слышит",
+      "markdown": "##### Именно душа слышит\n\nВы можете разговаривать с животными, зверями и существами-растениями и понимать их, даже если у вас нет с ними общего языка. Ваша способность общаться с этими существами не делает их более разумными по своей природе, но вы можете использовать Разум вместо Присутствия при прохождении тестов для влияния на них.\n\nДополнительно, вы можете прикоснуться к живому растению, которое не является существом-растением, чтобы общаться с ним телепатически. Вы можете использовать слова для общения с растением, но оно общается с вами, только передавая чувства и ощущения, которые не могут быть слишком конкретными.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/it-is-the-soul-which-hears",
+      "originalName": "It Is the Soul Which Hears",
+      "originalDescription": "You can speak with and understand animals, beasts, and plant creatures, even if they don't share a language with you. Your ability to communicate with these creatures doesn't make them inherently more intelligent, but you can use Reason instead of Presence while making tests to influence them.\n\nAdditionally, you can touch a living plant that is not a plant creature to communicate with it telepathically. You can use words to communicate with the plant, but it communicates with you only by transmitting feelings and sensations that can't be overly specific."
+    },
+    {
+      "id": "feature.elementalist.level-1.motivate-earth",
+      "kind": "feature",
+      "name": "Побудить землю",
+      "markdown": "##### Побудить землю\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/motivate-earth",
+      "originalName": "Motivate Earth",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.motivate-earth",
+      "kind": "ability",
+      "name": "Побудить Землю",
+      "markdown": "> **Побудить Землю**\n>\n> *Земля поднимается, опускается или разверзается по вашей команде.*\n>\n> | **Земля, Магия, Ближний** | **Основное действие** |\n> | ----------------------- | --------------: |\n> | **📏 Ближний 1** |  **🎯 Особая** |\n>\n> **Эффект:** Вы касаетесь клетки, содержащей обычную землю, камень или металл, и создаете стену размером 5 из того же материала, которая поднимается из земли и должна включать коснутую вами клетку.\n>\n> В качестве альтернативы, вы касаетесь конструкции из обычной земли, камня или металла, которая занимает 2 или более клеток. Вы можете открыть отверстие размером в 1 клетку в конструкции там, где вы к ней прикоснулись. Вы можете вместо этого коснуться существующего дверного проема или другого отверстия размером в 1 клетку или меньше в поверхности из обычной земли, камня или металла. Отверстие запечатывается тем же материалом, из которого состоит поверхность.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.motivate-earth",
+        "name": "Побудить Землю",
+        "flavor": "Земля поднимается, опускается или разверзается по вашей команде.",
+        "actionType": "main",
+        "kind": "other",
+        "keywords": [
+          "Земля",
+          "Магия",
+          "Ближний"
+        ],
+        "distance": "Ближний 1",
+        "target": "Особая",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы касаетесь клетки, содержащей обычную землю, камень или металл, и создаете стену размером 5 из того же материала, которая поднимается из земли и должна включать коснутую вами клетку.\n\nВ качестве альтернативы, вы касаетесь конструкции из обычной земли, камня или металла, которая занимает 2 или более клеток. Вы можете открыть отверстие размером в 1 клетку в конструкции там, где вы к ней прикоснулись. Вы можете вместо этого коснуться существующего дверного проема или другого отверстия размером в 1 клетку или меньше в поверхности из обычной земли, камня или металла. Отверстие запечатывается тем же материалом, из которого состоит поверхность.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/motivate-earth",
+        "originalName": "Motivate Earth",
+        "originalDescription": "*The earth rises, falls, or opens up at your command.*\n\n| **Earth, Magic, Melee** | **Main action** |\n|-------------------------|----------------:|\n| **📏 Melee 1**          |  **🎯 Special** |\n\n**Effect:** You touch a square containing mundane dirt, stone, or metal and create a 5 wall of the same material, which rises up out of the ground and must include the square you touched.\n\nAlternatively, you touch a structure made of mundane dirt, stone, or metal that occupies 2 or more squares. You can open a 1-square opening in the structure where you touched it. You can instead touch an existing doorway or other opening that is 1 square or smaller in a mundane dirt, stone, or metal surface. The opening is sealed by the same material that makes up the surface."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/motivate-earth",
+      "originalName": "Motivate Earth",
+      "originalDescription": "*The earth rises, falls, or opens up at your command.*\n\n| **Earth, Magic, Melee** | **Main action** |\n|-------------------------|----------------:|\n| **📏 Melee 1**          |  **🎯 Special** |\n\n**Effect:** You touch a square containing mundane dirt, stone, or metal and create a 5 wall of the same material, which rises up out of the ground and must include the square you touched.\n\nAlternatively, you touch a structure made of mundane dirt, stone, or metal that occupies 2 or more squares. You can open a 1-square opening in the structure where you touched it. You can instead touch an existing doorway or other opening that is 1 square or smaller in a mundane dirt, stone, or metal surface. The opening is sealed by the same material that makes up the surface."
+    },
+    {
+      "id": "feature.elementalist.level-1.return-to-formlessness",
+      "kind": "feature",
+      "name": "Возврат к бесформенности",
+      "markdown": "##### Возврат к бесформенности\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/return-to-formlessness",
+      "originalName": "Return to Formlessness",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.return-to-formlessness",
+      "kind": "ability",
+      "name": "Возврат к Бесформенности",
+      "markdown": "> **Возврат к Бесформенности**\n>\n> *Легчайшим касанием вы заставляете объект превратиться в шлак или пепел.*\n>\n> | **Огонь, Магия, Ближний** |           **Основное действие** |\n> | ---------------------- | ------------------------: |\n> | **📏 Ближний 1** | **🎯 Один обычный объект** |\n>\n> **Эффект:** Вы нагреваете цель и заставляете ее плавиться или возгораться, уничтожая ее. Если объект больше 1 клетки, то уничтожается только та клетка объекта, к которой вы прикоснулись.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.return-to-formlessness",
+        "name": "Возврат к Бесформенности",
+        "flavor": "Легчайшим касанием вы заставляете объект превратиться в шлак или пепел.",
+        "actionType": "main",
+        "kind": "other",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Ближний"
+        ],
+        "distance": "Ближний 1",
+        "target": "Один обычный объект",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы нагреваете цель и заставляете ее плавиться или возгораться, уничтожая ее. Если объект больше 1 клетки, то уничтожается только та клетка объекта, к которой вы прикоснулись.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/return-to-formlessness",
+        "originalName": "Return to Formlessness",
+        "originalDescription": "*With the merest touch, you cause an object to turn to slag or ash.*\n\n| **Fire, Magic, Melee**  |           **Main action** |\n|-------------------------|--------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane object** |\n\n**Effect:** You heat the target and cause it to melt or combust, destroying it. If the object is larger than 1 square, then only the square of the object you touch is destroyed."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/return-to-formlessness",
+      "originalName": "Return to Formlessness",
+      "originalDescription": "*With the merest touch, you cause an object to turn to slag or ash.*\n\n| **Fire, Magic, Melee**  |           **Main action** |\n|-------------------------|--------------------------:|\n| **📏 Melee 1**          | **🎯 One mundane object** |\n\n**Effect:** You heat the target and cause it to melt or combust, destroying it. If the object is larger than 1 square, then only the square of the object you touch is destroyed."
+    },
+    {
+      "id": "feature.elementalist.level-1.specialization-triggered-action",
+      "kind": "feature",
+      "name": "Триггер специализации",
+      "markdown": "#### Триггер специализации\n\nВаша элементальная специализация дает вам триггер, как показано в таблице Триггеров специализации.\n\n###### Таблица триггеров специализации\n\n| Специализация | Триггер          |\n| -------------- | ------------------------- |\n| Земля          | Кожа как стены замка    |\n| Огонь           | Взрывная помощь      |\n| Зелень          | Воспоминание о дыхании рассвета |\n| Пустота           | Незаметное перемещение         |\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/specialization-triggered-action",
+      "originalName": "Specialization Triggered Action",
+      "originalDescription": "Your elemental specialization grants you a triggered action, as shown on the Specialization Triggered Actions table.\n\n###### Elemental Specialization Triggered Actions Table\n\n| Specialization  | Triggered Action          |\n|-----------------|---------------------------|\n| Earth           | Skin Like Castle Walls    |\n| Fire            | Explosive Assistance      |\n| Green           | Breath of Dawn Remembered |\n| Void            | Subtle Relocation         |"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.breath-of-dawn-remembered",
+      "kind": "ability",
+      "name": "Воспоминание о Дыхании Рассвета",
+      "markdown": "> **Воспоминание о Дыхании Рассвета**\n>\n> *Направляемая вами сила дает возможность вернуться в бой.*\n>\n> | **Зелень, Магия, Дальний** |           **Триггер** |\n> | ------------------------ | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель начинает свой ход или получает урон.\n>\n> **Эффект:** Цель может потратить Восстановление.\n>\n> **Потратить 1+ Эссенции:** Цель может потратить дополнительное Восстановление за каждую потраченную эссенцию.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.breath-of-dawn-remembered",
+        "name": "Воспоминание о Дыхании Рассвета",
+        "flavor": "Направляемая вами сила дает возможность вернуться в бой.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Зелень",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель начинает свой ход или получает урон.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель может потратить Восстановление.\n\nПотратить 1+ Эссенции: Цель может потратить дополнительное Восстановление за каждую потраченную эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/breath-of-dawn-remembered",
+        "originalName": "Breath of Dawn Remembered",
+        "originalDescription": "*The power you channel grants the ability to get back in the fight.*\n\n| **Green, Magic, Ranged**          |           **Triggered** |\n|-----------------------------------|------------------------:|\n| **📏 Ranged 10**                  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Essence:** The target can spend an additional Recovery for each essence spent."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/breath-of-dawn-remembered",
+      "originalName": "Breath of Dawn Remembered",
+      "originalDescription": "*The power you channel grants the ability to get back in the fight.*\n\n| **Green, Magic, Ranged**          |           **Triggered** |\n|-----------------------------------|------------------------:|\n| **📏 Ranged 10**                  | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn or takes damage.\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Essence:** The target can spend an additional Recovery for each essence spent."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.explosive-assistance",
+      "kind": "ability",
+      "name": "Взрывная Помощь",
+      "markdown": "> **Взрывная Помощь**\n>\n> *Вы добавляете немного магии в агрессию союзника в самый подходящий момент.*\n>\n> | **Огонь, Магия, Дальний** |           **Триггер** |\n> | ----------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель принудительно перемещает существо или объект.\n>\n> **Эффект:** Расстояние принудительного движения получает бонус, равный показателю вашего Разума.\n>\n> **Потратить 1 Эссенцию:** Расстояние принудительного движения получает бонус, равный двойному показателю вашего Разума.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.explosive-assistance",
+        "name": "Взрывная Помощь",
+        "flavor": "Вы добавляете немного магии в агрессию союзника в самый подходящий момент.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель принудительно перемещает существо или объект.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Расстояние принудительного движения получает бонус, равный показателю вашего Разума.\n\nПотратить 1 Эссенцию: Расстояние принудительного движения получает бонус, равный двойному показателю вашего Разума.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/explosive-assistance",
+        "originalName": "Explosive Assistance",
+        "originalDescription": "*You add a little magic to an ally's aggression at just the right time.*\n\n| **Fire, Magic, Ranged**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target force moves a creature or object. \n\n**Effect:** The forced movement distance gains a bonus equal to your Reason score.\n\n**Spend 1 Essence:** The forced movement distance gains a bonus equal to twice your Reason score instead."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/explosive-assistance",
+      "originalName": "Explosive Assistance",
+      "originalDescription": "*You add a little magic to an ally's aggression at just the right time.*\n\n| **Fire, Magic, Ranged**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target force moves a creature or object. \n\n**Effect:** The forced movement distance gains a bonus equal to your Reason score.\n\n**Spend 1 Essence:** The forced movement distance gains a bonus equal to twice your Reason score instead."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.skin-like-castle-walls",
+      "kind": "ability",
+      "name": "Кожа Как Стены Замка",
+      "markdown": "> **Кожа Как Стены Замка**\n>\n> *Вы покрываете себя или союзника защитным камнем.*\n>\n> | **Земля, Магия, Дальний** |           **Триггер** |\n> | ------------------------ | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель получает урон.\n>\n> **Эффект:** Цель получает половину урона.\n>\n> **Потратить 1 Эссенцию:** Если с уроном связан какой-либо эффект потенциала, его потенциал уменьшается на 1 для цели.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.skin-like-castle-walls",
+        "name": "Кожа Как Стены Замка",
+        "flavor": "Вы покрываете себя или союзника защитным камнем.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Земля",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель получает урон.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель получает половину урона.\n\nПотратить 1 Эссенцию: Если с уроном связан какой-либо эффект потенциала, его потенциал уменьшается на 1 для цели.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/skin-like-castle-walls",
+        "originalName": "Skin Like Castle Walls",
+        "originalDescription": "*You cover yourself or an ally in protective stone.*\n\n| **Earth, Magic, Ranged**  |           **Triggered** |\n|---------------------------|------------------------:|\n| **📏 Ranged 10**          | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target takes half the damage.\n\n**Spend 1 Essence:** If the damage has any potency effects associated with it, the potency is reduced by 1 for the target."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/skin-like-castle-walls",
+      "originalName": "Skin Like Castle Walls",
+      "originalDescription": "*You cover yourself or an ally in protective stone.*\n\n| **Earth, Magic, Ranged**  |           **Triggered** |\n|---------------------------|------------------------:|\n| **📏 Ranged 10**          | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage.\n\n**Effect:** The target takes half the damage.\n\n**Spend 1 Essence:** If the damage has any potency effects associated with it, the potency is reduced by 1 for the target."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.subtle-relocation",
+      "kind": "ability",
+      "name": "Незаметное Перемещение",
+      "markdown": "> **Незаметное Перемещение**\n>\n> *Вы призываете пустоту, чтобы поглотить и выплюнуть союзника.*\n>\n> | **Магия, Дальний, Пустота** |           **Триггер** |\n> | ----------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Триггер:** Цель начинает свой ход, перемещается или подвергается принудительному движению.\n>\n> **Эффект:** Вы телепортируете цель на количество клеток вплоть до показателя вашего Разума. Если цель перемещается, чтобы активировать эту способность, вы можете телепортировать ее в любой момент во время перемещения.\n>\n> **Потратить 1 Эссенцию:** Вы телепортируете цель на количество клеток вплоть до двойного показателя вашего Разума.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.subtle-relocation",
+        "name": "Незаметное Перемещение",
+        "flavor": "Вы призываете пустоту, чтобы поглотить и выплюнуть союзника.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Пустота"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель начинает свой ход, перемещается или подвергается принудительному движению.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы телепортируете цель на количество клеток вплоть до показателя вашего Разума. Если цель перемещается, чтобы активировать эту способность, вы можете телепортировать ее в любой момент во время перемещения.\n\nПотратить 1 Эссенцию: Вы телепортируете цель на количество клеток вплоть до двойного показателя вашего Разума.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+        "originalName": "Subtle Relocation",
+        "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/subtle-relocation",
+      "originalName": "Subtle Relocation",
+      "originalDescription": "*You call on the void to swallow and spit out an ally.*\n\n| **Magic, Ranged, Void**  |           **Triggered** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Trigger:** The target starts their turn, moves, or is force moved. \n\n**Effect:** You teleport the target up to a number of squares equal to your Reason score. If the target moves to trigger this ability, you can teleport them at any point during the move.\n\n**Spend 1 Essence:** You teleport the target up to a number of squares equal to twice your Reason score instead."
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment",
+      "kind": "feature",
+      "name": "Зачарование",
+      "markdown": "#### Зачарование\n\nВы вплетаете элементальное зачарование в свое тело, что усиливает ваши статистики. Выберите одно из следующих зачарований. Вы можете изменить свое зачарование и оберег (смотрите Оберег элементалиста ниже), проведя сложный ритуал в качестве деятельности отдыха. (*Быстрый Билд:* Зачарование разрушения.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment",
+      "originalName": "Enchantment",
+      "originalDescription": "You weave an elemental enchantment into your body that enhances your statistics. Choose one of the following enchantments. You can change your enchantment and ward (see Elementalist Ward below) by performing a complex ritual as a respite activity. (*Quick Build:*  Enchantment of Destruction.)"
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment-of-battle",
+      "kind": "feature",
+      "name": "Зачарование битвы",
+      "markdown": "##### Зачарование битвы\n\nВы можете эффективно носить легкую броню и владеть легким оружием, даже если у вас нет комплекта. Пока вы носите легкую броню, вы получаете бонус +3 к Выносливости, и этот бонус увеличивается на 3 на 4-м, 7-м и 10-м уровнях. Пока вы владеете легким оружием, вы получаете бонус +1 к урону со способностями оружия, включая свободные удары. Вы можете использовать сокровища легкой брони и сокровища легкого оружия.\n\nЕсли у вас есть комплект, вы не можете взять это зачарование.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-battle",
+      "originalName": "Enchantment of Battle",
+      "originalDescription": "You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this enchantment."
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment-of-celerity",
+      "kind": "feature",
+      "name": "Зачарование быстроты",
+      "markdown": "##### Зачарование быстроты\n\nВы получаете бонус +1 к вашей скорости и к расстоянию, на которое вы можете сместиться, когда вы используете Действие отхода.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-celerity",
+      "originalName": "Enchantment of Celerity",
+      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment-of-destruction",
+      "kind": "feature",
+      "name": "Зачарование разрушения",
+      "markdown": "##### Зачарование разрушения\n\nВы получаете бонус +1 к выброшенному урону магическими способностями.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-destruction",
+      "originalName": "Enchantment of Destruction",
+      "originalDescription": "You gain a +1 bonus to rolled damage with magic abilities."
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment-of-distance",
+      "kind": "feature",
+      "name": "Зачарование дистанции",
+      "markdown": "##### Зачарование дистанции\n\nУ вас есть бонус +2 к расстоянию ваших дальнобойных магических способностей.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-distance",
+      "originalName": "Enchantment of Distance",
+      "originalDescription": "You have a +2 bonus to the distance of your ranged magic abilities."
+    },
+    {
+      "id": "feature.elementalist.level-1.enchantment-of-permanence",
+      "kind": "feature",
+      "name": "Зачарование постоянства",
+      "markdown": "##### Зачарование постоянства\n\nВы получаете бонус +6 к Выносливости, и этот бонус увеличивается на 6 на 4-м, 7-м и 10-м уровнях. Дополнительно, вы получаете бонус +1 к устойчивости.\n\n---\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/enchantment-of-permanence",
+      "originalName": "Enchantment of Permanence",
+      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
+    },
+    {
+      "id": "feature.elementalist.level-1.elementalist-ward",
+      "kind": "feature",
+      "name": "Оберег элементалиста",
+      "markdown": "#### Оберег элементалиста\n\nВы создаете невидимый элементальный оберег, который защищает вас. Выберите один из следующих оберегов. Вы можете изменить свой оберег и зачарование (смотрите выше), проведя сложный ритуал в качестве деятельности отдыха. (*Быстрый Билд:* Оберег удивительной реактивности.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elementalist-ward",
+      "originalName": "Elementalist Ward",
+      "originalDescription": "You create an invisible elemental ward that protects you. Choose one of the following wards. You can change your ward and enchantment (see above) by performing a complex ritual as a respite activity. (*Quick Build:*  Ward of Surprising Reactivity.)"
+    },
+    {
+      "id": "feature.elementalist.level-1.ward-of-delightful-consequences",
+      "kind": "feature",
+      "name": "Оберег восхитительных последствий",
+      "markdown": "##### Оберег восхитительных последствий\n\nЗащитное поле магии пустоты поглощает насилие, направленное на вас, а затем позволяет вам метнуть его обратно во врагов. В первый раз за раунд, когда вы получаете урон, вы получаете 1 всплеск.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-delightful-consequences",
+      "originalName": "Ward of Delightful Consequences",
+      "originalDescription": "A protective field of void magic absorbs violence aimed at you, then lets you hurl it back at your enemies. The first time each round that you take damage, you gain 1 surge."
+    },
+    {
+      "id": "feature.elementalist.level-1.ward-of-excellent-protection",
+      "kind": "feature",
+      "name": "Оберег превосходной защиты",
+      "markdown": "##### Оберег превосходной защиты\n\nВы сплетаете щит из всех элементов вокруг себя, направляя их полную защитную силу. У вас есть иммунитет к урону кислотой, холодом, порчей, огнем, молнией, ядом или звуком, равный показателю вашего Разума.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-excellent-protection",
+      "originalName": "Ward of Excellent Protection",
+      "originalDescription": "You weave a shield of all the elements around yourself, channeling their full protective power. You have immunity to acid, cold, corruption, fire, lightning, poison, or sonic damage equal to your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-1.ward-of-natures-affection",
+      "kind": "feature",
+      "name": "Оберег привязанности природы",
+      "markdown": "##### Оберег привязанности природы\n\nЭнергия зелени, извивающаяся внутри вашего тела, позволяет вам создавать мощные лозы, когда вы в опасности. Всякий раз, когда существо в пределах количества клеток, равного показателю вашего Разума, наносит вам урон, вы можете использовать свободный триггер, чтобы совершить швыряние этого существа на количество клеток вплоть до показателя вашего Разума.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-natures-affection",
+      "originalName": "Ward of Nature's Affection",
+      "originalDescription": "The green energy writhing within your body allows you to produce powerful vines when you're in danger. Whenever a creature within a number of squares equal to your Reason score deals damage to you, you can use a free triggered action to slide that creature up to a number of squares equal to your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-1.ward-of-surprising-reactivity",
+      "kind": "feature",
+      "name": "Оберег удивительной реактивности",
+      "markdown": "##### Оберег удивительной реактивности\n\nВы используете магию огня для создания оберега взрывной энергии. Всякий раз, когда смежное существо наносит вам урон, вы можете использовать свободный триггер, чтобы совершить толчок этого существа на количество клеток вплоть до двойного показателя вашего Разума.\n\n---\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/ward-of-surprising-reactivity",
+      "originalName": "Ward of Surprising Reactivity",
+      "originalDescription": "You use the magic of fire to create a ward of explosive energy. Whenever an adjacent creature deals damage to you, you can use a free triggered action to push that creature up to a number of squares equal to twice your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-1.elementalist-abilities",
+      "kind": "feature",
+      "name": "Способности элементалиста",
+      "markdown": "#### Способности элементалиста\n\nВаше понимание элементальной магии дает вам уникальные способности, позволяя наносить урон, перемещать и ослаблять врагов, усиливать союзников и изменять ландшафт вокруг вас. Вы можете выбирать способности из любой элементальной специализации, чтобы расширить свой потенциал, или вы можете сосредоточиться на способностях, привязанных к вашей выбранной специализации, чтобы продемонстрировать свое мастерство элементальной силы.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-1/elementalist-abilities",
+      "originalName": "Elementalist Abilities",
+      "originalDescription": "Your understanding of elemental magic grants you unique abilities, letting you damage, move, and debuff your enemies, empower your allies, and alter the terrain around you. You can select abilities from any elemental specialization to broaden your potential, or you can focus on abilities tied to your chosen specialization to establish your mastery of elemental power.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Bifurcated Incineration, Viscous Fire.)\n\n##### Heroic Abilities\n\nYou channel a variety of heroic abilities, all of them fueled by your essence.\n\n###### 3-Essence Ability\n\nChoose one heroic ability from the following options, each of which costs 3 essence to use. (*Quick Build:* The Flesh, a Crucible.)\n\n###### 5-Essence Ability\n\nChoose one heroic ability from the following options, each of which costs 5 essence to use. (*Quick Build:* Conflagration.)"
+    },
+    {
+      "id": "feature.elementalist.level-1.signature-abilities",
+      "kind": "feature",
+      "name": "Знаковые способности",
+      "markdown": "##### Знаковые способности\n\nВыберите две знаковые способности из следующих вариантов. Знаковые способности можно использовать по желанию. (*Быстрый Билд:* Раздвоенное испепеление, Вязкий огонь.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "Signature Abilities",
+      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Bifurcated Incineration, Viscous Fire.)"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.afflict-a-bountiful-decay",
+      "kind": "ability",
+      "name": "Обильное Разложение",
+      "markdown": "> **Обильное Разложение**\n>\n> *Ваше проклятие заставляет плоть врага отгнивать в виде спор, которые помогают вашим союзникам.*\n>\n> | **Зелень, Магия, Дальний, Гниль, Удар** |     **Основное действие** |\n> | ------------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона порчей\n> - **12-16:** 4 + Р урона порчей\n> - **17+:** 6 + Р урона порчей\n>\n> **Эффект:** Выберите себя или одного союзника в пределах расстояния. Этот персонаж может завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце его хода.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.afflict-a-bountiful-decay",
+        "name": "Обильное Разложение",
+        "flavor": "Ваше проклятие заставляет плоть врага отгнивать в виде спор, которые помогают вашим союзникам.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Зелень",
+          "Магия",
+          "Дальний",
+          "Гниль",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + R",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "4 + R",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "6 + R",
+            "effect": "Порчей"
+          }
+        ],
+        "effect": "Выберите себя или одного союзника в пределах расстояния. Этот персонаж может завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце его хода.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/afflict-a-bountiful-decay",
+        "originalName": "Afflict a Bountiful Decay",
+        "originalDescription": "*Your curse causes your foe's flesh to rot off as spores that aid your allies.*\n\n| **Green, Magic, Ranged, Rot, Strike**  |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage\n- **12-16:** 4 + R corruption damage\n- **17+:** 6 + R corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can end one effect on them that is ended by a saving throw or that ends at the end of their turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/afflict-a-bountiful-decay",
+      "originalName": "Afflict a Bountiful Decay",
+      "originalDescription": "*Your curse causes your foe's flesh to rot off as spores that aid your allies.*\n\n| **Green, Magic, Ranged, Rot, Strike**  |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage\n- **12-16:** 4 + R corruption damage\n- **17+:** 6 + R corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can end one effect on them that is ended by a saving throw or that ends at the end of their turn."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.bifurcated-incineration",
+      "kind": "ability",
+      "name": "Раздвоенное Испепеление",
+      "markdown": "> **Раздвоенное Испепеление **\n>\n> *Две струи пламени вырываются по вашей команде.*\n>\n> | **Огонь, Магия, Дальний, Удар** |                 **Основное действие** |\n> | ------------------------------- | ------------------------------: |\n> | **📏 Дальний 10** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона огнем\n> - **12-16:** 4 урона огнем\n> - **17+:** 6 урона огнем",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.bifurcated-incineration",
+        "name": "Раздвоенное Испепеление",
+        "flavor": "Две струи пламени вырываются по вашей команде.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Два существа или объекта",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "4",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "6",
+            "effect": "Огнем"
+          }
+        ],
+        "effect": "",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/bifurcated-incineration",
+        "originalName": "Bifurcated Incineration",
+        "originalDescription": "*Two jets of flame lance out at your command.*\n\n| **Fire, Magic, Ranged, Strike** |                 **Main action** |\n|---------------------------------|--------------------------------:|\n| **📏 Ranged 10**                | **🎯 Two creatures or objects** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/bifurcated-incineration",
+      "originalName": "Bifurcated Incineration",
+      "originalDescription": "*Two jets of flame lance out at your command.*\n\n| **Fire, Magic, Ranged, Strike** |                 **Main action** |\n|---------------------------------|--------------------------------:|\n| **📏 Ranged 10**                | **🎯 Two creatures or objects** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.grasp-of-beyond",
+      "kind": "ability",
+      "name": "Хватка Извне",
+      "markdown": "> **Хватка Извне**\n>\n> *Вы поглощаете жизненную энергию другого существа и используете ее для телепортации.*\n>\n> | **Магия, Ближний, Удар, Пустота** |     **Основное действие** |\n> | ------------------------------ | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 + Р урона порчей\n> - **12-16:** 6 + Р урона порчей\n> - **17+:** 9 + Р урона порчей\n>\n> **Эффект:** Вы можете телепортироваться на количество клеток вплоть до показателя вашего Разума.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.grasp-of-beyond",
+        "name": "Хватка Извне",
+        "flavor": "Вы поглощаете жизненную энергию другого существа и используете ее для телепортации.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Удар",
+          "Пустота"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + R",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "6 + R",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "9 + R",
+            "effect": "Порчей"
+          }
+        ],
+        "effect": "Вы можете телепортироваться на количество клеток вплоть до показателя вашего Разума.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/grasp-of-beyond",
+        "originalName": "Grasp of Beyond",
+        "originalDescription": "*You absorb the life energy of another creature and use it to teleport.*\n\n| **Magic, Melee, Strike, Void** |     **Main action** |\n|--------------------------------|--------------------:|\n| **📏 Melee 1**                 | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R corruption damage\n- **12-16:** 6 + R corruption damage\n- **17+:** 9 + R corruption damage\n\n**Effect:** You can teleport up to a number of squares equal to your Reason score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/grasp-of-beyond",
+      "originalName": "Grasp of Beyond",
+      "originalDescription": "*You absorb the life energy of another creature and use it to teleport.*\n\n| **Magic, Melee, Strike, Void** |     **Main action** |\n|--------------------------------|--------------------:|\n| **📏 Melee 1**                 | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R corruption damage\n- **12-16:** 6 + R corruption damage\n- **17+:** 9 + R corruption damage\n\n**Effect:** You can teleport up to a number of squares equal to your Reason score."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.the-green-within-the-green-without",
+      "kind": "ability",
+      "name": "Зелень Внутри, Зелень Снаружи",
+      "markdown": "> **Зелень Внутри, Зелень Снаружи**\n>\n> *Хлещущие лозы вырываются из тела одного врага, чтобы схватить другого, находящегося рядом.*\n>\n> | **Зелень, Магия, Дальний, Удар** |     **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона\n> - **12-16:** 5 + Р урона\n> - **17+:** 7 + Р урона\n>\n> **Эффект:** Вы совершаете швыряние одного существа в пределах 10 клеток от цели вплоть до 2 клеток.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.the-green-within-the-green-without",
+        "name": "Зелень Внутри, Зелень Снаружи",
+        "flavor": "Хлещущие лозы вырываются из тела одного врага, чтобы схватить другого, находящегося рядом.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Зелень",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + R",
+            "effect": ""
+          },
+          {
+            "damage": "5 + R",
+            "effect": ""
+          },
+          {
+            "damage": "7 + R",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы совершаете швыряние одного существа в пределах 10 клеток от цели вплоть до 2 клеток.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-green-within-the-green-without",
+        "originalName": "The Green Within, the Green Without",
+        "originalDescription": "*Whipping vines erupt from a foe's body to grasp at another close by.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 7 + R damage\n\n**Effect:** You slide one creature within 10 squares of the target up to 2 squares."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-green-within-the-green-without",
+      "originalName": "The Green Within, the Green Without",
+      "originalDescription": "*Whipping vines erupt from a foe's body to grasp at another close by.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 7 + R damage\n\n**Effect:** You slide one creature within 10 squares of the target up to 2 squares."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.meteoric-introduction",
+      "kind": "ability",
+      "name": "Метеоритное Вступление",
+      "markdown": "> **Метеоритное Вступление**\n>\n> *Вы легонько касаетесь врага — как удар астероида.*\n>\n> | **Земля, Магия, Ближний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 + Р урона; толчок 2\n> - **12-16:** 5 + Р урона; толчок 3\n> - **17+:** 8 + Р урона; толчок 4",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.meteoric-introduction",
+        "name": "Метеоритное Вступление",
+        "flavor": "Вы легонько касаетесь врага — как удар астероида.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Земля",
+          "Магия",
+          "Ближний",
+          "Удар"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + R",
+            "effect": "Толчок 2"
+          },
+          {
+            "damage": "5 + R",
+            "effect": "Толчок 3"
+          },
+          {
+            "damage": "8 + R",
+            "effect": "Толчок 4"
+          }
+        ],
+        "effect": "",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/meteoric-introduction",
+        "originalName": "Meteoric Introduction",
+        "originalDescription": "*You give your enemy a gentle tap-like an asteroid impact.*\n\n| **Earth, Magic, Melee, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Melee 1**                  | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; push 2\n- **12-16:** 5 + R damage; push 3\n- **17+:** 8 + R damage; push 4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/meteoric-introduction",
+      "originalName": "Meteoric Introduction",
+      "originalDescription": "*You give your enemy a gentle tap-like an asteroid impact.*\n\n| **Earth, Magic, Melee, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Melee 1**                  | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; push 2\n- **12-16:** 5 + R damage; push 3\n- **17+:** 8 + R damage; push 4"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.ray-of-agonizing-self-reflection",
+      "kind": "ability",
+      "name": "Луч Мучительного Самоанализа",
+      "markdown": "> **Луч Мучительного Самоанализа**\n>\n> *Вы причиняете боль и сомнения в равной мере.*\n>\n> | **Магия, Дальний, Удар, Пустота** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона порчей; Р < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 4 + Р урона порчей; Р < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 6 + Р урона порчей; Р < СИЛЬНЫЙ, замедление (до прох.)",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.ray-of-agonizing-self-reflection",
+        "name": "Луч Мучительного Самоанализа",
+        "flavor": "Вы причиняете боль и сомнения в равной мере.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар",
+          "Пустота"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + R",
+            "effect": "Порчей; Р < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "4 + R",
+            "effect": "Порчей; Р < СРЕДНИЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "6 + R",
+            "effect": "Порчей; Р < СИЛЬНЫЙ, замедление (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ray-of-agonizing-self-reflection",
+        "originalName": "Ray of Agonizing Self-Reflection",
+        "originalDescription": "*You inflict pain and doubt in equal measure.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage; R < WEAK, slowed (save ends)\n- **12-16:** 4 + R corruption damage; R < AVERAGE, slowed (save ends)\n- **17+:** 6 + R corruption damage; R < STRONG, slowed (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ray-of-agonizing-self-reflection",
+      "originalName": "Ray of Agonizing Self-Reflection",
+      "originalDescription": "*You inflict pain and doubt in equal measure.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R corruption damage; R < WEAK, slowed (save ends)\n- **12-16:** 4 + R corruption damage; R < AVERAGE, slowed (save ends)\n- **17+:** 6 + R corruption damage; R < STRONG, slowed (save ends)"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.unquiet-ground",
+      "kind": "ability",
+      "name": "Неспокойная Земля",
+      "markdown": "> **Неспокойная Земля**\n>\n> *Внезапная буря из детрита обрушивается на ваших врагов и мешает им двигаться.*\n>\n> | **Область, Земля, Магия, Дальний** |               **Основное действие** |\n> | ------------------------------ | ----------------------------: |\n> | **📏 Куб 2 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Земля под областью является труднопроходимой местностью для врагов.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.unquiet-ground",
+        "name": "Неспокойная Земля",
+        "flavor": "Внезапная буря из детрита обрушивается на ваших врагов и мешает им двигаться.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Область",
+          "Земля",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 2 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": ""
+          },
+          {
+            "damage": "5",
+            "effect": ""
+          },
+          {
+            "damage": "7",
+            "effect": ""
+          }
+        ],
+        "effect": "Земля под областью является труднопроходимой местностью для врагов.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/unquiet-ground",
+        "originalName": "Unquiet Ground",
+        "originalDescription": "*A sudden storm of detritus assaults your foes and leaves them struggling to move.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The ground beneath the area is difficult terrain for enemies."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/unquiet-ground",
+      "originalName": "Unquiet Ground",
+      "originalDescription": "*A sudden storm of detritus assaults your foes and leaves them struggling to move.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 2 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The ground beneath the area is difficult terrain for enemies."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.viscous-fire",
+      "kind": "ability",
+      "name": "Вязкий Огонь",
+      "markdown": "> **Вязкий Огонь**\n>\n> *Струя тяжелого огня извергается туда, куда вы бьете.*\n>\n> | **Огонь, Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 + Р урона огнем; толчок 2\n> - **12-16:** 5 + Р урона огнем; толчок 3\n> - **17+:** 7 + Р урона огнем; толчок 4",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.viscous-fire",
+        "name": "Вязкий Огонь",
+        "flavor": "Струя тяжелого огня извергается туда, куда вы бьете.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + R",
+            "effect": "Огнем; толчок 2"
+          },
+          {
+            "damage": "5 + R",
+            "effect": "Огнем; толчок 3"
+          },
+          {
+            "damage": "7 + R",
+            "effect": "Огнем; толчок 4"
+          }
+        ],
+        "effect": "",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/viscous-fire",
+        "originalName": "Viscous Fire",
+        "originalDescription": "*A jet of heavy fire erupts where you strike.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R fire damage; push 2\n- **12-16:** 5 + R fire damage; push 3\n- **17+:** 7 + R fire damage; push 4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/viscous-fire",
+      "originalName": "Viscous Fire",
+      "originalDescription": "*A jet of heavy fire erupts where you strike.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R fire damage; push 2\n- **12-16:** 5 + R fire damage; push 3\n- **17+:** 7 + R fire damage; push 4"
+    },
+    {
+      "id": "feature.elementalist.level-1.heroic-abilities",
+      "kind": "feature",
+      "name": "Героические способности",
+      "markdown": "##### Героические способности\n\nВы используете множество героических способностей, все они подпитываются вашей эссенцией.\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "Heroic Abilities",
+      "originalDescription": "You channel a variety of heroic abilities, all of them fueled by your essence."
+    },
+    {
+      "id": "feature.elementalist.level-1.3-essence-ability",
+      "kind": "feature",
+      "name": "Способность за 3 эссенции",
+      "markdown": "###### Способность за 3 эссенции\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 3 эссенции для использования. (*Быстрый Билд:* Плоть — это горнило.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "3-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 essence to use. (Quick Build: The Flesh, a Crucible.)"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.behold-the-mystery",
+      "kind": "ability",
+      "name": "Узри Тайну",
+      "markdown": "> **Узри Тайну (3 Эссенции)**\n>\n> *Вы открываете разлом в пустоту, чтобы изводить своих врагов.*\n>\n> | **Область, Магия, Дальний, Пустота** |               **Основное действие** |\n> | ----------------------------- | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 психического урона\n> - **12-16:** 4 психического урона\n> - **17+:** 6 психического урона\n>\n> **Поддержание 1:** В начале своего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.behold-the-mystery",
+        "name": "Узри Тайну",
+        "flavor": "Вы открываете разлом в пустоту, чтобы изводить своих врагов.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Дальний",
+          "Пустота"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": ""
+          },
+          {
+            "damage": "4",
+            "effect": ""
+          },
+          {
+            "damage": "6",
+            "effect": ""
+          }
+        ],
+        "effect": "Поддержание 1: В начале своего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/behold-the-mystery",
+        "originalName": "Behold the Mystery",
+        "originalDescription": "*You open a rift into the void to harry your foes.*\n\n| **Area, Magic, Ranged, Void** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 4 psychic damage\n- **17+:** 6 psychic damage\n\n**Persistent 1:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/behold-the-mystery",
+      "originalName": "Behold the Mystery",
+      "originalDescription": "*You open a rift into the void to harry your foes.*\n\n| **Area, Magic, Ranged, Void** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 4 psychic damage\n- **17+:** 6 psychic damage\n\n**Persistent 1:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.the-flesh-a-crucible",
+      "kind": "ability",
+      "name": "Плоть — Это Горнило",
+      "markdown": "> **Плоть — Это Горнило (3 Эссенции)**\n>\n> *Огонь охватывает вашу цель и продолжает бушевать.*\n>\n> | **Огонь, Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 5 + Р урона огнем\n> - **12-16:** 8 + Р урона огнем\n> - **17+:** 11 + Р урона огнем\n>\n> **Поддержание 1:** Если цель находится в пределах расстояния в начале вашего хода, вы можете сделать бросок силы снова, не тратя эссенцию (действие не требуется).",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.the-flesh-a-crucible",
+        "name": "Плоть — Это Горнило",
+        "flavor": "Огонь охватывает вашу цель и продолжает бушевать.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "5 + R",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "8 + R",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "11 + R",
+            "effect": "Огнем"
+          }
+        ],
+        "effect": "Поддержание 1: Если цель находится в пределах расстояния в начале вашего хода, вы можете сделать бросок силы снова, не тратя эссенцию (действие не требуется).",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-flesh-a-crucible",
+        "originalName": "The Flesh, a Crucible",
+        "originalDescription": "*Fire engulfs your target and continues to churn.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage\n- **12-16:** 8 + R fire damage\n- **17+:** 11 + R fire damage\n\n**Persistent 1:** If the target is within distance at the start of your turn, you can make the power roll again without spending essence (no action required)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/the-flesh-a-crucible",
+      "originalName": "The Flesh, a Crucible",
+      "originalDescription": "*Fire engulfs your target and continues to churn.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R fire damage\n- **12-16:** 8 + R fire damage\n- **17+:** 11 + R fire damage\n\n**Persistent 1:** If the target is within distance at the start of your turn, you can make the power roll again without spending essence (no action required)."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.invigorating-growth",
+      "kind": "ability",
+      "name": "Бодрящий Рост",
+      "markdown": "> **Бодрящий Рост (3 Эссенции)**\n>\n> *Грибы прорастают из врага, истощая его жизненные силы для распространения укрепляющих спор.*\n>\n> | **Зелень, Магия, Дальний, Удар** |     **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 4 + Р урона ядом\n> - **12-16:** 7 + Р урона ядом\n> - **17+:** 11 + Р урона ядом\n>\n> **Эффект:** Грибы покрывают тело цели. Пока грибы находятся на цели, вы и любой союзник, смежный с целью, получаете 1 всплеск всякий раз, когда цель получает урон. Грибы могут быть удалены целью или смежным с ней существом как основное действие.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.invigorating-growth",
+        "name": "Бодрящий Рост",
+        "flavor": "Грибы прорастают из врага, истощая его жизненные силы для распространения укрепляющих спор.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Зелень",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + R",
+            "effect": "Ядом"
+          },
+          {
+            "damage": "7 + R",
+            "effect": "Ядом"
+          },
+          {
+            "damage": "11 + R",
+            "effect": "Ядом"
+          }
+        ],
+        "effect": "Грибы покрывают тело цели. Пока грибы находятся на цели, вы и любой союзник, смежный с целью, получаете 1 всплеск всякий раз, когда цель получает урон. Грибы могут быть удалены целью или смежным с ней существом как основное действие.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/invigorating-growth",
+        "originalName": "Invigorating Growth",
+        "originalDescription": "*Mushrooms erupt from a foe, sapping their vitality to spread strengthening spores.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 + R poison damage\n- **12-16:** 7 + R poison damage\n- **17+:** 11 + R poison damage\n\n**Effect:** Mushrooms cover the target's body. While the mushrooms are on the target, you and any ally adjacent to the target gain 1 surge whenever the target takes damage. The mushrooms can be removed by the target or an adjacent creature as a main action."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/invigorating-growth",
+      "originalName": "Invigorating Growth",
+      "originalDescription": "*Mushrooms erupt from a foe, sapping their vitality to spread strengthening spores.*\n\n| **Green, Magic, Ranged, Strike** |      **Main action** |\n|----------------------------------|---------------------:|\n| **📏 Ranged 10**                 |  **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 + R poison damage\n- **12-16:** 7 + R poison damage\n- **17+:** 11 + R poison damage\n\n**Effect:** Mushrooms cover the target's body. While the mushrooms are on the target, you and any ally adjacent to the target gain 1 surge whenever the target takes damage. The mushrooms can be removed by the target or an adjacent creature as a main action."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.ripples-in-the-earth",
+      "kind": "ability",
+      "name": "Рябь на Земле",
+      "markdown": "> **Рябь на Земле (3 Эссенции)**\n>\n> *Словно камень, брошенный в пруд, волны земли расходятся от вас.*\n>\n> | **Область, Земля, Магия** |               **Основное действие** |\n> | ---------------------- | ----------------------------: |\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 8 урона; М < СИЛЬНЫЙ, лежачий\n>\n> **Эффект:** Вы должны касаться земли, чтобы использовать эту способность. Дополнительно, вы можете выбрать клетку земли в области, которая не занята, или занята вами или любым союзником. Столб земли поднимается из земли в этой клетке, с высотой в клетках вплоть до показателя вашего Разума. Столб не может столкнуться с какими-либо существами или объектами, и не может заставить существ, поднятых им, столкнуться с другими существами или объектами.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.ripples-in-the-earth",
+        "name": "Рябь на Земле",
+        "flavor": "Словно камень, брошенный в пруд, волны земли расходятся от вас.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Земля",
+          "Магия"
+        ],
+        "distance": "Взрыв 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3",
+            "effect": ""
+          },
+          {
+            "damage": "5",
+            "effect": ""
+          },
+          {
+            "damage": "8",
+            "effect": "М < СИЛЬНЫЙ, лежачий"
+          }
+        ],
+        "effect": "Вы должны касаться земли, чтобы использовать эту способность. Дополнительно, вы можете выбрать клетку земли в области, которая не занята, или занята вами или любым союзником. Столб земли поднимается из земли в этой клетке, с высотой в клетках вплоть до показателя вашего Разума. Столб не может столкнуться с какими-либо существами или объектами, и не может заставить существ, поднятых им, столкнуться с другими существами или объектами.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ripples-in-the-earth",
+        "originalName": "Ripples in the Earth",
+        "originalDescription": "*Like a stone was dropped into a pond, waves in the earth radiate from you.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 2 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage; M < STRONG, prone\n\n**Effect:** You must be touching the ground to use this ability. Additionally, you can choose a square of ground in the area that is unoccupied or is occupied by you or any ally. A pillar of earth rises out of the ground in that square, with a height in squares up to your Reason score. The pillar can't collide with any creatures or objects, nor can it force creatures raised by it to collide with other creatures or objects."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/ripples-in-the-earth",
+      "originalName": "Ripples in the Earth",
+      "originalDescription": "*Like a stone was dropped into a pond, waves in the earth radiate from you.*\n\n| **Area, Earth, Magic** |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 2 burst**         | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 damage\n- **12-16:** 5 damage\n- **17+:** 8 damage; M < STRONG, prone\n\n**Effect:** You must be touching the ground to use this ability. Additionally, you can choose a square of ground in the area that is unoccupied or is occupied by you or any ally. A pillar of earth rises out of the ground in that square, with a height in squares up to your Reason score. The pillar can't collide with any creatures or objects, nor can it force creatures raised by it to collide with other creatures or objects."
+    },
+    {
+      "id": "feature.elementalist.level-1.5-essence-ability",
+      "kind": "feature",
+      "name": "Способность за 5 эссенции",
+      "markdown": "###### Способность за 5 эссенции\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 5 эссенции для использования. (*Быстрый Билд:* Пожар.)\n\n",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "originalId": "",
+      "originalName": "5-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 essence to use. (Quick Build: Conflagration.)"
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.conflagration",
+      "kind": "ability",
+      "name": "Пожар",
+      "markdown": "> **Пожар (5 Эссенции)**\n>\n> *Огненная буря обрушивается на ваших врагов.*\n>\n> | **Область, Огонь, Магия, Дальний** |               **Основное действие** |\n> | ----------------------------- | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 4 урона огнем\n> - **12-16:** 6 урона огнем\n> - **17+:** 10 урона огнем\n>\n> **Поддержание 2:** В начале вашего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.conflagration",
+        "name": "Пожар",
+        "flavor": "Огненная буря обрушивается на ваших врагов.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Огонь",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "6",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "10",
+            "effect": "Огнем"
+          }
+        ],
+        "effect": "Поддержание 2: В начале вашего хода вы можете использовать маневр, чтобы применить эту способность снова, не тратя эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/conflagration",
+        "originalName": "Conflagration",
+        "originalDescription": "*A storm of fire descends upon your enemies.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/conflagration",
+      "originalName": "Conflagration",
+      "originalDescription": "*A storm of fire descends upon your enemies.*\n\n| **Area, Fire, Magic, Ranged** |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 3 cube within 10**       | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 fire damage\n- **12-16:** 6 fire damage\n- **17+:** 10 fire damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.instantaneous-excavation",
+      "kind": "ability",
+      "name": "Мгновенные Раскопки",
+      "markdown": "> **Мгновенные Раскопки (5 Эссенции)**\n>\n> *Поверхность мира вокруг вас разверзается, чтобы поглотить врагов.*\n>\n> | **Земля, Магия, Дальний** |   **Маневр** |\n> | ------------------------ | -------------: |\n> | **📏 Дальний 10** | **🎯 Особая** |\n>\n> **Эффект:** Вы открываете две ямы с отверстиями в 1 клетку, глубиной 4 клетки, которые могут быть размещены на любой обычной поверхности в пределах расстояния. Вы можете разместить эти ямы рядом друг с другом, чтобы создать меньше ям с более широкими отверстиями. Когда ямы открываются, сделайте отдельный бросок силы для каждого существа на земле над ямой, достаточно маленького, чтобы упасть внутрь. (Вы не можете нанести критическое попадание этой способностью, потому что она использует маневр.)\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** Цель может сместиться на 1 клетку от края ямы к ближайшему свободному пространству по своему выбору.\n> - **12-16:** Цель падает в яму.\n> - **17+:** Цель падает в яму и не может уменьшить высоту падения.\n>\n> **Поддержание 1:** В начале своего хода вы открываете еще одну яму, совершая бросок силы против каждого существа, которое могло бы упасть в яму при ее открытии, не тратя эссенцию.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.instantaneous-excavation",
+        "name": "Мгновенные Раскопки",
+        "flavor": "Поверхность мира вокруг вас разверзается, чтобы поглотить врагов.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Земля",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Особая",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Цель может сместиться на 1 клетку от края ямы к ближайшему свободному пространству по своему выбору."
+          },
+          {
+            "damage": "",
+            "effect": "Цель падает в яму."
+          },
+          {
+            "damage": "",
+            "effect": "Цель падает в яму и не может уменьшить высоту падения."
+          }
+        ],
+        "effect": "Вы открываете две ямы с отверстиями в 1 клетку, глубиной 4 клетки, которые могут быть размещены на любой обычной поверхности в пределах расстояния. Вы можете разместить эти ямы рядом друг с другом, чтобы создать меньше ям с более широкими отверстиями. Когда ямы открываются, сделайте отдельный бросок силы для каждого существа на земле над ямой, достаточно маленького, чтобы упасть внутрь. (Вы не можете нанести критическое попадание этой способностью, потому что она использует маневр.)\n\nПоддержание 1: В начале своего хода вы открываете еще одну яму, совершая бросок силы против каждого существа, которое могло бы упасть в яму при ее открытии, не тратя эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+        "originalName": "Instantaneous Excavation",
+        "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/instantaneous-excavation",
+      "originalName": "Instantaneous Excavation",
+      "originalDescription": "*The surface of the world around you opens up to swallow foes.*\n\n| **Earth, Magic, Ranged** |    **Maneuver** |\n|--------------------------|----------------:|\n| **📏 Ranged 10**         |  **🎯 Special** |\n\n**Effect:** You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can't score a critical hit with this ability because it uses a maneuver.)\n\n**Power Roll + Reason:**\n\n- **≤11:** The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.\n- **12-16:** The target falls into the hole.\n- **17+:** The target falls into the hole and can't reduce the height of the fall.\n\n**Persistent 1:** At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.no-more-than-a-breeze",
+      "kind": "ability",
+      "name": "Не Более Чем Ветерок",
+      "markdown": "> **Не Более Чем Ветерок (5 Эссенции)**\n>\n> *Материальная сущность существа распадается по вашей команде.*\n>\n> | **Магия, Дальний, Пустота** |            **Маневр** |\n> | ----------------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** До начала вашего следующего хода цель может перемещаться сквозь твердую материю, игнорирует труднопроходимую местность, и ее перемещение не провоцирует атаки по возможности. Если цель заканчивает свой ход внутри твердой материи, она выталкивается в пространство, где вошла в нее, и этот эффект заканчивается.\n>\n> **Поддержание 1:** Эффект длится до начала вашего следующего хода.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.no-more-than-a-breeze",
+        "name": "Не Более Чем Ветерок",
+        "flavor": "Материальная сущность существа распадается по вашей команде.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Пустота"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До начала вашего следующего хода цель может перемещаться сквозь твердую материю, игнорирует труднопроходимую местность, и ее перемещение не провоцирует атаки по возможности. Если цель заканчивает свой ход внутри твердой материи, она выталкивается в пространство, где вошла в нее, и этот эффект заканчивается.\n\nПоддержание 1: Эффект длится до начала вашего следующего хода.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/no-more-than-a-breeze",
+        "originalName": "No More Than a Breeze",
+        "originalDescription": "*The material substance of a creature shreds away at your command.*\n\n| **Magic, Ranged, Void** |            **Maneuver** |\n|-------------------------|------------------------:|\n| **📏 Ranged 10**        | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target can move through solid matter, they ignore difficult terrain, and their movement can't provoke opportunity attacks. If the target ends their turn inside solid matter, they are forced out into the space where they entered it and this effect ends.\n\n**Persistent 1:** The effect lasts until the start of your next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/no-more-than-a-breeze",
+      "originalName": "No More Than a Breeze",
+      "originalDescription": "*The material substance of a creature shreds away at your command.*\n\n| **Magic, Ranged, Void** |            **Maneuver** |\n|-------------------------|------------------------:|\n| **📏 Ranged 10**        | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target can move through solid matter, they ignore difficult terrain, and their movement can't provoke opportunity attacks. If the target ends their turn inside solid matter, they are forced out into the space where they entered it and this effect ends.\n\n**Persistent 1:** The effect lasts until the start of your next turn."
+    },
+    {
+      "id": "feature.ability.elementalist.level-1.test-of-rain",
+      "kind": "ability",
+      "name": "Испытание Дождем",
+      "markdown": "> **Испытание Дождем (5 Эссенции)**\n>\n> *Вы призываете дождь, который обжигает ваших врагов и восстанавливает ваших союзников.*\n>\n> | **Область, Зелень, Магия, Дальний** |               **Основное действие** |\n> | ------------------------------ | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 4 урона кислотой\n> - **12-16:** 6 урона кислотой\n> - **17+:** 10 урона кислотой\n>\n> **Эффект:** Вы можете завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце вашего хода. Каждый союзник в области также получает это преимущество.",
+      "source": {
+        "articleId": "0891",
+        "path": "08. Классы/Элементалист/0891. 1-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-1.test-of-rain",
+        "name": "Испытание Дождем",
+        "flavor": "Вы призываете дождь, который обжигает ваших врагов и восстанавливает ваших союзников.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Зелень",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": "Кислотой"
+          },
+          {
+            "damage": "6",
+            "effect": "Кислотой"
+          },
+          {
+            "damage": "10",
+            "effect": "Кислотой"
+          }
+        ],
+        "effect": "Вы можете завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце вашего хода. Каждый союзник в области также получает это преимущество.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/test-of-rain",
+        "originalName": "Test of Rain",
+        "originalDescription": "*You call down a rain that burns your enemies and restores your allies.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 acid damage\n- **12-16:** 6 acid damage\n- **17+:** 10 acid damage\n\n**Effect:** You can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains this benefit."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-1/test-of-rain",
+      "originalName": "Test of Rain",
+      "originalDescription": "*You call down a rain that burns your enemies and restores your allies.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 4 acid damage\n- **12-16:** 6 acid damage\n- **17+:** 10 acid damage\n\n**Effect:** You can end one effect on yourself that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains this benefit."
+    }
+  ]
+}

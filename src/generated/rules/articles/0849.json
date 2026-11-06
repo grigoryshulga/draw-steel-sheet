@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0849",
+      "title": "9-й Уровень Тактика",
+      "chapter": "08. Классы",
+      "group": "Тактик",
+      "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тактиком 9-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-9.grandmaster-of-arms"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-9.9th-level-doctrine-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-9.insurgent-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.squad-hit-and-run"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-9.mastermind-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.blot-out-the-sun"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.counterstrategy"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-9.vanguard-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.no-escape"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-9.that-one-is-mine"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level tactician, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.tactician.level-9.grandmaster-of-arms",
+      "kind": "feature",
+      "name": "Грандмастер оружия",
+      "markdown": "#### Грандмастер оружия\n\nВаш опыт владения оружием вырос до истинного мастерства. Всякий раз, когда вы используете знаковую способность из одного из ваших экипированных комплектов или наносите свободный удар, используя оружие из одного из ваших экипированных комплектов, вы автоматически получаете результат третьего тира на бросок силы. Вы по-прежнему можете бросить кубики, чтобы определить, нанесете ли вы критическое попадание.\n\n---\n",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-9/grandmaster-of-arms",
+      "originalName": "Grandmaster of Arms",
+      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you automatically obtain a tier 3 outcome on the power roll. You can still roll to determine if you score a critical hit."
+    },
+    {
+      "id": "feature.tactician.level-9.9th-level-doctrine-ability",
+      "kind": "feature",
+      "name": "Способность доктрины 9-го уровня",
+      "markdown": "#### Способность доктрины 9-го уровня\n\nВаша тактическая доктрина дает вам на выбор одну из двух героических способностей.\n\n",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-9/9th-level-doctrine-ability",
+      "originalName": "9th-Level Doctrine Ability",
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 9th-Level Insurgent Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Mastermind Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Vanguard Abilities\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.tactician.level-9.insurgent-abilities",
+      "kind": "feature",
+      "name": "Способности Повстанца 9-го уровня",
+      "markdown": "##### Способности Повстанца 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Insurgent Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.squad-hit-and-run",
+      "kind": "ability",
+      "name": "Отряд! Бей и Беги!",
+      "markdown": "> **Отряд! Бей и Беги! (11 Фокуса)**\n>\n> *Мне пришлось выведать этот секрет у коллегий теней.*\n>\n> | **Дальний** | **Основное действие** |\n> | ---------------- | -------------------------: |\n> | **📏 Дальний 10** | **🎯 На себя и два союзника** |\n>\n> **Эффект:** Каждая цель получает 2 всплеска и может использовать свободный триггер, чтобы применить знаковую способность, которая получает преимущество. После разрешения своей способности каждая цель может сместиться вплоть до 2 клеток и стать скрытой, даже если у нее нет укрытия или покрова, или если за ней наблюдают.",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.squad-hit-and-run",
+        "name": "Отряд! Бей и Беги!",
+        "flavor": "Мне пришлось выведать этот секрет у коллегий теней.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя и два союзника",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель получает 2 всплеска и может использовать свободный триггер, чтобы применить знаковую способность, которая получает преимущество. После разрешения своей способности каждая цель может сместиться вплоть до 2 клеток и стать скрытой, даже если у нее нет укрытия или покрова, или если за ней наблюдают.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/squad-hit-and-run",
+        "originalName": "Squad! Hit and Run!",
+        "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/squad-hit-and-run",
+      "originalName": "Squad! Hit and Run!",
+      "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing",
+      "kind": "ability",
+      "name": "Их Слабый Фокус — Их Гибель",
+      "markdown": "> **Их Слабый Фокус — Их Гибель (11 Фокуса)**\n>\n> *Вы хитростью заставляете своих врагов атаковать друг друга и оставляете их в замешательстве от последствий.*\n>\n> | **Магия, Дальний, Оружие** | **Основное действие** |\n> | ------------------------- | -------------------: |\n> | **📏 Дальний 10** | **🎯 Три врага** |\n>\n> **Эффект:** Каждая цель использует знаковую способность против одной или нескольких целей по вашему выбору, причем каждая способность автоматически получает результат третьего тира на бросок силы. После разрешения способностей целей, вы делаете бросок силы против каждой исходной цели.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Р < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** Р < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** Р < СИЛЬНЫЙ, оглушение (до прох.)",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing",
+        "name": "Их Слабый Фокус — Их Гибель",
+        "flavor": "Вы хитростью заставляете своих врагов атаковать друг друга и оставляете их в замешательстве от последствий.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Оружие"
+        ],
+        "distance": "Дальний 10",
+        "target": "Три врага",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Р < СЛАБЫЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "",
+            "effect": "Р < СРЕДНИЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "",
+            "effect": "Р < СИЛЬНЫЙ, оглушение (до прох.)"
+          }
+        ],
+        "effect": "Каждая цель использует знаковую способность против одной или нескольких целей по вашему выбору, причем каждая способность автоматически получает результат третьего тира на бросок силы. После разрешения способностей целей, вы делаете бросок силы против каждой исходной цели.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/their-lack-of-focus-is-their-undoing",
+        "originalName": "Their Lack of Focus Is Their Undoing",
+        "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/their-lack-of-focus-is-their-undoing",
+      "originalName": "Their Lack of Focus Is Their Undoing",
+      "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)"
+    },
+    {
+      "id": "feature.tactician.level-9.mastermind-abilities",
+      "kind": "feature",
+      "name": "Способности Воеводы 9-го уровня",
+      "markdown": "##### Способности Воеводы 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Mastermind Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.blot-out-the-sun",
+      "kind": "ability",
+      "name": "Затмить Солнце!",
+      "markdown": "> **Затмить Солнце! (11 Фокуса)**\n>\n> *Что делает хорошего солдата? Способность делать четыре выстрела в минуту в любую погоду.*\n>\n> | **Область** | **Основное действие** |\n> | -------------- | ------------------------------------: |\n> | **📏 Взрыв 3** | **🎯 На себя и каждого союзника в области** |\n>\n> **Эффект:** Каждая цель может нанести свободный удар дальнего боя, который получает преимущество против любого врага, отмеченного вами в пределах расстояния их свободного удара дальнего боя. Цель игнорирует помехи и двойные помехи при нанесении этого удара.",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.blot-out-the-sun",
+        "name": "Затмить Солнце!",
+        "flavor": "Что делает хорошего солдата? Способность делать четыре выстрела в минуту в любую погоду.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область"
+        ],
+        "distance": "Взрыв 3",
+        "target": "На себя и каждого союзника в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель может нанести свободный удар дальнего боя, который получает преимущество против любого врага, отмеченного вами в пределах расстояния их свободного удара дальнего боя. Цель игнорирует помехи и двойные помехи при нанесении этого удара.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/blot-out-the-sun",
+        "originalName": "Blot Out the Sun!",
+        "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/blot-out-the-sun",
+      "originalName": "Blot Out the Sun!",
+      "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.counterstrategy",
+      "kind": "ability",
+      "name": "Контрстратегия",
+      "markdown": "> **Контрстратегия (11 Фокуса)**\n>\n> *Я определил способ свести на нет их сильные стороны.*\n>\n> | **-** | **Основное действие** |\n> | ----------- | --------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы получаете 6 всплесков. До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда Ведущий тратит Раздор, выберите себя или одного союзника в пределах 10 клеток. Выбранный персонаж получает 2 единицы своего героического ресурса.",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.counterstrategy",
+        "name": "Контрстратегия",
+        "flavor": "Я определил способ свести на нет их сильные стороны.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы получаете 6 всплесков. До конца боевой встречи или пока вы не окажетесь при смерти, всякий раз, когда Ведущий тратит Раздор, выберите себя или одного союзника в пределах 10 клеток. Выбранный персонаж получает 2 единицы своего героического ресурса.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/counterstrategy",
+        "originalName": "Counterstrategy",
+        "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/counterstrategy",
+      "originalName": "Counterstrategy",
+      "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource."
+    },
+    {
+      "id": "feature.tactician.level-9.vanguard-abilities",
+      "kind": "feature",
+      "name": "Способности Авангарда 9-го уровня",
+      "markdown": "##### Способности Авангарда 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Vanguard Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.no-escape",
+      "kind": "ability",
+      "name": "Спасения Нет",
+      "markdown": "> **Спасения Нет (11 Фокуса)**\n>\n> *Ничто не остановит вас на пути к вашему врагу.*\n>\n> | **Рывок, Ближний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы отмечаете цель.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 11 + М урона\n> - **12-16:** 16 + М урона\n> - **17+:** 21 + М урона\n>\n> **Эффект:** Если вы используете эту способность как часть основного действия Атака с рывком, клетки врагов не считаются труднопроходимой местностью для вашего движения. Дополнительно, если вы проходите через пространство любого существа, вы можете совершить швыряние этого существа на 1 клетку в сторону от пути вашего рывка.",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.no-escape",
+        "name": "Спасения Нет",
+        "flavor": "Ничто не остановит вас на пути к вашему врагу.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Рывок",
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "11 + M",
+            "effect": ""
+          },
+          {
+            "damage": "16 + M",
+            "effect": ""
+          },
+          {
+            "damage": "21 + M",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы отмечаете цель.\n\nЕсли вы используете эту способность как часть основного действия Атака с рывком, клетки врагов не считаются труднопроходимой местностью для вашего движения. Дополнительно, если вы проходите через пространство любого существа, вы можете совершить швыряние этого существа на 1 клетку в сторону от пути вашего рывка.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+        "originalName": "No Escape",
+        "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
+      "originalName": "No Escape",
+      "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
+    },
+    {
+      "id": "feature.ability.tactician.level-9.that-one-is-mine",
+      "kind": "ability",
+      "name": "Оставьте Этого Мне!",
+      "markdown": "> **Оставьте Этого Мне! (11 Фокуса)**\n>\n> *Вы сосредотачиваетесь на том, чтобы сделать врага нерелевантным.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Эффект:** Цель отмечена вами.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 8 + М урона\n> - **12-16:** 13 + М урона\n> - **17+:** 17 + М урона\n>\n> **Эффект:** До конца боевой встречи или пока вы не окажетесь при смерти, вы можете использовать знаковую или героическую способность вместо свободного удара против любой цели, отмеченной вами.",
+      "source": {
+        "articleId": "0849",
+        "path": "08. Классы/Тактик/0849. 9-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-9.that-one-is-mine",
+        "name": "Оставьте Этого Мне!",
+        "flavor": "Вы сосредотачиваетесь на том, чтобы сделать врага нерелевантным.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "8 + M",
+            "effect": ""
+          },
+          {
+            "damage": "13 + M",
+            "effect": ""
+          },
+          {
+            "damage": "17 + M",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель отмечена вами.\n\nДо конца боевой встречи или пока вы не окажетесь при смерти, вы можете использовать знаковую или героическую способность вместо свободного удара против любой цели, отмеченной вами.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/that-one-is-mine",
+        "originalName": "That One Is Mine!",
+        "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/that-one-is-mine",
+      "originalName": "That One Is Mine!",
+      "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you."
+    }
+  ]
+}

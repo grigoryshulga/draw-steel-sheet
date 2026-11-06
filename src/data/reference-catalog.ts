@@ -1,4 +1,4 @@
-import { CANONICAL_BUILDER_DATA } from "../rules/consumer-builder";
+import { REFERENCE_PREVIEW } from "../rules/consumer-reference-preview";
 import type { CatalogEntry, GlossaryEntry } from "../rules/consumer-data";
 import {
   classLandings,
@@ -107,12 +107,12 @@ function articleIds(sectionId: string): string[] {
 }
 
 const ancestryByArticle = new Map(
-  CANONICAL_BUILDER_DATA.ancestries.map(
+  REFERENCE_PREVIEW.ancestries.map(
     (ancestry) => [ancestry.articleId, ancestry] as const,
   ),
 );
 const careerByArticle = new Map(
-  CANONICAL_BUILDER_DATA.careers.map(
+  REFERENCE_PREVIEW.careers.map(
     (career) => [career.articleId, career] as const,
   ),
 );
@@ -221,7 +221,7 @@ function glossaryEntries(): CatalogBrowserEntry[] {
 
 function classEntries(): CatalogBrowserEntry[] {
   return classLandings.map((landing) => {
-    const data = CANONICAL_BUILDER_DATA.classes.find(
+    const data = REFERENCE_PREVIEW.classes.find(
       (item) => item.name === landing.name,
     );
     const summary = data?.summary ?? "";

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0504",
+      "title": "Воспитание",
+      "chapter": "05. Предыстория",
+      "group": "",
+      "path": "05. Предыстория/0504. Воспитание.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Аспект воспитания вашей культуры является более конкретной и личной частью истории вашего героя, описывающей, как вас воспитывали в рамках вашей культуры. Обучали ли вас стать новейшим архимагом в тайном ордене волшебников, или быть владеющим мечом телохранителем, который защищал эту тайную организацию? Научились ли вы копать глубоко в шахтах, ища руду в горном королевстве, или вы строили машины, предназначенные для рытья быстрее и глубже, чем любой человек мог бы в одиночку? Какой бы ни была ваша культура, ваше воспитание делает вас особенным в рамках этой культуры.\n\nВыберите ваш аспект воспитания из следующего списка: академическое, творческое, трудовое, беззаконное, воинское или дворянское. Вы получаете варианты навыков из вашего выбранного аспекта.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.academic"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.creative"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.labor"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.lawless"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.martial"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.noble"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/background#upbringing",
+      "originalName": "Upbringing",
+      "originalDescription": "Your culture's upbringing aspect is a more specific and personal part of your hero's story, describing how you were raised within your culture. Were you trained to become the newest archmage in a secret order of wizards, or to be a sword-wielding bodyguard who protected that arcane organization? Did you learn to delve deep into mines looking for ore in a mountain kingdom, or did you build machines meant to dig faster and deeper than any person could alone? Whatever your culture, your upbringing makes you special within that culture.\n\nPick your upbringing aspect from the following list: academic, creative, labor, lawless, martial, or noble. You gain skill options from your chosen aspect."
+    }
+  ],
+  "entities": [
+    {
+      "id": "culture.academic",
+      "kind": "culture",
+      "name": "Академическое",
+      "markdown": "#### Академическое\nВашего героя воспитали люди, которые собирают, изучают и делятся книгами и другими записями. Некоторые академики сосредотачиваются на одной области изучения, такой как колледж для волшебников, посвященный изучению магии, или церковь, которая учит слову одного божества. \nВарианты навыков: Один навык из группы знаний. (*Быстрый Билд*: История.)\n",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/academic",
+      "originalName": "Academic",
+      "originalDescription": "Your hero was raised by people who collect, study, and share books and other records. Some academics focus on one area of study, such as a college for wizards dedicated to the study of magic, or a church that teaches the word of one deity. People in an academic culture learn how to wield the power that is knowledge.\n\n**Skill Options:** One skill from the lore skill group. (*Quick Build:* History.)"
+    },
+    {
+      "id": "culture.creative",
+      "kind": "culture",
+      "name": "Творческое",
+      "markdown": "#### Творческое\nГерой с творческим воспитанием был воспитан среди людей, которые создают искусство или другие работы, достаточно ценные для торговли. Творческая культура может производить изобразительное искусство, такое как танец, музыка или скульптура, или более практичные товары, как оружия, катализаторы или здания.\nВарианты навыков: Музыка или Выступление, или один навык из группы ремесла. (*Быстрый Билд*: Выступление.)\n",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/creative",
+      "originalName": "Creative",
+      "originalDescription": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade. A creative culture might produce fine art such as dance, music, or sculpture, or more practical wares such as wagons, weapons, tools, or buildings. People in such cultures learn the value of quality crafting and attention to detail.\n\n**Skill Options:** The Music or Perform skill (from the interpersonal skill group), or one skill from the crafting group. (*Quick Build:* Perform.)"
+    },
+    {
+      "id": "culture.labor",
+      "kind": "culture",
+      "name": "Трудовое",
+      "markdown": "#### Трудовое\nВаш герой повзрослел в культуре, где люди трудились, чтобы заработать на жизнь. Они могли быть земледельцами, обычно выращивающими урожай или скот на ферме. Они могли добывать природные ресурсы, или они могли преуспеть в ручном труде, связанном с поселением и торговлей, таком как строительство, перевозка, погрузка груза и так далее.\nВарианты навыков: Кузнечное дело,  Обращение с животными, или навык из группы исследования. (*Быстрый Билд*: Лифтинг.)\n",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/labor",
+      "originalName": "Labor",
+      "originalDescription": "Your hero came of age in a culture where people labored for a living. They might have been cultivators, typically raising crops or livestock on a farm. They might have harvested natural resources, whether by hunting, trapping, logging, or mining. Or they might have excelled at manual labor tied to settlement and trade, such as construction, carting, loading cargo, and so forth. People with a labor upbringing know the value of hard work.\n\n**Skill Options:** The Blacksmithing skill (from the crafting skill group), the Handle Animals skill (from the interpersonal group), or a skill from the exploration group. (*Quick Build:* Lift.)"
+    },
+    {
+      "id": "culture.lawless",
+      "kind": "culture",
+      "name": "Беззаконное",
+      "markdown": "#### Беззаконное\nВаш герой вырос среди людей, которые выполняли деятельность, которую другие люди — будь то внутри или за пределами их культуры — считали незаконной. Банда пиратов, гильдия ассасинов или организация шпионов — все совершают незаконные действия за деньги. А при тирании люди, занимающиеся восстанием, часто считаются беззаконными в своих действиях и деятельности.\nВарианты навыков: Один навык из группы интриги. (*Быстрый Билд*: Скрытность.)\n",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/lawless",
+      "originalName": "Lawless",
+      "originalDescription": "Your hero grew up among folk who performed activities that other people—whether within or outside their culture—considered unlawful. A band of pirates, a guild of assassins, or an organization of spies all commit unlawful acts for money. And under tyranny, people engaged in rebellion are often considered lawless in their actions and activities. People brought up in a lawless culture typically don't mind breaking the rules when it suits them—and are good at making sure no one finds out they did.\n\n**Skill Options:** One skill from the intrigue skill group. (*Quick Build:* Sneak.)"
+    },
+    {
+      "id": "culture.martial",
+      "kind": "culture",
+      "name": "Воинское",
+      "markdown": "#### Воинское\nГерой с воинским воспитанием был воспитан воинами. Это могли быть солдаты установленной армии, банда наемников, гильдия истребителей монстров-искателей приключений или любые другие люди, чья жизнь вращается вокруг боя.\nВарианты навыков: Кузнечное дело или Оперение из группы ремесла; Скалолазание, Стойкость или Езда из группы исследования; Запугивание из группы межличностных; Внимательность или Выслеживание из группы интриги; или Монстры или Стратегия из группы знаний. (*Быстрый Билд*: Запугивание.)\n",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/martial",
+      "originalName": "Martial",
+      "originalDescription": "A hero with a martial upbringing was raised by warriors. These might have been the soldiers of an established army, a band of mercenaries, a guild of monster-slaying adventurers, or any other folk whose lives revolve around combat. Heroes with a martial upbringing are always ready for a fight—and they know how to finish that fight.\n\n**Skill Options:** One of the following: Blacksmithing or Fletching from the crafting skill group; Climb, Endurance, or Ride from the exploration group; Intimidate from the interpersonal group; Alertness or Track from the intrigue group; or Monsters or Strategy from the lore skill group (*Quick Build:* Intimidate.)"
+    },
+    {
+      "id": "culture.noble",
+      "kind": "culture",
+      "name": "Дворянское",
+      "markdown": "#### Дворянское\nВаш герой вырос среди лидеров, которые правят другими и играют в политические игры, чтобы сохранить власть. Многие семьи являются дворянами по праву рождения, но некоторые культуры имеют дворянские титулы, заработанные поступками или популярностью. Каков бы ни был случай, герои с такой предысторией понимают силу власти.\nВарианты навыков: Один навык из группы межличностных. (*Быстрый Билд*: Лидерство.)",
+      "source": {
+        "articleId": "0504",
+        "path": "05. Предыстория/0504. Воспитание.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/noble",
+      "originalName": "Noble",
+      "originalDescription": "Your hero grew up among leaders who rule over others and play the games of politics to maintain power. Many families are nobles by birthright, but some cultures have noble titles earned through deeds or popularity. Whatever the case, heroes with this background understand why the whispered words in the right ear can sometimes be more powerful than any army.\n\n**Skill Options:** One skill from the interpersonal skill group. (*Quick Build:* Lead.)\n\n> **But I Really Want Alertness**\n>\n> If the culture you create doesn't grant a skill that you want, check with your Director about modifying what the culture's aspects offer. For instance, you can easily make the case that a culture with the noble upbringing aspect should give a character access to the Alertness skill, given that living among those who covet your power means always being aware of your surroundings."
+    }
+  ]
+}

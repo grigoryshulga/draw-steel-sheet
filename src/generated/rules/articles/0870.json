@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0870",
+      "title": "10-й Уровень Тени",
+      "chapter": "08. Классы",
+      "group": "Тень",
+      "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тенью 10-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.characteristic-increase"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.death-pool"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.skill"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.careful-observation-improvement"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.improved-umbral-form"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-10.subterfuge"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
+      "originalName": "10th-Level Features",
+      "originalDescription": "As a 10th-level shadow, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.shadow.level-10.characteristic-increase",
+      "kind": "feature",
+      "name": "Увеличение характеристик",
+      "markdown": "#### Увеличение характеристик\n\nВаш показатель Ловкости увеличивается до 5. Дополнительно, вы можете увеличить один из ваших показателей характеристик на 1, до максимума 5.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Agility score increases to 5. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 5."
+    },
+    {
+      "id": "feature.shadow.level-10.death-pool",
+      "kind": "feature",
+      "name": "Ресурс смерти",
+      "markdown": "#### Ресурс смерти\n\nВ первый раз за раунд боя, когда вы наносите урон, включающий 1 или более всплесков, вы получаете 3 прозрения вместо 2.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/death-pool",
+      "originalName": "Death Pool",
+      "originalDescription": "The first time each combat round that you deal damage incorporating 1 or more surges, you gain 3 insight instead of 2."
+    },
+    {
+      "id": "feature.shadow.level-10.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
+    },
+    {
+      "id": "feature.shadow.level-10.skill",
+      "kind": "feature",
+      "name": "Навык",
+      "markdown": "#### Навык\n\nВы получаете один навык по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice."
+    },
+    {
+      "id": "feature.shadow.level-10.careful-observation-improvement",
+      "kind": "feature",
+      "name": "Улучшение внимательного наблюдения",
+      "markdown": "#### Улучшение внимательного наблюдения\n\nВы можете нацелиться на трех существ одновременно с помощью вашей способности Внимательное наблюдение.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/careful-observation-improvement",
+      "originalName": "Careful Observation Improvement",
+      "originalDescription": "You can target three creatures simultaneously with your Careful Observation ability."
+    },
+    {
+      "id": "feature.shadow.level-10.improved-umbral-form",
+      "kind": "feature",
+      "name": "Улучшенная теневая форма",
+      "markdown": "#### Улучшенная теневая форма\n\nВы получаете полный контроль над теневым существом, которым вы становитесь с помощью Особенности Теневая форма, и вы можете закончить трансформацию по желанию (действие не требуется). Дополнительно, вы всегда окутаны тьмой, которая дает вам покров, пока вы находитесь в этой форме, и существа больше не получают преимущество на удары против вас.\n\nПока вы находитесь в своей теневой форме, вы можете потратить 1 непрерывную минуту, концентрируясь на месте, где вы были раньше. В конце этой минуты вы и каждое согласное существо по вашему выбору в пределах 10 клеток от вас можете телепортироваться на свободные клетки по вашему выбору в этом месте. Каждое существо, телепортирующееся таким образом, невидимо в течение 1 часа или до тех пор, пока оно не использует способность.\n\n---\n",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/improved-umbral-form",
+      "originalName": "Improved Umbral Form",
+      "originalDescription": "You gain full control over the shadow creature you become with your Umbral Form feature, and you can end the transformation at will (no action required). Additionally, you are always wreathed in darkness that grants you concealment while in this form, and creatures no longer gain an edge on strikes against you.\n\nWhile you are in your umbral form, you can spend 1 uninterrupted minute concentrating on a location where you've been before. At the end of that minute, you and each willing creature of your choice within 10 squares of you can teleport to unoccupied spaces of your choice within that location. Each creature who teleports this way is invisible for 1 hour or until they use an ability."
+    },
+    {
+      "id": "feature.shadow.level-10.subterfuge",
+      "kind": "feature",
+      "name": "Уловка",
+      "markdown": "#### Уловка\n\nУ вас есть эпический ресурс, называемый уловкой. Каждый раз, когда вы заканчиваете отдых, вы получаете уловку, равную полученному вами Опыту. Вы можете тратить уловку на свои способности так, как если бы это было прозрение.\n\nДополнительно, вы можете потратить уловку, чтобы предпринять дополнительные маневры в свой ход. Вы можете использовать один маневр за каждую потраченную уловку.\n\nУловка сохраняется, пока вы ее не потратите.",
+      "source": {
+        "articleId": "0870",
+        "path": "08. Классы/Тень/0870. 10-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-10/subterfuge",
+      "originalName": "Subterfuge",
+      "originalDescription": "You have an epic resource called subterfuge. Each time you finish a respite, you gain subterfuge equal to the XP you gain. You can spend subterfuge on your abilities as if it were insight.\n\nAdditionally, you can spend subterfuge to take additional maneuvers on your turn. You can use one maneuver for each subterfuge you spend.\n\nSubterfuge remains until you spend it."
+    }
+  ]
+}

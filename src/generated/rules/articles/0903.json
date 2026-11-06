@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0903",
+      "title": "Беглый Огонь",
+      "chapter": "09. Комплекты",
+      "group": "Список Комплектов",
+      "path": "09. Комплекты/Список Комплектов/0903. Беглый Огонь.md",
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "kit.rapid-fire"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.rapid-fire.two-shot"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/kit/rapid-fire",
+      "originalName": "Rapid-Fire",
+      "originalDescription": "The Rapid-Fire kit is for archers who want to deal maximum damage by shooting as many arrows as possible into nearby enemies. With this kit, your fighting technique focuses on peppering foes before they can get close enough to counterattack."
+    }
+  ],
+  "entities": [
+    {
+      "id": "kit.rapid-fire",
+      "kind": "kit",
+      "name": "Беглый Огонь",
+      "markdown": "Комплект Беглый огонь предназначен для лучников, которые хотят нанести максимальный урон, выпустив как можно больше стрел в ближайших врагов. В этом комплекте ваша боевая техника фокусируется на обстреле врагов до того, как они смогут подобраться достаточно близко для контратаки.\n\n##### Снаряжение\n\nВы носите легкие доспехи и владеете луком.\n\n##### Бонусы комплекта\n\n**Бонус к выносливости:** +3 за эшелон\n\n**Бонус к скорости:** +1\n\n**Бонус к урону (Дальний):** +2/+2/+2\n\n**Бонус к расстоянию (Дальний):** +7\n\n**Бонус к отходу:** +1\n\n##### Знаковая способность\n\n",
+      "source": {
+        "articleId": "0903",
+        "path": "09. Комплекты/Список Комплектов/0903. Беглый Огонь.md"
+      },
+      "originalId": "mcdm.heroes.v1/kit/rapid-fire",
+      "originalName": "Rapid-Fire",
+      "originalDescription": "The Rapid-Fire kit is for archers who want to deal maximum damage by shooting as many arrows as possible into nearby enemies. With this kit, your fighting technique focuses on peppering foes before they can get close enough to counterattack.\n\n##### Equipment\n\nYou wear light armor and wield a bow.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +2/+2/+2\n\n**Ranged Distance Bonus:** +7\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Two Shot\n\n*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    },
+    {
+      "id": "feature.ability.rapid-fire.two-shot",
+      "kind": "ability",
+      "name": "Двойной Выстрел",
+      "markdown": "> **Двойной Выстрел**\n> \n> *Когда вы выпускаете две стрелы подряд, обе попадают в цель.*\n> \n> | **Дальний, Удар, Оружие** |               **Основное действие** |\n> | ------------------------- | ----------------------------------: |\n> | **📏 Дальний 12** | **🎯 Два существа или объекта** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 урона\n> - **12-16:** 6 урона\n> - **17+:** 8 урона",
+      "source": {
+        "articleId": "0903",
+        "path": "09. Комплекты/Список Комплектов/0903. Беглый Огонь.md"
+      },
+      "ability": {
+        "id": "feature.ability.rapid-fire.two-shot",
+        "name": "Двойной Выстрел",
+        "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Дальний 12",
+        "target": "Два существа или объекта",
+        "rollCharacteristics": [
+          "might",
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": ""
+          },
+          {
+            "damage": "6",
+            "effect": ""
+          },
+          {
+            "damage": "8",
+            "effect": ""
+          }
+        ],
+        "effect": "",
+        "source": "Комплект: Беглый Огонь",
+        "notes": "",
+        "className": "Комплект: Беглый Огонь",
+        "level": 1,
+        "sourceKind": "kit",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+        "originalName": "Two Shot",
+        "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
+      "originalName": "Two Shot",
+      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
+    }
+  ]
+}

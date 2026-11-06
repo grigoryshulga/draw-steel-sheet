@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0889",
+      "title": "9-й Уровень Цензора",
+      "chapter": "08. Классы",
+      "group": "Цензор",
+      "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи цензором 9-го уровня, вы получаете следующие Особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-9.improved-implement-of-wrath"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-9.9th-level-order-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-9.exorcist-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.banish"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.terror-manifest"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-9.oracle-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.blessing-and-a-curse"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.fulfill-your-destiny"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.censor.level-9.paragon-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.apostate"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.censor.level-9.edict-of-unyielding-resolve"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
+      "originalName": "9th-Level Features",
+      "originalDescription": "As a 9th-level censor, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.censor.level-9.improved-implement-of-wrath",
+      "kind": "feature",
+      "name": "Улучшенное орудие гнева",
+      "markdown": "#### Улучшенное орудие гнева\n\nОружие, которое вы выбираете с помощью своей Особенности Орудие гнева, получает следующие дополнительные преимущества:\n\n- Владелец оружия и каждый смежный с ним союзник получают бонус +2 к спасброскам.\n- В конце каждого хода владельца оружия каждый смежный с ним союзник делает спасбросок против каждого эффекта на себе, который заканчивается спасброском.\n- Владелец оружия имеет иммунитет к урону порчей 10.\n\n---\n",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.censor.level-9/improved-implement-of-wrath",
+      "originalName": "Improved Implement of Wrath",
+      "originalDescription": "The weapon you target with your Implement of Wrath feature gains the following additional benefits:\n\n- The weapon's wielder and each ally adjacent to them gain a +2 bonus to saving throws.\n- At the end of each of the weapon wielder's turns, each ally adjacent to the wielder makes a saving throw against each effect on them that is ended by a saving throw.\n- The weapon's wielder has corruption immunity 10."
+    },
+    {
+      "id": "feature.censor.level-9.9th-level-order-ability",
+      "kind": "feature",
+      "name": "Способность ордена 9-го уровня",
+      "markdown": "#### Способность ордена 9-го уровня\n\nВаш орден цензора дает вам на выбор одну из двух героических способностей.\n\n",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.censor.level-9/9th-level-order-ability",
+      "originalName": "9th-Level Order Ability",
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 9th-Level Exorcist Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Oracle Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Paragon Abilities\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.censor.level-9.exorcist-abilities",
+      "kind": "feature",
+      "name": "Способности Экзорциста 9-го уровня",
+      "markdown": "##### Способности Экзорциста 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Exorcist Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.censor.level-9.banish",
+      "kind": "ability",
+      "name": "Изгнание",
+      "markdown": "> **Изгнание (11 Гнева)**\n>\n> *Вы разрываете слабую связь цели с миром.*\n>\n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 5 + М урона; П < СЛАБЫЙ, цель изгнана (до прох.)\n> - **12-16:** 8 + М урона; П < СРЕДНИЙ, цель изгнана (до прох.)\n> - **17+:** 11 + М урона; П < СИЛЬНЫЙ, цель изгнана (до прох.)\n>\n> **Эффект:** Эта способность получает преимущество против демонов, дьяволов, нежити и существ, не являющихся коренными для вашего текущего мира. Если вы знаете истинное имя цели, эта способность получает двойное преимущество. Будучи изгнанной, цель отправляется в другой манифольд в мультивселенной и убирается с карты боевой встречи. Изгнанная цель не может делать ничего, кроме как совершать спасброски, и получает 10 святого урона каждый раз, когда делает это. Если выносливость цели падает до 0, пока она изгнана, она теряется в мультивселенной.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.banish",
+        "name": "Изгнание",
+        "flavor": "Вы разрываете слабую связь цели с миром.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "5 + M",
+            "effect": "П < СЛАБЫЙ, цель изгнана (до прох.)"
+          },
+          {
+            "damage": "8 + M",
+            "effect": "П < СРЕДНИЙ, цель изгнана (до прох.)"
+          },
+          {
+            "damage": "11 + M",
+            "effect": "П < СИЛЬНЫЙ, цель изгнана (до прох.)"
+          }
+        ],
+        "effect": "Эта способность получает преимущество против демонов, дьяволов, нежити и существ, не являющихся коренными для вашего текущего мира. Если вы знаете истинное имя цели, эта способность получает двойное преимущество. Будучи изгнанной, цель отправляется в другой манифольд в мультивселенной и убирается с карты боевой встречи. Изгнанная цель не может делать ничего, кроме как совершать спасброски, и получает 10 святого урона каждый раз, когда делает это. Если выносливость цели падает до 0, пока она изгнана, она теряется в мультивселенной.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+        "originalName": "Banish",
+        "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
+      "originalName": "Banish",
+      "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
+    },
+    {
+      "id": "feature.ability.censor.level-9.terror-manifest",
+      "kind": "ability",
+      "name": "Воплощение Ужаса",
+      "markdown": "> **Воплощение Ужаса (11 Гнева)**\n>\n> *\"Я знаю, чего ты боишься.\"*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 7 + П психического урона; П < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 10 + П психического урона; П < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 13 + П психического урона; П < СИЛЬНЫЙ, испуг (до прох.)\n>\n> **Эффект:** Пока цель напугана таким образом, если она является лидером или соло-существом и утомлена, она получает дополнительные 25 психического урона. Если цель, напуганная таким образом, не является лидером или соло-существом и утомлена, ее Выносливость снижается до 0.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.terror-manifest",
+        "name": "Воплощение Ужаса",
+        "flavor": "\"Я знаю, чего ты боишься.\"",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "7 + P",
+            "effect": "П < СЛАБЫЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "10 + P",
+            "effect": "П < СРЕДНИЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "13 + P",
+            "effect": "П < СИЛЬНЫЙ, испуг (до прох.)"
+          }
+        ],
+        "effect": "Пока цель напугана таким образом, если она является лидером или соло-существом и утомлена, она получает дополнительные 25 психического урона. Если цель, напуганная таким образом, не является лидером или соло-существом и утомлена, ее Выносливость снижается до 0.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+        "originalName": "Terror Manifest",
+        "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
+      "originalName": "Terror Manifest",
+      "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
+    },
+    {
+      "id": "feature.censor.level-9.oracle-abilities",
+      "kind": "feature",
+      "name": "Способности Оракула 9-го уровня",
+      "markdown": "##### Способности Оракула 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Oracle Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.censor.level-9.blessing-and-a-curse",
+      "kind": "ability",
+      "name": "Благословение и Проклятие",
+      "markdown": "> **Благословение и Проклятие (11 Гнева)**\n>\n> *Боги благословляют и проклинают в равной мере.*\n>\n> | **Магия, Дальний** |       **Триггер** |\n> | ----------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель делает бросок силы.\n>\n> **Эффект:** Цель получает результат первого или третьего тира на своем броске силы (по вашему выбору). Затем вы можете выбрать другую цель в пределах расстояния, которая получит противоположный результат на своем следующем броске силы.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.blessing-and-a-curse",
+        "name": "Благословение и Проклятие",
+        "flavor": "Боги благословляют и проклинают в равной мере.",
+        "actionType": "trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "Цель делает бросок силы.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель получает результат первого или третьего тира на своем броске силы (по вашему выбору). Затем вы можете выбрать другую цель в пределах расстояния, которая получит противоположный результат на своем следующем броске силы.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/blessing-and-a-curse",
+        "originalName": "Blessing and a Curse",
+        "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/blessing-and-a-curse",
+      "originalName": "Blessing and a Curse",
+      "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll."
+    },
+    {
+      "id": "feature.ability.censor.level-9.fulfill-your-destiny",
+      "kind": "ability",
+      "name": "Исполни Свою Судьбу",
+      "markdown": "> **Исполни Свою Судьбу (11 Гнева)**\n>\n> *Вы рассмотрели различные варианты будущего, и работает только этот.*\n>\n> | **Магия, Дальний** |   **Триггер** |\n> | ----------------- | --------------: |\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Триггер:** Вы или другой герой заканчиваете свой ход.\n>\n> **Эффект:** Цель совершает свой ход после вызвавшего триггер героя и немедленно снимает с себя все состояния и негативные эффекты. Во время своего хода цель получает двойное преимущество на броски силы.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.fulfill-your-destiny",
+        "name": "Исполни Свою Судьбу",
+        "flavor": "Вы рассмотрели различные варианты будущего, и работает только этот.",
+        "actionType": "trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "Вы или другой герой заканчиваете свой ход.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель совершает свой ход после вызвавшего триггер героя и немедленно снимает с себя все состояния и негативные эффекты. Во время своего хода цель получает двойное преимущество на броски силы.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/fulfill-your-destiny",
+        "originalName": "Fulfill Your Destiny",
+        "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/fulfill-your-destiny",
+      "originalName": "Fulfill Your Destiny",
+      "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls."
+    },
+    {
+      "id": "feature.censor.level-9.paragon-abilities",
+      "kind": "feature",
+      "name": "Способности Идеала 9-го уровня",
+      "markdown": "##### Способности Идеала 9-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "originalId": "",
+      "originalName": "9th-Level Paragon Abilities",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.censor.level-9.apostate",
+      "kind": "ability",
+      "name": "Отступник",
+      "markdown": "> **Отступник (11 Гнева)**\n>\n> *Вы направляете святую энергию, чтобы решить судьбу врага.*\n>\n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 13 + М святого урона\n> - **12-16:** 19 + М святого урона\n> - **17+:** 26 + М святого урона\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, цель имеет уязвимость к урону 10.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.apostate",
+        "name": "Отступник",
+        "flavor": "Вы направляете святую энергию, чтобы решить судьбу врага.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "13 + M",
+            "effect": ""
+          },
+          {
+            "damage": "19 + M",
+            "effect": ""
+          },
+          {
+            "damage": "26 + M",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, цель имеет уязвимость к урону 10.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/apostate",
+        "originalName": "Apostate",
+        "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/apostate",
+      "originalName": "Apostate",
+      "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10."
+    },
+    {
+      "id": "feature.ability.censor.level-9.edict-of-unyielding-resolve",
+      "kind": "ability",
+      "name": "Эдикт Непреклонной Решимости",
+      "markdown": "> **Эдикт Непреклонной Решимости (11 Гнева)**\n>\n> *Вы и ваши союзники облачены в мерцающую броню.*\n>\n> | **Область, Магия** |                          **Маневр** |\n> | --------------- | ------------------------------------: |\n> | **📏 Аура 2** | **🎯 На себя и каждый союзник в области** |\n>\n> **Эффект:** До конца встречи или пока вы не окажетесь при смерти, каждая цель, начинающая свой ход в области, получает 10 очков временной выносливости.",
+      "source": {
+        "articleId": "0889",
+        "path": "08. Классы/Цензор/0889. 9-й Уровень Цензора.md"
+      },
+      "ability": {
+        "id": "feature.ability.censor.level-9.edict-of-unyielding-resolve",
+        "name": "Эдикт Непреклонной Решимости",
+        "flavor": "Вы и ваши союзники облачены в мерцающую броню.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Аура 2",
+        "target": "На себя и каждый союзник в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца встречи или пока вы не окажетесь при смерти, каждая цель, начинающая свой ход в области, получает 10 очков временной выносливости.",
+        "source": "Цензор",
+        "notes": "",
+        "className": "Цензор",
+        "level": 9,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/edict-of-unyielding-resolve",
+        "originalName": "Edict of Unyielding Resolve",
+        "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/edict-of-unyielding-resolve",
+      "originalName": "Edict of Unyielding Resolve",
+      "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina."
+    }
+  ]
+}

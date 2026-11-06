@@ -1,15 +1,17 @@
+import { lazy, Suspense } from "react";
 import "./ProgressPanel.css";
 import { Icon } from "../../components/Icons";
 import { Button, Field, NumberInput, Panel, Stepper, TextInput } from "../../components/ui";
-import { getLevelUpPlan, MAX_CHARACTER_LEVEL } from "../../lib/level-up";
-import { openSheetTab } from "../../lib/sheet-tabs";
+import { levelUpProgress, MAX_CHARACTER_LEVEL } from "../../lib/level-up-progress";
 import { echelon } from "../../lib/progression";
 import { useApp } from "../../state/AppContext";
+
+const LevelUpShortcut = lazy(() => import("./LevelUpShortcut").then((module) => ({ default: module.LevelUpShortcut })));
 
 /** Уровень и эшелон героя, победы, опыт, богатство и известность. */
 export function ProgressPanel() {
   const { character, patch } = useApp();
-  const levelUpPlan = getLevelUpPlan(character);
+  const levelUpPlan = levelUpProgress(character);
   const currentEchelon = echelon(character.level);
   const maxLevel = character.level >= MAX_CHARACTER_LEVEL;
   const xpTarget = levelUpPlan.xpRequired;
@@ -30,21 +32,15 @@ export function ProgressPanel() {
             <span className="progress-echelon">{currentEchelon}-й эшелон</span>
           </div>
           {!maxLevel && levelUpPlan.xpMissing === 0 && (
-            <span
-              className="progress-level-up-wrap"
-              title={!levelUpPlan.available ? levelUpPlan.reason : undefined}
-            >
-              <Button
-                variant="soft"
-                className="progress-level-up-trigger"
-                disabled={!levelUpPlan.available}
-                title="Повысить уровень — вкладка «Развитие»"
-                aria-label="Повысить уровень"
-                onClick={() => openSheetTab("development")}
-              >
-                <Icon name="arrow-up" size={20} />
-              </Button>
-            </span>
+            <Suspense fallback={
+              <span className="progress-level-up-wrap">
+                <Button variant="soft" className="progress-level-up-trigger" disabled aria-label="Повысить уровень" title="Проверка повышения уровня…">
+                  <Icon name="arrow-up" size={20} />
+                </Button>
+              </span>
+            }>
+              <LevelUpShortcut />
+            </Suspense>
           )}
         </div>
 

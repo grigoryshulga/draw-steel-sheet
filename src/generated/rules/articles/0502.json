@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0502",
+      "title": "Окружение",
+      "chapter": "05. Предыстория",
+      "group": "",
+      "path": "05. Предыстория/0502. Окружение.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Аспект окружения вашей культуры описывает, где люди этой культуры проводят большую часть своего времени. Сосредоточена ли ваша культура в шумном городе или маленькой деревне? Провели ли вы свою раннюю жизнь в изолированном монастыре? Или вы блуждали по дикой местности, никогда не останавливаясь надолго в одном месте?\n\nПри создании культуры выберите ее аспект окружения из следующих вариантов: кочевое, сельское, уединенное, городское или дикая местность. Вы получаете варианты навыков из вашего выбранного окружения. Все эти окружения можно найти в любой местности.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.nomadic"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.rural"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.secluded"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.urban"
+        },
+        {
+          "type": "entity",
+          "ref": "culture.wilderness"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/background#environment",
+      "originalName": "Environment",
+      "originalDescription": "Your culture's environment aspect describes where the people of that culture spend most of their time. Is your culture centered in a bustling city or a small village? Did you spend your early life in an isolated monastery? Or did you wander the wilderness, never staying in one place for long?\n\nWhen you build a culture, select its environment aspect from the following options: nomadic, rural, secluded, urban, or wilderness. You gain skill options from your chosen environment. All of these environments can be found in any sort of terrain, whether aboveground, in subterranean caverns, deep in trackless forest, or even underwater."
+    }
+  ],
+  "entities": [
+    {
+      "id": "culture.nomadic",
+      "kind": "culture",
+      "name": "Кочевое",
+      "markdown": "#### Кочевое\nКочевая культура путешествует с места на место, чтобы выжить. Представители кочевой культуры могут следовать за миграциями животных или погодой, путешествовать, чтобы продавать свои товары или услуги, или просто наслаждаться беспокойным образом жизни, полным новых впечатлений и народов. Те, кто растет в кочевых культурах, учатся ориентироваться в дикой местности и тесно сотрудничать с другими, чтобы выжить.\n\nВарианты навыков: один навык из группы исследования или межличностных навыков. (*Быстрый Билд*: Навигация.)\n",
+      "source": {
+        "articleId": "0502",
+        "path": "05. Предыстория/0502. Окружение.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/nomadic",
+      "originalName": "Nomadic",
+      "originalDescription": "A nomadic culture travels from place to place to survive. Members of a nomadic culture might follow animal migrations or the weather, travel to sell their wares or services, or simply enjoy a restless lifestyle full of new experiences and peoples. Those who grow up in nomadic cultures learn to navigate the wilderness and work closely with others to survive.\n\n**Skill Options:** One skill from the exploration or interpersonal skill groups. (*Quick Build:* Navigate.)"
+    },
+    {
+      "id": "culture.rural",
+      "kind": "culture",
+      "name": "Сельское",
+      "markdown": "#### Сельское\nСельская культура находится в городе, деревне или меньшем поселенном анклаве. Люди, живущие в таких местах, часто обрабатывают землю, торгуют товарами или услугами с проходящими путешественниками, добывают рыбу из моря или добывают металлы и драгоценные камни из земли.\nЖивя среди небольшого населения, большинство людей в сельском сообществе изучают ремесло и получают частички необходимых знаний, чтобы помочь своему сообществу выжить. Например, когда в сельской культуре есть только один кузнец, важно иметь ученика, уже изучающего работу у наковальни задолго до того, как этот кузнец начнет стареть. Если единственный священник в городе подхватит простуду, люди хотят, чтобы аколит был готов надеть причудливые одеяния, если случится худшее.\n\nВарианты навыков: один навык из группы ремесла или знаний. (*Быстрый Билд*: Природа.)\n",
+      "source": {
+        "articleId": "0502",
+        "path": "05. Предыстория/0502. Окружение.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/rural",
+      "originalName": "Rural",
+      "originalDescription": "A rural culture is one located in a town, village, or smaller settled enclave. People dwelling in such places often cultivate the land, trade goods or services with travelers passing through, harvest fish from the sea, or mine metals and gems from the earth.\n\nLiving among a small population, most folks in a rural community learn a trade and are handed down bits of essential knowledge to help their community survive. For example, when a rural culture has only one blacksmith, it's important to have an apprentice already learning at the anvil well before that smith starts to get old. If the only priest in town\n\ngets the sniffles, folks want an acolyte ready to wear the fancy robes should the worst occur.\n\n**Skill Options:** One skill from the crafting or lore skill groups. (*Quick Build:* Nature.)"
+    },
+    {
+      "id": "culture.secluded",
+      "kind": "culture",
+      "name": "Уединенное",
+      "markdown": "#### Уединенное\nУединенная культура базируется в одном относительно тесном сооружении — здании, пещере и так далее — и взаимодействует с другими культурами только редко. Такие места часто являются зданиями или комплексами, такими как монастыри, замки или тюрьмы. Люди в уединенной культуре имеют мало причин или вообще не имеют причин покидать свой дом или взаимодействовать с другими культурами снаружи.\nКогда люди живут вместе в тесных помещениях, они обычно учатся ладить друг с другом. Они часто проводят много времени в изучении или самоанализе, так как в уединении больше особо нечего делать.\n\nВарианты навыков: один навык из группы межличностных или знаний. (*Быстрый Билд*: Чтение личности.)\n",
+      "source": {
+        "articleId": "0502",
+        "path": "05. Предыстория/0502. Окружение.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/secluded",
+      "originalName": "Secluded",
+      "originalDescription": "A secluded culture is based in one relatively close-quarters structure—a building, a cavern, and so forth—and interacts with other cultures only rarely. Such places are often buildings or complexes such as monasteries, castles, or prisons. Folk in a secluded culture have little or no reason to leave their home or interact with other cultures on the outside, but might have an awareness of those cultures and of events happening beyond their enclave.\n\nWhen people live together in close quarters, they typically learn to get along. They often spend much time in study or introspection, as there is not much else to do in seclusion.\n\n**Skill Options:** One skill from the interpersonal or lore skill groups. (*Quick Build:* Read Person.)"
+    },
+    {
+      "id": "culture.urban",
+      "kind": "culture",
+      "name": "Городское",
+      "markdown": "#### Городское\nГородская культура всегда сосредоточена в городе. Такая культура может возникнуть в стенах столицы, массивного мегаполиса с разнообразным населением; в сети пещер, которые содержат подземный город; или в любом другом месте, где большое население живет относительно близко друг к другу. Люди городских культур часто учатся эффективно вводить других в заблуждение, чтобы ориентироваться в толпах и политических махинациях, которые могут прийти с городской жизнью.\n\nВарианты навыков: один навык из группы межличностных или интриги. (*Быстрый Билд*: Внимательность.)\n",
+      "source": {
+        "articleId": "0502",
+        "path": "05. Предыстория/0502. Окружение.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/urban",
+      "originalName": "Urban",
+      "originalDescription": "An urban culture is always centered in a city. Such a culture might arise within the walls of Capital, a massive metropolis with a cosmopolitan population; within a network of caverns that hold an underground city; or in any other place where a large population lives relatively close together. The people of urban cultures often learn to effectively misdirect others in order to navigate the crowds and the political machinations that can come with city life.\n\n**Skill Options:** One skill from the interpersonal or intrigue skill groups. (*Quick Build:* Alertness.)"
+    },
+    {
+      "id": "culture.wilderness",
+      "kind": "culture",
+      "name": "Дикая местность",
+      "markdown": "#### Дикая местность\nКультура дикой местности не пытается приручить местность, в которой живут ее люди, будь то пустыня, лес, болото, тундра, океан или более экзотические места. Вместо этого люди такой культуры процветают среди природы, получая пропитание и укрытие от земли. Культурой дикой местности может быть круг друидов, защищающих отдаленный лес, банда разбойников, прячущаяся в пустынных пещерах, или лагерь орков-наемников, которые называют непроходимые горы домом. Люди в культуре дикой местности учатся использовать землю для всего, что им нужно для жизни, обычно изготавливая свои собственные инструменты, одежду и многое другое.\n\nВарианты навыков: один навык из группы ремесла или исследования. (*Быстрый Билд*: Стойкость.)",
+      "source": {
+        "articleId": "0502",
+        "path": "05. Предыстория/0502. Окружение.md"
+      },
+      "originalId": "mcdm.heroes.v1/culture/wilderness",
+      "originalName": "Wilderness",
+      "originalDescription": "A wilderness culture doesn't try to tame the terrain in which its people live, whether desert, forest, swamp, tundra, ocean, or more exotic climes. Instead, the folk of such a culture thrive amid nature, taking their sustenance and shelter from the land. A wilderness culture might be a circle of druids protecting a remote wode, a band of brigands hiding out in desert caves, or a camp of orc mercenaries who call the trackless mountains home. People in a wilderness culture learn how to use the land for all they need to live, typically crafting their own tools, clothing, and more.\n\n**Skill Options:** One skill from the crafting or exploration skill groups. (*Quick Build:* Endurance.)"
+    }
+  ]
+}

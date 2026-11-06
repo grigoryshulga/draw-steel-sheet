@@ -1,7 +1,6 @@
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { LibraryHeader } from "../components/LibraryHeader";
-import { CATALOG } from "../data/library";
-import { CatalogAction } from "../components/CatalogAction";
+import { READING_CATALOG } from "../rules/consumer-reading";
 import { catalogLink, readCodexLocation } from "../lib/codex";
 import { useCodexBookmarks } from "../lib/codex-bookmarks";
 import { Button, TextInput } from "../components/ui";
@@ -29,6 +28,12 @@ import {
 } from "../rules/search";
 import { RuleArticleContent } from "../components/rules/RuleArticle";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
+
+const ArticleCatalogActions = lazy(() =>
+  import("../components/ArticleCatalogActions").then((module) => ({
+    default: module.ArticleCatalogActions,
+  })),
+);
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
@@ -450,13 +455,11 @@ export function CodexView() {
                     ))}
                   </details>
                 )}
-                {CATALOG.filter(
-                  (catalogEntry) =>
-                    catalogEntry.articleId === entry.id &&
-                    catalogEntry.kind === "project",
-                ).map((catalogEntry) => (
-                  <CatalogAction key={catalogEntry.id} entry={catalogEntry} />
-                ))}
+                {READING_CATALOG.some((item) => item.articleId === entry.id && item.kind === "project") && (
+                  <Suspense fallback={null}>
+                    <ArticleCatalogActions articleId={entry.id} />
+                  </Suspense>
+                )}
                 {loading && (
                   <div className="codex-state" role="status" aria-live="polite">
                     <span className="codex-state-spinner" aria-hidden="true" />

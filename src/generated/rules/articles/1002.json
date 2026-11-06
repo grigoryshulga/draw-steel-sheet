@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "1002",
+      "title": "Перки Ремесла",
+      "chapter": "10. Перки",
+      "group": "",
+      "path": "10. Перки/1002. Перки Ремесла.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "В этом разделе представлены перки ремесла.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.area-of-expertise"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.expert-artisan"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.handy"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.improvisation-creation"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.inspired-artisan"
+        },
+        {
+          "type": "entity",
+          "ref": "perk.traveling-artisan"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/perks#crafting-perks",
+      "originalName": "Crafting Perks",
+      "originalDescription": "This section presents crafting perks in alphabetical order."
+    }
+  ],
+  "entities": [
+    {
+      "id": "perk.area-of-expertise",
+      "kind": "perk",
+      "name": "Область специализации",
+      "markdown": "#### Область специализации\n\nВыберите один навык, который у вас уже есть, из группы навыков ремесла. Всякий раз, когда вы получаете результат первого тира в легком или среднем тесте с использованием этого навыка, вы рассматриваете его как результат второго тира. Кроме того, если вы потратите 1 минуту на осмотр объекта, связанного с выбранным навыком, вы можете оценить его стоимость и узнать о любых недостатках в его конструкции.\n\n",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/area-of-expertise",
+      "originalName": "Area of Expertise",
+      "originalDescription": "Choose one skill you already have from the crafting skill group. Whenever you obtain a tier 1 outcome on an easy or medium test using this skill, you treat it as a tier 2 outcome instead. Additionally, if you spend 1 minute inspecting an object related to the chosen skill, you can estimate its value and learn of any flaws in its construction."
+    },
+    {
+      "id": "perk.expert-artisan",
+      "kind": "perk",
+      "name": "Опытный мастер",
+      "markdown": "#### Опытный мастер\n\nВсякий раз, когда вы проходите тест в рамках ремесленного или исследовательского проекта, в котором используется навык, который у вас уже есть из группы навыков ремесла, вы можете сделать бросок силы дважды и использовать любой бросок.\n\n",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/expert-artisan",
+      "originalName": "Expert Artisan",
+      "originalDescription": "Whenever you make a test as part of a crafting or research project that uses a skill you already have from the crafting skill group, you can make the power roll twice and use either roll."
+    },
+    {
+      "id": "perk.handy",
+      "kind": "perk",
+      "name": "Искусный",
+      "markdown": "#### Искусный\n\nВсякий раз, когда вы делаете тест на создание чего-либо и у вас нет навыка, который применим к тесту, вы получаете бонус +1 к броску силы.\n\n",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/handy",
+      "originalName": "Handy",
+      "originalDescription": "Whenever you make a test to craft something and don't have a skill that applies to the test, you gain a +1 bonus to the power roll."
+    },
+    {
+      "id": "perk.improvisation-creation",
+      "kind": "perk",
+      "name": "Импровизация и созидание",
+      "markdown": "#### Импровизация и созидание\n\nБез необходимости проходить тест — и даже без инструментов — вы можете быстро на скорую руку собрать или починить обыденный предмет или часть снаряжения, связанную с навыком, который у вас есть из группы навыков ремесла. Этот предмет существует 1 час или работает на одно использование или активацию (в зависимости от того, что наступит раньше, по решению ведущего), а затем ломается без возможности восстановления. Например, если у вас есть навык Плотничество, вы могли бы починить шаткий деревянный мост на время, достаточное для того, чтобы группа существ могла пересечь его, или сделать простую деревянную лопату, которую можно использовать в течение 1 часа.\n\n",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/improvisation-creation",
+      "originalName": "Improvisation Creation",
+      "originalDescription": "Without needing to make a test—and even without tools—you can quickly jury-rig or repair a mundane item or piece of equipment related to a skill you have from the crafting skill group. That item lasts for 1 hour or works for one use or activation (whichever comes first, as the Director determines), then breaks beyond repair. For example, if you have the Carpentry skill, you could repair a rickety wooden bridge long enough for a group of creatures to cross it, or build a simple shovel made of wood that can be used for 1 hour."
+    },
+    {
+      "id": "perk.inspired-artisan",
+      "kind": "perk",
+      "name": "Вдохновленный мастер",
+      "markdown": "#### Вдохновленный мастер\n\nКогда вы делаете бросок проекта, используя навык из группы навыков ремесла, вы можете потратить жетон героя, чтобы сделать еще один бросок проекта для того же проекта как часть той же деятельности отдыха. Вы не можете использовать этот перк более одного раза за отдых.\n\n",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/inspired-artisan",
+      "originalName": "Inspired Artisan",
+      "originalDescription": "When you make a project roll using a skill from the crafting skill group, you can spend a hero token to make another project roll for the same project as part of the same respite activity. You can't use this perk more than once per respite."
+    },
+    {
+      "id": "perk.traveling-artisan",
+      "kind": "perk",
+      "name": "Странствующий мастер",
+      "markdown": "#### Странствующий мастер\n\nВ любой день, когда вы не берете отдых, вы можете потратить 1 непрерывный час, работая над ремесленным проектом, используя навык, который у вас есть из группы навыков ремесла. Если вы это сделаете, вы получаете 1d10 очков проекта для этого проекта.",
+      "source": {
+        "articleId": "1002",
+        "path": "10. Перки/1002. Перки Ремесла.md"
+      },
+      "originalId": "mcdm.heroes.v1/perk/traveling-artisan",
+      "originalName": "Traveling Artisan",
+      "originalDescription": "On any day when you don't take a respite, you can spend 1 uninterrupted hour working on a crafting project using a skill you have from the crafting skill group. If you do so, you gain 1d10 project points toward that project.\n\n> **Perks and Tests**\n>\n> The existence of specific perks doesn't mean that a hero can't attempt the task related to a perk without having that perk. Aside from supernatural perks, a Director can always allow a hero to attempt a mundane task mentioned in a perk by making a test. Perks are special because they allow a hero to attempt a specific task without a test, and often give a better result than a successful test—or even a test with a reward would give.\n>\n> For example, can a hero catch a falling ally if they don't have the I've Got You perk? A Director can absolutely allow it, but might decide that the hero needs to succeed on a Might test to accomplish the task, using a main action or maneuver to prepare for it. Being able to catch an ally automatically as a free triggered action is what the perk gets you!"
+    }
+  ]
+}

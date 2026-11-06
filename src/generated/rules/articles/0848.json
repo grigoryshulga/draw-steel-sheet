@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0848",
+      "title": "8-й Уровень Тактика",
+      "chapter": "08. Классы",
+      "group": "Тактик",
+      "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тактиком 8-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.8th-level-doctrine-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.bait-and-ambush"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.pincer-movement"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.see-your-enemies-driven-before-you"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.tactician.level-8.11-focus-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-8.go-now-and-speed-well"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-8.finish-them"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-8.floodgates-open"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.tactician.level-8.ill-open-and-youll-close"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level tactician, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.tactician.level-8.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
+    },
+    {
+      "id": "feature.tactician.level-8.8th-level-doctrine-feature",
+      "kind": "feature",
+      "name": "Особенность доктрины 8-го уровня",
+      "markdown": "#### Особенность доктрины 8-го уровня\n\nВаша тактическая доктрина дает вам особенность, как показано в таблице Особенностей доктрины 8-го уровня.\n\n###### Таблица особенностей доктрины 8-го уровня\n\n| Доктрина | Особенность |\n| ---------- | ---------------------------------- |\n| Повстанец | Приманка и засада |\n| Воевода | Клещевой маневр |\n| Авангард | Видеть, как враги бегут перед тобой |\n\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/8th-level-doctrine-feature",
+      "originalName": "8th-Level Doctrine Feature",
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 8th-Level Doctrine Features table.\n\n###### 8th-Level Doctrine Features Table\n\n| Doctrine   | Feature                            |\n|------------|------------------------------------|\n| Insurgent  | Bait and Ambush                    |\n| Mastermind | Pincer Movement                    |\n| Vanguard   | See Your Enemies Driven Before You |"
+    },
+    {
+      "id": "feature.tactician.level-8.bait-and-ambush",
+      "kind": "feature",
+      "name": "Приманка и засада",
+      "markdown": "##### Приманка и засада\n\nВы обучили свой отряд быть бесшумными засадниками.\n\n**Преимущество метки:** Когда вы или любой союзник наносите удар по существу, отмеченному вами, вы можете потратить 2 фокуса, чтобы позволить персонажу, наносящему удар, сместиться на количество клеток вплоть до вашего показателя Разума и использовать маневр Скрытности как свободный маневр один раз во время смещения. Существо может сместиться до или после разрешения удара.\n\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/bait-and-ambush",
+      "originalName": "Bait and Ambush",
+      "originalDescription": "You have trained your squad to be silent ambushers.\n\n**Mark Benefit:** When you or any ally makes a strike against a creature marked by you, you can spend 2 focus to let the character making the strike shift up to a number of squares equal to your Reason score and use the Hide maneuver as a free maneuver once during the shift. The creature can shift before or after the strike is resolved."
+    },
+    {
+      "id": "feature.tactician.level-8.pincer-movement",
+      "kind": "feature",
+      "name": "Клещевой маневр",
+      "markdown": "##### Клещевой маневр\n\nВы обучили свой отряд координировать свои движения, чтобы максимизировать влияние в бою.\n\n**Преимущество метки:** Когда вы или любой союзник наносите удар по существу, отмеченному вами, вы можете потратить 2 фокуса, чтобы заставить персонажа, наносящего удар, сместиться на количество клеток вплоть до вашего показателя Разума до разрешения удара. Если удар нанесли не вы, вы тоже можете совершить это смещение. Если вы нанесли удар, один союзник в пределах 10 клеток от вас также может совершить это смещение.\n\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/pincer-movement",
+      "originalName": "Pincer Movement",
+      "originalDescription": "You have trained your squad to coordinate their movements to maximize combat impact.\n\n**Mark Benefit:** When you or any ally makes a strike against a creature marked by you, you can spend 2 focus to have the character making the strike shift up to a number of squares equal to your Reason score before the strike is resolved. If you didn't make the strike, you can make this shift as well. If you did make the strike, one ally within 10 squares of you can make this shift as well."
+    },
+    {
+      "id": "feature.tactician.level-8.see-your-enemies-driven-before-you",
+      "kind": "feature",
+      "name": "Видеть, как враги бегут перед тобой",
+      "markdown": "##### Видеть, как враги бегут перед тобой\n\nВы обучили свой отряд максимизировать воздействие и прорывать вражеские линии при их атаке.\n\n**Преимущество метки:** Когда вы или любой союзник наносите удар ближнего боя по существу, отмеченному вами, вы можете потратить 2 фокуса, чтобы заставить персонажа, наносящего удар, совершить толчок цели вплоть до числа клеток, равного вашему показателю Разума. Затем этот персонаж может сместиться на количество клеток вплоть до вашего показателя Разума, заканчивая это смещение смежно с целью.\n\n---\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/see-your-enemies-driven-before-you",
+      "originalName": "See Your Enemies Driven Before You",
+      "originalDescription": "You have trained your squad to maximize impact and break enemy lines when they attack.\n\n**Mark Benefit:** When you or any ally makes a melee strike against a creature marked by you, you can spend 2 focus to have the character making the strike push the target up to a number of squares equal to your Reason score. That character can then shift up to a number of squares equal to your Reason score, ending this shift adjacent to the target."
+    },
+    {
+      "id": "feature.tactician.level-8.11-focus-ability",
+      "kind": "feature",
+      "name": "Способность за 11 фокуса",
+      "markdown": "#### Способность за 11 фокуса\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 11 фокуса для использования.\n\n",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.tactician.level-8/11-focus-ability",
+      "originalName": "11-Focus Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 focus to use."
+    },
+    {
+      "id": "feature.ability.tactician.level-8.go-now-and-speed-well",
+      "kind": "ability",
+      "name": "Бей Верно",
+      "markdown": "> **Бей Верно (11 Фокуса)**\n>\n> *Вы направляете атаку так, чтобы она ударила точно в цель.*\n>\n> | **Дальний** | **Основное действие** |\n> | ---------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** Цель получает 2 всплеска и может использовать знаковую или героическую способность как свободный триггер. Эта способность имеет двойное преимущество на бросок силы, игнорирует иммунитет к урону и увеличивает потенциал любых эффектов потенциала на 1.",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-8.go-now-and-speed-well",
+        "name": "Бей Верно",
+        "flavor": "Вы направляете атаку так, чтобы она ударила точно в цель.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель получает 2 всплеска и может использовать знаковую или героическую способность как свободный триггер. Эта способность имеет двойное преимущество на бросок силы, игнорирует иммунитет к урону и увеличивает потенциал любых эффектов потенциала на 1.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/go-now-and-speed-well",
+        "originalName": "Go Now and Speed Well",
+        "originalDescription": "*You direct an attack to strike true.*\n\n| **Ranged**       |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target gains 2 surges and can use a signature or heroic ability as a free triggered action. The ability has a double edge on the power roll, ignores damage immunity, and increases the potency of any potency effects by 1."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/go-now-and-speed-well",
+      "originalName": "Go Now and Speed Well",
+      "originalDescription": "*You direct an attack to strike true.*\n\n| **Ranged**       |         **Main action** |\n|------------------|------------------------:|\n| **📏 Ranged 10** | **🎯 Self or one ally** |\n\n**Effect:** The target gains 2 surges and can use a signature or heroic ability as a free triggered action. The ability has a double edge on the power roll, ignores damage immunity, and increases the potency of any potency effects by 1."
+    },
+    {
+      "id": "feature.ability.tactician.level-8.finish-them",
+      "kind": "ability",
+      "name": "Прикончи Их!",
+      "markdown": "> **Прикончи Их! (11 Фокуса)**\n>\n> *Вы указываете союзнику на брешь, чтобы он мог нанести смертельный удар.*\n>\n> | **Дальний** | **Свободный триггер** |\n> | ---------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель не является лидером или соло-существом, и переходит в состояние утомления.\n>\n> **Эффект:** Цель убита. Дополнительно, существо, из-за которого цель стала утомленной, может потратить Восстановление.",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-8.finish-them",
+        "name": "Прикончи Их!",
+        "flavor": "Вы указываете союзнику на брешь, чтобы он мог нанести смертельный удар.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "Цель не является лидером или соло-существом, и переходит в состояние утомления.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель убита. Дополнительно, существо, из-за которого цель стала утомленной, может потратить Восстановление.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/finish-them",
+        "originalName": "Finish Them!",
+        "originalDescription": "*You point out an opening to your ally so they can land a killing blow.*\n\n| **Ranged**       |  **Free triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target is not a leader or solo creature, and becomes winded.\n\n**Effect:** The target is killed. Additionally, the creature who caused the target to be winded can spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/finish-them",
+      "originalName": "Finish Them!",
+      "originalDescription": "*You point out an opening to your ally so they can land a killing blow.*\n\n| **Ranged**       |  **Free triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target is not a leader or solo creature, and becomes winded.\n\n**Effect:** The target is killed. Additionally, the creature who caused the target to be winded can spend a Recovery."
+    },
+    {
+      "id": "feature.ability.tactician.level-8.floodgates-open",
+      "kind": "ability",
+      "name": "Врата Открыты",
+      "markdown": "> **Врата Открыты (11 Фокуса)**\n>\n> *Вы приказываете своему отряду атаковать в унисон и с разрушительным эффектом.*\n>\n> | **Дальний** | **Основное действие** |\n> | ---------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Три союзника** |\n>\n> **Эффект:** Каждая цель получает 1 всплеск и может использовать знаковую способность как свободный триггер. Эта способность получает преимущество на бросок силы и увеличивает потенциал любых эффектов потенциала на 1.",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-8.floodgates-open",
+        "name": "Врата Открыты",
+        "flavor": "Вы приказываете своему отряду атаковать в унисон и с разрушительным эффектом.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Три союзника",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель получает 1 всплеск и может использовать знаковую способность как свободный триггер. Эта способность получает преимущество на бросок силы и увеличивает потенциал любых эффектов потенциала на 1.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/floodgates-open",
+        "originalName": "Floodgates Open",
+        "originalDescription": "*You direct your squad to strike in unison and with devastating effect.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability as a free triggered action. That ability gains an edge on the power roll and increases the potency of any potency effects by 1."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/floodgates-open",
+      "originalName": "Floodgates Open",
+      "originalDescription": "*You direct your squad to strike in unison and with devastating effect.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 Three allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability as a free triggered action. That ability gains an edge on the power roll and increases the potency of any potency effects by 1."
+    },
+    {
+      "id": "feature.ability.tactician.level-8.ill-open-and-youll-close",
+      "kind": "ability",
+      "name": "Я Вскрою, а Ты Закроешь",
+      "markdown": "> **Я Вскрою, а Ты Закроешь (11 Фокуса)**\n>\n> *Вы создаете брешь для союзника.*\n>\n> | **Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | --------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 6 + М урона\n> - **12-16:** 10 + М урона\n> - **17+:** 14 + М урона\n>\n> **Эффект:** Один союзник в пределах 10 клеток от вас может использовать героическую способность против цели как свободный триггер, не тратя свой героический ресурс, при условии, что у него достаточно героического ресурса, чтобы оплатить способность. Если выносливость цели снижается до 0 до того, как выбранный союзник использует свою способность, союзник может выбрать другую цель.",
+      "source": {
+        "articleId": "0848",
+        "path": "08. Классы/Тактик/0848. 8-й Уровень Тактика.md"
+      },
+      "ability": {
+        "id": "feature.ability.tactician.level-8.ill-open-and-youll-close",
+        "name": "Я Вскрою, а Ты Закроешь",
+        "flavor": "Вы создаете брешь для союзника.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6 + M",
+            "effect": ""
+          },
+          {
+            "damage": "10 + M",
+            "effect": ""
+          },
+          {
+            "damage": "14 + M",
+            "effect": ""
+          }
+        ],
+        "effect": "Один союзник в пределах 10 клеток от вас может использовать героическую способность против цели как свободный триггер, не тратя свой героический ресурс, при условии, что у него достаточно героического ресурса, чтобы оплатить способность. Если выносливость цели снижается до 0 до того, как выбранный союзник использует свою способность, союзник может выбрать другую цель.",
+        "source": "Тактик",
+        "notes": "",
+        "className": "Тактик",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/ill-open-and-youll-close",
+        "originalName": "I'll Open and You'll Close",
+        "originalDescription": "*You create an opening for an ally.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** One ally within 10 squares of you can use a heroic ability against the target as a free triggered action without spending any of their Heroic Resource, as long as they have enough Heroic Resource to pay for the ability. If the target is reduced to 0 Stamina before the chosen ally has used their ability, the ally can pick a different target."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-8/ill-open-and-youll-close",
+      "originalName": "I'll Open and You'll Close",
+      "originalDescription": "*You create an opening for an ally.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** One ally within 10 squares of you can use a heroic ability against the target as a free triggered action without spending any of their Heroic Resource, as long as they have enough Heroic Resource to pay for the ability. If the target is reduced to 0 Stamina before the chosen ally has used their ability, the ally can pick a different target."
+    }
+  ]
+}

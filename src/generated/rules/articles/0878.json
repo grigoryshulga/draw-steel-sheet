@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0878",
+      "title": "8-й Уровень Трубадура",
+      "chapter": "08. Классы",
+      "group": "Трубадур",
+      "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи трубадуром 8-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.8th-level-class-act-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.crowd-favorites"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.moonlight-sonata"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.radical-fantasia"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.deleted-scene"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.masterwork"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.troubadour.level-8.11-drama-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.dramatic-reveal"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.power-ballad"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.saved-in-the-edit"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.troubadour.level-8.the-show-must-go-on"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level troubadour, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.troubadour.level-8.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
+    },
+    {
+      "id": "feature.troubadour.level-8.8th-level-class-act-feature",
+      "kind": "feature",
+      "name": "Особенность амплуа 8-го уровня",
+      "markdown": "#### Особенность амплуа 8-го уровня\n\nВаше амплуа трубадура дает вам особенность, как показано в таблице Особенностей амплуа 8-го уровня.\n\n###### Таблица особенностей амплуа 8-го уровня\n\n| Амплуа | Особенность         |\n| --------- | --------------- |\n| Автор | Вырезанная сцена   |\n| Дуэлянт | Шедевр      |\n| Виртуоз | Любимцы публики |\n\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/8th-level-class-act-feature",
+      "originalName": "8th-Level Class Act Feature",
+      "originalDescription": "Your troubadour class act grants you a feature, as shown on the 8th-Level Class Act Features table.\n\n###### 8th-Level Class Act Features Table\n\n| Class Act | Feature         |\n|-----------|-----------------|\n| Auteur    | Deleted Scene   |\n| Duelist   | Masterwork      |\n| Virtuoso  | Crowd Favorites |"
+    },
+    {
+      "id": "feature.troubadour.level-8.crowd-favorites",
+      "kind": "feature",
+      "name": "Любимцы публики",
+      "markdown": "##### Любимцы публики\n\nУ вас есть следующие способности выступления, которые можно использовать с вашей особенностью Номера.\n\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/crowd-favorites",
+      "originalName": "Crowd Favorites",
+      "originalDescription": "You have the following performance abilities, which are usable with your Routines feature."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.moonlight-sonata",
+      "kind": "ability",
+      "name": "Лунная Соната",
+      "markdown": "> **Лунная Соната**\n>\n> *Музыка льется из вашего сердца, наполняя пространство оживляющей нежностью.*\n>\n> | **Область, Магия, Выступление** |                **Без действия** |\n> | ---------------------------- | ---------------------------: |\n> | **📏 Аура 5** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Пока это выступление активно, каждая мертвая цель может решить продолжить совершать ходы после смерти. В каждый свой ход цель может перемещаться и использовать либо основное действие, либо маневр, но не может тратить Восстановления или использовать триггеры. В конце столкновения каждая цель, которая выбрала совершать ходы таким образом, обращается в пыль и развеивается.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.moonlight-sonata",
+        "name": "Лунная Соната",
+        "flavor": "Музыка льется из вашего сердца, наполняя пространство оживляющей нежностью.",
+        "actionType": "none",
+        "kind": "other",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Выступление"
+        ],
+        "distance": "Аура 5",
+        "target": "Каждый союзник в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Пока это выступление активно, каждая мертвая цель может решить продолжить совершать ходы после смерти. В каждый свой ход цель может перемещаться и использовать либо основное действие, либо маневр, но не может тратить Восстановления или использовать триггеры. В конце столкновения каждая цель, которая выбрала совершать ходы таким образом, обращается в пыль и развеивается.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/moonlight-sonata",
+        "originalName": "Moonlight Sonata",
+        "originalDescription": "*Music pours out of your heart, filling the area with the utmost delicacy and without damper.*\n\n| **Area, Magic, Performance** |                **No action** |\n|------------------------------|-----------------------------:|\n| **📏 5 aura**                | **🎯 Each ally in the area** |\n\n**Effect:** While this performance is active, each target who is dead can choose to continue taking turns after death. On each of their turns, a target can move and use either a main action or a maneuver, but can't spend Recoveries or use triggered actions. At the end of the encounter, each target who chose to take turns this way turns to dust and blows away."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/moonlight-sonata",
+      "originalName": "Moonlight Sonata",
+      "originalDescription": "*Music pours out of your heart, filling the area with the utmost delicacy and without damper.*\n\n| **Area, Magic, Performance** |                **No action** |\n|------------------------------|-----------------------------:|\n| **📏 5 aura**                | **🎯 Each ally in the area** |\n\n**Effect:** While this performance is active, each target who is dead can choose to continue taking turns after death. On each of their turns, a target can move and use either a main action or a maneuver, but can't spend Recoveries or use triggered actions. At the end of the encounter, each target who chose to take turns this way turns to dust and blows away."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.radical-fantasia",
+      "kind": "ability",
+      "name": "Радикальная Фантазия",
+      "markdown": "> **Радикальная Фантазия**\n>\n> *𝅘𝅥𝅮♪Вирас, мой Вирас, подержишь ли ты их за руки, пока они плааа-ааачут?♪*\n>\n> | **Область, Магия, Выступление** |                         **Без действия** |\n> | ---------------------------- | ------------------------------------: |\n> | **📏 Аура 5** | **🎯 На себя и каждого союзника в области** |\n>\n> **Эффект:** Пока это выступление активно, каждая цель, начинающая свой ход в области, игнорирует труднопроходимую местность, и любая используемая ею способность, накладывающая принудительное движение, получает бонус +2 к расстоянию принудительного движения до конца ее хода. Дополнительно, один раз за раунд боя каждая цель может использовать триггер как свободный триггер.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.radical-fantasia",
+        "name": "Радикальная Фантазия",
+        "flavor": "𝅘𝅥𝅮♪Вирас, мой Вирас, подержишь ли ты их за руки, пока они плааа-ааачут?♪",
+        "actionType": "none",
+        "kind": "other",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Выступление"
+        ],
+        "distance": "Аура 5",
+        "target": "На себя и каждого союзника в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Пока это выступление активно, каждая цель, начинающая свой ход в области, игнорирует труднопроходимую местность, и любая используемая ею способность, накладывающая принудительное движение, получает бонус +2 к расстоянию принудительного движения до конца ее хода. Дополнительно, один раз за раунд боя каждая цель может использовать триггер как свободный триггер.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/radical-fantasia",
+        "originalName": "Radical Fantasia",
+        "originalDescription": "*𝅘𝅥𝅮♪Viras, my Viras, will you hold their hands as they cryyy—aaaiigh?♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area ignores difficult terrain, and any ability they use that imposes forced movement gains a +2 bonus to the forced movement distance until the end of their turn. Additionally, once per combat round, each target can use a triggered action as a free triggered action."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/radical-fantasia",
+      "originalName": "Radical Fantasia",
+      "originalDescription": "*𝅘𝅥𝅮♪Viras, my Viras, will you hold their hands as they cryyy—aaaiigh?♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area ignores difficult terrain, and any ability they use that imposes forced movement gains a +2 bonus to the forced movement distance until the end of their turn. Additionally, once per combat round, each target can use a triggered action as a free triggered action."
+    },
+    {
+      "id": "feature.troubadour.level-8.deleted-scene",
+      "kind": "feature",
+      "name": "Вырезанная сцена",
+      "markdown": "##### Вырезанная сцена\n\nВсякий раз, когда существо в пределах расстояния вашей способности Драматический монолог делает бросок силы, вы можете потратить 1 драму как свободный триггер, чтобы использовать Драматический монолог, нацелившись только на одно существо.\n\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/deleted-scene",
+      "originalName": "Deleted Scene",
+      "originalDescription": "Whenever a creature within distance of your Dramatic Monologue ability makes a power roll, you can spend 1 drama as a free triggered action to use Dramatic Monologue, targeting only one creature."
+    },
+    {
+      "id": "feature.troubadour.level-8.masterwork",
+      "kind": "feature",
+      "name": "Шедевр",
+      "markdown": "##### Шедевр\n\nВыберите одну из ваших знаковых способностей и назовите ее в свою честь. Эта способность всегда доступна вам, даже если она взята из комплекта, который вы меняете. Всякий раз, когда вы используете эту способность, вы получаете преимущество и 1 всплеск, который вы можете использовать только на эту способность.\n\nДополнительно, когда ваша именная знаковая способность является последней способностью, которую вы используете в столкновении, вы можете немедленно использовать эффект Слушайте, слушайте! вашей особенности Дух времени, чтобы поведать истории о ваших подвигах после завершения столкновения.\n\n---\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/masterwork",
+      "originalName": "Masterwork",
+      "originalDescription": "Choose one of your signature abilities and name it after yourself. You always have this ability available, even if it is sourced from a kit you switch out. Whenever you use this ability, you gain an edge and 1 surge that you can use only on this ability.\n\nAdditionally, when your named signature ability is the last ability you use in an encounter, you can immediately use the Hear Ye, Hear Ye! effect of your Zeitgeist feature to tell tales of your exploits after the encounter ends."
+    },
+    {
+      "id": "feature.troubadour.level-8.11-drama-ability",
+      "kind": "feature",
+      "name": "Способность за 11 драмы",
+      "markdown": "#### Способность за 11 драмы\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 11 драмы для использования.\n\n",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/11-drama-ability",
+      "originalName": "11-Drama Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 drama to use."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.dramatic-reveal",
+      "kind": "ability",
+      "name": "Драматическое Открытие",
+      "markdown": "> **Драматическое Открытие (11 Драмы)**\n>\n> *Немного сценической магии, и там, где стоял враг, теперь стоит друг!*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** До конца столкновения, всякий раз, когда вы опускаете Выносливость существа до 0 с помощью способности, вы можете использовать свободный триггер, чтобы телепортировать союзника в пределах расстояния этой способности в пространство существа в шлейфе лепестков роз. Вы или телепортированный союзник затем можете сделать свободный удар ближнего боя.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.dramatic-reveal",
+        "name": "Драматическое Открытие",
+        "flavor": "Немного сценической магии, и там, где стоял враг, теперь стоит друг!",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца столкновения, всякий раз, когда вы опускаете Выносливость существа до 0 с помощью способности, вы можете использовать свободный триггер, чтобы телепортировать союзника в пределах расстояния этой способности в пространство существа в шлейфе лепестков роз. Вы или телепортированный союзник затем можете сделать свободный удар ближнего боя.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/dramatic-reveal",
+        "originalName": "Dramatic Reveal",
+        "originalDescription": "*A little stage trickery, and where once stood a foe, now stands a friend!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you reduce a creature to 0 Stamina using an ability, you can use a free triggered action to teleport an ally within distance of that ability into the creature's space in a plume of rose petals. You or the teleported ally can then make a melee free strike."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/dramatic-reveal",
+      "originalName": "Dramatic Reveal",
+      "originalDescription": "*A little stage trickery, and where once stood a foe, now stands a friend!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you reduce a creature to 0 Stamina using an ability, you can use a free triggered action to teleport an ally within distance of that ability into the creature's space in a plume of rose petals. You or the teleported ally can then make a melee free strike."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.power-ballad",
+      "kind": "ability",
+      "name": "Силовая Баллада",
+      "markdown": "> **Силовая Баллада (11 Драмы)**\n>\n> *Песня для разбитых сердец обвивается вокруг цели и расцветает в виде защитного слоя из шипов.*\n>\n> | **Магия, Дальний** |            **Маневр** |\n> | ----------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** До конца столкновения, всякий раз, когда цель получает урон, будучи утомленной, она может использовать свободный триггер, чтобы нанести половину полученного ею урона источнику этого урона.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.power-ballad",
+        "name": "Силовая Баллада",
+        "flavor": "Песня для разбитых сердец обвивается вокруг цели и расцветает в виде защитного слоя из шипов.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца столкновения, всякий раз, когда цель получает урон, будучи утомленной, она может использовать свободный триггер, чтобы нанести половину полученного ею урона источнику этого урона.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/power-ballad",
+        "originalName": "Power Ballad",
+        "originalDescription": "*A song for the brokenhearted wraps itself around the target and blossoms into a ward of thorns.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** Until the end of the encounter, whenever the target takes damage while winded, they can use a free triggered action to deal half the damage they took to the source of the damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/power-ballad",
+      "originalName": "Power Ballad",
+      "originalDescription": "*A song for the brokenhearted wraps itself around the target and blossoms into a ward of thorns.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** Until the end of the encounter, whenever the target takes damage while winded, they can use a free triggered action to deal half the damage they took to the source of the damage."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.saved-in-the-edit",
+      "kind": "ability",
+      "name": "Спасен на Монтаже",
+      "markdown": "> **Спасен на Монтаже (11 Драмы)**\n>\n> *Вы выкрикиваете слово власти, которое позволяет вам переписать реальность по вашему желанию.*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** До конца столкновения, всякий раз, когда вы наносите выброшенный урон существу или объекту, или позволяете существу потратить Восстановление, вы можете использовать свободный триггер, чтобы дать этому существу или объекту один из следующих эффектов до начала вашего следующего хода. Если эта способность срабатывает, когда несколько целей получают урон или несколько существ тратят Восстановления одновременно, каждая цель получает один и тот же эффект:\n>\n> - Цель имеет уязвимость к урону, равную показателю вашего Присутствия, против любой магической, псионической способности или способности оружия.\n> - Цель имеет иммунитет к урону, равный показателю вашего Присутствия.\n> - Цель имеет бонус к устойчивости и штраф к скорости, равные показателю вашего Присутствия.\n> - Цель имеет бонус к скорости и штраф к устойчивости, равные показателю вашего Присутствия.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.saved-in-the-edit",
+        "name": "Спасен на Монтаже",
+        "flavor": "Вы выкрикиваете слово власти, которое позволяет вам переписать реальность по вашему желанию.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "До конца столкновения, всякий раз, когда вы наносите выброшенный урон существу или объекту, или позволяете существу потратить Восстановление, вы можете использовать свободный триггер, чтобы дать этому существу или объекту один из следующих эффектов до начала вашего следующего хода. Если эта способность срабатывает, когда несколько целей получают урон или несколько существ тратят Восстановления одновременно, каждая цель получает один и тот же эффект:\n- Цель имеет уязвимость к урону, равную показателю вашего Присутствия, против любой магической, псионической способности или способности оружия.\n- Цель имеет иммунитет к урону, равный показателю вашего Присутствия.\n- Цель имеет бонус к устойчивости и штраф к скорости, равные показателю вашего Присутствия.\n- Цель имеет бонус к скорости и штраф к устойчивости, равные показателю вашего Присутствия.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/saved-in-the-edit",
+        "originalName": "Saved in the Edit",
+        "originalDescription": "*You shout a word of power that allows you to rewrite reality to your whims.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you deal rolled damage to a creature or object, or enable a creature to spend a Recovery, you can use a free triggered action to give that creature or object one of the following effects until the start of your next turn. If this ability is triggered by multiple targets taking damage or multiple creatures spending Recoveries simultaneously, each target receives the same effect:\n\n- The target has damage weakness equal to your Presence score against any magic, psionic, or weapon ability.\n- The target has damage immunity equal to your Presence score.\n- The target has a bonus to stability and a penalty to speed equal to your Presence score.\n- The target has a bonus to speed and a penalty to stability equal to your Presence score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/saved-in-the-edit",
+      "originalName": "Saved in the Edit",
+      "originalDescription": "*You shout a word of power that allows you to rewrite reality to your whims.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you deal rolled damage to a creature or object, or enable a creature to spend a Recovery, you can use a free triggered action to give that creature or object one of the following effects until the start of your next turn. If this ability is triggered by multiple targets taking damage or multiple creatures spending Recoveries simultaneously, each target receives the same effect:\n\n- The target has damage weakness equal to your Presence score against any magic, psionic, or weapon ability.\n- The target has damage immunity equal to your Presence score.\n- The target has a bonus to stability and a penalty to speed equal to your Presence score.\n- The target has a bonus to speed and a penalty to stability equal to your Presence score."
+    },
+    {
+      "id": "feature.ability.troubadour.level-8.the-show-must-go-on",
+      "kind": "ability",
+      "name": "Шоу Должно Продолжаться",
+      "markdown": "> **Шоу Должно Продолжаться (11 Драмы)**\n>\n> *Вы направляете яркий свет на актеров на сцене и принуждаете их завершить выступление.*\n>\n> | **Область, Магия, Дальний** | **Маневр** |\n> | ----------------------- | ----------------------------- |\n> | **📏 Куб 5 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Присутствие:**\n>\n> - **≤11:** 6 урона; П < СЛАБЫЙ, цель не может добровольно покинуть область (КсХ)\n> - **12-16:** 8 урона; П < СРЕДНИЙ, цель не может добровольно покинуть область (до прох.)\n> - **17+:** 12 урона; цель не может добровольно покинуть область (КсХ); если П < СИЛЬНЫЙ, она не может добровольно покинуть область (до прох.)\n>\n> **Эффект:** Каждый союзник в пределах расстояния не может получить результат ниже второго тира на следующем тесте, который он сделает до начала вашего следующего хода.",
+      "source": {
+        "articleId": "0878",
+        "path": "08. Классы/Трубадур/0878. 8-й Уровень Трубадура.md"
+      },
+      "ability": {
+        "id": "feature.ability.troubadour.level-8.the-show-must-go-on",
+        "name": "Шоу Должно Продолжаться",
+        "flavor": "Вы направляете яркий свет на актеров на сцене и принуждаете их завершить выступление.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 5 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "presence"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6",
+            "effect": "П < СЛАБЫЙ, цель не может добровольно покинуть область (КсХ)"
+          },
+          {
+            "damage": "8",
+            "effect": "П < СРЕДНИЙ, цель не может добровольно покинуть область (до прох.)"
+          },
+          {
+            "damage": "12",
+            "effect": "Цель не может добровольно покинуть область (КсХ); если П < СИЛЬНЫЙ, она не может добровольно покинуть область (до прох.)"
+          }
+        ],
+        "effect": "Каждый союзник в пределах расстояния не может получить результат ниже второго тира на следующем тесте, который он сделает до начала вашего следующего хода.",
+        "source": "Трубадур",
+        "notes": "",
+        "className": "Трубадур",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "presence",
+        "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/the-show-must-go-on",
+        "originalName": "The Show Must Go On",
+        "originalDescription": "*You shine a bright light on the players on the stage and compel them to finish the performance.*\n\n| **Area, Magic, Ranged** | **Maneuver**                  |\n|-------------------------|-------------------------------|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 damage; P < WEAK, the target can't willingly leave the area (EoT)\n- **12-16:** 8 damage; P < AVERAGE, the target can't willingly leave the area (save ends)\n- **17+:** 12 damage; the target can't willingly leave the area (EoT); if P < STRONG, they can't willingly leave the area (save ends)\n\n**Effect:** Each ally within distance can't obtain lower than a tier 2 outcome on the next test they make before the start of your next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/the-show-must-go-on",
+      "originalName": "The Show Must Go On",
+      "originalDescription": "*You shine a bright light on the players on the stage and compel them to finish the performance.*\n\n| **Area, Magic, Ranged** | **Maneuver**                  |\n|-------------------------|-------------------------------|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 damage; P < WEAK, the target can't willingly leave the area (EoT)\n- **12-16:** 8 damage; P < AVERAGE, the target can't willingly leave the area (save ends)\n- **17+:** 12 damage; the target can't willingly leave the area (EoT); if P < STRONG, they can't willingly leave the area (save ends)\n\n**Effect:** Each ally within distance can't obtain lower than a tier 2 outcome on the next test they make before the start of your next turn."
+    }
+  ]
+}

@@ -2,12 +2,8 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { PluggableList } from "unified";
 import { memo, Children, isValidElement, type ReactNode } from "react";
-import {
-  CATALOG,
-  GLOSSARY,
-  catalogEntryLink,
-  plainSummary,
-} from "../../data/library";
+import { catalogEntryLink } from "../../lib/library-utils";
+import { CATALOG_LINK_BY_HEADING, GLOSSARY_TOOLTIP_BY_ID } from "../../rules/consumer-reading";
 import { headingId } from "../../lib/codex";
 import {
   remarkAbilityBlocks,
@@ -102,11 +98,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
             const id = headingId(plain(children));
             const Heading = headingTag(3 + headingOffset);
             const entry = articleId
-              ? CATALOG.find(
-                  (candidate) =>
-                    candidate.articleId === articleId &&
-                    candidate.heading === id,
-                )
+              ? CATALOG_LINK_BY_HEADING.get(`${articleId}:${id}`)
               : undefined;
             return (
               <>
@@ -145,11 +137,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
                 ? "#/glossary/"
                 : "";
             const term = glossaryPrefix
-              ? GLOSSARY.find(
-                  (candidate) =>
-                    candidate.id ===
-                    decodeURIComponent(href!.slice(glossaryPrefix.length)),
-                )
+              ? GLOSSARY_TOOLTIP_BY_ID.get(decodeURIComponent(href!.slice(glossaryPrefix.length)))
               : undefined;
             if (term)
               return (
@@ -163,7 +151,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
                       {term.name}
                       {term.english && <em> · {term.english}</em>}
                     </strong>
-                    {plainSummary(term.markdown)}…
+                    {term.summary}…
                   </span>
                 </a>
               );

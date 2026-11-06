@@ -1,0 +1,2322 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0831",
+      "title": "1-й Уровень Проводника",
+      "chapter": "08. Классы",
+      "group": "Проводник",
+      "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Сила богов течет через вас! Как сосуд для божественной силы, вы не просто поддерживаете своих союзников в бою. Вы делаете этих союзников более эффективными, даже когда обрушиваете божественную энергию на своих врагов. Хотя божество или святой, которому вы служите, может иметь других верующих и священнослужителей, вы особенны среди них, получая свои способности из высшего источника.\n\n**Будучи проводником, вы исцеляете и усиливаете своих союзников, ослабляете врагов, поражая их божественной магией. Искра божественности внутри вас сияет, наполняя ваших врагов трепетом и делая вас более мудрым и осведомленным о мире.**\n\n---\n## Основы\n\n**Начальные характеристики:** Вы начинаете с Интуицией 2, и можете выбрать один из следующих наборов для ваших остальных характеристик:\n\n- 2, 2, −1, −1\n- 2, 1, 1, −1\n- 2, 1, 0, 0\n- 1, 1, 1, 0\n\n**Слабый потенциал:** Интуиция − 2\n\n**Средний потенциал:** Интуиция − 1\n\n**Сильный потенциал:** Интуиция\n\n**Начальная выносливость на 1-м уровне:** 18\n\n**Выносливость, получаемая на 2-м и последующих уровнях:** 6\n\n**Восстановления:** 8\n\n**Навыки:** Выберите любые два навыка из межличностной группы или группы знаний (смотрите [Навыки](#/codex/1208)). (*Быстрый Билд:* Чтение личности, Религия.)\n\n###### Таблица развития проводника\n\n| Уровень | Особенности                                                                                                                                                 | Способности                  | Способности домена |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------ |\n| 1-й     | Божество и домены, Благочестие, Особенность домена, Исцеляющая благодать, Луч гнева, Триггер проводника, Молитва, Оберег проводника, Способности проводника | Две знаковые, 3, 5           | -                  |\n| 2-й     | Списки Небес, Перк, Особенность домена, Способность домена                                                                                                  | Две знаковые, 3, 5           | 5                  |\n| 3-й     | Малое чудо, Способность за 7 благочестия                                                                                                                    | Две знаковые, 3, 5, 7        | 5                  |\n| 4-й     | Благословенные домены, Увеличение характеристик, Особенность домена, Перк, Навык                                                                            | Две знаковые, 3, 5, 7        | 5                  |\n| 5-й     | Особенность домена, Способность за 9 благочестия                                                                                                            | Две знаковые, 3, 5, 7, 9     | 5                  |\n| 6-й     | Расцветающий святой, Перк, Способность домена                                                                                                               | Две знаковые, 3, 5, 7, 9     | 5, 9               |\n| 7-й     | Увеличение характеристик, Особенность домена, Награда верующего, Навык                                                                                      | Две знаковые, 3, 5, 7, 9     | 5, 9               |\n| 8-й     | Особенность домена, Перк, Способность за 11 благочестия                                                                                                     | Две знаковые, 3, 5, 7, 9, 11 | 5, 9               |\n| 9-й     | Способность домена, Меч веры, Посвященный                                                                                                                   | Две знаковые, 3, 5, 7, 9, 11 | 5, 9, 11           |\n| 10-й    | Аватар, Увеличение характеристик, Божественная сила, Самый благочестивый, Перк, Навык                                                                       | Две знаковые, 3, 5, 7, 9, 11 | 5, 9, 11           |\n\n---\n## Особенности 1-го уровня\n\nБудучи проводником 1-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.deity-and-domains"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.piety"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.piety-in-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.piety-outside-of-combat"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.creation"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.death"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.fate"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.knowledge"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.life"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.love"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.nature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.protection"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.storm"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.sun"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.trickery"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.domain-piety-and-effects.war"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.1st-level-domain-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.blessing-of-compassion"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.blessing-of-comprehension"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.blessing-of-fortunate-weather"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.faithful-friend"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.faithful-friend"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.grave-speech"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.grave-speech"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.hands-of-the-maker"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.hands-of-the-maker"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.inner-light"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.inspired-deception"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.oracular-visions"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.protective-circle"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.revitalizing-ritual"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.sanctified-weapon"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.healing-grace"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.healing-grace"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.ray-of-wrath"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.ray-of-wrath"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.triggered-action"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.word-of-guidance"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.word-of-judgment"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer-of-destruction"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer-of-distance"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer-of-soldiers-skill"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer-of-speed"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.prayer-of-steel"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.conduit-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.bastion-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.quickness-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.sanctuary-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.spirit-ward"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.conduit-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.signature-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.blessed-light"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.drain"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.holy-lash"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.lightfall"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.sacrificial-offer"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.staggering-curse"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.warriors-prayer"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.wither"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.heroic-abilities"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.3-piety-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.call-the-thunder-down"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.font-of-wrath"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.judgments-hammer"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.violence-will-not-aid-thee"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.conduit.level-1.5-piety-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.corruptions-curse"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.curse-of-terror"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.faith-is-our-armor"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.conduit.level-1.sermon-of-grace"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
+      "originalName": "1st-Level Features",
+      "originalDescription": "As a conduit, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.conduit.level-1.deity-and-domains",
+      "kind": "feature",
+      "name": "Божество и домены",
+      "markdown": "#### Божество и домены\n\nВыберите бога или святого, которого почитает ваш персонаж, или спросите своего Ведущего о божествах в мире вашей кампании. С разрешения Ведущего вы также можете создать свое собственное божество и выбрать четыре домена, которые будут частью его портфолио.\n\nПосле выбора божества выберите два домена из его портфолио. Два выбранных вами домена составляют ваш подкласс, и ваш выбор доменов определяет многие особенности, которые вы получите по мере повышения уровней. (*Быстрый Билд:* Жизнь и Защита в качестве доменов.)\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/deity-and-domains",
+      "originalName": "Deity and Domains",
+      "originalDescription": "Choose a god or saint who your character reveres from Chapter 14: Gods and Religion, or ask your Director about the deities in your campaign world. With the Director's permission, you can also create your own deity and choose four domains to be part of their portfolio.\n\nAfter choosing your deity, pick two domains from their portfolio. The two domains you pick make up your subclass, and your choice of domains determines many of the features you'll gain as you gain new levels. (*Quick Build:* Adûn for deity, and Life and Protection as domains.)"
+    },
+    {
+      "id": "feature.conduit.level-1.piety",
+      "kind": "feature",
+      "name": "Благочестие",
+      "markdown": "#### Благочестие\n\nВаше божество дарует вам героический ресурс, называемый благочестием, позволяя вам исцелять и усиливать своих союзников, а также обрушивать святую силу на своих врагов.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/piety",
+      "originalName": "Piety",
+      "originalDescription": "Your deity grants you a Heroic Resource called piety, letting you heal and empower your allies, and unleash holy power upon your foes.\n\n##### Piety in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories. At the start of each of your turns during combat, you gain 1d3 piety.\n\nAdditionally, you can gain more piety by praying to the gods—but beware! Doing so can easily draw their ire, as the gods hate to be annoyed. Before you roll to gain piety at the start of your turn, you can pray (no action required). If you do, your roll gains the following additional effects:\n\n- If the roll is a 1, you gain 1 additional piety but anger the gods! You take psychic damage equal to 1d6 + your level, which can't be reduced in any way.\n- If the roll is a 2, you gain 1 additional piety.\n- If the roll is a 3, you gain 2 additional piety and can activate a domain effect of your choice (see below).\n\nYou lose any remaining piety at the end of the encounter.\n\n##### Piety Outside of Combat\n\nThough you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it. Whenever you use an ability or effect outside of combat that costs piety, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited piety on its effect, such as Healing Grace, you can use it as if you had spent an amount of piety equal to your Victories."
+    },
+    {
+      "id": "feature.conduit.level-1.piety-in-combat",
+      "kind": "feature",
+      "name": "Благочестие в бою",
+      "markdown": "##### Благочестие в бою\n\nВ начале боевой встречи или другой стрессовой ситуации, отслеживаемой в раундах боя (по решению Ведущего), вы получаете благочестие, равное вашим Победам. В начале каждого вашего хода во время боя вы получаете 1d3 благочестия.\n\nДополнительно вы можете получить больше благочестия, молясь богам — но будьте осторожны! Это может легко вызвать их гнев, так как боги ненавидят, когда их раздражают. Перед броском на получение благочестия в начале своего хода вы можете помолиться (действие не требуется). Если вы это сделаете, ваш бросок получит следующие дополнительные эффекты:\n\n- Если на кубике выпадает 1, вы получаете 1 дополнительное благочестие, но гневите богов! Вы получаете психический урон, равный 1d6 + ваш уровень, который не может быть уменьшен никаким образом.\n- Если на кубике выпадает 2, вы получаете 1 дополнительное благочестие.\n- Если на кубике выпадает 3, вы получаете 2 дополнительных благочестия и можете активировать эффект домена по вашему выбору (смотрите ниже).\n\nВы теряете все оставшееся благочестие в конце встречи.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Piety in Combat",
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories."
+    },
+    {
+      "id": "feature.conduit.level-1.piety-outside-of-combat",
+      "kind": "feature",
+      "name": "Благочестие вне боя",
+      "markdown": "##### Благочестие вне боя\n\nХотя вы не можете получать благочестие вне боя, вы можете использовать свои героические способности и эффекты, которые стоят благочестия, не тратя его. Всякий раз, когда вы используете способность или эффект вне боя, который стоит благочестия, вы не можете использовать ту же способность или эффект вне боя снова, пока не заработаете 1 или более Побед или не завершите отдых.\n\nКогда вы используете способность вне боя, которая позволяет вам потратить неограниченное количество благочестия на ее эффект, такую как Исцеляющая благодать, вы можете использовать ее так, как если бы вы потратили количество благочестия, равное вашим Победам.\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Piety Outside of Combat",
+      "originalDescription": "Though you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects",
+      "kind": "feature",
+      "name": "Благочестие и эффекты домена",
+      "markdown": "#### Благочестие и эффекты домена\n\nВаш выбор доменов предоставляет вам два дополнительных способа заработать благочестие во время боя, срабатывающих при определенных событиях. Одно и то же событие может запустить оба ваших эффекта благочестия. Например, домен Солнца дает благочестие, когда находящееся рядом существо получает урон огнем или святой урон, в то время как домен Войны дает благочестие, когда находящееся рядом существо получает урон 10 + ваш уровень или выше. Если у вас есть оба эти домена и находящееся рядом существо получает соответствующее количество урона огнем, вы получаете благочестие от обоих ваших доменов.\n\nДополнительно, всякий раз, когда вы активируете эффект домена, молясь о благочестии, вы можете выбрать один из своих доменов, и эффект молитвы этого домена вступит в силу немедленно.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/domain-piety-and-effects",
+      "originalName": "Domain Piety and Effects",
+      "originalDescription": "Your choice of domains provides you with two additional ways to earn piety during combat, as triggered by specific events. You might even have a single event trigger both your piety effects. For example, the Sun domain grants piety when a nearby creature takes fire or holy damage, while the War domain grants piety when a nearby creature takes damage of 10 + your level or higher. If you have both those domains and a nearby creature takes an appropriate amount of fire damage, you gain piety from both your domains.\n\nAdditionally, whenever you activate a domain effect by praying for piety, you can choose one of your domains and have that domain's prayer effect take effect immediately.\n\n###### Creation Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability.\n- **Prayer Effect:** You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter.\n\n###### Death Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded.\n- **Prayer Effect:** You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score.\n\n###### Fate Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll.\n- **Prayer Effect:** You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter.\n\n###### Knowledge Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that the Director spends Malice (see *Draw Steel: Monsters*).\n- **Prayer Effect:** Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge.\n\n###### Life Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina.\n- **Prayer Effect:** Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score.\n\n###### Love Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally.\n- **Prayer Effect:** Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score.\n\n###### Nature Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage.\n- **Prayer Effect:** Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away.\n\n###### Protection Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll.\n- **Prayer Effect:** One ally within 10 squares gains temporary Stamina equal to four times your Intuition score.\n\n###### Storm Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved.\n- **Prayer Effect:** Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score.\n\n###### Sun Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage.\n- **Prayer Effect:** One enemy within 10 squares takes fire damage equal to three times your Intuition score.\n\n###### Trickery Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver.\n- **Prayer Effect:** You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level.\n\n###### War Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn.\n- **Prayer Effect:** Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.creation",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Созидания",
+      "markdown": "###### Благочестие и эффект домена Созидания\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда существо в пределах 10 клеток использует способность по области.\n- **Эффект молитвы:** Вы призываете силы созидания и создаете каменную стену в пределах 10 клеток, размер которой равен 5 + показатель вашей Интуиции. Стена существует до конца встречи.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Creation",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability. Prayer Effect: You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.death",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Смерти",
+      "markdown": "###### Благочестие и эффект домена Смерти\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда существо в пределах 10 клеток, не являющееся миньоном, снижает свою Выносливость до 0, или в первый раз за встречу, когда соло-существо в пределах 10 клеток становится утомленным.\n- **Эффект молитвы:** Вы накладываете смертельное проклятие на одного или двух врагов в пределах 10 клеток от вас. Каждая цель получает урон порчей, равный двойному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Death",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded. Prayer Effect: You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.fate",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Судьбы",
+      "markdown": "###### Благочестие и эффект домена Судьбы\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда союзник в пределах 10 клеток получает результат третьего тира на броске силы, или враг в пределах 10 клеток получает результат первого тира на броске силы.\n- **Эффект молитвы:** Вы взываете к силам судьбы, чтобы создать надежное будущее. Выберите существо в пределах 10 клеток. Это существо автоматически получает результат первого или третьего тира (по вашему выбору) на своем следующем броске силы, сделанном до конца встречи.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Fate",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll. Prayer Effect: You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.knowledge",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Знания",
+      "markdown": "###### Благочестие и эффект домена Знания\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда Ведущий тратит Раздор (смотрите *Draw Steel: Monsters*).\n- **Эффект молитвы:** Выберите до пяти союзников в пределах 10 клеток от вас, или выберите себя вместо одного союзника. Каждая цель получает 1 всплеск.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Knowledge",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that the Director spends Malice (see Draw Steel: Monsters). Prayer Effect: Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.life",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Жизни",
+      "markdown": "###### Благочестие и эффект домена Жизни\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда существо в пределах 10 клеток восстанавливает Выносливость.\n- **Эффект молитвы:** Выберите себя или одного союзника в пределах 10 клеток. Этот персонаж может потратить Восстановление, может завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце его хода, или может встать, если лежит. В качестве альтернативы, вы или один союзник в пределах 10 клеток получаете временную выносливость, равную двойному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Life",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina. Prayer Effect: Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.love",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Любви",
+      "markdown": "###### Благочестие и эффект домена Любви\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда вы или любой союзник в пределах 10 клеток использует маневр помощи в атаке или способность, нацеленную на союзника.\n- **Эффект молитвы:** Каждый союзник в пределах 10 клеток от вас получает временную выносливость, равную двойному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Love",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally. Prayer Effect: Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.nature",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Природы",
+      "markdown": "###### Благочестие и эффект домена Природы\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда вы или существо в пределах 10 клеток получает урон кислотой, холодом, огнем, молнией, ядом или звуком.\n- **Эффект молитвы:** Лозы вырываются из пола или земли в пределах 10 клеток, обвивая количество существ, равное показателю вашей Интуиции. Вы можете совершить швыряние каждого существа вплоть до числа клеток, равного показателю вашей Интуиции. Затем лозы исчезают.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Nature",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage. Prayer Effect: Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.protection",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Защиты",
+      "markdown": "###### Благочестие и эффект домена Защиты\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда вы или любой союзник в пределах 10 клеток получает временную выносливость или использует триггер для уменьшения получаемого урона или наложения помехи или двойной помехи на бросок силы врага.\n- **Эффект молитвы:** Один союзник в пределах 10 клеток получает временную выносливость, равную четырехкратному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Protection",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll. Prayer Effect: One ally within 10 squares gains temporary Stamina equal to four times your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.storm",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Бури",
+      "markdown": "###### Благочестие и эффект домена Бури\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда враг в пределах 10 клеток подвергается принудительному движению.\n- **Эффект молитвы:** Каждый враг в кубе 3 в пределах 10 клеток получает урон молнией, равный двойному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Storm",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved. Prayer Effect: Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.sun",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Солнца",
+      "markdown": "###### Благочестие и эффект домена Солнца\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда враг в пределах 10 клеток получает урон огнем или святой урон.\n- **Эффект молитвы:** Один враг в пределах 10 клеток получает урон огнем, равный трехкратному показателю вашей Интуиции.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Sun",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage. Prayer Effect: One enemy within 10 squares takes fire damage equal to three times your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.trickery",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Хитрости",
+      "markdown": "###### Благочестие и эффект домена Хитрости\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда вы или существо в пределах 10 клеток совершает маневр помощи в атаке или Скрытности.\n- **Эффект молитвы:** Вы совершаете швыряние одного существа в пределах 10 клеток от вас вплоть до числа клеток, равного 5 + ваш уровень проводника.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: Trickery",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver. Prayer Effect: You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level."
+    },
+    {
+      "id": "feature.conduit.level-1.domain-piety-and-effects.war",
+      "kind": "feature",
+      "name": "Благочестие и эффект домена Войны",
+      "markdown": "###### Благочестие и эффект домена Войны\n\n- **Благочестие:** Вы получаете 2 благочестия в первый раз за встречу, когда вы или существо в пределах 10 клеток получает урон больше, чем 10 + ваш уровень, за один ход.\n- **Эффект молитвы:** Выберите до трех союзников в пределах 10 клеток от вас, или выберите себя вместо одного союзника. Каждая цель получает 2 всплеска.\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Domain Piety and Effects: War",
+      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn. Prayer Effect: Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+    },
+    {
+      "id": "feature.conduit.level-1.1st-level-domain-feature",
+      "kind": "feature",
+      "name": "Особенность домена 1-го уровня",
+      "markdown": "#### Особенность домена 1-го уровня\n\nВыберите один из ваших доменов. Вы получаете особенность домена для этого домена, как показано в таблице Особенностей домена 1-го уровня проводника. Дополнительно, вы получаете навык выбранного домена из группы навыков, указанной в таблице. (*Быстрый Билд:* Восстанавливающий ритуал и навык Первая помощь от домена Жизни.)\n\n###### Таблица особенностей домена 1-го уровня проводника\n\n| Домен      | Особенность                       | Группа навыков |\n| ---------- | ----------------------------- | ------------- |\n| Созидание  | Руки Творца            | Ремесло      |\n| Смерть     | Могильная речь                  | Знания          |\n| Судьба     | Видения оракула              | Знания          |\n| Знание  | Благословение понимания     | Знания          |\n| Жизнь       | Восстанавливающий ритуал           | Исследование   |\n| Любовь       | Благословение сострадания        | Межличностные |\n| Природа     | Верный друг               | Исследование   |\n| Защита | Защитный круг             | Исследование   |\n| Буря      | Благословение удачной погоды | Исследование   |\n| Солнце        | Внутренний свет                   | Знания          |\n| Хитрость   | Вдохновенный обман            | Интрига      |\n| Война        | Освященное оружие             | Исследование   |\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/1st-level-domain-feature",
+      "originalName": "1st-Level Domain Feature",
+      "originalDescription": "Choose one of your domains. You gain a domain feature for that domain, as shown on the 1st-Level Conduit Domain Features table. Additionally, you gain a skill from the chosen domain, selected from the skill group indicated on the table. (*Quick Build:* Revitalizing Ritual and the Heal skill from the Life domain.)\n\n###### 1st-Level Conduit Domain Features Table\n\n| Domain     | Feature                       | Skill Group   |\n|------------|-------------------------------|---------------|\n| Creation   | Hands of the Maker            | Crafting      |\n| Death      | Grave Speech                  | Lore          |\n| Fate       | Oracular Visions              | Lore          |\n| Knowledge  | Blessing of Comprehension     | Lore          |\n| Life       | Revitalizing Ritual           | Exploration   |\n| Love       | Blessing of Compassion        | Interpersonal |\n| Nature     | Faithful Friend               | Exploration   |\n| Protection | Protective Circle             | Exploration   |\n| Storm      | Blessing of Fortunate Weather | Exploration   |\n| Sun        | Inner Light                   | Lore          |\n| Trickery   | Inspired Deception            | Intrigue      |\n| War        | Sanctified Weapon             | Exploration   |"
+    },
+    {
+      "id": "feature.conduit.level-1.blessing-of-compassion",
+      "kind": "feature",
+      "name": "Благословение сострадания",
+      "markdown": "##### Благословение сострадания\n\nВы излучаете магическое присутствие, которое может успокаивать тех, кто готов социально взаимодействовать с вами. Вы получаете преимущество на любой тест, сделанный для помощи другому существу с тестом.\n\nДополнительно, когда вы присутствуете в начале переговоров, терпение одного НПС по вашему выбору увеличивается на 1 (максимум до 5), и первый тест, сделанный для влияния на него, получает преимущество.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-compassion",
+      "originalName": "Blessing of Compassion",
+      "originalDescription": "You exude a magic presence that can soothe those willing to socially engage with you. You gain an edge on any test made to assist another creature with a test.\n\nAdditionally, when you are present at the start of a negotiation, one NPC of your choice has their patience increased by 1 (to a maximum of 5), and the first test made to influence them gains an edge."
+    },
+    {
+      "id": "feature.conduit.level-1.blessing-of-comprehension",
+      "kind": "feature",
+      "name": "Благословение понимания",
+      "markdown": "##### Благословение понимания\n\nВы можете интерпретировать диаграммы и схемы, даже если не понимаете язык, связанный с ними. Вы считаетесь свободно владеющим всеми языками для целей понимания источника проекта для любого исследовательского или ремесленного проекта (смотрите [Проекты отдыха](#/codex/1501)).\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-comprehension",
+      "originalName": "Blessing of Comprehension",
+      "originalDescription": "You can interpret diagrams and charts even if you don't understand the language associated with them. You are considered fluent in all languages for the purpose of understanding the project source for any research or crafting project (see Chapter 12: Downtime Projects)."
+    },
+    {
+      "id": "feature.conduit.level-1.blessing-of-fortunate-weather",
+      "kind": "feature",
+      "name": "Благословение удачной погоды",
+      "markdown": "##### Благословение удачной погоды\n\nКаждый раз, когда вы заканчиваете отдых, вы можете определять погодные условия в пределах 100 клеток. До тех пор, пока вы не закончите следующий отдых, установленные вами погодные условия следуют за вами через любые обычные открытые локации. Выберите один из следующих типов погоды, каждый из которых дает преимущество вам и вашим союзникам:\n\n**Ясно:** Вы и ваши союзники получаете преимущество на тесты, использующие навыки Поиск или Навигация.\n\n**Туманно:** Вы и ваши союзники получаете преимущество на тесты, использующие навык Скрытность.\n\n**Пасмурно:** Вы и ваши союзники получаете преимущество на тесты, использующие навык Стойкость.\n\n**Осадки:** Когда земля грязная или заснеженная, вы и ваши союзники получаете преимущество на тесты, использующие навык Выслеживание.\n\nЕсли вы находитесь в той же области, что и существо, использующее эту или подобную особенность, выбравшее другой погодный эффект, особенности нивелируют друг друга там, где их области пересекаются.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-fortunate-weather",
+      "originalName": "Blessing of Fortunate Weather",
+      "originalDescription": "Each time you finish a respite, you can decide the weather conditions within 100 squares. Until you finish another respite, the weather conditions you establish follow you through any mundane outdoor locations. Choose one of the following types of weather, each of which grants a benefit to you and your allies:\n\n**Clear:** You and your allies gain an edge on tests that use the Search or Navigate skills.\n\n**Foggy:** You and your allies gain an edge on tests that use the Hide skill. **Overcast:** You and your allies gain an edge on tests that use the Endurance skill.\n\n**Precipitation:** When the ground is muddy or snowy, you and your allies gain an edge on tests that use the Track skill.\n\nIf you are in the same area as a creature using this or a similar feature who has chosen a different weather effect, the features negate each other where their areas overlap."
+    },
+    {
+      "id": "feature.conduit.level-1.faithful-friend",
+      "kind": "feature",
+      "name": "Верный друг",
+      "markdown": "##### Верный друг\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/faithful-friend",
+      "originalName": "Faithful Friend",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.faithful-friend",
+      "kind": "ability",
+      "name": "Верный Друг",
+      "markdown": "> **Верный Друг**\n>\n> *К вам притягивается дух животного, который делится с вами своими чувствами и преданно вам служит.*\n>\n> | **Магия** | **Основное действие** |\n> | ----------- | --------------: |\n> | **📏 На себя** |     **🎯 На себя** |\n>\n> **Эффект:** Вы призываете духа, принимающего форму любого животного, которого вы видели. Бестелесное животное имеет скорость 5 и может летать, но не может физически взаимодействовать с миром. Пока вы находитесь в пределах 10 клеток от духа, вы автоматически чувствуете все, что чувствовало бы животное этого типа, в дополнение к ощущениям собственного окружения. Вы можете отозвать духа в любое время (действие не требуется). Если дух получает какой-либо урон, он исчезает, а вы получаете 1d10 психического урона, который не может быть уменьшен никаким образом.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.faithful-friend",
+        "name": "Верный Друг",
+        "flavor": "К вам притягивается дух животного, который делится с вами своими чувствами и преданно вам служит.",
+        "actionType": "main",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы призываете духа, принимающего форму любого животного, которого вы видели. Бестелесное животное имеет скорость 5 и может летать, но не может физически взаимодействовать с миром. Пока вы находитесь в пределах 10 клеток от духа, вы автоматически чувствуете все, что чувствовало бы животное этого типа, в дополнение к ощущениям собственного окружения. Вы можете отозвать духа в любое время (действие не требуется). Если дух получает какой-либо урон, он исчезает, а вы получаете 1d10 психического урона, который не может быть уменьшен никаким образом.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faithful-friend",
+        "originalName": "Faithful Friend",
+        "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   |  **Main action** |\n|-------------|-----------------:|\n| **📏 Self** |      **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faithful-friend",
+      "originalName": "Faithful Friend",
+      "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   |  **Main action** |\n|-------------|-----------------:|\n| **📏 Self** |      **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way."
+    },
+    {
+      "id": "feature.conduit.level-1.grave-speech",
+      "kind": "feature",
+      "name": "Могильная речь",
+      "markdown": "##### Могильная речь\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/grave-speech",
+      "originalName": "Grave Speech",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.grave-speech",
+      "kind": "ability",
+      "name": "Могильная Речь",
+      "markdown": "> **Могильная Речь**\n>\n> *Вы общаетесь с задержавшейся душой недавно умершего.*\n>\n> | **Магия** |             **Маневр** |\n> | -------------- | -----------------------: |\n> | **📏 Ближний 1** | **🎯 Одно мертвое существо** |\n>\n> **Эффект:** Вы можете говорить с целью, если это существо, умершее в течение последних 24 часов и способное говорить на языке, который вы знаете, даже если это всего лишь голова. Цель относится к вам так же, как относилась бы при жизни, и вам может потребоваться пройти тесты, чтобы повлиять на нее и убедить поговорить с вами. Травма смерти может сделать воспоминания существа об этом событии туманными, но в остальном цель знает все, что знала при жизни. Через 1 минуту эффект заканчивается. Вы не можете использовать эту способность на одном и том же существе дважды.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.grave-speech",
+        "name": "Могильная Речь",
+        "flavor": "Вы общаетесь с задержавшейся душой недавно умершего.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно мертвое существо",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете говорить с целью, если это существо, умершее в течение последних 24 часов и способное говорить на языке, который вы знаете, даже если это всего лишь голова. Цель относится к вам так же, как относилась бы при жизни, и вам может потребоваться пройти тесты, чтобы повлиять на нее и убедить поговорить с вами. Травма смерти может сделать воспоминания существа об этом событии туманными, но в остальном цель знает все, что знала при жизни. Через 1 минуту эффект заканчивается. Вы не можете использовать эту способность на одном и том же существе дважды.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/grave-speech",
+        "originalName": "Grave Speech",
+        "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |            **Maneuver**  |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/grave-speech",
+      "originalName": "Grave Speech",
+      "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |            **Maneuver**  |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice."
+    },
+    {
+      "id": "feature.conduit.level-1.hands-of-the-maker",
+      "kind": "feature",
+      "name": "Руки Творца",
+      "markdown": "##### Руки Творца\n\nУ вас есть следующая способность.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/hands-of-the-maker",
+      "originalName": "Hands of the Maker",
+      "originalDescription": "You have the following ability."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.hands-of-the-maker",
+      "kind": "ability",
+      "name": "Руки Творца",
+      "markdown": "> **Руки Творца**\n>\n> *Вы создаете объекты силой своего разума.*\n>\n> | **Магия** | **Маневр** |\n> | ----------- | -----------: |\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Вы создаете обыденный объект размера 1S или меньше. Вы можете поддерживать количество созданных таким образом объектов, равное показателю вашей Интуиции. Вы можете уничтожить объект, созданный таким образом, одной лишь мыслью, независимо от того, как далеко вы от него находитесь (действие не требуется).",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.hands-of-the-maker",
+        "name": "Руки Творца",
+        "flavor": "Вы создаете объекты силой своего разума.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы создаете обыденный объект размера 1S или меньше. Вы можете поддерживать количество созданных таким образом объектов, равное показателю вашей Интуиции. Вы можете уничтожить объект, созданный таким образом, одной лишь мыслью, независимо от того, как далеко вы от него находитесь (действие не требуется).",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/hands-of-the-maker",
+        "originalName": "Hands of the Maker",
+        "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**                |  **Maneuver** |\n|--------------------------|--------------:|\n| **📏 Self**              |   **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Intuition score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/hands-of-the-maker",
+      "originalName": "Hands of the Maker",
+      "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**                |  **Maneuver** |\n|--------------------------|--------------:|\n| **📏 Self**              |   **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Intuition score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required)."
+    },
+    {
+      "id": "feature.conduit.level-1.inner-light",
+      "kind": "feature",
+      "name": "Внутренний свет",
+      "markdown": "##### Внутренний свет\n\nКаждый раз, когда вы заканчиваете отдых, вы можете выбрать себя или одного союзника, который также завершает отдых, чтобы он получил пользу от божественного ритуала. Вы помещаете луч утреннего света в душу выбранного персонажа, давая ему бонус +1 к спасброскам, который длится до тех пор, пока вы не завершите другой отдых.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/inner-light",
+      "originalName": "Inner Light",
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. You place a ray of morning light into the chosen character's soul, granting them a +1 bonus to saving throws that lasts until you finish another respite."
+    },
+    {
+      "id": "feature.conduit.level-1.inspired-deception",
+      "kind": "feature",
+      "name": "Вдохновенный обман",
+      "markdown": "##### Вдохновенный обман\n\nБоги благоволят вашему воровству магией. Всякий раз, когда вы делаете тест, использующий навык из группы навыков интриги, вы можете использовать Интуицию вместо другой характеристики для этого теста.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/inspired-deception",
+      "originalName": "Inspired Deception",
+      "originalDescription": "The gods favor your thievery with magic. Whenever you make a test that uses a skill you have from the intrigue skill group, you can use Intuition on the test instead of another characteristic."
+    },
+    {
+      "id": "feature.conduit.level-1.oracular-visions",
+      "kind": "feature",
+      "name": "Видения оракула",
+      "markdown": "##### Видения оракула\n\nВаше божество награждает вас туманными видениями грядущего. Каждый раз, когда вы зарабатываете 1 или более Побед, вы получаете равное количество очков судьбы. Всякий раз, когда вы или существо в пределах 10 клеток проходит тест, вы можете потратить 1 очко судьбы, чтобы подключиться к видению исхода, давая этому существу преимущество на тест. Вы теряете все оставшиеся очки судьбы, когда заканчиваете отдых.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/oracular-visions",
+      "originalName": "Oracular Visions",
+      "originalDescription": "Your deity rewards you with hazy visions of things to come. Each time you earn 1 or more Victories, you earn an equal number of fate points. Whenever you or a creature within 10 squares makes a test, you can spend 1 fate point to tap into a vision of the outcome, granting that creature an edge on the test. You lose any remaining fate points when you finish a respite."
+    },
+    {
+      "id": "feature.conduit.level-1.protective-circle",
+      "kind": "feature",
+      "name": "Защитный круг",
+      "markdown": "##### Защитный круг\n\nВы можете потратить 10 непрерывных минут на создание защитного круга на земле, достаточно большого, чтобы вместить одно существо размера 1. Круг действует 24 часа, пока вы не создадите другой, или пока вы не рассеете его (действие не требуется). Только существа, которых вы назначили во время создания круга, могут входить и выходить из области. Находясь в защитном круге, существо не может быть целью ударов.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/protective-circle",
+      "originalName": "Protective Circle",
+      "originalDescription": "You can spend 10 uninterrupted minutes to create a protective circle on the ground large enough to hold one size 1 creature. The circle lasts for 24 hours, until you create another, or until you dismiss it (no action required). Only creatures you designate at the time of drawing the circle can enter and exit the area. While in the protective circle, a creature can't be targeted by strikes."
+    },
+    {
+      "id": "feature.conduit.level-1.revitalizing-ritual",
+      "kind": "feature",
+      "name": "Восстанавливающий ритуал",
+      "markdown": "##### Восстанавливающий ритуал\n\nКаждый раз, когда вы заканчиваете отдых, вы можете выбрать себя или одного союзника, который также завершает отдых, чтобы он получил пользу от божественного ритуала. Выбранный персонаж получает бонус к своему значению восстановления, равный вашему уровню, который длится до тех пор, пока вы не завершите другой отдых.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/revitalizing-ritual",
+      "originalName": "Revitalizing Ritual",
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. The chosen character gains a bonus to their recovery value equal to your level that lasts until you finish another respite."
+    },
+    {
+      "id": "feature.conduit.level-1.sanctified-weapon",
+      "kind": "feature",
+      "name": "Освященное оружие",
+      "markdown": "##### Освященное оружие\n\nКак деятельность отдыха вы можете благословить оружие. Любое существо, владеющее этим оружием, получает бонус +1 к выброшенному урону способностями, использующими это оружие. Это преимущество длится до тех пор, пока вы не завершите другой отдых.\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/sanctified-weapon",
+      "originalName": "Sanctified Weapon",
+      "originalDescription": "As a respite activity, you can bless a weapon. Any creature who wields the weapon gains a +1 bonus to rolled damage with abilities that use the weapon. This benefit lasts until you finish another respite."
+    },
+    {
+      "id": "feature.conduit.level-1.healing-grace",
+      "kind": "feature",
+      "name": "Исцеляющая благодать",
+      "markdown": "#### Исцеляющая благодать\n\nУ вас есть следующая способность, которую вы можете использовать один раз в свой ход.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/healing-grace",
+      "originalName": "Healing Grace",
+      "originalDescription": "You have the following ability, which you can use once on your turn."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.healing-grace",
+      "kind": "ability",
+      "name": "Исцеляющая Благодать",
+      "markdown": "> **Исцеляющая Благодать**\n>\n> *Ваша божественная энергия исцеляет праведников.*\n>\n> | **Магия, Дальний** |            **Маневр** |\n> | ----------------- | ----------------------: |\n> | **📏 Дальний 10** | **🎯 На себя или один союзник** |\n>\n> **Эффект:** Цель может потратить Восстановление.\n>\n> **Потратить 1+ Благочестия:** За каждое потраченное благочестие выберите одно из следующих улучшений:\n>\n> - Вы можете нацелиться на одного дополнительного союзника в пределах расстояния.\n> - Вы можете завершить один эффект на цели, который заканчивается спасброском или который заканчивается в конце ее хода.\n> - Лежачая цель может встать.\n> - Цель может потратить 1 дополнительное Восстановление.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.healing-grace",
+        "name": "Исцеляющая Благодать",
+        "flavor": "Ваша божественная энергия исцеляет праведников.",
+        "actionType": "maneuver",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "На себя или один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель может потратить Восстановление.\n\nПотратить 1+ Благочестия: За каждое потраченное благочестие выберите одно из следующих улучшений:\n- Вы можете нацелиться на одного дополнительного союзника в пределах расстояния.\n- Вы можете завершить один эффект на цели, который заканчивается спасброском или который заканчивается в конце ее хода.\n- Лежачая цель может встать.\n- Цель может потратить 1 дополнительное Восстановление.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/healing-grace",
+        "originalName": "Healing Grace",
+        "originalDescription": "*Your divine energy restores the righteous.*\n\n| **Magic, Ranged**          |            **Maneuver** |\n|----------------------------|------------------------:|\n| **📏 Ranged 10**           | **🎯 Self or one ally** |\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/healing-grace",
+      "originalName": "Healing Grace",
+      "originalDescription": "*Your divine energy restores the righteous.*\n\n| **Magic, Ranged**          |            **Maneuver** |\n|----------------------------|------------------------:|\n| **📏 Ranged 10**           | **🎯 Self or one ally** |\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery."
+    },
+    {
+      "id": "feature.conduit.level-1.ray-of-wrath",
+      "kind": "feature",
+      "name": "Луч гнева",
+      "markdown": "#### Луч гнева\n\nУ вас есть следующая способность, которую можно использовать как свободный удар дальнего боя.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/ray-of-wrath",
+      "originalName": "Ray of Wrath",
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.ray-of-wrath",
+      "kind": "ability",
+      "name": "Луч Гнева",
+      "markdown": "> **Луч Гнева**\n>\n> *Вы обрушиваете на врага заряд святого света.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 + И урона\n> - **12-16:** 4 + И урона\n> - **17+:** 6 + И урона\n>\n> **Эффект:** Вы можете сделать так, чтобы эта способность наносила святой урон.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.ray-of-wrath",
+        "name": "Луч Гнева",
+        "flavor": "Вы обрушиваете на врага заряд святого света.",
+        "actionType": "main",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + I",
+            "effect": ""
+          },
+          {
+            "damage": "4 + I",
+            "effect": ""
+          },
+          {
+            "damage": "6 + I",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете сделать так, чтобы эта способность наносила святой урон.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/ray-of-wrath",
+        "originalName": "Ray of Wrath",
+        "originalDescription": "*You unleash a blast of holy light upon your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I damage\n- **12-16:** 4 + I damage\n- **17+:** 6 + I damage\n\n**Effect:** You can have this ability deal holy damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/ray-of-wrath",
+      "originalName": "Ray of Wrath",
+      "originalDescription": "*You unleash a blast of holy light upon your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I damage\n- **12-16:** 4 + I damage\n- **17+:** 6 + I damage\n\n**Effect:** You can have this ability deal holy damage."
+    },
+    {
+      "id": "feature.conduit.level-1.triggered-action",
+      "kind": "feature",
+      "name": "Триггер проводника",
+      "markdown": "#### Триггер проводника\n\nВыберите один из следующих триггеров. (*Быстрый Билд:* Слово наставления.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/triggered-action",
+      "originalName": "Triggered Action",
+      "originalDescription": "Choose one of the following triggered actions. (*Quick Build:* Word of Guidance.)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.word-of-guidance",
+      "kind": "ability",
+      "name": "Слово Наставления",
+      "markdown": "> **Слово Наставления**\n>\n> *Вы наполняете атакующего союзника божественной энергией.*\n>\n> | **Магия, Дальний** |   **Триггер** |\n> | ----------------- | --------------: |\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Триггер:** Цель делает бросок силы для способности, наносящей урон.\n>\n> **Эффект:** Бросок силы получает преимущество.\n>\n> **Потратить 1 Благочестия:** Бросок силы получает двойное преимущество.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.word-of-guidance",
+        "name": "Слово Наставления",
+        "flavor": "Вы наполняете атакующего союзника божественной энергией.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель делает бросок силы для способности, наносящей урон.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Бросок силы получает преимущество.\n\nПотратить 1 Благочестия: Бросок силы получает двойное преимущество.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-guidance",
+        "originalName": "Word of Guidance",
+        "originalDescription": "*You invigorate an attacking ally with divine energy.*\n\n| **Magic, Ranged**      |        **Triggered** |\n|------------------------|---------------------:|\n| **📏 Ranged 10**       |      **🎯 One ally** |\n\n**Trigger:** The target makes an ability roll for a damage-dealing ability.\n\n**Effect:** The power roll gains an edge.\n\n**Spend 1 Piety:** The power roll has a double edge."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-guidance",
+      "originalName": "Word of Guidance",
+      "originalDescription": "*You invigorate an attacking ally with divine energy.*\n\n| **Magic, Ranged**      |        **Triggered** |\n|------------------------|---------------------:|\n| **📏 Ranged 10**       |      **🎯 One ally** |\n\n**Trigger:** The target makes an ability roll for a damage-dealing ability.\n\n**Effect:** The power roll gains an edge.\n\n**Spend 1 Piety:** The power roll has a double edge."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.word-of-judgment",
+      "kind": "ability",
+      "name": "Слово Суда",
+      "markdown": "> **Слово Суда**\n>\n> *Ваше святое слово истощает силы атакующего врага.*\n>\n> | **Магия, Дальний** |   **Триггер** |\n> | ----------------- | --------------: |\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Триггер:** Цель должна была бы получить урон от способности, использующей бросок силы.\n>\n> **Эффект:** Бросок силы получает помеху против цели.\n>\n> **Потратить 1 Благочестия:** Бросок силы получает двойную помеху против цели.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.word-of-judgment",
+        "name": "Слово Суда",
+        "flavor": "Ваше святое слово истощает силы атакующего врага.",
+        "actionType": "trigger",
+        "kind": "other",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Один союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "Цель должна была бы получить урон от способности, использующей бросок силы.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Бросок силы получает помеху против цели.\n\nПотратить 1 Благочестия: Бросок силы получает двойную помеху против цели.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-judgment",
+        "originalName": "Word of Judgment",
+        "originalDescription": "*Your holy word saps an attacking enemy's strength.*\n\n| **Magic, Ranged**  |     **Triggered** |\n|--------------------|------------------:|\n| **📏 Ranged 10**   |   **🎯 One ally** |\n\n**Trigger:** The target would take damage from an ability that uses a power roll.\n\n**Effect:** The power roll takes a bane against the target.\n\n**Spend 1 Piety:** The power roll has a double bane against the target."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-judgment",
+      "originalName": "Word of Judgment",
+      "originalDescription": "*Your holy word saps an attacking enemy's strength.*\n\n| **Magic, Ranged**  |     **Triggered** |\n|--------------------|------------------:|\n| **📏 Ranged 10**   |   **🎯 One ally** |\n\n**Trigger:** The target would take damage from an ability that uses a power roll.\n\n**Effect:** The power roll takes a bane against the target.\n\n**Spend 1 Piety:** The power roll has a double bane against the target."
+    },
+    {
+      "id": "feature.conduit.level-1.prayer",
+      "kind": "feature",
+      "name": "Молитва",
+      "markdown": "#### Молитва\n\nВаш бог отвечает на молитву улучшением вашего тела и разума. Выберите одну из следующих молитв. Вы можете изменить свою молитву вместе со своим оберегом (смотрите Оберег проводника ниже), молясь своему богу в качестве деятельности отдыха. (*Быстрый Билд:* Молитва о дистанции.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer",
+      "originalName": "Prayer",
+      "originalDescription": "Your god answers a prayer with enhancements to your body and mind. Choose one of the following prayers. You can change your prayer along with your ward (see Conduit Ward below) by praying to your god as a respite activity. (*Quick Build:* Prayer of Distance.)"
+    },
+    {
+      "id": "feature.conduit.level-1.prayer-of-destruction",
+      "kind": "feature",
+      "name": "Молитва о разрушении",
+      "markdown": "##### Молитва о разрушении\n\nВаш бог вселяет гнев в вашу сущность. Вы получаете бонус +1 к выброшенному урону магическими способностями.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-destruction",
+      "originalName": "Prayer of Destruction",
+      "originalDescription": "Your god infuses wrath within your being. You gain a +1 bonus to rolled damage with magic abilities."
+    },
+    {
+      "id": "feature.conduit.level-1.prayer-of-distance",
+      "kind": "feature",
+      "name": "Молитва о дистанции",
+      "markdown": "##### Молитва о дистанции\n\nВаш бог благословляет вас способностью растягивать свою божественную магию дальше. Вы получаете бонус +2 к расстоянию ваших дальнобойных магических способностей.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-distance",
+      "originalName": "Prayer of Distance",
+      "originalDescription": "Your god blesses you with the ability to stretch your divine magic farther. You have a +2 bonus to the distance of your ranged magic abilities."
+    },
+    {
+      "id": "feature.conduit.level-1.prayer-of-soldiers-skill",
+      "kind": "feature",
+      "name": "Молитва о мастерстве солдата",
+      "markdown": "##### Молитва о мастерстве солдата\n\nВаш бог дает вашему разуму выучку солдата. Вы можете эффективно носить легкую броню и владеть легким оружием, даже если у вас нет комплекта. Пока вы носите легкую броню, вы получаете бонус +3 к Выносливости, и этот бонус увеличивается на 3 на 4-м, 7-м и 10-м уровнях. Пока вы владеете легким оружием, вы получаете бонус +1 к урону со способностями оружия, включая свободные удары. Вы можете использовать сокровища легкой брони и сокровища легкого оружия.\n\nЕсли у вас есть комплект, вы не можете принять это благословение.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-soldiers-skill",
+      "originalName": "Prayer of Soldier's Skill",
+      "originalDescription": "Your god gives your mind the training of a soldier. You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this blessing."
+    },
+    {
+      "id": "feature.conduit.level-1.prayer-of-speed",
+      "kind": "feature",
+      "name": "Молитва о скорости",
+      "markdown": "##### Молитва о скорости\n\nВаш бог благословляет вашу плоть и наполняет ее божественной быстротой. Вы получаете бонус +1 к вашей скорости и к расстоянию, на которое вы можете сместиться, когда вы используете Действие отхода.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-speed",
+      "originalName": "Prayer of Speed",
+      "originalDescription": "Your god blesses your flesh and infuses it with divine quickness. You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
+    },
+    {
+      "id": "feature.conduit.level-1.prayer-of-steel",
+      "kind": "feature",
+      "name": "Молитва о стали",
+      "markdown": "##### Молитва о стали\n\nВаш бог наполняет ваше тело светом созидания, делая вас более стойким к урону и перемещению. Вы получаете бонус +6 к Выносливости, и этот бонус увеличивается на 6 на 4-м, 7-м и 10-м уровнях. Дополнительно, вы получаете бонус +1 к устойчивости.\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-steel",
+      "originalName": "Prayer of Steel",
+      "originalDescription": "Your god fills your body with the light of creation, making you harder to hurt and move. You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
+    },
+    {
+      "id": "feature.conduit.level-1.conduit-ward",
+      "kind": "feature",
+      "name": "Оберег проводника",
+      "markdown": "#### Оберег проводника\n\nВаш бог дарует вам оберег, который защищает вас от неверных. Выберите один из следующих оберегов. Вы можете изменить свой оберег вместе со своей молитвой (смотрите Молитва выше), молясь своему богу в качестве деятельности отдыха. (*Быстрый Билд:* Оберег бастиона.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/conduit-ward",
+      "originalName": "Conduit Ward",
+      "originalDescription": "Your god grants you a ward that protects you from the faithless. Choose one of the following wards. You can change your ward along with your prayer (see Prayer above) by praying to your god as a respite activity. (*Quick Build:* Bastion Ward.)"
+    },
+    {
+      "id": "feature.conduit.level-1.bastion-ward",
+      "kind": "feature",
+      "name": "Оберег бастиона",
+      "markdown": "##### Оберег бастиона\n\nВаш бог дарует вам святой лик, который защищает вас во все времена. Вы получаете бонус +1 к спасброскам.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/bastion-ward",
+      "originalName": "Bastion Ward",
+      "originalDescription": "Your god grants you a holy countenance that protects you at all times. You gain a +1 bonus to saving throws."
+    },
+    {
+      "id": "feature.conduit.level-1.quickness-ward",
+      "kind": "feature",
+      "name": "Оберег реакции",
+      "markdown": "##### Оберег реакции\n\nБоги дарят вам божественную реакцию. Всякий раз, когда смежное существо наносит вам урон, вы можете сместиться вплоть до числа клеток, равного показателю вашей Интуиции, после того, как урон был нанесен.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/quickness-ward",
+      "originalName": "Quickness Ward",
+      "originalDescription": "The gods imbue a divine swiftness within you. Whenever an adjacent creature deals damage to you, you can shift up to a number of squares equal to your Intuition score after the damage is dealt."
+    },
+    {
+      "id": "feature.conduit.level-1.sanctuary-ward",
+      "kind": "feature",
+      "name": "Оберег святилища",
+      "markdown": "##### Оберег святилища\n\nВ ответ на агрессию врага ваш бог защищает вас. Всякий раз, когда другое существо наносит вам урон, оно не может нацелиться на вас ударом, пока вы не нанесете вред ему или одному из его союзников, или до конца его следующего хода.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/sanctuary-ward",
+      "originalName": "Sanctuary Ward",
+      "originalDescription": "In response to a foe's aggression, your god protects you. Whenever another creature damages you, that creature can't target you with a strike until you harm them or one of their allies, or until the end of their next turn."
+    },
+    {
+      "id": "feature.conduit.level-1.spirit-ward",
+      "kind": "feature",
+      "name": "Оберег духов",
+      "markdown": "##### Оберег духов\n\nНевидимые духи окружают вас, если вам причиняют вред. Всякий раз, когда смежное существо наносит вам урон, оно получает урон порчей, равный показателю вашей Интуиции.\n\n---\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/spirit-ward",
+      "originalName": "Spirit Ward",
+      "originalDescription": "Invisible spirits surround you if you are harmed. Whenever an adjacent creature deals damage to you, they take corruption damage equal to your Intuition score."
+    },
+    {
+      "id": "feature.conduit.level-1.conduit-abilities",
+      "kind": "feature",
+      "name": "Способности проводника",
+      "markdown": "#### Способности проводника\n\nВаши тренировки и вера позволяют вам специализироваться на магии, которая усиливает ваших союзников, ослабляет ваших врагов и позволяет вам сражаться плечом к плечу со своими друзьями.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.conduit.level-1/conduit-abilities",
+      "originalName": "Conduit Abilities",
+      "originalDescription": "Your training and faith let you specialize in magic that buffs your allies, debuffs your foes, and allows you to hold your own in combat alongside your friends.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Blessed Light, Staggering Curse.)\n\n##### Heroic Abilities\n\nYou make use of a number of heroic abilities, all of which channel piety to empower them.\n\n###### 3-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 3 piety to use. (*Quick Build:* Violence Will Not Aid Thee.)\n\n###### 5-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 5 piety to use. (*Quick Build:* Curse of Terror.)"
+    },
+    {
+      "id": "feature.conduit.level-1.signature-abilities",
+      "kind": "feature",
+      "name": "Знаковые способности",
+      "markdown": "##### Знаковые способности\n\nВыберите две знаковые способности из следующих вариантов. Знаковые способности можно использовать по желанию. (*Быстрый Билд:* Благословенный свет, Ошеломляющее проклятие.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Signature Abilities",
+      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Blessed Light, Staggering Curse.)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.blessed-light",
+      "kind": "ability",
+      "name": "Благословенный Свет",
+      "markdown": "> **Благословенный Свет**\n>\n> *Обжигающее сияние падает на вашего врага, передавая часть его энергии ближайшему союзнику.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона\n> - **12-16:** 5 + И святого урона\n> - **17+:** 8 + И святого урона\n>\n> **Эффект:** Один союзник в пределах расстояния получает количество всплесков, равное результату тира вашего броска силы.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.blessed-light",
+        "name": "Благословенный Свет",
+        "flavor": "Обжигающее сияние падает на вашего врага, передавая часть его энергии ближайшему союзнику.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": ""
+          },
+          {
+            "damage": "5 + I",
+            "effect": ""
+          },
+          {
+            "damage": "8 + I",
+            "effect": ""
+          }
+        ],
+        "effect": "Один союзник в пределах расстояния получает количество всплесков, равное результату тира вашего броска силы.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
+        "originalName": "Blessed Light",
+        "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
+      "originalName": "Blessed Light",
+      "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.drain",
+      "kind": "ability",
+      "name": "Истощение",
+      "markdown": "> **Истощение**\n>\n> *Вы вытягиваете энергию из своей цели, чтобы оживить себя или союзника.*\n>\n> | **Магия, Ближний, Удар** |     **Основное действие** |\n> | ------------------------ | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 + И урона порчей\n> - **12-16:** 5 + И урона порчей\n> - **17+:** 7 + И урона порчей\n>\n> **Эффект:** Вы или один союзник в пределах расстояния можете потратить Восстановление.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.drain",
+        "name": "Истощение",
+        "flavor": "Вы вытягиваете энергию из своей цели, чтобы оживить себя или союзника.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Удар"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + I",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "5 + I",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "7 + I",
+            "effect": "Порчей"
+          }
+        ],
+        "effect": "Вы или один союзник в пределах расстояния можете потратить Восстановление.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/drain",
+        "originalName": "Drain",
+        "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/drain",
+      "originalName": "Drain",
+      "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.holy-lash",
+      "kind": "ability",
+      "name": "Святой Кнут",
+      "markdown": "> **Святой Кнут**\n>\n> *Сверкает щупальце божественной энергии, чтобы притянуть вашего врага.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона; вертикальное притягивание 2\n> - **12-16:** 5 + И святого урона; вертикальное притягивание 3\n> - **17+:** 8 + И святого урона; вертикальное притягивание 4",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.holy-lash",
+        "name": "Святой Кнут",
+        "flavor": "Сверкает щупальце божественной энергии, чтобы притянуть вашего врага.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Вертикальное притягивание 2"
+          },
+          {
+            "damage": "5 + I",
+            "effect": "Вертикальное притягивание 3"
+          },
+          {
+            "damage": "8 + I",
+            "effect": "Вертикальное притягивание 4"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/holy-lash",
+        "originalName": "Holy Lash",
+        "originalDescription": "*A tendril of divine energy shoots forth to draw in your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; vertical pull 2\n- **12-16:** 5 + I holy damage; vertical pull 3\n- **17+:** 8 + I holy damage; vertical pull 4"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/holy-lash",
+      "originalName": "Holy Lash",
+      "originalDescription": "*A tendril of divine energy shoots forth to draw in your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; vertical pull 2\n- **12-16:** 5 + I holy damage; vertical pull 3\n- **17+:** 8 + I holy damage; vertical pull 4"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.lightfall",
+      "kind": "ability",
+      "name": "Светопад",
+      "markdown": "> **Светопад**\n>\n> *Дождь из святого света очищает ваших врагов и меняет позиции союзников.*\n>\n> | **Область, Магия** |               **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 святого урона\n> - **12-16:** 3 святого урона\n> - **17+:** 5 святого урона\n>\n> **Эффект:** Вы можете телепортировать себя и каждого союзника в области на свободные клетки в области.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.lightfall",
+        "name": "Светопад",
+        "flavor": "Дождь из святого света очищает ваших врагов и меняет позиции союзников.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": ""
+          },
+          {
+            "damage": "3",
+            "effect": ""
+          },
+          {
+            "damage": "5",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете телепортировать себя и каждого союзника в области на свободные клетки в области.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/lightfall",
+        "originalName": "Lightfall",
+        "originalDescription": "*A rain of holy light scours your enemies and repositions your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 2 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 3 holy damage\n- **17+:** 5 holy damage\n\n**Effect:** You can teleport yourself and each ally in the area to unoccupied spaces in the area."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/lightfall",
+      "originalName": "Lightfall",
+      "originalDescription": "*A rain of holy light scours your enemies and repositions your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 2 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 3 holy damage\n- **17+:** 5 holy damage\n\n**Effect:** You can teleport yourself and each ally in the area to unoccupied spaces in the area."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.sacrificial-offer",
+      "kind": "ability",
+      "name": "Жертвенное Предложение",
+      "markdown": "> **Жертвенное Предложение**\n>\n> *Божественная магия терзает вашего врага и защищает ближайшего друга.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 + И урона порчей\n> - **12-16:** 4 + И урона порчей\n> - **17+:** 6 + И урона порчей\n>\n> **Эффект:** Выберите себя или одного союзника в пределах расстояния. Этот персонаж может наложить помеху на один бросок силы, сделанный против него, до конца своего следующего хода.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.sacrificial-offer",
+        "name": "Жертвенное Предложение",
+        "flavor": "Божественная магия терзает вашего врага и защищает ближайшего друга.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2 + I",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "4 + I",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "6 + I",
+            "effect": "Порчей"
+          }
+        ],
+        "effect": "Выберите себя или одного союзника в пределах расстояния. Этот персонаж может наложить помеху на один бросок силы, сделанный против него, до конца своего следующего хода.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sacrificial-offer",
+        "originalName": "Sacrificial Offer",
+        "originalDescription": "*Divine magic tears at your foe and defends a nearby friend.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 4 + I corruption damage\n- **17+:** 6 + I corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sacrificial-offer",
+      "originalName": "Sacrificial Offer",
+      "originalDescription": "*Divine magic tears at your foe and defends a nearby friend.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 4 + I corruption damage\n- **17+:** 6 + I corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.staggering-curse",
+      "kind": "ability",
+      "name": "Ошеломляющее Проклятие",
+      "markdown": "> **Ошеломляющее Проклятие**\n>\n> *Взрыв осуждения дезориентирует вашего врага.*\n>\n> | **Магия, Ближний, Удар** |               **Основное действие** |\n> | ------------------------ | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона; швыряние 1\n> - **12-16:** 5 + И святого урона; швыряние 2\n> - **17+:** 8 + И святого урона; швыряние 3",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.staggering-curse",
+        "name": "Ошеломляющее Проклятие",
+        "flavor": "Взрыв осуждения дезориентирует вашего врага.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Удар"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Швыряние 1"
+          },
+          {
+            "damage": "5 + I",
+            "effect": "Швыряние 2"
+          },
+          {
+            "damage": "8 + I",
+            "effect": "Швыряние 3"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/staggering-curse",
+        "originalName": "Staggering Curse",
+        "originalDescription": "*A blast of judgment disorients your foe.*\n\n| **Magic, Melee, Strike**  |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; slide 1\n- **12-16:** 5 + I holy damage; slide 2\n- **17+:** 8 + I holy damage; slide 3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/staggering-curse",
+      "originalName": "Staggering Curse",
+      "originalDescription": "*A blast of judgment disorients your foe.*\n\n| **Magic, Melee, Strike**  |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; slide 1\n- **12-16:** 5 + I holy damage; slide 2\n- **17+:** 8 + I holy damage; slide 3"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.warriors-prayer",
+      "kind": "ability",
+      "name": "Литания Воина",
+      "markdown": "> **Литания Воина**\n>\n> *Ваша быстро произнесенная молитва наделяет агрессивной божественной энергией друга, сражающегося в ближнем бою.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона\n> - **12-16:** 6 + И святого урона\n> - **17+:** 9 + И святого урона\n>\n> **Эффект:** Вы или один союзник в пределах расстояния получаете временную выносливость, равную показателю вашей Интуиции.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.warriors-prayer",
+        "name": "Литания Воина",
+        "flavor": "Ваша быстро произнесенная молитва наделяет агрессивной божественной энергией друга, сражающегося в ближнем бою.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": ""
+          },
+          {
+            "damage": "6 + I",
+            "effect": ""
+          },
+          {
+            "damage": "9 + I",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы или один союзник в пределах расстояния получаете временную выносливость, равную показателю вашей Интуиции.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/warriors-prayer",
+        "originalName": "Warrior's Prayer",
+        "originalDescription": "*Your quickly uttered prayer lends aggressive divine energy to a friend engaged in melee.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 6 + I holy damage\n- **17+:** 9 + I holy damage\n\n**Effect:** You or one ally within distance gains temporary Stamina equal to your Intuition score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/warriors-prayer",
+      "originalName": "Warrior's Prayer",
+      "originalDescription": "*Your quickly uttered prayer lends aggressive divine energy to a friend engaged in melee.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 6 + I holy damage\n- **17+:** 9 + I holy damage\n\n**Effect:** You or one ally within distance gains temporary Stamina equal to your Intuition score."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.wither",
+      "kind": "ability",
+      "name": "Иссушение",
+      "markdown": "> **Иссушение**\n>\n> *Стрела святой энергии высасывает жизнь из врага.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона порчей; П < СЛАБЫЙ, цель получает помеху на свой следующий бросок силы\n> - **12-16:** 5 + И урона порчей; П < СРЕДНИЙ, цель получает помеху на свой следующий бросок силы\n> - **17+:** 8 + И урона порчей; П < СИЛЬНЫЙ, цель получает помеху на свой следующий бросок силы",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.wither",
+        "name": "Иссушение",
+        "flavor": "Стрела святой энергии высасывает жизнь из врага.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Порчей; П < СЛАБЫЙ, цель получает помеху на свой следующий бросок силы"
+          },
+          {
+            "damage": "5 + I",
+            "effect": "Порчей; П < СРЕДНИЙ, цель получает помеху на свой следующий бросок силы"
+          },
+          {
+            "damage": "8 + I",
+            "effect": "Порчей; П < СИЛЬНЫЙ, цель получает помеху на свой следующий бросок силы"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/wither",
+        "originalName": "Wither",
+        "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/wither",
+      "originalName": "Wither",
+      "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll"
+    },
+    {
+      "id": "feature.conduit.level-1.heroic-abilities",
+      "kind": "feature",
+      "name": "Героические способности",
+      "markdown": "##### Героические способности\n\nВы используете множество героических способностей, все из которых направляют благочестие для их усиления.\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "Heroic Abilities",
+      "originalDescription": "You make use of a number of heroic abilities, all of which channel piety to empower them."
+    },
+    {
+      "id": "feature.conduit.level-1.3-piety-ability",
+      "kind": "feature",
+      "name": "Способность за 3 благочестия",
+      "markdown": "###### Способность за 3 благочестия\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 3 благочестия для использования. (*Быстрый Билд:* Насилие тебе не поможет.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "3-Piety Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 piety to use. (Quick Build: Violence Will Not Aid Thee.)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.call-the-thunder-down",
+      "kind": "ability",
+      "name": "Призыв Грома",
+      "markdown": "> **Призыв Грома (3 Благочестия)**\n>\n> *Вы просите своего святого о громе, и ваша молитва услышана.*\n>\n> | **Область, Магия, Дальний** |               **Основное действие** |\n> | ----------------------- | ----------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 2 урона звуком; толчок 1\n> - **12-16:** 3 урона звуком; толчок 2\n> - **17+:** 5 урона звуком; толчок 3\n>\n> **Эффект:** Вы можете оттолкнуть каждого согласного союзника в области на то же расстояние, игнорируя устойчивость.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.call-the-thunder-down",
+        "name": "Призыв Грома",
+        "flavor": "Вы просите своего святого о громе, и ваша молитва услышана.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Звуком; толчок 1"
+          },
+          {
+            "damage": "3",
+            "effect": "Звуком; толчок 2"
+          },
+          {
+            "damage": "5",
+            "effect": "Звуком; толчок 3"
+          }
+        ],
+        "effect": "Вы можете оттолкнуть каждого согласного союзника в области на то же расстояние, игнорируя устойчивость.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/call-the-thunder-down",
+        "originalName": "Call the Thunder Down",
+        "originalDescription": "*You ask your saint for thunder and your prayer is answered.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 sonic damage; push 1\n- **12-16:** 3 sonic damage; push 2\n- **17+:** 5 sonic damage; push 3\n\n**Effect:** You can push each willing ally in the area the same distance, ignoring stability."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/call-the-thunder-down",
+      "originalName": "Call the Thunder Down",
+      "originalDescription": "*You ask your saint for thunder and your prayer is answered.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 sonic damage; push 1\n- **12-16:** 3 sonic damage; push 2\n- **17+:** 5 sonic damage; push 3\n\n**Effect:** You can push each willing ally in the area the same distance, ignoring stability."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.font-of-wrath",
+      "kind": "ability",
+      "name": "Источник Гнева",
+      "markdown": "> **Источник Гнева (3 Благочестия)**\n>\n> *Ослепительный столб святого света появляется на поле боя, поражая ближайших врагов.*\n>\n> | **Магия, Дальний** | **Основное действие** |\n> | ----------------- | --------------: |\n> | **📏 Дальний 10** |  **🎯 Особая** |\n>\n> **Эффект:** Вы призываете духа размера 2, которому нельзя причинить вред, и который появляется на свободной клетке в пределах расстояния. Дух остается до конца вашего следующего хода. Вы и ваши союзники можете проходить через пространство духа, но враги не могут. Любой враг, который приближается на расстояние 2 клеток от духа в первый раз в раунде боя или начинает там свой ход, получает святой урон, равный показателю вашей Интуиции.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.font-of-wrath",
+        "name": "Источник Гнева",
+        "flavor": "Ослепительный столб святого света появляется на поле боя, поражая ближайших врагов.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Особая",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы призываете духа размера 2, которому нельзя причинить вред, и который появляется на свободной клетке в пределах расстояния. Дух остается до конца вашего следующего хода. Вы и ваши союзники можете проходить через пространство духа, но враги не могут. Любой враг, который приближается на расстояние 2 клеток от духа в первый раз в раунде боя или начинает там свой ход, получает святой урон, равный показателю вашей Интуиции.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/font-of-wrath",
+        "originalName": "Font of Wrath",
+        "originalDescription": "*A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.*\n\n| **Magic, Ranged**  | **Main action** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   |  **🎯 Special** |\n\n**Effect:** You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/font-of-wrath",
+      "originalName": "Font of Wrath",
+      "originalDescription": "*A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.*\n\n| **Magic, Ranged**  | **Main action** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   |  **🎯 Special** |\n\n**Effect:** You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.judgments-hammer",
+      "kind": "ability",
+      "name": "Молот Правосудия",
+      "markdown": "> **Молот Правосудия (3 Благочестия)**\n>\n> *Ваша божественная ярость подобна молоту, обрушивающемуся на неправедных.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И святого урона; Л < СЛАБЫЙ, лежачий\n> - **12-16:** 6 + И святого урона; Л < СРЕДНИЙ, лежачий\n> - **17+:** 9 + И святого урона; Л < СИЛЬНЫЙ, лежачий и не может встать (до прох.)",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.judgments-hammer",
+        "name": "Молот Правосудия",
+        "flavor": "Ваша божественная ярость подобна молоту, обрушивающемуся на неправедных.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Л < СЛАБЫЙ, лежачий"
+          },
+          {
+            "damage": "6 + I",
+            "effect": "Л < СРЕДНИЙ, лежачий"
+          },
+          {
+            "damage": "9 + I",
+            "effect": "Л < СИЛЬНЫЙ, лежачий и не может встать (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/judgments-hammer",
+        "originalName": "Judgment's Hammer",
+        "originalDescription": "*Your divine fury is a hammer that crashes down upon the unrighteous.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; A < WEAK, prone\n- **12-16:** 6 + I holy damage; A < AVERAGE, prone\n- **17+:** 9 + I holy damage; A < STRONG, prone and can't stand (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/judgments-hammer",
+      "originalName": "Judgment's Hammer",
+      "originalDescription": "*Your divine fury is a hammer that crashes down upon the unrighteous.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; A < WEAK, prone\n- **12-16:** 6 + I holy damage; A < AVERAGE, prone\n- **17+:** 9 + I holy damage; A < STRONG, prone and can't stand (save ends)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.violence-will-not-aid-thee",
+      "kind": "ability",
+      "name": "Насилие Тебе Не Поможет",
+      "markdown": "> **Насилие Тебе Не Поможет (3 Благочестия)**\n>\n> *После вызова святой молнии ваш враг дважды подумает о своей следующей атаке.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона молнией\n> - **12-16:** 6 + И урона молнией\n> - **17+:** 9 + И урона молнией\n>\n> **Эффект:** В первый раз за ход, когда цель наносит урон другому существу, цель этой способности получает 1d10 урона молнией (до прох.).",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.violence-will-not-aid-thee",
+        "name": "Насилие Тебе Не Поможет",
+        "flavor": "После вызова святой молнии ваш враг дважды подумает о своей следующей атаке.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 3,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Молнией"
+          },
+          {
+            "damage": "6 + I",
+            "effect": "Молнией"
+          },
+          {
+            "damage": "9 + I",
+            "effect": "Молнией"
+          }
+        ],
+        "effect": "В первый раз за ход, когда цель наносит урон другому существу, цель этой способности получает 1d10 урона молнией (до прох.).",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/violence-will-not-aid-thee",
+        "originalName": "Violence Will Not Aid Thee",
+        "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/violence-will-not-aid-thee",
+      "originalName": "Violence Will Not Aid Thee",
+      "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
+    },
+    {
+      "id": "feature.conduit.level-1.5-piety-ability",
+      "kind": "feature",
+      "name": "Способность за 5 благочестия",
+      "markdown": "###### Способность за 5 благочестия\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 5 благочестия для использования. (*Быстрый Билд:* Проклятие ужаса.)\n\n",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "originalId": "",
+      "originalName": "5-Piety Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 piety to use. (Quick Build: Curse of Terror.)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.corruptions-curse",
+      "kind": "ability",
+      "name": "Проклятие Порчи",
+      "markdown": "> **Проклятие Порчи (5 Благочестия)**\n>\n> *Проклятый вами, ваш враг получает больше урона от ваших союзников.*\n>\n> | **Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 3 + И урона порчей; М < СЛАБЫЙ, уязвимость к урону 5 (до прох.)\n> - **12-16:** 6 + И урона порчей; М < СРЕДНИЙ, уязвимость к урону 5 (до прох.)\n> - **17+:** 9 + И урона порчей; М < СИЛЬНЫЙ, уязвимость к урону 5 (до прох.)",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.corruptions-curse",
+        "name": "Проклятие Порчи",
+        "flavor": "Проклятый вами, ваш враг получает больше урона от ваших союзников.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + I",
+            "effect": "Порчей; М < СЛАБЫЙ, уязвимость к урону 5 (до прох.)"
+          },
+          {
+            "damage": "6 + I",
+            "effect": "Порчей; М < СРЕДНИЙ, уязвимость к урону 5 (до прох.)"
+          },
+          {
+            "damage": "9 + I",
+            "effect": "Порчей; М < СИЛЬНЫЙ, уязвимость к урону 5 (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/corruptions-curse",
+        "originalName": "Corruption's Curse",
+        "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/corruptions-curse",
+      "originalName": "Corruption's Curse",
+      "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.curse-of-terror",
+      "kind": "ability",
+      "name": "Проклятие Ужаса",
+      "markdown": "> **Проклятие Ужаса (5 Благочестия)**\n>\n> *Страх перед божественным судом переполняет вашего врага.*\n>\n> | **Магия, Дальний, Удар** |     **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** 6 + И святого урона; И < СЛАБЫЙ, испуг (до прох.)\n> - **12-16:** 9 + И святого урона; И < СРЕДНИЙ, испуг (до прох.)\n> - **17+:** 13 + И святого урона; И < СИЛЬНЫЙ, испуг (до прох.)",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.curse-of-terror",
+        "name": "Проклятие Ужаса",
+        "flavor": "Страх перед божественным судом переполняет вашего врага.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6 + I",
+            "effect": "И < СЛАБЫЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "9 + I",
+            "effect": "И < СРЕДНИЙ, испуг (до прох.)"
+          },
+          {
+            "damage": "13 + I",
+            "effect": "И < СИЛЬНЫЙ, испуг (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/curse-of-terror",
+        "originalName": "Curse of Terror",
+        "originalDescription": "*Fear of divine judgment overwhelms your foe.*\n\n| **Magic, Ranged, Strike**  |                      **Main action** |\n|----------------------------|-------------------------------------:|\n| **📏 Ranged 10**           |                  **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 + I holy damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 + I holy damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 + I holy damage; I < STRONG, frightened (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/curse-of-terror",
+      "originalName": "Curse of Terror",
+      "originalDescription": "*Fear of divine judgment overwhelms your foe.*\n\n| **Magic, Ranged, Strike**  |                      **Main action** |\n|----------------------------|-------------------------------------:|\n| **📏 Ranged 10**           |                  **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 + I holy damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 + I holy damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 + I holy damage; I < STRONG, frightened (save ends)"
+    },
+    {
+      "id": "feature.ability.conduit.level-1.faith-is-our-armor",
+      "kind": "ability",
+      "name": "Вера — Наша Броня",
+      "markdown": "> **Вера — Наша Броня (5 Благочестия)**\n>\n> *Броня героев светится золотым светом, даруя божественную защиту.*\n>\n> | **Магия, Дальний** |       **Маневр** |\n> | ----------------- | -----------------: |\n> | **📏 Дальний 10** | **🎯 Четыре союзника** |\n>\n> **Эффект:** Вы можете выбрать себя вместо одного союзника для этой способности.\n>\n> **Бросок силы + Интуиция:**\n>\n> - **≤11:** Цель получает 5 очков временной выносливости.\n> - **12-16:** Цель получает 10 очков временной выносливости.\n> - **17+:** Цель получает 15 очков временной выносливости.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.faith-is-our-armor",
+        "name": "Вера — Наша Броня",
+        "flavor": "Броня героев светится золотым светом, даруя божественную защиту.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Четыре союзника",
+        "rollCharacteristics": [
+          "intuition"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Цель получает 5 очков временной выносливости."
+          },
+          {
+            "damage": "",
+            "effect": "Цель получает 10 очков временной выносливости."
+          },
+          {
+            "damage": "",
+            "effect": "Цель получает 15 очков временной выносливости."
+          }
+        ],
+        "effect": "Вы можете выбрать себя вместо одного союзника для этой способности.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "intuition",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faith-is-our-armor",
+        "originalName": "Faith Is Our Armor",
+        "originalDescription": "*The heroes' armor glows with golden light, granting divine protection.*\n\n| **Magic, Ranged**        |       **Maneuver** |\n|--------------------------|-------------------:|\n| **📏 Ranged 10**         | **🎯 Four allies** |\n\n**Effect:** You can target yourself instead of one ally with this ability.\n\n**Power Roll + Intuition:**\n\n- **≤11:** The target gains 5 temporary Stamina.\n- **12-16:** The target gains 10 temporary Stamina.\n- **17+:** The target gains 15 temporary Stamina."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faith-is-our-armor",
+      "originalName": "Faith Is Our Armor",
+      "originalDescription": "*The heroes' armor glows with golden light, granting divine protection.*\n\n| **Magic, Ranged**        |       **Maneuver** |\n|--------------------------|-------------------:|\n| **📏 Ranged 10**         | **🎯 Four allies** |\n\n**Effect:** You can target yourself instead of one ally with this ability.\n\n**Power Roll + Intuition:**\n\n- **≤11:** The target gains 5 temporary Stamina.\n- **12-16:** The target gains 10 temporary Stamina.\n- **17+:** The target gains 15 temporary Stamina."
+    },
+    {
+      "id": "feature.ability.conduit.level-1.sermon-of-grace",
+      "kind": "ability",
+      "name": "Проповедь Милосердия",
+      "markdown": "> **Проповедь Милосердия (5 Благочестия)**\n>\n> *Вы вдохновляете союзников историями о великих деяниях вашего святого.*\n>\n> | **Область, Магия** |              **Основное действие** |\n> | --------------- | ---------------------------: |\n> | **📏 Взрыв 4** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может потратить Восстановление. Дополнительно, каждая цель может использовать свободный триггер, чтобы завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце ее хода, или встать, если лежит.",
+      "source": {
+        "articleId": "0831",
+        "path": "08. Классы/Проводник/0831. 1-й Уровень Проводника.md"
+      },
+      "ability": {
+        "id": "feature.ability.conduit.level-1.sermon-of-grace",
+        "name": "Проповедь Милосердия",
+        "flavor": "Вы вдохновляете союзников историями о великих деяниях вашего святого.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 4",
+        "target": "Каждый союзник в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель может потратить Восстановление. Дополнительно, каждая цель может использовать свободный триггер, чтобы завершить один эффект на себе, который заканчивается спасброском или который заканчивается в конце ее хода, или встать, если лежит.",
+        "source": "Проводник",
+        "notes": "",
+        "className": "Проводник",
+        "level": 1,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sermon-of-grace",
+        "originalName": "Sermon of Grace",
+        "originalDescription": "*You inspire your allies with tales of your saint's great deeds.*\n\n| **Area, Magic** |              **Main action** |\n|-----------------|-----------------------------:|\n| **📏 4 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Each target can spend a Recovery. Additionally, each target can use a free triggered action to end one effect on them that is ended by a saving throw or that ends at the end of their turn, or to stand up if prone."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sermon-of-grace",
+      "originalName": "Sermon of Grace",
+      "originalDescription": "*You inspire your allies with tales of your saint's great deeds.*\n\n| **Area, Magic** |              **Main action** |\n|-----------------|-----------------------------:|\n| **📏 4 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Each target can spend a Recovery. Additionally, each target can use a free triggered action to end one effect on them that is ended by a saving throw or that ends at the end of their turn, or to stand up if prone."
+    }
+  ]
+}

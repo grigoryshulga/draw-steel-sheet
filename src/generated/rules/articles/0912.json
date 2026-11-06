@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0912",
+      "title": "Мастер Боевых Искусств",
+      "chapter": "09. Комплекты",
+      "group": "Список Комплектов",
+      "path": "09. Комплекты/Список Комплектов/0912. Мастер Боевых Искусств.md",
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "kit.martial-artist"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.martial-artist.battle-grace"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/kit/martial-artist",
+      "originalName": "Martial Artist",
+      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher."
+    }
+  ],
+  "entities": [
+    {
+      "id": "kit.martial-artist",
+      "kind": "kit",
+      "name": "Мастер Боевых Искусств",
+      "markdown": "Если вы хотите быть быстрым в бою, то Мастер боевых искусств — это комплект для вас. Не обремененный оружием или доспехами, этот боевой стиль вознаграждает быстрые, сфокусированные безоружные удары по противникам и позволяет вам быть непревзойденным застрельщиком.\n\n##### Снаряжение\n\nВы не носите доспехов и владеете только безоружными ударами.\n\n##### Бонусы комплекта\n\n**Бонус к выносливости:** +3 за эшелон\n\n**Бонус к скорости:** +3\n\n**Бонус к урону (Ближний):** +2/+2/+2\n\n**Бонус к отходу:** +1\n\n##### Знаковая способность\n\n",
+      "source": {
+        "articleId": "0912",
+        "path": "09. Комплекты/Список Комплектов/0912. Мастер Боевых Искусств.md"
+      },
+      "originalId": "mcdm.heroes.v1/kit/martial-artist",
+      "originalName": "Martial Artist",
+      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher.\n\n##### Equipment\n\nYou wear no armor and wield only your unarmed strikes.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Battle Grace\n\n*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+    },
+    {
+      "id": "feature.ability.martial-artist.battle-grace",
+      "kind": "ability",
+      "name": "Боевая Грация",
+      "markdown": "> **Боевая Грация**\n> \n> *Вы делаете финт, чтобы переместить своих врагов в идеальную позицию.*\n> \n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 5 + М или Л урона\n> - **12-16:** 8 + М или Л урона; вы можете поменяться местами с целью\n> - **17+:** 11 + М или Л урона; вы можете поменяться местами с целью\n> \n> **Эффект:** Если вы получаете результат второго или третьего тира и не можете поменяться местами с целью, потому что один или оба из вас слишком велики, чтобы поместиться в поменянном пространстве, вы оба остаетесь на своих исходных местах, а цель получает 1 дополнительный урон.",
+      "source": {
+        "articleId": "0912",
+        "path": "09. Комплекты/Список Комплектов/0912. Мастер Боевых Искусств.md"
+      },
+      "ability": {
+        "id": "feature.ability.martial-artist.battle-grace",
+        "name": "Боевая Грация",
+        "flavor": "Вы делаете финт, чтобы переместить своих врагов в идеальную позицию.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might",
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "5 + M или A",
+            "effect": ""
+          },
+          {
+            "damage": "8 + M или A",
+            "effect": "Вы можете поменяться местами с целью"
+          },
+          {
+            "damage": "11 + M или A",
+            "effect": "Вы можете поменяться местами с целью"
+          }
+        ],
+        "effect": "Если вы получаете результат второго или третьего тира и не можете поменяться местами с целью, потому что один или оба из вас слишком велики, чтобы поместиться в поменянном пространстве, вы оба остаетесь на своих исходных местах, а цель получает 1 дополнительный урон.",
+        "source": "Комплект: Мастер Боевых Искусств",
+        "notes": "",
+        "className": "Комплект: Мастер Боевых Искусств",
+        "level": 1,
+        "sourceKind": "kit",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.martial-artist/battle-grace",
+        "originalName": "Battle Grace",
+        "originalDescription": "*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.martial-artist/battle-grace",
+      "originalName": "Battle Grace",
+      "originalDescription": "*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+    }
+  ]
+}

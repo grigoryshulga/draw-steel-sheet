@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0802",
+      "title": "2-й Уровень Неистового",
+      "chapter": "08. Классы",
+      "group": "Неистовый",
+      "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи неистовым 2-го уровня, вы получаете следующие особенности.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.2nd-level-aspect-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.inescapable-wrath"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.tooth-and-claw"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.unstoppable-force"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.2nd-level-aspect-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.berserker-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.special-delivery"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.wrecking-ball"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.reaver-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.death-death"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.phalanx-breaker"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-2.stormwight-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.apex-predator"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-2.visceral-roar"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level fury, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.fury.level-2.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\nВы получаете один перк ремесла, исследования или интриги по вашему выбору. Смотрите [Перки](#/codex/1001).\n\n---\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice. See Chapter 7: Perks."
+    },
+    {
+      "id": "feature.fury.level-2.2nd-level-aspect-feature",
+      "kind": "feature",
+      "name": "Особенность аспекта 2-го уровня",
+      "markdown": "#### Особенность аспекта 2-го уровня\nВаш первозданный аспект дает вам особенность, как показано в таблице Особенностей аспекта 2-го уровня.\n###### Таблица особенностей аспекта 2-го уровня\n\n| Аспект | Особенность |\n| ---------- | ----------------- |\n| Берсерк | Непреодолимая сила |\n| Разоритель | Неизбежный гнев |\n| Буревестник| Зуб и коготь |\n\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-feature",
+      "originalName": "2nd-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 2nd-Level Aspect Features table.\n\n###### 2nd-Level Aspect Features Table\n\n| Aspect     | Feature           |\n|------------|-------------------|\n| Berserker  | Unstoppable Force |\n| Reaver     | Inescapable Wrath |\n| Stormwight | Tooth and Claw    |"
+    },
+    {
+      "id": "feature.fury.level-2.inescapable-wrath",
+      "kind": "feature",
+      "name": "Неизбежный гнев",
+      "markdown": "##### Неизбежный гнев\nУ вас есть бонус к скорости, равный показателю вашей Ловкости, и вы игнорируете труднопроходимую местность.\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/inescapable-wrath",
+      "originalName": "Inescapable Wrath",
+      "originalDescription": "You have a bonus to speed equal to your Agility score, and you ignore difficult terrain."
+    },
+    {
+      "id": "feature.fury.level-2.tooth-and-claw",
+      "kind": "feature",
+      "name": "Зуб и коготь",
+      "markdown": "##### Зуб и коготь\nВ конце каждого вашего хода каждый враг, смежный с вами, получает урон, равный показателю вашей Мощи.\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/tooth-and-claw",
+      "originalName": "Tooth and Claw",
+      "originalDescription": "At the end of each of your turns, each enemy adjacent to you takes damage equal to your Might score."
+    },
+    {
+      "id": "feature.fury.level-2.unstoppable-force",
+      "kind": "feature",
+      "name": "Непреодолимая сила",
+      "markdown": "##### Непреодолимая сила\nВсякий раз, когда вы используете действие атаки с рывком, вы можете использовать знаковую способность удара или героическую способность удара вместо свободного удара. Дополнительно, вы можете прыгнуть как часть вашего рывка.\n\n---\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/unstoppable-force",
+      "originalName": "Unstoppable Force",
+      "originalDescription": "Whenever you use the Charge main action, you can use a strike signature ability or a strike heroic ability instead of a free strike. Additionally, you can jump as part of your charge."
+    },
+    {
+      "id": "feature.fury.level-2.2nd-level-aspect-ability",
+      "kind": "feature",
+      "name": "Способность аспекта 2-го уровня",
+      "markdown": "#### Способность аспекта 2-го уровня\nВаш первозданный аспект дает вам на выбор одну из двух героических способностей.\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-ability",
+      "originalName": "2nd-Level Aspect Ability",
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Berserker Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Reaver Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Stormwight Ability\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.fury.level-2.berserker-ability",
+      "kind": "feature",
+      "name": "Способность Берсерка 2-го уровня",
+      "markdown": "##### Способность Берсерка 2-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Berserker Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-2.special-delivery",
+      "kind": "ability",
+      "name": "Особая Доставка",
+      "markdown": "> **Особая Доставка (5 Свирепости)**\n>\n> *Готов?*\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | ----------------- | ----------------------: |\n> | **📏 Ближний 1** | **🎯 Один согласный союзник** |\n>\n> **Эффект:** Вы вертикально отталкиваете цель вплоть до 4 клеток. Это принудительное движение игнорирует устойчивость цели, и цель не получает урона от столкновения с существами или объектами. В конце этого движения цель может совершить свободный удар, который наносит дополнительный урон, равный показателю вашей Мощи.",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.special-delivery",
+        "name": "Особая Доставка",
+        "flavor": "Готов?",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Один согласный союзник",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы вертикально отталкиваете цель вплоть до 4 клеток. Это принудительное движение игнорирует устойчивость цели, и цель не получает урона от столкновения с существами или объектами. В конце этого движения цель может совершить свободный удар, который наносит дополнительный урон, равный показателю вашей Мощи.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/special-delivery",
+        "originalName": "Special Delivery",
+        "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/special-delivery",
+      "originalName": "Special Delivery",
+      "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score."
+    },
+    {
+      "id": "feature.ability.fury.level-2.wrecking-ball",
+      "kind": "ability",
+      "name": "Таранный Шар",
+      "markdown": "> **Таранный Шар (5 Свирепости)**\n>\n> *Легче разрушать, чем создавать. Намного легче, на самом деле!*\n>\n> | **Ближний, Оружие** | **Маневр** |\n> | ---------------------- | -----------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы перемещаетесь на расстояние вплоть до вашей скорости по прямой линии. Во время этого движения вы можете проходить через обыденные структуры, включая стены, которые являются для вас труднопроходимой местностью. Вы автоматически уничтожаете каждую клетку структуры, через которую проходите, и оставляете после себя клетку труднопроходимой местности.\n>\n> Дополнительно, вы делаете один бросок силы, который нацелен на каждого врага, с которым вы становитесь смежными во время этого движения.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** Толчок 1\n> - **12-16:** Толчок 2\n> - **17+:** Толчок 3",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.wrecking-ball",
+        "name": "Таранный Шар",
+        "flavor": "Легче разрушать, чем создавать. Намного легче, на самом деле!",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Оружие"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Толчок 1"
+          },
+          {
+            "damage": "",
+            "effect": "Толчок 2"
+          },
+          {
+            "damage": "",
+            "effect": "Толчок 3"
+          }
+        ],
+        "effect": "Вы перемещаетесь на расстояние вплоть до вашей скорости по прямой линии. Во время этого движения вы можете проходить через обыденные структуры, включая стены, которые являются для вас труднопроходимой местностью. Вы автоматически уничтожаете каждую клетку структуры, через которую проходите, и оставляете после себя клетку труднопроходимой местности.\n\nДополнительно, вы делаете один бросок силы, который нацелен на каждого врага, с которым вы становитесь смежными во время этого движения.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/wrecking-ball",
+        "originalName": "Wrecking Ball",
+        "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/wrecking-ball",
+      "originalName": "Wrecking Ball",
+      "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
+    },
+    {
+      "id": "feature.fury.level-2.reaver-ability",
+      "kind": "feature",
+      "name": "Способность Разорителя 2-го уровня",
+      "markdown": "##### Способность Разорителя 2-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Reaver Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-2.death-death",
+      "kind": "ability",
+      "name": "Смерть... Смерть!",
+      "markdown": "> **Смерть... Смерть! (5 Свирепости)**\n>\n> *Ваша безудержная ярость вселяет ужас в их сердца.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 3 + М урона; П < СЛАБЫЙ, оглушение и испуг (до прох.)\n> - **12-16:** 5 + М урона; П < СРЕДНИЙ, оглушение и испуг (до прох.)\n> - **17+:** 8 + М урона; П < СИЛЬНЫЙ, оглушение и испуг (до прох.)",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.death-death",
+        "name": "Смерть... Смерть!",
+        "flavor": "Ваша безудержная ярость вселяет ужас в их сердца.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "3 + M",
+            "effect": "П < СЛАБЫЙ, оглушение и испуг (до прох.)"
+          },
+          {
+            "damage": "5 + M",
+            "effect": "П < СРЕДНИЙ, оглушение и испуг (до прох.)"
+          },
+          {
+            "damage": "8 + M",
+            "effect": "П < СИЛЬНЫЙ, оглушение и испуг (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/death-death",
+        "originalName": "Death... Death!",
+        "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/death-death",
+      "originalName": "Death... Death!",
+      "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)"
+    },
+    {
+      "id": "feature.ability.fury.level-2.phalanx-breaker",
+      "kind": "ability",
+      "name": "Разрушитель Фаланг",
+      "markdown": "> **Разрушитель Фаланг (5 Свирепости)**\n>\n> *Организуете свои силы, как никчемные создания Закона. Жалкое зрелище.*\n>\n> | **Ближний, Оружие** | **Основное действие** |\n> | ---------------------- | --------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Эффект:** Вы смещаетесь на расстояние вплоть до вашей скорости и делаете один бросок силы, который нацелен вплоть до трех врагов, с которыми вы становитесь смежными во время этого смещения.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 2 урона; Л < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** 4 урона; Л < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** 6 урона; Л < СИЛЬНЫЙ, оглушение (до прох.)",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.phalanx-breaker",
+        "name": "Разрушитель Фаланг",
+        "flavor": "Организуете свои силы, как никчемные создания Закона. Жалкое зрелище.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Оружие"
+        ],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Л < СЛАБЫЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "4",
+            "effect": "Л < СРЕДНИЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "6",
+            "effect": "Л < СИЛЬНЫЙ, оглушение (до прох.)"
+          }
+        ],
+        "effect": "Вы смещаетесь на расстояние вплоть до вашей скорости и делаете один бросок силы, который нацелен вплоть до трех врагов, с которыми вы становитесь смежными во время этого смещения.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/phalanx-breaker",
+        "originalName": "Phalanx-Breaker",
+        "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/phalanx-breaker",
+      "originalName": "Phalanx-Breaker",
+      "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)"
+    },
+    {
+      "id": "feature.fury.level-2.stormwight-ability",
+      "kind": "feature",
+      "name": "Способность Буревестника 2-го уровня",
+      "markdown": "##### Способность Буревестника 2-го уровня\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Stormwight Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.fury.level-2.apex-predator",
+      "kind": "ability",
+      "name": "Высший Хищник",
+      "markdown": "> **Высший Хищник (5 Свирепости)**\n>\n> *Я выслежу тебя.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 4 урона; И < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 6 урона; И < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 10 урона; И < СИЛЬНЫЙ, замедление (до прох.)\n>\n> **Эффект:** Цель не может быть скрыта от вас в течение 24 часов. До конца боевой встречи, всякий раз, когда цель добровольно перемещается, вы можете использовать свободный триггер для перемещения.",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.apex-predator",
+        "name": "Высший Хищник",
+        "flavor": "Я выслежу тебя.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4",
+            "effect": "И < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "6",
+            "effect": "И < СРЕДНИЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "10",
+            "effect": "И < СИЛЬНЫЙ, замедление (до прох.)"
+          }
+        ],
+        "effect": "Цель не может быть скрыта от вас в течение 24 часов. До конца боевой встречи, всякий раз, когда цель добровольно перемещается, вы можете использовать свободный триггер для перемещения.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/apex-predator",
+        "originalName": "Apex Predator",
+        "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/apex-predator",
+      "originalName": "Apex Predator",
+      "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move."
+    },
+    {
+      "id": "feature.ability.fury.level-2.visceral-roar",
+      "kind": "ability",
+      "name": "Внутренний Рев",
+      "markdown": "> **Внутренний Рев (5 Свирепости)**\n>\n> *Шум бури внутри вас ошеломляет ваших противников.*\n>\n> | **Область, Магия** | **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 2 урона; толчок 1; М < СЛАБЫЙ, оглушение (до прох.)\n> - **12-16:** 5 урона; толчок 2; М < СРЕДНИЙ, оглушение (до прох.)\n> - **17+:** 7 урона; толчок 3; М < СИЛЬНЫЙ, оглушение (до прох.)\n>\n> **Эффект:** Эта способность наносит урон вашего первозданного типа урона (смотрите [Комплекты буревестника](#/codex/0924)).",
+      "source": {
+        "articleId": "0802",
+        "path": "08. Классы/Неистовый/0802. 2-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-2.visceral-roar",
+        "name": "Внутренний Рев",
+        "flavor": "Шум бури внутри вас ошеломляет ваших противников.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Толчок 1; М < СЛАБЫЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "5",
+            "effect": "Толчок 2; М < СРЕДНИЙ, оглушение (до прох.)"
+          },
+          {
+            "damage": "7",
+            "effect": "Толчок 3; М < СИЛЬНЫЙ, оглушение (до прох.)"
+          }
+        ],
+        "effect": "Эта способность наносит урон вашего первозданного типа урона (смотрите Комплекты буревестника).",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/visceral-roar",
+        "originalName": "Visceral Roar",
+        "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/visceral-roar",
+      "originalName": "Visceral Roar",
+      "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits)."
+    }
+  ]
+}

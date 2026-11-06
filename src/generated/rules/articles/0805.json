@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0805",
+      "title": "5-й Уровень Неистового",
+      "chapter": "08. Классы",
+      "group": "Неистовый",
+      "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи неистовым 5-го уровня, вы получаете следующие особенности.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-5.5th-level-aspect-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-5.bounder"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-5.stormborn"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-5.unfettered"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.fury.level-5.9-ferocity-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-5.debilitating-strike"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-5.my-turn"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-5.rebounding-storm"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.fury.level-5.to-stone"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level fury, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.fury.level-5.5th-level-aspect-feature",
+      "kind": "feature",
+      "name": "Особенность аспекта 5-го уровня",
+      "markdown": "#### Особенность аспекта 5-го уровня\nВаш первозданный аспект дает вам особенность, как показано в таблице Особенностей аспекта 5-го уровня.\n###### Таблица особенностей аспекта 5-го уровня\n\n| Аспект | Особенность |\n| ---------- | ---------- |\n| Берсерк | Прыгун |\n| Разоритель | Раскованный |\n| Буревестник| Рожденный штормом |\n\n",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/5th-level-aspect-feature",
+      "originalName": "5th-Level Aspect Feature",
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 5th-Level Aspect Features table.\n\n###### 5th-Level Aspect Features Table\n\n| Aspect     | Feature    |\n|------------|------------|\n| Berserker  | Bounder    |\n| Reaver     | Unfettered |\n| Stormwight | Stormborn  |"
+    },
+    {
+      "id": "feature.fury.level-5.bounder",
+      "kind": "feature",
+      "name": "Прыгун",
+      "markdown": "##### Прыгун\nВаша дистанция и высота прыжка удваиваются (смотрите [Виды движения](#/codex/1305)). Дополнительно, когда вы падаете, вы уменьшаете эффективную высоту вашего падения на количество клеток, равное дистанции вашего прыжка, для цели определения урона и того, приземлитесь ли вы лежачим (смотрите [Падение](#/codex/1305)). Вы не становитесь лежачим после падения и приземления на другое существо.\n",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/bounder",
+      "originalName": "Bounder",
+      "originalDescription": "Your jump distance and height double (see Movement Types in Chapter 10: Combat). Additionally, when you fall, you reduce the effective height of your fall by a number of squares equal to your jump distance for the purpose of determining damage and whether you land prone (see Falling in Chapter 10). You are not prone after falling and landing on another creature."
+    },
+    {
+      "id": "feature.fury.level-5.stormborn",
+      "kind": "feature",
+      "name": "Рожденный штормом",
+      "markdown": "##### Рожденный штормом\nВы и каждый союзник в пределах 5 клеток от вас игнорируете негативные эффекты от ненастной погоды, такие как помехи или урон от окружающей среды. Дополнительно, вы можете использовать особенность Благословение удачной погоды, как если бы вы были проводником 1-го уровня (смотрите Особенность домена 1-го уровня в разделе Проводника).\n",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/stormborn",
+      "originalName": "Stormborn",
+      "originalDescription": "You and each ally within 5 squares of you ignore negative effects from inclement weather, such as banes or environmental damage. Additionally, you can use the Blessing of Fortunate Weather feature as if you were a 1st-level conduit (see 1st-Level Domain Feature in the Conduit section)."
+    },
+    {
+      "id": "feature.fury.level-5.unfettered",
+      "kind": "feature",
+      "name": "Раскованный",
+      "markdown": "##### Раскованный\nВ начале вашего хода вы можете завершить любое состояние опутанности на вас. Дополнительно, у вас есть двойное преимущество на тесты, сделанные для побега из заключения.\n\n---\n",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/unfettered",
+      "originalName": "Unfettered",
+      "originalDescription": "At the start of your turn, you can end any restrained condition on you. Additionally, you have a double edge on tests made to escape being confined or imprisoned."
+    },
+    {
+      "id": "feature.fury.level-5.9-ferocity-ability",
+      "kind": "feature",
+      "name": "Способность за 9 свирепости",
+      "markdown": "#### Способность за 9 свирепости\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 9 свирепости для использования.\n\n",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.fury.level-5/9-ferocity-ability",
+      "originalName": "9-Ferocity Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 ferocity to use."
+    },
+    {
+      "id": "feature.ability.fury.level-5.debilitating-strike",
+      "kind": "ability",
+      "name": "Ослабляющий Удар",
+      "markdown": "> **Ослабляющий Удар (9 Свирепости)**\n>\n> *Вам нужен всего один удар, чтобы саботировать вашу цель.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 10 + М урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 14 + М урона; М < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 20 + М урона; М < СИЛЬНЫЙ, замедление (до прох.)\n>\n> **Эффект:** Находясь в состоянии замедления таким образом, цель получает 1 урон за каждую клетку, на которую она перемещается, включая принудительное движение.",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-5.debilitating-strike",
+        "name": "Ослабляющий Удар",
+        "flavor": "Вам нужен всего один удар, чтобы саботировать вашу цель.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "10 + M",
+            "effect": "М < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "14 + M",
+            "effect": "М < СРЕДНИЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "20 + M",
+            "effect": "М < СИЛЬНЫЙ, замедление (до прох.)"
+          }
+        ],
+        "effect": "Находясь в состоянии замедления таким образом, цель получает 1 урон за каждую клетку, на которую она перемещается, включая принудительное движение.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/debilitating-strike",
+        "originalName": "Debilitating Strike",
+        "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/debilitating-strike",
+      "originalName": "Debilitating Strike",
+      "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement."
+    },
+    {
+      "id": "feature.ability.fury.level-5.my-turn",
+      "kind": "ability",
+      "name": "Моя Очередь!",
+      "markdown": "> **Моя Очередь! (9 Свирепости)**\n>\n> *Вы быстро наносите ответный удар врагу.*\n>\n> | **Ближний, Удар, Оружие** | **Свободный триггер** |\n> | ------------------------- | -----------------------------: |\n> | **📏 Ближний 1** | **🎯 Вызвавшее триггер существо** |\n>\n> **Триггер:** Существо заставляет вас войти в состояние утомления или быть при смерти, или наносит вам урон, пока вы находитесь в состоянии утомления или при смерти.\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 6 + М урона\n> - **12-16:** 9 + М урона\n> - **17+:** 13 + М урона\n>\n> **Эффект:** Вы можете потратить Восстановление.",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-5.my-turn",
+        "name": "Моя Очередь!",
+        "flavor": "Вы быстро наносите ответный удар врагу.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Вызвавшее триггер существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "Существо заставляет вас войти в состояние утомления или быть при смерти, или наносит вам урон, пока вы находитесь в состоянии утомления или при смерти.",
+        "tiers": [
+          {
+            "damage": "6 + M",
+            "effect": ""
+          },
+          {
+            "damage": "9 + M",
+            "effect": ""
+          },
+          {
+            "damage": "13 + M",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете потратить Восстановление.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+        "originalName": "My Turn!",
+        "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
+      "originalName": "My Turn!",
+      "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
+    },
+    {
+      "id": "feature.ability.fury.level-5.rebounding-storm",
+      "kind": "ability",
+      "name": "Разбрасывающий Шторм",
+      "markdown": "> **Разбрасывающий Шторм (9 Свирепости)**\n>\n> *Вы разбрасываете врагов как игрушки.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ------------------------------: |\n> | **📏 Ближний 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 9 урона; толчок 3\n> - **12-16:** 14 урона; толчок 5\n> - **17+:** 19 урона; толчок 7\n>\n> **Эффект:** Когда цель должна закончить это принудительное движение, столкнувшись с существом или объектом, она получает урон как обычно, а затем отталкивается на оставшееся расстояние от существа или объекта в том направлении, откуда она пришла. Пока остается принудительное движение, этот эффект продолжается, если цель сталкивается с другим существом или объектом.",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-5.rebounding-storm",
+        "name": "Разбрасывающий Шторм",
+        "flavor": "Вы разбрасываете врагов как игрушки.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Два существа или объекта",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "9",
+            "effect": "Толчок 3"
+          },
+          {
+            "damage": "14",
+            "effect": "Толчок 5"
+          },
+          {
+            "damage": "19",
+            "effect": "Толчок 7"
+          }
+        ],
+        "effect": "Когда цель должна закончить это принудительное движение, столкнувшись с существом или объектом, она получает урон как обычно, а затем отталкивается на оставшееся расстояние от существа или объекта в том направлении, откуда она пришла. Пока остается принудительное движение, этот эффект продолжается, если цель сталкивается с другим существом или объектом.",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/rebounding-storm",
+        "originalName": "Rebounding Storm",
+        "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/rebounding-storm",
+      "originalName": "Rebounding Storm",
+      "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object."
+    },
+    {
+      "id": "feature.ability.fury.level-5.to-stone",
+      "kind": "ability",
+      "name": "Плоть в Камень!",
+      "markdown": "> **Плоть в Камень! (9 Свирепости)**\n>\n> *Вы направляете Первозданный Хаос в удары, которые превращают вашего врага в камень... в буквальном смысле.*\n>\n> | **Магия, Ближний, Удар, Оружие** | **Основное действие** |\n> | -------------------------------- | ------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + Мощь:**\n>\n> - **≤11:** 9 + М урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 13 + М урона; М < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 18 + М урона; М < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Пока цель замедлена таким образом, любой другой эффект, который заставил бы цель стать замедленной, вместо этого делает ее опутанной этой способностью. Дополнительно, существо, которое проваливает спасбросок, находясь опутанным таким образом, становится окаменевшим, пока ему не дадут сверхъестественное лечение или вы не решите отменить эффект (действие не требуется).",
+      "source": {
+        "articleId": "0805",
+        "path": "08. Классы/Неистовый/0805. 5-й Уровень Неистового.md"
+      },
+      "ability": {
+        "id": "feature.ability.fury.level-5.to-stone",
+        "name": "Плоть в Камень!",
+        "flavor": "Вы направляете Первозданный Хаос в удары, которые превращают вашего врага в камень... в буквальном смысле.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "9 + M",
+            "effect": "М < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "13 + M",
+            "effect": "М < СРЕДНИЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "18 + M",
+            "effect": "М < СИЛЬНЫЙ, опутанность (до прох.)"
+          }
+        ],
+        "effect": "Пока цель замедлена таким образом, любой другой эффект, который заставил бы цель стать замедленной, вместо этого делает ее опутанной этой способностью. Дополнительно, существо, которое проваливает спасбросок, находясь опутанным таким образом, становится окаменевшим, пока ему не дадут сверхъестественное лечение или вы не решите отменить эффект (действие не требуется).",
+        "source": "Неистовый",
+        "notes": "",
+        "className": "Неистовый",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+        "originalName": "To Stone!",
+        "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
+      "originalName": "To Stone!",
+      "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
+    }
+  ]
+}

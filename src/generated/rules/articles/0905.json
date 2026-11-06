@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0905",
+      "title": "Вихрь",
+      "chapter": "09. Комплекты",
+      "group": "Список Комплектов",
+      "path": "09. Комплекты/Список Комплектов/0905. Вихрь.md",
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "kit.whirlwind"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.whirlwind.extension-of-my-arm"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/kit/whirlwind",
+      "originalName": "Whirlwind",
+      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you."
+    }
+  ],
+  "entities": [
+    {
+      "id": "kit.whirlwind",
+      "kind": "kit",
+      "name": "Вихрь",
+      "markdown": "Комплект Вихрь эффективно использует хлысты, предоставляя вам мобильность, урон и досягаемость. Если вы хотите быть быстро движущимся воином, который хлещет врагов цепью или хлыстом, то это комплект для вас.\n\n##### Снаряжение\n\nВы не носите доспехов и владеете хлыстом.\n\n##### Бонусы комплекта\n\n**Бонус к скорости:** +3\n\n**Бонус к урону (Ближний):** +1/+1/+1\n\n**Бонус к расстоянию (Ближний):** +1\n\n**Бонус к отходу:** +1\n\n##### Знаковая способность\n\n",
+      "source": {
+        "articleId": "0905",
+        "path": "09. Комплекты/Список Комплектов/0905. Вихрь.md"
+      },
+      "originalId": "mcdm.heroes.v1/kit/whirlwind",
+      "originalName": "Whirlwind",
+      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you.\n\n##### Equipment\n\nYou wear no armor and wield a whip.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Extension of My Arm\n\n*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3"
+    },
+    {
+      "id": "feature.ability.whirlwind.extension-of-my-arm",
+      "kind": "ability",
+      "name": "Продолжение Моей Руки",
+      "markdown": "> **Продолжение Моей Руки**\n> \n> *Когда вы отводите свой хлыст назад после атаки, ваш враг подтягивается все ближе.*\n> \n> | **Ближний, Удар, Оружие** |     **Основное действие** |\n> | ------------------------- | ------------------------: |\n> | **📏 Ближний 3** | **🎯 Одно существо** |\n> \n> **Бросок силы + Мощь или Ловкость:**\n> \n> - **≤11:** 4 + М или Л урона; вертикальное притягивание 1\n> - **12-16:** 7 + М или Л урона; вертикальное притягивание 2\n> - **17+:** 10 + М или Л урона; вертикальное притягивание 3",
+      "source": {
+        "articleId": "0905",
+        "path": "09. Комплекты/Список Комплектов/0905. Вихрь.md"
+      },
+      "ability": {
+        "id": "feature.ability.whirlwind.extension-of-my-arm",
+        "name": "Продолжение Моей Руки",
+        "flavor": "Когда вы отводите свой хлыст назад после атаки, ваш враг подтягивается все ближе.",
+        "actionType": "main",
+        "kind": "signature",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 3",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "might",
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + M или A",
+            "effect": "Вертикальное притягивание 1"
+          },
+          {
+            "damage": "7 + M или A",
+            "effect": "Вертикальное притягивание 2"
+          },
+          {
+            "damage": "10 + M или A",
+            "effect": "Вертикальное притягивание 3"
+          }
+        ],
+        "effect": "",
+        "source": "Комплект: Вихрь",
+        "notes": "",
+        "className": "Комплект: Вихрь",
+        "level": 1,
+        "sourceKind": "kit",
+        "preferredCharacteristic": "might",
+        "originalId": "mcdm.heroes.v1/feature.ability.whirlwind/extension-of-my-arm",
+        "originalName": "Extension of My Arm",
+        "originalDescription": "*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.whirlwind/extension-of-my-arm",
+      "originalName": "Extension of My Arm",
+      "originalDescription": "*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3"
+    }
+  ]
+}

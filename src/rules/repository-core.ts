@@ -43,6 +43,8 @@ export type RuleSearchLoader = () => Promise<RuleSearchIndex>;
 export interface RuleRepositoryOptions {
   manifest: RuleManifest;
   loadPack: RulePackLoader;
+  /** Optional self-contained article delivery, avoiding a full chapter request. */
+  loadArticlePack?: (articleId: string) => Promise<RulePack>;
   /** Загружает полный поисковый корпус; вызывается только при первом поиске. */
   loadSearchIndex: RuleSearchLoader;
 }
@@ -135,6 +137,7 @@ function validateSearchIndex(
 export function createRuleRepository({
   manifest,
   loadPack,
+  loadArticlePack,
   loadSearchIndex,
 }: RuleRepositoryOptions): RuleRepository {
   const entriesById = new Map(
@@ -183,7 +186,20 @@ export function createRuleRepository({
         { ruleId: id },
       );
     }
-    const pack = await loadPackOnce(entry.packId);
+    let pack: RulePack;
+    // A class landing requests its aggregate entity first. Reuse that in-flight
+    // chapter for all level articles instead of downloading ten duplicate shards.
+    if (loadArticlePack && !packPromises.has(entry.packId)) {
+      try {
+        pack = validatePack(entry.packId, await loadArticlePack(id));
+      } catch (reason) {
+        if (reason instanceof RuleDataError) throw reason;
+        throw new RuleDataError("pack-failed", `Не удалось загрузить статью «${id}».`,
+          { ruleId: id, packId: entry.packId, reason });
+      }
+    } else {
+      pack = await loadPackOnce(entry.packId);
+    }
     const article = pack.articles.find((candidate) => candidate.id === id);
     if (!article) {
       throw new RuleDataError(

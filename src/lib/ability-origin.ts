@@ -3,7 +3,7 @@ import { canonicalAbilityId } from "../data/originals";
 import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
 import { DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
-import { LEVEL_UP_RULES } from "../data/level-up-rules";
+import { LEVEL_UP_GRANTS } from "../rules/consumer-level-up-grants";
 import { FEATURE_MECHANICS } from "../data/class-features/mechanics";
 import {
   ancestryAbilityEntries,
@@ -129,7 +129,7 @@ export function subclassAbilitySources(
 
   // Гранты уровней: только записи с явным подклассом. Обычные гранты класса
   // (без `subclasses`) к подклассу не относятся.
-  for (const rule of LEVEL_UP_RULES) {
+  for (const rule of LEVEL_UP_GRANTS) {
     if (normalize(rule.className) !== className || rule.level > level) continue;
     for (const grant of rule.grantedAbilities ?? []) {
       const subclasses = grant.subclasses ?? [];

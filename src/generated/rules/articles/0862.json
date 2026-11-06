@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0862",
+      "title": "2-й Уровень Тени",
+      "chapter": "08. Классы",
+      "group": "Тень",
+      "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тенью 2-го уровня, вы получаете следующие особенностии.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.2nd-level-college-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.burning-ash"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.friend"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.trained-assassin"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.2nd-level-college-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.black-ash-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.in-a-puff-of-ash"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.too-slow"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.caustic-alchemy-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.sticky-bomb"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.stink-bomb"
+        },
+        {
+          "type": "markdown",
+          "text": "\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-2.harlequin-mask-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.machinations-of-sound"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-2.so-gullible"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
+      "originalName": "2nd-Level Features",
+      "originalDescription": "As a 2nd-level shadow, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.shadow.level-2.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк исследования, межличностных навыков или интриги по вашему выбору. Смотрите [Перки](#/codex/1001).\n\n---\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks."
+    },
+    {
+      "id": "feature.shadow.level-2.2nd-level-college-feature",
+      "kind": "feature",
+      "name": "Особенность коллегии 2-го уровня",
+      "markdown": "#### Особенность коллегии 2-го уровня\n\nВаша коллегия тени дает вам особенность, как показано в таблице Особенностей коллегии 2-го уровня.\n\n###### Таблица особенностей коллегии 2-го уровня\n\n| Коллегия | Особенность |\n| --------------- | ---------------- |\n| Черный Пепел | Горящий пепел |\n| Едкая Алхимия | Обученный убийца |\n| Маска Арлекина | Друг! |\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-feature",
+      "originalName": "2nd-Level College Feature",
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 2nd-Level College Features table.\n\n###### 2nd-Level College Features Table\n\n| College                    | Feature          |\n|----------------------------|------------------|\n| Black Ash                  | Burning Ash      |\n| Caustic Alchemy            | Trained Assassin |\n| Harlequin Mask             | Friend!          |"
+    },
+    {
+      "id": "feature.shadow.level-2.burning-ash",
+      "kind": "feature",
+      "name": "Горящий пепел",
+      "markdown": "##### Горящий пепел\n\nПепел, который вы оставляете после себя, обжигает ваших врагов. В первый раз за ход, когда вы используете способность тени для телепортации из или на клетку, смежную с врагом, этот враг получает урон огнем, равный показателю вашей Ловкости.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/burning-ash",
+      "originalName": "Burning Ash",
+      "originalDescription": "The ash you leave behind burns your foes. The first time on a turn that you use a shadow ability to teleport away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score."
+    },
+    {
+      "id": "feature.shadow.level-2.friend",
+      "kind": "feature",
+      "name": "Друг!",
+      "markdown": "##### Друг!\n\nВаши иллюзии заставляют врагов поверить, что вы их друг в критические моменты. Всякий раз, когда враг использует способность или черту, нацеленную на нескольких союзников, и вы находитесь в пределах расстояния эффекта, вы можете выбрать стать целью этого эффекта тоже.\n\nДополнительно, когда вы используете свою способность Я не угроза, вы можете использовать Действие отхода как часть этой способности.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/friend",
+      "originalName": "Friend!",
+      "originalDescription": "Your illusions make your enemies believe you are their friend in critical moments. Whenever an enemy uses an ability or trait that targets multiple allies and you are within distance of the effect, you can choose to be a target of the effect as well.\n\nAdditionally, when you use your I'm No Threat ability, you can take the Disengage move action as part of that ability."
+    },
+    {
+      "id": "feature.shadow.level-2.trained-assassin",
+      "kind": "feature",
+      "name": "Обученный убийца",
+      "markdown": "##### Обученный убийца\n\nВы знаете, куда именно бить своих врагов. Всякий раз, когда вы наносите удар, не имеющий помехи или двойной помехи, и который включает 1 или более всплесков, вы получаете 1 дополнительный всплеск, который можно использовать только на этот удар.\n\n---\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/trained-assassin",
+      "originalName": "Trained Assassin",
+      "originalDescription": "You know just where to cut your enemies. Whenever you make a strike that has no bane or double bane, and that incorporates 1 or more surges, you gain 1 additional surge that you can use only on that strike."
+    },
+    {
+      "id": "feature.shadow.level-2.2nd-level-college-ability",
+      "kind": "feature",
+      "name": "Способность коллегии 2-го уровня",
+      "markdown": "#### Способность коллегии 2-го уровня\n\nВаша коллегия тени дает вам на выбор одну из двух героических способностей.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-ability",
+      "originalName": "2nd-Level College Ability",
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Black Ash Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Caustic Alchemy Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Harlequin Mask Ability\n\nChoose one of the following abilities."
+    },
+    {
+      "id": "feature.shadow.level-2.black-ash-ability",
+      "kind": "feature",
+      "name": "Способность Черного Пепла 2-го уровня",
+      "markdown": "##### Способность Черного Пепла 2-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Black Ash Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.shadow.level-2.in-a-puff-of-ash",
+      "kind": "ability",
+      "name": "В Облаке Пепла",
+      "markdown": "> **В Облаке Пепла (5 Прозрения)**\n>\n> *Вы зачаровываете удар своей магией телепортации.*\n>\n> | **Магия, Ближний, Дальний, Удар, Оружие** | **Основное действие** |\n> | ---------------------------------------- | ------------------: |\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 6 + Л урона; вы можете телепортировать цель на 1 клетку\n> - **12-16:** 10 + Л урона; вы можете телепортировать цель вплоть до 3 клеток\n> - **17+:** 14 + Л урона; вы можете телепортировать цель вплоть до 5 клеток",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.in-a-puff-of-ash",
+        "name": "В Облаке Пепла",
+        "flavor": "Вы зачаровываете удар своей магией телепортации.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Ближний",
+          "Дальний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1 или дальний 5",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "6 + A",
+            "effect": "Вы можете телепортировать цель на 1 клетку"
+          },
+          {
+            "damage": "10 + A",
+            "effect": "Вы можете телепортировать цель вплоть до 3 клеток"
+          },
+          {
+            "damage": "14 + A",
+            "effect": "Вы можете телепортировать цель вплоть до 5 клеток"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/in-a-puff-of-ash",
+        "originalName": "In a Puff of Ash",
+        "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/in-a-puff-of-ash",
+      "originalName": "In a Puff of Ash",
+      "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares"
+    },
+    {
+      "id": "feature.ability.shadow.level-2.too-slow",
+      "kind": "ability",
+      "name": "Слишком Медленно",
+      "markdown": "> **Слишком Медленно (5 Прозрения)**\n>\n> *Твой враг совершил большую ошибку.*\n>\n> | **-** | **Свободный триггер** |\n> | ---------------------- | -----------------: |\n> | **📏 На себя; смотрите ниже** | **🎯 На себя** |\n>\n> **Триггер:** Вы используете способность Во всей этой неразберихе.\n>\n> **Эффект:** Вы игнорируете любые эффекты, связанные с уроном, который вызвал вашу способность Во всей этой неразберихе. Перед телепортацией вы можете нанести свободный удар по существу, которое нанесло вам урон, чтобы вызвать Во всей этой неразберихе. После телепортации вы можете потратить Восстановление.",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.too-slow",
+        "name": "Слишком Медленно",
+        "flavor": "Твой враг совершил большую ошибку.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [],
+        "distance": "На себя; смотрите ниже",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "Вы используете способность Во всей этой неразберихе.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы игнорируете любые эффекты, связанные с уроном, который вызвал вашу способность Во всей этой неразберихе. Перед телепортацией вы можете нанести свободный удар по существу, которое нанесло вам урон, чтобы вызвать Во всей этой неразберихе. После телепортации вы можете потратить Восстановление.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/too-slow",
+        "originalName": "Too Slow",
+        "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/too-slow",
+      "originalName": "Too Slow",
+      "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery."
+    },
+    {
+      "id": "feature.shadow.level-2.caustic-alchemy-ability",
+      "kind": "feature",
+      "name": "Способность Едкой Алхимии 2-го уровня",
+      "markdown": "##### Способность Едкой Алхимии 2-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Caustic Alchemy Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.shadow.level-2.sticky-bomb",
+      "kind": "ability",
+      "name": "Бомба-Липучка",
+      "markdown": "> **Бомба-Липучка (5 Прозрения)**\n>\n> *Взрывчатка лучше всего работает, когда она прикреплена к врагу.*\n>\n> | **Дальний** | **Основное действие** |\n> | ---------------- | ------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Эффект:** Вы прикрепляете небольшую бомбу к существу. Если вы скрыты от существа, оно не замечает бомбу, и вы остаетесь скрытыми. В противном случае существо замечает бомбу и может обезвредить и удалить ее как основное действие. Если оно этого не сделает, в конце вашего следующего хода бомба взрывается. Когда бомба взрывается, вы делаете бросок силы, нацеленный на каждого врага в пределах 2 клеток от нее.\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 4 + Л урона огнем\n> - **12-16:** 7 + Л урона огнем\n> - **17+:** 11 + Л урона огнем",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.sticky-bomb",
+        "name": "Бомба-Липучка",
+        "flavor": "Взрывчатка лучше всего работает, когда она прикреплена к врагу.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Дальний"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "4 + A",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "7 + A",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "11 + A",
+            "effect": "Огнем"
+          }
+        ],
+        "effect": "Вы прикрепляете небольшую бомбу к существу. Если вы скрыты от существа, оно не замечает бомбу, и вы остаетесь скрытыми. В противном случае существо замечает бомбу и может обезвредить и удалить ее как основное действие. Если оно этого не сделает, в конце вашего следующего хода бомба взрывается. Когда бомба взрывается, вы делаете бросок силы, нацеленный на каждого врага в пределах 2 клеток от нее.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/sticky-bomb",
+        "originalName": "Sticky Bomb",
+        "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/sticky-bomb",
+      "originalName": "Sticky Bomb",
+      "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage"
+    },
+    {
+      "id": "feature.ability.shadow.level-2.stink-bomb",
+      "kind": "ability",
+      "name": "Вонючая Бомба",
+      "markdown": "> **Вонючая Бомба (5 Прозрения)**\n>\n> *Гнилой желтый газ вырывается из брошенной вами бомбы.*\n>\n> | **Область, Дальний** | **Основное действие** |\n> | ----------------------- | -------------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 2 урона ядом\n> - **12-16:** 5 урона ядом\n> - **17+:** 7 урона ядом\n>\n> **Эффект:** Газ остается в области до конца боевой встречи. Любое существо, которое начинает свой ход в области и имеет М < СРЕДНИЙ, ослаблено (до прох.).",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.stink-bomb",
+        "name": "Вонючая Бомба",
+        "flavor": "Гнилой желтый газ вырывается из брошенной вами бомбы.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Дальний"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждое существо в области",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Ядом"
+          },
+          {
+            "damage": "5",
+            "effect": "Ядом"
+          },
+          {
+            "damage": "7",
+            "effect": "Ядом"
+          }
+        ],
+        "effect": "Газ остается в области до конца боевой встречи. Любое существо, которое начинает свой ход в области и имеет М < СРЕДНИЙ, ослаблено (до прох.).",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+        "originalName": "Stink Bomb",
+        "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
+      "originalName": "Stink Bomb",
+      "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
+    },
+    {
+      "id": "feature.shadow.level-2.harlequin-mask-ability",
+      "kind": "feature",
+      "name": "Способность Маски Арлекина 2-го уровня",
+      "markdown": "##### Способность Маски Арлекина 2-го уровня\n\nВыберите одну из следующих способностей.\n\n",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "originalId": "",
+      "originalName": "2nd-Level Harlequin Mask Ability",
+      "originalDescription": "Choose one of the following abilities."
+    },
+    {
+      "id": "feature.ability.shadow.level-2.machinations-of-sound",
+      "kind": "ability",
+      "name": "Звуковые Махинации",
+      "markdown": "> **Звуковые Махинации (5 Прозрения)**\n>\n> *Иллюзорные звуки заставляют ваших врагов менять позиции, пока они разбредаются в суматохе или расследуют беспокойство.*\n>\n> | **Область, Магия, Дальний** | **Маневр** |\n> | ----------------------- | -------------------------------: |\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** Швыряние 4\n> - **12-16:** Швыряние 5\n> - **17+:** Швыряние 7\n>\n> **Эффект:** Это принудительное движение игнорирует устойчивость. Вместо этого принудительное движение уменьшается на число, равное показателю Интуиции цели.",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.machinations-of-sound",
+        "name": "Звуковые Махинации",
+        "flavor": "Иллюзорные звуки заставляют ваших врагов менять позиции, пока они разбредаются в суматохе или расследуют беспокойство.",
+        "actionType": "maneuver",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 3 в пределах 10",
+        "target": "Каждое существо в области",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": "Швыряние 4"
+          },
+          {
+            "damage": "",
+            "effect": "Швыряние 5"
+          },
+          {
+            "damage": "",
+            "effect": "Швыряние 7"
+          }
+        ],
+        "effect": "Это принудительное движение игнорирует устойчивость. Вместо этого принудительное движение уменьшается на число, равное показателю Интуиции цели.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/machinations-of-sound",
+        "originalName": "Machinations of Sound",
+        "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/machinations-of-sound",
+      "originalName": "Machinations of Sound",
+      "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score."
+    },
+    {
+      "id": "feature.ability.shadow.level-2.so-gullible",
+      "kind": "ability",
+      "name": "Такой Доверчивый",
+      "markdown": "> **Такой Доверчивый (5 Прозрения)**\n>\n> *Когда ваш враг наносит удар, вы обнаруживаете, что все это время были в другом месте.*\n>\n> | **Магия** | **Свободный триггер** |\n> | ----------- | -----------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Другое существо нацеливается на вас ударом.\n>\n> **Эффект:** Вы используете свою способность Умный трюк без затрат прозрения против вызвавшего триггер существа и удара. Вы можете телепортироваться на свободную клетку в пределах 3 клеток от этого существа и можете нанести по нему свободный удар. Затем вы можете потратить Восстановление.",
+      "source": {
+        "articleId": "0862",
+        "path": "08. Классы/Тень/0862. 2-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-2.so-gullible",
+        "name": "Такой Доверчивый",
+        "flavor": "Когда ваш враг наносит удар, вы обнаруживаете, что все это время были в другом месте.",
+        "actionType": "free-trigger",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 5,
+        "trigger": "Другое существо нацеливается на вас ударом.",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы используете свою способность Умный трюк без затрат прозрения против вызвавшего триггер существа и удара. Вы можете телепортироваться на свободную клетку в пределах 3 клеток от этого существа и можете нанести по нему свободный удар. Затем вы можете потратить Восстановление.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 2,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/so-gullible",
+        "originalName": "So Gullible",
+        "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/so-gullible",
+      "originalName": "So Gullible",
+      "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery."
+    }
+  ]
+}

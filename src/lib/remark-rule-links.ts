@@ -1,10 +1,6 @@
 import type { Root, Nodes, Parents, PhrasingContent } from "mdast";
-import {
-  CATALOG,
-  GLOSSARY,
-  catalogEntryLink,
-  glossaryLink,
-} from "../data/library";
+import { READING_CATALOG as CATALOG, READING_GLOSSARY as GLOSSARY } from "../rules/consumer-reading";
+import { catalogEntryLink, glossaryLink } from "./library-utils";
 import { codexIndex } from "../rules/codex-navigation";
 import { searchText } from "./codex";
 

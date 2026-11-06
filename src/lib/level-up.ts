@@ -37,16 +37,8 @@ import { selectedGroupValue } from "./feature-conditions";
 
 export type { LevelUpAbilityGroup, LevelUpFeature, LevelUpRule };
 
-/** Draw Steel echelons cap the heroic progression at level ten. */
-export const MAX_CHARACTER_LEVEL = 10;
-/** Standard cumulative XP: the next level costs sixteen per level after the first. */
-export const LEVEL_UP_XP_STEP = 16;
-
-/** Cumulative XP required to be *at* `toLevel`. */
-export function levelUpXpRequirement(toLevel: number): number {
-  if (!Number.isFinite(toLevel)) return 0;
-  return Math.max(0, (Math.floor(toLevel) - 1) * LEVEL_UP_XP_STEP);
-}
+import { MAX_CHARACTER_LEVEL, levelUpProgress } from "./level-up-progress";
+export { MAX_CHARACTER_LEVEL, LEVEL_UP_XP_STEP, levelUpXpRequirement } from "./level-up-progress";
 
 export interface LevelUpRequest {
   characterId: string;
@@ -376,18 +368,7 @@ function learnedSkillKeys(character: Character): Set<string> {
 function buildContext(character: Character): LevelUpContext {
   const warnings: string[] = [];
   const level = Number.isSafeInteger(character.level) ? character.level : 1;
-  const fromLevel = level;
-  const toLevel = Math.min(
-    MAX_CHARACTER_LEVEL,
-    Math.max(1, level + 1),
-  );
-  const customThreshold = character.xpThreshold;
-  const xpRequired = customThreshold?.level === toLevel &&
-    Number.isSafeInteger(customThreshold.value) && customThreshold.value >= 0 && customThreshold.value <= 999999
-    ? customThreshold.value
-    : levelUpXpRequirement(toLevel);
-  const xp = Number.isFinite(character.xp) ? Number(character.xp) : 0;
-  const xpMissing = Math.max(0, xpRequired - xp);
+  const { fromLevel, toLevel, xpRequired, xpMissing } = levelUpProgress(character);
   const grown = baseCharacteristics(character);
   const classFeatures: LevelUpClassFeature[] = classFeatureGiftsAtLevel(
     character,

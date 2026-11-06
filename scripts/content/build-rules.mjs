@@ -555,6 +555,21 @@ export function buildRules({
     expected.set(path.join(outDir, "packs", `${packId}.json`), jsonText(pack));
   }
 
+  // A reader needs one article and its referenced entities, not an entire chapter.
+  // Reuse decorated pack records so original text and identifiers remain identical.
+  const deliveryEntities = new Map([...packs.values()].flatMap((pack) =>
+    pack.entities.map((entity) => [entity.id, entity])));
+  for (const pack of packs.values()) {
+    for (const article of pack.articles) {
+      const refs = new Set(article.blocks.filter((block) => block.type === "entity").map((block) => block.ref));
+      const entities = [...refs].map((id) => deliveryEntities.get(id));
+      if (entities.some((entity) => !entity)) throw new Error(`Missing article entity: ${article.id}`);
+      expected.set(path.join(outDir, "articles", `${article.id}.json`), jsonText({
+        schemaVersion: 1, articles: [article], entities,
+      }));
+    }
+  }
+
   const differences = [];
   if (check) {
     const actualFiles = walkJson(outDir);
@@ -583,7 +598,7 @@ export function buildRules({
   } else {
     for (const [file, text] of expected) {
       const directory = path.dirname(file);
-      if (file.includes(`${path.sep}packs${path.sep}`)) {
+      if (file.includes(`${path.sep}packs${path.sep}`) || file.includes(`${path.sep}articles${path.sep}`)) {
         try {
           for (const entry of readdirSync(directory)) {
             const full = path.join(directory, entry);

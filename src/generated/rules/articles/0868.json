@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0868",
+      "title": "8-й Уровень Тени",
+      "chapter": "08. Классы",
+      "group": "Тень",
+      "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи тенью 8-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.8th-level-college-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.cinder-step"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.parkour"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.time-bomb"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-8.time-bomb"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n---\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.shadow.level-8.11-insight-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-8.assassinate"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-8.shadowgrasp"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-8.speed-of-shadows"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.shadow.level-8.they-always-line-up"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
+      "originalName": "8th-Level Features",
+      "originalDescription": "As an 8th-level shadow, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.shadow.level-8.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
+    },
+    {
+      "id": "feature.shadow.level-8.8th-level-college-feature",
+      "kind": "feature",
+      "name": "Особенность коллегии 8-го уровня",
+      "markdown": "#### Особенность коллегии 8-го уровня\n\nВаша коллегия тени дает вам особенность, как показано в таблице Особенностей коллегии 8-го уровня.\n\n###### Таблица особенностей коллегии 8-го уровня\n\n| Коллегия | Особенность |\n| --------------- | ----------- |\n| Черный Пепел | Пепельный шаг |\n| Едкая Алхимия | Бомба замедленного действия |\n| Маска Арлекина | Паркур |\n\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/8th-level-college-feature",
+      "originalName": "8th-Level College Feature",
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 8th-Level College Features table.\n\n###### 8th-Level College Features Table\n\n| College         | Feature     |\n|-----------------|-------------|\n| Black Ash       | Cinder Step |\n| Caustic Alchemy | Time Bomb   |\n| Harlequin Mask  | Parkour     |"
+    },
+    {
+      "id": "feature.shadow.level-8.cinder-step",
+      "kind": "feature",
+      "name": "Пепельный шаг",
+      "markdown": "##### Пепельный шаг\n\nВсякий раз, когда вы добровольно перемещаетесь, вы можете телепортироваться. Когда вы телепортируетесь таким образом, это считается использованием способности тени для целей использования ваших особенностей Горящий пепел и След пепла.\n\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/cinder-step",
+      "originalName": "Cinder Step",
+      "originalDescription": "Whenever you willingly move, you can teleport. When you teleport this way, it counts as using a shadow ability for the purpose of using your Burning Ash and Trail of Cinders features."
+    },
+    {
+      "id": "feature.shadow.level-8.parkour",
+      "kind": "feature",
+      "name": "Паркур",
+      "markdown": "##### Паркур\n\nВаше движение больше не провоцирует атаки по возможности. Дополнительно, вы можете использовать вашу особенность Гамбит арлекина как свободный триггер, когда выносливость существа снижается до 0 вашей способностью Умный трюк.\n\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/parkour",
+      "originalName": "Parkour",
+      "originalDescription": "Your movement no longer provokes opportunity attacks. Additionally, you can use your Harlequin Gambit feature as a free triggered action when a creature is reduced to 0 Stamina by your Clever Trick ability."
+    },
+    {
+      "id": "feature.shadow.level-8.time-bomb",
+      "kind": "feature",
+      "name": "Бомба замедленного действия",
+      "markdown": "##### Бомба замедленного действия\n\nВы имеете иммунитет к урону от способностей и эффектов по области, равный показателю вашей Ловкости. У вас также есть следующая способность, которую вы можете использовать один раз за раунд в свой ход.\n\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/time-bomb",
+      "originalName": "Time Bomb",
+      "originalDescription": "You have damage immunity against area abilities and effects equal to your Agility score. You also have the following ability, which you can use once per round on your turn."
+    },
+    {
+      "id": "feature.ability.shadow.level-8.time-bomb",
+      "kind": "ability",
+      "name": "Бомба Замедленного Действия",
+      "markdown": "> **Бомба Замедленного Действия**\n>\n> *Чем дольше она готовится, тем больше взрыв.*\n>\n> | **Область, Дальний** | **Свободный маневр** |\n> | ----------------------- | ----------------------------: |\n> | **📏 Куб 2 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель получает урон кислотой, огнем или ядом (по вашему выбору), равный показателю вашей Ловкости.\n>\n> За каждый раунд боя, прошедший с момента последнего использования этой способности в текущем столкновении, область увеличивается на 1, и вы получаете 1 всплеск, который должен быть использован с этой способностью. После использования способности или в конце боевой встречи ее область и всплески сбрасываются.\n>\n> **Потратить 2+ Прозрения:** За каждые 2 потраченных прозрения вы увеличиваете размер куба на 1 и получаете 1 всплеск, который можно использовать только с этой способностью.",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-8.time-bomb",
+        "name": "Бомба Замедленного Действия",
+        "flavor": "Чем дольше она готовится, тем больше взрыв.",
+        "actionType": "free-maneuver",
+        "kind": "other",
+        "keywords": [
+          "Область",
+          "Дальний"
+        ],
+        "distance": "Куб 2 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 0,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Каждая цель получает урон кислотой, огнем или ядом (по вашему выбору), равный показателю вашей Ловкости.\n\nЗа каждый раунд боя, прошедший с момента последнего использования этой способности в текущем столкновении, область увеличивается на 1, и вы получаете 1 всплеск, который должен быть использован с этой способностью. После использования способности или в конце боевой встречи ее область и всплески сбрасываются.\n\nПотратить 2+ Прозрения: За каждые 2 потраченных прозрения вы увеличиваете размер куба на 1 и получаете 1 всплеск, который можно использовать только с этой способностью.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/time-bomb",
+        "originalName": "Time Bomb",
+        "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/time-bomb",
+      "originalName": "Time Bomb",
+      "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability."
+    },
+    {
+      "id": "feature.shadow.level-8.11-insight-ability",
+      "kind": "feature",
+      "name": "Способность за 11 прозрения",
+      "markdown": "#### Способность за 11 прозрения\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 11 прозрения для использования.\n\n",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.shadow.level-8/11-insight-ability",
+      "originalName": "11-Insight Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 insight to use."
+    },
+    {
+      "id": "feature.ability.shadow.level-8.assassinate",
+      "kind": "ability",
+      "name": "Убийство",
+      "markdown": "> **Убийство (11 Прозрения)**\n>\n> *Выработанная долгими тренировками атака мгновенно убьет уже ослабленного врага.*\n>\n> | **Ближний, Удар, Оружие** | **Основное действие** |\n> | ------------------------- | ----------------------------: |\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 12 + Л урона\n> - **12-16:** 18 + Л урона\n> - **17+:** 24 + Л урона\n>\n> **Эффект:** Цель, которая не является миньоном, лидером или соло-существом и которая утомлена после получения этого урона, снижает свою выносливость до 0.",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-8.assassinate",
+        "name": "Убийство",
+        "flavor": "Выработанная долгими тренировками атака мгновенно убьет уже ослабленного врага.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Ближний",
+          "Удар",
+          "Оружие"
+        ],
+        "distance": "Ближний 1",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "12 + A",
+            "effect": ""
+          },
+          {
+            "damage": "18 + A",
+            "effect": ""
+          },
+          {
+            "damage": "24 + A",
+            "effect": ""
+          }
+        ],
+        "effect": "Цель, которая не является миньоном, лидером или соло-существом и которая утомлена после получения этого урона, снижает свою выносливость до 0.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+        "originalName": "Assassinate",
+        "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
+      "originalName": "Assassinate",
+      "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
+    },
+    {
+      "id": "feature.ability.shadow.level-8.shadowgrasp",
+      "kind": "ability",
+      "name": "Теневая Хватка",
+      "markdown": "> **Теневая Хватка (11 Прозрения)**\n>\n> *Тени вокруг вас расступаются, позволяя созданию мрака внутри вас схватить ваших врагов.*\n>\n> | **Область, Магия** | **Основное действие** |\n> | --------------- | ----------------------------: |\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 11 урона порчей; Л < СЛАБЫЙ, опутанность (до прох.)\n> - **12-16:** 16 урона порчей; Л < СРЕДНИЙ, опутанность (до прох.)\n> - **17+:** 21 урона порчей; Л < СИЛЬНЫЙ, опутанность (до прох.)",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-8.shadowgrasp",
+        "name": "Теневая Хватка",
+        "flavor": "Тени вокруг вас расступаются, позволяя созданию мрака внутри вас схватить ваших врагов.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Магия"
+        ],
+        "distance": "Взрыв 2",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "11",
+            "effect": "Порчей; Л < СЛАБЫЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "16",
+            "effect": "Порчей; Л < СРЕДНИЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "21",
+            "effect": "Порчей; Л < СИЛЬНЫЙ, опутанность (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/shadowgrasp",
+        "originalName": "Shadowgrasp",
+        "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/shadowgrasp",
+      "originalName": "Shadowgrasp",
+      "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)"
+    },
+    {
+      "id": "feature.ability.shadow.level-8.speed-of-shadows",
+      "kind": "ability",
+      "name": "Скорость Теней",
+      "markdown": "> **Скорость Теней (11 Прозрения)**\n>\n> *Вы наносите несколько ударов врагу еще до того, как он поймет, что мертв.*\n>\n> | **Магия** | **Основное действие** |\n> | ----------- | --------------: |\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Вы можете использовать знаковую способность удара четыре раза; использовать знаковую способность удара, которая получает преимущество, три раза; или использовать знаковую способность удара, которая имеет двойное преимущество, два раза. Вы можете сместиться вплоть до 2 клеток между каждым использованием.",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-8.speed-of-shadows",
+        "name": "Скорость Теней",
+        "flavor": "Вы наносите несколько ударов врагу еще до того, как он поймет, что мертв.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия"
+        ],
+        "distance": "На себя",
+        "target": "На себя",
+        "rollCharacteristics": [],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          },
+          {
+            "damage": "",
+            "effect": ""
+          }
+        ],
+        "effect": "Вы можете использовать знаковую способность удара четыре раза; использовать знаковую способность удара, которая получает преимущество, три раза; или использовать знаковую способность удара, которая имеет двойное преимущество, два раза. Вы можете сместиться вплоть до 2 клеток между каждым использованием.",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/speed-of-shadows",
+        "originalName": "Speed of Shadows",
+        "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/speed-of-shadows",
+      "originalName": "Speed of Shadows",
+      "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use."
+    },
+    {
+      "id": "feature.ability.shadow.level-8.they-always-line-up",
+      "kind": "ability",
+      "name": "Они Всегда Выстраиваются в Ряд",
+      "markdown": "> **Они Всегда Выстраиваются в Ряд (11 Прозрения)**\n>\n> *Вы выпускаете снаряд так быстро, что он проходит сквозь строй врагов, подрезая им поджилки.*\n>\n> | **Область, Дальний, Оружие** | **Основное действие** |\n> | -------------------------- | ----------------------------: |\n> | **📏 Линия 5 x 1 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Ловкость:**\n>\n> - **≤11:** 12 урона; М < СЛАБЫЙ, замедление (до прох.)\n> - **12-16:** 18 урона; М < СРЕДНИЙ, замедление (до прох.)\n> - **17+:** 24 урона; М < СИЛЬНЫЙ, замедление (до прох.)",
+      "source": {
+        "articleId": "0868",
+        "path": "08. Классы/Тень/0868. 8-й Уровень Тени.md"
+      },
+      "ability": {
+        "id": "feature.ability.shadow.level-8.they-always-line-up",
+        "name": "Они Всегда Выстраиваются в Ряд",
+        "flavor": "Вы выпускаете снаряд так быстро, что он проходит сквозь строй врагов, подрезая им поджилки.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Дальний",
+          "Оружие"
+        ],
+        "distance": "Линия 5 x 1 в пределах 5",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "agility"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 11,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "12",
+            "effect": "М < СЛАБЫЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "18",
+            "effect": "М < СРЕДНИЙ, замедление (до прох.)"
+          },
+          {
+            "damage": "24",
+            "effect": "М < СИЛЬНЫЙ, замедление (до прох.)"
+          }
+        ],
+        "effect": "",
+        "source": "Тень",
+        "notes": "",
+        "className": "Тень",
+        "level": 8,
+        "sourceKind": "class",
+        "preferredCharacteristic": "agility",
+        "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/they-always-line-up",
+        "originalName": "They Always Line Up",
+        "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/they-always-line-up",
+      "originalName": "They Always Line Up",
+      "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)"
+    }
+  ]
+}

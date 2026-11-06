@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0814",
+      "title": "4-й Уровень Нуля",
+      "chapter": "08. Классы",
+      "group": "Нуль",
+      "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи нулем 4-го уровня, вы получаете следующие особенности.\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.characteristic-increase"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.discipline-mastery-improvement"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.enhanced-null-field"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.perk"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.regenerative-field"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.null.level-4.skill"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
+      "originalName": "4th-Level Features",
+      "originalDescription": "As a 4th-level null, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.null.level-4.characteristic-increase",
+      "kind": "feature",
+      "name": "Увеличение характеристик",
+      "markdown": "#### Увеличение характеристик\n\nВаши показатели Ловкости и Интуиции каждый увеличивается до 3.\n\n---\n",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/characteristic-increase",
+      "originalName": "Characteristic Increase",
+      "originalDescription": "Your Agility and Intuition scores each increase to 3."
+    },
+    {
+      "id": "feature.null.level-4.discipline-mastery-improvement",
+      "kind": "feature",
+      "name": "Улучшение мастерства дисциплины",
+      "markdown": "#### Улучшение мастерства дисциплины\n\nВаша Особенность Мастерство дисциплины предоставляет дополнительные преимущества, когда у вас есть 8 или более дисциплины.\n\n---\n",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/discipline-mastery-improvement",
+      "originalName": "Discipline Mastery Improvement",
+      "originalDescription": "Your Discipline Mastery feature provides additional benefits when you have 8 or more discipline."
+    },
+    {
+      "id": "feature.null.level-4.enhanced-null-field",
+      "kind": "feature",
+      "name": "Улучшенное поле нуля",
+      "markdown": "#### Улучшенное поле нуля\n\nИспользуя способность Поле нуля, вы разрушаете магическую и псионическую энергию, наполняющую область вокруг вас. Во время боя любые временные сверхъестественные эффекты местности вашего уровня или ниже удаляются, когда ваша аура частично или полностью перекрывается с их местоположением. Постоянные сверхъестественные эффекты местности вашего уровня или ниже временно сводятся на нет, пока ваша аура перекрывается с их местоположением, но возвращаются, когда аура больше не перекрывается с ними.\n\n---\n",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/enhanced-null-field",
+      "originalName": "Enhanced Null Field",
+      "originalDescription": "While using your Null Field ability, you disrupt magic and psionic power suffusing the area around you. During combat, any temporary supernatural terrain effects of your level or lower are removed when your aura partially or fully overlaps with their location. Permanent supernatural terrain effects of your level or lower are temporarily negated while your aura overlaps with their location, but return when the aura no longer overlaps with them."
+    },
+    {
+      "id": "feature.null.level-4.perk",
+      "kind": "feature",
+      "name": "Перк",
+      "markdown": "#### Перк\n\nВы получаете один перк по вашему выбору.\n\n---\n",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/perk",
+      "originalName": "Perk",
+      "originalDescription": "You gain one perk of your choice."
+    },
+    {
+      "id": "feature.null.level-4.regenerative-field",
+      "kind": "feature",
+      "name": "Регенеративное поле",
+      "markdown": "#### Регенеративное поле\n\nВ первый раз за раунд боя, когда враг в области вашей способности Поле нуля использует основное действие, вы получаете 2 дисциплины вместо 1.\n\n---\n",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/regenerative-field",
+      "originalName": "Regenerative Field",
+      "originalDescription": "The first time each combat round that an enemy in the area of your Null Field ability uses a main action, you gain 2 discipline instead of 1."
+    },
+    {
+      "id": "feature.null.level-4.skill",
+      "kind": "feature",
+      "name": "Навык",
+      "markdown": "#### Навык\n\nВы получаете один навык по вашему выбору. Смотрите [Навыки](#/codex/1208).",
+      "source": {
+        "articleId": "0814",
+        "path": "08. Классы/Нуль/0814. 4-й Уровень Нуля.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.null.level-4/skill",
+      "originalName": "Skill",
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
+    }
+  ]
+}

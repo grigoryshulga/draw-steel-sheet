@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "0895",
+      "title": "5-й Уровень Элементалиста",
+      "chapter": "08. Классы",
+      "group": "Элементалист",
+      "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md",
+      "blocks": [
+        {
+          "type": "markdown",
+          "text": "Будучи элементалистом 5-го уровня, вы получаете следующие особенности.\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.5th-level-specialization-feature"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.hide-of-tenfold-shields"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.the-mountain-does-not-move"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.pierce-the-veil-of-substance"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.smoldering-step"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.elementalist.level-5.9-essence-ability"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-5.combustion-deferred"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-5.storm-of-sands"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-5.subverted-perception-of-space"
+        },
+        {
+          "type": "markdown",
+          "text": "\n\n"
+        },
+        {
+          "type": "entity",
+          "ref": "feature.ability.elementalist.level-5.web-of-all-thats-come-before"
+        }
+      ],
+      "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
+      "originalName": "5th-Level Features",
+      "originalDescription": "As a 5th-level elementalist, you gain the following features."
+    }
+  ],
+  "entities": [
+    {
+      "id": "feature.elementalist.level-5.5th-level-specialization-feature",
+      "kind": "feature",
+      "name": "Особенность специализации 5-го уровня",
+      "markdown": "#### Особенность специализации 5-го уровня\n\nВаша элементальная специализация дает вам особенность, как показано в таблице Особенностей элементальной специализации 5-го уровня.\n\n###### Таблица особенностей элементальной специализации 5-го уровня\n\n| Специализация | Особенность                      |\n| -------------- | ---------------------------- |\n| Земля          | Гора не сдвинется   |\n| Огонь           | Тлеющий шаг              |\n| Зелень          | Шкура десятикратных щитов      |\n| Пустота           | Пробить завесу материи |\n\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/5th-level-specialization-feature",
+      "originalName": "5th-Level Specialization Feature",
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 5th-Level Elemental Specialization Features table.\n\n###### 5th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                      |\n|----------------|------------------------------|\n| Earth          | The Mountain Does Not Move   |\n| Fire           | Smoldering Step              |\n| Green          | Hide of Tenfold Shields      |\n| Void           | Pierce the Veil of Substance |"
+    },
+    {
+      "id": "feature.elementalist.level-5.hide-of-tenfold-shields",
+      "kind": "feature",
+      "name": "Шкура десятикратных щитов",
+      "markdown": "##### Шкура десятикратных щитов\n\nВаши животные формы становятся более выносливыми. Вы получаете временную Выносливость, равную вашему уровню, когда принимаете животную форму в бою, которая добавляется к любой временной Выносливости, обеспечиваемой животной формой.\n\nДополнительно, смежный союзник может использовать маневр, чтобы погладить вас. Если он это делает, вы можете потерять временную Выносливость вплоть до минимума 0. Союзник получает временную Выносливость, равную количеству, которое вы потеряли.\n\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/hide-of-tenfold-shields",
+      "originalName": "Hide of Tenfold Shields",
+      "originalDescription": "Your animal forms become hardier. You gain temporary Stamina equal to your level when you enter an animal form in combat, which is added to any temporary Stamina provided by the animal form.\n\nAdditionally, an adjacent ally can use a maneuver to pet you. If they do so, you can lose temporary Stamina down to a minimum of 0. The ally gains temporary Stamina equal to the amount you lost."
+    },
+    {
+      "id": "feature.elementalist.level-5.the-mountain-does-not-move",
+      "kind": "feature",
+      "name": "Гора не сдвинется",
+      "markdown": "##### Гора не сдвинется\n\nВы стоите твердо и намагничиваете своих союзников, чтобы они оставались на земле. Ваша устойчивость увеличивается на число вашего уровня.\n\nДополнительно, всякий раз, когда союзник в пределах расстояния вашей способности Бросок элемента подвергается принудительному движению, вы можете использовать свободный триггер, чтобы уменьшить свою устойчивость вплоть до минимума 0, затем увеличить устойчивость союзника на величину, равную устойчивости, которую вы потеряли. Это изменение длится до конца раунда.\n\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/the-mountain-does-not-move",
+      "originalName": "The Mountain Does Not Move",
+      "originalDescription": "You stand firm and magnetize your allies to stay grounded. Your stability increases by your level.\n\nAdditionally, whenever an ally within distance of your Hurl Element ability is force moved, you can use a free triggered action to decrease your stability down to a minimum of 0, then increase the ally's stability by an amount equal to the stability you lost. This change lasts until the end of the round."
+    },
+    {
+      "id": "feature.elementalist.level-5.pierce-the-veil-of-substance",
+      "kind": "feature",
+      "name": "Пробить завесу материи",
+      "markdown": "##### Пробить завесу материи\n\nПлотность — это лишь концепция для вас. Обычные преграды толщиной в 1 клетку или меньше не блокируют ваши чувства или линию воздействия. Вы можете чувствовать или иметь линию воздействия только за одну такую преграду за раз.\n\nДополнительно, всякий раз, когда вы используете способность пустоты, вы или один союзник в пределах расстояния способности может телепортироваться на количество клеток, равное показателю вашего Разума.\n\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/pierce-the-veil-of-substance",
+      "originalName": "Pierce the Veil of Substance",
+      "originalDescription": "Solidity is merely a suggestion to you. Mundane barriers that are 1 square thick or less do not block your senses or line of effect. You can only sense or have line of effect past one such barrier at a time.\n\nAdditionally, whenever you use a void ability, you or one ally within distance of the ability can teleport a number of squares equal to your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-5.smoldering-step",
+      "kind": "feature",
+      "name": "Тлеющий шаг",
+      "markdown": "##### Тлеющий шаг\n\nВы можете использовать 1 клетку движения, чтобы войти в область огня вашего размера или больше и телепортироваться в любую другую область огня вашего размера или больше в пределах 10 клеток от первой области.\n\nДополнительно, всякий раз, когда вы используете способность огня или становитесь целью способности, наносящей урон огнем, каждый враг, смежный с вами, получает урон огнем, равный показателю вашего Разума.\n\n---\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/smoldering-step",
+      "originalName": "Smoldering Step",
+      "originalDescription": "You can use 1 square of movement to walk into an area of fire your size or larger and teleport to any other area of fire your size or larger within 10 squares of the first area.\n\nAdditionally, whenever you use a fire ability or are targeted by an ability that deals fire damage, each enemy adjacent to you takes fire damage equal to your Reason score."
+    },
+    {
+      "id": "feature.elementalist.level-5.9-essence-ability",
+      "kind": "feature",
+      "name": "Способность за 9 эссенции",
+      "markdown": "#### Способность за 9 эссенции\n\nВыберите одну героическую способность из следующих вариантов, каждая из которых стоит 9 эссенции для использования.\n\n",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/9-essence-ability",
+      "originalName": "9-Essence Ability",
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 essence to use."
+    },
+    {
+      "id": "feature.ability.elementalist.level-5.combustion-deferred",
+      "kind": "ability",
+      "name": "Отложенное Возгорание",
+      "markdown": "> **Отложенное Возгорание (9 Эссенции)**\n>\n> *Ваше пламя танцует от растопки к растопке.*\n>\n> | **Огонь, Магия, Дальний, Удар** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 8 + Р урона огнем\n> - **12-16:** 13 + Р урона огнем\n> - **17+:** 17 + Р урона огнем\n>\n> **Эффект:** Когда цель заканчивает свой следующий ход, или если ее Выносливость падает до 0 до этого момента, каждый враг, смежный с ней, получает урон огнем, равный двойному показателю вашего Разума. Затем каждый затронутый враг получает этот же эффект.",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-5.combustion-deferred",
+        "name": "Отложенное Возгорание",
+        "flavor": "Ваше пламя танцует от растопки к растопке.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Огонь",
+          "Магия",
+          "Дальний",
+          "Удар"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "8 + R",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "13 + R",
+            "effect": "Огнем"
+          },
+          {
+            "damage": "17 + R",
+            "effect": "Огнем"
+          }
+        ],
+        "effect": "Когда цель заканчивает свой следующий ход, или если ее Выносливость падает до 0 до этого момента, каждый враг, смежный с ней, получает урон огнем, равный двойному показателю вашего Разума. Затем каждый затронутый враг получает этот же эффект.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+        "originalName": "Combustion Deferred",
+        "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
+      "originalName": "Combustion Deferred",
+      "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
+    },
+    {
+      "id": "feature.ability.elementalist.level-5.storm-of-sands",
+      "kind": "ability",
+      "name": "Песчаная Буря",
+      "markdown": "> **Песчаная Буря (9 Эссенции)**\n>\n> *Грязь и обломки закручиваются в темный, пульсирующий ураган.*\n>\n> | **Область, Земля, Магия, Дальний** |               **Основное действие** |\n> | ------------------------------ | ----------------------------: |\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Область остается до начала вашего следующего хода. Она является труднопроходимой местностью для врагов, а вы и ваши союзники получаете покров, находясь в области.\n>\n> **Поддержание 1:** Область остается до начала вашего следующего хода, и вы можете переместить ее вплоть до 5 клеток (действие не требуется). Как маневр вы можете снова сделать бросок силы, не тратя эссенцию.",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-5.storm-of-sands",
+        "name": "Песчаная Буря",
+        "flavor": "Грязь и обломки закручиваются в темный, пульсирующий ураган.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Земля",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 4 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": ""
+          },
+          {
+            "damage": "5",
+            "effect": ""
+          },
+          {
+            "damage": "7",
+            "effect": ""
+          }
+        ],
+        "effect": "Область остается до начала вашего следующего хода. Она является труднопроходимой местностью для врагов, а вы и ваши союзники получаете покров, находясь в области.\n\nПоддержание 1: Область остается до начала вашего следующего хода, и вы можете переместить ее вплоть до 5 клеток (действие не требуется). Как маневр вы можете снова сделать бросок силы, не тратя эссенцию.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/storm-of-sands",
+        "originalName": "Storm of Sands",
+        "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/storm-of-sands",
+      "originalName": "Storm of Sands",
+      "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence."
+    },
+    {
+      "id": "feature.ability.elementalist.level-5.subverted-perception-of-space",
+      "kind": "ability",
+      "name": "Искаженное Восприятие Пространства",
+      "markdown": "> **Искаженное Восприятие Пространства (9 Эссенции)**\n>\n> *Вы разрываете мир врага надвое.*\n>\n> | **Магия, Дальний, Удар, Пустота** |               **Основное действие** |\n> | ------------------------------- | ----------------------------: |\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 9 + Р урона порчей\n> - **12-16:** 10 + Р урона порчей; цель имеет линию воздействия только к существам и объектам в пределах 4 клеток от нее до начала вашего следующего хода\n> - **17+:** 15 + Р урона порчей; цель имеет линию воздействия только к смежным существам и объектам до начала вашего следующего хода",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-5.subverted-perception-of-space",
+        "name": "Искаженное Восприятие Пространства",
+        "flavor": "Вы разрываете мир врага надвое.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Магия",
+          "Дальний",
+          "Удар",
+          "Пустота"
+        ],
+        "distance": "Дальний 10",
+        "target": "Одно существо или объект",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "9 + R",
+            "effect": "Порчей"
+          },
+          {
+            "damage": "10 + R",
+            "effect": "Порчей; цель имеет линию воздействия только к существам и объектам в пределах 4 клеток от нее до начала вашего следующего хода"
+          },
+          {
+            "damage": "15 + R",
+            "effect": "Порчей; цель имеет линию воздействия только к смежным существам и объектам до начала вашего следующего хода"
+          }
+        ],
+        "effect": "",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/subverted-perception-of-space",
+        "originalName": "Subverted Perception of Space",
+        "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn"
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/subverted-perception-of-space",
+      "originalName": "Subverted Perception of Space",
+      "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn"
+    },
+    {
+      "id": "feature.ability.elementalist.level-5.web-of-all-thats-come-before",
+      "kind": "ability",
+      "name": "Паутина Всего, Что Было До",
+      "markdown": "> **Паутина Всего, Что Было До (9 Эссенции)**\n>\n> *Нити, которые вы плели на протяжении своих приключений, создают яркую, переливающуюся паутину.*\n>\n> | **Область, Зелень, Магия, Дальний** |               **Основное действие** |\n> | ------------------------------ | ----------------------------: |\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + Разум:**\n>\n> - **≤11:** 2 урона порчей; А < СЛАБЫЙ, опутанность (до прох.)\n> - **12-16:** 3 урона порчей; А < СРЕДНИЙ, опутанность (до прох.)\n> - **17+:** 5 урона порчей; А < СИЛЬНЫЙ, опутанность (до прох.)\n>\n> **Эффект:** Область является труднопроходимой местностью до начала вашего следующего хода. Каждый враг, который заканчивает свой ход в области, опутывается (до прох.).\n>\n> **Поддержание 1:** Область остается до начала вашего следующего хода.",
+      "source": {
+        "articleId": "0895",
+        "path": "08. Классы/Элементалист/0895. 5-й Уровень Элементалиста.md"
+      },
+      "ability": {
+        "id": "feature.ability.elementalist.level-5.web-of-all-thats-come-before",
+        "name": "Паутина Всего, Что Было До",
+        "flavor": "Нити, которые вы плели на протяжении своих приключений, создают яркую, переливающуюся паутину.",
+        "actionType": "main",
+        "kind": "heroic",
+        "keywords": [
+          "Область",
+          "Зелень",
+          "Магия",
+          "Дальний"
+        ],
+        "distance": "Куб 4 в пределах 10",
+        "target": "Каждый враг в области",
+        "rollCharacteristics": [
+          "reason"
+        ],
+        "rollBonus": 0,
+        "resourceCost": 9,
+        "trigger": "",
+        "tiers": [
+          {
+            "damage": "2",
+            "effect": "Порчей; А < СЛАБЫЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "3",
+            "effect": "Порчей; А < СРЕДНИЙ, опутанность (до прох.)"
+          },
+          {
+            "damage": "5",
+            "effect": "Порчей; А < СИЛЬНЫЙ, опутанность (до прох.)"
+          }
+        ],
+        "effect": "Область является труднопроходимой местностью до начала вашего следующего хода. Каждый враг, который заканчивает свой ход в области, опутывается (до прох.).\n\nПоддержание 1: Область остается до начала вашего следующего хода.",
+        "source": "Элементалист",
+        "notes": "",
+        "className": "Элементалист",
+        "level": 5,
+        "sourceKind": "class",
+        "preferredCharacteristic": "reason",
+        "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/web-of-all-thats-come-before",
+        "originalName": "Web of All That's Come Before",
+        "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn."
+      },
+      "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/web-of-all-thats-come-before",
+      "originalName": "Web of All That's Come Before",
+      "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn."
+    }
+  ]
+}

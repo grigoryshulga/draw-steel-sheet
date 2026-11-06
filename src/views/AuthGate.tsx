@@ -93,6 +93,11 @@ export function AuthGate({
     }
   }
 
+  // Public reading does not depend on the session request completing. Authenticated
+  // character controls still wait for the normal session boundary below.
+  if (loading && GUEST_TABS.includes(tab)) {
+    return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
+  }
   if (loading) return <div className="loading-screen">Проверяем вход…</div>;
 
   if (!session && GUEST_TABS.includes(tab)) {
