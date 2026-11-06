@@ -16,16 +16,9 @@ export function BuilderPreview({
   onReset: () => void;
 }) {
   return (
-    <aside
-      className="builder-preview"
-      aria-label="Предварительный лист героя"
-    >
-      <span className="eyebrow">Ваш герой</span>
+    <aside className="builder-preview" aria-label="Предварительный лист героя">
       <h2>{hero.name}</h2>
-      <p>
-        {[hero.ancestry, hero.className].filter(Boolean).join(" · ") ||
-          "История начинается здесь"}
-      </p>
+      <p>{[hero.ancestry, hero.className].filter(Boolean).join(" · ")}</p>
       <div className="builder-preview-stats">
         {CHARACTERISTICS.map((c) => (
           <div key={c.key}>
@@ -80,9 +73,7 @@ export function BuilderPreview({
         </div>
       )}
       <div>
-        <span className="eyebrow">
-          Способности · {hero.abilities.length}
-        </span>
+        <span className="eyebrow">Способности · {hero.abilities.length}</span>
         <p className="small">
           {hero.abilities
             .filter((a) => !seedAbilities.some((b) => b.id === a.id))
@@ -90,12 +81,7 @@ export function BuilderPreview({
             .join(", ") || "Свободные удары и базовые действия"}
         </p>
       </div>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={onReset}
-        disabled={busy}
-      >
+      <Button variant="ghost" size="sm" onClick={onReset} disabled={busy}>
         Начать заново
       </Button>
     </aside>

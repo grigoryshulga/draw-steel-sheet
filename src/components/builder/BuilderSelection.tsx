@@ -1,108 +1,143 @@
-import { artFor, type ArtKind } from "../../lib/art";
-import { ArtworkFigure } from "../Artwork";
+import { lazy, Suspense, useState } from "react";
+import {
+  catalogSectionEntries,
+  type CatalogSectionId,
+} from "../../data/reference-catalog";
+import { searchText } from "../../lib/codex";
+import type { ArtKind } from "../../lib/art";
+import type { BuilderDraft } from "../../lib/character-builder";
+import { useBuilderStep } from "./BuilderStepContext";
+import { ReferenceList } from "../rules/ReferenceList";
 import { RuleText } from "../RuleText";
+import { RuleArticleReader } from "../rules/RuleArticleReader";
 import "./BuilderSelection.css";
 
+const ClassReference = lazy(() =>
+  import("../../views/ClassLandingView").then((m) => ({
+    default: m.ClassLandingView,
+  })),
+);
+const sections: Partial<Record<ArtKind, CatalogSectionId>> = {
+  ancestry: "ancestries",
+  career: "careers",
+  class: "classes",
+  kit: "kits",
+};
 export interface BuilderSelectionOption {
+  id?: string;
   name: string;
-  /** Вариант виден в списке, но выбрать его нельзя. */
   disabled?: boolean;
-  /** Короткая пометка рядом с названием, например причина блокировки. */
   note?: string;
+  description?: string;
+  articleId?: string;
 }
-
 export interface BuilderSelectionDetail {
   name: string;
   description?: string;
-  /** Статья Кодекса с полным текстом варианта. */
   articleId?: string;
 }
-
 export interface BuilderSelectionProps {
-  /** Заголовок группы для списка и подпись над названием в описании. */
   label: string;
-  kind: ArtKind;
+  layout?: "sidebar" | "tiles";
+  kind?: ArtKind;
   options: readonly BuilderSelectionOption[];
   selected: BuilderSelectionDetail | null;
-  onSelect: (name: string) => void;
-  codexLabel?: string;
+  changesFor: (name: string) => Partial<BuilderDraft> | void;
 }
 
-/**
- * Экран выбора варианта: компактный список слева, а справа — картинка,
- * заголовок, описание и ссылка на Кодекс выбранного варианта.
- */
+/** Строка выбирает вариант; мастер применяет его при переходе «Далее». */
 export function BuilderSelection({
   label,
+  layout = "sidebar",
   kind,
   options,
   selected,
-  onSelect,
-  codexLabel = "Открыть в Кодексе",
+  changesFor,
 }: BuilderSelectionProps) {
-  const art = selected ? artFor(kind, selected.name) : undefined;
-
+  const { stageChoice } = useBuilderStep();
+  const [viewedName, setViewedName] = useState(selected?.name ?? "");
+  const viewed =
+    options.find((option) => option.name === viewedName) ?? options[0];
+  const section = kind ? sections[kind] : undefined;
+  const catalogEntries = section ? catalogSectionEntries(section) : [];
+  const matches = (name: string, other: string) =>
+    searchText(name.trim()) === searchText(other.trim());
+  const entry = catalogEntries.find((item) =>
+    matches(item.name, viewed?.name ?? ""),
+  );
+  const listEntries = options.map(
+    (option) =>
+      catalogEntries.find((item) => matches(item.name, option.name)) ?? option,
+  );
+  const articleId = viewed?.articleId ?? entry?.articleId;
   return (
-    <div className="builder-selection">
-      <div className="builder-selection__list" role="group" aria-label={label}>
-        {options.map((option) => {
-          const isSelected = selected?.name === option.name;
-          return (
-            <button
-              key={option.name}
-              type="button"
-              className={`builder-selection__option${isSelected ? " is-selected" : ""}`}
-              aria-pressed={isSelected}
-              disabled={option.disabled}
-              onClick={() => {
-                if (!isSelected) onSelect(option.name);
-              }}
-            >
-              <span className="builder-selection__option-name">{option.name}</span>
-              {option.note ? (
-                <span className="builder-selection__option-note">{option.note}</span>
-              ) : null}
-            </button>
-          );
-        })}
+    <div className={`builder-selection${layout === "tiles" ? " builder-selection--tiles" : ""}`}>
+      <div className="builder-selection__list">
+        <ReferenceList
+          entries={listEntries}
+          label={label}
+          artKind={kind}
+          selectedId={
+            listEntries.find((item) => matches(item.name, viewedName))?.id ??
+            viewedName
+          }
+          metaFor={(item) =>
+            options.find((option) => matches(option.name, item.name))?.note
+          }
+          onSelect={(item) => {
+            const option = options.find((option) =>
+              matches(option.name, item.name),
+            );
+            if (!option) return;
+            setViewedName(option.name);
+            stageChoice(
+              option.name === selected?.name
+                ? {}
+                : (changesFor(option.name) ?? {}),
+              option.disabled ? option.note || "Этот вариант недоступен." : "",
+            );
+          }}
+        />
       </div>
-      <aside className="builder-selection__detail" aria-live="polite">
-        {selected ? (
+      <section
+        className="builder-selection__detail"
+        aria-label={`Описание: ${viewed?.name ?? label}`}
+      >
+        {viewed && (
           <>
-            {art ? (
-              <ArtworkFigure
-                art={art}
-                className="builder-selection__figure"
-                overlayCaption
-              />
-            ) : null}
-            <div className="builder-selection__detail-body">
-              <span className="eyebrow">{label}</span>
-              <h3 className="builder-selection__title">{selected.name}</h3>
-              {selected.description ? (
-                <div className="builder-selection__copy">
-                  <RuleText text={selected.description} />
-                </div>
-              ) : null}
-              {selected.articleId ? (
-                <a
-                  className="builder-selection__codex"
-                  href={`#/codex/${selected.articleId}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {codexLabel} ↗
-                </a>
-              ) : null}
+            <div className="builder-selection__reader">
+              {entry?.classSlug ? (
+                <Suspense fallback={<p role="status">Загружаем класс…</p>}>
+                  <ClassReference
+                    key={entry.classSlug}
+                    slug={entry.classSlug}
+                    embedded
+                    creation
+                  />
+                </Suspense>
+              ) : articleId ? (
+                <RuleArticleReader
+                  key={articleId}
+                  articleId={articleId}
+                  entityName={kind ? undefined : viewed.name}
+                />
+              ) : (
+                <>
+                  <h3 className="builder-selection__title">{viewed.name}</h3>
+                  <RuleText
+                    text={
+                      viewed.description ??
+                      entry?.summary ??
+                      selected?.description ??
+                      ""
+                    }
+                  />
+                </>
+              )}
             </div>
           </>
-        ) : (
-          <div className="builder-selection__empty">
-            <span className="eyebrow">{label}</span>
-            <p>Выберите вариант из списка — здесь появится описание.</p>
-          </div>
         )}
-      </aside>
+      </section>
     </div>
   );
 }

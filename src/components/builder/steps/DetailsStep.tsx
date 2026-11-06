@@ -1,17 +1,28 @@
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import { RuleText } from "../../RuleText";
-import { Field, Select, TextArea, TextInput } from "../../ui";
+import { Button, Field, Select, TextArea, TextInput } from "../../ui";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function DetailsStep() {
-  const { draft, patch } = useBuilderStep();
+  const { draft, patch, createBlankCharacter, busy } = useBuilderStep();
 
   return (
     <>
-      <p className="builder-intro">
-        Добавьте характер, связи и, если хотите, нюанс. Эти решения
-        делают героя вашим.
-      </p>
+      <Field label="Имя героя">
+        <TextInput
+          value={draft.name}
+          onChange={(e) => patch({ name: e.target.value })}
+          placeholder="Как зовут вашего героя?"
+        />
+      </Field>
+      <Field label="Замысел (необязательно)">
+        <TextArea
+          value={draft.concept}
+          onChange={(e) => patch({ concept: e.target.value })}
+          rows={3}
+          placeholder="Кем вы хотите быть?"
+        />
+      </Field>
       <Field label="Нюанс (необязательно)">
         <Select
           value={draft.complication}
@@ -26,9 +37,8 @@ export function DetailsStep() {
       {draft.complication && (
         <RuleText
           text={
-            data.complications.find(
-              (c) => c.name === draft.complication,
-            )?.text || ""
+            data.complications.find((c) => c.name === draft.complication)
+              ?.text || ""
           }
         />
       )}
@@ -45,6 +55,14 @@ export function DetailsStep() {
           rows={4}
         />
       </Field>
+      <Field label="Заметки об особенностях (необязательно)">
+        <TextArea
+          value={draft.features}
+          onChange={(e) => patch({ features: e.target.value })}
+          rows={3}
+          placeholder="Особые условия и решения по правилам"
+        />
+      </Field>
       <Field label="Связи с другими героями">
         <TextArea
           value={draft.connections}
@@ -52,6 +70,13 @@ export function DetailsStep() {
           rows={3}
         />
       </Field>
+      <details className="builder-reference">
+        <summary>Заполнить лист вручную</summary>
+        <p>Будет создан пустой лист с указанным именем.</p>
+        <Button onClick={createBlankCharacter} disabled={busy}>
+          Создать пустой лист
+        </Button>
+      </details>
     </>
   );
 }

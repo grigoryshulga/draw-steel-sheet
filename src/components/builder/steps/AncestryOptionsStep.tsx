@@ -1,24 +1,18 @@
+import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import {
-  BUILDER_DATA as data,
-} from "../../../lib/character-builder";
-import { ancestryTraitAbilities, ancestryTraitChoice } from "../../../lib/ancestry-features";
+  ancestryTraitAbilities,
+  ancestryTraitChoice,
+} from "../../../lib/ancestry-features";
 import { AbilityCard } from "../../AbilityCard";
 import { ChoiceCard } from "../../ChoiceCard";
 import { RuleText } from "../../RuleText";
 import { SkillPicker } from "../../SkillPicker";
-import { Button, Select } from "../../ui";
+import { Button, Field, Select, TextArea } from "../../ui";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function AncestryOptionsStep() {
-  const {
-    draft,
-    patch,
-    go,
-    hero,
-    skillSlots,
-    ancestrySkills,
-    openTrait,
-  } = useBuilderStep();
+  const { draft, patch, go, hero, skillSlots, ancestrySkills, openTrait } =
+    useBuilderStep();
   const ancestry = data.ancestries.find((a) => a.name === draft.ancestry);
   const traitsSpent =
     ancestry?.traits
@@ -31,13 +25,22 @@ export function AncestryOptionsStep() {
         <>
           <div className="builder-selection-summary">
             <strong>{ancestry.name}</strong>
-            <Button variant="ghost" size="sm" onClick={() => go("ancestry")}>Изменить происхождение</Button>
+            <Button variant="ghost" size="sm" onClick={() => go("ancestry")}>
+              Изменить происхождение
+            </Button>
           </div>
-          <section className="builder-signature" aria-label="Знаковая черта происхождения">
-            <span className="eyebrow">Знаковая черта · получена автоматически</span>
+          <section
+            className="builder-signature"
+            aria-label="Знаковая черта происхождения"
+          >
+            <h3>Знаковая черта</h3>
             <RuleText text={ancestry.signature} />
             {ancestry.articleId && (
-              <a href={`#/codex/${ancestry.articleId}`} target="_blank" rel="noreferrer">
+              <a
+                href={`#/codex/${ancestry.articleId}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Открыть происхождение в Кодексе ↗
               </a>
             )}
@@ -56,7 +59,7 @@ export function AncestryOptionsStep() {
               const abilities = ancestryTraitAbilities(ancestry.name, t.name);
               const choice = ancestryTraitChoice(ancestry.name, t.name);
               const selectedChoice = choice
-                ? draft.ancestryChoices?.[choice.group] ?? ""
+                ? (draft.ancestryChoices?.[choice.group] ?? "")
                 : "";
               const selectedAbility = choice?.options.find(
                 (option) => option.id === selectedChoice,
@@ -130,8 +133,8 @@ export function AncestryOptionsStep() {
                         </>
                       ) : (
                         <p className="choice-card-summary">
-                          Выберите черту, чтобы получить одну из трёх
-                          знаковых способностей на выбор.
+                          Выберите черту, чтобы получить одну из трёх знаковых
+                          способностей на выбор.
                         </p>
                       )}
                     </div>
@@ -145,10 +148,27 @@ export function AncestryOptionsStep() {
               );
             })}
           </div>
-          {ancestry.name === "Ревенант" && <p className="builder-notice">Черта «Предыдущая жизнь» требует выбора прошлого происхождения. Запишите этот выбор и его эффекты в особенностях на этапе «Настройка класса».</p>}
-          {skillSlots.ancestry.length > 0 && <SkillPicker label="Навыки происхождения" slots={skillSlots.ancestry} values={ancestrySkills} onChange={(ancestrySkills) => patch({ ancestrySkills })} />}
+          {ancestry.name === "Ревенант" && (
+            <Field label="Предыдущая жизнь: прошлое происхождение и эффекты">
+              <TextArea
+                value={draft.features}
+                onChange={(e) => patch({ features: e.target.value })}
+                rows={3}
+              />
+            </Field>
+          )}
+          {skillSlots.ancestry.length > 0 && (
+            <SkillPicker
+              label="Навыки происхождения"
+              slots={skillSlots.ancestry}
+              values={ancestrySkills}
+              onChange={(ancestrySkills) => patch({ ancestrySkills })}
+            />
+          )}
         </>
-      ) : <p className="builder-notice">Сначала выберите происхождение.</p>}
+      ) : (
+        <p className="builder-notice">Сначала выберите происхождение.</p>
+      )}
     </>
   );
 }

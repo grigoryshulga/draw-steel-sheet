@@ -1,0 +1,97 @@
+[data-rank="1"] { --rank-color: var(--green); }
+[data-rank="2"] { --rank-color: var(--blue); }
+[data-rank="3"] { --rank-color: var(--magenta); }
+[data-rank="4"] { --rank-color: #eea064; }
+[data-rank="artifact"] { --rank-color: var(--yellow); }
+[data-rank="growing"] { --rank-color: var(--muted); }
+.catalog-rank {
+  position: absolute;
+  top: -1px;
+  right: var(--space-7);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 46px;
+  padding-bottom: var(--space-4);
+  box-sizing: border-box;
+  color: var(--rank-color);
+  background: var(--rank-color);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 81%, 0 100%);
+  font-size: var(--text-md);
+  font-weight: 600;
+  isolation: isolate;
+}
+.catalog-rank::before {
+  content: "";
+  position: absolute;
+  inset: 0 1px 2px;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 81%, 0 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--rank-color) 30%, var(--surface)), color-mix(in srgb, var(--rank-color) 12%, var(--surface)));
+}
+.catalog-card[data-rank], .catalog-detail[data-rank] { position: relative; }
+.catalog-card[data-rank] .catalog-card-body { position: static; }
+.catalog-card[data-rank] .catalog-card-meta,
+.catalog-detail[data-rank] .catalog-detail-meta { padding-right: 46px; min-height: 24px; }
+.catalog-card[data-rank] { border-top: 2px solid var(--rank-color); }
+.catalog-card[data-rank] .catalog-card-title { color: var(--rank-color); }
+.catalog-card-meta, .catalog-detail-meta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.catalog-detail[data-rank] { border-top: 2px solid var(--rank-color); }
+.catalog-detail[data-rank] > h1 { color: var(--rank-color); }
+.catalog-level-tabs, .catalog-rank-filter { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.catalog-level-tabs { margin-block: var(--space-7); }
+.catalog-level-tabs button, .catalog-rank-filter button { font: inherit; color: var(--rank-color, var(--fg)); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-xs); padding: var(--space-4) var(--space-6); cursor: pointer; }
+.catalog-level-tabs button[aria-pressed="true"], .catalog-rank-filter button[aria-pressed="true"] { border-color: var(--rank-color, var(--accent)); background: color-mix(in srgb, var(--rank-color, var(--accent)) 14%, var(--surface)); }
+.catalog-level-section { margin-block: var(--space-7); padding-left: var(--space-7); border-left: 2px solid var(--rank-color); }
+.catalog-level-section > h2 { font-size: var(--text-lg); color: var(--rank-color); }
+
+/* Закладка не участвует в высоте карточки; под неё нужен только отступ справа. */
+.catalog-card[data-rank] {
+  padding: var(--space-6) var(--space-7);
+}
+.catalog-card[data-rank] .catalog-card-meta {
+  min-height: 0;
+}
+.catalog-card[data-rank] .catalog-card-title {
+  margin: var(--space-3) 0 var(--space-4);
+  padding-right: 38px;
+}
+.catalog-card[data-rank] .catalog-rank {
+  width: 28px;
+  height: 38px;
+  font-size: var(--text-sm);
+}
+
+/* Два мягких пятна под содержимым: цвет предмета остаётся ненавязчивым. */
+.catalog-card[data-catalog-kind="treasure"][data-rank],
+.catalog-detail[data-catalog-kind="treasure"][data-rank] {
+  background-image:
+    radial-gradient(ellipse at 96% 4%, color-mix(in srgb, var(--rank-color) 13%, transparent), transparent 64%),
+    radial-gradient(ellipse at 12% 100%, color-mix(in srgb, var(--rank-color) 6%, transparent), transparent 58%);
+  background-size: 100% 320px;
+  background-repeat: no-repeat;
+}
+.catalog-card[data-catalog-kind="treasure"][data-rank="artifact"],
+.catalog-detail[data-catalog-kind="treasure"][data-rank="artifact"] {
+  background-image:
+    radial-gradient(ellipse at 90% 0%, color-mix(in srgb, var(--rank-color) 18%, transparent), transparent 66%),
+    radial-gradient(ellipse at 8% 95%, color-mix(in srgb, var(--rank-color) 8%, transparent), transparent 58%);
+}
+.catalog-card[data-catalog-kind="treasure"][data-rank] {
+  background-size: 100% 100%;
+}
+
+/* Дымка затухает внутри изображения фона, без жёсткой границы по высоте. */
+.catalog-detail[data-catalog-kind="treasure"][data-rank] {
+  background-image:
+    radial-gradient(ellipse 650px 360px at 100% 0%, color-mix(in srgb, var(--rank-color) 13%, transparent), transparent 100%),
+    radial-gradient(ellipse 420px 240px at 0% 100px, color-mix(in srgb, var(--rank-color) 6%, transparent), transparent 100%);
+  background-size: 100% 100%;
+}
+.catalog-detail[data-catalog-kind="treasure"][data-rank="artifact"] {
+  background-image:
+    radial-gradient(ellipse 650px 360px at 100% 0%, color-mix(in srgb, var(--rank-color) 18%, transparent), transparent 100%),
+    radial-gradient(ellipse 420px 240px at 0% 100px, color-mix(in srgb, var(--rank-color) 8%, transparent), transparent 100%);
+}

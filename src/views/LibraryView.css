@@ -143,76 +143,14 @@
 .catalog-count {
   margin: var(--space-7) 0;
 }
-.catalog-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
-  gap: var(--space-6);
-  margin-top: var(--space-7);
-}
-.catalog-card {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  padding: var(--space-8);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  color: var(--fg);
-  text-decoration: none;
-}
+
+
 /* Карточка с портретом: картинка — подложка слева, текст чуть заходит на неё. */
-.catalog-card.has-art {
-  padding: 0;
-}
-.catalog-card-art {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -22px;
-  z-index: 0;
-  width: 194px;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at 20% 34%,
-    color-mix(in srgb, var(--accent) 11%, transparent),
-    transparent 72%
-  );
-  /* Мягкое круговое растворение большого радиуса: картинка уходит в фон. */
-  -webkit-mask-image: radial-gradient(
-    130% 150% at 6% 44%,
-    #000 0%,
-    #000 20%,
-    transparent 54%
-  );
-  mask-image: radial-gradient(
-    130% 150% at 6% 44%,
-    #000 0%,
-    #000 20%,
-    transparent 54%
-  );
-}
-.catalog-card-art img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transform: scale(1.06);
-  transform-origin: 50% 16%;
-}
-.catalog-card-body {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-width: 0;
-}
-.catalog-card.has-art .catalog-card-body {
-  padding: var(--space-8) var(--space-8) var(--space-8)
-    calc(var(--space-8) + 96px);
-}
+
+
+
+
+
 
 /* Глоссарий как словарь: алфавит и термины в несколько колонок. */
 .catalog-glossary-alphabet {
@@ -285,28 +223,10 @@
   margin-top: var(--space-2);
 }
 
-.catalog-card:hover,
-.catalog-card[aria-current] {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-.catalog-card h2 {
-  font-size: var(--text-xl);
-  line-height: var(--leading-normal);
-  margin: var(--space-5) 0;
-}
-.catalog-card p {
-  font-size: var(--text-md);
-  color: var(--muted);
-  line-height: var(--leading-relaxed);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.catalog-card .chip {
-  margin-top: var(--space-6);
-}
+
+
+
+
 .has-detail .catalog-browser {
   max-height: calc(100dvh - 130px - var(--rail-h));
   overflow-y: auto;
@@ -479,3 +399,21 @@
     padding: var(--space-8);
   }
 }
+
+.catalog-detail:has(> .catalog-keywords) > h1 { margin-bottom: var(--space-6); }
+.catalog-keywords { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-8); }
+.catalog-keywords .chip { height: auto; white-space: normal; }
+.catalog-detail-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-7);
+  margin-top: var(--space-9);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--line);
+}
+.catalog-detail-footer .catalog-source { margin: 0; }
+.catalog-detail-footer .catalog-action { margin: 0 0 0 auto; padding: 0; border: 0; justify-items: end; }
+.catalog-detail-footer .catalog-action > p { margin: 0; }
+.catalog-detail-footer .catalog-action-buttons { justify-content: flex-end; }

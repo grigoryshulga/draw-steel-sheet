@@ -431,9 +431,11 @@ function ClassBasics({
 export function ClassLandingView({
   slug,
   embedded = false,
+  creation = false,
 }: {
   slug: string;
   embedded?: boolean;
+  creation?: boolean;
 }) {
   const landing = useMemo(() => classLandingBySlug(slug), [slug]);
   const [state, setState] = useState<LandingState>({ status: "loading" });
@@ -441,7 +443,7 @@ export function ClassLandingView({
   const [openedAbility, setOpenedAbility] = useState<RuleEntity | null>(null);
   const { bookmarks, toggleBookmark } = useCodexBookmarks();
   const segments = useLibraryLocation();
-  const anchor = decodeURIComponent(segments[3]?.split("#")[1] ?? "");
+  const anchor = creation ? "level-1" : decodeURIComponent(segments[3]?.split("#")[1] ?? "");
   const [selectedStep, setSelectedStep] = useState(() =>
     levelFromAnchor(anchor),
   );

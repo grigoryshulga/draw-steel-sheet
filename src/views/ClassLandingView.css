@@ -107,7 +107,8 @@
 .class-hero-credit {
   position: absolute;
   right: var(--space-5);
-  bottom: var(--space-4);
+  top: var(--space-4);
+  bottom: auto;
   z-index: 1;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-pill);
@@ -545,4 +546,51 @@
   .class-landing .codex-toc {
     display: none;
   }
+}
+
+/* Реагируем на ширину самого просмотра, в том числе внутри мастера. */
+.class-landing {
+  container-type: inline-size;
+}
+@container (max-width: 760px) {
+  .class-landing .class-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    aspect-ratio: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .class-hero > img {
+    position: static;
+    grid-area: 1 / 1;
+    aspect-ratio: 16 / 8;
+    height: auto;
+  }
+  .class-hero::after {
+    grid-area: 1 / 1;
+  }
+  .class-hero-text {
+    grid-area: 1 / 1;
+    max-width: calc(100% - 48px);
+  }
+  .class-hero-summary {
+    position: static;
+    grid-area: 2 / 1;
+    max-width: none;
+    border: 0;
+    border-radius: 0;
+    padding: var(--space-7);
+    background: var(--surface-2);
+    color: var(--fg);
+    backdrop-filter: none;
+  }
+  .class-hero-credit {
+    display: block;
+    grid-area: 1 / 1;
+  }
+}
+
+/* В полном справочнике справа сверху также находится закладка. */
+.class-hero:has(.class-hero-bookmark) .class-hero-credit {
+  top: calc(var(--space-5) + 40px);
 }

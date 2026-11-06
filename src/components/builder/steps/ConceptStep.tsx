@@ -7,9 +7,6 @@ export function ConceptStep() {
 
   return (
     <>
-      <p className="builder-intro">
-        Начните с идеи. Каждый выбор добавит новую часть в лист справа.
-      </p>
       <Field label="Имя героя">
         <TextInput
           autoFocus

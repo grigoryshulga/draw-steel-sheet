@@ -1,0 +1,58 @@
+.kit-rule-bonuses {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-6);
+  margin: var(--space-7) 0 var(--space-9);
+}
+.kit-rule-bonus {
+  padding: var(--space-7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+.kit-rule-bonus dt {
+  margin-bottom: var(--space-6);
+  color: var(--muted);
+  font-size: var(--text-md);
+}
+.kit-rule-bonus dd { margin: 0; }
+.kit-rule-bonus dd p {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--fg-bright);
+}
+.kit-rule-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.kit-rule-tiers > div { display: flex; flex-direction: column; gap: var(--space-3); }
+.kit-rule-tiers span { font-size: var(--text-sm); color: var(--muted); }
+.kit-rule-tiers strong { font-size: var(--text-xl); color: var(--accent); }
+
+/* Заголовок бонусов идёт под иллюстрацией вместе со своей сеткой. */
+.rule-entity-kit > .rule-text:has(+ .kit-rule-bonuses) > :last-child {
+  clear: both;
+  padding-top: var(--space-7);
+  margin-bottom: 0;
+}
+.rule-entity-kit > .kit-rule-bonuses {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+.rule-entity-kit > .rule-text > :last-child {
+  margin-bottom: 0;
+}
+.rule-entity-kit > .kit-rule-bonuses + .rule-text > :first-child {
+  margin-top: 0;
+}
+.rule-entity-kit + .rule-entity-ability {
+  padding-top: 0;
+}
+
+/* Иллюстрация занимает свою естественную высоту, без пустого места сверху. */
+.rule-entity-kit > .rule-entity-art {
+  margin-top: var(--space-6);
+}
+.rule-entity-kit > .rule-entity-art > img {
+  height: auto;
+  object-position: center top;
+}

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { builderFlow } from "../src/lib/builder-flow";
 import { ancestrySkillSlots } from "../src/data/ancestry-skill-rules";
 import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import {
@@ -160,6 +161,7 @@ describe("builder skill workflow", () => {
     "completes the full creation flow for %s through the shared skill engine",
     (className) => {
       const draft = completedDraft(className);
+      expect(builderFlow(draft).filter((step) => step.issue)).toEqual([]);
       expect(Object.entries(builderStepIssues(draft)).filter(([, issue]) => issue)).toEqual(
         [],
       );

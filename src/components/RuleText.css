@@ -129,3 +129,15 @@
   visibility: visible;
   opacity: 1;
 }
+
+/* Скрытая подсказка не расширяет страницу; открытая ограничена абзацем. */
+.rule-tip { display: none; }
+.rule-text :is(p, li, td, dd):has(a.has-tip) { position: relative; }
+.rule-text :is(p, li, td, dd) a.has-tip { position: static; }
+.rule-text :is(p, li, td, dd) .rule-tip {
+  top: auto;
+  left: 0;
+  max-width: min(320px, 100%);
+}
+.rule-text a.has-tip:hover .rule-tip,
+.rule-text a.has-tip:focus-visible .rule-tip { display: block; }

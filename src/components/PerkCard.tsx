@@ -41,7 +41,7 @@ export function PerkCard({
   const meta = type ? PERK_TYPE_META[type] : null;
   return (
     <Card
-      className={`sheet-perk-card is-filled${className ? ` ${className}` : ""}`}
+      className={`sheet-perk-card is-filled${banded ? " is-banded" : ""}${className ? ` ${className}` : ""}`}
       data-selected={selected || undefined}
       data-type={type ?? undefined}
       selected={selected}
@@ -53,6 +53,7 @@ export function PerkCard({
       </CardHeader>
       <CardTitle
         as="h3"
+        title={name}
         className={banded ? "card-band" : undefined}
         onOpen={onOpen}
         openLabel={`Открыть перк: ${name}`}

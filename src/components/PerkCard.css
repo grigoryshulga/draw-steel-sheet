@@ -162,3 +162,75 @@
 .sheet-perk-card.is-selected .card-title-button {
   color: var(--perk-tone, var(--accent));
 }
+
+/* Общий оформленный вариант для листа и создания героя. */
+.sheet-perk-card.is-banded {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+.sheet-perk-card.is-banded {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  align-items: center;
+  gap: 0 var(--space-4);
+  padding: 0;
+}
+
+.sheet-perk-card.is-banded[data-type] {
+  border-color: color-mix(in srgb, var(--perk-tone) 52%, var(--line));
+}
+
+.sheet-perk-card.is-banded[data-type]:hover {
+  border-color: color-mix(in srgb, var(--perk-tone) 78%, var(--line));
+}
+
+/* Имя занимает первую строку сетки и само рисует полосу шапки (`.card-band`):
+   поля, высота и цвет — те же, что у карточки способности. */
+.sheet-perk-card.is-banded h3 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.sheet-perk-card.is-banded .sheet-perk-head {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.sheet-perk-card.is-banded :is(.sheet-perk-summary, .sheet-perk-card-actions) {
+  grid-column: 1 / -1;
+  margin: var(--space-5) var(--card-padding);
+}
+
+.sheet-perk-card.is-banded .sheet-perk-summary {
+  -webkit-line-clamp: 6;
+}
+
+
+.sheet-perk-card.is-banded.is-selected {
+  background: color-mix(in srgb, var(--perk-tone, var(--accent)) 12%, var(--surface-2));
+}
+
+/* Одинаковая высота шапок: полное имя доступно через title и открытие перка. */
+.sheet-perk-card .card-title,
+.sheet-perk-card .card-title-button {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sheet-perk-card .card-title-button {
+  display: block;
+  width: 100%;
+}
+.sheet-perk-card .card-title-button:focus-visible {
+  outline-offset: -2px;
+}

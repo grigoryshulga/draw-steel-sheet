@@ -1,3 +1,6 @@
+import { catalogAccent, catalogLevelSections } from "../lib/catalog-presentation";
+import { echelon as levelEchelon } from "../lib/progression";
+import { CatalogRank } from "../components/rules/CatalogRank";
 import { Fragment, useContext, useEffect, useMemo, useState } from "react";
 import {
   catalogSectionCount,
@@ -14,29 +17,20 @@ import {
   sourceLink,
   type CatalogEntry,
 } from "../data/library";
-import { artFor, artForArticle, type ArtKind } from "../lib/art";
+import { type ArtKind } from "../lib/art";
 import { AppContext } from "../state/AppContext";
 import { ownsCatalogEntry } from "../lib/catalog-character";
 import { useLibraryLocation } from "../lib/library-location";
 import { CatalogAction } from "../components/CatalogAction";
 import { RuleText } from "../components/RuleText";
 import { Chip, Select, TextInput, Button } from "../components/ui";
-import { RuleArticleContent } from "../components/rules/RuleArticle";
+import { ReferenceList } from "../components/rules/ReferenceList";
+import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
 import { ClassLandingView } from "./ClassLandingView";
-import {
-  loadRuleArticle,
-  type LoadedRuleArticle,
-} from "../rules/repository";
 import "./CodexView.css";
 import "./LibraryView.css";
 import "./ReferenceView.css";
-
-type ArticleState =
-  | { status: "idle" }
-  | { status: "loading" }
-  | { status: "ready"; articleId: string; data: LoadedRuleArticle }
-  | { status: "error"; articleId: string; message: string };
 
 /** Портреты для разделов, которые читаются как карточки-сущности. */
 const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
@@ -45,10 +39,6 @@ const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
   careers: "career",
   kits: "kit",
 };
-
-function errorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : "Неизвестная ошибка загрузки.";
-}
 
 /**
  * Единый каталог Справочника: одна полоса вкладок и один браузер карточек для
@@ -61,7 +51,6 @@ export function CatalogView() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
-  const [article, setArticle] = useState<ArticleState>({ status: "idle" });
   const app = useContext(AppContext);
 
   const entries = catalogSectionEntries(section);
@@ -94,30 +83,7 @@ export function CatalogView() {
       .getElementById(decodeURIComponent(glossaryFragment))
       ?.scrollIntoView({ block: "center" });
   }, [section, glossaryFragment]);
-  useEffect(() => {
-    const articleId = selected?.articleId;
-    if (!articleId || selected?.perk) {
-      setArticle({ status: "idle" });
-      return;
-    }
-    let active = true;
-    setArticle({ status: "loading" });
-    loadRuleArticle(articleId).then(
-      (data) => {
-        if (active) setArticle({ status: "ready", articleId, data });
-      },
-      (error: unknown) => {
-        if (active)
-          setArticle({ status: "error", articleId, message: errorMessage(error) });
-      },
-    );
-    return () => {
-      active = false;
-    };
-  }, [selected?.articleId, section]);
-
-  const categoryLabel =
-    section === "perks" ? "Все типы" : "Все категории";
+  const categoryLabel = section === "perks" ? "Все типы" : "Все категории";
   const artKind = ART_KIND_BY_SECTION[section];
   const glossaryGroups = useMemo(() => {
     if (section !== "glossary") return [];
@@ -127,9 +93,7 @@ export function CatalogView() {
       if (bucket) bucket.push(entry);
       else groups.set(entry.eyebrow, [entry]);
     }
-    return [...groups.entries()].sort((a, b) =>
-      a[0].localeCompare(b[0], "ru"),
-    );
+    return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], "ru"));
   }, [section, results]);
   const globalQuery = query.trim();
   const globalGroups = useMemo(() => {
@@ -222,11 +186,11 @@ export function CatalogView() {
           ))}
         </div>
       ) : (
-      <div
-        className={`catalog-layout${
-          section !== "glossary" && selected ? " has-detail" : ""
-        }`}
-      >
+        <div
+          className={`catalog-layout${
+            section !== "glossary" && selected ? " has-detail" : ""
+          }`}
+        >
           <section className="catalog-browser" aria-label="Каталог">
             {(section === "glossary" ||
               categories.length > 1 ||
@@ -268,18 +232,10 @@ export function CatalogView() {
                   </Select>
                 ) : null}
                 {hasEchelon && (
-                  <Select
-                    aria-label="Эшелон"
-                    value={echelon}
-                    onChange={(e) => setEchelon(e.target.value)}
-                  >
-                    <option value="">Все эшелоны</option>
-                    {[1, 2, 3, 4].map((n) => (
-                      <option key={n} value={n}>
-                        {n}-й эшелон
-                      </option>
-                    ))}
-                  </Select>
+                  <div className="catalog-rank-filter" role="group" aria-label="Эшелон">
+                    <button type="button" aria-pressed={!echelon} onClick={() => setEchelon("")}>Все</button>
+                    {[1, 2, 3, 4].map((n) => <button key={n} type="button" data-rank={n} aria-label={`Эшелон ${n}`} aria-pressed={echelon === String(n)} onClick={() => setEchelon(String(n))}>{["", "I", "II", "III", "IV"][n]}</button>)}
+                  </div>
                 )}
               </div>
             )}
@@ -327,61 +283,24 @@ export function CatalogView() {
                 ))}
               </div>
             ) : (
-              <div className="catalog-cards">
-                {results.map((entry) => {
-                  const art = artKind
-                    ? artFor(artKind, entry.name)
-                    : undefined;
-                  return (
-                    <a
-                      key={entry.id}
-                      className={`catalog-card${art ? " has-art" : ""}`}
-                      href={catalogBrowserEntryHref(section, entry.id)}
-                      aria-current={
-                        entry.id === selected?.id ? "page" : undefined
-                      }
-                    >
-                      {art && (
-                        <span className="catalog-card-art" aria-hidden="true">
-                          <img
-                            src={art.thumbnailSrc ?? art.src}
-                            alt=""
-                            width={art.width}
-                            height={art.height}
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </span>
-                      )}
-                      <span className="catalog-card-body">
-                        {(entry.eyebrow || entry.echelon) && (
-                          <span className="eyebrow">
-                            {entry.eyebrow}
-                            {entry.eyebrow && entry.echelon ? " · " : ""}
-                            {entry.echelon ? `Эшелон ${entry.echelon}` : ""}
-                          </span>
-                        )}
-                        <h2>{entry.name}</h2>
-                        {entry.summary && <p>{entry.summary}</p>}
-                        {app &&
-                          entry.catalog &&
-                          ownsCatalogEntry(app.character, entry.catalog) && (
-                            <Chip tone="accent">Уже у героя</Chip>
-                          )}
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
+              <ReferenceList
+                entries={results}
+                selectedId={selected?.id}
+                artKind={artKind}
+                hrefFor={(entry) => catalogBrowserEntryHref(section, entry.id)}
+                metaFor={(entry) =>
+                  app &&
+                  entry.catalog &&
+                  ownsCatalogEntry(app.character, entry.catalog) ? (
+                    <Chip tone="accent">Уже у героя</Chip>
+                  ) : null
+                }
+              />
             )}
           </section>
           {section !== "glossary" &&
             (selected ? (
-              <CatalogDetail
-                entry={selected}
-                article={article}
-                characterId={app?.character.id}
-              />
+              <CatalogDetail entry={selected} characterId={app?.character.id} />
             ) : id ? (
               <p className="library-empty">
                 Запись не найдена. Выберите другую в каталоге.
@@ -395,16 +314,14 @@ export function CatalogView() {
 
 function CatalogDetail({
   entry,
-  article,
   characterId,
 }: {
   entry: CatalogBrowserEntry;
-  article: ArticleState;
   characterId?: string;
 }) {
   if (entry.catalog)
     return (
-      <CatalogEntryDetail entry={entry.catalog} characterId={characterId} />
+      <CatalogEntryDetail key={entry.catalog.id} entry={entry.catalog} characterId={characterId} />
     );
   if (entry.classSlug)
     return (
@@ -416,40 +333,28 @@ function CatalogDetail({
       </article>
     );
   return (
-    <article id="catalog-detail" className="catalog-detail">
+    <article id="catalog-detail" className={`catalog-detail${entry.perk ? " catalog-detail-perk sheet-perk-card" : ""}`} data-type={entry.perk?.type}>
       {entry.perk && <span className="eyebrow">{entry.eyebrow}</span>}
       {entry.perk ? (
         <>
-          <h1>{entry.perk.name}</h1>
-          <RuleText text={entry.perk.summary} />
+          {entry.articleId ? (
+            <RuleArticleReader key={entry.perk.id} articleId={entry.articleId} entityName={entry.perk.name} />
+          ) : <RuleText text={entry.perk.summary} />}
           {entry.articleId && (
             <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
               Открыть в Кодексе →
             </a>
           )}
         </>
-      ) : article.status === "loading" ? (
-        <div className="codex-state" role="status" aria-live="polite">
-          <span className="codex-state-spinner" aria-hidden="true" />
-          <p>Загружаем статью…</p>
-        </div>
-      ) : article.status === "error" && article.articleId === entry.articleId ? (
-        <div className="codex-state codex-state-error" role="alert">
-          <h2>Не удалось загрузить статью</h2>
-          <p className="muted small">{article.message}</p>
-        </div>
-      ) : article.status === "ready" && article.articleId === entry.articleId ? (
+      ) : entry.articleId ? (
         <>
-          <RuleArticleContent
-            article={article.data.article}
-            entities={article.data.entities}
-            art={entry.articleId ? artForArticle(entry.articleId) : undefined}
+          <RuleArticleReader
+            key={entry.articleId}
+            articleId={entry.articleId}
           />
-          {entry.articleId && (
-            <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
-              Открыть в Кодексе →
-            </a>
-          )}
+          <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
+            Открыть в Кодексе →
+          </a>
         </>
       ) : null}
     </article>
@@ -463,24 +368,43 @@ function CatalogEntryDetail({
   entry: CatalogEntry;
   characterId?: string;
 }) {
+  const keywords = entry.keywords.split(/[;,]/).map((word) => word.trim()).filter(Boolean);
+  const markdown = keywords.length ? entry.markdown.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "") : entry.markdown;
+  const progression = catalogLevelSections(markdown);
+  const levels = entry.category === "Сокровища с Уровнем" ? progression.levels : [];
+  const [level, setLevel] = useState(levels[0]?.level ?? 1);
+  const rank = catalogAccent(entry, levels.length ? level : undefined);
   return (
-    <article id="catalog-detail" className="catalog-detail">
-      <span className="eyebrow">
+    <article id="catalog-detail" className="catalog-detail" data-rank={rank} data-catalog-kind={entry.kind}>
+      <div className="catalog-detail-meta"><span className="eyebrow">
         {entry.category}
-        {entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
-      </span>
+        {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
+      </span><CatalogRank rank={rank} /></div>
       <h1>{entry.name}</h1>
+      {keywords.length > 0 && <div className="catalog-keywords" aria-label="Ключевые слова">
+        {keywords.map((keyword) => <Chip key={keyword}>{keyword}</Chip>)}
+      </div>}
       {entry.prerequisite && (
         <div className="catalog-prerequisite">
           <span className="eyebrow">Условие получения</span>
           <p>{entry.prerequisite}</p>
         </div>
       )}
-      <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
-      <RuleText text={entry.markdown} />
+      {levels.length ? <>
+        <RuleText text={progression.introduction} />
+        <div className="catalog-level-tabs" role="group" aria-label="Уровень предмета">
+          {levels.map((stage) => <button key={stage.level} type="button" data-rank={levelEchelon(stage.level)} aria-pressed={level === stage.level} onClick={() => setLevel(stage.level)}>{stage.level}-й уровень</button>)}
+        </div>
+        {levels.filter((stage) => stage.level <= level).map((stage) => <section className="catalog-level-section" data-rank={levelEchelon(stage.level)} key={stage.level}>
+          <h2>{stage.level}-й уровень</h2><RuleText text={stage.text} />
+        </section>)}
+      </> : <RuleText text={markdown} />}
+      <footer className="catalog-detail-footer">
       <a className="catalog-source" href={sourceLink(entry)}>
         Открыть в Кодексе →
       </a>
+      <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
+      </footer>
     </article>
   );
 }

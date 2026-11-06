@@ -62,8 +62,7 @@ export function CharacteristicAllocator({
     <section className="characteristic-allocator" aria-labelledby="characteristic-allocator-title">
       <h3 id="characteristic-allocator-title">Распределение характеристик</h3>
       <p className="characteristic-allocator__instructions">
-        Сначала выберите готовый набор значений. Нажмите нужный бонус. Если он уже назначен другой свободной характеристике,
-        их значения поменяются местами.
+        При назначении занятого бонуса характеристики меняются значениями.
       </p>
 
       <div className="characteristic-allocator__arrays" role="group" aria-label="Готовые наборы значений">
@@ -73,16 +72,13 @@ export function CharacteristicAllocator({
             type="button"
             key={array.id}
             aria-pressed={activeArrayId === array.id}
+            aria-label={`Набор ${array.label}: ${array.description}`}
             onClick={() => onChange(allocateCharacteristicArray(className, array.id, value))}
           >
-            <span className="characteristic-allocator__array-label">{array.label}</span>
             <span className="characteristic-allocator__array-values" aria-hidden="true">
               {array.values.map((entry, index) => <span key={`${entry}-${index}`}>{formatValue(entry)}</span>)}
             </span>
             <span className="characteristic-allocator__array-description">{array.description}</span>
-            <span className="characteristic-allocator__array-action">
-              {activeArrayId === array.id ? "Выбран" : valid ? "Выбрать набор" : "Исправить этим набором"}
-            </span>
           </button>
         ))}
       </div>
@@ -102,7 +98,7 @@ export function CharacteristicAllocator({
               {locked ? (
                 <div className="characteristic-allocator__locked-value">
                   <span>{formatValue(value[key])}</span>
-                  <span className="characteristic-allocator__lock-label">Задано классом · закреплено</span>
+                  <span className="characteristic-allocator__lock-label">Задано классом</span>
                 </div>
               ) : (
                 <div className="characteristic-allocator__chips" role="group" aria-label={`Значение для характеристики «${LABELS[key]}»`}>
@@ -131,11 +127,6 @@ export function CharacteristicAllocator({
           );
         })}
       </div>
-      {valid ? (
-        <p className="characteristic-allocator__feedback" aria-live="polite">
-          {activeArrayId ? `Выбран набор ${arrays.find((array) => array.id === activeArrayId)?.label}.` : "Выбран допустимый набор значений."}
-        </p>
-      ) : null}
     </section>
   );
 }

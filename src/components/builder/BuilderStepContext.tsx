@@ -3,6 +3,7 @@ import {
   builderSkillSlots,
   type BuilderDraft,
 } from "../../lib/character-builder";
+import type { BuilderFlowStep } from "../../lib/builder-flow";
 import type { BuilderStepId } from "../../lib/builder-steps";
 import type { Ability, Character, Perk } from "../../types";
 
@@ -19,15 +20,14 @@ export interface IncidentDetail {
   text: string;
 }
 
-export interface SubclassDetail {
-  title: string;
-  text: string;
-}
-
 /** Общие зависимости шагов: черновик, навигация и производные значения. */
 export interface BuilderStepContextValue {
   draft: BuilderDraft;
+  pendingChanges?: Partial<BuilderDraft>;
+  flow: BuilderFlowStep[];
+  goToFlow: (id: string) => void;
   patch: (changes: Partial<BuilderDraft>) => void;
+  stageChoice: (changes: Partial<BuilderDraft>, issue: string) => void;
   go: (step: BuilderStepId) => void;
   issues: BuilderStepIssues;
   hero: Character;
@@ -40,7 +40,6 @@ export interface BuilderStepContextValue {
   openPerk: (perk: Perk) => void;
   openTrait: (detail: TraitDetail) => void;
   openIncident: (detail: IncidentDetail) => void;
-  openSubclass: (detail: SubclassDetail) => void;
   openAbility: (ability: Ability) => void;
 }
 

@@ -1,10 +1,13 @@
-import { BUILDER_DATA as data, startingCharacteristics } from "../../../lib/character-builder";
+import {
+  BUILDER_DATA as data,
+  startingCharacteristics,
+} from "../../../lib/character-builder";
 import { CLASS_PRESETS } from "../../../data/classes";
 import { BuilderSelection } from "../BuilderSelection";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function ClassStep() {
-  const { draft, patch } = useBuilderStep();
+  const { draft } = useBuilderStep();
   const selectedSource = data.classes.find((c) => c.name === draft.className);
   const selected = draft.className
     ? {
@@ -16,9 +19,6 @@ export function ClassStep() {
 
   return (
     <>
-      <p className="builder-intro">
-        Выберите класс: портрет и полное описание появятся в колонке справа.
-      </p>
       <BuilderSelection
         label="Класс"
         kind="class"
@@ -31,16 +31,14 @@ export function ClassStep() {
           };
         })}
         selected={selected}
-        codexLabel="Класс в Кодексе"
-        onSelect={(name) => {
+        changesFor={(name) => {
           if (name === draft.className) return;
-          patch({
+          return {
             className: name,
             characteristics: startingCharacteristics(name),
             classSkills: [],
             abilityIds: [],
             subclass: "",
-            features: "",
             featureChoices: {},
             domain: "",
             conduitDomainFeature: "",
@@ -48,7 +46,7 @@ export function ClassStep() {
             secondaryKit: "",
             meleeDamageKit: "",
             rangedDamageKit: "",
-          });
+          };
         }}
       />
     </>

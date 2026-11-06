@@ -10,6 +10,7 @@ import {
 } from "./AbilitySheet";
 import { RuleMarkdown, headingTag } from "./RuleMarkdown";
 import "./RuleEntity.css";
+import { KitRuleBody } from "./KitRuleBody";
 
 /** Стабильный якорь раздела: зависит от id, а не от перевода названия. */
 export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
@@ -174,7 +175,9 @@ export function RuleEntityView({
         />
       )}
 
-      {hasMarkdown ? (
+      {hasMarkdown && entity.kind === "kit" ? (
+        <KitRuleBody text={content.markdown} articleId={entity.source.articleId} headingOffset={nestedHeadingOffset} />
+      ) : hasMarkdown ? (
         <RuleMarkdown
           text={content.markdown}
           articleId={entity.source.articleId}

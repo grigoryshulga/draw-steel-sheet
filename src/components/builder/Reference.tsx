@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { RuleText } from "../RuleText";
+import { RuleArticleReader } from "../rules/RuleArticleReader";
 
 export function Reference({
   id,
@@ -9,15 +11,15 @@ export function Reference({
   text: string;
   label?: string;
 }) {
+  const [open, setOpen] = useState(false);
   return (
-    <details className="builder-reference">
+    <details
+      className="builder-reference"
+      onToggle={(e) => setOpen(e.currentTarget.open)}
+    >
       <summary>{label}</summary>
-      <RuleText text={text} />
-      {id && (
-        <a href={`#/codex/${id}`} target="_blank" rel="noreferrer">
-          Открыть в Кодексе ↗
-        </a>
-      )}
+      {open &&
+        (id ? <RuleArticleReader articleId={id} /> : <RuleText text={text} />)}
     </details>
   );
 }

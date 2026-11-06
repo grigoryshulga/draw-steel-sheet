@@ -3,7 +3,7 @@ import { BuilderSelection } from "../BuilderSelection";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function CareerStep() {
-  const { draft, patch } = useBuilderStep();
+  const { draft } = useBuilderStep();
   const selectedSource = data.careers.find((c) => c.name === draft.career);
   const selected = draft.career
     ? {
@@ -15,24 +15,19 @@ export function CareerStep() {
 
   return (
     <>
-      <p className="builder-intro">
-        Выберите прошлую карьеру: портрет и полное описание появятся в колонке
-        справа.
-      </p>
       <BuilderSelection
         label="Карьера"
         kind="career"
         options={data.careers.map((c) => ({ name: c.name }))}
         selected={selected}
-        codexLabel="Карьера в Кодексе"
-        onSelect={(name) => {
+        changesFor={(name) => {
           if (name !== draft.career) {
-            patch({
+            return {
               career: name,
               careerSkills: [],
               perkId: "",
               incident: "",
-            });
+            };
           }
         }}
       />

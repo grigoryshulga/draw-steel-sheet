@@ -31,7 +31,7 @@
 }
 
 .sheet-perks-panel .perk-card-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: var(--space-4);
   border: 0;
 }
@@ -43,49 +43,8 @@
   background: var(--surface-2);
 }
 
-.sheet-perks-panel .sheet-perk-card.is-filled {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-content: start;
-  align-items: center;
-  gap: 0 var(--space-4);
+.sheet-perks-panel .sheet-perk-card.is-banded {
   padding: 0;
-}
-
-.sheet-perks-panel .sheet-perk-card.is-filled[data-type] {
-  border-color: color-mix(in srgb, var(--perk-tone) 52%, var(--line));
-}
-
-.sheet-perks-panel .sheet-perk-card.is-filled[data-type]:hover {
-  border-color: color-mix(in srgb, var(--perk-tone) 78%, var(--line));
-}
-
-/* Имя занимает первую строку сетки и само рисует полосу шапки (`.card-band`):
-   поля, высота и цвет — те же, что у карточки способности. */
-.sheet-perks-panel .sheet-perk-card.is-filled h3 {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  min-width: 0;
-}
-
-.sheet-perks-panel .sheet-perk-card.is-filled .sheet-perk-head {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  min-height: 0;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.sheet-perks-panel .sheet-perk-card.is-filled :is(.sheet-perk-summary, .sheet-perk-card-actions) {
-  grid-column: 1 / -1;
-  margin: var(--space-5) var(--card-padding);
-}
-
-.sheet-perks-panel .sheet-perk-summary {
-  -webkit-line-clamp: 6;
 }
 
 .sheet-perks-panel.is-compact .sheet-perk-card.is-filled > .card-title {
