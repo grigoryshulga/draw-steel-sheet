@@ -1,4 +1,4 @@
-import { catalogAccent, catalogLevelSections } from "../lib/catalog-presentation";
+import { catalogAccent, catalogLevelSections, catalogTitleText } from "../lib/catalog-presentation";
 import { echelon as levelEchelon } from "../lib/progression";
 import { CatalogRank } from "../components/rules/CatalogRank";
 import { Fragment, useContext, useEffect, useMemo, useState } from "react";
@@ -369,7 +369,8 @@ function CatalogEntryDetail({
   characterId?: string;
 }) {
   const keywords = entry.keywords.split(/[;,]/).map((word) => word.trim()).filter(Boolean);
-  const markdown = keywords.length ? entry.markdown.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "") : entry.markdown;
+  const { flavor, body } = catalogTitleText(entry);
+  const markdown = keywords.length ? body.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "") : body;
   const progression = catalogLevelSections(markdown);
   const levels = entry.category === "Сокровища с Уровнем" ? progression.levels : [];
   const [level, setLevel] = useState(levels[0]?.level ?? 1);
@@ -381,6 +382,7 @@ function CatalogEntryDetail({
         {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
       </span><CatalogRank rank={rank} /></div>
       <h1>{entry.name}</h1>
+      {flavor && <div className="catalog-flavor"><RuleText text={flavor} /></div>}
       {keywords.length > 0 && <div className="catalog-keywords" aria-label="Ключевые слова">
         {keywords.map((keyword) => <Chip key={keyword}>{keyword}</Chip>)}
       </div>}

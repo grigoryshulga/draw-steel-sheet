@@ -1,6 +1,21 @@
 import type { CatalogEntry } from "../rules/consumer-data";
 import { echelon } from "./progression";
 
+/** Отделяет вступление титула и условие, которое карточка показывает отдельно. */
+export function catalogTitleText(entry: Pick<CatalogEntry, "kind" | "markdown" | "prerequisite">) {
+  if (entry.kind !== "title") return { flavor: "", body: entry.markdown };
+  const paragraphs = entry.markdown.trim().split(/\n\s*\n/);
+  const flavor = /^\*(?!\*)[\s\S]+\*$/.test(paragraphs[0] ?? "")
+    ? paragraphs.shift()!
+    : "";
+  const body = paragraphs.filter((paragraph) => !(
+    entry.prerequisite &&
+    paragraph.startsWith("**Предварительное условие:**") &&
+    paragraph.slice("**Предварительное условие:**".length).trim() === entry.prerequisite.trim()
+  )).join("\n\n");
+  return { flavor, body };
+}
+
 export function catalogAccent(entry?: Pick<CatalogEntry, "kind" | "category" | "echelon">, level?: number): string | undefined {
   if (!entry || !["treasure", "title"].includes(entry.kind)) return undefined;
   if (entry.category === "Артефакты") return "artifact";

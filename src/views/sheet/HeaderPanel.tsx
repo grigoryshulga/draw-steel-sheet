@@ -6,6 +6,7 @@ import { Portrait } from "./Portrait";
 
 export function HeaderPanel() {
   const { character } = useApp();
+  const titles = character.inventory.filter((item) => item.category === "title");
   const classArticle = codexIndex.find(
     (a) => a.group === character.className && /1-й Уровень/.test(a.title),
   );
@@ -40,6 +41,13 @@ export function HeaderPanel() {
             )}
             <HeaderDomainChoices key={character.id} />
           </div>
+          {titles.length > 0 && (
+            <ul className="sheet-identity-titles" aria-label="Титулы">
+              {titles.map((title) => (
+                <li key={title.id}>{title.name || "Без названия"}</li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="sheet-header-progress">
           <ProgressPanel />

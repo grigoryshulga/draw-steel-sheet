@@ -57,6 +57,24 @@
 .sheet-identity-summary a:hover {
   color: var(--accent);
 }
+.sheet-identity-titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--accent);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}
+.sheet-identity-titles li {
+  min-width: 0;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  overflow-wrap: anywhere;
+}
 /* Домен живёт прямо в строке идентичности: чип вместо отдельного поля. */
 .sheet-domain-chip-wrap {
   position: relative;
