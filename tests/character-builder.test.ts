@@ -46,6 +46,26 @@ function tactician() {
 }
 
 describe("Character creation and automatic rules", () => {
+  it("automatically grants the shadow's shared triggered action", () => {
+    const draft = { ...emptyBuilderDraft(), className: "Тень", subclass: "Коллегия Черного Пепла" };
+    expect(grantedClassAbilities(draft).map((a) => a.name)).toContain("Нерешительность — Это Слабость");
+    expect(selectableClassAbilities(draft).map((a) => a.name)).not.toContain("Нерешительность — Это Слабость");
+    expect(buildCharacter(draft).abilities.map((a) => a.name)).toContain("Нерешительность — Это Слабость");
+  });
+
+  it("grants only the selected doctrine's trigger, including after switching subclass", () => {
+    const base = { ...emptyBuilderDraft(), className: "Тактик", subclass: "Авангард" };
+    const overwatch = ABILITY_COMPENDIUM.find((a) => a.className === "Тактик" && a.name === "Прикрытие")!;
+    const parry = ABILITY_COMPENDIUM.find((a) => a.className === "Тактик" && a.name === "Парирование")!;
+    expect(selectableClassAbilities(base).map((a) => a.name)).not.toContain("Прикрытие");
+    expect(buildCharacter({ ...base, abilityIds: [overwatch.id] }).abilities.map((a) => a.name))
+      .not.toContain("Прикрытие");
+    expect(buildCharacter(base).abilities.map((a) => a.name)).toContain("Парирование");
+    const switched = { ...base, subclass: "Воевода", abilityIds: [parry.id] };
+    expect(buildCharacter(switched).abilities.map((a) => a.name)).toContain("Прикрытие");
+    expect(buildCharacter(switched).abilities.map((a) => a.name)).not.toContain("Парирование");
+  });
+
   it.each([
     ["Созидание", "Смерть"],
     ["Природа", "Созидание"],

@@ -240,18 +240,21 @@ const normalizeAbilityName = (name: string) =>
 const DOMAIN_CARD_NAMES = new Set(
   Object.values(DOMAIN_GRANTED_ABILITIES).flat().map(normalizeAbilityName),
 );
+const SUBCLASS_CARD_NAMES = new Set(
+  Object.values(SUBCLASS_GRANTED_ABILITIES).flat().map(normalizeAbilityName),
+);
 
 /**
- * Способность, которую герой выбирает вручную. Доменные карточки сюда не
- * входят: у Цензора домен один, и карточка чужого домена не должна попадать
- * в список только потому, что она того же уровня.
+ * Способность, которую герой выбирает вручную. Карточки доменов и подклассов
+ * выдаются автоматически; карточки чужого подкласса выбирать нельзя.
  */
 function isManualClassAbility(
   draft: BuilderDraft,
   ability: (typeof ABILITY_COMPENDIUM)[number],
 ) {
   if (ability.className !== draft.className || ability.level !== 1) return false;
-  return !DOMAIN_CARD_NAMES.has(normalizeAbilityName(ability.name));
+  const name = normalizeAbilityName(ability.name);
+  return !DOMAIN_CARD_NAMES.has(name) && !SUBCLASS_CARD_NAMES.has(name);
 }
 
 export function selectableClassAbilities(draft: BuilderDraft) {
@@ -343,8 +346,8 @@ export function buildCharacter(
   );
   const abilities = ABILITY_COMPENDIUM.filter(
     (a) =>
-      (draft.abilityIds.includes(a.id) || granted.some((g) => g.id === a.id)) &&
-      isManualClassAbility(draft, a) || granted.some((g) => g.id === a.id),
+      (draft.abilityIds.includes(a.id) && isManualClassAbility(draft, a)) ||
+      granted.some((g) => g.id === a.id),
   );
   const kitAbilities = [
     kit,

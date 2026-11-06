@@ -6,6 +6,7 @@ import {
   restoreBuilderFlow,
 } from "../src/lib/builder-flow";
 import {
+  BUILDER_DATA,
   emptyBuilderDraft,
   startingCharacteristics,
 } from "../src/lib/character-builder";
@@ -88,6 +89,26 @@ describe("guided creation flow", () => {
     const flow = builderFlow({ ...draft, abilityIds: [three.entries[0].id] });
     expect(flow.find((s) => s.id === "abilities/3")?.issue).toBe("");
     expect(flow.find((s) => s.id === "abilities/5")?.issue).not.toBe("");
+  });
+
+  it("does not offer other doctrines' triggers to a vanguard", () => {
+    const draft = draftFor("Тактик", "Авангард");
+    expect(builderAbilityGroups(draft).find((g) => g.id === "other")).toBeUndefined();
+    expect(builderFlow(draft).some((s) => s.id === "abilities/other")).toBe(false);
+  });
+
+  it("keeps the conduit's actual choice of triggered action", () => {
+    const group = builderAbilityGroups(draftFor("Проводник", "Созидание, Смерть"))
+      .find((g) => g.id === "other")!;
+    expect(group.count).toBe(1);
+    expect(group.entries.map((a) => a.name).sort()).toEqual(["Слово Наставления", "Слово Суда"]);
+  });
+
+  it.each(BUILDER_DATA.classes.filter((c) => c.name !== "Проводник").flatMap((c) =>
+    c.subclasses.map((s) => [c.name, s.name]),
+  ))("does not ask for automatic subclass abilities: %s / %s", (className, subclass) => {
+    expect(builderAbilityGroups(draftFor(className, subclass)).find((g) => g.id === "other"))
+      .toBeUndefined();
   });
 
   it("restores v3 and historical positions without changing draft data", () => {
