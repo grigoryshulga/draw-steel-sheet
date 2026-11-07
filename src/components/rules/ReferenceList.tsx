@@ -1,5 +1,6 @@
 import { catalogAccent } from "../../lib/catalog-presentation";
 import type { CatalogEntry } from "../../rules/consumer-data";
+import type { RuleIndexEntry } from "../../rules/schema";
 import { CatalogRank } from "./CatalogRank";
 import { PerkCard } from "../PerkCard";
 import type { PerkType } from "../../types";
@@ -15,6 +16,7 @@ type ReferenceListEntry = {
   summary?: string;
   eyebrow?: string;
   echelon?: number | null;
+  director?: RuleIndexEntry['director'];
 };
 
 /** Одна разметка списка справочника: ссылки в каталоге, выбор строки в мастере. */
@@ -50,7 +52,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
         );
         const rank = catalogAccent(entry.catalog);
         const art = artKind ? artFor(artKind, entry.name) : undefined;
-        const className = `catalog-card${art ? " has-art" : ""}`;
+        const className = `catalog-card${art ? " has-art" : ""}${entry.director ? " catalog-creature-card" : ""}`;
         const content = (
           <>
             {art && (
@@ -74,10 +76,26 @@ export function ReferenceList<T extends ReferenceListEntry>({
                   {!rank && entry.echelon ? `Эшелон ${entry.echelon}` : ""}
                 </span>
               )}
+              {entry.director && <span className="catalog-creature-type">
+                {[entry.director.organization, entry.director.role].filter(Boolean).join(' · ')}
+              </span>}
               <CatalogRank rank={rank} />
               </span>
               <span className="catalog-card-title">{entry.name}</span>
-              {entry.summary && (
+              {entry.director ? <>
+                <span className="catalog-creature-stats">
+                  {[
+                    ['Уровень', entry.director.level],
+                    ['БЦ', entry.director.ev],
+                    ['Размер', entry.director.size],
+                  ].filter(([, value]) => value !== undefined && value !== '').map(([label, value]) =>
+                    <span className="catalog-creature-stat" key={label}>
+                      <span className="catalog-creature-stat-label" title={label === 'БЦ' ? 'Боевая ценность' : undefined}>{label}</span>
+                      <strong>{value}</strong>
+                    </span>
+                  )}
+                </span>
+              </> : entry.summary && (
                 <span className="catalog-card-summary">{entry.summary}</span>
               )}
               {metaFor?.(entry)}

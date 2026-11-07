@@ -1,3 +1,4 @@
+import { remarkDirectorView, type DirectorView } from "../../lib/remark-director-view";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { PluggableList } from "unified";
@@ -39,6 +40,7 @@ export interface RuleMarkdownProps {
   headingOffset?: number;
   /** Compact creature identity, rendered inside its printed stat block. */
   directorHeading?: ReactNode;
+  directorMode?: DirectorView;
   directorHeadingActions?: ReactNode;
   /**
    * Текст уже показан полной карточкой способности: из источника берём только
@@ -72,6 +74,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
   className = "rule-text",
   headingOffset = 0,
   directorHeading,
+  directorMode,
   directorHeadingActions,
   abilityCardRemainder = false,
 }: RuleMarkdownProps) {
@@ -86,7 +89,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
         remarkRuleFields,
         remarkRuleLinks,
       ]
-    : [remarkGfm, remarkDirectorBlocks, articleId?.startsWith('monsters.') ? remarkDirectorAbilities : remarkAbilityBlocks, remarkRuleFields, remarkRuleLinks];
+    : [remarkGfm, remarkDirectorBlocks, articleId?.startsWith('monsters.') ? remarkDirectorAbilities : remarkAbilityBlocks, [remarkDirectorView, { mode: directorMode }], remarkRuleFields, remarkRuleLinks];
   return (
     <div className={className}>
       <Markdown

@@ -62,7 +62,7 @@ describe('Compact creature sheet', () => {
     expect(header).toContain('Боевая ценность');
     expect(html.split('Goblin Warrior')).toHaveLength(2);
     expect(html.match(/class="director-mini-type"/g)).toHaveLength(1);
-    expect(html).not.toContain('director-original-name');
+    expect(header).not.toContain('director-original-name');
     expect(html).not.toMatch(/\bEV\b/);
   });
 

@@ -30,24 +30,16 @@
         {
           "type": "entity",
           "ref": "monster.demon.1st-echelon.statblock.torlas"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.demon.1st-echelon.demon-malice-level-1-malice-features"
         }
       ],
       "related": [
         {
           "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
           "title": "Демоны: особенности Раздора для 1-го уровня и выше"
-        },
-        {
-          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
-          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
-        },
-        {
-          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
-          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
-        },
-        {
-          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
-          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
         },
         {
           "id": "monsters.monster.group.demon",
@@ -88,6 +80,27 @@
         ],
         "role": "Контроллер",
         "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+      "kind": "monster-feature",
+      "name": "Демоны: особенности Раздора для 1-го уровня и выше",
+      "markdown": "В начале хода любого демона вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Выжигание души (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый демон, действующий в этом ходу, получает двойное [преимущество](#/catalog/glossary#term-glossary.edge) на способностях.\n\n> 🌀 **Эволюция Бездны (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Выбранный вами демон-[миньон](#/catalog/glossary#term-glossary.minion) превращается в демона-[орду](#/catalog/glossary#term-glossary.horde) того же уровня, который не является миньоном.\n\n> 🔳 **Разлом в Бездну (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В выбранных вами местах появляются два разлома размера 2, ведущие в Пустошь Бездны. Любой демон может пройти через разлом, как через портал, к другому разлому Бездны на поле столкновения: войти в любую клетку одного разлома и сразу появиться в любой свободной клетке другого. Существо, не являющееся демоном, которое впервые за раунд входит в разлом или начинает там свой ход, получает урон порчей, равный уровню демона наивысшего уровня на карте столкновения. Разлом Бездны — неподвижный объект с [Выносливостью](#/catalog/glossary#term-glossary.stamina) 25, [иммунитетом к урону](#/catalog/glossary#term-glossary.damage-immunity) 2 и [уязвимостью](#/catalog/glossary#term-glossary.damage-weakness) 5 к святому урону. Разлом закрывается, когда на карте столкновения не остается демонов. Кроме того, существо, обладающее навыком «Магия» или «Псионика», может, находясь [рядом](#/catalog/glossary#term-glossary.adjacent) с разломом, совершить маневр и пройти проверку Разума или Интуиции, чтобы дестабилизировать и закрыть его.\n>\n> - **≤11:** Разлом остается открытым и восстанавливает 5 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n> - **12-16:** Разлом остается открытым.\n> - **17+:** Разлом закрывается.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+        "path": "Monsters/monster/demon/1st-echelon/demon-malice-level-1-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.1st-echelon/demon-malice-level-1-malice-features",
+      "originalName": "Demon Malice (Level 1+ Malice Features)",
+      "originalDescription": "At the start of any demon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Soulburn (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each demon acting this turn has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on abilities.\n\n> 🌀 **Abyssal Evolution (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A demon [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) of your choice transforms into a non-minion [horde](scc.v1:mcdm.monsters.v1/rule.organization/horde) demon of the same level.\n\n> 🔳 **Abyssal Rift (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two size 2 rifts to the Abyssal Wasteland appear at locations of your choice. Any demon can use an abyssal rift as a portal to another abyssal rift in the encounter, moving into any space in one rift and appearing immediately in any unoccupied space in the other rift. A non-demon who enters a rift for the first time in a round or starts their turn there takes corruption damage equal to the level of the highest-level demon on the encounter map. An abyssal rift is an immovable object that has 25 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 2, and holy [weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 5. The rift closes when there are no demons remaining on the encounter map. Additionally, a creature who has the Magic or Psionics skill can make a Reason test or Intuition test as a maneuver while [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a rift to destabilize and close it.\n>\n> - **≤11:** The rift remains open and regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n> - **12-16:** The rift remains open.\n> - **17+:** The rift closes.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/1st-echelon/demon-malice-level-1-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "featureblock",
+        "level": 1
       }
     }
   ]

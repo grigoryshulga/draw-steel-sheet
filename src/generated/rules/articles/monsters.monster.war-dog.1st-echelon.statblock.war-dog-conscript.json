@@ -31,6 +31,10 @@
         {
           "type": "entity",
           "ref": "monster.war-dog.1st-echelon.statblock.war-dog-conscript"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features"
         }
       ],
       "related": [
@@ -41,18 +45,6 @@
         {
           "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
           "title": "Особенности Раздора псов войны (1-й уровень и выше)"
-        },
-        {
-          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
-          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
-        },
-        {
-          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
-          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
-        },
-        {
-          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
-          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
         },
         {
           "id": "monsters.rule.monster.malice",
@@ -90,6 +82,27 @@
         ],
         "role": "Налётчик",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+      "kind": "monster-feature",
+      "name": "Особенности Раздора псов войны (1-й уровень и выше)",
+      "markdown": "В начале хода любого пса войны вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Восстановление тела (3 Раздора)**\n>\n> Один из псов войны, действующих в этот ход, разрывает неподалёку труп гуманоида и встраивает его части в собственное тело. Пёс войны восстанавливает количество [Выносливости](#/catalog/glossary#term-glossary.stamina), равное 5, умноженному на его уровень.\n\n> 🔳 **Огонь на поражение (5 Раздора)**\n>\n> | **Область, Магия, Дальний бой** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|------------------------------:|\n> | **📏 Куб 4 в пределах 10**       | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Каждая цель проходит тест Ловкости. Каждая затронутая цель получает одно и то же состояние.\n>\n> - **≤11:** 5 урона огнём; [замедлена](#/catalog/glossary#term-glossary.slowed) или [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 5 урона огнём; [замедлена](#/catalog/glossary#term-glossary.slowed) или [ослаблена](#/catalog/glossary#term-glossary.weakened) (КсХ)\n> - **17+:** 5 урона огнём\n\n> ⭐️ **Бег пушечного мяса (7 Раздора)**\n>\n> Каждый [миньон](#/catalog/glossary#term-glossary.minion) из псов войны в столкновении [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). После этого [Выносливость](#/catalog/glossary#term-glossary.stamina) [миньона](#/catalog/glossary#term-glossary.minion), совершившего свободный удар, снижается до 0.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+        "path": "Monsters/monster/war-dog/1st-echelon/war-dog-malice-level-1-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon/war-dog-malice-level-1-malice-features",
+      "originalName": "War Dog Malice (Level 1+ Malice Features)",
+      "originalDescription": "At the start of any war dog's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Reconstitute (3 Malice)**\n>\n> One war dog acting this turn tears apart a nearby corpse of a humanoid and incorporates its body parts into their own. The war dog regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to 5 times their level.\n\n> 🔳 **Fire for Effect (5 Malice)**\n>\n> | **Area, Magic, Ranged**     |               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 4 cube within 10**     | **🎯 Each creature in the area** |\n>\n> **Effect:** Each target makes an **Agility test**. The same condition is imposed on each affected target.\n>\n> - **≤11:** 5 fire damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 5 fire damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** 5 fire damage\n\n> ⭐️ **Fodder Run (7 Malice)**\n>\n> Each war dog [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). A [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) who does so is then reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/1st-echelon/war-dog-malice-level-1-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "featureblock",
+        "level": 1
       }
     }
   ]

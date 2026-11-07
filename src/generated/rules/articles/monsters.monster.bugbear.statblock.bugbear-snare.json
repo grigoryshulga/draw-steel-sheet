@@ -32,6 +32,10 @@
         {
           "type": "entity",
           "ref": "monster.bugbear.statblock.bugbear-snare"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.bugbear.bugbear-malice"
         }
       ],
       "related": [
@@ -80,6 +84,26 @@
         ],
         "role": "Засадник",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.bugbear.bugbear-malice",
+      "kind": "monster-feature",
+      "name": "Раздор багбиров",
+      "markdown": "В начале хода любого багбира вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Особенности Раздора гоблинов (3-7 Раздора)**\n>\n> Багбир активирует одну из особенностей Раздора, доступных гоблинам.\n\n> 👤 **Схватить железный шар (3+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> За каждые потраченные 3 [Раздора](#/codex/monsters.rule.monster.malice) один действующий в этот ход багбир, не являющийся [миньоном](#/catalog/glossary#term-glossary.minion), хватает железный шар и может маневром бросить его в существо в пределах 5 клеток от себя. Существо получает урон, равный 8 минус количество клеток, через которые пролетел шар; если его М < 1, оно [замедлено](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> 👤 **Схватить дротик (5+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> За каждые потраченные 5 [Раздора](#/codex/monsters.rule.monster.malice) один действующий в этот ход багбир, не являющийся [миньоном](#/catalog/glossary#term-glossary.minion), хватает дротик и может маневром бросить его в существо в пределах 5 клеток от себя. Существо получает урон, равный 12 минус количество клеток, через которые пролетел дротик; если его М < 1, оно [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.). Пока существо [истекает кровью](#/catalog/glossary#term-glossary.bleeding) таким образом, любой союзник багбира в пределах 2 клеток от него может свободным маневром [притянуть](#/catalog/glossary#term-glossary.forced-movement) это [истекающее кровью](#/catalog/glossary#term-glossary.bleeding) существо на расстояние до 2 клеток.\n\n> 🌀 **Покажите им великий страх (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Багбир наполняет карту столкновения бу'гатической магией. До конца столкновения Скорость всех багбиров и их союзников удваивается, и они могут автоматически карабкаться с полной Скоростью во время перемещения. Кроме того, если И цели удара багбира или его союзника < 1, цель также [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.) и должна переместиться на расстояние, равное своей Скорости, по прямой от существа, нанесшего удар.\n",
+      "source": {
+        "articleId": "monsters.monster.bugbear.bugbear-malice",
+        "path": "Monsters/monster/bugbear/bugbear-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.bugbear/bugbear-malice",
+      "originalName": "Bugbear Malice",
+      "originalDescription": "At the start of any bugbear's turn, you can spend Malice to activate one of the following features.\n\n> ⭐️ **Goblin Malice Features (3-7 Malice)**\n>\n> The bugbear activates a Malice Feature available to goblins.\n\n> 👤 **Grab Iron Ball (3+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For every 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) bugbear acting this turn grabs an iron ball and can use a maneuver to throw it at a creature within 5 squares of them. The creature takes damage equal to 8 - the number of squares the iron ball was thrown, and if they have M < 1, they are [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> 👤 **Grab Javelin (5+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For every 5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) bugbear acting this turn grabs a javelin and can use a maneuver to throw it at a creature within 5 squares of them. The creature takes damage equal to 12 - the number of squares the javelin was thrown, and if they have M < 1, they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends). While a creature is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, any ally of the bugbear within 2 squares of them can use a free maneuver to [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) the [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature up to 2 squares.\n\n> 🌀 **Show Them the Great Fear (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A bugbear infuses the encounter map with bu'gathic magic. Until the end of the encounter, all bugbears and allies have their speed doubled and can automatically climb at full speed while moving. Additionally, if the target of any bugbear or ally's strike has I < 1, the target is also [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends) and must move their speed in a straight line away from the creature who made the strike.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/bugbear-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "featureblock"
       }
     }
   ]

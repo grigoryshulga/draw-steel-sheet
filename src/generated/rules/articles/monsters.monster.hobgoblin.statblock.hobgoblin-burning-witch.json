@@ -32,6 +32,10 @@
         {
           "type": "entity",
           "ref": "monster.hobgoblin.statblock.hobgoblin-burning-witch"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.hobgoblin-malice"
         }
       ],
       "related": [
@@ -80,6 +84,26 @@
         ],
         "role": "Контроллер",
         "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.hobgoblin.hobgoblin-malice",
+      "kind": "monster-feature",
+      "name": "Раздор хобгоблинов",
+      "markdown": "В начале хода любого хобгоблина вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Особенности Раздора гоблинов (3-7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Хобгоблин активирует доступную гоблинам особенность [Раздора](#/codex/monsters.rule.monster.malice).\n\n> ⭐️ **Операция «Гоблинский режим» (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый гоблин в столкновении получает бонус +3 к Скорости до конца раунда.\n\n> ⭐️ **Операция «Тактический рой» (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый хобгоблин в столкновении [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить основное действие «Защита».\n\n> 🌀 **Операция «Выжигание земли» (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда земля на всей карте столкновения раскалена докрасна. Каждый враг получает 1 урон огнём за каждую клетку земли, в которую он входит. Каждый враг, заканчивающий ход на земле, получает уязвимость к огню 2 до начала своего следующего хода.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.hobgoblin-malice",
+        "path": "Monsters/monster/hobgoblin/hobgoblin-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin/hobgoblin-malice",
+      "originalName": "Hobgoblin Malice",
+      "originalDescription": "At the start of any hobgoblin's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Goblin Malice Features (3-7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The hobgoblin activates a [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) Feature available to goblins.\n\n> ⭐️ **Operation Goblin Mode (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each goblin in the encounter gains a +3 bonus to speed until the end of the round.\n\n> ⭐️ **Operation Tactical Swarm (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each hobgoblin in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can take the Defend main action.\n\n> 🌀 **Operation Earth Sear (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, the ground throughout the encounter map becomes blazing hot. Any enemy takes 1 fire damage for each square of the ground they enter. Any enemy who ends their turn on the ground has fire weakness 2 until the start of their next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/hobgoblin-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "featureblock"
       }
     }
   ]

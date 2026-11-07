@@ -1,3 +1,5 @@
+import { useLibraryLocation } from "../lib/library-location";
+import { isDirectorSection } from "../navigation";
 import { useRef, useState } from "react";
 import { CharacterMenu } from "./CharacterMenu";
 import { Icon } from "./Icons";
@@ -14,6 +16,7 @@ import "./FloatingHeader.css";
 const LIBRARY_OPTIONS = [
   { id: "codex", label: "Книга", icon: "book" },
   { id: "reference", label: "Справочник", icon: "library" },
+  { id: "director", label: "Ведущему", icon: "book" },
 ] as const;
 
 
@@ -48,7 +51,8 @@ export function FloatingHeader({
   const heroActive = isHeroTab(tab);
   const codexActive = isLibraryTab(tab);
   const account = useAccount();
-  const librarySection = tab === "codex" ? "codex" : "reference";
+  const location = useLibraryLocation();
+  const librarySection = tab === "codex" ? "codex" : isDirectorSection(location[2] ?? "") ? "director" : "reference";
   const libraryTrigger = useRef<HTMLButtonElement>(null);
   const libraryMenu = useRef<HTMLDivElement>(null);
   const skipNextFocus = useRef(false);
@@ -64,9 +68,10 @@ export function FloatingHeader({
       skipNextFocus.current = false;
     });
   };
-  const selectLibrarySection = (next: "codex" | "reference") => {
+  const selectLibrarySection = (next: "codex" | "reference" | "director") => {
     closeLibraryMenu(true);
-    onNavigate(next);
+    if (next === "director") window.location.hash = "#/catalog/monsters";
+    else onNavigate(next);
   };
 
   return (

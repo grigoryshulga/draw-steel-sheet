@@ -29,6 +29,10 @@
         {
           "type": "entity",
           "ref": "monster.troll.statblock.troll-limbjumble"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.troll.troll-malice"
         }
       ],
       "related": [
@@ -52,7 +56,7 @@
       "id": "monster.troll.statblock.troll-limbjumble",
       "kind": "monster",
       "name": "Тролль-клубок конечностей",
-      "markdown": "| Тролль |         -         |    **Уровень 5**     | **Миньон, Проклинатель** | **Боевая ценность 7 за четырёх миньонов** |\n|:----------:|:-----------------:|:-------------------:|:------------------------:|:----------------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **8**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество на удары**<br>С капитаном | **Кислота 8, огонь **<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **-2**<br>Разум | **-1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Рука и нога ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; Л < 2 [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 5 урона; Л < 3 [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 6 урона; [Лежащий](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Если цель, сбитая [с ног](#/catalog/glossary#term-glossary.prone) таким образом, уже лежит [Лежащей](#/catalog/glossary#term-glossary.prone), вместо этого она оказывается [схваченной](#/catalog/glossary#term-glossary.grabbed).\n\n> ⭐️ **Гиперрегенерация**\n>\n> В начале каждого хода [отряда](#/codex/monsters.rule.monster.squad) троллей-клубков конечностей запас [Выносливости](#/catalog/glossary#term-glossary.stamina) отряда увеличивается так, как если бы у каждого тролля-клубка конечностей была полная [Выносливость](#/catalog/glossary#term-glossary.stamina).\n",
+      "markdown": "| Тролль |         -         |    **Уровень 5**     | **Миньон, Проклинатель** | **Боевая ценность 7 за четырёх миньонов** |\n|:----------:|:-----------------:|:-------------------:|:------------------------:|:----------------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **8**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество на удары**<br>С капитаном | **Кислота 8, огонь **<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **-2**<br>Разум | **-1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Рука и нога ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; Л < 2 [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 5 урона; Л < 3 [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 6 урона; [Лежащий](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Если цель, сбитая [с ног](#/catalog/glossary#term-glossary.prone) таким образом, уже лежит [Лежащей](#/catalog/glossary#term-glossary.prone), вместо этого она оказывается [схваченной](#/catalog/glossary#term-glossary.grabbed).\n\n> ⭐️ **Гиперрегенерация**\n>\n> В начале каждого хода [отряда](#/catalog/glossary#term-glossary.organized-as-squads) троллей-клубков конечностей запас [Выносливости](#/catalog/glossary#term-glossary.stamina) отряда увеличивается так, как если бы у каждого тролля-клубка конечностей была полная [Выносливость](#/catalog/glossary#term-glossary.stamina).\n",
       "source": {
         "articleId": "monsters.monster.troll.statblock.troll-limbjumble",
         "path": "Monsters/monster/troll/statblock/troll-limbjumble.md"
@@ -74,6 +78,26 @@
         ],
         "role": "Проклинатель",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.troll.troll-malice",
+      "kind": "monster-feature",
+      "name": "Раздор троллей",
+      "markdown": "В начале хода любого тролля Ведущий может потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Гадкая отрыжка (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один тролль, действующий в этот ход, выплёвывает полупереваренную пищу линией 5 × 1 в пределах 1 клетки от себя. Каждый тролль в области восстанавливает 3 [Выносливости](#/catalog/glossary#term-glossary.stamina). Каждый враг в области проходит проверку **Мощи**.\n>\n> - **≤11:** 12 урона кислотой; [Оглушение](#/catalog/glossary#term-glossary.dazed) (КсХ)\n> - **12-16:** 10 урона кислотой; [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ)\n> - **17+:** 6 урона кислотой\n\n> 🗡 **Запасная трапеза (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый тролль в столкновении может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike) по [смежному](#/catalog/glossary#term-glossary.adjacent) существу и восстановить [Выносливость](#/catalog/glossary#term-glossary.stamina) в размере нанесённого урона.\n\n> ❇️ **Кровавый пир (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый [утомлённый](#/catalog/glossary#term-glossary.winded) тролль в столкновении изрыгает содержимое своего желудка на землю вокруг себя, создавая вокруг себя всплеск зловонной рвоты радиусом 1, который существует до конца столкновения. Каждое существо, не являющееся троллем, впервые за раунд входящее в эту область или начинающее там свой ход, получает 5 урона кислотой. Каждый тролль в этой области получает двойное преимущество на броски силы.\n",
+      "source": {
+        "articleId": "monsters.monster.troll.troll-malice",
+        "path": "Monsters/monster/troll/troll-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.troll/troll-malice",
+      "originalName": "Troll Malice",
+      "originalDescription": "At the start of any troll's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Foul Spew (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One troll acting this turn spews out a half-digested meal in a 5 x 1 line within 1 square of them. Each troll in the area regains 3 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). Each enemy in the area makes a **Might test**.\n>\n> - **≤11:** 12 acid damage; [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (EoT)\n> - **12-16:** 10 acid damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** 6 acid damage\n\n> 🗡 **Emergency Meal (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each troll in the encounter can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, and regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> ❇️ **Bloody Banquet (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) troll in the encounter disgorges the contents of their stomach onto the ground around them, creating a 1 burst of foul vomitus that lasts until the end of the encounter. Each non-troll who enters this area for the first time in a round or starts their turn there takes 5 acid damage. Each troll in the area has a double edge on power rolls.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/troll/troll-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "troll",
+        "recordType": "featureblock"
       }
     }
   ]

@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.time-raider.statblock.time-raider-hijack"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.time-raider.time-raider-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Засадник",
         "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.time-raider.time-raider-malice",
+      "kind": "monster-feature",
+      "name": "Раздор рейдеров времени",
+      "markdown": "В начале хода любого рейдера времени Ведущий может потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Гравитационный колодец (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Псионика, Дальний бой, Оружие** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------------|----------------:|\n> | **📏 Куб 5 в пределах 3**                  | **🎯 Особое**   |\n>\n> **Эффект:** Рейдер времени, действующий в этот ход, создаёт в области гравитационный колодец. Колодец располагается в центре куба и существует до конца столкновения или до тех пор, пока существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с ним, не потратит маневр, чтобы отключить его. Для врагов эта область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). Каждый враг, заканчивающий ход в этой области, [притягивается](#/catalog/glossary#term-glossary.forced-movement) к колодцу на расстояние до 4 клеток.\n\n> ⭐️ **Модуль возврата (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый рейдер получает бонус +3 к Скорости и может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до своей Скорости, потратив действие движения.\n\n> 🌀 **Пси-клетка (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Все рейдеры времени, участвующие в столкновении, сообща создают на карте столкновения псионическое поле. Оно существует до тех пор, пока рейдер времени с наибольшим максимумом [Выносливости](#/catalog/glossary#term-glossary.stamina) впервые не окажется с 0 [Выносливости](#/catalog/glossary#term-glossary.stamina) или не решит прекратить действие поля (без действия). Пока поле действует, в начале каждого раунда каждое находящееся на карте существо, не являющееся рейдером времени, проходит проверку **Разума** против этого псионического эффекта.\n>\n> - **≤11:** 10 психического урона; [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **12–16:** 7 психического урона; [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** без эффекта\n",
+      "source": {
+        "articleId": "monsters.monster.time-raider.time-raider-malice",
+        "path": "Monsters/monster/time-raider/time-raider-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.time-raider/time-raider-malice",
+      "originalName": "Time Raider Malice",
+      "originalDescription": "At the start of any time raider's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Gravity Well (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Psionic, Ranged, Weapon** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|---------------:|\n> | **📏 5 cube within 3**            | **🎯 Special** |\n>\n> **Effect:** A time raider acting this turn activates a gravity well in the area. The gravity well sits at the center of the cube and lasts until the end of the encounter, or until a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the well uses a maneuver to deactivate it. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Any enemy who ends their turn in the area is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares toward the well.\n\n> ⭐️ **Recall Module (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each time raider gains a +3 bonus to speed, and can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to their speed as a move action.\n\n> 🌀 **Psi-Cage (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> All time raiders in the encounter collectively create a psionic field over the encounter map, which lasts until the first time raider with the highest [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) maximum drops to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) or chooses to end the field (no action required). While the field is up, each non-time raider on the map makes a **Reason test** against this psionic effect at the start of each round.\n>\n> - **≤11:** 10 psychic damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 7 psychic damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/time-raider/time-raider-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "time-raider",
+        "recordType": "featureblock"
       }
     }
   ]

@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.war-spider"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Скакун",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.goblin.goblin-malice",
+      "kind": "monster-feature",
+      "name": "Раздор гоблинов",
+      "markdown": "В начале хода любого гоблина вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Режим гоблина (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Скорость каждого гоблина в столкновении увеличивается на +2 до конца раунда.\n\n> ❇️ **Мелкие уколы (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый враг в столкновении получает 1 урон за каждого гоблина, находящегося [смежно](#/catalog/glossary#term-glossary.adjacent) с ним.\n\n> 🌀 **Болотная вонь (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда карту столкновения затягивает зелёный туман, который нельзя развеять ветром. Для всех негоблинов вся местность становится [труднопроходимой](#/catalog/glossary#term-glossary.difficult-terrain), и каждый негоблин на карте проходит **тест Мощи**.\n>\n> - **≤11:** 5 урона Ядом; существо [ослаблено](#/catalog/glossary#term-glossary.weakened), пока не рассеется туман.\n> - **12–16:** Существо [ослаблено](#/catalog/glossary#term-glossary.weakened), пока не рассеется туман.\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.goblin-malice",
+        "path": "Monsters/monster/goblin/goblin-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin/goblin-malice",
+      "originalName": "Goblin Malice",
+      "originalDescription": "At the start of any goblin's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Goblin Mode (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each goblin in the encounter gains a +2 bonus to speed until the end of the round.\n\n> ❇️ **Tiny Stabs (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter takes 1 damage for each goblin [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> 🌀 **Swamp Stink (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The encounter map is covered in a green mist that lasts until the end of the round, and which can't be dispersed by wind. All areas of the map are [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin on the map makes a **Might test**.\n>\n> - **≤11:** 5 poison damage; the creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **12-16:** The creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/goblin-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "featureblock"
       }
     }
   ]

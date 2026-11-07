@@ -63,6 +63,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.brambleguard"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -109,6 +113,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.ceramic-horse"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -156,6 +164,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.elemental-mote"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -203,6 +215,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-bloodletter"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -250,6 +266,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-dawn-mage"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -297,6 +317,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-deathtouch"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -344,6 +368,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-orbweaver"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -390,6 +418,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-ordinator"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -437,6 +469,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-palinode"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -484,6 +520,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-quiver"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -531,6 +571,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-wyrd"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -578,6 +622,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.high-elf-zephyr"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -624,6 +672,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-high.statblock.soot-crow"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
         }
       ],
       "related": [
@@ -732,7 +784,7 @@
       "id": "monster.elf-high.high-elf-malice",
       "kind": "monster-feature",
       "name": "Раздор высших эльфов",
-      "markdown": "В начале хода любого высшего эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🌀 **Цепное заклинание (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда, когда высший эльф использует магическую способность, он может использовать её так, словно занимает клетку другого высшего эльфа на карте столкновения, до которого у него есть линия эффекта.\n\n> 🔳 **Дар из проклятого фолианта (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Линия 5 × 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Высший эльф выбирает один тип урона и одно состояние из следующих сочетаний: урон холодом и [замедление](#/catalog/glossary#term-glossary.slowed), урон ядом и [ослабление](#/catalog/glossary#term-glossary.weakened) или урон порчей и [испуг](#/catalog/glossary#term-glossary.frightened).\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при Р < 1 выбранное состояние (до прох.)\n> - **12-16:** 9 урона; при Р < 2 выбранное состояние (до прох.)\n> - **17+:** 12 урона; при Р < 3 выбранное состояние (до прох.)\n>\n> **Особое:** [Миньон](#/codex/monsters.rule.organization.minion) не может использовать эту способность.\n\n> 🌀 **Вопреки времени (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый высший эльф в столкновении получает бонус +4 к Скорости. Кроме того, когда высший эльф использует способность против врага, каждый высший эльф, [смежный](#/catalog/glossary#term-glossary.adjacent) с этим врагом, может совершить против него [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "markdown": "В начале хода любого высшего эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🌀 **Цепное заклинание (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда, когда высший эльф использует магическую способность, он может использовать её так, словно занимает клетку другого высшего эльфа на карте столкновения, до которого у него есть линия эффекта.\n\n> 🔳 **Дар из проклятого фолианта (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Линия 5 × 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Высший эльф выбирает один тип урона и одно состояние из следующих сочетаний: урон холодом и [замедление](#/catalog/glossary#term-glossary.slowed), урон ядом и [ослабление](#/catalog/glossary#term-glossary.weakened) или урон порчей и [испуг](#/catalog/glossary#term-glossary.frightened).\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при Р < 1 выбранное состояние (до прох.)\n> - **12-16:** 9 урона; при Р < 2 выбранное состояние (до прох.)\n> - **17+:** 12 урона; при Р < 3 выбранное состояние (до прох.)\n>\n> **Особое:** [Миньон](#/catalog/glossary#term-glossary.minion) не может использовать эту способность.\n\n> 🌀 **Вопреки времени (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый высший эльф в столкновении получает бонус +4 к Скорости. Кроме того, когда высший эльф использует способность против врага, каждый высший эльф, [смежный](#/catalog/glossary#term-glossary.adjacent) с этим врагом, может совершить против него [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
       "source": {
         "articleId": "monsters.monster.elf-high.high-elf-malice",
         "path": "Monsters/monster/elf-high/high-elf-malice.md"

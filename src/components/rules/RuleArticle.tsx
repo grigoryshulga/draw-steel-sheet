@@ -1,3 +1,5 @@
+import { CreatureTabs } from "./CreatureTabs";
+import { codexArticleHref } from "../../rules/codex-navigation";
 import type { ReactNode } from 'react';
 import type { RuleArticle, RuleEntity } from "../../rules/schema";
 import type { ArtAsset } from "../../lib/art";
@@ -49,10 +51,11 @@ export function RuleArticleContent({
       ? block.text.trim().length > 0
       : Boolean(entities[block.ref]),
   );
+  const creatureTabs = article.director?.section === "monsters" && article.director.recordType === "statblock";
   return (
     <div className="rule-article" data-rule-article={article.id}>
       {article.director && article.originalName && article.blocks[leadIndex]?.type === 'markdown' && <p className="director-original-name" lang="en">{article.originalName}</p>}
-      {article.blocks.map((block, index) => {
+      {creatureTabs ? <CreatureTabs key={article.id} article={article} entities={entities} headingLevel={2 + headingOffset} headingActions={headingActions} /> : article.blocks.map((block, index) => {
         const isLead = index === leadIndex;
         if (block.type === "markdown") {
           if (!block.text.trim()) return null;
@@ -97,9 +100,10 @@ export function RuleArticleContent({
           />
         );
       })}
+      {article.director?.recordType === 'monster' && <a className="catalog-source" href={`#/catalog/monsters/group:${article.director.groupSlug}`}>Все существа группы «{article.title}» →</a>}
       {!!article.related?.length && <details className="director-related" open={article.director?.recordType === 'statblock'}>
         <summary>Связанные правила и существа · {article.related.length}</summary>
-        <ul>{article.related.map(item => <li key={item.id}><a href={`#/codex/${item.id}`}>{item.title}</a></li>)}</ul>
+        <ul>{article.related.map(item => <li key={item.id}><a href={codexArticleHref(item.id)}>{item.title}</a></li>)}</ul>
       </details>}
       {article.director && article.originalId && <a className="catalog-source"
         href={`https://github.com/SteelCompendium/data-unified/blob/${article.director.sourceRevision}/en/books/monsters/md/${article.director.sourcePath.replace(/\.json$/, '.md')}`}

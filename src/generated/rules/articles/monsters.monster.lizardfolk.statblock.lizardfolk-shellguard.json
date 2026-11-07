@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.lizardfolk.statblock.lizardfolk-shellguard"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.lizardfolk.lizardfolk-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Защитник",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.lizardfolk.lizardfolk-malice",
+      "kind": "monster-feature",
+      "name": "Раздор ящеролюдов",
+      "markdown": "В начале хода любого ящеролюда вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Сетевая ловушка (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой, Оружие** | **Манёвр** |\n> |----------------------------------|-----------:|\n> | **📏 Куб 1 в пределах 3**         | **🎯 Особое** |\n>\n> **Эффект:** Действующий в этот ход ящеролюд устанавливает в области сетевую ловушку. В первый раз, когда враг ступает на клетку с сетевой ловушкой, он проходит **проверку Ловкости**. Если существо не знало о ловушке, оно получает помеху на эту проверку.\n>\n> - **≤11:** [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.).\n> - **12-16:** [Опутанность](#/catalog/glossary#term-glossary.restrained) (КсХ).\n> - **17+:** Без эффекта.\n>\n> **Эффект:** Любое существо, не [опутанное](#/catalog/glossary#term-glossary.restrained) сетевой ловушкой и находящееся [рядом](#/catalog/glossary#term-glossary.adjacent) с существом, [опутанным](#/catalog/glossary#term-glossary.restrained) этой ловушкой, может освободить его манёвром.\n\n> 🔳 **Водяная яма (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Действующий в этот ход ящеролюд создаёт в земле магическую яму размером 2, глубиной 2 клетки и наполненную водой. Любой ящеролюд, который в свой ход входит в яму, а затем выходит из неё, получает 10 временной [Выносливости](#/catalog/glossary#term-glossary.stamina), отращивает хвост, если тот был потерян, и завершает один эффект на себе, который можно завершить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Находясь [рядом](#/catalog/glossary#term-glossary.adjacent) с ямой, любое существо, способное [зарываться в землю](#/catalog/glossary#term-glossary.burrow) или владеющее навыком Природа, может пройти **проверку Мощи** или **проверку Разума**, чтобы осушить её.\n>\n> - **≤11:** Существо падает в яму и оказывается [сбитым с ног](#/catalog/glossary#term-glossary.prone).\n> - **12-16:** Существо не может осушить яму.\n> - **17+:** Вода уходит из ямы.\n\n> 🌀 **Затопить берега (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Вода по пояс затапливает всю карту столкновения. Каждый ящеролюд, погружённый в воду, получает преимущество на броски способностей и удваивает Скорость при плавании. Если на карте столкновения нет открытых водяных ям, в конце раунда вода уходит.\n",
+      "source": {
+        "articleId": "monsters.monster.lizardfolk.lizardfolk-malice",
+        "path": "Monsters/monster/lizardfolk/lizardfolk-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.lizardfolk/lizardfolk-malice",
+      "originalName": "Lizardfolk Malice",
+      "originalDescription": "At the start of any lizardfolk's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Net Trap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n>  **Area, Ranged, Weapon** |   **Maneuver** |\n> |--------------------------|---------------:|\n> | **📏 1 cube within 3**   | **🎯 Special** |\n>\n> **Effect:** A lizardfolk acting this turn sets up a net trap into the area. The first time an enemy steps into a square with a net trap, they make an **Agility test**. If the creature was unaware of the trap, they take a bane on the test.\n>\n> - **≤11:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n> - **12-16:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (Eot).\n> - **17+:** No effect.\n>\n> **Effect:** Any creature not also [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a net trap who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by the trap can free them as a maneuver.\n\n> 🔳 **Water Pit (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A lizardfolk acting this turn unearths a magical size 2 pit that is 2 squares deep and filled with water. Any lizardfolk who moves into, then exits the pit on their turn gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), regrows their tail if applicable, and ends one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the pit, any creature who can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) or who has the Nature skill can make a **Might test** or a **Reason test** to drain it.\n>\n> - **≤11:** The creature falls into the pit and is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n> - **12-16:** The creature fails to empty the pit.\n> - **17+:** The pit empties of water.\n\n> 🌀 **Flood the Shores (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Waist-high water floods the entire encounter map. Any lizardfolk submerged in water gains an edge on abilities and doubles their speed while swimming. If there are no open water pits on the encounter map, the water drains away at the end of the round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/lizardfolk/lizardfolk-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "lizardfolk",
+        "recordType": "featureblock"
       }
     }
   ]

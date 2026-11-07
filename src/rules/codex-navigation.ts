@@ -12,6 +12,8 @@ import type { RuleClassLanding, RuleIndexEntry, RuleReadingPart, RuleReferenceSe
  */
 export type CodexArticle = RuleIndexEntry;
 export const codexIndex: readonly CodexArticle[] = ruleIndex;
+/** Book reading excludes creature and terrain sheets, which belong in Reference. */
+export const bookIndex: readonly CodexArticle[] = ruleIndex.filter(entry => !entry.director?.glossaryId && !["statblock", "dynamic-terrain"].includes(entry.director?.recordType ?? ""));
 
 /** Части чтения «Читать» из манифеста. */
 export const readingParts: readonly RuleReadingPart[] = ruleReading.parts;
@@ -62,6 +64,9 @@ export function classLandingHref(slug: string, level?: number): string {
  * ссылки на классы не расходились с редиректами старых адресов.
  */
 export function codexArticleHref(articleId: string): string {
+  const record = ruleIndex.find(entry => entry.id === articleId);
+  if (record?.director && ["statblock", "dynamic-terrain"].includes(record.director.recordType)) return `#/catalog/${record.director.section}/${articleId}`;
+  if (record?.director?.glossaryId) return `#/catalog/glossary#term-${record.director.glossaryId}`;
   const landing = classLandingForArticle(articleId);
   return landing ? classLandingHref(landing.slug, landing.level) : `#/codex/${articleId}`;
 }

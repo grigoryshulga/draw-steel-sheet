@@ -1,6 +1,7 @@
 import type { CompendiumAbility, OriginalFields } from '../types';
 export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'career' | 'kit' | 'perk' | 'item' | 'project' | 'title' | 'monster' | 'retainer' | 'terrain' | 'monster-feature' | 'monster-lore' | 'monster-rule';
 export interface DirectorMetadata {
+  glossaryId?: string;
   section: 'rules' | 'monsters' | 'retainers' | 'terrain';
   groupSlug: string;
   recordType: string;

@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.lightbender.statblock.lightbender-pouncer"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.lightbender.lightbender-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Налётчик",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.lightbender.lightbender-malice",
+      "kind": "monster-feature",
+      "name": "Раздор светогибов",
+      "markdown": "В начале хода любого светогиба вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Бесшумная охота (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый светогиб, действующий в этот ход, может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до своей Скорости действием движения и попытаться спрятаться свободным маневром. Эти возможности доступны до начала его следующего хода.\n\n> ⭐️ **Двойник (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый светогиб, действующий в этот ход, может создать в свободном пространстве [рядом](#/catalog/glossary#term-glossary.adjacent) с собой двойника-светогиба. Отличить двойника от светогиба можно только сверхъестественными средствами. У него 1 [Выносливость](#/catalog/glossary#term-glossary.stamina) и Скорость светогиба. Двойник действует в ход светогиба, но может совершать только действия движения. Один раз за раунд до или после использования способности светогиб может поменяться местами с любым двойником-светогибом.\n\n> ❇️ **Всё, чего касается свет (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый светогиб в столкновении начинает сиять, искажая чувства любого врага в пределах 5 клеток от него. Каждый затронутый враг проходит **проверку Разума**.\n>\n> - **≤11:** цель не имеет линии воздействия ни к одному светогибу (до прох.).\n> - **12-16:** цель не имеет линии воздействия ни к одному светогибу (КсХ).\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.lightbender.lightbender-malice",
+        "path": "Monsters/monster/lightbender/lightbender-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.lightbender/lightbender-malice",
+      "originalName": "Lightbender Malice",
+      "originalDescription": "At the start of any lightbender's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Silent Prowl (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each lightbender acting this turn can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to their speed as a move action and attempt to hide as a free maneuver, all until the start of their next turn.\n\n> ⭐️ **Duplicate (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each lightbender acting this turn can create a duplicate lightbender in an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them. The duplicate is indistinguishable from the lightbender except by supernatural means, has 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and has the lightbender's speed. A duplicate acts on the lightbender's turn but can take only move actions. Once per round before or after using an ability, a lightbender can trade places with any lightbender duplicate.\n\n> ❇️ **Everything the Light Touches (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each lightbender in the encounter shines radiantly, distorting the senses of any enemy within 5 squares of them. Each affected enemy makes a **Reason test**.\n>\n> - **≤11:** The target doesn't have line of effect to any lightbender (save ends).\n> - **12-16:** The target doesn't have line of effect to any lightbender (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/lightbender/lightbender-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "lightbender",
+        "recordType": "featureblock"
       }
     }
   ]

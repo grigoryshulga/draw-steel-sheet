@@ -32,6 +32,10 @@
         {
           "type": "entity",
           "ref": "monster.valok.statblock.servok-war-engine"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.valok.valok-malice"
         }
       ],
       "related": [
@@ -80,6 +84,26 @@
         ],
         "role": "Громила",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.valok.valok-malice",
+      "kind": "monster-feature",
+      "name": "Раздор валоков",
+      "markdown": "В начале хода любого валока вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Повторитель (3 Раздора)**\n>\n> Один валок, действующий в этот ход, получает дополнительное основное действие.\n\n> 🌀 **Мне не приказывали ждать (5 Раздора)**\n>\n> В конце каждого хода до конца раунда один валок может либо [сместиться](#/catalog/glossary#term-glossary.shift) не более чем на 2 клетки, либо нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Ускоренная логика: форсаж (7 Раздора)**\n>\n> Каждый валок в столкновении может прекратить один эффект на себе, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw), и переместиться на расстояние не более своей Скорости (с учётом бонуса ниже). Кроме того, до конца столкновения все валоки наносят ударами дополнительно 5 урона и получают бонус +5 к Скорости. Эту особенность можно активировать несколько раз; эффекты складываются.\n",
+      "source": {
+        "articleId": "monsters.monster.valok.valok-malice",
+        "path": "Monsters/monster/valok/valok-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.valok/valok-malice",
+      "originalName": "Valok Malice",
+      "originalDescription": "At the start of any valok's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Repeater (3 Malice)**\n>\n> One valok acting this turn takes an additional main action.\n\n> 🌀 **I Was Not Commanded to Wait (5 Malice)**\n>\n> At the end of each turn until the end of the round, one valok can either [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares or make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Rapid Logic Overdrive (7 Malice)**\n>\n> Each valok in the encounter can end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw), and can move up to their speed (making use of the bonus below). Additionally, until the end of the encounter, all valok deal an extra 5 damage on strikes and gain a +5 bonus to speed. This feature can be activated multiples times, stacking the effects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/valok/valok-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "valok",
+        "recordType": "featureblock"
       }
     }
   ]

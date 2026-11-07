@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.kobold.statblock.kobold-venator"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.kobold.kobold-malice"
         }
       ],
       "related": [
@@ -53,7 +57,7 @@
       "id": "monster.kobold.statblock.kobold-venator",
       "kind": "monster",
       "name": "Кобольд-венатор",
-      "markdown": "| Гуманоид, Кобольд | - | Уровень 1 | Засадник орды | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Долабра и сеть (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|---------------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; при М < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 7 урона; при М < 2 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Венатор поджигает свою сеть, и цель, [опутанная](#/catalog/glossary#term-glossary.restrained) таким образом, получает 2 урона огнём в начале каждого своего хода.\n\n> ⭐️ **Затеряться в толпе**\n>\n> Пока венатор находится [рядом](#/catalog/glossary#term-glossary.adjacent) с любым союзником, который не скрывается, он может попытаться спрятаться так, словно у него есть покров, даже если за ним наблюдают.\n\n> ⭐️ **Я не тот, кем кажусь**\n>\n> Венатор начинает столкновение под видом [миньона](#/codex/monsters.rule.organization.minion). Первое основное действие столкновения он совершает с двойным Преимуществом, после чего раскрывает себя.\n\n> ⭐️ **Щит? Щит!**\n>\n> Пока венатор находится [рядом](#/catalog/glossary#term-glossary.adjacent) с союзником, у которого тоже есть эта черта, его Устойчивость равна 1, у него есть укрытие, и он даёт укрытие союзникам.\n",
+      "markdown": "| Гуманоид, Кобольд | - | Уровень 1 | Засадник орды | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Долабра и сеть (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|---------------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; при М < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 7 урона; при М < 2 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Венатор поджигает свою сеть, и цель, [опутанная](#/catalog/glossary#term-glossary.restrained) таким образом, получает 2 урона огнём в начале каждого своего хода.\n\n> ⭐️ **Затеряться в толпе**\n>\n> Пока венатор находится [рядом](#/catalog/glossary#term-glossary.adjacent) с любым союзником, который не скрывается, он может попытаться спрятаться так, словно у него есть покров, даже если за ним наблюдают.\n\n> ⭐️ **Я не тот, кем кажусь**\n>\n> Венатор начинает столкновение под видом [миньона](#/catalog/glossary#term-glossary.minion). Первое основное действие столкновения он совершает с двойным Преимуществом, после чего раскрывает себя.\n\n> ⭐️ **Щит? Щит!**\n>\n> Пока венатор находится [рядом](#/catalog/glossary#term-glossary.adjacent) с союзником, у которого тоже есть эта черта, его Устойчивость равна 1, у него есть укрытие, и он даёт укрытие союзникам.\n",
       "source": {
         "articleId": "monsters.monster.kobold.statblock.kobold-venator",
         "path": "Monsters/monster/kobold/statblock/kobold-venator.md"
@@ -76,6 +80,26 @@
         ],
         "role": "Засадник",
         "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.kobold.kobold-malice",
+      "kind": "monster-feature",
+      "name": "Раздор кобольдов",
+      "markdown": "В начале хода любого кобольда можно потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Тактика манипулы (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До 3 кобольдов совершают [свободный удар](#/catalog/glossary#term-glossary.free-strike), меняются местами с [соседним](#/catalog/glossary#term-glossary.adjacent) кобольдом, после чего тот кобольд совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🌀 **Задать инициативу (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Два кобольда совершают ходы подряд.\n\n> ⭐️ **Стена щитов (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда все кобольды с чертой «Щит? Щит!» накладывают дополнительную Помеху на направленные по ним Удары и Способности.\n",
+      "source": {
+        "articleId": "monsters.monster.kobold.kobold-malice",
+        "path": "Monsters/monster/kobold/kobold-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.kobold/kobold-malice",
+      "originalName": "Kobold Malice",
+      "originalDescription": "At the start of any kobolds's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Maniple Tactics (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Up to 3 kobolds make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), swaps positions with an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) kobold, and then that kobold makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🌀 **Set the Initiative (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two kobolds take their turns in a row.\n\n> ⭐️ **Shield Wall (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, all kobolds with Shield? Shield! impose an additional bane on incoming strikes and abilities.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/kobold/kobold-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "kobold",
+        "recordType": "featureblock"
       }
     }
   ]

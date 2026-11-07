@@ -29,6 +29,10 @@
         {
           "type": "entity",
           "ref": "monster.devil.statblock.devil-high-judge"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.devil.devil-malice"
         }
       ],
       "related": [
@@ -74,6 +78,26 @@
           "Адский"
         ],
         "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.devil.devil-malice",
+      "kind": "monster-feature",
+      "name": "Раздор дьяволов",
+      "markdown": "В начале хода любого дьявола вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Бюрократическая волокита (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один дьявол, действующий в этот ход, использует [знаковую способность](#/catalog/glossary#term-glossary.signature-ability) против [смежного](#/catalog/glossary#term-glossary.adjacent) существа. При результате тиром 3 цель способности получает двойную [помеху](#/catalog/glossary#term-glossary.bane) на удары (до успешного спасброска).\n\n> ⭐️ **Подковёрные тактики (5+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один или два дьявола могут [телепортироваться](#/catalog/glossary#term-glossary.teleport) в пространство [смежное](#/catalog/glossary#term-glossary.adjacent) с одним или несколькими не скрытыми существами, а затем совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). За каждые 2 дополнительных [Раздора](#/codex/monsters.rule.monster.malice), потраченных на эту особенность, может [телепортироваться](#/catalog/glossary#term-glossary.teleport) ещё один дьявол.\n\n> 🌀 **Читайте мелкий шрифт (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> На каждого врага в столкновении распространяется дурная сделка, предложенная [дьяволами](#/codex/monsters.monster.group.devil). Враг должен выбрать одно: получить уязвимость к урону 5 или [помеху](#/catalog/glossary#term-glossary.bane) на броски силы. Дурная сделка действует до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.devil-malice",
+        "path": "Monsters/monster/devil/devil-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil/devil-malice",
+      "originalName": "Devil Malice",
+      "originalDescription": "At the start of any devil's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Bureaucratic Tape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One devil acting this turn uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature. On a tier 3 outcome, the target of the ability has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on strikes (save ends).\n\n> ⭐️ **Underhanded Tactics (5+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One or two devils can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to a space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more creatures who aren't hidden and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). For each 2 additional [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent on this feature, one additional devil can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport).\n\n> 🌀 **Read the Small Print (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter is subject to a bad deal proposed by the [devils](scc.v1:mcdm.monsters.v1/monster.group/devil). An enemy must choose between having damage weakness 5 or taking a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls. The bad deal lasts until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/devil-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "featureblock"
       }
     }
   ]

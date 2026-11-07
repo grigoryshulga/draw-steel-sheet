@@ -1,3 +1,4 @@
+import { isDirectorSection } from "../navigation";
 import { lazy, Suspense } from "react";
 import { LibraryHeader } from "../components/LibraryHeader";
 import { useLibraryLocation } from "../lib/library-location";
@@ -29,7 +30,7 @@ export function ReferenceView() {
   }
   return (
     <div className="reference-view">
-      <LibraryHeader title="Справочник" />
+      <LibraryHeader title={isDirectorSection(section) ? "Ведущему" : "Справочник"} />
       <div className="reference-body">
         <Suspense fallback={<p className="muted">Загрузка справочника…</p>}>
           <CatalogView />
