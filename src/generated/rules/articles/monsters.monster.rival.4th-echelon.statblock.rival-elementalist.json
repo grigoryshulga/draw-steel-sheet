@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.rival.4th-echelon.statblock.rival-elementalist",
+      "title": "Соперник-элементалист",
+      "chapter": "23. Бестиарий",
+      "group": "Соперники",
+      "path": "Monsters/monster/rival/4th-echelon/statblock/rival-elementalist.md",
+      "originalId": "mcdm.monsters.v1/monster.rival.4th-echelon.statblock/rival-elementalist",
+      "originalName": "Rival Elementalist",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 10      |   Elite Controller    |         EV 48         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **220**<br>Stamina |  **1**<br>Stability   | **10**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+3**<br>Agility |  **+5**<br>Reason  |  **+4**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🏹 **Viridescent Storm ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Green, Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Ranged 10**                 | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 3 5 acid damage\n> - **12-16:** 20 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 4 7 acid damage\n> - **17+:** 24 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 5 9 acid damage\n>\n> **Effect:** One ally within distance ends all [conditions](scc.v1:mcdm.heroes.v1/rule.combat/condition) on themself.\n\n> 🔳 **The World Consumes (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Green, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n>\n> **Effect:** The area becomes overgrown with caustic vines until the end of the encounter. While in the area, any enemy has acid [weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 5 and is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed). Any enemy who ends their turn in the area and has M < 4 is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ❗️ **Breach of Nihility**\n>\n> | **Magic, Void** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|---------------------:|\n> | **📏 Self**     |          **🎯 Self** |\n>\n> **Trigger:** The elementalist takes damage.\n>\n> **Effect:** The elementalist can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the space they leave or appear in takes 5 corruption damage.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the elementalist chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the elementalist and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/4th-echelon/statblock/rival-elementalist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "48",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.rival.4th-echelon.statblock.rival-elementalist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.rival",
+          "title": "Соперники"
+        },
+        {
+          "id": "monsters.monster.rival.rival-malice-level-1-malice-features",
+          "title": "Раздор соперников (особенности Раздора 1-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.rival.4th-echelon.statblock.rival-elementalist",
+      "kind": "monster",
+      "name": "Соперник-элементалист",
+      "markdown": "| Гуманоид, Соперник |         -         |      Уровень 10      |   Элита, Контроллер   |         Боевая ценность 48         |\n|:-------------------:|:-----------------:|:-------------------:|:---------------------:|:---------------------:|\n|  **1M**<br>Размер   |  **5**<br>Скорость | **220**<br>Выносливость |  **1**<br>Устойчивость   | **10**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+1**<br>Мощь  | **+3**<br>Ловкость |  **+5**<br>Разум  |  **+4**<br>Интуиция  |  **+1**<br>Присутствие   |\n\n> 🏹 **Изумрудная буря ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Зелень, Магия, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**                 | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 15 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; М < 3 — 5 урона кислотой\n> - **12-16:** 20 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 4; М < 4 — 7 урона кислотой\n> - **17+:** 24 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 5; М < 5 — 9 урона кислотой\n>\n> **Эффект:** Один союзник в пределах дистанции прекращает все [состояния](#/catalog/glossary#term-glossary.condition), действующие на него самого.\n\n> 🔳 **Мир поглощает (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Зелень, Магия, Дальний бой** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10**               | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До конца столкновения область зарастает едкими лозами. Находясь в области, любой враг получает [уязвимость](#/catalog/glossary#term-glossary.damage-weakness) к урону кислотой 5 и состояние [Замедление](#/catalog/glossary#term-glossary.slowed). Любой враг, который заканчивает свой ход в области и имеет М < 4, получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.).\n\n> ❗️ **Разлом небытия**\n>\n> | **Магия, Пустота** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |--------------------|---------------------:|\n> | **📏 На себя**     |          **🎯 На себя** |\n>\n> **Условие:** Элементалист получает урон.\n>\n> **Эффект:** Элементалист может [телепортироваться](#/catalog/glossary#term-glossary.teleport) не более чем на 5 клеток. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с клеткой, которую он покидает или в которой появляется, получает 5 урона порчей.\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения элементалист выбирает одно существо в пределах своей [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect). И элементалист, и это существо могут добавлять результат броска d3 к броскам силы, которые они совершают друг против друга.\n",
+      "source": {
+        "articleId": "monsters.monster.rival.4th-echelon.statblock.rival-elementalist",
+        "path": "Monsters/monster/rival/4th-echelon/statblock/rival-elementalist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival.4th-echelon.statblock/rival-elementalist",
+      "originalName": "Rival Elementalist",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 10      |   Elite Controller    |         EV 48         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **220**<br>Stamina |  **1**<br>Stability   | **10**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+3**<br>Agility |  **+5**<br>Reason  |  **+4**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🏹 **Viridescent Storm ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Green, Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Ranged 10**                 | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 3 5 acid damage\n> - **12-16:** 20 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 4 7 acid damage\n> - **17+:** 24 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 5 9 acid damage\n>\n> **Effect:** One ally within distance ends all [conditions](scc.v1:mcdm.heroes.v1/rule.combat/condition) on themself.\n\n> 🔳 **The World Consumes (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Green, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 3 cube within 10**        | **🎯 Each enemy in the area** |\n>\n> **Effect:** The area becomes overgrown with caustic vines until the end of the encounter. While in the area, any enemy has acid [weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 5 and is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed). Any enemy who ends their turn in the area and has M < 4 is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ❗️ **Breach of Nihility**\n>\n> | **Magic, Void** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|---------------------:|\n> | **📏 Self**     |          **🎯 Self** |\n>\n> **Trigger:** The elementalist takes damage.\n>\n> **Effect:** The elementalist can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the space they leave or appear in takes 5 corruption damage.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the elementalist chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the elementalist and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/4th-echelon/statblock/rival-elementalist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "48",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

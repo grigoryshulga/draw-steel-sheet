@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.time-raider.statblock.time-raider-hijack",
+  "title": "Рейдер времени — Захватчик",
+  "chapter": "23. Бестиарий",
+  "group": "Рейдеры времени",
+  "path": "Monsters/monster/time-raider/statblock/time-raider-hijack.md",
+  "originalId": "mcdm.monsters.v1/monster.time-raider.statblock/time-raider-hijack",
+  "originalName": "Time Raider Hijack",
+  "originalDescription": "|   Humanoid, Time Raider   |         -         |      Level 3      |   Platoon Ambusher    |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **6**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 3**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Golden Sickles ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|--------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The hijack is hidden from any creature who is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) from this ability until that condition ends.\n\n> 🏹 **Psi-Sickle**\n>\n> | **Psionic, Ranged, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 Ranged 5**             | **🎯 One creature or object** |\n>\n> **Effect:** The hijack psychically latches their sickle onto the target and closes the distance between them. If the target is larger than the hijack, the hijack moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. Otherwise, the target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares toward the hijack.\n\n> ⭐️ **Foresight**\n>\n> The hijack doesn't take a bane on strikes against creatures with concealment.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/time-raider/statblock/time-raider-hijack.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "time-raider",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "10",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Рейдер времени"
+    ],
+    "role": "Засадник",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.time-raider.statblock.time-raider-hijack"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.undead-servitor",
+  "title": "Слуга-нежить",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/undead-servitor.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/undead-servitor",
+  "originalName": "Undead Servitor",
+  "originalDescription": "| Undead, Soulless  |         -         |      Level 1      |    Brute Retainer     |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **21**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **-1**<br>Agility | **-3**<br>Reason  |  **-1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Lurching Swipe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 10 damage\n\n> ⭐️ **Arise**\n>\n> The first time in an encounter that the servitor is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they regain half their [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) maximum and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/undead-servitor.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Громила",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.undead-servitor"
+    }
+  ]
+}

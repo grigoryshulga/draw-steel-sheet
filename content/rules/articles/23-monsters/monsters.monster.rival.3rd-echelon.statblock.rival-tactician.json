@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.rival.3rd-echelon.statblock.rival-tactician",
+  "title": "Соперник-тактик",
+  "chapter": "23. Бестиарий",
+  "group": "Соперники",
+  "path": "Monsters/monster/rival/3rd-echelon/statblock/rival-tactician.md",
+  "originalId": "mcdm.monsters.v1/monster.rival.3rd-echelon.statblock/rival-tactician",
+  "originalName": "Rival Tactician",
+  "originalDescription": "|  Humanoid, Rival  |         -         |      Level 8       |    Elite Artillery    |        EV 40         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **180**<br>Stamina |  **2**<br>Stability   | **9**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might  | **+1**<br>Agility |  **+3**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🏹 **Command From the Back ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 damage\n> - **12-16:** 18 damage; A < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 22 damage; A < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Two allies within distance move up to their speed and can use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability).\n\n> 🏹 **Safeguard (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 21 damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 26 damage; M < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** Two allies [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target each regain 7 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❗️ **Quickshot**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance willingly moves.\n>\n> **Effect:** At any point during the movement, the tactician uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against the target.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the tactician chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the tactician and the creature can add a d3 roll to power rolls they make against each other.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/rival/3rd-echelon/statblock/rival-tactician.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "rival",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Соперник"
+    ],
+    "role": "Артиллерист",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.rival.3rd-echelon.statblock.rival-tactician"
+    }
+  ]
+}

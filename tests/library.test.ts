@@ -44,7 +44,7 @@ describe("Library catalogs", () => {
     }
   });
   it("extracts English terms, dice and the unformatted final definition", () => {
-    expect(GLOSSARY).toHaveLength(234);
+    expect(GLOSSARY).toHaveLength(273);
     expect(new Set(GLOSSARY.map((e) => e.id)).size).toBe(GLOSSARY.length);
     expect(GLOSSARY.find((e) => e.name === "Ясность")?.english).toBe("Clarity");
     expect(GLOSSARY.find((e) => e.name === "d10")).toBeDefined();

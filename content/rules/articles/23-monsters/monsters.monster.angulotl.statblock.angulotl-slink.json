@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.angulotl.statblock.angulotl-slink",
+  "title": "Ангулотл-скользун",
+  "chapter": "23. Бестиарий",
+  "group": "Ангулотлы",
+  "path": "Monsters/monster/angulotl/statblock/angulotl-slink.md",
+  "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-slink",
+  "originalName": "Angulotl Slink",
+  "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Tonguelash (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 6**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 7 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The target is wet (save ends). Any ally targeted by this ability ignores the damage, is wet until the end of the encounter, and is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares, ignoring stability.\n\n> 👤 **Hop To It (2 Malice)**\n>\n> | **-**       | **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-------------|------------------:|\n> | **📏 Self** |       **🎯 Self** |\n>\n> **Effect:** The slink jumps up to 3 squares. If they have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) or [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) when they land, they can attempt to hide.\n\n> ⭐️ **Adhesive**\n>\n> The slink excretes a sticky residue into their square at the end of each of their turns. Any non-angulotl who enters or leaves the square is stuck, and must use a maneuver to break free or be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their turn. Objects are likewise affected, and a creature must use a maneuver to remove an object from the square.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the slink or uses a melee ability against them, that enemy takes 2 poison damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/angulotl/statblock/angulotl-slink.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "angulotl",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Ангулотл",
+      "Гуманоид"
+    ],
+    "role": "Засадник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.angulotl.statblock.angulotl-slink"
+    }
+  ]
+}

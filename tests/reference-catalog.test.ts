@@ -20,6 +20,9 @@ describe("Единый каталог Справочника", () => {
       "treasure",
       "title",
       "project",
+      "monsters",
+      "retainers",
+      "terrain",
       "glossary",
     ]);
     expect(catalogSectionCount("classes")).toBe(10);
@@ -30,7 +33,10 @@ describe("Единый каталог Справочника", () => {
     expect(catalogSectionCount("treasure")).toBe(100);
     expect(catalogSectionCount("title")).toBe(59);
     expect(catalogSectionCount("project")).toBe(19);
-    expect(catalogSectionCount("glossary")).toBe(234);
+    expect(catalogSectionCount("glossary")).toBe(273);
+    expect(catalogSectionCount("monsters")).toBe(416);
+    expect(catalogSectionCount("retainers")).toBe(21);
+    expect(catalogSectionCount("terrain")).toBe(35);
   });
 
   it("каждая запись списка ссылается на существующую статью", () => {

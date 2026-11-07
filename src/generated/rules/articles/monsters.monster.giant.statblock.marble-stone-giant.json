@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.giant.statblock.marble-stone-giant",
+      "title": "Мраморный каменный великан",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/marble-stone-giant.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/marble-stone-giant",
+      "originalName": "Marble Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |      Elite Hexer      |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **6**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+3**<br>Agility    |  **0**<br>Reason   |  **+3**<br>Intuition  |  **0**<br>Presence   |\n\n> 🔳 **Marble From a Great Sling (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If the target has any effect on them that can be ended by a saving throw or that ends at the end of their turn, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🗡 **Far Flung (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7\n> - **12-16:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10\n> - **17+:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 12\n>\n> **Effect:** Against a target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) or [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), this ability has a double edge.\n\n> 🔳 **Polish Stone Shape**\n>\n> | **Area**                    |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Special** |\n>\n> **Effect:** The ground in the area becomes slick and glossy. Any non-giant who starts or ends their turn in the area is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The marble stone giant takes damage.\n>\n> **Effect:** The marble stone giant halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. The damage weakness increases by 3 each time the marble stone giant uses this ability in the same encounter.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the marble stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The marble stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The marble stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/marble-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.marble-stone-giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.giant.statblock.marble-stone-giant",
+      "kind": "monster",
+      "name": "Мраморный каменный великан",
+      "markdown": "| Великан, Каменный великан |           -            |      Уровень 8       |      Элита Проклинатель      |        Боевая ценность 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Размер    |     **6**<br>Скорость     | **207**<br>Выносливость |  **10**<br>Устойчивость  |  **8**<br>Свободный удар |\n| **-**<br>Иммунитет  | **Закапывание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+4**<br>Мощь   |   **+3**<br>Ловкость    |  **0**<br>Разум   |  **+3**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🔳 **Мрамор из великой пращи (Знаковая способность)**\n>\n> | **Область, Дальний бой, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 15**  | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона; при И < 2 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона; при И < 3 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 14 урона; при И < 4 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Если на цели есть эффект, который можно прекратить спасброском или который прекращается в конце её хода, цель также сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> 🗡 **Дальний бросок (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Ближний бой 1**    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 7\n> - **12-16:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 10\n> - **17+:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 12\n>\n> **Эффект:** Против цели, которая [сбита с ног](#/catalog/glossary#term-glossary.prone) или [схвачена](#/catalog/glossary#term-glossary.grabbed), эта способность получает двойное преимущество.\n\n> 🔳 **Полированная каменная форма**\n>\n> | **Область**                    |   **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|---------------:|\n> | **📏 Линия 10 x 2 в пределах 1** | **🎯 Особое** |\n>\n> **Эффект:** Земля в области становится скользкой и блестящей. Любое существо, не являющееся великаном, которое начинает или заканчивает ход в области, падает [сбитым с ног](#/catalog/glossary#term-glossary.prone) и [сдвигается](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки.\n\n> ❗️ **Сломать броню (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Мраморный каменный великан получает урон.\n>\n> **Эффект:** Мраморный каменный великан уменьшает этот урон вдвое, получает уязвимость к урону 3 и бонус +3 к Скорости до конца столкновения. Уязвимость к урону увеличивается на 3 каждый раз, когда великан применяет эту способность в том же столкновении.\n\n> ⭐️ **Плоть камнелома**\n>\n> Когда враг получает результат тира 1 на способности ближнего боя, применённой против мраморного каменного великана, эта способность получает помеху до конца столкновения.\n\n> ⭐️ **Каменные шаги**\n>\n> Мраморный каменный великан игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Плавание в камне**\n>\n> Мраморный каменный великан может [закапываться](#/catalog/glossary#term-glossary.burrow) в камень, но не может утаскивать под землю других существ.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.marble-stone-giant",
+        "path": "Monsters/monster/giant/statblock/marble-stone-giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/marble-stone-giant",
+      "originalName": "Marble Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |      Elite Hexer      |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **6**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+3**<br>Agility    |  **0**<br>Reason   |  **+3**<br>Intuition  |  **0**<br>Presence   |\n\n> 🔳 **Marble From a Great Sling (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If the target has any effect on them that can be ended by a saving throw or that ends at the end of their turn, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🗡 **Far Flung (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7\n> - **12-16:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10\n> - **17+:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 12\n>\n> **Effect:** Against a target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) or [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), this ability has a double edge.\n\n> 🔳 **Polish Stone Shape**\n>\n> | **Area**                    |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Special** |\n>\n> **Effect:** The ground in the area becomes slick and glossy. Any non-giant who starts or ends their turn in the area is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The marble stone giant takes damage.\n>\n> **Effect:** The marble stone giant halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. The damage weakness increases by 3 each time the marble stone giant uses this ability in the same encounter.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the marble stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The marble stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The marble stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/marble-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

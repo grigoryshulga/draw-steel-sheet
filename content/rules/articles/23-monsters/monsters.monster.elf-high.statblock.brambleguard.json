@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.elf-high.statblock.brambleguard",
+  "title": "Терновый страж",
+  "chapter": "23. Бестиарий",
+  "group": "Высшие эльфы",
+  "path": "Monsters/monster/elf-high/statblock/brambleguard.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/brambleguard",
+  "originalName": "Brambleguard",
+  "originalDescription": "| Elemental, High Elf |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **4**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **0**<br>Agility  |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Wall of Roses (Signature Ability)**\n>\n> | **Area, Magic**           | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 Special; see below** |     **🎯 Self** |\n>\n> **Effect:** Until the start of the brambleguard's next turn, their speed is 0 and they extend themself into a 5 wall. Each ally who starts their turn adjacent to the brambleguard regains 5 Stamina and can apply the Magic keyword to their weapon abilities until the end of their turn.\n\n> ❇️ **Whip Frenzy**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Thicket and Thorns**\n>\n> The brambleguard blocks line of effect for enemies. Each enemy who starts their turn adjacent to a brambleguard takes 4 damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-high/statblock/brambleguard.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-high",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "8",
+    "size": "2",
+    "keywords": [
+      "Элементаль",
+      "Высший эльф"
+    ],
+    "role": "Защитник",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-high.statblock.brambleguard"
+    }
+  ]
+}

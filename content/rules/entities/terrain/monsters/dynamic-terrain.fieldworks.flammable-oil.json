@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.fieldworks.flammable-oil",
+  "kind": "terrain",
+  "name": "Горючее масло",
+  "markdown": "Разлитое на земле горючее масло или смола готовы вспыхнуть.\n\n- **БЦ:** 2 за участок 10 x 10\n- **Выносливость:** -\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с горючим маслом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо поджигает масло и подвергается его действию, словно находится в области масла.\n> - **12-16:** Масло ненадолго вспыхивает, прежде чем безопасно выгореть; существо получает 3 урона огнём и загорается (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)).\n> - **17+:** Масло обезврежено и больше не может загореться.\n\n> ❕ **Активация**\n>\n> Существо или объект в клетке масла получает урон огнём либо входит в клетку горящего масла или начинает там ход.\n>\n> **Эффект:** Существо или объект, вызвавший активацию, получает 3 урона огнём и загорается (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)). Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ⭐️ **Улучшение**\n>\n> **Скрытое масло (+1 БЦ)** Масло скрыто, пока не загорится.\n\n> ⭐️ **Осведомлённость союзников**\n>\n> Союзники с оружием снабжены факелами. Любой союзник может манёвром бросить факел на расстояние до 5 клеток и поджечь масло.\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.fieldworks.flammable-oil",
+    "path": "Monsters/dynamic-terrain/fieldworks/flammable-oil.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/flammable-oil",
+  "originalName": "Flammable Oil",
+  "originalDescription": "A patch of flammable oil or pitch on the ground is ready to be ignited.\n\n- **EV:** 2 per 10 x 10 patch\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a patch of flammable oil can make an **Agility test**.\n>\n> - **≤11:** The creature ignites the oil and is affected as if in its area.\n> - **12-16:** The oil temporarily ignites before safely burning out, and the creature takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The oil is rendered safe and can't be ignited.\n\n> ❕ **Activate**\n>\n> A creature or object in a square of oil takes fire damage, or a creature or object enters a square of burning oil or starts their turn there.\n>\n> **Effect:** The triggering creature or object takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends). A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Concealed Oil (+1 EV)** The oil is hidden until it ignites.\n\n> ⭐️ **Allied Awareness**\n>\n> Allies who have weapons are equipped with torches. Any ally can use a maneuver to throw a torch up to 5 squares and ignite the flammable oil.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/fieldworks/flammable-oil.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "fieldworks",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "2 за участок 10 x 10",
+    "size": "Одна или несколько клеток",
+    "role": "Засадник",
+    "organization": "Ловушка"
+  }
+}

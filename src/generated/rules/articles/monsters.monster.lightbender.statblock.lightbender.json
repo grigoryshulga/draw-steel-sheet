@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.lightbender.statblock.lightbender",
+      "title": "Светогиб",
+      "chapter": "23. Бестиарий",
+      "group": "Светогибы",
+      "path": "Monsters/monster/lightbender/statblock/lightbender.md",
+      "originalId": "mcdm.monsters.v1/monster.lightbender.statblock/lightbender",
+      "originalName": "Lightbender",
+      "originalDescription": "| Beast, Lightbender |         -         |       Level 3       |    Elite Ambusher     |        EV 20         |\n|:------------------:|:-----------------:|:-------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size    |  **10**<br>Speed  | **100**<br>Stamina  |  **1**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity  | **-**<br>Movement |          -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might   | **+1**<br>Agility |  **-3**<br>Reason   |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Flash Swipe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 18 damage\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 4 damage.\n\n> 🗡 **Piercing Tails**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 15 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes a bane on tests to search for the lightbender while they are hidden.\n\n> ❇️ **Hypnotic Mane (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target has speed 0. If a target takes damage, or if someone else uses a main action to shake the target out of their stupor, the [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) condition ends.\n\n> ❗️ **Stalker's Afterimage**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The lightbender takes damage from a strike.\n>\n> **Effect:** The lightbender halves the damage, ignores any nondamaging effects associated with it, and can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares. If they [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) into concealment or cover, the lightbender can immediately attempt to hide as a free maneuver.\n\n> ⭐️ **Avoidance**\n>\n> Any effect on the lightbender that would be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) instead ends automatically at the end of their next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/lightbender/statblock/lightbender.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "lightbender",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Светогиб"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.lightbender.statblock.lightbender"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.lightbender",
+          "title": "Светогибы"
+        },
+        {
+          "id": "monsters.monster.lightbender.lightbender-malice",
+          "title": "Раздор светогибов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.lightbender.statblock.lightbender",
+      "kind": "monster",
+      "name": "Светогиб",
+      "markdown": "| Зверь, Светогиб |         -         |       Уровень 3       |    Элита, Засадник     |         Боевая ценность 20         |\n|:----------------:|:-----------------:|:---------------------:|:---------------------:|:---------------------:|\n|   **2**<br>Размер    |  **10**<br>Скорость  | **100**<br>Выносливость  |  **1**<br>Устойчивость   | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение |          -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+2**<br>Мощь   | **+1**<br>Ловкость | **-3**<br>Разум | **+1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Вспышка когтей (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 2**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона\n> - **17+:** 18 урона\n>\n> **Эффект:** Если эта способность получает преимущество или двойное преимущество, она наносит дополнительно 4 урона.\n\n> 🗡 **Пронзающие хвосты**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 2**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 12 урона; М < 1 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 15 урона; М < 2 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Пока цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) таким образом, она получает помеху на проверки поиска светогиба, пока светогиб скрыт.\n\n> ❇️ **Гипнотическая грива (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |                  **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 3**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** И < 0 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** И < 1 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** И < 2 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Пока цель [оглушена](#/catalog/glossary#term-glossary.dazed) таким образом, её Скорость равна 0. Если цель получает урон или кто-то другой использует основное действие, чтобы вывести её из оцепенения, состояние [оглушения](#/catalog/glossary#term-glossary.dazed) заканчивается.\n\n> ❗️ **Послеслед охотника**\n>\n> | **Магия**   | **[Триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Триггер:** Светогиб получает урон от удара.\n>\n> **Эффект:** Светогиб получает половину урона, игнорирует все связанные с ударом эффекты, не наносящие урон, и может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 5 клеток. Если он [телепортируется](#/catalog/glossary#term-glossary.teleport) в место с покровом или укрытием, то сразу может попытаться спрятаться свободным манёвром.\n\n> ⭐️ **Уклонение**\n>\n> Любой эффект на светогибе, который должен был бы закончиться после [спасброска](#/catalog/glossary#term-glossary.saving-throw), вместо этого автоматически заканчивается в конце его следующего хода.\n",
+      "source": {
+        "articleId": "monsters.monster.lightbender.statblock.lightbender",
+        "path": "Monsters/monster/lightbender/statblock/lightbender.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.lightbender.statblock/lightbender",
+      "originalName": "Lightbender",
+      "originalDescription": "| Beast, Lightbender |         -         |       Level 3       |    Elite Ambusher     |        EV 20         |\n|:------------------:|:-----------------:|:-------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size    |  **10**<br>Speed  | **100**<br>Stamina  |  **1**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity  | **-**<br>Movement |          -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might   | **+1**<br>Agility |  **-3**<br>Reason   |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Flash Swipe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 18 damage\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 4 damage.\n\n> 🗡 **Piercing Tails**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 15 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes a bane on tests to search for the lightbender while they are hidden.\n\n> ❇️ **Hypnotic Mane (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target has speed 0. If a target takes damage, or if someone else uses a main action to shake the target out of their stupor, the [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) condition ends.\n\n> ❗️ **Stalker's Afterimage**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The lightbender takes damage from a strike.\n>\n> **Effect:** The lightbender halves the damage, ignores any nondamaging effects associated with it, and can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares. If they [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) into concealment or cover, the lightbender can immediately attempt to hide as a free maneuver.\n\n> ⭐️ **Avoidance**\n>\n> Any effect on the lightbender that would be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) instead ends automatically at the end of their next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/lightbender/statblock/lightbender.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "lightbender",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Светогиб"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

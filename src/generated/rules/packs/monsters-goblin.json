@@ -1,0 +1,1059 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.goblin.goblin-malice",
+      "title": "Раздор гоблинов",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/goblin-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin/goblin-malice",
+      "originalName": "Goblin Malice",
+      "originalDescription": "At the start of any goblin's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Goblin Mode (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each goblin in the encounter gains a +2 bonus to speed until the end of the round.\n\n> ❇️ **Tiny Stabs (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter takes 1 damage for each goblin [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> 🌀 **Swamp Stink (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The encounter map is covered in a green mist that lasts until the end of the round, and which can't be dispersed by wind. All areas of the map are [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin on the map makes a **Might test**.\n>\n> - **≤11:** 5 poison damage; the creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **12-16:** The creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/goblin-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-assassin",
+      "title": "Гоблин-убийца",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-assassin.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-assassin",
+      "originalName": "Goblin Assassin",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-2**<br>Presence  |\n\n> 🗡 **Sword Stab (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 🏹 **Shadow Chains (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |        **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 corruption damage; A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 4 corruption damage; A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 5 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The assassin doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.\n\n> ⭐️ **Slip Away**\n>\n> The assassin can attempt to hide even while observed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-assassin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-assassin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-cursespitter",
+      "title": "Гоблин-проклинатель",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-cursespitter.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-cursespitter",
+      "originalName": "Goblin Cursespitter",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |      Horde Hexer      |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+1**<br>Agility   |  **0**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Eye of Surlach (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 corruption damage; I < 0 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 4 corruption damage; I < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 5 corruption damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> 🏹 **Dizzying Hex (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** I < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **17+:** [Prone](scc.v1:mcdm.heroes.v1/condition/prone); I < 2 can't stand (save ends)\n\n> ⭐️ **Crafty**\n>\n> The cursespitter doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-cursespitter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-cursespitter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-monarch",
+      "title": "Гоблин-монарх",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-monarch.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-monarch",
+      "originalName": "Goblin Monarch",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |        Leader         |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   |   **+3**<br>Agility   | **+1**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> ⚔️ **Handaxe (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n>\n> **Effect:** One ally within 10 squares of the monarch can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🏹 **Get in Here! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 20** | **🎯 Special** |\n>\n> **Effect:** Two goblin runners appear in unoccupied spaces within distance.\n\n> ❗️ **Meat Shield**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |      **🎯 One ally** |\n>\n> **Trigger:** A creature targets the monarch with a strike.\n>\n> **Effect:** The ally is the target of the triggering strike instead.\n\n> ⭐️ **Crafty**\n>\n> The monarch doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the monarch can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ☠️ **What Are You Waiting For? ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target can move up to their speed or make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Focus Fire ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |                      **-** |\n> |------------------|---------------------------:|\n> | **📏 Ranged 10** | **🎯 One enemy or object** |\n>\n> **Effect:** Each ally within 10 squares of the target can move up to their speed toward the target.\n\n> ☠️ **Kill! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** Each enemy in the encounter takes 2 damage for each goblin [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-monarch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-monarch"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-runner",
+      "title": "Гоблин-бегун",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-runner.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-runner",
+      "originalName": "Goblin Runner",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   | **0**<br>Reason  |             **0**<br>Intuition              |  **-1**<br>Presence   |\n\n> 🗡 **Club Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n\n> ⭐️ **Crafty**\n>\n> The runner doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-runner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-runner"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-sniper",
+      "title": "Гоблин-снайпер",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-sniper.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-sniper",
+      "originalName": "Goblin Sniper",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition                |  **-1**<br>Presence   |\n\n> 🏹 **Bow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the sniper doesn't use a move action this turn, this ability gains an edge.\n\n> ⭐️ **Crafty**\n>\n> The sniper doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-sniper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-spinecleaver",
+      "title": "Гоблин-кромсатель хребтов",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-spinecleaver.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-spinecleaver",
+      "originalName": "Goblin Spinecleaver",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  |   **0**<br>Agility    | **0**<br>Reason  |               **0**<br>Intuition               |  **-1**<br>Presence   |\n\n> 🗡 **Axe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> ⭐️ **Crafty**\n>\n> The spinecleaver doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-spinecleaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-spinecleaver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-stinker",
+      "title": "Гоблин-вонючка",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-stinker.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-stinker",
+      "originalName": "Goblin Stinker",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |   Horde Controller    |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Toxic Winds (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 15** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one target can be [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1 additional square.\n\n> 🔳 **Swamp Gas**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 3 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is filled with a green haze that lasts until the start of the stinker's next turn or until the stinker is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and which can't be dispersed by wind. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin who moves in the area takes 2 poison damage for each square moved.\n\n> ⭐️ **Crafty**\n>\n> The stinker doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-stinker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-stinker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-underboss",
+      "title": "Гоблин-заместитель",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-underboss.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-underboss",
+      "originalName": "Goblin Underboss",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Support     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-1**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Swordplay (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** One ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ❇️ **Get Reckless!**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Until the start of the underboss's next turn, each target gains an edge on strikes, and any strike made against a target gains an edge.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Strikes made against targets no longer gain an edge.\n\n> ⭐️ **Crafty**\n>\n> The underboss doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-underboss.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-underboss"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-warrior",
+      "title": "Гоблин-воин",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-warrior.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-warrior",
+      "originalName": "Goblin Warrior",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Harrier     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Spear Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 🗡 **Bury the Point (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 6 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 7 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The warrior doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-warrior.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-warrior"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.skitterling",
+      "title": "Скиттерлинг",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/skitterling.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/skitterling",
+      "originalName": "Skitterling",
+      "originalDescription": "|  Animal, Goblin   |          -          |     Level 1      |             Minion Hexer              | EV 3 for four minions |\n|:-----------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1T**<br>Size   |   **5**<br>Speed    | **3**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **-5**<br>Might  |  **+2**<br>Agility  | **-4**<br>Reason |          **0**<br>Intuition           |  **-2**<br>Presence   |\n\n> 🗡 **Claws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage\n> - **12-16:** 2 poison damage\n> - **17+:** 3 poison damage\n>\n> **Effect:** The target takes a bane on their next strike.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/skitterling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.skitterling"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.war-spider",
+      "title": "Боевой паук",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/war-spider.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/war-spider",
+      "originalName": "War Spider",
+      "originalDescription": "|  Animal, Goblin   |           -           |      Level 1      |      Elite Mount      |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+1**<br>Agility   | **-4**<br>Reason  |  **0**<br>Intuition   |  **-3**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 11 poison damage\n> - **17+:** 14 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For any tier outcome, if the target has M < 3, they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends).\n\n> 🗡 **Leg Blade**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n\n> 👤 **Trample (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Leg Blade against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The spider makes one power roll against all targets.\n\n> 🔳 **Web**\n>\n> | **Area, Weapon**       |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The spider or any ally riding the spider takes damage.\n>\n> **Effect:** The damage is halved, and the spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares after the triggering effect resolves.\n\n> ⭐️ **Ride Launcher**\n>\n> Any ally who leaps off the back of the spider can jump up to 6 squares without making a test, and takes no damage if they fall during the jump. After any ally jumps, the first melee strike the make on the same turn gains an edge.\n\n> ⭐️ **Wide Back**\n>\n> While riding the spider, two size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/war-spider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.war-spider"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.goblin.statblock.worg",
+      "title": "Ворг",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/worg.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/worg",
+      "originalName": "Worg",
+      "originalDescription": "|  Animal, Goblin   |         -         |      Level 1      |      Horde Mount      |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 👤 **Sprint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The worg moves up to their speed.\n\n> ⭐️ **Mounted Charger**\n>\n> If a worg used as a mount charges, their rider gains an edge on melee strikes until the end of the rider's turn.\n\n> ⭐️ **Shared Craft**\n>\n> If the worg's rider has the Crafty trait, the worg also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/worg.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1L",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.worg"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.goblin",
+      "title": "Гоблины",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/group/goblin.md",
+      "originalId": "mcdm.monsters.v1/monster.group/goblin",
+      "originalName": "Goblins",
+      "originalDescription": "Known among themselves as *rogabrin*, meaning \"more of us\" in their Szetch language, goblins are one of the most numerous humanoid species in the world. They can be found across many lands, have developed countless distinct cultures, and dare to venture into environments that few other humanoids are willing to hazard.\n\nTheir long arms and prehensile toes make goblins particularly well adapted to environments requiring climbing, and they live equally comfortably in treetop cities as in subterranean realms filled with stalactites, ledges, and chasms. However, just as many prefer to dwell in tight-knit neighborhoods within diverse cities. Many of those goblins who cross swords with adventuring heroes are the worst of their society-thieves and murderers shunned by their own people.\n\n#### Encountered in Groups\n\nWhether within a society or living in exile, goblins survive and thrive because they work together. A single goblin forced into the wild is terrified. A dozen outlaw goblins are supremely confident—perhaps overly so. Such groups often become bandits who ambush travelers crossing through their territory, be it desert, forest, or underground. Larger goblin hordes might become unscrupulous mercenaries serving powerful villains. No matter how they're encountered, goblins prefer to fight as an overwhelming force and to flee when foes outnumber friends.\n\n#### Mobile and Sneaky\n\nShort, lithe, and long armed, goblins are built for mobility, stealth, and climbing. Goblins who dwell in untamed wilderness and twisting caves utilize their natural agility to hide from threats and flee when found. These crafty skirmishers might run wild through battle, hacking at their enemies' knees, or unleash arrows as they dart from tree to tree.\n\n#### Goblin Magic\n\nSome exiled goblins forge pacts with evil entities for magical power, including archfey, deities, and fiends. Goblin assassins conjure darkness made from the souls of their victims, while goblin cursespitters hurl magic hexes that keep their enemies at bay.\n\n#### Skitterling\n\nA six-legged winged rodent the size of a housecat, a skitterling moves their clawed feet as they fly, making them appear to scurry through the air. Goblins train these pets to claw at the faces of enemies, as their feet secrete a toxin that causes temporary sluggishness.\n\n#### War Spider\n\nGoblins ride enormous arachnids as mounts in battle. With blades attached to their legs, a war spider cuts a swath through enemy forces while archers fire from atop a platform on the animal's back. During a raid, a war spider arches their body to launch warriors off their back and into the fray.\n\n#### Worg\n\nSome goblins form a special bond with worgs—canine creatures raised by many goblin communities as mounts, guardians, and companions. A worg stays loyal to the hand that feeds them, and will protect their handler to the bitter end.\n\n#### Goblin Languages\n\nMost goblins speak Caelian and Szetch.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/goblin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.goblin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-assassin",
+          "title": "Гоблин-убийца"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-cursespitter",
+          "title": "Гоблин-проклинатель"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-monarch",
+          "title": "Гоблин-монарх"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-runner",
+          "title": "Гоблин-бегун"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-sniper",
+          "title": "Гоблин-снайпер"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-spinecleaver",
+          "title": "Гоблин-кромсатель хребтов"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-stinker",
+          "title": "Гоблин-вонючка"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-underboss",
+          "title": "Гоблин-заместитель"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-warrior",
+          "title": "Гоблин-воин"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.skitterling",
+          "title": "Скиттерлинг"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.war-spider",
+          "title": "Боевой паук"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.worg",
+          "title": "Ворг"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.goblin.goblin-malice",
+      "kind": "monster-feature",
+      "name": "Раздор гоблинов",
+      "markdown": "В начале хода любого гоблина вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Режим гоблина (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Скорость каждого гоблина в столкновении увеличивается на +2 до конца раунда.\n\n> ❇️ **Мелкие уколы (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый враг в столкновении получает 1 урон за каждого гоблина, находящегося [смежно](#/catalog/glossary#term-glossary.adjacent) с ним.\n\n> 🌀 **Болотная вонь (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда карту столкновения затягивает зелёный туман, который нельзя развеять ветром. Для всех негоблинов вся местность становится [труднопроходимой](#/catalog/glossary#term-glossary.difficult-terrain), и каждый негоблин на карте проходит **тест Мощи**.\n>\n> - **≤11:** 5 урона Ядом; существо [ослаблено](#/catalog/glossary#term-glossary.weakened), пока не рассеется туман.\n> - **12–16:** Существо [ослаблено](#/catalog/glossary#term-glossary.weakened), пока не рассеется туман.\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.goblin-malice",
+        "path": "Monsters/monster/goblin/goblin-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin/goblin-malice",
+      "originalName": "Goblin Malice",
+      "originalDescription": "At the start of any goblin's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Goblin Mode (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each goblin in the encounter gains a +2 bonus to speed until the end of the round.\n\n> ❇️ **Tiny Stabs (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter takes 1 damage for each goblin [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> 🌀 **Swamp Stink (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The encounter map is covered in a green mist that lasts until the end of the round, and which can't be dispersed by wind. All areas of the map are [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin on the map makes a **Might test**.\n>\n> - **≤11:** 5 poison damage; the creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **12-16:** The creature is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the mist disappears.\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/goblin-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-assassin",
+      "kind": "monster",
+      "name": "Гоблин-убийца",
+      "markdown": "| Гоблин, Гуманоид | - | Уровень 1 | Орда — Засадник | Боевая ценность 3 |\n|:----------------:|:--:|:---------:|:--------------:|:---------:|\n| **1S**<br>Размер | **6**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Удар мечом (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|---------------------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12–16:** 6 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Если эта способность совершается с преимуществом или двойным преимуществом, она наносит ещё 2 урона.\n\n> 🏹 **Теневые цепи (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний, Удар** |        **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|---------------------------------------------:|\n> | **📏 Дальний 10**        | **🎯 Три существа** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона Порчей; если Л < 0, цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12–16:** 4 урона Порчей; если Л < 1, цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 5 урона Порчей; если Л < 2, цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n\n> ⭐️ **Хитрость**\n>\n> Убийца не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack), когда перемещается.\n\n> ⭐️ **Ускользнуть**\n>\n> Убийца может попытаться спрятаться, даже если за ним наблюдают.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-assassin",
+        "path": "Monsters/monster/goblin/statblock/goblin-assassin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-assassin",
+      "originalName": "Goblin Assassin",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-2**<br>Presence  |\n\n> 🗡 **Sword Stab (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 🏹 **Shadow Chains (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |        **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 corruption damage; A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 4 corruption damage; A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 5 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The assassin doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.\n\n> ⭐️ **Slip Away**\n>\n> The assassin can attempt to hide even while observed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-assassin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-cursespitter",
+      "kind": "monster",
+      "name": "Гоблин-проклинатель",
+      "markdown": "| Гоблин, Гуманоид | - | Уровень 1 | Орда — Проклинатель | Боевая ценность 3 |\n|:----------------:|:--:|:---------:|:-------------------:|:---------:|\n| **1S**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Око Сурлаха (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------------:|\n> | **📏 Дальний 15**        | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона Порчей; если И < 0, цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12–16:** 4 урона Порчей; если И < 1, цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 5 урона Порчей; если И < 2, цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n\n> 🏹 **Головокружительное проклятие (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний, Удар** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|---------------------------------------------:|\n> | **📏 Дальний 10**        | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** если И < 0, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **12–16:** если И < 1, цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (КсХ)\n> - **17+:** цель [сбита с ног](#/catalog/glossary#term-glossary.prone); если И < 2, она не может встать (до прох.)\n\n> ⭐️ **Хитрость**\n>\n> Проклинатель не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack), когда перемещается.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-cursespitter",
+        "path": "Monsters/monster/goblin/statblock/goblin-cursespitter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-cursespitter",
+      "originalName": "Goblin Cursespitter",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |      Horde Hexer      |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+1**<br>Agility   |  **0**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Eye of Surlach (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 corruption damage; I < 0 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 4 corruption damage; I < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 5 corruption damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> 🏹 **Dizzying Hex (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** I < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **17+:** [Prone](scc.v1:mcdm.heroes.v1/condition/prone); I < 2 can't stand (save ends)\n\n> ⭐️ **Crafty**\n>\n> The cursespitter doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-cursespitter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-monarch",
+      "kind": "monster",
+      "name": "Гоблин-монарх",
+      "markdown": "| Гоблин, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:----------------:|:--:|:---------:|:-----:|:----------:|\n| **1S**<br>Размер | **6**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **+3**<br>Присутствие |\n\n> ⚔️ **Топорик (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-----------------------------------------------:|\n> | **📏 Ближний 1 или дальний 5**     | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12–16:** 10 урона\n> - **17+:** 13 урона\n>\n> **Эффект:** Один союзник в пределах 10 клеток от монарха может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🏹 **Живо сюда! (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------------------------:|\n> | **📏 Дальний 20** | **🎯 Особое** |\n>\n> **Эффект:** Два гоблина-бегуна появляются в незанятых клетках в пределах дистанции.\n\n> ❗️ **Живой щит**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Условие:** Существо выбирает монарха целью удара.\n>\n> **Эффект:** Вместо монарха целью этого удара становится союзник.\n\n> ⭐️ **Хитрость**\n>\n> Монарх не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack), когда перемещается.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода монарх может получить 5 урона, чтобы прекратить один эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Чего вы ждёте? ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область** |                        **-** |\n> |-------------|---------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может переместиться на расстояние до своей Скорости или совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Сосредоточенный огонь ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний** |                      **-** |\n> |-------------|---------------------------:|\n> | **📏 Дальний 10** | **🎯 Один враг или объект** |\n>\n> **Эффект:** Каждый союзник в пределах 10 клеток от цели может переместиться на расстояние до своей Скорости в её направлении.\n\n> ☠️ **Убей! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-** |          **-** |\n> |-------|---------------:|\n> | **📏 Особое** | **🎯 Особое** |\n>\n> **Эффект:** Каждый враг в столкновении получает 2 урона за каждого гоблина, находящегося [смежно](#/catalog/glossary#term-glossary.adjacent) с ним.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-monarch",
+        "path": "Monsters/monster/goblin/statblock/goblin-monarch.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-monarch",
+      "originalName": "Goblin Monarch",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |        Leader         |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   |   **+3**<br>Agility   | **+1**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> ⚔️ **Handaxe (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n>\n> **Effect:** One ally within 10 squares of the monarch can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🏹 **Get in Here! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 20** | **🎯 Special** |\n>\n> **Effect:** Two goblin runners appear in unoccupied spaces within distance.\n\n> ❗️ **Meat Shield**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |      **🎯 One ally** |\n>\n> **Trigger:** A creature targets the monarch with a strike.\n>\n> **Effect:** The ally is the target of the triggering strike instead.\n\n> ⭐️ **Crafty**\n>\n> The monarch doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the monarch can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ☠️ **What Are You Waiting For? ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target can move up to their speed or make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Focus Fire ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |                      **-** |\n> |------------------|---------------------------:|\n> | **📏 Ranged 10** | **🎯 One enemy or object** |\n>\n> **Effect:** Each ally within 10 squares of the target can move up to their speed toward the target.\n\n> ☠️ **Kill! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** Each enemy in the encounter takes 2 damage for each goblin [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-monarch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-runner",
+      "kind": "monster",
+      "name": "Гоблин-бегун",
+      "markdown": "| Гоблин, Гуманоид |           -           |     Уровень 1     |              Миньон Налётчик               | Боевая ценность 3 за четыре миньона |\n|:-----------------:|:---------------------:|:----------------:|:-------------------------------------------:|:----------------------------------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **Преимущество при ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Атака дубиной с рывком (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, бегун не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-runner",
+        "path": "Monsters/monster/goblin/statblock/goblin-runner.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-runner",
+      "originalName": "Goblin Runner",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   | **0**<br>Reason  |             **0**<br>Intuition              |  **-1**<br>Presence   |\n\n> 🗡 **Club Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n\n> ⭐️ **Crafty**\n>\n> The runner doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-runner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-sniper",
+      "kind": "monster",
+      "name": "Гоблин-снайпер",
+      "markdown": "| Гоблин, Гуманоид |           -           |     Уровень 1     |               Миньон Артиллерист                | Боевая ценность 3 за четыре миньона |\n|:-----------------:|:---------------------:|:----------------:|:------------------------------------------------:|:----------------------------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **Бонус +5 к дальности атак**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🏹 **Лук (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-------------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Если в этот ход снайпер не использует действие движения, эта способность получает преимущество.\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, снайпер не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-sniper",
+        "path": "Monsters/monster/goblin/statblock/goblin-sniper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-sniper",
+      "originalName": "Goblin Sniper",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition                |  **-1**<br>Presence   |\n\n> 🏹 **Bow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the sniper doesn't use a move action this turn, this ability gains an edge.\n\n> ⭐️ **Crafty**\n>\n> The sniper doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-spinecleaver",
+      "kind": "monster",
+      "name": "Гоблин-кромсатель хребтов",
+      "markdown": "| Гоблин, Гуманоид |           -           |     Уровень 1     |                 Миньон Громила                 | Боевая ценность 3 за четыре миньона |\n|:-----------------:|:---------------------:|:----------------:|:-----------------------------------------------:|:----------------------------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **Бонус +1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Топор (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 4 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 5 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, кромсатель хребтов не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-spinecleaver",
+        "path": "Monsters/monster/goblin/statblock/goblin-spinecleaver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-spinecleaver",
+      "originalName": "Goblin Spinecleaver",
+      "originalDescription": "| Goblin, Humanoid  |           -           |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Climb**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  |   **0**<br>Agility    | **0**<br>Reason  |               **0**<br>Intuition               |  **-1**<br>Presence   |\n\n> 🗡 **Axe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> ⭐️ **Crafty**\n>\n> The spinecleaver doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-spinecleaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-stinker",
+      "kind": "monster",
+      "name": "Гоблин-вонючка",
+      "markdown": "| Гоблин, Гуманоид |          -          |     Уровень 1      |       Орда Контроллер        | Боевая ценность 3 |\n|:-----------------:|:-------------------:|:-----------------:|:----------------------------:|:----------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🔳 **Ядовитые ветры (Знаковая способность)**\n>\n> | **Область, Магия, Дальний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|-------------------------------------:|\n> | **📏 Куб 3 в пределах 15** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон ядом; [скольжение](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 2 урона ядом; [скольжение](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 3 урона ядом; [скольжение](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **1+ [Раздор](#/codex/monsters.rule.monster.malice):** За каждую потраченную единицу [Раздора](#/codex/monsters.rule.monster.malice) одну цель можно [принудительно переместить](#/catalog/glossary#term-glossary.forced-movement) на 1 клетку.\n\n> 🔳 **Болотный газ**\n>\n> | **Область, Магия, Дальний бой** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|--------------------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Особое** |\n>\n> **Эффект:** Область заполняет зелёная дымка, которая держится до начала следующего хода вонючки или пока вонючку не снизят до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina); ветер не может её рассеять. Для негоблинов эта область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а каждый негоблин, перемещающийся по ней, получает 2 урона ядом за каждую пройденную клетку.\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, вонючка не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-stinker",
+        "path": "Monsters/monster/goblin/statblock/goblin-stinker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-stinker",
+      "originalName": "Goblin Stinker",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |   Horde Controller    |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Toxic Winds (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 15** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one target can be [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1 additional square.\n\n> 🔳 **Swamp Gas**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 3 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is filled with a green haze that lasts until the start of the stinker's next turn or until the stinker is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and which can't be dispersed by wind. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin who moves in the area takes 2 poison damage for each square moved.\n\n> ⭐️ **Crafty**\n>\n> The stinker doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-stinker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-underboss",
+      "kind": "monster",
+      "name": "Гоблин-заместитель",
+      "markdown": "| Гоблин, Гуманоид |          -          |     Уровень 1      |       Орда Поддержка        | Боевая ценность 3 |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------------:|:----------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Фехтование (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Один союзник, [смежный](#/catalog/glossary#term-glossary.adjacent) с целью, может совершить по ней [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❇️ **Безрассуднее!**\n>\n> | **Область** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** До начала следующего хода заместителя каждая цель получает преимущество при ударах, а любой удар по цели совершается с преимуществом.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Удары по целям больше не совершаются с преимуществом.\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, заместитель не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-underboss",
+        "path": "Monsters/monster/goblin/statblock/goblin-underboss.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-underboss",
+      "originalName": "Goblin Underboss",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Support     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-1**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Swordplay (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** One ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ❇️ **Get Reckless!**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Until the start of the underboss's next turn, each target gains an edge on strikes, and any strike made against a target gains an edge.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Strikes made against targets no longer gain an edge.\n\n> ⭐️ **Crafty**\n>\n> The underboss doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-underboss.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.goblin-warrior",
+      "kind": "monster",
+      "name": "Гоблин-воин",
+      "markdown": "| Гоблин, Гуманоид |          -          |     Уровень 1      |       Орда Налётчик        | Боевая ценность 3 |\n|:-----------------:|:-------------------:|:-----------------:|:--------------------------:|:----------------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Атака копьём с рывком (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> 🗡 **Вонзить острие (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при М < 0 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 6 урона; при М < 1 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 7 урона; при М < 2 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, воин не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-warrior",
+        "path": "Monsters/monster/goblin/statblock/goblin-warrior.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-warrior",
+      "originalName": "Goblin Warrior",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Harrier     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Spear Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 🗡 **Bury the Point (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 6 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 7 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The warrior doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-warrior.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.skitterling",
+      "kind": "monster",
+      "name": "Скиттерлинг",
+      "markdown": "| Животное, Гоблин |          -          |     Уровень 1      |              Миньон Проклинатель              | Боевая ценность 3 за четыре миньона |\n|:-----------------:|:-------------------:|:----------------:|:---------------------------------------------:|:----------------------------------------:|\n| **1T**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **Бонус +3 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **-5**<br>Мощь | **+2**<br>Ловкость | **-4**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Когти (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон ядом\n> - **12-16:** 2 урона ядом\n> - **17+:** 3 урона ядом\n>\n> **Эффект:** Следующий удар цели совершается с помехой.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.skitterling",
+        "path": "Monsters/monster/goblin/statblock/skitterling.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/skitterling",
+      "originalName": "Skitterling",
+      "originalDescription": "|  Animal, Goblin   |          -          |     Level 1      |             Minion Hexer              | EV 3 for four minions |\n|:-----------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1T**<br>Size   |   **5**<br>Speed    | **3**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **-5**<br>Might  |  **+2**<br>Agility  | **-4**<br>Reason |          **0**<br>Intuition           |  **-2**<br>Presence   |\n\n> 🗡 **Claws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage\n> - **12-16:** 2 poison damage\n> - **17+:** 3 poison damage\n>\n> **Effect:** The target takes a bane on their next strike.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/skitterling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.war-spider",
+      "kind": "monster",
+      "name": "Боевой паук",
+      "markdown": "| Животное, Гоблин |          -          |     Уровень 1      |        Элита Скакун        | Боевая ценность 12 |\n|:-----------------:|:-------------------:|:-----------------:|:--------------------------:|:-----------------------:|\n| **3**<br>Размер | **7**<br>Скорость | **60**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-4**<br>Разум | **0**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Укус (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона ядом\n> - **12-16:** 11 урона ядом\n> - **17+:** 14 урона ядом; при М < 2 — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** При любом результате тира, если у цели М < 3, она получает состояние [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n\n> 🗡 **Клинок на лапе**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона\n\n> 👤 **Затоптать (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Паук [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и использует «Клинок на лапе» против каждого существа, которое оказывается [смежным](#/catalog/glossary#term-glossary.adjacent) с ним во время смещения. Паук совершает один бросок силы против всех целей.\n\n> 🔳 **Паутина**\n>\n> | **Область, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|--------------------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** при Л < 0 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** при Л < 1 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** при Л < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Для врагов эта область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ❗️ **Шмыгнуть**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Паук или союзник, едущий на нём верхом, получает урон.\n>\n> **Эффект:** Урон уменьшается вдвое, а после завершения вызвавшего его эффекта паук [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Подбрасывание всадника**\n>\n> Любой союзник, спрыгнувший со спины паука, может прыгнуть на расстояние до 6 клеток без теста и не получает урон, если падает во время прыжка. После прыжка союзника первый совершённый им в том же ходу удар ближнего боя получает преимущество.\n\n> ⭐️ **Широкая спина**\n>\n> Пока на пауке едут верхом, в одном пространстве с ним могут находиться два союзника размера 1.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.war-spider",
+        "path": "Monsters/monster/goblin/statblock/war-spider.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/war-spider",
+      "originalName": "War Spider",
+      "originalDescription": "|  Animal, Goblin   |           -           |      Level 1      |      Elite Mount      |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+1**<br>Agility   | **-4**<br>Reason  |  **0**<br>Intuition   |  **-3**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 11 poison damage\n> - **17+:** 14 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For any tier outcome, if the target has M < 3, they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends).\n\n> 🗡 **Leg Blade**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n\n> 👤 **Trample (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Leg Blade against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The spider makes one power roll against all targets.\n\n> 🔳 **Web**\n>\n> | **Area, Weapon**       |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The spider or any ally riding the spider takes damage.\n>\n> **Effect:** The damage is halved, and the spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares after the triggering effect resolves.\n\n> ⭐️ **Ride Launcher**\n>\n> Any ally who leaps off the back of the spider can jump up to 6 squares without making a test, and takes no damage if they fall during the jump. After any ally jumps, the first melee strike the make on the same turn gains an edge.\n\n> ⭐️ **Wide Back**\n>\n> While riding the spider, two size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/war-spider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.goblin.statblock.worg",
+      "kind": "monster",
+      "name": "Ворг",
+      "markdown": "| Животное, Гоблин |         -         |     Уровень 1      |        Орда Скакун        | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------:|:----------------------:|\n| **1L**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **1**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Укус (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> 👤 **Спринт (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------|-----------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Ворг перемещается на расстояние до своей Скорости.\n\n> ⭐️ **Атакующий верхом**\n>\n> Если ворг, используемый как скакун, совершает атаку с рывком, его всадник получает преимущество при ударах ближнего боя до конца своего хода.\n\n> ⭐️ **Общая хитрость**\n>\n> Если у всадника ворга есть черта «Хитрый», ворг тоже получает эту черту.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.worg",
+        "path": "Monsters/monster/goblin/statblock/worg.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/worg",
+      "originalName": "Worg",
+      "originalDescription": "|  Animal, Goblin   |         -         |      Level 1      |      Horde Mount      |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 👤 **Sprint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The worg moves up to their speed.\n\n> ⭐️ **Mounted Charger**\n>\n> If a worg used as a mount charges, their rider gains an edge on melee strikes until the end of the rider's turn.\n\n> ⭐️ **Shared Craft**\n>\n> If the worg's rider has the Crafty trait, the worg also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/worg.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1L",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.group.goblin",
+      "kind": "monster-lore",
+      "name": "Гоблины",
+      "markdown": "Известные среди себя как *рогабрин* — «нас больше» на их языке Сзетч, — гоблины принадлежат к самым многочисленным видам гуманоидов в мире. Они встречаются во многих землях, создали бесчисленное множество самобытных культур и осмеливаются селиться в местах, куда другие гуманоиды редко отваживаются заходить.\n\nДлинные руки и цепкие пальцы на ногах особенно хорошо приспособили гоблинов к лазанию, поэтому они с одинаковым удобством живут и в городах на верхушках деревьев, и в подземных царствах, полных сталактитов, уступов и расщелин. Однако не меньше гоблинов предпочитает селиться сплочёнными общинами в многонациональных городах. Многие гоблины, скрещивающие оружие с героями-приключенцами, — худшие представители своего общества: воры и убийцы, которых отвергли собственные сородичи.\n\n#### Вместе в столкновении\n\nИ в обществе, и в изгнании гоблины выживают и процветают благодаря взаимовыручке. Гоблин, оказавшийся в дикой местности в одиночестве, охвачен ужасом. Дюжина гоблинов-изгоев исполнена непоколебимой — а то и чрезмерной — уверенности. Такие группы часто становятся разбойниками и устраивают засады на путников, пересекающих их владения — пустыни, леса или подземелья. Более крупные орды гоблинов могут превратиться в беспринципных наёмников, служащих могущественным злодеям. Где бы ни встретились гоблины, они предпочитают сражаться числом и бежать, если врагов оказывается больше, чем союзников.\n\n#### Подвижные и скрытные\n\nНевысокие, гибкие и длиннорукие гоблины созданы для быстрого передвижения, скрытности и лазания. Гоблины, живущие в дикой местности и извилистых пещерах, используют природную ловкость, чтобы прятаться от угроз и удирать, когда их обнаружат. Эти хитрые бойцы могут носиться по полю боя, кромсая врагам колени, или выпускать стрелы, перебираясь с дерева на дерево.\n\n#### Магия гоблинов\n\nНекоторые гоблины-изгнанники заключают сделки со злыми сущностями, чтобы обрести магическую силу. Среди них — архифеи, божества и исчадия. Гоблины-убийцы вызывают тьму, сотканную из душ своих жертв, а гоблины-плеватели проклятий обрушивают на врагов магические проклятия, не давая им приблизиться.\n\n#### Скиттерлинг\n\nКрылатый шестилапый грызун размером с домашнюю кошку, скиттерлинг летит, перебирая когтистыми лапками, будто суетливо скребёт ими по воздуху. Гоблины дрессируют этих питомцев нападать на лица врагов: лапки скиттерлингов выделяют токсин, вызывающий временную вялость.\n\n#### Боевой паук\n\nВ бою гоблины ездят верхом на огромных пауках. Прикреплёнными к лапам клинками боевой паук прорубает путь сквозь ряды врагов, пока лучники стреляют с площадки у него на спине. Во время набега боевой паук выгибает тело и сбрасывает всадников прямо в гущу боя.\n\n#### Ворг\n\nНекоторые гоблины образуют особую связь с воргами — похожими на собак существами, которых во многих общинах гоблинов выращивают как скакунов, стражей и спутников. Ворг хранит верность тому, кто его кормит, и будет защищать своего хозяина до последнего.\n\n#### Языки гоблинов\n\nБольшинство гоблинов говорит на кэлианском и Сзетче.\n",
+      "source": {
+        "articleId": "monsters.monster.group.goblin",
+        "path": "Monsters/monster/group/goblin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/goblin",
+      "originalName": "Goblins",
+      "originalDescription": "Known among themselves as *rogabrin*, meaning \"more of us\" in their Szetch language, goblins are one of the most numerous humanoid species in the world. They can be found across many lands, have developed countless distinct cultures, and dare to venture into environments that few other humanoids are willing to hazard.\n\nTheir long arms and prehensile toes make goblins particularly well adapted to environments requiring climbing, and they live equally comfortably in treetop cities as in subterranean realms filled with stalactites, ledges, and chasms. However, just as many prefer to dwell in tight-knit neighborhoods within diverse cities. Many of those goblins who cross swords with adventuring heroes are the worst of their society-thieves and murderers shunned by their own people.\n\n#### Encountered in Groups\n\nWhether within a society or living in exile, goblins survive and thrive because they work together. A single goblin forced into the wild is terrified. A dozen outlaw goblins are supremely confident—perhaps overly so. Such groups often become bandits who ambush travelers crossing through their territory, be it desert, forest, or underground. Larger goblin hordes might become unscrupulous mercenaries serving powerful villains. No matter how they're encountered, goblins prefer to fight as an overwhelming force and to flee when foes outnumber friends.\n\n#### Mobile and Sneaky\n\nShort, lithe, and long armed, goblins are built for mobility, stealth, and climbing. Goblins who dwell in untamed wilderness and twisting caves utilize their natural agility to hide from threats and flee when found. These crafty skirmishers might run wild through battle, hacking at their enemies' knees, or unleash arrows as they dart from tree to tree.\n\n#### Goblin Magic\n\nSome exiled goblins forge pacts with evil entities for magical power, including archfey, deities, and fiends. Goblin assassins conjure darkness made from the souls of their victims, while goblin cursespitters hurl magic hexes that keep their enemies at bay.\n\n#### Skitterling\n\nA six-legged winged rodent the size of a housecat, a skitterling moves their clawed feet as they fly, making them appear to scurry through the air. Goblins train these pets to claw at the faces of enemies, as their feet secrete a toxin that causes temporary sluggishness.\n\n#### War Spider\n\nGoblins ride enormous arachnids as mounts in battle. With blades attached to their legs, a war spider cuts a swath through enemy forces while archers fire from atop a platform on the animal's back. During a raid, a war spider arches their body to launch warriors off their back and into the fray.\n\n#### Worg\n\nSome goblins form a special bond with worgs—canine creatures raised by many goblin communities as mounts, guardians, and companions. A worg stays loyal to the hand that feeds them, and will protect their handler to the bitter end.\n\n#### Goblin Languages\n\nMost goblins speak Caelian and Szetch.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/goblin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

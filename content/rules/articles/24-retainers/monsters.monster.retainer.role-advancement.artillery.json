@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.role-advancement.artillery",
+  "title": "Способности развития роли Артиллериста",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/role-advancement/artillery.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/artillery",
+  "originalName": "Artillery Abilities",
+  "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> ❗️ **Supporting Volley**\n>\n> | **Ranged, Weapon** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Ranged 5**    | **🎯 The triggering creature** |\n>\n> **Trigger:** The retainer's mentor makes a strike against a creature within distance.\n>\n> **Effect:** The retainer makes a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> **Level 7 Role Advancement Ability**\n\n> 🔳 **Line 'Em Up (Encounter)**\n>\n> | **Area, Weapon**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 11 damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> **Level 10 Role Advancement Ability**\n\n> 🏹 **Ricochet Shot (Encounter)**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Ranged 5** | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 19 damage\n>\n> **Effect:** The retainer can target a second creature or object within 5 squares of the original target and that has line of effect to the original target. The retainer doesn't need line of effect to the second target but must be aware of their location.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/role-advancement/artillery.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.role-advancement.artillery"
+    }
+  ]
+}

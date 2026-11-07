@@ -1,0 +1,29 @@
+{
+  "id": "monster.elf-wode.statblock.wodenelg",
+  "kind": "monster",
+  "name": "Воденельг",
+  "markdown": "| Растение, Лесной эльф |         -         |      Уровень 1      | Взводный скакун | Боевая ценность 6 |\n|:-----------------:|:-----------------:|:------------------:|:--------------:|:--------------------:|\n|   **2**<br>Размер  | **10**<br>Скорость | **30**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|  **+2**<br>Мощь    | **+1**<br>Ловкость | **-1**<br>Разум     | **0**<br>Интуиция      | **-1**<br>Присутствие |\n\n> 🗡 **Бодание (знаковая способность)**\n>\n> | **Рывок, ближний бой, удар, оружие** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                 | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** Всадник воденельга может совершить [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) в любой момент во время атаки с рывком.\n\n> ⭐️ **Уверенная поступь**\n>\n> Воденельг игнорирует [труднопроходимую местность](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) и не провоцирует атаки по возможности своим перемещением.\n\n> 👤 **Где кончаюсь я, начинаются леса (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Воденельг и его всадник становятся невидимыми до начала следующего хода воденельга.\n\n> ⭐️ **Устойчивость всадника**\n>\n> Всадник воденельга получает иммунитет к урону 2.\n\n> ⭐️ **Общий морок**\n>\n> Если у всадника воденельга есть черта «Маскирующий морок», она есть и у воденельга.\n",
+  "source": {
+    "articleId": "monsters.monster.elf-wode.statblock.wodenelg",
+    "path": "Monsters/monster/elf-wode/statblock/wodenelg.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wodenelg",
+  "originalName": "Wodenelg",
+  "originalDescription": "|  Plant, Wode Elf  |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **10**<br>Speed  | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The wodenelg's rider can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at any point during the charge.\n\n> ⭐️ **Sure-Footed**\n>\n> The wodenelg ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and doesn't provoke oppotunity attacks by moving.\n\n> 👤 **Where I End the Woods Begin (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wodenelg and their rider become invisible until the start of the wodenelg's next turn.\n\n> ⭐️ **Mounted Stability**\n>\n> The wodenelg's rider has damage immunity 2.\n\n> ⭐️ **Shared Glamor**\n>\n> If the wodenelg's rider has the Masking Glamor trait, the wodenelg also has that trait.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-wode/statblock/wodenelg.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-wode",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "2",
+    "keywords": [
+      "Растение",
+      "Лесной эльф"
+    ],
+    "role": "Скакун",
+    "organization": "Взвод"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.kobold.statblock.kobold-venator",
+  "title": "Кобольд-венатор",
+  "chapter": "23. Бестиарий",
+  "group": "Кобольды",
+  "path": "Monsters/monster/kobold/statblock/kobold-venator.md",
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-venator",
+  "originalName": "Kobold Venator",
+  "originalDescription": "| Humanoid, Kobold  |         -         |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Dolabra and Net (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 7 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The venator lights their net on fire, and a target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way takes 2 fire damage at the start of each of their turns.\n\n> ⭐️ **Lost in the Crowd**\n>\n> While the venator is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to any ally who is not hiding, the venator can attempt to hide as if they had concealment, even if observed.\n\n> ⭐️ **Not What I Seem**\n>\n> The venator starts the encounter disguised as a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion). They have a double edge on their first main action of the encounter, after which they reveal themself.\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the venator has stability 1, has cover, and grants cover to allies.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-venator.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Засадник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.kobold.statblock.kobold-venator"
+    }
+  ]
+}

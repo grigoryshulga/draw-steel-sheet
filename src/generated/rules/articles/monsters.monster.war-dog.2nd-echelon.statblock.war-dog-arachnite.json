@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-arachnite",
+      "title": "Пёс войны-арахнит",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-arachnite.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-arachnite",
+      "originalName": "War Dog Arachnite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |           -           |      Level 6      |    Horde Artillery    |         EV 8         |\n|:---------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1L**<br>Size        |    **5**<br>Speed     | **35**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|  **Psychic 6**<br>Immunity  | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **0**<br>Might        |   **+3**<br>Agility   | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Longarm Shrikegun ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 9 damage\n> - **17+:** 11 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** This ability ignores cover and concealment. The arachnite chooses one of the following damage types when making the strike: acid, cold, fire, lightning, poison, psychic, or sonic.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The arachnite can use this ability as if they were in the space of any ally within distance.\n\n> 🔳 **Web Vial**\n>\n> | **Area, Ranged**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 2 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the end of the encounter.\n\n> ⭐️ **Eight-Eyed Sight**\n>\n> At the start of each of their turns, the arachnite automatically knows the location of each hidden creature within 10 squares of them.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the arachnite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-arachnite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.2nd-echelon.statblock.war-dog-arachnite"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.2nd-echelon.statblock.war-dog-arachnite",
+      "kind": "monster",
+      "name": "Пёс войны-арахнит",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны |           -           |     Уровень 6     | Орда-артиллерист | Боевая ценность 8 |\n|:-------------------------------:|:---------------------:|:----------------:|:----------------:|:----------------------:|\n| **1L**<br>Размер                | **5**<br>Скорость     | **35**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Психический 6**<br>Иммунитет  | **Лазание**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь                   | **+3**<br>Ловкость    | **+2**<br>Разум | **+2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Дальнобойная скорострельная пушка ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|--------------------------------:|\n> | **📏 Дальний бой 15**        | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 9 урона\n> - **17+:** 11 урона; Л < 3 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Эта способность игнорирует укрытие и покров. Совершая удар, арахнит выбирает один из следующих типов урона: кислота, холод, огонь, молния, яд, психический или звуковой.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Арахнит может использовать эту способность так, будто находится на месте любого союзника в пределах дистанции.\n\n> 🔳 **Флакон паутины**\n>\n> | **Область, Дальний бой** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 Куб 2 в пределах 10** | **🎯 Особое** |\n>\n> **Эффект:** Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) до конца столкновения.\n\n> ⭐️ **Зрение восьми глаз**\n>\n> В начале каждого своего хода арахнит автоматически узнаёт местоположение каждого скрытого существа в пределах 10 клеток от себя.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) арахнита снижается до 0, его ошейник преданности взрывается и наносит 2d6 урона каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу и объекту.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-arachnite",
+        "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-arachnite.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-arachnite",
+      "originalName": "War Dog Arachnite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |           -           |      Level 6      |    Horde Artillery    |         EV 8         |\n|:---------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1L**<br>Size        |    **5**<br>Speed     | **35**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|  **Psychic 6**<br>Immunity  | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **0**<br>Might        |   **+3**<br>Agility   | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Longarm Shrikegun ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 9 damage\n> - **17+:** 11 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** This ability ignores cover and concealment. The arachnite chooses one of the following damage types when making the strike: acid, cold, fire, lightning, poison, psychic, or sonic.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The arachnite can use this ability as if they were in the space of any ally within distance.\n\n> 🔳 **Web Vial**\n>\n> | **Area, Ranged**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 2 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the end of the encounter.\n\n> ⭐️ **Eight-Eyed Sight**\n>\n> At the start of each of their turns, the arachnite automatically knows the location of each hidden creature within 10 squares of them.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the arachnite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-arachnite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

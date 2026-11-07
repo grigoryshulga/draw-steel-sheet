@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.undead.2nd-echelon.statblock.vampire-spawn",
+  "title": "Вампирский отпрыск",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/2nd-echelon/statblock/vampire-spawn.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/vampire-spawn",
+  "originalName": "Vampire Spawn",
+  "originalDescription": "|            Undead, Vampire             |           -           |      Level 4      |     Horde Harrier     |         EV 6         |\n|:--------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |    **5**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Corruption 4, poison 4**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+2**<br>Might             |   **+3**<br>Agility   | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Exsanguinating Bite ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 corruption damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 corruption damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The vampire spawn regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to any corruption damage dealt.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The target takes an additional 3 corruption damage.\n\n> 👤 **Vampiric Celerity**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The vampire spawn can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square, then move up to their speed. The next ability the vampire uses before the start of their next turn gains an edge.\n\n> ⭐️ **Unslakable Bloodthirst**\n>\n> The vampire spawn has speed 10 while any creature within 10 squares of them is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). The vampire spawn must use Exsanguinating Bite against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature on their turn if they are able to.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/2nd-echelon/statblock/vampire-spawn.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Вампир"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.2nd-echelon.statblock.vampire-spawn"
+    }
+  ]
+}

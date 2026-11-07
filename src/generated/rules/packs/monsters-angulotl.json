@@ -1,0 +1,741 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.angulotl.angulotl-malice",
+      "title": "Раздор ангулотлов",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/angulotl-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl/angulotl-malice",
+      "originalName": "Angulotl Malice",
+      "originalDescription": "At the start of any angulotl's turn, you can spend Malice to activate one of the following features.\n\n> ⭐️ **Leapfrog (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, when an angulotl moves through an inactive angulotl's space, the inactive angulotl can use a free triggered action to jump 3 squares.\n\n> ❇️ **Resonating Croak (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each angulotl in the encounter puffs out their throat and starts loudly droning. Any non-angulotl adjacent to an angulotl makes an **[Intuition](scc.v1:mcdm.heroes.v1/rule.character/intuition) test.**\n>\n> - **≤11:** 5 sonic damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n> - **12-16:** 4 sonic damage\n> - **17+:** No effect.\n\n> 🌀 **Rainfall (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An angulotl calls clouds to cover the encounter map and unleash rain until the end of the round. Any creature or object that is exposed to the sky is wet until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/angulotl-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.angulotl-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-cleaver",
+      "title": "Ангулотл-рубила",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-cleaver.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-cleaver",
+      "originalName": "Angulotl Cleaver",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |                     Level 1                      |                Minion Ambusher                 |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:------------------------------------------------:|:----------------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **6**<br>Speed        |                 **4**<br>Stamina                 |               **0**<br>Stability               | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |                        -                         | **+1 damage bonus to strikes**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might      |      **+2**<br>Agility      |                 **+0**<br>Reason                 |              **+1**<br>Intuition               |  **+0**<br>Presence  |\n\n> 🗡 **Hop and Chop (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The cleaver jumps up to 4 squares before or after making this [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the cleaver or uses a melee ability against them, that enemy takes 1 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-cleaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-cleaver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-dart",
+      "title": "Ангулотл-дроточник",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-dart.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-dart",
+      "originalName": "Angulotl Dart",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |     Level 1      |                Minion Artillery                 |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:----------------:|:-----------------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **+4 bonus to ranged distance**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might      |      **+2**<br>Agility      | **+1**<br>Reason |               **+0**<br>Intuition               |  **+0**<br>Presence  |\n\n> 🏹 **Poison Dart (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 poison damage\n> - **12-16:** 4 poison damage\n> - **17+:** 5 poison damage\n>\n> **Effect:** The dart gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on this ability against any target who has less than full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the dart or uses a melee ability against them, that enemy takes 1 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-dart.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-dart"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-daybringer",
+      "title": "Ангулотл-светоносец",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-daybringer.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-daybringer",
+      "originalName": "Angulotl Daybringer",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |        Leader         |        EV 12         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size      |       **5**<br>Speed        | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **Poison 3**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Acid Grasp (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 acid damage; A < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 acid damage; A < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The next time the target makes a strike against the daybringer, the target takes 4 acid damage after the strike is resolved.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The daybringer jumps up to 3 squares before or after using this ability.\n\n> 👤 **Sun Lamp**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The daybringer expands their throat to make it resemble the sun until the start of their next turn. During that time, each angulotl who starts their turn within 10 squares of the daybringer regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and gains a +3 bonus to speed until the end of their turn.\n\n> ❗️ **Tongue Slap**\n>\n> | **Melee**      |             **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------------------:|\n> | **📏 Melee 5** |              **🎯 One creature** |\n>\n> **Trigger:** The target makes a strike against the daybringer or an ally that isn't a critical hit.\n>\n> **Effect:** The outcome of the strike's power roll is reduced by one tier.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares after the strike resolves.\n\n> ⭐️ **Moisturizing End Effect**\n>\n> At the end of each of the daybringer's turns, they can either take 5 damage or end the wet effect on an adjacent creature in order to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **New Dawn (Villain Action 1)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Four **angulotl pollywogs** erupt from the daybringer's back and waddle into unoccupied spaces within distance.\n\n> ☠️ **Plague of Frogs (Villain Action 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 8 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target can jump up to 4 squares. Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at the end of the jump.\n\n> ☠️ **It Is Day (Villain Action 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** The encounter map dries up and each enemy and object on it is illuminated until the end of the encounter. An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge). Additionally, each enemy in the encounter who is wet has that effect end and takes 6 acid damage. Each angulotl in the encounter has a double edge on their next strike.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the daybringer or uses a melee ability against them, that enemy takes 3 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-daybringer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-daybringer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-needler",
+      "title": "Ангулотл-иглоносец",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-needler.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-needler",
+      "originalName": "Angulotl Needler",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |    Horde Artillery    |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **10**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+2**<br>Agility      | **+1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🏹 **Blowgun (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------------:|\n> | **📏 Ranged 15**           |  **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 poison damage\n> - **12-16:** 6 poison damage\n> - **17+:** 7 poison damage\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target who has M < 2 is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends). A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way takes 2 poison damage at the start of each of their turns.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the needler or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-needler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-needler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-pollywog",
+      "title": "Ангулотл-головастик",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-pollywog.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-pollywog",
+      "originalName": "Angulotl Pollywog",
+      "originalDescription": "|         Angulotl         |              -              |     Level 1      |            Minion Harrier             |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:----------------:|:-------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **6**<br>Speed        | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+2**<br>Agility      | **-2**<br>Reason |          **-2**<br>Intuition          |  **+0**<br>Presence  |\n\n> 🗡 **Nip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon**  |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|----------------------------------------:|\n> | **📏 Melee 1**             |          **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage\n> - **12-16:** 2 poison damage; the pollywog can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **17+:** 3 poison damage; the pollywog [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n\n> ⭐️ **Quick Snack**\n>\n> Any angulotl who can target the pollywog with a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) can eat them as a maneuver. The angulotl regains 4 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and is wet until the end of their next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-pollywog.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-pollywog"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-slink",
+      "title": "Ангулотл-скользун",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-slink.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-slink",
+      "originalName": "Angulotl Slink",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Tonguelash (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 6**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 7 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The target is wet (save ends). Any ally targeted by this ability ignores the damage, is wet until the end of the encounter, and is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares, ignoring stability.\n\n> 👤 **Hop To It (2 Malice)**\n>\n> | **-**       | **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-------------|------------------:|\n> | **📏 Self** |       **🎯 Self** |\n>\n> **Effect:** The slink jumps up to 3 squares. If they have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) or [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) when they land, they can attempt to hide.\n\n> ⭐️ **Adhesive**\n>\n> The slink excretes a sticky residue into their square at the end of each of their turns. Any non-angulotl who enters or leaves the square is stuck, and must use a maneuver to break free or be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their turn. Objects are likewise affected, and a creature must use a maneuver to remove an object from the square.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the slink or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-slink.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-slink"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-wave",
+      "title": "Ангулотл-волна",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-wave.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-wave",
+      "originalName": "Angulotl Wave",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |   Horde Controller    |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+0**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Refulgent Beams (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 holy damage\n> - **12-16:** 4 holy damage; R < 1 the target is illuminated (save ends)\n> - **17+:** 5 holy damage; R < 2 the target is illuminated (save ends)\n>\n> **Effect:** An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> 🔳 **Noxious Bubble (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**                     | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------------------------|----------------:|\n> | **📏 2 cube of unoccupied space within 10** |  **🎯 Special** |\n>\n> **Effect:** A bubble of toxic gas fills the area, ready to pop. If any creature or object touches the bubble or if the bubble takes damage, it bursts. Each angulotl adjacent to the bubble is wet until the end of the encounter, and each enemy adjacent to the bubble makes a **[Might](scc.v1:mcdm.heroes.v1/rule.character/might) test**.\n>\n> - **≤11:** 3 poison damage; the target is wet and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 2 poison damage; the target is wet (save ends)\n> - **17+:** 1 poison damage; the target is wet ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the wave or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-wave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-wave"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.angulotl.statblock.clawfish",
+      "title": "Когтистая рыба",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/clawfish.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/clawfish",
+      "originalName": "Clawfish",
+      "originalDescription": "|           Angulotl, Animal            |              -              |     Level 1      |                Minion Brute                 |  EV 3 for 4 minions  |\n|:-------------------------------------:|:---------------------------:|:----------------:|:-------------------------------------------:|:--------------------:|\n|            **1S**<br>Size             |       **5**<br>Speed        | **5**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike |\n| **Lightning 3, Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |  **-**<br>Weakness   |\n|            **+0**<br>Might            |      **+2**<br>Agility      | **-3**<br>Reason |             **-2**<br>Intuition             |  **+1**<br>Presence  |\n\n> 🗡 **Hookclaw (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** Any target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes 2 lightning damage at the start of each of their turns.\n\n> ⭐️ **Shocking**\n>\n> At the start of each of their turns, the clawfish deals 2 lightning damage to each wet enemy within 2 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/clawfish.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Животное"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.clawfish"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.angulotl",
+      "title": "Ангулотлы",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/group/angulotl.md",
+      "originalId": "mcdm.monsters.v1/monster.group/angulotl",
+      "originalName": "Angulotls",
+      "originalDescription": "Found in freshwater swamps, rivers, and rainforests, angulotls (angwa-LAH-tuls) are diminutive, brightly colored amphibious humanoids. Rather than defending their settlements and breeding grounds against hostile creatures, these poisonous frog folk prefer to establish their homes in places that are nigh-impossible for other humanoids to find, such as underwater caves and other enclosed spaces accessible only by water. Angulotls are happy to hide and watch a gaggle of noisy adventurers stumble past the entrance to their clutch without realizing it. But though they prefer to avoid combat, whenever they're threatened or pressed, angulotls can turn deadly.\n\n#### Deadly Toxins\n\nAngulotls are poisonous creatures, which suits their preference to avoid aggression—because they don't need it! The contact toxin secreted by their skin gives them an edge in close combat, and they also distill this toxin into more potent forms for coating blades and tipping darts.\n\n#### Indicator Species\n\nAngulotl physiology is delicately balanced, and it doesn't take much to upset that balance. While toxins don't kill them, they are still affected by pollutants in their waters. Ongoing contamination of their environment can corrupt angulotls, making them aggressive, confused, and angry. Most pollution-corrupted angulotls eventually attack any creature who crosses their path—even other angulotls! Runoff from magical experimentation seems to affect them the most—and sometimes grants them strange abilities.\n\n#### Moisture Dependent\n\nAngulotls breathe through their skin, so they need to stay damp or they [suffocate](scc.v1:mcdm.heroes.v1/rule.health/suffocating). They often avoid travel in dry areas, and they prefer not to stray far from sources of freshwater unless it's raining.\n\n#### Clawfish\n\nKnown as q'ukutxal (koo-OOK-oot-shaal) to angulotls, the clawfish resembles a moray eel with eight reptilian legs. These small animals can slither through grass and clamber up trees nearly as well as they glide through river currents. Angulotls train them not only to pull rafts, but to cleverly fight by grabbing and electrocuting foes.\n\n#### Angulotl Languages\n\nMost angulotls speak Filliaric.\n\n#### Wet\n\nAngulotls make use of a unique effect called \"wet.\" While wet, an angulotl doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving. At the same time, any non-angulotl who is wet and ends their turn with none of their movement remaining slips and falls [prone](scc.v1:mcdm.heroes.v1/condition/prone). Several angulotl abilities can impose this effect, but a creature in an encounter featuring angulotls can also become wet by entering water, as the Director determines.\n\n###### On Angulotls\n\n> They like humans! Adults tend to freak them out a little. I don't think they realize tall humans are the same species as tiny humans!\n>\n> **Pinna, Hedge Witch, Gravesford**\n\n###### Angulotl Tactics\n\n> **Angulotl Tactics**\n>\n> Angulotls are not generally aggressive, and if confronted, a patrol of frog folk will usually exchange a few blows before performing a harrying retreat to their hidden villages. In defense of their homes, however, they become much fiercer and more determined. In these battles, angulotls try to force fights in or near water to take advantage of their amphibious nature and the wet effect.\n>\n> Simple patrols are usually made up of slippery captains leaping into the backline and harassing low-Stamina heroes while their minion hordes keep higher-Stamina heroes engaged. In larger engagements their tactics become more defensive to protect their high-value units. They tend to stay in close and coherent groups to take advantage of support abilities.\n>\n> **Angulotl Sample Encounters**\n>\n> - **Clawfish Ranchers, 18 EV:** Twelve clawfish, four pollywogs, two needlers\n> - **Homeguard Scouts, 27 EV:** Sixteen cleavers, eight darts, one needler, two slinks\n> - **Corrupted Clutch, 34 EV:** Eight clawfish, twelve cleavers, eight pollywogs, one needler, two slinks, one wave\n> - **Angulotl Assault Squad, 48 EV:** Eight clawfish, twelve cleavers, twelve darts, two needlers, two slinks, one daybringer",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/angulotl.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.angulotl"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-cleaver",
+          "title": "Ангулотл-рубила"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-dart",
+          "title": "Ангулотл-дроточник"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-daybringer",
+          "title": "Ангулотл-светоносец"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-needler",
+          "title": "Ангулотл-иглоносец"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-pollywog",
+          "title": "Ангулотл-головастик"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-slink",
+          "title": "Ангулотл-скользун"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.angulotl-wave",
+          "title": "Ангулотл-волна"
+        },
+        {
+          "id": "monsters.monster.angulotl.statblock.clawfish",
+          "title": "Когтистая рыба"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.angulotl.angulotl-malice",
+      "kind": "monster-feature",
+      "name": "Раздор ангулотлов",
+      "markdown": "В начале хода любого ангулотла вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Чехарда (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда, когда ангулотл перемещается через пространство неактивного ангулотла, тот может использовать свободный триггер, чтобы прыгнуть на 3 клетки.\n\n> ❇️ **Резонансное кваканье (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Все ангулотлы в столкновении раздувают горло и начинают громко гудеть. Каждый не-ангулотл, находящийся рядом с ангулотлом, совершает проверку [Интуиции](#/catalog/glossary#term-glossary.intuition).\n>\n> - **≤11:** 5 урона звуком; [замедлен](#/catalog/glossary#term-glossary.slowed) ([КсХ](#/catalog/glossary#term-glossary.eot))\n> - **12-16:** 4 урона звуком\n> - **17+:** Без эффекта.\n\n> 🌀 **Дождь (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Ангулотл призывает тучи, которые затягивают карту столкновения и проливаются дождём до конца раунда. Любое существо или объект под открытым небом становится мокрым до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.angulotl-malice",
+        "path": "Monsters/monster/angulotl/angulotl-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl/angulotl-malice",
+      "originalName": "Angulotl Malice",
+      "originalDescription": "At the start of any angulotl's turn, you can spend Malice to activate one of the following features.\n\n> ⭐️ **Leapfrog (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, when an angulotl moves through an inactive angulotl's space, the inactive angulotl can use a free triggered action to jump 3 squares.\n\n> ❇️ **Resonating Croak (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each angulotl in the encounter puffs out their throat and starts loudly droning. Any non-angulotl adjacent to an angulotl makes an **[Intuition](scc.v1:mcdm.heroes.v1/rule.character/intuition) test.**\n>\n> - **≤11:** 5 sonic damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n> - **12-16:** 4 sonic damage\n> - **17+:** No effect.\n\n> 🌀 **Rainfall (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An angulotl calls clouds to cover the encounter map and unleash rain until the end of the round. Any creature or object that is exposed to the sky is wet until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/angulotl-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-cleaver",
+      "kind": "monster",
+      "name": "Ангулотл-рубила",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Миньон-засадник | Боевая ценность 3 за отряд из 4 миньонов |\n|:------------------:|:-:|:---------:|:---------------:|:-----------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **+1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Прыжок и рубящий удар (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 1**              | **Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** До или после этого [удара](#/catalog/glossary#term-glossary.strike) рубила прыгает на расстояние до 4 клеток.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) рубилу или использует против неё способность ближнего боя, этот враг получает 1 урон ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-cleaver",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-cleaver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-cleaver",
+      "originalName": "Angulotl Cleaver",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |                     Level 1                      |                Minion Ambusher                 |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:------------------------------------------------:|:----------------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **6**<br>Speed        |                 **4**<br>Stamina                 |               **0**<br>Stability               | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |                        -                         | **+1 damage bonus to strikes**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might      |      **+2**<br>Agility      |                 **+0**<br>Reason                 |              **+1**<br>Intuition               |  **+0**<br>Presence  |\n\n> 🗡 **Hop and Chop (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The cleaver jumps up to 4 squares before or after making this [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the cleaver or uses a melee ability against them, that enemy takes 1 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-cleaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-dart",
+      "kind": "monster",
+      "name": "Ангулотл-дроточник",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Миньон-артиллерист | Боевая ценность 3 за отряд из 4 миньонов |\n|:------------------:|:-:|:---------:|:------------------:|:-----------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **Бонус к дистанции дальних атак +4**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🏹 **Ядовитый дротик (знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-----------------------------------------:|\n> | **Дальний бой 8**             | **Одно существо на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона ядом\n> - **12-16:** 4 урона ядом\n> - **17+:** 5 урона ядом\n>\n> **Эффект:** Дроточник получает [преимущество](#/catalog/glossary#term-glossary.edge) к этой способности против любой цели, чья [Выносливость](#/catalog/glossary#term-glossary.stamina) не полная.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) дроточника или использует против него способность ближнего боя, этот враг получает 1 урон ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-dart",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-dart.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-dart",
+      "originalName": "Angulotl Dart",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |     Level 1      |                Minion Artillery                 |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:----------------:|:-----------------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **+4 bonus to ranged distance**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might      |      **+2**<br>Agility      | **+1**<br>Reason |               **+0**<br>Intuition               |  **+0**<br>Presence  |\n\n> 🏹 **Poison Dart (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 poison damage\n> - **12-16:** 4 poison damage\n> - **17+:** 5 poison damage\n>\n> **Effect:** The dart gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on this ability against any target who has less than full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the dart or uses a melee ability against them, that enemy takes 1 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-dart.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-daybringer",
+      "kind": "monster",
+      "name": "Ангулотл-светоносец",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:------------------:|:-:|:---------:|:-----:|:-----:|\n| **1M**<br>Размер | **5**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **Яд 3**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Кислотный захват (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 1**              | **Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона кислотой; при **Л < 1** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона кислотой; при **Л < 2** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 13 урона кислотой; при **Л < 3** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** В следующий раз, когда цель совершит удар по светоносцу, после его разрешения она получит 4 урона кислотой.\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** До или после использования этой способности светоносец прыгает на расстояние до 3 клеток.\n\n> 👤 **Солнечная лампа**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------|--------------------------------:|\n> | **На себя** | **На себя** |\n>\n> **Эффект:** Светоносец раздувает горло, придавая ему вид солнца, до начала своего следующего хода. Пока действует эффект, каждый ангулотл, начинающий ход в пределах 10 клеток от светоносца, восстанавливает 5 [Выносливости](#/catalog/glossary#term-glossary.stamina) и получает +3 к Скорости до конца своего хода.\n\n> ❗️ **Шлепок языком**\n>\n> | **Ближний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|--------------------------------:|\n> | **Ближний бой 5** | **Одно существо** |\n>\n> **Условие:** Цель совершает удар по светоносцу или его союзнику, и этот удар не является критическим попаданием.\n>\n> **Эффект:** Результат броска силы для этого удара понижается на один тир.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** После разрешения удара цель [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 4 клеток.\n\n> ⭐️ **Увлажняющее прекращение эффекта**\n>\n> В конце каждого своего хода светоносец может либо получить 5 урона, либо прекратить эффект «мокрый» у смежного существа, чтобы снять с себя один эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Новый рассвет (действие злодея 1)**\n>\n> | **Дальний бой** | **-** |\n> |-----------------|--------------------------------:|\n> | **Дальний бой 10** | **Особое** |\n>\n> **Эффект:** Из спины светоносца вырываются четыре ангулотла-головастика и ковыляют в свободные пространства в пределах дистанции.\n\n> ☠️ **Нашествие лягушек (действие злодея 2)**\n>\n> | **Область** | **-** |\n> |-------------|--------------------------------------:|\n> | **Взрыв 8** | **Сам светоносец и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может прыгнуть на расстояние до 4 клеток. Каждая цель, не являющаяся [миньоном](#/codex/monsters.rule.organization.minion), может в конце прыжка совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **День наступил (действие злодея 3)**\n>\n> | **-** | **-** |\n> |-------|--------------------------------:|\n> | **Особое** | **Особое** |\n>\n> **Эффект:** Карта столкновения высыхает, а каждый враг и объект на ней освещается до конца столкновения. Освещённое существо или объект не может скрываться или становиться невидимым, а каждый удар по освещённой цели совершается с [преимуществом](#/catalog/glossary#term-glossary.edge). Кроме того, с каждого мокрого врага в столкновении снимается этот эффект, и он получает 6 урона кислотой. При следующем ударе каждого ангулотла действует двойное преимущество.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) светоносца или использует против него способность ближнего боя, этот враг получает 3 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-daybringer",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-daybringer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-daybringer",
+      "originalName": "Angulotl Daybringer",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |        Leader         |        EV 12         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size      |       **5**<br>Speed        | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **Poison 3**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Acid Grasp (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 acid damage; A < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 acid damage; A < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The next time the target makes a strike against the daybringer, the target takes 4 acid damage after the strike is resolved.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The daybringer jumps up to 3 squares before or after using this ability.\n\n> 👤 **Sun Lamp**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The daybringer expands their throat to make it resemble the sun until the start of their next turn. During that time, each angulotl who starts their turn within 10 squares of the daybringer regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and gains a +3 bonus to speed until the end of their turn.\n\n> ❗️ **Tongue Slap**\n>\n> | **Melee**      |             **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------------------:|\n> | **📏 Melee 5** |              **🎯 One creature** |\n>\n> **Trigger:** The target makes a strike against the daybringer or an ally that isn't a critical hit.\n>\n> **Effect:** The outcome of the strike's power roll is reduced by one tier.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares after the strike resolves.\n\n> ⭐️ **Moisturizing End Effect**\n>\n> At the end of each of the daybringer's turns, they can either take 5 damage or end the wet effect on an adjacent creature in order to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **New Dawn (Villain Action 1)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Four **angulotl pollywogs** erupt from the daybringer's back and waddle into unoccupied spaces within distance.\n\n> ☠️ **Plague of Frogs (Villain Action 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 8 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target can jump up to 4 squares. Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at the end of the jump.\n\n> ☠️ **It Is Day (Villain Action 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** The encounter map dries up and each enemy and object on it is illuminated until the end of the encounter. An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge). Additionally, each enemy in the encounter who is wet has that effect end and takes 6 acid damage. Each angulotl in the encounter has a double edge on their next strike.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the daybringer or uses a melee ability against them, that enemy takes 3 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-daybringer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-needler",
+      "kind": "monster",
+      "name": "Ангулотл-иглоносец",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Орда-артиллерист | Боевая ценность 3 |\n|:------------------:|:-:|:---------:|:---------------:|:-----:|\n| **1S**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🏹 **Духовая трубка (знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **Дальний бой 15**            | **Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона ядом\n> - **12-16:** 6 урона ядом\n> - **17+:** 7 урона ядом\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Цель с **М < 2** [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.). Цель, [ослабленная](#/catalog/glossary#term-glossary.weakened) таким образом, получает 2 урона ядом в начале каждого своего хода.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) иглоносца или использует против него способность ближнего боя, этот враг получает 2 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-needler",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-needler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-needler",
+      "originalName": "Angulotl Needler",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |    Horde Artillery    |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **10**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+2**<br>Agility      | **+1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🏹 **Blowgun (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------------:|\n> | **📏 Ranged 15**           |  **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 poison damage\n> - **12-16:** 6 poison damage\n> - **17+:** 7 poison damage\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target who has M < 2 is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends). A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way takes 2 poison damage at the start of each of their turns.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the needler or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-needler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-pollywog",
+      "kind": "monster",
+      "name": "Ангулотл-головастик",
+      "markdown": "| Ангулотл | - | Уровень 1 | Миньон-налётчик | Боевая ценность 3 за отряд из 4 миньонов |\n|:--------:|:-:|:---------:|:--------------:|:-----------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **+2 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **-2**<br>Разум | **-2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Укус (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 1**              | **Одно существо на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон ядом\n> - **12-16:** 2 урона ядом; головастик может [смещаться](#/catalog/glossary#term-glossary.shift) на 1 клетку\n> - **17+:** 3 урона ядом; головастик [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток\n\n> ⭐️ **Быстрый перекус**\n>\n> Любой ангулотл, который может выбрать головастика целью [свободного удара ближнего боя](#/catalog/glossary#term-glossary.free-strike), может съесть его, совершив маневр. Ангулотл восстанавливает 4 [Выносливости](#/catalog/glossary#term-glossary.stamina) и становится мокрым до конца своего следующего хода.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-pollywog",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-pollywog.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-pollywog",
+      "originalName": "Angulotl Pollywog",
+      "originalDescription": "|         Angulotl         |              -              |     Level 1      |            Minion Harrier             |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:----------------:|:-------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **6**<br>Speed        | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+2**<br>Agility      | **-2**<br>Reason |          **-2**<br>Intuition          |  **+0**<br>Presence  |\n\n> 🗡 **Nip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon**  |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|----------------------------------------:|\n> | **📏 Melee 1**             |          **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage\n> - **12-16:** 2 poison damage; the pollywog can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **17+:** 3 poison damage; the pollywog [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n\n> ⭐️ **Quick Snack**\n>\n> Any angulotl who can target the pollywog with a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) can eat them as a maneuver. The angulotl regains 4 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and is wet until the end of their next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-pollywog.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-slink",
+      "kind": "monster",
+      "name": "Ангулотл-скользун",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Орда-засадник | Боевая ценность 3 |\n|:------------------:|:-:|:---------:|:-------------:|:-----:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Удар языком (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 6**              | **Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **12-16:** 6 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n> - **17+:** 7 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 6\n>\n> **Эффект:** Цель становится мокрой (до прох.). Если целью этой способности стал союзник, он не получает урон, остаётся мокрым до конца столкновения и [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 6 клеток, игнорируя устойчивость.\n\n> 👤 **Живо! (2 Раздора)**\n>\n> | **-** | **[Свободный маневр](#/catalog/glossary#term-glossary.free-maneuver)** |\n> |-------|------------------:|\n> | **На себя** | **На себя** |\n>\n> **Эффект:** Скользун прыгает на расстояние до 3 клеток. Если после приземления он находится под [укрытием](#/catalog/glossary#term-glossary.cover) или в [покрове](#/catalog/glossary#term-glossary.concealment), он может попытаться спрятаться.\n\n> ⭐️ **Липкий след**\n>\n> В конце каждого своего хода скользун оставляет в своей клетке липкий секрет. Любой не-ангулотл, входящий в эту клетку или покидающий её, прилипает и должен совершить маневр, чтобы освободиться, иначе он будет [опутан](#/catalog/glossary#term-glossary.restrained) до конца своего хода. Предметы тоже прилипают; чтобы забрать предмет из клетки, существо должно совершить маневр.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) скользуна или использует против него способность ближнего боя, этот враг получает 2 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-slink",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-slink.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-slink",
+      "originalName": "Angulotl Slink",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Tonguelash (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 6**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 7 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The target is wet (save ends). Any ally targeted by this ability ignores the damage, is wet until the end of the encounter, and is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares, ignoring stability.\n\n> 👤 **Hop To It (2 Malice)**\n>\n> | **-**       | **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-------------|------------------:|\n> | **📏 Self** |       **🎯 Self** |\n>\n> **Effect:** The slink jumps up to 3 squares. If they have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) or [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) when they land, they can attempt to hide.\n\n> ⭐️ **Adhesive**\n>\n> The slink excretes a sticky residue into their square at the end of each of their turns. Any non-angulotl who enters or leaves the square is stuck, and must use a maneuver to break free or be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their turn. Objects are likewise affected, and a creature must use a maneuver to remove an object from the square.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the slink or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-slink.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.angulotl-wave",
+      "kind": "monster",
+      "name": "Ангулотл-волна",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Орда-контроллер | Боевая ценность 3 |\n|:------------------:|:-:|:---------:|:--------------:|:-----:|\n| **1S**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Сияющие лучи (знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Дальний бой 8**              | **Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона святым\n> - **12-16:** 4 урона святым; при **Р < 1** цель освещена (до прох.)\n> - **17+:** 5 урона святым; при **Р < 2** цель освещена (до прох.)\n>\n> **Эффект:** Освещённое существо или объект не может скрываться или становиться невидимым, а каждый удар по освещённой цели совершается с [преимуществом](#/catalog/glossary#term-glossary.edge).\n\n> 🔳 **Ядовитый пузырь (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|--------------------------------:|\n> | **Куб 2 свободного пространства в пределах 10** | **Особое** |\n>\n> **Эффект:** Область заполняется пузырём ядовитого газа, готовым лопнуть. Он лопается, если его коснётся существо или объект либо если пузырь получит урон. Каждый ангулотл рядом с пузырём остаётся мокрым до конца столкновения, а каждый враг рядом с пузырём совершает проверку [Мощи](#/catalog/glossary#term-glossary.might).\n>\n> - **≤11:** 3 урона ядом; цель становится мокрой и [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 2 урона ядом; цель становится мокрой (до прох.)\n> - **17+:** 1 урон ядом; цель становится мокрой ([КсХ](#/catalog/glossary#term-glossary.eot))\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) волну или использует против неё способность ближнего боя, этот враг получает 2 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-wave",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-wave.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-wave",
+      "originalName": "Angulotl Wave",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |   Horde Controller    |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+0**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Refulgent Beams (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 holy damage\n> - **12-16:** 4 holy damage; R < 1 the target is illuminated (save ends)\n> - **17+:** 5 holy damage; R < 2 the target is illuminated (save ends)\n>\n> **Effect:** An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> 🔳 **Noxious Bubble (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**                     | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------------------------|----------------:|\n> | **📏 2 cube of unoccupied space within 10** |  **🎯 Special** |\n>\n> **Effect:** A bubble of toxic gas fills the area, ready to pop. If any creature or object touches the bubble or if the bubble takes damage, it bursts. Each angulotl adjacent to the bubble is wet until the end of the encounter, and each enemy adjacent to the bubble makes a **[Might](scc.v1:mcdm.heroes.v1/rule.character/might) test**.\n>\n> - **≤11:** 3 poison damage; the target is wet and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 2 poison damage; the target is wet (save ends)\n> - **17+:** 1 poison damage; the target is wet ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the wave or uses a melee ability against them, that enemy takes 2 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-wave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.angulotl.statblock.clawfish",
+      "kind": "monster",
+      "name": "Когтистая рыба",
+      "markdown": "| Ангулотл, Животное | - | Уровень 1 | Миньон-громила | Боевая ценность 3 за отряд из 4 миньонов |\n|:-------------------:|:-:|:---------:|:-------------:|:-----------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Молния 3, Яд 2**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **Преимущество к ударам**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **-3**<br>Разум | **-2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Когтекрюк (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 1**              | **Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона; цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Каждая [схваченная](#/catalog/glossary#term-glossary.grabbed) таким образом цель, получает 2 урона молнией в начале каждого своего хода.\n\n> ⭐️ **Электрический разряд**\n>\n> В начале каждого своего хода когтистая рыба наносит 2 урона молнией каждому мокрому врагу в пределах 2 клеток.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.clawfish",
+        "path": "Monsters/monster/angulotl/statblock/clawfish.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/clawfish",
+      "originalName": "Clawfish",
+      "originalDescription": "|           Angulotl, Animal            |              -              |     Level 1      |                Minion Brute                 |  EV 3 for 4 minions  |\n|:-------------------------------------:|:---------------------------:|:----------------:|:-------------------------------------------:|:--------------------:|\n|            **1S**<br>Size             |       **5**<br>Speed        | **5**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike |\n| **Lightning 3, Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |  **-**<br>Weakness   |\n|            **+0**<br>Might            |      **+2**<br>Agility      | **-3**<br>Reason |             **-2**<br>Intuition             |  **+1**<br>Presence  |\n\n> 🗡 **Hookclaw (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** Any target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes 2 lightning damage at the start of each of their turns.\n\n> ⭐️ **Shocking**\n>\n> At the start of each of their turns, the clawfish deals 2 lightning damage to each wet enemy within 2 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/clawfish.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Ангулотл",
+          "Животное"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.group.angulotl",
+      "kind": "monster-lore",
+      "name": "Ангулотлы",
+      "markdown": "Ангулотлы (произносится: ангва-ЛАХ-тулз) — маленькие, ярко окрашенные земноводные гуманоиды, обитающие в пресноводных болотах, реках и дождевых лесах. Вместо того чтобы защищать поселения и места размножения от враждебных существ, эти ядовитые лягушколюды предпочитают селиться там, где их почти невозможно найти другим гуманоидам: например, в подводных пещерах и других замкнутых пространствах, куда можно попасть только по воде. Ангулотлы с удовольствием прячутся и наблюдают, как шумная кучка искателей приключений проходит мимо входа в их поселение и даже не замечает его. Они предпочитают избегать битвы, но, если им угрожают или загоняют в угол, ангулотлы становятся смертельно опасны.\n\n#### Смертельные токсины\n\nАнгулотлы ядовиты, и это как раз подходит их стремлению избегать агрессии: она им не нужна! Контактный токсин, выделяемый кожей, даёт им преимущество в ближнем бою. Кроме того, они перегоняют его в более сильный яд, которым смазывают клинки и наконечники дротиков.\n\n#### Индикаторные виды\n\nФизиологическое равновесие ангулотлов очень хрупко, и нарушить его нетрудно. Токсины их не убивают, однако загрязнители в воде всё равно на них действуют. Постоянное загрязнение среды обитания может исказить ангулотлов: они становятся агрессивными, растерянными и злыми. Большинство испорченных загрязнением ангулотлов рано или поздно нападает на любое встреченное существо — даже на других ангулотлов! Сильнее всего на них, похоже, влияют стоки магических экспериментов, которые иногда наделяют их необычными способностями.\n\n#### Зависимость от влаги\n\nАнгулотлы дышат кожей, поэтому должны оставаться влажными, иначе задохнутся ([удушье](#/catalog/glossary#term-glossary.suffocating)). Они стараются не путешествовать по сухим местам и предпочитают не удаляться далеко от источников пресной воды, если только не идёт дождь.\n\n#### Когтистая рыба\n\nАнгулотлы называют её к'укутхал (произносится: ку-УК-ут-шаал). Когтистая рыба похожа на мурену с восемью рептильными лапами. Эти небольшие животные скользят по траве и карабкаются по деревьям почти так же ловко, как плывут по речному течению. Ангулотлы обучают их не только тянуть плоты, но и хитро сражаться: хватать врагов и бить их током.\n\n#### Языки ангулотлов\n\nБольшинство ангулотлов говорит на филлиарике.\n\n#### Мокрый\n\nАнгулотлы используют особый эффект «мокрый». Пока ангулотл мокрый, его перемещение не провоцирует [атак по возможности](#/catalog/glossary#term-glossary.opportunity-attack). При этом любой не-ангулотл, который мокрым заканчивает ход без оставшегося перемещения, поскальзывается и падает [сбитым с ног](#/catalog/glossary#term-glossary.prone). Некоторые способности ангулотлов накладывают этот эффект, но существо в столкновении с ангулотлами также может намокнуть, войдя в воду, — на усмотрение Ведущего.\n\n###### Об ангулотлах\n\n> Они любят людей! Взрослые их немного пугают. Думаю, они не понимают, что высокие люди — того же вида, что и маленькие люди!\n>\n> **Пинна, ведьма из живой изгороди, Грейвсфорд**\n\n###### Тактика ангулотлов\n\n> **Тактика ангулотлов**\n>\n> Обычно ангулотлы не агрессивны и, если их потревожить, патруль лягушколюдов обменяется с противником несколькими ударами, а затем отступит, изматывая преследователей, к своим скрытым деревням. Но, защищая дома, они становятся куда свирепее и решительнее. В таких битвах ангулотлы стараются навязать бой в воде или рядом с ней, чтобы воспользоваться своей земноводной природой и эффектом «мокрый».\n>\n> Простые патрули обычно состоят из проворных капитанов, которые прыгают в тыл и досаждают героям с низкой Выносливостью, пока орды миньонов удерживают героев с высокой Выносливостью. В крупных столкновениях их тактика становится оборонительной: они защищают наиболее ценные подразделения. Ангулотлы стараются держаться близко друг к другу и не терять строй, чтобы использовать способности поддержки.\n>\n> **Примеры столкновений с ангулотлами**\n>\n> - **Смотрители когтистых рыб, 18 БЦ:** двенадцать когтистых рыб, четыре головастика, два иглоносца\n> - **Разведчики домашней стражи, 27 БЦ:** шестнадцать рубил, восемь дроточников, один иглоносец, два скользуна\n> - **Заражённая кладка, 34 БЦ:** восемь когтистых рыб, двенадцать рубил, восемь головастиков, один иглоносец, два скользуна, одна волна\n> - **Штурмовой отряд ангулотлов, 48 БЦ:** восемь когтистых рыб, двенадцать рубил, двенадцать дроточников, два иглоносца, два скользуна, один светоносец\n",
+      "source": {
+        "articleId": "monsters.monster.group.angulotl",
+        "path": "Monsters/monster/group/angulotl.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/angulotl",
+      "originalName": "Angulotls",
+      "originalDescription": "Found in freshwater swamps, rivers, and rainforests, angulotls (angwa-LAH-tuls) are diminutive, brightly colored amphibious humanoids. Rather than defending their settlements and breeding grounds against hostile creatures, these poisonous frog folk prefer to establish their homes in places that are nigh-impossible for other humanoids to find, such as underwater caves and other enclosed spaces accessible only by water. Angulotls are happy to hide and watch a gaggle of noisy adventurers stumble past the entrance to their clutch without realizing it. But though they prefer to avoid combat, whenever they're threatened or pressed, angulotls can turn deadly.\n\n#### Deadly Toxins\n\nAngulotls are poisonous creatures, which suits their preference to avoid aggression—because they don't need it! The contact toxin secreted by their skin gives them an edge in close combat, and they also distill this toxin into more potent forms for coating blades and tipping darts.\n\n#### Indicator Species\n\nAngulotl physiology is delicately balanced, and it doesn't take much to upset that balance. While toxins don't kill them, they are still affected by pollutants in their waters. Ongoing contamination of their environment can corrupt angulotls, making them aggressive, confused, and angry. Most pollution-corrupted angulotls eventually attack any creature who crosses their path—even other angulotls! Runoff from magical experimentation seems to affect them the most—and sometimes grants them strange abilities.\n\n#### Moisture Dependent\n\nAngulotls breathe through their skin, so they need to stay damp or they [suffocate](scc.v1:mcdm.heroes.v1/rule.health/suffocating). They often avoid travel in dry areas, and they prefer not to stray far from sources of freshwater unless it's raining.\n\n#### Clawfish\n\nKnown as q'ukutxal (koo-OOK-oot-shaal) to angulotls, the clawfish resembles a moray eel with eight reptilian legs. These small animals can slither through grass and clamber up trees nearly as well as they glide through river currents. Angulotls train them not only to pull rafts, but to cleverly fight by grabbing and electrocuting foes.\n\n#### Angulotl Languages\n\nMost angulotls speak Filliaric.\n\n#### Wet\n\nAngulotls make use of a unique effect called \"wet.\" While wet, an angulotl doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving. At the same time, any non-angulotl who is wet and ends their turn with none of their movement remaining slips and falls [prone](scc.v1:mcdm.heroes.v1/condition/prone). Several angulotl abilities can impose this effect, but a creature in an encounter featuring angulotls can also become wet by entering water, as the Director determines.\n\n###### On Angulotls\n\n> They like humans! Adults tend to freak them out a little. I don't think they realize tall humans are the same species as tiny humans!\n>\n> **Pinna, Hedge Witch, Gravesford**\n\n###### Angulotl Tactics\n\n> **Angulotl Tactics**\n>\n> Angulotls are not generally aggressive, and if confronted, a patrol of frog folk will usually exchange a few blows before performing a harrying retreat to their hidden villages. In defense of their homes, however, they become much fiercer and more determined. In these battles, angulotls try to force fights in or near water to take advantage of their amphibious nature and the wet effect.\n>\n> Simple patrols are usually made up of slippery captains leaping into the backline and harassing low-Stamina heroes while their minion hordes keep higher-Stamina heroes engaged. In larger engagements their tactics become more defensive to protect their high-value units. They tend to stay in close and coherent groups to take advantage of support abilities.\n>\n> **Angulotl Sample Encounters**\n>\n> - **Clawfish Ranchers, 18 EV:** Twelve clawfish, four pollywogs, two needlers\n> - **Homeguard Scouts, 27 EV:** Sixteen cleavers, eight darts, one needler, two slinks\n> - **Corrupted Clutch, 34 EV:** Eight clawfish, twelve cleavers, eight pollywogs, one needler, two slinks, one wave\n> - **Angulotl Assault Squad, 48 EV:** Eight clawfish, twelve cleavers, twelve darts, two needlers, two slinks, one daybringer",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/angulotl.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

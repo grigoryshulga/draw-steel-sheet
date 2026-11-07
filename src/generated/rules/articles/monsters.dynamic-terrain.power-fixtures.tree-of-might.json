@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.power-fixtures.tree-of-might",
+      "title": "Древо мощи",
+      "chapter": "25. Динамическая местность",
+      "group": "Источники силы",
+      "path": "Monsters/dynamic-terrain/power-fixtures/tree-of-might.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/tree-of-might",
+      "originalName": "Tree of Might",
+      "originalDescription": "A gnarled tree has unearthed roots that writhe and curl.\n\n- **EV:** 14\n- **Stamina:** 60\n- **Size:** 3\n- **Immunity:** 5 to all damage except corruption or fire damage\n\n> 🌀 **Deactivate**\n>\n> The tree of might must be completely destroyed.\n\n> ⭐️ **Tree's Nourishment**\n>\n> At the start of each round while the tree of might is intact, each enemy touching the ground in the encounter area who has M < 0 takes 10 corruption damage, and the tree of might grows a fruit. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1 each subsequent round.\n\n> ⭐️ **Mighty Fruit**\n>\n> Once per round, any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tree of might can take a fruit from the tree and eat it (no action required). The creature gains 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) and has their Might score increased by 1 (to a maximum of 6) until the end of the encounter.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/tree-of-might.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "14",
+        "size": "3",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.power-fixtures.tree-of-might"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.power-fixtures.tree-of-might",
+      "kind": "terrain",
+      "name": "Древо мощи",
+      "markdown": "Оголённые корни этого узловатого дерева извиваются и скручиваются.\n\n- **БЦ:** 14\n- **Выносливость:** 60\n- **Размер:** 3\n- **Иммунитет:** 5 ко всему урону, кроме урона порчей или огнём\n\n> 🌀 **Отключение**\n>\n> Древо мощи необходимо полностью уничтожить.\n\n> ⭐️ **Питание древа**\n>\n> В начале каждого раунда, пока древо мощи цело, каждый враг в области столкновения, касающийся земли и имеющий М < 0, получает 10 урона порчей, а на древе вырастает плод. [Потенциал](#/catalog/glossary#term-glossary.potency) увеличивается на 1 в каждом последующем раунде.\n\n> ⭐️ **Могучий плод**\n>\n> Один раз за раунд любое существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с древом мощи клетке может взять с него плод и съесть его (действие не требуется). Существо получает 10 [временной Выносливости](#/catalog/glossary#term-glossary.temporary-stamina), а его значение Мощи увеличивается на 1 (максимум до 6) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.power-fixtures.tree-of-might",
+        "path": "Monsters/dynamic-terrain/power-fixtures/tree-of-might.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/tree-of-might",
+      "originalName": "Tree of Might",
+      "originalDescription": "A gnarled tree has unearthed roots that writhe and curl.\n\n- **EV:** 14\n- **Stamina:** 60\n- **Size:** 3\n- **Immunity:** 5 to all damage except corruption or fire damage\n\n> 🌀 **Deactivate**\n>\n> The tree of might must be completely destroyed.\n\n> ⭐️ **Tree's Nourishment**\n>\n> At the start of each round while the tree of might is intact, each enemy touching the ground in the encounter area who has M < 0 takes 10 corruption damage, and the tree of might grows a fruit. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1 each subsequent round.\n\n> ⭐️ **Mighty Fruit**\n>\n> Once per round, any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tree of might can take a fruit from the tree and eat it (no action required). The creature gains 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) and has their Might score increased by 1 (to a maximum of 6) until the end of the encounter.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/tree-of-might.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "14",
+        "size": "3",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      }
+    }
+  ]
+}

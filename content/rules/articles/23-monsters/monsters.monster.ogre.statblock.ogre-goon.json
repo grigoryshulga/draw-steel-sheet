@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.ogre.statblock.ogre-goon",
+  "title": "Огр-задира",
+  "chapter": "23. Бестиарий",
+  "group": "Огры",
+  "path": "Monsters/monster/ogre/statblock/ogre-goon.md",
+  "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-goon",
+  "originalName": "Ogre Goon",
+  "originalDescription": "|    Giant, Ogre    |         -         |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **100**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Club Swing ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** Any target who takes damage from this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) takes an extra 4 damage.\n\n> 🗡 **Grabby Hand (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 14 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes a bane on the Escape Grab maneuver.\n\n> 🔳 **People Bowling (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon**           |                                **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 6 x 1 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Effect:** The goon must have a size 1 creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), which they hurl across the area, ending the grab. The hurled creature or object is targeted by the ability, and lands in the last square of the line or the nearest unoccupied square of the goon's choice.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Swat the Fly**\n>\n> | **Melee**      |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the goon.\n>\n> **Effect:** The goon [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 5 squares.\n\n> ⭐️ **Defiant Anger**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), the goon has damage immunity 2.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/ogre/statblock/ogre-goon.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "ogre",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "16",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Огр"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.ogre.statblock.ogre-goon"
+    }
+  ]
+}

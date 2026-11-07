@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.kobold.statblock.kobold-veles",
+  "title": "Кобольд-велес",
+  "chapter": "23. Бестиарий",
+  "group": "Кобольды",
+  "path": "Monsters/monster/kobold/statblock/kobold-veles.md",
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-veles",
+  "originalName": "Kobold Veles",
+  "originalDescription": "| Humanoid, Kobold  |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |  **6**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> ⚔️ **Pilium (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** Until the start of the veles's next turn, the target can't make opportunity attacks against any kobold.\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the veles has stability 1, has cover, and grants cover to allies.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-veles.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.kobold.statblock.kobold-veles"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "monster.undead.1st-echelon.statblock.rotting-zombie",
+  "kind": "monster",
+  "name": "Разлагающийся зомби",
+  "markdown": "| Нежить, Бездушный | - | Уровень 1 | Миньон Громила | Боевая ценность 3 за четырех миньонов |\n|:--:|:--:|:--:|:--:|:--:|\n| **1M**<br>Размер | **4**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, яд 1**<br>Иммунитет | **-**<br>Движение | - | **+1 к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **-2**<br>Ловкость | **-5**<br>Разум | **-2**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Гниющий кулак ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона; при М < 2 цель [сбита с ног](scc.v1:mcdm.heroes.v1/condition/prone), если ее размер равен 1, иначе [замедлена](scc.v1:mcdm.heroes.v1/condition/slowed) (до прох.)\n\n> ⭐️ **Мертвая хватка**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) разлагающегося зомби снижается до 0, его пространство становится [труднопроходимой местностью](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Первое вхождение любого врага с М < 2 в это пространство [замедляет](scc.v1:mcdm.heroes.v1/condition/slowed) его (до прох.), после чего эффект заканчивается.\n",
+  "source": {
+    "articleId": "monsters.monster.undead.1st-echelon.statblock.rotting-zombie",
+    "path": "Monsters/monster/undead/1st-echelon/statblock/rotting-zombie.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon.statblock/rotting-zombie",
+  "originalName": "Rotting Zombie",
+  "originalDescription": "|            Undead, Soulless            |         -         |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:--------------------------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |  **4**<br>Speed   | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **Corruption 1, poison 1**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **+2**<br>Might             | **-2**<br>Agility | **-5**<br>Reason |              **-2**<br>Intuition               |  **-3**<br>Presence   |\n\n> 🗡 **Rotting Fist ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) if size 1, or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends) otherwise\n\n> ⭐️ **Death Grasp**\n>\n> When the rotting zombie is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their space is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). The first time any enemy who has M < 2 enters this space, they are [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends) and the effect ends.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/1st-echelon/statblock/rotting-zombie.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  }
+}

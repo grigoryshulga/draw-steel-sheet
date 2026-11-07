@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.3rd-echelon.statblock.dirt-mournling",
+      "title": "Земляной плакальщик",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/3rd-echelon/statblock/dirt-mournling.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/dirt-mournling",
+      "originalName": "Dirt Mournling",
+      "originalDescription": "|                 Undead                 |               -               |      Level 7      |   Horde Controller    |         EV 9         |\n|:--------------------------------------:|:-----------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **3**<br>Size              |        **6**<br>Speed         | **64**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **Burrow, climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+4**<br>Might             |       **+1**<br>Agility       | **-2**<br>Reason  |  **+1**<br>Intuition  |  **-3**<br>Presence  |\n\n> 🗡 **Mudslide ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; M < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 10 damage; M < 4 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A 3-[cube](scc.v1:mcdm.heroes.v1/rule.combat/cube) area of ground centered on the target is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❇️ **Mourning Cry (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 corruption damage; I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 6 corruption damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 7 corruption damage; I < 4 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** A target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) this way is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all [undead](scc.v1:mcdm.monsters.v1/rule.keyword/undead). This effect ends early if the mournling is destroyed.\n\n> ⭐️ **Arise**\n>\n> The first time the mournling is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Immutable Form**\n>\n> The mournling's shape can't be changed by any external effect.\n\n> ⭐️ **Rupture**\n>\n> Whenever the mournling uses the Dig maneuver to breach the surface, they make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/3rd-echelon/statblock/dirt-mournling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9",
+        "size": "3",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.3rd-echelon.statblock.dirt-mournling"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.3rd-echelon.statblock.dirt-mournling",
+      "kind": "monster",
+      "name": "Земляной плакальщик",
+      "markdown": "| Нежить | - | Уровень 7 | Орда, Контроллер | Боевая ценность 9 |\n|:--------------------------------------:|:-----------------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **3**<br>Размер | **6**<br>Скорость | **64**<br>Выносливость | **3**<br>Устойчивость | **3**<br>Свободный удар |\n| **Порча 7, яд 7**<br>Иммунитет | **Закапывание, лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+4**<br>Мощь | **+1**<br>Ловкость | **-2**<br>Разум | **+1**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Сель ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона; при М < 3 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 10 урона; при М < 4 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 11 урона; цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Область земли размером 3-[куба](#/catalog/glossary#term-glossary.cube) с центром на цели становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) для врагов.\n\n> ❇️ **Погребальный вопль (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона Порчей; при И < 2 цель [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12-16:** 6 урона Порчей; при И < 3 цель [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **17+:** 7 урона Порчей; при И < 4 цель [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** Цель, [испуганная](#/catalog/glossary#term-glossary.frightened) таким образом, [боится](#/catalog/glossary#term-glossary.frightened) всей [нежити](#/codex/monsters.rule.keyword.undead). Этот эффект досрочно заканчивается, если плакальщик уничтожен.\n\n> ⭐️ **Восстань**\n>\n> В первый раз, когда [Выносливость](#/catalog/glossary#term-glossary.stamina) плакальщика снижается до 0 уроном, который не является уроном огнём или святым уроном, и его тело не уничтожено, вместо этого у него остаётся 15 [Выносливости](#/catalog/glossary#term-glossary.stamina), и он падает [Лежащим](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Неизменная форма**\n>\n> Внешний эффект не может изменить форму плакальщика.\n\n> ⭐️ **Разлом**\n>\n> Каждый раз, когда плакальщик использует манёвр копания, чтобы пробиться на поверхность, он совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.3rd-echelon.statblock.dirt-mournling",
+        "path": "Monsters/monster/undead/3rd-echelon/statblock/dirt-mournling.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/dirt-mournling",
+      "originalName": "Dirt Mournling",
+      "originalDescription": "|                 Undead                 |               -               |      Level 7      |   Horde Controller    |         EV 9         |\n|:--------------------------------------:|:-----------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **3**<br>Size              |        **6**<br>Speed         | **64**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **Burrow, climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+4**<br>Might             |       **+1**<br>Agility       | **-2**<br>Reason  |  **+1**<br>Intuition  |  **-3**<br>Presence  |\n\n> 🗡 **Mudslide ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; M < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 10 damage; M < 4 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A 3-[cube](scc.v1:mcdm.heroes.v1/rule.combat/cube) area of ground centered on the target is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❇️ **Mourning Cry (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 corruption damage; I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 6 corruption damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 7 corruption damage; I < 4 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** A target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) this way is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all [undead](scc.v1:mcdm.monsters.v1/rule.keyword/undead). This effect ends early if the mournling is destroyed.\n\n> ⭐️ **Arise**\n>\n> The first time the mournling is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Immutable Form**\n>\n> The mournling's shape can't be changed by any external effect.\n\n> ⭐️ **Rupture**\n>\n> Whenever the mournling uses the Dig maneuver to breach the surface, they make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/3rd-echelon/statblock/dirt-mournling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9",
+        "size": "3",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

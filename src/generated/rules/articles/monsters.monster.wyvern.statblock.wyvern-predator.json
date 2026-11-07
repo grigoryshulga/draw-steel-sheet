@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.wyvern.statblock.wyvern-predator",
+      "title": "Виверна-хищник",
+      "chapter": "23. Бестиарий",
+      "group": "Виверны",
+      "path": "Monsters/monster/wyvern/statblock/wyvern-predator.md",
+      "originalId": "mcdm.monsters.v1/monster.wyvern.statblock/wyvern-predator",
+      "originalName": "Wyvern Predator",
+      "originalDescription": "|     Beast, Wyvern      |          -          |      Level 4       |      Elite Brute      |        EV 24         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size      |   **7**<br>Speed    | **140**<br>Stamina |  **3**<br>Stability   | **6**<br>Free Strike |\n| **Acid 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Sedating Stinger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🔳 **Tail Sweep**\n>\n> | **Area, Weapon**           |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 6 x 3 line within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; A < 1 3 acid damage\n> - **12-16:** 11 damage; A < 2 3 acid damage\n> - **17+:** 14 damage; A < 3 3 acid damage\n>\n> **5 Malice:** The predator uses this ability a second time, either recreating the same line or creating a new line.\n\n> 🗡 **Grasping Jaws (2 Malice)**\n>\n> | **Magic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage; A < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 14 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 17 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver\n\n> ❗️ **Deterring Sting (1 Malice)**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the predator with a melee ability.\n>\n> **Effect:** The predator uses Sedating Stinger against the target, then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n\n> ⭐️ **Stubborn Rage**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) or within 10 squares of another wyvern, the predator can't be made [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n\n> ⭐️ **Tenacious Hunter**\n>\n> Any creature affected by a condition imposed by a wyvern can't be hidden from the predator.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/wyvern/statblock/wyvern-predator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "wyvern",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "3",
+        "keywords": [
+          "Зверь",
+          "Виверна"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.wyvern.statblock.wyvern-predator"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.wyvern",
+          "title": "Виверны"
+        },
+        {
+          "id": "monsters.monster.wyvern.wyvern-malice",
+          "title": "Виверны: Раздор"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.wyvern.statblock.wyvern-predator",
+      "kind": "monster",
+      "name": "Виверна-хищник",
+      "markdown": "| Зверь, Виверна | - | Уровень 4 | Элита Громила | Боевая ценность 24 |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n| **3**<br>Размер | **7**<br>Скорость | **140**<br>Выносливость | **3**<br>Устойчивость | **6**<br>Свободный удар |\n| **Кислота 5**<br>Иммунитет | **Полет**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Усыпляющее жало ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона; при М < 2 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 17 урона; при М < 3 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Если цель, [замедленная](#/catalog/glossary#term-glossary.slowed) таким образом, уже [замедлена](#/catalog/glossary#term-glossary.slowed), вместо этого она [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.).\n\n> 🔳 **Удар хвостом**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Линия 6 × 3 в пределах 1** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона; при Л < 1 3 урона кислотой\n> - **12-16:** 11 урона; при Л < 2 3 урона кислотой\n> - **17+:** 14 урона; при Л < 3 3 урона кислотой\n>\n> **5 Раздора:** Виверна-хищник использует эту способность второй раз, повторяя ту же линию или создавая новую.\n\n> 🗡 **Хватающие челюсти (2 Раздора)**\n>\n> | **Магия, Удар, Оружие** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона; при Л < 1 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 14 урона; при Л < 2 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 17 урона; при Л < 3 цель [схвачена](#/catalog/glossary#term-glossary.grabbed) и получает помеху к маневру ускальзывания\n\n> ❗️ **Отпугивающий укол (1 Раздора)**\n>\n> | **Ближний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо, вызвавшее триггер** |\n>\n> **Условие:** Существо в пределах дистанции наносит урон виверне-хищнику способностью ближнего боя.\n>\n> **Эффект:** Виверна-хищник использует против цели «Усыпляющее жало», а затем [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток.\n\n> ⭐️ **Упрямая ярость**\n>\n> Пока виверна-хищник [изнурена](#/catalog/glossary#term-glossary.winded) или находится в пределах 10 клеток от другой виверны, ее нельзя [оглушить](#/catalog/glossary#term-glossary.dazed) или [напугать](#/catalog/glossary#term-glossary.frightened).\n\n> ⭐️ **Неутомимый охотник**\n>\n> Ни одно существо, на которое действует состояние, наложенное виверной, не может спрятаться от виверны-хищника.\n",
+      "source": {
+        "articleId": "monsters.monster.wyvern.statblock.wyvern-predator",
+        "path": "Monsters/monster/wyvern/statblock/wyvern-predator.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.wyvern.statblock/wyvern-predator",
+      "originalName": "Wyvern Predator",
+      "originalDescription": "|     Beast, Wyvern      |          -          |      Level 4       |      Elite Brute      |        EV 24         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size      |   **7**<br>Speed    | **140**<br>Stamina |  **3**<br>Stability   | **6**<br>Free Strike |\n| **Acid 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Sedating Stinger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🔳 **Tail Sweep**\n>\n> | **Area, Weapon**           |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 6 x 3 line within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; A < 1 3 acid damage\n> - **12-16:** 11 damage; A < 2 3 acid damage\n> - **17+:** 14 damage; A < 3 3 acid damage\n>\n> **5 Malice:** The predator uses this ability a second time, either recreating the same line or creating a new line.\n\n> 🗡 **Grasping Jaws (2 Malice)**\n>\n> | **Magic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage; A < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 14 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 17 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver\n\n> ❗️ **Deterring Sting (1 Malice)**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the predator with a melee ability.\n>\n> **Effect:** The predator uses Sedating Stinger against the target, then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n\n> ⭐️ **Stubborn Rage**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) or within 10 squares of another wyvern, the predator can't be made [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n\n> ⭐️ **Tenacious Hunter**\n>\n> Any creature affected by a condition imposed by a wyvern can't be hidden from the predator.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/wyvern/statblock/wyvern-predator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "wyvern",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "3",
+        "keywords": [
+          "Зверь",
+          "Виверна"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

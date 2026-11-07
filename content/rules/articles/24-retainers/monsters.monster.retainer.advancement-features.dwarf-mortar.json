@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.advancement-features.dwarf-mortar",
+  "title": "Дварф-миномётчик: особенности развития",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/advancement-features/dwarf-mortar.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/dwarf-mortar",
+  "originalName": "Dwarf Mortar Advancement Features",
+  "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🔳 **Signal Shell (Encounter)**\n>\n> | **Area, Ranged, Weapon**  |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Special; see below** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The mortar fires a shell straight upward, which hovers 3 squares up in the air and sheds light below it in a 3 cube. Enemies illuminated by this light can't [hide](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) or turn invisible and can't benefit from concealment or cover. At the start of the mortar's next turn, the shell explodes to deal damage to enemies in the area.\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 fire damage\n> - **12-16:** 8 fire damage\n> - **17+:** 11 fire damage\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Screaming Shell (Encounter)**\n>\n> | **Area, Weapon**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage; P < WEAK [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n> - **12-16:** 9 damage; P < AVERAGE [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n> - **17+:** 13 damage; P < STRONG [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n>\n> **Effect:** Until the start of the mortar's next turn, [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) made against the mortar or any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them take a bane.\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🔳 **Pacifier Shell (Encounter)**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage; I < WEAK [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 12 damage; I < AVERAGE [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; I < STRONG [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends) and [prone](scc.v1:mcdm.heroes.v1/condition/prone)",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/dwarf-mortar.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.advancement-features.dwarf-mortar"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.animal.statblock.big-animal-a",
+  "title": "Крупное животное A",
+  "chapter": "23. Бестиарий",
+  "group": "Животные",
+  "path": "Monsters/monster/animal/statblock/big-animal-a.md",
+  "originalId": "mcdm.monsters.v1/monster.animal.statblock/big-animal-a",
+  "originalName": "Big Animal A",
+  "originalDescription": "|      Animal       |         -         |      Level 1      |      Elite Mount      |        EV 12         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **2**<br>Size   |  **6**<br>Speed   | **60**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+2**<br>Agility | **-2**<br>Reason  |  **+1**<br>Intuition  |  **-2**<br>Presence  | \n\n> 🗡 **Natural Weapon (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; A < 1 3 damage\n> - **17+:** 12 damage; A < 2 3 damage\n\n> 🗡 **Toss**\n>\n> | **Melee**      |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature or object** |\n>\n> **Special:** The target must be the animal's size or smaller.\n>\n> **Effect:** The target vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares. If the target is an ally, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at the end of the forced movement, then fall without taking damage.\n\n> ❗️ **Juke**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The animal is targeted by an area ability.\n>\n> **Effect:** The animal [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares before the ability resolves.\n\n> ⭐️ **Nature's Spirit**\n>\n> While outdoors or in a natural environment, the animal can negate a bane on their abilities or turn a double bane into a bane.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/animal/statblock/big-animal-a.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "animal",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "12",
+    "size": "2",
+    "keywords": [
+      "Животное"
+    ],
+    "role": "Скакун",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.animal.statblock.big-animal-a"
+    }
+  ]
+}

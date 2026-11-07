@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.2nd-echelon.statblock.mummy",
+      "title": "Мумия",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/2nd-echelon/statblock/mummy.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/mummy",
+      "originalName": "Mummy",
+      "originalDescription": "|             Mummy, Undead              |         -         |      Level 4      |      Horde Brute      |           EV 6           |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|             **1M**<br>Size             |  **5**<br>Speed   | **50**<br>Stamina |  **2**<br>Stability   |   **3**<br>Free Strike   |\n| **Corruption 4, poison 4**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Fire 5**<br>Weakness  |\n|            **+3**<br>Might             | **-1**<br>Agility | **+1**<br>Reason  |  **+3**<br>Intuition  |    **0**<br>Presence     |\n\n> 🗡 **Accursed Bindings ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 10 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The next ability the mummy uses against the target has any [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increased by 1 for the target.\n\n> 🏹 **Eldritch Curse (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage; I < 1 the target is cursed (save ends)\n> - **12-16:** 5 corruption damage; I < 2 the target is cursed (save ends)\n> - **17+:** 7 corruption damage; I < 3 the target is cursed (save ends)\n>\n> **Effect:** A cursed target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), and allies gain an edge on strikes made against them.\n\n> ❗️ **Blast of Mummy Dust (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 1 burst** | **🎯 The triggering creature** |\n>\n> **Trigger:** The mummy comes within distance of a [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) creature or starts their turn within distance of one.\n>\n> **Effect:** The target takes 8 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/mummy.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Мумия",
+          "Нежить"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.2nd-echelon.statblock.mummy"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.2nd-echelon.statblock.mummy",
+      "kind": "monster",
+      "name": "Мумия",
+      "markdown": "| Мумия, Нежить | - | Уровень 4 | Орда Громила | Боевая ценность 6 |\n|:--:|:--:|:--:|:--:|:--:|\n| **1M**<br>Размер | **5**<br>Скорость | **50**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **Порча 4, яд 4**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **Огонь 5**<br>Уязвимость |\n| **+3**<br>Мощь | **-1**<br>Ловкость | **+1**<br>Разум | **+3**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Проклятые путы ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 3** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона порчей; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 8 урона порчей; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 10 урона порчей; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 2; при М < 3 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** [Потенциал](#/catalog/glossary#term-glossary.potency) следующей способности, которую мумия применит против цели, увеличивается для этой цели на 1.\n\n> 🏹 **Потустороннее проклятие (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона порчей; при И < 1 цель проклята (до прох.)\n> - **12-16:** 5 урона порчей; при И < 2 цель проклята (до прох.)\n> - **17+:** 7 урона порчей; при И < 3 цель проклята (до прох.)\n>\n> **Эффект:** Проклятая цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) и [ослаблена](#/catalog/glossary#term-glossary.weakened), а союзники получают преимущество к ударам по ней.\n\n> ❗️ **Взрыв мумийной пыли (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Взрыв 1** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Мумия приближается на дистанцию действия к существу, которое [опутано](#/catalog/glossary#term-glossary.restrained), либо начинает ход на такой дистанции от него.\n>\n> **Эффект:** Цель получает 8 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.2nd-echelon.statblock.mummy",
+        "path": "Monsters/monster/undead/2nd-echelon/statblock/mummy.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/mummy",
+      "originalName": "Mummy",
+      "originalDescription": "|             Mummy, Undead              |         -         |      Level 4      |      Horde Brute      |           EV 6           |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|             **1M**<br>Size             |  **5**<br>Speed   | **50**<br>Stamina |  **2**<br>Stability   |   **3**<br>Free Strike   |\n| **Corruption 4, poison 4**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Fire 5**<br>Weakness  |\n|            **+3**<br>Might             | **-1**<br>Agility | **+1**<br>Reason  |  **+3**<br>Intuition  |    **0**<br>Presence     |\n\n> 🗡 **Accursed Bindings ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 10 corruption damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The next ability the mummy uses against the target has any [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increased by 1 for the target.\n\n> 🏹 **Eldritch Curse (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage; I < 1 the target is cursed (save ends)\n> - **12-16:** 5 corruption damage; I < 2 the target is cursed (save ends)\n> - **17+:** 7 corruption damage; I < 3 the target is cursed (save ends)\n>\n> **Effect:** A cursed target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), and allies gain an edge on strikes made against them.\n\n> ❗️ **Blast of Mummy Dust (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 1 burst** | **🎯 The triggering creature** |\n>\n> **Trigger:** The mummy comes within distance of a [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) creature or starts their turn within distance of one.\n>\n> **Effect:** The target takes 8 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/mummy.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Мумия",
+          "Нежить"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

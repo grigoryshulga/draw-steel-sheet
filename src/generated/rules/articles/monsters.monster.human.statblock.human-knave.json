@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.human.statblock.human-knave",
+      "title": "Человек-негодяй",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-knave.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-knave",
+      "originalName": "Human Knave",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Morningstar and Javelin (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 the target has a double bane on their next power roll\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT).\n\n> ⭐️ **I'm Your Enemy**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature the knave has [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) deals damage to a creature other than the knave, the knave can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Overwhelm**\n>\n> An enemy who starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the knave can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Supernatural Insight**\n>\n> The knave ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-knave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-knave"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.human.statblock.human-knave",
+      "kind": "monster",
+      "name": "Человек-негодяй",
+      "markdown": "| Человек, Гуманоид | - | Уровень 2 | Взвод, Защитник | Боевая ценность 8 |\n|:-----------------:|:---:|:---------:|:----------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **50**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 2, Психический 2**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Моргенштерн и дротик (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Ближний 1 или Дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; М < 2 следующий бросок силы цели совершается с двойной помехой\n>\n> **Эффект:** цель получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ).\n\n> ⭐️ **Я твой враг**\n>\n> Если [смежное](#/catalog/glossary#term-glossary.adjacent) с негодяем существо, на которое он наложил [Провокацию](#/catalog/glossary#term-glossary.taunted), наносит урон не негодяю, негодяй может совершить против него [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Подавление**\n>\n> Враг, начинающий ход [смежно](#/catalog/glossary#term-glossary.adjacent) с негодяем, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Негодяй игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-knave",
+        "path": "Monsters/monster/human/statblock/human-knave.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-knave",
+      "originalName": "Human Knave",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Morningstar and Javelin (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 the target has a double bane on their next power roll\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT).\n\n> ⭐️ **I'm Your Enemy**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature the knave has [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) deals damage to a creature other than the knave, the knave can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Overwhelm**\n>\n> An enemy who starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the knave can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Supernatural Insight**\n>\n> The knave ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-knave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

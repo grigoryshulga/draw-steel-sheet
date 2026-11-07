@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-high.statblock.elemental-mote",
+  "title": "Элементальная частица",
+  "chapter": "23. Бестиарий",
+  "group": "Высшие эльфы",
+  "path": "Monsters/monster/elf-high/statblock/elemental-mote.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/elemental-mote",
+  "originalName": "Elemental Mote",
+  "originalDescription": "| Elemental, High Elf, Soulless |          -          |     Level 1      |             Minion Hexer              | EV 3 for four minions |\n|:-----------------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|        **1T**<br>Size         |   **5**<br>Speed    | **3**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|       **-**<br>Immunity       | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|        **0**<br>Might         |  **0**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |  **+2**<br>Presence   |\n\n> 🗡 **Dweomer Plume (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 2**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage; R < 1 damage weakness 3 (save ends)\n> - **17+:** 3 damage; R < 2 damage weakness 3 (save ends)\n\n> ⭐️ **Spark of Life**\n>\n> On their turn, the mote can leave the encounter in a flash of light to revive one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) dead soot crow, brambleguard, or ceramic horse. The revived creature returns with 3 Stamina.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-high/statblock/elemental-mote.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-high",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1T",
+    "keywords": [
+      "Элементаль",
+      "Высший эльф",
+      "Бездушный"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-high.statblock.elemental-mote"
+    }
+  ]
+}

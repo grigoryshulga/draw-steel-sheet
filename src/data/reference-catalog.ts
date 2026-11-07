@@ -6,6 +6,7 @@ import {
   referenceSections,
 } from "../rules/codex-navigation";
 import type { Perk, PerkType } from "../types";
+import type { RuleIndexEntry } from "../rules/schema";
 import { CATALOG, GLOSSARY, plainSummary } from "./library";
 import { KIT_COMPENDIUM } from "./kits";
 import { PERK_COMPENDIUM, PERK_TYPE_META } from "./perks";
@@ -29,6 +30,9 @@ export type CatalogSectionId =
   | "treasure"
   | "title"
   | "project"
+  | "monsters"
+  | "retainers"
+  | "terrain"
   | "glossary";
 
 export type CatalogSectionKind =
@@ -54,6 +58,9 @@ export const CATALOG_SECTIONS: readonly CatalogSection[] = [
   { id: "treasure", title: "Сокровища", kind: "catalog" },
   { id: "title", title: "Титулы", kind: "catalog" },
   { id: "project", title: "Проекты", kind: "catalog" },
+  { id: "monsters", title: "Монстры", kind: "articles" },
+  { id: "retainers", title: "Помощники", kind: "articles" },
+  { id: "terrain", title: "Местность", kind: "articles" },
   { id: "glossary", title: "Глоссарий", kind: "glossary" },
 ] as const;
 
@@ -94,6 +101,18 @@ export interface CatalogBrowserEntry {
   glossary?: GlossaryEntry;
   /** Слаг класса: деталь открывает полную страницу класса. */
   classSlug?: string;
+  director?: RuleIndexEntry['director'];
+}
+
+function directorEntries(section: 'monsters' | 'retainers' | 'terrain'): CatalogBrowserEntry[] {
+  const ids = new Set(articleIds(section));
+  return codexIndex.filter(article => ids.has(article.id)).map(article => {
+    const d = article.director;
+    const summary = [d?.level !== undefined ? `Уровень ${d.level}` : '', d?.organization, d?.role,
+      d?.ev ? `БЦ ${d.ev}` : '', d?.size ? `Размер ${d.size}` : ''].filter(Boolean).join(' · ');
+    return { id: article.id, articleId: article.id, name: article.title, eyebrow: article.group,
+      echelon: null, summary, search: [article.title, d?.originalName, article.group, summary, ...(d?.keywords ?? [])].join(' '), director: d };
+  }).sort((a, b) => a.name.localeCompare(b.name, 'ru'));
 }
 
 function articleTitle(articleId: string): string {
@@ -249,6 +268,9 @@ const ENTRY_BUILDERS: Partial<
   kits: kitEntries,
   perks: perkEntries,
   glossary: glossaryEntries,
+  monsters: () => directorEntries('monsters'),
+  retainers: () => directorEntries('retainers'),
+  terrain: () => directorEntries('terrain'),
 };
 
 const ENTRIES = new Map<CatalogSectionId, CatalogBrowserEntry[]>(

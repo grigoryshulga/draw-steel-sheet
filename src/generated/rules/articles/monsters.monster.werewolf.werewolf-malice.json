@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.werewolf.werewolf-malice",
+      "title": "Оборотень: Раздор",
+      "chapter": "23. Бестиарий",
+      "group": "Оборотень",
+      "path": "Monsters/monster/werewolf/werewolf-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.werewolf/werewolf-malice",
+      "originalName": "Werewolf Malice",
+      "originalDescription": "At the start of a werewolf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Blood In Their Eyes (3 Malice)**\n>\n> The werewolf gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and a +3 bonus to speed until the end of their turn. The werewolf can't use this feature if they took any holy damage since ending their last turn.\n\n> ☠️ **Solo Action (5 Malice)**\n>\n> The werewolf takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Moonfall (10 Malice)**\n>\n> Until the end of the encounter, the encounter map turns to night and the moon appears impossibly huge in the sky. The werewolf can take an additional move action or maneuver on each of their turns while they have line of effect to the moon. Any creature who ends their turn with line of effect to the moon with 1 or more rage gains 2 rag.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/werewolf/werewolf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "werewolf",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.werewolf.werewolf-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.werewolf",
+          "title": "Оборотень"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.werewolf.werewolf-malice",
+      "kind": "monster-feature",
+      "name": "Оборотень: Раздор",
+      "markdown": "В начале хода оборотня вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Кровь в глазах (3 Раздора)**\n>\n> Оборотень получает 10 временной [Выносливости](#/catalog/glossary#term-glossary.stamina) и бонус +3 к Скорости до конца своего хода. Оборотень не может использовать эту особенность, если с момента окончания своего предыдущего хода получал святой урон.\n\n> ☠️ **Действие одиночки (5 Раздора)**\n>\n> Оборотень совершает дополнительное основное действие в свой ход. Он может использовать эту особенность, даже если он [оглушен](#/catalog/glossary#term-glossary.dazed).\n\n> 🌀 **Лунопад (10 Раздора)**\n>\n> До конца столкновения на карту опускается ночь, а на небе появляется невозможных размеров луна. Пока у оборотня есть линия воздействия до луны, в каждый свой ход он может совершить дополнительное действие движения или маневр. Любое существо, заканчивающее свой ход на линии воздействия до луны и имеющее 1 или более очков ярости, получает 2 очка ярости.\n",
+      "source": {
+        "articleId": "monsters.monster.werewolf.werewolf-malice",
+        "path": "Monsters/monster/werewolf/werewolf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.werewolf/werewolf-malice",
+      "originalName": "Werewolf Malice",
+      "originalDescription": "At the start of a werewolf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Blood In Their Eyes (3 Malice)**\n>\n> The werewolf gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and a +3 bonus to speed until the end of their turn. The werewolf can't use this feature if they took any holy damage since ending their last turn.\n\n> ☠️ **Solo Action (5 Malice)**\n>\n> The werewolf takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Moonfall (10 Malice)**\n>\n> Until the end of the encounter, the encounter map turns to night and the moon appears impossibly huge in the sky. The werewolf can take an additional move action or maneuver on each of their turns while they have line of effect to the moon. Any creature who ends their turn with line of effect to the moon with 1 or more rage gains 2 rag.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/werewolf/werewolf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "werewolf",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

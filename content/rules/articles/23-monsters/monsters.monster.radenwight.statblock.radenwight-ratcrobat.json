@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.radenwight.statblock.radenwight-ratcrobat",
+  "title": "Раденвайт-крысоакробат",
+  "chapter": "23. Бестиарий",
+  "group": "Раденвайты",
+  "path": "Monsters/monster/radenwight/statblock/radenwight-ratcrobat.md",
+  "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-ratcrobat",
+  "originalName": "Radenwight Ratcrobat",
+  "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |    Platoon Harrier    |         EV 6         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **7**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **-1**<br>Might    |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **En Garde ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage\n> - **17+:** 8 damage\n>\n> **Effect:** The ratcrobat [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares after striking the first target, then can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square after striking the second target.\n\n> 🗡 **Over Here, Thanks**\n>\n> | **Melee**      |     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------:|\n> | **📏 Melee 1** | **🎯 One enemy** |\n>\n> **Effect:** The ratcrobat [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 3 squares, then can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into any square the target left.\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The ratcrobat makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Gymratstics**\n>\n> The ratcrobat gains an edge on [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) against larger creatures.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/radenwight/statblock/radenwight-ratcrobat.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "radenwight",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Раденвайт"
+    ],
+    "role": "Налётчик",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.radenwight.statblock.radenwight-ratcrobat"
+    }
+  ]
+}

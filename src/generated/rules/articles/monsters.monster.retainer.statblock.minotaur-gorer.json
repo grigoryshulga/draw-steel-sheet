@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.minotaur-gorer",
+      "title": "Минотавр-бодальщик",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/minotaur-gorer.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/minotaur-gorer",
+      "originalName": "Minotaur Gorer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3      |    Brute Retainer     |         EV -         |\n|:----------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **39**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the gorer.\n>\n> **Effect:** The gorer uses the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action and Gore against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The gorer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/minotaur-gorer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "-",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.minotaur-gorer"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.minotaur-gorer"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.brute"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.minotaur-gorer",
+          "title": "Способности развития минотавра-пронзателя"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.brute",
+          "title": "Способности развития роли Громилы"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.minotaur-gorer",
+      "kind": "retainer",
+      "name": "Минотавр-бодальщик",
+      "markdown": "| Проклятый, Гуманоид, Минотавр | - | Уровень 3 | Помощник-громила | Боевая ценность - |\n|---|---|---|---|---|\n| **2**<br>Размер | **6**<br>Скорость | **39**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Бодание (Знаковая способность)**\n>\n> | **Рывок, ближний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; М < СИЛЬНАЯ [Лежащий](#/catalog/glossary#term-glossary.prone)\n\n> ❗️ **Ответный удар**\n>\n> | **Дальний бой** | **[Триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Дальний бой 6** | **🎯 Существо, вызвавшее активацию** |\n>\n> **Условие:** Существо в пределах дистанции наносит бодальщику урон.\n>\n> **Эффект:** Бодальщик использует основное действие [Атака с рывком](#/catalog/glossary#term-glossary.charge-main-action) и «Бодание» против цели.\n\n> ⭐️ **Чутьё минотавра**\n>\n> Бодальщик не может получить результат ниже 2 тира при проверках на ориентирование, обыск или поиск.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.minotaur-gorer",
+        "path": "Monsters/monster/retainer/statblock/minotaur-gorer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/minotaur-gorer",
+      "originalName": "Minotaur Gorer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3      |    Brute Retainer     |         EV -         |\n|:----------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **39**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the gorer.\n>\n> **Effect:** The gorer uses the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action and Gore against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The gorer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/minotaur-gorer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "-",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.minotaur-gorer",
+      "kind": "monster-feature",
+      "name": "Способности развития минотавра-пронзателя",
+      "markdown": "> **Способность развития Помощника 4-го уровня**\n\n> ❗️ **Подброс рогами**\n>\n> | **Ближний** | **[Свободный триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|----------------------:|\n> | **📏 Ближний 1** | **🎯 Существо, вызвавшее эффект** |\n>\n> **Спусковой механизм:** Пронзатель наносит урон существу в пределах дистанции способностью «Пронзание».\n>\n> **Эффект:** Цель отталкивается на расстояние до 3 клеток. Если её [устойчивость](#/catalog/glossary#term-glossary.stability) равна 0, её также сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> **Способность развития Помощника 7-го уровня**\n\n> 👤 **Триумфальный рёв (Столкновение)**\n>\n> | **—**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Пронзатель получает 3 [Всплеска](#/catalog/glossary#term-glossary.surge); до начала своего следующего хода он и его Наставник получают помеху на все направленные против них [удары](#/catalog/glossary#term-glossary.strike).\n\n> **Способность развития Помощника 10-го уровня**\n\n> ❇️ **Распарывание рогами (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 урона; М < СЛАБЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 16 урона; М < СРЕДНИЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 21 урон; М < СИЛЬНЫЙ — [лежачий](#/catalog/glossary#term-glossary.prone), цель не может встать ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.minotaur-gorer",
+        "path": "Monsters/monster/retainer/advancement-features/minotaur-gorer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/minotaur-gorer",
+      "originalName": "Minotaur Gorer Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> ❗️ **Horn Toss**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature** |\n>\n> **Trigger:** The gorer damages a creature within distance using Gore.\n>\n> **Effect:** The target is pushed up to 3 squares. If the target has [stability](scc.v1:mcdm.heroes.v1/rule.character/stability) 0, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> **Level 7 Retainer Advancement Ability**\n\n> 👤 **Triumphant Bay (Encounter)**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The gorer gains 3 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge), and until the start of the gorer's next turn, [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) made against them and their mentor take a bane.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Horn Rake (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; M < WEAK [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 16 damage; M < AVERAGE [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 21 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/minotaur-gorer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.brute",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Громилы",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 👤 **Большой замах**\n>\n> | **—**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До начала следующего хода Помощника удары по нему получают преимущество. В начале своего следующего хода Помощник получает 2 [Всплеска](#/catalog/glossary#term-glossary.surge), а любая используемая им до конца этого следующего хода способность, которая [принудительно перемещает](#/catalog/glossary#term-glossary.forced-movement) существо, перемещает его ещё на 2 клетки.\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Хлёсткий удар сверху (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 16 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; М < СИЛЬНЫЙ — [лежачий](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Если после любого [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement), вызванного этой способностью, цель оказывается в клетке [смежно](#/catalog/glossary#term-glossary.adjacent) с Наставником Помощника, Наставник может нанести ей [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n\n> **Способность развития роли 10-го уровня**\n\n> ❇️ **Головокружительный взмах (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 10 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 14 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 20 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n>\n> **Эффект:** Помощник [оглушён](#/catalog/glossary#term-glossary.dazed) до конца своего следующего хода.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.brute",
+        "path": "Monsters/monster/retainer/role-advancement/brute.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/brute",
+      "originalName": "Brute Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 👤 **Big Windup**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of the retainer's next turn, strikes made against the retainer gain an edge. At the start of the retainer's next turn, they gain 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge), and any ability they use before the end of their turn that [force moves](scc.v1:mcdm.heroes.v1/movement/forced-movement) a creature can move that creature 2 additional squares.\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Overhand Swat (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 16 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If the target ends any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) from this ability in a square [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the retainer's mentor, the mentor can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Dizzying Sweep (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 20 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The retainer is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/brute.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

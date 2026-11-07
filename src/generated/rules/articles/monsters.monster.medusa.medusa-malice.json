@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.medusa.medusa-malice",
+      "title": "Раздор медузы",
+      "chapter": "23. Бестиарий",
+      "group": "Медуза",
+      "path": "Monsters/monster/medusa/medusa-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.medusa/medusa-malice",
+      "originalName": "Medusa Malice",
+      "originalDescription": "At the start of a medusa's turn, you can spend Malice to activate one of the following features.\n\n> 🏹 **Weakening Glare (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **12-16:** 10 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** 12 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The medusa takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🏹 **Ssstop and Lisssten (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |        **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------:|\n> | **📏 Ranged 10**  | **🎯 Three creatures** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** I < 2 the target is charmed\n> - **12-16:** I < 3 the target is charmed\n> - **17+:** I < 4 the target is charmed\n>\n> **Effect:** At a time of the medusa's choosing, a charmed creature moves up to their speed and makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against an enemy of the medusa's choice as a free triggered action. The creature is then no longer charmed.\n\n> 🔳 **Shatter Victims (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The medusa causes three stone statues within 10 squares of them to each shatter in a 2-cube explosion. Each enemy in one of those areas makes a **Might test**. An enemy [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the medusa's Petrify ability has a double bane on the test.\n>\n> - **≤11:** 12 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 10 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 6 damage",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/medusa/medusa-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "medusa",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.medusa.medusa-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.medusa",
+          "title": "Медуза"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.medusa.medusa-malice",
+      "kind": "monster-feature",
+      "name": "Раздор медузы",
+      "markdown": "В начале хода медузы вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 🏹 **Ослабляющий взгляд (4 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой, Удар** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|--------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Одно существо** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона; [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ).\n> - **12-16:** 10 урона; [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ).\n> - **17+:** 12 урона; [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Медуза совершает дополнительное основное действие в свой ход. Она может использовать эту особенность, даже если находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed).\n\n> 🏹 **С-с-стой и слушай (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |        **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|-----------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Три существа** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** цель с И < 2 очарована.\n> - **12-16:** цель с И < 3 очарована.\n> - **17+:** цель с И < 4 очарована.\n>\n> **Эффект:** В выбранный медузой момент очарованное существо перемещается на расстояние до своей Скорости и как свободный триггер совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по врагу по выбору медузы. После этого очарование прекращается.\n\n> 🔳 **Разбить жертв (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Медуза заставляет три каменные статуи в пределах 10 клеток от себя разлететься на куски, каждая — взрывом в виде куба 2. Каждый враг в одной из этих областей проходит **тест Мощи**. Враг, [опутанный](#/catalog/glossary#term-glossary.restrained) или [замедленный](#/catalog/glossary#term-glossary.slowed) способностью медузы «Окаменение», получает двойную помеху на этот тест.\n>\n> - **≤11:** 12 урона; вертикальный [толчок](#/catalog/glossary#term-glossary.forced-movement) 3; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n> - **12-16:** 10 урона; вертикальный [толчок](#/catalog/glossary#term-glossary.forced-movement) 3.\n> - **17+:** 6 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.medusa.medusa-malice",
+        "path": "Monsters/monster/medusa/medusa-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.medusa/medusa-malice",
+      "originalName": "Medusa Malice",
+      "originalDescription": "At the start of a medusa's turn, you can spend Malice to activate one of the following features.\n\n> 🏹 **Weakening Glare (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **12-16:** 10 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** 12 damage; [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The medusa takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🏹 **Ssstop and Lisssten (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |        **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------:|\n> | **📏 Ranged 10**  | **🎯 Three creatures** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** I < 2 the target is charmed\n> - **12-16:** I < 3 the target is charmed\n> - **17+:** I < 4 the target is charmed\n>\n> **Effect:** At a time of the medusa's choosing, a charmed creature moves up to their speed and makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against an enemy of the medusa's choice as a free triggered action. The creature is then no longer charmed.\n\n> 🔳 **Shatter Victims (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The medusa causes three stone statues within 10 squares of them to each shatter in a 2-cube explosion. Each enemy in one of those areas makes a **Might test**. An enemy [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the medusa's Petrify ability has a double bane on the test.\n>\n> - **≤11:** 12 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 10 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 6 damage",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/medusa/medusa-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "medusa",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

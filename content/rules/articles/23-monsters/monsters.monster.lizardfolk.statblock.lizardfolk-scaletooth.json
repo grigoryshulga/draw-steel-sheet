@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.lizardfolk.statblock.lizardfolk-scaletooth",
+  "title": "Клыкастый",
+  "chapter": "23. Бестиарий",
+  "group": "Ящеролюды",
+  "path": "Monsters/monster/lizardfolk/statblock/lizardfolk-scaletooth.md",
+  "originalId": "mcdm.monsters.v1/monster.lizardfolk.statblock/lizardfolk-scaletooth",
+  "originalName": "Lizardfolk Scaletooth",
+  "originalDescription": "| Humanoid, Lizardfolk |          -           |      Level 1      |     Platoon Brute     |         EV 6         |\n|:--------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1M**<br>Size    |    **5**<br>Speed    | **46**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity   | **Swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might    |  **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Razor Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; A < 2 bleeding (save ends)\n>\n> **Effect:** If the scaletooth has the target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of this ability increases by 1.\n\n> 🗡 **Tail Whip (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) if within 2 squares of the scaletooth\n> - **17+:** 10 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) if within 2 squares of the scaletooth\n\n> ⭐️ **Reptilian Escape**\n>\n> While the scaletooth has a tail, whenever they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), [prone](scc.v1:mcdm.heroes.v1/condition/prone), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), they can lose their tail to immediately end that condition, then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/lizardfolk/statblock/lizardfolk-scaletooth.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "lizardfolk",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Ящеролюд"
+    ],
+    "role": "Громила",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.lizardfolk.statblock.lizardfolk-scaletooth"
+    }
+  ]
+}

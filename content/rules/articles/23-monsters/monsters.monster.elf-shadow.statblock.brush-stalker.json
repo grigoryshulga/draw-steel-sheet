@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-shadow.statblock.brush-stalker",
+  "title": "Чащобный охотник",
+  "chapter": "23. Бестиарий",
+  "group": "Теневые эльфы",
+  "path": "Monsters/monster/elf-shadow/statblock/brush-stalker.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/brush-stalker",
+  "originalName": "Brush Stalker",
+  "originalDescription": "| Animal, Fey, Shadow Elf |         -         |      Level 4      |     Platoon Mount     |        EV 12         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size      |  **8**<br>Speed   | **60**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might     | **+2**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Reclamation (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 7 corruption damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 10 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ⭐️ **Suneater**\n>\n> The area within 2 squares of the brush stalker is devoid of light and provides concealment.\n\n> ⭐️ **Wyrd Dyr**\n>\n> While they have line of effect to the brush stalker, any animal except another brush stalker is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-shadow/statblock/brush-stalker.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-shadow",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "12",
+    "size": "2",
+    "keywords": [
+      "Животное",
+      "Фея",
+      "Теневой эльф"
+    ],
+    "role": "Скакун",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-shadow.statblock.brush-stalker"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.gnoll.statblock.abyssal-hyena",
+  "title": "Гиена Бездны",
+  "chapter": "23. Бестиарий",
+  "group": "Гноллы",
+  "path": "Monsters/monster/gnoll/statblock/abyssal-hyena.md",
+  "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/abyssal-hyena",
+  "originalName": "Abyssal Hyena",
+  "originalDescription": "| Abyssal, Animal, Gnoll |         -         |     Level 2      |             Minion Brute              | EV 4 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **8**<br>Speed   | **7**<br>Stamina |          **1**<br>Stability           | **3**<br>Free Strike  |\n|   **-**<br>Immunity    | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+2**<br>Might     | **+1**<br>Agility | **-3**<br>Reason |          **0**<br>Intuition           |  **-2**<br>Presence   |\n\n> 🗡 **Snapjaw (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ⭐️ **Death Snap**\n>\n> When the abyssal hyena is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/gnoll/statblock/abyssal-hyena.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "gnoll",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "4 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Животное",
+      "Гнолл"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.gnoll.statblock.abyssal-hyena"
+    }
+  ]
+}

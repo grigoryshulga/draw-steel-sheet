@@ -234,7 +234,7 @@ describe("stage two canonical entity kinds", () => {
 
   it("reconstructs every article losslessly and compares with legacy Markdown", () => {
     const mismatches: string[] = [];
-    for (const article of articles) {
+    for (const article of articles.filter(article => !article.director)) {
       const legacy = legacyArticleById.get(article.id);
       const rendered = render(article, entityById);
       if (!legacy || rendered !== legacy.markdown) mismatches.push(article.id);
@@ -808,13 +808,13 @@ describe("stage two migration commands", () => {
         .map(readJson)
         .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
       const importedEntities = walkJson(path.join(out, "entities")).map(readJson);
-      expect(importedEntities).toHaveLength(entities.length);
+      expect(importedEntities).toHaveLength(entities.filter(entity => !entity.director).length);
       const importedById = new Map(
         importedEntities.map((entity) => [entity.id, entity]),
       );
 
       const identityProblems: string[] = [];
-      for (const entity of entities) {
+      for (const entity of entities.filter(entity => !entity.director)) {
         const imported = importedById.get(entity.id);
         if (
           !imported ||

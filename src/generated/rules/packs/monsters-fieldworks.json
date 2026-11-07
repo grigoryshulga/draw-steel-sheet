@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.archers-stakes",
+      "title": "Колья лучников",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/archers-stakes.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/archers-stakes",
+      "originalName": "Archer's Stakes",
+      "originalDescription": "A series of sharp stakes have been placed point-out to protect defenders against charges and other direct attacks.\n\n- **EV:** 2\n- **Stamina:** 3 per square\n- **Size:** One or more squares of [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n- **Typical Space:** 4 x 1-square area\n- **Direction:** One side of the stakes is defined as the front.\n\n> 🌀 **Deactivate**\n>\n> Each square of stakes must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature enters an area of stakes from the front.\n>\n> **Effect:** The triggering creature takes 2 damage per square of stakes they enter. If they are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an area of stakes, they take an additional 3 damage.\n\n> ⭐️ **Upgrades**\n>\n> **Poison (+2 EV)** The tips of the stakes have poison applied to them. Any creature who takes damage from the stakes also takes 1d6 poison damage at the start of each of their turns ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n>\n> **Sticky (+3 EV)** A sticky slime or webbing has been applied to the stakes and the ground between them. Any creature who enters an area of stakes triggers the **Sticky Stakes** ability in addition to suffering the stakes' other effects.\n\n> ❗️ **Sticky Stakes**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object enters an area of sticky stakes.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** No effect.\n> - **12-16:** A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Allied Awareness**\n>\n> Allies of this object ignore the [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) created by the stakes, take no damage from moving through the stakes unless they are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), and have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) while in an area of archer's stakes.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/archers-stakes.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2",
+        "size": "Одна или несколько клеток труднопроходимой местности",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.archers-stakes"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.bear-trap",
+      "title": "Медвежий капкан",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/bear-trap.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/bear-trap",
+      "originalName": "Bear Trap",
+      "originalDescription": "A set of spring-loaded steel jaws stands ready to snap shut when stepped on.\n\n- **EV:** 2\n- **Stamina:** 6\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a bear trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its space.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The bear trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its space.\n>\n> **Effect:** A triggering creature or object ends their movement and is targeted by the **Bear Trap** ability.\n\n> ❗️ **Bear Trap**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's space.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the trap.\n> - **12-16:** 3 damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 5 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The bear trap must be manually reset.\n\n> ⭐️ **Upgrade**\n>\n> **Chain (+1 EV)** The bear trap is attached to the ground by a steel chain. A target who would be made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the trap is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) instead.\n\n> ⭐️ **Hidden**\n>\n> The bear trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/bear-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2",
+        "size": "1S",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.bear-trap"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.flammable-oil",
+      "title": "Горючее масло",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/flammable-oil.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/flammable-oil",
+      "originalName": "Flammable Oil",
+      "originalDescription": "A patch of flammable oil or pitch on the ground is ready to be ignited.\n\n- **EV:** 2 per 10 x 10 patch\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a patch of flammable oil can make an **Agility test**.\n>\n> - **≤11:** The creature ignites the oil and is affected as if in its area.\n> - **12-16:** The oil temporarily ignites before safely burning out, and the creature takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The oil is rendered safe and can't be ignited.\n\n> ❕ **Activate**\n>\n> A creature or object in a square of oil takes fire damage, or a creature or object enters a square of burning oil or starts their turn there.\n>\n> **Effect:** The triggering creature or object takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends). A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Concealed Oil (+1 EV)** The oil is hidden until it ignites.\n\n> ⭐️ **Allied Awareness**\n>\n> Allies who have weapons are equipped with torches. Any ally can use a maneuver to throw a torch up to 5 squares and ignite the flammable oil.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/flammable-oil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2 за участок 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.flammable-oil"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.hidey-hole",
+      "title": "Тайник-убежище",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/hidey-hole.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/hidey-hole",
+      "originalName": "Hidey-Hole",
+      "originalDescription": "A cavity in a floor, wall, or ceiling might hold hidden threats.\n\n- **EV:** 1\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a hidey-hole can make a **Might test**.\n>\n> - **≤11:** The creature is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **12-16:** The hidey-hole collapses but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The hidey-hole collapses and can no longer be used until repaired.\n\n> ❕ **Activate**\n>\n> A creature starts the encounter in the hidey-hole or ends their turn there.\n>\n> **Effect:** The triggering creature can attempt to [hide](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) as a free triggered action.\n\n> ⭐️ **Upgrade**\n>\n> **Network (+1 EV per hidey-hole)** The hidey-hole is connected to a tunnel network. A creature familiar with the network can move from one hidey-hole to any space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a connected hidey-hole if they have movement available equal to the straight-line distance to that space. A creature unfamiliar with the network can use a maneuver to make a **hard Intuition test** to discover a connected hidey-hole.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/hidey-hole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.hidey-hole"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.pavise-shield",
+      "title": "Щит-павеза",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/pavise-shield.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/pavise-shield",
+      "originalName": "Pavise Shield",
+      "originalDescription": "A reinforced metal shield embedded in the ground acts as [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) for the creature controlling it.\n\n- **EV:** 1\n- **Stamina:** 9\n- **Size:** 1M\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a pavise shield controlled by another creature can make a **Might test**.\n>\n> - **≤11:** The creature controlling the shield retains control of it and can make an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against the creature making the test.\n> - **12-16:** The creature controlling the shield retains control of it.\n> - **17+:** The creature making the test grabs the shield and takes control of it.\n\n> ⭐️ **Controlling the Shield**\n>\n> While a creature has the pavise shield grabbed, they have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and take half damage from abilities whose line of effect extends through the shield. The pavise shield takes the other half of the damage.\n>\n> While a creature has a pavise shield grabbed, their speed is halved and they move the shield like a [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/pavise-shield.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1M",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.pavise-shield"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.snare-trap",
+      "title": "Силок",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/snare-trap.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/snare-trap",
+      "originalName": "Snare Trap",
+      "originalDescription": "A rope snare is set to grab a target, leaving them hanging upside down.\n\n- **EV:** 1\n- **Stamina:** 1\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a snare trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its space.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The snare trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its space.\n>\n> **Effect:** A triggering creature or object ends their movement and is targeted by the **Snare** ability.\n\n> ❗️ **Snare**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's space.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the snare.\n> - **12-16:** 1 damage; A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 3 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is vertical pulled 2 squares and suspended in the air by the snare line. On a successful [save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw), the snare is cut or breaks and the creature falls to the ground. The snare must be manually reset.\n\n> ⭐️ **Upgrade**\n>\n> **Net Trap (+1 EV)** The snare becomes a net that can wrap up multiple targets. The net has 3 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fills an area of 3 squares by 3 squares. The Snare ability loses its existing keywords, gains the Area keyword, and targets each creature or object in the area. The trap can be triggered by a target moving through one specific square, or by requiring multiple squares to be moved through. Any creature who makes their [save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) to end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) effect ends that effect for all targets, who all fall to the ground.\n\n> ⭐️ **Hidden**\n>\n> The snare trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/snare-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1S",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.snare-trap"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.fieldworks.spike-trap",
+      "title": "Яма с кольями",
+      "chapter": "25. Динамическая местность",
+      "group": "Полевые укрепления",
+      "path": "Monsters/dynamic-terrain/fieldworks/spike-trap.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/spike-trap",
+      "originalName": "Spike Trap",
+      "originalDescription": "A pit dug into the ground is filled with spikes, and camouflaged to avoid detection.\n\n- **EV:** 3\n- **Stamina:** 6\n- **Size:** One or more squares\n- **Typical Space:** 2 x 2-square area\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a spike trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its area.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The spike trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its area.\n>\n> **Effect:** The **Spike Trap** ability.\n\n> ❗️ **Spike Trap**\n>\n> | **Area, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 0**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; the target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the trap\n> - **12-16:** 4 damage; the target falls into the pit; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 6 damage; the target falls into the pit; A < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone); [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The target ends their movement when they enter the trap's area. The pit is typically 2 squares deep. The trap must be manually reset.\n\n> ⭐️ **Hidden**\n>\n> The spike trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/spike-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "3",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.fieldworks.spike-trap"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.fieldworks.archers-stakes",
+      "kind": "terrain",
+      "name": "Колья лучников",
+      "markdown": "Ряд острых кольев установлен остриём наружу, чтобы защитить обороняющихся от атак с рывком и других прямых атак.\n\n- **БЦ:** 2\n- **Выносливость:** 3 за клетку\n- **Размер:** Одна или несколько клеток [труднопроходимой местности](#/catalog/glossary#term-glossary.difficult-terrain)\n- **Обычное пространство:** область 4 x 1 клетка\n- **Направление:** Одна сторона кольев определяется как передняя.\n\n> 🌀 **Отключение**\n>\n> Каждую клетку кольев необходимо уничтожить отдельно.\n\n> ❕ **Активация**\n>\n> Существо входит в область кольев спереди.\n>\n> **Эффект:** Вызвавшее активацию существо получает 2 урона за каждую клетку кольев, в которую входит. Если оно [принудительно перемещено](#/catalog/glossary#term-glossary.forced-movement) в область кольев, оно получает дополнительно 3 урона.\n\n> ⭐️ **Улучшения**\n>\n> **Яд (+2 БЦ)** На острия кольев нанесён яд. Существо, получившее урон от кольев, также получает 1d6 урона ядом в начале каждого своего хода (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw)).\n>\n> **Липкость (+3 БЦ)** На колья и землю между ними нанесена липкая слизь или паутина. Любое существо, входящее в область кольев, помимо остальных эффектов кольев вызывает способность **Липкие колья**.\n\n> ❗️ **Липкие колья**\n>\n> | **Ближний бой, удар, оружие** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект входит в область липких кольев.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** Нет эффекта.\n> - **12-16:** Л < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** Л < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n\n> ⭐️ **Осведомлённость союзников**\n>\n> Союзники этого объекта игнорируют созданную кольями [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain), не получают урон от перемещения через колья, если только их не [переместили принудительно](#/catalog/glossary#term-glossary.forced-movement), и имеют [укрытие](#/catalog/glossary#term-glossary.cover), находясь в области кольев лучников.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.archers-stakes",
+        "path": "Monsters/dynamic-terrain/fieldworks/archers-stakes.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/archers-stakes",
+      "originalName": "Archer's Stakes",
+      "originalDescription": "A series of sharp stakes have been placed point-out to protect defenders against charges and other direct attacks.\n\n- **EV:** 2\n- **Stamina:** 3 per square\n- **Size:** One or more squares of [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n- **Typical Space:** 4 x 1-square area\n- **Direction:** One side of the stakes is defined as the front.\n\n> 🌀 **Deactivate**\n>\n> Each square of stakes must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature enters an area of stakes from the front.\n>\n> **Effect:** The triggering creature takes 2 damage per square of stakes they enter. If they are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an area of stakes, they take an additional 3 damage.\n\n> ⭐️ **Upgrades**\n>\n> **Poison (+2 EV)** The tips of the stakes have poison applied to them. Any creature who takes damage from the stakes also takes 1d6 poison damage at the start of each of their turns ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n>\n> **Sticky (+3 EV)** A sticky slime or webbing has been applied to the stakes and the ground between them. Any creature who enters an area of stakes triggers the **Sticky Stakes** ability in addition to suffering the stakes' other effects.\n\n> ❗️ **Sticky Stakes**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object enters an area of sticky stakes.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** No effect.\n> - **12-16:** A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Allied Awareness**\n>\n> Allies of this object ignore the [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) created by the stakes, take no damage from moving through the stakes unless they are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), and have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) while in an area of archer's stakes.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/archers-stakes.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2",
+        "size": "Одна или несколько клеток труднопроходимой местности",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.bear-trap",
+      "kind": "terrain",
+      "name": "Медвежий капкан",
+      "markdown": "Стальные подпружиненные челюсти готовы захлопнуться, когда на них наступят.\n\n- **БЦ:** 2\n- **Выносливость:** 6\n- **Размер:** 1S\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с капканом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо приводит капкан в действие и подвергается его эффекту, словно находится в его пространстве.\n> - **12-16:** Капкан отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Капкан отключён и не срабатывает.\n\n> ❕ **Активация**\n>\n> Капкан настроен на срабатывание от существ или объектов определённого размера и крупнее. Он срабатывает, когда существо или объект подходящего размера входит в его пространство.\n>\n> **Эффект:** Существо или объект, вызвавший активацию, завершает перемещение и становится целью способности **Медвежий капкан**.\n\n> ❗️ **Медвежий капкан**\n>\n> | **Ближний бой, удар, оружие** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект подходящего размера входит в пространство капкана.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 Цель совершает [шаг](#/catalog/glossary#term-glossary.shift) на 1 клетку от капкана.\n> - **12-16:** 3 урона; Л < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 5 урона; Л < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Капкан необходимо заново взвести вручную.\n\n> ⭐️ **Улучшение**\n>\n> **Цепь (+1 БЦ)** Капкан прикреплён к земле стальной цепью. Цель, которая получила бы от капкана состояние [Замедление](#/catalog/glossary#term-glossary.slowed), вместо него получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained).\n\n> ⭐️ **Скрытность**\n>\n> Капкан скрыт, пока не сработает или не будет обнаружен.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.bear-trap",
+        "path": "Monsters/dynamic-terrain/fieldworks/bear-trap.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/bear-trap",
+      "originalName": "Bear Trap",
+      "originalDescription": "A set of spring-loaded steel jaws stands ready to snap shut when stepped on.\n\n- **EV:** 2\n- **Stamina:** 6\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a bear trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its space.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The bear trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its space.\n>\n> **Effect:** A triggering creature or object ends their movement and is targeted by the **Bear Trap** ability.\n\n> ❗️ **Bear Trap**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's space.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the trap.\n> - **12-16:** 3 damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 5 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The bear trap must be manually reset.\n\n> ⭐️ **Upgrade**\n>\n> **Chain (+1 EV)** The bear trap is attached to the ground by a steel chain. A target who would be made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the trap is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) instead.\n\n> ⭐️ **Hidden**\n>\n> The bear trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/bear-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2",
+        "size": "1S",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.flammable-oil",
+      "kind": "terrain",
+      "name": "Горючее масло",
+      "markdown": "Разлитое на земле горючее масло или смола готовы вспыхнуть.\n\n- **БЦ:** 2 за участок 10 x 10\n- **Выносливость:** -\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с горючим маслом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо поджигает масло и подвергается его действию, словно находится в области масла.\n> - **12-16:** Масло ненадолго вспыхивает, прежде чем безопасно выгореть; существо получает 3 урона огнём и загорается (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw)).\n> - **17+:** Масло обезврежено и больше не может загореться.\n\n> ❕ **Активация**\n>\n> Существо или объект в клетке масла получает урон огнём либо входит в клетку горящего масла или начинает там ход.\n>\n> **Эффект:** Существо или объект, вызвавший активацию, получает 3 урона огнём и загорается (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw)). Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ⭐️ **Улучшение**\n>\n> **Скрытое масло (+1 БЦ)** Масло скрыто, пока не загорится.\n\n> ⭐️ **Осведомлённость союзников**\n>\n> Союзники с оружием снабжены факелами. Любой союзник может манёвром бросить факел на расстояние до 5 клеток и поджечь масло.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.flammable-oil",
+        "path": "Monsters/dynamic-terrain/fieldworks/flammable-oil.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/flammable-oil",
+      "originalName": "Flammable Oil",
+      "originalDescription": "A patch of flammable oil or pitch on the ground is ready to be ignited.\n\n- **EV:** 2 per 10 x 10 patch\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a patch of flammable oil can make an **Agility test**.\n>\n> - **≤11:** The creature ignites the oil and is affected as if in its area.\n> - **12-16:** The oil temporarily ignites before safely burning out, and the creature takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The oil is rendered safe and can't be ignited.\n\n> ❕ **Activate**\n>\n> A creature or object in a square of oil takes fire damage, or a creature or object enters a square of burning oil or starts their turn there.\n>\n> **Effect:** The triggering creature or object takes 3 fire damage and is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends). A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Concealed Oil (+1 EV)** The oil is hidden until it ignites.\n\n> ⭐️ **Allied Awareness**\n>\n> Allies who have weapons are equipped with torches. Any ally can use a maneuver to throw a torch up to 5 squares and ignite the flammable oil.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/flammable-oil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "2 за участок 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.hidey-hole",
+      "kind": "terrain",
+      "name": "Тайник-убежище",
+      "markdown": "Полость в полу, стене или потолке может скрывать угрозу.\n\n- **БЦ:** 1\n- **Выносливость:** -\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с убежищем клетке может манёвром совершить **проверку Мощи**.\n>\n> - **≤11:** Существо получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw)).\n> - **12-16:** Убежище обрушивается, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw)).\n> - **17+:** Убежище обрушивается, и его нельзя использовать до ремонта.\n\n> ❕ **Активация**\n>\n> Существо начинает столкновение в убежище или заканчивает там ход.\n>\n> **Эффект:** Вызвавшее активацию существо может попытаться [спрятаться](#/catalog/glossary#term-glossary.hide-maneuver) бесплатным триггерным действием.\n\n> ⭐️ **Улучшение**\n>\n> **Сеть (+1 БЦ за убежище)** Убежище соединено с сетью тоннелей. Существо, знакомое с сетью, может переместиться из одного убежища в любую клетку [рядом](#/catalog/glossary#term-glossary.adjacent) с соединённым убежищем, если ему доступно перемещение, равное расстоянию по прямой до этой клетки. Существо, не знакомое с сетью, может манёвром совершить **трудную проверку Интуиции**, чтобы обнаружить соединённое убежище.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.hidey-hole",
+        "path": "Monsters/dynamic-terrain/fieldworks/hidey-hole.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/hidey-hole",
+      "originalName": "Hidey-Hole",
+      "originalDescription": "A cavity in a floor, wall, or ceiling might hold hidden threats.\n\n- **EV:** 1\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a hidey-hole can make a **Might test**.\n>\n> - **≤11:** The creature is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **12-16:** The hidey-hole collapses but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The hidey-hole collapses and can no longer be used until repaired.\n\n> ❕ **Activate**\n>\n> A creature starts the encounter in the hidey-hole or ends their turn there.\n>\n> **Effect:** The triggering creature can attempt to [hide](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) as a free triggered action.\n\n> ⭐️ **Upgrade**\n>\n> **Network (+1 EV per hidey-hole)** The hidey-hole is connected to a tunnel network. A creature familiar with the network can move from one hidey-hole to any space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a connected hidey-hole if they have movement available equal to the straight-line distance to that space. A creature unfamiliar with the network can use a maneuver to make a **hard Intuition test** to discover a connected hidey-hole.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/hidey-hole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Укрепление"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.pavise-shield",
+      "kind": "terrain",
+      "name": "Щит-павеза",
+      "markdown": "Укреплённый металлический щит, вкопанный в землю, служит [укрытием](#/catalog/glossary#term-glossary.cover) для управляющего им существа.\n\n- **БЦ:** 1\n- **Выносливость:** 9\n- **Размер:** 1M\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с павезой клетке может манёвром совершить **проверку Мощи**, если щитом управляет другое существо.\n>\n> - **≤11:** Управляющее щитом существо сохраняет контроль над ним и может совершить [провоцированную атаку](#/catalog/glossary#term-glossary.opportunity-attack) по существу, совершающему проверку.\n> - **12-16:** Управляющее щитом существо сохраняет контроль над ним.\n> - **17+:** Совершающее проверку существо хватает щит и берёт его под контроль.\n\n> ⭐️ **Управление щитом**\n>\n> Пока существо удерживает павезу в захвате, оно имеет [укрытие](#/catalog/glossary#term-glossary.cover) и получает половину урона от способностей, чья линия воздействия проходит через щит. Павеза получает вторую половину урона.\n>\n> Пока существо удерживает павезу в захвате, его скорость уменьшается вдвое, а щит оно перемещает как [схваченное](#/catalog/glossary#term-glossary.grabbed) существо.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.pavise-shield",
+        "path": "Monsters/dynamic-terrain/fieldworks/pavise-shield.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/pavise-shield",
+      "originalName": "Pavise Shield",
+      "originalDescription": "A reinforced metal shield embedded in the ground acts as [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) for the creature controlling it.\n\n- **EV:** 1\n- **Stamina:** 9\n- **Size:** 1M\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a pavise shield controlled by another creature can make a **Might test**.\n>\n> - **≤11:** The creature controlling the shield retains control of it and can make an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against the creature making the test.\n> - **12-16:** The creature controlling the shield retains control of it.\n> - **17+:** The creature making the test grabs the shield and takes control of it.\n\n> ⭐️ **Controlling the Shield**\n>\n> While a creature has the pavise shield grabbed, they have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and take half damage from abilities whose line of effect extends through the shield. The pavise shield takes the other half of the damage.\n>\n> While a creature has a pavise shield grabbed, their speed is halved and they move the shield like a [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/pavise-shield.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1M",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.snare-trap",
+      "kind": "terrain",
+      "name": "Силок",
+      "markdown": "Верёвочная петля готова захватить цель и подвесить её вниз головой.\n\n- **БЦ:** 1\n- **Выносливость:** 1\n- **Размер:** 1S\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с силком клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо приводит ловушку в действие и подвергается её эффекту, словно находится в её пространстве.\n> - **12-16:** Ловушка отключена, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Ловушка отключена и не срабатывает.\n\n> ❕ **Активация**\n>\n> Силок настроен на срабатывание от существ или объектов определённого размера и крупнее. Он срабатывает, когда существо или объект подходящего размера входит в его пространство.\n>\n> **Эффект:** Существо или объект, вызвавший активацию, завершает перемещение и становится целью способности **Петля**.\n\n> ❗️ **Петля**\n>\n> | **Ближний бой, удар, оружие** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект подходящего размера входит в пространство ловушки.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** Цель совершает [шаг](#/catalog/glossary#term-glossary.shift) на 1 клетку от силка.\n> - **12-16:** 1 урон; Л < 1 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 3 урона; Л < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Существо, получившее таким образом состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), подтягивается вертикально на 2 клетки и повисает на верёвке силка. При успешном [спасброске](#/catalog/glossary#term-glossary.saving-throw) петля перерезана или рвётся, и существо падает на землю. Силок необходимо заново взвести вручную.\n\n> ⭐️ **Улучшение**\n>\n> **Сетевая ловушка (+1 БЦ)** Вместо петли используется сеть, способная опутать несколько целей. У сети 3 [Выносливости](#/catalog/glossary#term-glossary.stamina), и она занимает область 3 на 3 клетки. Способность «Петля» теряет прежние ключевые слова, получает ключевое слово «Область» и выбирает целью каждое существо или объект в области. Ловушка может срабатывать, когда цель проходит через одну определённую клетку, либо когда она проходит через несколько определённых клеток. Любое существо, успешно совершившее [спасбросок](#/catalog/glossary#term-glossary.saving-throw) для прекращения эффекта [Опутанности](#/catalog/glossary#term-glossary.restrained), прекращает его для всех целей, и все они падают на землю.\n\n> ⭐️ **Скрытность**\n>\n> Силок скрыт, пока не сработает или не будет обнаружен.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.snare-trap",
+        "path": "Monsters/dynamic-terrain/fieldworks/snare-trap.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/snare-trap",
+      "originalName": "Snare Trap",
+      "originalDescription": "A rope snare is set to grab a target, leaving them hanging upside down.\n\n- **EV:** 1\n- **Stamina:** 1\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a snare trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its space.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The snare trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its space.\n>\n> **Effect:** A triggering creature or object ends their movement and is targeted by the **Snare** ability.\n\n> ❗️ **Snare**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's space.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the snare.\n> - **12-16:** 1 damage; A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 3 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is vertical pulled 2 squares and suspended in the air by the snare line. On a successful [save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw), the snare is cut or breaks and the creature falls to the ground. The snare must be manually reset.\n\n> ⭐️ **Upgrade**\n>\n> **Net Trap (+1 EV)** The snare becomes a net that can wrap up multiple targets. The net has 3 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fills an area of 3 squares by 3 squares. The Snare ability loses its existing keywords, gains the Area keyword, and targets each creature or object in the area. The trap can be triggered by a target moving through one specific square, or by requiring multiple squares to be moved through. Any creature who makes their [save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) to end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) effect ends that effect for all targets, who all fall to the ground.\n\n> ⭐️ **Hidden**\n>\n> The snare trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/snare-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1S",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      }
+    },
+    {
+      "id": "dynamic-terrain.fieldworks.spike-trap",
+      "kind": "terrain",
+      "name": "Яма с кольями",
+      "markdown": "Выкопанная в земле яма заполнена кольями и замаскирована, чтобы её не заметили.\n\n- **БЦ:** 3\n- **Выносливость:** 6\n- **Размер:** Одна или несколько клеток\n- **Обычное пространство:** область 2 x 2 клетки\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с ямой клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо приводит ловушку в действие и подвергается её эффекту, словно находится в её области.\n> - **12-16:** Ловушка отключена, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Ловушка отключена и не срабатывает.\n\n> ❕ **Активация**\n>\n> Ловушка настроена на срабатывание от существ или объектов определённого размера и крупнее. Она срабатывает, когда существо или объект подходящего размера входит в её область.\n>\n> **Эффект:** Способность **Яма с кольями**.\n\n> ❗️ **Яма с кольями**\n>\n> | **Область, оружие** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект подходящего размера входит в область ловушки.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона; цель совершает [шаг](#/catalog/glossary#term-glossary.shift) на 1 клетку от ловушки\n> - **12-16:** 4 урона; цель падает в яму; Л < 0 [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 6 урона; цель падает в яму; Л < 1 [Лежащий](#/catalog/glossary#term-glossary.prone); [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Цель завершает перемещение при входе в область ловушки. Глубина ямы обычно составляет 2 клетки. Ловушку необходимо заново взвести вручную.\n\n> ⭐️ **Скрытность**\n>\n> Ловушка скрыта, пока не сработает или не будет обнаружена.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.fieldworks.spike-trap",
+        "path": "Monsters/dynamic-terrain/fieldworks/spike-trap.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/spike-trap",
+      "originalName": "Spike Trap",
+      "originalDescription": "A pit dug into the ground is filled with spikes, and camouflaged to avoid detection.\n\n- **EV:** 3\n- **Stamina:** 6\n- **Size:** One or more squares\n- **Typical Space:** 2 x 2-square area\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a spike trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its area.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The spike trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its area.\n>\n> **Effect:** The **Spike Trap** ability.\n\n> ❗️ **Spike Trap**\n>\n> | **Area, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 0**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; the target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the trap\n> - **12-16:** 4 damage; the target falls into the pit; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 6 damage; the target falls into the pit; A < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone); [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The target ends their movement when they enter the trap's area. The pit is typically 2 squares deep. The trap must be manually reset.\n\n> ⭐️ **Hidden**\n>\n> The spike trap is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/fieldworks/spike-trap.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fieldworks",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "3",
+        "size": "Одна или несколько клеток",
+        "role": "Засадник",
+        "organization": "Ловушка"
+      }
+    }
+  ]
+}

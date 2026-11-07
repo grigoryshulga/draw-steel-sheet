@@ -1,0 +1,29 @@
+{
+  "id": "monster.kobold.statblock.kobold-veles",
+  "kind": "monster",
+  "name": "Кобольд-велес",
+  "markdown": "| Гуманоид, Кобольд | - | Уровень 1 | Налётчик миньонов | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **+1 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Пилиум (знаковая способность)**\n>\n> | **Ближний бой, дальний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------------------------|---------------------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** До начала следующего хода велеса цель не может совершать атаки по возможности против кобольдов.\n\n> ⭐️ **Щит? Щит!**\n>\n> Пока велес находится [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с союзником, у которого тоже есть эта черта, его Устойчивость равна 1, у него есть укрытие, и он даёт укрытие союзникам.\n",
+  "source": {
+    "articleId": "monsters.monster.kobold.statblock.kobold-veles",
+    "path": "Monsters/monster/kobold/statblock/kobold-veles.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-veles",
+  "originalName": "Kobold Veles",
+  "originalDescription": "| Humanoid, Kobold  |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |  **6**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> ⚔️ **Pilium (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** Until the start of the veles's next turn, the target can't make opportunity attacks against any kobold.\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the veles has stability 1, has cover, and grants cover to allies.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-veles.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

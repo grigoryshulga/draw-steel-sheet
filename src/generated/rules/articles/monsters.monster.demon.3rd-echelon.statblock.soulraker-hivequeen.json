@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.3rd-echelon.statblock.soulraker-hivequeen",
+      "title": "Королева улья душедёров",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/3rd-echelon/statblock/soulraker-hivequeen.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/soulraker-hivequeen",
+      "originalName": "Soulraker Hivequeen",
+      "originalDescription": "| Abyssal, Demon, Soulraker |          -          |      Level 9       |        Leader         |          EV 44           |\n|:-------------------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n|       **5**<br>Size       |   **6**<br>Speed    | **240**<br>Stamina |  **2**<br>Stability   |   **9**<br>Free Strike   |\n|     **-**<br>Immunity     | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|      **+5**<br>Might      |  **-1**<br>Agility  |  **+3**<br>Reason  |  **+3**<br>Intuition  |    **+2**<br>Presence    |\n\n> ⚔️ **Stinging Ovipositor (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|---------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 Two creatures** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 poison damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 19 poison damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 23 poison damage; M < 5 the target is implanted\n>\n> **Effect:** An implanted target has a soulraker handmaiden parasite gestating in them (see the handmaiden's Implanted Parasite trait).\n\n> ❇️ **Forced Gestation (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**        |                                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------------------------------:|\n> | **📏 10 burst** | **🎯 Each implanted handmaiden parasite in the area** |\n>\n> **Effect:** The hivequeen lets loose a subsonic call to each target, forcing them to immediately emerge from their host's body as a mature soulraker handmaiden and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **For the Queen! (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 5 burst** |       **🎯 Special** |\n>\n> **Trigger:** The hivequeen is targeted by a strike for the second time on an attacker's turn, whether by the attacker or another creature acting on the attacker's turn.\n>\n> **Effect:** Two soulraker [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) appear within distance.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A soulraker praetorian also appears within distance.\n\n> ⭐️ **Cannibal Queen**\n>\n> At the end of their turn, the hivequeen can consume an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) soulraker demon to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) (no action required).\n\n> ⭐️ **Hive Soulsight**\n>\n> Any creature within 2 squares of a soulraker demon within 100 miles of the hivequeen can't be hidden from the hivequeen. The hivequeen has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to such creatures.\n\n> ☠️ **Kicking the Nest (Villain Action 1)**\n>\n> | **Area**        |                                    **-** |\n> |-----------------|-----------------------------------------:|\n> | **📏 10 burst** | **🎯 Each soulraker minion in the area** |\n>\n> **Effect:** Each target can move their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If no [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) are present, four soulraker [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) are summoned into unoccupied spaces within distance before the hivequeen uses this [villain action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action).\n\n> ☠️ **Buzz Off! (Villain Action 2)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** Push 3; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** Push 3; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 11 sonic damage; push 3; I < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The hivequeen [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to her speed.\n\n> ☠️ **Bomber Wasp Warfare (Villain Action 3)**\n>\n> | **Area, Magic, Ranged**       |                         **-** |\n> |-------------------------------|------------------------------:|\n> | **📏 Four 2 cubes within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 poison damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 poison damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 14 poison damage; M < 5 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/3rd-echelon/statblock/soulraker-hivequeen.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "5",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Душедёр"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.3rd-echelon.statblock.soulraker-hivequeen"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.3rd-echelon.statblock.soulraker-hivequeen",
+      "kind": "monster",
+      "name": "Королева улья душедёров",
+      "markdown": "| Бездны, Демон, Душедёр | - | Уровень 9 | Лидер | Боевая ценность 44 |\n|:-------------------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n| **5**<br>Размер | **6**<br>Скорость | **240**<br>Выносливость | **2**<br>Устойчивость | **9**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полет**<br>Движение | - | **-**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+5**<br>Мощь | **-1**<br>Ловкость | **+3**<br>Разум | **+3**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⚔️ **Жалящий яйцеклад (знаковая способность)**\n>\n> | **Магия, Ближний, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|---------------------:|\n> | **📏 Ближний бой 1 или дальний бой 10** | **🎯 Два существа** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 14 урона ядом; при **М < 3** — [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12–16:** 19 урона ядом; при **М < 4** — [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 23 урона ядом; при **М < 5** в цель внедряется паразит\n>\n> **Эффект:** В этой цели развивается паразит-служанка душедёров (см. черту «Внедрённый паразит» служанки).\n\n> ❇️ **Принудительное развитие (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый внедрённый паразит-служанка в области** |\n>\n> **Эффект:** Королева издаёт низкочастотный зов для каждой цели, заставляя её немедленно выйти из тела носителя уже зрелой служанкой душедёров и нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❗️ **За королеву! (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Взрыв 5** | **🎯 Особое** |\n>\n> **Условие:** Королева становится целью удара во второй раз за ход атакующего — со стороны самого атакующего или другого существа, действующего в его ход.\n>\n> **Эффект:** В пределах дистанции появляются два [миньона](#/codex/monsters.rule.organization.minion)-душедёра.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** В пределах дистанции также появляется преторианец-душедёр.\n\n> ⭐️ **Королева-людоедка**\n>\n> В конце своего хода королева может съесть демона-душедёра, [смежного с королевой](#/catalog/glossary#term-glossary.adjacent), чтобы прекратить один эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw) (без действия).\n\n> ⭐️ **Зрение улья**\n>\n> Ни одно существо в пределах 2 клеток от демона-душедёра, находящегося не далее 100 миль от королевы, не может скрыться от неё. Королева имеет [линию воздействия](#/catalog/glossary#term-glossary.line-of-effect) на таких существ.\n\n> ☠️ **Разворошить улей (действие злодея 1)**\n>\n> | **Область** | **-** |\n> |-----------------|-----------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый миньон-душедёр в области** |\n>\n> **Эффект:** Каждая цель может переместиться на расстояние до своей Скорости и нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если [миньонов](#/codex/monsters.rule.organization.minion) нет, перед применением этого [действия злодея](#/codex/monsters.rule.monster.villain-action) королева призывает четырёх [миньонов](#/codex/monsters.rule.organization.minion)-душедёров в свободные пространства в пределах дистанции.\n\n> ☠️ **А ну пошли! (действие злодея 2)**\n>\n> | **Область** | **-** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** Толчок 3; при **И < 3** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12–16:** Толчок 3; при **И < 4** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 11 урона звуком; толчок 3; при **И < 5** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Королева [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> ☠️ **Тактика бомбардировочных ос (действие злодея 3)**\n>\n> | **Область, Магия, Дальний** | **-** |\n> |-------------------------------|------------------------------:|\n> | **📏 Четыре куба 2 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона ядом; при **М < 3** — [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12–16:** 11 урона ядом; при **М < 4** — [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 14 урона ядом; при **М < 5** — [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n",
+      "source": {
+        "articleId": "monsters.monster.demon.3rd-echelon.statblock.soulraker-hivequeen",
+        "path": "Monsters/monster/demon/3rd-echelon/statblock/soulraker-hivequeen.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/soulraker-hivequeen",
+      "originalName": "Soulraker Hivequeen",
+      "originalDescription": "| Abyssal, Demon, Soulraker |          -          |      Level 9       |        Leader         |          EV 44           |\n|:-------------------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n|       **5**<br>Size       |   **6**<br>Speed    | **240**<br>Stamina |  **2**<br>Stability   |   **9**<br>Free Strike   |\n|     **-**<br>Immunity     | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|      **+5**<br>Might      |  **-1**<br>Agility  |  **+3**<br>Reason  |  **+3**<br>Intuition  |    **+2**<br>Presence    |\n\n> ⚔️ **Stinging Ovipositor (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|---------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 Two creatures** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 poison damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 19 poison damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 23 poison damage; M < 5 the target is implanted\n>\n> **Effect:** An implanted target has a soulraker handmaiden parasite gestating in them (see the handmaiden's Implanted Parasite trait).\n\n> ❇️ **Forced Gestation (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**        |                                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------------------------------:|\n> | **📏 10 burst** | **🎯 Each implanted handmaiden parasite in the area** |\n>\n> **Effect:** The hivequeen lets loose a subsonic call to each target, forcing them to immediately emerge from their host's body as a mature soulraker handmaiden and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **For the Queen! (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 5 burst** |       **🎯 Special** |\n>\n> **Trigger:** The hivequeen is targeted by a strike for the second time on an attacker's turn, whether by the attacker or another creature acting on the attacker's turn.\n>\n> **Effect:** Two soulraker [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) appear within distance.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A soulraker praetorian also appears within distance.\n\n> ⭐️ **Cannibal Queen**\n>\n> At the end of their turn, the hivequeen can consume an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) soulraker demon to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) (no action required).\n\n> ⭐️ **Hive Soulsight**\n>\n> Any creature within 2 squares of a soulraker demon within 100 miles of the hivequeen can't be hidden from the hivequeen. The hivequeen has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to such creatures.\n\n> ☠️ **Kicking the Nest (Villain Action 1)**\n>\n> | **Area**        |                                    **-** |\n> |-----------------|-----------------------------------------:|\n> | **📏 10 burst** | **🎯 Each soulraker minion in the area** |\n>\n> **Effect:** Each target can move their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If no [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) are present, four soulraker [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) are summoned into unoccupied spaces within distance before the hivequeen uses this [villain action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action).\n\n> ☠️ **Buzz Off! (Villain Action 2)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** Push 3; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** Push 3; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 11 sonic damage; push 3; I < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The hivequeen [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to her speed.\n\n> ☠️ **Bomber Wasp Warfare (Villain Action 3)**\n>\n> | **Area, Magic, Ranged**       |                         **-** |\n> |-------------------------------|------------------------------:|\n> | **📏 Four 2 cubes within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 poison damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 poison damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 14 poison damage; M < 5 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/3rd-echelon/statblock/soulraker-hivequeen.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "5",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Душедёр"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

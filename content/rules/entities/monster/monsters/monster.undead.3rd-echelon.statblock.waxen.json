@@ -1,0 +1,29 @@
+{
+  "id": "monster.undead.3rd-echelon.statblock.waxen",
+  "kind": "monster",
+  "name": "Восковик",
+  "markdown": "| Нежить, Бездушный | - | Уровень 7 | Орда, Артиллерист | Боевая ценность 9 |\n|:--------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1M**<br>Размер | **4**<br>Скорость | **40**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 7, яд 7**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+4**<br>Мощь | **-2**<br>Ловкость | **-4**<br>Разум | **+1**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🏹 **Бросок воска ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 Дальний бой 15** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 11 урона\n> - **17+:** 12 урона; при Л < 4 цель [замедлена](scc.v1:mcdm.heroes.v1/condition/slowed) (до прох.)\n>\n> **Эффект:** Если цель, которую таким образом [замедлили](scc.v1:mcdm.heroes.v1/condition/slowed), уже [замедлена](scc.v1:mcdm.heroes.v1/condition/slowed), вместо этого она становится [опутанной](scc.v1:mcdm.heroes.v1/condition/restrained) (до прох.).\n\n> ❇️ **Взрыв (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область, Магия** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Если восковик подожжён (см. «Гореть ярко»), перед применением этой способности он [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до своей скорости. Каждая цель проходит **тест Ловкости**.\n>\n> - **≤11:** 10 урона\n> - **12-16:** 8 урона\n> - **17+:** 5 урона\n>\n> После этого восковик уничтожается, а область становится [труднопроходимой местностью](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) для врагов.\n\n> ⭐️ **Гореть ярко**\n>\n> Если восковик получает урон огнём, он загорается. Пока он горит, в начале каждого своего хода восковик получает 4 урона огнём, а его [удары](scc.v1:mcdm.heroes.v1/rule.combat/strike) наносят дополнительно 4 урона огнём.\n",
+  "source": {
+    "articleId": "monsters.monster.undead.3rd-echelon.statblock.waxen",
+    "path": "Monsters/monster/undead/3rd-echelon/statblock/waxen.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/waxen",
+  "originalName": "Waxen",
+  "originalDescription": "|            Undead, Soulless            |         -         |      Level 7      |    Horde Artillery    |         EV 9         |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |  **4**<br>Speed   | **40**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+4**<br>Might             | **-2**<br>Agility | **-4**<br>Reason  |  **+1**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🏹 **Wax Fling ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 11 damage\n> - **17+:** 12 damage; A < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ❇️ **Erupt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** If the waxen is ignited (see Burn Bright), they [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed before using this ability. Each target makes an **Agility test**.\n>\n> - **≤11:** 10 damage\n> - **12-16:** 8 damage\n> - **17+:** 5 damage\n>\n> The waxen is then destroyed and the area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ⭐️ **Burn Bright**\n>\n> If the waxen takes fire damage, they ignite. While ignited, the waxen takes 4 fire damage at the start of each of their turns and their [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) deal an extra 4 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/3rd-echelon/statblock/waxen.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Артиллерист",
+    "organization": "Орда"
+  }
+}

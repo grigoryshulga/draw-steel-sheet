@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.devil-defector",
+      "title": "Дьявол-перебежчик",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/devil-defector.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/devil-defector",
+      "originalName": "Devil Defector",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 5      |    Hexer Retainer     |         EV -         |\n|:----------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **57**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  | **+3**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Black Flame (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 corruption or fire damage\n> - **12-16:** 10 corruption or fire damage\n> - **17+:** 13 corruption or fire damage\n\n> ❗️ **Tempting Offer (Encounter)**\n>\n> | **Ranged, Strike** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Ranged 10**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A sapient enemy is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The defector makes an offer to keep the target alive. If the target accepts, they are reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead. On the target's next turn, the defector controls their move action and the target must use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against a creature of the defector's choice or immediately die. To have the target turn down the offer, the Diretor must spend 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the defector's true name, the defector loses their damage immunities and their Tempting Offer triggered action until the end of the encounter.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/devil-defector.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Проклинатель",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.devil-defector"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.devil-defector"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.hexer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.devil-defector",
+          "title": "Дьявол-перебежчик: особенности развития"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.hexer",
+          "title": "Способности проклинателя"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.devil-defector",
+      "kind": "retainer",
+      "name": "Дьявол-перебежчик",
+      "markdown": "| Дьявол, Адский | - | Уровень 5 | Помощник-проклинатель | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **6**<br>Скорость | **57**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+3**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Чёрное пламя (Знаковая способность)**\n>\n> | **Магия, дальний бой, удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона порчей или огнём\n> - **12-16:** 10 урона порчей или огнём\n> - **17+:** 13 урона порчей или огнём\n\n> ❗️ **Заманчивое предложение (столкновение)**\n>\n> | **Дальний бой, удар** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Дальний бой 10** | **🎯 Существо, вызвавшее активацию** |\n>\n> **Условие:** [Выносливость](#/catalog/glossary#term-glossary.stamina) разумного врага снижается до 0.\n>\n> **Эффект:** Перебежчик предлагает сохранить цели жизнь. Если цель соглашается, её [Выносливость](#/catalog/glossary#term-glossary.stamina) вместо этого снижается до 1. В следующий ход цели перебежчик управляет её действием движения, а цель должна использовать [фирменную способность](#/catalog/glossary#term-glossary.signature-ability) против существа по выбору перебежчика или немедленно умереть. Чтобы цель отвергла предложение, Ведущий должен потратить 3 [Раздора](#/codex/monsters.rule.monster.malice).\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя перебежчика, тот теряет свои иммунитеты к урону и триггерное действие «Заманчивое предложение» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.devil-defector",
+        "path": "Monsters/monster/retainer/statblock/devil-defector.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/devil-defector",
+      "originalName": "Devil Defector",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 5      |    Hexer Retainer     |         EV -         |\n|:----------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **57**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  | **+3**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Black Flame (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 corruption or fire damage\n> - **12-16:** 10 corruption or fire damage\n> - **17+:** 13 corruption or fire damage\n\n> ❗️ **Tempting Offer (Encounter)**\n>\n> | **Ranged, Strike** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Ranged 10**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A sapient enemy is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The defector makes an offer to keep the target alive. If the target accepts, they are reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead. On the target's next turn, the defector controls their move action and the target must use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against a creature of the defector's choice or immediately die. To have the target turn down the offer, the Diretor must spend 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the defector's true name, the defector loses their damage immunities and their Tempting Offer triggered action until the end of the encounter.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/devil-defector.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Проклинатель",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.devil-defector",
+      "kind": "monster-feature",
+      "name": "Дьявол-перебежчик: особенности развития",
+      "markdown": "> **Способность развития помощника 7-го уровня**\n\n> 🔳 **Пламя возмездия (Столкновение)**\n>\n> | **Область, Магия, Дальний** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона порчей\n> - **12-16:** 10 урона порчей\n> - **17+:** 14 урона порчей\n>\n> **Эффект:** Если Наставник перебежчика находится в области, он горит пламенем до конца следующего хода перебежчика. Пока горит это пламя, Наставник получает иммунитет к огню 10, а любое существо, выбравшее Наставника целью удара, получает 10 урона огнём.\n\n> **Способность развития помощника 10-го уровня**\n\n> 🔳 **Ад на земле (Столкновение)**\n>\n> | **Область, Магия, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|----------------:|\n> | **📏 Куб 5 в пределах 10**  | **🎯 Особое** |\n>\n> **Эффект:** Область пылает адским огнём до конца следующего хода дьявола. Каждый враг перебежчика, заканчивающий свой ход в области, получает 10 урона огнём; если у него П < СРЕДНИЙ, он получает [испуг](#/catalog/glossary#term-glossary.frightened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw); до прох.).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.devil-defector",
+        "path": "Monsters/monster/retainer/advancement-features/devil-defector.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/devil-defector",
+      "originalName": "Devil Defector Advancement Features",
+      "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Flames of Revenge (Encounter)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 corruption damage\n> - **12-16:** 10 corruption damage\n> - **17+:** 14 corruption damage\n>\n> **Effect:** If the defector's mentor is in the area, the mentor burns with flame until the end of the defector's next turn. While this fire burns the mentor has fire immunity 10, and any creature who targets the mentor with a strike takes 10 fire damage.\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🔳 **Hell On Earth (Encounter)**\n>\n> | **Area, Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|----------------:|\n> | **📏 5 cube within 10** |  **🎯 Special** |\n>\n> **Effect:** The area burns with infernal fire until the end of the devil's next turn. Any enemy of the defector who ends their turn in the area takes 10 fire damage, and if they have P < AVERAGE they are [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/devil-defector.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.hexer",
+      "kind": "monster-feature",
+      "name": "Способности проклинателя",
+      "markdown": "> **Способность развития роли 4-го уровня**\n>\n> 🏹 **Проклятие отдачи (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------:|\n> | **📏 Дальний 10**        | **🎯 Один враг** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 2 урона порчей; цель проклята (КсХ)\n> - **12-16:** 5 урона порчей; цель проклята (КсХ)\n> - **17+:** 7 урона порчей; цель проклята (КсХ)\n>\n> **Эффект:** Пока цель проклята таким образом, всякий раз, когда она совершает удар, нацеленный только на одно существо, помощник может свободным триггером выбрать вторую цель этого удара в пределах его дальности.\n\n> **Способность развития роли 7-го уровня**\n>\n> 🏹 **Пустить корни (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------:|\n> | **📏 Дальний 10**        | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона; если М < СЛАБЫЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 9 урона; если М < СРЕДНИЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 12 урона; если М < СИЛЬНЫЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Пока цель [замедлена](#/catalog/glossary#term-glossary.slowed) таким образом, если она заканчивает ход и в этот ход не перемещалась, [замедление](#/catalog/glossary#term-glossary.slowed) прекращается, а цель становится [опутанной](#/catalog/glossary#term-glossary.restrained) ([до прох.](#/catalog/glossary#term-glossary.saving-throw)).\n\n> **Способность развития роли 10-го уровня**\n>\n> 🏹 **Лабиринт (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------:|\n> | **📏 Дальний 10**        | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; если М < СЛАБЫЙ, цель попадает в лабиринт (до прох.)\n> - **12-16:** 11 урона; если М < СРЕДНИЙ, цель попадает в лабиринт (до прох.)\n> - **17+:** 16 урона; если М < СИЛЬНЫЙ, цель попадает в лабиринт (до прох.)\n>\n> **Эффект:** Пока цель находится в лабиринте, она [оглушена](#/catalog/glossary#term-glossary.dazed). Кроме того, в конце каждого хода такой цели помощник может заставить её переместиться на расстояние до её Скорости по прямой в направлении по выбору помощника. Это не [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement), и оно заканчивается, если цель должна войти на [труднопроходимую](#/catalog/glossary#term-glossary.difficult-terrain) или опасную местность.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.hexer",
+        "path": "Monsters/monster/retainer/role-advancement/hexer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/hexer",
+      "originalName": "Hexer Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🏹 **Backfire Curse (Encounter)**\n>\n> | **Magic, Ranged, Strike** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------:|\n> | **📏 Ranged 10**          | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 2 corruption damage; the target is cursed (EoT)\n> - **12-16:** 5 corruption damage; the target is cursed (EoT)\n> - **17+:** 7 corruption damage; the target is cursed (EoT)\n>\n> **Effect:** While the target is cursed this way, whenever they make a strike that targets only one creature, the retainer can use a free triggered action to choose a second target for the strike within its distance.\n\n> **Level 7 Role Advancement Ability**\n\n> 🏹 **Take Root (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage; M < WEAK [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; M < AVERAGE [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; M < STRONG [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** While the target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, if they end their turn without moving on that turn, they are no longer [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n\n> **Level 10 Role Advancement Ability**\n\n> 🏹 **Mazed (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; if the target has M < WEAK they are mazed (save ends)\n> - **12-16:** 11 damage; if the target has M < AVERAGE they are mazed (save ends)\n> - **17+:** 16 damage; if the target has M < STRONG they are mazed (save ends)\n>\n> **Effect:** While mazed, the target is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed). Additionally, at the end of each of the mazed target's turns, the retainer can cause the target to move up to their speed in a straight line in a direction of the retainer's choice. This is not [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement), and the movement ends if it would cause the target to enter [difficult](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) or damaging terrain.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/hexer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

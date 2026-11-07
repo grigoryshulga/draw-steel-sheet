@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.xorannox-the-tyract.statblock.zapper-eye",
+      "title": "Глаз-разрядник",
+      "chapter": "23. Бестиарий",
+      "group": "Ксораннокс Тиракт",
+      "path": "Monsters/monster/xorannox-the-tyract/statblock/zapper-eye.md",
+      "originalId": "mcdm.monsters.v1/monster.xorannox-the-tyract.statblock/zapper-eye",
+      "originalName": "Zapper Eye",
+      "originalDescription": "| Eyestalk, Horror, Overmind |             -              |     Level 6       |       Artillery       |         EV -         |\n|:--------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size       |       **5**<br>Speed       | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|     **-**<br>Immunity      | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |   **-**<br>Weakness  |\n|      **-1**<br>Might       |     **+1**<br>Agility      |  **+4**<br>Reason |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🔳 **Lightning Beam ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Psionic**           |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 lightning damage\n> - **12-16:** 10 lightning damage\n> - **17+:** 13 lightning damage\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> ⭐️ **Psionic Barrier**\n>\n> The zapper eye has damage immunity 15. When they use a main action, they lose this immunity until the end of the round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/xorannox-the-tyract/statblock/zapper-eye.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "xorannox-the-tyract",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Глазоножка",
+          "Ужас",
+          "Сверхразум"
+        ],
+        "role": "Артиллерист"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.xorannox-the-tyract.statblock.zapper-eye"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.xorannox-the-tyract",
+          "title": "Ксораннокс Тиракт"
+        },
+        {
+          "id": "monsters.monster.xorannox-the-tyract.xorannoxs-malice",
+          "title": "Раздор Ксораннокса"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.xorannox-the-tyract.statblock.zapper-eye",
+      "kind": "monster",
+      "name": "Глаз-разрядник",
+      "markdown": "| Глазоножка, Ужас, Сверхразум |             -              |     Уровень 6       |       Артиллерист       | Боевая ценность - |\n|:--------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Размер      |       **5**<br>Скорость      | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|   **-**<br>Иммунитет   | **Полёт, парение**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|    **-1**<br>Мощь     |     **+1**<br>Ловкость      | **+4**<br>Разум | **+1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🔳 **Луч молнии ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Область, Псионика**           |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 Линия 10 x 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона молнией\n> - **12-16:** 10 урона молнией\n> - **17+:** 13 урона молнией\n>\n> **Эффект:** Каждая цель теряет все свои [всплески](#/catalog/glossary#term-glossary.surge).\n\n> ⭐️ **Псионический барьер**\n>\n> У Глаза-разрядника иммунитет к урону 15. Когда он использует основное действие, этот иммунитет пропадает до конца раунда.\n",
+      "source": {
+        "articleId": "monsters.monster.xorannox-the-tyract.statblock.zapper-eye",
+        "path": "Monsters/monster/xorannox-the-tyract/statblock/zapper-eye.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.xorannox-the-tyract.statblock/zapper-eye",
+      "originalName": "Zapper Eye",
+      "originalDescription": "| Eyestalk, Horror, Overmind |             -              |     Level 6       |       Artillery       |         EV -         |\n|:--------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size       |       **5**<br>Speed       | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|     **-**<br>Immunity      | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |   **-**<br>Weakness  |\n|      **-1**<br>Might       |     **+1**<br>Agility      |  **+4**<br>Reason |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🔳 **Lightning Beam ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Psionic**           |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 lightning damage\n> - **12-16:** 10 lightning damage\n> - **17+:** 13 lightning damage\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> ⭐️ **Psionic Barrier**\n>\n> The zapper eye has damage immunity 15. When they use a main action, they lose this immunity until the end of the round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/xorannox-the-tyract/statblock/zapper-eye.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "xorannox-the-tyract",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Глазоножка",
+          "Ужас",
+          "Сверхразум"
+        ],
+        "role": "Артиллерист"
+      }
+    }
+  ]
+}

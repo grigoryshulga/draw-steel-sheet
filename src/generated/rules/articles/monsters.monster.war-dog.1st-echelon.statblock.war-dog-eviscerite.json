@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.1st-echelon.statblock.war-dog-eviscerite",
+      "title": "Пёс войны-эвисцерит",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/1st-echelon/statblock/war-dog-eviscerite.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon.statblock/war-dog-eviscerite",
+      "originalName": "War Dog Eviscerite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 1      |     Horde Harrier     |         EV 3         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Chainsaw Whip ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The eviscerite can automatically [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) a target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them this way.\n\n> 🏹 **Posthumous Promotion**\n>\n> | **Magic, Ranged** |       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-------------------:|\n> | **📏 Ranged 10**  | **🎯 One war dog** |\n>\n> **Effect:** If the target has a loyalty collar, they are reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Loyalty Collar**\n>\n> When the eviscerite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/1st-echelon/statblock/war-dog-eviscerite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.1st-echelon.statblock.war-dog-eviscerite"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.1st-echelon.statblock.war-dog-eviscerite",
+      "kind": "monster",
+      "name": "Пёс войны-эвисцерит",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |      Уровень 1      |      Орда Налётчик      |         Боевая ценность 3         |\n|:---------------------------:|:-----------------:|:-----------------:|:-----------------------:|:--------------------:|\n|       **1M**<br>Размер      |  **7**<br>Скорость   | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n|      **-**<br>Иммунитет     | **-**<br>Перемещение |         -         | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|       **+1**<br>Мощь        | **+2**<br>Ловкость | **0**<br>Разум  | **0**<br>Интуиция | **0**<br>Присутствие   |\n\n> 🗡 **Хлыст-бензопила ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-------------------------------:|\n> | **📏 Ближний бой 3**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона; [притягивание](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **17+:** 5 урона; [притягивание](#/catalog/glossary#term-glossary.forced-movement) на 2\n>\n> **Эффект:** Эвисцерит может автоматически [схватить](#/catalog/glossary#term-glossary.grabbed) цель, которую таким способом [притянул](#/catalog/glossary#term-glossary.forced-movement) к себе [вплотную](#/catalog/glossary#term-glossary.adjacent).\n\n> 🏹 **Посмертное повышение**\n>\n> | **Магия, Дальний бой** |       **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|-------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Один пёс войны** |\n>\n> **Эффект:** Если у цели есть ошейник преданности, её [Выносливость](#/catalog/glossary#term-glossary.stamina) снижается до 0.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) эвисцерита снижается до 0, его ошейник преданности взрывается и наносит 1d6 урона каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу и объекту.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.1st-echelon.statblock.war-dog-eviscerite",
+        "path": "Monsters/monster/war-dog/1st-echelon/statblock/war-dog-eviscerite.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon.statblock/war-dog-eviscerite",
+      "originalName": "War Dog Eviscerite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 1      |     Horde Harrier     |         EV 3         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Chainsaw Whip ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The eviscerite can automatically [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) a target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them this way.\n\n> 🏹 **Posthumous Promotion**\n>\n> | **Magic, Ranged** |       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-------------------:|\n> | **📏 Ranged 10**  | **🎯 One war dog** |\n>\n> **Effect:** If the target has a loyalty collar, they are reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Loyalty Collar**\n>\n> When the eviscerite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/1st-echelon/statblock/war-dog-eviscerite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

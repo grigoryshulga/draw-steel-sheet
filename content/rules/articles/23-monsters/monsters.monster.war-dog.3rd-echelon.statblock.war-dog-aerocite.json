@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-aerocite",
+  "title": "Пёс войны-аэроцит",
+  "chapter": "23. Бестиарий",
+  "group": "Псы войны",
+  "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-aerocite.md",
+  "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-aerocite",
+  "originalName": "War Dog Aerocite",
+  "originalDescription": "| Humanoid, Soulless, War Dog |          -          |      Level 8      |     Horde Harrier     |        EV 10         |\n|:---------------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |   **8**<br>Speed    | **50**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|      **-**<br>Immunity      | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **0**<br>Might        |  **+4**<br>Agility  | **+1**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Dive Bomb ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** An enemy [forced moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) by this ability is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) instead.\n\n> 🔳 **Caustic Paste Bomb (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-------------------------------------------:|\n> | **📏 3 cube within 5**  | **🎯 Each creature or object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 2 acid damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 4 acid damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 6 acid damage; M < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Jetwing Agility**\n>\n> If the aerocite moves 5 or more squares on their turn, strikes made against them take a bane until the start of their next turn.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the aerocite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 3d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-aerocite.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.war-dog.3rd-echelon.statblock.war-dog-aerocite"
+    }
+  ]
+}

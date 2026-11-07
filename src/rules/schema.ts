@@ -1,5 +1,18 @@
 import type { CompendiumAbility, OriginalFields } from '../types';
-export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'career' | 'kit' | 'perk' | 'item' | 'project' | 'title';
+export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'career' | 'kit' | 'perk' | 'item' | 'project' | 'title' | 'monster' | 'retainer' | 'terrain' | 'monster-feature' | 'monster-lore' | 'monster-rule';
+export interface DirectorMetadata {
+  section: 'rules' | 'monsters' | 'retainers' | 'terrain';
+  groupSlug: string;
+  recordType: string;
+  sourcePath: string;
+  sourceRevision: string;
+  level?: number;
+  ev?: string;
+  role?: string;
+  organization?: string;
+  size?: string | number;
+  keywords?: string[];
+}
 export interface RuleEntity extends OriginalFields {
   id: string; // namespaced stable identity; not derived anew from translated names
   kind: RuleEntityKind;
@@ -7,6 +20,7 @@ export interface RuleEntity extends OriginalFields {
   markdown: string; // complete original rule block; never the lossy ability summary
   source: { articleId: string; path: string };
   ability?: CompendiumAbility; // structured projection when reliably mapped
+  director?: DirectorMetadata;
 }
 export type RuleBlock = { type: 'markdown'; text: string } | { type: 'entity'; ref: string };
 export interface RuleArticle extends OriginalFields {
@@ -16,6 +30,8 @@ export interface RuleArticle extends OriginalFields {
   group: string;
   path: string;
   blocks: RuleBlock[];
+  director?: DirectorMetadata;
+  related?: { id: string; title: string }[];
 }
 export interface RulePack {
   schemaVersion: 1;
@@ -36,6 +52,7 @@ export interface RuleIndexEntry {
   headings: { id: string; title: string; level: number }[];
   /** Есть ли в статье хоть какой-то текст; заменяет проверку пустого searchText. */
   hasText: boolean;
+  director?: Omit<DirectorMetadata, 'sourcePath' | 'sourceRevision'> & { originalName: string };
 }
 export interface RuleManifest {
   schemaVersion: 1;

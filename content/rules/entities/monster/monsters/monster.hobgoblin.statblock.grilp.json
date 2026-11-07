@@ -1,0 +1,30 @@
+{
+  "id": "monster.hobgoblin.statblock.grilp",
+  "kind": "monster",
+  "name": "Грилп",
+  "markdown": "| Дьявол, Хобгоблин, Адский |          -          |     Уровень 4      |            Миньон Засадник            | Боевая ценность 6 за четырёх миньонов |\n|:--------------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|       **1T**<br>Размер       |   **7**<br>Скорость    | **8**<br>Выносливость |          **0**<br>Устойчивость           | **3**<br>Свободный удар  |\n|   **Огонь 2**<br>Иммунитет   | **Полёт**<br>Движение |        -         | **+2 бонус к Скорости**<br>С капитаном |   **-**<br>Уязвимость   |\n|      **-1**<br>Мощь       |  **+3**<br>Ловкость  | **0**<br>Разум  |          **+1**<br>Интуиция          |   **0**<br>Присутствие   |\n\n> 🗡 **Укус на пролёте (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**            | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона; грилп [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) не более чем на 2 клетки\n>\n> **Эффект:** Грилп перемещается на расстояние до своей Скорости и может попытаться спрятаться.\n\n> ⭐️ **Прямиком из ада**\n>\n> Каждый враг, совершающий спасбросок, получает штраф −1 к спасброску за каждого грилпа, [смежного](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с ним.\n\n> ⭐️ **Изменчивый камуфляж**\n>\n> Грилп находится под покровом от всех существ.\n",
+  "source": {
+    "articleId": "monsters.monster.hobgoblin.statblock.grilp",
+    "path": "Monsters/monster/hobgoblin/statblock/grilp.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/grilp",
+  "originalName": "Grilp",
+  "originalDescription": "| Devil, Hobgoblin, Infernal |          -          |     Level 4      |            Minion Ambusher            | EV 6 for four minions |\n|:--------------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|       **1T**<br>Size       |   **7**<br>Speed    | **8**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n|   **Fire 2**<br>Immunity   | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|      **-1**<br>Might       |  **+3**<br>Agility  | **0**<br>Reason  |          **+1**<br>Intuition          |   **0**<br>Presence   |\n\n> 🗡 **Flyby Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; the grilp [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n>\n> **Effect:** The grilp moves up to their speed and can attempt to hide.\n\n> ⭐️ **Bat Out Of Hell**\n>\n> Any enemy who makes a saving throw takes a −1 penalty to the saving throw for each grilp [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ⭐️ **Shifting Camouflage**\n>\n> The grilp has concealment from all creatures.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/hobgoblin/statblock/grilp.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "hobgoblin",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6 for four minions",
+    "size": "1T",
+    "keywords": [
+      "Дьявол",
+      "Хобгоблин",
+      "Адский"
+    ],
+    "role": "Засадник",
+    "organization": "Миньон"
+  }
+}

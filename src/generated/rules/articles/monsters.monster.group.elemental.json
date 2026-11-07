@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.elemental",
+      "title": "Элементали",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/group/elemental.md",
+      "originalId": "mcdm.monsters.v1/monster.group/elemental",
+      "originalName": "Elementals",
+      "originalDescription": "When the gods formed the mundane world, they took sparks of creation from the roiling plane of Quintessence and gave sentience to some of the multiverse's most basic elements—air, earth, fire, and water. Many [elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) contain just one of these components, but can come to embody multiple reagents as they age.\n\n#### Duality of Form\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) are mercurial creatures of creation, destruction, and transformation. Though the deities first created the mundane world, elementals cultivated and shaped it. When a tree, stone, or other aspect of the world doesn't suit an elemental, they break it down with elemental fury then build it anew.\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) change like the winds and the tides, and from age to age, they remake themselves to reflect what the world has become. They are protectors armored by stone, lizards ablaze with fire, and sometimes [dragons](scc.v1:mcdm.monsters.v1/monster.group/dragon) clad in steel.\n\n#### Rebirth and Reformation\n\nWhen an elemental dies in the mundane world, their spirit returns to Quintessence, where they must rest for decades to regain their strength. Should the spirit return to the mundane world, they take on a form that reflects a creature or other aspect of that plane.\n\n#### Crux of Fire\n\nCruxes of fire, often called blazecasters, take the form of fiery lizards. They commonly live in hot zones of planar convergence or areas of volcanic activity. These territorial elementals usually question interlopers from afar—and if they don't like the answers, they rain down fire before their foes can draw near.\n\nThough many elementals weave their innate gifts into oral storytelling, cruxes of fire are particularly adroit at animating their stories in silhouettes of flame.\n\n#### Essence of Storms\n\nAt a distance, most would mistake an essence of storms, sometimes known as a galeweaver, for a large bird of prey. This majestic creature is formed from streaks of colored cloud stuff woven into the silhouette of a large eagle or falcon.\n\nGaleweavers act as scouts for their handlers or for groups of elementals, and they're usually the first to spot trouble. Insatiably curious, an essence of storms often swoops down to talk when they observe travelers.\n\n#### Essence of Tides\n\nAn essence of tides looks like a shimmering blue manta ray that glides over land as easily as through water, earning them the common name of tidedrifter. Most common along coastlines, essences of tides enjoy harmless pranks, especially against folk who regularly sail or swim in their waters.\n\nTidedrifters have a healthy sense of humor that makes it easy to win their friendship—but their relaxed demeanor evaporates if friends or family face threats.\n\n#### Field of Growth\n\nThe field of growth takes the form of a massive centipede made of vegetation. Often called verdant primevals, these caretakers of the natural cycle of life (and death) fight those they see as upsetting that cycle. Fields of growth seek not only to destroy undead and those who create them, but to sabotage divine servitors who casually peddle resurrection magic.\n\n#### Force of Earth\n\nA protective earth elemental, a force of earth resembles a nine-foot-tall great ape formed of dirt and rough stone. They act as guardians and historians when among other elementals, working tirelessly to thwart ills from befalling the group. These elementals are sometimes called earthen bulwarks.\n\n#### Elemental Languages\n\nMost elementals speak Low Kuric. Some can use Caelian when they need to.\n\n> It is in changing that we find purpose.\n>\n> Atæshia, Queen of Ash",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elemental.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.elemental"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.crux-of-fire",
+          "title": "Сердцевина огня"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.essence-of-storms",
+          "title": "Эссенция бурь"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.essence-of-tides",
+          "title": "Эссенция приливов"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.field-of-growth",
+          "title": "Поле роста"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.force-of-earth",
+          "title": "Сила земли"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.elemental",
+      "kind": "monster-lore",
+      "name": "Элементали",
+      "markdown": "Когда боги создавали обыденный мир, они взяли искры творения из бурлящего плана Квинтэссенции и даровали разум некоторым из самых простых элементов мультивселенной — воздуху, земле, огню и воде. Многие [элементали](#/codex/monsters.rule.keyword.elemental) состоят лишь из одного из этих компонентов, но с возрастом могут воплощать несколько стихий.\n\n#### Двойственная природа\n\n[Элементали](#/codex/monsters.rule.keyword.elemental) — изменчивые создания творения, разрушения и преображения. Хотя божества первыми сотворили обыденный мир, элементали возделывали и формировали его. Если дерево, камень или другая часть мира не устраивает элементаля, он с элементальной яростью разрушает её, а затем создаёт заново.\n\n[Элементали](#/codex/monsters.rule.keyword.elemental) меняются, как ветер и приливы, и с каждой эпохой преобразуют себя, отражая перемены мира. Это защитники в каменных доспехах, ящерицы, объятые пламенем, а иногда и [драконы](#/codex/monsters.monster.group.dragon) в стальной чешуе.\n\n#### Возрождение и перерождение\n\nКогда элементаль умирает в обыденном мире, его дух возвращается в Квинтэссенцию, где должен отдыхать десятилетиями, чтобы восстановить силы. Если дух снова приходит в обыденный мир, он принимает форму существа или другой части этого плана.\n\n#### Огненное ядро\n\nОгненные ядра, которых часто называют пламезовами, принимают облик огненных ящериц. Обычно они живут в жарких местах, где сходятся планы, или в районах вулканической активности. Эти территориальные элементали обычно издалека расспрашивают чужаков — а если ответы им не понравятся, обрушивают на врагов пламя, прежде чем те успеют приблизиться.\n\nХотя многие элементали вплетают врождённые дары в устные сказания, огненные ядра особенно искусны в том, чтобы разыгрывать свои истории тенями пламени.\n\n#### Эссенция бурь\n\nИздали большинство примет эссенцию бурь, которую иногда называют ветропрядом, за крупную хищную птицу. Это величественное существо состоит из разноцветных облачных лент, сплетённых в силуэт большого орла или сокола.\n\nВетропряды служат разведчиками своим хозяевам или группам элементалей и обычно первыми замечают опасность. Эссенция бурь ненасытно любопытна и часто спускается поговорить с путниками, которых заметит.\n\n#### Эссенция приливов\n\nЭссенция приливов похожа на мерцающего синего ската, который скользит над землёй так же легко, как в воде; за это её обычно называют приливоскатом. Чаще всего они встречаются у побережий и любят безобидные проделки, особенно с теми, кто часто плавает или ходит под парусом в их водах.\n\nУ приливоскатов здоровое чувство юмора, поэтому с ними легко подружиться. Однако их безмятежность мгновенно исчезает, если друзьям или родным угрожает опасность.\n\n#### Поле роста\n\nПоле роста принимает облик огромной многоножки, сложенной из растений. Эти хранители естественного цикла жизни (и смерти), которых часто называют зелёными первородными, сражаются с теми, кто, по их мнению, нарушает этот цикл. Поля роста стремятся не только уничтожать нежить и тех, кто её создаёт, но и саботировать божественных слуг, небрежно предлагающих магию воскрешения.\n\n#### Сила земли\n\nЗащитный элементаль земли похож на девятифутовую человекообразную обезьяну, сложенную из земли и грубого камня. Среди других элементалей он выступает хранителем и летописцем, неустанно отводя от группы беды. Иногда этих элементалей называют земными оплотами.\n\n#### Языки элементалей\n\nБольшинство элементалей говорит на низком курике. Некоторым при необходимости доступен кэлианский.\n\n> Меняясь, мы обретаем цель.\n>\n> Аташия, Королева Пепла\n",
+      "source": {
+        "articleId": "monsters.monster.group.elemental",
+        "path": "Monsters/monster/group/elemental.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/elemental",
+      "originalName": "Elementals",
+      "originalDescription": "When the gods formed the mundane world, they took sparks of creation from the roiling plane of Quintessence and gave sentience to some of the multiverse's most basic elements—air, earth, fire, and water. Many [elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) contain just one of these components, but can come to embody multiple reagents as they age.\n\n#### Duality of Form\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) are mercurial creatures of creation, destruction, and transformation. Though the deities first created the mundane world, elementals cultivated and shaped it. When a tree, stone, or other aspect of the world doesn't suit an elemental, they break it down with elemental fury then build it anew.\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) change like the winds and the tides, and from age to age, they remake themselves to reflect what the world has become. They are protectors armored by stone, lizards ablaze with fire, and sometimes [dragons](scc.v1:mcdm.monsters.v1/monster.group/dragon) clad in steel.\n\n#### Rebirth and Reformation\n\nWhen an elemental dies in the mundane world, their spirit returns to Quintessence, where they must rest for decades to regain their strength. Should the spirit return to the mundane world, they take on a form that reflects a creature or other aspect of that plane.\n\n#### Crux of Fire\n\nCruxes of fire, often called blazecasters, take the form of fiery lizards. They commonly live in hot zones of planar convergence or areas of volcanic activity. These territorial elementals usually question interlopers from afar—and if they don't like the answers, they rain down fire before their foes can draw near.\n\nThough many elementals weave their innate gifts into oral storytelling, cruxes of fire are particularly adroit at animating their stories in silhouettes of flame.\n\n#### Essence of Storms\n\nAt a distance, most would mistake an essence of storms, sometimes known as a galeweaver, for a large bird of prey. This majestic creature is formed from streaks of colored cloud stuff woven into the silhouette of a large eagle or falcon.\n\nGaleweavers act as scouts for their handlers or for groups of elementals, and they're usually the first to spot trouble. Insatiably curious, an essence of storms often swoops down to talk when they observe travelers.\n\n#### Essence of Tides\n\nAn essence of tides looks like a shimmering blue manta ray that glides over land as easily as through water, earning them the common name of tidedrifter. Most common along coastlines, essences of tides enjoy harmless pranks, especially against folk who regularly sail or swim in their waters.\n\nTidedrifters have a healthy sense of humor that makes it easy to win their friendship—but their relaxed demeanor evaporates if friends or family face threats.\n\n#### Field of Growth\n\nThe field of growth takes the form of a massive centipede made of vegetation. Often called verdant primevals, these caretakers of the natural cycle of life (and death) fight those they see as upsetting that cycle. Fields of growth seek not only to destroy undead and those who create them, but to sabotage divine servitors who casually peddle resurrection magic.\n\n#### Force of Earth\n\nA protective earth elemental, a force of earth resembles a nine-foot-tall great ape formed of dirt and rough stone. They act as guardians and historians when among other elementals, working tirelessly to thwart ills from befalling the group. These elementals are sometimes called earthen bulwarks.\n\n#### Elemental Languages\n\nMost elementals speak Low Kuric. Some can use Caelian when they need to.\n\n> It is in changing that we find purpose.\n>\n> Atæshia, Queen of Ash",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elemental.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

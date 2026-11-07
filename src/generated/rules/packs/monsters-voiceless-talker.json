@@ -1,0 +1,664 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.voiceless-talker",
+      "title": "Безмолвные",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/group/voiceless-talker.md",
+      "originalId": "mcdm.monsters.v1/monster.group/voiceless-talker",
+      "originalName": "Voiceless Talkers",
+      "originalDescription": "Among the most powerful psions in the timescape, synlirii (*sin-LEER-ee*, singular: synliroi) are known as the \"voiceless talkers\" to the denizens of the World Below—and to surface dwellers unfortunate enough to encounter them. Descended from boneless aquatic cephalopods, they are alien in thought and motivation to the humanoid species they loathe. Synlirii consider the \"barking ones\" (their label for creatures who squeeze air through meat flaps to communicate) an abomination that must be corrected.\n\n### Uneasy Alliances\n\nThough synlirii and overminds are hereditary enemies, their mutual obsession with the barking ones often leads to uneasy alliances. Both synlirii and overminds employ humanoids from the World Below as agents, trading lore and technology for information on their surface foes.\n\n### Olothec Hatred\n\nThe synlirii's visceral antipathy toward the barking ones is surpassed only by their deep enmity toward (and fear of) olothec. Ancient myths say that the olothec created both synlirii and overminds. To overminds, this is a harmless fable. But synlirii, who style themselves as the future masters of the timescape, rage against implications that their powers come from any source other than their own superior development.\n\n### Psionic Spies\n\nDespite their mental powers, voiceless talkers consider information their greatest weapon. They use their psionic talents to manipulate memory and perception, obscure their forms, and pass undetected among other cultures.\n\n### Psi-Tech\n\nSynlirii breed mollusks that secrete plastic-like substances, using them to fashion weapons and similar technology powered by psionic crystals. The voiceless talkers' handheld psionic pistols and portable psionic rifles can be activated only by their alien minds.\n\n### Creature Engineers\n\nSynlirii are obsessed with manipulating the natural development of other organisms. They create hulking brains, mindkillers, and other servants using a psionic technique they call the Interlace. Many synlirii experiments don't live long and aren't intended to. But the World Below is littered with unnatural creatures who escaped the voiceless talkers' Body Banks—most of them singular life forms who can't reproduce and might never die.\n\n### Graywarper\n\nGraywarpers are voiceless talkers who were drained of most of their psionic abilities—and free will—as punishment for insolence or incompetence. They are viewed solely as expendable tools who enhance the power of other voiceless talkers.\n\n### Hulking Brain\n\nThe voiceless talkers have engineered pearlescent-skinned, humanoid-shaped horrors with four massive arms and a large pulsing brain in place of a head. Called thylinça by voiceless talkers and hulking brains by everyone else, these creatures serve as bodyguards and psionic batteries for their synlirii creators.\n\n### Mindkiller\n\nFloating clawed brains with a trailing spinal column and nerves, mindkillers serve as the voiceless talkers' pets and lackeys. These amorphous parasites can force themselves into a humanoid's body through the ear, eye, or nose, then devour the victim's central nervous system while replacing it with their own tissue. When the process is complete, the mindkiller gains all the victim's knowledge and memories and can puppet their body, becoming the perfect spy for the mindkiller's synlirii overlords.\n\nMindkiller whelps are a lesser form of mindkiller who can be created in a fraction of the time. While they can't inhabit bodies, their mere presence weakens their foes' mental defenses against psionics.\n\n### Voiceless Talker Languages\n\nMost voiceless talkers communicate telepathically using Mindspeech and speak Variac.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/voiceless-talker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.voiceless-talker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.hulking-brain",
+          "title": "Массивный мозг"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.mindkiller-whelp",
+          "title": "Детёныш убийцы разума"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.mindkiller",
+          "title": "Убийца разума"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-artillerist",
+          "title": "Безмолвный говорун-артиллерист"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-evolutionist",
+          "title": "Безмолвный говорун-эволюционист"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-graywarper",
+          "title": "Безмолвный серый искажатель"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-invader",
+          "title": "Безмолвный захватчик"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.hulking-brain",
+      "title": "Массивный мозг",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/hulking-brain.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/hulking-brain",
+      "originalName": "Hulking Brain",
+      "originalDescription": "| Horror, Voiceless Talker |         -         |      Level 6       |      Elite Brute      |        EV 32         |\n|:------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1L**<br>Size      |  **5**<br>Speed   | **180**<br>Stamina |  **4**<br>Stability   | **7**<br>Free Strike |\n|    **-**<br>Immunity     | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      | **+1**<br>Agility |  **-2**<br>Reason  |  **-2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Four-Way Grasp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------------------:|\n> | **📏 Melee 1**            | **🎯 Four creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Special:** The hulking brain can have up to four size 1 creatures [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **2 Malice:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🗡 **Cerebral Suplex**\n>\n> | **Melee, Strike** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Melee 1**    | **🎯 Each enemy** |\n>\n> **Effect:** A target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the hulking brain, and is no longer [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) after the power roll is resolved.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage; M < 1 3 damage\n> - **12-16:** 10 damage; M < 2 3 damage\n> - **17+:** 13 damage; M < 3 6 damage\n\n> 👤 **Lumber**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The hulking brain [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares, ignoring difficu terrain.\n\n> ❗️ **Brawny Buffe (1 Malice)**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** An ally voiceless talker within 5 squares takes damage from an enemy ability.\n>\n> **Effect:** The hulking brain [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the ally and becomes the new target of the ability.\n>\n> **2 Malice:** The enemy is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Biceps to Spare**\n>\n> The hulking brain can carry up to four size 1 creatures they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and takes no penalty to their speed while doing so.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the hulking brain uses a psionic ability, they can do so as if they were in the hulking brain's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/hulking-brain.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1L",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.hulking-brain"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.mindkiller",
+      "title": "Убийца разума",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/mindkiller.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/mindkiller",
+      "originalName": "Mindkiller",
+      "originalDescription": "| Horror, Voiceless Talker  |             -              |      Level 6       |      Elite Hexer      |        EV 32         |\n|:-------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size       |       **6**<br>Speed       | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Fly, hover**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |     **+3**<br>Agility      |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> ⭐️ **Brain Latch**\n>\n> The mindkiller can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) creatures who are size 4 or smaller, using their Reason score in place of Might. A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller takes a bane on ability rolls made to escape the grab.\n\n> 🗡 **Killer Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 17 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> 🏹 **Concealing Strike (2 Malice)**\n>\n> | **Psionic, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------------:|\n> | **📏 Ranged 5**             | **🎯 Two creatures** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage; R < 1 the mindkiller is invisible to the target (save ends)\n> - **12-16:** 15 damage; R < 2 the mindkiller is invisible to the target (save ends)\n> - **17+:** 18 damage; R < 3 the mindkiller is invisible to the target (save ends)\n\n> 🗡 **Mindwipe**\n>\n> | **Melee, Psionic, Strike** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Melee 1**             | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller. If the target has R < 2, they take a −1 penalty to their Reason, Intuition, or Presence score and the mindkiller has a +1 bonus to the same score, all until the end of the encounter.\n\n> ❗️ **Meat Shield**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The mindkiller takes damage.\n>\n> **Effect:** The mindkiller halves the damage. If the mindkiller has a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), that creature takes the other half of the damage.\n>\n> **3 Malice:** A [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature takes the damage instead of the mindkiller.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the mindkiller uses a psionic ability, they can do so as if they were in the mindkiller's space.\n\n> ⭐️ **Nimble**\n>\n> The mindkiller can move through enemies' spaces at their usual speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/mindkiller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1S",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.mindkiller"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.mindkiller-whelp",
+      "title": "Детёныш убийцы разума",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/mindkiller-whelp.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/mindkiller-whelp",
+      "originalName": "Mindkiller Whelp",
+      "originalDescription": "| Horror, Voiceless Talker  |             -              |     Level 6      |                  Minion Hexer                  | EV 8 for four minions |\n|:-------------------------:|:--------------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1S**<br>Size       |       **4**<br>Speed       | **9**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n| **Psychic 6**<br>Immunity | **Fly, hover**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **-1**<br>Might      |     **+3**<br>Agility      | **+1**<br>Reason |              **+1**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Eager Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage; the target takes a bane on their next strike\n> - **17+:** 7 damage; the target takes a bane on their next strike\n\n> ❗️ **Feast**\n>\n> | **Psionic** | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The whelp reduces a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) creature to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The whelp transforms into a mindkiller whose [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equals their squad's [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool before transforming. The [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool then loses the whelp's [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the whelp uses a psionic ability, they can do so as if they were in the whelp's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/mindkiller-whelp.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.mindkiller-whelp"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-artillerist",
+      "title": "Безмолвный говорун-артиллерист",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-artillerist.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-artillerist",
+      "originalName": "Voiceless Talker Artillerist",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |    Elite Artillery    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Psionic Rifle Burst ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------|------------------------------:|\n> | **📏 Ranged 10**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 19 damage; the strike spreads 1 square\n> - **17+:** 22 damage; the strike spreads 2 squares\n>\n> **Effect:** The strike's spread is the distance it expands from a target to nearby enemies. Each enemy within that distance takes 3 damage.\n>\n> **2 Malice:** Each enemy within the strike spread takes an extra 3 damage.\n\n> 🔳 **Mind Jolt**\n>\n> | **Area, Psionic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 lightning damage\n> - **12-16:** 10 lightning damage; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 13 lightning damage; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **In Our Sights**\n>\n> | **Ranged**       |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|--------------------:|\n> | **📏 Ranged 10** | **🎯 One creature** |\n>\n> **Effect:** Until the start of the artillerist's next turn, the next psionic ability used against the target automatically treats its initial power roll as a 17. The creature using the ability can still roll to determine if they score a critical hit.\n\n> ❗️ **Tactical Reposition (1 Malice)**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The artillerist takes damage.\n>\n> **Effect:** The artillerist can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and ignores any effects associated with the damage.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the artillerist uses a psionic ability, they can do so as if they were in the artillerist's space.\n\n> ⭐️ **Locked On**\n>\n> The artillerist ignores invisibility, cover, and concealment. A creature can't hide from the artillerist while the artillerist has line of effect to the.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-artillerist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.voiceless-talker-artillerist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-evolutionist",
+      "title": "Безмолвный говорун-эволюционист",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-evolutionist.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-evolutionist",
+      "originalName": "Voiceless Talker Evolutionist",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **180**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 8**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+4**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Psionic Intrusion ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 5**         | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 psychic damage; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 16 psychic damage; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 19 psychic damage; R < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Carpe Quadratum**\n>\n> | **Psionic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|--------------------:|\n> | **📏 Ranged 5**     | **🎯 One creature** |\n>\n> **Effect:** The evolutionist [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places with the target.\n\n> ❗️ **Adaptability**\n>\n> | **Psionic** | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The evolutionist takes damage that has a damage type.\n>\n> **Effect:** Until the start of their next turn, the evolutionist has damage immunity 5 to the triggering damage type.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the evolutionist can take 10 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Witness Evolutionary Superiority**\n>\n> The evolutionist has any trait of the Director's choice from any ally [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) in the encounter.\n\n> ☠️ **Show Me Who You Are ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Psionic**     |               **-** |\n> |-----------------------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes an Intuition test.\n>\n> - **≤11:** The target uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against the nearest enemy within distance.\n> - **12-16:** The target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the nearest enemy within distance.\n> - **17+:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n\n> ☠️ **Release the Thralls ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Psionic, Ranged** |          **-** |\n> |---------------------|---------------:|\n> | **📏 Ranged 5**     | **🎯 Special** |\n>\n> **Effect:** The evolutionist [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) eight [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) of level 4 or lower into unoccupied spaces within distance. All eight [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) can be of any monster type but must share the same name.\n\n> ☠️ **Brainstorm ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Psionic** |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 3 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 lightning damage\n> - **12-16:** 12 lightning damage\n> - **17+:** 15 lightning damage\n>\n> **Effect:** Until the end of the encounter, the evolutionist is surrounded by a psionic electrical storm that is a 5 aura. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies, and any enemy who enters the area for the first time in a round or starts their turn there takes 8 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-evolutionist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.voiceless-talker-evolutionist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-graywarper",
+      "title": "Безмолвный серый искажатель",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-graywarper.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-graywarper",
+      "originalName": "Voiceless Talker Graywarper",
+      "originalDescription": "| Horror, Voiceless Talker |         -         |     Level 6      |            Minion Controller            | EV 8 for four minions |\n|:------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|      **1M**<br>Size      |  **5**<br>Speed   | **9**<br>Stamina |           **0**<br>Stability            | **3**<br>Free Strike  |\n|    **-**<br>Immunity     | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |   **-**<br>Weakness   |\n|     **-1**<br>Might      | **0**<br>Agility  | **+3**<br>Reason |           **+1**<br>Intuition           |  **+1**<br>Presence   |\n\n> 🏹 **Phase Chant ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**             | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 psychic damage\n> - **12-16:** 5 psychic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 7 psychic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the graywarper uses a psionic ability, they can do so as if they were in the graywarper's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-graywarper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.voiceless-talker-graywarper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-invader",
+      "title": "Безмолвный захватчик",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-invader.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-invader",
+      "originalName": "Voiceless Talker Invader",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |   Elite Controller    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |        **+1**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Tentacle ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 18 damage; M < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ❇️ **Psionic Boom (3 Malice)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 3 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage; R < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 psychic damage; R < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 psychic damage; R < 3 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4 and [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 Malice:** The size of the burst increases to 5.\n\n> 🗡 **Tentacle Toss**\n>\n> | **Melee, Psionic** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|--------------------:|\n> | **📏 Melee 1**     | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n\n> ❗️ **Brain Drain**\n>\n> | **Melee, Psionic** |           **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Special**     | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader resists an ability's [potency](scc.v1:mcdm.heroes.v1/rule.character/potency).\n>\n> **Effect:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 2.\n\n> ⭐️ **Psionic Amplifier**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the invader uses a psionic ability, they can do so as if they were in the invader's space, and the ability has a double edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-invader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.statblock.voiceless-talker-invader"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+          "title": "Раздор Безмолвных"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+      "title": "Раздор Безмолвных",
+      "chapter": "23. Бестиарий",
+      "group": "Безмолвные",
+      "path": "Monsters/monster/voiceless-talker/voiceless-talker-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker/voiceless-talker-malice",
+      "originalName": "Voiceless Talker Malice",
+      "originalDescription": "At the start of any voiceless talker's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guise (3 Malice)**\n>\n> One non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker projects a psionic screen over their body, preventing other creatures from treating them as an enemy until the end of the voiceless talker's next turn.\n\n> 🏹 **Memory Thief (5 Malice)**\n>\n> | **Psionic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|--------------------:|\n> | **📏 Ranged 5**     | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage; R < 1 the target can't treat their allies as allies (save ends)\n> - **12-16:** 10 psychic damage; R < 2 the target perceives their allies as enemies (save ends)\n> - **17+:** 13 psychic damage; R < 3 the target perceives their allies as enemies (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> 🌀 **Evolutionary Circuit (10 Malice)**\n>\n> All voiceless talkers link their minds, creating a circuit that empowers them while two or more voiceless talkers remain in the encounter. While this circuit is active, any psionic strike made by a voiceless talker deals an extra 5 damage. Additionally, when a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker takes damage, they can use a free triggered action to swap places with any voiceless talker [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) on the encounter map. The [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) takes the damage instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/voiceless-talker-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.voiceless-talker.voiceless-talker-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.voiceless-talker",
+          "title": "Безмолвные"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.voiceless-talker",
+      "kind": "monster-lore",
+      "name": "Безмолвные",
+      "markdown": "Среди могущественнейших псайонов Пространства времён синлирои (*син-ЛИР-и*, ед. ч. синлирой) известны обитателям Подземного мира — и тем несчастным жителям поверхности, которым довелось с ними столкнуться, — как «безмолвные говоруны». Они произошли от бескостных водных головоногих моллюсков и мыслят и действуют чуждо человекоподобным народам, которые ненавидят. Синлирои считают «лающих» (так они называют существ, которые проталкивают воздух сквозь мясные складки, чтобы говорить) отвратительным отклонением, которое необходимо исправить.\n\n### Непрочные союзы\n\nХотя синлирои и сверхразумы — наследственные враги, их взаимная одержимость «лающими» нередко приводит к непрочным союзам. И синлирои, и сверхразумы используют человекоподобных обитателей Подземного мира в качестве агентов, обмениваясь преданиями и технологиями на сведения о своих поверхностных врагах.\n\n### Ненависть к олотрекам\n\nИнстинктивное отвращение синлироев к «лающим» уступает лишь их глубокой вражде к олотрекам и страху перед ними. Согласно древним мифам, олотреки создали и синлироев, и сверхразумов. Для сверхразумов это безобидная сказка. Но синлирои, считающие себя будущими владыками Пространства времён, яростно отвергают любые намёки на то, что их силы происходят не от их собственного превосходного развития.\n\n### Псионические шпионы\n\nНесмотря на свои ментальные способности, безмолвные говоруны считают сведения своим величайшим оружием. Они используют псионические таланты, чтобы управлять памятью и восприятием, скрывать свой облик и незаметно проникать в другие культуры.\n\n### Пси-технологии\n\nСинлирои разводят моллюсков, выделяющих пластикоподобные вещества, и используют их для создания оружия и подобных устройств, работающих на псионических кристаллах. Переносные псионические пистолеты и винтовки безмолвных говорунов можно активировать только их чуждым разумом.\n\n### Создатели существ\n\nСинлирои одержимы вмешательством в естественное развитие других организмов. С помощью псионического метода, который они называют Переплетением, они создают массивные мозги, убийц разума и других слуг. Многие эксперименты синлироев недолговечны, и такими они и задуманы. Но Подземный мир усеян неестественными существами, сбежавшими из телохранилищ безмолвных говорунов: большинство из них — уникальные формы жизни, которые не способны размножаться и, возможно, никогда не умрут.\n\n### Серые искажатели\n\nСерые искажатели — это безмолвные говоруны, лишённые большей части псионических способностей и собственной воли в наказание за дерзость или некомпетентность. Их считают лишь расходными инструментами, усиливающими мощь других безмолвных говорунов.\n\n### Массивный мозг\n\nБезмолвные говоруны создали ужасающих существ с перламутровой кожей и гуманоидным телом, четырьмя могучими руками и большой пульсирующей мозговой массой вместо головы. Безмолвные говоруны называют их «тылинса», а все остальные — массивными мозгами. Эти существа служат телохранителями и псионическими батареями своих создателей-синлироев.\n\n### Убийца разума\n\nУбийцы разума — это парящие мозги с когтями, свисающим позвоночным столбом и нервами; они служат питомцами и приспешниками безмолвных говорунов. Эти бесформенные паразиты могут проникнуть в тело гуманоидного существа через ухо, глаз или нос, а затем пожрать центральную нервную систему жертвы, заменяя её собственной тканью. После завершения этого процесса убийца разума получает все знания и воспоминания жертвы и может управлять её телом, становясь идеальным шпионом для своих хозяев-синлироев.\n\nДетёныши убийц разума — это упрощённая форма убийц разума, которую можно создать за гораздо меньшее время. Они не способны вселяться в тела, но одного их присутствия достаточно, чтобы ослабить ментальную защиту врагов от псионики.\n\n### Языки безмолвных говорунов\n\nБольшинство безмолвных говорунов общаются телепатически с помощью Мысленной речи и говорят на языке вариак.\n",
+      "source": {
+        "articleId": "monsters.monster.group.voiceless-talker",
+        "path": "Monsters/monster/group/voiceless-talker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/voiceless-talker",
+      "originalName": "Voiceless Talkers",
+      "originalDescription": "Among the most powerful psions in the timescape, synlirii (*sin-LEER-ee*, singular: synliroi) are known as the \"voiceless talkers\" to the denizens of the World Below—and to surface dwellers unfortunate enough to encounter them. Descended from boneless aquatic cephalopods, they are alien in thought and motivation to the humanoid species they loathe. Synlirii consider the \"barking ones\" (their label for creatures who squeeze air through meat flaps to communicate) an abomination that must be corrected.\n\n### Uneasy Alliances\n\nThough synlirii and overminds are hereditary enemies, their mutual obsession with the barking ones often leads to uneasy alliances. Both synlirii and overminds employ humanoids from the World Below as agents, trading lore and technology for information on their surface foes.\n\n### Olothec Hatred\n\nThe synlirii's visceral antipathy toward the barking ones is surpassed only by their deep enmity toward (and fear of) olothec. Ancient myths say that the olothec created both synlirii and overminds. To overminds, this is a harmless fable. But synlirii, who style themselves as the future masters of the timescape, rage against implications that their powers come from any source other than their own superior development.\n\n### Psionic Spies\n\nDespite their mental powers, voiceless talkers consider information their greatest weapon. They use their psionic talents to manipulate memory and perception, obscure their forms, and pass undetected among other cultures.\n\n### Psi-Tech\n\nSynlirii breed mollusks that secrete plastic-like substances, using them to fashion weapons and similar technology powered by psionic crystals. The voiceless talkers' handheld psionic pistols and portable psionic rifles can be activated only by their alien minds.\n\n### Creature Engineers\n\nSynlirii are obsessed with manipulating the natural development of other organisms. They create hulking brains, mindkillers, and other servants using a psionic technique they call the Interlace. Many synlirii experiments don't live long and aren't intended to. But the World Below is littered with unnatural creatures who escaped the voiceless talkers' Body Banks—most of them singular life forms who can't reproduce and might never die.\n\n### Graywarper\n\nGraywarpers are voiceless talkers who were drained of most of their psionic abilities—and free will—as punishment for insolence or incompetence. They are viewed solely as expendable tools who enhance the power of other voiceless talkers.\n\n### Hulking Brain\n\nThe voiceless talkers have engineered pearlescent-skinned, humanoid-shaped horrors with four massive arms and a large pulsing brain in place of a head. Called thylinça by voiceless talkers and hulking brains by everyone else, these creatures serve as bodyguards and psionic batteries for their synlirii creators.\n\n### Mindkiller\n\nFloating clawed brains with a trailing spinal column and nerves, mindkillers serve as the voiceless talkers' pets and lackeys. These amorphous parasites can force themselves into a humanoid's body through the ear, eye, or nose, then devour the victim's central nervous system while replacing it with their own tissue. When the process is complete, the mindkiller gains all the victim's knowledge and memories and can puppet their body, becoming the perfect spy for the mindkiller's synlirii overlords.\n\nMindkiller whelps are a lesser form of mindkiller who can be created in a fraction of the time. While they can't inhabit bodies, their mere presence weakens their foes' mental defenses against psionics.\n\n### Voiceless Talker Languages\n\nMost voiceless talkers communicate telepathically using Mindspeech and speak Variac.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/voiceless-talker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.hulking-brain",
+      "kind": "monster",
+      "name": "Массивный мозг",
+      "markdown": "| Ужас, Безмолвный |         -         |      Уровень 6       |      Элита — Громила      |        Боевая ценность 32         |\n|:------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1L**<br>Размер      |  **5**<br>Скорость   | **180**<br>Выносливость |  **4**<br>Устойчивость   | **7**<br>Свободный удар |\n|    **-**<br>Иммунитет     | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|     **+3**<br>Мощь      | **+1**<br>Ловкость |  **-2**<br>Разум  |  **-2**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🗡 **Захват четырьмя руками ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                  **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|---------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Четыре существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона; Л < 2 [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 11 урона; Л < 3 [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Особое:** Массивный мозг может удерживать [захваченными](#/catalog/glossary#term-glossary.grabbed) до четырёх существ размером 1.\n>\n> **2 Раздора:** [Потенциал](#/catalog/glossary#term-glossary.potency) способности увеличивается на 1.\n\n> 🗡 **Мозговой суплекс**\n>\n> | **Ближний бой, Удар** |   **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------:|\n> | **📏 Ближний бой 1**    | **🎯 Каждый враг** |\n>\n> **Эффект:** Массивный мозг должен [захватить](#/catalog/glossary#term-glossary.grabbed) цель; после завершения броска силы цель перестаёт быть [захваченной](#/catalog/glossary#term-glossary.grabbed).\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона; М < 1 — 3 урона\n> - **12-16:** 10 урона; М < 2 — 3 урона\n> - **17+:** 13 урона; М < 3 — 6 урона\n\n> 👤 **Тяжёлая поступь**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 Сам массивный мозг** |  **🎯 Сам массивный мозг** |\n>\n> **Эффект:** Массивный мозг [смещается](#/catalog/glossary#term-glossary.shift) не более чем на 4 клетки, игнорируя труднопроходимую местность.\n\n> ❗️ **Мышечная защита (1 Раздора)**\n>\n> | **-**       | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Сам массивный мозг** |               **🎯 Сам массивный мозг** |\n>\n> **Условие:** Враг наносит урон союзнику-безмолвному говоруну в пределах 5 клеток.\n>\n> **Эффект:** Массивный мозг [смещается](#/catalog/glossary#term-glossary.shift) [вплотную](#/catalog/glossary#term-glossary.adjacent) к союзнику и становится новой целью способности.\n>\n> **2 Раздора:** Враг [сбит с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Запасные бицепсы**\n>\n> Массивный мозг может нести до четырёх существ размером 1, которых он [захватил](#/catalog/glossary#term-glossary.grabbed), и при этом не теряет в Скорости.\n\n> ⭐️ **Псионический проводник**\n>\n> Когда безмолвный говорун, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от массивного мозга использует псионическую способность, он может считать, что находится в пространстве массивного мозга.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.hulking-brain",
+        "path": "Monsters/monster/voiceless-talker/statblock/hulking-brain.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/hulking-brain",
+      "originalName": "Hulking Brain",
+      "originalDescription": "| Horror, Voiceless Talker |         -         |      Level 6       |      Elite Brute      |        EV 32         |\n|:------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1L**<br>Size      |  **5**<br>Speed   | **180**<br>Stamina |  **4**<br>Stability   | **7**<br>Free Strike |\n|    **-**<br>Immunity     | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      | **+1**<br>Agility |  **-2**<br>Reason  |  **-2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Four-Way Grasp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------------------:|\n> | **📏 Melee 1**            | **🎯 Four creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Special:** The hulking brain can have up to four size 1 creatures [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **2 Malice:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🗡 **Cerebral Suplex**\n>\n> | **Melee, Strike** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Melee 1**    | **🎯 Each enemy** |\n>\n> **Effect:** A target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the hulking brain, and is no longer [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) after the power roll is resolved.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage; M < 1 3 damage\n> - **12-16:** 10 damage; M < 2 3 damage\n> - **17+:** 13 damage; M < 3 6 damage\n\n> 👤 **Lumber**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The hulking brain [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares, ignoring difficu terrain.\n\n> ❗️ **Brawny Buffe (1 Malice)**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** An ally voiceless talker within 5 squares takes damage from an enemy ability.\n>\n> **Effect:** The hulking brain [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the ally and becomes the new target of the ability.\n>\n> **2 Malice:** The enemy is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Biceps to Spare**\n>\n> The hulking brain can carry up to four size 1 creatures they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and takes no penalty to their speed while doing so.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the hulking brain uses a psionic ability, they can do so as if they were in the hulking brain's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/hulking-brain.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1L",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.mindkiller",
+      "kind": "monster",
+      "name": "Убийца разума",
+      "markdown": "| Ужас, Безмолвный |             -              |      Уровень 6       |      Элита — Проклинатель      |        Боевая ценность 32         |\n|:-------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Размер       |       **6**<br>Скорость       | **140**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Психический 6**<br>Иммунитет | **Полет, парение**<br>Движение |         -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|      **-1**<br>Мощь      |     **+3**<br>Ловкость      |  **+3**<br>Разум  |  **+2**<br>Интуиция  |   **0**<br>Присутствие   |\n\n> ⭐️ **Мозговая хватка**\n>\n> Убийца разума может [захватывать](#/catalog/glossary#term-glossary.grabbed) существ размером 4 или меньше, используя вместо Мощи свой показатель Разума. Проверки способности, совершаемые существом, [захваченным](#/catalog/glossary#term-glossary.grabbed) убийцей разума, чтобы вырваться из захвата, получают помеху.\n\n> 🗡 **Смертоносные когти ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 11 урона\n> - **12-16:** 17 урона; Л < 2 [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 21 урон; Л < 3 [Захват](#/catalog/glossary#term-glossary.grabbed)\n\n> 🏹 **Скрывающий удар (2 Раздора)**\n>\n> | **Псионика, Дальний бой, Удар** |      **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|---------------------:|\n> | **📏 Дальний бой 5**             | **🎯 Два существа** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона; Р < 1 убийца разума невидим для цели (до прох.)\n> - **12-16:** 15 урона; Р < 2 убийца разума невидим для цели (до прох.)\n> - **17+:** 18 урона; Р < 3 убийца разума невидим для цели (до прох.)\n\n> 🗡 **Стирание памяти**\n>\n> | **Ближний бой, Псионика, Удар** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ближний бой 1**             | **🎯 Одно существо** |\n>\n> **Эффект:** Убийца разума должен [захватить](#/catalog/glossary#term-glossary.grabbed) цель. Если Р < 2, цель получает штраф −1 к показателю Разума, Интуиции или Присутствия, а убийца разума получает бонус +1 к тому же показателю; оба эффекта действуют до конца столкновения.\n\n> ❗️ **Живой щит**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Сам убийца разума** |          **🎯 Сам убийца разума** |\n>\n> **Условие:** Убийца разума получает урон.\n>\n> **Эффект:** Убийца разума получает половину урона. Если он [захватил](#/catalog/glossary#term-glossary.grabbed) существо, то это существо получает вторую половину урона.\n>\n> **3 Раздора:** [Захваченное](#/catalog/glossary#term-glossary.grabbed) существо получает весь урон вместо убийцы разума.\n\n> ⭐️ **Псионический проводник**\n>\n> Когда безмолвный говорун, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от убийцы разума использует псионическую способность, он может считать, что находится в пространстве убийцы разума.\n\n> ⭐️ **Проворный**\n>\n> Убийца разума может перемещаться через пространства врагов с обычной для него Скоростью.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.mindkiller",
+        "path": "Monsters/monster/voiceless-talker/statblock/mindkiller.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/mindkiller",
+      "originalName": "Mindkiller",
+      "originalDescription": "| Horror, Voiceless Talker  |             -              |      Level 6       |      Elite Hexer      |        EV 32         |\n|:-------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size       |       **6**<br>Speed       | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Fly, hover**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |     **+3**<br>Agility      |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> ⭐️ **Brain Latch**\n>\n> The mindkiller can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) creatures who are size 4 or smaller, using their Reason score in place of Might. A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller takes a bane on ability rolls made to escape the grab.\n\n> 🗡 **Killer Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 17 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> 🏹 **Concealing Strike (2 Malice)**\n>\n> | **Psionic, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------------:|\n> | **📏 Ranged 5**             | **🎯 Two creatures** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage; R < 1 the mindkiller is invisible to the target (save ends)\n> - **12-16:** 15 damage; R < 2 the mindkiller is invisible to the target (save ends)\n> - **17+:** 18 damage; R < 3 the mindkiller is invisible to the target (save ends)\n\n> 🗡 **Mindwipe**\n>\n> | **Melee, Psionic, Strike** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Melee 1**             | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller. If the target has R < 2, they take a −1 penalty to their Reason, Intuition, or Presence score and the mindkiller has a +1 bonus to the same score, all until the end of the encounter.\n\n> ❗️ **Meat Shield**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The mindkiller takes damage.\n>\n> **Effect:** The mindkiller halves the damage. If the mindkiller has a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), that creature takes the other half of the damage.\n>\n> **3 Malice:** A [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature takes the damage instead of the mindkiller.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the mindkiller uses a psionic ability, they can do so as if they were in the mindkiller's space.\n\n> ⭐️ **Nimble**\n>\n> The mindkiller can move through enemies' spaces at their usual speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/mindkiller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1S",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.mindkiller-whelp",
+      "kind": "monster",
+      "name": "Детёныш убийцы разума",
+      "markdown": "| Ужас, Безмолвный |             -              |     Уровень 6      |                  Миньон — Проклинатель                  | Боевая ценность 8 за четырёх миньонов |\n|:-------------------------:|:--------------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1S**<br>Размер       |       **4**<br>Скорость       | **9**<br>Выносливость |               **0**<br>Устойчивость               | **3**<br>Свободный удар  |\n| **Психический 6**<br>Иммунитет | **Полет, парение**<br>Движение |        -         | **+2 к урону ударов**<br>С капитаном |   **-**<br>Уязвимость   |\n|      **-1**<br>Мощь      |     **+3**<br>Ловкость      | **+1**<br>Разум |              **+1**<br>Интуиция               |   **0**<br>Присутствие   |\n\n> 🗡 **Жадные когти ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона; следующая атака цели получает помеху\n> - **17+:** 7 урона; следующая атака цели получает помеху\n\n> ❗️ **Пир**\n>\n> | **Псионика** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Сам детёныш** |          **🎯 Сам детёныш** |\n>\n> **Условие:** Детёныш снижает Выносливость существа, не являющегося [миньоном](#/codex/monsters.rule.organization.minion), до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n>\n> **Эффект:** Детёныш превращается в убийцу разума, чья [Выносливость](#/catalog/glossary#term-glossary.stamina) равна запасу [Выносливости](#/catalog/glossary#term-glossary.stamina) его отряда до превращения. Затем запас [Выносливости](#/catalog/glossary#term-glossary.stamina) уменьшается на значение [Выносливости](#/catalog/glossary#term-glossary.stamina) детёныша.\n\n> ⭐️ **Псионический проводник**\n>\n> Когда безмолвный говорун, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от детёныша использует псионическую способность, он может считать, что находится в пространстве детёныша.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.mindkiller-whelp",
+        "path": "Monsters/monster/voiceless-talker/statblock/mindkiller-whelp.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/mindkiller-whelp",
+      "originalName": "Mindkiller Whelp",
+      "originalDescription": "| Horror, Voiceless Talker  |             -              |     Level 6      |                  Minion Hexer                  | EV 8 for four minions |\n|:-------------------------:|:--------------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1S**<br>Size       |       **4**<br>Speed       | **9**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n| **Psychic 6**<br>Immunity | **Fly, hover**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **-1**<br>Might      |     **+3**<br>Agility      | **+1**<br>Reason |              **+1**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Eager Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage; the target takes a bane on their next strike\n> - **17+:** 7 damage; the target takes a bane on their next strike\n\n> ❗️ **Feast**\n>\n> | **Psionic** | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The whelp reduces a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) creature to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The whelp transforms into a mindkiller whose [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equals their squad's [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool before transforming. The [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool then loses the whelp's [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the whelp uses a psionic ability, they can do so as if they were in the whelp's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/mindkiller-whelp.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.voiceless-talker-artillerist",
+      "kind": "monster",
+      "name": "Безмолвный говорун-артиллерист",
+      "markdown": "| Ужас, Безмолвный |                -                |      Уровень 6       |    Элита — Артиллерист    |        Боевая ценность 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Размер       |         **5**<br>Скорость          | **140**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Психический 6**<br>Иммунитет | **Парение, телепортация**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|      **0**<br>Мощь       |        **+3**<br>Ловкость        |  **+3**<br>Разум  |  **+2**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🏹 **Залп из псионической винтовки ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Псионика, Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------|------------------------------:|\n> | **📏 Дальний бой 10**                    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 11 урона\n> - **12-16:** 19 урона; удар распространяется на 1 клетку\n> - **17+:** 22 урона; удар распространяется на 2 клетки\n>\n> **Эффект:** Распространение удара — это расстояние, на которое он расширяется от цели к находящимся рядом врагам. Каждый враг в пределах этого расстояния получает 3 урона.\n>\n> **2 Раздора:** Каждый враг в пределах распространения удара получает ещё 3 урона.\n\n> 🔳 **Разряд разума**\n>\n> | **Область, Псионика**            |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Линия 10 x 1 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона молнией\n> - **12-16:** 10 урона молнией; И < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 13 урона молнией; И < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> 🏹 **Мы нацелились**\n>\n> | **Дальний бой**       |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|--------------------:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо** |\n>\n> **Эффект:** До начала следующего хода артиллериста при следующем использовании против цели псионической способности её начальный бросок силы автоматически считается равным 17. Использующее способность существо всё ещё может бросить кости, чтобы определить, нанесло ли оно критическое попадание.\n\n> ❗️ **Тактическое перемещение (1 Раздора)**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Сам артиллерист** |          **🎯 Сам артиллерист** |\n>\n> **Условие:** Артиллерист получает урон.\n>\n> **Эффект:** Артиллерист может [телепортироваться](#/catalog/glossary#term-glossary.teleport) не более чем на 5 клеток и игнорирует любые эффекты, связанные с полученным уроном.\n\n> ⭐️ **Псионический проводник**\n>\n> Когда безмолвный говорун, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от артиллериста использует псионическую способность, он может считать, что находится в пространстве артиллериста.\n\n> ⭐️ **Прицельный захват**\n>\n> Артиллерист игнорирует невидимость, укрытие и покров. Существо не может спрятаться от артиллериста, пока до него есть линия воздействия.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.voiceless-talker-artillerist",
+        "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-artillerist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-artillerist",
+      "originalName": "Voiceless Talker Artillerist",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |    Elite Artillery    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Psionic Rifle Burst ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------|------------------------------:|\n> | **📏 Ranged 10**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 19 damage; the strike spreads 1 square\n> - **17+:** 22 damage; the strike spreads 2 squares\n>\n> **Effect:** The strike's spread is the distance it expands from a target to nearby enemies. Each enemy within that distance takes 3 damage.\n>\n> **2 Malice:** Each enemy within the strike spread takes an extra 3 damage.\n\n> 🔳 **Mind Jolt**\n>\n> | **Area, Psionic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 lightning damage\n> - **12-16:** 10 lightning damage; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 13 lightning damage; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **In Our Sights**\n>\n> | **Ranged**       |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|--------------------:|\n> | **📏 Ranged 10** | **🎯 One creature** |\n>\n> **Effect:** Until the start of the artillerist's next turn, the next psionic ability used against the target automatically treats its initial power roll as a 17. The creature using the ability can still roll to determine if they score a critical hit.\n\n> ❗️ **Tactical Reposition (1 Malice)**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The artillerist takes damage.\n>\n> **Effect:** The artillerist can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and ignores any effects associated with the damage.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the artillerist uses a psionic ability, they can do so as if they were in the artillerist's space.\n\n> ⭐️ **Locked On**\n>\n> The artillerist ignores invisibility, cover, and concealment. A creature can't hide from the artillerist while the artillerist has line of effect to the.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-artillerist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.voiceless-talker-evolutionist",
+      "kind": "monster",
+      "name": "Безмолвный говорун-эволюционист",
+      "markdown": "| Ужас, Безмолвный |                -                |      Уровень 6       |        Лидер         |        Боевая ценность 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Размер       |         **5**<br>Скорость          | **180**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Психический 8**<br>Иммунитет | **Парение, телепортация**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|      **0**<br>Мощь       |        **+3**<br>Ловкость        |  **+4**<br>Разум  |  **+1**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> ⚔️ **Псионическое вторжение ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Псионика, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 11 психического урона; Р < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 16 психического урона; Р < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 19 психического урона; Р < 4 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> 🏹 **Захват квадрата**\n>\n> | **Псионика, Дальний бой** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|--------------------:|\n> | **📏 Дальний бой 5**     | **🎯 Одно существо** |\n>\n> **Эффект:** Эволюционист [телепортируется](#/catalog/glossary#term-glossary.teleport), меняясь местами с целью.\n\n> ❗️ **Приспособляемость**\n>\n> | **Псионика** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Сам эволюционист** |          **🎯 Сам эволюционист** |\n>\n> **Условие:** Эволюционист получает урон определённого типа.\n>\n> **Эффект:** До начала своего следующего хода эволюционист получает иммунитет 5 к урону того типа, который вызвал срабатывание.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода эволюционист может получить 10 урона, чтобы прекратить один эффект на себе, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон невозможно уменьшить.\n\n> ⭐️ **Узри эволюционное превосходство**\n>\n> Эволюционист получает на выбор Ведущего любую черту союзного [миньона](#/codex/monsters.rule.organization.minion) в столкновении.\n\n> ☠️ **Покажите, кто вы есть ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область, Псионика**     |               **-** |\n> |-----------------------------|------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель проходит тест Интуиции.\n>\n> - **≤11:** Цель использует [фирменную способность](#/catalog/glossary#term-glossary.signature-ability) против ближайшего врага в пределах дистанции.\n> - **12-16:** Цель наносит [свободный удар](#/catalog/glossary#term-glossary.free-strike) ближайшему врагу в пределах дистанции.\n> - **17+:** [Испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n\n> ☠️ **Освободите рабов ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Псионика, Дальний бой** |          **-** |\n> |---------------------|---------------:|\n> | **📏 Дальний бой 5**     | **🎯 Особое** |\n>\n> **Эффект:** Эволюционист [телепортирует](#/catalog/glossary#term-glossary.teleport) восемь [миньонов](#/codex/monsters.rule.organization.minion) 4-го уровня или ниже в незанятые пространства в пределах дистанции. Все восемь [миньонов](#/codex/monsters.rule.organization.minion) могут относиться к любому типу монстров, но должны иметь одно и то же имя.\n\n> ☠️ **Мозговой штурм ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область, Псионика** |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 3**    | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона молнией\n> - **12-16:** 12 урона молнией\n> - **17+:** 15 урона молнией\n>\n> **Эффект:** До конца столкновения эволюциониста окружает псионическая электрическая буря с аурой 5. Для врагов область считается [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а каждый враг, впервые за раунд входящий в эту область или начинающий там свой ход, получает 8 урона молнией.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.voiceless-talker-evolutionist",
+        "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-evolutionist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-evolutionist",
+      "originalName": "Voiceless Talker Evolutionist",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **180**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 8**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+4**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Psionic Intrusion ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 5**         | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 psychic damage; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 16 psychic damage; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 19 psychic damage; R < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Carpe Quadratum**\n>\n> | **Psionic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|--------------------:|\n> | **📏 Ranged 5**     | **🎯 One creature** |\n>\n> **Effect:** The evolutionist [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places with the target.\n\n> ❗️ **Adaptability**\n>\n> | **Psionic** | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The evolutionist takes damage that has a damage type.\n>\n> **Effect:** Until the start of their next turn, the evolutionist has damage immunity 5 to the triggering damage type.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the evolutionist can take 10 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Witness Evolutionary Superiority**\n>\n> The evolutionist has any trait of the Director's choice from any ally [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) in the encounter.\n\n> ☠️ **Show Me Who You Are ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Psionic**     |               **-** |\n> |-----------------------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes an Intuition test.\n>\n> - **≤11:** The target uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against the nearest enemy within distance.\n> - **12-16:** The target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the nearest enemy within distance.\n> - **17+:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n\n> ☠️ **Release the Thralls ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Psionic, Ranged** |          **-** |\n> |---------------------|---------------:|\n> | **📏 Ranged 5**     | **🎯 Special** |\n>\n> **Effect:** The evolutionist [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) eight [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) of level 4 or lower into unoccupied spaces within distance. All eight [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) can be of any monster type but must share the same name.\n\n> ☠️ **Brainstorm ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Psionic** |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 3 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 lightning damage\n> - **12-16:** 12 lightning damage\n> - **17+:** 15 lightning damage\n>\n> **Effect:** Until the end of the encounter, the evolutionist is surrounded by a psionic electrical storm that is a 5 aura. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies, and any enemy who enters the area for the first time in a round or starts their turn there takes 8 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-evolutionist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.voiceless-talker-graywarper",
+      "kind": "monster",
+      "name": "Безмолвный серый искажатель",
+      "markdown": "| Ужас, Безмолвный |         -         |     Уровень 6      |            Миньон — Контроллер            | Боевая ценность 8 за четырёх миньонов |\n|:------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|      **1M**<br>Размер      |  **5**<br>Скорость   | **9**<br>Выносливость |           **0**<br>Устойчивость            | **3**<br>Свободный удар  |\n|    **-**<br>Иммунитет     | **-**<br>Движение |        -         | **+2 к Выносливости**<br>С капитаном |   **-**<br>Уязвимость   |\n|     **-1**<br>Мощь      | **0**<br>Ловкость  | **+3**<br>Разум |           **+1**<br>Интуиция           |  **+1**<br>Присутствие   |\n\n> 🏹 **Песнь фаз ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Псионика, Дальний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 8**             | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 психического урона\n> - **12-16:** 5 психического урона; [швыряние](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки\n> - **17+:** 7 психического урона; [швыряние](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки\n\n> ⭐️ **Псионический проводник**\n>\n> Когда безмолвный говорун, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от серого искажателя использует псионическую способность, он может считать, что находится в пространстве серого искажателя.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.voiceless-talker-graywarper",
+        "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-graywarper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-graywarper",
+      "originalName": "Voiceless Talker Graywarper",
+      "originalDescription": "| Horror, Voiceless Talker |         -         |     Level 6      |            Minion Controller            | EV 8 for four minions |\n|:------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|      **1M**<br>Size      |  **5**<br>Speed   | **9**<br>Stamina |           **0**<br>Stability            | **3**<br>Free Strike  |\n|    **-**<br>Immunity     | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |   **-**<br>Weakness   |\n|     **-1**<br>Might      | **0**<br>Agility  | **+3**<br>Reason |           **+1**<br>Intuition           |  **+1**<br>Presence   |\n\n> 🏹 **Phase Chant ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**             | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 psychic damage\n> - **12-16:** 5 psychic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 7 psychic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the graywarper uses a psionic ability, they can do so as if they were in the graywarper's space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-graywarper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "8 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.statblock.voiceless-talker-invader",
+      "kind": "monster",
+      "name": "Безмолвный захватчик",
+      "markdown": "| Ужас, Безмолвный |                -                |      Уровень 6       |      Элита Контроллер      |        Боевая ценность 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:--------------------------:|:--------------------:|\n|      **1M**<br>Размер     |         **5**<br>Скорость      | **140**<br>Выносливость | **2**<br>Устойчивость | **7**<br>Свободный удар |\n| **Психический 6**<br>Иммунитет | **Парение, телепортация**<br>Перемещение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|      **-1**<br>Мощь       |        **+1**<br>Ловкость        | **+3**<br>Разум | **+2**<br>Интуиция  | **+2**<br>Присутствие  |\n\n> 🗡 **Щупальце ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона; М < 2 [схвачен](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 18 урона; М < 3 [схвачен](#/catalog/glossary#term-glossary.grabbed)\n\n> ❇️ **Псионический взрыв (3 Раздора)**\n>\n> | **Область, Псионика** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------|------------------------------:|\n> | **📏 Всплеск 3**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 психического урона; Р < 1 [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **12-16:** 10 психического урона; Р < 2 [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **17+:** 12 психического урона; Р < 3 [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 4 и цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **2 Раздора:** размер всплеска увеличивается до 5.\n\n> 🗡 **Бросок щупальцем**\n>\n> | **Ближний бой, Псионика** |        **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ближний бой 1**      | **🎯 Одно существо** |\n>\n> **Эффект:** Цель должна быть [схвачена](#/catalog/glossary#term-glossary.grabbed) захватчиком.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона; [сдвиг](#/catalog/glossary#term-glossary.forced-movement) по вертикали на 2\n> - **12-16:** 10 урона; [сдвиг](#/catalog/glossary#term-glossary.forced-movement) по вертикали на 2\n> - **17+:** 12 урона; [сдвиг](#/catalog/glossary#term-glossary.forced-movement) по вертикали на 3\n\n> ❗️ **Поглощение мозга**\n>\n> | **Ближний бой, Псионика** |           **[Ответное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Особая**             | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо, [схваченное](#/catalog/glossary#term-glossary.grabbed) захватчиком, сопротивляется [мощи](#/catalog/glossary#term-glossary.potency) способности.\n>\n> **Эффект:** [Мощь](#/catalog/glossary#term-glossary.potency) увеличивается на 2.\n\n> ⭐️ **Псионический усилитель**\n>\n> Когда не являющийся [миньоном](#/codex/monsters.rule.organization.minion) Безмолвный в пределах 5 клеток от захватчика использует способность с ключевым словом «Псионика», он может считать, что находится в пространстве захватчика; кроме того, способность получает двойное преимущество.\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.statblock.voiceless-talker-invader",
+        "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-invader.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-invader",
+      "originalName": "Voiceless Talker Invader",
+      "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |   Elite Controller    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |        **+1**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Tentacle ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 18 damage; M < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ❇️ **Psionic Boom (3 Malice)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 3 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage; R < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 psychic damage; R < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 psychic damage; R < 3 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4 and [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 Malice:** The size of the burst increases to 5.\n\n> 🗡 **Tentacle Toss**\n>\n> | **Melee, Psionic** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|--------------------:|\n> | **📏 Melee 1**     | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n\n> ❗️ **Brain Drain**\n>\n> | **Melee, Psionic** |           **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Special**     | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader resists an ability's [potency](scc.v1:mcdm.heroes.v1/rule.character/potency).\n>\n> **Effect:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 2.\n\n> ⭐️ **Psionic Amplifier**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the invader uses a psionic ability, they can do so as if they were in the invader's space, and the ability has a double edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-invader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Ужас",
+          "Безмолвный"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.voiceless-talker.voiceless-talker-malice",
+      "kind": "monster-feature",
+      "name": "Раздор Безмолвных",
+      "markdown": "В начале хода любого Безмолвного вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Маскировка (3 Раздора)**\n>\n> Один Безмолвный, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), проецирует на своё тело псионическую завесу, из-за которой другие существа не считают его врагом до конца следующего хода Безмолвного.\n\n> 🏹 **Похититель воспоминаний (5 Раздора)**\n>\n> | **Псионика, Дальний бой** |        **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Дальний бой 5**      | **🎯 Одно существо** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 психического урона; Р < 1 цель не может считать своих союзников союзниками (до прох.)\n> - **12-16:** 10 психического урона; Р < 2 цель воспринимает союзников как врагов (до прох.)\n> - **17+:** 13 психического урона; Р < 3 цель воспринимает союзников как врагов (до прох.)\n>\n> **Особое:** Эту способность не может использовать [миньон](#/codex/monsters.rule.organization.minion).\n\n> 🌀 **Эволюционная цепь (10 Раздора)**\n>\n> Все Безмолвные связывают свои разумы, создавая цепь, которая усиливает их, пока в столкновении остаются два или более Безмолвных. Пока эта цепь действует, любой псионический удар Безмолвного наносит дополнительно 5 урона. Кроме того, когда Безмолвный, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), получает урон, он может совершить свободное ответное действие и поменяться местами с любым Безмолвным-[миньоном](#/codex/monsters.rule.organization.minion) на карте столкновения. Вместо него урон получает [миньон](#/codex/monsters.rule.organization.minion).\n",
+      "source": {
+        "articleId": "monsters.monster.voiceless-talker.voiceless-talker-malice",
+        "path": "Monsters/monster/voiceless-talker/voiceless-talker-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.voiceless-talker/voiceless-talker-malice",
+      "originalName": "Voiceless Talker Malice",
+      "originalDescription": "At the start of any voiceless talker's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guise (3 Malice)**\n>\n> One non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker projects a psionic screen over their body, preventing other creatures from treating them as an enemy until the end of the voiceless talker's next turn.\n\n> 🏹 **Memory Thief (5 Malice)**\n>\n> | **Psionic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|--------------------:|\n> | **📏 Ranged 5**     | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage; R < 1 the target can't treat their allies as allies (save ends)\n> - **12-16:** 10 psychic damage; R < 2 the target perceives their allies as enemies (save ends)\n> - **17+:** 13 psychic damage; R < 3 the target perceives their allies as enemies (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> 🌀 **Evolutionary Circuit (10 Malice)**\n>\n> All voiceless talkers link their minds, creating a circuit that empowers them while two or more voiceless talkers remain in the encounter. While this circuit is active, any psionic strike made by a voiceless talker deals an extra 5 damage. Additionally, when a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker takes damage, they can use a free triggered action to swap places with any voiceless talker [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) on the encounter map. The [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) takes the damage instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/voiceless-talker/voiceless-talker-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "voiceless-talker",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

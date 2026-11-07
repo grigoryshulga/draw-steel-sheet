@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.gnoll-gnasher",
+  "title": "Гнолл-скрежетун",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/gnoll-gnasher.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/gnoll-gnasher",
+  "originalName": "Gnoll Gnasher",
+  "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Gnash  (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 10 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the gnasher is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the gnasher moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/gnoll-gnasher.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Гнолл"
+    ],
+    "role": "Налётчик",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.gnoll-gnasher"
+    }
+  ]
+}

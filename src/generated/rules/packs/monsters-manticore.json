@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.manticore",
+      "title": "Мантикора",
+      "chapter": "23. Бестиарий",
+      "group": "Мантикора",
+      "path": "Monsters/monster/group/manticore.md",
+      "originalId": "mcdm.monsters.v1/monster.group/manticore",
+      "originalName": "Manticore",
+      "originalDescription": "A weary traveler hears a call through the forest or friendly voices from a rocky shelter, and their heart leaps at the promise of refuge—only to find themself at the mercy of serrated teeth and poisonous spikes. In a manticore's territory, people go missing without a trace. These fearsome creatures carve out their hunting grounds in forests near small villages, mountain passes where caravans travel, and other locations with plentiful wildlife. Though manticores can subsist on a carnivorous diet of any nearby prey, their choicest meal is humanoid flesh.\n\n#### Uncanny Appearances\n\nA manticore has a lion's body, a dragon's wings, and a scorpion's tail barbed with spines, but their most unnerving trait is their humanoid face. Owing to a quirk of magical evolution, manticores develop the features of common ancestries that populate their region of birth. For example, a manticore in an area densely populated by devils inherits fiendish eyes and devilish horns. Manticores are born with an inherent understanding of a regional language, but they can speak only through mimicking that which they've heard—a talent manticores use to lure in prey.\n\n#### Heralds of Death\n\nManticores have a magical howl like a trumpet blast. This haunting sound unnerves and terrifies creatures, making them more susceptible to the manticore's bite. While on the hunt, manticores often take to the skies, shooting poison-tipped spikes from their tail to weaken their victims before howling and closing in.\n\n#### Ferocious Companions\n\nA manticore who develops a taste for humanoids can rarely be tamed. But a young manticore who has yet to cut their teeth on such flesh can be raised into a fearsome ally. Even after a trained manticore companion finally tastes delicious humanoid flesh, they typically remain loyal to their caregiver.\n\n#### Manticore Languages\n\nMost manticores can mimic Caelian and one language commonly spoken in the region where they dwell. Except in rare cases, manticores don't communicate in full sentences and are too driven by hunger to engage in negotiation.\n\n###### Manticore Treasures\n\n> **Manticore Treasures**\n>\n> Although manticores have no earthly use for treasure, they tend to collect a lot of it—it comes attached to the humanoids they prey on. Since manticores drag their victims back to their cave lairs to feed, a manticore's cave is typically strewn with bones, broken weapons, coins, and other relics of unfortunate travelers. After a while, a manticore abandons its cluttered lair in favor of a fresh one, leaving unguarded treasure for anyone willing to explore manticore-infested wastes.\n>\n> The following are sample treasures from a manticore's cave, of which a manticore might have one or two. These items can be found in Draw Steel: Heroes.\n>\n> - **Treasures:** Blade of the Luxurious Fop, Bull Shot, Stop-'n-Go Coin\n> - **Components:** Adamatine spearheads, a mirror blessed by a priest, pixie wings\n> - **Project Sources:** Notes in Zaliac for the Warding II armor enhancement, notes in Khelt for the Celerity implement enhancement, notes in Variac for an Onerous Bow\n> - **Wealth:** If the heroes follow blood trails back to a nearby abandoned caravan, each hero earns 1 wealth",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/manticore.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.manticore"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.manticore.manticore-malice",
+          "title": "Раздор мантикоры"
+        },
+        {
+          "id": "monsters.monster.manticore.statblock.manticore",
+          "title": "Мантикора"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.manticore.manticore-malice",
+      "title": "Раздор мантикоры",
+      "chapter": "23. Бестиарий",
+      "group": "Мантикора",
+      "path": "Monsters/monster/manticore/manticore-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.manticore/manticore-malice",
+      "originalName": "Manticore Malice",
+      "originalDescription": "At the start of any manticore's turn, you can spend Malice to activate one of the following features.\n\n> 🌀 **Uncanny Mimicry (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore uses their mimicry in an attempt to unnerve one creature within their line of effect. If the target has R < 4, they take a bane on power rolls against the manticore (save ends). Each time this feature is used against the same target during the encounter, its [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) decreases by 2.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Desperate Howl (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore lets out an unnerving cry. Each enemy within the manticore's line of effect makes an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> ❇️ **Barrage of Barbs (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore sprays tail spikes across the ground within 5 squares of them. Each enemy in that area who has A < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends). Additionally, the area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and any enemy takes 3 poison damage for each square of the area they enter. An enemy who takes 9 poison damage this way on one turn is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/manticore/manticore-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.manticore.manticore-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.manticore",
+          "title": "Мантикора"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.manticore.statblock.manticore",
+      "title": "Мантикора",
+      "chapter": "23. Бестиарий",
+      "group": "Мантикора",
+      "path": "Monsters/monster/manticore/statblock/manticore.md",
+      "originalId": "mcdm.monsters.v1/monster.manticore.statblock/manticore",
+      "originalName": "Manticore",
+      "originalDescription": "| Beast, Manticore  |          -          |       Level 4       |         Solo          |        EV 72         |\n|:-----------------:|:-------------------:|:-------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **10**<br>Speed   |  **350**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |          -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might  |  **+3**<br>Agility  |   **0**<br>Reason   |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n>☠️ **Solo Monster**\n>\n>[**End Effect:**](scc.v1:mcdm.monsters.v1/rule.monster/end-effect) At the end of each of their turns, the manticore can take 10 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n>**Solo Turns:** The manticore can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Agile Predator**\n>\n> Whenever the manticore deals damage to a creature, they don't provoke opportunity attacks from that creature during that turn.\n\n> 🗡 **Carnivorous Bite ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 21 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** If the target is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), this ability gains an edge.\n\n> 🏹 **Tail Spike**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; M < 2 4 poison damage\n> - **12-16:** 11 damage; M < 3 4 poison damage, [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 14 damage; M < 4 8 poison damage, [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target takes 1d6 poison damage at the start of each of their turns.\n\n> 🗡 **Harrying Claws**\n>\n> | **Melee, Strike, Weapon** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; A < 2 3 damage\n> - **12-16:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 3 5 damage\n> - **17+:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 7 damage\n\n> ❗️ **Reflexive Instinct (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-------------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the manticore.\n>\n> **Effect:** The manticore [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares into the air, then can use Tail Spike against the target.\n\n> ☠️ **Trumpeting Howl ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                            **-** |\n> |-----------------|---------------------------------:|\n> | **📏 5 burst**  | **🎯 Each creature in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 2 they are instead [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 3 they are instead [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 4 they are instead [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ☠️ **Cornered Predator ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The manticore [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then can use Tail Spike against each enemy within distance of that ability.\n\n> ☠️ **Debilitating Poison ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The manticore sours their poison with enmity. Until the end of the encounter, the manticore has a double edge on power rolls against [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) creatures. Additionally, any creature [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) by the manticore's Tail Spike ability has their speed halved and takes an extra 3 poison damage at the start of each of their turns.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/manticore/statblock/manticore.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "72",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Мантикора"
+        ],
+        "organization": "Одиночка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.manticore.statblock.manticore"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.manticore",
+          "title": "Мантикора"
+        },
+        {
+          "id": "monsters.monster.manticore.manticore-malice",
+          "title": "Раздор мантикоры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.manticore",
+      "kind": "monster-lore",
+      "name": "Мантикора",
+      "markdown": "Уставший путник слышит зов из леса или дружеские голоса из каменного укрытия — и сердце его подпрыгивает от надежды найти приют. Но там его уже поджидают острые зубы и ядовитые шипы. В землях мантикоры люди бесследно исчезают. Эти грозные существа устраивают охотничьи угодья в лесах у небольших деревень, на горных перевалах, где идут караваны, и в других местах, богатых дичью. Мантикоры питаются мясом любой доступной добычи, но больше всего любят плоть гуманоидов.\n\n#### Странная внешность\n\nУ мантикоры тело льва, крылья дракона и хвост скорпиона, усеянный шипами, но сильнее всего тревожит её гуманоидное лицо. Из-за причуды магической эволюции мантикоры приобретают черты распространённых в месте их рождения народов. Например, у мантикоры из края, где живёт много дьяволов, могут быть дьявольские глаза и рога. Мантикоры от рождения понимают один из языков местности, но говорить могут лишь подражая услышанному — и используют этот талант, чтобы заманивать добычу.\n\n#### Вестники смерти\n\nМагический рёв мантикоры звучит словно трубный глас. Этот жуткий звук тревожит и пугает существ, делая их уязвимее для укуса мантикоры. Во время охоты мантикоры часто взмывают в небо и ослабляют жертв шипами с ядом из хвоста, а затем рычат и бросаются на них.\n\n#### Свирепые спутники\n\nМантикору, пристрастившуюся к гуманоидной плоти, почти невозможно приручить. Но юную мантикору, ещё не попробовавшую такое мясо, можно вырастить грозным союзником. Даже отведав вкусной гуманоидной плоти, обученная мантикора обычно остаётся верна своему опекуну.\n\n#### Языки мантикор\n\nБольшинство мантикор умеют подражать кэлианскому и одному из языков, распространённых в краю, где они обитают. За редкими исключениями, мантикоры не говорят целыми предложениями и слишком поглощены голодом, чтобы вести переговоры.\n\n###### Сокровища мантикоры\n\n> **Сокровища мантикоры**\n>\n> Сокровища мантикоре ни к чему, но она часто собирает их в изобилии: добыча приносит их с собой. Мантикоры утаскивают жертв в пещеры, чтобы там пировать, и потому их логова обычно завалены костями, сломанным оружием, монетами и другими реликвиями несчастных путников. Со временем мантикора бросает захламлённое логово и перебирается в новое, оставляя бесхозные сокровища тем, кто отважится исследовать пустоши, кишащие мантикорами.\n>\n> Вот несколько примеров сокровищ из пещеры мантикоры. У неё может найтись один или два таких предмета. Они описаны в Draw Steel: Heroes.\n>\n> - **Сокровища:** Клинок роскошного щёголя, Бычий выстрел, Монета «Стой-езжай».\n> - **Компоненты:** адамантиновые наконечники копий, зеркало, благословлённое жрецом, крылья пикси.\n> - **Источники проектов:** заметки на залиаке об улучшении доспеха «Защита II», заметки на кетайке об улучшении катализатора «Проворство», заметки на вариаке об обременительном луке.\n> - **Богатство:** Если герои проследят кровавый след до заброшенного каравана поблизости, каждый герой получает 1 богатство.\n",
+      "source": {
+        "articleId": "monsters.monster.group.manticore",
+        "path": "Monsters/monster/group/manticore.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/manticore",
+      "originalName": "Manticore",
+      "originalDescription": "A weary traveler hears a call through the forest or friendly voices from a rocky shelter, and their heart leaps at the promise of refuge—only to find themself at the mercy of serrated teeth and poisonous spikes. In a manticore's territory, people go missing without a trace. These fearsome creatures carve out their hunting grounds in forests near small villages, mountain passes where caravans travel, and other locations with plentiful wildlife. Though manticores can subsist on a carnivorous diet of any nearby prey, their choicest meal is humanoid flesh.\n\n#### Uncanny Appearances\n\nA manticore has a lion's body, a dragon's wings, and a scorpion's tail barbed with spines, but their most unnerving trait is their humanoid face. Owing to a quirk of magical evolution, manticores develop the features of common ancestries that populate their region of birth. For example, a manticore in an area densely populated by devils inherits fiendish eyes and devilish horns. Manticores are born with an inherent understanding of a regional language, but they can speak only through mimicking that which they've heard—a talent manticores use to lure in prey.\n\n#### Heralds of Death\n\nManticores have a magical howl like a trumpet blast. This haunting sound unnerves and terrifies creatures, making them more susceptible to the manticore's bite. While on the hunt, manticores often take to the skies, shooting poison-tipped spikes from their tail to weaken their victims before howling and closing in.\n\n#### Ferocious Companions\n\nA manticore who develops a taste for humanoids can rarely be tamed. But a young manticore who has yet to cut their teeth on such flesh can be raised into a fearsome ally. Even after a trained manticore companion finally tastes delicious humanoid flesh, they typically remain loyal to their caregiver.\n\n#### Manticore Languages\n\nMost manticores can mimic Caelian and one language commonly spoken in the region where they dwell. Except in rare cases, manticores don't communicate in full sentences and are too driven by hunger to engage in negotiation.\n\n###### Manticore Treasures\n\n> **Manticore Treasures**\n>\n> Although manticores have no earthly use for treasure, they tend to collect a lot of it—it comes attached to the humanoids they prey on. Since manticores drag their victims back to their cave lairs to feed, a manticore's cave is typically strewn with bones, broken weapons, coins, and other relics of unfortunate travelers. After a while, a manticore abandons its cluttered lair in favor of a fresh one, leaving unguarded treasure for anyone willing to explore manticore-infested wastes.\n>\n> The following are sample treasures from a manticore's cave, of which a manticore might have one or two. These items can be found in Draw Steel: Heroes.\n>\n> - **Treasures:** Blade of the Luxurious Fop, Bull Shot, Stop-'n-Go Coin\n> - **Components:** Adamatine spearheads, a mirror blessed by a priest, pixie wings\n> - **Project Sources:** Notes in Zaliac for the Warding II armor enhancement, notes in Khelt for the Celerity implement enhancement, notes in Variac for an Onerous Bow\n> - **Wealth:** If the heroes follow blood trails back to a nearby abandoned caravan, each hero earns 1 wealth",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/manticore.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.manticore.manticore-malice",
+      "kind": "monster-feature",
+      "name": "Раздор мантикоры",
+      "markdown": "В начале хода любой мантикоры вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 🌀 **Жуткое подражание (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Мантикора подражает услышанному, пытаясь встревожить одно существо в пределах линии воздействия. Если у цели Р < 4, она получает помеху на броски силы против мантикоры (до прох.). При каждом повторном использовании этой особенности против той же цели за столкновение её [потенциал](#/catalog/glossary#term-glossary.potency) уменьшается на 2.\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Мантикора совершает дополнительное основное действие в свой ход. Она может использовать эту особенность, даже если находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed).\n\n> 🌀 **Отчаянный рёв (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Мантикора издаёт тревожный крик. Каждый враг в пределах её линии воздействия проходит **тест Интуиции**.\n>\n> - **≤11:** [Испуг](#/catalog/glossary#term-glossary.frightened) (до прох.).\n> - **12-16:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ).\n> - **17+:** Без эффекта.\n\n> ❇️ **Шквал шипов (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Мантикора разбрасывает шипы с хвоста по земле в пределах 5 клеток от себя. Каждый враг в этой области, у которого Л < 3, начинает [истекать кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.). Кроме того, эта область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а каждый враг получает 3 урона ядом за каждую клетку области, в которую входит. Если за один ход враг таким образом получает 9 урона ядом, до конца столкновения он находится в состоянии [Ослабление](#/catalog/glossary#term-glossary.weakened).\n",
+      "source": {
+        "articleId": "monsters.monster.manticore.manticore-malice",
+        "path": "Monsters/monster/manticore/manticore-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.manticore/manticore-malice",
+      "originalName": "Manticore Malice",
+      "originalDescription": "At the start of any manticore's turn, you can spend Malice to activate one of the following features.\n\n> 🌀 **Uncanny Mimicry (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore uses their mimicry in an attempt to unnerve one creature within their line of effect. If the target has R < 4, they take a bane on power rolls against the manticore (save ends). Each time this feature is used against the same target during the encounter, its [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) decreases by 2.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Desperate Howl (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore lets out an unnerving cry. Each enemy within the manticore's line of effect makes an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> ❇️ **Barrage of Barbs (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore sprays tail spikes across the ground within 5 squares of them. Each enemy in that area who has A < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends). Additionally, the area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and any enemy takes 3 poison damage for each square of the area they enter. An enemy who takes 9 poison damage this way on one turn is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/manticore/manticore-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.manticore.statblock.manticore",
+      "kind": "monster",
+      "name": "Мантикора",
+      "markdown": "| Зверь, Мантикора |          -          |       Уровень 4       |         Одиночка          |        Боевая ценность 72         |\n|:-----------------:|:-------------------:|:-------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Размер   |   **10**<br>Скорость   |  **350**<br>Выносливость |  **2**<br>Устойчивость   | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полет**<br>Движение |          -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+4**<br>Мощь  |  **+3**<br>Ловкость  |   **0**<br>Разум   |   **0**<br>Интуиция   |  **-1**<br>Присутствие  |\n\n> ☠️ **Монстр-одиночка**\n>\n> [**Прекращение эффекта:**](#/codex/monsters.rule.monster.end-effect) В конце каждого своего хода мантикора может получить 10 урона, чтобы прекратить один действующий на ней эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя снизить никаким образом.\n>\n> **Ходы одиночки:** Мантикора может совершать два хода за раунд. Она не может совершать их подряд.\n\n> ⭐️ **Ловкий хищник**\n>\n> Нанеся существу урон, мантикора до конца этого хода не провоцирует его атак по возможности.\n\n> 🗡 **Плотоядный укус ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона; цель с Л < 2 [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n> - **12-16:** 17 урона; цель с Л < 3 [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n> - **17+:** 21 урон; цель с Л < 4 [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n>\n> **Эффект:** Если цель [испугана](#/catalog/glossary#term-glossary.frightened), эта способность получает преимущество.\n\n> 🏹 **Шип из хвоста**\n>\n> | **Дальний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона; цель с М < 2 получает 4 урона ядом.\n> - **12-16:** 11 урона; цель с М < 3 получает 4 урона ядом и [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n> - **17+:** 14 урона; цель с М < 4 получает 8 урона ядом и [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** Пока цель остаётся в состоянии [Ослабление](#/catalog/glossary#term-glossary.weakened) таким образом, в начале каждого своего хода она получает 1d6 урона ядом.\n\n> 🗡 **Хлёсткие когти**\n>\n> | **Ближний бой, Удар, Оружие** |                    **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|---------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1; цель с Л < 2 получает 3 урона.\n> - **12-16:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 2; цель с Л < 3 получает 5 урона.\n> - **17+:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 4; цель с Л < 4 получает 7 урона.\n\n> ❗️ **Инстинктивный рефлекс (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Существо, вызвавшее действие** |\n>\n> **Условие:** Существо в пределах досягаемости наносит мантикоре урон.\n>\n> **Эффект:** Мантикора [смещается](#/catalog/glossary#term-glossary.shift) вверх на расстояние до 5 клеток, затем может применить к цели «Шип из хвоста».\n\n> ☠️ **Трубный рёв ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область, Магия** |                            **-** |\n> |-------------------|---------------------------------:|\n> | **📏 Взрыв 5**   | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ); если у цели И < 2, вместо этого она [напугана](#/catalog/glossary#term-glossary.frightened) (до прох.).\n> - **12-16:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ); если у цели И < 3, вместо этого она [напугана](#/catalog/glossary#term-glossary.frightened) (до прох.).\n> - **17+:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ); если у цели И < 4, вместо этого она [Оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.).\n\n> ☠️ **Загнанный хищник ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Мантикора [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, затем может применить «Шип из хвоста» к каждому врагу в пределах досягаемости этой способности.\n\n> ☠️ **Изнуряющий яд ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Мантикора насыщает свой яд враждой. До конца столкновения она получает двойное преимущество на броски силы против существ в состоянии [Ослабление](#/catalog/glossary#term-glossary.weakened). Кроме того, скорость любого существа, [ослабленного](#/catalog/glossary#term-glossary.weakened) способностью мантикоры «Шип из хвоста», уменьшается вдвое; в начале каждого его хода оно дополнительно получает 3 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.manticore.statblock.manticore",
+        "path": "Monsters/monster/manticore/statblock/manticore.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.manticore.statblock/manticore",
+      "originalName": "Manticore",
+      "originalDescription": "| Beast, Manticore  |          -          |       Level 4       |         Solo          |        EV 72         |\n|:-----------------:|:-------------------:|:-------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **10**<br>Speed   |  **350**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |          -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might  |  **+3**<br>Agility  |   **0**<br>Reason   |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n>☠️ **Solo Monster**\n>\n>[**End Effect:**](scc.v1:mcdm.monsters.v1/rule.monster/end-effect) At the end of each of their turns, the manticore can take 10 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n>**Solo Turns:** The manticore can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Agile Predator**\n>\n> Whenever the manticore deals damage to a creature, they don't provoke opportunity attacks from that creature during that turn.\n\n> 🗡 **Carnivorous Bite ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 21 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** If the target is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), this ability gains an edge.\n\n> 🏹 **Tail Spike**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; M < 2 4 poison damage\n> - **12-16:** 11 damage; M < 3 4 poison damage, [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 14 damage; M < 4 8 poison damage, [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target takes 1d6 poison damage at the start of each of their turns.\n\n> 🗡 **Harrying Claws**\n>\n> | **Melee, Strike, Weapon** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; A < 2 3 damage\n> - **12-16:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 3 5 damage\n> - **17+:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 7 damage\n\n> ❗️ **Reflexive Instinct (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-------------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the manticore.\n>\n> **Effect:** The manticore [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares into the air, then can use Tail Spike against the target.\n\n> ☠️ **Trumpeting Howl ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                            **-** |\n> |-----------------|---------------------------------:|\n> | **📏 5 burst**  | **🎯 Each creature in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 2 they are instead [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 3 they are instead [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT); if the target has I < 4 they are instead [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ☠️ **Cornered Predator ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The manticore [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then can use Tail Spike against each enemy within distance of that ability.\n\n> ☠️ **Debilitating Poison ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The manticore sours their poison with enmity. Until the end of the encounter, the manticore has a double edge on power rolls against [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) creatures. Additionally, any creature [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) by the manticore's Tail Spike ability has their speed halved and takes an extra 3 poison damage at the start of each of their turns.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/manticore/statblock/manticore.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "manticore",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "72",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Мантикора"
+        ],
+        "organization": "Одиночка"
+      }
+    }
+  ]
+}

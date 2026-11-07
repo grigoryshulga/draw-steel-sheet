@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.minotaur.statblock.minotaur-stampede",
+  "title": "Галоп минотавров",
+  "chapter": "23. Бестиарий",
+  "group": "Минотавры",
+  "path": "Monsters/monster/minotaur/statblock/minotaur-stampede.md",
+  "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-stampede",
+  "originalName": "Minotaur Stampede",
+  "originalDescription": "| Accursed, Humanoid, Minotaur, Swarm |         -         |     Level 10      |               Minion Defender               | EV 12 for four minions |\n|:-----------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|            **4**<br>Size            |  **8**<br>Speed   | **17**<br>Stamina |             **2**<br>Stability              |  **4**<br>Free Strike  |\n|          **-**<br>Immunity          | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|           **+5**<br>Might           | **+5**<br>Agility |  **0**<br>Reason  |             **+2**<br>Intuition             |   **-1**<br>Presence   |\n\n> 🗡 **Bull Rush ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 5 can't stand (save ends)\n>\n> **Effect:** If this ability is used as part of the Charge main action, each creature the stampede moves through who has M < 4 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Swarm**\n>\n> The stampede can move through spaces as if they were a size 2 creature, and can occupy other creatures' spaces. At the start of each of the stampede's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/minotaur/statblock/minotaur-stampede.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "minotaur",
+    "recordType": "statblock",
+    "level": 10,
+    "ev": "12 for four minions",
+    "size": "4",
+    "keywords": [
+      "Проклятый",
+      "Гуманоид",
+      "Минотавр",
+      "Рой"
+    ],
+    "role": "Защитник",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.minotaur.statblock.minotaur-stampede"
+    }
+  ]
+}

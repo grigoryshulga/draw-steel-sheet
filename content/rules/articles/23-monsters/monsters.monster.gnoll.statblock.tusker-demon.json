@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.gnoll.statblock.tusker-demon",
+  "title": "Демон-бивень",
+  "chapter": "23. Бестиарий",
+  "group": "Гноллы",
+  "path": "Monsters/monster/gnoll/statblock/tusker-demon.md",
+  "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/tusker-demon",
+  "originalName": "Tusker Demon",
+  "originalDescription": "| Abyssal, Demon, Gnoll |         -         |      Level 2       |      Elite Brute      |        EV 16         | \n|:---------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size     |  **7**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|   **-**<br>Immunity   | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might    | **-1**<br>Agility |  **-3**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If this ability is used as part of the Charge main action, it deals an extra 4 damage.\n\n> ❗️ **Vengeful Tusker**\n>\n> | **Ranged**      |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|----------------------------:|\n> | **📏 Ranged 7** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance deals damage to the tusker.\n>\n> **Effect:** The tusker demon uses the Charge main action and Gore against the target.\n\n> ⭐️ **Trample**\n>\n> The tusker demon can move through enemies' spaces at their usual speed. When the tusker enters a creature's space for the first time on a turn, that creature takes 5 damage. The tusker demon can end their turn in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) size 1 creature's space, preventing the creature from standing up.\n\n> ⭐️ **Lethe**\n>\n> While the tusker demon is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an edge on strikes, and any strike made against them gains an edge.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/gnoll/statblock/tusker-demon.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "gnoll",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "16",
+    "size": "3",
+    "keywords": [
+      "Бездны",
+      "Демон",
+      "Гнолл"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.gnoll.statblock.tusker-demon"
+    }
+  ]
+}

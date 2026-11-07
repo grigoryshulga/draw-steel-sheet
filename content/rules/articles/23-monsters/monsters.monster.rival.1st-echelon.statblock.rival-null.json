@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.rival.1st-echelon.statblock.rival-null",
+  "title": "Соперник-нуль",
+  "chapter": "23. Бестиарий",
+  "group": "Соперники",
+  "path": "Monsters/monster/rival/1st-echelon/statblock/rival-null.md",
+  "originalId": "mcdm.monsters.v1/monster.rival.1st-echelon.statblock/rival-null",
+  "originalName": "Rival Null",
+  "originalDescription": "|  Humanoid, Rival  |         -         |      Level 2      |     Elite Harrier     |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **80**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Nimble Step ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **12-16:** 10 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n> - **17+:** 13 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares\n\n> 🗡 **Numb (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Psionic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; R < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 10 damage; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 13 damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n\n> ⭐️ **Inertial Shield**\n>\n> The first time each round that the null is targeted by a damage-dealing [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), they halve the damage.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the null chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the null and the creature can add a d3 roll to power rolls they make against each other.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/rival/1st-echelon/statblock/rival-null.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "rival",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "16",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Соперник"
+    ],
+    "role": "Налётчик",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.rival.1st-echelon.statblock.rival-null"
+    }
+  ]
+}

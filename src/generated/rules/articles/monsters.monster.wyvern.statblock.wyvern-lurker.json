@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.wyvern.statblock.wyvern-lurker",
+      "title": "Виверна-засадник",
+      "chapter": "23. Бестиарий",
+      "group": "Виверны",
+      "path": "Monsters/monster/wyvern/statblock/wyvern-lurker.md",
+      "originalId": "mcdm.monsters.v1/monster.wyvern.statblock/wyvern-lurker",
+      "originalName": "Wyvern Lurker",
+      "originalDescription": "|     Beast, Wyvern      |          -          |      Level 4       |    Elite Ambusher     |        EV 24         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **2**<br>Size      |   **9**<br>Speed    | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Acid 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+3**<br>Agility  |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Agonizing Stinger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 17 damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **1 Malice:** One target hidden from the lurker takes an extra 6 acid damage.\n\n> 🗡 **Acidic Anguish (3 Malice)**\n>\n> | **Magic, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 acid damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 acid damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 20 acid damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way takes 1d4 acid damage at the start of each of their turns.\n\n> 👤 **Swooping Torment**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The lurker [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed, then can attempt to hide. Each enemy the lurker moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to during this movement can choose to take 3 sonic damage or fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Retaliatory Dive**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the lurker with a ranged ability.\n>\n> **Effect:** The lurker [flies](scc.v1:mcdm.heroes.v1/movement/fly) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Ruthless Rage**\n>\n> While within 10 squares of another wyvern, the lurker deals an extra 3 damage with strikes.\n\n> ⭐️ **Tenacious Hunter**\n>\n> Any creature affected by a condition imposed by a wyvern can't be hidden from the lurker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/wyvern/statblock/wyvern-lurker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "wyvern",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Виверна"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.wyvern.statblock.wyvern-lurker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.wyvern",
+          "title": "Виверны"
+        },
+        {
+          "id": "monsters.monster.wyvern.wyvern-malice",
+          "title": "Виверны: Раздор"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.wyvern.statblock.wyvern-lurker",
+      "kind": "monster",
+      "name": "Виверна-засадник",
+      "markdown": "| Зверь, Виверна | - | Уровень 4 | Элита Засадник | Боевая ценность 24 |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **9**<br>Скорость | **120**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **Кислота 5**<br>Иммунитет | **Полет**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+3**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Мучительное жало ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона; при М < 2 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 17 урона; при М < 3 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **1 Раздора:** Одна цель, скрытая от виверны-засадника, получает дополнительно 6 урона кислотой.\n\n> 🗡 **Кислотная агония (3 Раздора)**\n>\n> | **Магия, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона кислотой; при М < 1 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 16 урона кислотой; при М < 2 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 20 урона кислотой; при М < 3 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Цель, [ослабленная](#/catalog/glossary#term-glossary.weakened) таким образом, получает 1d4 урона кислотой в начале каждого своего хода.\n\n> 👤 **Нисходящая пытка**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Виверна-засадник [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости, а затем может попытаться спрятаться. Каждый враг, к которому виверна переместилась, оказавшись [смежной](#/catalog/glossary#term-glossary.adjacent), может выбрать: получить 3 урона звуком или упасть [сбитым с ног](#/catalog/glossary#term-glossary.prone).\n\n> ❗️ **Ответное пикирование**\n>\n> | **Дальний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Существо, вызвавшее триггер** |\n>\n> **Условие:** Существо в пределах дистанции наносит урон виверне-засаднику способностью дальнего боя.\n>\n> **Эффект:** Виверна-засадник [летит](#/catalog/glossary#term-glossary.fly) к цели, пока не окажется [смежной](#/catalog/glossary#term-glossary.adjacent) с ней, и может нанести ей [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Безжалостная ярость**\n>\n> Находясь в пределах 10 клеток от другой виверны, виверна-засадник наносит ударами дополнительно 3 урона.\n\n> ⭐️ **Неутомимый охотник**\n>\n> Ни одно существо, на которое действует состояние, наложенное виверной, не может спрятаться от виверны-засадника.\n",
+      "source": {
+        "articleId": "monsters.monster.wyvern.statblock.wyvern-lurker",
+        "path": "Monsters/monster/wyvern/statblock/wyvern-lurker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.wyvern.statblock/wyvern-lurker",
+      "originalName": "Wyvern Lurker",
+      "originalDescription": "|     Beast, Wyvern      |          -          |      Level 4       |    Elite Ambusher     |        EV 24         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **2**<br>Size      |   **9**<br>Speed    | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Acid 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+3**<br>Agility  |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Agonizing Stinger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 17 damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **1 Malice:** One target hidden from the lurker takes an extra 6 acid damage.\n\n> 🗡 **Acidic Anguish (3 Malice)**\n>\n> | **Magic, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 acid damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 acid damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 20 acid damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way takes 1d4 acid damage at the start of each of their turns.\n\n> 👤 **Swooping Torment**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The lurker [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed, then can attempt to hide. Each enemy the lurker moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to during this movement can choose to take 3 sonic damage or fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Retaliatory Dive**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the lurker with a ranged ability.\n>\n> **Effect:** The lurker [flies](scc.v1:mcdm.heroes.v1/movement/fly) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Ruthless Rage**\n>\n> While within 10 squares of another wyvern, the lurker deals an extra 3 damage with strikes.\n\n> ⭐️ **Tenacious Hunter**\n>\n> Any creature affected by a condition imposed by a wyvern can't be hidden from the lurker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/wyvern/statblock/wyvern-lurker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "wyvern",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Виверна"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

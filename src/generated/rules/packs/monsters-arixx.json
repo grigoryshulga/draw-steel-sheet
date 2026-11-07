@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.arixx.arixx-malice",
+      "title": "Раздор Арикса",
+      "chapter": "23. Бестиарий",
+      "group": "Арикс",
+      "path": "Monsters/monster/arixx/arixx-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.arixx/arixx-malice",
+      "originalName": "Arixx Malice",
+      "originalDescription": "At the start of an arixx's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Burning Maw (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx dribbles acid over their mandibles, causing the next strike they make to gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) and deal an extra 3 acid damage.\n\n> 🔳 **Geyser (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx's underground tunnels swell with pressure, causing a sudden influx of hot gas to burst from a 3-square-by-3-square area anywhere on the surface. Each enemy in the area makes an **[Agility](scc.v1:mcdm.heroes.v1/rule.character/agility) test**.\n>\n> - **≤11:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) to the nearest unoccupied space outside the area.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Earth Sink (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The encounter map suddenly quakes, then begins to sink. Each creature on the ground who has A < 1 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone). Until the end of the encounter, each creature who starts their turn on the ground and can't [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) must spend 1 additional square of movement to leave their starting position, or 2 squares if they start their turn [prone](scc.v1:mcdm.heroes.v1/condition/prone) or underground. A creature who starts and ends their turn in the same space on the ground and can't [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) sinks 1 square into the ground.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/arixx/arixx-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.arixx.arixx-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.arixx",
+          "title": "Арикс"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.arixx.statblock.arixx",
+      "title": "Арикс",
+      "chapter": "23. Бестиарий",
+      "group": "Арикс",
+      "path": "Monsters/monster/arixx/statblock/arixx.md",
+      "originalId": "mcdm.monsters.v1/monster.arixx.statblock/arixx",
+      "originalName": "Arixx",
+      "originalDescription": "|   Arixx, Beast    |           -            |      Level 1       |         Solo          |        EV 36         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **200**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  |   **+1**<br>Agility    |  **-3**<br>Reason  |  **+1**<br>Intuition  |  **-4**<br>Presence  |\n\n> ☠️ **Solo Monster**\n>\n> **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect):** At the end of each of their turns, the arixx can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n> **Solo Turns:** The arixx can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Earthwalk**\n>\n> [Difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) composed of earth or loose rock doesn't cost the arixx extra movement.\n\n> ⭐️ **Soft Underbelly**\n>\n> A [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature making a melee strike against the arixx has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on the strike instead of taking a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane).\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 13 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 16 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A size 1 target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes 3 acid damage at the start of each of their turns.\n\n> 🗡 **Claw Swing**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage; A < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 8 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The arixx can vertically [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) each [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) target up to 3 squares.\n\n> 🏹 **Spitfire**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 acid damage\n> - **12-16:** 6 acid damage\n> - **17+:** 7 acid damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The ground beneath each target is covered in burning acid until the end of the encounter. Any enemy who enters an affected space for the first time in a round or starts their turn there takes 2 acid damage.\n\n> ❇️ **Dirt Devil (3 Malice)**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The arixx flings rocks and debris to fill the area, and has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on the power roll if they started their turn underground. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ❇️ **Dust Cloud**\n>\n> | **Area**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------:|\n> | **📏 1 burst** | **🎯 Special** |\n>\n> **Effect:** The arixx kicks up dust to fill the area until the start of their next turn, then moves up to their speed. Any enemy in the area or who targets a creature in the area takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The arixx takes damage.\n>\n> **Effect:** The arixx halves the damage and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares after the triggering effect resolves.\n\n> ☠️ **Acid Spew (Villain Action 1)**\n>\n> | **Area, Weapon**            |                                       **-** |\n> |-----------------------------|--------------------------------------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage\n> - **12-16:** 8 acid damage\n> - **17+:** 11 acid damage\n>\n> **Effect:** The ground in the area is covered in a puddle of acid until the end of the encounter. Any enemy who enters the area for the first time in a round or starts their turn there takes 2 acid damage.\n\n> ☠️ **Sinkhole (Villain Action 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The arixx [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If they end this shift above ground and within 2 squares of a creature, they use Bite against the creature and can then use the Dig maneuver.\n\n> ☠️ **Acid and Claws (Villain Action 3)**\n>\n> | **Area, Weapon**  |                            **-** |\n> |-------------------|---------------------------------:|\n> | **📏 2 burst**    | **🎯 Each creature in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 8 acid damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 11 acid damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/arixx/statblock/arixx.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "36",
+        "size": "2",
+        "keywords": [
+          "Арикс",
+          "Зверь"
+        ],
+        "organization": "Одиночка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.arixx.statblock.arixx"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.arixx.arixx-malice",
+          "title": "Раздор Арикса"
+        },
+        {
+          "id": "monsters.monster.group.arixx",
+          "title": "Арикс"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.arixx",
+      "title": "Арикс",
+      "chapter": "23. Бестиарий",
+      "group": "Арикс",
+      "path": "Monsters/monster/group/arixx.md",
+      "originalId": "mcdm.monsters.v1/monster.group/arixx",
+      "originalName": "Arixx",
+      "originalDescription": "Pebbles dance as the ground quivers. A spray of rock and earth shatters the afternoon's peace, and an arixx blooms from the earth. Their mandibles drip sizzling acid as a talon impales their next meal sometimes a fat sheep, other times a shepherd.\n\nAn arixx is a chitinous burrowing insectoid beast who stands taller than a horse. Their hooked claws and serrated mandibles are fearsome weapons, but even more dangerous is the stream of caustic spittle they use to dissolve their prey.\n\n#### Pastoral Pest\n\nAlthough arixxi can be found anywhere, they are a particular plague in settled lands. An arixx hunts alone, lurking a few feet below roadways and pastures. When their sensitive antennae detect movement above, they burst from the earth, dragging living prey into their tunnels to be devoured. These hit-and-run tactics make the arixx virtually impossible to eradicate—unless they have the bad luck to ambush a party of well-armed adventurers. Many communities pay a handsome bounty for a slain arixx.\n\n#### Terror of the Thaw\n\nArixxi are a year-round menace in the warmest lands. In temperate places, arixxi hibernate during the winter, granting farmers a season of peace. But this respite is paid for on the first thaw of spring, when every arixx awakens ravenous on the same day and bursts from the ground to feed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/arixx.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.arixx"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.arixx.arixx-malice",
+          "title": "Раздор Арикса"
+        },
+        {
+          "id": "monsters.monster.arixx.statblock.arixx",
+          "title": "Арикс"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.arixx.arixx-malice",
+      "kind": "monster-feature",
+      "name": "Раздор Арикса",
+      "markdown": "В начале хода Арикса вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 👤 **Пылающая пасть (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Арикс выпускает кислоту на свои жвала; следующая его атака получает [преимущество](#/catalog/glossary#term-glossary.edge) и наносит дополнительно 3 урона кислотой.\n\n> 🔳 **Гейзер (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Давление в подземных тоннелях Арикса нарастает, и на поверхности внезапно вырывается поток горячего газа, заполняющий область размером 3 на 3 клетки в любом месте. Каждый враг в области проходит **[тест Ловкости](#/catalog/glossary#term-glossary.agility)**.\n>\n> - **≤11:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) по вертикали на 5\n> - **12-16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) по вертикали на 3\n> - **17+:** цель [смещается](#/catalog/glossary#term-glossary.shift) в ближайшее незанятое пространство за пределами области.\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В свой ход Арикс совершает дополнительное основное действие. Он может использовать эту особенность, даже если находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed).\n\n> 🌀 **Проседание земли (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Карта столкновения внезапно содрогается и начинает проседать. Каждое существо на земле с Л < 1 [сбивается с ног](#/catalog/glossary#term-glossary.prone). До конца столкновения каждое существо, которое начинает ход на земле и не может [рыть](#/catalog/glossary#term-glossary.burrow), должно потратить 1 дополнительную клетку движения, чтобы покинуть исходное пространство, или 2 клетки, если оно начинает ход [сбитым с ног](#/catalog/glossary#term-glossary.prone) или под землёй. Существо, которое начинает и заканчивает ход в одном пространстве на земле и не может [рыть](#/catalog/glossary#term-glossary.burrow), погружается в землю на 1 клетку.\n",
+      "source": {
+        "articleId": "monsters.monster.arixx.arixx-malice",
+        "path": "Monsters/monster/arixx/arixx-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.arixx/arixx-malice",
+      "originalName": "Arixx Malice",
+      "originalDescription": "At the start of an arixx's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Burning Maw (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx dribbles acid over their mandibles, causing the next strike they make to gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) and deal an extra 3 acid damage.\n\n> 🔳 **Geyser (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx's underground tunnels swell with pressure, causing a sudden influx of hot gas to burst from a 3-square-by-3-square area anywhere on the surface. Each enemy in the area makes an **[Agility](scc.v1:mcdm.heroes.v1/rule.character/agility) test**.\n>\n> - **≤11:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) to the nearest unoccupied space outside the area.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The arixx takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Earth Sink (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The encounter map suddenly quakes, then begins to sink. Each creature on the ground who has A < 1 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone). Until the end of the encounter, each creature who starts their turn on the ground and can't [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) must spend 1 additional square of movement to leave their starting position, or 2 squares if they start their turn [prone](scc.v1:mcdm.heroes.v1/condition/prone) or underground. A creature who starts and ends their turn in the same space on the ground and can't [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) sinks 1 square into the ground.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/arixx/arixx-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.arixx.statblock.arixx",
+      "kind": "monster",
+      "name": "Арикс",
+      "markdown": "| Арикс, Зверь | — | Уровень 1 | Одиночка | Боевая ценность 36 |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **5**<br>Скорость | **200**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **—**<br>Иммунитет | **Закапывание**<br>Движение | — | **—**<br>С капитаном | **—**<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **-3**<br>Разум | **+1**<br>Интуиция | **-4**<br>Присутствие |\n\n> ☠️ **Монстр-одиночка**\n>\n> **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect):** В конце каждого своего хода Арикс может получить 5 урона, чтобы завершить один действующий на него эффект, который можно завершить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n>\n> **Ходы одиночки:** Каждый раунд Арикс может совершать два хода. Он не может совершать их подряд.\n\n> ⭐️ **Хождение по земле**\n>\n> Земля или рыхлый камень, считающиеся [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), не требуют от Арикса дополнительного движения.\n\n> ⭐️ **Мягкое брюхо**\n>\n> [Сбитое с ног](#/catalog/glossary#term-glossary.prone) существо, совершающее ближнюю атаку по Ариксу, получает двойное [преимущество](#/catalog/glossary#term-glossary.edge) при этой атаке вместо [помехи](#/catalog/glossary#term-glossary.bane).\n\n> 🗡 **Укус (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона; [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 13 урона; [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 16 урона; [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Цель размера 1, [захваченная таким образом](#/catalog/glossary#term-glossary.grabbed), получает 3 урона кислотой в начале каждого своего хода.\n\n> 🗡 **Размах клешнёй**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона; Л < 1 — [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 8 урона; Л < 2 — [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 11 урона; Л < 3 — [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Арикс может [сдвинуть по вертикали](#/catalog/glossary#term-glossary.forced-movement) каждую [захваченную](#/catalog/glossary#term-glossary.grabbed) цель на расстояние до 3 клеток.\n\n> 🏹 **Кислотный плевок**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 урона кислотой\n> - **12-16:** 6 урона кислотой\n> - **17+:** 7 урона кислотой; [сбито с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Земля под каждой целью покрывается горящей кислотой до конца столкновения. Каждый враг, впервые за раунд входящий в поражённое пространство или начинающий там ход, получает 2 урона кислотой.\n\n> ❇️ **Пыльный вихрь (3 Раздора)**\n>\n> | **Область** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 7 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n>\n> **Эффект:** Арикс разбрасывает камни и обломки по всей области. Если он начал ход под землёй, то получает двойное [преимущество](#/catalog/glossary#term-glossary.edge) на этот бросок силы. Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ❇️ **Облако пыли**\n>\n> | **Область** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|---------------:|\n> | **📏 Взрыв 1** | **🎯 Особое** |\n>\n> **Эффект:** Арикс поднимает пыль, заполняющую область до начала его следующего хода, а затем перемещается на расстояние до своей Скорости. Каждый враг в области или выбирающий целью существо в области получает [помеху](#/catalog/glossary#term-glossary.bane) на броски силы.\n\n> ❗️ **Шмыгнуть**\n>\n> | **—** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Арикс получает урон.\n>\n> **Эффект:** Арикс уменьшает урон вдвое и [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток после разрешения вызвавшего эффекта.\n\n> ☠️ **Кислотный залп (Действие злодея 1)**\n>\n> | **Область, Оружие** | **—** |\n> |-----------------------------|--------------------------------------------:|\n> | **📏 Линия 10 x 2 в пределах 1** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона кислотой\n> - **12-16:** 8 урона кислотой\n> - **17+:** 11 урона кислотой\n>\n> **Эффект:** Земля в области покрывается лужей кислоты до конца столкновения. Каждый враг, впервые за раунд входящий в область или начинающий там ход, получает 2 урона кислотой.\n\n> ☠️ **Провал грунта (Действие злодея 2)**\n>\n> | **—** | **—** |\n> |-------------|------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Арикс [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Если он заканчивает это смещение над землёй и в пределах 2 клеток от существа, он атакует его укусом, а затем может использовать маневр копания.\n\n> ☠️ **Кислота и клешни (Действие злодея 3)**\n>\n> | **Область, Оружие** | **—** |\n> |-------------------|---------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона кислотой; М < 1 — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 8 урона кислотой; М < 2 — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 11 урона кислотой; М < 3 — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n",
+      "source": {
+        "articleId": "monsters.monster.arixx.statblock.arixx",
+        "path": "Monsters/monster/arixx/statblock/arixx.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.arixx.statblock/arixx",
+      "originalName": "Arixx",
+      "originalDescription": "|   Arixx, Beast    |           -            |      Level 1       |         Solo          |        EV 36         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **200**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  |   **+1**<br>Agility    |  **-3**<br>Reason  |  **+1**<br>Intuition  |  **-4**<br>Presence  |\n\n> ☠️ **Solo Monster**\n>\n> **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect):** At the end of each of their turns, the arixx can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n> **Solo Turns:** The arixx can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Earthwalk**\n>\n> [Difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) composed of earth or loose rock doesn't cost the arixx extra movement.\n\n> ⭐️ **Soft Underbelly**\n>\n> A [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature making a melee strike against the arixx has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on the strike instead of taking a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane).\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 13 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 16 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A size 1 target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes 3 acid damage at the start of each of their turns.\n\n> 🗡 **Claw Swing**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage; A < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 8 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 11 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The arixx can vertically [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) each [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) target up to 3 squares.\n\n> 🏹 **Spitfire**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 acid damage\n> - **12-16:** 6 acid damage\n> - **17+:** 7 acid damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The ground beneath each target is covered in burning acid until the end of the encounter. Any enemy who enters an affected space for the first time in a round or starts their turn there takes 2 acid damage.\n\n> ❇️ **Dirt Devil (3 Malice)**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The arixx flings rocks and debris to fill the area, and has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on the power roll if they started their turn underground. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ❇️ **Dust Cloud**\n>\n> | **Area**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------:|\n> | **📏 1 burst** | **🎯 Special** |\n>\n> **Effect:** The arixx kicks up dust to fill the area until the start of their next turn, then moves up to their speed. Any enemy in the area or who targets a creature in the area takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The arixx takes damage.\n>\n> **Effect:** The arixx halves the damage and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares after the triggering effect resolves.\n\n> ☠️ **Acid Spew (Villain Action 1)**\n>\n> | **Area, Weapon**            |                                       **-** |\n> |-----------------------------|--------------------------------------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage\n> - **12-16:** 8 acid damage\n> - **17+:** 11 acid damage\n>\n> **Effect:** The ground in the area is covered in a puddle of acid until the end of the encounter. Any enemy who enters the area for the first time in a round or starts their turn there takes 2 acid damage.\n\n> ☠️ **Sinkhole (Villain Action 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The arixx [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If they end this shift above ground and within 2 squares of a creature, they use Bite against the creature and can then use the Dig maneuver.\n\n> ☠️ **Acid and Claws (Villain Action 3)**\n>\n> | **Area, Weapon**  |                            **-** |\n> |-------------------|---------------------------------:|\n> | **📏 2 burst**    | **🎯 Each creature in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 8 acid damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 11 acid damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/arixx/statblock/arixx.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "36",
+        "size": "2",
+        "keywords": [
+          "Арикс",
+          "Зверь"
+        ],
+        "organization": "Одиночка"
+      }
+    },
+    {
+      "id": "monster.group.arixx",
+      "kind": "monster-lore",
+      "name": "Арикс",
+      "markdown": "Галька пляшет на дрожащей земле. Поток камней и земли нарушает тишину полдня, и из грунта появляется арикс. Из его жвал капает шипящая кислота, а коготь пронзает очередную добычу — то упитанную овцу, то пастуха.\n\nАрикс — покрытый хитином роющий зверь-насекомое, возвышающийся над лошадью. Его загнутые когти и зазубренные жвала — грозное оружие, но ещё опаснее поток едкой слюны, которой он растворяет добычу.\n\n#### Бич сельской местности\n\nАриксов можно встретить где угодно, но особенно они досаждают жителям обжитых земель. Арикс охотится в одиночку, скрываясь в нескольких футах под дорогами и пастбищами. Чувствительные усики улавливают движение наверху — и он вырывается из земли, утаскивая живую добычу в тоннели, чтобы пожрать её. Из-за этих тактик внезапных налётов ариксов почти невозможно истребить — если только им не не повезёт напасть на отряд хорошо вооружённых искателей приключений. Многие общины щедро награждают за убитого арикса.\n\n#### Ужас оттепели\n\nВ самых тёплых краях ариксы угрожают жителям круглый год. В умеренном климате ариксы впадают в зимнюю спячку, даря фермерам сезон покоя. Но за эту передышку приходится платить во время первой весенней оттепели: все ариксы пробуждаются голодными в один и тот же день и вырываются из земли на поиски пищи.\n",
+      "source": {
+        "articleId": "monsters.monster.group.arixx",
+        "path": "Monsters/monster/group/arixx.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/arixx",
+      "originalName": "Arixx",
+      "originalDescription": "Pebbles dance as the ground quivers. A spray of rock and earth shatters the afternoon's peace, and an arixx blooms from the earth. Their mandibles drip sizzling acid as a talon impales their next meal sometimes a fat sheep, other times a shepherd.\n\nAn arixx is a chitinous burrowing insectoid beast who stands taller than a horse. Their hooked claws and serrated mandibles are fearsome weapons, but even more dangerous is the stream of caustic spittle they use to dissolve their prey.\n\n#### Pastoral Pest\n\nAlthough arixxi can be found anywhere, they are a particular plague in settled lands. An arixx hunts alone, lurking a few feet below roadways and pastures. When their sensitive antennae detect movement above, they burst from the earth, dragging living prey into their tunnels to be devoured. These hit-and-run tactics make the arixx virtually impossible to eradicate—unless they have the bad luck to ambush a party of well-armed adventurers. Many communities pay a handsome bounty for a slain arixx.\n\n#### Terror of the Thaw\n\nArixxi are a year-round menace in the warmest lands. In temperate places, arixxi hibernate during the winter, granting farmers a season of peace. But this respite is paid for on the first thaw of spring, when every arixx awakens ravenous on the same day and bursts from the ground to feed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/arixx.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "arixx",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

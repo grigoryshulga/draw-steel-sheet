@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.devil.statblock.devil-scrivener",
+  "title": "Дьявол-писец",
+  "chapter": "23. Бестиарий",
+  "group": "Дьяволы",
+  "path": "Monsters/monster/devil/statblock/devil-scrivener.md",
+  "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-scrivener",
+  "originalName": "Devil Scrivener",
+  "originalDescription": "|    Devil, Infernal     |          -          |     Level 5      |            Minion Harrier             | EV 7 for four minions |\n|:----------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **9**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+3**<br>Agility  | **+1**<br>Reason |          **+1**<br>Intuition          |  **+2**<br>Presence   |\n\n> 🗡 **Litigation (Signature Ability)**\n>\n> | **Charge, Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 5 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 6 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n>\n> **Effect:** The scrivener can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the scrivener's true name, the scrivener loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/devil/statblock/devil-scrivener.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "devil",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Дьявол",
+      "Адский"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.devil.statblock.devil-scrivener"
+    }
+  ]
+}

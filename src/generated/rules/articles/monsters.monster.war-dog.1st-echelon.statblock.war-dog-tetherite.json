@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.1st-echelon.statblock.war-dog-tetherite",
+      "title": "Пёс войны-тетерит",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/1st-echelon/statblock/war-dog-tetherite.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon.statblock/war-dog-tetherite",
+      "originalName": "War Dog Tetherite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 1      |                Minion Brute                 | EV 3 for four minions |\n|:---------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|       **1M**<br>Size        |  **5**<br>Speed   | **5**<br>Stamina |             **1**<br>Stability              | **2**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|       **+2**<br>Might       | **0**<br>Agility  | **0**<br>Reason  |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🗡 **Banded Dagger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Tethered**\n>\n> A captain attached to a tetherite squad has their stability increased by the number of tetherites within 2 squares of them.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the tetherite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d3 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/1st-echelon/statblock/war-dog-tetherite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.1st-echelon.statblock.war-dog-tetherite"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.1st-echelon.statblock.war-dog-tetherite",
+      "kind": "monster",
+      "name": "Пёс войны-тетерит",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |     Уровень 1     |             Миньон-громила              | Боевая ценность 3 за четыре миньона |\n|:-------------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:----------------------------------------:|\n|       **1M**<br>Размер           | **5**<br>Скорость | **5**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет              | **-**<br>Движение |        -         | **Получает преимущество на удары**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь                  | **0**<br>Ловкость | **0**<br>Разум    | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Полосатый кинжал ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------------------------:|\n> | **📏 Ближний 2**         | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> ⭐️ **Привязанный**\n>\n> Устойчивость капитана, прикреплённого к отряду тетеритов, увеличивается на число тетеритов в пределах 2 клеток от него.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) тетерита снижается до 0, его ошейник преданности взрывается и наносит 1d3 урона каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу и объекту.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.1st-echelon.statblock.war-dog-tetherite",
+        "path": "Monsters/monster/war-dog/1st-echelon/statblock/war-dog-tetherite.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon.statblock/war-dog-tetherite",
+      "originalName": "War Dog Tetherite",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 1      |                Minion Brute                 | EV 3 for four minions |\n|:---------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|       **1M**<br>Size        |  **5**<br>Speed   | **5**<br>Stamina |             **1**<br>Stability              | **2**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|       **+2**<br>Might       | **0**<br>Agility  | **0**<br>Reason  |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🗡 **Banded Dagger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Tethered**\n>\n> A captain attached to a tetherite squad has their stability increased by the number of tetherites within 2 squares of them.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the tetherite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d3 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/1st-echelon/statblock/war-dog-tetherite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.4th-echelon.statblock.skeleton-knight",
+      "title": "Рыцарь-скелет",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/4th-echelon/statblock/skeleton-knight.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.4th-echelon.statblock/skeleton-knight",
+      "originalName": "Skeleton Knight",
+      "originalDescription": "|             Undead, Soulless             |         -         |     Level 10      |               Minion Defender               | EV 12 for four minions |\n|:----------------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|              **1L**<br>Size              |  **5**<br>Speed   | **17**<br>Stamina |             **2**<br>Stability              |  **4**<br>Free Strike  |\n| **Corruption 10, poison 10**<br>Immunity | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|             **+3**<br>Might              | **+5**<br>Agility | **-2**<br>Reason  |             **+4**<br>Intuition             |   **-2**<br>Presence   |\n\n> 🗡 **Four Swords Swing ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; the target can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n\n> ⭐️ **Bitter Bones**\n>\n> If the knight is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their bones collapse to fill their space with an impassable barrier. Any enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the barrier for the first time in a round or starts their turn there takes 5 damage.\n\n> ⭐️ **More Swings**\n>\n> Whenever the knight makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), they can make two [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/4th-echelon/statblock/skeleton-knight.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Нежить",
+          "Бездушный"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.4th-echelon.statblock.skeleton-knight"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.4th-echelon.statblock.skeleton-knight",
+      "kind": "monster",
+      "name": "Рыцарь-скелет",
+      "markdown": "| Нежить, Бездушный | - | Уровень 10 | Миньон, Защитник | Боевая ценность 12 за четырёх миньонов |\n|:----------------------------------------:|:---------------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n| **1L**<br>Размер | **5**<br>Скорость | **17**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 10, яд 10**<br>Иммунитет | **-**<br>Движение | - | **Преимущество на ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+5**<br>Ловкость | **-2**<br>Разум | **+4**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Взмах четырёх мечей ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона; цель не может [смещаться](#/catalog/glossary#term-glossary.shift) ([КсХ](#/catalog/glossary#term-glossary.eot))\n\n> ⭐️ **Горькие кости**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) рыцаря снижается до 0, его кости рассыпаются и заполняют его пространство непроходимой преградой. Любой враг, который впервые за раунд оказывается [смежным](#/catalog/glossary#term-glossary.adjacent) с преградой или начинает там свой ход, получает 5 урона.\n\n> ⭐️ **Больше взмахов**\n>\n> Каждый раз, когда рыцарь совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike), вместо этого он может совершить два [свободных удара](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.undead.4th-echelon.statblock.skeleton-knight",
+        "path": "Monsters/monster/undead/4th-echelon/statblock/skeleton-knight.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.4th-echelon.statblock/skeleton-knight",
+      "originalName": "Skeleton Knight",
+      "originalDescription": "|             Undead, Soulless             |         -         |     Level 10      |               Minion Defender               | EV 12 for four minions |\n|:----------------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|              **1L**<br>Size              |  **5**<br>Speed   | **17**<br>Stamina |             **2**<br>Stability              |  **4**<br>Free Strike  |\n| **Corruption 10, poison 10**<br>Immunity | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|             **+3**<br>Might              | **+5**<br>Agility | **-2**<br>Reason  |             **+4**<br>Intuition             |   **-2**<br>Presence   |\n\n> 🗡 **Four Swords Swing ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; the target can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n\n> ⭐️ **Bitter Bones**\n>\n> If the knight is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their bones collapse to fill their space with an impassable barrier. Any enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the barrier for the first time in a round or starts their turn there takes 5 damage.\n\n> ⭐️ **More Swings**\n>\n> Whenever the knight makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), they can make two [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/4th-echelon/statblock/skeleton-knight.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Нежить",
+          "Бездушный"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

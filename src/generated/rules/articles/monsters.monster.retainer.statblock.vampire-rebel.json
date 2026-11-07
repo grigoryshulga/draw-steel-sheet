@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.vampire-rebel",
+      "title": "Вампир-мятежник",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/vampire-rebel.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/vampire-rebel",
+      "originalName": "Vampire Rebel",
+      "originalDescription": "|  Undead, Vampire  |           -           |      Level 4      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |    **5**<br>Speed     | **48**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+3**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> 🗡 **Flashing Fangs (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **2d10 + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 5 damage, 3 corruption damage\n> - **17+:** 5 damage, 6 corruption damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The vampire rebel gains [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) equal to any corruption damage dealt.\n\n> 👤 **Bat Form (Encounter)**\n>\n> | **-**       | **[Move Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The vampire rebel changes their form into a bat. In bat form, their size is 1T and they can [fly](scc.v1:mcdm.heroes.v1/movement/fly). The vampire rebel then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then regains their true form. If they can't fit in their current space when they return to their true form, they take 10 damage and are pushed to the nearest unoccupied space.\n\n> ⭐️ **Agonizing Bloodthirst**\n>\n> The vampire rebel has speed 10 while any creature within 10 squares of them is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). If the vampire rebel is able to deal damage to a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature on their turn and does not do so, they take 5 corruption damage at the end of their turn.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/vampire-rebel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Нежить",
+          "Вампир"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.vampire-rebel"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.vampire-rebel"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.harrier"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.vampire-rebel",
+          "title": "Способности развития вампира-бунтаря"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.harrier",
+          "title": "Способности развития роли Налётчика"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.vampire-rebel",
+      "kind": "retainer",
+      "name": "Вампир-мятежник",
+      "markdown": "| Нежить, Вампир | - | Уровень 4 | Помощник-налётчик | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **5**<br>Скорость | **48**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+3**<br>Присутствие |\n\n> 🗡 **Сверкающие клыки (Знаковая способность)**\n>\n> | **Ближний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **2d10 + высшая характеристика:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 5 урона, 3 урона порчей\n> - **17+:** 5 урона, 6 урона порчей; М < СИЛЬНАЯ [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Вампир-мятежник получает [временную Выносливость](#/catalog/glossary#term-glossary.temporary-stamina), равную нанесённому урону порчей.\n\n> 👤 **Облик летучей мыши (столкновение)**\n>\n> | **-** | **[Действие движения](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Сам** | **🎯 Сам** |\n>\n> **Эффект:** Вампир-мятежник принимает облик летучей мыши. В этом облике его размер — 1T, и он может [летать](#/catalog/glossary#term-glossary.fly). Затем вампир-мятежник совершает [шаг](#/catalog/glossary#term-glossary.shift) на расстояние до своей скорости и возвращается в истинный облик. Если вернувшийся в истинный облик вампир не помещается в своём текущем пространстве, он получает 10 урона и отталкивается в ближайшее незанятое пространство.\n\n> ⭐️ **Мучительная жажда крови**\n>\n> Скорость вампира-мятежника равна 10, пока любое существо в пределах 10 клеток от него имеет состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding). Если вампир-мятежник способен нанести урон существу с [Кровотечением](#/catalog/glossary#term-glossary.bleeding) в свой ход, но не делает этого, он получает 5 урона порчей в конце хода.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.vampire-rebel",
+        "path": "Monsters/monster/retainer/statblock/vampire-rebel.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/vampire-rebel",
+      "originalName": "Vampire Rebel",
+      "originalDescription": "|  Undead, Vampire  |           -           |      Level 4      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |    **5**<br>Speed     | **48**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+3**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> 🗡 **Flashing Fangs (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **2d10 + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 5 damage, 3 corruption damage\n> - **17+:** 5 damage, 6 corruption damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The vampire rebel gains [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) equal to any corruption damage dealt.\n\n> 👤 **Bat Form (Encounter)**\n>\n> | **-**       | **[Move Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The vampire rebel changes their form into a bat. In bat form, their size is 1T and they can [fly](scc.v1:mcdm.heroes.v1/movement/fly). The vampire rebel then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then regains their true form. If they can't fit in their current space when they return to their true form, they take 10 damage and are pushed to the nearest unoccupied space.\n\n> ⭐️ **Agonizing Bloodthirst**\n>\n> The vampire rebel has speed 10 while any creature within 10 squares of them is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). If the vampire rebel is able to deal damage to a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature on their turn and does not do so, they take 5 corruption damage at the end of their turn.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/vampire-rebel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Нежить",
+          "Вампир"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.vampire-rebel",
+      "kind": "monster-feature",
+      "name": "Способности развития вампира-бунтаря",
+      "markdown": "> **Способность развития Помощника 7-го уровня**\n\n> 🗡 **Прилив крови (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|----------------------:|\n> | **📏 Ближний 1**              | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; М < СЛАБЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 11 урона; М < СРЕДНИЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 16 урона; М < СИЛЬНЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n>\n> **Эффект:** Перед [ударом](#/catalog/glossary#term-glossary.strike) вампир-бунтарь [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Если у него есть [временная Выносливость](#/catalog/glossary#term-glossary.temporary-stamina), он может потратить её; за каждую потраченную таким образом единицу [временной Выносливости](#/catalog/glossary#term-glossary.temporary-stamina) цель получает дополнительно 2 урона порчей.\n\n> **Способность развития Помощника 10-го уровня**\n\n> 🔳 **Обескровливание (Столкновение)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|----------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона порчей; М < СЛАБЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 11 урона порчей; М < СРЕДНИЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 16 урона порчей; М < СИЛЬНЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.vampire-rebel",
+        "path": "Monsters/monster/retainer/advancement-features/vampire-rebel.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/vampire-rebel",
+      "originalName": "Vampire Rebel Advancement Features",
+      "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> 🗡 **Blood Surge (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; M < WEAK [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 11 damage; M < AVERAGE [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** Before the [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), the vampire rebel [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If the vampire rebel has [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina), they can expend it, dealing an extra 2 corruption damage for each point of [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) expended this way.\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🔳 **Exsanguination (Encounter)**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 corruption damage; M < WEAK [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 11 corruption damage; M < AVERAGE [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 corruption damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/vampire-rebel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.harrier",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Налётчика",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 🗡 **Таран (Столкновение)**\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|----------------------:|\n> | **📏 Ближний 1**                | **🎯 Один враг** |\n>\n> - **≤11:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 9 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 12 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Встречаемся там (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 15 урона\n>\n> **Эффект:** До или после удара Налётчик и его Наставник могут каждый [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> **Способность развития роли 10-го уровня**\n\n> ❇️ **Схватить и заколоть (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 урона; одна цель с М < СЛАБЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 16 урона; одна цель с М < СРЕДНИЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 21 урон; одна цель с М < СИЛЬНЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Налётчик [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток и может переместить с собой существо, которое [схватил](#/catalog/glossary#term-glossary.grabbed) этой способностью.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.harrier",
+        "path": "Monsters/monster/retainer/role-advancement/harrier.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/harrier",
+      "originalName": "Harrier Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Tackle (Encounter)**\n>\n> **Power Roll + highest characteristic:**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Meet You There (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 15 damage\n>\n> **Effect:** Before or after the strike, the retainer and their mentor can each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Nab and Stab (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; one target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; one target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; one target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares, and can move a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) using this ability with them.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/harrier.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

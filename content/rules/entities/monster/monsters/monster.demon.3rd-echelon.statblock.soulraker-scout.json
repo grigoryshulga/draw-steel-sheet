@@ -1,0 +1,30 @@
+{
+  "id": "monster.demon.3rd-echelon.statblock.soulraker-scout",
+  "kind": "monster",
+  "name": "Разведчик душедёров",
+  "markdown": "| Бездны, Демон, Душедёр | - | Уровень 7 | Миньон, Налётчик | Боевая ценность 9 за четыре миньона |\n|:-------------------------:|:-------------------:|:-----------------:|:-------------------------------------------:|:------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **12**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Движение | - | **Получает преимущество при ударах**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+2**<br>Мощь | **+4**<br>Ловкость | **+1**<br>Разум | **+0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Жало души (знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо на каждого миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона ядом\n> - **12–16:** 6 урона ядом; разведчик может [смещаться](scc.v1:mcdm.heroes.v1/movement/shifting) на 1 клетку\n> - **17+:** 7 урона ядом; разведчик [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 3 клеток\n\n> ⭐️ **Жужжание Бездны**\n>\n> Каждый враг, у которого в начале хода в [смежных клетках](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) находятся два или более [миньона](scc.v1:mcdm.monsters.v1/rule.organization/minion)-душедёров, получает 3 урона звуком.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.3rd-echelon.statblock.soulraker-scout",
+    "path": "Monsters/monster/demon/3rd-echelon/statblock/soulraker-scout.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/soulraker-scout",
+  "originalName": "Soulraker Scout",
+  "originalDescription": "| Abyssal, Demon, Soulraker |          -          |      Level 7      |               Minion Harrier                |  EV 9 for four minions   |\n|:-------------------------:|:-------------------:|:-----------------:|:-------------------------------------------:|:------------------------:|\n|      **1M**<br>Size       |   **7**<br>Speed    | **12**<br>Stamina |             **0**<br>Stability              |   **3**<br>Free Strike   |\n|     **-**<br>Immunity     | **Fly**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |  **Holy 5**<br>Weakness  |\n|      **+2**<br>Might      |  **+4**<br>Agility  | **+1**<br>Reason  |             **+0**<br>Intuition             |    **-1**<br>Presence    |\n\n> 🗡 **Soul Stinger (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 poison damage\n> - **12-16:** 6 poison damage; the scout can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **17+:** 7 poison damage; the scout [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n\n> ⭐️ **Abyssal Buzzing**\n>\n> Any enemy who starts their turn with two or more soulraker [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them takes 3 sonic damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/3rd-echelon/statblock/soulraker-scout.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Демон",
+      "Душедёр"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

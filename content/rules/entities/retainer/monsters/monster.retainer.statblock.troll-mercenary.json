@@ -1,0 +1,29 @@
+{
+  "id": "monster.retainer.statblock.troll-mercenary",
+  "kind": "retainer",
+  "name": "Тролль-наёмник",
+  "markdown": "| Великан, Тролль | - | Уровень 5 | Помощник-громила | Боевая ценность - |\n|---|---|---|---|---|\n| **2**<br>Размер | **6**<br>Скорость | **57**<br>Выносливость | **4**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **Кислота 5, огонь**<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **-1**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Большой укус (Знаковая способность)**\n>\n> | **Рывок, ближний бой, удар, оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 11 урона\n> - **17+:** 14 урона\n>\n> **Эффект:** Наёмник восстанавливает [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina), равную половине нанесённого урона.\n\n> ❇️ **Рёв тролля (столкновение)**\n>\n> | **Область** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** П < СЛАБАЯ [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw))\n> - **12-16:** П < СРЕДНЯЯ [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw))\n> - **17+:** П < СИЛЬНАЯ [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)), отталкивание 3, [Лежащий](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Неутолимый голод**\n>\n> Наёмник умирает, только если его [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) снижается до 0 уроном кислотой или огнём, если он заканчивает ход с 0 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) или получает урон кислотой или огнём при 0 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n",
+  "source": {
+    "articleId": "monsters.monster.retainer.statblock.troll-mercenary",
+    "path": "Monsters/monster/retainer/statblock/troll-mercenary.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/troll-mercenary",
+  "originalName": "Troll Mercenary",
+  "originalDescription": "|   Giant, Troll    |         -          |      Level 5      |    Brute Retainer     |              EV -               |\n|:-----------------:|:------------------:|:-----------------:|:---------------------:|:-------------------------------:|\n|   **2**<br>Size   |   **6**<br>Speed   | **57**<br>Stamina |  **4**<br>Stability   |      **6**<br>Free Strike       |\n| **-**<br>Immunity | **- **<br>Movement |         -         | **-**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+3**<br>Might  | **+1**<br>Agility  | **-1**<br>Reason  |  **0**<br>Intuition   |       **+1**<br>Presence        |\n\n> 🗡 **Big Bite (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage\n>\n> **Effect:** The mercenary regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ❇️ **Troll Roar (Encounter)**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** P < WEAK [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** P < AVERAGE [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** P < STRONG [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends), push 3, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Relentless Hunger**\n>\n> The mercenary dies only if they are reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by acid or fire damage, if they end their turn with 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they take acid or fire damage while at 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/troll-mercenary.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "-",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Тролль"
+    ],
+    "role": "Громила",
+    "organization": "Помощник"
+  }
+}

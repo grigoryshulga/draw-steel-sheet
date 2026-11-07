@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.2nd-echelon.statblock.wraith",
+      "title": "Призрачный дух",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/2nd-echelon/statblock/wraith.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/wraith",
+      "originalName": "Wraith",
+      "originalDescription": "|                 Undead                 |             -              |      Level 4      |      Horde Hexer      |         EV 6         |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |       **8**<br>Speed       | **25**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **Corruption 4, poison 4**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **-2**<br>Might             |     **+2**<br>Agility      | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Chilling Gravetouch ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 cold damage; P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 cold damage; P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 cold damage; P < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Any living creature who dies from this damage rises at the start of the next round as a ghoul craver under the Director's control.\n\n> 👤 **Hidden Movement**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wraith turns invisible, moves up to their speed, and is visible again.\n\n> ❗️ **Stolen Vitality (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** An enemy within distance regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The target regains only half the [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and the wraith regains the remaining [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Agonizing Phasing**\n>\n> The wraith can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. The first time in a round that the wraith moves through a creature, that creature takes 5 corruption damage and takes a bane on their next strike. The wraith doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/wraith.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.2nd-echelon.statblock.wraith"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.2nd-echelon.statblock.wraith",
+      "kind": "monster",
+      "name": "Призрачный дух",
+      "markdown": "| Нежить | - | Уровень 4 | Орда Проклинатель | Боевая ценность 6 |\n|:--:|:--:|:--:|:--:|:--:|\n| **1M**<br>Размер | **8**<br>Скорость | **25**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 4, яд 4**<br>Иммунитет | **Полет, парение**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **+1**<br>Интуиция | **+3**<br>Присутствие |\n\n> 🗡 **Могильное ледяное прикосновение ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона холодом; при П < 1 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 7 урона холодом; при П < 2 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона холодом; при П < 3 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Любое живое существо, погибшее от этого урона, в начале следующего раунда восстает в виде упыря-обжоры под контролем Ведущего.\n\n> 👤 **Скрытое перемещение**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** Призрачный дух становится невидимым, перемещается на расстояние до своей Скорости, а затем вновь становится видимым.\n\n> ❗️ **Украденная жизненная сила (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Дальний бой 5** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Враг в пределах дистанции восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina).\n>\n> **Эффект:** Цель восстанавливает только половину [Выносливости](#/catalog/glossary#term-glossary.stamina), а призрачный дух восстанавливает оставшуюся [Выносливость](#/catalog/glossary#term-glossary.stamina).\n\n> ⭐️ **Мучительное прохождение**\n>\n> Призрачный дух может перемещаться сквозь существ и объекты со своей обычной Скоростью, но не может завершить ход внутри существа или объекта. В первый раз за раунд, когда призрачный дух проходит сквозь существо, оно получает 5 урона порчей и помеху к своему следующему удару. Призрачный дух не получает урон, если его [принудительно перемещают](#/catalog/glossary#term-glossary.forced-movement) внутрь объекта.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.2nd-echelon.statblock.wraith",
+        "path": "Monsters/monster/undead/2nd-echelon/statblock/wraith.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/wraith",
+      "originalName": "Wraith",
+      "originalDescription": "|                 Undead                 |             -              |      Level 4      |      Horde Hexer      |         EV 6         |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |       **8**<br>Speed       | **25**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **Corruption 4, poison 4**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **-2**<br>Might             |     **+2**<br>Agility      | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Chilling Gravetouch ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 cold damage; P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 cold damage; P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 cold damage; P < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Any living creature who dies from this damage rises at the start of the next round as a ghoul craver under the Director's control.\n\n> 👤 **Hidden Movement**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wraith turns invisible, moves up to their speed, and is visible again.\n\n> ❗️ **Stolen Vitality (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** An enemy within distance regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The target regains only half the [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and the wraith regains the remaining [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Agonizing Phasing**\n>\n> The wraith can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. The first time in a round that the wraith moves through a creature, that creature takes 5 corruption damage and takes a bane on their next strike. The wraith doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/wraith.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

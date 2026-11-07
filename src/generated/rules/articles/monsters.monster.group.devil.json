@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.devil",
+      "title": "Дьяволы",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/group/devil.md",
+      "originalId": "mcdm.monsters.v1/monster.group/devil",
+      "originalName": "Devils",
+      "originalDescription": "In the lower plane of Hell, [devils](scc.v1:mcdm.monsters.v1/monster.group/devil) of the Seven Cities vie unceasingly for power and control—a conflict fought foremostly through cunning and schemes. Devils are distinguished from other [humanoids](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) by skin in shades of azure and crimson, as well as their hellmarks: horns, tails, hooves, wings, and other [infernal](scc.v1:mcdm.monsters.v1/rule.keyword/infernal) features.\n\n### Precarious Pyramids\n\nThe Seven Cities of Hell stand atop strict hierarchy and bureaucracy. Primordial chains of command place each devil in service to a more powerful devil, with the seven archdevil rulers of Hell at the top. While devils are lawful, they're always looking for another way up the ladder. They twist every rule to their benefit to gain power and usurp those they answer to, eager to uncover loopholes in the eternal struggle for significance and supremacy.\n\n### Silver Tongues\n\nWinsome devils can acquire significant influence by bargaining for the souls of mortals on behalf of the archdevil they ultimately serve. Virtuosos with words, devils are skilled at striking deals and forging contracts. They exploit the weaknesses of mortals, whether greed, revenge, vanity, or simple desperation. In the heat of battle, a devil's supernatural charisma can influence a mortal to do their bidding, often without realizing until it's too late.\n\n> **Negotiations with Devils**\n>\n> Devils are eager to negotiate and strike deals, but often require more compelling arguments and concrete evidence from the other party. You can pick from the following motivations and pitfalls to quickly create a devil from one of the Seven Cities for a negotiation (see Chapter 11 in *Draw Steel: Heroes*):\n>\n> - **Motivation:** Greed, Power, Legacy\n> - **Pitfall:** Benevolence, Freedom, Protection\n>\n> During a negotiation, an NPC devil has their impression and patience increased by 1 (to a maximum of 5). Their interest goes up to 10 instead of 5.\n>\n> When an NPC devil is ready to make an offer, divide their interest by 2 to get their final response. A devil typically never settles a negotiation unless they're promised something desirable in return.\n\n### True Names\n\nAll devils have two names: one by which they're commonly known, and another secret true name. Each devil zealously safeguards the latter, as their true name can be spoken aloud to aid in summoning them—or in stripping them of their power.\n\n### Hell's Defectors\n\nNot every devil in the Seven Cities wants to ruthlessly ascend the hierarchy. Some desire advancement, but they remain dissatisfied at the bottom. As luck would have it, these fiends can free themselves from Hell's bureaucracy, for when a mortal overestimates their fortitude and dies while enacting an infernal summoning, it can leave an enterprising devil stranded in the mundane world.\n\n### Devil Languages\n\nMost devils speak Anjal and Caelian, among other languages. The more powerful a devil, the more languages they learn in order to more easily make ironclad contracts with a wide variety of people and cultures. Outside of rare circumstances, devils are always willing to negotiate, ever desiring to twist a situation in their favor.\n\n> **Devil Temptations**\n>\n> Although some devils enjoy comfort and opulence for their own sake, they primarily use treasure as bargaining chips in fiendish compacts: bait on the devils' infernal barbs.\n>\n> Even more sinister than a prize won in a devil's hard bargain is a gift freely given by a devil. The advantages of such a gift are conditional, lasting only until the devil revokes it at some inconvenient time.\n>\n> The following are samples of the wonders that a devil can offer—to only the most discriminating customers, of course. A devil might only have two or three of these items available for trade, but others (such as an archdevil's wing) can be won by force. See *Draw Steel: Heroes* for more information about how these items can be used by heroes.\n>\n> **Components:** An archdevil's wing, archdevil's blood, soul chalk, a wide selection of true names\n>\n> **Project Sources:** Notes in Anjali for the Devil's Bargain armor enhancement or a Hellcharger Helm, notes in Hyrallic for a Mediator's Charm\n>\n> **Titles:** Diabolist, Maestro\n>\n> **Treasures:** G'Allios Visiting Card, Thief of Joy\n>\n> **Wealth:** Each hero can earn 1 wealth in exchange for a small favor",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/devil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.devil"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-adjudicator",
+          "title": "Дьявол-арбитр"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-clerk",
+          "title": "Дьявол-писарь"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-high-judge",
+          "title": "Дьявол — верховный судья"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-jurist",
+          "title": "Дьявол-юрист"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-legate",
+          "title": "Дьявол-легат"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-magistrate",
+          "title": "Дьявол-магистрат"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-notary",
+          "title": "Дьявол-нотариус"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-scrivener",
+          "title": "Дьявол-писец"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.devil",
+      "kind": "monster-lore",
+      "name": "Дьяволы",
+      "markdown": "В нижнем плане Ада [дьяволы](#/codex/monsters.monster.group.devil) Семи городов непрерывно борются за власть и контроль — и в этой борьбе прежде всего прибегают к хитрости и интригам. От прочих [гуманоидов](#/codex/monsters.rule.keyword.humanoid) дьяволов отличают оттенки лазурного и багряного цвета кожи, а также адские приметы: рога, хвосты, копыта, крылья и другие [адские](#/codex/monsters.rule.keyword.infernal) черты.\n\n### Шаткие пирамиды\n\nСемь городов Ада держатся на строгой иерархии и бюрократии. Древние цепочки подчинения ставят каждого дьявола на службу более могущественному, а на вершине стоят семь архидьяволов — правителей Ада. Дьяволы следуют законам, но всегда ищут способ подняться выше. Они толкуют каждое правило в свою пользу, чтобы обрести власть и свергнуть тех, кому служат, и жадно ищут лазейки в вечной борьбе за значимость и превосходство.\n\n### Серебряные языки\n\nОбходительные дьяволы могут обрести значительное влияние, выторговывая души смертных от имени архидьявола, которому в конечном счёте служат. Будучи виртуозами слова, дьяволы умело заключают сделки и составляют договоры. Они используют слабости смертных — жадность, жажду мести, тщеславие или простое отчаяние. В пылу битвы сверхъестественная харизма дьявола может заставить смертного исполнить его волю, и тот часто понимает это, лишь когда уже слишком поздно.\n\n> **Переговоры с дьяволами**\n>\n> Дьяволы охотно ведут переговоры и заключают сделки, но от другой стороны часто требуют более убедительных доводов и конкретных доказательств. Чтобы быстро создать дьявола из одного из Семи городов для переговоров, выберите одну из следующих мотиваций и опасных тем (см. главу 11 в книге *Draw Steel: Heroes*):\n>\n> - **Мотивация:** Жадность, Власть, Наследие\n> - **Опасная тема:** Благожелательность, Свобода, Защита\n>\n> Во время переговоров Впечатление и Терпение дьявола-НПС увеличиваются на 1 (максимум до 5). Его Интерес повышается до 10 вместо 5.\n>\n> Когда НПС-дьявол готов сделать предложение, разделите его Интерес на 2, чтобы получить окончательный ответ. Обычно дьявол не завершает переговоры, если взамен ему не пообещали что-то желанное.\n\n### Истинные имена\n\nУ всех дьяволов есть два имени: одно, под которым их обычно знают, и другое — тайное истинное имя. Каждый дьявол ревностно оберегает последнее: его можно произнести вслух, чтобы помочь призвать дьявола или лишить его силы.\n\n### Беглецы из Ада\n\nНе каждый дьявол Семи городов стремится безжалостно взобраться по иерархической лестнице. Некоторые хотят продвинуться, но недовольны своим низким положением. К счастью для этих нечистых созданий, они могут вырваться из бюрократии Ада: когда смертный переоценивает свою стойкость и погибает, совершая адский обряд призыва, предприимчивый дьявол может оказаться запертым в обыденном мире.\n\n### Языки дьяволов\n\nБольшинство дьяволов, помимо прочих языков, говорит на Анджали и кэлианском. Чем могущественнее дьявол, тем больше языков он изучает, чтобы заключать безупречные договоры с самыми разными народами и культурами. За редкими исключениями дьяволы всегда готовы к переговорам и постоянно ищут способ обратить ситуацию себе на пользу.\n\n> **Искушения дьяволов**\n>\n> Хотя некоторые дьяволы ценят удобства и роскошь сами по себе, главным образом они используют сокровища как предмет торга в дьявольских соглашениях — приманку на своих адских крючьях.\n>\n> Ещё зловещее, чем приз, добытый в тяжёлой сделке с дьяволом, — подарок, вручённый им безвозмездно. Преимущества такого дара условны и сохраняются, лишь пока дьявол не отзовёт его в самый неудобный момент.\n>\n> Ниже приведены примеры чудес, которые дьявол может предложить — разумеется, лишь самым взыскательным покупателям. У дьявола может найтись для обмена всего два или три таких предмета, но другие вещи (например, крыло архидьявола) можно добыть силой. Подробнее о том, как герои могут использовать эти предметы, см. в книге *Draw Steel: Heroes*.\n>\n> **Компоненты:** Крыло архидьявола, кровь архидьявола, мел для душ, широкий выбор истинных имён\n>\n> **Источники проектов:** Записи на Анджали для улучшения доспеха «Сделка с дьяволом» или Шлема адского скакуна; записи на Хираллике для Оберега посредника\n>\n> **Титулы:** Диаболист, Маэстро\n>\n> **Сокровища:** Визитная карточка Г'Аллиоса, Похититель радости\n>\n> **Богатство:** Каждый герой может получить 1 единицу Богатства в обмен на небольшую услугу.\n",
+      "source": {
+        "articleId": "monsters.monster.group.devil",
+        "path": "Monsters/monster/group/devil.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/devil",
+      "originalName": "Devils",
+      "originalDescription": "In the lower plane of Hell, [devils](scc.v1:mcdm.monsters.v1/monster.group/devil) of the Seven Cities vie unceasingly for power and control—a conflict fought foremostly through cunning and schemes. Devils are distinguished from other [humanoids](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) by skin in shades of azure and crimson, as well as their hellmarks: horns, tails, hooves, wings, and other [infernal](scc.v1:mcdm.monsters.v1/rule.keyword/infernal) features.\n\n### Precarious Pyramids\n\nThe Seven Cities of Hell stand atop strict hierarchy and bureaucracy. Primordial chains of command place each devil in service to a more powerful devil, with the seven archdevil rulers of Hell at the top. While devils are lawful, they're always looking for another way up the ladder. They twist every rule to their benefit to gain power and usurp those they answer to, eager to uncover loopholes in the eternal struggle for significance and supremacy.\n\n### Silver Tongues\n\nWinsome devils can acquire significant influence by bargaining for the souls of mortals on behalf of the archdevil they ultimately serve. Virtuosos with words, devils are skilled at striking deals and forging contracts. They exploit the weaknesses of mortals, whether greed, revenge, vanity, or simple desperation. In the heat of battle, a devil's supernatural charisma can influence a mortal to do their bidding, often without realizing until it's too late.\n\n> **Negotiations with Devils**\n>\n> Devils are eager to negotiate and strike deals, but often require more compelling arguments and concrete evidence from the other party. You can pick from the following motivations and pitfalls to quickly create a devil from one of the Seven Cities for a negotiation (see Chapter 11 in *Draw Steel: Heroes*):\n>\n> - **Motivation:** Greed, Power, Legacy\n> - **Pitfall:** Benevolence, Freedom, Protection\n>\n> During a negotiation, an NPC devil has their impression and patience increased by 1 (to a maximum of 5). Their interest goes up to 10 instead of 5.\n>\n> When an NPC devil is ready to make an offer, divide their interest by 2 to get their final response. A devil typically never settles a negotiation unless they're promised something desirable in return.\n\n### True Names\n\nAll devils have two names: one by which they're commonly known, and another secret true name. Each devil zealously safeguards the latter, as their true name can be spoken aloud to aid in summoning them—or in stripping them of their power.\n\n### Hell's Defectors\n\nNot every devil in the Seven Cities wants to ruthlessly ascend the hierarchy. Some desire advancement, but they remain dissatisfied at the bottom. As luck would have it, these fiends can free themselves from Hell's bureaucracy, for when a mortal overestimates their fortitude and dies while enacting an infernal summoning, it can leave an enterprising devil stranded in the mundane world.\n\n### Devil Languages\n\nMost devils speak Anjal and Caelian, among other languages. The more powerful a devil, the more languages they learn in order to more easily make ironclad contracts with a wide variety of people and cultures. Outside of rare circumstances, devils are always willing to negotiate, ever desiring to twist a situation in their favor.\n\n> **Devil Temptations**\n>\n> Although some devils enjoy comfort and opulence for their own sake, they primarily use treasure as bargaining chips in fiendish compacts: bait on the devils' infernal barbs.\n>\n> Even more sinister than a prize won in a devil's hard bargain is a gift freely given by a devil. The advantages of such a gift are conditional, lasting only until the devil revokes it at some inconvenient time.\n>\n> The following are samples of the wonders that a devil can offer—to only the most discriminating customers, of course. A devil might only have two or three of these items available for trade, but others (such as an archdevil's wing) can be won by force. See *Draw Steel: Heroes* for more information about how these items can be used by heroes.\n>\n> **Components:** An archdevil's wing, archdevil's blood, soul chalk, a wide selection of true names\n>\n> **Project Sources:** Notes in Anjali for the Devil's Bargain armor enhancement or a Hellcharger Helm, notes in Hyrallic for a Mediator's Charm\n>\n> **Titles:** Diabolist, Maestro\n>\n> **Treasures:** G'Allios Visiting Card, Thief of Joy\n>\n> **Wealth:** Each hero can earn 1 wealth in exchange for a small favor",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/devil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

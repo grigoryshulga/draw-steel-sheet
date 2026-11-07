@@ -103,7 +103,7 @@ describe("canonical rules content", () => {
     expect(manifest.articles.map((entry: any) => entry.id).sort()).toEqual(
       canonicalArticles.map((article) => article.id).sort(),
     );
-    expect(canonicalArticles.map((article) => article.id).sort()).toEqual(
+    expect(canonicalArticles.filter(article => !article.director).map((article) => article.id).sort()).toEqual(
       legacyCodex.map((article) => article.id).sort(),
     );
 
@@ -132,7 +132,7 @@ describe("canonical rules content", () => {
 
   it("reconstructs every legacy article without losing Markdown, tables or links", () => {
     const mismatches: string[] = [];
-    for (const article of canonicalArticles) {
+    for (const article of canonicalArticles.filter(article => !article.director)) {
       const rendered = article.blocks
         .map((block: any) =>
           block.type === "markdown"
@@ -148,7 +148,7 @@ describe("canonical rules content", () => {
 
   it("keeps existing heading IDs and article routes", () => {
     const mismatches: any[] = [];
-    for (const entry of manifest.articles) {
+    for (const entry of manifest.articles.filter((entry: any) => !entry.director)) {
       const legacy = legacyIndexById.get(entry.id);
       const actual = entry.headings.map((heading: any) => ({
         id: heading.id,
@@ -307,6 +307,9 @@ describe("canonical rules content", () => {
   it("keeps full-text search equal to the reconstructed article, including entity text", () => {
     const mismatches: string[] = [];
     for (const article of canonicalArticles) {
+      // Monsters delivery resolves SCC links and inlines retainer progression;
+      // that contract is verified against delivered articles in monsters-content.
+      if (article.director) continue;
       const rendered = article.blocks
         .map((block: any) =>
           block.type === "markdown"

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.goblin.statblock.goblin-assassin",
+  "title": "Гоблин-убийца",
+  "chapter": "23. Бестиарий",
+  "group": "Гоблины",
+  "path": "Monsters/monster/goblin/statblock/goblin-assassin.md",
+  "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-assassin",
+  "originalName": "Goblin Assassin",
+  "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |    Horde Ambusher     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-2**<br>Presence  |\n\n> 🗡 **Sword Stab (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 🏹 **Shadow Chains (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |        **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 corruption damage; A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 4 corruption damage; A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 5 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The assassin doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.\n\n> ⭐️ **Slip Away**\n>\n> The assassin can attempt to hide even while observed.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/goblin/statblock/goblin-assassin.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "goblin",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гоблин",
+      "Гуманоид"
+    ],
+    "role": "Засадник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.goblin.statblock.goblin-assassin"
+    }
+  ]
+}

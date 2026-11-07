@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.3rd-echelon.statblock.soulraker-handmaiden",
+      "title": "Служанка душедёров",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/3rd-echelon/statblock/soulraker-handmaiden.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/soulraker-handmaiden",
+      "originalName": "Soulraker Handmaiden",
+      "originalDescription": "| Abyssal, Demon, Soulraker |         -         |      Level 8      |    Horde Ambusher     |          EV 10           |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|      **1M**<br>Size       |  **0**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   |   **4**<br>Free Strike   |\n|     **-**<br>Immunity     | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|      **+3**<br>Might      | **+0**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |    **+4**<br>Presence    |\n\n> ⭐️ **Implanted Parasite**\n>\n> A host creature implanted by a soulraker hivequeen's Stinging Ovipositor has no physical or mental signs of the handmaiden gestating inside the host's body.\n>\n> After 1d3 + 1 weeks of gestation, the handmaiden fully forms inside the host. The handmaiden always moves with and occupies the same space as the host and can't be separated from them. While totally within the creature, the handmaiden doesn't have [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to the host or targets outside the host and vice versa. As a maneuver, the handmaiden can emerge from the host as a horrifying tower of flesh and bone that remains attached to the host's insides. While emerged, the handmaiden can use a move action to make the host move up to their speed and has access to the host's [signature abilities](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), using the host's modifiers for any power rolls. The handmaiden has the same [Stability](scc.v1:mcdm.heroes.v1/rule.character/stability) as the host. If the handmaiden or host is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), the other moves with them. While emerged, the handmaiden can be targeted independently of the host. The handmaiden can retreat totally within the host's body as a maneuver. If the handmaiden dies, their remains separate from the host.\n>\n> The [Find a Cure](scc.v1:mcdm.heroes.v1/project/find-a-cure) downtime project in Draw Steel: Heroes can be used to find a cure that removes a handmaiden from a host. The cure kills the handmaiden when consumed.\n\n> 🗡 **Emergent Horrors (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 corruption damage\n> - **12-16:** 11 corruption damage\n> - **17+:** 13 corruption damage; M < 4 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** If the handmaiden was totally within their host's body at the start of this turn, the ability deals an extra 8 damage.\n\n> ⭐️ **Lethe**\n>\n> While the handmaiden is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/3rd-echelon/statblock/soulraker-handmaiden.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Душедёр"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.3rd-echelon.statblock.soulraker-handmaiden"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.3rd-echelon.statblock.soulraker-handmaiden",
+      "kind": "monster",
+      "name": "Служанка душедёров",
+      "markdown": "| Бездны, Демон, Душедёр | - | Уровень 8 | Орда, Засадник | Боевая ценность 10 |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n| **1M**<br>Размер | **0**<br>Скорость | **50**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+3**<br>Мощь | **+0**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **+4**<br>Присутствие |\n\n> ⭐️ **Внедрённый паразит**\n>\n> У существа-носителя, которому королева улья душедёров внедрила Жалящий яйцеклад, нет никаких физических или психических признаков того, что внутри его тела развивается служанка.\n>\n> После 1d3 + 1 недель развития служанка полностью формируется внутри носителя. Она всегда движется вместе с ним и занимает то же пространство; их нельзя разделить. Пока служанка полностью находится внутри существа, у неё нет [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect) на носителя или цели вне носителя, и наоборот. Маневром служанка может выйти из носителя в виде ужасающей башни из плоти и костей, остающейся соединённой с его внутренностями. Выйдя наружу, служанка может действием движения заставить носителя переместиться на расстояние до его Скорости и получает доступ к [знаковым способностям](#/catalog/glossary#term-glossary.signature-ability) носителя, используя его модификаторы для любых бросков силы. У служанки такая же [Устойчивость](#/catalog/glossary#term-glossary.stability), как у носителя. Если служанка или носитель подвергается [принудительному перемещению](#/catalog/glossary#term-glossary.forced-movement), второй тоже перемещается вместе с ним. Выйдя наружу, служанка может стать целью отдельно от носителя. Маневром она может полностью скрыться обратно в теле носителя. Если служанка погибает, её останки отделяются от носителя.\n>\n> Проект отдыха «[Найти лекарство](#/codex/1615)» из книги Draw Steel: Герои позволяет отыскать средство, которое удалит служанку из носителя. При употреблении это средство убивает служанку.\n\n> 🗡 **Вырывающиеся ужасы (знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 8 урона Порчей\n> - **12–16:** 11 урона Порчей\n> - **17+:** 13 урона Порчей; при **М < 4** — [Испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** Если в начале этого хода служанка полностью находилась в теле носителя, способность наносит дополнительно 8 урона.\n\n> ⭐️ **Лета**\n>\n> Пока служанка находится в состоянии [Утомление](#/catalog/glossary#term-glossary.winded), она получает [преимущество](#/catalog/glossary#term-glossary.edge) при ударах, а удары по ней также совершаются с преимуществом.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.3rd-echelon.statblock.soulraker-handmaiden",
+        "path": "Monsters/monster/demon/3rd-echelon/statblock/soulraker-handmaiden.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/soulraker-handmaiden",
+      "originalName": "Soulraker Handmaiden",
+      "originalDescription": "| Abyssal, Demon, Soulraker |         -         |      Level 8      |    Horde Ambusher     |          EV 10           |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|      **1M**<br>Size       |  **0**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   |   **4**<br>Free Strike   |\n|     **-**<br>Immunity     | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|      **+3**<br>Might      | **+0**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |    **+4**<br>Presence    |\n\n> ⭐️ **Implanted Parasite**\n>\n> A host creature implanted by a soulraker hivequeen's Stinging Ovipositor has no physical or mental signs of the handmaiden gestating inside the host's body.\n>\n> After 1d3 + 1 weeks of gestation, the handmaiden fully forms inside the host. The handmaiden always moves with and occupies the same space as the host and can't be separated from them. While totally within the creature, the handmaiden doesn't have [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to the host or targets outside the host and vice versa. As a maneuver, the handmaiden can emerge from the host as a horrifying tower of flesh and bone that remains attached to the host's insides. While emerged, the handmaiden can use a move action to make the host move up to their speed and has access to the host's [signature abilities](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), using the host's modifiers for any power rolls. The handmaiden has the same [Stability](scc.v1:mcdm.heroes.v1/rule.character/stability) as the host. If the handmaiden or host is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), the other moves with them. While emerged, the handmaiden can be targeted independently of the host. The handmaiden can retreat totally within the host's body as a maneuver. If the handmaiden dies, their remains separate from the host.\n>\n> The [Find a Cure](scc.v1:mcdm.heroes.v1/project/find-a-cure) downtime project in Draw Steel: Heroes can be used to find a cure that removes a handmaiden from a host. The cure kills the handmaiden when consumed.\n\n> 🗡 **Emergent Horrors (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 corruption damage\n> - **12-16:** 11 corruption damage\n> - **17+:** 13 corruption damage; M < 4 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** If the handmaiden was totally within their host's body at the start of this turn, the ability deals an extra 8 damage.\n\n> ⭐️ **Lethe**\n>\n> While the handmaiden is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/3rd-echelon/statblock/soulraker-handmaiden.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Душедёр"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

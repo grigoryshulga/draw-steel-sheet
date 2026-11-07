@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.undead.1st-echelon.statblock.shade",
+  "title": "Тень",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/1st-echelon/statblock/shade.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon.statblock/shade",
+  "originalName": "Shade",
+  "originalDescription": "|                 Undead                 |             -              |     Level 1      |            Minion Ambusher            | EV 3 for four minions |\n|:--------------------------------------:|:--------------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |       **5**<br>Speed       | **4**<br>Stamina |          **1**<br>Stability           | **2**<br>Free Strike  |\n| **Corruption 1, poison 1**<br>Immunity | **Fly, hover**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|            **-5**<br>Might             |     **+1**<br>Agility      | **0**<br>Reason  |          **0**<br>Intuition           |  **+2**<br>Presence   |\n\n> 🗡 **Life Drain ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 corruption damage\n> - **12-16:** 4 corruption damage\n> - **17+:** 5 corruption damage; the target must move up to their speed and can't end that movement closer to any shade\n\n> ⭐️ **Shadow Phasing**\n>\n> The shade can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. The first time in a round that the shade moves through a creature, that creature takes 1 corruption damage. The shade doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/1st-echelon/statblock/shade.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Нежить"
+    ],
+    "role": "Засадник",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.1st-echelon.statblock.shade"
+    }
+  ]
+}

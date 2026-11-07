@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.elemental.statblock.essence-of-storms",
+  "title": "Эссенция бурь",
+  "chapter": "23. Бестиарий",
+  "group": "Элементали",
+  "path": "Monsters/monster/elemental/statblock/essence-of-storms.md",
+  "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-storms",
+  "originalName": "Essence of Storms",
+  "originalDescription": "|          Elemental          |          -          |      Level 3       |     Elite Harrier     |        EV 20         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1S**<br>Size        |   **8**<br>Speed    | **100**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Lightning 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ❇️ **Bluster (Signature Ability)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 1 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 5 damage, 4 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 5 damage, 7 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The essence [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares before or after using this ability.\n\n> 🏹 **Convocation of Squalls**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has lightning immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, a vortex surrounds the target in a 3 aura. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Additionally, at the end of each of the target's turns, they can [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) one creature in the area up to 5 squares.\n\n> ❗️ **Thunderclap (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the essence.\n>\n> **Effect:** The target takes 5 lightning damage.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elemental/statblock/essence-of-storms.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elemental",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "20",
+    "size": "1S",
+    "keywords": [
+      "Элементаль"
+    ],
+    "role": "Налётчик",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elemental.statblock.essence-of-storms"
+    }
+  ]
+}

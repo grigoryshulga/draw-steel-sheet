@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.angulotl.statblock.angulotl-wave",
+  "title": "Ангулотл-волна",
+  "chapter": "23. Бестиарий",
+  "group": "Ангулотлы",
+  "path": "Monsters/monster/angulotl/statblock/angulotl-wave.md",
+  "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-wave",
+  "originalName": "Angulotl Wave",
+  "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |   Horde Controller    |         EV 3         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size      |       **5**<br>Speed        | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+0**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Refulgent Beams (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 holy damage\n> - **12-16:** 4 holy damage; R < 1 the target is illuminated (save ends)\n> - **17+:** 5 holy damage; R < 2 the target is illuminated (save ends)\n>\n> **Effect:** An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> 🔳 **Noxious Bubble (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**                     | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------------------------|----------------:|\n> | **📏 2 cube of unoccupied space within 10** |  **🎯 Special** |\n>\n> **Effect:** A bubble of toxic gas fills the area, ready to pop. If any creature or object touches the bubble or if the bubble takes damage, it bursts. Each angulotl adjacent to the bubble is wet until the end of the encounter, and each enemy adjacent to the bubble makes a **[Might](scc.v1:mcdm.heroes.v1/rule.character/might) test**.\n>\n> - **≤11:** 3 poison damage; the target is wet and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 2 poison damage; the target is wet (save ends)\n> - **17+:** 1 poison damage; the target is wet ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the wave or uses a melee ability against them, that enemy takes 2 poison damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/angulotl/statblock/angulotl-wave.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "angulotl",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Ангулотл",
+      "Гуманоид"
+    ],
+    "role": "Контроллер",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.angulotl.statblock.angulotl-wave"
+    }
+  ]
+}

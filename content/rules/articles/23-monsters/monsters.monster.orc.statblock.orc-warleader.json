@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-warleader",
+  "title": "Орк-военачальник",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-warleader.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-warleader",
+  "originalName": "Orc Warleader",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3       |        Leader         |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+2**<br>Agility |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Go. ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|----------------:|\n> | **📏 Ranged 10** | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets two allies.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets one ally and a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad).\n\n> 🗡 **Mace Lariat**\n>\n> | **Melee, Strike, Weapon** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------:|\n> | **📏 Melee 1**            | **🎯 Each enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> 🏹 **Lockdown (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**                |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------:|\n> | **📏 Self and ranged 10** | **🎯 Self and three allies** |\n>\n> **Effect:** Each target moves up to their speed and can use the [Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) maneuver, which gains an edge.\n\n> ❗️ **Courtesy Call**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |  **🎯 One creature** |\n>\n> **Trigger:** The target obtains a tier 1 outcome on one power roll.\n>\n> **Effect:** The target has a double edge on their next power roll before the end of the encounter.\n\n> ☠️ **Close In ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**       |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target moves up to their speed. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a target after this move makes an Intuition test.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (EoT)\n> - **17+:** No effect\n\n> ☠️ **Familial Reinforcements ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |       **-** |\n> |------------------|------------:|\n> | **📏 Ranged 10** | **🎯 Self** |\n>\n> **Effect:** The warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and four orc blitzers appear in unoccupied spaces within distance.\n\n> ☠️ **I'll Do This Myself ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** Three times in succession, the warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can use Mace Lariat.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Relentless**\n>\n> If the warleader is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the warleader is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-warleader.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "20",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "organization": "Лидер"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-warleader"
+    }
+  ]
+}

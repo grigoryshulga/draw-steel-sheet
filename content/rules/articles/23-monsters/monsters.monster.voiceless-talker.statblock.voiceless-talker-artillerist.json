@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-artillerist",
+  "title": "Безмолвный говорун-артиллерист",
+  "chapter": "23. Бестиарий",
+  "group": "Безмолвные",
+  "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-artillerist.md",
+  "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-artillerist",
+  "originalName": "Voiceless Talker Artillerist",
+  "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |    Elite Artillery    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Psionic Rifle Burst ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------|------------------------------:|\n> | **📏 Ranged 10**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 19 damage; the strike spreads 1 square\n> - **17+:** 22 damage; the strike spreads 2 squares\n>\n> **Effect:** The strike's spread is the distance it expands from a target to nearby enemies. Each enemy within that distance takes 3 damage.\n>\n> **2 Malice:** Each enemy within the strike spread takes an extra 3 damage.\n\n> 🔳 **Mind Jolt**\n>\n> | **Area, Psionic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 lightning damage\n> - **12-16:** 10 lightning damage; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 13 lightning damage; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **In Our Sights**\n>\n> | **Ranged**       |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|--------------------:|\n> | **📏 Ranged 10** | **🎯 One creature** |\n>\n> **Effect:** Until the start of the artillerist's next turn, the next psionic ability used against the target automatically treats its initial power roll as a 17. The creature using the ability can still roll to determine if they score a critical hit.\n\n> ❗️ **Tactical Reposition (1 Malice)**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The artillerist takes damage.\n>\n> **Effect:** The artillerist can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and ignores any effects associated with the damage.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the artillerist uses a psionic ability, they can do so as if they were in the artillerist's space.\n\n> ⭐️ **Locked On**\n>\n> The artillerist ignores invisibility, cover, and concealment. A creature can't hide from the artillerist while the artillerist has line of effect to the.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-artillerist.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "voiceless-talker",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "32",
+    "size": "1M",
+    "keywords": [
+      "Ужас",
+      "Безмолвный"
+    ],
+    "role": "Артиллерист",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.voiceless-talker.statblock.voiceless-talker-artillerist"
+    }
+  ]
+}

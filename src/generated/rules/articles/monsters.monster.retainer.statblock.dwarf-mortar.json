@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.dwarf-mortar",
+      "title": "Дварф-мортирщик",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/dwarf-mortar.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/dwarf-mortar",
+      "originalName": "Dwarf Mortar",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Hexer Retainer     |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **21**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Armor-Piercing Shell (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** This ability ignores [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and bypasses [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina).\n\n> ⭐️ **Voice Rune**\n>\n> The mortar can use a magical rune inscribed on their skin to talk to their mentor over any distance as long as both are in the same world.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/dwarf-mortar.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.dwarf-mortar"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.dwarf-mortar"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.hexer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.dwarf-mortar",
+          "title": "Дварф-миномётчик: особенности развития"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.hexer",
+          "title": "Способности проклинателя"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.dwarf-mortar",
+      "kind": "retainer",
+      "name": "Дварф-мортирщик",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Помощник-проклинатель | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **5**<br>Скорость | **21**<br>Выносливость | **3**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Бронебойный снаряд (Знаковая способность)**\n>\n> | **Дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Дальний бой 15** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Способность игнорирует [укрытие](#/catalog/glossary#term-glossary.cover) и обходит [временную Выносливость](#/catalog/glossary#term-glossary.temporary-stamina).\n\n> ⭐️ **Руна голоса**\n>\n> Мортирщик может использовать волшебную руну на своей коже, чтобы говорить с наставником на любом расстоянии, пока оба находятся в одном мире.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.dwarf-mortar",
+        "path": "Monsters/monster/retainer/statblock/dwarf-mortar.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/dwarf-mortar",
+      "originalName": "Dwarf Mortar",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Hexer Retainer     |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **21**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Armor-Piercing Shell (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** This ability ignores [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and bypasses [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina).\n\n> ⭐️ **Voice Rune**\n>\n> The mortar can use a magical rune inscribed on their skin to talk to their mentor over any distance as long as both are in the same world.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/dwarf-mortar.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.dwarf-mortar",
+      "kind": "monster-feature",
+      "name": "Дварф-миномётчик: особенности развития",
+      "markdown": "> **Способность развития помощника 4-го уровня**\n\n> 🔳 **Сигнальный снаряд (Столкновение)**\n>\n> | **Область, Дальний, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Особое; см. ниже**      | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Миномётчик выстреливает снарядом вертикально вверх. Снаряд зависает в воздухе на высоте 3 клеток и освещает пространство под собой в пределах куба 3. Подсвеченные враги не могут [скрываться](#/catalog/glossary#term-glossary.hide-maneuver) или становиться невидимыми, а также не получают выгоды от Покрова или укрытия. В начале следующего хода миномётчика снаряд взрывается и наносит урон врагам в области.\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона огнём\n> - **12-16:** 8 урона огнём\n> - **17+:** 11 урона огнём\n\n> **Способность развития помощника 7-го уровня**\n\n> 🔳 **Воющий снаряд (Столкновение)**\n>\n> | **Область, Оружие**            |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Линия 10 x 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона; при П < СЛАБЫЙ цель получает [испуг](#/catalog/glossary#term-glossary.frightened)\n> - **12-16:** 9 урона; при П < СРЕДНИЙ цель получает [испуг](#/catalog/glossary#term-glossary.frightened)\n> - **17+:** 13 урона; при П < СИЛЬНЫЙ цель получает [испуг](#/catalog/glossary#term-glossary.frightened)\n>\n> **Эффект:** До начала следующего хода миномётчика [удары](#/catalog/glossary#term-glossary.strike) по нему или любому его [смежному](#/catalog/glossary#term-glossary.adjacent) союзнику совершаются с помехой.\n\n> **Способность развития помощника 10-го уровня**\n\n> 🔳 **Усмиряющий снаряд (Столкновение)**\n>\n> | **Область, Дальний, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 15**   | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона; при И < СЛАБЫЙ цель получает [оглушение](#/catalog/glossary#term-glossary.dazed) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw); до прох.)\n> - **12-16:** 12 урона; при И < СРЕДНИЙ цель получает [оглушение](#/catalog/glossary#term-glossary.dazed) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw); до прох.)\n> - **17+:** 16 урона; при И < СИЛЬНЫЙ цель получает [оглушение](#/catalog/glossary#term-glossary.dazed) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw); до прох.) и [сбита с ног](#/catalog/glossary#term-glossary.prone)\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.dwarf-mortar",
+        "path": "Monsters/monster/retainer/advancement-features/dwarf-mortar.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/dwarf-mortar",
+      "originalName": "Dwarf Mortar Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🔳 **Signal Shell (Encounter)**\n>\n> | **Area, Ranged, Weapon**  |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Special; see below** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The mortar fires a shell straight upward, which hovers 3 squares up in the air and sheds light below it in a 3 cube. Enemies illuminated by this light can't [hide](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) or turn invisible and can't benefit from concealment or cover. At the start of the mortar's next turn, the shell explodes to deal damage to enemies in the area.\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 fire damage\n> - **12-16:** 8 fire damage\n> - **17+:** 11 fire damage\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Screaming Shell (Encounter)**\n>\n> | **Area, Weapon**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage; P < WEAK [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n> - **12-16:** 9 damage; P < AVERAGE [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n> - **17+:** 13 damage; P < STRONG [frightened](scc.v1:mcdm.heroes.v1/condition/frightened)\n>\n> **Effect:** Until the start of the mortar's next turn, [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) made against the mortar or any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them take a bane.\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🔳 **Pacifier Shell (Encounter)**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage; I < WEAK [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 12 damage; I < AVERAGE [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; I < STRONG [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends) and [prone](scc.v1:mcdm.heroes.v1/condition/prone)",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/dwarf-mortar.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.hexer",
+      "kind": "monster-feature",
+      "name": "Способности проклинателя",
+      "markdown": "> **Способность развития роли 4-го уровня**\n>\n> 🏹 **Проклятие отдачи (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------:|\n> | **📏 Дальний 10**        | **🎯 Один враг** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 2 урона порчей; цель проклята (КсХ)\n> - **12-16:** 5 урона порчей; цель проклята (КсХ)\n> - **17+:** 7 урона порчей; цель проклята (КсХ)\n>\n> **Эффект:** Пока цель проклята таким образом, всякий раз, когда она совершает удар, нацеленный только на одно существо, помощник может свободным триггером выбрать вторую цель этого удара в пределах его дальности.\n\n> **Способность развития роли 7-го уровня**\n>\n> 🏹 **Пустить корни (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------:|\n> | **📏 Дальний 10**        | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона; если М < СЛАБЫЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 9 урона; если М < СРЕДНИЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 12 урона; если М < СИЛЬНЫЙ, цель [замедлена](#/catalog/glossary#term-glossary.slowed) ([до прох.](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Пока цель [замедлена](#/catalog/glossary#term-glossary.slowed) таким образом, если она заканчивает ход и в этот ход не перемещалась, [замедление](#/catalog/glossary#term-glossary.slowed) прекращается, а цель становится [опутанной](#/catalog/glossary#term-glossary.restrained) ([до прох.](#/catalog/glossary#term-glossary.saving-throw)).\n\n> **Способность развития роли 10-го уровня**\n>\n> 🏹 **Лабиринт (Столкновение)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------:|\n> | **📏 Дальний 10**        | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; если М < СЛАБЫЙ, цель попадает в лабиринт (до прох.)\n> - **12-16:** 11 урона; если М < СРЕДНИЙ, цель попадает в лабиринт (до прох.)\n> - **17+:** 16 урона; если М < СИЛЬНЫЙ, цель попадает в лабиринт (до прох.)\n>\n> **Эффект:** Пока цель находится в лабиринте, она [оглушена](#/catalog/glossary#term-glossary.dazed). Кроме того, в конце каждого хода такой цели помощник может заставить её переместиться на расстояние до её Скорости по прямой в направлении по выбору помощника. Это не [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement), и оно заканчивается, если цель должна войти на [труднопроходимую](#/catalog/glossary#term-glossary.difficult-terrain) или опасную местность.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.hexer",
+        "path": "Monsters/monster/retainer/role-advancement/hexer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/hexer",
+      "originalName": "Hexer Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🏹 **Backfire Curse (Encounter)**\n>\n> | **Magic, Ranged, Strike** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------:|\n> | **📏 Ranged 10**          | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 2 corruption damage; the target is cursed (EoT)\n> - **12-16:** 5 corruption damage; the target is cursed (EoT)\n> - **17+:** 7 corruption damage; the target is cursed (EoT)\n>\n> **Effect:** While the target is cursed this way, whenever they make a strike that targets only one creature, the retainer can use a free triggered action to choose a second target for the strike within its distance.\n\n> **Level 7 Role Advancement Ability**\n\n> 🏹 **Take Root (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage; M < WEAK [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; M < AVERAGE [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; M < STRONG [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** While the target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, if they end their turn without moving on that turn, they are no longer [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n\n> **Level 10 Role Advancement Ability**\n\n> 🏹 **Mazed (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; if the target has M < WEAK they are mazed (save ends)\n> - **12-16:** 11 damage; if the target has M < AVERAGE they are mazed (save ends)\n> - **17+:** 16 damage; if the target has M < STRONG they are mazed (save ends)\n>\n> **Effect:** While mazed, the target is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed). Additionally, at the end of each of the mazed target's turns, the retainer can cause the target to move up to their speed in a straight line in a direction of the retainer's choice. This is not [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement), and the movement ends if it would cause the target to enter [difficult](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) or damaging terrain.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/hexer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

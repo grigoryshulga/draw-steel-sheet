@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.sand-stone-giant",
+  "title": "Песчаный каменный великан",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/sand-stone-giant.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/sand-stone-giant",
+  "originalName": "Sand Stone Giant",
+  "originalDescription": "| Giant, Stone Giant |           -            |      Level 8      |            Minion Controller            | EV 10 for four minions |    \n|:------------------:|:----------------------:|:-----------------:|:---------------------------------------:|:----------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **14**<br>Stamina |           **10**<br>Stability           |  **3**<br>Free Strike  |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -         | **+6 bonus to Stamina**<br>With Captain |   **-**<br>Weakness    |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **0**<br>Reason  |           **+3**<br>Intuition           |   **0**<br>Presence    |\n\n> 🗡 **Buried in Sand (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 3**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the sand stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The sand stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The sand stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/sand-stone-giant.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10 for four minions",
+    "size": "4",
+    "keywords": [
+      "Великан",
+      "Каменный великан"
+    ],
+    "role": "Контроллер",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.sand-stone-giant"
+    }
+  ]
+}

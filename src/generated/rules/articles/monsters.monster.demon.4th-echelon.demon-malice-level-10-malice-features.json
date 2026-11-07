@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+      "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/4th-echelon/demon-malice-level-10-malice-features.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon/demon-malice-level-10-malice-features",
+      "originalName": "Demon Malice (Level 10+ Malice Features)",
+      "originalDescription": "At the start of any level 10 or higher demon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Prior Malice Features (3-7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The demon activates a [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) feature available to demons of level 9 or lower.\n\n> ❇️ **Soul Flense (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One demon acting this turn unleashes their pent-up agony and pain on every non-demon in a 5 burst. Each target makes a **Presence test**.\n>\n> - **≤11:** 10 corruption damage; the target is soul flensed\n> - **12-16:** The target is soul flensed\n> - **17+:** No effect.\n>\n> **Effect:** The demon removes all [conditions](scc.v1:mcdm.heroes.v1/rule.combat/condition) and effects on themself that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw), and transfers all those effects to each creature soul flensed this way.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/demon-malice-level-10-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "featureblock",
+        "level": 10
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.4th-echelon.demon-malice-level-10-malice-features"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+      "kind": "monster-feature",
+      "name": "Раздор демонов (особенности Раздора 10-го уровня и выше)",
+      "markdown": "В начале хода любого демона 10-го уровня или выше вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Предыдущие особенности Раздора (3–7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Демон активирует особенность [Раздора](#/codex/monsters.rule.monster.malice), доступную демонам 9-го уровня или ниже.\n\n> ❇️ **Сдирание души (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один из демонов, действующих в этот ход, обрушивает накопленные страдания и боль на каждого недемона в области взрыва 5. Каждая такая цель проходит **тест Присутствия**.\n>\n> - **≤11:** 10 урона Порчей; с цели содрана душа\n> - **12–16:** с цели содрана душа\n> - **17+:** без эффекта.\n>\n> **Эффект:** Демон снимает с себя все [состояния](#/catalog/glossary#term-glossary.condition) и эффекты, которые можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw), и переносит все эти эффекты на каждое существо, с которого таким образом содрали душу.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+        "path": "Monsters/monster/demon/4th-echelon/demon-malice-level-10-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon/demon-malice-level-10-malice-features",
+      "originalName": "Demon Malice (Level 10+ Malice Features)",
+      "originalDescription": "At the start of any level 10 or higher demon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Prior Malice Features (3-7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The demon activates a [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) feature available to demons of level 9 or lower.\n\n> ❇️ **Soul Flense (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One demon acting this turn unleashes their pent-up agony and pain on every non-demon in a 5 burst. Each target makes a **Presence test**.\n>\n> - **≤11:** 10 corruption damage; the target is soul flensed\n> - **12-16:** The target is soul flensed\n> - **17+:** No effect.\n>\n> **Effect:** The demon removes all [conditions](scc.v1:mcdm.heroes.v1/rule.combat/condition) and effects on themself that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw), and transfers all those effects to each creature soul flensed this way.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/demon-malice-level-10-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "featureblock",
+        "level": 10
+      }
+    }
+  ]
+}

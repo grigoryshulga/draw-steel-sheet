@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-shadow.statblock.shadow-elf-moondancer",
+  "title": "Теневой эльф-лунный танцор",
+  "chapter": "23. Бестиарий",
+  "group": "Теневые эльфы",
+  "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-moondancer.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-moondancer",
+  "originalName": "Shadow Elf Moondancer",
+  "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 5      |    Platoon Harrier    |        EV 14         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **7**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Crescent Sweep (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** Until the end of the current turn, the moondancer ignores opportunity attacks from the target.\n\n> ❗️ **Dissolve**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The moondancer takes damage from a strike.\n>\n> **Effect:** The moondancer can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space with concealment created by darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The moondancer ignores concealment created by darkness. While the moondancer is in direct sunlight, they have damage weakness 3. While the moondancer has concealment, they have damage immunity 3.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-shadow/statblock/shadow-elf-moondancer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-shadow",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "14",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Теневой эльф"
+    ],
+    "role": "Налётчик",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-shadow.statblock.shadow-elf-moondancer"
+    }
+  ]
+}

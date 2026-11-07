@@ -1,0 +1,29 @@
+{
+  "id": "monster.kobold.statblock.kobold-adeptus",
+  "kind": "monster",
+  "name": "Кобольд-адепт",
+  "markdown": "| Гуманоид, Кобольд | - | Уровень 1 | Артиллерист орды | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **+2**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Шокирующая молния (знаковая способность)**\n>\n> | **Магия, дальний бой, Удар** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|---------------------------------------------:|\n> | **📏 Дальний бой 15** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона молнией\n> - **12-16:** 6 урона молнией\n> - **17+:** 7 урона молнией\n>\n> **Эффект:** Если цель находится рядом с любым врагом, адепт получает Преимущество на эту способность. Каждый враг, находящийся рядом с целью, получает 2 урона молнией.\n\n> 🏹 **Магический дротик (3 Раздора)**\n>\n> | **Магия, дальний бой, Удар** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|---------------------------------------------:|\n> | **📏 Дальний бой 15** | **🎯 Три существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 6 урона\n>\n> **Эффект:** Эта способность игнорирует Помехи, двойные Помехи и иммунитет к урону.\n\n> ⭐️ **Щит? Щит!**\n>\n> Пока адепт находится [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с союзником, у которого тоже есть эта черта, его Устойчивость равна 1, у него есть укрытие, и он даёт укрытие союзникам.\n",
+  "source": {
+    "articleId": "monsters.monster.kobold.statblock.kobold-adeptus",
+    "path": "Monsters/monster/kobold/statblock/kobold-adeptus.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-adeptus",
+  "originalName": "Kobold Adeptus",
+  "originalDescription": "| Humanoid, Kobold  |         -         |      Level 1      |    Horde Artillery    |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **10**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **+2**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🏹 **Shocking Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 lightning damage\n> - **12-16:** 6 lightning damage\n> - **17+:** 7 lightning damage\n>\n> **Effect:** While the target is adjacent to any enemy, the adeptus gains an edge on this ability. Each enemy adjacent to the target takes 2 lighting damage.\n\n> 🏹 **Arcane Telum (3 Malice)**\n>\n> | **Magic, Ranged, Strike** |                      **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 15**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 6 damage\n>\n> **Effect:** This ability ignores banes, double banes, and damage immunity.\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the adeptus has stability 1, has cover, and grants cover to allies.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-adeptus.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Артиллерист",
+    "organization": "Орда"
+  }
+}

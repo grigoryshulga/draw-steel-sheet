@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.undead.2nd-echelon.statblock.flesh-mournling",
+  "title": "Плотяной скорбник",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/2nd-echelon/statblock/flesh-mournling.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/flesh-mournling",
+  "originalName": "Flesh Mournling",
+  "originalDescription": "|                 Undead                 |         -         |      Level 4      |    Horde Defender     |         EV 6         |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **2**<br>Size              |  **6**<br>Speed   | **35**<br>Stamina |  **2**<br>Stability   | **2**<br>Free Strike |\n| **Corruption 4, poison 4**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+3**<br>Might             | **+1**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Multiarm Strike ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The target can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting) until the end of their next turn.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target.\n\n> ❇️ **Horrid Wail**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 psychic damage\n> - **12-16:** 3 psychic damage; I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 4 psychic damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** A target who is still [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) this way at the end of the encounter can't take a respite activity during their next respite.\n\n> ⭐️ **Arise**\n>\n> The first time the mournling is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Immutable Form**\n>\n> The mournling's shape can't be changed by any external effect.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/2nd-echelon/statblock/flesh-mournling.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6",
+    "size": "2",
+    "keywords": [
+      "Нежить"
+    ],
+    "role": "Защитник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.2nd-echelon.statblock.flesh-mournling"
+    }
+  ]
+}

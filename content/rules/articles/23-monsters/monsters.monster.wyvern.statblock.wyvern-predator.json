@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.wyvern.statblock.wyvern-predator",
+  "title": "Виверна-хищник",
+  "chapter": "23. Бестиарий",
+  "group": "Виверны",
+  "path": "Monsters/monster/wyvern/statblock/wyvern-predator.md",
+  "originalId": "mcdm.monsters.v1/monster.wyvern.statblock/wyvern-predator",
+  "originalName": "Wyvern Predator",
+  "originalDescription": "|     Beast, Wyvern      |          -          |      Level 4       |      Elite Brute      |        EV 24         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size      |   **7**<br>Speed    | **140**<br>Stamina |  **3**<br>Stability   | **6**<br>Free Strike |\n| **Acid 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Sedating Stinger ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🔳 **Tail Sweep**\n>\n> | **Area, Weapon**           |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 6 x 3 line within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; A < 1 3 acid damage\n> - **12-16:** 11 damage; A < 2 3 acid damage\n> - **17+:** 14 damage; A < 3 3 acid damage\n>\n> **5 Malice:** The predator uses this ability a second time, either recreating the same line or creating a new line.\n\n> 🗡 **Grasping Jaws (2 Malice)**\n>\n> | **Magic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage; A < 1 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 14 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 17 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver\n\n> ❗️ **Deterring Sting (1 Malice)**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the predator with a melee ability.\n>\n> **Effect:** The predator uses Sedating Stinger against the target, then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n\n> ⭐️ **Stubborn Rage**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) or within 10 squares of another wyvern, the predator can't be made [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n\n> ⭐️ **Tenacious Hunter**\n>\n> Any creature affected by a condition imposed by a wyvern can't be hidden from the predator.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/wyvern/statblock/wyvern-predator.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "wyvern",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "24",
+    "size": "3",
+    "keywords": [
+      "Зверь",
+      "Виверна"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.wyvern.statblock.wyvern-predator"
+    }
+  ]
+}

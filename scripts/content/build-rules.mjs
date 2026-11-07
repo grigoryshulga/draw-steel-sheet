@@ -24,6 +24,7 @@ import {
   writeJsonText,
 } from "./lib/common.mjs";
 import { decorateRulesPack } from "./lib/originals.mjs";
+import { prepareDirectorContent, directorIndexMetadata } from "./lib/director-content.mjs";
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -250,6 +251,8 @@ export function buildReadingStructure({ articles, articleById, entities, entityB
       return { id: extra.id, title: extra.title, articleIds: [...extra.articleIds] };
     }),
   }));
+  const directorChapters = ['22', '23', '24', '25'].flatMap(number => chapterByNumber.has(number) ? [chapterByNumber.get(number)] : []);
+  if (directorChapters.length) parts.push({ id: 'monsters', title: 'Монстры и помощники', chapters: directorChapters, extras: [] });
 
   // Лендинги классов: статьи главы 08 по группе = русскому имени класса.
   const classChapterPrefix = "08.";
@@ -347,6 +350,10 @@ export function buildReadingStructure({ articles, articleById, entities, entityB
     }
     return { id: section.id, title: section.title, kind: "glossary" };
   });
+  for (const [id, title, kind] of [['monsters', 'Монстры', 'monster'], ['retainers', 'Помощники', 'retainer'], ['terrain', 'Местность', 'terrain']]) {
+    const items = articles.filter(article => article.blocks.some(block => block.type === 'entity' && entityById.get(block.ref)?.kind === kind)).map(article => article.id);
+    if (items.length) reference.push({ id, title, kind: 'articles', items });
+  }
 
   // Каждая статья должна быть достижима: из чтения, из Справочника или из
   // главы-источника каталога. Иначе оглавление молча потеряет материал.
@@ -455,6 +462,8 @@ export function buildRules({
     .map((entity) => entity.id)
     .sort(compareStrings);
 
+  prepareDirectorContent(articles, entities);
+
   const articlePack = new Map();
   for (const article of articles) {
     articlePack.set(article.id, packIdForArticle(article));
@@ -471,7 +480,7 @@ export function buildRules({
     const headings = manifestHeadings(rendered);
     // Текст в исходном регистре: из него строятся фрагменты выдачи. Манифест
     // содержит только навигацию, поэтому полная проза не грузится при чтении.
-    const searchSource = `${article.title} ${article.group} ${rendered}`
+    const searchSource = `${article.title} ${article.group} ${article.director ? `${article.originalName ?? ''} ` : ''}${rendered}`
       .replace(/\s+/g, " ")
       .trim();
     const entry = {
@@ -483,6 +492,7 @@ export function buildRules({
       packId,
       headings,
       hasText: normalizeSearchText(searchSource).length > 0,
+      ...(article.director ? { director: directorIndexMetadata(article) } : {}),
     };
     manifestArticles.push(entry);
     searchArticles.push({ id: article.id, text: searchSource });
@@ -548,6 +558,15 @@ export function buildRules({
 
   const expected = new Map();
   expected.set(path.join(outDir, "manifest.json"), jsonText(manifest));
+  // Heading anchors are deterministic; avoid shipping both title and its long
+  // Cyrillic slug in the initial navigation bundle. Keep the full manifest for
+  // tooling and validate runtime reconstruction against it.
+  expected.set(path.join(outDir, "navigation.json"), jsonText({
+    ...manifest,
+    articles: manifest.articles.map(entry => ({
+      ...entry, headings: entry.headings.map(({ title, level }) => ({ title, level })),
+    })),
+  }));
   expected.set(path.join(outDir, "search.json"), jsonText(searchIndex));
   for (const [packId, pack] of [...packs.entries()].sort((a, b) =>
     compareStrings(a[0], b[0]),

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.bugbear.statblock.bugbear-mob",
+      "title": "Багбирская толпа",
+      "chapter": "23. Бестиарий",
+      "group": "Багбиры",
+      "path": "Monsters/monster/bugbear/statblock/bugbear-mob.md",
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-mob",
+      "originalName": "Bugbear Mob",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 5      |                  Minion Brute                  | EV 7 for four minions |\n|:------------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|         **3**<br>Size          |  **6**<br>Speed   | **10**<br>Stamina |               **2**<br>Stability               | **3**<br>Free Strike  |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|        **+3**<br>Might         | **-1**<br>Agility | **+0**<br>Reason  |              **+1**<br>Intuition               |  **+0**<br>Presence   |\n\n> 🗡 **Mug and Tear (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; pull 2\n> - **12-16:** 6 damage; pull 3\n> - **17+:** 7 damage; pull 4, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** If the target is pulled into the mob, that [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) deals damage only at the Director's determination.\n\n> ⭐️ **Swarm**\n>\n> The mob can move through spaces as if they were a size 1L creature, and can occupy other creatures' spaces. At the start of each of the mob's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-mob.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "3",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.bugbear.statblock.bugbear-mob"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.bugbear.bugbear-malice",
+          "title": "Раздор багбиров"
+        },
+        {
+          "id": "monsters.monster.group.bugbear",
+          "title": "Багбиры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.bugbear.statblock.bugbear-mob",
+      "kind": "monster",
+      "name": "Багбирская толпа",
+      "markdown": "| Багбир, Фея, Гоблин, Гуманоид |         -         |      5-й уровень      |                  Миньон-громила                  | Боевая ценность 7 за четырех миньонов |\n|:------------------------------:|:-----------------:|:---------------------:|:----------------------------------------------:|:------------------------------------------:|\n|         **3**<br>Размер          |  **6**<br>Скорость   | **10**<br>Выносливость |               **2**<br>Устойчивость               | **3**<br>Свободный удар  |\n|       **-**<br>Иммунитет к урону        | **-**<br>Передвижение |         -         | **Бонус +2 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость к урону   |\n|        **+3**<br>Мощь         | **-1**<br>Ловкость | **+0**<br>Разум  |              **+1**<br>Интуиция               |  **+0**<br>Присутствие   |\n\n> 🗡 **Схватить и разорвать (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 По одному существу или объекту на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; притянуть на 2\n> - **12-16:** 6 урона; притянуть на 3\n> - **17+:** 7 урона; притянуть на 4, [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Если цель притянута внутрь толпы, это [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) наносит урон только по решению Ведущего.\n\n> ⭐️ **Рой**\n>\n> Толпа может перемещаться по клеткам так, словно это существо размера 1L, и может занимать клетки других существ. В начале каждого хода толпы она может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому существу, с которым делит клетку.\n",
+      "source": {
+        "articleId": "monsters.monster.bugbear.statblock.bugbear-mob",
+        "path": "Monsters/monster/bugbear/statblock/bugbear-mob.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-mob",
+      "originalName": "Bugbear Mob",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 5      |                  Minion Brute                  | EV 7 for four minions |\n|:------------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|         **3**<br>Size          |  **6**<br>Speed   | **10**<br>Stamina |               **2**<br>Stability               | **3**<br>Free Strike  |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|        **+3**<br>Might         | **-1**<br>Agility | **+0**<br>Reason  |              **+1**<br>Intuition               |  **+0**<br>Presence   |\n\n> 🗡 **Mug and Tear (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; pull 2\n> - **12-16:** 6 damage; pull 3\n> - **17+:** 7 damage; pull 4, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** If the target is pulled into the mob, that [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) deals damage only at the Director's determination.\n\n> ⭐️ **Swarm**\n>\n> The mob can move through spaces as if they were a size 1L creature, and can occupy other creatures' spaces. At the start of each of the mob's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-mob.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "3",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

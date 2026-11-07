@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.goblin",
+      "title": "Гоблины",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/group/goblin.md",
+      "originalId": "mcdm.monsters.v1/monster.group/goblin",
+      "originalName": "Goblins",
+      "originalDescription": "Known among themselves as *rogabrin*, meaning \"more of us\" in their Szetch language, goblins are one of the most numerous humanoid species in the world. They can be found across many lands, have developed countless distinct cultures, and dare to venture into environments that few other humanoids are willing to hazard.\n\nTheir long arms and prehensile toes make goblins particularly well adapted to environments requiring climbing, and they live equally comfortably in treetop cities as in subterranean realms filled with stalactites, ledges, and chasms. However, just as many prefer to dwell in tight-knit neighborhoods within diverse cities. Many of those goblins who cross swords with adventuring heroes are the worst of their society-thieves and murderers shunned by their own people.\n\n#### Encountered in Groups\n\nWhether within a society or living in exile, goblins survive and thrive because they work together. A single goblin forced into the wild is terrified. A dozen outlaw goblins are supremely confident—perhaps overly so. Such groups often become bandits who ambush travelers crossing through their territory, be it desert, forest, or underground. Larger goblin hordes might become unscrupulous mercenaries serving powerful villains. No matter how they're encountered, goblins prefer to fight as an overwhelming force and to flee when foes outnumber friends.\n\n#### Mobile and Sneaky\n\nShort, lithe, and long armed, goblins are built for mobility, stealth, and climbing. Goblins who dwell in untamed wilderness and twisting caves utilize their natural agility to hide from threats and flee when found. These crafty skirmishers might run wild through battle, hacking at their enemies' knees, or unleash arrows as they dart from tree to tree.\n\n#### Goblin Magic\n\nSome exiled goblins forge pacts with evil entities for magical power, including archfey, deities, and fiends. Goblin assassins conjure darkness made from the souls of their victims, while goblin cursespitters hurl magic hexes that keep their enemies at bay.\n\n#### Skitterling\n\nA six-legged winged rodent the size of a housecat, a skitterling moves their clawed feet as they fly, making them appear to scurry through the air. Goblins train these pets to claw at the faces of enemies, as their feet secrete a toxin that causes temporary sluggishness.\n\n#### War Spider\n\nGoblins ride enormous arachnids as mounts in battle. With blades attached to their legs, a war spider cuts a swath through enemy forces while archers fire from atop a platform on the animal's back. During a raid, a war spider arches their body to launch warriors off their back and into the fray.\n\n#### Worg\n\nSome goblins form a special bond with worgs—canine creatures raised by many goblin communities as mounts, guardians, and companions. A worg stays loyal to the hand that feeds them, and will protect their handler to the bitter end.\n\n#### Goblin Languages\n\nMost goblins speak Caelian and Szetch.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/goblin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.goblin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-assassin",
+          "title": "Гоблин-убийца"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-cursespitter",
+          "title": "Гоблин-проклинатель"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-monarch",
+          "title": "Гоблин-монарх"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-runner",
+          "title": "Гоблин-бегун"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-sniper",
+          "title": "Гоблин-снайпер"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-spinecleaver",
+          "title": "Гоблин-кромсатель хребтов"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-stinker",
+          "title": "Гоблин-вонючка"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-underboss",
+          "title": "Гоблин-заместитель"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.goblin-warrior",
+          "title": "Гоблин-воин"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.skitterling",
+          "title": "Скиттерлинг"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.war-spider",
+          "title": "Боевой паук"
+        },
+        {
+          "id": "monsters.monster.goblin.statblock.worg",
+          "title": "Ворг"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.goblin",
+      "kind": "monster-lore",
+      "name": "Гоблины",
+      "markdown": "Известные среди себя как *рогабрин* — «нас больше» на их языке Сзетч, — гоблины принадлежат к самым многочисленным видам гуманоидов в мире. Они встречаются во многих землях, создали бесчисленное множество самобытных культур и осмеливаются селиться в местах, куда другие гуманоиды редко отваживаются заходить.\n\nДлинные руки и цепкие пальцы на ногах особенно хорошо приспособили гоблинов к лазанию, поэтому они с одинаковым удобством живут и в городах на верхушках деревьев, и в подземных царствах, полных сталактитов, уступов и расщелин. Однако не меньше гоблинов предпочитает селиться сплочёнными общинами в многонациональных городах. Многие гоблины, скрещивающие оружие с героями-приключенцами, — худшие представители своего общества: воры и убийцы, которых отвергли собственные сородичи.\n\n#### Вместе в столкновении\n\nИ в обществе, и в изгнании гоблины выживают и процветают благодаря взаимовыручке. Гоблин, оказавшийся в дикой местности в одиночестве, охвачен ужасом. Дюжина гоблинов-изгоев исполнена непоколебимой — а то и чрезмерной — уверенности. Такие группы часто становятся разбойниками и устраивают засады на путников, пересекающих их владения — пустыни, леса или подземелья. Более крупные орды гоблинов могут превратиться в беспринципных наёмников, служащих могущественным злодеям. Где бы ни встретились гоблины, они предпочитают сражаться числом и бежать, если врагов оказывается больше, чем союзников.\n\n#### Подвижные и скрытные\n\nНевысокие, гибкие и длиннорукие гоблины созданы для быстрого передвижения, скрытности и лазания. Гоблины, живущие в дикой местности и извилистых пещерах, используют природную ловкость, чтобы прятаться от угроз и удирать, когда их обнаружат. Эти хитрые бойцы могут носиться по полю боя, кромсая врагам колени, или выпускать стрелы, перебираясь с дерева на дерево.\n\n#### Магия гоблинов\n\nНекоторые гоблины-изгнанники заключают сделки со злыми сущностями, чтобы обрести магическую силу. Среди них — архифеи, божества и исчадия. Гоблины-убийцы вызывают тьму, сотканную из душ своих жертв, а гоблины-плеватели проклятий обрушивают на врагов магические проклятия, не давая им приблизиться.\n\n#### Скиттерлинг\n\nКрылатый шестилапый грызун размером с домашнюю кошку, скиттерлинг летит, перебирая когтистыми лапками, будто суетливо скребёт ими по воздуху. Гоблины дрессируют этих питомцев нападать на лица врагов: лапки скиттерлингов выделяют токсин, вызывающий временную вялость.\n\n#### Боевой паук\n\nВ бою гоблины ездят верхом на огромных пауках. Прикреплёнными к лапам клинками боевой паук прорубает путь сквозь ряды врагов, пока лучники стреляют с площадки у него на спине. Во время набега боевой паук выгибает тело и сбрасывает всадников прямо в гущу боя.\n\n#### Ворг\n\nНекоторые гоблины образуют особую связь с воргами — похожими на собак существами, которых во многих общинах гоблинов выращивают как скакунов, стражей и спутников. Ворг хранит верность тому, кто его кормит, и будет защищать своего хозяина до последнего.\n\n#### Языки гоблинов\n\nБольшинство гоблинов говорит на кэлианском и Сзетче.\n",
+      "source": {
+        "articleId": "monsters.monster.group.goblin",
+        "path": "Monsters/monster/group/goblin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/goblin",
+      "originalName": "Goblins",
+      "originalDescription": "Known among themselves as *rogabrin*, meaning \"more of us\" in their Szetch language, goblins are one of the most numerous humanoid species in the world. They can be found across many lands, have developed countless distinct cultures, and dare to venture into environments that few other humanoids are willing to hazard.\n\nTheir long arms and prehensile toes make goblins particularly well adapted to environments requiring climbing, and they live equally comfortably in treetop cities as in subterranean realms filled with stalactites, ledges, and chasms. However, just as many prefer to dwell in tight-knit neighborhoods within diverse cities. Many of those goblins who cross swords with adventuring heroes are the worst of their society-thieves and murderers shunned by their own people.\n\n#### Encountered in Groups\n\nWhether within a society or living in exile, goblins survive and thrive because they work together. A single goblin forced into the wild is terrified. A dozen outlaw goblins are supremely confident—perhaps overly so. Such groups often become bandits who ambush travelers crossing through their territory, be it desert, forest, or underground. Larger goblin hordes might become unscrupulous mercenaries serving powerful villains. No matter how they're encountered, goblins prefer to fight as an overwhelming force and to flee when foes outnumber friends.\n\n#### Mobile and Sneaky\n\nShort, lithe, and long armed, goblins are built for mobility, stealth, and climbing. Goblins who dwell in untamed wilderness and twisting caves utilize their natural agility to hide from threats and flee when found. These crafty skirmishers might run wild through battle, hacking at their enemies' knees, or unleash arrows as they dart from tree to tree.\n\n#### Goblin Magic\n\nSome exiled goblins forge pacts with evil entities for magical power, including archfey, deities, and fiends. Goblin assassins conjure darkness made from the souls of their victims, while goblin cursespitters hurl magic hexes that keep their enemies at bay.\n\n#### Skitterling\n\nA six-legged winged rodent the size of a housecat, a skitterling moves their clawed feet as they fly, making them appear to scurry through the air. Goblins train these pets to claw at the faces of enemies, as their feet secrete a toxin that causes temporary sluggishness.\n\n#### War Spider\n\nGoblins ride enormous arachnids as mounts in battle. With blades attached to their legs, a war spider cuts a swath through enemy forces while archers fire from atop a platform on the animal's back. During a raid, a war spider arches their body to launch warriors off their back and into the fray.\n\n#### Worg\n\nSome goblins form a special bond with worgs—canine creatures raised by many goblin communities as mounts, guardians, and companions. A worg stays loyal to the hand that feeds them, and will protect their handler to the bitter end.\n\n#### Goblin Languages\n\nMost goblins speak Caelian and Szetch.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/goblin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

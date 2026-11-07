@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-sunderer",
+      "title": "Минотавр-крушитель",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-sunderer.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-sunderer",
+      "originalName": "Minotaur Sunderer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |      Elite Brute      |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Spiked Maul ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sunderer is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ❇️ **Fearsome Bay (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes.\n\n> 🗡 **Disemboweling Horns (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the sunderer.\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 8 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes 1d6 damage at the start of each of their turns.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the sunderer.\n>\n> **Effect:** The sunderer uses the Charge main action and Spiked Maul against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The sunderer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-sunderer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-sunderer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.minotaur.statblock.minotaur-sunderer",
+      "kind": "monster",
+      "name": "Минотавр-крушитель",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 3       |      Элита Громила      |        Боевая ценность 20         |\n|:----------------------------:|:-----------------:|:------------------:|:--------------------:|:--------------------:|\n|        **2**<br>Размер        |  **6**<br>Скорость   | **120**<br>Выносливость |  **2**<br>Устойчивость   |  **6**<br>Свободный удар |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+2**<br>Мощь        | **+1**<br>Ловкость |  **0**<br>Разум   |  **+2**<br>Интуиция  |  **-1**<br>Присутствие  |\n\n> 🗡 **Шипастая кувалда ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний 2**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 12 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 15 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **Эффект:** Цель, [притянутая](#/catalog/glossary#term-glossary.forced-movement) [вплотную](#/catalog/glossary#term-glossary.adjacent) к крушителю, автоматически оказывается [схвачена](#/catalog/glossary#term-glossary.grabbed).\n\n> ❇️ **Ужасающий рёв (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** И < 0 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12-16:** И < 1 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **17+:** И < 2 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** До конца своего следующего хода минотавр получает иммунитет к урону 2 и наносит ударами дополнительно 5 урона.\n\n> 🗡 **Потрошение рогами (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Ближний 2**                    | **🎯 Одно существо** |\n>\n> **Особое:** Цель должна быть [схвачена](#/catalog/glossary#term-glossary.grabbed) крушителем.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; М < 0 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 8 урона; М < 1 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 9 урона; М < 2 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Пока цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) таким образом, она получает 1d6 урона в начале каждого своего хода.\n\n> ❗️ **Ответный удар**\n>\n> | **Дальний**      |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Дальний 6** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции наносит урон крушителю.\n>\n> **Эффект:** Крушитель применяет основное действие «Атака с рывком» и «Шипастую кувалду» против цели.\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах навигации, поиска или выслеживания крушитель не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-sunderer",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-sunderer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-sunderer",
+      "originalName": "Minotaur Sunderer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |      Elite Brute      |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Spiked Maul ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sunderer is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ❇️ **Fearsome Bay (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes.\n\n> 🗡 **Disemboweling Horns (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the sunderer.\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 8 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes 1d6 damage at the start of each of their turns.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the sunderer.\n>\n> **Effect:** The sunderer uses the Charge main action and Spiked Maul against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The sunderer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-sunderer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

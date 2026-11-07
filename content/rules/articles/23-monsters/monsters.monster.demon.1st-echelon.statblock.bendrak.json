@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.demon.1st-echelon.statblock.bendrak",
+  "title": "Бендрак",
+  "chapter": "23. Бестиарий",
+  "group": "Демоны",
+  "path": "Monsters/monster/demon/1st-echelon/statblock/bendrak.md",
+  "originalId": "mcdm.monsters.v1/monster.demon.1st-echelon.statblock/bendrak",
+  "originalName": "Bendrak",
+  "originalDescription": "|  Abyssal, Demon   |         -         |      Level 2      |      Horde Hexer      |           EV 4           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   |   **2**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 3**<br>Weakness  |\n|  **+0**<br>Might  | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |    **+2**<br>Presence    |\n\n> 🏹 **Warp Perceptions (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 psychic damage\n> - **12-16:** 5 psychic damage; P < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 7 psychic damage; P < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** If the target makes a strike while [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, the bendrak can choose a second target within distance for the strike. The first target takes half of any damage from the strike and the second target takes any remaining damage.\n\n> 🏹 **Vanish (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------:|\n> | **📏 Ranged 10**  | **🎯 Self or one ally** |\n>\n> **Effect:** The target is invisible until the start of their next turn. They can then move up to 3 squares and attempt to hide.\n\n> ⭐️ **Lethe**\n>\n> While the bendrak is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the bendrak can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/1st-echelon/statblock/bendrak.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "4",
+    "size": "1L",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Проклинатель",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.demon.1st-echelon.statblock.bendrak"
+    }
+  ]
+}

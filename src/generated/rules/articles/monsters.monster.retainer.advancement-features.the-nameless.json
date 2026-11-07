@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.advancement-features.the-nameless",
+      "title": "Способности развития Безымянного",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/advancement-features/the-nameless.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/the-nameless",
+      "originalName": "The Nameless Advancement Features",
+      "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> ❇️ **Looming Wings (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 corruption damage; I < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 corruption damage; I < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 corruption damage; I < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the Nameless's mentor is in the area, ability rolls against the mentor have a double bane until the start of their next turn.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Spew Death (Encounter)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> **Special:** The Nameless must be [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) to use this ability.\n>\n> - **≤11:** 11 corruption damage\n> - **12-16:** 16 corruption damage\n> - **17+:** 21 corruption damage\n>\n> **Effect:** Any living [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by this ability regain all their [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and become corporeal [undead](scc.v1:mcdm.monsters.v1/rule.keyword/undead) under the Nameless's control until the end of the Nameless's next turn, after which they are destroyed.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/the-nameless.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.the-nameless"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.advancement-features.the-nameless",
+      "kind": "monster-feature",
+      "name": "Способности развития Безымянного",
+      "markdown": "> **Способность развития Помощника 7-го уровня**\n\n> ❇️ **Нависающие крылья (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона порчей; И < СЛАБЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 9 урона порчей; И < СРЕДНИЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 12 урона порчей; И < СИЛЬНЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n>\n> **Эффект:** Если Наставник Безымянного находится в области, до начала своего следующего хода броски способностей Безымянного против Наставника совершаются с двойной помехой.\n\n> **Способность развития Помощника 10-го уровня**\n\n> ❇️ **Изрыгнуть смерть (Столкновение)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|----------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> **Особое:** Для использования этой способности Безымянный должен быть [утомлён](#/catalog/glossary#term-glossary.winded).\n>\n> - **≤11:** 11 урона порчей\n> - **12-16:** 16 урона порчей\n> - **17+:** 21 урон порчей\n>\n> **Эффект:** Все живые [миньоны](#/codex/monsters.rule.organization.minion), чья [Выносливость](#/catalog/glossary#term-glossary.stamina) снижена этой способностью до 0, восстанавливают всю [Выносливость](#/catalog/glossary#term-glossary.stamina) и становятся телесной [нежитью](#/codex/monsters.rule.keyword.undead) под контролем Безымянного до конца его следующего хода, после чего уничтожаются.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.the-nameless",
+        "path": "Monsters/monster/retainer/advancement-features/the-nameless.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/the-nameless",
+      "originalName": "The Nameless Advancement Features",
+      "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> ❇️ **Looming Wings (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 corruption damage; I < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 corruption damage; I < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 corruption damage; I < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the Nameless's mentor is in the area, ability rolls against the mentor have a double bane until the start of their next turn.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Spew Death (Encounter)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> **Special:** The Nameless must be [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) to use this ability.\n>\n> - **≤11:** 11 corruption damage\n> - **12-16:** 16 corruption damage\n> - **17+:** 21 corruption damage\n>\n> **Effect:** Any living [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by this ability regain all their [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and become corporeal [undead](scc.v1:mcdm.monsters.v1/rule.keyword/undead) under the Nameless's control until the end of the Nameless's next turn, after which they are destroyed.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/the-nameless.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

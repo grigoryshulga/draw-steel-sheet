@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.draconian.draconian-malice",
+      "title": "Раздор драконидов",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/draconian-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian/draconian-malice",
+      "originalName": "Draconian Malice",
+      "originalDescription": "At the start of any draconian's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guarding Gale (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A draconian acting this turn flaps their wings and creates a mighty gale. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the draconian is pushed up to 4 squares, and if they have M < 2, they are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Breath Weapon (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Special:** The damage dealt by this ability matches a damage type the draconian has immunity to.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Scaleshatter Burst (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |             **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The draconian's scales shatter from battle damage. The draconian has damage weakness 5 but can take two turns per round until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/draconian-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.draconian-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.draconian.draconian-malice",
+      "kind": "monster-feature",
+      "name": "Раздор драконидов",
+      "markdown": "В начале хода любого драконида вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Защитный шквал (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Драконид, действующий в этот ход, взмахивает крыльями, создавая мощный шквал. Каждое существо [смежное](#/catalog/glossary#term-glossary.adjacent) с драконидом отталкивается на расстояние до 4 клеток; если М < 2, оно также падает [ничком](#/catalog/glossary#term-glossary.prone).\n\n> 🔳 **Дыхательное оружие (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия**            |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Линия 4 x 2 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Особое:** Наносимый этой способностью урон соответствует одному из типов урона, к которому драконид обладает иммунитетом.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона\n\n> ❇️ **Взрыв раскалывающей чешуи (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |             **[Свободный маневр](#/catalog/glossary#term-glossary.free-maneuver)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 2**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** Чешуя драконида осыпается от боевых повреждений. Драконид получает уязвимость к урону 5, но может совершать два хода за раунд до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.draconian-malice",
+        "path": "Monsters/monster/draconian/draconian-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian/draconian-malice",
+      "originalName": "Draconian Malice",
+      "originalDescription": "At the start of any draconian's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guarding Gale (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A draconian acting this turn flaps their wings and creates a mighty gale. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the draconian is pushed up to 4 squares, and if they have M < 2, they are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Breath Weapon (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Special:** The damage dealt by this ability matches a damage type the draconian has immunity to.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Scaleshatter Burst (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |             **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The draconian's scales shatter from battle damage. The draconian has damage weakness 5 but can take two turns per round until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/draconian-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

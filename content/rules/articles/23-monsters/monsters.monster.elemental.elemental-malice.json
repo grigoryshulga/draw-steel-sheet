@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.elemental.elemental-malice",
+  "title": "Раздор элементалей",
+  "chapter": "23. Бестиарий",
+  "group": "Элементали",
+  "path": "Monsters/monster/elemental/elemental-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.elemental/elemental-malice",
+  "originalName": "Elemental Malice",
+  "originalDescription": "At the start of any elemental's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Elemental Swap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two elementals on the encounter map [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places, and each has damage immunity 2 until the end of the round.\n\n> 👤 **Split (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An elemental acting this turn cleaves themself into two separate elementals. Each elemental has the same statistics as the original, except that each has half the original's current Stamina and is one size smaller. Both elementals can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> 🏹 **Convocation of Chaos (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 8**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the end of the encounter, the target has a +5 bonus to speed and a +5 damage bonus to strikes. Additionally, whenever an elemental within the target's line of effect uses an ability with \"Convocation\" in the name, the target also gains the effects of that ability.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elemental/elemental-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elemental",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elemental.elemental-malice"
+    }
+  ]
+}

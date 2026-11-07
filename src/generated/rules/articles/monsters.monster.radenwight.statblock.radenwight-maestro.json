@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.radenwight.statblock.radenwight-maestro",
+      "title": "Раденвайт-маэстро",
+      "chapter": "23. Бестиарий",
+      "group": "Раденвайты",
+      "path": "Monsters/monster/radenwight/statblock/radenwight-maestro.md",
+      "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-maestro",
+      "originalName": "Radenwight Maestro",
+      "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |        Leader         |        EV 12         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **-2**<br>Might    |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> ❇️ **Cacophony ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, the maestro can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 6 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, the maestro [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n> - **17+:** 8 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5, the maestro [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares\n>\n> **Effect:** Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.\n\n> 🏹 **Tempo Changer**\n>\n> | **Magic, Ranged, Strike** |       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Ranged 10**          | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** P < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each ally within 3 squares of any target has a +2 bonus to speed until the end of their next turn.\n\n> ❗️ **Ever-Ready Rodent (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to an ally or takes damage from an ally.\n>\n> **Effect:** The maestro makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the maestro can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **Overture ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed or take the Defend action.\n\n> ☠️ **Solo Act ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |               **-** |\n> |------------------|--------------------:|\n> | **📏 Ranged 15** | **🎯 One creature** |\n>\n> **Effect:** Until the end of their next turn, the target halves any damage they take, gains a +4 damage bonus to [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike), and has their speed doubled.\n\n> ☠️ **Rondo of Rat ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area**        |                             **-** |\n> |-----------------|----------------------------------:|\n> | **📏 10 burst** | **🎯 Each dead ally in the area** |\n>\n> **Effect:** Each target stands, makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), then falls dead again. Any ally of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/radenwight/statblock/radenwight-maestro.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "radenwight",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.radenwight.statblock.radenwight-maestro"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.radenwight",
+          "title": "Раденвайты"
+        },
+        {
+          "id": "monsters.monster.radenwight.radenwight-malice",
+          "title": "Раздор раденвайтов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.radenwight.statblock.radenwight-maestro",
+      "kind": "monster",
+      "name": "Раденвайт-маэстро",
+      "markdown": "| Гуманоид, Раденвайт |           -           |      Уровень 1      |        Лидер         |        Боевая ценность 12         |\n|:--------------------:|:---------------------:|:-------------------:|:--------------------:|:--------------------:|\n|    **1S**<br>Размер   |    **5**<br>Скорость   | **80**<br>Выносливость |  **1**<br>Устойчивость | **4**<br>Свободный удар |\n|  **-**<br>Иммунитет   | **Лазание**<br>Движение |        -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|   **-2**<br>Мощь      |   **+2**<br>Ловкость   | **0**<br>Разум     | **0**<br>Интуиция    | **+3**<br>Присутствие |\n\n> ❇️ **Какофония ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона звуком; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 1, маэстро может [сместиться](#/catalog/glossary#term-glossary.shift) на 1 клетку\n> - **12-16:** 6 урона звуком; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 3, маэстро [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток\n> - **17+:** 8 урона звуком; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 5, маэстро [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 5 клеток\n>\n> **Эффект:** Каждый союзник в пределах дистанции может один раз до конца раунда использовать способность «Готовый грызун» как свободный триггер.\n\n> 🏹 **Смена темпа**\n>\n> | **Магия, Дальний, Удар** |       **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-------------------:|\n> | **📏 Дальний 10**       | **🎯 Два врага** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** при П < 1 — [замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** при П < 2 — [замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** при П < 3 — [замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Каждый союзник в пределах 3 клеток от любой цели получает бонус +2 к Скорости до конца своего следующего хода.\n\n> ❗️ **Всегда готовый грызун (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний** |      **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Дальний 5**   | **🎯 Существо, вызвавшее триггер** |\n>\n> **Триггер:** Существо в пределах дистанции наносит урон союзнику или получает урон от союзника.\n>\n> **Эффект:** Маэстро совершает по цели [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода маэстро может получить 5 урона, чтобы прекратить один действующий на него эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Увертюра ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область**        |                        **-** |\n> |-------------------|-----------------------------:|\n> | **📏 Взрыв 10**   | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости или использовать действие «Защита».\n\n> ☠️ **Сольный номер ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний**       |               **-** |\n> |------------------|--------------------:|\n> | **📏 Дальний 15** | **🎯 Одно существо** |\n>\n> **Эффект:** До конца своего следующего хода цель получает вдвое меньше урона, получает бонус +4 к урону от [ударов](#/catalog/glossary#term-glossary.strike), а её Скорость удваивается.\n\n> ☠️ **Крысиное рондо ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область**       |                             **-** |\n> |------------------|----------------------------------:|\n> | **📏 Взрыв 10**  | **🎯 Каждый погибший союзник в области** |\n>\n> **Эффект:** Каждая цель встаёт, совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike), а затем снова падает замертво. Любой союзник целей может один раз использовать «Готовый грызун» как свободный триггер в дополнение к этим свободным ударам.\n",
+      "source": {
+        "articleId": "monsters.monster.radenwight.statblock.radenwight-maestro",
+        "path": "Monsters/monster/radenwight/statblock/radenwight-maestro.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-maestro",
+      "originalName": "Radenwight Maestro",
+      "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |        Leader         |        EV 12         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **-2**<br>Might    |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> ❇️ **Cacophony ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, the maestro can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 6 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, the maestro [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n> - **17+:** 8 sonic damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5, the maestro [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares\n>\n> **Effect:** Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.\n\n> 🏹 **Tempo Changer**\n>\n> | **Magic, Ranged, Strike** |       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Ranged 10**          | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** P < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each ally within 3 squares of any target has a +2 bonus to speed until the end of their next turn.\n\n> ❗️ **Ever-Ready Rodent (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to an ally or takes damage from an ally.\n>\n> **Effect:** The maestro makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the maestro can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **Overture ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed or take the Defend action.\n\n> ☠️ **Solo Act ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |               **-** |\n> |------------------|--------------------:|\n> | **📏 Ranged 15** | **🎯 One creature** |\n>\n> **Effect:** Until the end of their next turn, the target halves any damage they take, gains a +4 damage bonus to [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike), and has their speed doubled.\n\n> ☠️ **Rondo of Rat ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area**        |                             **-** |\n> |-----------------|----------------------------------:|\n> | **📏 10 burst** | **🎯 Each dead ally in the area** |\n>\n> **Effect:** Each target stands, makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), then falls dead again. Any ally of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/radenwight/statblock/radenwight-maestro.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "radenwight",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

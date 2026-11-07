@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.3rd-echelon.statblock.haunt",
+      "title": "Привидение",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/3rd-echelon/statblock/haunt.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/haunt",
+      "originalName": "Haunt",
+      "originalDescription": "|                 Undead                 |             -              |      Level 7      |   Horde Controller    |         EV 9         |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **2**<br>Size              |       **6**<br>Speed       | **40**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **-2**<br>Might             |     **+4**<br>Agility      | **-1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Lash Out ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** If the target is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into another creature's space, that creature takes an additional 4 damage and the haunt [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) them up to 2 squares.\n\n> ❇️ **Crushing Despair (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage; I < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 6 damage; I < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 7 damage; I < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way can't use the [Stand Up](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/stand-up) maneuver on themself while any haunt is within 20 squares of them.\n\n> ⭐️ **Invisible Horror**\n>\n> The haunt can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. They are invisible while moving using a move action. The haunt doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/3rd-echelon/statblock/haunt.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9",
+        "size": "2",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.3rd-echelon.statblock.haunt"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.3rd-echelon.statblock.haunt",
+      "kind": "monster",
+      "name": "Привидение",
+      "markdown": "| Нежить | - | Уровень 7 | Орда, Контроллер | Боевая ценность 9 |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **6**<br>Скорость | **40**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **Порча 7, яд 7**<br>Иммунитет | **Полёт, парение**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+4**<br>Ловкость | **-1**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Вспышка ярости ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки\n> - **12-16:** 10 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки\n> - **17+:** 11 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток\n>\n> **Эффект:** Если цель [принудительно перемещена](#/catalog/glossary#term-glossary.forced-movement) в пространство другого существа, то другое существо получает дополнительно 4 урона, а призрак [швыряет](#/catalog/glossary#term-glossary.forced-movement) его не более чем на 2 клетки.\n\n> ❇️ **Сокрушительное отчаяние (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона; при И < 2 цель падает [Лежащей](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 6 урона; при И < 3 цель падает [Лежащей](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 7 урона; при И < 4 цель падает [Лежащей](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Цель, сбитая [Лежащей](#/catalog/glossary#term-glossary.prone) таким образом, не может использовать на себе манёвр [«Встать»](#/catalog/glossary#term-glossary.stand-up-maneuver), пока в пределах 20 клеток от неё находится хотя бы один призрак.\n\n> ⭐️ **Невидимый ужас**\n>\n> Призрак может перемещаться сквозь существ и объекты с обычной скоростью, но не может завершить ход внутри существа или объекта. Во время перемещения действием движения он невидим. Призрак не получает урон, если его [принудительно перемещают](#/catalog/glossary#term-glossary.forced-movement) в объект.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.3rd-echelon.statblock.haunt",
+        "path": "Monsters/monster/undead/3rd-echelon/statblock/haunt.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/haunt",
+      "originalName": "Haunt",
+      "originalDescription": "|                 Undead                 |             -              |      Level 7      |   Horde Controller    |         EV 9         |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **2**<br>Size              |       **6**<br>Speed       | **40**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **-2**<br>Might             |     **+4**<br>Agility      | **-1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Lash Out ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** If the target is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into another creature's space, that creature takes an additional 4 damage and the haunt [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) them up to 2 squares.\n\n> ❇️ **Crushing Despair (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage; I < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 6 damage; I < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 7 damage; I < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way can't use the [Stand Up](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/stand-up) maneuver on themself while any haunt is within 20 squares of them.\n\n> ⭐️ **Invisible Horror**\n>\n> The haunt can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. They are invisible while moving using a move action. The haunt doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/3rd-echelon/statblock/haunt.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9",
+        "size": "2",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

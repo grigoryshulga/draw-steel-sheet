@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.minotaur",
+      "title": "Минотавры",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/group/minotaur.md",
+      "originalId": "mcdm.monsters.v1/monster.group/minotaur",
+      "originalName": "Minotaurs",
+      "originalDescription": "The fearsome minotaur is a study in contrasts. Their imposing humanoid body is muscular with patches of thick hair. Their head is that of a massive horned bull, and their soft eyes convey a soulful intelligence mingled with smoldering intensity.\n\n### Primal Rage\n\nMinotaurs burn with fury. Some constantly desire to unleash this destructive energy on the world, and they attack anyone or anything that crosses their path. Others make it a point of pride to control their rage, only fighting when survival demands it. Regardless, once combat begins, minotaurs relish charging at foes with their great horns. In the heat of battle, a minotaur charges from one foe to the next, only retreating if victory is impossible.\n\n### Labyrinthine Origins\n\nThe first minotaur was once the human warrior Thesia \"The Bull\" Danaria, who dared challenge the Beast Lords of Kham. When her revolution was crushed, the Lords of Kham used their beastmagics to twist Thesia's mortal body into a human-bull hybrid prone to fits of violent rage. The Beast Lords placed this minotaur at the center of a vast labyrinth and sent captured rebels to attack the monster. Many fell to Thesia's anger—until a prisoner named Velathri took a chance, speaking to the minotaur instead of brandishing steel. He befriended Thesia, and in retribution, the Beast Lords made him a minotaur as well. This act was their undoing, for Thesia and Velathri fell in love.\n\nNew minotaurs were born, and decades later, hundreds charged out of the maze together. These minotaurs reduced Kham to ruins, then they spread far and wide, fearing reprisal from neighboring lands. Even today, many minotaurs shun civilization, preferring to live in winding canyons, twisting ruins, bewildering dungeons, or other labyrinthine terrain where they can continue to hunt. However, small numbers of minotaurs can be found in nearly any terrain or settlement.\n\n### Deep Bonds\n\nEven evil minotaurs can be fiercely loyal friends, gladly charging into certain death for those they trust. These chosen friends never suffer the creature's ire—but gods help them if they betray the minotaur.\n\n### Minotaur Languages\n\nMost minotaurs speak their own dialect of Khamish.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/minotaur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.minotaur"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.monster.minotaur.statblock.minotaur-bully",
+          "title": "Минотавр-задира"
+        },
+        {
+          "id": "monsters.monster.minotaur.statblock.minotaur-lackey",
+          "title": "Минотавр-прислужник"
+        },
+        {
+          "id": "monsters.monster.minotaur.statblock.minotaur-stampede",
+          "title": "Галоп минотавров"
+        },
+        {
+          "id": "monsters.monster.minotaur.statblock.minotaur-sunderer",
+          "title": "Минотавр-крушитель"
+        },
+        {
+          "id": "monsters.monster.minotaur.statblock.minotaur",
+          "title": "Минотавр"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.minotaur-malice",
+      "title": "Раздор минотавров",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/minotaur-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur/minotaur-malice",
+      "originalName": "Minotaur Malice",
+      "originalDescription": "At the start of any minotaur's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Bull Rush (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one minotaur acting this turn gains a +4 bonus to speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the start of their next turn.\n\n> 👤 **Cut the... Nonsense! (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One minotaur acting this turn halves any damage they take, and can use the Knockback maneuver as a free triggered action whenever an enemy comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, all until the start of their next turn.\n\n> ❇️ **Bullseye (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> All minotaurs in the encounter fill the area around them with psychic impressions of feeling lost and isolated. Each enemy within 5 squares of a minotaur is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and makes an **Intuition test**.\n>\n> - **≤11:** The target has line of effect only within 3 squares and is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends).\n> - **12-16:** The target has line of effect only within 3 squares (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/minotaur-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.minotaur-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur",
+      "title": "Минотавр",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur",
+      "originalName": "Minotaur",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |     Elite Harrier     |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **100**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+2**<br>Agility |  **0**<br>Reason   |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Flail and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The minotaur [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n\n> 👤 **Primal Bay (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes. On their next turn, the minotaur can use one additional maneuver.\n\n> 🗡 **Goring Horns (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 8 damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If this ability is used as part of the Charge main action, its [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 8** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the minotaur.\n>\n> **Effect:** The minotaur uses the Charge main action and either Flail and Blade or Goring Horns against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The minotaur can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-bully",
+      "title": "Минотавр-задира",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-bully.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-bully",
+      "originalName": "Minotaur Bully",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |                  Minion Brute                  | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **14**<br>Stamina |               **2**<br>Stability               |  **4**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+4**<br>Might        | **+2**<br>Agility |  **0**<br>Reason  |              **+3**<br>Intuition               |   **-1**<br>Presence   |\n\n> ⚔️ **Javelin and Bellow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 2 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; I < 4 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends)\n\n> ⭐️ **Minotaur Sense**\n>\n> The bully can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-bully.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-bully"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-lackey",
+      "title": "Минотавр-прислужник",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-lackey.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-lackey",
+      "originalName": "Minotaur Lackey",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |            Minion Harrier             | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **13**<br>Stamina |          **2**<br>Stability           |  **3**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|       **+3**<br>Might        | **+4**<br>Agility |  **0**<br>Reason  |          **+1**<br>Intuition          |   **-1**<br>Presence   |\n\n> 🗡 **Horn Vault ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target who is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an obstacle and has M < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Minotaur Sense**\n>\n> The lackey can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-lackey.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-lackey"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-stampede",
+      "title": "Галоп минотавров",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-stampede.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-stampede",
+      "originalName": "Minotaur Stampede",
+      "originalDescription": "| Accursed, Humanoid, Minotaur, Swarm |         -         |     Level 10      |               Minion Defender               | EV 12 for four minions |\n|:-----------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|            **4**<br>Size            |  **8**<br>Speed   | **17**<br>Stamina |             **2**<br>Stability              |  **4**<br>Free Strike  |\n|          **-**<br>Immunity          | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|           **+5**<br>Might           | **+5**<br>Agility |  **0**<br>Reason  |             **+2**<br>Intuition             |   **-1**<br>Presence   |\n\n> 🗡 **Bull Rush ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 5 can't stand (save ends)\n>\n> **Effect:** If this ability is used as part of the Charge main action, each creature the stampede moves through who has M < 4 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Swarm**\n>\n> The stampede can move through spaces as if they were a size 2 creature, and can occupy other creatures' spaces. At the start of each of the stampede's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-stampede.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "4",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр",
+          "Рой"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-stampede"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-sunderer",
+      "title": "Минотавр-крушитель",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-sunderer.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-sunderer",
+      "originalName": "Minotaur Sunderer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |      Elite Brute      |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Spiked Maul ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sunderer is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ❇️ **Fearsome Bay (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes.\n\n> 🗡 **Disemboweling Horns (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the sunderer.\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 8 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes 1d6 damage at the start of each of their turns.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the sunderer.\n>\n> **Effect:** The sunderer uses the Charge main action and Spiked Maul against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The sunderer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-sunderer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-sunderer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.minotaur",
+      "kind": "monster-lore",
+      "name": "Минотавры",
+      "markdown": "Грозный минотавр — воплощение контрастов. Его внушительное гуманоидное тело мускулисто и местами покрыто густой шерстью. Вместо человеческой головы у него голова огромного рогатого быка, а мягкий взгляд выдаёт проникновенный ум, смешанный с тлеющей яростью.\n\n### Первобытная ярость\n\nМинотавры горят гневом. Одни постоянно стремятся выплеснуть эту разрушительную энергию на мир и нападают на любого, кто встанет у них на пути. Другие считают делом чести сдерживать ярость и вступают в бой, только если того требует выживание. Но стоит начаться сражению, и минотавры с радостью несутся на врагов, выставив могучие рога. В пылу боя минотавр бросается от одного противника к другому и отступает, лишь когда победа уже невозможна.\n\n### Лабиринтное происхождение\n\nПервой минотавром стала воительница Тезия «Бык» Данария, некогда бывшая человеком. Она осмелилась бросить вызов Повелителям зверей Хама. Когда её восстание было подавлено, Повелители Хама с помощью звериной магии исказили смертное тело Тезии, превратив её в помесь человека и быка, склонную к приступам ярости. Они заточили минотавра в центре огромного лабиринта и посылали захваченных мятежников сражаться с чудовищем. Многие погибли от ярости Тезии, пока пленник по имени Велатри не рискнул заговорить с минотавром вместо того, чтобы выхватить клинок. Он подружился с Тезией, и в отместку Повелители зверей превратили в минотавра и его. Это стало их гибелью: Тезия и Велатри влюбились друг в друга.\n\nРождались новые минотавры, и через несколько десятилетий сотни их разом ринулись из лабиринта. Они превратили Хам в руины, а затем разбрелись по свету, опасаясь возмездия соседних земель. И по сей день многие минотавры сторонятся цивилизации и предпочитают жить в извилистых ущельях, среди запутанных развалин, в непостижимых подземельях и другой лабиринтной местности, где могут продолжать охотиться. Однако небольшие группы минотавров встречаются почти в любой местности и поселении.\n\n### Крепкие узы\n\nДаже злые минотавры могут быть преданными друзьями и с готовностью бросаются на верную смерть ради тех, кому доверяют. Избранным друзьям не грозит гнев существа — но боги да помогут им, если они предадут минотавра.\n\n### Языки минотавров\n\nБольшинство минотавров говорят на собственном диалекте хамиша.\n",
+      "source": {
+        "articleId": "monsters.monster.group.minotaur",
+        "path": "Monsters/monster/group/minotaur.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/minotaur",
+      "originalName": "Minotaurs",
+      "originalDescription": "The fearsome minotaur is a study in contrasts. Their imposing humanoid body is muscular with patches of thick hair. Their head is that of a massive horned bull, and their soft eyes convey a soulful intelligence mingled with smoldering intensity.\n\n### Primal Rage\n\nMinotaurs burn with fury. Some constantly desire to unleash this destructive energy on the world, and they attack anyone or anything that crosses their path. Others make it a point of pride to control their rage, only fighting when survival demands it. Regardless, once combat begins, minotaurs relish charging at foes with their great horns. In the heat of battle, a minotaur charges from one foe to the next, only retreating if victory is impossible.\n\n### Labyrinthine Origins\n\nThe first minotaur was once the human warrior Thesia \"The Bull\" Danaria, who dared challenge the Beast Lords of Kham. When her revolution was crushed, the Lords of Kham used their beastmagics to twist Thesia's mortal body into a human-bull hybrid prone to fits of violent rage. The Beast Lords placed this minotaur at the center of a vast labyrinth and sent captured rebels to attack the monster. Many fell to Thesia's anger—until a prisoner named Velathri took a chance, speaking to the minotaur instead of brandishing steel. He befriended Thesia, and in retribution, the Beast Lords made him a minotaur as well. This act was their undoing, for Thesia and Velathri fell in love.\n\nNew minotaurs were born, and decades later, hundreds charged out of the maze together. These minotaurs reduced Kham to ruins, then they spread far and wide, fearing reprisal from neighboring lands. Even today, many minotaurs shun civilization, preferring to live in winding canyons, twisting ruins, bewildering dungeons, or other labyrinthine terrain where they can continue to hunt. However, small numbers of minotaurs can be found in nearly any terrain or settlement.\n\n### Deep Bonds\n\nEven evil minotaurs can be fiercely loyal friends, gladly charging into certain death for those they trust. These chosen friends never suffer the creature's ire—but gods help them if they betray the minotaur.\n\n### Minotaur Languages\n\nMost minotaurs speak their own dialect of Khamish.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/minotaur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.minotaur.minotaur-malice",
+      "kind": "monster-feature",
+      "name": "Раздор минотавров",
+      "markdown": "В начале хода любого минотавра вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 👤 **Бычий натиск (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> За каждые потраченные 3 [Раздора](#/codex/monsters.rule.monster.malice) один минотавр, действующий в этот ход, получает бонус +4 к Скорости и игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain) до начала своего следующего хода.\n\n> 👤 **Хватит... глупостей! (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один минотавр, действующий в этот ход, получает половину любого урона и может совершать маневр отталкивания как свободный триггер всякий раз, когда враг оказывается [рядом с ним](#/catalog/glossary#term-glossary.adjacent). Оба эффекта действуют до начала его следующего хода.\n\n> ❇️ **В яблочко (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Все минотавры в столкновении наполняют пространство вокруг себя псионическими образами потерянности и одиночества. Каждый враг в пределах 5 клеток от минотавра [телепортируется](#/catalog/glossary#term-glossary.teleport) на расстояние до 5 клеток и проходит **тест Интуиции**.\n>\n> - **≤11:** цель видит линию воздействия только в пределах 3 клеток и испытывает [Испуг](#/catalog/glossary#term-glossary.frightened) перед всеми минотаврами (до прох.).\n> - **12-16:** цель видит линию воздействия только в пределах 3 клеток (КсХ).\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.minotaur-malice",
+        "path": "Monsters/monster/minotaur/minotaur-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur/minotaur-malice",
+      "originalName": "Minotaur Malice",
+      "originalDescription": "At the start of any minotaur's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Bull Rush (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one minotaur acting this turn gains a +4 bonus to speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the start of their next turn.\n\n> 👤 **Cut the... Nonsense! (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One minotaur acting this turn halves any damage they take, and can use the Knockback maneuver as a free triggered action whenever an enemy comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, all until the start of their next turn.\n\n> ❇️ **Bullseye (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> All minotaurs in the encounter fill the area around them with psychic impressions of feeling lost and isolated. Each enemy within 5 squares of a minotaur is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and makes an **Intuition test**.\n>\n> - **≤11:** The target has line of effect only within 3 squares and is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends).\n> - **12-16:** The target has line of effect only within 3 squares (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/minotaur-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.minotaur.statblock.minotaur",
+      "kind": "monster",
+      "name": "Минотавр",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 3       |     Элита Налётчик     |        Боевая ценность 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Размер         |  **8**<br>Скорость   | **100**<br>Выносливость |  **2**<br>Устойчивость   | **5**<br>Свободный удар |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+2**<br>Мощь        | **+2**<br>Ловкость |  **0**<br>Разум   |  **+1**<br>Интуиция  |  **-1**<br>Присутствие  |\n\n> 🗡 **Цеп и клинок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний 2**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 11 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 14 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **Эффект:** Минотавр может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток.\n\n> 👤 **Первобытный рёв (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------:|\n> | **📏 На себя** |     **🎯 На себя** |\n>\n> **Эффект:** До конца своего следующего хода минотавр получает иммунитет к урону 2 и наносит ударами дополнительно 5 урона. В свой следующий ход минотавр может выполнить на один маневр больше.\n\n> 🗡 **Пронзающие рога (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Ближний 2**                    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; И < 0 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 8 урона; И < 1 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 9 урона; И < 2 [оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Если эту способность применяют в рамках основного действия «Атака с рывком», её [Потенциал](#/catalog/glossary#term-glossary.potency) повышается на 1.\n\n> ❗️ **Ответный удар**\n>\n> | **Дальний**      |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Дальний 8** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции наносит урон минотавру.\n>\n> **Эффект:** Минотавр применяет основное действие «Атака с рывком» и атакует цель цепом и клинком или пронзающими рогами.\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах навигации, поиска или выслеживания минотавр не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur",
+        "path": "Monsters/monster/minotaur/statblock/minotaur.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur",
+      "originalName": "Minotaur",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |     Elite Harrier     |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **100**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+2**<br>Agility |  **0**<br>Reason   |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Flail and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The minotaur [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n\n> 👤 **Primal Bay (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes. On their next turn, the minotaur can use one additional maneuver.\n\n> 🗡 **Goring Horns (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 8 damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If this ability is used as part of the Charge main action, its [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 8** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the minotaur.\n>\n> **Effect:** The minotaur uses the Charge main action and either Flail and Blade or Goring Horns against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The minotaur can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.minotaur.statblock.minotaur-bully",
+      "kind": "monster",
+      "name": "Минотавр-задира",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 8      |                  Миньон Громила                  | Боевая ценность 10 для четырёх миньонов |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:-------------------------:|\n|        **2**<br>Размер         |  **6**<br>Скорость   | **14**<br>Выносливость |               **2**<br>Устойчивость               |  **4**<br>Свободный удар  |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -         | **Бонус +3 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость    |\n|       **+4**<br>Мощь        | **+2**<br>Ловкость |  **0**<br>Разум  |              **+3**<br>Интуиция               |   **-1**<br>Присутствие   |\n\n> ⚔️ **Метательное копьё и рёв ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Дальний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2 или дальний бой 5**            | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона.\n> - **12-16:** 7 урона.\n> - **17+:** 9 урона; цель с И < 4 становится [провоцируемой](#/catalog/glossary#term-glossary.taunted) (КсХ) или испытывает [Испуг](#/catalog/glossary#term-glossary.frightened) перед всеми минотаврами (до прох.).\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах на навигацию, поиск или выслеживание задира не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-bully",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-bully.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-bully",
+      "originalName": "Minotaur Bully",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |                  Minion Brute                  | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **14**<br>Stamina |               **2**<br>Stability               |  **4**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+4**<br>Might        | **+2**<br>Agility |  **0**<br>Reason  |              **+3**<br>Intuition               |   **-1**<br>Presence   |\n\n> ⚔️ **Javelin and Bellow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 2 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; I < 4 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends)\n\n> ⭐️ **Minotaur Sense**\n>\n> The bully can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-bully.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.minotaur.statblock.minotaur-lackey",
+      "kind": "monster",
+      "name": "Минотавр-прислужник",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 8      |            Миньон Налётчик             | Боевая ценность 10 для четырёх миньонов |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:-------------------------:|\n|        **2**<br>Размер         |  **8**<br>Скорость   | **13**<br>Выносливость |          **2**<br>Устойчивость           |  **3**<br>Свободный удар  |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -         |          **Бонус +2 к Скорости**<br>С капитаном |   **-**<br>Уязвимость    |\n|       **+3**<br>Мощь        | **+4**<br>Ловкость |  **0**<br>Разум  |          **+1**<br>Интуиция          |   **-1**<br>Присутствие   |\n\n> 🗡 **Роговой прыжок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2**                 | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона.\n> - **12-16:** 6 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1.\n> - **17+:** 8 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 3.\n>\n> **Эффект:** Если [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) приводит цель к препятствию, а её М < 3, она начинает [истекать кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах на навигацию, поиск или выслеживание прислужник не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-lackey",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-lackey.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-lackey",
+      "originalName": "Minotaur Lackey",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |            Minion Harrier             | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **13**<br>Stamina |          **2**<br>Stability           |  **3**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|       **+3**<br>Might        | **+4**<br>Agility |  **0**<br>Reason  |          **+1**<br>Intuition          |   **-1**<br>Presence   |\n\n> 🗡 **Horn Vault ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target who is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an obstacle and has M < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Minotaur Sense**\n>\n> The lackey can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-lackey.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.minotaur.statblock.minotaur-stampede",
+      "kind": "monster",
+      "name": "Галоп минотавров",
+      "markdown": "| Проклятый, Гуманоид, Минотавр, Рой |           -           |     Уровень 10      |               Миньон Защитник               | Боевая ценность 12 для четырёх миньонов |\n|:-----------------------------------:|:---------------------:|:------------------:|:-------------------------------------------:|:-------------------------:|\n|            **4**<br>Размер            |  **8**<br>Скорость   | **17**<br>Выносливость |             **2**<br>Устойчивость              |  **4**<br>Свободный удар  |\n|          **-**<br>Иммунитет          | **-**<br>Движение |         -         | **Преимущество на ударах**<br>С капитаном |   **-**<br>Уязвимость    |\n|           **+5**<br>Мощь           | **+5**<br>Ловкость |  **0**<br>Разум  |             **+2**<br>Интуиция             |   **-1**<br>Присутствие   |\n\n> 🗡 **Бычий натиск ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2**                 | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 4 урона.\n> - **12-16:** 7 урона; цель [сбита с ног](#/catalog/glossary#term-glossary.prone).\n> - **17+:** 9 урона; цель [сбита с ног](#/catalog/glossary#term-glossary.prone); цель с М < 5 не может встать (до прох.).\n>\n> **Эффект:** Если эта способность используется как часть основного действия «Рывок», каждое существо, через пространство которого проходит стадо, и у которого М < 4, оказывается [сбитым с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Рой**\n>\n> Стадо может проходить сквозь пространства так, словно оно — существо размера 2, и может занимать пространства других существ. В начале каждого своего хода оно может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому существу, с которым делит пространство.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-stampede",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-stampede.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-stampede",
+      "originalName": "Minotaur Stampede",
+      "originalDescription": "| Accursed, Humanoid, Minotaur, Swarm |         -         |     Level 10      |               Minion Defender               | EV 12 for four minions |\n|:-----------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|            **4**<br>Size            |  **8**<br>Speed   | **17**<br>Stamina |             **2**<br>Stability              |  **4**<br>Free Strike  |\n|          **-**<br>Immunity          | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|           **+5**<br>Might           | **+5**<br>Agility |  **0**<br>Reason  |             **+2**<br>Intuition             |   **-1**<br>Presence   |\n\n> 🗡 **Bull Rush ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 5 can't stand (save ends)\n>\n> **Effect:** If this ability is used as part of the Charge main action, each creature the stampede moves through who has M < 4 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Swarm**\n>\n> The stampede can move through spaces as if they were a size 2 creature, and can occupy other creatures' spaces. At the start of each of the stampede's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-stampede.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "4",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр",
+          "Рой"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.minotaur.statblock.minotaur-sunderer",
+      "kind": "monster",
+      "name": "Минотавр-крушитель",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 3       |      Элита Громила      |        Боевая ценность 20         |\n|:----------------------------:|:-----------------:|:------------------:|:--------------------:|:--------------------:|\n|        **2**<br>Размер        |  **6**<br>Скорость   | **120**<br>Выносливость |  **2**<br>Устойчивость   |  **6**<br>Свободный удар |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+2**<br>Мощь        | **+1**<br>Ловкость |  **0**<br>Разум   |  **+2**<br>Интуиция  |  **-1**<br>Присутствие  |\n\n> 🗡 **Шипастая кувалда ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний 2**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 12 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 15 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **Эффект:** Цель, [притянутая](#/catalog/glossary#term-glossary.forced-movement) [вплотную](#/catalog/glossary#term-glossary.adjacent) к крушителю, автоматически оказывается [схвачена](#/catalog/glossary#term-glossary.grabbed).\n\n> ❇️ **Ужасающий рёв (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** И < 0 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12-16:** И < 1 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **17+:** И < 2 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** До конца своего следующего хода минотавр получает иммунитет к урону 2 и наносит ударами дополнительно 5 урона.\n\n> 🗡 **Потрошение рогами (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Ближний 2**                    | **🎯 Одно существо** |\n>\n> **Особое:** Цель должна быть [схвачена](#/catalog/glossary#term-glossary.grabbed) крушителем.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; М < 0 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 8 урона; М < 1 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 9 урона; М < 2 [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Пока цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) таким образом, она получает 1d6 урона в начале каждого своего хода.\n\n> ❗️ **Ответный удар**\n>\n> | **Дальний**      |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Дальний 6** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции наносит урон крушителю.\n>\n> **Эффект:** Крушитель применяет основное действие «Атака с рывком» и «Шипастую кувалду» против цели.\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах навигации, поиска или выслеживания крушитель не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-sunderer",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-sunderer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-sunderer",
+      "originalName": "Minotaur Sunderer",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3       |      Elite Brute      |        EV 20         |\n|:----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Spiked Maul ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sunderer is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ❇️ **Fearsome Bay (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** Until the end of their next turn, the minotaur has damage immunity 2 and deals an extra 5 damage with strikes.\n\n> 🗡 **Disemboweling Horns (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Charge, Melee, Strike, Weapon** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the sunderer.\n>\n> **Power Roll + 2:**\n> \n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 8 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, the target takes 1d6 damage at the start of each of their turns.\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the sunderer.\n>\n> **Effect:** The sunderer uses the Charge main action and Spiked Maul against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The sunderer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-sunderer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

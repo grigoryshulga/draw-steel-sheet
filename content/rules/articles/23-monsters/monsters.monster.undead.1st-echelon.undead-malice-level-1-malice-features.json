@@ -1,0 +1,24 @@
+{
+  "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+  "title": "Нежить: черты Раздора (уровень 1+)",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/1st-echelon/undead-malice-level-1-malice-features.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon/undead-malice-level-1-malice-features",
+  "originalName": "Undead Malice (Level 1+ Malice Features)",
+  "originalDescription": "At the start of any undead's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🌀 **Ravenous Horde (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> At the end of this round, each hero not already [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more undead is beset by two **rotting zombies** who burst up from the ground to appear in adjacent unoccupied spaces. Each zombie is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded). This feature can't be used two rounds in a row.\n\n> 🌀 **Paranormal Fling (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Up to three unattended objects on the encounter map rise to float 1 square off the ground. Each object is then [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the nearest enemy within 3 squares of the object.\n\n> 🔳 **The Grasping, the Hungry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Ravenous and rotting undead arms burst forth from 9 connected squares of a vertical or horizontal surface. Any creature who ends their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an affected square makes an **Agility test**.\n>\n> - **≤11:** 5 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 5 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** 5 damage\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a creature takes 1d6 damage at the start of each of their turns.\n\n> ⭐️ **Dread March (7+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Up to four undead in the encounter move up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). The number of undead affected increases by 1 for each additional [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent on this feature. If an undead is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) during this dread march, they don't die until the march is resolved.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/1st-echelon/undead-malice-level-1-malice-features.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "featureblock",
+    "level": 1
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.1st-echelon.undead-malice-level-1-malice-features"
+    }
+  ]
+}

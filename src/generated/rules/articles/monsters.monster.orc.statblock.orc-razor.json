@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.orc.statblock.orc-razor",
+      "title": "Орк-бритва",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-razor.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-razor",
+      "originalName": "Orc Razor",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Boot and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The razor gains an edge against any target affected by a [condition](scc.v1:mcdm.heroes.v1/rule.combat/condition).\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the razor is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-razor.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-razor"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.orc.statblock.orc-razor",
+      "kind": "monster",
+      "name": "Орк-бритва",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |                    Миньон-Громила                    | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:-----------------------------------------------------:|:----------------------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+1 бонус к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Сапог и клинок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки\n> - **17+:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки или [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Орк-бритва получает преимущество против любой цели, на которую действует какое-либо [состояние](#/catalog/glossary#term-glossary.condition).\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) орка-бритвы снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-razor",
+        "path": "Monsters/monster/orc/statblock/orc-razor.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-razor",
+      "originalName": "Orc Razor",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Boot and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The razor gains an edge against any target affected by a [condition](scc.v1:mcdm.heroes.v1/rule.combat/condition).\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the razor is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-razor.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

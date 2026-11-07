@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.the-nameless",
+      "title": "Безымянный",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/the-nameless.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/the-nameless",
+      "originalName": "The Nameless",
+      "originalDescription": "| Draconian, Dragon, Humanoid  |          -          |      Level 6      |   Defender Retainer   |         EV -         |\n|:----------------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **1M**<br>Size        |   **5**<br>Speed    | **66**<br>Stamina |  **4**<br>Stability   | **6**<br>Free Strike |\n| **Corruption 6**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might        |  **+2**<br>Agility  | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Baneful Blade  (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🗡 **I'm Not a Steed, You're Equipment (Encounter)**\n>\n> | **Melee**      |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The Nameless's mentor** |\n>\n> **Effect:** The Nameless's mentor enters the Nameless's space and rides on their back. The Nameless or the mentor can move the mentor to an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space as a free maneuver. While in the Nameless's space, the mentor moves with them and can't use their move action, and ability rolls against the mentor take a bane.\n\n> ⭐️ **Wing Block**\n>\n> Ranged strikes against the Nameless take a bane.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/the-nameless.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.the-nameless"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.the-nameless"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.defender"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.the-nameless",
+          "title": "Способности развития Безымянного"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.defender",
+          "title": "Способности развития роли Защитника"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.the-nameless",
+      "kind": "retainer",
+      "name": "Безымянный",
+      "markdown": "| Драконид, Дракон, Гуманоид | - | Уровень 6 | Помощник-защитник | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **5**<br>Скорость | **66**<br>Выносливость | **4**<br>Устойчивость | **6**<br>Свободный удар |\n| **Порча 6**<br>Иммунитет | **Полёт**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Пагубный клинок (Знаковая способность)**\n>\n> | **Рывок, ближний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 11 урона\n> - **17+:** 14 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 2\n\n> 🗡 **Я не скакун, ты снаряжение (столкновение)**\n>\n> | **Ближний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Наставник Безымянного** |\n>\n> **Эффект:** Наставник Безымянного входит в его пространство и едет на его спине. Безымянный или наставник может переместить наставника в [соседнюю](#/catalog/glossary#term-glossary.adjacent) клетку свободным манёвром. Находясь в пространстве Безымянного, наставник перемещается вместе с ним, не может использовать своё действие движения, а броски способностей против наставника получают помеху.\n\n> ⭐️ **Защита крылом**\n>\n> Удары дальнего боя против Безымянного получают помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.the-nameless",
+        "path": "Monsters/monster/retainer/statblock/the-nameless.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/the-nameless",
+      "originalName": "The Nameless",
+      "originalDescription": "| Draconian, Dragon, Humanoid  |          -          |      Level 6      |   Defender Retainer   |         EV -         |\n|:----------------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **1M**<br>Size        |   **5**<br>Speed    | **66**<br>Stamina |  **4**<br>Stability   | **6**<br>Free Strike |\n| **Corruption 6**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might        |  **+2**<br>Agility  | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Baneful Blade  (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🗡 **I'm Not a Steed, You're Equipment (Encounter)**\n>\n> | **Melee**      |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The Nameless's mentor** |\n>\n> **Effect:** The Nameless's mentor enters the Nameless's space and rides on their back. The Nameless or the mentor can move the mentor to an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space as a free maneuver. While in the Nameless's space, the mentor moves with them and can't use their move action, and ability rolls against the mentor take a bane.\n\n> ⭐️ **Wing Block**\n>\n> Ranged strikes against the Nameless take a bane.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/the-nameless.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.the-nameless",
+      "kind": "monster-feature",
+      "name": "Способности развития Безымянного",
+      "markdown": "> **Способность развития Помощника 7-го уровня**\n\n> ❇️ **Нависающие крылья (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона порчей; И < СЛАБЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 9 урона порчей; И < СРЕДНИЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 12 урона порчей; И < СИЛЬНЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n>\n> **Эффект:** Если Наставник Безымянного находится в области, до начала своего следующего хода броски способностей Безымянного против Наставника совершаются с двойной помехой.\n\n> **Способность развития Помощника 10-го уровня**\n\n> ❇️ **Изрыгнуть смерть (Столкновение)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|----------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> **Особое:** Для использования этой способности Безымянный должен быть [утомлён](#/catalog/glossary#term-glossary.winded).\n>\n> - **≤11:** 11 урона порчей\n> - **12-16:** 16 урона порчей\n> - **17+:** 21 урон порчей\n>\n> **Эффект:** Все живые [миньоны](#/codex/monsters.rule.organization.minion), чья [Выносливость](#/catalog/glossary#term-glossary.stamina) снижена этой способностью до 0, восстанавливают всю [Выносливость](#/catalog/glossary#term-glossary.stamina) и становятся телесной [нежитью](#/codex/monsters.rule.keyword.undead) под контролем Безымянного до конца его следующего хода, после чего уничтожаются.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.the-nameless",
+        "path": "Monsters/monster/retainer/advancement-features/the-nameless.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/the-nameless",
+      "originalName": "The Nameless Advancement Features",
+      "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> ❇️ **Looming Wings (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 corruption damage; I < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 corruption damage; I < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 corruption damage; I < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the Nameless's mentor is in the area, ability rolls against the mentor have a double bane until the start of their next turn.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Spew Death (Encounter)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> **Special:** The Nameless must be [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) to use this ability.\n>\n> - **≤11:** 11 corruption damage\n> - **12-16:** 16 corruption damage\n> - **17+:** 21 corruption damage\n>\n> **Effect:** Any living [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion) reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by this ability regain all their [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and become corporeal [undead](scc.v1:mcdm.monsters.v1/rule.keyword/undead) under the Nameless's control until the end of the Nameless's next turn, after which they are destroyed.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/the-nameless.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.defender",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Защитника",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> ❗️ **Берегись! (Столкновение)**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|------------:|\n> | **📏 Ближний 1** | **🎯 Наставник Помощника** |\n>\n> **Спусковой механизм:** Цель получает урон от удара.\n>\n> **Эффект:** Помощник [отталкивает](#/catalog/glossary#term-glossary.forced-movement) цель или атакующее существо на расстояние до 2 клеток. Если в результате этого Наставник оказывается вне дистанции удара, удар не действует.\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Тебе нужен я! (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Два существа** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) (КсХ)\n> - **12-16:** 11 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 16 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n\n> **Способность развития роли 10-го уровня**\n\n> 🗡 **Последний рубеж (Столкновение)**\n>\n> | **Ближний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Ближний 1**    | **🎯 Один враг** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона\n> - **17+:** 17 урона\n>\n> **Эффект:** Помощник и его Наставник каждый получают 10 [временной Выносливости](#/catalog/glossary#term-glossary.temporary-stamina). Кроме того, каждый [утомлённый](#/catalog/glossary#term-glossary.winded) союзник в пределах 2 клеток от Помощника может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.defender",
+        "path": "Monsters/monster/retainer/role-advancement/defender.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/defender",
+      "originalName": "Defender Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> ❗️ **Watch Out! (Encounter)**\n>\n> | **Melee**      |         **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The retainer's mentor** |\n>\n> **Trigger:** The target takes damage from a strike.\n>\n> **Effect:** The retainer [pushes](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target or the attacking creature up to 2 squares. If that moves the mentor out of distance of the strike, the strike has no effect.\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **It's Me You Want! (Encounter)**\n>\n> | **Melee, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **12-16:** 11 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Last Stand (Encounter)**\n>\n> | **Melee, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------:|\n> | **📏 Melee 1**    | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage\n> - **17+:** 17 damage\n>\n> **Effect:** The retainer and their mentor each gain 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina). Additionally, each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) ally within 2 squares of the retainer can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/defender.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

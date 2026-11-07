@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.hobgoblin.statblock.hobgoblin-incendiarist",
+      "title": "Хобгоблин-поджигатель",
+      "chapter": "23. Бестиарий",
+      "group": "Хобгоблины",
+      "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-incendiarist.md",
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-incendiarist",
+      "originalName": "Hobgoblin Incendiarist",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |      Level 5      |   Platoon Artillery   |        EV 14         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+1**<br>Might            | **+3**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Fire Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 17 fire damage; A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🔳 **Fireball Volley (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|----------------------------------------:|\n> | **📏 4 cube within 10** | **🎯 Each enemy or object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 fire damage; A < 1 burning (save ends)\n> - **12-16:** 9 fire damage; A < 2 burning (save ends)\n> - **17+:** 11 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Raining Cinders**\n>\n> The ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) of each ally within 3 squares of the incendiarist has a distance of 10 and deals fire damage.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the incendiarist is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the incendiarist takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-incendiarist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.statblock.hobgoblin-incendiarist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.hobgoblin",
+          "title": "Хобгоблины"
+        },
+        {
+          "id": "monsters.monster.hobgoblin.hobgoblin-malice",
+          "title": "Раздор хобгоблинов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.hobgoblin.statblock.hobgoblin-incendiarist",
+      "kind": "monster",
+      "name": "Хобгоблин-поджигатель",
+      "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |         -         |      Уровень 5      |   Взвод Артиллерист   |        Боевая ценность 14         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Размер             |  **5**<br>Скорость   | **60**<br>Выносливость |  **0**<br>Устойчивость   | **6**<br>Свободный удар |\n|        **Огонь 5**<br>Иммунитет         | **-**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|            **+1**<br>Мощь            | **+3**<br>Ловкость |  **0**<br>Разум  |  **+2**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🏹 **Огненный арбалет (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Дальний 10**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона огнём\n> - **12-16:** 14 урона огнём\n> - **17+:** 17 урона огнём; Л < 3: горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> 🔳 **Залп огненных шаров (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** |                         **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|----------------------------------------:|\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждый враг или объект в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона огнём; Л < 1: горит (до прох.)\n> - **12-16:** 9 урона огнём; Л < 2: горит (до прох.)\n> - **17+:** 11 урона огнём; [сбито с ног](#/catalog/glossary#term-glossary.prone); Л < 3: горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ⭐️ **Дождь углей**\n>\n> Дистанция [свободного удара дальнего боя](#/catalog/glossary#term-glossary.free-strike) каждого союзника в пределах 3 клеток от поджигателя равна 10, и этот удар наносит урон огнём.\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) поджигателя снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с поджигателем, получает 3 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-incendiarist",
+        "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-incendiarist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-incendiarist",
+      "originalName": "Hobgoblin Incendiarist",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |      Level 5      |   Platoon Artillery   |        EV 14         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+1**<br>Might            | **+3**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Fire Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 17 fire damage; A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🔳 **Fireball Volley (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|----------------------------------------:|\n> | **📏 4 cube within 10** | **🎯 Each enemy or object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 fire damage; A < 1 burning (save ends)\n> - **12-16:** 9 fire damage; A < 2 burning (save ends)\n> - **17+:** 11 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Raining Cinders**\n>\n> The ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) of each ally within 3 squares of the incendiarist has a distance of 10 and deals fire damage.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the incendiarist is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the incendiarist takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-incendiarist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

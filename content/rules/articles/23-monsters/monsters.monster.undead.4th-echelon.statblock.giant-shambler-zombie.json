@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.undead.4th-echelon.statblock.giant-shambler-zombie",
+  "title": "Гигантский ковыляющий зомби",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/4th-echelon/statblock/giant-shambler-zombie.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.4th-echelon.statblock/giant-shambler-zombie",
+  "originalName": "Giant Shambler Zombie",
+  "originalDescription": "|             Undead, Soulless             |         -         |     Level 10      |                  Minion Brute                  | EV 12 for four minions |\n|:----------------------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|              **3**<br>Size               |  **4**<br>Speed   | **17**<br>Stamina |               **5**<br>Stability               |  **5**<br>Free Strike  |\n| **Corruption 10, poison 10**<br>Immunity | **-**<br>Movement |         -         | **+4 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|             **+5**<br>Might              | **-3**<br>Agility | **-3**<br>Reason  |              **+1**<br>Intuition               |   **-2**<br>Presence   |\n\n> 🗡 **Rotten Kick ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n\n> ⭐️ **Meat Shield**\n>\n> Each ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the shambler has [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 3.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/4th-echelon/statblock/giant-shambler-zombie.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 10,
+    "ev": "12 for four minions",
+    "size": "3",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.4th-echelon.statblock.giant-shambler-zombie"
+    }
+  ]
+}

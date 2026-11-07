@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.advancement-features.unquiet-spirit",
+  "title": "Способности развития беспокойного духа",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/advancement-features/unquiet-spirit.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/unquiet-spirit",
+  "originalName": "Unquiet Spirit Advancement Features",
+  "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🏹 **Enervating Curse (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 corruption damage; the target has 1 level of drain\n> - **12-16:** 10 corruption damage; the target has 2 levels of drain\n> - **17+:** 14 corruption damage; the target has 3 levels of drain\n>\n> **Effect:** The next creature to make a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) against the target gains 1 [surge](scc.v1:mcdm.heroes.v1/rule.resource/surge) for each level of drain, which must be used on that [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Ectoplasm (Encounter)**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** A < WEAK [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** A < AVERAGE [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** A < STRONG [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🏹 **Death Phase (Encounter)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature** |\n>\n> **Effect:** If the target has P < STRONG, they are phased until the end of their next turn. A phased target gains the unquiet spirit's Corruptive Phasing trait and can [fly](scc.v1:mcdm.heroes.v1/movement/fly). They are visible but can't affect or be affed by other creatures or objects. A willing creature not subject to the ability's [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) can choose to automatically be affected.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/unquiet-spirit.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.advancement-features.unquiet-spirit"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.troll.statblock.troll-glutton",
+      "title": "Тролль-обжора",
+      "chapter": "23. Бестиарий",
+      "group": "Тролли",
+      "path": "Monsters/monster/troll/statblock/troll-glutton.md",
+      "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-glutton",
+      "originalName": "Troll Glutton",
+      "originalDescription": "|   Giant, Troll    |         -         |      Level 5       |      Elite Brute      |              EV 28              |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:-------------------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **160**<br>Stamina |  **4**<br>Stability   |      **7**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+3**<br>Might  | **+1**<br>Agility |  **-1**<br>Reason  |  **0**<br>Intuition   |       **+1**<br>Presence        |\n\n> 🗡 **Voracious Mastication ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The glutton regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> 👤 **Crash Through (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The glutton [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed in a straight line, ignoring [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). The first time during this movement that the glutton moves through the space of a creature or object their size or smaller, that creature or object takes 10 damage, or a creature can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) instead. If the glutton moves into a creature or object larger than them and doesn't knock the creature [prone](scc.v1:mcdm.heroes.v1/condition/prone) or destroy the object, the glutton's movement ends and they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.\n\n> 👤 **Food Frenzy**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of their next turn, the glutton has a double edge on strikes, and strikes made against them gain an edge.\n\n> ❗️ **Spiteful Retort (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature** |\n>\n> **Trigger:** The glutton is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) but doesn't die.\n>\n> **Effect:** The glutton uses Voracious Mastication against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature.\n\n> ⭐️ **Insatiable Appetite**\n>\n> Once per turn, the glutton can use the Charge main action as a free maneuver if they target a [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) creature.\n\n> ⭐️ **Relentless Hunger**\n>\n> The glutton dies only if they are reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by acid or fire damage, if they end their turn with 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they take acid or fire damage while at 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/troll/statblock/troll-glutton.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "troll",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Тролль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.troll.statblock.troll-glutton"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.troll",
+          "title": "Тролли"
+        },
+        {
+          "id": "monsters.monster.troll.troll-malice",
+          "title": "Раздор троллей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.troll.statblock.troll-glutton",
+      "kind": "monster",
+      "name": "Тролль-обжора",
+      "markdown": "| Великан, Тролль |         -         |    **Уровень 5**     | **Элита, Громила** |          **Боевая ценность 28**          |\n|:------------------------:|:-----------------:|:-------------------:|:-----------------:|:---------------------------:|\n|    **2**<br>Размер       | **6**<br>Скорость | **160**<br>Выносливость | **4**<br>Устойчивость | **7**<br>Свободный удар   |\n| **-**<br>Иммунитет       | **-**<br>Движение |          -          | **-**<br>С капитаном | **Кислота 5, огонь **<br>Уязвимость |\n| **+3**<br>Мощь           | **+1**<br>Ловкость | **-1**<br>Разум     | **0**<br>Интуиция       | **+1**<br>Присутствие      |\n\n> 🗡 **Ненасытное пережёвывание ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона; М < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 18 урона; М < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** Обжора восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в размере нанесённого урона.\n\n> 👤 **Проломиться вперёд (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Обжора [смещается](#/catalog/glossary#term-glossary.shift) по прямой на расстояние до своей Скорости, игнорируя [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain). В первый раз за это перемещение, проходя через пространство существа или объекта его размера или меньше, Обжора наносит этому существу или объекту 10 урона; существо вместо этого может решить упасть [Лежащим](#/catalog/glossary#term-glossary.prone). Если Обжора врезается в существо или объект крупнее себя и не сбивает существо [с ног](#/catalog/glossary#term-glossary.prone) или не разрушает объект, его перемещение заканчивается, и он получает [Оглушение](#/catalog/glossary#term-glossary.dazed) до конца своего следующего хода.\n\n> 👤 **Пищевая ярость**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До начала своего следующего хода Обжора получает двойное преимущество на удары, а удары по нему получают преимущество.\n\n> ❗️ **Злобный ответ (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой** | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|--------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Существо, вызвавшее триггер** |\n>\n> **Триггер:** [Выносливости](#/catalog/glossary#term-glossary.stamina) Обжоры снижается до 0, но он не умирает.\n>\n> **Эффект:** Обжора применяет «Ненасытное пережёвывание» против [смежного](#/catalog/glossary#term-glossary.adjacent) существа.\n\n> ⭐️ **Ненасытный аппетит**\n>\n> Раз в ход Обжора может использовать основное действие «Атака с рывком» как свободный маневр, если выбирает целью [утомлённое](#/catalog/glossary#term-glossary.winded) существо.\n\n> ⭐️ **Неутолимый голод**\n>\n> Обжора умирает, только если его [Выносливости](#/catalog/glossary#term-glossary.stamina) снижается до 0 уроном кислотой или огнём; если он заканчивает свой ход с 0 [Выносливости](#/catalog/glossary#term-glossary.stamina); либо если он получает урон кислотой или огнём, уже имея 0 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n",
+      "source": {
+        "articleId": "monsters.monster.troll.statblock.troll-glutton",
+        "path": "Monsters/monster/troll/statblock/troll-glutton.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-glutton",
+      "originalName": "Troll Glutton",
+      "originalDescription": "|   Giant, Troll    |         -         |      Level 5       |      Elite Brute      |              EV 28              |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:-------------------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **160**<br>Stamina |  **4**<br>Stability   |      **7**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+3**<br>Might  | **+1**<br>Agility |  **-1**<br>Reason  |  **0**<br>Intuition   |       **+1**<br>Presence        |\n\n> 🗡 **Voracious Mastication ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The glutton regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> 👤 **Crash Through (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The glutton [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed in a straight line, ignoring [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). The first time during this movement that the glutton moves through the space of a creature or object their size or smaller, that creature or object takes 10 damage, or a creature can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) instead. If the glutton moves into a creature or object larger than them and doesn't knock the creature [prone](scc.v1:mcdm.heroes.v1/condition/prone) or destroy the object, the glutton's movement ends and they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.\n\n> 👤 **Food Frenzy**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of their next turn, the glutton has a double edge on strikes, and strikes made against them gain an edge.\n\n> ❗️ **Spiteful Retort (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature** |\n>\n> **Trigger:** The glutton is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) but doesn't die.\n>\n> **Effect:** The glutton uses Voracious Mastication against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature.\n\n> ⭐️ **Insatiable Appetite**\n>\n> Once per turn, the glutton can use the Charge main action as a free maneuver if they target a [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) creature.\n\n> ⭐️ **Relentless Hunger**\n>\n> The glutton dies only if they are reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by acid or fire damage, if they end their turn with 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they take acid or fire damage while at 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/troll/statblock/troll-glutton.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "troll",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Тролль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

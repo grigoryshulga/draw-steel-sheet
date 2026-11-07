@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-chirurgeon",
+      "title": "Лесной эльф-хирург",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-chirurgeon.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-chirurgeon",
+      "originalName": "Wode Elf Chirurgeon",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |    Platoon Harrier    |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might     |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Wild Ax (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** The chirurgeon can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using this ability.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The chirurgeon uses this ability again.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the chirurgeon that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-chirurgeon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-chirurgeon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-chirurgeon",
+      "kind": "monster",
+      "name": "Лесной эльф-хирург",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |           -           |      Уровень 2      | Взвод — Налётчик |         Боевая ценность 8         |\n|:-----------------------:|:---------------------:|:------------------:|:----------------:|:--------------------:|\n|     **1M**<br>Размер      |   **7**<br>Скорость    | **40**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> ⚔️ **Дикий топор (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**             | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 9 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 12 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5\n>\n> **Эффект:** Перед использованием этой способности хирург может нанести [Свободный удар дальнего боя](#/catalog/glossary#term-glossary.free-strike).\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Хирург использует эту способность ещё раз.\n\n> 🏹 **Лес нас защитит (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |                 **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|-----------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Вы и три союзника** |\n>\n> **Эффект:** Каждая цель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 10 клеток в пространство с укрытием или покровом.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на хирурга и получающие Помеху из-за укрытия или покрова, вместо этого получают двойную Помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-chirurgeon",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-chirurgeon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-chirurgeon",
+      "originalName": "Wode Elf Chirurgeon",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |    Platoon Harrier    |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might     |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Wild Ax (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** The chirurgeon can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using this ability.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The chirurgeon uses this ability again.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the chirurgeon that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-chirurgeon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

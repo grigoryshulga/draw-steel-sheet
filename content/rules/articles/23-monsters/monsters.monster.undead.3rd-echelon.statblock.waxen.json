@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.undead.3rd-echelon.statblock.waxen",
+  "title": "Восковик",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/3rd-echelon/statblock/waxen.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/waxen",
+  "originalName": "Waxen",
+  "originalDescription": "|            Undead, Soulless            |         -         |      Level 7      |    Horde Artillery    |         EV 9         |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |  **4**<br>Speed   | **40**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+4**<br>Might             | **-2**<br>Agility | **-4**<br>Reason  |  **+1**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🏹 **Wax Fling ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 11 damage\n> - **17+:** 12 damage; A < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ❇️ **Erupt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** If the waxen is ignited (see Burn Bright), they [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed before using this ability. Each target makes an **Agility test**.\n>\n> - **≤11:** 10 damage\n> - **12-16:** 8 damage\n> - **17+:** 5 damage\n>\n> The waxen is then destroyed and the area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ⭐️ **Burn Bright**\n>\n> If the waxen takes fire damage, they ignite. While ignited, the waxen takes 4 fire damage at the start of each of their turns and their [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) deal an extra 4 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/3rd-echelon/statblock/waxen.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Артиллерист",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.3rd-echelon.statblock.waxen"
+    }
+  ]
+}

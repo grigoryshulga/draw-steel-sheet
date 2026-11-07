@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.role-advancement.mount",
+      "title": "Способности скакуна",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/role-advancement/mount.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/mount",
+      "originalName": "Mount Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Cavalry Charge (Encounter)**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** If this ability is used as part of the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action, the mount's rider can use a free triggered action to make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the same target.\n\n> **Level 7 Role Advancement Ability**\n\n> 👤 **Giddyup! (Encounter)**\n>\n> | **-**          | **[Move action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------:|\n> | **📏 Range 5** |     **🎯 Self** |\n>\n> **Effect:** The mount [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) twice their speed. They can jump as part of this movement.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Rearing Trample (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 10 damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 15 damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 21 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way or who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 5 damage.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/mount.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.mount"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.role-advancement.mount",
+      "kind": "monster-feature",
+      "name": "Способности скакуна",
+      "markdown": "> **Способность развития роли 4-го уровня**\n>\n> 🗡 **Кавалерийский натиск (Столкновение)**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|-----------------:|\n> | **📏 Ближний 1**                 | **🎯 Один враг** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 8 урона\n> - **17+:** 11 урона\n>\n> **Эффект:** Если эта способность используется в рамках основного действия [Атака с рывком](#/catalog/glossary#term-glossary.charge-main-action), всадник скакуна может свободным триггером нанести той же цели [свободный удар](#/catalog/glossary#term-glossary.free-strike) ближнего боя.\n\n> **Способность развития роли 7-го уровня**\n>\n> 👤 **Но-о! (Столкновение)**\n>\n> | **—**          | **[Действие движения](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|----------------:|\n> | **📏 Дальность 5** | **🎯 На себя** |\n>\n> **Эффект:** Скакун совершает [смещение](#/catalog/glossary#term-glossary.shift) на расстояние, вдвое превышающее его Скорость. В рамках этого перемещения он может прыгнуть.\n\n> **Способность развития роли 10-го уровня**\n>\n> ❇️ **Топот на дыбах (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 10 урона; если М < СЛАБЫЙ, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 15 урона; если М < СРЕДНИЙ, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 21 урона; если М < СИЛЬНЫЙ, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Цель, [сбитая с ног](#/catalog/glossary#term-glossary.prone) таким образом или уже [лежащая](#/catalog/glossary#term-glossary.prone), получает дополнительно 5 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.mount",
+        "path": "Monsters/monster/retainer/role-advancement/mount.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/mount",
+      "originalName": "Mount Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Cavalry Charge (Encounter)**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** If this ability is used as part of the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action, the mount's rider can use a free triggered action to make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the same target.\n\n> **Level 7 Role Advancement Ability**\n\n> 👤 **Giddyup! (Encounter)**\n>\n> | **-**          | **[Move action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------:|\n> | **📏 Range 5** |     **🎯 Self** |\n>\n> **Effect:** The mount [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) twice their speed. They can jump as part of this movement.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Rearing Trample (Encounter)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 10 damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 15 damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 21 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way or who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 5 damage.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/mount.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

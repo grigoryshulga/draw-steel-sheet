@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.undead.2nd-echelon.statblock.giant-zombie",
+  "title": "Гигантский зомби",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/2nd-echelon/statblock/giant-zombie.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/giant-zombie",
+  "originalName": "Giant Zombie",
+  "originalDescription": "|            Undead, Soulless            |         -         |      Level 4       |      Elite Brute      |        EV 24         |\n|:--------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|             **3**<br>Size              |  **6**<br>Speed   | **140**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Corruption 4, poison 4**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+3**<br>Might             | **-1**<br>Agility |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Rotten Smash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 17 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ❗️ **Knocking Heads (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       |   **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|-----------------------:|\n> | **📏 Self** | **🎯 Self; see below** |\n>\n> **Trigger:** The giant zombie [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) two creatures or objects, or starts their turn with two creatures or objects [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **Effect:** The creatures or objects are smashed together using Rotten Smash, which has a double edge.\n\n> ⭐️ **Endless Knight**\n>\n> The first time the giant zombie is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 50 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Negative Nerves**\n>\n> When the giant zombie is targeted by an ability that deals rolled damage, they halve the damage from a tier 1 outcome.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/2nd-echelon/statblock/giant-zombie.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "24",
+    "size": "3",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.2nd-echelon.statblock.giant-zombie"
+    }
+  ]
+}

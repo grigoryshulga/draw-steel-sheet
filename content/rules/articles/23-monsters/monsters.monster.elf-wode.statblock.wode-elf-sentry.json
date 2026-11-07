@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-wode.statblock.wode-elf-sentry",
+  "title": "Лесной эльф-страж",
+  "chapter": "23. Бестиарий",
+  "group": "Лесные эльфы",
+  "path": "Monsters/monster/elf-wode/statblock/wode-elf-sentry.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-sentry",
+  "originalName": "Wode Elf Sentry",
+  "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Tracer Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; the target is marked (save ends)\n>\n> **Effect:** Allies gain an edge on abilities against a target marked by any wode elf.\n>\n> **3 Malice:** The sentry targets two additional creatures or objects.\n\n> ❇️ **Death Blossom (2 Malice)**\n>\n> | **Area, Weapon** |             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-------------------------:|\n> | **📏 5 burst**   | **🎯 Each marked enemy** |\n>\n> **Effect:** Each target takes 3 damage.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the sentry that would take a bane from cover or concealment have a double bane instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-wode/statblock/wode-elf-sentry.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-wode",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Лесной эльф"
+    ],
+    "role": "Поддержка",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-wode.statblock.wode-elf-sentry"
+    }
+  ]
+}

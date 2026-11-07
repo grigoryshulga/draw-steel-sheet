@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.orc.statblock.orc-eye-of-grole",
+      "title": "Око Грола",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-eye-of-grole.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-eye-of-grole",
+      "originalName": "Orc Eye of Grole",
+      "originalDescription": "|               Humanoid, Orc               |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **1M**<br>Size               |  **6**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Cold, fire, or lightning**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|              **+1**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⭐️ **Elemental Affinity**\n>\n> The eye has an affinity for one of the following damage types cold, fire, or lightning. The chosen type determines the eye's [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) and the damage dealt by their abilities.\n\n> 🏹 **Elemental Discharge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **12-16:** 9 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n> - **17+:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares away from the target\n>\n> **Effect:** This ability deals cold, fire, or lightning damage.\n\n> 🔳 **Power Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** This ability deals cold, fire, or lightning damage, and any enemy targeted by the ability has [damage weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3 to the same damage type (save ends).\n\n> ⭐️ **Relentless**\n>\n> If the eye is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the eye is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-eye-of-grole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-eye-of-grole"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.orc.statblock.orc-eye-of-grole",
+      "kind": "monster",
+      "name": "Око Грола",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |   Взвод-Артиллерист   |     Боевая ценность 6     |\n|:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------:|:----------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **20**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Холод, огонь или молния**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+1**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⭐️ **Стихийное сродство**\n>\n> Око обладает сродством к одному из следующих типов урона: холод, огонь или молния. Выбранный тип определяет [иммунитет к урону](#/catalog/glossary#term-glossary.damage-immunity) ока и урон, который наносят его способности.\n\n> 🏹 **Стихийный разряд ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 2 клеток\n> - **12-16:** 9 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 4 клеток\n> - **17+:** 12 урона; [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 6 клеток или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 6 клеток\n>\n> **Эффект:** Эта способность наносит урон холодом, огнём или молнией.\n\n> 🔳 **Выброс силы (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------------------------:|\n> | **📏 Линия 5 x 2 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки\n> - **12-16:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки\n> - **17+:** 8 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Эта способность наносит урон холодом, огнём или молнией, а каждый враг, выбранный её целью, получает [уязвимость к урону](#/catalog/glossary#term-glossary.damage-weakness) того же типа 3 (до прох.).\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) ока снижается до 0, перед смертью оно может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) ока снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-eye-of-grole",
+        "path": "Monsters/monster/orc/statblock/orc-eye-of-grole.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-eye-of-grole",
+      "originalName": "Orc Eye of Grole",
+      "originalDescription": "|               Humanoid, Orc               |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **1M**<br>Size               |  **6**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Cold, fire, or lightning**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|              **+1**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⭐️ **Elemental Affinity**\n>\n> The eye has an affinity for one of the following damage types cold, fire, or lightning. The chosen type determines the eye's [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) and the damage dealt by their abilities.\n\n> 🏹 **Elemental Discharge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **12-16:** 9 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n> - **17+:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares away from the target\n>\n> **Effect:** This ability deals cold, fire, or lightning damage.\n\n> 🔳 **Power Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** This ability deals cold, fire, or lightning damage, and any enemy targeted by the ability has [damage weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3 to the same damage type (save ends).\n\n> ⭐️ **Relentless**\n>\n> If the eye is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the eye is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-eye-of-grole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

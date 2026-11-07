@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.dwarf.statblock.servitor-war-walker",
+      "title": "Боевой шагоход-сервитор",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/servitor-war-walker.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/servitor-war-walker",
+      "originalName": "Servitor War Walker",
+      "originalDescription": "|  Dwarf, Humanoid  |           -           |      Level 1      |      Elite Mount      |        EV 12         | \n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **3**<br>Size   |    **8**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  |   **+0**<br>Agility   | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Grasping Claws (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target already [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ❇️ **Stunning Blast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 lightning damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 lightning damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 lightning damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Cupola**\n>\n> While riding the war walker, three size 1 allies can occupy the same space. Creatures riding the war walker have cover.\n\n> ⭐️ **Mobile Prison Harness**\n>\n> Any [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war walker is automatically [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and takes a bane on power rolls. A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the war walker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/servitor-war-walker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.servitor-war-walker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.dwarf.statblock.servitor-war-walker",
+      "kind": "monster",
+      "name": "Боевой шагоход-сервитор",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Элита, Скакун | Боевая ценность 12 |\n|:----------------:|:-:|:---------:|:-------------:|:------------------:|\n| **3**<br>Размер | **8**<br>Скорость | **60**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **-2**<br>Разум | **+0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Хватающие клешни (Знаковая способность)**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|------------------------------------:|\n> | **📏 Ближний 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; при М < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Цель, уже [опутанная](#/catalog/glossary#term-glossary.restrained) или ставшая [опутанной](#/catalog/glossary#term-glossary.restrained) этой способностью, [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 3 клеток. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> ❇️ **Ошеломляющий взрыв (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона молнией; при Л < 0 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона молнией; при Л < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 7 урона молнией; при Л < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ⭐️ **Купол**\n>\n> Пока существа едут верхом на боевом шагоходе, три союзника размера 1 могут занимать одно и то же пространство. Всадники на боевом шагоходе получают укрытие.\n\n> ⭐️ **Тюремная подвесная упряжь**\n>\n> Любое [Опутанное](#/catalog/glossary#term-glossary.restrained) или [Замедленное](#/catalog/glossary#term-glossary.slowed) существо, оказавшееся [смежно](#/catalog/glossary#term-glossary.adjacent) с боевым шагоходом, автоматически становится [Опутанным](#/catalog/glossary#term-glossary.restrained) (до прох.) и получает помеху к броскам силы. Существо, ставшее [Опутанным](#/catalog/glossary#term-glossary.restrained) таким образом, перемещается вместе с боевым шагоходом.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.servitor-war-walker",
+        "path": "Monsters/monster/dwarf/statblock/servitor-war-walker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/servitor-war-walker",
+      "originalName": "Servitor War Walker",
+      "originalDescription": "|  Dwarf, Humanoid  |           -           |      Level 1      |      Elite Mount      |        EV 12         | \n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **3**<br>Size   |    **8**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  |   **+0**<br>Agility   | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Grasping Claws (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target already [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ❇️ **Stunning Blast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 lightning damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 lightning damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 lightning damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Cupola**\n>\n> While riding the war walker, three size 1 allies can occupy the same space. Creatures riding the war walker have cover.\n\n> ⭐️ **Mobile Prison Harness**\n>\n> Any [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war walker is automatically [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and takes a bane on power rolls. A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the war walker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/servitor-war-walker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { lazy, Suspense, useMemo, useState } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
 import { AbilityFacts } from "../../components/rules/AbilitySheet";
+import { AbilityGroup } from '../../components/rules/AbilityGroup';
 import { abilityCardView } from "../../components/rules/abilityCardView";
 import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
@@ -352,39 +353,13 @@ export function SheetAbilitiesPanel() {
                 </div>
               </section>
             )}
-            {groups.map((group) => {
-              const isCollapsed = collapsed.has(group.key);
-              return (
-                <section
-                  className={`sheet-ability-section${isCollapsed ? " is-collapsed" : ""}${compactSections.has(group.key) ? " is-compact" : ""}`}
-                  key={group.key}
-                  data-action={group.key}
-                >
-                  <header className="sheet-ability-section-head">
-                    <button
-                      type="button"
-                      className="sheet-ability-section-toggle"
-                      aria-expanded={!isCollapsed}
-                      onClick={() => toggleGroup(group.key)}
-                    >
-                      <Icon name="chevron-down" size={14} />
-                      <h3>{group.label}</h3>
-                      <span className="sheet-ability-count mono">
-                        {group.items.length}
-                      </span>
-                    </button>
-                    <span className="sheet-ability-rule" />
-                    <CardSummaryToggle label={group.label} compact={compactSections.has(group.key)} onToggle={() => toggleCardSummary(group.key)} />
-                  </header>
-
-                  {!isCollapsed && (
-                    <div className="sheet-ability-grid">
-                      {group.items.map(renderAbilityCard)}
-                    </div>
-                  )}
-                </section>
-              );
-            })}
+            {groups.map(group => <AbilityGroup key={group.key}
+              action={group.key} label={group.label} count={group.items.length}
+              collapsed={collapsed.has(group.key)} onToggle={() => toggleGroup(group.key)}
+              compact={compactSections.has(group.key)}
+              headerActions={<CardSummaryToggle label={group.label} compact={compactSections.has(group.key)} onToggle={() => toggleCardSummary(group.key)} />}>
+              {group.items.map(renderAbilityCard)}
+            </AbilityGroup>)}
           </div>
         )}
       </Panel>

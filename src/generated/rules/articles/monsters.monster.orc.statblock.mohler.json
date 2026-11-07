@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.orc.statblock.mohler",
+      "title": "Мохлер",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/mohler.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/mohler",
+      "originalName": "Mohler",
+      "originalDescription": "|    Animal, Orc    |           -            |     Level 1      |            Minion Ambusher            | EV 3 for four minions |\n|:-----------------:|:----------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |     **7**<br>Speed     | **4**<br>Stamina |          **1**<br>Stability           | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Burrow**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+0**<br>Might  |   **+2**<br>Agility    | **-4**<br>Reason |          **+1**<br>Intuition          |  **-3**<br>Presence   |\n\n> 🗡 **Earth Bump ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The distance increases to melee 2. If the mohler is 1 or more squares beneath the target before they use this ability, a target who has M < 1 is also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Seismic Sense**\n>\n> The mohler doesn't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures or objects touching the ground.\n\n> ⭐️ **Ground Grinder**\n>\n> The mohler can use the Dig maneuver at the start of the encounter. Additionally, while the mohler [burrows](scc.v1:mcdm.heroes.v1/movement/burrow) within 1 square below the ground, the ground above where they burrow is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/mohler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.mohler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.orc.statblock.mohler",
+      "kind": "monster",
+      "name": "Мохлер",
+      "markdown": "| Животное, Орк |           -            |       Уровень 1       |             Миньон-Засадник             | Боевая ценность 3 за четырёх миньонов |\n|:------------------:|:----------------------:|:---------------------:|:----------------------------------------:|:----------------------------------------:|\n|  **1S**<br>Размер  | **7**<br>Скорость     | **4**<br>Выносливость | **1**<br>Устойчивость                    | **2**<br>Свободный удар                  |\n| **-**<br>Иммунитет | **Закапывание**<br>Движение | - | **+2 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **-4**<br>Разум | **+1**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Земляной толчок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Дистанция увеличивается до ближнего 2. Если перед применением этой способности мохлер находился как минимум на 1 клетку ниже цели, цель с М < 1 также сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Сейсмическое чутьё**\n>\n> Мохлеру не требуется [линия воздействия](#/catalog/glossary#term-glossary.line-of-effect), чтобы применять способности против существ и объектов, касающихся земли.\n\n> ⭐️ **Перемалывание земли**\n>\n> В начале столкновения мохлер может совершить манёвр копания. Кроме того, пока мохлер [зарывается](#/catalog/glossary#term-glossary.burrow) под землю на глубине не более 1 клетки, земля над ним становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.mohler",
+        "path": "Monsters/monster/orc/statblock/mohler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/mohler",
+      "originalName": "Mohler",
+      "originalDescription": "|    Animal, Orc    |           -            |     Level 1      |            Minion Ambusher            | EV 3 for four minions |\n|:-----------------:|:----------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |     **7**<br>Speed     | **4**<br>Stamina |          **1**<br>Stability           | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Burrow**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+0**<br>Might  |   **+2**<br>Agility    | **-4**<br>Reason |          **+1**<br>Intuition          |  **-3**<br>Presence   |\n\n> 🗡 **Earth Bump ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The distance increases to melee 2. If the mohler is 1 or more squares beneath the target before they use this ability, a target who has M < 1 is also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Seismic Sense**\n>\n> The mohler doesn't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures or objects touching the ground.\n\n> ⭐️ **Ground Grinder**\n>\n> The mohler can use the Dig maneuver at the start of the encounter. Additionally, while the mohler [burrows](scc.v1:mcdm.heroes.v1/movement/burrow) within 1 square below the ground, the ground above where they burrow is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/mohler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

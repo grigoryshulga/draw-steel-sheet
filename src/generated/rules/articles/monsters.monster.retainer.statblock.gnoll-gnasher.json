@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.gnoll-gnasher",
+      "title": "Гнолл-скрежетун",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/gnoll-gnasher.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/gnoll-gnasher",
+      "originalName": "Gnoll Gnasher",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Gnash  (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 10 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the gnasher is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the gnasher moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/gnoll-gnasher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.gnoll-gnasher"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.gnoll-gnasher"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.harrier"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.gnoll-gnasher",
+          "title": "Гнолл-грызун: особенности развития"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.harrier",
+          "title": "Способности развития роли Налётчика"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.gnoll-gnasher",
+      "kind": "retainer",
+      "name": "Гнолл-скрежетун",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Помощник-налётчик | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **7**<br>Скорость | **30**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Скрежет зубов (Знаковая способность)**\n>\n> | **Ближний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона\n> - **17+:** 10 урона; М < СИЛЬНАЯ [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n\n> ⭐️ **Предсмертная ярость**\n>\n> Всякий раз, когда [Выносливость](#/catalog/glossary#term-glossary.stamina) союзника, не являющегося [миньоном](#/codex/monsters.rule.organization.minion), в пределах 7 клеток от скрежетуна снижается до 0, скрежетун перемещается на расстояние до своей скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) ближнего боя.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.gnoll-gnasher",
+        "path": "Monsters/monster/retainer/statblock/gnoll-gnasher.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/gnoll-gnasher",
+      "originalName": "Gnoll Gnasher",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Gnash  (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 10 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the gnasher is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the gnasher moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/gnoll-gnasher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.gnoll-gnasher",
+      "kind": "monster-feature",
+      "name": "Гнолл-грызун: особенности развития",
+      "markdown": "> **Способность развития помощника 4-го уровня**\n\n> ❗️ **Неистовый укус (Столкновение)**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Показатель [Выносливости](#/catalog/glossary#term-glossary.stamina) врага в пределах 5 клеток снижается до 0.\n>\n> **Эффект:** Грызун перемещается на расстояние до своей Скорости и может использовать свою [знаковую способность](#/catalog/glossary#term-glossary.signature-ability).\n\n> **Способность развития помощника 7-го уровня**\n\n> 🗡 **Град клыков (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** |                   **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Три существа или объекта** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 16 урона\n\n> **Способность развития помощника 10-го уровня**\n\n> 👤 **Ужасающая трапеза (Столкновение)**\n>\n> | **-**       | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Грызун снижает [Выносливость](#/catalog/glossary#term-glossary.stamina) существа до 0.\n>\n> **Эффект:** Грызун съедает часть тела цели. Грызун может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery), а каждый враг в пределах 5 клеток от грызуна, у которого И < СРЕДНИЙ, получает [испуг](#/catalog/glossary#term-glossary.frightened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw); до прох.).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.gnoll-gnasher",
+        "path": "Monsters/monster/retainer/advancement-features/gnoll-gnasher.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/gnoll-gnasher",
+      "originalName": "Gnoll Gnasher Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> ❗️ **Frenzied Bite (Encounter)**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** An enemy within 5 squares is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The gnasher moves up to their speed and can use their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability).\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🗡 **Flurry of Fangs (Encounter)**\n>\n> | **Melee, Strike, Weapon** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Melee 1**            | **🎯 Three creatures or objects** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 16 damage\n\n> **Level 10 Retainer Advancement Ability**\n\n> 👤 **Horrific Feast (Encounter)**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Trigger:** The gnasher reduces a creature to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The gnasher consumes part of the target's body. The gnasher can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and each enemy within 5 squares of the gnasher who has I < AVERAGE is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/gnoll-gnasher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.harrier",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Налётчика",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 🗡 **Таран (Столкновение)**\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|----------------------:|\n> | **📏 Ближний 1**                | **🎯 Один враг** |\n>\n> - **≤11:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 9 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 12 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Встречаемся там (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 15 урона\n>\n> **Эффект:** До или после удара Налётчик и его Наставник могут каждый [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> **Способность развития роли 10-го уровня**\n\n> ❇️ **Схватить и заколоть (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 урона; одна цель с М < СЛАБЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 16 урона; одна цель с М < СРЕДНИЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 21 урон; одна цель с М < СИЛЬНЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Налётчик [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток и может переместить с собой существо, которое [схватил](#/catalog/glossary#term-glossary.grabbed) этой способностью.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.harrier",
+        "path": "Monsters/monster/retainer/role-advancement/harrier.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/harrier",
+      "originalName": "Harrier Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Tackle (Encounter)**\n>\n> **Power Roll + highest characteristic:**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Meet You There (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 15 damage\n>\n> **Effect:** Before or after the strike, the retainer and their mentor can each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Nab and Stab (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; one target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; one target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; one target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares, and can move a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) using this ability with them.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/harrier.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.troll.statblock.troll-crack-trooper",
+  "title": "Тролль-проломщик",
+  "chapter": "23. Бестиарий",
+  "group": "Тролли",
+  "path": "Monsters/monster/troll/statblock/troll-crack-trooper.md",
+  "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-crack-trooper",
+  "originalName": "Troll Crack Trooper",
+  "originalDescription": "|   Giant, Troll    |         -         |      Level 9      |              Minion Brute               |     EV 11 for four minions      |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------------------------:|:-------------------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **15**<br>Stamina |           **4**<br>Stability            |      **5**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+3 bonus to Stamina**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+4**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |           **0**<br>Intuition            |       **+2**<br>Presence        |\n\n> 🗡 **Charging Chomp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 3 3 damage\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 5 damage\n>\n> **Effect:** The crack trooper's [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ⭐️ **Group Appetite**\n>\n> The crack trooper dies only if their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by acid or fire damage, if they end their turn with 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) in their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool, or if they take acid or fire damage while their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool is at 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/troll/statblock/troll-crack-trooper.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "troll",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "11 for four minions",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Тролль"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.troll.statblock.troll-crack-trooper"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.kobold.statblock.shieldscale-drangolin",
+      "title": "Щиточешуйчатый дранголин",
+      "chapter": "23. Бестиарий",
+      "group": "Кобольды",
+      "path": "Monsters/monster/kobold/statblock/shieldscale-drangolin.md",
+      "originalId": "mcdm.monsters.v1/monster.kobold.statblock/shieldscale-drangolin",
+      "originalName": "Shieldscale Drangolin",
+      "originalDescription": "|   Kobold, Beast    |           -            |      Level 1      |      Elite Brute      |        EV 12         |\n|:------------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2 or 3**<br>Size |     **7**<br>Speed     | **80**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might   |   **+1**<br>Agility    | **-3**<br>Reason  |  **0**<br>Intuition   |  **-2**<br>Presence  |\n\n> 🗡 **Fiery Claws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 10 fire damage\n> - **17+:** 13 fire damage\n>\n> **Special:** If the drangolin is size 3, the distance becomes Melee 2.\n\n> 👤 **Drangolin Plume (5 Malice)**\n>\n> | **-**                  | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** |     **🎯 Self** |\n>\n> **Effect:** The drangolin [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Fiery Claws against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The drangolin makes one power roll against all targets.\n\n> ❇️ **Erupt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 2 burst**   | **🎯 Each creature in the area** |\n>\n> **Effect:** The drangolin uses the Dig maneuver to breach the surface before using this ability. Each target in the area where the drangolin breaches takes an extra 2 fire damage.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Ashen Cloud**\n>\n> Any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the drangolin has concealment.\n\n> ⭐️ **Burrow Bond**\n>\n> When the drangolin burrows, each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) size 1S or smaller ally can move with them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/kobold/statblock/shieldscale-drangolin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "kobold",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2 или 3",
+        "keywords": [
+          "Кобольд",
+          "Зверь"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.kobold.statblock.shieldscale-drangolin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.kobold",
+          "title": "Кобольды"
+        },
+        {
+          "id": "monsters.monster.kobold.kobold-malice",
+          "title": "Раздор кобольдов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.kobold.statblock.shieldscale-drangolin",
+      "kind": "monster",
+      "name": "Щиточешуйчатый дранголин",
+      "markdown": "| Кобольд, Зверь | - | Уровень 1 | Громила элиты | Боевая ценность 12 |\n|:------------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2 или 3**<br>Размер | **7**<br>Скорость | **80**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Закапывание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-3**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Огненные когти (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|---------------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона огнём\n> - **12-16:** 10 урона огнём\n> - **17+:** 13 урона огнём\n>\n> **Особое:** Если размер дранголина равен 3, дистанция становится «Ближний бой 2».\n\n> 👤 **Вихрь дранголина (5 Раздора)**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------|---------------------------------------------:|\n> | **📏 На себя; см. ниже** | **🎯 На себя** |\n>\n> **Эффект:** Дранголин [смещается](#/catalog/glossary#term-glossary.shift) не более чем на свою Скорость и использует «Огненные когти» против каждого существа, которое оказывается [рядом](#/catalog/glossary#term-glossary.adjacent) с ним во время этого смещения. Дранголин совершает один бросок силы против всех целей.\n\n> ❇️ **Извержение (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|---------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Перед применением этой способности дранголин совершает манёвр копания, чтобы прорваться на поверхность. Каждая цель в области, где дранголин прорывается наружу, получает ещё 2 урона огнём.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1; при Л < 0 цель [сбита](#/catalog/glossary#term-glossary.prone) с ног\n> - **12-16:** 8 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; при Л < 0 цель [сбита](#/catalog/glossary#term-glossary.prone) с ног\n> - **17+:** 11 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 5; при Л < 0 цель [сбита](#/catalog/glossary#term-glossary.prone) с ног\n\n> ⭐️ **Пепельное облако**\n>\n> Любой союзник, находящийся [рядом](#/catalog/glossary#term-glossary.adjacent) с дранголином, получает покров.\n\n> ⭐️ **Связь под землёй**\n>\n> Когда дранголин закапывается, каждый находящийся [рядом](#/catalog/glossary#term-glossary.adjacent) союзник размером 1S или меньше может двигаться вместе с ним.\n",
+      "source": {
+        "articleId": "monsters.monster.kobold.statblock.shieldscale-drangolin",
+        "path": "Monsters/monster/kobold/statblock/shieldscale-drangolin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.kobold.statblock/shieldscale-drangolin",
+      "originalName": "Shieldscale Drangolin",
+      "originalDescription": "|   Kobold, Beast    |           -            |      Level 1      |      Elite Brute      |        EV 12         |\n|:------------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2 or 3**<br>Size |     **7**<br>Speed     | **80**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might   |   **+1**<br>Agility    | **-3**<br>Reason  |  **0**<br>Intuition   |  **-2**<br>Presence  |\n\n> 🗡 **Fiery Claws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 10 fire damage\n> - **17+:** 13 fire damage\n>\n> **Special:** If the drangolin is size 3, the distance becomes Melee 2.\n\n> 👤 **Drangolin Plume (5 Malice)**\n>\n> | **-**                  | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** |     **🎯 Self** |\n>\n> **Effect:** The drangolin [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Fiery Claws against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The drangolin makes one power roll against all targets.\n\n> ❇️ **Erupt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 2 burst**   | **🎯 Each creature in the area** |\n>\n> **Effect:** The drangolin uses the Dig maneuver to breach the surface before using this ability. Each target in the area where the drangolin breaches takes an extra 2 fire damage.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Ashen Cloud**\n>\n> Any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the drangolin has concealment.\n\n> ⭐️ **Burrow Bond**\n>\n> When the drangolin burrows, each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) size 1S or smaller ally can move with them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/kobold/statblock/shieldscale-drangolin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "kobold",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2 или 3",
+        "keywords": [
+          "Кобольд",
+          "Зверь"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

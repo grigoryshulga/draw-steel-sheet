@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elemental.elemental-malice",
+      "title": "Раздор элементалей",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/elemental-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental/elemental-malice",
+      "originalName": "Elemental Malice",
+      "originalDescription": "At the start of any elemental's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Elemental Swap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two elementals on the encounter map [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places, and each has damage immunity 2 until the end of the round.\n\n> 👤 **Split (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An elemental acting this turn cleaves themself into two separate elementals. Each elemental has the same statistics as the original, except that each has half the original's current Stamina and is one size smaller. Both elementals can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> 🏹 **Convocation of Chaos (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 8**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the end of the encounter, the target has a +5 bonus to speed and a +5 damage bonus to strikes. Additionally, whenever an elemental within the target's line of effect uses an ability with \"Convocation\" in the name, the target also gains the effects of that ability.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/elemental-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.elemental-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elemental.statblock.crux-of-fire",
+      "title": "Сердцевина огня",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/crux-of-fire.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/crux-of-fire",
+      "originalName": "Crux of Fire",
+      "originalDescription": "|       Elemental        |         -         |      Level 3      |    Elite Artillery    |        EV 20         |\n|:----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1T**<br>Size     |  **6**<br>Speed   | **80**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **-1**<br>Might     | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Spitfire (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 12**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 fire damage\n> - **12-16:** 12 fire damage; A < 1 the target is burning (save ends)\n> - **17+:** 15 fire damage; A < 2 the target is burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🏹 **Convocation of Flames**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the crux's next turn, the target has fire immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 3 squares of the target is wreathed in fire. Any enemy who enters that area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> ❗️ **Flame Jet (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The crux takes damage.\n>\n> **Effect:** The crux ignores any effects associated with the damage and can [fly](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If the crux doesn't end this movement on solid ground, they fall.\n\n> ⭐️ **Fickle and Free**\n>\n> The crux can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/crux-of-fire.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1T",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.crux-of-fire"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elemental.statblock.essence-of-storms",
+      "title": "Эссенция бурь",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/essence-of-storms.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-storms",
+      "originalName": "Essence of Storms",
+      "originalDescription": "|          Elemental          |          -          |      Level 3       |     Elite Harrier     |        EV 20         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1S**<br>Size        |   **8**<br>Speed    | **100**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Lightning 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ❇️ **Bluster (Signature Ability)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 1 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 5 damage, 4 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 5 damage, 7 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The essence [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares before or after using this ability.\n\n> 🏹 **Convocation of Squalls**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has lightning immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, a vortex surrounds the target in a 3 aura. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Additionally, at the end of each of the target's turns, they can [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) one creature in the area up to 5 squares.\n\n> ❗️ **Thunderclap (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the essence.\n>\n> **Effect:** The target takes 5 lightning damage.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-storms.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1S",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.essence-of-storms"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elemental.statblock.essence-of-tides",
+      "title": "Эссенция приливов",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/essence-of-tides.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-tides",
+      "originalName": "Essence of Tides",
+      "originalDescription": "|       Elemental        |          -           |      Level 3      |   Elite Controller    |        EV 20         |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |    **7**<br>Speed    | **80**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **Cold 5**<br>Immunity | **Swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+0**<br>Agility   | **+1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Water Wing (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 1**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** If a target has P < 2, their stability is reduced to 0 and they move 2 additional squares whenever they are force moved (save ends).\n\n> 🏹 **Convocation of Waves**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has cold immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is a pool of water that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). This water extends out behind the target as they move, creating a stream that lasts until the end of the encounter. Any enemy who ends their turn in the stream and has M < 2 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ❗️ **Sea-Salted Wounds (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally deals rolled damage to the target.\n>\n> **Effect:** The essence makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Water Glide**\n>\n> Whenever the essence starts their turn in a space containing water, they can [fly](scc.v1:mcdm.heroes.v1/movement/fly) until the end of their turn. While flying, the essence doesn't provoke opportunity attacks.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-tides.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.essence-of-tides"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elemental.statblock.field-of-growth",
+      "title": "Поле роста",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/field-of-growth.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/field-of-growth",
+      "originalName": "Field of Growth",
+      "originalDescription": "|        Elemental         |           -           |      Level 3       |   Elite Controller    |        EV 28         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **3**<br>Size       |    **8**<br>Speed     | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Poison 5**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      |   **+0**<br>Agility   |  **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Hampering Roots (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; R < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 16 damage; R < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If a target made [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way is already [prone](scc.v1:mcdm.heroes.v1/condition/prone), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). If the target was also unable to stand, that effect ends when they are no longer [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way.\n\n> 🏹 **Convocation of Verdure**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** The target gains 15 temporary Stamina that lasts until the start of the field's next turn.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is overgrown with underbrush and vines. Whenever any enemy makes a strike against the target while within line of effect of that area, the enemy is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the area after the strike is resolved. Any enemy who enters the area for the first time in a round or starts their turn there is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Rose Thorn Lash (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Melee** |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 3**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance deals damage to the field.\n>\n> **Effect:** The target takes 6 damage, and if they have A < 2, they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Fickle and Free**\n>\n> The field can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Roots Run Deep**\n>\n> The field can target any creature touching the ground with their abilities, even if they don't have line of effect to that creature.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/field-of-growth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "28",
+        "size": "3",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.field-of-growth"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elemental.statblock.force-of-earth",
+      "title": "Сила земли",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/force-of-earth.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/force-of-earth",
+      "originalName": "Force of Earth",
+      "originalDescription": "|     Elemental     |           -            |      Level 3       |      Elite Brute      |        EV 20         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **132**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **-1**<br>Agility    |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Slam Into Dirt (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The target's space is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> 🏹 **Convocation of Quartz**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the force's next turn, any melee strike made against the target takes a bane if it doesn't already have a bane or double bane.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the target grows a carapace of stone. They have a +3 bonus to stability and gain 15 temporary Stamina.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The force takes damage.\n>\n> **Effect:** The force halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. This damage weakness increases by 3 each time the force uses this ability in the same encounter.\n\n> ⭐️ **Fickle and Free**\n>\n> The force can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Primordial Strength**\n>\n> The force's strikes gain a +6 damage bonus against objects.\n\n> ⭐️ **Stone Swim**\n>\n> The force can burrow through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/force-of-earth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.force-of-earth"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.elemental",
+      "title": "Элементали",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/group/elemental.md",
+      "originalId": "mcdm.monsters.v1/monster.group/elemental",
+      "originalName": "Elementals",
+      "originalDescription": "When the gods formed the mundane world, they took sparks of creation from the roiling plane of Quintessence and gave sentience to some of the multiverse's most basic elements—air, earth, fire, and water. Many [elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) contain just one of these components, but can come to embody multiple reagents as they age.\n\n#### Duality of Form\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) are mercurial creatures of creation, destruction, and transformation. Though the deities first created the mundane world, elementals cultivated and shaped it. When a tree, stone, or other aspect of the world doesn't suit an elemental, they break it down with elemental fury then build it anew.\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) change like the winds and the tides, and from age to age, they remake themselves to reflect what the world has become. They are protectors armored by stone, lizards ablaze with fire, and sometimes [dragons](scc.v1:mcdm.monsters.v1/monster.group/dragon) clad in steel.\n\n#### Rebirth and Reformation\n\nWhen an elemental dies in the mundane world, their spirit returns to Quintessence, where they must rest for decades to regain their strength. Should the spirit return to the mundane world, they take on a form that reflects a creature or other aspect of that plane.\n\n#### Crux of Fire\n\nCruxes of fire, often called blazecasters, take the form of fiery lizards. They commonly live in hot zones of planar convergence or areas of volcanic activity. These territorial elementals usually question interlopers from afar—and if they don't like the answers, they rain down fire before their foes can draw near.\n\nThough many elementals weave their innate gifts into oral storytelling, cruxes of fire are particularly adroit at animating their stories in silhouettes of flame.\n\n#### Essence of Storms\n\nAt a distance, most would mistake an essence of storms, sometimes known as a galeweaver, for a large bird of prey. This majestic creature is formed from streaks of colored cloud stuff woven into the silhouette of a large eagle or falcon.\n\nGaleweavers act as scouts for their handlers or for groups of elementals, and they're usually the first to spot trouble. Insatiably curious, an essence of storms often swoops down to talk when they observe travelers.\n\n#### Essence of Tides\n\nAn essence of tides looks like a shimmering blue manta ray that glides over land as easily as through water, earning them the common name of tidedrifter. Most common along coastlines, essences of tides enjoy harmless pranks, especially against folk who regularly sail or swim in their waters.\n\nTidedrifters have a healthy sense of humor that makes it easy to win their friendship—but their relaxed demeanor evaporates if friends or family face threats.\n\n#### Field of Growth\n\nThe field of growth takes the form of a massive centipede made of vegetation. Often called verdant primevals, these caretakers of the natural cycle of life (and death) fight those they see as upsetting that cycle. Fields of growth seek not only to destroy undead and those who create them, but to sabotage divine servitors who casually peddle resurrection magic.\n\n#### Force of Earth\n\nA protective earth elemental, a force of earth resembles a nine-foot-tall great ape formed of dirt and rough stone. They act as guardians and historians when among other elementals, working tirelessly to thwart ills from befalling the group. These elementals are sometimes called earthen bulwarks.\n\n#### Elemental Languages\n\nMost elementals speak Low Kuric. Some can use Caelian when they need to.\n\n> It is in changing that we find purpose.\n>\n> Atæshia, Queen of Ash",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elemental.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.elemental"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.crux-of-fire",
+          "title": "Сердцевина огня"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.essence-of-storms",
+          "title": "Эссенция бурь"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.essence-of-tides",
+          "title": "Эссенция приливов"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.field-of-growth",
+          "title": "Поле роста"
+        },
+        {
+          "id": "monsters.monster.elemental.statblock.force-of-earth",
+          "title": "Сила земли"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elemental.elemental-malice",
+      "kind": "monster-feature",
+      "name": "Раздор элементалей",
+      "markdown": "В начале хода любого элементаля вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Обмен элементалей (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Два элементаля на карте столкновения [телепортируются](#/catalog/glossary#term-glossary.teleport), меняясь местами, и каждый получает иммунитет к урону 2 до конца раунда.\n\n> 👤 **Расщепление (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Действующий в этот ход элементаль раскалывается надвое, превращаясь в двух отдельных элементалей. Их характеристики совпадают с характеристиками исходного элементаля, за исключением того, что у каждого вдвое меньше текущей Выносливости и размер на одну категорию меньше. Затем оба элементаля могут [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> 🏹 **Созыв хаоса (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Дальний 8** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До конца столкновения цель получает бонус +5 к Скорости и бонус +5 к урону от ударов. Кроме того, каждый раз, когда элементаль в пределах линии воздействия цели использует способность, в названии которой есть слово «Созыв», цель также получает эффекты этой способности.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.elemental-malice",
+        "path": "Monsters/monster/elemental/elemental-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental/elemental-malice",
+      "originalName": "Elemental Malice",
+      "originalDescription": "At the start of any elemental's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Elemental Swap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two elementals on the encounter map [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places, and each has damage immunity 2 until the end of the round.\n\n> 👤 **Split (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An elemental acting this turn cleaves themself into two separate elementals. Each elemental has the same statistics as the original, except that each has half the original's current Stamina and is one size smaller. Both elementals can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> 🏹 **Convocation of Chaos (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 8**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the end of the encounter, the target has a +5 bonus to speed and a +5 damage bonus to strikes. Additionally, whenever an elemental within the target's line of effect uses an ability with \"Convocation\" in the name, the target also gains the effects of that ability.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/elemental-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.elemental.statblock.crux-of-fire",
+      "kind": "monster",
+      "name": "Сердцевина огня",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Артиллерист | Боевая ценность 20 |\n|:----------:|:-:|:---------:|:------------------:|:------------------:|\n| **1T**<br>Размер | **6**<br>Скорость | **80**<br>Выносливость | **0**<br>Устойчивость | **6**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-1**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Огненный плевок (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------------:|\n> | **📏 Дальний 12** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона огнём\n> - **12-16:** 12 урона огнём; при Л < 1 цель горит (до прох.)\n> - **17+:** 15 урона огнём; при Л < 2 цель горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> 🏹 **Созыв пламени**\n>\n> | **Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Дальний 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода средоточия огня цель получает иммунитет к огню 5.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения земля в пределах 3 клеток от цели охвачена пламенем. Каждый враг, который впервые за раунд входит в эту область или начинает там свой ход, получает 3 урона огнём.\n\n> ❗️ **Огненная струя (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------|----------------------------------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Условие:** Сердцевина огня получает урон.\n>\n> **Эффект:** Сердцевина огня игнорирует все эффекты, связанные с полученным уроном, и может [пролететь](#/catalog/glossary#term-glossary.fly) расстояние до своей Скорости. Если после этого перемещения оно не окажется на твёрдой поверхности, то падает.\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Сердцевина огня не может быть [Опутано](#/catalog/glossary#term-glossary.restrained) или [Замедлено](#/catalog/glossary#term-glossary.slowed), его нельзя [сбить с ног](#/catalog/glossary#term-glossary.prone), и оно игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.crux-of-fire",
+        "path": "Monsters/monster/elemental/statblock/crux-of-fire.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/crux-of-fire",
+      "originalName": "Crux of Fire",
+      "originalDescription": "|       Elemental        |         -         |      Level 3      |    Elite Artillery    |        EV 20         |\n|:----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1T**<br>Size     |  **6**<br>Speed   | **80**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **-1**<br>Might     | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Spitfire (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 12**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 fire damage\n> - **12-16:** 12 fire damage; A < 1 the target is burning (save ends)\n> - **17+:** 15 fire damage; A < 2 the target is burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🏹 **Convocation of Flames**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the crux's next turn, the target has fire immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 3 squares of the target is wreathed in fire. Any enemy who enters that area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> ❗️ **Flame Jet (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The crux takes damage.\n>\n> **Effect:** The crux ignores any effects associated with the damage and can [fly](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If the crux doesn't end this movement on solid ground, they fall.\n\n> ⭐️ **Fickle and Free**\n>\n> The crux can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/crux-of-fire.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1T",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.elemental.statblock.essence-of-storms",
+      "kind": "monster",
+      "name": "Эссенция бурь",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Налётчик | Боевая ценность 20 |\n|:----------:|:-:|:---------:|:---------------:|:------------------:|\n| **1S**<br>Размер | **8**<br>Скорость | **100**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **Молния 5**<br>Иммунитет | **Полёт**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ❇️ **Порыв (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------------:|\n> | **📏 Взрыв 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 5 урона и 4 урона молнией; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 5 урона и 7 урона молнией; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **Эффект:** Эссенция может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток до или после использования этой способности.\n\n> 🏹 **Созыв шквалов**\n>\n> | **Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Дальний 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода эссенции цель получает иммунитет к молнии 5.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения вокруг цели возникает вихрь с аурой 3. Эта область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) для врагов. Кроме того, в конце каждого хода цели она может [толкнуть](#/catalog/glossary#term-glossary.forced-movement) одно существо в области на расстояние до 5 клеток.\n\n> ❗️ **Раскат грома (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |--------------------|----------------------------------------:|\n> | **📏 Дальний 5** | **🎯 Существо, вызвавшее действие** |\n>\n> **Условие:** Существо в пределах дистанции наносит эссенции урон.\n>\n> **Эффект:** Цель получает 5 урона молнией.\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Эссенцию нельзя [Опутать](#/catalog/glossary#term-glossary.restrained) или [Замедлить](#/catalog/glossary#term-glossary.slowed), её нельзя [сбить с ног](#/catalog/glossary#term-glossary.prone), и она игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.essence-of-storms",
+        "path": "Monsters/monster/elemental/statblock/essence-of-storms.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-storms",
+      "originalName": "Essence of Storms",
+      "originalDescription": "|          Elemental          |          -          |      Level 3       |     Elite Harrier     |        EV 20         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1S**<br>Size        |   **8**<br>Speed    | **100**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Lightning 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ❇️ **Bluster (Signature Ability)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 1 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 5 damage, 4 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 5 damage, 7 lightning damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The essence [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares before or after using this ability.\n\n> 🏹 **Convocation of Squalls**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has lightning immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, a vortex surrounds the target in a 3 aura. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Additionally, at the end of each of the target's turns, they can [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) one creature in the area up to 5 squares.\n\n> ❗️ **Thunderclap (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the essence.\n>\n> **Effect:** The target takes 5 lightning damage.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-storms.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1S",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.elemental.statblock.essence-of-tides",
+      "kind": "monster",
+      "name": "Эссенция приливов",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Контроллер | Боевая ценность 20 |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **5**<br>Свободный удар |\n| **Холод 5**<br>Иммунитет | **Плавание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+1**<br>Разум | **-1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Водяное крыло (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 11 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 14 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n>\n> **Эффект:** Если у цели П < 2, её Устойчивость снижается до 0, а при каждом принудительном перемещении её перемещают ещё на 2 клетки (до прох.).\n\n> 🏹 **Призыв волн**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода эссенции цель получает иммунитет к холоду 5.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения земля в пределах 1 клетки от цели превращается в водоём, который считается [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). При перемещении цели вода тянется за ней, образуя поток, который сохраняется до конца столкновения. Любой враг, который заканчивает свой ход в потоке и имеет М < 2, [замедлен](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> ❗️ **Просоленные морем раны (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Ближний бой 1** | **🎯 Один враг** |\n>\n> **Условие:** Союзник наносит цели урон по результату броска.\n>\n> **Эффект:** Эссенция совершает против цели [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Эссенцию нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и она игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Скольжение по воде**\n>\n> Если в начале своего хода эссенция находится в пространстве с водой, она может [лететь](#/catalog/glossary#term-glossary.fly) до конца хода. Пока она летит, её перемещение не провоцирует атаки по возможности.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.essence-of-tides",
+        "path": "Monsters/monster/elemental/statblock/essence-of-tides.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-tides",
+      "originalName": "Essence of Tides",
+      "originalDescription": "|       Elemental        |          -           |      Level 3      |   Elite Controller    |        EV 20         |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |    **7**<br>Speed    | **80**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **Cold 5**<br>Immunity | **Swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+0**<br>Agility   | **+1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Water Wing (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 1**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** If a target has P < 2, their stability is reduced to 0 and they move 2 additional squares whenever they are force moved (save ends).\n\n> 🏹 **Convocation of Waves**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has cold immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is a pool of water that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). This water extends out behind the target as they move, creating a stream that lasts until the end of the encounter. Any enemy who ends their turn in the stream and has M < 2 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ❗️ **Sea-Salted Wounds (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally deals rolled damage to the target.\n>\n> **Effect:** The essence makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Water Glide**\n>\n> Whenever the essence starts their turn in a space containing water, they can [fly](scc.v1:mcdm.heroes.v1/movement/fly) until the end of their turn. While flying, the essence doesn't provoke opportunity attacks.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-tides.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.elemental.statblock.field-of-growth",
+      "kind": "monster",
+      "name": "Поле роста",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Контроллер | Боевая ценность 28 |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n| **3**<br>Размер | **8**<br>Скорость | **120**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **Яд 5**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Опутывающие корни (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Дальний бой 8** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона; при Р < 1 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n> - **17+:** 16 урона; при Р < 2 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n>\n> **Эффект:** Если цель, которую [сбили с ног](#/catalog/glossary#term-glossary.prone) таким образом, уже [лежит](#/catalog/glossary#term-glossary.prone), вместо этого она [обездвижена](#/catalog/glossary#term-glossary.restrained) (до прох.). Если она также не могла встать, этот эффект заканчивается, когда таким образом наложенное [опутывание](#/catalog/glossary#term-glossary.restrained) прекращается.\n\n> 🏹 **Призыв зелени**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** Цель получает 15 временной Выносливости до начала следующего хода поля.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения земля в пределах 1 клетки от цели зарастает кустарником и вьющимися растениями. Когда любой враг совершает удар по цели, находясь в пределах линии эффекта этой области, после разрешения удара его [притягивают](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток к области. Любого врага, который впервые за раунд входит в область или начинает там свой ход, [сбивает с ног](#/catalog/glossary#term-glossary.prone).\n\n> ❗️ **Удар розовым шипом (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Ближний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо или объект, вызвавшее действие** |\n>\n> **Условие:** Существо или объект в пределах дистанции наносит полю урон.\n>\n> **Эффект:** Цель получает 6 урона; если у неё Л < 2, она [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Поле нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и оно игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Глубокие корни**\n>\n> Поле может своими способностями выбирать целью любое существо, касающееся земли, даже если у него нет линии эффекта до этого существа.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.field-of-growth",
+        "path": "Monsters/monster/elemental/statblock/field-of-growth.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/field-of-growth",
+      "originalName": "Field of Growth",
+      "originalDescription": "|        Elemental         |           -           |      Level 3       |   Elite Controller    |        EV 28         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **3**<br>Size       |    **8**<br>Speed     | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Poison 5**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      |   **+0**<br>Agility   |  **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Hampering Roots (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; R < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 16 damage; R < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If a target made [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way is already [prone](scc.v1:mcdm.heroes.v1/condition/prone), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). If the target was also unable to stand, that effect ends when they are no longer [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way.\n\n> 🏹 **Convocation of Verdure**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** The target gains 15 temporary Stamina that lasts until the start of the field's next turn.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is overgrown with underbrush and vines. Whenever any enemy makes a strike against the target while within line of effect of that area, the enemy is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the area after the strike is resolved. Any enemy who enters the area for the first time in a round or starts their turn there is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Rose Thorn Lash (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Melee** |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 3**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance deals damage to the field.\n>\n> **Effect:** The target takes 6 damage, and if they have A < 2, they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Fickle and Free**\n>\n> The field can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Roots Run Deep**\n>\n> The field can target any creature touching the ground with their abilities, even if they don't have line of effect to that creature.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/field-of-growth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "28",
+        "size": "3",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.elemental.statblock.force-of-earth",
+      "kind": "monster",
+      "name": "Сила земли",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Громила | Боевая ценность 20 |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **5**<br>Скорость | **132**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Подкоп**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **-1**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Вмять в землю (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 12 урона; при М < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 15 урона; при М < 2 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Пространство цели становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> 🏹 **Призыв кварца**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода силы земли любой удар ближнего боя по цели получает помеху, если у него ещё нет помехи или двойной помехи.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** На цели вырастает каменный панцирь до конца столкновения. Её Устойчивость увеличивается на +3, и она получает 15 временной Выносливости.\n\n> ❗️ **Сломать броню (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Условие:** Сила земли получает урон.\n>\n> **Эффект:** Сила земли получает половину урона, а до конца столкновения её уязвимость к урону равна 3, а Скорость увеличивается на +3. Эта уязвимость к урону увеличивается на 3 каждый раз, когда сила земли использует эту способность в том же столкновении.\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Силу земли нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и она игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Изначальная сила**\n>\n> Удары силы земли наносят объектам дополнительный урон +6.\n\n> ⭐️ **Плавание в камне**\n>\n> Сила земли может рыть проход сквозь камень, но при этом не может утаскивать других существ под землю.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.force-of-earth",
+        "path": "Monsters/monster/elemental/statblock/force-of-earth.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/force-of-earth",
+      "originalName": "Force of Earth",
+      "originalDescription": "|     Elemental     |           -            |      Level 3       |      Elite Brute      |        EV 20         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **132**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **-1**<br>Agility    |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Slam Into Dirt (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The target's space is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> 🏹 **Convocation of Quartz**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the force's next turn, any melee strike made against the target takes a bane if it doesn't already have a bane or double bane.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the target grows a carapace of stone. They have a +3 bonus to stability and gain 15 temporary Stamina.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The force takes damage.\n>\n> **Effect:** The force halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. This damage weakness increases by 3 each time the force uses this ability in the same encounter.\n\n> ⭐️ **Fickle and Free**\n>\n> The force can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Primordial Strength**\n>\n> The force's strikes gain a +6 damage bonus against objects.\n\n> ⭐️ **Stone Swim**\n>\n> The force can burrow through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/force-of-earth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.group.elemental",
+      "kind": "monster-lore",
+      "name": "Элементали",
+      "markdown": "Когда боги создавали обыденный мир, они взяли искры творения из бурлящего плана Квинтэссенции и даровали разум некоторым из самых простых элементов мультивселенной — воздуху, земле, огню и воде. Многие [элементали](#/codex/monsters.rule.keyword.elemental) состоят лишь из одного из этих компонентов, но с возрастом могут воплощать несколько стихий.\n\n#### Двойственная природа\n\n[Элементали](#/codex/monsters.rule.keyword.elemental) — изменчивые создания творения, разрушения и преображения. Хотя божества первыми сотворили обыденный мир, элементали возделывали и формировали его. Если дерево, камень или другая часть мира не устраивает элементаля, он с элементальной яростью разрушает её, а затем создаёт заново.\n\n[Элементали](#/codex/monsters.rule.keyword.elemental) меняются, как ветер и приливы, и с каждой эпохой преобразуют себя, отражая перемены мира. Это защитники в каменных доспехах, ящерицы, объятые пламенем, а иногда и [драконы](#/codex/monsters.monster.group.dragon) в стальной чешуе.\n\n#### Возрождение и перерождение\n\nКогда элементаль умирает в обыденном мире, его дух возвращается в Квинтэссенцию, где должен отдыхать десятилетиями, чтобы восстановить силы. Если дух снова приходит в обыденный мир, он принимает форму существа или другой части этого плана.\n\n#### Огненное ядро\n\nОгненные ядра, которых часто называют пламезовами, принимают облик огненных ящериц. Обычно они живут в жарких местах, где сходятся планы, или в районах вулканической активности. Эти территориальные элементали обычно издалека расспрашивают чужаков — а если ответы им не понравятся, обрушивают на врагов пламя, прежде чем те успеют приблизиться.\n\nХотя многие элементали вплетают врождённые дары в устные сказания, огненные ядра особенно искусны в том, чтобы разыгрывать свои истории тенями пламени.\n\n#### Эссенция бурь\n\nИздали большинство примет эссенцию бурь, которую иногда называют ветропрядом, за крупную хищную птицу. Это величественное существо состоит из разноцветных облачных лент, сплетённых в силуэт большого орла или сокола.\n\nВетропряды служат разведчиками своим хозяевам или группам элементалей и обычно первыми замечают опасность. Эссенция бурь ненасытно любопытна и часто спускается поговорить с путниками, которых заметит.\n\n#### Эссенция приливов\n\nЭссенция приливов похожа на мерцающего синего ската, который скользит над землёй так же легко, как в воде; за это её обычно называют приливоскатом. Чаще всего они встречаются у побережий и любят безобидные проделки, особенно с теми, кто часто плавает или ходит под парусом в их водах.\n\nУ приливоскатов здоровое чувство юмора, поэтому с ними легко подружиться. Однако их безмятежность мгновенно исчезает, если друзьям или родным угрожает опасность.\n\n#### Поле роста\n\nПоле роста принимает облик огромной многоножки, сложенной из растений. Эти хранители естественного цикла жизни (и смерти), которых часто называют зелёными первородными, сражаются с теми, кто, по их мнению, нарушает этот цикл. Поля роста стремятся не только уничтожать нежить и тех, кто её создаёт, но и саботировать божественных слуг, небрежно предлагающих магию воскрешения.\n\n#### Сила земли\n\nЗащитный элементаль земли похож на девятифутовую человекообразную обезьяну, сложенную из земли и грубого камня. Среди других элементалей он выступает хранителем и летописцем, неустанно отводя от группы беды. Иногда этих элементалей называют земными оплотами.\n\n#### Языки элементалей\n\nБольшинство элементалей говорит на низком курике. Некоторым при необходимости доступен кэлианский.\n\n> Меняясь, мы обретаем цель.\n>\n> Аташия, Королева Пепла\n",
+      "source": {
+        "articleId": "monsters.monster.group.elemental",
+        "path": "Monsters/monster/group/elemental.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/elemental",
+      "originalName": "Elementals",
+      "originalDescription": "When the gods formed the mundane world, they took sparks of creation from the roiling plane of Quintessence and gave sentience to some of the multiverse's most basic elements—air, earth, fire, and water. Many [elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) contain just one of these components, but can come to embody multiple reagents as they age.\n\n#### Duality of Form\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) are mercurial creatures of creation, destruction, and transformation. Though the deities first created the mundane world, elementals cultivated and shaped it. When a tree, stone, or other aspect of the world doesn't suit an elemental, they break it down with elemental fury then build it anew.\n\n[Elementals](scc.v1:mcdm.monsters.v1/rule.keyword/elemental) change like the winds and the tides, and from age to age, they remake themselves to reflect what the world has become. They are protectors armored by stone, lizards ablaze with fire, and sometimes [dragons](scc.v1:mcdm.monsters.v1/monster.group/dragon) clad in steel.\n\n#### Rebirth and Reformation\n\nWhen an elemental dies in the mundane world, their spirit returns to Quintessence, where they must rest for decades to regain their strength. Should the spirit return to the mundane world, they take on a form that reflects a creature or other aspect of that plane.\n\n#### Crux of Fire\n\nCruxes of fire, often called blazecasters, take the form of fiery lizards. They commonly live in hot zones of planar convergence or areas of volcanic activity. These territorial elementals usually question interlopers from afar—and if they don't like the answers, they rain down fire before their foes can draw near.\n\nThough many elementals weave their innate gifts into oral storytelling, cruxes of fire are particularly adroit at animating their stories in silhouettes of flame.\n\n#### Essence of Storms\n\nAt a distance, most would mistake an essence of storms, sometimes known as a galeweaver, for a large bird of prey. This majestic creature is formed from streaks of colored cloud stuff woven into the silhouette of a large eagle or falcon.\n\nGaleweavers act as scouts for their handlers or for groups of elementals, and they're usually the first to spot trouble. Insatiably curious, an essence of storms often swoops down to talk when they observe travelers.\n\n#### Essence of Tides\n\nAn essence of tides looks like a shimmering blue manta ray that glides over land as easily as through water, earning them the common name of tidedrifter. Most common along coastlines, essences of tides enjoy harmless pranks, especially against folk who regularly sail or swim in their waters.\n\nTidedrifters have a healthy sense of humor that makes it easy to win their friendship—but their relaxed demeanor evaporates if friends or family face threats.\n\n#### Field of Growth\n\nThe field of growth takes the form of a massive centipede made of vegetation. Often called verdant primevals, these caretakers of the natural cycle of life (and death) fight those they see as upsetting that cycle. Fields of growth seek not only to destroy undead and those who create them, but to sabotage divine servitors who casually peddle resurrection magic.\n\n#### Force of Earth\n\nA protective earth elemental, a force of earth resembles a nine-foot-tall great ape formed of dirt and rough stone. They act as guardians and historians when among other elementals, working tirelessly to thwart ills from befalling the group. These elementals are sometimes called earthen bulwarks.\n\n#### Elemental Languages\n\nMost elementals speak Low Kuric. Some can use Caelian when they need to.\n\n> It is in changing that we find purpose.\n>\n> Atæshia, Queen of Ash",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elemental.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

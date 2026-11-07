@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.siege-engines.catapult",
+  "title": "Катапульта",
+  "chapter": "25. Динамическая местность",
+  "group": "Осадные орудия",
+  "path": "Monsters/dynamic-terrain/siege-engines/catapult.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/catapult",
+  "originalName": "Catapult",
+  "originalDescription": "This massive counterweighted engine hurls a heavy projectile for a devastating assault.\n\n- **EV:** 10\n- **Stamina:** 50\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a catapult can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arcing Shot** ability.\n> - **12-16:** The catapult is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The catapult is deactivated and can't be used.\n\n> 🔳 **Arcing Shot**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 3 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage; A < 0 push 1\n> - **17+:** 12 damage; A < 1 push 2\n>\n> **Effect:** Line of effect for this ability is an arc that can be traced over obstacles between the catapult and the target area. This ability can't be used again until the catapult is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|-------------------------------------:|\n> | **📏 -** |                             **🎯 -** |\n>\n> **Effect:** The catapult is reloaded, allowing **Arcing Shot** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arcing Shot** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The catapult and the creature using this action move together up to 2 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Air Assault (+2 EV)** The side fielding the catapult has trained their forces to safely use the siege engine to launch them across the battlefield. As an adjacent creature main action, the catapult can be used to vertical push 10 any ally of size 1L or less. If the ally lands in an unoccupied space, they take no damage.\n>\n> **Flammable (+2 EV) Arcing Shot** deals fire damage, and the area of that ability is on fire until the end of the encounter. Any creature who enters the area for the first time in a round or starts their turn there takes 2 fire damage.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/siege-engines/catapult.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "siege-engines",
+    "recordType": "dynamic-terrain",
+    "level": 3,
+    "ev": "10",
+    "size": "2",
+    "role": "Артиллерист",
+    "organization": "Осадное орудие"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.siege-engines.catapult"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "monster.war-dog.3rd-echelon.statblock.war-dog-iron-priest",
+  "kind": "monster",
+  "name": "Пёс войны — Железный жрец",
+  "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |      Уровень 8      |     Орда, поддержка     |        Боевая ценность 10         |\n|:---------------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------------------------:|\n|       **1M**<br>Размер        |  **5**<br>Скорость   | **50**<br>Выносливость |  **0**<br>Устойчивость   | **3**<br>Свободный удар |\n|      **-**<br>Иммунитет      | **-**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+2**<br>Мощь       | **+1**<br>Ловкость | **+1**<br>Разум  |  **+4**<br>Интуиция  |  **+4**<br>Присутствие  |\n\n> 🔳 **Пушка «Гончая» ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Область, Оружие**           |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Линия 7 × 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 6 урона; при П < 3 [кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до успешного спасброска)\n> - **17+:** 8 урона; при П < 4 цель теряет 1 Восстановление и получает [кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до успешного спасброска)\n>\n> **Эффект:** Каждый союзник в пределах 2 клеток от железного жреца получает преимущество к следующему удару. Если какая-либо цель потеряла Восстановление, каждый затронутый союзник вместо этого получает двойное преимущество.\n\n> ❇️ **Железное знамя (2+ [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область, Магия** |                    **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|--------------------------------:|\n> | **📏 Аура 4**   | **🎯 Каждый пёс войны в области** |\n>\n> **Эффект:** За каждые потраченные 2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice) каждая цель получает один из следующих эффектов до начала следующего хода железного жреца.\n>\n> - Цель получает иммунитет к урону 2.\n> - Удары цели наносят дополнительно 3 урона типа «Святой».\n> - Цель получает бонус +3 к Скорости.\n\n> ⭐️ **Избранник Железного святого**\n>\n> Ведущий получает 1 [Раздор](scc.v1:mcdm.monsters.v1/rule.monster/malice) всякий раз, когда союзник в пределах 3 клеток от железного жреца получает результат тира 3 при броске силы.\n",
+  "source": {
+    "articleId": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-iron-priest",
+    "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-iron-priest.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-iron-priest",
+  "originalName": "War Dog Iron Priest",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 8      |     Horde Support     |        EV 10         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |  **5**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might       | **+1**<br>Agility | **+1**<br>Reason  |  **+4**<br>Intuition  |  **+4**<br>Presence  |\n\n> 🔳 **Houndcannon ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Weapon**           |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 7 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; P < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 8 damage; P < 4 the target loses 1 Recovery and is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Any ally within 2 squares of the iron priest gains an edge on their next strike. If any target lost a Recovery, any affected ally has a double edge instead.\n\n> ❇️ **Iron Banner (2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|--------------------------------:|\n> | **📏 4 aura**   | **🎯 Each war dog in the area** |\n>\n> **Effect:** For every 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, each target gains one of the following effects until the start of the iron priest's next turn.\n>\n> - The target has damage immunity 2.\n> - The target's strikes deal an extra 3 holy damage.\n> - The target has a +3 bonus to speed.\n\n> ⭐️ **Chosen of the Iron Saint**\n>\n> The Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) whenever an ally within 3 squares of the iron priest obtains a tier 3 outcome on a power roll.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-iron-priest.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Поддержка",
+    "organization": "Орда"
+  }
+}

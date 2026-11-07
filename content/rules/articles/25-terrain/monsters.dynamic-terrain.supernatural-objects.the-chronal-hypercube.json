@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.supernatural-objects.the-chronal-hypercube",
+  "title": "Хрональный гиперкуб",
+  "chapter": "25. Динамическая местность",
+  "group": "Сверхъестественные объекты",
+  "path": "Monsters/dynamic-terrain/supernatural-objects/the-chronal-hypercube.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.supernatural-objects/the-chronal-hypercube",
+  "originalName": "The Chronal Hypercube",
+  "originalDescription": "This unnatural object twists space around it in a reflection of its own unnatural form.\n\n- **EV:** 20\n- **Stamina:** 80\n- **Size:** 1M\n\n> 🌀 **Deactivate**\n>\n> A creature who has the [Psionics](scc.v1:mcdm.heroes.v1/skill.lore/psionics) skill can deactivate and take control of the chronal hypercube by making a **Reason test** while within 10 squares of the hypercube.\n>\n> - **≤11:** The creature takes 1d6 psychic damage.\n> - **12-16:** The creature fails to deactivate the hypercube.\n> - **17+:** The hypercube [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the creature at the start of the next round and becomes an ally to the creature and their allies.\n\n> ⭐️ **Dimensional Flicker**\n>\n> At the start of each round while the hypercube is present, roll a d10. On a 7 or higher, the hypercube [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to a square of one ally's choice within 10 squares and is hidden. While the hypercube is hidden, [Psionics](scc.v1:mcdm.heroes.v1/skill.lore/psionics) is the only skill that can be applied to a test made to find it.\n\n> ⭐️ **Chronal Superhighway**\n>\n> Any ally within 10 squares of the hypercube can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) when they move. An ally who [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) gains an edge on the next power roll they make.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/supernatural-objects/the-chronal-hypercube.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "supernatural-objects",
+    "recordType": "dynamic-terrain",
+    "level": 3,
+    "ev": "20",
+    "size": "1M",
+    "role": "Контроллер",
+    "organization": "Реликвия"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.supernatural-objects.the-chronal-hypercube"
+    }
+  ]
+}

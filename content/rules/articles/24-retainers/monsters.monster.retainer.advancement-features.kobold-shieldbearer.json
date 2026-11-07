@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.advancement-features.kobold-shieldbearer",
+  "title": "Способности развития кобольда-щитоносца",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/advancement-features/kobold-shieldbearer.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/kobold-shieldbearer",
+  "originalName": "Kobold Shieldbearer Advancement Features",
+  "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> ❗️ **Shield Block (Encounter)**\n>\n> | **Ranged**      |             **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|---------------------------------:|\n> | **📏 Ranged 5** | **🎯 The shieldbearer's mentor** |\n>\n> **Trigger:** The mentor takes damage from a strike while within distance.\n>\n> **Effect:** The shieldbearer blocks the [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) (if [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the mentor) or throws their shield into the mentor's space. The triggering [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike)'s damage is halved and the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of any [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) effects is reduced by 1. If the shieldbearer threw their shield, it bounces back to their hand.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🗡 **Living Backpack**\n>\n> | **Melee**      |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------------------------:|\n> | **📏 Melee 1** | **🎯 The shieldbearer's mentor** |\n>\n> **Effect:** The shieldbearer straps their shield on their back and climbs onto their mentor's back, entering the mentor's space. While the shieldbearer is on their mentor's back, each of them gains 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) and can use Shield Block as a triggered action targeting an ally instead of the shieldbearer's mentor. Additionally, the shieldbearer moves with the mentor, and they can't use main actions, maneuvers, or move actions except to end this effect as a maneuver. The effect also ends if the shieldbearer is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) away from their mentor or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone). If the shieldbearer is still in their mentor's space when the effect ends, they move into an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) unoccupied space of their choice.\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🗡 **Let's Go Sledding (Encounter)**\n>\n> | **Charge, Melee, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|---------------------:|\n> | **📏 Melee 1**                    | **🎯 Three enemies** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 10 damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If this ability is used as part of the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action, the shieldbearer gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge) that can be used immediately.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/kobold-shieldbearer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.advancement-features.kobold-shieldbearer"
+    }
+  ]
+}

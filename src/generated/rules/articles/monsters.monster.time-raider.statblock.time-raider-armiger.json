@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.time-raider.statblock.time-raider-armiger",
+      "title": "Рейдер времени — Армигер",
+      "chapter": "23. Бестиарий",
+      "group": "Рейдеры времени",
+      "path": "Monsters/monster/time-raider/statblock/time-raider-armiger.md",
+      "originalId": "mcdm.monsters.v1/monster.time-raider.statblock/time-raider-armiger",
+      "originalName": "Time Raider Armiger",
+      "originalDescription": "|   Humanoid, Time Raider   |         -         |      Level 3      |   Platoon Defender    |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 3**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Serrated Saber ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage; R < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A creature [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way is also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding).\n\n> ❗️ **Shared Sickness**\n>\n> | **Psionic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|-------------------------------:|\n> | **📏 Ranged 20**    | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature deals damage to any ally of the armiger who the armiger has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 psychic damage; R < 0 5 poison damage\n> - **12-16:** 6 psychic damage; R < 1 5 poison damage\n> - **17+:** 9 psychic damage; R < 2 5 poison damage\n\n> ⭐️ **Foresight**\n>\n> The armiger doesn't take a bane on strikes against creatures with concealment.\n\n> ⭐️ **Kuran'zoi Heraldry**\n>\n> Any time raider who starts their turn with [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to the armiger can end one condition affecting the.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/time-raider/statblock/time-raider-armiger.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "time-raider",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Рейдер времени"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.time-raider.statblock.time-raider-armiger"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.time-raider",
+          "title": "Рейдеры времени"
+        },
+        {
+          "id": "monsters.monster.time-raider.time-raider-malice",
+          "title": "Раздор рейдеров времени"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.time-raider.statblock.time-raider-armiger",
+      "kind": "monster",
+      "name": "Рейдер времени — Армигер",
+      "markdown": "| Гуманоид, Рейдер времени |         -         |      3-й уровень      | Взвод, защитник | Боевая ценность 10 |\n|:-------------------------:|:-----------------:|:---------------------:|:--------------:|:---------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **60**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **Психический 3**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Зазубренная сабля ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Псионика, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона; Р < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Существо, [ослабленное](#/catalog/glossary#term-glossary.weakened) таким образом, также [истекает кровью](#/catalog/glossary#term-glossary.bleeding).\n\n> ❗️ **Общая болезнь**\n>\n> | **Псионика, Дальний бой** | **[Ответное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Дальний бой 20**     | **🎯 Существо, вызвавшее условие** |\n>\n> **Условие:** Существо наносит урон любому союзнику армигера, до которого у армигера есть [линия эффекта](#/catalog/glossary#term-glossary.line-of-effect).\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 психического урона; Р < 0 5 урона ядом\n> - **12-16:** 6 психического урона; Р < 1 5 урона ядом\n> - **17+:** 9 психического урона; Р < 2 5 урона ядом\n\n> ⭐️ **Предвидение**\n>\n> Армигер не получает помеху на удары по существам под покровом.\n\n> ⭐️ **Герб куран'зои**\n>\n> Любой рейдер времени, начинающий свой ход с [линией эффекта](#/catalog/glossary#term-glossary.line-of-effect) до армигера, может прекратить одно состояние, воздействующее на армигера.\n",
+      "source": {
+        "articleId": "monsters.monster.time-raider.statblock.time-raider-armiger",
+        "path": "Monsters/monster/time-raider/statblock/time-raider-armiger.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.time-raider.statblock/time-raider-armiger",
+      "originalName": "Time Raider Armiger",
+      "originalDescription": "|   Humanoid, Time Raider   |         -         |      Level 3      |   Platoon Defender    |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 3**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Serrated Saber ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage; R < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A creature [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way is also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding).\n\n> ❗️ **Shared Sickness**\n>\n> | **Psionic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|-------------------------------:|\n> | **📏 Ranged 20**    | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature deals damage to any ally of the armiger who the armiger has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 psychic damage; R < 0 5 poison damage\n> - **12-16:** 6 psychic damage; R < 1 5 poison damage\n> - **17+:** 9 psychic damage; R < 2 5 poison damage\n\n> ⭐️ **Foresight**\n>\n> The armiger doesn't take a bane on strikes against creatures with concealment.\n\n> ⭐️ **Kuran'zoi Heraldry**\n>\n> Any time raider who starts their turn with [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to the armiger can end one condition affecting the.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/time-raider/statblock/time-raider-armiger.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "time-raider",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Рейдер времени"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

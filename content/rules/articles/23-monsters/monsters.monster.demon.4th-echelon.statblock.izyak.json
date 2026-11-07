@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.demon.4th-echelon.statblock.izyak",
+  "title": "Изьяк",
+  "chapter": "23. Бестиарий",
+  "group": "Демоны",
+  "path": "Monsters/monster/demon/4th-echelon/statblock/izyak.md",
+  "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/izyak",
+  "originalName": "Izyak",
+  "originalDescription": "|  Abyssal, Demon   |            -             |     Level 10      |   Horde Controller    |          EV 12           |\n|:-----------------:|:------------------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **2**<br>Size   |      **6**<br>Speed      | **55**<br>Stamina |  **0**<br>Stability   |   **4**<br>Free Strike   |\n| **-**<br>Immunity | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+0**<br>Might  |    **+0**<br>Agility     | **+5**<br>Reason  |  **+2**<br>Intuition  |    **+4**<br>Presence    |\n\n> 🏹 **Nostalgic Wanderlust (Signature Ability)**\n>\n> | **Psionic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|--------------------:|\n> | **📏 Ranged 10**            | **🎯 One creature** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 9 psychic damage; R < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 12 psychic damage; R < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 14 psychic damage; R < 5 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The izyak can slide any target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The izyak can vertical slide any target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way up to 6 squares instead. A target left in midair doesn't fall until the restrained condition ends.\n\n> 🔳 **Ruinous Temptation (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Psionic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 4 cube within 10**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 psychic damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 7 psychic damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 psychic damage; I < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** Any target [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way must use a move action to move their speed toward the izyak on their next turn.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The area increases to a 6 cube.\n\n> ⭐️ **Lethe**\n>\n> While the izyak is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the izyak can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/4th-echelon/statblock/izyak.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 10,
+    "ev": "12",
+    "size": "2",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Контроллер",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.demon.4th-echelon.statblock.izyak"
+    }
+  ]
+}

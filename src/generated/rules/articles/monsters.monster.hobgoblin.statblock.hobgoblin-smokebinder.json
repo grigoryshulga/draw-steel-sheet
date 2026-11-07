@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.hobgoblin.statblock.hobgoblin-smokebinder",
+      "title": "Хобгоблин-укротитель дыма",
+      "chapter": "23. Бестиарий",
+      "group": "Хобгоблины",
+      "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-smokebinder.md",
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-smokebinder",
+      "originalName": "Hobgoblin Smokebinder",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |             -              |      Level 5      |   Platoon Ambusher    |        EV 14         |\n|:-------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |       **7**<br>Speed       | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+1**<br>Might            |     **+3**<br>Agility      | **+2**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Choking Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 17 fire damage; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If this ability gains an edge or has a double edge, the target can't communicate with anyone until the end of their next turn.\n\n> ❇️ **Smoke Bomb (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a Might test.\n>\n> - **≤11:** 11 damage; the target has a double bane on their next power roll\n> - **12-16:** 9 damage; the target takes a bane on their next power roll\n> - **17+:** 5 damage\n\n> ⭐️ **Essence of Smoke**\n>\n> The smokebinder can move through spaces as if they were size 1T and can occupy another creature or object's space. At the end of their turn, the smokebinder can attempt to hide if they haven't taken any damage since their last turn.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the smokebinder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the smokebinder takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-smokebinder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.statblock.hobgoblin-smokebinder"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.hobgoblin",
+          "title": "Хобгоблины"
+        },
+        {
+          "id": "monsters.monster.hobgoblin.hobgoblin-malice",
+          "title": "Раздор хобгоблинов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.hobgoblin.statblock.hobgoblin-smokebinder",
+      "kind": "monster",
+      "name": "Хобгоблин-укротитель дыма",
+      "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |             -              |      Уровень 5      |   Взвод Засадник    |        Боевая ценность 14         |\n|:-------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Размер             |       **7**<br>Скорость       | **70**<br>Выносливость |  **0**<br>Устойчивость   | **6**<br>Свободный удар |\n|        **Огонь 5**<br>Иммунитет         | **Полёт, парение**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|            **+1**<br>Мощь            |     **+3**<br>Ловкость      | **+2**<br>Разум  |  **+1**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🏹 **Удушающий заряд (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Дальний 5**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона огнём\n> - **12-16:** 14 урона огнём\n> - **17+:** 17 урона огнём; Р < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Если эта способность получает преимущество или двойное преимущество, цель не может ни с кем общаться до конца своего следующего хода.\n\n> ❇️ **Дымовая бомба (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Взрыв 3**  | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель проходит тест Мощи.\n>\n> - **≤11:** 11 урона; цель получает двойную помеху к следующему броску силы\n> - **12-16:** 9 урона; цель получает помеху к следующему броску силы\n> - **17+:** 5 урона\n\n> ⭐️ **Сущность дыма**\n>\n> Укротитель дыма может перемещаться сквозь пространства так, как если бы его размер был 1T, и может занимать пространство другого существа или объекта. В конце своего хода укротитель дыма может попытаться спрятаться, если с его прошлого хода он не получал урон.\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) укротителя дыма снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с укротителем дыма, получает 3 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-smokebinder",
+        "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-smokebinder.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-smokebinder",
+      "originalName": "Hobgoblin Smokebinder",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |             -              |      Level 5      |   Platoon Ambusher    |        EV 14         |\n|:-------------------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |       **7**<br>Speed       | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+1**<br>Might            |     **+3**<br>Agility      | **+2**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Choking Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 17 fire damage; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If this ability gains an edge or has a double edge, the target can't communicate with anyone until the end of their next turn.\n\n> ❇️ **Smoke Bomb (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a Might test.\n>\n> - **≤11:** 11 damage; the target has a double bane on their next power roll\n> - **12-16:** 9 damage; the target takes a bane on their next power roll\n> - **17+:** 5 damage\n\n> ⭐️ **Essence of Smoke**\n>\n> The smokebinder can move through spaces as if they were size 1T and can occupy another creature or object's space. At the end of their turn, the smokebinder can attempt to hide if they haven't taken any damage since their last turn.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the smokebinder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the smokebinder takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-smokebinder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

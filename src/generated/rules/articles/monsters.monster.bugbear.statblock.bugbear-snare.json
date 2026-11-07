@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.bugbear.statblock.bugbear-snare",
+      "title": "Багбир-сеточник",
+      "chapter": "23. Бестиарий",
+      "group": "Багбиры",
+      "path": "Monsters/monster/bugbear/statblock/bugbear-snare.md",
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-snare",
+      "originalName": "Bugbear Snare",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |     Level 5      |            Minion Ambusher            | EV 7 for four minions |\n|:------------------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|         **1L**<br>Size         |  **6**<br>Speed   | **9**<br>Stamina |          **2**<br>Stability           | **3**<br>Free Strike  |\n|       **-**<br>Immunity        | **-**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|        **+2**<br>Might         | **+3**<br>Agility | **+0**<br>Reason |          **+0**<br>Intuition          |  **+1**<br>Presence   |\n\n> 🗡 **Cut 'Em Low! (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If the snare started their turn hidden from the target, the target is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed). A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way or already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the snare can be vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-snare.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.bugbear.statblock.bugbear-snare"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.bugbear.bugbear-malice",
+          "title": "Раздор багбиров"
+        },
+        {
+          "id": "monsters.monster.group.bugbear",
+          "title": "Багбиры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.bugbear.statblock.bugbear-snare",
+      "kind": "monster",
+      "name": "Багбир-сеточник",
+      "markdown": "| Багбир, Фея, Гоблин, Гуманоид |         -         |     5-й уровень      |            Миньон-засадник            | Боевая ценность 7 за четырех миньонов |\n|:------------------------------:|:-----------------:|:--------------------:|:-------------------------------------:|:------------------------------------------:|\n|         **1L**<br>Размер         |  **6**<br>Скорость   | **9**<br>Выносливость |          **2**<br>Устойчивость           | **3**<br>Свободный удар |\n|       **-**<br>Иммунитет к урону        | **-**<br>Передвижение |        -         | **Бонус +3 к скорости**<br>С капитаном |   **-**<br>Уязвимость к урону   |\n|        **+2**<br>Мощь         | **+3**<br>Ловкость | **+0**<br>Разум |          **+0**<br>Интуиция          |   **+1**<br>Присутствие   |\n\n> 🗡 **Подсечь их! (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**                 | **🎯 По одному существу или объекту на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 6 урона\n> - **17+:** 7 урона; при Л < 3 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Если багбир-сеточник начал свой ход скрытым от цели, цель автоматически оказывается [схвачена](#/catalog/glossary#term-glossary.grabbed). Цель, [схваченная](#/catalog/glossary#term-glossary.grabbed) таким образом или уже [схваченная](#/catalog/glossary#term-glossary.grabbed) багбиром-сеточником, может быть вертикально [оттеснена](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 4 клеток.\n",
+      "source": {
+        "articleId": "monsters.monster.bugbear.statblock.bugbear-snare",
+        "path": "Monsters/monster/bugbear/statblock/bugbear-snare.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-snare",
+      "originalName": "Bugbear Snare",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |     Level 5      |            Minion Ambusher            | EV 7 for four minions |\n|:------------------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|         **1L**<br>Size         |  **6**<br>Speed   | **9**<br>Stamina |          **2**<br>Stability           | **3**<br>Free Strike  |\n|       **-**<br>Immunity        | **-**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|        **+2**<br>Might         | **+3**<br>Agility | **+0**<br>Reason |          **+0**<br>Intuition          |  **+1**<br>Presence   |\n\n> 🗡 **Cut 'Em Low! (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If the snare started their turn hidden from the target, the target is automatically [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed). A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way or already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the snare can be vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-snare.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

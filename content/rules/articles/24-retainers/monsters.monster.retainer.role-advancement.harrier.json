@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.role-advancement.harrier",
+  "title": "Способности развития роли Налётчика",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/role-advancement/harrier.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/harrier",
+  "originalName": "Harrier Abilities",
+  "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Tackle (Encounter)**\n>\n> **Power Roll + highest characteristic:**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Meet You There (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 15 damage\n>\n> **Effect:** Before or after the strike, the retainer and their mentor can each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Nab and Stab (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; one target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; one target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; one target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares, and can move a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) using this ability with them.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/role-advancement/harrier.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.role-advancement.harrier"
+    }
+  ]
+}

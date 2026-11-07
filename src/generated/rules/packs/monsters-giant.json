@@ -1,0 +1,1138 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.giant.giant-malice",
+      "title": "Раздор великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/giant-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.giant/giant-malice",
+      "originalName": "Giant Malice",
+      "originalDescription": "At the start of any giant's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Hurl Landscape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** A giant unearths a structure, hazard, or chunk of the encounter map and launches it to fill the area. Each target makes an **Agility test**.\n>\n> - **≤11:** 18 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage\n\n> ❇️ **Bellow (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each giant in the encounter takes a deep breath and yells, [pushing](scc.v1:mcdm.heroes.v1/movement/forced-movement) each creature within 3 squares of them up to 10 squares. A creature who can be pushed by more than one giant is pushed by one giant of your choice.\n\n> 🔳 **Titanic Tear (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A giant creates a fissure along the ground, either in a 15 x 2 line within 1 or a 10 x 3 line within 2, and that opens up to a depth of 6 squares. Each giant in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure. Each non-giant in the area makes an **Agility test**.\n>\n> - **≤11:** 10 damage; the target falls into the fissure, and is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 10 damage; the target is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and hanging onto the edge of the fissure\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/giant-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.giant-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.basalt-stone-giant",
+      "title": "Базальтовый каменный великан",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/basalt-stone-giant.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/basalt-stone-giant",
+      "originalName": "Basalt Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |   Elite Controller    |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Rune-Signed Blade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 21 damage; M < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target was already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), that condition continues but their speed is 0 until the end of their next turn.\n\n> ⚔️ **Forked Knife (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 3 or ranged 12**       | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 10 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 16 damage; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The knife lands in the target's square, and has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and damage immunity 5. Whenever the knife takes damage, it deals 4 sonic damage to each enemy within 3 squares. The knife lasts until the end of the encounter, and can't be picked up or manipulated.\n\n> 👤 **Cobblestone Shape**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The basalt stone giant moves up to their speed. Each square that they leave during this move is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Giants ignore this [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ❗️ **Resonate Rune**\n>\n> | **Area, Magic** |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The basalt stone giant takes damage.\n>\n> **Effect:** The target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares, or if they have A < 3, they are [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the basalt stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The basalt stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The basalt stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/basalt-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.basalt-stone-giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.fire-giant-chief",
+      "title": "Вождь огненных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/fire-giant-chief.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-chief",
+      "originalName": "Fire Giant Chief",
+      "originalDescription": "|    Fire Giant, Giant    |         -         |      Level 9       |        Leader         |        EV 44         |\n|:-----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **5**<br>Size      |  **10**<br>Speed  | **240**<br>Stamina |  **10**<br>Stability  | **9**<br>Free Strike |\n| **Fire 10**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+5**<br>Might     | **+3**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🔳 **Roiling Fist (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 4**   | **🎯 Each enemy and object in the area** |\n>\n> **Effect:** Each target makes either an **Agility test** or an **Intuition test**.\n>\n> - **≤11:** 18 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 14 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 fire damage\n\n> 🗡 **Burning Kick**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 4**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 3 9 fire damage\n> - **12-16:** 19 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; A < 4 9 fire damage\n> - **17+:** 23 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 15; A < 5 9 fire damage\n\n> 🔳 **Lava Pillar (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 5 fire damage; M < 3 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 7 fire damage; M < 4 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 9 fire damage; M < 5 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n\n> ❗️ **Fuel the Fire (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |       **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------------:|\n> | **📏 Ranged 12** | **🎯 The triggering ally** |\n>\n> **Trigger:** A fire giant ally within distance makes a strike.\n>\n> **Effect:** The strike has a double edge and deals an extra 10 fire damage.\n\n> ☠️ **Forward! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Any enemy who takes damage from a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) this way and who has A < 4 is burning (save ends). A burning enemy takes 1d6 fire damage at the start of each of their turns.\n\n> ☠️ **Burning Legion ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 15** | **🎯 Special** |\n>\n> **Effect:** The chief [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 10 squares. Five fire giant fireballer then arrive in unoccupied spaces within distance.\n\n> ☠️ **All to Cinders ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area**        |                                            **-** |\n> |-----------------|-------------------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each fire giant ally in the area** |\n>\n> **Effect:** Each target unleashes a wave of fire, and each enemy within 2 squares of any target makes an Agility test. An enemy affected by two targets takes a bane on the test, while an enemy affected by three or more targets has a double bane.\n>\n> - **≤11:** 18 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 9 fire damage\n\n> ⭐️ **Scorching Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the chief or uses a melee ability against them, that enemy takes 9 fire damage, and if they have M < 4 they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-chief.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "5",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.fire-giant-chief"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.fire-giant-fireballer",
+      "title": "Огненный великан-метатель",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/fire-giant-fireballer.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-fireballer",
+      "originalName": "Fire Giant Fireballer",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9      |            Minion Harrier             | EV 11 for four minions |\n|:----------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **13**<br>Stamina |          **5**<br>Stability           |  **3**<br>Free Strike  |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason  |          **+2**<br>Intuition          |   **+1**<br>Presence   |\n\n> ❇️ **Blazing Leap (Signature Ability)**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 2 fire damage\n> - **12-16:** 5 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The fireballer can jump up to 4 squares before using this ability.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the fireballer or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-fireballer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "11 for four minions",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.fire-giant-fireballer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.fire-giant-lightbearer",
+      "title": "Огненный великан-светоносец",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/fire-giant-lightbearer.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-lightbearer",
+      "originalName": "Fire Giant Lightbearer",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |     Elite Support     |        EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **200**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+4**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Flamelash (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 fire damage; slide 2\n> - **12-16:** 17 fire damage; slide 4\n> - **17+:** 22 fire damage; slide 6\n\n> 🏹 **Living Blaze (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 fire damage\n> - **12-16:** 21 fire damage\n> - **17+:** 26 fire damage\n>\n> **Effect:** The blaze ricochets, targeting one additional target within 4 squares of an original target and taking a bane against that target, or targeting two additional targets within 2 squares of an original target and having a double bane against those targets. The lightbearer makes one power roll against all targets.\n\n> 🏹 **Travel By Fire**\n>\n> | **Magic, Ranged** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Two creatures or objects** |\n>\n> **Effect:** The lightbearer can target themself with this ability. Each target takes 1d6 fire damage and [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) in a plume of smoke to swap places with the other target.\n\n> ❗️ **Emergency Beacon**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The lightbearer takes damage.\n>\n> **Effect:** The lightbearer emits a beacon of light until the start of their next turn. Each fire giant who has line of effect to the lightbearer has a double edge on abilities.\n\n> ⭐️ **Healing Heat**\n>\n> Any fire giant targeted by the lightbearer's damage-dealing abilities ignores the damage and instead regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage that would have been dealt. If the lightbearer moves a fire giant using an ability, they can choose to ignore [stability](scc.v1:mcdm.heroes.v1/rule.character/stability).\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the lightbearer or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-lightbearer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Поддержка",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.fire-giant-lightbearer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.fire-giant-red-fist",
+      "title": "Красный кулак огненных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/fire-giant-red-fist.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-red-fist",
+      "originalName": "Fire Giant Red Fist",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |      Elite Brute      |         EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **10**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🗡 **Flaming Punch (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 19 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 3 burning (save ends)\n> - **17+:** 23 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; A < 4 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ❇️ **Caldera (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Special** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** The distance is a 2 burst; 8 fire damage; M < 2 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** The distance is a 3 burst; 12 fire damage; M < 3 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** The distance is a 4 burst; 15 fire damage; M < 4 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The outermost squares of the area become a 1-square-tall wall of stone. The rest of the area is on fire until the end of the encounter. A creature who enters the area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> 👤 **Blazing Leap**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The red fist jumps up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them when they land takes 5 fire damage.\n\n> ❗️ **Heat and Pressure**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance willingly moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the red fist.\n>\n> **Effect:** The target makes a **Might test**. A target with fire immunity automatically obtains a tier 3 outcome.\n>\n> - **≤11:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** No effect\n\n> ❗️ **Guardian Block**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 3** |          **🎯 Self** |\n>\n> **Trigger:** An ally within distance is targeted by an enemy's ability.\n>\n> **Effect:** The red fist becomes the target of the triggering ability, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the enemy after the ability resolves.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the red fist or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-red-fist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.fire-giant-red-fist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.frost-giant-snowblaster",
+      "title": "Снежный метатель ледяных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/frost-giant-snowblaster.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-snowblaster",
+      "originalName": "Frost Giant Snowblaster",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |     Level 8      |                Minion Artillery                | EV 10 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:----------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **12**<br>Stamina |               **5**<br>Stability               |  **4**<br>Free Strike  |\n| **Cold 8**<br>Immunity | **-**<br>Movement |        -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|    **+3**<br>Might     | **-1**<br>Agility | **-1**<br>Reason |              **+4**<br>Intuition               |   **+2**<br>Presence   |\n\n> 🏹 **Slushfall (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 12**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 cold damage\n> - **12-16:** 7 cold damage\n> - **17+:** 9 cold damage; prone\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The snowblaster is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the snowblaster can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-snowblaster.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.frost-giant-snowblaster"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.frost-giant-storm-hurler",
+      "title": "Метатель бури ледяных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/frost-giant-storm-hurler.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-storm-hurler",
+      "originalName": "Frost Giant Storm Hurler",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |      Level 8       |    Elite Artillery    |        EV 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **180**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Cold 8**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **-1**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🏹 **Ice Javelins (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 15**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 cold damage\n> - **12-16:** 18 cold damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 22 cold damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Whenever a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way takes damage from that condition, their speed decreases by 1 (to a minimum of 0) until that condition ends.\n\n> 🏹 **Flower of Frost (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 15**  |  **🎯 Special** |\n>\n> **Effect:** The storm hurler throws three size 1L ice javelins into unoccupied squares within distance. Each javelin has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fire weakness 5. At the start of the storm hurler's next turn, all javelins not destroyed explode in a shower of icicles. Each enemy and object within 3 squares of an exploding javelin makes an **Agility test**.\n>\n> - **≤11:** 14 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 cold damage\n\n> 🗡 **Ice Dance**\n>\n> | **Melee**      |          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------------:|\n> | **📏 Melee 1** | **🎯 One giant ally** |\n>\n> **Effect:** The storm hurler and the target each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares while staying [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other. The target can then jump up to 5 squares and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **Frozen Retribution**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The storm hurler is targeted by a ranged strike.\n>\n> **Effect:** The triggering strike has a double bane. If the strike obtains a tier 1 outcome, the storm hurler uses Ice Javelins against the creature who made it.\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The storm hurler is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the storm hurler can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-storm-hurler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.frost-giant-storm-hurler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.frost-giant-wind-sprinter",
+      "title": "Ветробег ледяных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/frost-giant-wind-sprinter.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-wind-sprinter",
+      "originalName": "Frost Giant Wind Sprinter",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |      Level 8       |     Elite Harrier     |        EV 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **10**<br>Speed  | **200**<br>Stamina |  **5**<br>Stability   | **8**<br>Free Strike |\n| **Cold 8**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **+4**<br>Agility |  **-1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Cold Axe (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 21 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target who is already [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) takes an extra 1d6 cold damage.\n\n> 👤 **Blizzard Surge (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The wind sprinter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Cold Axe against each enemy who comes within 2 squares of them during the move. The wind sprinter makes one power roll against all targets.\n\n> 🗡 **Ice Dance**\n>\n> | **Melee**      |          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------------:|\n> | **📏 Melee 1** | **🎯 One giant ally** |\n>\n> **Effect:** The wind sprinter and the target each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares while staying [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other. The target can then jump up to 5 squares and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **Begone, Smallfolk!**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The wind sprinter takes damage.\n>\n> **Effect:** The wind sprinter moves up to their speed and uses Cold Axe against one target.\n\n> ⭐️ **Crush Underfoot**\n>\n> The wind sprinter can move through enemies' spaces at their usual speed. The first time on a turn that a wind sprinter enters a creature's space, that creature can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) or to take 8 damage.\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The wind sprinter is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the wind sprinter can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-wind-sprinter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.frost-giant-wind-sprinter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.granite-stone-giant",
+      "title": "Гранитный каменный великан",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/granite-stone-giant.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/granite-stone-giant",
+      "originalName": "Granite Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |    Elite Defender     |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **247**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+1**<br>Agility    |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Jagged Stone Club (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; R < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 21 damage; R < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** If the target is already [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), they are also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ❇️ **Crag Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 2 burst** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 14 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Whenever a creature enters square in the area, they take 3 damage.\n\n> 👤 **Castle Stone Shape**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The granite stone giant moves up to their speed and creates a 14 wall of stone in squares [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the path of their movement.\n\n> ❗️ **Pillar**\n>\n> | **Melee**      |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the granite stone giant.\n>\n> **Effect:** A 1-square pillar of stone rises 5 squares out of the ground beneath the target, who moves with the ground to its new elevation, then is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the granite stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The granite stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The granite stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/granite-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.granite-stone-giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.hill-giant-clobberer",
+      "title": "Холмовой великан-дубинщик",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/hill-giant-clobberer.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/hill-giant-clobberer",
+      "originalName": "Hill Giant Clobberer",
+      "originalDescription": "|    Giant, Hill Giant     |           -           |      Level 7       |      Elite Brute      |        EV 36         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **4**<br>Size       |    **6**<br>Speed     | **200**<br>Stamina |  **5**<br>Stability   | **8**<br>Free Strike | \n| **Damage 3**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+4**<br>Might      |   **-1**<br>Agility   |  **-1**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clobberin' Club (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 21 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 12 damage.\n\n> 🗡 **Stomp (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 3 can't stand (save ends)\n> - **17+:** 25 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 can't stand (save ends)\n>\n> **Effect:** In suitably soft ground, the target is entrenched in a 2-square deep hole.\n\n> ❇️ **Hill Quake**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target must make either a **Might test** or an **Agility test**.\n>\n> - **≤11:** 6 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 2 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The clobberer can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) in order to double the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance.\n\n> ❗️ **You Ain't Getting Away**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the clobberer.\n>\n> **Effect:** The target makes an Agility test.\n>\n> - **≤11:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and the target takes a bane on the Escape Grab maneuver\n> - **12-16:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** No effect\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target who would be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by this ability is instead either vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares; or they take 5 damage, are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and can't stand until the end of their next turn.\n\n> ⭐️ **Destructive Path**\n>\n> The clobberer automatically destroys any mundane size 1 objects in their path when they move or are [forced moved](scc.v1:mcdm.heroes.v1/movement/forced-movement). They can break through any mundane wall made of wood, stone, or a similarly sturdy material this way as long as the wall is 2 squares thick or less.\n\n> ⭐️ **Distracted**\n>\n> Whenever the clobberer targets a creature or object with an ability, any enemy within distance of the ability can use a free triggered action to distract the clobberer. The clobberer targets that enemy instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/hill-giant-clobberer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "36",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Холмовой великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.hill-giant-clobberer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.hill-giant-mosstooth",
+      "title": "Холмовой великан Мохозуб",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/hill-giant-mosstooth.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/hill-giant-mosstooth",
+      "originalName": "Hill Giant Mosstooth",
+      "originalDescription": "|    Giant, Hill Giant     |           -           |      Level 7      |                  Minion Brute                  | EV 9 for four minions |\n|:------------------------:|:---------------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|      **4**<br>Size       |    **6**<br>Speed     | **13**<br>Stamina |               **5**<br>Stability               | **4**<br>Free Strike  |\n| **Damage 3**<br>Immunity | **Climb**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **+4**<br>Might      |   **-1**<br>Agility   | **-1**<br>Reason  |              **-1**<br>Intuition               |  **-1**<br>Presence   |\n\n> 🗡 **Swing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 8 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The mosstooth can use a creature or object they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) as a weapon for this ability, dealing an extra 5 damage to that creature or object and the target. They then end the grab and leave the creature or object [prone](scc.v1:mcdm.heroes.v1/condition/prone) in an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ⭐️ **Distracted**\n>\n> Whenever the mosstooth targets a creature or object with an ability, any enemy within distance of the ability can use a free triggered action to distract the mosstooth. The mosstooth targets that enemy instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/hill-giant-mosstooth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Холмовой великан"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.hill-giant-mosstooth"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.marble-stone-giant",
+      "title": "Мраморный каменный великан",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/marble-stone-giant.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/marble-stone-giant",
+      "originalName": "Marble Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |      Elite Hexer      |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **6**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+3**<br>Agility    |  **0**<br>Reason   |  **+3**<br>Intuition  |  **0**<br>Presence   |\n\n> 🔳 **Marble From a Great Sling (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If the target has any effect on them that can be ended by a saving throw or that ends at the end of their turn, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🗡 **Far Flung (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7\n> - **12-16:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10\n> - **17+:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 12\n>\n> **Effect:** Against a target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) or [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), this ability has a double edge.\n\n> 🔳 **Polish Stone Shape**\n>\n> | **Area**                    |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Special** |\n>\n> **Effect:** The ground in the area becomes slick and glossy. Any non-giant who starts or ends their turn in the area is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The marble stone giant takes damage.\n>\n> **Effect:** The marble stone giant halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. The damage weakness increases by 3 each time the marble stone giant uses this ability in the same encounter.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the marble stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The marble stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The marble stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/marble-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.marble-stone-giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.giant.statblock.sand-stone-giant",
+      "title": "Песчаный каменный великан",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/sand-stone-giant.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/sand-stone-giant",
+      "originalName": "Sand Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8      |            Minion Controller            | EV 10 for four minions |    \n|:------------------:|:----------------------:|:-----------------:|:---------------------------------------:|:----------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **14**<br>Stamina |           **10**<br>Stability           |  **3**<br>Free Strike  |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -         | **+6 bonus to Stamina**<br>With Captain |   **-**<br>Weakness    |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **0**<br>Reason  |           **+3**<br>Intuition           |   **0**<br>Presence    |\n\n> 🗡 **Buried in Sand (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 3**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the sand stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The sand stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The sand stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/sand-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.sand-stone-giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.giant",
+      "title": "Великаны",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/group/giant.md",
+      "originalId": "mcdm.monsters.v1/monster.group/giant",
+      "originalName": "Giants",
+      "originalDescription": "Supremely well adapted to harsh environments, giants thrive in extreme conditions. Fire giants build floating cities in the hearts of volcanic calderas, while stone giant villages dot the tallest mountains. Most people often go their entire lives blissfully unaware of the local tribe of giants living atop the nearby mountain range. This is for the best, as few \"smallfolk\" structures can survive even a handful of sufficiently motivated giants.\n\n#### Adaptable and Elemental\n\nGiants physically resemble the territory they inhabit. A band of frost giants doesn't simply live on a glacial mountain—they're part of that mountain, and it's part of them. Fire giants exude heat like a roaring volcano. Sages have long debated the question, \"Does the environment shape a giant, or does the giant shape their environment?\"\n\n#### Distant Cousins\n\nHumanoid scholars generally assume that all giants are related, though giants don't view each other as kin by default. When different giant communities interact, the results depend heavily on the individuals involved and the relationships between their cultures. For instance, stone giants rarely get along with hill giants, as hill giants often detest stone artisanship. Meanwhile, frost giants gladly recruit hill giants into raiding parties if they're willing to be in the vanguard.\n\n#### Fire Giants\n\nHailing from sweltering deserts and deep caverns of roiling magma, fire giants embody the passion and ruthlessness of their namesake element. Though they have a reputation for violent growth and expansion, their lesser-known side is a deeply spiritual one, guided by introspection and understanding.\n\nFire giants rarely wear armor, as their bodies heat to extreme temperatures while they fight, causing leather to melt and metal to deform. They instead hone their own bodies into perfect weapons of war.\n\n#### Frost Giants\n\nBorn of soaring, frigid peaks, frost giants master their environments to rule mountain ranges and build fortresses of unyielding ice. When frost giants march, a blizzard grows overhead, accompanying them like a war banner. To frost giants, battle is a way of life, camaraderie, and glory.\n\nWhere frost giants make their homes, a unique form of ice sprouts into flowering crystalline structures. Frost giants harvest this ice, known as *issenblau* in their dialect, and fashion it into weapons as hard and sharp as steel, which can be used in any environment without melting.\n\n#### Hill Giants\n\nOf all the giant cultures, hill giants are the most likely to interact with humanoids. Hill giants and smallfolk both love to live in places with rolling, fertile fields, and both appreciate the beauty of nature. However, these commonalities can be quickly forgotten if evil hill giants band together to claim the land solely for themselves, or if the smallfolk let fear of the large get the best of them and attempt to drive off their bigger neighbors. Most hill giants want to be left in peace, but when one is pressed, they can demolish a smallfolk village in minutes.\n\nMost hill giants spend so much time in quiet peace that sudden flashy sights and loud noises can draw their attention. In battle, such distractions can draw a hill giant's ire, making them switch from one target to another.\n\n#### Stone Giants\n\nFascinated by the act of creation, stone giants carve cities out of ancient caverns, mine precious metals and gems, and craft relics worthy of glory. To many a stone giant, artisanship is the highest calling, and all their creations are crafted with an eye to beauty and longevity.\n\nStone giants are made of the same kinds of rocks that form their homes—sandstone, marble, granite, and even basalt. Their stone bodies not only protect them from attack, but also provide them with an additional outlet for self-expression. They often carve runes into their skin, which serve a wide variety of artistic and cultural purposes.\n\n#### Giant Languages\n\nMost giants speak their kind's dialect of High Kuric. Many hill giants also know Caelian.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.giant"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.basalt-stone-giant",
+          "title": "Базальтовый каменный великан"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.fire-giant-chief",
+          "title": "Вождь огненных великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.fire-giant-fireballer",
+          "title": "Огненный великан-метатель"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.fire-giant-lightbearer",
+          "title": "Огненный великан-светоносец"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.fire-giant-red-fist",
+          "title": "Красный кулак огненных великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.frost-giant-snowblaster",
+          "title": "Снежный метатель ледяных великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.frost-giant-storm-hurler",
+          "title": "Метатель бури ледяных великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.frost-giant-wind-sprinter",
+          "title": "Ветробег ледяных великанов"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.granite-stone-giant",
+          "title": "Гранитный каменный великан"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.hill-giant-clobberer",
+          "title": "Холмовой великан-дубинщик"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.hill-giant-mosstooth",
+          "title": "Холмовой великан Мохозуб"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.marble-stone-giant",
+          "title": "Мраморный каменный великан"
+        },
+        {
+          "id": "monsters.monster.giant.statblock.sand-stone-giant",
+          "title": "Песчаный каменный великан"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.giant.giant-malice",
+      "kind": "monster-feature",
+      "name": "Раздор великанов",
+      "markdown": "В начале хода любого великана вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Швырнуть местность (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Куб 4 в пределах 10**  | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Великан вырывает из земли сооружение, опасность или часть карты столкновения и швыряет её так, чтобы она заполнила область. Каждая цель проходит **тест Ловкости**.\n>\n> - **≤11:** 18 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone), цель не может встать (до прох.)\n> - **12-16:** 14 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 9 урона\n\n> ❇️ **Рёв (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый великан в столкновении глубоко вдыхает и кричит, [толкая](#/catalog/glossary#term-glossary.forced-movement) каждое существо в пределах 3 клеток от себя на расстояние до 10 клеток. Существо, которое могут толкнуть несколько великанов, толкает один великан по вашему выбору.\n\n> 🔳 **Титанический разлом (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Великан создаёт трещину в земле: либо линию 15 x 2 в пределах 1, либо линию 10 x 3 в пределах 2. Трещина раскрывается на глубину 6 клеток. Каждый великан в области может [смещением](#/catalog/glossary#term-glossary.shift) переместиться в ближайшее свободное пространство за пределами трещины. Каждое существо, не являющееся великаном, проходит **тест Ловкости**.\n>\n> - **≤11:** 10 урона; цель падает в трещину, получает состояние [Лежащий](#/catalog/glossary#term-glossary.prone) и не может встать (КсХ)\n> - **12-16:** 10 урона; цель получает состояние [Лежащий](#/catalog/glossary#term-glossary.prone) и цепляется за край трещины\n> - **17+:** Цель может [смещением](#/catalog/glossary#term-glossary.shift) переместиться в ближайшее свободное пространство за пределами трещины.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.giant-malice",
+        "path": "Monsters/monster/giant/giant-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant/giant-malice",
+      "originalName": "Giant Malice",
+      "originalDescription": "At the start of any giant's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Hurl Landscape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** A giant unearths a structure, hazard, or chunk of the encounter map and launches it to fill the area. Each target makes an **Agility test**.\n>\n> - **≤11:** 18 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage\n\n> ❇️ **Bellow (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each giant in the encounter takes a deep breath and yells, [pushing](scc.v1:mcdm.heroes.v1/movement/forced-movement) each creature within 3 squares of them up to 10 squares. A creature who can be pushed by more than one giant is pushed by one giant of your choice.\n\n> 🔳 **Titanic Tear (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A giant creates a fissure along the ground, either in a 15 x 2 line within 1 or a 10 x 3 line within 2, and that opens up to a depth of 6 squares. Each giant in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure. Each non-giant in the area makes an **Agility test**.\n>\n> - **≤11:** 10 damage; the target falls into the fissure, and is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 10 damage; the target is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and hanging onto the edge of the fissure\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/giant-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.basalt-stone-giant",
+      "kind": "monster",
+      "name": "Базальтовый каменный великан",
+      "markdown": "| Великан, Каменный великан |           -            |      Уровень 8       |   Элита Контроллер    |        Боевая ценность 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Размер    |     **7**<br>Скорость     | **207**<br>Выносливость |  **10**<br>Устойчивость  |  **8**<br>Свободный удар |\n| **-**<br>Иммунитет  | **Закапывание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+4**<br>Мощь   |   **+2**<br>Ловкость    |  **+1**<br>Разум  |  **+2**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🗡 **Рунический клинок (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**                   | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона; Р < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 17 урона; Р < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 21 урон; Р < 4 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Если цель уже [замедлена](#/catalog/glossary#term-glossary.slowed), состояние сохраняется, но её Скорость становится равна 0 до конца её следующего хода.\n\n> ⚔️ **Развилка (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Ближний бой 3 или Дальний бой 12**       | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 10 урона; Л < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** 16 урона; Л < 3 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 20 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone); Л < 4 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Нож приземляется в клетке цели, имеет 30 [Выносливости](#/catalog/glossary#term-glossary.stamina) и иммунитет к урону 5. Когда нож получает урон, он наносит 4 урона звуком каждому врагу в пределах 3 клеток. Нож остаётся до конца столкновения; его нельзя поднять или сдвинуть.\n\n> 👤 **Форма булыжника**\n>\n> | **-**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Базальтовый каменный великан перемещается на расстояние до своей Скорости. Каждая клетка, которую он покидает во время этого перемещения, становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) для врагов. Великаны игнорируют эту [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ❗️ **Резонирующая руна**\n>\n> | **Область, Магия** |          **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 Взрыв 2**  | **🎯 Каждый враг в области** |\n>\n> **Условие:** Базальтовый каменный великан получает урон.\n>\n> **Эффект:** Цель [толкают](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 3 клеток; если её Л < 3, её [толкают](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 6 клеток и сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Плоть камнелома**\n>\n> Когда враг получает результат тира 1 на способности ближнего боя, применённой против базальтового каменного великана, эта способность получает помеху до конца столкновения.\n\n> ⭐️ **Каменные шаги**\n>\n> Базальтовый каменный великан игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Плавание в камне**\n>\n> Базальтовый каменный великан может [закапываться](#/catalog/glossary#term-glossary.burrow) в камень, но не может утаскивать под землю других существ.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.basalt-stone-giant",
+        "path": "Monsters/monster/giant/statblock/basalt-stone-giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/basalt-stone-giant",
+      "originalName": "Basalt Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |   Elite Controller    |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Rune-Signed Blade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 21 damage; M < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target was already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), that condition continues but their speed is 0 until the end of their next turn.\n\n> ⚔️ **Forked Knife (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 3 or ranged 12**       | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 10 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 16 damage; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The knife lands in the target's square, and has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and damage immunity 5. Whenever the knife takes damage, it deals 4 sonic damage to each enemy within 3 squares. The knife lasts until the end of the encounter, and can't be picked up or manipulated.\n\n> 👤 **Cobblestone Shape**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The basalt stone giant moves up to their speed. Each square that they leave during this move is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Giants ignore this [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ❗️ **Resonate Rune**\n>\n> | **Area, Magic** |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The basalt stone giant takes damage.\n>\n> **Effect:** The target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares, or if they have A < 3, they are [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the basalt stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The basalt stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The basalt stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/basalt-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.fire-giant-chief",
+      "kind": "monster",
+      "name": "Вождь огненных великанов",
+      "markdown": "| Огненный великан, Великан |         -         |      Уровень 9       |        Лидер         |        Боевая ценность 44         |\n|:-----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **5**<br>Размер      |  **10**<br>Скорость  | **240**<br>Выносливость |  **10**<br>Устойчивость  | **9**<br>Свободный удар |\n| **Огонь 10**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|     **+5**<br>Мощь     | **+3**<br>Ловкость |  **0**<br>Разум   |  **+2**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🔳 **Вращающийся кулак (Знаковая способность)**\n>\n> | **Область, Дальний бой, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 4**   | **🎯 Каждый враг и объект в области** |\n>\n> **Эффект:** Каждая цель проходит **тест Ловкости** или **тест Интуиции**.\n>\n> - **≤11:** 18 урона огнём; состояние [Лежащий](#/catalog/glossary#term-glossary.prone); [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 14 урона огнём; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 9 урона огнём\n\n> 🗡 **Пылающий удар ногой**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний бой 4**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 14 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5; при Л < 3 — 9 урона огнём\n> - **12-16:** 19 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 10; при Л < 4 — 9 урона огнём\n> - **17+:** 23 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 15; при Л < 5 — 9 урона огнём\n\n> 🔳 **Лавовый столб (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой**        |                             **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 5 урона огнём; при М < 3 — [вертикальный Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **12-16:** 7 урона огнём; при М < 4 — [вертикальный Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n> - **17+:** 9 урона огнём; при М < 5 — [вертикальный Толчок](#/catalog/glossary#term-glossary.forced-movement) 5\n\n> ❗️ **Поддержать огонь (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний бой**       |       **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|---------------------------:|\n> | **📏 Дальний бой 12** | **🎯 Союзник, вызвавший срабатывание** |\n>\n> **Условие:** Союзник-огненный великан в пределах дистанции совершает удар.\n>\n> **Эффект:** Удар получает двойное преимущество и наносит дополнительно 10 урона огнём.\n\n> ☠️ **Вперёд! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 На себя и каждого союзника в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Любой враг, получивший таким образом урон от [свободного удара](#/catalog/glossary#term-glossary.free-strike), у которого Л < 4, горит (до прох.). Горящий враг получает 1d6 урона огнём в начале каждого своего хода.\n\n> ☠️ **Пылающий легион ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний бой**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Дальний бой 15** | **🎯 Особое** |\n>\n> **Эффект:** Вождь [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 10 клеток. Пять огненных великанов-метателей появляются в свободных пространствах в пределах дистанции.\n\n> ☠️ **Всех — в пепел ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область**        |                                            **-** |\n> |-----------------|-------------------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 На себя и каждого союзника-огненного великана в области** |\n>\n> **Эффект:** Каждая цель выпускает волну огня, а каждый враг в пределах 2 клеток от любой цели проходит тест Ловкости. Враг, задетый двумя целями, получает помеху на тест; враг, задетый тремя или более целями, получает двойную помеху.\n>\n> - **≤11:** 18 урона огнём\n> - **12-16:** 14 урона огнём\n> - **17+:** 9 урона огнём\n\n> ⭐️ **Обжигающая кожа**\n>\n> Когда [смежный](#/catalog/glossary#term-glossary.adjacent) враг [схватывает](#/catalog/glossary#term-glossary.grabbed) вождя или применяет против него способность ближнего боя, этот враг получает 9 урона огнём; если его М < 4, он также получает [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.fire-giant-chief",
+        "path": "Monsters/monster/giant/statblock/fire-giant-chief.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-chief",
+      "originalName": "Fire Giant Chief",
+      "originalDescription": "|    Fire Giant, Giant    |         -         |      Level 9       |        Leader         |        EV 44         |\n|:-----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|      **5**<br>Size      |  **10**<br>Speed  | **240**<br>Stamina |  **10**<br>Stability  | **9**<br>Free Strike |\n| **Fire 10**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+5**<br>Might     | **+3**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🔳 **Roiling Fist (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 4**   | **🎯 Each enemy and object in the area** |\n>\n> **Effect:** Each target makes either an **Agility test** or an **Intuition test**.\n>\n> - **≤11:** 18 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 14 fire damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 fire damage\n\n> 🗡 **Burning Kick**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 4**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 3 9 fire damage\n> - **12-16:** 19 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; A < 4 9 fire damage\n> - **17+:** 23 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 15; A < 5 9 fire damage\n\n> 🔳 **Lava Pillar (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 5 fire damage; M < 3 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 7 fire damage; M < 4 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 9 fire damage; M < 5 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n\n> ❗️ **Fuel the Fire (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |       **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------------:|\n> | **📏 Ranged 12** | **🎯 The triggering ally** |\n>\n> **Trigger:** A fire giant ally within distance makes a strike.\n>\n> **Effect:** The strike has a double edge and deals an extra 10 fire damage.\n\n> ☠️ **Forward! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Any enemy who takes damage from a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) this way and who has A < 4 is burning (save ends). A burning enemy takes 1d6 fire damage at the start of each of their turns.\n\n> ☠️ **Burning Legion ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 15** | **🎯 Special** |\n>\n> **Effect:** The chief [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 10 squares. Five fire giant fireballer then arrive in unoccupied spaces within distance.\n\n> ☠️ **All to Cinders ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area**        |                                            **-** |\n> |-----------------|-------------------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each fire giant ally in the area** |\n>\n> **Effect:** Each target unleashes a wave of fire, and each enemy within 2 squares of any target makes an Agility test. An enemy affected by two targets takes a bane on the test, while an enemy affected by three or more targets has a double bane.\n>\n> - **≤11:** 18 fire damage\n> - **12-16:** 14 fire damage\n> - **17+:** 9 fire damage\n\n> ⭐️ **Scorching Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the chief or uses a melee ability against them, that enemy takes 9 fire damage, and if they have M < 4 they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-chief.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "5",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.fire-giant-fireballer",
+      "kind": "monster",
+      "name": "Огненный великан-метатель",
+      "markdown": "| Огненный великан, Великан |         -         |      Уровень 9      |            Миньон Налётчик             | Боевая ценность 11 за четыре миньона |\n|:----------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|     **4**<br>Размер      |  **7**<br>Скорость   | **13**<br>Выносливость |          **5**<br>Устойчивость           |   **3**<br>Свободный удар  |\n| **Огонь 9**<br>Иммунитет | **-**<br>Движение |         -         | **+3 к Скорости**<br>С капитаном |   **-**<br>Уязвимость    |\n|    **+4**<br>Мощь     | **+2**<br>Ловкость |  **0**<br>Разум  |          **+2**<br>Интуиция          |   **+1**<br>Присутствие   |\n\n> ❇️ **Пылающий прыжок (Знаковая способность)**\n>\n> | **Область, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Взрыв 1**   | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 2 урона огнём\n> - **12-16:** 5 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 6 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n>\n> **Эффект:** Перед применением этой способности метатель может прыгнуть на расстояние до 4 клеток.\n\n> ⭐️ **Палящая кожа**\n>\n> Когда [смежный](#/catalog/glossary#term-glossary.adjacent) враг [схватывает](#/catalog/glossary#term-glossary.grabbed) метателя или применяет против него способность ближнего боя, этот враг получает 5 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.fire-giant-fireballer",
+        "path": "Monsters/monster/giant/statblock/fire-giant-fireballer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-fireballer",
+      "originalName": "Fire Giant Fireballer",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9      |            Minion Harrier             | EV 11 for four minions |\n|:----------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **13**<br>Stamina |          **5**<br>Stability           |  **3**<br>Free Strike  |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason  |          **+2**<br>Intuition          |   **+1**<br>Presence   |\n\n> ❇️ **Blazing Leap (Signature Ability)**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 2 fire damage\n> - **12-16:** 5 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The fireballer can jump up to 4 squares before using this ability.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the fireballer or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-fireballer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "11 for four minions",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.fire-giant-lightbearer",
+      "kind": "monster",
+      "name": "Огненный великан-светоносец",
+      "markdown": "| Огненный великан, Великан |         -         |      Уровень 9       |     Элита Поддержка     |        Боевая ценность 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Размер      |  **8**<br>Скорость   | **200**<br>Выносливость |  **5**<br>Устойчивость   | **9**<br>Свободный удар |\n| **Огонь 9**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+4**<br>Мощь     | **+2**<br>Ловкость |  **0**<br>Разум   |  **+4**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🗡 **Пламенный хлыст (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Ближний бой 6**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 13 урона огнём; сдвинуть на 2\n> - **12-16:** 17 урона огнём; сдвинуть на 4\n> - **17+:** 22 урона огнём; сдвинуть на 6\n\n> 🏹 **Живое пламя (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Дальний бой 6**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 15 урона огнём\n> - **12-16:** 21 урона огнём\n> - **17+:** 26 урона огнём\n>\n> **Эффект:** Пламя рикошетит: можно выбрать ещё одну цель в пределах 4 клеток от первоначальной цели — против неё бросок получает помеху; либо выбрать ещё две цели в пределах 2 клеток от первоначальной цели — против них бросок получает двойную помеху. Светоносец делает один бросок силы против всех целей.\n\n> 🏹 **Путешествие в огне**\n>\n> | **Магия, Дальний бой** |                    **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|--------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Два существа или объекта** |\n>\n> **Эффект:** Светоносец может выбрать целью себя. Каждая цель получает 1d6 урона огнём и [телепортируется](#/catalog/glossary#term-glossary.teleport) в клубе дыма, меняясь местами с другой целью.\n\n> ❗️ **Аварийный маяк**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Светоносец получает урон.\n>\n> **Эффект:** Светоносец излучает световой сигнал до начала своего следующего хода. Каждый огненный великан, находящийся на линии воздействия до светоносца, получает двойное преимущество на бросках способностей.\n\n> ⭐️ **Целительный жар**\n>\n> Любой огненный великан, выбранный целью наносящей урон способности светоносца, игнорирует этот урон и вместо этого восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном предотвращённому урону. Если светоносец перемещает огненного великана способностью, он может не учитывать [Устойчивость](#/catalog/glossary#term-glossary.stability) цели.\n\n> ⭐️ **Палящая кожа**\n>\n> Когда [смежный](#/catalog/glossary#term-glossary.adjacent) враг [схватывает](#/catalog/glossary#term-glossary.grabbed) светоносца или применяет против него способность ближнего боя, этот враг получает 5 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.fire-giant-lightbearer",
+        "path": "Monsters/monster/giant/statblock/fire-giant-lightbearer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-lightbearer",
+      "originalName": "Fire Giant Lightbearer",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |     Elite Support     |        EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **200**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+4**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Flamelash (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 fire damage; slide 2\n> - **12-16:** 17 fire damage; slide 4\n> - **17+:** 22 fire damage; slide 6\n\n> 🏹 **Living Blaze (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 fire damage\n> - **12-16:** 21 fire damage\n> - **17+:** 26 fire damage\n>\n> **Effect:** The blaze ricochets, targeting one additional target within 4 squares of an original target and taking a bane against that target, or targeting two additional targets within 2 squares of an original target and having a double bane against those targets. The lightbearer makes one power roll against all targets.\n\n> 🏹 **Travel By Fire**\n>\n> | **Magic, Ranged** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Two creatures or objects** |\n>\n> **Effect:** The lightbearer can target themself with this ability. Each target takes 1d6 fire damage and [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) in a plume of smoke to swap places with the other target.\n\n> ❗️ **Emergency Beacon**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The lightbearer takes damage.\n>\n> **Effect:** The lightbearer emits a beacon of light until the start of their next turn. Each fire giant who has line of effect to the lightbearer has a double edge on abilities.\n\n> ⭐️ **Healing Heat**\n>\n> Any fire giant targeted by the lightbearer's damage-dealing abilities ignores the damage and instead regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage that would have been dealt. If the lightbearer moves a fire giant using an ability, they can choose to ignore [stability](scc.v1:mcdm.heroes.v1/rule.character/stability).\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the lightbearer or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-lightbearer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Поддержка",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.fire-giant-red-fist",
+      "kind": "monster",
+      "name": "Красный кулак огненных великанов",
+      "markdown": "| Огненный великан, Великан |         -         |      Уровень 9       |      Элита Громила      |         Боевая ценность 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Размер      |  **8**<br>Скорость   | **240**<br>Выносливость |  **5**<br>Устойчивость   | **10**<br>Свободный удар |\n| **Огонь 9**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+4**<br>Мощь     | **+2**<br>Ловкость |  **0**<br>Разум   |  **+2**<br>Интуиция  |  **+1**<br>Присутствие   |\n\n> 🗡 **Пылающий кулак (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 14 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** 19 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; при Л < 3 цель горит (до прох.)\n> - **17+:** 23 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 6; при Л < 4 цель горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ❇️ **Кальдера (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Особое** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** область — взрыв 2; 8 урона огнём; при М < 2 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** область — взрыв 3; 12 урона огнём; при М < 3 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 4\n> - **17+:** область — взрыв 4; 15 урона огнём; при М < 4 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 6\n>\n> **Эффект:** По внешнему краю области возникает каменная стена высотой 1 клетка. Остальная часть области горит до конца столкновения. Существо, впервые за раунд входящее в область или начинающее там ход, получает 3 урона огнём.\n\n> 👤 **Пылающий прыжок**\n>\n> | **-**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Красный кулак прыгает на расстояние до 5 клеток. Каждое существо [смежно](#/catalog/glossary#term-glossary.adjacent) с ним в момент приземления получает 5 урона огнём.\n\n> ❗️ **Жар и давление**\n>\n> | **Ближний бой**      |      **Свободный [Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции добровольно перемещается или [смещается](#/catalog/glossary#term-glossary.shift) прочь от Красного кулака.\n>\n> **Эффект:** Цель проходит **тест Мощи**. Цель с иммунитетом к огню автоматически получает результат тира 3.\n>\n> - **≤11:** [Ослабление](#/catalog/glossary#term-glossary.weakened) и [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ)\n> - **17+:** Без эффекта\n\n> ❗️ **Защитная стойка**\n>\n> | **Ближний бой**      | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Ближний бой 3** |          **🎯 На себя** |\n>\n> **Условие:** Враг выбирает целью способности союзника в пределах дистанции.\n>\n> **Эффект:** Красный кулак становится целью срабатывающей способности, а после её разрешения может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по врагу.\n\n> ⭐️ **Палящая кожа**\n>\n> Когда [смежный](#/catalog/glossary#term-glossary.adjacent) враг [схватывает](#/catalog/glossary#term-glossary.grabbed) Красный кулак или применяет против него способность ближнего боя, этот враг получает 5 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.fire-giant-red-fist",
+        "path": "Monsters/monster/giant/statblock/fire-giant-red-fist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-red-fist",
+      "originalName": "Fire Giant Red Fist",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |      Elite Brute      |         EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **10**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🗡 **Flaming Punch (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 19 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 3 burning (save ends)\n> - **17+:** 23 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; A < 4 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ❇️ **Caldera (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Special** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** The distance is a 2 burst; 8 fire damage; M < 2 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** The distance is a 3 burst; 12 fire damage; M < 3 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** The distance is a 4 burst; 15 fire damage; M < 4 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The outermost squares of the area become a 1-square-tall wall of stone. The rest of the area is on fire until the end of the encounter. A creature who enters the area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> 👤 **Blazing Leap**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The red fist jumps up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them when they land takes 5 fire damage.\n\n> ❗️ **Heat and Pressure**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance willingly moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the red fist.\n>\n> **Effect:** The target makes a **Might test**. A target with fire immunity automatically obtains a tier 3 outcome.\n>\n> - **≤11:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** No effect\n\n> ❗️ **Guardian Block**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 3** |          **🎯 Self** |\n>\n> **Trigger:** An ally within distance is targeted by an enemy's ability.\n>\n> **Effect:** The red fist becomes the target of the triggering ability, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the enemy after the ability resolves.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the red fist or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-red-fist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.frost-giant-snowblaster",
+      "kind": "monster",
+      "name": "Снежный метатель ледяных великанов",
+      "markdown": "| Ледяной великан, Великан |         -         |     Уровень 8      |                Миньон Артиллерист                | Боевая ценность 10 за четыре миньона |\n|:----------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:----------------------:|\n|     **4**<br>Размер      |  **7**<br>Скорость   | **12**<br>Выносливость |               **5**<br>Устойчивость               |  **4**<br>Свободный удар  |\n| **Холод 8**<br>Иммунитет | **-**<br>Движение |        -         | **+3 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость    |\n|    **+3**<br>Мощь     | **-1**<br>Ловкость | **-1**<br>Разум |              **+4**<br>Интуиция               |   **+2**<br>Присутствие   |\n\n> 🏹 **Снежная лавина (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 12**          | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона холодом\n> - **12-16:** 7 урона холодом\n> - **17+:** 9 урона холодом; состояние Лежащий\n\n> ⭐️ **Царство одиночества**\n>\n> Снежного метателя окружает снежная буря. Любой враг, начинающий ход в пределах 2 клеток от него, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.frost-giant-snowblaster",
+        "path": "Monsters/monster/giant/statblock/frost-giant-snowblaster.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-snowblaster",
+      "originalName": "Frost Giant Snowblaster",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |     Level 8      |                Minion Artillery                | EV 10 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:----------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **12**<br>Stamina |               **5**<br>Stability               |  **4**<br>Free Strike  |\n| **Cold 8**<br>Immunity | **-**<br>Movement |        -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|    **+3**<br>Might     | **-1**<br>Agility | **-1**<br>Reason |              **+4**<br>Intuition               |   **+2**<br>Presence   |\n\n> 🏹 **Slushfall (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 12**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 cold damage\n> - **12-16:** 7 cold damage\n> - **17+:** 9 cold damage; prone\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The snowblaster is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the snowblaster can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-snowblaster.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.frost-giant-storm-hurler",
+      "kind": "monster",
+      "name": "Метатель бури ледяных великанов",
+      "markdown": "| Ледяной великан, Великан |         -         |      Уровень 8       |    Элита Артиллерист    |        Боевая ценность 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Размер      |  **7**<br>Скорость   | **180**<br>Выносливость |  **5**<br>Устойчивость   | **9**<br>Свободный удар |\n| **Холод 8**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+4**<br>Мощь     | **-1**<br>Ловкость |  **0**<br>Разум   |  **0**<br>Интуиция   |  **0**<br>Присутствие   |\n\n> 🏹 **Ледяные дротики (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Дальний бой 15**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 13 урона холодом\n> - **12-16:** 18 урона холодом; при М < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 22 урона холодом; при М < 4 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Каждый раз, когда существо получает урон от вызванного этой способностью [Кровотечения](#/catalog/glossary#term-glossary.bleeding), его Скорость уменьшается на 1 (минимум до 0) до прекращения этого состояния.\n\n> 🏹 **Цветок мороза (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|----------------:|\n> | **📏 Дальний бой 15**  |  **🎯 Особое** |\n>\n> **Эффект:** Метатель бури бросает три ледяных дротика размера 1L в свободные клетки в пределах дистанции. Каждый дротик имеет 30 [Выносливости](#/catalog/glossary#term-glossary.stamina) и уязвимость к огню 5. В начале следующего хода метателя бури все неуничтоженные дротики взрываются, разбрасывая ледяные осколки. Каждый враг и объект в пределах 3 клеток от взрывающегося дротика проходит **тест Ловкости**.\n>\n> - **≤11:** 14 урона холодом; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 11 урона холодом; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 7 урона холодом\n\n> 🗡 **Ледяной танец**\n>\n> | **Ближний бой**      |          **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|----------------------:|\n> | **📏 Ближний бой 1** | **🎯 Один союзник-великан** |\n>\n> **Эффект:** Метатель бури и цель каждый [смещаются](#/catalog/glossary#term-glossary.shift) на расстояние до 6 клеток, оставаясь [смежными](#/catalog/glossary#term-glossary.adjacent) друг с другом. Затем цель может прыгнуть на расстояние до 5 клеток и совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❗️ **Ледяное возмездие**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Метатель бури становится целью удара дальнего боя.\n>\n> **Эффект:** Срабатывающий удар получает двойную помеху. Если удар даёт результат тира 1, метатель бури применяет «Ледяные дротики» против существа, которое совершило этот удар.\n\n> ⭐️ **Царство одиночества**\n>\n> Метателя бури окружает снежная буря. Любой враг, начинающий ход в пределах 2 клеток от него, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.frost-giant-storm-hurler",
+        "path": "Monsters/monster/giant/statblock/frost-giant-storm-hurler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-storm-hurler",
+      "originalName": "Frost Giant Storm Hurler",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |      Level 8       |    Elite Artillery    |        EV 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **180**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Cold 8**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **-1**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🏹 **Ice Javelins (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 15**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 cold damage\n> - **12-16:** 18 cold damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 22 cold damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Whenever a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way takes damage from that condition, their speed decreases by 1 (to a minimum of 0) until that condition ends.\n\n> 🏹 **Flower of Frost (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 15**  |  **🎯 Special** |\n>\n> **Effect:** The storm hurler throws three size 1L ice javelins into unoccupied squares within distance. Each javelin has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fire weakness 5. At the start of the storm hurler's next turn, all javelins not destroyed explode in a shower of icicles. Each enemy and object within 3 squares of an exploding javelin makes an **Agility test**.\n>\n> - **≤11:** 14 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 cold damage\n\n> 🗡 **Ice Dance**\n>\n> | **Melee**      |          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------------:|\n> | **📏 Melee 1** | **🎯 One giant ally** |\n>\n> **Effect:** The storm hurler and the target each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares while staying [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other. The target can then jump up to 5 squares and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **Frozen Retribution**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The storm hurler is targeted by a ranged strike.\n>\n> **Effect:** The triggering strike has a double bane. If the strike obtains a tier 1 outcome, the storm hurler uses Ice Javelins against the creature who made it.\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The storm hurler is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the storm hurler can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-storm-hurler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.frost-giant-wind-sprinter",
+      "kind": "monster",
+      "name": "Ветробег ледяных великанов",
+      "markdown": "| Ледяной великан, Великан |         -         |      Уровень 8       |     Элита Налётчик     |        Боевая ценность 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Размер      |  **10**<br>Скорость  | **200**<br>Выносливость |  **5**<br>Устойчивость   | **8**<br>Свободный удар |\n| **Холод 8**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+4**<br>Мощь     | **+4**<br>Ловкость |  **-1**<br>Разум  |  **0**<br>Интуиция   |  **0**<br>Присутствие   |\n\n> 🗡 **Ледяной топор (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона\n> - **12-16:** 17 урона; при Л < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 21 урона; при Л < 4 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Уже [истекающая кровью](#/catalog/glossary#term-glossary.bleeding) цель получает дополнительно 1d6 урона холодом.\n\n> 👤 **Метельный рывок (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------:|\n> | **📏 На себя** |     **🎯 На себя** |\n>\n> **Эффект:** Ветробег [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и применяет «Ледяной топор» против каждого врага, оказавшегося в пределах 2 клеток от него во время перемещения. Ветробег совершает один бросок силы против всех целей.\n\n> 🗡 **Ледяной танец**\n>\n> | **Ближний бой**      |          **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|----------------------:|\n> | **📏 Ближний бой 1** | **🎯 Один союзник-великан** |\n>\n> **Эффект:** Ветробег и цель каждый [смещаются](#/catalog/glossary#term-glossary.shift) на расстояние до 6 клеток, оставаясь [смежными](#/catalog/glossary#term-glossary.adjacent) друг с другом. Затем цель может прыгнуть на расстояние до 5 клеток и совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❗️ **А ну, прочь, мелюзга!**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Ветробег получает урон.\n>\n> **Эффект:** Ветробег перемещается на расстояние до своей Скорости и применяет «Ледяной топор» против одной цели.\n\n> ⭐️ **Растоптать**\n>\n> Ветробег может перемещаться через пространства врагов с обычной Скоростью. В первый раз за ход, когда ветробег входит в пространство существа, то существо может выбрать: упасть [сбитым с ног](#/catalog/glossary#term-glossary.prone) или получить 8 урона.\n\n> ⭐️ **Царство одиночества**\n>\n> Ветробега окружает снежная буря. Любой враг, начинающий ход в пределах 2 клеток от него, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.frost-giant-wind-sprinter",
+        "path": "Monsters/monster/giant/statblock/frost-giant-wind-sprinter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-wind-sprinter",
+      "originalName": "Frost Giant Wind Sprinter",
+      "originalDescription": "|   Frost Giant, Giant   |         -         |      Level 8       |     Elite Harrier     |        EV 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **10**<br>Speed  | **200**<br>Stamina |  **5**<br>Stability   | **8**<br>Free Strike |\n| **Cold 8**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **+4**<br>Agility |  **-1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Cold Axe (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 21 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target who is already [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) takes an extra 1d6 cold damage.\n\n> 👤 **Blizzard Surge (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The wind sprinter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Cold Axe against each enemy who comes within 2 squares of them during the move. The wind sprinter makes one power roll against all targets.\n\n> 🗡 **Ice Dance**\n>\n> | **Melee**      |          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------------:|\n> | **📏 Melee 1** | **🎯 One giant ally** |\n>\n> **Effect:** The wind sprinter and the target each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares while staying [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other. The target can then jump up to 5 squares and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **Begone, Smallfolk!**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The wind sprinter takes damage.\n>\n> **Effect:** The wind sprinter moves up to their speed and uses Cold Axe against one target.\n\n> ⭐️ **Crush Underfoot**\n>\n> The wind sprinter can move through enemies' spaces at their usual speed. The first time on a turn that a wind sprinter enters a creature's space, that creature can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) or to take 8 damage.\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The wind sprinter is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the wind sprinter can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/frost-giant-wind-sprinter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Ледяной великан",
+          "Великан"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.granite-stone-giant",
+      "kind": "monster",
+      "name": "Гранитный каменный великан",
+      "markdown": "| Великан, Каменный великан |           -            |      Уровень 8       |    Элита Защитник     |        Боевая ценность 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Размер    |     **7**<br>Скорость     | **247**<br>Выносливость |  **10**<br>Устойчивость  |  **8**<br>Свободный удар |\n| **-**<br>Иммунитет  | **Закапывание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+4**<br>Мощь   |   **+1**<br>Ловкость    |  **+1**<br>Разум  |  **+2**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🗡 **Зазубренная каменная дубина (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона\n> - **12-16:** 17 урона; при Р < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 21 урон; при Р < 4 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Если цель уже [ослаблена](#/catalog/glossary#term-glossary.weakened), она также получает [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ❇️ **Обвал скал (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** 10 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n> - **17+:** 14 урона; вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n>\n> **Эффект:** Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). Когда существо входит в клетку в области, оно получает 3 урона.\n\n> 👤 **Форма замкового камня**\n>\n> | **-**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Гранитный каменный великан перемещается на расстояние до своей Скорости и создаёт каменную стену из 14 клеток в клетках, [смежных](#/catalog/glossary#term-glossary.adjacent) с его маршрутом движения.\n\n> ❗️ **Столб**\n>\n> | **Ближний бой**      |                     **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо или объект, вызвавший срабатывание** |\n>\n> **Условие:** Существо или объект в пределах дистанции перемещается или [смещается](#/catalog/glossary#term-glossary.shift) прочь от гранитного каменного великана.\n>\n> **Эффект:** Под целью из земли вырастает каменный столб шириной 1 клетка и высотой 5 клеток. Цель поднимается вместе с землёй на новую высоту, после чего её [вертикально толкают](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток.\n\n> ⭐️ **Плоть камнелома**\n>\n> Когда враг получает результат тира 1 на способности ближнего боя, применённой против гранитного каменного великана, эта способность получает помеху до конца столкновения.\n\n> ⭐️ **Каменные шаги**\n>\n> Гранитный каменный великан игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Плавание в камне**\n>\n> Гранитный каменный великан может [закапываться](#/catalog/glossary#term-glossary.burrow) в камень, но не может утаскивать под землю других существ.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.granite-stone-giant",
+        "path": "Monsters/monster/giant/statblock/granite-stone-giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/granite-stone-giant",
+      "originalName": "Granite Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |    Elite Defender     |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **247**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+1**<br>Agility    |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Jagged Stone Club (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; R < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 21 damage; R < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** If the target is already [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), they are also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ❇️ **Crag Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 2 burst** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 14 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Whenever a creature enters square in the area, they take 3 damage.\n\n> 👤 **Castle Stone Shape**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The granite stone giant moves up to their speed and creates a 14 wall of stone in squares [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the path of their movement.\n\n> ❗️ **Pillar**\n>\n> | **Melee**      |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the granite stone giant.\n>\n> **Effect:** A 1-square pillar of stone rises 5 squares out of the ground beneath the target, who moves with the ground to its new elevation, then is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the granite stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The granite stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The granite stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/granite-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.hill-giant-clobberer",
+      "kind": "monster",
+      "name": "Холмовой великан-дубинщик",
+      "markdown": "| Великан, Холмовой великан |           -           |      Уровень 7       |      Элита Громила      |        Боевая ценность 36         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **4**<br>Размер       |    **6**<br>Скорость     | **200**<br>Выносливость |  **5**<br>Устойчивость   | **8**<br>Свободный удар |\n| **Урон 3**<br>Иммунитет | **Лазание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|     **+4**<br>Мощь      |   **-1**<br>Ловкость   |  **-1**<br>Разум  |  **-1**<br>Интуиция  |  **-1**<br>Присутствие  |\n\n> 🗡 **Дубина для оглушения (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона\n> - **12-16:** 17 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 21 урон; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Уже [сбитая с ног](#/catalog/glossary#term-glossary.prone) цель получает дополнительно 12 урона.\n\n> 🗡 **Топот (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 14 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 20 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone); при М < 3 цель не может встать (до прох.)\n> - **17+:** 25 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone); при М < 4 цель не может встать (до прох.)\n>\n> **Эффект:** На достаточно мягкой земле цель проваливается в яму глубиной 2 клетки.\n\n> ❇️ **Холмовая дрожь**\n>\n> | **Область**       |                  **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель должна пройти **тест Мощи** или **тест Ловкости**.\n>\n> - **≤11:** 6 урона; вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **12-16:** 2 урона; вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n>\n> **Эффект:** Дубинщик может добровольно упасть [сбитым с ног](#/catalog/glossary#term-glossary.prone), чтобы удвоить расстояние [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement).\n\n> ❗️ **Тебе не уйти**\n>\n> | **Ближний бой**      |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции перемещается или [смещается](#/catalog/glossary#term-glossary.shift) прочь от дубинщика.\n>\n> **Эффект:** Цель проходит тест Ловкости.\n>\n> - **≤11:** Цель получает состояние [Захват](#/catalog/glossary#term-glossary.grabbed) и помеху на манёвр «Ускользнуть из захвата»\n> - **12-16:** Цель получает состояние [Захват](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** Без эффекта\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Цель, которую эта способность должна была [схватить](#/catalog/glossary#term-glossary.grabbed), вместо этого либо вертикально [толкают](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 5 клеток, либо она получает 5 урона, падает [сбитой с ног](#/catalog/glossary#term-glossary.prone) и не может встать до конца своего следующего хода.\n\n> ⭐️ **Разрушительный путь**\n>\n> Дубинщик автоматически уничтожает любые обычные объекты размера 1 на своём пути, когда перемещается или подвергается [принудительному перемещению](#/catalog/glossary#term-glossary.forced-movement). Так он может пробивать любые обычные стены из дерева, камня или столь же прочного материала толщиной не более 2 клеток.\n\n> ⭐️ **Отвлекаемость**\n>\n> Каждый раз, когда дубинщик выбирает существо или объект целью способности, любой враг в пределах дистанции этой способности может потратить свободный триггер, чтобы отвлечь его. Вместо этого дубинщик выбирает целью этого врага.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.hill-giant-clobberer",
+        "path": "Monsters/monster/giant/statblock/hill-giant-clobberer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/hill-giant-clobberer",
+      "originalName": "Hill Giant Clobberer",
+      "originalDescription": "|    Giant, Hill Giant     |           -           |      Level 7       |      Elite Brute      |        EV 36         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **4**<br>Size       |    **6**<br>Speed     | **200**<br>Stamina |  **5**<br>Stability   | **8**<br>Free Strike | \n| **Damage 3**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+4**<br>Might      |   **-1**<br>Agility   |  **-1**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clobberin' Club (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 21 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 12 damage.\n\n> 🗡 **Stomp (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 3 can't stand (save ends)\n> - **17+:** 25 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 can't stand (save ends)\n>\n> **Effect:** In suitably soft ground, the target is entrenched in a 2-square deep hole.\n\n> ❇️ **Hill Quake**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target must make either a **Might test** or an **Agility test**.\n>\n> - **≤11:** 6 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 2 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The clobberer can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) in order to double the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance.\n\n> ❗️ **You Ain't Getting Away**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the clobberer.\n>\n> **Effect:** The target makes an Agility test.\n>\n> - **≤11:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and the target takes a bane on the Escape Grab maneuver\n> - **12-16:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** No effect\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target who would be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by this ability is instead either vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares; or they take 5 damage, are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and can't stand until the end of their next turn.\n\n> ⭐️ **Destructive Path**\n>\n> The clobberer automatically destroys any mundane size 1 objects in their path when they move or are [forced moved](scc.v1:mcdm.heroes.v1/movement/forced-movement). They can break through any mundane wall made of wood, stone, or a similarly sturdy material this way as long as the wall is 2 squares thick or less.\n\n> ⭐️ **Distracted**\n>\n> Whenever the clobberer targets a creature or object with an ability, any enemy within distance of the ability can use a free triggered action to distract the clobberer. The clobberer targets that enemy instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/hill-giant-clobberer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "36",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Холмовой великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.hill-giant-mosstooth",
+      "kind": "monster",
+      "name": "Холмовой великан Мохозуб",
+      "markdown": "| Великан, Холмовой великан |           -           |      Уровень 7      |                  Миньон Громила                  | Боевая ценность 9 за четыре миньона |\n|:------------------------:|:---------------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|      **4**<br>Размер       |    **6**<br>Скорость     | **13**<br>Выносливость |               **5**<br>Устойчивость               | **4**<br>Свободный удар  |\n| **Урон 3**<br>Иммунитет | **Лазание**<br>Движение |         -         | **+3 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость   |\n|     **+4**<br>Мощь      |   **-1**<br>Ловкость   | **-1**<br>Разум  |              **-1**<br>Интуиция               |  **-1**<br>Присутствие   |\n\n> 🗡 **Замах (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 3**            | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона\n> - **17+:** 8 урона; цель получает состояние [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Мохозуб может использовать [схваченное](#/catalog/glossary#term-glossary.grabbed) им существо или объект как оружие для этой способности, нанося дополнительно 5 урона этому существу или объекту и цели. Затем он прекращает захват и оставляет существо или объект [сбитым с ног](#/catalog/glossary#term-glossary.prone) в свободном пространстве, [смежном](#/catalog/glossary#term-glossary.adjacent) с целью.\n\n> ⭐️ **Отвлекаемость**\n>\n> Каждый раз, когда Мохозуб выбирает существо или объект целью способности, любой враг в пределах дистанции этой способности может потратить свободный триггер, чтобы отвлечь его. Вместо этого Мохозуб выбирает целью этого врага.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.hill-giant-mosstooth",
+        "path": "Monsters/monster/giant/statblock/hill-giant-mosstooth.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/hill-giant-mosstooth",
+      "originalName": "Hill Giant Mosstooth",
+      "originalDescription": "|    Giant, Hill Giant     |           -           |      Level 7      |                  Minion Brute                  | EV 9 for four minions |\n|:------------------------:|:---------------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|      **4**<br>Size       |    **6**<br>Speed     | **13**<br>Stamina |               **5**<br>Stability               | **4**<br>Free Strike  |\n| **Damage 3**<br>Immunity | **Climb**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **+4**<br>Might      |   **-1**<br>Agility   | **-1**<br>Reason  |              **-1**<br>Intuition               |  **-1**<br>Presence   |\n\n> 🗡 **Swing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 8 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The mosstooth can use a creature or object they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) as a weapon for this ability, dealing an extra 5 damage to that creature or object and the target. They then end the grab and leave the creature or object [prone](scc.v1:mcdm.heroes.v1/condition/prone) in an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ⭐️ **Distracted**\n>\n> Whenever the mosstooth targets a creature or object with an ability, any enemy within distance of the ability can use a free triggered action to distract the mosstooth. The mosstooth targets that enemy instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/hill-giant-mosstooth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Холмовой великан"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.marble-stone-giant",
+      "kind": "monster",
+      "name": "Мраморный каменный великан",
+      "markdown": "| Великан, Каменный великан |           -            |      Уровень 8       |      Элита Проклинатель      |        Боевая ценность 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Размер    |     **6**<br>Скорость     | **207**<br>Выносливость |  **10**<br>Устойчивость  |  **8**<br>Свободный удар |\n| **-**<br>Иммунитет  | **Закапывание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+4**<br>Мощь   |   **+3**<br>Ловкость    |  **0**<br>Разум   |  **+3**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🔳 **Мрамор из великой пращи (Знаковая способность)**\n>\n> | **Область, Дальний бой, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 15**  | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 6 урона; при И < 2 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона; при И < 3 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 14 урона; при И < 4 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Если на цели есть эффект, который можно прекратить спасброском или который прекращается в конце её хода, цель также сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> 🗡 **Дальний бросок (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Ближний бой 1**    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 7\n> - **12-16:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 10\n> - **17+:** Вертикальный [Толчок](#/catalog/glossary#term-glossary.forced-movement) 12\n>\n> **Эффект:** Против цели, которая [сбита с ног](#/catalog/glossary#term-glossary.prone) или [схвачена](#/catalog/glossary#term-glossary.grabbed), эта способность получает двойное преимущество.\n\n> 🔳 **Полированная каменная форма**\n>\n> | **Область**                    |   **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|---------------:|\n> | **📏 Линия 10 x 2 в пределах 1** | **🎯 Особое** |\n>\n> **Эффект:** Земля в области становится скользкой и блестящей. Любое существо, не являющееся великаном, которое начинает или заканчивает ход в области, падает [сбитым с ног](#/catalog/glossary#term-glossary.prone) и [сдвигается](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки.\n\n> ❗️ **Сломать броню (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Мраморный каменный великан получает урон.\n>\n> **Эффект:** Мраморный каменный великан уменьшает этот урон вдвое, получает уязвимость к урону 3 и бонус +3 к Скорости до конца столкновения. Уязвимость к урону увеличивается на 3 каждый раз, когда великан применяет эту способность в том же столкновении.\n\n> ⭐️ **Плоть камнелома**\n>\n> Когда враг получает результат тира 1 на способности ближнего боя, применённой против мраморного каменного великана, эта способность получает помеху до конца столкновения.\n\n> ⭐️ **Каменные шаги**\n>\n> Мраморный каменный великан игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Плавание в камне**\n>\n> Мраморный каменный великан может [закапываться](#/catalog/glossary#term-glossary.burrow) в камень, но не может утаскивать под землю других существ.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.marble-stone-giant",
+        "path": "Monsters/monster/giant/statblock/marble-stone-giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/marble-stone-giant",
+      "originalName": "Marble Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |      Elite Hexer      |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **6**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+3**<br>Agility    |  **0**<br>Reason   |  **+3**<br>Intuition  |  **0**<br>Presence   |\n\n> 🔳 **Marble From a Great Sling (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If the target has any effect on them that can be ended by a saving throw or that ends at the end of their turn, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🗡 **Far Flung (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7\n> - **12-16:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10\n> - **17+:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 12\n>\n> **Effect:** Against a target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) or [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), this ability has a double edge.\n\n> 🔳 **Polish Stone Shape**\n>\n> | **Area**                    |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Special** |\n>\n> **Effect:** The ground in the area becomes slick and glossy. Any non-giant who starts or ends their turn in the area is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The marble stone giant takes damage.\n>\n> **Effect:** The marble stone giant halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. The damage weakness increases by 3 each time the marble stone giant uses this ability in the same encounter.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the marble stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The marble stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The marble stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/marble-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.statblock.sand-stone-giant",
+      "kind": "monster",
+      "name": "Песчаный каменный великан",
+      "markdown": "| Великан, Каменный великан |           -            |      Уровень 8      |            Миньон Контроллер            | Боевая ценность 10 за четыре миньона |\n|:------------------:|:----------------------:|:-----------------:|:---------------------------------------:|:----------------------:|\n|   **4**<br>Размер    |     **7**<br>Скорость     | **14**<br>Выносливость |           **10**<br>Устойчивость           |  **3**<br>Свободный удар  |\n| **-**<br>Иммунитет  | **Закапывание**<br>Движение |         -         | **+6 к Выносливости**<br>С капитаном |   **-**<br>Уязвимость    |\n|  **+4**<br>Мощь   |   **+2**<br>Ловкость    |  **0**<br>Разум  |           **+3**<br>Интуиция           |   **0**<br>Присутствие    |\n\n> 🗡 **Погребённый в песке (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 3**           | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона; [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **12-16:** 6 урона; [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 3; при Л < 3 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 8 урона; [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 4; при Л < 4 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n\n> ⭐️ **Плоть камнелома**\n>\n> Когда враг получает результат тира 1 на способности ближнего боя, применённой против песчаного каменного великана, эта способность получает помеху до конца столкновения.\n\n> ⭐️ **Каменные шаги**\n>\n> Песчаный каменный великан игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Плавание в камне**\n>\n> Песчаный каменный великан может [закапываться](#/catalog/glossary#term-glossary.burrow) в камень, но не может утаскивать под землю других существ.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.sand-stone-giant",
+        "path": "Monsters/monster/giant/statblock/sand-stone-giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/sand-stone-giant",
+      "originalName": "Sand Stone Giant",
+      "originalDescription": "| Giant, Stone Giant |           -            |      Level 8      |            Minion Controller            | EV 10 for four minions |    \n|:------------------:|:----------------------:|:-----------------:|:---------------------------------------:|:----------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **14**<br>Stamina |           **10**<br>Stability           |  **3**<br>Free Strike  |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -         | **+6 bonus to Stamina**<br>With Captain |   **-**<br>Weakness    |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **0**<br>Reason  |           **+3**<br>Intuition           |   **0**<br>Presence    |\n\n> 🗡 **Buried in Sand (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 3**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the sand stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The sand stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The sand stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/sand-stone-giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "4",
+        "keywords": [
+          "Великан",
+          "Каменный великан"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.group.giant",
+      "kind": "monster-lore",
+      "name": "Великаны",
+      "markdown": "Великаны великолепно приспособлены к суровой среде и процветают в самых экстремальных условиях. Огненные великаны строят парящие города в жерлах вулканических кальдер, а деревни каменных великанов разбросаны по высочайшим горам. Многие жители могут прожить всю жизнь и так и не узнать, что на соседнем горном хребте обитает местное племя великанов. И к лучшему: мало какие постройки малого народа выдержат натиск хотя бы нескольких великанов, которые настроены всерьёз.\n\n#### Приспособляемость и стихии\n\nВнешность великанов отражает местность, в которой они живут. Племя ледяных великанов не просто обитает на ледниковой горе — оно само является частью этой горы, как и гора — частью великанов. От огненных великанов исходит жар, словно от бушующего вулкана. Мудрецы давно спорят над вопросом: «Среда формирует великана или великан формирует свою среду?»\n\n#### Дальние родичи\n\nУчёные-гуманоиды обычно считают, что все великаны состоят в родстве, хотя сами великаны по умолчанию не считают друг друга роднёй. Когда встречаются общины разных великанов, исход зависит главным образом от характеров отдельных великанов и от отношений между их культурами. Например, каменные великаны редко ладят с холмовыми: холмовые часто презирают искусство каменных великанов. А вот ледяные великаны охотно берут холмовых в набеги, если те готовы идти в авангарде.\n\n#### Огненные великаны\n\nРодом из знойных пустынь и глубоких пещер с бурлящей магмой, огненные великаны воплощают страсть и безжалостность своей стихии. Их считают жестокими завоевателями, одержимыми экспансией, однако малоизвестная сторона их культуры глубоко духовна и основана на самоанализе и стремлении к пониманию.\n\nОгненные великаны редко носят доспехи: во время битвы их тела раскаляются до такой степени, что кожа плавится, а металл деформируется. Вместо этого они оттачивают собственные тела, превращая их в совершенное оружие войны.\n\n#### Ледяные великаны\n\nРождённые среди высоких морозных пиков, ледяные великаны подчинили себе горы и строят крепости из несокрушимого льда. Когда ледяные великаны выступают в поход, над ними разрастается метель и следует за ними, словно боевое знамя. Для ледяных великанов битва — образ жизни, товарищество и слава.\n\nВ местах, где живут ледяные великаны, растёт особый лёд, образующий цветущие кристаллические структуры. Великаны добывают его и на своём наречии называют *иссенблау*, а затем делают из него оружие, твёрдое и острое, как сталь. Оно не тает даже в непривычной для него среде.\n\n#### Великаны холмов\n\nИз всех культур великанов холмовые чаще всего общаются с гуманоидами. И холмовые великаны, и малый народ любят селиться среди плодородных холмов и ценят красоту природы. Но это сходство быстро забывается, когда злые холмовые великаны объединяются, чтобы захватить всю землю себе, или когда малый народ поддаётся страху перед большими соседями и пытается прогнать их. Большинство холмовых великанов хочет, чтобы их оставили в покое, но стоит надавить на одного из них — и он за считанные минуты сравняет с землёй деревню малого народа.\n\nМногие холмовые великаны проводят столько времени в тихом уединении, что их внимание легко привлечь внезапным ярким зрелищем или громким звуком. В бою такие отвлекающие факторы могут разгневать холмового великана и заставить его переключиться с одной цели на другую.\n\n#### Каменные великаны\n\nУвлечённые созиданием, каменные великаны вырубают города в древних пещерах, добывают драгоценные металлы и камни, а также создают реликвии, достойные славы. Для многих каменных великанов ремесло — высшее призвание, и каждое творение они делают прекрасным и долговечным.\n\nКаменные великаны состоят из тех же пород, что и их жилища: песчаника, мрамора, гранита и даже базальта. Их каменные тела не только защищают их от нападений, но и дают им ещё один способ самовыражения. Великаны часто вырезают на коже руны, придавая им самые разные художественные и культурные значения.\n\n#### Языки великанов\n\nБольшинство великанов говорит на диалекте Высокого курика, соответствующем их народу. Многие холмовые великаны также знают кэлианский.\n",
+      "source": {
+        "articleId": "monsters.monster.group.giant",
+        "path": "Monsters/monster/group/giant.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/giant",
+      "originalName": "Giants",
+      "originalDescription": "Supremely well adapted to harsh environments, giants thrive in extreme conditions. Fire giants build floating cities in the hearts of volcanic calderas, while stone giant villages dot the tallest mountains. Most people often go their entire lives blissfully unaware of the local tribe of giants living atop the nearby mountain range. This is for the best, as few \"smallfolk\" structures can survive even a handful of sufficiently motivated giants.\n\n#### Adaptable and Elemental\n\nGiants physically resemble the territory they inhabit. A band of frost giants doesn't simply live on a glacial mountain—they're part of that mountain, and it's part of them. Fire giants exude heat like a roaring volcano. Sages have long debated the question, \"Does the environment shape a giant, or does the giant shape their environment?\"\n\n#### Distant Cousins\n\nHumanoid scholars generally assume that all giants are related, though giants don't view each other as kin by default. When different giant communities interact, the results depend heavily on the individuals involved and the relationships between their cultures. For instance, stone giants rarely get along with hill giants, as hill giants often detest stone artisanship. Meanwhile, frost giants gladly recruit hill giants into raiding parties if they're willing to be in the vanguard.\n\n#### Fire Giants\n\nHailing from sweltering deserts and deep caverns of roiling magma, fire giants embody the passion and ruthlessness of their namesake element. Though they have a reputation for violent growth and expansion, their lesser-known side is a deeply spiritual one, guided by introspection and understanding.\n\nFire giants rarely wear armor, as their bodies heat to extreme temperatures while they fight, causing leather to melt and metal to deform. They instead hone their own bodies into perfect weapons of war.\n\n#### Frost Giants\n\nBorn of soaring, frigid peaks, frost giants master their environments to rule mountain ranges and build fortresses of unyielding ice. When frost giants march, a blizzard grows overhead, accompanying them like a war banner. To frost giants, battle is a way of life, camaraderie, and glory.\n\nWhere frost giants make their homes, a unique form of ice sprouts into flowering crystalline structures. Frost giants harvest this ice, known as *issenblau* in their dialect, and fashion it into weapons as hard and sharp as steel, which can be used in any environment without melting.\n\n#### Hill Giants\n\nOf all the giant cultures, hill giants are the most likely to interact with humanoids. Hill giants and smallfolk both love to live in places with rolling, fertile fields, and both appreciate the beauty of nature. However, these commonalities can be quickly forgotten if evil hill giants band together to claim the land solely for themselves, or if the smallfolk let fear of the large get the best of them and attempt to drive off their bigger neighbors. Most hill giants want to be left in peace, but when one is pressed, they can demolish a smallfolk village in minutes.\n\nMost hill giants spend so much time in quiet peace that sudden flashy sights and loud noises can draw their attention. In battle, such distractions can draw a hill giant's ire, making them switch from one target to another.\n\n#### Stone Giants\n\nFascinated by the act of creation, stone giants carve cities out of ancient caverns, mine precious metals and gems, and craft relics worthy of glory. To many a stone giant, artisanship is the highest calling, and all their creations are crafted with an eye to beauty and longevity.\n\nStone giants are made of the same kinds of rocks that form their homes—sandstone, marble, granite, and even basalt. Their stone bodies not only protect them from attack, but also provide them with an additional outlet for self-expression. They often carve runes into their skin, which serve a wide variety of artistic and cultural purposes.\n\n#### Giant Languages\n\nMost giants speak their kind's dialect of High Kuric. Many hill giants also know Caelian.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/giant.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

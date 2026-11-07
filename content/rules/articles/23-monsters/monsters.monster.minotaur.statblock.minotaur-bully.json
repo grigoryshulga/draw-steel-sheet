@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.minotaur.statblock.minotaur-bully",
+  "title": "Минотавр-задира",
+  "chapter": "23. Бестиарий",
+  "group": "Минотавры",
+  "path": "Monsters/monster/minotaur/statblock/minotaur-bully.md",
+  "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-bully",
+  "originalName": "Minotaur Bully",
+  "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |                  Minion Brute                  | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **14**<br>Stamina |               **2**<br>Stability               |  **4**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+4**<br>Might        | **+2**<br>Agility |  **0**<br>Reason  |              **+3**<br>Intuition               |   **-1**<br>Presence   |\n\n> ⚔️ **Javelin and Bellow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 2 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; I < 4 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends)\n\n> ⭐️ **Minotaur Sense**\n>\n> The bully can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/minotaur/statblock/minotaur-bully.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "minotaur",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10 for four minions",
+    "size": "2",
+    "keywords": [
+      "Проклятый",
+      "Гуманоид",
+      "Минотавр"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.minotaur.statblock.minotaur-bully"
+    }
+  ]
+}

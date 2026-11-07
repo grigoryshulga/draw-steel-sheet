@@ -1,0 +1,29 @@
+{
+  "id": "monster.rival.3rd-echelon.statblock.rival-conduit",
+  "kind": "monster",
+  "name": "Соперник-проводник",
+  "markdown": "| Гуманоид, Соперник |         -         |      Уровень 8      |      Элита, Поддержка      |        Боевая ценность 40         |\n|:-------------------:|:-----------------:|:------------------:|:--------------------------:|:--------------------:|\n|  **1M**<br>Размер   |  **5**<br>Скорость | **200**<br>Выносливость |  **1**<br>Устойчивость   | **8**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость |\n|  **+3**<br>Мощь  | **0**<br>Ловкость  |  **+1**<br>Разум  |  **+4**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> ⚔️ **Небесная ярость ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Магия, Ближний бой, Дальний бой, Удар** |                 **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 10**   | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 святого урона; [вертикально швырнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 2\n> - **12-16:** 17 святого урона; [вертикально швырнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 3\n> - **17+:** 21 святого урона; [вертикально швырнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 4\n>\n> **Эффект:** Проводник или один союзник в пределах дистанции восстанавливает [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) в количестве, равном половине нанесённого урона.\n\n> 🏹 **Наделить силой (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Магия, Дальний бой** |                **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------------------:|\n> | **📏 Дальний бой 10**  | **🎯 На себя и пять союзников** |\n>\n> **Эффект:** Каждый из целей получает двойное преимущество на следующую [атаку](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> ⭐️ **Непоколебимый защитник**\n>\n> Урон, наносимый любому союзнику, [смежному](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с проводником, уменьшается вдвое.\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения проводник выбирает одно существо в пределах своей [линии воздействия](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). И проводник, и это существо могут добавлять результат броска d3 к броскам силы, которые они совершают друг против друга.\n",
+  "source": {
+    "articleId": "monsters.monster.rival.3rd-echelon.statblock.rival-conduit",
+    "path": "Monsters/monster/rival/3rd-echelon/statblock/rival-conduit.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.rival.3rd-echelon.statblock/rival-conduit",
+  "originalName": "Rival Conduit",
+  "originalDescription": "|  Humanoid, Rival  |         -         |      Level 8       |     Elite Support     |        EV 40         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **200**<br>Stamina |  **1**<br>Stability   | **8**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **0**<br>Agility  |  **+1**<br>Reason  |  **+4**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Celestial Furor ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 holy damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 17 holy damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 21 holy damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The conduit or one ally within distance regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> 🏹 **Imbue with Power (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------------------:|\n> | **📏 Ranged 10**  | **🎯 Self and five allies** |\n>\n> **Effect:** Each target has a double edge on their next [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> ⭐️ **Unwavering Defender**\n>\n> Damage dealt to any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the conduit is halved.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the conduit chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the conduit and the creature can add a d3 roll to power rolls they make against each other.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/rival/3rd-echelon/statblock/rival-conduit.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "rival",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Соперник"
+    ],
+    "role": "Поддержка",
+    "organization": "Элита"
+  }
+}

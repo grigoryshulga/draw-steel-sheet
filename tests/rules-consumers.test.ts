@@ -456,7 +456,7 @@ describe("проекции канонических правил для потр
       19,
     );
     expect(new Set(CATALOG.map((entry) => entry.id)).size).toBe(CATALOG.length);
-    expect(GLOSSARY).toHaveLength(234);
+    expect(GLOSSARY).toHaveLength(273);
     expect(new Set(GLOSSARY.map((entry) => entry.id)).size).toBe(
       GLOSSARY.length,
     );
@@ -508,10 +508,12 @@ describe("проекции канонических правил для потр
     // возвращает legacy-слаг, который декоратор переводит в английский.
     const glossaryId = (entry: any) =>
       entry.english ? `glossary.${glossarySlug(entry.english)}` : entry.id;
+    const legacyGlossaryIds = new Set(glossary.entries.map(glossaryId));
+    const preservedGlossary = GLOSSARY.filter(entry => legacyGlossaryIds.has(entry.id));
     expect(glossary.entries.map(glossaryId)).toEqual(
-      GLOSSARY.map((entry) => entry.id),
+      preservedGlossary.map((entry) => entry.id),
     );
-    expect(stripIdentity(GLOSSARY)).toEqual(stripIdentity(glossary.entries));
+    expect(stripIdentity(preservedGlossary)).toEqual(stripIdentity(glossary.entries));
   });
 
   it("собирается детерминированно и проверяется без записи", () => {

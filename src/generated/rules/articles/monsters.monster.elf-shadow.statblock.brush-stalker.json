@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-shadow.statblock.brush-stalker",
+      "title": "Чащобный охотник",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/brush-stalker.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/brush-stalker",
+      "originalName": "Brush Stalker",
+      "originalDescription": "| Animal, Fey, Shadow Elf |         -         |      Level 4      |     Platoon Mount     |        EV 12         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size      |  **8**<br>Speed   | **60**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might     | **+2**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Reclamation (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 7 corruption damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 10 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ⭐️ **Suneater**\n>\n> The area within 2 squares of the brush stalker is devoid of light and provides concealment.\n\n> ⭐️ **Wyrd Dyr**\n>\n> While they have line of effect to the brush stalker, any animal except another brush stalker is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/brush-stalker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Фея",
+          "Теневой эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.brush-stalker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-shadow.statblock.brush-stalker",
+      "kind": "monster",
+      "name": "Чащобный охотник",
+      "markdown": "| Животное, Фея, Теневой эльф |         -         |      Уровень 4      | Взвод — Скакун |        Боевая ценность 12         |\n|:-----------------------:|:-----------------:|:------------------:|:--------------:|:--------------------:|\n|      **2**<br>Размер     |  **8**<br>Скорость | **60**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Бодание (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**                 | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона\n\n> ❇️ **Возвращение природы (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 2**    | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 урона порчей; М < 1 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 7 урона порчей; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 10 урона порчей; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n\n> ⭐️ **Пожиратель солнца**\n>\n> В области в пределах 2 клеток от чащобного охотника нет света, и там действует покров.\n\n> ⭐️ **Вирд-дир**\n>\n> Пока у животного есть линия воздействия до чащобного охотника, оно испытывает [Испуг](#/catalog/glossary#term-glossary.frightened), если только это не другой чащобный охотник.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.brush-stalker",
+        "path": "Monsters/monster/elf-shadow/statblock/brush-stalker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/brush-stalker",
+      "originalName": "Brush Stalker",
+      "originalDescription": "| Animal, Fey, Shadow Elf |         -         |      Level 4      |     Platoon Mount     |        EV 12         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size      |  **8**<br>Speed   | **60**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might     | **+2**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Reclamation (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 7 corruption damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 10 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ⭐️ **Suneater**\n>\n> The area within 2 squares of the brush stalker is devoid of light and provides concealment.\n\n> ⭐️ **Wyrd Dyr**\n>\n> While they have line of effect to the brush stalker, any animal except another brush stalker is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/brush-stalker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Фея",
+          "Теневой эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

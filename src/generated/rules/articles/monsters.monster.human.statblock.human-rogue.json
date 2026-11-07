@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.human.statblock.human-rogue",
+      "title": "Человек-разбойник",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-rogue.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-rogue",
+      "originalName": "Human Rogue",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Concealed Dagger (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If the rogue is disguised or hidden when they use this ability, it deals an extra 3 damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The rogue ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-rogue.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-rogue"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.human.statblock.human-rogue",
+      "kind": "monster",
+      "name": "Человек-разбойник",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Засадник | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:----------------:|:--------------------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество при ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> ⚔️ **Скрытый кинжал (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-----------------------------------------:|\n> | **📏 Ближний 1 или Дальний 5** | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** если разбойник замаскирован или скрыт при использовании способности, она наносит ещё 3 урона.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Разбойник игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-rogue",
+        "path": "Monsters/monster/human/statblock/human-rogue.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-rogue",
+      "originalName": "Human Rogue",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Concealed Dagger (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If the rogue is disguised or hidden when they use this ability, it deals an extra 3 damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The rogue ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-rogue.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

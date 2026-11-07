@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.retainer.statblock.the-nameless",
+  "title": "Безымянный",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/the-nameless.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/the-nameless",
+  "originalName": "The Nameless",
+  "originalDescription": "| Draconian, Dragon, Humanoid  |          -          |      Level 6      |   Defender Retainer   |         EV -         |\n|:----------------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **1M**<br>Size        |   **5**<br>Speed    | **66**<br>Stamina |  **4**<br>Stability   | **6**<br>Free Strike |\n| **Corruption 6**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might        |  **+2**<br>Agility  | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Baneful Blade  (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🗡 **I'm Not a Steed, You're Equipment (Encounter)**\n>\n> | **Melee**      |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The Nameless's mentor** |\n>\n> **Effect:** The Nameless's mentor enters the Nameless's space and rides on their back. The Nameless or the mentor can move the mentor to an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space as a free maneuver. While in the Nameless's space, the mentor moves with them and can't use their move action, and ability rolls against the mentor take a bane.\n\n> ⭐️ **Wing Block**\n>\n> Ranged strikes against the Nameless take a bane.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/the-nameless.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Драконид",
+      "Дракон",
+      "Гуманоид"
+    ],
+    "role": "Защитник",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.the-nameless"
+    }
+  ]
+}

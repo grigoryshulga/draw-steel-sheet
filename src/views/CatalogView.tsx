@@ -28,6 +28,8 @@ import { ReferenceList } from "../components/rules/ReferenceList";
 import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
 import { ClassLandingView } from "./ClassLandingView";
+import { DirectorFilters } from "../components/rules/DirectorFilters";
+import { emptyDirectorFilters, matchesDirectorFilters } from "../lib/director-catalog";
 import "./CodexView.css";
 import "./LibraryView.css";
 import "./ReferenceView.css";
@@ -51,24 +53,26 @@ export function CatalogView() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
+  const [directorFilters, setDirectorFilters] = useState(emptyDirectorFilters);
   const app = useContext(AppContext);
 
   const entries = catalogSectionEntries(section);
-  const selected =
-    entries.find((entry) => entry.id === id) ?? (!id ? entries[0] : undefined);
   const categories = [...new Set(entries.map((entry) => entry.eyebrow))];
   const hasEchelon = entries.some((entry) => entry.echelon);
   const results = entries.filter(
     (entry) =>
       (!category || entry.eyebrow === category) &&
       (!echelon || String(entry.echelon) === echelon) &&
+      matchesDirectorFilters(entry, directorFilters) &&
       matchesLibraryQuery(query, entry.search),
   );
+  const selected = entries.find((entry) => entry.id === id) ?? (!id ? results[0] : undefined);
 
   useEffect(() => {
     setQuery("");
     setCategory("");
     setEchelon("");
+    setDirectorFilters(emptyDirectorFilters);
   }, [section]);
   useEffect(() => {
     if (!id) return;
@@ -192,6 +196,10 @@ export function CatalogView() {
           }`}
         >
           <section className="catalog-browser" aria-label="Каталог">
+            {['monsters', 'retainers', 'terrain'].includes(section) && <>
+              <DirectorFilters entries={entries} value={directorFilters} onChange={setDirectorFilters} />
+              <p className="muted small" role="status">Найдено: {results.length} из {entries.length}</p>
+            </>}
             {(section === "glossary" ||
               categories.length > 1 ||
               hasEchelon) && (
@@ -248,6 +256,7 @@ export function CatalogView() {
                     setQuery("");
                     setCategory("");
                     setEchelon("");
+                    setDirectorFilters(emptyDirectorFilters);
                   }}
                 >
                   Сбросить

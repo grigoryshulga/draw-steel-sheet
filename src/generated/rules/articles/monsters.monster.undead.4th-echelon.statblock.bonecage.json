@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.4th-echelon.statblock.bonecage",
+      "title": "Костяная клетка",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/4th-echelon/statblock/bonecage.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.4th-echelon.statblock/bonecage",
+      "originalName": "Bonecage",
+      "originalDescription": "|             Undead, Soulless             |           -           |     Level 10      |   Horde Controller    |        EV 12         |\n|:----------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **3**<br>Size               |    **6**<br>Speed     | **55**<br>Stamina |  **5**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 10, poison 10**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+5**<br>Might              |   **-2**<br>Agility   | **-2**<br>Reason  |  **+3**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Ribcage Chomp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 9 damage; M < 4 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 12 damage; M < 5 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 14 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The bonecage can have up to four [size](scc.v1:mcdm.heroes.v1/rule.character/size) 1 targets [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) at once. Any creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the bonecage takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the [Escape Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/escape-grab) maneuver, and the bonecage has [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 5 against that creature's abilities. When the bonecage is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), any creature or object they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) moves with them.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, a target can't [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) or be [teleported](scc.v1:mcdm.heroes.v1/movement/teleport).\n\n> 🔳 **Labyrinth of Bone (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**           |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Four 10 x 1 lines within 3** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The bonecage can put up to two 90-degree bends in each of the lines. Each target makes an Agility test.\n>\n> - **≤11:** 9 damage\n> - **12-16:** 7 damage\n> - **17+:** 4 damage\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. The effect ends at the end of the encounter or when the bonecage uses this ability again.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/4th-echelon/statblock/bonecage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Нежить",
+          "Бездушный"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.4th-echelon.statblock.bonecage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.4th-echelon.statblock.bonecage",
+      "kind": "monster",
+      "name": "Костяная клетка",
+      "markdown": "| Нежить, Бездушный | - | Уровень 10 | Орда, Контроллер | Боевая ценность 12 |\n|:----------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **3**<br>Размер | **6**<br>Скорость | **55**<br>Выносливость | **5**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 10, яд 10**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+5**<br>Мощь | **-2**<br>Ловкость | **-2**<br>Разум | **+3**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Хруст рёбер ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 9 урона; при М < 4 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 12 урона; при М < 5 цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 14 урона; цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Костяная клетка может одновременно удерживать в захвате до четырёх целей [размером](#/catalog/glossary#term-glossary.size) 1, [схваченных](#/catalog/glossary#term-glossary.grabbed). Существо, [схваченное](#/catalog/glossary#term-glossary.grabbed) костяной клеткой, получает [помеху](#/catalog/glossary#term-glossary.bane) на манёвр [«Вырваться из захвата»](#/catalog/glossary#term-glossary.escape-grab-maneuver), а костяная клетка получает [иммунитет к урону](#/catalog/glossary#term-glossary.damage-immunity) 5 против способностей этого существа. Если костяную клетку [принудительно перемещают](#/catalog/glossary#term-glossary.forced-movement), все [схваченные](#/catalog/glossary#term-glossary.grabbed) ею существа и объекты перемещаются вместе с ней.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Пока цель [схвачена](#/catalog/glossary#term-glossary.grabbed) таким образом, она не может [телепортироваться](#/catalog/glossary#term-glossary.teleport), и её нельзя [телепортировать](#/catalog/glossary#term-glossary.teleport).\n\n> 🔳 **Костяной лабиринт (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний бой** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|------------------------------:|\n> | **📏 Четыре линии 10 × 1 в пределах 3** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Костяная клетка может добавить к каждой линии до двух поворотов на 90 градусов. Каждая цель проходит тест Ловкости.\n>\n> - **≤11:** 9 урона\n> - **12-16:** 7 урона\n> - **17+:** 4 урона\n>\n> **Эффект:** Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) для врагов. Эффект заканчивается в конце столкновения или когда костяная клетка снова использует эту способность.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.4th-echelon.statblock.bonecage",
+        "path": "Monsters/monster/undead/4th-echelon/statblock/bonecage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.4th-echelon.statblock/bonecage",
+      "originalName": "Bonecage",
+      "originalDescription": "|             Undead, Soulless             |           -           |     Level 10      |   Horde Controller    |        EV 12         |\n|:----------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **3**<br>Size               |    **6**<br>Speed     | **55**<br>Stamina |  **5**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 10, poison 10**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+5**<br>Might              |   **-2**<br>Agility   | **-2**<br>Reason  |  **+3**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Ribcage Chomp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 9 damage; M < 4 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 12 damage; M < 5 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 14 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The bonecage can have up to four [size](scc.v1:mcdm.heroes.v1/rule.character/size) 1 targets [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) at once. Any creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the bonecage takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the [Escape Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/escape-grab) maneuver, and the bonecage has [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 5 against that creature's abilities. When the bonecage is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), any creature or object they have [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) moves with them.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, a target can't [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) or be [teleported](scc.v1:mcdm.heroes.v1/movement/teleport).\n\n> 🔳 **Labyrinth of Bone (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**           |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Four 10 x 1 lines within 3** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The bonecage can put up to two 90-degree bends in each of the lines. Each target makes an Agility test.\n>\n> - **≤11:** 9 damage\n> - **12-16:** 7 damage\n> - **17+:** 4 damage\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. The effect ends at the end of the encounter or when the bonecage uses this ability again.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/4th-echelon/statblock/bonecage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Нежить",
+          "Бездушный"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

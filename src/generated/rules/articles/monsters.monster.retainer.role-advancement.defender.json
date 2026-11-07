@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.role-advancement.defender",
+      "title": "Способности развития роли Защитника",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/role-advancement/defender.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/defender",
+      "originalName": "Defender Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> ❗️ **Watch Out! (Encounter)**\n>\n> | **Melee**      |         **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The retainer's mentor** |\n>\n> **Trigger:** The target takes damage from a strike.\n>\n> **Effect:** The retainer [pushes](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target or the attacking creature up to 2 squares. If that moves the mentor out of distance of the strike, the strike has no effect.\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **It's Me You Want! (Encounter)**\n>\n> | **Melee, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **12-16:** 11 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Last Stand (Encounter)**\n>\n> | **Melee, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------:|\n> | **📏 Melee 1**    | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage\n> - **17+:** 17 damage\n>\n> **Effect:** The retainer and their mentor each gain 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina). Additionally, each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) ally within 2 squares of the retainer can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/defender.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.defender"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.role-advancement.defender",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Защитника",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> ❗️ **Берегись! (Столкновение)**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|------------:|\n> | **📏 Ближний 1** | **🎯 Наставник Помощника** |\n>\n> **Спусковой механизм:** Цель получает урон от удара.\n>\n> **Эффект:** Помощник [отталкивает](#/catalog/glossary#term-glossary.forced-movement) цель или атакующее существо на расстояние до 2 клеток. Если в результате этого Наставник оказывается вне дистанции удара, удар не действует.\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Тебе нужен я! (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Два существа** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) (КсХ)\n> - **12-16:** 11 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 16 урона; [спровоцирован](#/catalog/glossary#term-glossary.taunted) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n\n> **Способность развития роли 10-го уровня**\n\n> 🗡 **Последний рубеж (Столкновение)**\n>\n> | **Ближний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Ближний 1**    | **🎯 Один враг** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона\n> - **17+:** 17 урона\n>\n> **Эффект:** Помощник и его Наставник каждый получают 10 [временной Выносливости](#/catalog/glossary#term-glossary.temporary-stamina). Кроме того, каждый [утомлённый](#/catalog/glossary#term-glossary.winded) союзник в пределах 2 клеток от Помощника может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.defender",
+        "path": "Monsters/monster/retainer/role-advancement/defender.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/defender",
+      "originalName": "Defender Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> ❗️ **Watch Out! (Encounter)**\n>\n> | **Melee**      |         **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------:|\n> | **📏 Melee 1** | **🎯 The retainer's mentor** |\n>\n> **Trigger:** The target takes damage from a strike.\n>\n> **Effect:** The retainer [pushes](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target or the attacking creature up to 2 squares. If that moves the mentor out of distance of the strike, the strike has no effect.\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **It's Me You Want! (Encounter)**\n>\n> | **Melee, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **12-16:** 11 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 16 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Last Stand (Encounter)**\n>\n> | **Melee, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------:|\n> | **📏 Melee 1**    | **🎯 One enemy** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage\n> - **17+:** 17 damage\n>\n> **Effect:** The retainer and their mentor each gain 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina). Additionally, each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) ally within 2 squares of the retainer can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/defender.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

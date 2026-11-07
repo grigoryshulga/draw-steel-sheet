@@ -1,0 +1,29 @@
+{
+  "id": "monster.ogre.statblock.ogre-tantrum",
+  "kind": "monster",
+  "name": "Огр-истерик",
+  "markdown": "| Великан, Огр |         -         |      Уровень 7      |                Миньон Артиллерист                 | Боевая ценность 9 за четырёх миньонов |\n|:-----------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|   **2**<br>Размер   |  **5**<br>Скорость   | **10**<br>Выносливость |               **2**<br>Устойчивость                | **4**<br>Свободный удар  |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **+5 к дальности атак**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+4**<br>Мощь  | **+2**<br>Ловкость | **-1**<br>Разум  |               **0**<br>Интуиция                |  **-1**<br>Присутствие   |\n\n> 🏹 **Швырнуть в припадке ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Дальний 8**            | **🎯 По одному существу или объекту на миньона** |\n>\n> **Эффект:** Истерик выкапывает камень или кусок местности и швыряет его. Если находящееся [вплотную к истерику](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) существо или объект размера 1L, 1M или 1S имеет Л < 3, истерик может [схватить](scc.v1:mcdm.heroes.v1/condition/grabbed) его и использовать как снаряд для этой способности.\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; [оттолкнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 2\n> - **17+:** 8 урона; [оттолкнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 4\n>\n> Существо или объект, использованный как снаряд, вертикально [отталкивается](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 8 (или на 13 с капитаном), игнорируя устойчивость.\n\n> ⭐️ **Чрезмерная ярость**\n>\n> Истерик получает иммунитет к урону 3 и Скорость 8, пока в его отряде не больше двух миньонов.\n",
+  "source": {
+    "articleId": "monsters.monster.ogre.statblock.ogre-tantrum",
+    "path": "Monsters/monster/ogre/statblock/ogre-tantrum.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-tantrum",
+  "originalName": "Ogre Tantrum",
+  "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Artillery                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **10**<br>Stamina |               **2**<br>Stability                | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |               **0**<br>Intuition                |  **-1**<br>Presence   |\n\n> 🏹 **Throw Fit ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Effect:** The tantrum unearths a rock or a hunk of terrain and tosses it. If a size 1L, 1M, or 1S creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tantrum has A < 3 the tantrum can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) them to use as the projectile for this ability.\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> A creature or object used as a projectile is vertically [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) 8 (or 13 with a captain), ignoring stability.\n\n> ⭐️ **Excessive Anger**\n>\n> The tantrum has damage immunity 3 and speed 8 while their squad has two or fewer minions in it.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/ogre/statblock/ogre-tantrum.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "ogre",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Огр"
+    ],
+    "role": "Артиллерист",
+    "organization": "Миньон"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.basilisk.statblock.basilisk-tonguesnapper",
+      "title": "Василиск-языкохват",
+      "chapter": "23. Бестиарий",
+      "group": "Василиски",
+      "path": "Monsters/monster/basilisk/statblock/basilisk-tonguesnapper.md",
+      "originalId": "mcdm.monsters.v1/monster.basilisk.statblock/basilisk-tonguesnapper",
+      "originalName": "Basilisk Tonguesnapper",
+      "originalDescription": "|         Basilisk, Beast          |         -         |      Level 1      |      Elite Hexer      |        EV 12         |\n|:--------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|          **2**<br>Size           |  **8**<br>Speed   | **40**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Acid 2, Poison 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|         **+1**<br>Might          | **+2**<br>Agility | **-3**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Prehensile Tongue (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 acid damage; pull 1\n> - **12-16:** 10 acid damage; pull 2\n> - **17+:** 14 acid damage; pull 3\n>\n> **Effect:** This ability can pull targets [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by Petrifying Eye Beams, and ignores stability if it does so.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The tonguesnapper targets two additional creatures or objects.\n\n> 🔳 **Petrifying Eye Beams**\n>\n> | **Area, Magic**            |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Special** |\n>\n> **Special:** The area extends from both the tonguesnapper’s eyes, and this ability targets the first creature without cover on either side of the area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends); or if A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** If a target is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the potency increases by 1 for that target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way magically begins to turn to stone, and a target who ends two consecutive turns [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is petrified. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way or a creature adjacent to them can use a main action to cut encroaching stone from the target’s body, dealing 8 damage to the target that can’t be reduced in any way and ending this effect.\n\n> ⚔️ **Wink (2 Malice)**\n>\n> | **Magic, Melee, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 corruption damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 corruption damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 corruption damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A creature [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way can’t benefit from [edges](scc.v1:mcdm.heroes.v1/rule.dice/edge) or double [edges](scc.v1:mcdm.heroes.v1/rule.dice/edge) and can’t gain or use [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> ❗️ **Neurotoxin Splash**\n>\n> | **Area**       |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|------------------------------:|\n> | **📏 2 burst** | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The tonguesnapper takes damage from a melee ability.\n>\n> **Effect:** Each target takes 4 acid damage. Any target who has M < 2 is also [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ⭐️ **Petrifying Fumes**\n>\n> Any creature who starts their turn adjacent to the tonguesnapper and has M < 1 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/basilisk/statblock/basilisk-tonguesnapper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "basilisk",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Василиск",
+          "Зверь"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.basilisk.statblock.basilisk-tonguesnapper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.basilisk.basilisk-malice",
+          "title": "Раздор василисков"
+        },
+        {
+          "id": "monsters.monster.group.basilisk",
+          "title": "Василиски"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.basilisk.statblock.basilisk-tonguesnapper",
+      "kind": "monster",
+      "name": "Василиск-языкохват",
+      "markdown": "| Василиск, Зверь |         -         |      Уровень 1      |      Элита, Проклинатель      |        Боевая ценность 12         |\n|:----------------------------:|:-----------------:|:-------------------:|:----------------------------:|:--------------------:|\n|          **2**<br>Размер     |  **8**<br>Скорость | **40**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **Кислота 2, Яд 2**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n|         **+1**<br>Мощь       | **+2**<br>Ловкость | **-3**<br>Разум | **-1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Хваткий язык (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 3**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона кислотой; притягивание 1\n> - **12-16:** 10 урона кислотой; притягивание 2\n> - **17+:** 14 урона кислотой; притягивание 3\n>\n> **Эффект:** Эта способность может притягивать цели, [опутанные](#/catalog/glossary#term-glossary.restrained) «Окаменяющими лучами из глаз», и в этом случае игнорирует их Устойчивость.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Языкохват выбирает ещё двух существ или объектов.\n\n> 🔳 **Окаменяющие лучи из глаз**\n>\n> | **Область, Магия** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|---------------:|\n> | **📏 Линия 5 x 2 в пределах 1** | **🎯 Особое** |\n>\n> **Особое:** Область исходит из обоих глаз языкохвата. Способность нацеливается на первое существо без укрытия с любой стороны этой области.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** при Л < 0 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** при Л < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.); либо при Л < 2 она [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Если цель уже [замедлена](#/catalog/glossary#term-glossary.slowed), Потенциал для неё увеличивается на 1. Существо, [опутанное](#/catalog/glossary#term-glossary.restrained) таким образом, магическим образом начинает превращаться в камень. Если цель два хода подряд заканчивает ход [опутанной](#/catalog/glossary#term-glossary.restrained) таким образом, она окаменевает. Цель, [опутанная](#/catalog/glossary#term-glossary.restrained) таким образом, или смежное с ней существо может основным действием срезать с её тела нарастающий камень: цель получает 8 урона, который нельзя уменьшить никаким способом, а эффект прекращается.\n\n> ⚔️ **Подмигивание (2 Раздора)**\n>\n> | **Магия, Ближний бой, Дальний бой, Удар** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------------|--------------------:|\n> | **📏 Ближний бой 1 или дальний бой 10** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона порчей; при Р < 0 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона порчей; при Р < 1 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 14 урона порчей; при Р < 2 цель [оглушена](#/catalog/glossary#term-glossary.dazed) и [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Существо, [оглушённое](#/catalog/glossary#term-glossary.dazed) таким образом, не может получать [преимущества](#/catalog/glossary#term-glossary.edge) или двойные [преимущества](#/catalog/glossary#term-glossary.edge), а также получать или тратить [всплески](#/catalog/glossary#term-glossary.surge).\n\n> ❗️ **Брызги нейротоксина**\n>\n> | **Область** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Условие:** Языкохват получает урон от способности ближнего боя.\n>\n> **Эффект:** Каждая цель получает 4 урона кислотой. Цель, чья М < 2, также [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> ⭐️ **Окаменяющие испарения**\n>\n> Любое существо, которое начинает ход смежно с языкохватом и чья М < 1, [замедлено](#/catalog/glossary#term-glossary.slowed) (до прох.).\n",
+      "source": {
+        "articleId": "monsters.monster.basilisk.statblock.basilisk-tonguesnapper",
+        "path": "Monsters/monster/basilisk/statblock/basilisk-tonguesnapper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.basilisk.statblock/basilisk-tonguesnapper",
+      "originalName": "Basilisk Tonguesnapper",
+      "originalDescription": "|         Basilisk, Beast          |         -         |      Level 1      |      Elite Hexer      |        EV 12         |\n|:--------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|          **2**<br>Size           |  **8**<br>Speed   | **40**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Acid 2, Poison 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|         **+1**<br>Might          | **+2**<br>Agility | **-3**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Prehensile Tongue (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 acid damage; pull 1\n> - **12-16:** 10 acid damage; pull 2\n> - **17+:** 14 acid damage; pull 3\n>\n> **Effect:** This ability can pull targets [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by Petrifying Eye Beams, and ignores stability if it does so.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The tonguesnapper targets two additional creatures or objects.\n\n> 🔳 **Petrifying Eye Beams**\n>\n> | **Area, Magic**            |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Special** |\n>\n> **Special:** The area extends from both the tonguesnapper’s eyes, and this ability targets the first creature without cover on either side of the area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends); or if A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** If a target is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the potency increases by 1 for that target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way magically begins to turn to stone, and a target who ends two consecutive turns [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is petrified. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way or a creature adjacent to them can use a main action to cut encroaching stone from the target’s body, dealing 8 damage to the target that can’t be reduced in any way and ending this effect.\n\n> ⚔️ **Wink (2 Malice)**\n>\n> | **Magic, Melee, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 corruption damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 corruption damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 corruption damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A creature [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way can’t benefit from [edges](scc.v1:mcdm.heroes.v1/rule.dice/edge) or double [edges](scc.v1:mcdm.heroes.v1/rule.dice/edge) and can’t gain or use [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> ❗️ **Neurotoxin Splash**\n>\n> | **Area**       |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|------------------------------:|\n> | **📏 2 burst** | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The tonguesnapper takes damage from a melee ability.\n>\n> **Effect:** Each target takes 4 acid damage. Any target who has M < 2 is also [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ⭐️ **Petrifying Fumes**\n>\n> Any creature who starts their turn adjacent to the tonguesnapper and has M < 1 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/basilisk/statblock/basilisk-tonguesnapper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "basilisk",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Василиск",
+          "Зверь"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

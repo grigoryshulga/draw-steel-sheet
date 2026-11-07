@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.valok.statblock.multivok-chief",
+  "title": "Мультивок-вождь",
+  "chapter": "23. Бестиарий",
+  "group": "Валоки",
+  "path": "Monsters/monster/valok/statblock/multivok-chief.md",
+  "originalId": "mcdm.monsters.v1/monster.valok.statblock/multivok-chief",
+  "originalName": "Multivok Chief",
+  "originalDescription": "| Construct, Multivok, Soulless, Valok |         -         |      Level 9       |     Elite Support     |        EV 44         |\n|:------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|            **1L**<br>Size            |  **5**<br>Speed   | **220**<br>Stamina |  **3**<br>Stability   | **9**<br>Free Strike |\n|          **-**<br>Immunity           | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|           **+4**<br>Might            | **+1**<br>Agility |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **-3**<br>Presence  |\n\n> 🗡 **Pneumatic Punch ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 18 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n> - **17+:** 22 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 8\n\n> 🏹 **Targeting Beam (3 Malice)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 21 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 26 damage; A < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** This damage can't be reduced in any way. While a target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, any strike against them has a double edge.\n\n> 🏹 **Chief's Command**\n>\n> | **Ranged**      |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|----------------:|\n> | **📏 Ranged 5** | **🎯 One ally** |\n>\n> **Effect:** The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can use a main action.\n\n> ❗️ **Quick Shield**\n>\n> | **Ranged**       |           **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-------------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering creature** |\n>\n> **Trigger:** The chief or an ally within distance is subject to an effect that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) or that ends at the end of their turn.\n>\n> **Effect:** The target gains 15 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). Each time this triggered action is used, the amount of temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) received decreases by 3 (to a minimum of 0).\n\n> ⭐️ **Multivok Maintenance**\n>\n> At the start of the chief's turn, each servok within 2 squares of them regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Crafted to Perfection**\n>\n> The chief's shape can't be changed by any external effect.\n\n> ⭐️ **Valiar Might**\n>\n> While the chief isn't [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), any power roll made against them is automatically a tier 1 outcome. A critical hit still grants its additional main action.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/valok/statblock/multivok-chief.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "valok",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "44",
+    "size": "1L",
+    "keywords": [
+      "Конструкт",
+      "Мультивок",
+      "Бездушный",
+      "Валок"
+    ],
+    "role": "Поддержка",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.valok.statblock.multivok-chief"
+    }
+  ]
+}

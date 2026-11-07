@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.rival.2nd-echelon.statblock.rival-tactician",
+      "title": "Соперник-тактик",
+      "chapter": "23. Бестиарий",
+      "group": "Соперники",
+      "path": "Monsters/monster/rival/2nd-echelon/statblock/rival-tactician.md",
+      "originalId": "mcdm.monsters.v1/monster.rival.2nd-echelon.statblock/rival-tactician",
+      "originalName": "Rival Tactician",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 5       |    Elite Artillery    |        EV 28         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **0**<br>Agility  |  **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Mark Targets ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Two allies within distance can use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against the same target.\n\n> 🏹 **Preserve and Protect (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 21 damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** One ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target regains 7 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❗️ **Take the Opening**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance willingly moves.\n>\n> **Effect:** At any point during the movement, the tactician and one ally within distance can each make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the tactician chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the tactician and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/2nd-echelon/statblock/rival-tactician.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.rival.2nd-echelon.statblock.rival-tactician"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.rival",
+          "title": "Соперники"
+        },
+        {
+          "id": "monsters.monster.rival.rival-malice-level-1-malice-features",
+          "title": "Раздор соперников (особенности Раздора 1-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.rival.2nd-echelon.statblock.rival-tactician",
+      "kind": "monster",
+      "name": "Соперник-тактик",
+      "markdown": "| Гуманоид, Соперник |         -         |      Уровень 5      |      Элита, Артиллерист      |        Боевая ценность 28         |\n|:-------------------:|:-----------------:|:------------------:|:----------------------------:|:--------------------:|\n|  **1M**<br>Размер   |  **5**<br>Скорость | **120**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость |\n|  **+3**<br>Мощь  | **0**<br>Ловкость  |  **+2**<br>Разум  |  **0**<br>Интуиция   |  **+1**<br>Присутствие  |\n\n> 🏹 **Пометить цели ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона\n> - **17+:** 18 урона\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Два союзника в пределах дистанции могут применить [знаковую способность](#/catalog/glossary#term-glossary.signature-ability) против той же цели.\n\n> 🏹 **Сберечь и защитить (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Дальний бой 5**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 11 урона; М < 1 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 16 урона; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 21 урон; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Один союзник, [смежный](#/catalog/glossary#term-glossary.adjacent) с целью, восстанавливает 7 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n\n> ❗️ **Использовать возможность**\n>\n> | **Дальний бой**       |        **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------------|----------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Враг, вызвавший срабатывание** |\n>\n> **Условие:** Враг в пределах дистанции добровольно перемещается.\n>\n> **Эффект:** В любой момент этого перемещения тактик и один союзник в пределах дистанции могут совершить по [свободному удару](#/catalog/glossary#term-glossary.free-strike) каждый по этой цели.\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения тактик выбирает одно существо в пределах своей [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect). И тактик, и это существо могут добавлять результат броска d3 к броскам силы, которые они совершают друг против друга.\n",
+      "source": {
+        "articleId": "monsters.monster.rival.2nd-echelon.statblock.rival-tactician",
+        "path": "Monsters/monster/rival/2nd-echelon/statblock/rival-tactician.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival.2nd-echelon.statblock/rival-tactician",
+      "originalName": "Rival Tactician",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 5       |    Elite Artillery    |        EV 28         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **0**<br>Agility  |  **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Mark Targets ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Two allies within distance can use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against the same target.\n\n> 🏹 **Preserve and Protect (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 21 damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** One ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target regains 7 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❗️ **Take the Opening**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance willingly moves.\n>\n> **Effect:** At any point during the movement, the tactician and one ally within distance can each make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the tactician chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the tactician and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/2nd-echelon/statblock/rival-tactician.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1245 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+      "title": "Раздор теневых эльфов",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/shadow-elf-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow/shadow-elf-malice",
+      "originalName": "Shadow Elf Malice",
+      "originalDescription": "At the start of any shadow elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Watch Me Disappear (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each shadow elf acting this turn can attempt to hide as a free maneuver if they have concealment.\n\n> ⭐️ **Extra Dimension (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> When any shadow elf acting this turn makes a strike against a target who has I < 2 in addition to the strike's regular effects, the target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> 🌀 **Home Is Where the Hurt Is (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The shadow elves synthesize a concentrated pocket manifold reminiscent of Equinox and graft it onto the encounter map. Until the end of the encounter, all creatures can see shadow elves in full color, and shadow elves no longer benefit from their Of the Umbra trait. Additionally, the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of all shadow elf abilities increases by 2, and any enemy making a saving throw against an effect imposed by a shadow elf ability must roll an 8 or higher as they feel the effect across two worlds.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/shadow-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.shadow-elf-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.brush-stalker",
+      "title": "Чащобный охотник",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/brush-stalker.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/brush-stalker",
+      "originalName": "Brush Stalker",
+      "originalDescription": "| Animal, Fey, Shadow Elf |         -         |      Level 4      |     Platoon Mount     |        EV 12         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size      |  **8**<br>Speed   | **60**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might     | **+2**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Reclamation (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 7 corruption damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 10 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ⭐️ **Suneater**\n>\n> The area within 2 squares of the brush stalker is devoid of light and provides concealment.\n\n> ⭐️ **Wyrd Dyr**\n>\n> While they have line of effect to the brush stalker, any animal except another brush stalker is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/brush-stalker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Фея",
+          "Теневой эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.brush-stalker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-assassin",
+      "title": "Теневой эльф-убийца",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-assassin.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-assassin",
+      "originalName": "Shadow Elf Assassin",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |   Platoon Artillery   |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+2**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Lumina Assault (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **Effect:** The next ability used against the target has a double edge.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 3 squares of the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> 🔳 **Splitbow (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon**    |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 4 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage; I < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 10 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 12 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Each target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The assassin ignores concealment created by darkness. While the assassin is in direct sunlight, they have damage weakness 3. While the assassin has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-assassin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-assassin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-cloak",
+      "title": "Теневой плащ",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-cloak.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-cloak",
+      "originalName": "Shadow Elf Cloak",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |            Minion Harrier             | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **8**<br>Speed     | **8**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+1**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Stick and Poke (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** The cloak shifts up to 2 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The cloak ignores concealment created by darkness. While the cloak is in direct sunlight, they have damage weakness 3. While the cloak has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-cloak.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-cloak"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-dusk-mage",
+      "title": "Теневой эльф-маг сумрака",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-dusk-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-dusk-mage",
+      "originalName": "Shadow Elf Dusk Mage",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Hexer                 | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+2**<br>Reason |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🏹 **Gloom Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 6 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Of the Umbra**\n>\n> The dusk mage ignores concealment created by darkness. While the dusk mage is in direct sunlight, they have damage weakness 3. While the dusk mage has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-dusk-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-dusk-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-duskcaller",
+      "title": "Теневой эльф, Зовущий сумрак",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-duskcaller.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-duskcaller",
+      "originalName": "Shadow Elf Duskcaller",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 5      |  Platoon Controller   |        EV 14         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **60**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+3**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Night Knife (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** If the duskcaller has concealment, they can target one additional creature or object.\n\n> 🔳 **The Lay of Cor'thoroth**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 2 cube within 3**  | **🎯 Special** |\n>\n> **Effect:** Until the start of the duskcaller's next turn, the area is filled with darkness.\n>\n> **2 Malice:** The size of the cube increases by 3.\n\n> ⭐️ **Of the Umbra**\n>\n> The duskcaller ignores concealment created by darkness. While the duskcaller is in direct sunlight, they have damage weakness 3. While the duskcaller has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-duskcaller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-duskcaller"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-eclipse",
+      "title": "Теневое затмение",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-eclipse.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-eclipse",
+      "originalName": "Shadow Elf Eclipse",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **6**<br>Speed     | **180**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+4**<br>Might      |   **+3**<br>Agility   |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Manifold Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; I < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🏹 **Grasping Shadow**\n>\n> | **Magic, Ranged** |                                       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Three creatures or objects casting a shadow** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; I < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Put It Out!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability that emits light, including abilities that deal fire or lightning damage.\n>\n> **Effect:** The target has a double bane on the ability.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the eclipse can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Of the Umbra**\n>\n> The eclipse ignores concealment created by darkness. While the eclipse is in direct sunlight, they have damage weakness 3. While the eclipse has concealment, they have damage immunity 3.\n\n> ☠️ **From the Shadows (Villain Action 1)**\n>\n> | **Ranged**      |          **-** |\n> |-----------------|---------------:|    \n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The eclipse calls forth one brush stalker into an unoccupied space within distance. Each ally within distance can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Cast Away All Hope (Villain Action 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|    \n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge). Additionally, until the end of the round, allies ignore edges and double edges on any targets' abilities, and ignore any nondamaging effects of any target's damage-dealing abilities.\n\n> ☠️ **Umbral Hunger (Villain Action 3)**\n>\n> | **Area, Magic**        |                         **-** |\n> |------------------------|------------------------------:|    \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 corruption damage; R < 2 the target has speed 0 (save ends)\n> - **12-16:** 12 corruption damage; R < 3 the target has speed 0 (save ends)\n> - **17+:** 15 corruption damage; R < 4 the target has speed 0 (save ends)\n>\n> **Effect:** The area is shrouded in darkness that creates concealment until the end of the encounter. Any enemy who starts their turn in the area takes 5 corruption damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-eclipse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-eclipse"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-knightfell",
+      "title": "Теневой эльф-рыцегуб",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-knightfell.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-knightfell",
+      "originalName": "Shadow Elf Knightfell",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |   Platoon Defender    |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+2**<br>Agility   |  **0**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Suffusing Strike (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 3**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 corruption damage\n> - **12-16:** 12 corruption damage; R < 2 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 15 corruption damage; R < 3 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n\n> ❗️ **Trick of the Eye**\n>\n> | **Magic, Melee** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Melee 2**   |      **🎯 One ally** |\n>\n> **Trigger:** An enemy within distance makes a strike against the target.\n>\n> **Effect:** The target takes half the damage and the knightfell takes the other half.\n\n> ⭐️ **Of the Umbra**\n>\n> The knightfell ignores concealment created by darkness. While the knightfell is in direct sunlight, they have damage weakness 3. While the knightfell has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-knightfell.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-knightfell"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-luminator",
+      "title": "Теневой эльф-светоносец",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-luminator.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-luminator",
+      "originalName": "Shadow Elf Luminator",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |    Platoon Support    |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+1**<br>Agility   | **+1**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Lumina Mark (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 3**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 lightning damage\n> - **12-16:** 12 lightning damage\n> - **17+:** 15 lightning damage\n>\n> **Effect:** The next strike made against the target deals an extra 5 damage.\n\n> ❇️ **Mourning Till Dusk (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 2 burst**  | **🎯 Each ally in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** The target regains 6 Stamina.\n> - **12-16:** The target regains 9 Stamina.\n> - **17+:** The target regains 12 Stamina and the Director gains 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n>\n> **Effect:** Each target gains an edge on their next strike.\n\n> ⭐️ **Of the Umbra**\n>\n> The luminator ignores concealment created by darkness. While the luminator is in direct sunlight, they have damage weakness 3. While the luminator has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-luminator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-luminator"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-moondancer",
+      "title": "Теневой эльф-лунный танцор",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-moondancer.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-moondancer",
+      "originalName": "Shadow Elf Moondancer",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 5      |    Platoon Harrier    |        EV 14         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **7**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Crescent Sweep (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** Until the end of the current turn, the moondancer ignores opportunity attacks from the target.\n\n> ❗️ **Dissolve**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The moondancer takes damage from a strike.\n>\n> **Effect:** The moondancer can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space with concealment created by darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The moondancer ignores concealment created by darkness. While the moondancer is in direct sunlight, they have damage weakness 3. While the moondancer has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-moondancer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-moondancer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-mournblade",
+      "title": "Теневой эльф-клинок скорби",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-mournblade.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-mournblade",
+      "originalName": "Shadow Elf Mournblade",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |   Platoon Ambusher    |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **80**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+2**<br>Might      |   **+3**<br>Agility   | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Knife in the Dark (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **Effect:** The mournblade is invisible to the target until the start of the mournblade's next turn.\n\n> 👤 **Shadow Step**\n>\n> | **Magic**   | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** If the mournblade has concealment, they can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space with concealment created by darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The mournblade ignores concealment created by darkness. While the mournblade is in direct sunlight, they have damage weakness 3. While the mournblade has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-mournblade.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-mournblade"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-nightstrike",
+      "title": "Теневой эльф-ночной удар",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-nightstrike.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-nightstrike",
+      "originalName": "Shadow Elf Nightstrike",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |               Minion Ambusher               | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **8**<br>Stamina |             **0**<br>Stability              | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |             **+1**<br>Intuition             |   **0**<br>Presence   |\n\n> 🗡 **Vault (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The nightstrike shifts to leap over the target and into an unoccupied space adjacent to the target, opposite from the nightstrike's original space.\n\n> ⭐️ **Of the Umbra**\n>\n> The nightstrike ignores concealment created by darkness. While the nightstrike is in direct sunlight, they have damage weakness 3. While the nightstrike has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-nightstrike.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-nightstrike"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-noctis-mage",
+      "title": "Теневой эльф-ночной маг",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-noctis-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-noctis-mage",
+      "originalName": "Shadow Elf Noctis Mage",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |     Platoon Hexer     |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+2**<br>Agility   | **+3**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Blotting Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 17 damage\n>\n> **Effect:** The target takes a bane on their next strike.\n>\n> **3 Malice:** The target instead has a double bane on the next ability they use.\n\n> 🏹 **Enemies in the Dark (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |    **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Ranged 5**           | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; R < 1 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against one enemy of the noctis mage's choice.\n> - **12-16:** 10 damage; R < 2 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against one enemy of the noctis mage's choice.\n> - **17+:** 13 damage; R < 3 the target uses a signature ability against one enemy of the noctis mage's choice.\n\n> ⭐️ **Of the Umbra**\n>\n> The noctis mage ignores concealment created by darkness. While the noctis mage is in direct sunlight, they have damage weakness 3. While the noctis mage has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-noctis-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-noctis-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-panther",
+      "title": "Теневой эльф-пантера",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-panther.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-panther",
+      "originalName": "Shadow Elf Panther",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |     Platoon Brute     |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+2**<br>Agility   | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Dusk Cleave (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The panther can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ❇️ **Bladestorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 8 corruption damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 10 corruption damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The panther has a double edge on strikes against targets [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way.\n\n> ⭐️ **Of the Umbra**\n>\n> The panther ignores concealment created by darkness. While the panther is in direct sunlight, they have damage weakness 3. While the panther has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-panther.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-panther"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-sniper",
+      "title": "Теневой эльф-снайпер",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-sniper.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-sniper",
+      "originalName": "Shadow Elf Sniper",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Artillery                | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Lumina Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 7**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The next strike made against the target gains an edge.\n\n> ⭐️ **Of the Umbra**\n>\n> The sniper ignores concealment created by darkness. While the sniper is in direct sunlight, they have damage weakness 3. While the sniper has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-sniper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.elf-shadow",
+      "title": "Теневые эльфы",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/group/elf-shadow.md",
+      "originalId": "mcdm.monsters.v1/monster.group/elf-shadow",
+      "originalName": "Elves, Shadow",
+      "originalDescription": "Children of the Twilight Celestials, the shadow elves are the native denizens of the parasitic manifold of Equinox, also known as Dusk. Theirs is a world of perpetual twilight, a sun that never rises nor sets, a world that knows neither noon nor midnight.\n\nEquinox is a dying world. The shadow elves plan to use their magic to rewrite Orden's topography, creating a new home with themselves as rulers over all.\n\n#### In Equinox's Shadow\n\nShadow elves are lit by an unseen sun. In places like Orden, they appear washed out, silhouetted, or grayscale. In Equinox, they have lived in the shadow of their manifold's eternal dusk, making them incompatible with other light sources. Their skills, magic, and weapons do not fare well in the sun. But in turn, they can blend in with existing darkness and dissolve out of sight.\n\n#### Manifold Weaponry\n\nThe shadow elves have mastered the art of combining deep, ancient magic with cutting-edge technology. Their weaponsmiths craft blades of solid shadow that strike and wound in many dimensions at once. A creature hit by one of these blades is injured in multiple worlds at a time. Only a victim of strong mind can compartmentalize and end these effects on their body in the here and now.\n\n#### Brush Stalkers\n\nWhen the shadow elves invade Orden, they often ride domesticated dwimmerbeasts known as brush stalkers—quadrupeds who carry entire ecosystems on their rack of antlers. Newly born brush stalkers do not survive translation into Orden, so the ones the shadow elves ride are old: overgrown with bioluminescent moss, cracks on their ancient cloven hooves.\n\nA brush stalker's glamor allows them to look like a mundane deer. But when the glamour falls, the creature devours the light around them and plunges their surroundings into darkness.\n\n#### Fractured Factions\n\nEquinox is a small world, ruled by Every Strike of Lightning a Lover Betrayed, the Queen of Shadows. It is her shadow elf scouts and assassins who scour Orden seeking allies who might be persuaded that their lives would be better under a different master. But there are other factions of shadow elves in Equinox. Not all who dwell under the invisible sun seek conquest. Others are sages and pacifists who seek to heal their world or find an empty world somewhere in the timescape to resettle to.\n\n#### Duskcalling\n\nCertain shadow elf warriors have a natural link to the unseen sun that illuminates their world. With this link, a warrior can perform a Lay: a mix of humming and throat singing that aligns celestial bodies across manifolds. Some Lays can temporarily induce an eclipse on the manifold in which the duskcaller is performing, allowing their comrades to gain the advantage.\n\nA skilled duskcaller can lead a band in a group song powerful enough to recreate the conditions of Equinox for a short time. Some shadow elf factions are researching this connection in earnest, considering it a viable step toward terraforming a second Equinox.\n\n#### Shadow Tactics\n\nBelief that Equinox is a dying world makes the shadow elves desperate, for soon they'll have no home to retreat to. Their tactics rely on both impenetrable defense and a swift and decisive offense. Since they can't benefit from a home advantage, all warriors are taught to create one. If there are no places to hide, form them. If the light is too bright, remove it.\n\nIn many shadow elf societies, all people are given basic combat training and are expected to serve at least one military tour in their life. Those who excel move on to become duskcallers, mournblades, and eclipses: paragons of strength who are venerated by the people. Research and discovery are employed for the primary purpose of furthering military goals. Even the popular children's game hide-and-seek is a military device created to prepare a people for constant, imminent conflict.\n\n#### Shadow Elf Languages\n\nMost shadow elves speak Illyvric, though platoon leaders might speak some Caelian or Hyrallic.\n\n###### Shadow Elf Deployments\n\n**Shadow Elf Deployments**\n\nWhen under order of the Shadow Queen, shadow elf missions outside of Equinox are usually short, dangerous, and targeted. They rarely last more than a week or two, and the force often appears in Orden not far from their target. Mission goals trend towards the nefarious—kidnapping, assassination, theft, and general skullduggery are the order of the day.\n\nHowever, not every shadow elf force is affiliate d wit h th queen. Some are exiled rebels plotting their return, others independent groups searching for lost magic to restore their world, and yet others have left Equinox permanently to seek new lives in the caverns and deep woods of Orden. No matter their affiliation, these groups will brook no attempts to thwart their goals and are all deadly warriors.\n\n**Shadow Elf Sample Encounters**\n\n- **Infiltrator Wing, 44 EV:** Eight cloaks, four dusk mages, one moondancer, one luminator\n- **Colony Guard, 64 EV:** Eight nightstrikes, eight snipers, one knightfell, one brush stalker, one noctis mage\n- **Kill Wing, 84 EV:** Eight dusk mages, two assassins, two panthers, one mournblade\n- **Shadow Incursion, 122 EV:** Sixteen cloaks, eight snipers, two moondancers, one luminator, one duskcaller, one eclipse",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-shadow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.elf-shadow"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.brush-stalker",
+          "title": "Чащобный охотник"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-assassin",
+          "title": "Теневой эльф-убийца"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-cloak",
+          "title": "Теневой плащ"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-dusk-mage",
+          "title": "Теневой эльф-маг сумрака"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-duskcaller",
+          "title": "Теневой эльф, Зовущий сумрак"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-eclipse",
+          "title": "Теневое затмение"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-knightfell",
+          "title": "Теневой эльф-рыцегуб"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-luminator",
+          "title": "Теневой эльф-светоносец"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-moondancer",
+          "title": "Теневой эльф-лунный танцор"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-mournblade",
+          "title": "Теневой эльф-клинок скорби"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-nightstrike",
+          "title": "Теневой эльф-ночной удар"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-noctis-mage",
+          "title": "Теневой эльф-ночной маг"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-panther",
+          "title": "Теневой эльф-пантера"
+        },
+        {
+          "id": "monsters.monster.elf-shadow.statblock.shadow-elf-sniper",
+          "title": "Теневой эльф-снайпер"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-shadow.shadow-elf-malice",
+      "kind": "monster-feature",
+      "name": "Раздор теневых эльфов",
+      "markdown": "В начале хода любого теневого эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Смотри, как я исчезаю (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый теневой эльф, действующий в этом ходу, может попытаться спрятаться свободным манёвром, если у него есть покров.\n\n> ⭐️ **Дополнительное измерение (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Когда любой теневой эльф, действующий в этом ходу, наносит удар по цели с И < 2, цель вдобавок к обычным эффектам удара получает [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.) или [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> 🌀 **Где боль — там и дом (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Теневые эльфы создают сжатое карманное измерение, напоминающее Эквинокс, и накладывают его на карту столкновения. До конца столкновения все существа видят теневых эльфов во всей цветовой гамме, а теневые эльфы больше не получают преимущество от своей черты «Сумрачная сущность». Кроме того, [Потенциал](#/catalog/glossary#term-glossary.potency) всех способностей теневых эльфов увеличивается на 2, а каждый враг, совершающий спасбросок против эффекта способности теневого эльфа, должен выбросить 8 или больше: он ощущает этот эффект сразу в двух мирах.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.shadow-elf-malice",
+        "path": "Monsters/monster/elf-shadow/shadow-elf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow/shadow-elf-malice",
+      "originalName": "Shadow Elf Malice",
+      "originalDescription": "At the start of any shadow elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Watch Me Disappear (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each shadow elf acting this turn can attempt to hide as a free maneuver if they have concealment.\n\n> ⭐️ **Extra Dimension (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> When any shadow elf acting this turn makes a strike against a target who has I < 2 in addition to the strike's regular effects, the target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> 🌀 **Home Is Where the Hurt Is (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The shadow elves synthesize a concentrated pocket manifold reminiscent of Equinox and graft it onto the encounter map. Until the end of the encounter, all creatures can see shadow elves in full color, and shadow elves no longer benefit from their Of the Umbra trait. Additionally, the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of all shadow elf abilities increases by 2, and any enemy making a saving throw against an effect imposed by a shadow elf ability must roll an 8 or higher as they feel the effect across two worlds.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/shadow-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.brush-stalker",
+      "kind": "monster",
+      "name": "Чащобный охотник",
+      "markdown": "| Животное, Фея, Теневой эльф |         -         |      Уровень 4      | Взвод — Скакун |        Боевая ценность 12         |\n|:-----------------------:|:-----------------:|:------------------:|:--------------:|:--------------------:|\n|      **2**<br>Размер     |  **8**<br>Скорость | **60**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Бодание (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**                 | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона\n\n> ❇️ **Возвращение природы (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 2**    | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 урона порчей; М < 1 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 7 урона порчей; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 10 урона порчей; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n\n> ⭐️ **Пожиратель солнца**\n>\n> В области в пределах 2 клеток от чащобного охотника нет света, и там действует покров.\n\n> ⭐️ **Вирд-дир**\n>\n> Пока у животного есть линия воздействия до чащобного охотника, оно испытывает [Испуг](#/catalog/glossary#term-glossary.frightened), если только это не другой чащобный охотник.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.brush-stalker",
+        "path": "Monsters/monster/elf-shadow/statblock/brush-stalker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/brush-stalker",
+      "originalName": "Brush Stalker",
+      "originalDescription": "| Animal, Fey, Shadow Elf |         -         |      Level 4      |     Platoon Mount     |        EV 12         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size      |  **8**<br>Speed   | **60**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might     | **+2**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Reclamation (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 7 corruption damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 10 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> ⭐️ **Suneater**\n>\n> The area within 2 squares of the brush stalker is devoid of light and provides concealment.\n\n> ⭐️ **Wyrd Dyr**\n>\n> While they have line of effect to the brush stalker, any animal except another brush stalker is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/brush-stalker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Фея",
+          "Теневой эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-assassin",
+      "kind": "monster",
+      "name": "Теневой эльф-убийца",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 6      | Взвод — Артиллерист |        Боевая ценность 16         |\n|:-------------------------:|:---------------------:|:------------------:|:-------------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **70**<br>Выносливость | **0**<br>Устойчивость | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+2**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Световой штурм (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Дальний бой 15**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона\n> - **17+:** 18 урона\n>\n> **Эффект:** Следующая способность, применённая против цели, получает двойное преимущество.\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Каждый союзник, кроме [Миньона](#/codex/monsters.rule.organization.minion), в пределах 3 клеток от цели может нанести по ней [Свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🔳 **Расщепляющий лук (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|------------------------------:|\n> | **📏 Линия 4 × 1 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона; И < 1 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 10 урона; И < 2 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 12 урона; И < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Каждую цель можно [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 4 клеток.\n\n> ⭐️ **Дитя тени**\n>\n> Убийца игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если убийца находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-assassin",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-assassin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-assassin",
+      "originalName": "Shadow Elf Assassin",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |   Platoon Artillery   |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+2**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Lumina Assault (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **Effect:** The next ability used against the target has a double edge.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 3 squares of the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> 🔳 **Splitbow (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon**    |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 4 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage; I < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 10 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 12 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Each target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The assassin ignores concealment created by darkness. While the assassin is in direct sunlight, they have damage weakness 3. While the assassin has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-assassin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-cloak",
+      "kind": "monster",
+      "name": "Теневой плащ",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Налётчик | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:-----------------:|:------------------------:|\n|      **1M**<br>Размер       |   **8**<br>Скорость    | **8**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **+2 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Придержать и уколоть (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 6 урона\n>\n> **Эффект:** Теневой плащ смещается на расстояние до 2 клеток.\n\n> ⭐️ **Дитя тени**\n>\n> Теневой плащ игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если теневой плащ находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-cloak",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-cloak.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-cloak",
+      "originalName": "Shadow Elf Cloak",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |            Minion Harrier             | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **8**<br>Speed     | **8**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+1**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Stick and Poke (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** The cloak shifts up to 2 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The cloak ignores concealment created by darkness. While the cloak is in direct sunlight, they have damage weakness 3. While the cloak has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-cloak.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-dusk-mage",
+      "kind": "monster",
+      "name": "Теневой эльф-маг сумрака",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Проклинатель | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:------------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **7**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **Преимущество на ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+2**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Болт мрака (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 5**         | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; Л < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 6 урона; Л < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ⭐️ **Дитя тени**\n>\n> Маг сумрака игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если маг сумрака находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-dusk-mage",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-dusk-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-dusk-mage",
+      "originalName": "Shadow Elf Dusk Mage",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Hexer                 | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+2**<br>Reason |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🏹 **Gloom Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 6 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Of the Umbra**\n>\n> The dusk mage ignores concealment created by darkness. While the dusk mage is in direct sunlight, they have damage weakness 3. While the dusk mage has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-dusk-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-duskcaller",
+      "kind": "monster",
+      "name": "Теневой эльф, Зовущий сумрак",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 5      | Взвод — Контроллер |        Боевая ценность 14         |\n|:-------------------------:|:---------------------:|:------------------:|:------------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **60**<br>Выносливость | **0**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+3**<br>Разум | **+2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Ночной нож (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** Если у Зовущего сумрак есть покров, он может выбрать ещё одно существо или объект.\n\n> 🔳 **Напев Кор'торота**\n>\n> | **Область, Магия, Дальний бой** |   **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|---------------:|\n> | **📏 Куб 2 в пределах 3**       | **🎯 Особое** |\n>\n> **Эффект:** До начала следующего хода Зовущего сумрак область заполнена темнотой.\n>\n> **2 Раздора:** Размер куба увеличивается на 3.\n\n> ⭐️ **Дитя тени**\n>\n> Зовущий сумрак игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если Зовущий сумрак находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-duskcaller",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-duskcaller.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-duskcaller",
+      "originalName": "Shadow Elf Duskcaller",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 5      |  Platoon Controller   |        EV 14         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **60**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+3**<br>Agility   | **+3**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Night Knife (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** If the duskcaller has concealment, they can target one additional creature or object.\n\n> 🔳 **The Lay of Cor'thoroth**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 2 cube within 3**  | **🎯 Special** |\n>\n> **Effect:** Until the start of the duskcaller's next turn, the area is filled with darkness.\n>\n> **2 Malice:** The size of the cube increases by 3.\n\n> ⭐️ **Of the Umbra**\n>\n> The duskcaller ignores concealment created by darkness. While the duskcaller is in direct sunlight, they have damage weakness 3. While the duskcaller has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-duskcaller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-eclipse",
+      "kind": "monster",
+      "name": "Теневое затмение",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 6      | Лидер |        Боевая ценность 32         |\n|:-------------------------:|:---------------------:|:------------------:|:-----:|:--------------------:|\n|      **1M**<br>Размер       |   **6**<br>Скорость    | **180**<br>Выносливость | **1**<br>Устойчивость | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+4**<br>Мощь | **+3**<br>Ловкость | **+2**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Клинок между мирами (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 11 урона; И < 2 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 16 урона; И < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 19 урона; И < 4 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** [Потенциал](#/catalog/glossary#term-glossary.potency) увеличивается на 1.\n\n> 🏹 **Хваткая тень**\n>\n> | **Магия, Дальний бой** |                                       **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------------------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Три отбрасывающих тень существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток; И < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 7 клеток; И < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 10 клеток; И < 4 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ❗️ **Погасить!**\n>\n> | **Дальний бой**       |        **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------------|----------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Враг, вызвавший триггер** |\n>\n> **Условие:** Враг в пределах дистанции использует способность, излучающую свет, в том числе способность, наносящую урон огнём или молнией.\n>\n> **Эффект:** Цель получает двойную Помеху на эту способность.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода Затмение может получить 10 урона, чтобы прекратить один действующий на него эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким образом.\n\n> ⭐️ **Дитя тени**\n>\n> Затмение игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, оно получает уязвимость к урону 3. Если Затмение находится под покровом, оно получает иммунитет к урону 3.\n\n> ☠️ **Из теней (Действие злодея 1)**\n>\n> | **Дальний бой**      |          **-** |\n> |----------------------|---------------:|\n> | **📏 Дальний бой 5** | **🎯 Особое** |\n>\n> **Эффект:** Затмение призывает одного чащобного охотника в свободное пространство в пределах дистанции. Затем каждый союзник в пределах дистанции может совершить [Смещение](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и нанести [Свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Отриньте всякую надежду (Действие злодея 2)**\n>\n> | **Область, Магия** |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 3**    | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель теряет все свои [Всплески](#/catalog/glossary#term-glossary.surge). Кроме того, до конца раунда союзники не учитывают преимущества и двойные преимущества способностей любых целей и игнорируют все не наносящие урон эффекты способностей целей, наносящих урон.\n\n> ☠️ **Сумрачный голод (Действие злодея 3)**\n>\n> | **Область, Магия**        |                         **-** |\n> |---------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона порчей; Р < 2 Скорость цели становится равной 0 (до прох.)\n> - **12-16:** 12 урона порчей; Р < 3 Скорость цели становится равной 0 (до прох.)\n> - **17+:** 15 урона порчей; Р < 4 Скорость цели становится равной 0 (до прох.)\n>\n> **Эффект:** Область окутывает темнота, создающая покров до конца столкновения. Каждый враг, начинающий свой ход в этой области, получает 5 урона порчей.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-eclipse",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-eclipse.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-eclipse",
+      "originalName": "Shadow Elf Eclipse",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **6**<br>Speed     | **180**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+4**<br>Might      |   **+3**<br>Agility   |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Manifold Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; I < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🏹 **Grasping Shadow**\n>\n> | **Magic, Ranged** |                                       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Three creatures or objects casting a shadow** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; I < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Put It Out!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability that emits light, including abilities that deal fire or lightning damage.\n>\n> **Effect:** The target has a double bane on the ability.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the eclipse can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Of the Umbra**\n>\n> The eclipse ignores concealment created by darkness. While the eclipse is in direct sunlight, they have damage weakness 3. While the eclipse has concealment, they have damage immunity 3.\n\n> ☠️ **From the Shadows (Villain Action 1)**\n>\n> | **Ranged**      |          **-** |\n> |-----------------|---------------:|    \n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The eclipse calls forth one brush stalker into an unoccupied space within distance. Each ally within distance can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Cast Away All Hope (Villain Action 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|    \n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge). Additionally, until the end of the round, allies ignore edges and double edges on any targets' abilities, and ignore any nondamaging effects of any target's damage-dealing abilities.\n\n> ☠️ **Umbral Hunger (Villain Action 3)**\n>\n> | **Area, Magic**        |                         **-** |\n> |------------------------|------------------------------:|    \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 corruption damage; R < 2 the target has speed 0 (save ends)\n> - **12-16:** 12 corruption damage; R < 3 the target has speed 0 (save ends)\n> - **17+:** 15 corruption damage; R < 4 the target has speed 0 (save ends)\n>\n> **Effect:** The area is shrouded in darkness that creates concealment until the end of the encounter. Any enemy who starts their turn in the area takes 5 corruption damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-eclipse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-knightfell",
+      "kind": "monster",
+      "name": "Теневой эльф-рыцегуб",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 4      | Взвод — Защитник |        Боевая ценность 12         |\n|:-------------------------:|:---------------------:|:------------------:|:----------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **70**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+3**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Проникающий удар (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Дальний бой 3**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона порчей\n> - **12-16:** 12 урона порчей; Р < 2 [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ)\n> - **17+:** 15 урона порчей; Р < 3 [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ)\n\n> ❗️ **Обман зрения**\n>\n> | **Магия, Ближний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|---------------------:|\n> | **📏 Ближний бой 2**   |      **🎯 Один союзник** |\n>\n> **Условие:** Враг в пределах дистанции наносит удар по цели.\n>\n> **Эффект:** Цель получает половину урона, а рыцегуб — вторую половину.\n\n> ⭐️ **Дитя тени**\n>\n> Рыцегуб игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если рыцегуб находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-knightfell",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-knightfell.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-knightfell",
+      "originalName": "Shadow Elf Knightfell",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |   Platoon Defender    |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+2**<br>Agility   |  **0**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Suffusing Strike (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 3**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 corruption damage\n> - **12-16:** 12 corruption damage; R < 2 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 15 corruption damage; R < 3 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n\n> ❗️ **Trick of the Eye**\n>\n> | **Magic, Melee** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Melee 2**   |      **🎯 One ally** |\n>\n> **Trigger:** An enemy within distance makes a strike against the target.\n>\n> **Effect:** The target takes half the damage and the knightfell takes the other half.\n\n> ⭐️ **Of the Umbra**\n>\n> The knightfell ignores concealment created by darkness. While the knightfell is in direct sunlight, they have damage weakness 3. While the knightfell has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-knightfell.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-luminator",
+      "kind": "monster",
+      "name": "Теневой эльф-светоносец",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 4      | Взвод — Поддержка |        Боевая ценность 12         |\n|:-------------------------:|:---------------------:|:------------------:|:-----------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **60**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **+1**<br>Разум | **+3**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Световая метка (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Дальний бой 3**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона молнией\n> - **12-16:** 12 урона молнией\n> - **17+:** 15 урона молнией\n>\n> **Эффект:** Следующий удар по цели наносит дополнительно 5 урона.\n\n> ❇️ **Скорбь до сумерек (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |              **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Взрыв 2**    | **🎯 Каждый союзник в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** цель восстанавливает 6 Выносливости.\n> - **12-16:** цель восстанавливает 9 Выносливости.\n> - **17+:** цель восстанавливает 12 Выносливости, а Ведущий получает 3 [Раздора](#/codex/monsters.rule.monster.malice).\n>\n> **Эффект:** Каждая цель получает преимущество на следующий удар.\n\n> ⭐️ **Дитя тени**\n>\n> Светоносец игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если светоносец находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-luminator",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-luminator.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-luminator",
+      "originalName": "Shadow Elf Luminator",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |    Platoon Support    |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+1**<br>Agility   | **+1**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Lumina Mark (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 3**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 lightning damage\n> - **12-16:** 12 lightning damage\n> - **17+:** 15 lightning damage\n>\n> **Effect:** The next strike made against the target deals an extra 5 damage.\n\n> ❇️ **Mourning Till Dusk (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 2 burst**  | **🎯 Each ally in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** The target regains 6 Stamina.\n> - **12-16:** The target regains 9 Stamina.\n> - **17+:** The target regains 12 Stamina and the Director gains 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n>\n> **Effect:** Each target gains an edge on their next strike.\n\n> ⭐️ **Of the Umbra**\n>\n> The luminator ignores concealment created by darkness. While the luminator is in direct sunlight, they have damage weakness 3. While the luminator has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-luminator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-moondancer",
+      "kind": "monster",
+      "name": "Теневой эльф-лунный танцор",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 5      | Взвод — Налётчик |        Боевая ценность 14         |\n|:-------------------------:|:---------------------:|:------------------:|:----------------:|:--------------------:|\n|      **1M**<br>Размер       |   **7**<br>Скорость    | **70**<br>Выносливость | **0**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+3**<br>Ловкость | **+1**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Взмах полумесяца (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                 | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** До конца текущего хода лунный танцор игнорирует атаки по возможности со стороны цели.\n\n> ❗️ **Растворение**\n>\n> | **Магия**   | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Лунный танцор получает урон от удара.\n>\n> **Эффект:** Лунный танцор может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 10 клеток в пространство, на которое распространяется покров, созданный темнотой.\n\n> ⭐️ **Дитя тени**\n>\n> Лунный танцор игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если лунный танцор находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-moondancer",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-moondancer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-moondancer",
+      "originalName": "Shadow Elf Moondancer",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 5      |    Platoon Harrier    |        EV 14         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **7**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Crescent Sweep (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** Until the end of the current turn, the moondancer ignores opportunity attacks from the target.\n\n> ❗️ **Dissolve**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The moondancer takes damage from a strike.\n>\n> **Effect:** The moondancer can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space with concealment created by darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The moondancer ignores concealment created by darkness. While the moondancer is in direct sunlight, they have damage weakness 3. While the moondancer has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-moondancer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "14",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-mournblade",
+      "kind": "monster",
+      "name": "Теневой эльф-клинок скорби",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 6      | Взвод — Засадник |        Боевая ценность 16         |\n|:-------------------------:|:---------------------:|:------------------:|:----------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **80**<br>Выносливость | **0**<br>Устойчивость | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+3**<br>Ловкость | **+1**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Нож во тьме (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона\n> - **17+:** 18 урона\n>\n> **Эффект:** Цель не видит клинок скорби до начала его следующего хода.\n\n> 👤 **Шаг тени**\n>\n> | **Магия**   | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Если у клинка скорби есть покров, он может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 10 клеток в пространство, на которое распространяется покров, созданный темнотой.\n\n> ⭐️ **Дитя тени**\n>\n> Клинок скорби игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если клинок скорби находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-mournblade",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-mournblade.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-mournblade",
+      "originalName": "Shadow Elf Mournblade",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |   Platoon Ambusher    |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **80**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+2**<br>Might      |   **+3**<br>Agility   | **+1**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Knife in the Dark (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 damage\n>\n> **Effect:** The mournblade is invisible to the target until the start of the mournblade's next turn.\n\n> 👤 **Shadow Step**\n>\n> | **Magic**   | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** If the mournblade has concealment, they can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space with concealment created by darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The mournblade ignores concealment created by darkness. While the mournblade is in direct sunlight, they have damage weakness 3. While the mournblade has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-mournblade.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-nightstrike",
+      "kind": "monster",
+      "name": "Теневой эльф-ночной удар",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Засадник | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:-----------------:|:------------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **8**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **Преимущество на ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Перепрыгивание (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2**          | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Ночной удар совершает Смещение, перепрыгивая через цель в свободное пространство рядом с ней, с противоположной стороны относительно исходного пространства ночного удара.\n\n> ⭐️ **Дитя тени**\n>\n> Ночной удар игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если ночной удар находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-nightstrike",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-nightstrike.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-nightstrike",
+      "originalName": "Shadow Elf Nightstrike",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |               Minion Ambusher               | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **8**<br>Stamina |             **0**<br>Stability              | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |             **+1**<br>Intuition             |   **0**<br>Presence   |\n\n> 🗡 **Vault (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The nightstrike shifts to leap over the target and into an unoccupied space adjacent to the target, opposite from the nightstrike's original space.\n\n> ⭐️ **Of the Umbra**\n>\n> The nightstrike ignores concealment created by darkness. While the nightstrike is in direct sunlight, they have damage weakness 3. While the nightstrike has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-nightstrike.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-noctis-mage",
+      "kind": "monster",
+      "name": "Теневой эльф-ночной маг",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 6      | Взвод — Проклинатель |        Боевая ценность 16         |\n|:-------------------------:|:---------------------:|:------------------:|:--------------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **70**<br>Выносливость | **0**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+3**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Помрачающий снаряд (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Дальний бой 5**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона\n> - **17+:** 17 урона\n>\n> **Эффект:** Следующий удар по цели получает Помеху.\n>\n> **3 Раздора:** Вместо этого следующая способность цели получает двойную Помеху.\n\n> 🏹 **Враги во тьме (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой, Удар** |    **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------:|\n> | **📏 Дальний бой 5**         | **🎯 Два врага** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона; Р < 1 цель наносит [Свободный удар](#/catalog/glossary#term-glossary.free-strike) по врагу на выбор ночного мага.\n> - **12-16:** 10 урона; Р < 2 цель наносит [Свободный удар](#/catalog/glossary#term-glossary.free-strike) по врагу на выбор ночного мага.\n> - **17+:** 13 урона; Р < 3 цель использует знаковую способность против врага на выбор ночного мага.\n\n> ⭐️ **Дитя тени**\n>\n> Ночной маг игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если ночной маг находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-noctis-mage",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-noctis-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-noctis-mage",
+      "originalName": "Shadow Elf Noctis Mage",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6      |     Platoon Hexer     |        EV 16         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+2**<br>Agility   | **+3**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Blotting Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 17 damage\n>\n> **Effect:** The target takes a bane on their next strike.\n>\n> **3 Malice:** The target instead has a double bane on the next ability they use.\n\n> 🏹 **Enemies in the Dark (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |    **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Ranged 5**           | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; R < 1 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against one enemy of the noctis mage's choice.\n> - **12-16:** 10 damage; R < 2 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against one enemy of the noctis mage's choice.\n> - **17+:** 13 damage; R < 3 the target uses a signature ability against one enemy of the noctis mage's choice.\n\n> ⭐️ **Of the Umbra**\n>\n> The noctis mage ignores concealment created by darkness. While the noctis mage is in direct sunlight, they have damage weakness 3. While the noctis mage has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-noctis-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-panther",
+      "kind": "monster",
+      "name": "Теневой эльф-пантера",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 4      | Взвод — Громила |        Боевая ценность 12         |\n|:-------------------------:|:---------------------:|:------------------:|:---------------:|:--------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **70**<br>Выносливость | **0**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Рассечение в сумраке (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона; И < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Пантера может нанести [Свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу или объекту, [смежному](#/catalog/glossary#term-glossary.adjacent) с целью.\n\n> ❇️ **Буря клинков (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Взрыв 2**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона порчей\n> - **12-16:** 8 урона порчей; И < 2 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 10 урона порчей; И < 3 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Пантера получает двойное преимущество на удары по целям, которые она таким образом [оглушила](#/catalog/glossary#term-glossary.dazed).\n\n> ⭐️ **Дитя тени**\n>\n> Пантера игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, она получает уязвимость к урону 3. Если пантера находится под покровом, она получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-panther",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-panther.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-panther",
+      "originalName": "Shadow Elf Panther",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |     Platoon Brute     |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+2**<br>Agility   | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Dusk Cleave (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The panther can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ❇️ **Bladestorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 8 corruption damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 10 corruption damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The panther has a double edge on strikes against targets [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way.\n\n> ⭐️ **Of the Umbra**\n>\n> The panther ignores concealment created by darkness. While the panther is in direct sunlight, they have damage weakness 3. While the panther has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-panther.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-sniper",
+      "kind": "monster",
+      "name": "Теневой эльф-снайпер",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Артиллерист | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:--------------------:|:------------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **7**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **+2 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Световая стрела (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 7**           | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Следующий удар по цели получает преимущество.\n\n> ⭐️ **Дитя тени**\n>\n> Снайпер игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если снайпер находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-sniper",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-sniper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-sniper",
+      "originalName": "Shadow Elf Sniper",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Artillery                | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Lumina Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 7**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The next strike made against the target gains an edge.\n\n> ⭐️ **Of the Umbra**\n>\n> The sniper ignores concealment created by darkness. While the sniper is in direct sunlight, they have damage weakness 3. While the sniper has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.group.elf-shadow",
+      "kind": "monster-lore",
+      "name": "Теневые эльфы",
+      "markdown": "Дети сумеречных небожителей, теневые эльфы — коренные обитатели паразитического измерения Эквинокс, также известного как Сумрак. Они живут в мире вечных сумерек, где солнце никогда не восходит и не заходит, где не бывает ни полудня, ни полуночи.\n\nЭквинокс — умирающий мир. Теневые эльфы намерены с помощью магии переписать топографию Ордена и создать новый дом, в котором будут править всеми.\n\n#### В тени Эквинокса\n\nТеневых эльфов освещает незримое солнце. В таких местах, как Орден, они выглядят выцветшими, похожими на силуэты или словно окрашенными в оттенки серого. В Эквиноксе они жили под вечными сумерками своего измерения и потому плохо переносят другие источники света. Их умения, магия и оружие плохо действуют на солнце. Зато теневые эльфы умеют сливаться с окружающей тьмой и исчезать из виду.\n\n#### Многомерное оружие\n\nТеневые эльфы овладели искусством сочетать древнюю глубинную магию с передовыми технологиями. Их оружейники создают клинки из плотной тени, которые наносят удары и ранят сразу в нескольких измерениях. Существо, поражённое таким клинком, получает раны одновременно в нескольких мирах. Только обладатель сильного разума способен мысленно отделить эти воздействия и прекратить их телесные последствия здесь и сейчас.\n\n#### Чащобные охотники\n\nВторгаясь в Орден, теневые эльфы часто ездят на приручённых чудозверях — Чащобных охотниках, четвероногих существах, несущих на развилке рогов целые экосистемы. Новорождённые чащобные охотники не переживают переход в Орден, поэтому их всадникам достаются старые особи: они обросли биолюминесцентным мхом, а на древних раздвоенных копытах видны трещины.\n\nЧары чащобного охотника придают ему вид обычного оленя. Но стоит чарам рассеяться, как зверь поглощает окружающий свет и погружает всё вокруг во тьму.\n\n#### Раздробленные фракции\n\nЭквинокс — небольшой мир, которым правит Каждый удар молнии — предавший возлюбленный, Королева теней. Именно её разведчики и убийцы среди теневых эльфов прочёсывают Орден в поисках союзников, которых можно убедить, что под властью другого хозяина им жилось бы лучше. Но в Эквиноксе есть и другие фракции теневых эльфов. Не все обитатели мира под невидимым солнцем стремятся к завоеваниям. Одни — мудрецы и пацифисты, пытающиеся исцелить свой мир; другие ищут в Пространстве времён пустой мир, куда можно переселиться.\n\n#### Зов сумерек\n\nНекоторые воины-теневые эльфы от природы связаны с незримым солнцем, освещающим их мир. Благодаря этой связи воин может совершить Напев — сочетание гудения и горлового пения, которое выравнивает небесные тела в разных измерениях. Некоторые Напевы могут ненадолго вызвать затмение в том измерении, где их исполняет Зовущий сумрак, и дать его соратникам преимущество.\n\nОпытный Зовущий сумрак может повести группу в песне, достаточно мощной, чтобы на короткое время воссоздать условия Эквинокса. Некоторые фракции теневых эльфов всерьёз изучают эту связь и считают её первым шагом к созданию второго Эквинокса.\n\n#### Тактика теневых эльфов\n\nВера в то, что Эквинокс умирает, делает теневых эльфов отчаянными: вскоре им будет некуда отступить. Их тактика сочетает непроницаемую оборону с быстрым и решительным нападением. Не имея преимущества на родной земле, все воины учатся создавать его сами. Если негде укрыться — создайте укрытие. Если свет слишком ярок — погасите его.\n\nВо многих обществах теневых эльфов каждый проходит начальную боевую подготовку и должен хотя бы однажды в жизни отслужить в войсках. Отличившиеся становятся Зовущими сумрак, клинками скорби и Затмениями — образцами силы, которых чтит народ. Исследования и открытия служат прежде всего военным целям. Даже популярная детская игра в прятки — военное изобретение, которое готовит народ к постоянному, неизбежному конфликту.\n\n#### Языки теневых эльфов\n\nБольшинство теневых эльфов говорят на Илливрике, хотя командиры взводов могут знать немного кэлианского или хираллика.\n\n###### Размещение теневых эльфов\n\n**Размещение теневых эльфов**\n\nКогда Королева теней отправляет теневых эльфов за пределы Эквинокса, их задания обычно короткие, опасные и нацелены на конкретную цель. Они редко длятся больше недели или двух; нередко отряд появляется в Ордене недалеко от цели. Как правило, замыслы у них гнусные: похищения, убийства, кражи и прочие тёмные делишки.\n\nОднако не каждый отряд теневых эльфов связан с Королевой. Одни — изгнанные мятежники, готовящиеся вернуться; другие — независимые группы, которые ищут утраченную магию, чтобы спасти свой мир; третьи навсегда покинули Эквинокс и ищут новую жизнь в пещерах и глухих лесах Ордена. Какова бы ни была их сторона, они не потерпят попыток помешать их целям и все до одного — смертельно опасные воины.\n\n**Примеры столкновений с теневыми эльфами**\n\n- **Крыло лазутчиков, 44 БЦ:** восемь теневых плащей, четыре мага сумрака, один лунный танцор, один светоносец\n- **Стража колонии, 64 БЦ:** восемь ночных налётчиков, восемь снайперов, один рыцегуб, один чащобный охотник, один ночной маг\n- **Крыло убийц, 84 БЦ:** восемь магов сумрака, два убийцы, две пантеры, один клинок скорби\n- **Теневое вторжение, 122 БЦ:** шестнадцать теневых плащей, восемь снайперов, два лунных танцора, один светоносец, один Зовущий сумрак, одно Затмение\n",
+      "source": {
+        "articleId": "monsters.monster.group.elf-shadow",
+        "path": "Monsters/monster/group/elf-shadow.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/elf-shadow",
+      "originalName": "Elves, Shadow",
+      "originalDescription": "Children of the Twilight Celestials, the shadow elves are the native denizens of the parasitic manifold of Equinox, also known as Dusk. Theirs is a world of perpetual twilight, a sun that never rises nor sets, a world that knows neither noon nor midnight.\n\nEquinox is a dying world. The shadow elves plan to use their magic to rewrite Orden's topography, creating a new home with themselves as rulers over all.\n\n#### In Equinox's Shadow\n\nShadow elves are lit by an unseen sun. In places like Orden, they appear washed out, silhouetted, or grayscale. In Equinox, they have lived in the shadow of their manifold's eternal dusk, making them incompatible with other light sources. Their skills, magic, and weapons do not fare well in the sun. But in turn, they can blend in with existing darkness and dissolve out of sight.\n\n#### Manifold Weaponry\n\nThe shadow elves have mastered the art of combining deep, ancient magic with cutting-edge technology. Their weaponsmiths craft blades of solid shadow that strike and wound in many dimensions at once. A creature hit by one of these blades is injured in multiple worlds at a time. Only a victim of strong mind can compartmentalize and end these effects on their body in the here and now.\n\n#### Brush Stalkers\n\nWhen the shadow elves invade Orden, they often ride domesticated dwimmerbeasts known as brush stalkers—quadrupeds who carry entire ecosystems on their rack of antlers. Newly born brush stalkers do not survive translation into Orden, so the ones the shadow elves ride are old: overgrown with bioluminescent moss, cracks on their ancient cloven hooves.\n\nA brush stalker's glamor allows them to look like a mundane deer. But when the glamour falls, the creature devours the light around them and plunges their surroundings into darkness.\n\n#### Fractured Factions\n\nEquinox is a small world, ruled by Every Strike of Lightning a Lover Betrayed, the Queen of Shadows. It is her shadow elf scouts and assassins who scour Orden seeking allies who might be persuaded that their lives would be better under a different master. But there are other factions of shadow elves in Equinox. Not all who dwell under the invisible sun seek conquest. Others are sages and pacifists who seek to heal their world or find an empty world somewhere in the timescape to resettle to.\n\n#### Duskcalling\n\nCertain shadow elf warriors have a natural link to the unseen sun that illuminates their world. With this link, a warrior can perform a Lay: a mix of humming and throat singing that aligns celestial bodies across manifolds. Some Lays can temporarily induce an eclipse on the manifold in which the duskcaller is performing, allowing their comrades to gain the advantage.\n\nA skilled duskcaller can lead a band in a group song powerful enough to recreate the conditions of Equinox for a short time. Some shadow elf factions are researching this connection in earnest, considering it a viable step toward terraforming a second Equinox.\n\n#### Shadow Tactics\n\nBelief that Equinox is a dying world makes the shadow elves desperate, for soon they'll have no home to retreat to. Their tactics rely on both impenetrable defense and a swift and decisive offense. Since they can't benefit from a home advantage, all warriors are taught to create one. If there are no places to hide, form them. If the light is too bright, remove it.\n\nIn many shadow elf societies, all people are given basic combat training and are expected to serve at least one military tour in their life. Those who excel move on to become duskcallers, mournblades, and eclipses: paragons of strength who are venerated by the people. Research and discovery are employed for the primary purpose of furthering military goals. Even the popular children's game hide-and-seek is a military device created to prepare a people for constant, imminent conflict.\n\n#### Shadow Elf Languages\n\nMost shadow elves speak Illyvric, though platoon leaders might speak some Caelian or Hyrallic.\n\n###### Shadow Elf Deployments\n\n**Shadow Elf Deployments**\n\nWhen under order of the Shadow Queen, shadow elf missions outside of Equinox are usually short, dangerous, and targeted. They rarely last more than a week or two, and the force often appears in Orden not far from their target. Mission goals trend towards the nefarious—kidnapping, assassination, theft, and general skullduggery are the order of the day.\n\nHowever, not every shadow elf force is affiliate d wit h th queen. Some are exiled rebels plotting their return, others independent groups searching for lost magic to restore their world, and yet others have left Equinox permanently to seek new lives in the caverns and deep woods of Orden. No matter their affiliation, these groups will brook no attempts to thwart their goals and are all deadly warriors.\n\n**Shadow Elf Sample Encounters**\n\n- **Infiltrator Wing, 44 EV:** Eight cloaks, four dusk mages, one moondancer, one luminator\n- **Colony Guard, 64 EV:** Eight nightstrikes, eight snipers, one knightfell, one brush stalker, one noctis mage\n- **Kill Wing, 84 EV:** Eight dusk mages, two assassins, two panthers, one mournblade\n- **Shadow Incursion, 122 EV:** Sixteen cloaks, eight snipers, two moondancers, one luminator, one duskcaller, one eclipse",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-shadow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

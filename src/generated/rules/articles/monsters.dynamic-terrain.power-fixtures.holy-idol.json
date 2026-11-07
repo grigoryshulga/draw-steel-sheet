@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.power-fixtures.holy-idol",
+      "title": "Священный идол",
+      "chapter": "25. Динамическая местность",
+      "group": "Источники силы",
+      "path": "Monsters/dynamic-terrain/power-fixtures/holy-idol.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/holy-idol",
+      "originalName": "Holy Idol",
+      "originalDescription": "An empowering monument to a higher power enables a villain's machinations.\n\n- **EV:** 7\n- **Stamina:** 35\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The holy idol must be completely destroyed.\n\n> ⭐️ **Empowered Will**\n>\n> At the start of each round while the holy idol is intact, the Director gains a d6 that lasts until the end of the round. When a Director-controlled creature deals or takes damage, the Director can roll the d6 to increase the damage the creature deals or reduce the damage the creature takes by an amount equal to the roll (to a minimum of 2 damage). If multiple idols are in play, only one d6 can be applied to a single instance of damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/holy-idol.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Поддержка",
+        "organization": "Реликвия"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.power-fixtures.holy-idol"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.power-fixtures.holy-idol",
+      "kind": "terrain",
+      "name": "Священный идол",
+      "markdown": "Дарующий силу памятник высшей силе помогает злодею в его замыслах.\n\n- **БЦ:** 7\n- **Выносливость:** 35\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Священного идола необходимо полностью уничтожить.\n\n> ⭐️ **Усиленная воля**\n>\n> В начале каждого раунда, пока идол цел, Ведущий получает d6, сохраняющийся до конца раунда. Когда существо под управлением Ведущего наносит или получает урон, Ведущий может бросить d6, чтобы увеличить нанесённый существом урон или уменьшить полученный им урон на выпавшее значение (минимум до 2 урона). Если в игре несколько идолов, к одному случаю нанесения урона можно применить только один d6.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.power-fixtures.holy-idol",
+        "path": "Monsters/dynamic-terrain/power-fixtures/holy-idol.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/holy-idol",
+      "originalName": "Holy Idol",
+      "originalDescription": "An empowering monument to a higher power enables a villain's machinations.\n\n- **EV:** 7\n- **Stamina:** 35\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The holy idol must be completely destroyed.\n\n> ⭐️ **Empowered Will**\n>\n> At the start of each round while the holy idol is intact, the Director gains a d6 that lasts until the end of the round. When a Director-controlled creature deals or takes damage, the Director can roll the d6 to increase the damage the creature deals or reduce the damage the creature takes by an amount equal to the roll (to a minimum of 2 damage). If multiple idols are in play, only one d6 can be applied to a single instance of damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/holy-idol.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Поддержка",
+        "organization": "Реликвия"
+      }
+    }
+  ]
+}

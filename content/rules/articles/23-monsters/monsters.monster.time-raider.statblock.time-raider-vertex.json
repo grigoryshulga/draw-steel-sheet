@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.time-raider.statblock.time-raider-vertex",
+  "title": "Рейдер времени — Вершина",
+  "chapter": "23. Бестиарий",
+  "group": "Рейдеры времени",
+  "path": "Monsters/monster/time-raider/statblock/time-raider-vertex.md",
+  "originalId": "mcdm.monsters.v1/monster.time-raider.statblock/time-raider-vertex",
+  "originalName": "Time Raider Vertex",
+  "originalDescription": "|   Humanoid, Time Raider   |             -              |      Level 3      |    Platoon Support    |        EV 10         |\n|:-------------------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **2**<br>Size       |       **5**<br>Speed       | **62**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 3**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+1**<br>Might      |     **+1**<br>Agility      | **+2**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Psionic Slam ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Melee 2**             | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage, 2 psychic damage\n> - **12-16:** 7 damage, 3 psychic damage\n> - **17+:** 9 damage, 4 psychic damage\n>\n> **Effect:** Any power roll made against the target gains an edge until the start of the vertex's next turn.\n\n> 🔳 **Split Space (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Psionic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 2 cube within 10**   |  **🎯 Special** |\n>\n> **Effect:** A portal fills the area, connecting to a location the vertex has experienced on any plane of existence, in person or otherwise. Any creature who enters the portal for the first time in a round or starts their turn there is instantly [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) to any unoccupied space in the portal at the chosen location. The portal lasts until the vertex uses this ability again, dismisses the portal (no action required), or is transported by the portal.\n\n> ❇️ **Invigorated March**\n>\n> | **Area, Psionic** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 4 burst**    | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to half their speed.\n\n> ⭐️ **Foresight**\n>\n> The vertex doesn't take a bane on strikes against creatures with concealment.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/time-raider/statblock/time-raider-vertex.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "time-raider",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "10",
+    "size": "2",
+    "keywords": [
+      "Гуманоид",
+      "Рейдер времени"
+    ],
+    "role": "Поддержка",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.time-raider.statblock.time-raider-vertex"
+    }
+  ]
+}

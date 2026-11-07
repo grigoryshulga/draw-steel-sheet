@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.minotaur.minotaur-malice",
+  "title": "Раздор минотавров",
+  "chapter": "23. Бестиарий",
+  "group": "Минотавры",
+  "path": "Monsters/monster/minotaur/minotaur-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.minotaur/minotaur-malice",
+  "originalName": "Minotaur Malice",
+  "originalDescription": "At the start of any minotaur's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Bull Rush (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one minotaur acting this turn gains a +4 bonus to speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the start of their next turn.\n\n> 👤 **Cut the... Nonsense! (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One minotaur acting this turn halves any damage they take, and can use the Knockback maneuver as a free triggered action whenever an enemy comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, all until the start of their next turn.\n\n> ❇️ **Bullseye (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> All minotaurs in the encounter fill the area around them with psychic impressions of feeling lost and isolated. Each enemy within 5 squares of a minotaur is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and makes an **Intuition test**.\n>\n> - **≤11:** The target has line of effect only within 3 squares and is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends).\n> - **12-16:** The target has line of effect only within 3 squares (EoT).\n> - **17+:** No effect.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/minotaur/minotaur-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "minotaur",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.minotaur.minotaur-malice"
+    }
+  ]
+}

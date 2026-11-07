@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.giant.giant-malice",
+  "title": "Раздор великанов",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/giant-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.giant/giant-malice",
+  "originalName": "Giant Malice",
+  "originalDescription": "At the start of any giant's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Hurl Landscape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** A giant unearths a structure, hazard, or chunk of the encounter map and launches it to fill the area. Each target makes an **Agility test**.\n>\n> - **≤11:** 18 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage\n\n> ❇️ **Bellow (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each giant in the encounter takes a deep breath and yells, [pushing](scc.v1:mcdm.heroes.v1/movement/forced-movement) each creature within 3 squares of them up to 10 squares. A creature who can be pushed by more than one giant is pushed by one giant of your choice.\n\n> 🔳 **Titanic Tear (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A giant creates a fissure along the ground, either in a 15 x 2 line within 1 or a 10 x 3 line within 2, and that opens up to a depth of 6 squares. Each giant in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure. Each non-giant in the area makes an **Agility test**.\n>\n> - **≤11:** 10 damage; the target falls into the fissure, and is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 10 damage; the target is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and hanging onto the edge of the fissure\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/giant-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.giant-malice"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.mechanisms.column-of-blades",
+  "title": "Колонна клинков",
+  "chapter": "25. Динамическая местность",
+  "group": "Механизмы",
+  "path": "Monsters/dynamic-terrain/mechanisms/column-of-blades.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.mechanisms/column-of-blades",
+  "originalName": "Column of Blades",
+  "originalDescription": "A spinning wooden column is affixed with sharp blades to slash the unwary.\n\n- **EV:** 3\n- **Stamina:** 5\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> The column of blades must be completely destroyed.\n\n> ❕ **Activate**\n>\n> A creature or object moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the column of blades.\n>\n> **Effect:** The **Spinning Blades** ability.\n\n> ❗️ **Spinning Blades**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object moves within distance of the column.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 9 damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Upgrades**\n>\n> **Stone Column (+1 EV)** The column is made of stone and has 8 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Metal Column (+1 EV)** The column is made of metal and has 11 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Concealed (+1 EV)** The blades are concealed inside the column, which remains motionless until triggered.\n>\n> **Spiked Flails (+4 EV)** Instead of blades, the column is affixed with heavy spiked balls attached by long chains. The **Whirling Flails** ability replaces **Spinning Blades**.\n\n> ❗️ **Whirling Flails**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object moves within distance of the column.\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 11 damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> ⭐️ **Allied Awareness**\n>\n> Allies who [shift](scc.v1:mcdm.heroes.v1/movement/shifting) don't trigger the column. A creature observing an ally [shift](scc.v1:mcdm.heroes.v1/movement/shifting) this way can make an **Intuition test** to [shift](scc.v1:mcdm.heroes.v1/movement/shifting) in imitation of their movements.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** The creature triggers the column and the column's ability gains an edge.\n> - **12-16:** The creature triggers the column.\n> - **17+:** The creature doesn't trigger the column.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/mechanisms/column-of-blades.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "mechanisms",
+    "recordType": "dynamic-terrain",
+    "level": 3,
+    "ev": "3",
+    "size": "1L",
+    "role": "Защитник",
+    "organization": "Укрепление"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.mechanisms.column-of-blades"
+    }
+  ]
+}

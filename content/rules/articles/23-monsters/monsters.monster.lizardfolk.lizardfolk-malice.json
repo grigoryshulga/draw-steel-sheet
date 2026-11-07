@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.lizardfolk.lizardfolk-malice",
+  "title": "Раздор ящеролюдов",
+  "chapter": "23. Бестиарий",
+  "group": "Ящеролюды",
+  "path": "Monsters/monster/lizardfolk/lizardfolk-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.lizardfolk/lizardfolk-malice",
+  "originalName": "Lizardfolk Malice",
+  "originalDescription": "At the start of any lizardfolk's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Net Trap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n>  **Area, Ranged, Weapon** |   **Maneuver** |\n> |--------------------------|---------------:|\n> | **📏 1 cube within 3**   | **🎯 Special** |\n>\n> **Effect:** A lizardfolk acting this turn sets up a net trap into the area. The first time an enemy steps into a square with a net trap, they make an **Agility test**. If the creature was unaware of the trap, they take a bane on the test.\n>\n> - **≤11:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n> - **12-16:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (Eot).\n> - **17+:** No effect.\n>\n> **Effect:** Any creature not also [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a net trap who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by the trap can free them as a maneuver.\n\n> 🔳 **Water Pit (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A lizardfolk acting this turn unearths a magical size 2 pit that is 2 squares deep and filled with water. Any lizardfolk who moves into, then exits the pit on their turn gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), regrows their tail if applicable, and ends one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the pit, any creature who can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) or who has the Nature skill can make a **Might test** or a **Reason test** to drain it.\n>\n> - **≤11:** The creature falls into the pit and is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n> - **12-16:** The creature fails to empty the pit.\n> - **17+:** The pit empties of water.\n\n> 🌀 **Flood the Shores (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Waist-high water floods the entire encounter map. Any lizardfolk submerged in water gains an edge on abilities and doubles their speed while swimming. If there are no open water pits on the encounter map, the water drains away at the end of the round.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/lizardfolk/lizardfolk-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "lizardfolk",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.lizardfolk.lizardfolk-malice"
+    }
+  ]
+}

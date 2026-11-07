@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elemental.statblock.field-of-growth",
+      "title": "Поле роста",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/field-of-growth.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/field-of-growth",
+      "originalName": "Field of Growth",
+      "originalDescription": "|        Elemental         |           -           |      Level 3       |   Elite Controller    |        EV 28         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **3**<br>Size       |    **8**<br>Speed     | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Poison 5**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      |   **+0**<br>Agility   |  **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Hampering Roots (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; R < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 16 damage; R < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If a target made [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way is already [prone](scc.v1:mcdm.heroes.v1/condition/prone), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). If the target was also unable to stand, that effect ends when they are no longer [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way.\n\n> 🏹 **Convocation of Verdure**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** The target gains 15 temporary Stamina that lasts until the start of the field's next turn.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is overgrown with underbrush and vines. Whenever any enemy makes a strike against the target while within line of effect of that area, the enemy is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the area after the strike is resolved. Any enemy who enters the area for the first time in a round or starts their turn there is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Rose Thorn Lash (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Melee** |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 3**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance deals damage to the field.\n>\n> **Effect:** The target takes 6 damage, and if they have A < 2, they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Fickle and Free**\n>\n> The field can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Roots Run Deep**\n>\n> The field can target any creature touching the ground with their abilities, even if they don't have line of effect to that creature.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/field-of-growth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "28",
+        "size": "3",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.field-of-growth"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elemental.statblock.field-of-growth",
+      "kind": "monster",
+      "name": "Поле роста",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Контроллер | Боевая ценность 28 |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n| **3**<br>Размер | **8**<br>Скорость | **120**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **Яд 5**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Опутывающие корни (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Дальний бой 8** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона; при Р < 1 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n> - **17+:** 16 урона; при Р < 2 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n>\n> **Эффект:** Если цель, которую [сбили с ног](#/catalog/glossary#term-glossary.prone) таким образом, уже [лежит](#/catalog/glossary#term-glossary.prone), вместо этого она [обездвижена](#/catalog/glossary#term-glossary.restrained) (до прох.). Если она также не могла встать, этот эффект заканчивается, когда таким образом наложенное [опутывание](#/catalog/glossary#term-glossary.restrained) прекращается.\n\n> 🏹 **Призыв зелени**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** Цель получает 15 временной Выносливости до начала следующего хода поля.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения земля в пределах 1 клетки от цели зарастает кустарником и вьющимися растениями. Когда любой враг совершает удар по цели, находясь в пределах линии эффекта этой области, после разрешения удара его [притягивают](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток к области. Любого врага, который впервые за раунд входит в область или начинает там свой ход, [сбивает с ног](#/catalog/glossary#term-glossary.prone).\n\n> ❗️ **Удар розовым шипом (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Ближний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо или объект, вызвавшее действие** |\n>\n> **Условие:** Существо или объект в пределах дистанции наносит полю урон.\n>\n> **Эффект:** Цель получает 6 урона; если у неё Л < 2, она [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Поле нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и оно игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Глубокие корни**\n>\n> Поле может своими способностями выбирать целью любое существо, касающееся земли, даже если у него нет линии эффекта до этого существа.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.field-of-growth",
+        "path": "Monsters/monster/elemental/statblock/field-of-growth.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/field-of-growth",
+      "originalName": "Field of Growth",
+      "originalDescription": "|        Elemental         |           -           |      Level 3       |   Elite Controller    |        EV 28         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **3**<br>Size       |    **8**<br>Speed     | **120**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Poison 5**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      |   **+0**<br>Agility   |  **+0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Hampering Roots (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; R < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 16 damage; R < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If a target made [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way is already [prone](scc.v1:mcdm.heroes.v1/condition/prone), they are instead [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). If the target was also unable to stand, that effect ends when they are no longer [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way.\n\n> 🏹 **Convocation of Verdure**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** The target gains 15 temporary Stamina that lasts until the start of the field's next turn.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is overgrown with underbrush and vines. Whenever any enemy makes a strike against the target while within line of effect of that area, the enemy is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the area after the strike is resolved. Any enemy who enters the area for the first time in a round or starts their turn there is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Rose Thorn Lash (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Melee** |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Melee 3**   | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance deals damage to the field.\n>\n> **Effect:** The target takes 6 damage, and if they have A < 2, they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Fickle and Free**\n>\n> The field can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Roots Run Deep**\n>\n> The field can target any creature touching the ground with their abilities, even if they don't have line of effect to that creature.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/field-of-growth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "28",
+        "size": "3",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

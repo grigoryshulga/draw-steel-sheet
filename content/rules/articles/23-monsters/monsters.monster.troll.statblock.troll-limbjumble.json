@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.troll.statblock.troll-limbjumble",
+  "title": "Тролль-клубок конечностей",
+  "chapter": "23. Бестиарий",
+  "group": "Тролли",
+  "path": "Monsters/monster/troll/statblock/troll-limbjumble.md",
+  "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-limbjumble",
+  "originalName": "Troll Limbjumble",
+  "originalDescription": "|       Troll       |         -         |     Level 5      |                Minion Hexer                 |      EV 7 for four minions      |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------------:|:-------------------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **8**<br>Stamina |             **0**<br>Stability              |      **3**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |  **Acid 8, fire **<br>Weakness  |\n|  **+3**<br>Might  | **+1**<br>Agility | **-2**<br>Reason |             **-1**<br>Intuition             |       **-1**<br>Presence        |\n\n> 🗡 **Arm and a Leg ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; A < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 5 damage; A < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 6 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If a target made [prone](scc.v1:mcdm.heroes.v1/condition/prone) this way is already [prone](scc.v1:mcdm.heroes.v1/condition/prone), they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) instead.\n\n> ⭐️ **Hyper-Regeneration**\n>\n> At the start of each of the limbjumble's [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s turns, the squad's [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool increases as if each limbjumble were at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/troll/statblock/troll-limbjumble.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "troll",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7 for four minions",
+    "size": "1S",
+    "keywords": [
+      "Тролль"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.troll.statblock.troll-limbjumble"
+    }
+  ]
+}

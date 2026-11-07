@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.fieldworks.bear-trap",
+  "title": "Медвежий капкан",
+  "chapter": "25. Динамическая местность",
+  "group": "Полевые укрепления",
+  "path": "Monsters/dynamic-terrain/fieldworks/bear-trap.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/bear-trap",
+  "originalName": "Bear Trap",
+  "originalDescription": "A set of spring-loaded steel jaws stands ready to snap shut when stepped on.\n\n- **EV:** 2\n- **Stamina:** 6\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a bear trap can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the trap and is affected as if in its space.\n> - **12-16:** The trap is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The trap is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The bear trap is calibrated to be triggered by creatures or objects of a particular size or larger. The trap triggers when a creature or object of the appropriate size enters its space.\n>\n> **Effect:** A triggering creature or object ends their movement and is targeted by the **Bear Trap** ability.\n\n> ❗️ **Bear Trap**\n>\n> | **Melee, Strike, Weapon** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 0**            | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object of the appropriate size enters the trap's space.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 The target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the trap.\n> - **12-16:** 3 damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 5 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The bear trap must be manually reset.\n\n> ⭐️ **Upgrade**\n>\n> **Chain (+1 EV)** The bear trap is attached to the ground by a steel chain. A target who would be made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the trap is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) instead.\n\n> ⭐️ **Hidden**\n>\n> The bear trap is hidden until triggered or detected.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/fieldworks/bear-trap.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "fieldworks",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "2",
+    "size": "1S",
+    "role": "Засадник",
+    "organization": "Ловушка"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.fieldworks.bear-trap"
+    }
+  ]
+}

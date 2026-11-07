@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.advancement-features.radenwight-sidekick",
+      "title": "Способности развития раденвайта-напарника",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/advancement-features/radenwight-sidekick.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/radenwight-sidekick",
+      "originalName": "Radenwight Sidekick Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 👤 **Boost**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** If the sidekick's mentor moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sidekick at any point during the mentor's turn, the mentor gains a +1 bonus to speed and can automatically climb at full speed while moving until the end of their turn.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Bug Bag (Encounter)**\n>\n> | **Area, Ranged**       |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 3** | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 poison damage; M < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 poison damage; M < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 13 poison damage; M < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🏹 **Triumphant Squeak (Encounter)**\n>\n> | **Ranged** | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Ranged 10** | **🎯 Self and each ally** |\n>\n> **Effect:** Each target can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ends the [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) conditions on themself.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/radenwight-sidekick.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.radenwight-sidekick"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.advancement-features.radenwight-sidekick",
+      "kind": "monster-feature",
+      "name": "Способности развития раденвайта-напарника",
+      "markdown": "> **Способность развития Помощника 4-го уровня**\n\n> 👤 **Подброс**\n>\n> | **—**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Если в любой момент своего хода Наставник напарника переместится [смежно](#/catalog/glossary#term-glossary.adjacent) с напарником, Наставник получает бонус +1 к Скорости и может автоматически взбираться с полной Скоростью во время перемещения до конца своего хода.\n\n> **Способность развития Помощника 7-го уровня**\n\n> 🔳 **Мешок жуков (Столкновение)**\n>\n> | **Область, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|----------------------:|\n> | **📏 Куб 3 в пределах 3** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона ядом; М < СЛАБЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 9 урона ядом; М < СРЕДНИЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 13 урона ядом; М < СИЛЬНЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n\n> **Способность развития Помощника 10-го уровня**\n\n> 🏹 **Победный писк (Столкновение)**\n>\n> | **Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|-----------:|\n> | **📏 Дальний 10** | **🎯 На себя и каждого союзника** |\n>\n> **Эффект:** Каждая цель может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery) и снять с себя состояния [Оглушение](#/catalog/glossary#term-glossary.dazed), [Испуг](#/catalog/glossary#term-glossary.frightened) и [Ослабление](#/catalog/glossary#term-glossary.weakened).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.radenwight-sidekick",
+        "path": "Monsters/monster/retainer/advancement-features/radenwight-sidekick.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/radenwight-sidekick",
+      "originalName": "Radenwight Sidekick Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 👤 **Boost**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** If the sidekick's mentor moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sidekick at any point during the mentor's turn, the mentor gains a +1 bonus to speed and can automatically climb at full speed while moving until the end of their turn.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Bug Bag (Encounter)**\n>\n> | **Area, Ranged**       |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 3** | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 poison damage; M < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 poison damage; M < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 13 poison damage; M < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🏹 **Triumphant Squeak (Encounter)**\n>\n> | **Ranged** | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Ranged 10** | **🎯 Self and each ally** |\n>\n> **Effect:** Each target can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ends the [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) conditions on themself.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/radenwight-sidekick.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

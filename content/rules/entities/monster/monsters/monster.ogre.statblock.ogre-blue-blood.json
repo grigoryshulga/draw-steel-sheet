@@ -1,0 +1,29 @@
+{
+  "id": "monster.ogre.statblock.ogre-blue-blood",
+  "kind": "monster",
+  "name": "Огр голубых кровей",
+  "markdown": "| Великан, Огр |         -         |      Уровень 7      |                Миньон Громила                 | Боевая ценность 9 за четырёх миньонов |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|   **2**<br>Размер   |  **5**<br>Скорость   | **13**<br>Выносливость |             **4**<br>Устойчивость              | **4**<br>Свободный удар  |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **Преимущество при ударах**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+4**<br>Мощь  | **+1**<br>Ловкость | **-1**<br>Разум  |             **0**<br>Интуиция              |  **+2**<br>Присутствие   |\n\n> 🗡 **Растоптать ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 2**            | **🎯 По одному существу или объекту на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; М < 3 [сбит с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 8 урона; [сбит с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Эффект:** Цель, уже [сбитая с ног](scc.v1:mcdm.heroes.v1/condition/prone), получает дополнительно 4 урона.\n\n> ⭐️ **Вместо меня**\n>\n> Когда огр голубых кровей должен совершить [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), союзник в пределах 5 клеток может вместо него совершить [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Королевская ярость**\n>\n> Огр голубых кровей получает иммунитет к урону 2, пока в его отряде не больше трёх миньонов.\n",
+  "source": {
+    "articleId": "monsters.monster.ogre.statblock.ogre-blue-blood",
+    "path": "Monsters/monster/ogre/statblock/ogre-blue-blood.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-blue-blood",
+  "originalName": "Ogre Blue Blood",
+  "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Brute                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **13**<br>Stamina |             **4**<br>Stability              | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |             **0**<br>Intuition              |  **+2**<br>Presence   |\n\n> 🗡 **Crush Underfoot ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 8 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 4 damage.\n\n> ⭐️ **In My Stead**\n>\n> Whenever the blue blood would make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), an ally within 5 squares can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) instead.\n\n> ⭐️ **Royal Anger**\n>\n> The blue blood has damage immunity 2 while their squad has three or fewer minions in it.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/ogre/statblock/ogre-blue-blood.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "ogre",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Огр"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  }
+}

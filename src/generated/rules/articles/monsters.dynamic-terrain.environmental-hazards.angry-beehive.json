@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.environmental-hazards.angry-beehive",
+      "title": "Разъярённый улей",
+      "chapter": "25. Динамическая местность",
+      "group": "Природные опасности",
+      "path": "Monsters/dynamic-terrain/environmental-hazards/angry-beehive.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/angry-beehive",
+      "originalName": "Angry Beehive",
+      "originalDescription": "This beehive is full of angry bees who swarm and attack with little provocation.\n\n- **EV:** 2\n- **Stamina:** 3\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> The beehive can't be deactivated. If it takes damage or is destroyed, the hive unleashes a swarm of bees.\n\n> ❕ **Activate**\n>\n> A creature enters the hive's space or an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Effect:** The hive is removed from the encounter map and a swarm of bees is placed in one square of the space of the triggering creature. Any creature who starts their turn in the swarm's space takes 3 poison damage. At the start of each round, the swarm moves 1 square and its size increases by 1 square (to 2 squares by 2 squares, 3 squares by 3 squares, and so forth), preferring squares in a creature's space. After 3 rounds, the swarm dissipates.\n\n> ⭐️ **Upgrades**\n>\n> **Concealed Hive (+1 EV)** The hive is hidden until the swarm is unleashed.\n>\n> **Killer Bees (+2 EV)** The bees are a particularly aggressive and dangerous species. The hive triggers even if a creature [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) into or while [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to it, and the swarm deals 1d6 + 3 poison damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/angry-beehive.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "2",
+        "size": "1S",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.environmental-hazards.angry-beehive"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.environmental-hazards.angry-beehive",
+      "kind": "terrain",
+      "name": "Разъярённый улей",
+      "markdown": "Этот улей полон разъярённых пчёл, которые вылетают роем и нападают при малейшем беспокойстве.\n\n- **БЦ:** 2\n- **Выносливость:** 3\n- **Размер:** 1S\n\n> 🌀 **Отключение**\n>\n> Улей нельзя отключить. Если он получает урон или уничтожен, из него вылетает рой пчёл.\n\n> ❕ **Активация**\n>\n> Существо входит в пространство улья или в [соседнюю](#/catalog/glossary#term-glossary.adjacent) клетку, не совершая [шаг](#/catalog/glossary#term-glossary.shift).\n>\n> **Эффект:** Улей убирают с карты столкновения и помещают рой пчёл в одну клетку пространства существа, вызвавшего активацию. Любое существо, начинающее ход в пространстве роя, получает 3 урона ядом. В начале каждого раунда рой перемещается на 1 клетку, а его размер увеличивается на 1 клетку (до 2 на 2 клетки, 3 на 3 клетки и так далее); при этом рой предпочитает клетки, занятые существами. Через 3 раунда рой рассеивается.\n\n> ⭐️ **Улучшения**\n>\n> **Скрытый улей (+1 БЦ)** Улей скрыт, пока из него не вылетит рой.\n>\n> **Пчёлы-убийцы (+2 БЦ)** Эти пчёлы принадлежат к особенно агрессивному и опасному виду. Улей срабатывает, даже если существо совершает [шаг](#/catalog/glossary#term-glossary.shift) в соседнюю с ним клетку или в [соседней](#/catalog/glossary#term-glossary.adjacent) клетке, а рой наносит 1d6 + 3 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.environmental-hazards.angry-beehive",
+        "path": "Monsters/dynamic-terrain/environmental-hazards/angry-beehive.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/angry-beehive",
+      "originalName": "Angry Beehive",
+      "originalDescription": "This beehive is full of angry bees who swarm and attack with little provocation.\n\n- **EV:** 2\n- **Stamina:** 3\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> The beehive can't be deactivated. If it takes damage or is destroyed, the hive unleashes a swarm of bees.\n\n> ❕ **Activate**\n>\n> A creature enters the hive's space or an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Effect:** The hive is removed from the encounter map and a swarm of bees is placed in one square of the space of the triggering creature. Any creature who starts their turn in the swarm's space takes 3 poison damage. At the start of each round, the swarm moves 1 square and its size increases by 1 square (to 2 squares by 2 squares, 3 squares by 3 squares, and so forth), preferring squares in a creature's space. After 3 rounds, the swarm dissipates.\n\n> ⭐️ **Upgrades**\n>\n> **Concealed Hive (+1 EV)** The hive is hidden until the swarm is unleashed.\n>\n> **Killer Bees (+2 EV)** The bees are a particularly aggressive and dangerous species. The hive triggers even if a creature [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) into or while [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to it, and the swarm deals 1d6 + 3 poison damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/angry-beehive.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "2",
+        "size": "1S",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      }
+    }
+  ]
+}

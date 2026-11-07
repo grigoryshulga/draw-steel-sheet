@@ -1,0 +1,47 @@
+.rule-text .director-ability {
+  height: auto;
+  margin-block: var(--space-7);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+}
+.rule-text .director-ability-sections { margin-block: var(--space-7); gap: var(--space-7); }
+.director-ability-sections .sheet-ability-section { min-width: 0; padding: 0; }
+.director-ability-sections .sheet-ability-section-head { margin-bottom: var(--space-6); }
+.director-ability-sections .sheet-ability-section.is-collapsed .sheet-ability-section-head { margin-bottom: 0; }
+.director-ability-sections .sheet-ability-section-head h3 { margin: 0; font-size: var(--text-sm); }
+.director-ability-sections .sheet-ability-grid { gap: var(--space-6); }
+.rule-text .director-ability-sections .director-ability { margin: 0; height: 100%; min-width: 0; }
+.director-ability[data-action="passive"] { --card-color: var(--ability-passive); }
+.director-ability[data-kind="villain"] { --card-color: var(--ability-trigger); }
+.director-ability[data-kind="malice"][data-action="none"] { --card-color: var(--ability-passive); }
+.rule-text .director-ability > .sheet-ability-card-head {
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) 0;
+}
+.rule-text .director-ability .card-title {
+  white-space: normal;
+  overflow: visible;
+  margin: 0;
+}
+.rule-text .director-ability .sheet-ability-card-tags {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.director-ability .chip, .director-ability-cost {
+  white-space: normal;
+  height: auto;
+  min-height: 26px;
+  line-height: var(--leading-normal);
+}
+.director-ability-cost {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-xs);
+}
+.rule-text .director-ability p { margin: 0; }
+.director-ability-roll { color: var(--muted); font-size: var(--text-body); }
+.director-ability .sheet-ability-fact-value > strong { font-weight: inherit; }
+.director-ability .sheet-ability-effect { flex-basis: 0; white-space: normal; color: var(--fg); }
+.director-ability .sheet-ability-effect > strong:empty { display: none; }
+.rule-text .director-ability :is(ul, ol) { margin-block: var(--space-3); }
+.rule-text .director-ability .rule-fields { padding: 0; border: 0; background: none; }

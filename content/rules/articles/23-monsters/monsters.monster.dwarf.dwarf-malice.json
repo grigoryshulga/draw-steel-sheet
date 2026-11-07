@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.dwarf.dwarf-malice",
+  "title": "Раздор дворфов",
+  "chapter": "23. Бестиарий",
+  "group": "Дварфы",
+  "path": "Monsters/monster/dwarf/dwarf-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.dwarf/dwarf-malice",
+  "originalName": "Dwarf Malice",
+  "originalDescription": "At the start of any dwarf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Breaching Charge (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A dwarf can destroy one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) object or square of wall for each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the destroyed object or square takes the object's Stamina in damage (3 for wood, 6 for stone, or 9 for metal).\n\n> ⭐️ **Rappelling Barrage (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each dwarf acting this turn can automatically climb at full speed while moving. At any point during this movement, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🔳 **Snaring Line (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**      |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|              \n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes an **Agility test**.\n>\n> - **≤11:** 8 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **12-16:** 6 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.\n>\n> The snaring line remains until the end of the encounter. Any enemy who moves into the area for the first time in a round or starts their turn there must make the test.\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/dwarf/dwarf-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "dwarf",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.dwarf.dwarf-malice"
+    }
+  ]
+}

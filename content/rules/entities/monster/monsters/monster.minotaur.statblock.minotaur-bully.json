@@ -1,0 +1,30 @@
+{
+  "id": "monster.minotaur.statblock.minotaur-bully",
+  "kind": "monster",
+  "name": "Минотавр-задира",
+  "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 8      |                  Миньон Громила                  | Боевая ценность 10 для четырёх миньонов |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:-------------------------:|\n|        **2**<br>Размер         |  **6**<br>Скорость   | **14**<br>Выносливость |               **2**<br>Устойчивость               |  **4**<br>Свободный удар  |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -         | **Бонус +3 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость    |\n|       **+4**<br>Мощь        | **+2**<br>Ловкость |  **0**<br>Разум  |              **+3**<br>Интуиция               |   **-1**<br>Присутствие   |\n\n> ⚔️ **Метательное копьё и рёв ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Рывок, Ближний бой, Дальний бой, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2 или дальний бой 5**            | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона.\n> - **12-16:** 7 урона.\n> - **17+:** 9 урона; цель с И < 4 становится [провоцируемой](scc.v1:mcdm.heroes.v1/condition/taunted) (КсХ) или испытывает [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) перед всеми минотаврами (до прох.).\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах на навигацию, поиск или выслеживание задира не может получить результат ниже тира 2.\n",
+  "source": {
+    "articleId": "monsters.monster.minotaur.statblock.minotaur-bully",
+    "path": "Monsters/monster/minotaur/statblock/minotaur-bully.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-bully",
+  "originalName": "Minotaur Bully",
+  "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |                  Minion Brute                  | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **14**<br>Stamina |               **2**<br>Stability               |  **4**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+3 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+4**<br>Might        | **+2**<br>Agility |  **0**<br>Reason  |              **+3**<br>Intuition               |   **-1**<br>Presence   |\n\n> ⚔️ **Javelin and Bellow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 2 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; I < 4 [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT) or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends)\n\n> ⭐️ **Minotaur Sense**\n>\n> The bully can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/minotaur/statblock/minotaur-bully.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "minotaur",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10 for four minions",
+    "size": "2",
+    "keywords": [
+      "Проклятый",
+      "Гуманоид",
+      "Минотавр"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  }
+}

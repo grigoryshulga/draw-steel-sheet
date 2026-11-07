@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.2nd-echelon.statblock.grulqin",
+      "title": "Грулкин",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/2nd-echelon/statblock/grulqin.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/grulqin",
+      "originalName": "Grulqin",
+      "originalDescription": "|  Abyssal, Demon   |         -         |     Level 4      |                  Minion Brute                  |  EV 6 for four minions   |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:------------------------:|\n|  **1L**<br>Size   |  **8**<br>Speed   | **9**<br>Stamina |               **1**<br>Stability               |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+3**<br>Might  | **+2**<br>Agility | **-1**<br>Reason |              **-1**<br>Intuition               |    **-1**<br>Presence    |\n\n> 🗡 **Spinning Bone Blade (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The grulqin gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on this ability if they previously moved 3 or more squares in a straight line on their turn.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the grulqin can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/grulqin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.2nd-echelon.statblock.grulqin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.2nd-echelon.statblock.grulqin",
+      "kind": "monster",
+      "name": "Грулкин",
+      "markdown": "| Бездны, Демон |         -         |     Уровень 4      |                  Миньон-Громила                  | Боевая ценность 6 за четырёх миньонов |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:------------------------:|\n|  **1L**<br>Размер   |  **8**<br>Скорость   | **9**<br>Выносливость |               **1**<br>Устойчивость               |   **3**<br>Свободный удар   |\n| **-**<br>Иммунитет | **-**<br>Движение |        -         | **Бонус +2 к урону ударов**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **+3**<br>Мощь  | **+2**<br>Ловкость | **-1**<br>Разум |              **-1**<br>Интуиция               |    **-1**<br>Присутствие    |\n\n> 🗡 **Вращающийся костяной клинок (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**                    | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Грулкин получает [преимущество](#/catalog/glossary#term-glossary.edge) на эту способность, если ранее в свой ход переместился на 3 или более клеток по прямой.\n\n> ⭐️ **Зрение душ**\n>\n> От грулкина нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.2nd-echelon.statblock.grulqin",
+        "path": "Monsters/monster/demon/2nd-echelon/statblock/grulqin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/grulqin",
+      "originalName": "Grulqin",
+      "originalDescription": "|  Abyssal, Demon   |         -         |     Level 4      |                  Minion Brute                  |  EV 6 for four minions   |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:------------------------:|\n|  **1L**<br>Size   |  **8**<br>Speed   | **9**<br>Stamina |               **1**<br>Stability               |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+3**<br>Might  | **+2**<br>Agility | **-1**<br>Reason |              **-1**<br>Intuition               |    **-1**<br>Presence    |\n\n> 🗡 **Spinning Bone Blade (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The grulqin gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on this ability if they previously moved 3 or more squares in a straight line on their turn.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the grulqin can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/grulqin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

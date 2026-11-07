@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.human.statblock.human-apprentice-mage",
+  "title": "Человек-ученик мага",
+  "chapter": "23. Бестиарий",
+  "group": "Люди",
+  "path": "Monsters/monster/human/statblock/human-apprentice-mage.md",
+  "originalId": "mcdm.monsters.v1/monster.human.statblock/human-apprentice-mage",
+  "originalName": "Human Apprentice Mage",
+  "originalDescription": "|             Human, Humanoid             |         -         |     Level 2      |                Minion Controller                | EV 4 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **4**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> 🏹 **Lightning Strike (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 lightning damage\n> - **12-16:** 3 lightning damage\n> - **17+:** 5 lightning damage\n>\n> **Effect:** If the apprentice mage doesn't use a maneuver or a move action this turn, the target is also [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n\n> ⭐️ **Supernatural Insight**\n>\n> The apprentice mage ignores concealment if it's granted by a supernatural effect.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/human/statblock/human-apprentice-mage.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "human",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "4 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Человек",
+      "Гуманоид"
+    ],
+    "role": "Контроллер",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.human.statblock.human-apprentice-mage"
+    }
+  ]
+}

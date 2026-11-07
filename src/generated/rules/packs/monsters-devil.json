@@ -1,0 +1,743 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.devil.devil-malice",
+      "title": "Раздор дьяволов",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/devil-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.devil/devil-malice",
+      "originalName": "Devil Malice",
+      "originalDescription": "At the start of any devil's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Bureaucratic Tape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One devil acting this turn uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature. On a tier 3 outcome, the target of the ability has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on strikes (save ends).\n\n> ⭐️ **Underhanded Tactics (5+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One or two devils can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to a space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more creatures who aren't hidden and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). For each 2 additional [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent on this feature, one additional devil can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport).\n\n> 🌀 **Read the Small Print (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter is subject to a bad deal proposed by the [devils](scc.v1:mcdm.monsters.v1/monster.group/devil). An enemy must choose between having damage weakness 5 or taking a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls. The bad deal lasts until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/devil-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.devil-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-adjudicator",
+      "title": "Дьявол-арбитр",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-adjudicator.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-adjudicator",
+      "originalName": "Devil Adjudicator",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+1**<br>Agility  |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Infernal Injunction (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 15 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 18 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** The adjudicator can slide a target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) by this ability up to 2 squares.\n\n> 🏹 **Adjudicator's Interdiction**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls, and can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **12-16:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls (save ends).\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Quid Pro Quo**\n>\n> | **Magic, Ranged** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------:|\n> | **📏 Ranged 10**  | **🎯 One ally or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) creature** |\n>\n> **Effect:** The adjudicator and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to switch places.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the adjudicator with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The adjudicator chooses a new target for the strike.\n> - **12-16:** The adjudicator halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Vexatious Litigation**\n>\n> Any creature within 10 squares of the adjudicator who has P < 3 takes a −2 penalty to saving throws.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the adjudicator's true name, the adjudicator loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-adjudicator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-adjudicator"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-clerk",
+      "title": "Дьявол-писарь",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-clerk.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-clerk",
+      "originalName": "Devil Clerk",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 5      |                  Minion Brute                  | EV 7 for four minions |\n|:----------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **10**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|    **+3**<br>Might     | **+0**<br>Agility | **+1**<br>Reason  |              **+1**<br>Intuition               |  **+2**<br>Presence   |\n\n> 🗡 **Quill Pushing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; push 1\n> - **12-16:** 6 damage; push 2\n> - **17+:** 7 damage; push 3\n>\n> **Effect:** Any target [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to two or more clerks is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of their next turn.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the clerk's true name, the clerk loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-clerk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-clerk"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-high-judge",
+      "title": "Дьявол — верховный судья",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-high-judge.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-high-judge",
+      "originalName": "Devil High Judge",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |        Leader         |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **7**<br>Speed    | **181**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+1**<br>Might     |  **+3**<br>Agility  |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Infernal Decree (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 12**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 10 damage; P < 2 the target can't hide (save ends)\n> - **12-16:** 15 damage; P < 3 the target can't hide (save ends)\n> - **17+:** 19 damage; P < 4 the target can't hide (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While a target is unable to hide this way, any strike against them made by a devil gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> 🏹 **Compel the Jury**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 12**          | **🎯 Two creatures** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** I < 2 the target is charmed (save ends)\n> - **12-16:** I < 3 the target is charmed (save ends)\n> - **17+:** I < 4 the target is charmed (save ends)\n>\n> **Effect:** While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ❗️ **Devilish Suggestion (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the high judge with a strike.\n>\n> **Effect:** The target makes a **Presence test**.\n>\n> - **≤11:** The target is charmed (save ends).\n> - **12-16:** The high judge chooses a new target for the strike.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n>\n> While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the high judge can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the high judge's true name, the high judge loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Suggestion [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) until the end of the encounter.\n\n> ☠️ **All Rise ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** The target makes a **Presence test**.\n>\n> - **≤11:** 15 psychic damage; the target is charmed (save ends)\n> - **12-16:** 12 psychic damage; the target is charmed (save ends)\n> - **17+:** 7 psychic damage\n>\n> While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ☠️ **Heed My Decree ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. The high judge can make each creature charmed by All Rise, Compel the Jury, or Devilish Suggestion move up to half that creature's speed.\n\n> ☠️ **Deceptive Stratagem ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Magic, Ranged** |               **-** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 12**  | **🎯 One creature** |\n>\n> **Effect:** If the target is an ally or a creature charmed by All Rise, Compel the Jury, or Devilish Suggestion, the high judge and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places. Each ally within 12 squares of the high judge can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target of the high judge's choice. Each creature charmed by All Rise, Compel the Jury, or Devilish Suggestion makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target of the high judge's choice.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-high-judge.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-high-judge"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-jurist",
+      "title": "Дьявол-юрист",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-jurist.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-jurist",
+      "originalName": "Devil Jurist",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 5       |    Elite Artillery    |        EV 28         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **120**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+2**<br>Agility  |  **+1**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> ⭐️ **Hellfire**\n>\n> Fire damage dealt by the jurist ignores damage immunity.\n\n> 🏹 **Fire and Brimstone (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 12**          |   **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage\n> - **12-16:** 15 fire damage; A < 2 burning (save ends)\n> - **17+:** 18 fire damage; A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The jurist can target one additional creature or object for each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Dismissal with Prejudice**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; slide 1\n> - **12-16:** 10 damage; slide 3\n> - **17+:** 12 damage; slide 5\n>\n> **Effect:** If the target has M < 2, the [forced](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance movement gains a +3 bonus.\n\n> 🏹 **Ashes to Ashes**\n>\n> | **Magic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 12**  | **🎯 One creature** |\n>\n> **Effect:** If the target is burning (see Fire and Brimstone), they take 6 fire damage.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the jurist with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The jurist chooses a new target for the strike.\n> - **12-16:** The jurist halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the jurist's true name, the jurist loses their fire immunity, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-jurist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-jurist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-legate",
+      "title": "Дьявол-легат",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-legate.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-legate",
+      "originalName": "Devil Legate",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 5       |    Elite Defender     |        EV 28         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **160**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     | **+1**<br>Agility |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Infernal Pike (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 17 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If the targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other, this ability deals an extra 3 damage.\n\n> 🗡 **Writ of Execution**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 11 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 14 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If this ability is used as part of the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action, the legate ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) during the charge. Each creature and object whose space the legate moves through takes the damage from this ability, but not its additional effects.\n\n> 🗡 **Law and Order**\n>\n> | **Melee**      |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------:|\n> | **📏 Melee 1** | **🎯 One creature** |\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) by the legate (save ends). The legate can have only one creature [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) at a time.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the legate with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The legate chooses a new target for the strike.\n> - **12-16:** The legate halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Hellish Bailiff**\n>\n> The legate has damage immunity 3 while in one of the Seven Cities of Hell or within 10 squares of a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) devil who is of a higher level than them.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the legate's true name, the legate loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-legate.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-legate"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-magistrate",
+      "title": "Дьявол-магистрат",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-magistrate.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-magistrate",
+      "originalName": "Devil Magistrate",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 6       |     Elite Harrier     |        EV 32         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |  **7**<br>Speed   | **160**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+1**<br>Might     | **+3**<br>Agility |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Edge of the Law (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | ------------------------- |--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 fire damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The magistrate [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares before or after using this ability, or between each strike.\n\n> 🗡 **Verdict**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 17 damage\n> - **17+:** 21 damage\n>\n> **Effect:** This ability has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) if the magistrate was hidden from the target, and deals an extra 5 damage if the target is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 👤 **Justice Turns Its Gaze**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The magistrate turns invisible until the start of their next turn, and can attempt to hide as a [free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver) before the end of the current turn.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the magistrate with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The magistrate chooses a new target for the strike.\n> - **12-16:** The magistrate halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Leading**\n>\n> Whenever the magistrate moves away from an enemy who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one of the magistrate's allies, they can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) instead.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the magistrate's true name, the magistrate loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-magistrate.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-magistrate"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-notary",
+      "title": "Дьявол-нотариус",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-notary.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-notary",
+      "originalName": "Devil Notary",
+      "originalDescription": "|    Devil, Infernal     |         -         |     Level 5      |                  Minion Hexer                   | EV 7 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **8**<br>Stamina |               **0**<br>Stability                | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     | **+1**<br>Agility | **+3**<br>Reason |               **+1**<br>Intuition               |  **+2**<br>Presence   |\n\n> 🏹 **Importunity (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 fire damage\n> - **12-16:** 5 fire damage; R < 2 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n> - **17+:** 6 fire damage; R < 3 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n>\n> **Effect:** One non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) devil within 5 squares of the notary gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on their next strike.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the notary's true name, the notary loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-notary.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-notary"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.devil.statblock.devil-scrivener",
+      "title": "Дьявол-писец",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-scrivener.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-scrivener",
+      "originalName": "Devil Scrivener",
+      "originalDescription": "|    Devil, Infernal     |          -          |     Level 5      |            Minion Harrier             | EV 7 for four minions |\n|:----------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **9**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+3**<br>Agility  | **+1**<br>Reason |          **+1**<br>Intuition          |  **+2**<br>Presence   |\n\n> 🗡 **Litigation (Signature Ability)**\n>\n> | **Charge, Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 5 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 6 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n>\n> **Effect:** The scrivener can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the scrivener's true name, the scrivener loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-scrivener.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-scrivener"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.devil",
+      "title": "Дьяволы",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/group/devil.md",
+      "originalId": "mcdm.monsters.v1/monster.group/devil",
+      "originalName": "Devils",
+      "originalDescription": "In the lower plane of Hell, [devils](scc.v1:mcdm.monsters.v1/monster.group/devil) of the Seven Cities vie unceasingly for power and control—a conflict fought foremostly through cunning and schemes. Devils are distinguished from other [humanoids](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) by skin in shades of azure and crimson, as well as their hellmarks: horns, tails, hooves, wings, and other [infernal](scc.v1:mcdm.monsters.v1/rule.keyword/infernal) features.\n\n### Precarious Pyramids\n\nThe Seven Cities of Hell stand atop strict hierarchy and bureaucracy. Primordial chains of command place each devil in service to a more powerful devil, with the seven archdevil rulers of Hell at the top. While devils are lawful, they're always looking for another way up the ladder. They twist every rule to their benefit to gain power and usurp those they answer to, eager to uncover loopholes in the eternal struggle for significance and supremacy.\n\n### Silver Tongues\n\nWinsome devils can acquire significant influence by bargaining for the souls of mortals on behalf of the archdevil they ultimately serve. Virtuosos with words, devils are skilled at striking deals and forging contracts. They exploit the weaknesses of mortals, whether greed, revenge, vanity, or simple desperation. In the heat of battle, a devil's supernatural charisma can influence a mortal to do their bidding, often without realizing until it's too late.\n\n> **Negotiations with Devils**\n>\n> Devils are eager to negotiate and strike deals, but often require more compelling arguments and concrete evidence from the other party. You can pick from the following motivations and pitfalls to quickly create a devil from one of the Seven Cities for a negotiation (see Chapter 11 in *Draw Steel: Heroes*):\n>\n> - **Motivation:** Greed, Power, Legacy\n> - **Pitfall:** Benevolence, Freedom, Protection\n>\n> During a negotiation, an NPC devil has their impression and patience increased by 1 (to a maximum of 5). Their interest goes up to 10 instead of 5.\n>\n> When an NPC devil is ready to make an offer, divide their interest by 2 to get their final response. A devil typically never settles a negotiation unless they're promised something desirable in return.\n\n### True Names\n\nAll devils have two names: one by which they're commonly known, and another secret true name. Each devil zealously safeguards the latter, as their true name can be spoken aloud to aid in summoning them—or in stripping them of their power.\n\n### Hell's Defectors\n\nNot every devil in the Seven Cities wants to ruthlessly ascend the hierarchy. Some desire advancement, but they remain dissatisfied at the bottom. As luck would have it, these fiends can free themselves from Hell's bureaucracy, for when a mortal overestimates their fortitude and dies while enacting an infernal summoning, it can leave an enterprising devil stranded in the mundane world.\n\n### Devil Languages\n\nMost devils speak Anjal and Caelian, among other languages. The more powerful a devil, the more languages they learn in order to more easily make ironclad contracts with a wide variety of people and cultures. Outside of rare circumstances, devils are always willing to negotiate, ever desiring to twist a situation in their favor.\n\n> **Devil Temptations**\n>\n> Although some devils enjoy comfort and opulence for their own sake, they primarily use treasure as bargaining chips in fiendish compacts: bait on the devils' infernal barbs.\n>\n> Even more sinister than a prize won in a devil's hard bargain is a gift freely given by a devil. The advantages of such a gift are conditional, lasting only until the devil revokes it at some inconvenient time.\n>\n> The following are samples of the wonders that a devil can offer—to only the most discriminating customers, of course. A devil might only have two or three of these items available for trade, but others (such as an archdevil's wing) can be won by force. See *Draw Steel: Heroes* for more information about how these items can be used by heroes.\n>\n> **Components:** An archdevil's wing, archdevil's blood, soul chalk, a wide selection of true names\n>\n> **Project Sources:** Notes in Anjali for the Devil's Bargain armor enhancement or a Hellcharger Helm, notes in Hyrallic for a Mediator's Charm\n>\n> **Titles:** Diabolist, Maestro\n>\n> **Treasures:** G'Allios Visiting Card, Thief of Joy\n>\n> **Wealth:** Each hero can earn 1 wealth in exchange for a small favor",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/devil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.devil"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-adjudicator",
+          "title": "Дьявол-арбитр"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-clerk",
+          "title": "Дьявол-писарь"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-high-judge",
+          "title": "Дьявол — верховный судья"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-jurist",
+          "title": "Дьявол-юрист"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-legate",
+          "title": "Дьявол-легат"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-magistrate",
+          "title": "Дьявол-магистрат"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-notary",
+          "title": "Дьявол-нотариус"
+        },
+        {
+          "id": "monsters.monster.devil.statblock.devil-scrivener",
+          "title": "Дьявол-писец"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.devil.devil-malice",
+      "kind": "monster-feature",
+      "name": "Раздор дьяволов",
+      "markdown": "В начале хода любого дьявола вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Бюрократическая волокита (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один дьявол, действующий в этот ход, использует [знаковую способность](#/catalog/glossary#term-glossary.signature-ability) против [смежного](#/catalog/glossary#term-glossary.adjacent) существа. При результате тиром 3 цель способности получает двойную [помеху](#/catalog/glossary#term-glossary.bane) на удары (до успешного спасброска).\n\n> ⭐️ **Подковёрные тактики (5+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один или два дьявола могут [телепортироваться](#/catalog/glossary#term-glossary.teleport) в пространство [смежное](#/catalog/glossary#term-glossary.adjacent) с одним или несколькими не скрытыми существами, а затем совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). За каждые 2 дополнительных [Раздора](#/codex/monsters.rule.monster.malice), потраченных на эту особенность, может [телепортироваться](#/catalog/glossary#term-glossary.teleport) ещё один дьявол.\n\n> 🌀 **Читайте мелкий шрифт (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> На каждого врага в столкновении распространяется дурная сделка, предложенная [дьяволами](#/codex/monsters.monster.group.devil). Враг должен выбрать одно: получить уязвимость к урону 5 или [помеху](#/catalog/glossary#term-glossary.bane) на броски силы. Дурная сделка действует до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.devil-malice",
+        "path": "Monsters/monster/devil/devil-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil/devil-malice",
+      "originalName": "Devil Malice",
+      "originalDescription": "At the start of any devil's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Bureaucratic Tape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One devil acting this turn uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature. On a tier 3 outcome, the target of the ability has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on strikes (save ends).\n\n> ⭐️ **Underhanded Tactics (5+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One or two devils can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to a space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more creatures who aren't hidden and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). For each 2 additional [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent on this feature, one additional devil can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport).\n\n> 🌀 **Read the Small Print (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each enemy in the encounter is subject to a bad deal proposed by the [devils](scc.v1:mcdm.monsters.v1/monster.group/devil). An enemy must choose between having damage weakness 5 or taking a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls. The bad deal lasts until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/devil-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-adjudicator",
+      "kind": "monster",
+      "name": "Дьявол-арбитр",
+      "markdown": "| Дьявол, Адский |          -          |      Уровень 6      |   Элита, Контроллер   | Боевая ценность 32 |\n|:---------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Размер     |   **6**<br>Скорость    | **140**<br>Выносливость |  **1**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     |  **+1**<br>Ловкость  |  **+2**<br>Разум  |  **+1**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🏹 **Адский запрет (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n> - **12-16:** 15 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n> - **17+:** 18 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n>\n> **Эффект:** Арбитр может швырнуть цель, получившую состояние [Испуг](#/catalog/glossary#term-glossary.frightened) от этой способности, на расстояние до 2 клеток.\n\n> 🏹 **Запрет арбитра**\n>\n> | **Магия, Дальний бой** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|--------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Одно существо** |\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed), [помеху](#/catalog/glossary#term-glossary.bane) на броски силы и не может восстанавливать [Выносливость](#/catalog/glossary#term-glossary.stamina) (до успешного спасброска).\n> - **12-16:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) и [помеху](#/catalog/glossary#term-glossary.bane) на броски силы (до успешного спасброска).\n> - **17+:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска).\n\n> 🏹 **Услуга за услугу**\n>\n> | **Магия, Дальний бой** |                           **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------------------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Один союзник или существо с состоянием [Испуг](#/catalog/glossary#term-glossary.frightened)** |\n>\n> **Эффект:** Арбитр и цель [телепортируются](#/catalog/glossary#term-glossary.teleport), меняясь местами.\n\n> ❗️ **Дьявольское очарование (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает арбитра целью удара.\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Арбитр выбирает новую цель для удара.\n> - **12-16:** Арбитр вдвое уменьшает урон от вызвавшей триггер атаки.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n\n> ⭐️ **Обременительная тяжба**\n>\n> Любое существо в пределах 10 клеток от арбитра, у которого Присутствие < 3, получает штраф −2 к спасброскам.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя арбитра, арбитр теряет иммунитеты к урону, все наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и способность «Дьявольское очарование» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-adjudicator",
+        "path": "Monsters/monster/devil/statblock/devil-adjudicator.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-adjudicator",
+      "originalName": "Devil Adjudicator",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+1**<br>Agility  |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Infernal Injunction (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 15 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 18 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** The adjudicator can slide a target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) by this ability up to 2 squares.\n\n> 🏹 **Adjudicator's Interdiction**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls, and can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **12-16:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls (save ends).\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Quid Pro Quo**\n>\n> | **Magic, Ranged** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------:|\n> | **📏 Ranged 10**  | **🎯 One ally or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) creature** |\n>\n> **Effect:** The adjudicator and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to switch places.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the adjudicator with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The adjudicator chooses a new target for the strike.\n> - **12-16:** The adjudicator halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Vexatious Litigation**\n>\n> Any creature within 10 squares of the adjudicator who has P < 3 takes a −2 penalty to saving throws.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the adjudicator's true name, the adjudicator loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-adjudicator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-clerk",
+      "kind": "monster",
+      "name": "Дьявол-писарь",
+      "markdown": "| Дьявол, Адский |         -         |      Уровень 5      |               Миньон, Громила                | Боевая ценность 7 за четырёх миньонов |\n|:---------------------:|:-----------------:|:-----------------:|:--------------------------------------------:|:-------------------------------------:|\n|     **1M**<br>Размер     |  **6**<br>Скорость   | **10**<br>Выносливость |               **0**<br>Устойчивость               | **3**<br>Свободный удар  |\n| **Огонь 5**<br>Иммунитет | **-**<br>Движение |         -          | **+2 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+3**<br>Мощь     | **+0**<br>Ловкость | **+1**<br>Разум  |              **+1**<br>Интуиция               |  **+2**<br>Присутствие   |\n\n> 🗡 **Подтасовка бумаг (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; оттолкнуть на 1 клетку\n> - **12-16:** 6 урона; оттолкнуть на 2 клетки\n> - **17+:** 7 урона; оттолкнуть на 3 клетки\n>\n> **Эффект:** Любая цель, [смежная](#/catalog/glossary#term-glossary.adjacent) с двумя или более писарями, получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted) до конца своего следующего хода.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя дьявола-писаря, писарь теряет иммунитет к огню и все наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-clerk",
+        "path": "Monsters/monster/devil/statblock/devil-clerk.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-clerk",
+      "originalName": "Devil Clerk",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 5      |                  Minion Brute                  | EV 7 for four minions |\n|:----------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **10**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|    **+3**<br>Might     | **+0**<br>Agility | **+1**<br>Reason  |              **+1**<br>Intuition               |  **+2**<br>Presence   |\n\n> 🗡 **Quill Pushing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; push 1\n> - **12-16:** 6 damage; push 2\n> - **17+:** 7 damage; push 3\n>\n> **Effect:** Any target [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to two or more clerks is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of their next turn.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the clerk's true name, the clerk loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-clerk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-high-judge",
+      "kind": "monster",
+      "name": "Дьявол — верховный судья",
+      "markdown": "| Дьявол, Адский |          -          |      Уровень 6      |        Лидер         |        Боевая ценность 32         |\n|:---------------------:|:-------------------:|:------------------:|:---------------------:|:---------------------------------------:|\n|     **1M**<br>Размер     |   **7**<br>Скорость    | **181**<br>Выносливость |  **2**<br>Устойчивость   | **6**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+1**<br>Мощь     |  **+3**<br>Ловкость  |  **+0**<br>Разум  |  **+1**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> 🏹 **Адский указ (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                   **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|----------------------------------:|\n> | **📏 Дальний бой 12**         | **🎯 Три существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 10 урона; если П < 2, цель не может скрываться (до успешного спасброска)\n> - **12-16:** 15 урона; если П < 3, цель не может скрываться (до успешного спасброска)\n> - **17+:** 19 урона; если П < 4, цель не может скрываться (до успешного спасброска)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Пока цель не может скрываться таким образом, любой удар дьявола по ней получает [преимущество](#/catalog/glossary#term-glossary.edge).\n\n> 🏹 **Убедить присяжных**\n>\n> | **Магия, Дальний бой, Удар** |         **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|---------------------:|\n> | **📏 Дальний бой 12**         | **🎯 Два существа** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** если И < 2, цель очарована (до успешного спасброска)\n> - **12-16:** если И < 3, цель очарована (до успешного спасброска)\n> - **17+:** если И < 4, цель очарована (до успешного спасброска)\n>\n> **Эффект:** Пока существо очаровано таким образом, оно считает верховного судью союзником, а верховный судья может потратить 1 [Раздор](#/codex/monsters.rule.monster.malice) в свой ход, чтобы переместить это существо на расстояние до 3 клеток.\n\n> ❗️ **Дьявольское внушение (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает верховного судью целью удара.\n>\n> **Эффект:** Цель проходит **проверку Присутствия**.\n>\n> - **≤11:** Цель очарована (до успешного спасброска).\n> - **12-16:** Верховный судья выбирает новую цель для удара.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n>\n> Пока существо очаровано таким образом, оно считает верховного судью союзником, а верховный судья может потратить 1 [Раздор](#/codex/monsters.rule.monster.malice) в свой ход, чтобы переместить это существо на расстояние до 3 клеток.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода верховный судья может получить 10 урона, чтобы прекратить один эффект на себе, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким образом.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя верховного судьи, тот теряет иммунитеты к урону, все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и [действие по триггеру](#/catalog/glossary#term-glossary.triggered-action) «Дьявольское внушение» до конца столкновения.\n\n> ☠️ **Всем встать ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область, Магия** |                         **-** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 3**     | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Цель проходит **проверку Присутствия**.\n>\n> - **≤11:** 15 психического урона; цель очарована (до успешного спасброска)\n> - **12-16:** 12 психического урона; цель очарована (до успешного спасброска)\n> - **17+:** 7 психического урона\n>\n> Пока существо очаровано таким образом, оно считает верховного судью союзником, а верховный судья может потратить 1 [Раздор](#/codex/monsters.rule.monster.malice) в свой ход, чтобы переместить это существо на расстояние до 3 клеток.\n\n> ☠️ **Внемлите моему указу ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область**       |                                 **-** |\n> |-------------------|--------------------------------------:|\n> | **📏 Взрыв 5**    | **🎯 Себя и каждого союзника в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Верховный судья может переместить каждое существо, очарованное способностями «Всем встать», «Убедить присяжных» или «Дьявольское внушение», на расстояние до половины его Скорости.\n\n> ☠️ **Обманный манёвр ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Магия, Дальний бой** |               **-** |\n> |------------------------|--------------------:|\n> | **📏 Дальний бой 12**  | **🎯 Одно существо** |\n>\n> **Эффект:** Если цель — союзник или существо, очарованное способностью «Всем встать», «Убедить присяжных» или «Дьявольское внушение», верховный судья и цель [телепортируются](#/catalog/glossary#term-glossary.teleport), меняясь местами. Затем каждый союзник в пределах 12 клеток от верховного судьи может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по выбранной верховным судьёй цели. Каждое существо, очарованное способностью «Всем встать», «Убедить присяжных» или «Дьявольское внушение», совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по выбранной верховным судьёй цели.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-high-judge",
+        "path": "Monsters/monster/devil/statblock/devil-high-judge.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-high-judge",
+      "originalName": "Devil High Judge",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |        Leader         |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **7**<br>Speed    | **181**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+1**<br>Might     |  **+3**<br>Agility  |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Infernal Decree (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 12**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 10 damage; P < 2 the target can't hide (save ends)\n> - **12-16:** 15 damage; P < 3 the target can't hide (save ends)\n> - **17+:** 19 damage; P < 4 the target can't hide (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While a target is unable to hide this way, any strike against them made by a devil gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> 🏹 **Compel the Jury**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 12**          | **🎯 Two creatures** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** I < 2 the target is charmed (save ends)\n> - **12-16:** I < 3 the target is charmed (save ends)\n> - **17+:** I < 4 the target is charmed (save ends)\n>\n> **Effect:** While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ❗️ **Devilish Suggestion (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the high judge with a strike.\n>\n> **Effect:** The target makes a **Presence test**.\n>\n> - **≤11:** The target is charmed (save ends).\n> - **12-16:** The high judge chooses a new target for the strike.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n>\n> While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the high judge can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the high judge's true name, the high judge loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Suggestion [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) until the end of the encounter.\n\n> ☠️ **All Rise ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** The target makes a **Presence test**.\n>\n> - **≤11:** 15 psychic damage; the target is charmed (save ends)\n> - **12-16:** 12 psychic damage; the target is charmed (save ends)\n> - **17+:** 7 psychic damage\n>\n> While charmed this way, a creature treats the high judge as an ally, and the high judge can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) on their turn to make that creature move up to 3 squares.\n\n> ☠️ **Heed My Decree ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. The high judge can make each creature charmed by All Rise, Compel the Jury, or Devilish Suggestion move up to half that creature's speed.\n\n> ☠️ **Deceptive Stratagem ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Magic, Ranged** |               **-** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 12**  | **🎯 One creature** |\n>\n> **Effect:** If the target is an ally or a creature charmed by All Rise, Compel the Jury, or Devilish Suggestion, the high judge and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places. Each ally within 12 squares of the high judge can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target of the high judge's choice. Each creature charmed by All Rise, Compel the Jury, or Devilish Suggestion makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target of the high judge's choice.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-high-judge.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-jurist",
+      "kind": "monster",
+      "name": "Дьявол-юрист",
+      "markdown": "| Дьявол, Адский |          -          |      Уровень 5      |    Элита, Артиллерист    |        Боевая ценность 28         |\n|:---------------------:|:-------------------:|:------------------:|:------------------------:|:--------------------------------------:|\n|     **1M**<br>Размер     |   **6**<br>Скорость    | **120**<br>Выносливость |  **0**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     |  **+2**<br>Ловкость  |  **+1**<br>Разум  |  **+1**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> ⭐️ **Адское пламя**\n>\n> Урон огнём, наносимый юристом, игнорирует иммунитет к урону.\n\n> 🏹 **Огонь и сера (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                   **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|----------------------------------:|\n> | **📏 Дальний бой 12**         |   **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона огнём\n> - **12-16:** 15 урона огнём; если Л < 2, цель горит (до успешного спасброска)\n> - **17+:** 18 урона огнём; если Л < 3, цель горит (до успешного спасброска)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n>\n> **1+ [Раздора](#/codex/monsters.rule.monster.malice):** За каждый потраченный [Раздор](#/codex/monsters.rule.monster.malice) юрист может выбрать целью ещё одно существо или объект.\n\n> ❇️ **Отказ с запретом повторного обращения**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 2**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона; швырнуть на 1 клетку\n> - **12-16:** 10 урона; швырнуть на 3 клетки\n> - **17+:** 12 урона; швырнуть на 5 клеток\n>\n> **Эффект:** Если М < 2, расстояние [принудительного движения](#/catalog/glossary#term-glossary.forced-movement) увеличивается на +3.\n\n> 🏹 **Из праха в прах**\n>\n> | **Магия, Дальний бой** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|--------------------:|\n> | **📏 Дальний бой 12**  | **🎯 Одно существо** |\n>\n> **Эффект:** Если цель горит (см. «Огонь и сера»), она получает 6 урона огнём.\n\n> ❗️ **Дьявольское очарование (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает юриста целью удара.\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Юрист выбирает новую цель для удара.\n> - **12-16:** Юрист вдвое уменьшает урон от вызвавшей триггер атаки.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя юриста, тот теряет иммунитет к огню, все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и способность «Дьявольское очарование» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-jurist",
+        "path": "Monsters/monster/devil/statblock/devil-jurist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-jurist",
+      "originalName": "Devil Jurist",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 5       |    Elite Artillery    |        EV 28         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **120**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+2**<br>Agility  |  **+1**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> ⭐️ **Hellfire**\n>\n> Fire damage dealt by the jurist ignores damage immunity.\n\n> 🏹 **Fire and Brimstone (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 12**          |   **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage\n> - **12-16:** 15 fire damage; A < 2 burning (save ends)\n> - **17+:** 18 fire damage; A < 3 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The jurist can target one additional creature or object for each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Dismissal with Prejudice**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; slide 1\n> - **12-16:** 10 damage; slide 3\n> - **17+:** 12 damage; slide 5\n>\n> **Effect:** If the target has M < 2, the [forced](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance movement gains a +3 bonus.\n\n> 🏹 **Ashes to Ashes**\n>\n> | **Magic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 12**  | **🎯 One creature** |\n>\n> **Effect:** If the target is burning (see Fire and Brimstone), they take 6 fire damage.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the jurist with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The jurist chooses a new target for the strike.\n> - **12-16:** The jurist halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the jurist's true name, the jurist loses their fire immunity, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-jurist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-legate",
+      "kind": "monster",
+      "name": "Дьявол-легат",
+      "markdown": "| Дьявол, Адский |          -          |      Уровень 5      |     Элита, Защитник     |        Боевая ценность 28         |\n|:---------------------:|:-------------------:|:------------------:|:-----------------------:|:--------------------------------------:|\n|     **1M**<br>Размер     |  **6**<br>Скорость   | **160**<br>Выносливость |  **2**<br>Устойчивость   | **6**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+3**<br>Мощь     | **+1**<br>Ловкость |  **+0**<br>Разум  |  **+1**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> 🗡 **Адская пика (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона; если Л < 2, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n> - **17+:** 17 урона; если Л < 3, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n>\n> **Эффект:** Если цели [смежны](#/catalog/glossary#term-glossary.adjacent) друг с другом, способность наносит дополнительно 3 урона.\n\n> 🗡 **Приказ о казни**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**                  | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона; если М < 1, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 11 урона; если М < 2, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone) и не может встать (до успешного спасброска)\n> - **17+:** 14 урона; если М < 3, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone) и не может встать (до успешного спасброска)\n>\n> **Эффект:** Если способность используется в рамках основного действия [Рывок](#/catalog/glossary#term-glossary.charge-main-action), легат игнорирует [трудную местность](#/catalog/glossary#term-glossary.difficult-terrain) во время рывка. Каждое существо и объект, через пространство которого проходит легат, получает урон от этой способности, но не подвергается её дополнительным эффектам.\n\n> 🗡 **Закон и порядок**\n>\n> | **Ближний** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|--------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Эффект:** Цель получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted), наложенное легатом (до успешного спасброска). Легат может одновременно накладывать [Провокацию](#/catalog/glossary#term-glossary.taunted) только на одно существо.\n\n> ❗️ **Дьявольское очарование (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает легата целью удара.\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Легат выбирает новую цель для удара.\n> - **12-16:** Легат вдвое уменьшает урон от вызвавшей триггер атаки.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n\n> ⭐️ **Адский судебный пристав**\n>\n> Легат обладает иммунитетом к урону 3, пока находится в одном из Семи городов Ада или в пределах 10 клеток от не-[миньона](#/codex/monsters.rule.organization.minion) дьявола более высокого уровня.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя легата, тот теряет иммунитеты к урону, все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и способность «Дьявольское очарование» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-legate",
+        "path": "Monsters/monster/devil/statblock/devil-legate.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-legate",
+      "originalName": "Devil Legate",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 5       |    Elite Defender     |        EV 28         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **160**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     | **+1**<br>Agility |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Infernal Pike (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 17 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If the targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other, this ability deals an extra 3 damage.\n\n> 🗡 **Writ of Execution**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 11 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 14 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** If this ability is used as part of the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action, the legate ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) during the charge. Each creature and object whose space the legate moves through takes the damage from this ability, but not its additional effects.\n\n> 🗡 **Law and Order**\n>\n> | **Melee**      |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------:|\n> | **📏 Melee 1** | **🎯 One creature** |\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) by the legate (save ends). The legate can have only one creature [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) at a time.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the legate with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The legate chooses a new target for the strike.\n> - **12-16:** The legate halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Hellish Bailiff**\n>\n> The legate has damage immunity 3 while in one of the Seven Cities of Hell or within 10 squares of a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) devil who is of a higher level than them.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the legate's true name, the legate loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-legate.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-magistrate",
+      "kind": "monster",
+      "name": "Дьявол-магистрат",
+      "markdown": "| Дьявол, Адский |         -         |      Уровень 6      |    Элита, Налётчик    |        Боевая ценность 32         |\n|:---------------------:|:-----------------:|:-----------------:|:---------------------:|:---------------------------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость   | **160**<br>Выносливость |  **0**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+1**<br>Мощь     | **+3**<br>Ловкость |  **+0**<br>Разум  |  **+1**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> 🗡 **Острие закона (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона\n> - **17+:** 18 урона огнём; если Р < 3, цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n>\n> **Эффект:** Магистрат может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток до или после применения этой способности, а также между каждым ударом.\n\n> 🗡 **Приговор**\n>\n> | **Ближний, Удар, Оружие** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 11 урона\n> - **12-16:** 17 урона\n> - **17+:** 21 урон\n>\n> **Эффект:** Эта способность получает двойное [преимущество](#/catalog/glossary#term-glossary.edge), если цель не видела магистрата, пока тот был скрыт, и наносит дополнительно 5 урона, если цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed).\n\n> 👤 **Правосудие обратило на тебя взор**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Магистрат становится невидимым до начала своего следующего хода и может попытаться скрыться, совершив [свободный маневр](#/catalog/glossary#term-glossary.free-maneuver), до конца текущего хода.\n\n> ❗️ **Дьявольское очарование (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает магистрата целью удара.\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Магистрат выбирает новую цель для удара.\n> - **12-16:** Магистрат вдвое уменьшает урон от вызвавшей триггер атаки.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n\n> ⭐️ **Ведение**\n>\n> Когда магистрат отходит от врага, [смежного](#/catalog/glossary#term-glossary.adjacent) с одним из его союзников, он может вместо этого [смещаться](#/catalog/glossary#term-glossary.shift).\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя магистрата, тот теряет иммунитеты к урону, все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и способность «Дьявольское очарование» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-magistrate",
+        "path": "Monsters/monster/devil/statblock/devil-magistrate.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-magistrate",
+      "originalName": "Devil Magistrate",
+      "originalDescription": "|    Devil, Infernal     |         -         |      Level 6       |     Elite Harrier     |        EV 32         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |  **7**<br>Speed   | **160**<br>Stamina |  **0**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+1**<br>Might     | **+3**<br>Agility |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Edge of the Law (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | ------------------------- |--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage\n> - **17+:** 18 fire damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The magistrate [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares before or after using this ability, or between each strike.\n\n> 🗡 **Verdict**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 17 damage\n> - **17+:** 21 damage\n>\n> **Effect:** This ability has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) if the magistrate was hidden from the target, and deals an extra 5 damage if the target is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 👤 **Justice Turns Its Gaze**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The magistrate turns invisible until the start of their next turn, and can attempt to hide as a [free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver) before the end of the current turn.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the magistrate with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The magistrate chooses a new target for the strike.\n> - **12-16:** The magistrate halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Leading**\n>\n> Whenever the magistrate moves away from an enemy who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one of the magistrate's allies, they can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) instead.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the magistrate's true name, the magistrate loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-magistrate.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-notary",
+      "kind": "monster",
+      "name": "Дьявол-нотариус",
+      "markdown": "| Дьявол, Адский |         -         |     Уровень 5      |             Миньон, Проклинатель             | Боевая ценность 7 за четырёх миньонов |\n|:---------------------:|:-----------------:|:----------------:|:--------------------------------------------:|:------------------------------------------:|\n|     **1M**<br>Размер     |  **6**<br>Скорость   | **8**<br>Выносливость |               **0**<br>Устойчивость                | **3**<br>Свободный удар  |\n| **Огонь 5**<br>Иммунитет | **-**<br>Движение |        -         | **+5 к дальности способностей Дальнего боя**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     | **+1**<br>Ловкость | **+3**<br>Разум |               **+1**<br>Интуиция               |  **+2**<br>Присутствие   |\n\n> 🏹 **Назойливость (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 5**          | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона огнём\n> - **12-16:** 5 урона огнём; если Р < 2, цель получает [помеху](#/catalog/glossary#term-glossary.bane) на следующий удар\n> - **17+:** 6 урона огнём; если Р < 3, цель получает [помеху](#/catalog/glossary#term-glossary.bane) на следующий удар\n>\n> **Эффект:** Один не-[миньон](#/codex/monsters.rule.organization.minion)-дьявол в пределах 5 клеток от нотариуса получает [преимущество](#/catalog/glossary#term-glossary.edge) на следующий удар.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя нотариуса, тот теряет иммунитет к огню и все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-notary",
+        "path": "Monsters/monster/devil/statblock/devil-notary.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-notary",
+      "originalName": "Devil Notary",
+      "originalDescription": "|    Devil, Infernal     |         -         |     Level 5      |                  Minion Hexer                   | EV 7 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **8**<br>Stamina |               **0**<br>Stability                | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     | **+1**<br>Agility | **+3**<br>Reason |               **+1**<br>Intuition               |  **+2**<br>Presence   |\n\n> 🏹 **Importunity (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 fire damage\n> - **12-16:** 5 fire damage; R < 2 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n> - **17+:** 6 fire damage; R < 3 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n>\n> **Effect:** One non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) devil within 5 squares of the notary gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on their next strike.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the notary's true name, the notary loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-notary.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.devil.statblock.devil-scrivener",
+      "kind": "monster",
+      "name": "Дьявол-писец",
+      "markdown": "| Дьявол, Адский |         -         |     Уровень 5      |          Миньон, Налётчик          | Боевая ценность 7 за четырёх миньонов |\n|:---------------------:|:-----------------:|:----------------:|:----------------------------------:|:------------------------------------------:|\n|     **1M**<br>Размер     |  **6**<br>Скорость   | **9**<br>Выносливость |          **0**<br>Устойчивость           | **3**<br>Свободный удар  |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |        -         | **+3 к Скорости**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     |  **+3**<br>Ловкость  | **+1**<br>Разум |          **+1**<br>Интуиция          |  **+2**<br>Присутствие   |\n\n> 🗡 **Тяжба (Знаковая способность)**\n>\n> | **Рывок, Магия, Ближний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**                | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона порчей\n> - **12-16:** 5 урона порчей; состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** 6 урона порчей; состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n>\n> **Эффект:** Писарь может [смещаться](#/catalog/glossary#term-glossary.shift) на 1 клетку.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя дьявола-писца, тот теряет иммунитет к огню и все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-scrivener",
+        "path": "Monsters/monster/devil/statblock/devil-scrivener.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-scrivener",
+      "originalName": "Devil Scrivener",
+      "originalDescription": "|    Devil, Infernal     |          -          |     Level 5      |            Minion Harrier             | EV 7 for four minions |\n|:----------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **9**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+3**<br>Agility  | **+1**<br>Reason |          **+1**<br>Intuition          |  **+2**<br>Presence   |\n\n> 🗡 **Litigation (Signature Ability)**\n>\n> | **Charge, Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 5 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 6 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n>\n> **Effect:** The scrivener can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the scrivener's true name, the scrivener loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-scrivener.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.group.devil",
+      "kind": "monster-lore",
+      "name": "Дьяволы",
+      "markdown": "В нижнем плане Ада [дьяволы](#/codex/monsters.monster.group.devil) Семи городов непрерывно борются за власть и контроль — и в этой борьбе прежде всего прибегают к хитрости и интригам. От прочих [гуманоидов](#/codex/monsters.rule.keyword.humanoid) дьяволов отличают оттенки лазурного и багряного цвета кожи, а также адские приметы: рога, хвосты, копыта, крылья и другие [адские](#/codex/monsters.rule.keyword.infernal) черты.\n\n### Шаткие пирамиды\n\nСемь городов Ада держатся на строгой иерархии и бюрократии. Древние цепочки подчинения ставят каждого дьявола на службу более могущественному, а на вершине стоят семь архидьяволов — правителей Ада. Дьяволы следуют законам, но всегда ищут способ подняться выше. Они толкуют каждое правило в свою пользу, чтобы обрести власть и свергнуть тех, кому служат, и жадно ищут лазейки в вечной борьбе за значимость и превосходство.\n\n### Серебряные языки\n\nОбходительные дьяволы могут обрести значительное влияние, выторговывая души смертных от имени архидьявола, которому в конечном счёте служат. Будучи виртуозами слова, дьяволы умело заключают сделки и составляют договоры. Они используют слабости смертных — жадность, жажду мести, тщеславие или простое отчаяние. В пылу битвы сверхъестественная харизма дьявола может заставить смертного исполнить его волю, и тот часто понимает это, лишь когда уже слишком поздно.\n\n> **Переговоры с дьяволами**\n>\n> Дьяволы охотно ведут переговоры и заключают сделки, но от другой стороны часто требуют более убедительных доводов и конкретных доказательств. Чтобы быстро создать дьявола из одного из Семи городов для переговоров, выберите одну из следующих мотиваций и опасных тем (см. главу 11 в книге *Draw Steel: Heroes*):\n>\n> - **Мотивация:** Жадность, Власть, Наследие\n> - **Опасная тема:** Благожелательность, Свобода, Защита\n>\n> Во время переговоров Впечатление и Терпение дьявола-НПС увеличиваются на 1 (максимум до 5). Его Интерес повышается до 10 вместо 5.\n>\n> Когда НПС-дьявол готов сделать предложение, разделите его Интерес на 2, чтобы получить окончательный ответ. Обычно дьявол не завершает переговоры, если взамен ему не пообещали что-то желанное.\n\n### Истинные имена\n\nУ всех дьяволов есть два имени: одно, под которым их обычно знают, и другое — тайное истинное имя. Каждый дьявол ревностно оберегает последнее: его можно произнести вслух, чтобы помочь призвать дьявола или лишить его силы.\n\n### Беглецы из Ада\n\nНе каждый дьявол Семи городов стремится безжалостно взобраться по иерархической лестнице. Некоторые хотят продвинуться, но недовольны своим низким положением. К счастью для этих нечистых созданий, они могут вырваться из бюрократии Ада: когда смертный переоценивает свою стойкость и погибает, совершая адский обряд призыва, предприимчивый дьявол может оказаться запертым в обыденном мире.\n\n### Языки дьяволов\n\nБольшинство дьяволов, помимо прочих языков, говорит на Анджали и кэлианском. Чем могущественнее дьявол, тем больше языков он изучает, чтобы заключать безупречные договоры с самыми разными народами и культурами. За редкими исключениями дьяволы всегда готовы к переговорам и постоянно ищут способ обратить ситуацию себе на пользу.\n\n> **Искушения дьяволов**\n>\n> Хотя некоторые дьяволы ценят удобства и роскошь сами по себе, главным образом они используют сокровища как предмет торга в дьявольских соглашениях — приманку на своих адских крючьях.\n>\n> Ещё зловещее, чем приз, добытый в тяжёлой сделке с дьяволом, — подарок, вручённый им безвозмездно. Преимущества такого дара условны и сохраняются, лишь пока дьявол не отзовёт его в самый неудобный момент.\n>\n> Ниже приведены примеры чудес, которые дьявол может предложить — разумеется, лишь самым взыскательным покупателям. У дьявола может найтись для обмена всего два или три таких предмета, но другие вещи (например, крыло архидьявола) можно добыть силой. Подробнее о том, как герои могут использовать эти предметы, см. в книге *Draw Steel: Heroes*.\n>\n> **Компоненты:** Крыло архидьявола, кровь архидьявола, мел для душ, широкий выбор истинных имён\n>\n> **Источники проектов:** Записи на Анджали для улучшения доспеха «Сделка с дьяволом» или Шлема адского скакуна; записи на Хираллике для Оберега посредника\n>\n> **Титулы:** Диаболист, Маэстро\n>\n> **Сокровища:** Визитная карточка Г'Аллиоса, Похититель радости\n>\n> **Богатство:** Каждый герой может получить 1 единицу Богатства в обмен на небольшую услугу.\n",
+      "source": {
+        "articleId": "monsters.monster.group.devil",
+        "path": "Monsters/monster/group/devil.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/devil",
+      "originalName": "Devils",
+      "originalDescription": "In the lower plane of Hell, [devils](scc.v1:mcdm.monsters.v1/monster.group/devil) of the Seven Cities vie unceasingly for power and control—a conflict fought foremostly through cunning and schemes. Devils are distinguished from other [humanoids](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) by skin in shades of azure and crimson, as well as their hellmarks: horns, tails, hooves, wings, and other [infernal](scc.v1:mcdm.monsters.v1/rule.keyword/infernal) features.\n\n### Precarious Pyramids\n\nThe Seven Cities of Hell stand atop strict hierarchy and bureaucracy. Primordial chains of command place each devil in service to a more powerful devil, with the seven archdevil rulers of Hell at the top. While devils are lawful, they're always looking for another way up the ladder. They twist every rule to their benefit to gain power and usurp those they answer to, eager to uncover loopholes in the eternal struggle for significance and supremacy.\n\n### Silver Tongues\n\nWinsome devils can acquire significant influence by bargaining for the souls of mortals on behalf of the archdevil they ultimately serve. Virtuosos with words, devils are skilled at striking deals and forging contracts. They exploit the weaknesses of mortals, whether greed, revenge, vanity, or simple desperation. In the heat of battle, a devil's supernatural charisma can influence a mortal to do their bidding, often without realizing until it's too late.\n\n> **Negotiations with Devils**\n>\n> Devils are eager to negotiate and strike deals, but often require more compelling arguments and concrete evidence from the other party. You can pick from the following motivations and pitfalls to quickly create a devil from one of the Seven Cities for a negotiation (see Chapter 11 in *Draw Steel: Heroes*):\n>\n> - **Motivation:** Greed, Power, Legacy\n> - **Pitfall:** Benevolence, Freedom, Protection\n>\n> During a negotiation, an NPC devil has their impression and patience increased by 1 (to a maximum of 5). Their interest goes up to 10 instead of 5.\n>\n> When an NPC devil is ready to make an offer, divide their interest by 2 to get their final response. A devil typically never settles a negotiation unless they're promised something desirable in return.\n\n### True Names\n\nAll devils have two names: one by which they're commonly known, and another secret true name. Each devil zealously safeguards the latter, as their true name can be spoken aloud to aid in summoning them—or in stripping them of their power.\n\n### Hell's Defectors\n\nNot every devil in the Seven Cities wants to ruthlessly ascend the hierarchy. Some desire advancement, but they remain dissatisfied at the bottom. As luck would have it, these fiends can free themselves from Hell's bureaucracy, for when a mortal overestimates their fortitude and dies while enacting an infernal summoning, it can leave an enterprising devil stranded in the mundane world.\n\n### Devil Languages\n\nMost devils speak Anjal and Caelian, among other languages. The more powerful a devil, the more languages they learn in order to more easily make ironclad contracts with a wide variety of people and cultures. Outside of rare circumstances, devils are always willing to negotiate, ever desiring to twist a situation in their favor.\n\n> **Devil Temptations**\n>\n> Although some devils enjoy comfort and opulence for their own sake, they primarily use treasure as bargaining chips in fiendish compacts: bait on the devils' infernal barbs.\n>\n> Even more sinister than a prize won in a devil's hard bargain is a gift freely given by a devil. The advantages of such a gift are conditional, lasting only until the devil revokes it at some inconvenient time.\n>\n> The following are samples of the wonders that a devil can offer—to only the most discriminating customers, of course. A devil might only have two or three of these items available for trade, but others (such as an archdevil's wing) can be won by force. See *Draw Steel: Heroes* for more information about how these items can be used by heroes.\n>\n> **Components:** An archdevil's wing, archdevil's blood, soul chalk, a wide selection of true names\n>\n> **Project Sources:** Notes in Anjali for the Devil's Bargain armor enhancement or a Hellcharger Helm, notes in Hyrallic for a Mediator's Charm\n>\n> **Titles:** Diabolist, Maestro\n>\n> **Treasures:** G'Allios Visiting Card, Thief of Joy\n>\n> **Wealth:** Each hero can earn 1 wealth in exchange for a small favor",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/devil.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

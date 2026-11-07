@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-prismite",
+  "title": "Пёс войны — Призмит",
+  "chapter": "23. Бестиарий",
+  "group": "Псы войны",
+  "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-prismite.md",
+  "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-prismite",
+  "originalName": "War Dog Prismite",
+  "originalDescription": "| Soulless, War Dog |             -              |      Level 8      |    Horde Defender     |        EV 10         |\n|:-----------------:|:--------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |       **5**<br>Speed       | **82**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **Fly, hover**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might  |      **0**<br>Agility      | **+4**<br>Reason  |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> ❇️ **Grasping Tonguetacles ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Psionic, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 2 burst**            | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 psychic damage\n> - **12-16:** 6 psychic damage; R < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 psychic damage; R < 4 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver, [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🔳 **Hard Light Field**\n>\n> | **Area, Psionic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------:|\n> | **📏 4 cube within 10**   | **🎯 Each ally in the area** |\n>\n> **Effect:** Until the start of the prismite's next turn, each target has cover and gains a +2 bonus to stability.\n\n> ❗️ **Tractor Beam (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic, Ranged** |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|----------------------------:|\n> | **📏 Ranged 10**    | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses a melee ability against an ally.\n>\n> **Effect:** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares toward the prismite and any damage from the triggering ability is halved.\n\n> ⭐️ **Prismacore Detonation**\n>\n> When the prismite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they explode, dealing 3d6 psychic damage to each enemy within 2 squares of them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-prismite.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10",
+    "size": "2",
+    "keywords": [
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Защитник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.war-dog.3rd-echelon.statblock.war-dog-prismite"
+    }
+  ]
+}

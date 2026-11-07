@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-saboteur",
+  "title": "Пёс войны — Диверсант",
+  "chapter": "23. Бестиарий",
+  "group": "Псы войны",
+  "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-saboteur.md",
+  "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-saboteur",
+  "originalName": "War Dog Saboteur",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 7      |                 Minion Ambusher                 | EV 9 for four minions |\n|:---------------------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|       **1S**<br>Size        |  **6**<br>Speed   | **12**<br>Stamina |               **0**<br>Stability                | **4**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|       **-1**<br>Might       | **+2**<br>Agility | **+4**<br>Reason  |               **+3**<br>Intuition               |  **+1**<br>Presence   |\n\n> 🏹 **Fuse-Iron Bomb ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|-----------------------------------------:|\n> | **📏 Ranged 5**    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 fire damage\n> - **12-16:** 7 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 8 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** The space the target occupies fills with dark smoke and blocks line of effect until the start of the saboteur's next turn.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the saboteur is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-saboteur.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Засадник",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.war-dog.3rd-echelon.statblock.war-dog-saboteur"
+    }
+  ]
+}

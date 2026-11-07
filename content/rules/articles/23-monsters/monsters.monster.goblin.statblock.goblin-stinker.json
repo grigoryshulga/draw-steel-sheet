@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.goblin.statblock.goblin-stinker",
+  "title": "Гоблин-вонючка",
+  "chapter": "23. Бестиарий",
+  "group": "Гоблины",
+  "path": "Monsters/monster/goblin/statblock/goblin-stinker.md",
+  "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-stinker",
+  "originalName": "Goblin Stinker",
+  "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |   Horde Controller    |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Toxic Winds (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 15** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 poison damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one target can be [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1 additional square.\n\n> 🔳 **Swamp Gas**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 3 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is filled with a green haze that lasts until the start of the stinker's next turn or until the stinker is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and which can't be dispersed by wind. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for non-goblins, and each non-goblin who moves in the area takes 2 poison damage for each square moved.\n\n> ⭐️ **Crafty**\n>\n> The stinker doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/goblin/statblock/goblin-stinker.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "goblin",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гоблин",
+      "Гуманоид"
+    ],
+    "role": "Контроллер",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.goblin.statblock.goblin-stinker"
+    }
+  ]
+}

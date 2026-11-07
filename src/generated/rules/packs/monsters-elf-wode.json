@@ -1,0 +1,1162 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-chirurgeon",
+      "title": "Лесной эльф-хирург",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-chirurgeon.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-chirurgeon",
+      "originalName": "Wode Elf Chirurgeon",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |    Platoon Harrier    |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might     |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Wild Ax (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** The chirurgeon can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using this ability.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The chirurgeon uses this ability again.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the chirurgeon that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-chirurgeon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-chirurgeon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-druid",
+      "title": "Лесной эльф-друид",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-druid.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-druid",
+      "originalName": "Wode Elf Druid",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Entangling Vines (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 10 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** While [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, a target can't search for hidden creatures.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The size of the cube and the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) both increase by 1.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the druid that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-druid.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-druid"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-green-seer",
+      "title": "Лесной эльф-зелёный провидец",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-green-seer.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-green-seer",
+      "originalName": "Wode Elf Green Seer",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+1**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **The Forest's Embrace (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage; I < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 9 damage; I < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a target can't search for hidden creatures.\n\n> 🏹 **The Natural Cycle (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; P < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 6 damage; P < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); the target has a double bane on strikes (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target is covered in lichen.\n\n> ❗️ **Foreseen Punishment**\n>\n> | **Ranged**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature uses a triggered action targeting the green seer or an ally within distance.\n>\n> **Effect:** The green seer makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target after the target's triggered action is resolved.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the green seer that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-green-seer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-green-seer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-greenskeeper",
+      "title": "Лесной эльф-лесничий",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-greenskeeper.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-greenskeeper",
+      "originalName": "Wode Elf Greenskeeper",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |   Platoon Defender    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Growing Longsword (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of their next turn, and the greenskeeper [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The distance increases to Melee 5.\n\n> 🔳 **Overgrowth (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 3 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is overgrown with heavy brush and brambles until the end of the encounter, providing cover and concealment for the greenskeeper and their allies. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies and any enemy who starts their turn in the area takes 3 damage.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the greenskeeper that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-greenskeeper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-greenskeeper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-guerrilla",
+      "title": "Лесной эльф-партизан",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-guerrilla.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-guerrilla",
+      "originalName": "Wode Elf Guerrilla",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3      |   Platoon Ambusher    |        EV 10         |\n|:-----------------------:|:------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |    **+2**<br>Agility     |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Splinter Dagger (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The guerrilla can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target, and deals an additional 3 damage if both targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other.\n\n> ❗️ **Do Not Hesitate in the Wode (3 Malice)**\n>\n> | **Ranged**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|--------------------------:|\n> | **📏 Ranged 20** | **🎯 Self and each ally** |\n>\n> **Special:** The guerrilla must be acting as a captain.\n>\n> **Trigger:** An ally ends their turn while the guerrilla hasn't acted this round.\n>\n> **Effect:** The targets take their turn immediately. Each target gains an edge on abilities until the end of their turn.\n\n> ⭐️ **Into the Green**\n>\n> The guerrilla can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the guerrilla that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-guerrilla.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-guerrilla"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-gweiadur",
+      "title": "Лесной эльф-гвейадур",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-gweiadur.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-gweiadur",
+      "originalName": "Wode Elf Gweiadur",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 3      |   Platoon Artillery   |        EV 10         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |   **+2**<br>Agility   |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Snare Bow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The gweiadur [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability [restrains](scc.v1:mcdm.heroes.v1/condition/restrained) the target, one enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target is also [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🔳 **You Activated My Trap! (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; R < 0 the target is marked (save ends)\n> - **12-16:** 6 damage; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target is marked (save ends)\n> - **17+:** 9 damage; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target is marked (save ends)\n>\n> **Effect:** Allies gain an edge on abilities against a target marked by any wode elf.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the gweiadur that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-gweiadur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-gweiadur"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-lookout",
+      "title": "Лесной эльф-дозорный",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-lookout.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-lookout",
+      "originalName": "Wode Elf Lookout",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |     Level 1      |            Minion Support             | EV 3 for four minions |\n|:-----------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      |   **+2**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |  **+1**<br>Presence   |\n\n> 🏹 **Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n\n> ⭐️ **There!**\n>\n> Any wode elf within 5 squares of the lookout can make ranged strikes as if occupying the lookout's space.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the lookout that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-lookout.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-lookout"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-runner",
+      "title": "Лесной эльф-бегун",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-runner.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-runner",
+      "originalName": "Wode Elf Runner",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Spear (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If this ability is used as part of the Charge main action, the runner shifts up to 2 squares first.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the runner that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-runner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-runner"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-scout",
+      "title": "Лесной эльф-разведчик",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-scout.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-scout",
+      "originalName": "Wode Elf Scout",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **10**<br>Speed  | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Daggers (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Into the Green**\n>\n> The scout can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the scout that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-scout.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-scout"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-sentry",
+      "title": "Лесной эльф-страж",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-sentry.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-sentry",
+      "originalName": "Wode Elf Sentry",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Tracer Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; the target is marked (save ends)\n>\n> **Effect:** Allies gain an edge on abilities against a target marked by any wode elf.\n>\n> **3 Malice:** The sentry targets two additional creatures or objects.\n\n> ❇️ **Death Blossom (2 Malice)**\n>\n> | **Area, Weapon** |             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-------------------------:|\n> | **📏 5 burst**   | **🎯 Each marked enemy** |\n>\n> **Effect:** Each target takes 3 damage.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the sentry that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-sentry.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-sentry"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-warleader",
+      "title": "Лесной эльф-военный предводитель",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-warleader.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-warleader",
+      "originalName": "Wode Elf Warleader",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3       |        Leader         |        EV 20         |\n|:-----------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might     |    **+3**<br>Agility     |  **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Wodeblade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The warleader can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares between each strike.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability takes an extra 3 damage.\n\n> ❇️ **Fairness Is a Human Concept (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**        |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), then each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares. A target who has cover or concealment at the end of this shift can attempt to hide at the end of the warleader's turn.\n\n> ❗️ **Wode Sickness**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally ends their turn.\n>\n> **Effect:** The target must not have taken their turn this round. The target takes their turn immediately, and if they have P < 2 they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and take a bane on strikes until the end of their turn.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Into the Green**\n>\n> The warleader can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the warleader that would take a bane from cover or concealment have a double bane instead.\n\n> ☠️ **You Will All Witness my Blade (Villain Action 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The warleader uses Wodeblade against each target and gains an edge on the power roll.\n\n> ☠️ **Suppressing Volley (Villain Action 2)**\n>\n> | **Area**       |                        **-** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** The warleader can use Wodeblade. Each target can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Is It Now or Is It Then? (Villain Action 3)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target is invisible until the start of the next round. The warleader then uses Wodeblade.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-warleader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-warleader"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-yeoman",
+      "title": "Лесной эльф-ополченец",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-yeoman.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-yeoman",
+      "originalName": "Wode Elf Yeoman",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |                Minion Artillery                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |  **+1**<br>Presence   |\n\n> 🏹 **Heavy Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 12**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; push 1\n> - **12-16:** 4 damage; push 2\n> - **17+:** 5 damage; push 3\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the yeoman that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-yeoman.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-yeoman"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.statblock.wodenelg",
+      "title": "Воденельг",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wodenelg.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wodenelg",
+      "originalName": "Wodenelg",
+      "originalDescription": "|  Plant, Wode Elf  |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **10**<br>Speed  | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The wodenelg's rider can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at any point during the charge.\n\n> ⭐️ **Sure-Footed**\n>\n> The wodenelg ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and doesn't provoke oppotunity attacks by moving.\n\n> 👤 **Where I End the Woods Begin (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wodenelg and their rider become invisible until the start of the wodenelg's next turn.\n\n> ⭐️ **Mounted Stability**\n>\n> The wodenelg's rider has damage immunity 2.\n\n> ⭐️ **Shared Glamor**\n>\n> If the wodenelg's rider has the Masking Glamor trait, the wodenelg also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wodenelg.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Растение",
+          "Лесной эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wodenelg"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-wode.wode-elf-malice",
+      "title": "Раздор лесных эльфов",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/wode-elf-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode/wode-elf-malice",
+      "originalName": "Wode Elf Malice",
+      "originalDescription": "At the start of any wode elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Forest Network (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each wode elf who ends this turn hidden can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed while remaining hidden.\n\n> ⭐️ **Punishing Regrowth (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each wode elf gains an edge on abilities, and their strikes can [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) a target up to 2 squares in addition to their usual effects. If a strike already imposes forced movement, this slide happens after that forced movement. A creature force moved by a wode elf's strike who ends this forced movement in [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🌀 **Vines Everywhere (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Vines rapidly grow across the entire encounter map. Each enemy in the encounter makes an **Agility test**.\n>\n> - **≤11:** 8 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/wode-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.wode-elf-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.elf-wode",
+      "title": "Лесные эльфы",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/group/elf-wode.md",
+      "originalId": "mcdm.monsters.v1/monster.group/elf-wode",
+      "originalName": "Elves, Wode",
+      "originalDescription": "Children of the Sylvan Celestials and masters of the elf-haunted wilds for which they are named, wode elves see all forests as their domain by birthright. They know and enjoy their reputation among humans for snatching children who wander too far into the woods. In their eyes, humans *should* fear the trees.\n\nWode elves' natural ability to mask their presence, called glamor, complements their guerrilla fighting style, letting them strike quickly from cover and then meld back into the underbrush. These traits also make those few wode elves who dwell in cities naturally adept at urban warfare.\n\n#### Heart of the Wode\n\nThe primary value of wode elf culture is respect and reverence for their home, the wode in which they live. They speak of the wode as though it is alive and conscious, dangerous and delightful. Wode elves are receptive to strangers who respect the land upon which they trespass. However, those who seek to harm the wilds ruin their only chance of treating peacefully with the wode's beating heart.\n\n#### Wodeworking\n\nWode elves practice a secret technique to use the trees of the wode to craft materials as strong as metal, and to create magical plant creatures that serve them, including the wodenelgs, their trusted mounts. To breathe life into these creations, the wode elves lift their voices in song. The more intricate the song, the more durable and autonomous the creation becomes. A wodenelg's rider is typically also its singer, creating a connection between the two that lasts a lifetime.\n\nLegends tell of ancient beings, older than the forests themselves, sung to life by an entire wode elf civilization joined in sixteen-part harmony. These beings outlived their creators, and if they truly exist, they now roam the world as unknown and unknowable guardians who answer to nothing but their final set of instructions.\n\n#### Sylvan Surveillance\n\nThe wode elves' natural connection to the wode allows them to stay aware of the forest's goings-on while inside it. This isn't a telepathic connection, but rather a great understanding of every corner of the wode and a hypersensitivity to changes within it. The stench of a badly set campfire, the sudden squawk of a raven, the forced march of a hungry ant colony: all of this information comes together to form a wode elf's understanding of their surroundings.\n\nA wode elf develops this sense for their home over time, meaning that a wode elf who lives in an urban environment has just as much understanding of the streets, alleys, and structures of their neighborhood as their cousin in the forest does of the deer paths, streams, and trees.\n\n#### Blightless Ambition\n\nNot all wode elves are happy to negotiate with peaceful interlopers in their realms. Some groups view even the very presence of such intruders as a direct threat to their way of life. One group of hunters known as the Blightless searches the forest for trespassing mortals, seeking to eliminate their potential threat by any means possible. Overzealous and aggressive, the Blightless also focus on expanding their home's boundaries, attacking civilizations close to the forest's edge. Because Blightless attacks constitute the majority of mortal interaction with the wode elves, they set the tone for mortal perception of an otherwise peaceful people.\n\n#### Chirurgeons\n\nWhen wode elves in combat control the terrain, their primary strategy is divide and conquer. Chirurgeons (*kai-RUR-jinz*) are master strategists who enact their picture-perfect plans in the thick of battle. Enemies will never know how many wode elves they truly face if the crafty chirurgeon can help it.\n\n#### Warleader\n\nThe warleader of a wode elf court is usually their finest tactician. One warleader alone can command dozens of squadrons across miles of forest with such precision that they can appear to predict an enemy's movements without ever laying an eye on them. In times of peace, a warleader's role is primarily that of teacher—a mentor who scouts and soldiers regard almost as an additional parent.\n\nThe wode elves send their warleaders into battle only if the situation is dire. Characters who encounter one should be flattered, for the presence of a warleader means the wode elves consider the heroes a formidable threat.\n\n#### Wode Elf Languages\n\nMost wode elves speak Caelian and Yllyric.\n\none of the following features.\n\n###### Wode Elf Tactics\n\nWode elves are at their most powerful in dense and vertical battlefields and tend to bait attackers into disadvantageous fights with false retreats and hidden reinforcements. Not only does this allow them to make full use of their proficiency in concealment and cover but also lets them utilize their climbing skills to gain height advantages. While they prefer taking fights into the deep woods, the elves settle for urban or mountainous areas if the only other option is a wide-open space.\n\nWode elves are highly mobile and adept at hindering their enemies. A common tactic is to unleash their panoply of slowing and restraining abilities on melee-oriented opponents while harassing ranged combatants with teleports and surprise attacks from off-angles.\n\n**Wode Elf Sample Encounters**\n\n- **Scout Patrol, 23 EV:** Four lookouts, eight scouts, one chirurgeon, one green seer\n- **Blightless Militia, 32 EV:** Eight yeomen, eight runners, one druid, one greenskeeper, one sentry\n- **Hawkeye Cavalry, 48 EV:** Three gweiadur, three wodenelg Reclaimer Force, 74 EV: Sixteen yeomen, sixteen scouts, one guerrilla, one druid, two greenskeepers, one warleader",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-wode.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.elf-wode"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-chirurgeon",
+          "title": "Лесной эльф-хирург"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-druid",
+          "title": "Лесной эльф-друид"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-green-seer",
+          "title": "Лесной эльф-зелёный провидец"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-greenskeeper",
+          "title": "Лесной эльф-лесничий"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-guerrilla",
+          "title": "Лесной эльф-партизан"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-gweiadur",
+          "title": "Лесной эльф-гвейадур"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-lookout",
+          "title": "Лесной эльф-дозорный"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-runner",
+          "title": "Лесной эльф-бегун"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-scout",
+          "title": "Лесной эльф-разведчик"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-sentry",
+          "title": "Лесной эльф-страж"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-warleader",
+          "title": "Лесной эльф-военный предводитель"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wode-elf-yeoman",
+          "title": "Лесной эльф-ополченец"
+        },
+        {
+          "id": "monsters.monster.elf-wode.statblock.wodenelg",
+          "title": "Воденельг"
+        },
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-chirurgeon",
+      "kind": "monster",
+      "name": "Лесной эльф-хирург",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |           -           |      Уровень 2      | Взвод — Налётчик |         Боевая ценность 8         |\n|:-----------------------:|:---------------------:|:------------------:|:----------------:|:--------------------:|\n|     **1M**<br>Размер      |   **7**<br>Скорость    | **40**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> ⚔️ **Дикий топор (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Дальний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**             | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 9 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 12 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5\n>\n> **Эффект:** Перед использованием этой способности хирург может нанести [Свободный удар дальнего боя](#/catalog/glossary#term-glossary.free-strike).\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Хирург использует эту способность ещё раз.\n\n> 🏹 **Лес нас защитит (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |                 **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|-----------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Вы и три союзника** |\n>\n> **Эффект:** Каждая цель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 10 клеток в пространство с укрытием или покровом.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на хирурга и получающие Помеху из-за укрытия или покрова, вместо этого получают двойную Помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-chirurgeon",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-chirurgeon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-chirurgeon",
+      "originalName": "Wode Elf Chirurgeon",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |    Platoon Harrier    |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+1**<br>Might     |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Wild Ax (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** The chirurgeon can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using this ability.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The chirurgeon uses this ability again.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the chirurgeon that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-chirurgeon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-druid",
+      "kind": "monster",
+      "name": "Лесной эльф-друид",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |           -           |      Уровень 2      | Взводный контроллер | Боевая ценность 8 |\n|:-----------------------:|:---------------------:|:------------------:|:-------------------:|:--------------------:|\n|     **1M**<br>Размер     |    **7**<br>Скорость  | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Лазание**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+1**<br>Ловкость    | **0**<br>Разум       | **0**<br>Интуиция      | **+2**<br>Присутствие |\n\n> 🔳 **Оплетающие лианы (знаковая способность)**\n>\n> | **Область, магия, дальний бой** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|----------------------------------:|\n> | **📏 Куб 3 в пределах 10**       | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [притягивание](#/catalog/glossary#term-glossary.forced-movement) на 1 клетку\n> - **12-16:** 8 урона; [притягивание](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки; М < 1 — [замедлен](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 10 урона; [притягивание](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток; М < 2 — [замедлен](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Пока цель [замедлена](#/catalog/glossary#term-glossary.slowed) таким образом, она не может искать скрытых существ.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Размер куба и [Потенциал](#/catalog/glossary#term-glossary.potency) увеличиваются на 1.\n\n> 🏹 **Лес защищает нас (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, дальний бой** |                 **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|-----------------------------:|\n> | **📏 Дальний бой 5**    | **🎯 Сам эльф и три союзника** |\n>\n> **Эффект:** Каждая цель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 10 клеток в пространство, где есть укрытие или покров.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на друида, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-druid",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-druid.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-druid",
+      "originalName": "Wode Elf Druid",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Entangling Vines (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 10 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** While [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, a target can't search for hidden creatures.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The size of the cube and the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) both increase by 1.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the druid that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-druid.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-green-seer",
+      "kind": "monster",
+      "name": "Лесной эльф-зелёный провидец",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |      Уровень 1      | Взводный проклинатель | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **20**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+1**<br>Ловкость  | **0**<br>Разум       | **+2**<br>Интуиция      | **+1**<br>Присутствие |\n\n> 🏹 **Объятия леса (знаковая способность)**\n>\n> | **Магия, дальний бой, удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|----------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона; И < 1 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 9 урона; И < 2 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Пока цель [опутана](#/catalog/glossary#term-glossary.restrained) таким образом, она не может искать скрытых существ.\n\n> 🏹 **Естественный цикл (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, дальний бой, удар** |         **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|---------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; П < 1 — [ослаблен](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 6 урона; П < 1 — [кровоточит](#/catalog/glossary#term-glossary.bleeding) (до прох.); удары по цели совершаются с двойной помехой (до прох.)\n>\n> **Эффект:** Пока цель [кровоточит](#/catalog/glossary#term-glossary.bleeding) или [ослаблена](#/catalog/glossary#term-glossary.weakened) таким образом, она покрывается лишайником.\n\n> ❗️ **Предвиденное возмездие**\n>\n> | **Дальний бой** |      **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|--------------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо использует триггер, нацеленный на зелёного провидца или союзника в пределах дистанции.\n>\n> **Эффект:** После разрешения триггера цели зелёный провидец совершает по ней [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на зелёного провидца, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-green-seer",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-green-seer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-green-seer",
+      "originalName": "Wode Elf Green Seer",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+1**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **The Forest's Embrace (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage; I < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 9 damage; I < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a target can't search for hidden creatures.\n\n> 🏹 **The Natural Cycle (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; P < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 6 damage; P < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); the target has a double bane on strikes (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target is covered in lichen.\n\n> ❗️ **Foreseen Punishment**\n>\n> | **Ranged**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature uses a triggered action targeting the green seer or an ally within distance.\n>\n> **Effect:** The green seer makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target after the target's triggered action is resolved.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the green seer that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-green-seer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-greenskeeper",
+      "kind": "monster",
+      "name": "Лесной эльф-лесничий",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |      Уровень 1      | Взводный защитник | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:------------------:|:-----------------:|:--------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **40**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+2**<br>Ловкость  | **0**<br>Разум       | **0**<br>Интуиция       | **+1**<br>Присутствие |\n\n> 🗡 **Растущий длинный меч (знаковая способность)**\n>\n> | **Ближний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|----------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** Цель [провоцирована](#/catalog/glossary#term-glossary.taunted) до конца своего следующего хода, а лесничий может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Дистанция увеличивается до Ближнего боя 5.\n\n> 🔳 **Разрастание (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, дальний бой** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|---------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Особое** |\n>\n> **Эффект:** До конца столкновения область зарастает густым кустарником и колючими зарослями, давая лесничему и его союзникам укрытие и покров. Для врагов эта область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а каждый враг, начинающий в ней свой ход, получает 3 урона.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на лесничего, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-greenskeeper",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-greenskeeper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-greenskeeper",
+      "originalName": "Wode Elf Greenskeeper",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |   Platoon Defender    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Growing Longsword (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of their next turn, and the greenskeeper [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The distance increases to Melee 5.\n\n> 🔳 **Overgrowth (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 3 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The area is overgrown with heavy brush and brambles until the end of the encounter, providing cover and concealment for the greenskeeper and their allies. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies and any enemy who starts their turn in the area takes 3 damage.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the greenskeeper that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-greenskeeper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-guerrilla",
+      "kind": "monster",
+      "name": "Лесной эльф-партизан",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |            -             |      Уровень 3      | Взводный засадник | Боевая ценность 10 |\n|:-----------------------:|:------------------------:|:------------------:|:-----------------:|:---------------------:|\n|     **1M**<br>Размер     |      **7**<br>Скорость   | **50**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Телепортация**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        |    **+2**<br>Ловкость    | **0**<br>Разум       | **0**<br>Интуиция       | **+1**<br>Присутствие |\n\n> ⚔️ **Кинжал-щепка (знаковая способность)**\n>\n> | **Магия, ближний бой, дальний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------------------------|----------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**             | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 14 урона; М < 2 — [кровоточит](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Партизан может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 3 клеток.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Способность нацеливается ещё на одну цель и наносит дополнительно 3 урона, если обе цели [смежны](#/catalog/glossary#term-glossary.adjacent) друг с другом.\n\n> ❗️ **Не медлите в лесу (3 Раздора)**\n>\n> | **Дальний бой** | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|-------------------------------:|\n> | **📏 Дальний бой 20** | **🎯 Партизан и каждый союзник** |\n>\n> **Особое:** Партизан должен действовать как капитан.\n>\n> **Условие:** Союзник заканчивает ход, пока партизан ещё не действовал в этом раунде.\n>\n> **Эффект:** Цели немедленно совершают свои ходы. До конца своего хода каждая цель получает преимущество на проверки способностей.\n\n> ⭐️ **В зелень**\n>\n> В конце каждого своего хода партизан может попытаться скрыться.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на партизана, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-guerrilla",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-guerrilla.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-guerrilla",
+      "originalName": "Wode Elf Guerrilla",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3      |   Platoon Ambusher    |        EV 10         |\n|:-----------------------:|:------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |    **+2**<br>Agility     |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Splinter Dagger (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The guerrilla can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target, and deals an additional 3 damage if both targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other.\n\n> ❗️ **Do Not Hesitate in the Wode (3 Malice)**\n>\n> | **Ranged**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|--------------------------:|\n> | **📏 Ranged 20** | **🎯 Self and each ally** |\n>\n> **Special:** The guerrilla must be acting as a captain.\n>\n> **Trigger:** An ally ends their turn while the guerrilla hasn't acted this round.\n>\n> **Effect:** The targets take their turn immediately. Each target gains an edge on abilities until the end of their turn.\n\n> ⭐️ **Into the Green**\n>\n> The guerrilla can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the guerrilla that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-guerrilla.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-gweiadur",
+      "kind": "monster",
+      "name": "Лесной эльф-гвейадур",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |           -           |      Уровень 3      | Взводный артиллерист | Боевая ценность 10 |\n|:-----------------------:|:---------------------:|:------------------:|:--------------------:|:---------------------:|\n|     **1M**<br>Размер     |    **7**<br>Скорость  | **40**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Лазание**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        |   **+2**<br>Ловкость   | **0**<br>Разум       | **+1**<br>Интуиция      | **0**<br>Присутствие |\n\n> 🏹 **Лук-ловушка (знаковая способность)**\n>\n> | **Дальний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|----------------------------------:|\n> | **📏 Дальний бой 15**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 14 урона; Л < 2 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Гвейадур может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Если эта способность [опутывает](#/catalog/glossary#term-glossary.restrained) цель, один враг, [смежный](#/catalog/glossary#term-glossary.adjacent) с ней, тоже становится [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.).\n\n> 🔳 **Вы активировали мою ловушку! (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, магия, дальний бой** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|---------------------------------:|\n> | **📏 Куб 3 в пределах 10**       | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона; Р < 0 — цель помечена (до прох.)\n> - **12-16:** 6 урона; Р < 1 — [замедлена](#/catalog/glossary#term-glossary.slowed) и помечена (до прох.)\n> - **17+:** 9 урона; Р < 2 — [замедлена](#/catalog/glossary#term-glossary.slowed) и помечена (до прох.)\n>\n> **Эффект:** Союзники получают преимущество на проверки способностей против цели, помеченной любым лесным эльфом.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на гвейадура, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-gweiadur",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-gweiadur.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-gweiadur",
+      "originalName": "Wode Elf Gweiadur",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 3      |   Platoon Artillery   |        EV 10         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |   **+2**<br>Agility   |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Snare Bow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The gweiadur [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability [restrains](scc.v1:mcdm.heroes.v1/condition/restrained) the target, one enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target is also [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🔳 **You Activated My Trap! (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; R < 0 the target is marked (save ends)\n> - **12-16:** 6 damage; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target is marked (save ends)\n> - **17+:** 9 damage; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target is marked (save ends)\n>\n> **Effect:** Allies gain an edge on abilities against a target marked by any wode elf.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the gweiadur that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-gweiadur.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-lookout",
+      "kind": "monster",
+      "name": "Лесной эльф-дозорный",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |           -           |     Уровень 1      | Миньон поддержки | Боевая ценность 3 за четырёх миньонов |\n|:-----------------------:|:---------------------:|:----------------:|:---------------:|:-----------------------:|\n|     **1M**<br>Размер     |    **7**<br>Скорость  | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Лазание**<br>Движение |        -         | **+2 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        |   **+2**<br>Ловкость   | **0**<br>Разум       | **0**<br>Интуиция      | **+1**<br>Присутствие |\n\n> 🏹 **Длинный лук (знаковая способность)**\n>\n> | **Дальний бой, удар, оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 8**           | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n\n> ⭐️ **Вон он!**\n>\n> Любой лесной эльф в пределах 5 клеток от дозорного может совершать дальние удары так, будто находится в пространстве дозорного.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на дозорного, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-lookout",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-lookout.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-lookout",
+      "originalName": "Wode Elf Lookout",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |     Level 1      |            Minion Support             | EV 3 for four minions |\n|:-----------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      |   **+2**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |  **+1**<br>Presence   |\n\n> 🏹 **Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n\n> ⭐️ **There!**\n>\n> Any wode elf within 5 squares of the lookout can make ranged strikes as if occupying the lookout's space.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the lookout that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-lookout.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-runner",
+      "kind": "monster",
+      "name": "Лесной эльф-бегун",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |     Уровень 1      | Миньон-налётчик | Боевая ценность 3 за четырёх миньонов |\n|:-----------------------:|:-----------------:|:----------------:|:-------------:|:-----------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |        -         | **Получает преимущество на удары**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+2**<br>Ловкость  | **0**<br>Разум       | **0**<br>Интуиция      | **+1**<br>Присутствие |\n\n> ⚔️ **Копьё (знаковая способность)**\n>\n> | **Рывок, ближний бой, дальний бой, удар, оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**            | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** Если способность используется в рамках основного действия «Атака с рывком», бегун сначала может смещаться на расстояние до 2 клеток.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на бегуна, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-runner",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-runner.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-runner",
+      "originalName": "Wode Elf Runner",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Spear (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If this ability is used as part of the Charge main action, the runner shifts up to 2 squares first.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the runner that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-runner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-scout",
+      "kind": "monster",
+      "name": "Лесной эльф-разведчик",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |     Уровень 1      | Миньон-засадник | Боевая ценность 3 за четырёх миньонов |\n|:-----------------------:|:-----------------:|:----------------:|:--------------:|:-----------------------:|\n|     **1M**<br>Размер     |  **10**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |        -         | **Получает преимущество на удары**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+2**<br>Ловкость  | **0**<br>Разум       | **0**<br>Интуиция      | **+1**<br>Присутствие |\n\n> ⚔️ **Кинжалы (знаковая способность)**\n>\n> | **Ближний бой, дальний бой, удар, оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**      | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> ⭐️ **В зелень**\n>\n> В конце каждого своего хода разведчик может попытаться скрыться.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на разведчика, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-scout",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-scout.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-scout",
+      "originalName": "Wode Elf Scout",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **10**<br>Speed  | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Daggers (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Into the Green**\n>\n> The scout can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the scout that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-scout.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-sentry",
+      "kind": "monster",
+      "name": "Лесной эльф-страж",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |      Уровень 1      | Взвод поддержки | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:------------------:|:--------------:|:--------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+2**<br>Ловкость  | **0**<br>Разум       | **0**<br>Интуиция      | **+1**<br>Присутствие |\n\n> 🏹 **Длинный лук с меткой (знаковая способность)**\n>\n> | **Дальний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 Дальний бой 10**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона; цель помечена (до прох.)\n>\n> **Эффект:** Союзники получают преимущество на проверки способностей против цели, помеченной любым лесным эльфом.\n>\n> **3 Раздора:** Страж выбирает ещё двух существ или объектов.\n\n> ❇️ **Цветок смерти (2 Раздора)**\n>\n> | **Область, оружие** |             **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|-------------------------:|\n> | **📏 Взрыв 5**      | **🎯 Каждый помеченный враг** |\n>\n> **Эффект:** Каждая цель получает 3 урона.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на стража, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-sentry",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-sentry.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-sentry",
+      "originalName": "Wode Elf Sentry",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Tracer Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; the target is marked (save ends)\n>\n> **Effect:** Allies gain an edge on abilities against a target marked by any wode elf.\n>\n> **3 Malice:** The sentry targets two additional creatures or objects.\n\n> ❇️ **Death Blossom (2 Malice)**\n>\n> | **Area, Weapon** |             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-------------------------:|\n> | **📏 5 burst**   | **🎯 Each marked enemy** |\n>\n> **Effect:** Each target takes 3 damage.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the sentry that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-sentry.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-warleader",
+      "kind": "monster",
+      "name": "Лесной эльф-военный предводитель",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |            -             |      Уровень 3       | Лидер | Боевая ценность 20 |\n|:-----------------------:|:------------------------:|:------------------:|:-----:|:---------------------:|\n|     **1M**<br>Размер     |      **7**<br>Скорость   | **120**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Телепортация**<br>Движение |         -          | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **+2**<br>Мощь       |    **+3**<br>Ловкость     | **+2**<br>Разум       | **+2**<br>Интуиция     | **+2**<br>Присутствие |\n\n> 🗡 **Клинок леса (знаковая способность)**\n>\n> | **Магия, ближний бой, удар, оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**                 | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона; М < 1 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** 12 урона; М < 2 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 15 урона; М < 3 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Между каждым ударом предводитель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 3 клеток.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Цель, [опутанная](#/catalog/glossary#term-glossary.restrained) этой способностью, получает дополнительно 3 урона.\n\n> ❇️ **Справедливость — понятие человеческое (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**      |                 **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|-----------------------------:|\n> | **📏 Взрыв 10**  | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель, не являющаяся [миньоном](#/codex/monsters.rule.organization.minion), может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike), после чего каждая цель может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток. Цель, оказавшаяся после этого смещения под укрытием или покровом, может попытаться скрыться в конце хода предводителя.\n\n> ❗️ **Лесная хворь**\n>\n> | **Дальний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Дальний бой 10** | **🎯 Один враг** |\n>\n> **Условие:** Союзник заканчивает свой ход.\n>\n> **Эффект:** Цель не должна была совершать свой ход в этом раунде. Она немедленно совершает свой ход; если её П < 2, она [кровоточит](#/catalog/glossary#term-glossary.bleeding) и получает помеху на удары до конца своего хода.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода предводитель может получить 5 урона, чтобы прекратить один действующий на него эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким способом.\n\n> ⭐️ **В зелень**\n>\n> В конце каждого своего хода предводитель может попытаться скрыться.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на предводителя, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n\n> ☠️ **Вы все увидите мой клинок (действие злодея 1)**\n>\n> | **Область**      |                         **-** |\n> |------------------|-----------------------------:|\n> | **📏 Взрыв 5**   | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Предводитель использует «Клинок леса» против каждой цели и получает преимущество на бросок силы.\n\n> ☠️ **Подавляющий залп (действие злодея 2)**\n>\n> | **Область**      |                        **-** |\n> |------------------|----------------------------:|\n> | **📏 Взрыв 5**   | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Предводитель может использовать «Клинок леса». Затем каждая цель может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Это сейчас или тогда? (действие злодея 3)**\n>\n> | **Область**      |                                 **-** |\n> |------------------|--------------------------------------:|\n> | **📏 Взрыв 5**   | **🎯 Предводитель и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель становится невидимой до начала следующего раунда. Затем предводитель использует «Клинок леса».\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-warleader",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-warleader.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-warleader",
+      "originalName": "Wode Elf Warleader",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3       |        Leader         |        EV 20         |\n|:-----------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might     |    **+3**<br>Agility     |  **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Wodeblade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The warleader can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares between each strike.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability takes an extra 3 damage.\n\n> ❇️ **Fairness Is a Human Concept (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**        |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), then each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares. A target who has cover or concealment at the end of this shift can attempt to hide at the end of the warleader's turn.\n\n> ❗️ **Wode Sickness**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally ends their turn.\n>\n> **Effect:** The target must not have taken their turn this round. The target takes their turn immediately, and if they have P < 2 they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and take a bane on strikes until the end of their turn.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Into the Green**\n>\n> The warleader can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the warleader that would take a bane from cover or concealment have a double bane instead.\n\n> ☠️ **You Will All Witness my Blade (Villain Action 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The warleader uses Wodeblade against each target and gains an edge on the power roll.\n\n> ☠️ **Suppressing Volley (Villain Action 2)**\n>\n> | **Area**       |                        **-** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** The warleader can use Wodeblade. Each target can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Is It Now or Is It Then? (Villain Action 3)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target is invisible until the start of the next round. The warleader then uses Wodeblade.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-warleader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-yeoman",
+      "kind": "monster",
+      "name": "Лесной эльф-ополченец",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |     Уровень 1      | Миньон-артиллерист | Боевая ценность 3 за четырёх миньонов |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------:|:-----------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |        -         | **+1 к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+2**<br>Ловкость  | **0**<br>Разум       | **0**<br>Интуиция      | **+1**<br>Присутствие |\n\n> 🏹 **Тяжёлый длинный лук (знаковая способность)**\n>\n> | **Дальний бой, удар, оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 12**          | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона; отталкивает на 1 клетку\n> - **12-16:** 4 урона; отталкивает на 2 клетки\n> - **17+:** 5 урона; отталкивает на 3 клетки\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на ополченца, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-yeoman",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-yeoman.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-yeoman",
+      "originalName": "Wode Elf Yeoman",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |     Level 1      |                Minion Artillery                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |  **+1**<br>Presence   |\n\n> 🏹 **Heavy Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 12**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; push 1\n> - **12-16:** 4 damage; push 2\n> - **17+:** 5 damage; push 3\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the yeoman that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-yeoman.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-wode.statblock.wodenelg",
+      "kind": "monster",
+      "name": "Воденельг",
+      "markdown": "| Растение, Лесной эльф |         -         |      Уровень 1      | Взводный скакун | Боевая ценность 6 |\n|:-----------------:|:-----------------:|:------------------:|:--------------:|:--------------------:|\n|   **2**<br>Размер  | **10**<br>Скорость | **30**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|  **+2**<br>Мощь    | **+1**<br>Ловкость | **-1**<br>Разум     | **0**<br>Интуиция      | **-1**<br>Присутствие |\n\n> 🗡 **Бодание (знаковая способность)**\n>\n> | **Рывок, ближний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                 | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** Всадник воденельга может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) в любой момент во время атаки с рывком.\n\n> ⭐️ **Уверенная поступь**\n>\n> Воденельг игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain) и не провоцирует атаки по возможности своим перемещением.\n\n> 👤 **Где кончаюсь я, начинаются леса (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Воденельг и его всадник становятся невидимыми до начала следующего хода воденельга.\n\n> ⭐️ **Устойчивость всадника**\n>\n> Всадник воденельга получает иммунитет к урону 2.\n\n> ⭐️ **Общий морок**\n>\n> Если у всадника воденельга есть черта «Маскирующий морок», она есть и у воденельга.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wodenelg",
+        "path": "Monsters/monster/elf-wode/statblock/wodenelg.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wodenelg",
+      "originalName": "Wodenelg",
+      "originalDescription": "|  Plant, Wode Elf  |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **10**<br>Speed  | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The wodenelg's rider can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at any point during the charge.\n\n> ⭐️ **Sure-Footed**\n>\n> The wodenelg ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and doesn't provoke oppotunity attacks by moving.\n\n> 👤 **Where I End the Woods Begin (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wodenelg and their rider become invisible until the start of the wodenelg's next turn.\n\n> ⭐️ **Mounted Stability**\n>\n> The wodenelg's rider has damage immunity 2.\n\n> ⭐️ **Shared Glamor**\n>\n> If the wodenelg's rider has the Masking Glamor trait, the wodenelg also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wodenelg.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Растение",
+          "Лесной эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-wode.wode-elf-malice",
+      "kind": "monster-feature",
+      "name": "Раздор лесных эльфов",
+      "markdown": "В начале хода любого лесного эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Лесная сеть (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый лесной эльф, который заканчивает этот ход скрытым, может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, оставаясь скрытым.\n\n> ⭐️ **Карающее разрастание (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый лесной эльф получает преимущество на проверки способностей, а его удары могут дополнительно [сдвигать](#/catalog/glossary#term-glossary.forced-movement) цель на расстояние до 2 клеток помимо обычных эффектов. Если удар уже вызывает принудительное движение, это смещение происходит после него. Существо, которое лесной эльф принудительно переместил ударом и которое в результате оказалось на [труднопроходимой местности](#/catalog/glossary#term-glossary.difficult-terrain), становится [опутанным](#/catalog/glossary#term-glossary.restrained) до конца своего следующего хода.\n\n> 🌀 **Лианы повсюду (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Лианы стремительно разрастаются по всей карте столкновения. Каждый враг в столкновении проходит **тест Ловкости**.\n>\n> - **≤11:** 8 урона; [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** [Опутан](#/catalog/glossary#term-glossary.restrained) (КсХ)\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.wode-elf-malice",
+        "path": "Monsters/monster/elf-wode/wode-elf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode/wode-elf-malice",
+      "originalName": "Wode Elf Malice",
+      "originalDescription": "At the start of any wode elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Forest Network (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each wode elf who ends this turn hidden can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed while remaining hidden.\n\n> ⭐️ **Punishing Regrowth (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each wode elf gains an edge on abilities, and their strikes can [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) a target up to 2 squares in addition to their usual effects. If a strike already imposes forced movement, this slide happens after that forced movement. A creature force moved by a wode elf's strike who ends this forced movement in [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🌀 **Vines Everywhere (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Vines rapidly grow across the entire encounter map. Each enemy in the encounter makes an **Agility test**.\n>\n> - **≤11:** 8 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/wode-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.group.elf-wode",
+      "kind": "monster-lore",
+      "name": "Лесные эльфы",
+      "markdown": "Потомки Сильванных Небожителей и хозяева диких земель, в честь которых они названы, лесные эльфы считают все леса своей исконной вотчиной. Им известна и им нравится репутация похитителей детей, слишком далеко забредших в лес, среди людей. По их мнению, люди *и должны* бояться деревьев.\n\nПриродная способность лесных эльфов скрывать своё присутствие — морок — сочетается с их партизанским стилем боя: они наносят быстрые удары из укрытия, а затем сливаются с подлеском. Благодаря этим чертам немногие лесные эльфы, живущие в городах, тоже особенно искусны в городских боях.\n\n#### Сердце леса\n\nГлавная ценность культуры лесных эльфов — уважение и почтение к родному лесу, в котором они живут. Они говорят о лесе так, будто он живой и обладает сознанием: он опасен и прекрасен. Лесные эльфы радушно принимают чужаков, если те уважают землю, на которую вторглись. Однако те, кто стремится навредить дикой природе, губят свой единственный шанс на мирные отношения с бьющимся сердцем леса.\n\n#### Лесное ремесло\n\nЛесные эльфы владеют тайной техникой: они используют деревья своего леса, чтобы создавать материалы, прочные как металл, а также магических существ-растений, которые им служат, в том числе воденельгов — верных скакунов. Чтобы вдохнуть жизнь в эти творения, лесные эльфы поют. Чем сложнее песня, тем прочнее и самостоятельнее становится творение. Обычно всадник воденельга также является его певцом, и это создаёт связь между ними на всю жизнь.\n\nЛегенды рассказывают о древних существах, старше самих лесов, которых пробудила к жизни целая цивилизация лесных эльфов, соединившая голоса в пении в шестнадцать голосов. Эти существа пережили своих создателей и, если они действительно существуют, теперь бродят по миру как неведомые и непостижимые стражи, подчиняющиеся лишь своему последнему набору указаний.\n\n#### Лесной дозор\n\nПриродная связь лесных эльфов с лесом позволяет им следить за всем, что происходит в нём, пока они находятся внутри. Это не телепатическая связь, а глубокое знание каждого уголка леса и исключительная чувствительность к переменам в нём. Запах плохо разведённого костра, внезапный крик ворона, вынужденный марш голодной колонии муравьёв — всё это складывается в понимание лесным эльфом того, что его окружает.\n\nСо временем лесной эльф развивает такое чувство своего дома, поэтому эльф, живущий в городе, так же хорошо знает улицы, переулки и здания своего района, как его лесной родич — звериные тропы, ручьи и деревья.\n\n#### Непорочные амбиции\n\nНе все лесные эльфы готовы договариваться с мирными чужаками в своих владениях. Некоторые группы считают даже само присутствие таких незваных гостей прямой угрозой своему укладу жизни. Группа охотников, известная как Непорочные, прочёсывает лес в поисках смертных, вторгшихся на их земли, и всеми возможными способами старается устранить потенциальную угрозу. Чрезмерно рьяные и агрессивные, Непорочные также стремятся расширить границы родных владений и нападают на цивилизации у опушки. Поскольку нападения Непорочных составляют большую часть встреч смертных с лесными эльфами, именно они формируют представление людей об этом в остальном мирном народе.\n\n#### Хирурги\n\nУправляя местностью в бою, лесные эльфы прежде всего стремятся разделять противников и расправляться с ними поодиночке. Хирурги (кай-РЮР-джинз) — искусные стратеги, воплощающие свои безупречные планы прямо в пылу сражения. Если хитрый хирург может этому помешать, враги никогда не узнают, сколько лесных эльфов им на самом деле противостоит.\n\n#### Военный предводитель\n\nВоенный предводитель двора лесных эльфов обычно является его лучшим тактиком. Один такой предводитель способен с такой точностью командовать десятками отрядов на многие мили леса, что кажется, будто он предугадывает движения врага, даже ни разу его не увидев. В мирное время предводитель прежде всего учит — он наставник, которого разведчики и солдаты почитают почти как второго родителя.\n\nЛесные эльфы отправляют своих военных предводителей в бой, только когда ситуация становится отчаянной. Персонажам, встретившим одного из них, стоит польстить себе: раз предводитель здесь, лесные эльфы считают героев серьёзной угрозой.\n\n#### Языки лесных эльфов\n\nБольшинство лесных эльфов говорят на кэлианском и иллирике.\n\nодну из следующих особенностей.\n\n###### Тактика лесных эльфов\n\nЛесные эльфы особенно опасны на густо заросших полях боя с перепадами высоты. Они часто заманивают противников в невыгодные сражения притворным отступлением и скрытыми подкреплениями. Так они не только в полной мере используют своё умение скрываться и укрываться, но и благодаря навыкам лазания занимают господствующую высоту. Эльфы предпочитают сражаться в глубине леса, но выберут городскую или горную местность, если единственная альтернатива — открытое пространство.\n\nЛесные эльфы очень подвижны и умело мешают врагам. Обычная тактика — обрушить на противников ближнего боя целый арсенал способностей, накладывающих Замедление и Опутанность, а бойцов дальнего боя преследовать телепортациями и внезапными атаками с неожиданных направлений.\n\n**Примеры столкновений с лесными эльфами**\n\n- **Патруль разведчиков, 23 БЦ:** четыре дозорных, восемь разведчиков, один хирург, один зелёный провидец\n- **Ополчение Непорочных, 32 БЦ:** восемь ополченцев, восемь бегунов, один друид, один лесничий, один страж\n- **Кавалерия Соколиный глаз, 48 БЦ:** три гвейадура, три воденельга\n- **Отряд возмездия, 74 БЦ:** шестнадцать ополченцев, шестнадцать разведчиков, один партизан, один друид, два лесничих, один военный предводитель\n",
+      "source": {
+        "articleId": "monsters.monster.group.elf-wode",
+        "path": "Monsters/monster/group/elf-wode.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/elf-wode",
+      "originalName": "Elves, Wode",
+      "originalDescription": "Children of the Sylvan Celestials and masters of the elf-haunted wilds for which they are named, wode elves see all forests as their domain by birthright. They know and enjoy their reputation among humans for snatching children who wander too far into the woods. In their eyes, humans *should* fear the trees.\n\nWode elves' natural ability to mask their presence, called glamor, complements their guerrilla fighting style, letting them strike quickly from cover and then meld back into the underbrush. These traits also make those few wode elves who dwell in cities naturally adept at urban warfare.\n\n#### Heart of the Wode\n\nThe primary value of wode elf culture is respect and reverence for their home, the wode in which they live. They speak of the wode as though it is alive and conscious, dangerous and delightful. Wode elves are receptive to strangers who respect the land upon which they trespass. However, those who seek to harm the wilds ruin their only chance of treating peacefully with the wode's beating heart.\n\n#### Wodeworking\n\nWode elves practice a secret technique to use the trees of the wode to craft materials as strong as metal, and to create magical plant creatures that serve them, including the wodenelgs, their trusted mounts. To breathe life into these creations, the wode elves lift their voices in song. The more intricate the song, the more durable and autonomous the creation becomes. A wodenelg's rider is typically also its singer, creating a connection between the two that lasts a lifetime.\n\nLegends tell of ancient beings, older than the forests themselves, sung to life by an entire wode elf civilization joined in sixteen-part harmony. These beings outlived their creators, and if they truly exist, they now roam the world as unknown and unknowable guardians who answer to nothing but their final set of instructions.\n\n#### Sylvan Surveillance\n\nThe wode elves' natural connection to the wode allows them to stay aware of the forest's goings-on while inside it. This isn't a telepathic connection, but rather a great understanding of every corner of the wode and a hypersensitivity to changes within it. The stench of a badly set campfire, the sudden squawk of a raven, the forced march of a hungry ant colony: all of this information comes together to form a wode elf's understanding of their surroundings.\n\nA wode elf develops this sense for their home over time, meaning that a wode elf who lives in an urban environment has just as much understanding of the streets, alleys, and structures of their neighborhood as their cousin in the forest does of the deer paths, streams, and trees.\n\n#### Blightless Ambition\n\nNot all wode elves are happy to negotiate with peaceful interlopers in their realms. Some groups view even the very presence of such intruders as a direct threat to their way of life. One group of hunters known as the Blightless searches the forest for trespassing mortals, seeking to eliminate their potential threat by any means possible. Overzealous and aggressive, the Blightless also focus on expanding their home's boundaries, attacking civilizations close to the forest's edge. Because Blightless attacks constitute the majority of mortal interaction with the wode elves, they set the tone for mortal perception of an otherwise peaceful people.\n\n#### Chirurgeons\n\nWhen wode elves in combat control the terrain, their primary strategy is divide and conquer. Chirurgeons (*kai-RUR-jinz*) are master strategists who enact their picture-perfect plans in the thick of battle. Enemies will never know how many wode elves they truly face if the crafty chirurgeon can help it.\n\n#### Warleader\n\nThe warleader of a wode elf court is usually their finest tactician. One warleader alone can command dozens of squadrons across miles of forest with such precision that they can appear to predict an enemy's movements without ever laying an eye on them. In times of peace, a warleader's role is primarily that of teacher—a mentor who scouts and soldiers regard almost as an additional parent.\n\nThe wode elves send their warleaders into battle only if the situation is dire. Characters who encounter one should be flattered, for the presence of a warleader means the wode elves consider the heroes a formidable threat.\n\n#### Wode Elf Languages\n\nMost wode elves speak Caelian and Yllyric.\n\none of the following features.\n\n###### Wode Elf Tactics\n\nWode elves are at their most powerful in dense and vertical battlefields and tend to bait attackers into disadvantageous fights with false retreats and hidden reinforcements. Not only does this allow them to make full use of their proficiency in concealment and cover but also lets them utilize their climbing skills to gain height advantages. While they prefer taking fights into the deep woods, the elves settle for urban or mountainous areas if the only other option is a wide-open space.\n\nWode elves are highly mobile and adept at hindering their enemies. A common tactic is to unleash their panoply of slowing and restraining abilities on melee-oriented opponents while harassing ranged combatants with teleports and surprise attacks from off-angles.\n\n**Wode Elf Sample Encounters**\n\n- **Scout Patrol, 23 EV:** Four lookouts, eight scouts, one chirurgeon, one green seer\n- **Blightless Militia, 32 EV:** Eight yeomen, eight runners, one druid, one greenskeeper, one sentry\n- **Hawkeye Cavalry, 48 EV:** Three gweiadur, three wodenelg Reclaimer Force, 74 EV: Sixteen yeomen, sixteen scouts, one guerrilla, one druid, two greenskeepers, one warleader",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-wode.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

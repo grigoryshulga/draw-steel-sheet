@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.bugbear.statblock.bugbear-roughneck",
+      "title": "Багбир-громила",
+      "chapter": "23. Бестиарий",
+      "group": "Багбиры",
+      "path": "Monsters/monster/bugbear/statblock/bugbear-roughneck.md",
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-roughneck",
+      "originalName": "Bugbear Roughneck",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 2       |      Elite Brute      |        EV 16         |\n|:------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|         **1L**<br>Size         |  **6**<br>Speed   | **109**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|       **-**<br>Immunity        | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|        **+2**<br>Might         | **+2**<br>Agility |  **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Haymaker (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; one target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares\n> - **17+:** 14 damage; one target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); one target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword and loses the Strike keyword, its distance becomes a 1 burst, and it targets each enemy in the area.\n\n> 🗡 **Leaping Fury**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 13 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The roughneck can jump up to 5 squares to an unoccupied space within distance of the target before making this strike.\n\n> 🗡 **Drag Through Hell (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n>\n> **Effect:** The roughneck moves up to their speed across the ground, dragging the target with them. The target takes 2 damage for each square they were dragged through. When this movement ends, the target is no longer [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and falls [prone](scc.v1:mcdm.heroes.v1/condition/prone). Each square the target was dragged through is difficult terrain for enemies.\n\n> 🗡 **Throw**\n>\n> | **Melee, Strike** | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Melee 1** | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n>\n> **Effect:** The target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. An ally doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way.\n\n> ❗️ **Catcher**\n>\n> | **Melee**      |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A size 1 creature or object is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) within distance, or a size 1 ally willingly moves within distance.\n>\n> **Effect:** The target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n\n> ❗️ **Flying Sawblade**\n>\n> | **Melee** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Trigger:** The roughneck is vertical force moved by another creature.\n>\n> **Effect:** The roughneck uses Haymaker against a creature or object at any point during the forced movement, or after falling as a result of it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-roughneck.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.bugbear.statblock.bugbear-roughneck"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.bugbear.bugbear-malice",
+          "title": "Раздор багбиров"
+        },
+        {
+          "id": "monsters.monster.group.bugbear",
+          "title": "Багбиры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.bugbear.statblock.bugbear-roughneck",
+      "kind": "monster",
+      "name": "Багбир-громила",
+      "markdown": "| Багбир, Фея, Гоблин, Гуманоид |         -         |      2-й уровень       |      Элита-громила      |        Боевая ценность 16         |\n|:------------------------------:|:-----------------:|:----------------------:|:---------------------:|:--------------------------------------:|\n|         **1L**<br>Размер         |  **6**<br>Скорость   | **109**<br>Выносливость |  **0**<br>Устойчивость   | **5**<br>Свободный удар |\n|       **-**<br>Иммунитет к урону        | **-**<br>Передвижение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость к урону   |\n|        **+2**<br>Мощь         | **+2**<br>Ловкость |  **+0**<br>Разум  |  **+0**<br>Интуиция  |  **+0**<br>Присутствие  |\n\n> 🗡 **Размашистый удар (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона; одна цель [схвачена](#/catalog/glossary#term-glossary.grabbed); одна цель [оттеснена](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 2 клеток\n> - **17+:** 14 урона; одна цель [схвачена](#/catalog/glossary#term-glossary.grabbed); одна цель вертикально [оттеснена](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 3 клеток\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Способность получает ключевое слово «Область» и теряет ключевое слово «Удар», ее дистанция становится «Взрыв 1», и она нацеливается на каждого врага в области.\n\n> 🗡 **Прыжок ярости**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона; при М < 1 цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 13 урона; при М < 2 цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 16 урона; при М < 3 цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Перед этим ударом багбир-громила может прыгнуть на расстояние до 5 клеток в свободную клетку в пределах дистанции до цели.\n\n> 🗡 **Протащить сквозь ад (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Особое:** Багбир-громила должен удерживать цель в [захвате](#/catalog/glossary#term-glossary.grabbed).\n>\n> **Эффект:** Багбир-громила перемещается по земле на расстояние до своей Скорости, таща цель за собой. Цель получает 2 урона за каждую клетку, через которую ее протащили. Когда перемещение заканчивается, цель больше не [схвачена](#/catalog/glossary#term-glossary.grabbed) и падает, [сбитая с ног](#/catalog/glossary#term-glossary.prone). Каждая клетка, через которую протащили цель, становится труднопроходимой местностью для врагов.\n\n> 🗡 **Бросок**\n>\n> | **Ближний бой, Удар** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------|---------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Особое:** Багбир-громила должен удерживать цель в [захвате](#/catalog/glossary#term-glossary.grabbed).\n>\n> **Эффект:** Цель вертикально [оттеснена](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 5 клеток. Союзник не получает урон от такого [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement).\n\n> ❗️ **Ловец**\n>\n> | **Ближний бой** |                **Свободное [действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-----------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Существо или объект, вызвавшие срабатывание** |\n>\n> **Условие:** Существо или объект размера 1 принудительно [перемещено](#/catalog/glossary#term-glossary.forced-movement) в пределах дистанции, либо союзник размера 1 добровольно перемещается в пределах дистанции.\n>\n> **Эффект:** Багбир-громила [схватывает](#/catalog/glossary#term-glossary.grabbed) цель.\n\n> ❗️ **Летающая пила**\n>\n> | **Ближний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Себя**     | **🎯 Себя** |\n>\n> **Условие:** Другое существо вертикально принудительно перемещает багбира-громилу.\n>\n> **Эффект:** Во время принудительного перемещения или после вызванного им падения багбир-громила применяет «Размашистый удар» против существа или объекта.\n",
+      "source": {
+        "articleId": "monsters.monster.bugbear.statblock.bugbear-roughneck",
+        "path": "Monsters/monster/bugbear/statblock/bugbear-roughneck.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-roughneck",
+      "originalName": "Bugbear Roughneck",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 2       |      Elite Brute      |        EV 16         |\n|:------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|         **1L**<br>Size         |  **6**<br>Speed   | **109**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|       **-**<br>Immunity        | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|        **+2**<br>Might         | **+2**<br>Agility |  **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Haymaker (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; one target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares\n> - **17+:** 14 damage; one target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); one target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword and loses the Strike keyword, its distance becomes a 1 burst, and it targets each enemy in the area.\n\n> 🗡 **Leaping Fury**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 13 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The roughneck can jump up to 5 squares to an unoccupied space within distance of the target before making this strike.\n\n> 🗡 **Drag Through Hell (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n>\n> **Effect:** The roughneck moves up to their speed across the ground, dragging the target with them. The target takes 2 damage for each square they were dragged through. When this movement ends, the target is no longer [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and falls [prone](scc.v1:mcdm.heroes.v1/condition/prone). Each square the target was dragged through is difficult terrain for enemies.\n\n> 🗡 **Throw**\n>\n> | **Melee, Strike** | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Melee 1** | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n>\n> **Effect:** The target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. An ally doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way.\n\n> ❗️ **Catcher**\n>\n> | **Melee**      |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A size 1 creature or object is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) within distance, or a size 1 ally willingly moves within distance.\n>\n> **Effect:** The target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the roughneck.\n\n> ❗️ **Flying Sawblade**\n>\n> | **Melee** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Trigger:** The roughneck is vertical force moved by another creature.\n>\n> **Effect:** The roughneck uses Haymaker against a creature or object at any point during the forced movement, or after falling as a result of it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/bugbear/statblock/bugbear-roughneck.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "bugbear",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}
