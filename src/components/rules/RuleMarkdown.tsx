@@ -12,6 +12,11 @@ import {
 } from "../../lib/remark-ability-blocks";
 import { remarkRuleFields } from "../../lib/remark-rule-fields";
 import { remarkRuleLinks } from "../../lib/remark-rule-links";
+import { remarkDirectorBlocks } from "../../lib/remark-director-blocks";
+import { remarkDirectorAbilities } from '../../lib/remark-director-abilities';
+import { directorAbilityElement } from './DirectorAbilityCard';
+import { DirectorStatBlock } from './DirectorStatBlock';
+import './DirectorReference.css';
 import "../AbilityPresentation.css";
 import "../RuleText.css";
 
@@ -32,6 +37,9 @@ export interface RuleMarkdownProps {
   className?: string;
   /** Сдвиг уровней заголовков: вложенный текст не спорит с заголовком раздела. */
   headingOffset?: number;
+  /** Compact creature identity, rendered inside its printed stat block. */
+  directorHeading?: ReactNode;
+  directorHeadingActions?: ReactNode;
   /**
    * Текст уже показан полной карточкой способности: из источника берём только
    * «допблоки» (Поддержание, Потратить, Особое, списки и прозу), а не дубль
@@ -63,6 +71,8 @@ export const RuleMarkdown = memo(function RuleMarkdown({
   articleId,
   className = "rule-text",
   headingOffset = 0,
+  directorHeading,
+  directorHeadingActions,
   abilityCardRemainder = false,
 }: RuleMarkdownProps) {
   const remainder =
@@ -76,12 +86,16 @@ export const RuleMarkdown = memo(function RuleMarkdown({
         remarkRuleFields,
         remarkRuleLinks,
       ]
-    : [remarkGfm, remarkAbilityBlocks, remarkRuleFields, remarkRuleLinks];
+    : [remarkGfm, remarkDirectorBlocks, articleId?.startsWith('monsters.') ? remarkDirectorAbilities : remarkAbilityBlocks, remarkRuleFields, remarkRuleLinks];
   return (
     <div className={className}>
       <Markdown
         remarkPlugins={plugins}
         components={{
+          section: ({ node, children, ...props }) => directorAbilityElement(node, children) ?? <section {...props}>{children}</section>,
+          div: ({ node, children, ...props }) => node?.properties['data-director-stats']
+            ? <DirectorStatBlock heading={directorHeading} headingActions={directorHeadingActions}>{children}</DirectorStatBlock>
+            : directorAbilityElement(node, children) ?? <div {...props}>{children}</div>,
           h1: ({ children }) => {
             const Heading = headingTag(2 + headingOffset);
             return <Heading id={headingId(plain(children))}>{children}</Heading>;

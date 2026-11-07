@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.2nd-echelon.statblock.fiktin",
+      "title": "Фиктин",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/2nd-echelon/statblock/fiktin.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/fiktin",
+      "originalName": "Fiktin",
+      "originalDescription": "|  Abyssal, Demon   |         -         |      Level 5      |    Horde Ambusher     |           EV 7           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **35**<br>Stamina |  **0**<br>Stability   |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  | **+2**<br>Agility | **+2**<br>Reason  |  **+1**<br>Intuition  |    **+3**<br>Presence    |\n\n> ❇️ **Violent Transformation (Signature Ability)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 6 corruption damage\n> - **17+:** 7 corruption damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The fiktin violently changes shape, dealing an extra 6 damage to any target they were hidden from with their Aggressive Mimicry ability.\n\n> 👤 **Aggressive Mimicry (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic**   | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The fiktin transforms into a mundane object of their size or smaller and is automatically hidden. They can revert to their true form as a [free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver).\n\n> ⭐️ **Lethe**\n>\n> While the fiktin is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the fiktin can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/fiktin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.2nd-echelon.statblock.fiktin"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.2nd-echelon.statblock.fiktin",
+      "kind": "monster",
+      "name": "Фиктин",
+      "markdown": "| Бездны, Демон |         -         |      Уровень 5      |    Орда-Засадник     | Боевая ценность 7 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Размер   |  **6**<br>Скорость   | **35**<br>Выносливость |  **0**<br>Устойчивость   |   **3**<br>Свободный удар   |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **-**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **+2**<br>Мощь  | **+2**<br>Ловкость | **+2**<br>Разум  |  **+1**<br>Интуиция  |    **+3**<br>Присутствие    |\n\n> ❇️ **Жестокое превращение (Знаковая способность)**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Всплеск 2**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона Порчей\n> - **12-16:** 6 урона Порчей\n> - **17+:** 7 урона Порчей; И < 3 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Фиктин резко меняет облик и наносит дополнительно 6 урона каждой цели, от которой он был скрыт благодаря способности «Агрессивная мимикрия».\n\n> 👤 **Агрессивная мимикрия (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия**   | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Фиктин превращается в обычный предмет своего размера или меньше и автоматически становится скрытым. Он может вернуться к истинному облику, используя [свободный маневр](#/catalog/glossary#term-glossary.free-maneuver).\n\n> ⭐️ **Лета**\n>\n> Пока фиктин [утомлён](#/catalog/glossary#term-glossary.winded), он получает [преимущество](#/catalog/glossary#term-glossary.edge) на ударах, а любой удар по нему также получает преимущество.\n\n> ⭐️ **Зрение душ**\n>\n> От фиктина нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.2nd-echelon.statblock.fiktin",
+        "path": "Monsters/monster/demon/2nd-echelon/statblock/fiktin.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/fiktin",
+      "originalName": "Fiktin",
+      "originalDescription": "|  Abyssal, Demon   |         -         |      Level 5      |    Horde Ambusher     |           EV 7           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **35**<br>Stamina |  **0**<br>Stability   |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  | **+2**<br>Agility | **+2**<br>Reason  |  **+1**<br>Intuition  |    **+3**<br>Presence    |\n\n> ❇️ **Violent Transformation (Signature Ability)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 6 corruption damage\n> - **17+:** 7 corruption damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The fiktin violently changes shape, dealing an extra 6 damage to any target they were hidden from with their Aggressive Mimicry ability.\n\n> 👤 **Aggressive Mimicry (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic**   | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The fiktin transforms into a mundane object of their size or smaller and is automatically hidden. They can revert to their true form as a [free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver).\n\n> ⭐️ **Lethe**\n>\n> While the fiktin is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the fiktin can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/fiktin.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Засадник",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

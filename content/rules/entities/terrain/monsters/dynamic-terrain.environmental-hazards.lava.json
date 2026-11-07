@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.environmental-hazards.lava",
+  "kind": "terrain",
+  "name": "Лава",
+  "markdown": "Из земли поднимается участок обжигающе горячей расплавленной породы, угрожающий всем, кто приблизится.\n\n- **БЦ:** 4 за участок 10 x 10\n- **Выносливость:** 12 за клетку\n- **Размер:** Одна или несколько клеток [труднопроходимой местности](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n- **Иммунитет:** 20 ко всему урону, кроме урона холодом\n\n> 🌀 **Отключение**\n>\n> Каждую клетку лавы необходимо уничтожить отдельно.\n\n> ❕ **Активация**\n>\n> Существо или объект входит в лаву, начинает там ход или начинает ход в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с лавой клетке.\n>\n> **Эффект:** Способность **Жидкая горячая магма**.\n\n> ❗️ **Жидкая горячая магма**\n>\n> | **Ближний бой, удар** | **Бесплатное [триггерное действие](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект входит в лаву, начинает там ход или начинает ход в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с лавой клетке.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона огнём; М < 1 цель загорается (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw))\n> - **12-16:** 9 урона огнём; М < 2 цель загорается (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw))\n> - **17+:** 12 урона огнём; М < 3 цель загорается (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw))\n>\n> **Эффект:** Если цель находится в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с лавой клетке, но не в самой лаве, способность получает помеху. Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ⭐️ **Улучшение**\n>\n> **Поток магмы (+4 БЦ)** Лава течёт! В начале каждого раунда добавьте одну клетку лавы [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с существующей клеткой лавы.\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.environmental-hazards.lava",
+    "path": "Monsters/dynamic-terrain/environmental-hazards/lava.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/lava",
+  "originalName": "Lava",
+  "originalDescription": "A patch of blisteringly hot molten rock wells up from the ground, threatening anyone who gets close to it.\n\n- **EV:** 4 per 10 x 10 patch\n- **Stamina:** 12 per square\n- **Size:** One or more squares of [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n- **Immunity:** 20 to all damage except cold damage\n\n> 🌀 **Deactivate**\n>\n> Each square of lava must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature or object enters the lava or starts their turn there, or starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the lava.\n>\n> **Effect:** The **Liquid Hot Magma** ability.\n\n> ❗️ **Liquid Hot Magma**\n>\n> | **Melee, Strike** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-----------------------------------------:|\n> | **📏 Melee 1**    | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object enters the lava or starts their turn there, or starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the lava.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 fire damage; M < 1 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 fire damage; M < 2 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 fire damage; M < 3 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the target is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to lava but not in it, this ability takes a bane. A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Magma Flow (+4 EV)** The lava is flowing! At the start of each round, add one square of lava [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an existing square of lava.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/environmental-hazards/lava.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "environmental-hazards",
+    "recordType": "dynamic-terrain",
+    "level": 3,
+    "ev": "4 за участок 10 x 10",
+    "size": "Одна или несколько клеток труднопроходимой местности",
+    "role": "Проклинатель",
+    "organization": "Опасность"
+  }
+}

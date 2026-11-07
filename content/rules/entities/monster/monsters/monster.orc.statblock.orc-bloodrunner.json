@@ -1,0 +1,29 @@
+{
+  "id": "monster.orc.statblock.orc-bloodrunner",
+  "kind": "monster",
+  "name": "Орк-кровобег",
+  "markdown": "| Гуманоид, Орк |         -         |       Уровень 3       |    Взвод-Налётчик     |     Боевая ценность 10     |\n|:----------------:|:-----------------:|:---------------------:|:---------------------:|:-----------------------------:|\n| **1M**<br>Размер | **8**<br>Скорость | **50**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Удар щитом ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; особое: [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement)\n> - **12-16:** 10 урона; особое: [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement)\n> - **17+:** 13 урона; особое: [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) или [сбить с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Эффект:** Дистанция [принудительного перемещения](scc.v1:mcdm.heroes.v1/movement/forced-movement) равна числу клеток, на которое кровобег переместился в свой ход до применения этой способности. Союзник, выбранный целью этой способности, не получает урон и может переместиться на такое же расстояние.\n>\n> **2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Союзник, выбранный целью этой способности, может нанести [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) после завершения [принудительного перемещения](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n\n> ⭐️ **Неудержимый**\n>\n> Кровобег может завершить перемещение в пространстве [лежащего](scc.v1:mcdm.heroes.v1/condition/prone) существа. Когда кровобег впервые за ход входит в пространство любого существа, это существо получает 3 урона.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) кровобега снижается до 0, перед смертью он может нанести [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Если в результате этого свободного удара [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) цели снижается до 0, вместо этого [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) кровобега снижается до 1.\n",
+  "source": {
+    "articleId": "monsters.monster.orc.statblock.orc-bloodrunner",
+    "path": "Monsters/monster/orc/statblock/orc-bloodrunner.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-bloodrunner",
+  "originalName": "Orc Bloodrunner",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |    Platoon Harrier    |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Shield Bash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance is equal to the number of squares the bloodrunner moved on their turn before using this ability. An ally targeted by this ability ignores the damage and can move up to that same distance.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** An ally targeted by this ability can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) after the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is resolved.\n\n> ⭐️ **Unimpeded**\n>\n> The bloodrunner can end their movement in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature's space. The first time on a turn that a bloodrunner enters any creature's space, that creature takes 3 damage.\n\n> ⭐️ **Relentless**\n>\n> If the bloodrunner is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the bloodrunner is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-bloodrunner.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "10",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Налётчик",
+    "organization": "Взвод"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.hobgoblin.statblock.slaughter-demon",
+      "title": "Демон резни",
+      "chapter": "23. Бестиарий",
+      "group": "Хобгоблины",
+      "path": "Monsters/monster/hobgoblin/statblock/slaughter-demon.md",
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/slaughter-demon",
+      "originalName": "Slaughter Demon",
+      "originalDescription": "| Abyssal, Demon, Hobgoblin |           -            |      Level 4       |      Elite Brute      |        EV 24         |         \n|:-------------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **3**<br>Size       |     **7**<br>Speed     | **140**<br>Stamina |  **3**<br>Stability   | **6**<br>Free Strike |\n|  **Fire 5**<br>Immunity   | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+3**<br>Might      |    **0**<br>Agility    |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Steely Skewer (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the slaughter demon. The slaughter demon can have up to six creatures or objects [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) at once.\n\n> 🗡 **Tail Stinger (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 poison damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 20 poison damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way also has damage weakness 3.\n\n> ⭐️ **Drag Below**\n>\n> The slaughter demon can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) as part of using the Dig maneuver. If the target of the [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) has M < 2, they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and take a bane on the Escape Grab maneuver.\n\n> ❗️ **Devour Soul**\n>\n> | **Area, Magic** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 5 burst**  | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance who has a soul dies.\n>\n> **Effect:** The target can't be brought back to life. Until the end of the encounter, the slaughter demon gains an edge on power rolls.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the slaughter demon can't be hidden from them.\n\n> ⭐️ **Lethe**\n>\n> While the slaughter demon is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an edge on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/slaughter-demon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Хобгоблин"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.statblock.slaughter-demon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.hobgoblin",
+          "title": "Хобгоблины"
+        },
+        {
+          "id": "monsters.monster.hobgoblin.hobgoblin-malice",
+          "title": "Раздор хобгоблинов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.hobgoblin.statblock.slaughter-demon",
+      "kind": "monster",
+      "name": "Демон резни",
+      "markdown": "| Бездны, Демон, Хобгоблин |           -            |      Уровень 4       |      Элита Громила      |        Боевая ценность 24         |\n|:-------------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **3**<br>Размер       |     **7**<br>Скорость     | **140**<br>Выносливость |  **3**<br>Устойчивость   | **6**<br>Свободный удар |\n|  **Огонь 5**<br>Иммунитет   | **Закапывание**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|      **+3**<br>Мощь      |    **0**<br>Ловкость    |  **-1**<br>Разум  |  **+1**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🗡 **Стальной пронзатель (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 3**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 14 урона; Л < 2 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 17 урона; Л < 3: [Кровотечение](#/catalog/glossary#term-glossary.bleeding) и [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Существо, [опутанное](#/catalog/glossary#term-glossary.restrained) таким образом, перемещается вместе с демоном резни. Демон резни может одновременно удерживать в [Опутанности](#/catalog/glossary#term-glossary.restrained) до шести существ или объектов.\n\n> 🗡 **Хвостовое жало (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 5**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона ядом; М < 1 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 16 урона ядом; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 20 урона ядом; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Цель, получившая таким образом состояние [Ослабление](#/catalog/glossary#term-glossary.weakened), также получает уязвимость к урону 3.\n\n> ⭐️ **Утащить под землю**\n>\n> Демон резни может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) в рамках маневра копания. Если цель этого [свободного удара](#/catalog/glossary#term-glossary.free-strike) имеет М < 2, она получает состояние [Захват](#/catalog/glossary#term-glossary.grabbed) и помеху к маневру ускальзывания.\n\n> ❗️ **Пожирание души**\n>\n> | **Область, Магия** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Взрыв 5**  | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо с душой, находящееся в пределах дистанции, умирает.\n>\n> **Эффект:** Цель нельзя вернуть к жизни. До конца столкновения демон резни получает преимущество к броскам силы.\n\n> ⭐️ **Зрение душ**\n>\n> Любое существо в пределах 2 клеток от демона резни не может скрыться от него.\n\n> ⭐️ **Лета**\n>\n> Пока демон резни [утомлён](#/catalog/glossary#term-glossary.winded), он получает преимущество при ударах, а по нему самому совершают удары с преимуществом.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.statblock.slaughter-demon",
+        "path": "Monsters/monster/hobgoblin/statblock/slaughter-demon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/slaughter-demon",
+      "originalName": "Slaughter Demon",
+      "originalDescription": "| Abyssal, Demon, Hobgoblin |           -            |      Level 4       |      Elite Brute      |        EV 24         |         \n|:-------------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **3**<br>Size       |     **7**<br>Speed     | **140**<br>Stamina |  **3**<br>Stability   | **6**<br>Free Strike |\n|  **Fire 5**<br>Immunity   | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+3**<br>Might      |    **0**<br>Agility    |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Steely Skewer (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 17 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the slaughter demon. The slaughter demon can have up to six creatures or objects [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) at once.\n\n> 🗡 **Tail Stinger (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 poison damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 16 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 20 poison damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** A target [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way also has damage weakness 3.\n\n> ⭐️ **Drag Below**\n>\n> The slaughter demon can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) as part of using the Dig maneuver. If the target of the [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) has M < 2, they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and take a bane on the Escape Grab maneuver.\n\n> ❗️ **Devour Soul**\n>\n> | **Area, Magic** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 5 burst**  | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance who has a soul dies.\n>\n> **Effect:** The target can't be brought back to life. Until the end of the encounter, the slaughter demon gains an edge on power rolls.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the slaughter demon can't be hidden from them.\n\n> ⭐️ **Lethe**\n>\n> While the slaughter demon is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an edge on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/slaughter-demon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "24",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Хобгоблин"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.basilisk.statblock.basilisk",
+      "title": "Василиск",
+      "chapter": "23. Бестиарий",
+      "group": "Василиски",
+      "path": "Monsters/monster/basilisk/statblock/basilisk.md",
+      "originalId": "mcdm.monsters.v1/monster.basilisk.statblock/basilisk",
+      "originalName": "Basilisk",
+      "originalDescription": "|     Basilisk, Beast      |         -         |      Level 1      |      Elite Brute      |        EV 12         |\n|:------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size       |  **8**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Poison 4**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      | **+0**<br>Agility | **-3**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Noxious Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 10 poison damage\n> - **17+:** 13 poison damage\n>\n> **Effect:** This ability gains an edge against targets the basilisk has previously dealt poison damage to.\n\n> 🔳 **Petrifying Eye Beams**\n>\n> | **Area, Magic**            |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Special** |\n>\n> **Special:** The area extends from both the basilisk’s eyes, and this ability targets the first creature without cover on either side of the area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends); or if M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** If a target is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the potency increases by 1 for that target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way magically begins to turn to stone, and a target who ends two consecutive turns [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is petrified. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way or a creature adjacent to them can use a main action to cut encroaching stone from the target’s body, dealing 8 damage to the target that can’t be reduced in any way and ending this effect.\n\n> 🔳 **Poison Fumes (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 poison damage; M < 0 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 6 poison damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Lash Out**\n>\n> | **Area** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------------------|------------------------------:|\n> | **📏 1 burst**     | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The basilisk takes damage from a melee ability.\n>\n> **Effect:** Each target takes 5 damage. Any target who has A < 2 is also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Calcifying Presence**\n>\n> The area within 3 squares of the basilisk is difficult terrain for enemies.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/basilisk/statblock/basilisk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "basilisk",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Василиск",
+          "Зверь"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.basilisk.statblock.basilisk"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.basilisk.basilisk-malice",
+          "title": "Раздор василисков"
+        },
+        {
+          "id": "monsters.monster.group.basilisk",
+          "title": "Василиски"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.basilisk.statblock.basilisk",
+      "kind": "monster",
+      "name": "Василиск",
+      "markdown": "| Василиск, Зверь |         -         |      Уровень 1      |      Элита, Громила      |        Боевая ценность 12         |\n|:------------------------:|:-----------------:|:-------------------:|:------------------------:|:--------------------:|\n|       **2**<br>Размер    |  **8**<br>Скорость | **80**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **Яд 4**<br>Иммунитет     | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **+2**<br>Мощь        | **+0**<br>Ловкость | **-3**<br>Разум | **-1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Ядовитый укус (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона ядом\n> - **12-16:** 10 урона ядом\n> - **17+:** 13 урона ядом\n>\n> **Эффект:** Эта способность получает преимущество против целей, которым василиск ранее наносил урон ядом.\n\n> 🔳 **Окаменяющие лучи из глаз**\n>\n> | **Область, Магия** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|---------------:|\n> | **📏 Линия 5 x 2 в пределах 1** | **🎯 Особое** |\n>\n> **Особое:** Область исходит из обоих глаз василиска. Способность нацеливается на первое существо без укрытия с любой стороны этой области.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** при М < 0 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** при М < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.); либо при М < 2 она [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Если цель уже [замедлена](#/catalog/glossary#term-glossary.slowed), Потенциал для неё увеличивается на 1. Существо, [опутанное](#/catalog/glossary#term-glossary.restrained) таким образом, магическим образом начинает превращаться в камень. Если цель два хода подряд заканчивает ход [опутанной](#/catalog/glossary#term-glossary.restrained) таким образом, она окаменевает. Цель, [опутанная](#/catalog/glossary#term-glossary.restrained) таким образом, или смежное с ней существо может основным действием срезать с её тела нарастающий камень: цель получает 8 урона, который нельзя уменьшить никаким способом, а эффект прекращается.\n\n> 🔳 **Ядовитые испарения (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона ядом; при М < 0 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 6 урона ядом; при М < 1 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) и [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона ядом; при М < 2 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) и [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ❗️ **Ответный выпад**\n>\n> | **Область** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|------------------------------:|\n> | **📏 Взрыв 1** | **🎯 Каждый враг в области** |\n>\n> **Условие:** Василиск получает урон от способности ближнего боя.\n>\n> **Эффект:** Каждая цель получает 5 урона. Цель, чья Л < 2, также [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ⭐️ **Окаменяющее присутствие**\n>\n> Область в пределах 3 клеток от василиска — труднопроходимая местность для врагов.\n",
+      "source": {
+        "articleId": "monsters.monster.basilisk.statblock.basilisk",
+        "path": "Monsters/monster/basilisk/statblock/basilisk.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.basilisk.statblock/basilisk",
+      "originalName": "Basilisk",
+      "originalDescription": "|     Basilisk, Beast      |         -         |      Level 1      |      Elite Brute      |        EV 12         |\n|:------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **2**<br>Size       |  **8**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Poison 4**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might      | **+0**<br>Agility | **-3**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Noxious Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 10 poison damage\n> - **17+:** 13 poison damage\n>\n> **Effect:** This ability gains an edge against targets the basilisk has previously dealt poison damage to.\n\n> 🔳 **Petrifying Eye Beams**\n>\n> | **Area, Magic**            |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|---------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Special** |\n>\n> **Special:** The area extends from both the basilisk’s eyes, and this ability targets the first creature without cover on either side of the area.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends); or if M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** If a target is already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the potency increases by 1 for that target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way magically begins to turn to stone, and a target who ends two consecutive turns [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is petrified. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way or a creature adjacent to them can use a main action to cut encroaching stone from the target’s body, dealing 8 damage to the target that can’t be reduced in any way and ending this effect.\n\n> 🔳 **Poison Fumes (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 poison damage; M < 0 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 6 poison damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Lash Out**\n>\n> | **Area** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------------------|------------------------------:|\n> | **📏 1 burst**     | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The basilisk takes damage from a melee ability.\n>\n> **Effect:** Each target takes 5 damage. Any target who has A < 2 is also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Calcifying Presence**\n>\n> The area within 3 squares of the basilisk is difficult terrain for enemies.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/basilisk/statblock/basilisk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "basilisk",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "2",
+        "keywords": [
+          "Василиск",
+          "Зверь"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

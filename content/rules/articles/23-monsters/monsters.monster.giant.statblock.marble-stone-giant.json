@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.marble-stone-giant",
+  "title": "Мраморный каменный великан",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/marble-stone-giant.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/marble-stone-giant",
+  "originalName": "Marble Stone Giant",
+  "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |      Elite Hexer      |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **6**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+3**<br>Agility    |  **0**<br>Reason   |  **+3**<br>Intuition  |  **0**<br>Presence   |\n\n> 🔳 **Marble From a Great Sling (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 3 cube within 15**  | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 6 damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 14 damage; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** If the target has any effect on them that can be ended by a saving throw or that ends at the end of their turn, they are also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🗡 **Far Flung (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7\n> - **12-16:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10\n> - **17+:** Vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 12\n>\n> **Effect:** Against a target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) or [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), this ability has a double edge.\n\n> 🔳 **Polish Stone Shape**\n>\n> | **Area**                    |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------:|\n> | **📏 10 x 2 line within 1** | **🎯 Special** |\n>\n> **Effect:** The ground in the area becomes slick and glossy. Any non-giant who starts or ends their turn in the area is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The marble stone giant takes damage.\n>\n> **Effect:** The marble stone giant halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. The damage weakness increases by 3 each time the marble stone giant uses this ability in the same encounter.\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the marble stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The marble stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The marble stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/marble-stone-giant.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "4",
+    "keywords": [
+      "Великан",
+      "Каменный великан"
+    ],
+    "role": "Проклинатель",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.marble-stone-giant"
+    }
+  ]
+}

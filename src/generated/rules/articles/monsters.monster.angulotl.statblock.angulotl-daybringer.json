@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.angulotl.statblock.angulotl-daybringer",
+      "title": "Ангулотл-светоносец",
+      "chapter": "23. Бестиарий",
+      "group": "Ангулотлы",
+      "path": "Monsters/monster/angulotl/statblock/angulotl-daybringer.md",
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-daybringer",
+      "originalName": "Angulotl Daybringer",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |        Leader         |        EV 12         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size      |       **5**<br>Speed        | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **Poison 3**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Acid Grasp (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 acid damage; A < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 acid damage; A < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The next time the target makes a strike against the daybringer, the target takes 4 acid damage after the strike is resolved.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The daybringer jumps up to 3 squares before or after using this ability.\n\n> 👤 **Sun Lamp**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The daybringer expands their throat to make it resemble the sun until the start of their next turn. During that time, each angulotl who starts their turn within 10 squares of the daybringer regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and gains a +3 bonus to speed until the end of their turn.\n\n> ❗️ **Tongue Slap**\n>\n> | **Melee**      |             **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------------------:|\n> | **📏 Melee 5** |              **🎯 One creature** |\n>\n> **Trigger:** The target makes a strike against the daybringer or an ally that isn't a critical hit.\n>\n> **Effect:** The outcome of the strike's power roll is reduced by one tier.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares after the strike resolves.\n\n> ⭐️ **Moisturizing End Effect**\n>\n> At the end of each of the daybringer's turns, they can either take 5 damage or end the wet effect on an adjacent creature in order to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **New Dawn (Villain Action 1)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Four **angulotl pollywogs** erupt from the daybringer's back and waddle into unoccupied spaces within distance.\n\n> ☠️ **Plague of Frogs (Villain Action 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 8 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target can jump up to 4 squares. Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at the end of the jump.\n\n> ☠️ **It Is Day (Villain Action 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** The encounter map dries up and each enemy and object on it is illuminated until the end of the encounter. An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge). Additionally, each enemy in the encounter who is wet has that effect end and takes 6 acid damage. Each angulotl in the encounter has a double edge on their next strike.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the daybringer or uses a melee ability against them, that enemy takes 3 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-daybringer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.angulotl.statblock.angulotl-daybringer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.angulotl.angulotl-malice",
+          "title": "Раздор ангулотлов"
+        },
+        {
+          "id": "monsters.monster.group.angulotl",
+          "title": "Ангулотлы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.angulotl.statblock.angulotl-daybringer",
+      "kind": "monster",
+      "name": "Ангулотл-светоносец",
+      "markdown": "| Ангулотл, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:------------------:|:-:|:---------:|:-----:|:-----:|\n| **1M**<br>Размер | **5**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **Яд 3**<br>Иммунитет | **Лазание, плавание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Кислотный захват (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **Ближний бой 1**              | **Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона кислотой; при **Л < 1** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона кислотой; при **Л < 2** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 13 урона кислотой; при **Л < 3** цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** В следующий раз, когда цель совершит удар по светоносцу, после его разрешения она получит 4 урона кислотой.\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** До или после использования этой способности светоносец прыгает на расстояние до 3 клеток.\n\n> 👤 **Солнечная лампа**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------|--------------------------------:|\n> | **На себя** | **На себя** |\n>\n> **Эффект:** Светоносец раздувает горло, придавая ему вид солнца, до начала своего следующего хода. Пока действует эффект, каждый ангулотл, начинающий ход в пределах 10 клеток от светоносца, восстанавливает 5 [Выносливости](#/catalog/glossary#term-glossary.stamina) и получает +3 к Скорости до конца своего хода.\n\n> ❗️ **Шлепок языком**\n>\n> | **Ближний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|--------------------------------:|\n> | **Ближний бой 5** | **Одно существо** |\n>\n> **Условие:** Цель совершает удар по светоносцу или его союзнику, и этот удар не является критическим попаданием.\n>\n> **Эффект:** Результат броска силы для этого удара понижается на один тир.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** После разрешения удара цель [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 4 клеток.\n\n> ⭐️ **Увлажняющее прекращение эффекта**\n>\n> В конце каждого своего хода светоносец может либо получить 5 урона, либо прекратить эффект «мокрый» у смежного существа, чтобы снять с себя один эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Новый рассвет (действие злодея 1)**\n>\n> | **Дальний бой** | **-** |\n> |-----------------|--------------------------------:|\n> | **Дальний бой 10** | **Особое** |\n>\n> **Эффект:** Из спины светоносца вырываются четыре ангулотла-головастика и ковыляют в свободные пространства в пределах дистанции.\n\n> ☠️ **Нашествие лягушек (действие злодея 2)**\n>\n> | **Область** | **-** |\n> |-------------|--------------------------------------:|\n> | **Взрыв 8** | **Сам светоносец и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может прыгнуть на расстояние до 4 клеток. Каждая цель, не являющаяся [миньоном](#/codex/monsters.rule.organization.minion), может в конце прыжка совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **День наступил (действие злодея 3)**\n>\n> | **-** | **-** |\n> |-------|--------------------------------:|\n> | **Особое** | **Особое** |\n>\n> **Эффект:** Карта столкновения высыхает, а каждый враг и объект на ней освещается до конца столкновения. Освещённое существо или объект не может скрываться или становиться невидимым, а каждый удар по освещённой цели совершается с [преимуществом](#/catalog/glossary#term-glossary.edge). Кроме того, с каждого мокрого врага в столкновении снимается этот эффект, и он получает 6 урона кислотой. При следующем ударе каждого ангулотла действует двойное преимущество.\n\n> ⭐️ **Ядовитая кожа**\n>\n> Когда смежный враг [схватывает](#/catalog/glossary#term-glossary.grab-maneuver) светоносца или использует против него способность ближнего боя, этот враг получает 3 урона ядом.\n",
+      "source": {
+        "articleId": "monsters.monster.angulotl.statblock.angulotl-daybringer",
+        "path": "Monsters/monster/angulotl/statblock/angulotl-daybringer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-daybringer",
+      "originalName": "Angulotl Daybringer",
+      "originalDescription": "|    Angulotl, Humanoid    |              -              |      Level 1      |        Leader         |        EV 12         |\n|:------------------------:|:---------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size      |       **5**<br>Speed        | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |\n| **Poison 3**<br>Immunity | **Climb, swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+3**<br>Might      |      **+2**<br>Agility      | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Acid Grasp (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 acid damage; A < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 acid damage; A < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The next time the target makes a strike against the daybringer, the target takes 4 acid damage after the strike is resolved.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The daybringer jumps up to 3 squares before or after using this ability.\n\n> 👤 **Sun Lamp**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The daybringer expands their throat to make it resemble the sun until the start of their next turn. During that time, each angulotl who starts their turn within 10 squares of the daybringer regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and gains a +3 bonus to speed until the end of their turn.\n\n> ❗️ **Tongue Slap**\n>\n> | **Melee**      |             **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------------------:|\n> | **📏 Melee 5** |              **🎯 One creature** |\n>\n> **Trigger:** The target makes a strike against the daybringer or an ally that isn't a critical hit.\n>\n> **Effect:** The outcome of the strike's power roll is reduced by one tier.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 4 squares after the strike resolves.\n\n> ⭐️ **Moisturizing End Effect**\n>\n> At the end of each of the daybringer's turns, they can either take 5 damage or end the wet effect on an adjacent creature in order to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **New Dawn (Villain Action 1)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Four **angulotl pollywogs** erupt from the daybringer's back and waddle into unoccupied spaces within distance.\n\n> ☠️ **Plague of Frogs (Villain Action 2)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 8 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target can jump up to 4 squares. Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at the end of the jump.\n\n> ☠️ **It Is Day (Villain Action 3)**\n>\n> | **-**          |          **-** |\n> |----------------|---------------:|\n> | **📏 Special** | **🎯 Special** |\n>\n> **Effect:** The encounter map dries up and each enemy and object on it is illuminated until the end of the encounter. An illuminated creature or object can't hide or become invisible, and any strike made against an illuminated target gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge). Additionally, each enemy in the encounter who is wet has that effect end and takes 6 acid damage. Each angulotl in the encounter has a double edge on their next strike.\n\n> ⭐️ **Toxiferous**\n>\n> Whenever an adjacent enemy [grabs](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) the daybringer or uses a melee ability against them, that enemy takes 3 poison damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/angulotl/statblock/angulotl-daybringer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "angulotl",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Ангулотл",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

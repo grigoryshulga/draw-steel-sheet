@@ -82,6 +82,12 @@ function abilityQuote(node: RootContent): AbilityQuote | null {
   const table = node.children.find(
     (child): child is Table => child.type === "table",
   );
+  // Monsters adds an icon before the bold title. Keep it inside the same title.
+  if (title?.type === 'paragraph' && title.children.length === 2
+    && title.children[0].type === 'text' && !/[\p{L}\p{N}]/u.test(title.children[0].value)
+    && title.children[1].type === 'strong') {
+    title.children = [{ ...title.children[1], children: [title.children[0], ...title.children[1].children] }];
+  }
   if (
     title?.type !== "paragraph" ||
     title.children.length !== 1 ||

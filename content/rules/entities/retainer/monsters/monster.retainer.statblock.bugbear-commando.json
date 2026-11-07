@@ -1,0 +1,31 @@
+{
+  "id": "monster.retainer.statblock.bugbear-commando",
+  "kind": "retainer",
+  "name": "Багбир-коммандос",
+  "markdown": "| Багбир, Фея, Гоблин, Гуманоид | - | Уровень 2 | Помощник-засадник | Боевая ценность - |\n|---|---|---|---|---|\n| **1L**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Медвежьи объятия (Знаковая способность)**\n>\n> | **Ближний бой, удар, оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 6 урона\n> - **17+:** 11 урона\n>\n> **Эффект:** Если коммандос начал ход, имея маскировку от цели или скрывшись от неё, он получает 1 [всплеск](scc.v1:mcdm.heroes.v1/rule.resource/surge), который можно использовать немедленно.\n\n> 🗡 **Бросок**\n>\n> | **Ближний бой, удар** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Особое:** Цель должна быть [схвачена](scc.v1:mcdm.heroes.v1/condition/grabbed) коммандос.\n>\n> **Эффект:** Цель отталкивается вертикально на расстояние до 5 клеток. Союзник не получает урон от такого [принудительного перемещения](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n\n> ❗️ **Ловец**\n>\n> | **Ближний бой** | **Бесплатное [триггерное действие](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект размера 1 [принудительно перемещается](scc.v1:mcdm.heroes.v1/movement/forced-movement) в пределах дистанции либо союзник размера 1 добровольно перемещается в пределах дистанции.\n>\n> **Эффект:** Коммандос [хватает](scc.v1:mcdm.heroes.v1/condition/grabbed) цель.\n",
+  "source": {
+    "articleId": "monsters.monster.retainer.statblock.bugbear-commando",
+    "path": "Monsters/monster/retainer/statblock/bugbear-commando.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/bugbear-commando",
+  "originalName": "Bugbear Commando",
+  "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 2      |   Ambusher Retainer   |         EV -         |\n|:------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|         **1L**<br>Size         |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|        **+2**<br>Might         | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Bear Hug (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 6 damage\n> - **17+:** 11 damage\n>\n> **Effect:** If the commando started their turn with concealment from the target or hidden from them, they gain 1 [surge](scc.v1:mcdm.heroes.v1/rule.resource/surge) that can be used immediately.\n\n> 🗡 **Throw**\n>\n> | **Melee, Strike** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.\n>\n> **Effect:** The target is vertical pushed up to 5 squares. An ally doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way.\n\n> ❗️ **Catcher**\n>\n> | **Melee**      |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A size 1 creature or object is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) within distance, or a size 1 ally willingly moves within distance.\n>\n> **Effect:** The target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/bugbear-commando.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "-",
+    "size": "1L",
+    "keywords": [
+      "Багбир",
+      "Фея",
+      "Гоблин",
+      "Гуманоид"
+    ],
+    "role": "Засадник",
+    "organization": "Помощник"
+  }
+}

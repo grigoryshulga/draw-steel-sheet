@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.dwarf-mortar",
+  "title": "Дварф-мортирщик",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/dwarf-mortar.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/dwarf-mortar",
+  "originalName": "Dwarf Mortar",
+  "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Hexer Retainer     |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **21**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🏹 **Armor-Piercing Shell (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** This ability ignores [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and bypasses [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina).\n\n> ⭐️ **Voice Rune**\n>\n> The mortar can use a magical rune inscribed on their skin to talk to their mentor over any distance as long as both are in the same world.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/dwarf-mortar.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Дварф",
+      "Гуманоид"
+    ],
+    "role": "Проклинатель",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.dwarf-mortar"
+    }
+  ]
+}

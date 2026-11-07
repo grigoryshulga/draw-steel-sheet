@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.kobold.statblock.kobold-artifex",
+  "title": "Кобольд-ремесленник",
+  "chapter": "23. Бестиарий",
+  "group": "Кобольды",
+  "path": "Monsters/monster/kobold/statblock/kobold-artifex.md",
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-artifex",
+  "originalName": "Kobold Artifex",
+  "originalDescription": "| Humanoid, Kobold  |         -         |      Level 1      |   Horde Controller    |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **+1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🏹 **Chain Hook (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; pull 1\n> - **12-16:** 4 damage; pull 2\n> - **17+:** 5 damage; pull 3\n>\n> **Effect:** If this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) triggers a trap that uses a power roll, that roll has a double edge.\n\n> ⭐️ **Activate Trap**\n>\n> | **Ranged**       |                            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|----------------------------------------:|\n> | **📏 Ranged 10** | **🎯 One trap or other terrain object** |\n>\n> **Effect:** The trap or terrain object instantly triggers.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The artifex places a new trap in the encounter and can instantly trigger it. The artifex prefers working with angry beehives, flammable oil, snare traps, and spike traps (see Dynamic Terrain).\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the artifex has stability 1, has cover, and grants cover to allies.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-artifex.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Контроллер",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.kobold.statblock.kobold-artifex"
+    }
+  ]
+}

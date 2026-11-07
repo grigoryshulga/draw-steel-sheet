@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.role-advancement.controller",
+      "title": "Способности развития роли Контроллера",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/role-advancement/controller.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/controller",
+      "originalName": "Controller Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🔳 **Elemental Blast (Encounter)**\n>\n> | **Area, Magic, Ranged** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** When the retainer uses this ability, they can choose for it to deal one of the following damage types: acid, cold, fire, lightning, poison, or sonic.\n\n> **Level 7 Role Advancement Ability**\n\n> 🔳 **Oil Slick (Encounter)**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 poison damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 8 poison damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 11 poison damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Any enemy has fire weakness 5 while in the area, and any enemy who ends their turn in the area and has no movement remaining falls [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> **Level 10 Role Advancement Ability**\n\n> 🏹 **Shattering Shards (Encounter)**\n>\n> | **Ranged, Strike, Weapon** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------:|\n> | **📏 Ranged 10**           | **🎯 One Object** |\n>\n> **Special:** The target must be size 1M or smaller.\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The area within 2 squares of the target is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and each enemy in the area takes the same damage the object took.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/controller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.controller"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.role-advancement.controller",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Контроллера",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 🔳 **Стихийный взрыв (Столкновение)**\n>\n> | **Область, Магия, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|----------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 4 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **12-16:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **17+:** 10 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 5\n>\n> **Эффект:** Используя эту способность, Контроллер может выбрать один из следующих типов урона: кислота, холод, огонь, молния, яд или звук.\n\n> **Способность развития роли 7-го уровня**\n\n> 🔳 **Масляная лужа (Столкновение)**\n>\n> | **Область, Дальний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|----------------------:|\n> | **📏 Куб 3 в пределах 10**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона ядом; М < СЛАБЫЙ — [лежачий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 8 урона ядом; М < СРЕДНИЙ — [лежачий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 11 урона ядом; М < СИЛЬНЫЙ — [лежачий](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Для врагов область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). Пока враг находится в области, у него уязвимость к огню 5; если враг заканчивает свой ход в области и у него не осталось движения, он падает [с ног](#/catalog/glossary#term-glossary.prone).\n\n> **Способность развития роли 10-го уровня**\n\n> 🏹 **Разлетающиеся осколки (Столкновение)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Дальний 10**         | **🎯 Один объект** |\n>\n> **Особое:** Размер цели должен быть 1M или меньше.\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** Область в пределах 2 клеток от цели становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain); каждый враг в этой области получает столько же урона, сколько получил объект.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.controller",
+        "path": "Monsters/monster/retainer/role-advancement/controller.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/controller",
+      "originalName": "Controller Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🔳 **Elemental Blast (Encounter)**\n>\n> | **Area, Magic, Ranged** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** When the retainer uses this ability, they can choose for it to deal one of the following damage types: acid, cold, fire, lightning, poison, or sonic.\n\n> **Level 7 Role Advancement Ability**\n\n> 🔳 **Oil Slick (Encounter)**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 poison damage; M < WEAK [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 8 poison damage; M < AVERAGE [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 11 poison damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Any enemy has fire weakness 5 while in the area, and any enemy who ends their turn in the area and has no movement remaining falls [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> **Level 10 Role Advancement Ability**\n\n> 🏹 **Shattering Shards (Encounter)**\n>\n> | **Ranged, Strike, Weapon** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------:|\n> | **📏 Ranged 10**           | **🎯 One Object** |\n>\n> **Special:** The target must be size 1M or smaller.\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The area within 2 squares of the target is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and each enemy in the area takes the same damage the object took.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/controller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

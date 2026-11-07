@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.environmental-hazards.quicksand",
+      "title": "Зыбучий песок",
+      "chapter": "25. Динамическая местность",
+      "group": "Природные опасности",
+      "path": "Monsters/dynamic-terrain/environmental-hazards/quicksand.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/quicksand",
+      "originalName": "Quicksand",
+      "originalDescription": "When this patch of sand is stepped on, it is revealed to be a slurry saturated by water—and ready to draw creatures down to their doom.\n\n- **EV:** 3 per 10 x 10 patch\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> -\n\n> ❕ **Activate**\n>\n> A creature or object enters the quicksand or starts their turn there.\n>\n> **Effect:** The **Grasping Depths** ability.\n\n> ❗️ **Grasping Depths**\n>\n> | **Melee, Strike** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-----------------------------------------:|\n> | **📏 Melee 0**    | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object enters the quicksand or starts their turn there.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability takes a bane if a triggering creature [shifted](scc.v1:mcdm.heroes.v1/movement/shifting) into the quicksand. A character who starts their turn [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is [suffocating](scc.v1:mcdm.heroes.v1/rule.health/suffocating).\n\n> ⭐️ **Hidden**\n>\n> The quicksand is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/quicksand.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "3 за участок 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.environmental-hazards.quicksand"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.environmental-hazards.quicksand",
+      "kind": "terrain",
+      "name": "Зыбучий песок",
+      "markdown": "Когда на этот участок песка наступают, он оказывается насыщенной водой жижей, готовой затянуть существ навстречу гибели.\n\n- **БЦ:** 3 за участок 10 x 10\n- **Выносливость:** -\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> -\n\n> ❕ **Активация**\n>\n> Существо или объект входит в зыбучий песок или начинает там ход.\n>\n> **Эффект:** Способность **Хватающая глубина**.\n\n> ❗️ **Хватающая глубина**\n>\n> | **Ближний бой, удар** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект входит в зыбучий песок или начинает там ход.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** М < 0 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** М < 1 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** М < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Способность получает помеху, если вызвавшее её существо вошло в зыбучий песок [шагом](#/catalog/glossary#term-glossary.shift). Персонаж, начинающий ход в состоянии [Опутанность](#/catalog/glossary#term-glossary.restrained), полученном таким образом, [задыхается](#/catalog/glossary#term-glossary.suffocating).\n\n> ⭐️ **Скрытность**\n>\n> Зыбучий песок скрыт, пока не сработает или не будет обнаружен.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.environmental-hazards.quicksand",
+        "path": "Monsters/dynamic-terrain/environmental-hazards/quicksand.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/quicksand",
+      "originalName": "Quicksand",
+      "originalDescription": "When this patch of sand is stepped on, it is revealed to be a slurry saturated by water—and ready to draw creatures down to their doom.\n\n- **EV:** 3 per 10 x 10 patch\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> -\n\n> ❕ **Activate**\n>\n> A creature or object enters the quicksand or starts their turn there.\n>\n> **Effect:** The **Grasping Depths** ability.\n\n> ❗️ **Grasping Depths**\n>\n> | **Melee, Strike** |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-----------------------------------------:|\n> | **📏 Melee 0**    | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object enters the quicksand or starts their turn there.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability takes a bane if a triggering creature [shifted](scc.v1:mcdm.heroes.v1/movement/shifting) into the quicksand. A character who starts their turn [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is [suffocating](scc.v1:mcdm.heroes.v1/rule.health/suffocating).\n\n> ⭐️ **Hidden**\n>\n> The quicksand is hidden until triggered or detected.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/quicksand.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "3 за участок 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      }
+    }
+  ]
+}

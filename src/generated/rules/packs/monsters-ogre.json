@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.ogre",
+      "title": "Огры",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/group/ogre.md",
+      "originalId": "mcdm.monsters.v1/monster.group/ogre",
+      "originalName": "Ogres",
+      "originalDescription": "Massive and bull-necked with bulging muscle and flesh, most ogres indulge their every impulse because few can stop them. Though small for giants, ogres outweigh and tower over humanoids. Most live in the wild where they can create their own rules and ways of life.\n\n### Extreme Emotions\n\nMost ogres experience emotions at their extremes. Rarely are they simply bemused or cross, and one is more likely to find an ogre leaping with ecstatic joy over a trivial victory or screaming with murderous rage over everyday frustrations. These heightened feelings drive many ogres down selfish paths, and some take whatever they want from anyone too weak to protest. Other ogres can be manipulated into working for evil creatures who promise to meet their heart's desire, be it food, riches, or friendship.\n\nOgres who embrace good often dedicate themselves to inspiring causes, letting their emotions fuel their passion and dedication for protecting their chosen people or place.\n\n### Savory Stories\n\nSome ogres speak of a time when they shared vast wealth and riches, great homes made of hewn stone, and sumptuous feasts. These stories always end tragically, each with a different villain—from deceptive mages to talking cats—swindling the ogres of what is rightfully theirs. The truth of such legends remains unknown, but many cruel ogres use them as an excuse for their selfish indulgences.\n\n### Aristocracy of Bullies\n\nWhen wicked ogres gather more food than they can stomach or riches than they can spend, they use the excess to tempt their kin into working for them. These petty rulers make other ogres grovel at their feet for table scraps, then send them out into the world to steal more. Many ogre communities form around these arrogant aristocrats—but few such leaders die of old age, as the ambition and emotions of their subjects bring about violent ends.\n\n### Cyclops: Ogre Progenitor\n\nOgres originally descended from the cyclops, an old-world giant with a single eye whose kind still roam through remote canyons and valleys. These behemoths stand heads above the ogres and are twice as destructive once they've spotted their prey. But while their binocular cousins have gone on to become successful hunters and live for themselves, the cyclops is a scavenger hindered by their poor eyesight. Most cyclopses are eager to work for and defend powerful warlords or wealthy ogres, as long as they have easy access to food and shelter.\n\nRumor has it that a cyclops can emit a mile-long energy ray from their eye. However, focusing such power is nearly impossible when their vision is usually too irritated and clouded by dirt.\n\n### Ogre Languages\n\nMost ogres speak Caelian and High Kuric.\n\n###### Ogre Lairs\n\n> One of the great tragedies of the ogres is that they keenly appreciate luxuries but are the wrong size to use most of them. Although ogres can guzzle fine wines and perch stolen crowns atop their heads, they can't fit into small folks' fine clothes, wield their tiny weapons, or sit in their chairs without smashing them to splinters. Nevertheless, ogres often decorate their lairs with costly furniture, decorations, suits of armor, and other prizes-sometimes in less than mint condition.\n>\n> The following are sample treasures from an ogre's lair, of which an ogre might have one or two. These items can be found in Draw Steel: Heroes.\n>\n> - **Treasures:** Giant's-Blood Flame, Growth Potion, Icemaker Maul\n> - **Components:** A lead slingstone that killed a giant, a slaughter demon's horn (used as a drinking horn)\n> - **Project Sources:** Notes in Low Kuric for the Thundering I weapon enhancement, notes in High Kuric for a Bastion Belt or the Devastating weapon enhancement",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/ogre.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.ogre"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.monster.ogre.statblock.cyclops",
+          "title": "Циклоп"
+        },
+        {
+          "id": "monsters.monster.ogre.statblock.ogre-blue-blood",
+          "title": "Огр голубых кровей"
+        },
+        {
+          "id": "monsters.monster.ogre.statblock.ogre-goon",
+          "title": "Огр-задира"
+        },
+        {
+          "id": "monsters.monster.ogre.statblock.ogre-juggernaut",
+          "title": "Огр-джаггернаут"
+        },
+        {
+          "id": "monsters.monster.ogre.statblock.ogre-tantrum",
+          "title": "Огр-истерик"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.ogre-malice",
+      "title": "Раздор огров",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/ogre-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre/ogre-malice",
+      "originalName": "Ogre Malice",
+      "originalDescription": "At the start of any ogre's turn, you can spend Malice to activate one of the following features.\n\n> ❇️ **Shockwave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One ogre acting this turn jumps and lands on their rear, causing a 3 burst shockwave. Each size 1 creature in the area makes a **Might test** or **Agility test**.\n>\n> - **≤11:** 5 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n\n> 🌀 **Bully (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each ogre in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If they can, they gang up on the same target rather than picking different targets.\n\n> ⭐️ **Rampage (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each ogre has damage immunity 5 and deals an extra 5 damage with abilities, and heroic abilities that target any ogre have their Heroic Resource cost reduced by 1 (to a minimum of 1).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/ogre-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.ogre-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.statblock.cyclops",
+      "title": "Циклоп",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/statblock/cyclops.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/cyclops",
+      "originalName": "Cyclops",
+      "originalDescription": "|    Giant, Ogre    |         -         |     Level 10      |           Minion Controller           | EV 12 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|   **3**<br>Size   |  **6**<br>Speed   | **14**<br>Stamina |          **5**<br>Stability           |  **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+4 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|  **+5**<br>Might  | **-1**<br>Agility | **-1**<br>Reason  |          **+3**<br>Intuition          |   **-1**<br>Presence   |\n\n> ❇️ **Wild Slam ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 3 damage; A < 3 3 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 4 4 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 5 5 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The cyclops automatically treats their initial power roll as a 17. They can still roll to determine if they score a critical hit.\n\n> ⭐️ **Limited Vision**\n>\n> The cyclops has line of effect only within 3 squares. Whenever the cyclops takes damage from a ranged ability, they can move up to 3 squares toward the source of the damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/cyclops.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "3",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.statblock.cyclops"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.statblock.ogre-blue-blood",
+      "title": "Огр голубых кровей",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/statblock/ogre-blue-blood.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-blue-blood",
+      "originalName": "Ogre Blue Blood",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Brute                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **13**<br>Stamina |             **4**<br>Stability              | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |             **0**<br>Intuition              |  **+2**<br>Presence   |\n\n> 🗡 **Crush Underfoot ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 8 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 4 damage.\n\n> ⭐️ **In My Stead**\n>\n> Whenever the blue blood would make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), an ally within 5 squares can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) instead.\n\n> ⭐️ **Royal Anger**\n>\n> The blue blood has damage immunity 2 while their squad has three or fewer minions in it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-blue-blood.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.statblock.ogre-blue-blood"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.statblock.ogre-goon",
+      "title": "Огр-задира",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/statblock/ogre-goon.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-goon",
+      "originalName": "Ogre Goon",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **100**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Club Swing ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** Any target who takes damage from this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) takes an extra 4 damage.\n\n> 🗡 **Grabby Hand (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 14 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes a bane on the Escape Grab maneuver.\n\n> 🔳 **People Bowling (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon**           |                                **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 6 x 1 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Effect:** The goon must have a size 1 creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), which they hurl across the area, ending the grab. The hurled creature or object is targeted by the ability, and lands in the last square of the line or the nearest unoccupied square of the goon's choice.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Swat the Fly**\n>\n> | **Melee**      |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the goon.\n>\n> **Effect:** The goon [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 5 squares.\n\n> ⭐️ **Defiant Anger**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), the goon has damage immunity 2.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-goon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.statblock.ogre-goon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.statblock.ogre-juggernaut",
+      "title": "Огр-джаггернаут",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/statblock/ogre-juggernaut.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-juggernaut",
+      "originalName": "Ogre Juggernaut",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 2      |     Elite Harrier     |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Pitchfork Catapult ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; A < 1 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 13 damage; A < 2 vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each target who has M < 1 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ❇️ **Earth-Breaking Jump**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 3 burst**   | **🎯 Each creature in the area** |\n>\n> **Effect:** The juggernaut jumps up to 6 squares before using this ability.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Horrible Bellow (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** While a target is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) this way, any ogre gains an edge on strikes against them.\n\n> ❗️ **Hrraaaaaagh! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The juggernaut takes damage.\n>\n> **Effect:** The juggernaut moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Destructive Path**\n>\n> The juggernaut automatically destroys any mundane size 1 objects in their path when they move or are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement). They can break through any mundane wall made of wood, stone, or a similarly sturdy material this way as long as the wall is 2 squares thick or less.\n\n> ⭐️ **Defiant Anger**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), the juggernaut has damage immunity 2.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-juggernaut.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.statblock.ogre-juggernaut"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.ogre.statblock.ogre-tantrum",
+      "title": "Огр-истерик",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/statblock/ogre-tantrum.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-tantrum",
+      "originalName": "Ogre Tantrum",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Artillery                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **10**<br>Stamina |               **2**<br>Stability                | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |               **0**<br>Intuition                |  **-1**<br>Presence   |\n\n> 🏹 **Throw Fit ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Effect:** The tantrum unearths a rock or a hunk of terrain and tosses it. If a size 1L, 1M, or 1S creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tantrum has A < 3 the tantrum can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) them to use as the projectile for this ability.\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> A creature or object used as a projectile is vertically [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) 8 (or 13 with a captain), ignoring stability.\n\n> ⭐️ **Excessive Anger**\n>\n> The tantrum has damage immunity 3 and speed 8 while their squad has two or fewer minions in it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-tantrum.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.statblock.ogre-tantrum"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.monster.ogre.ogre-malice",
+          "title": "Раздор огров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.ogre",
+      "kind": "monster-lore",
+      "name": "Огры",
+      "markdown": "Большинство огров — массивные, широкошеие существа с выпирающими мышцами и избытком плоти, которые потакают каждому своему порыву, ведь мало кто способен их остановить. Хотя огры невелики для великанов, они превосходят гуманоидов весом и ростом. Большинство живёт в дикой местности, где может устанавливать собственные порядки и образ жизни.\n\n### Крайности эмоций\n\nБольшинство огров переживают эмоции на пределе. Они редко бывают просто озадачены или раздражены: куда вероятнее увидеть, как огр ликует от восторга из-за пустяковой победы или вопит от убийственной ярости из-за повседневных неприятностей. Эти обострённые чувства толкают многих огров на эгоистичный путь, и некоторые забирают всё, что пожелают, у тех, кто слишком слаб, чтобы возразить. Других огров можно склонить к службе злым существам, если те пообещают исполнить их заветное желание — будь то еда, богатство или дружба.\n\nОгры, избравшие добро, часто посвящают себя вдохновляющим целям, позволяя эмоциям подпитывать их страсть и преданность народу или месту, которые они решили защищать.\n\n### Истории о былом изобилии\n\nНекоторые огры рассказывают о временах, когда у них было огромное богатство, просторные дома из тесаного камня и роскошные пиры. Все эти истории заканчиваются трагически, но каждый раз в роли злодея выступает кто-то новый — от коварных магов до говорящих кошек, — обобравший огров и лишивший их того, что принадлежало им по праву. Правда за этими легендами неизвестна, но многие жестокие огры используют их как оправдание своим эгоистичным прихотям.\n\n### Аристократия задир\n\nКогда злые огры добывают больше еды, чем могут съесть, или богатства, чем могут потратить, они используют излишки, чтобы заманить сородичей на службу. Эти мелочные правители заставляют других огров пресмыкаться у своих ног ради объедков, а затем отправляют их грабить мир в поисках новой добычи. Многие общины огров складываются вокруг таких надменных аристократов, но мало кто из подобных вождей умирает от старости: честолюбие и чувства их подданных приводят к насильственной гибели.\n\n### Циклоп: прародитель огров\n\nОгры произошли от циклопов — одноглазых великанов древнего мира, которые и сейчас бродят по отдалённым каньонам и долинам. Эти исполины выше огров на целую голову и, заметив добычу, вдвое разрушительнее. Но их двуглазые родственники стали искусными охотниками и живут самостоятельно, тогда как циклоп — падальщик, которому мешает плохое зрение. Большинство циклопов охотно служит могущественным военачальникам или богатым ограм и защищает их, если получает лёгкий доступ к еде и крову.\n\nХодят слухи, что циклоп способен испустить из глаза энергетический луч длиной в милю. Однако направить такую силу почти невозможно: зрение циклопа обычно раздражено и затуманено грязью.\n\n### Языки огров\n\nБольшинство огров говорит на кэлианском и высоком курике.\n\n###### Логова огров\n\n> Одна из величайших трагедий огров в том, что они тонко ценят роскошь, но слишком велики, чтобы ею пользоваться. Огры могут осушать бокалы прекрасного вина и водружать украденные короны себе на головы, но не влезают в изящную одежду маленького народа, не могут обращаться с его крошечным оружием и ломают стулья, стоит им на них сесть. И всё же огры часто украшают свои логова дорогой мебелью, украшениями, доспехами и другими трофеями — порой далеко не в лучшем состоянии.\n>\n> Ниже приведены примеры сокровищ из логова огра; у него может найтись один или два таких предмета. Эти предметы описаны в «Draw Steel: Heroes».\n>\n> - **Сокровища:** Пламя крови великана, зелье роста, кувалда ледодела\n> - **Компоненты:** свинцовая праща, убившая великана; рог демона-резника (используется как рог для питья)\n> - **Источники проекта:** записи на низком курике для улучшения оружия «Гром I»; записи на высоком курике для пояса бастиона или улучшения оружия «Сокрушительное»\n",
+      "source": {
+        "articleId": "monsters.monster.group.ogre",
+        "path": "Monsters/monster/group/ogre.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/ogre",
+      "originalName": "Ogres",
+      "originalDescription": "Massive and bull-necked with bulging muscle and flesh, most ogres indulge their every impulse because few can stop them. Though small for giants, ogres outweigh and tower over humanoids. Most live in the wild where they can create their own rules and ways of life.\n\n### Extreme Emotions\n\nMost ogres experience emotions at their extremes. Rarely are they simply bemused or cross, and one is more likely to find an ogre leaping with ecstatic joy over a trivial victory or screaming with murderous rage over everyday frustrations. These heightened feelings drive many ogres down selfish paths, and some take whatever they want from anyone too weak to protest. Other ogres can be manipulated into working for evil creatures who promise to meet their heart's desire, be it food, riches, or friendship.\n\nOgres who embrace good often dedicate themselves to inspiring causes, letting their emotions fuel their passion and dedication for protecting their chosen people or place.\n\n### Savory Stories\n\nSome ogres speak of a time when they shared vast wealth and riches, great homes made of hewn stone, and sumptuous feasts. These stories always end tragically, each with a different villain—from deceptive mages to talking cats—swindling the ogres of what is rightfully theirs. The truth of such legends remains unknown, but many cruel ogres use them as an excuse for their selfish indulgences.\n\n### Aristocracy of Bullies\n\nWhen wicked ogres gather more food than they can stomach or riches than they can spend, they use the excess to tempt their kin into working for them. These petty rulers make other ogres grovel at their feet for table scraps, then send them out into the world to steal more. Many ogre communities form around these arrogant aristocrats—but few such leaders die of old age, as the ambition and emotions of their subjects bring about violent ends.\n\n### Cyclops: Ogre Progenitor\n\nOgres originally descended from the cyclops, an old-world giant with a single eye whose kind still roam through remote canyons and valleys. These behemoths stand heads above the ogres and are twice as destructive once they've spotted their prey. But while their binocular cousins have gone on to become successful hunters and live for themselves, the cyclops is a scavenger hindered by their poor eyesight. Most cyclopses are eager to work for and defend powerful warlords or wealthy ogres, as long as they have easy access to food and shelter.\n\nRumor has it that a cyclops can emit a mile-long energy ray from their eye. However, focusing such power is nearly impossible when their vision is usually too irritated and clouded by dirt.\n\n### Ogre Languages\n\nMost ogres speak Caelian and High Kuric.\n\n###### Ogre Lairs\n\n> One of the great tragedies of the ogres is that they keenly appreciate luxuries but are the wrong size to use most of them. Although ogres can guzzle fine wines and perch stolen crowns atop their heads, they can't fit into small folks' fine clothes, wield their tiny weapons, or sit in their chairs without smashing them to splinters. Nevertheless, ogres often decorate their lairs with costly furniture, decorations, suits of armor, and other prizes-sometimes in less than mint condition.\n>\n> The following are sample treasures from an ogre's lair, of which an ogre might have one or two. These items can be found in Draw Steel: Heroes.\n>\n> - **Treasures:** Giant's-Blood Flame, Growth Potion, Icemaker Maul\n> - **Components:** A lead slingstone that killed a giant, a slaughter demon's horn (used as a drinking horn)\n> - **Project Sources:** Notes in Low Kuric for the Thundering I weapon enhancement, notes in High Kuric for a Bastion Belt or the Devastating weapon enhancement",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/ogre.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.ogre.ogre-malice",
+      "kind": "monster-feature",
+      "name": "Раздор огров",
+      "markdown": "В начале хода любого огра вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> ❇️ **Ударная волна (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один из действующих в этот ход огров подпрыгивает и приземляется на зад, создавая ударную волну «Взрыв 3». Каждое существо размера 1 в области проходит **тест Мощи** или **тест Ловкости**.\n>\n> - **≤11:** 5 урона; вертикально [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **12-16:** 4 урона; вертикально [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** [Оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n\n> 🌀 **Задира (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый огр в столкновении [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если возможно, все они нападают на одну и ту же цель, а не выбирают разные цели.\n\n> ⭐️ **Буйство (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый огр получает иммунитет к урону 5 и наносит способностями дополнительно 5 урона; кроме того, стоимость Героического ресурса героических способностей, нацеленных на любого огра, уменьшается на 1 (минимум до 1).\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.ogre-malice",
+        "path": "Monsters/monster/ogre/ogre-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre/ogre-malice",
+      "originalName": "Ogre Malice",
+      "originalDescription": "At the start of any ogre's turn, you can spend Malice to activate one of the following features.\n\n> ❇️ **Shockwave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One ogre acting this turn jumps and lands on their rear, causing a 3 burst shockwave. Each size 1 creature in the area makes a **Might test** or **Agility test**.\n>\n> - **≤11:** 5 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n\n> 🌀 **Bully (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each ogre in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If they can, they gang up on the same target rather than picking different targets.\n\n> ⭐️ **Rampage (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each ogre has damage immunity 5 and deals an extra 5 damage with abilities, and heroic abilities that target any ogre have their Heroic Resource cost reduced by 1 (to a minimum of 1).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/ogre-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.ogre.statblock.cyclops",
+      "kind": "monster",
+      "name": "Циклоп",
+      "markdown": "| Великан, Огр |         -         |     Уровень 10      |           Миньон Контроллер           | Боевая ценность 12 за четырёх миньонов |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|   **3**<br>Размер   |  **6**<br>Скорость   | **14**<br>Выносливость |          **5**<br>Устойчивость           |  **4**<br>Свободный удар  |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **+4 к скорости**<br>С капитаном |   **-**<br>Уязвимость    |\n|  **+5**<br>Мощь  | **-1**<br>Ловкость | **-1**<br>Разум  |          **+3**<br>Интуиция          |   **-1**<br>Присутствие   |\n\n> ❇️ **Неистовый удар ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Область, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 Взрыв 1**   | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 3 урона; Л < 3 — 3 урона\n> - **12-16:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; Л < 4 — 4 урона\n> - **17+:** 7 урона; [сбит с ног](#/catalog/glossary#term-glossary.prone); Л < 5 — 5 урона и [опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Циклоп автоматически считает свой начальный бросок силы равным 17. Он всё ещё может бросить кости, чтобы определить, нанесён ли критический удар.\n\n> ⭐️ **Ограниченное зрение**\n>\n> Линия воздействия циклопа простирается не дальше 3 клеток. Каждый раз, когда циклоп получает урон от способности дальнего боя, он может переместиться на расстояние до 3 клеток к источнику урона.\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.statblock.cyclops",
+        "path": "Monsters/monster/ogre/statblock/cyclops.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/cyclops",
+      "originalName": "Cyclops",
+      "originalDescription": "|    Giant, Ogre    |         -         |     Level 10      |           Minion Controller           | EV 12 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|   **3**<br>Size   |  **6**<br>Speed   | **14**<br>Stamina |          **5**<br>Stability           |  **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+4 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|  **+5**<br>Might  | **-1**<br>Agility | **-1**<br>Reason  |          **+3**<br>Intuition          |   **-1**<br>Presence   |\n\n> ❇️ **Wild Slam ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 3 damage; A < 3 3 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 4 4 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 5 5 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The cyclops automatically treats their initial power roll as a 17. They can still roll to determine if they score a critical hit.\n\n> ⭐️ **Limited Vision**\n>\n> The cyclops has line of effect only within 3 squares. Whenever the cyclops takes damage from a ranged ability, they can move up to 3 squares toward the source of the damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/cyclops.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "3",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.ogre.statblock.ogre-blue-blood",
+      "kind": "monster",
+      "name": "Огр голубых кровей",
+      "markdown": "| Великан, Огр |         -         |      Уровень 7      |                Миньон Громила                 | Боевая ценность 9 за четырёх миньонов |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|   **2**<br>Размер   |  **5**<br>Скорость   | **13**<br>Выносливость |             **4**<br>Устойчивость              | **4**<br>Свободный удар  |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **Преимущество при ударах**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+4**<br>Мощь  | **+1**<br>Ловкость | **-1**<br>Разум  |             **0**<br>Интуиция              |  **+2**<br>Присутствие   |\n\n> 🗡 **Растоптать ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 2**            | **🎯 По одному существу или объекту на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; М < 3 [сбит с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 8 урона; [сбит с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Цель, уже [сбитая с ног](#/catalog/glossary#term-glossary.prone), получает дополнительно 4 урона.\n\n> ⭐️ **Вместо меня**\n>\n> Когда огр голубых кровей должен совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike), союзник в пределах 5 клеток может вместо него совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Королевская ярость**\n>\n> Огр голубых кровей получает иммунитет к урону 2, пока в его отряде не больше трёх миньонов.\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.statblock.ogre-blue-blood",
+        "path": "Monsters/monster/ogre/statblock/ogre-blue-blood.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-blue-blood",
+      "originalName": "Ogre Blue Blood",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Brute                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **13**<br>Stamina |             **4**<br>Stability              | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |             **0**<br>Intuition              |  **+2**<br>Presence   |\n\n> 🗡 **Crush Underfoot ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 8 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 4 damage.\n\n> ⭐️ **In My Stead**\n>\n> Whenever the blue blood would make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), an ally within 5 squares can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) instead.\n\n> ⭐️ **Royal Anger**\n>\n> The blue blood has damage immunity 2 while their squad has three or fewer minions in it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-blue-blood.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.ogre.statblock.ogre-goon",
+      "kind": "monster",
+      "name": "Огр-задира",
+      "markdown": "| Великан, Огр |         -         |      Уровень 2       |      Элита Громила      |        Боевая ценность 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Размер   |  **5**<br>Скорость   | **100**<br>Выносливость |  **4**<br>Устойчивость   | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+2**<br>Мощь  | **0**<br>Ловкость  |  **-1**<br>Разум  |  **0**<br>Интуиция   |  **-1**<br>Присутствие  |\n\n> 🗡 **Удар дубиной ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 2**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **12-16:** 11 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n> - **17+:** 14 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 6, [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Любая цель, получившая урон от этого [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement), получает дополнительно 4 урона.\n\n> 🗡 **Хваткая рука (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний, Удар, Оружие** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона; [схватить](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 14 урона; [схватить](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Цель, [схваченная](#/catalog/glossary#term-glossary.grabbed) таким образом, получает помеху при маневре ускальзывания.\n\n> 🔳 **Человеческий боулинг (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие**           |                                **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 Линия 6 × 1 в пределах 1** | **🎯 Каждое существо и объект в области** |\n>\n> **Эффект:** Задира должен держать [схваченным](#/catalog/glossary#term-glossary.grabbed) существо или объект размера 1, а затем швырнуть его через всю область, завершив захват. Брошенное существо или объект становится целью способности и приземляется в последней клетке линии либо в ближайшей свободной клетке по выбору задиры.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n\n> ❗️ **Отогнать муху**\n>\n> | **Ближний**      |                     **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Существо или объект, вызвавшее срабатывание** |\n>\n> **Условие:** Существо или объект в пределах дистанции перемещается или [смещается](#/catalog/glossary#term-glossary.shift) прочь от задиры.\n>\n> **Эффект:** Задира [сдвигает](#/catalog/glossary#term-glossary.forced-movement) цель на расстояние до 5 клеток.\n\n> ⭐️ **Непокорная ярость**\n>\n> В состоянии [утомления](#/catalog/glossary#term-glossary.winded) задиру даётся иммунитет к урону 2.\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.statblock.ogre-goon",
+        "path": "Monsters/monster/ogre/statblock/ogre-goon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-goon",
+      "originalName": "Ogre Goon",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **100**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  |  **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Club Swing ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** Any target who takes damage from this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) takes an extra 4 damage.\n\n> 🗡 **Grabby Hand (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 14 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes a bane on the Escape Grab maneuver.\n\n> 🔳 **People Bowling (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon**           |                                **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 6 x 1 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Effect:** The goon must have a size 1 creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), which they hurl across the area, ending the grab. The hurled creature or object is targeted by the ability, and lands in the last square of the line or the nearest unoccupied square of the goon's choice.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Swat the Fly**\n>\n> | **Melee**      |                     **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A creature or object within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the goon.\n>\n> **Effect:** The goon [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 5 squares.\n\n> ⭐️ **Defiant Anger**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), the goon has damage immunity 2.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-goon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.ogre.statblock.ogre-juggernaut",
+      "kind": "monster",
+      "name": "Огр-джаггернаут",
+      "markdown": "| Великан, Огр |         -         |      Уровень 2      |     Элита Налётчик     |        Боевая ценность 16         |\n|:-----------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n|   **2**<br>Размер   |  **6**<br>Скорость   | **80**<br>Выносливость |  **2**<br>Устойчивость   | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|  **+2**<br>Мощь  | **+1**<br>Ловкость | **-1**<br>Разум  |  **0**<br>Интуиция   |  **-1**<br>Присутствие  |\n\n> 🗡 **Катапульта на вилах ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Ближний 2**                    | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона; Л < 1 — вертикально [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 13 урона; Л < 2 — вертикально [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** Каждая цель, у которой М < 1, получает [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ❇️ **Сокрушающий землю прыжок**\n>\n> | **Область, Оружие** |                  **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|---------------------------------:|\n> | **📏 Взрыв 3**   | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Перед применением этой способности джаггернаут прыгает на расстояние до 6 клеток.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2; М < 1 — [сбить с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 9 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4; М < 2 — [сбить с ног](#/catalog/glossary#term-glossary.prone)\n\n> ❇️ **Ужасный рёв (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** И < 0 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12-16:** И < 1 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **17+:** И < 2 [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** Пока цель пребывает в [испуге](#/catalog/glossary#term-glossary.frightened), вызванном таким образом, каждый огр получает преимущество при ударах по ней.\n\n> ❗️ **Грррра-а-а! (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 На себя** |               **🎯 На себя** |\n>\n> **Условие:** Джаггернаут получает урон.\n>\n> **Эффект:** Джаггернаут перемещается на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Разрушительный путь**\n>\n> Перемещаясь или будучи [принудительно перемещённым](#/catalog/glossary#term-glossary.forced-movement), джаггернаут автоматически разрушает любые обыденные объекты размера 1 на своём пути. Таким же образом он может проламывать обыденные стены из дерева, камня или столь же прочного материала, если толщина стены не превышает 2 клеток.\n\n> ⭐️ **Непокорная ярость**\n>\n> В состоянии [утомления](#/catalog/glossary#term-glossary.winded) джаггернаут получает иммунитет к урону 2.\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.statblock.ogre-juggernaut",
+        "path": "Monsters/monster/ogre/statblock/ogre-juggernaut.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-juggernaut",
+      "originalName": "Ogre Juggernaut",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 2      |     Elite Harrier     |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Pitchfork Catapult ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; A < 1 vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 13 damage; A < 2 vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each target who has M < 1 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ❇️ **Earth-Breaking Jump**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 3 burst**   | **🎯 Each creature in the area** |\n>\n> **Effect:** The juggernaut jumps up to 6 squares before using this ability.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Horrible Bellow (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** I < 0 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** While a target is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) this way, any ogre gains an edge on strikes against them.\n\n> ❗️ **Hrraaaaaagh! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The juggernaut takes damage.\n>\n> **Effect:** The juggernaut moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Destructive Path**\n>\n> The juggernaut automatically destroys any mundane size 1 objects in their path when they move or are [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement). They can break through any mundane wall made of wood, stone, or a similarly sturdy material this way as long as the wall is 2 squares thick or less.\n\n> ⭐️ **Defiant Anger**\n>\n> While [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), the juggernaut has damage immunity 2.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-juggernaut.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.ogre.statblock.ogre-tantrum",
+      "kind": "monster",
+      "name": "Огр-истерик",
+      "markdown": "| Великан, Огр |         -         |      Уровень 7      |                Миньон Артиллерист                 | Боевая ценность 9 за четырёх миньонов |\n|:-----------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|   **2**<br>Размер   |  **5**<br>Скорость   | **10**<br>Выносливость |               **2**<br>Устойчивость                | **4**<br>Свободный удар  |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **+5 к дальности атак**<br>С капитаном |   **-**<br>Уязвимость   |\n|  **+4**<br>Мощь  | **+2**<br>Ловкость | **-1**<br>Разум  |               **0**<br>Интуиция                |  **-1**<br>Присутствие   |\n\n> 🏹 **Швырнуть в припадке ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Дальний 8**            | **🎯 По одному существу или объекту на миньона** |\n>\n> **Эффект:** Истерик выкапывает камень или кусок местности и швыряет его. Если находящееся [вплотную к истерику](#/catalog/glossary#term-glossary.adjacent) существо или объект размера 1L, 1M или 1S имеет Л < 3, истерик может [схватить](#/catalog/glossary#term-glossary.grabbed) его и использовать как снаряд для этой способности.\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 8 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n>\n> Существо или объект, использованный как снаряд, вертикально [отталкивается](#/catalog/glossary#term-glossary.forced-movement) на 8 (или на 13 с капитаном), игнорируя устойчивость.\n\n> ⭐️ **Чрезмерная ярость**\n>\n> Истерик получает иммунитет к урону 3 и Скорость 8, пока в его отряде не больше двух миньонов.\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.statblock.ogre-tantrum",
+        "path": "Monsters/monster/ogre/statblock/ogre-tantrum.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre.statblock/ogre-tantrum",
+      "originalName": "Ogre Tantrum",
+      "originalDescription": "|    Giant, Ogre    |         -         |      Level 7      |                Minion Artillery                 | EV 9 for four minions |\n|:-----------------:|:-----------------:|:-----------------:|:-----------------------------------------------:|:---------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **10**<br>Stamina |               **2**<br>Stability                | **4**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **+4**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |               **0**<br>Intuition                |  **-1**<br>Presence   |\n\n> 🏹 **Throw Fit ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Effect:** The tantrum unearths a rock or a hunk of terrain and tosses it. If a size 1L, 1M, or 1S creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tantrum has A < 3 the tantrum can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) them to use as the projectile for this ability.\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> A creature or object used as a projectile is vertically [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) 8 (or 13 with a captain), ignoring stability.\n\n> ⭐️ **Excessive Anger**\n>\n> The tantrum has damage immunity 3 and speed 8 while their squad has two or fewer minions in it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/statblock/ogre-tantrum.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "statblock",
+        "level": 7,
+        "ev": "9 for four minions",
+        "size": "2",
+        "keywords": [
+          "Великан",
+          "Огр"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

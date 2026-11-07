@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.siege-engines.field-ballista",
+  "title": "Полевая баллиста",
+  "chapter": "25. Динамическая местность",
+  "group": "Осадные орудия",
+  "path": "Monsters/dynamic-terrain/siege-engines/field-ballista.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista",
+  "originalName": "Field Ballista",
+  "originalDescription": "A massive crossbow fires thick metal bolts with devastating effect.\n\n- **EV:** 8\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a field ballista can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Release Bolt** ability.\n> - **12-16:** The field ballista is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The field ballista is deactivated and can't be used.\n\n> 🏹 **Release Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage; M < 1 push 1\n> - **17+:** 11 damage; M < 2 push 2\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista is reloaded, allowing **Release Bolt** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n> \n> **Effect:** The next use of **Release Bolt** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Penetrating Bolt (+2 EV)** The field ballista targets the nearest two additional creatures or objects in a straight line beyond the initial target.\n>\n> **Chain Bolt (+2 EV)** The field ballista's bolts are set with heavy chains that wrap around targets. The **Chain Bolt** ability replaces **Release Bolt**, and the field ballista gains the **Crank the Chain** ability.\n>\n> 🏹 **Chain Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 10 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n>\n> 🏹 **Crank the Chain**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |                 **🎯 One creature** |\n>\n> **Special:** The target must be [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the field ballista.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Pull 1\n> - **12-16:** Pull 3\n> - **17+:** Pull 5\n>\n> **Effect:** This [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) triggers [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack).",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/siege-engines/field-ballista.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "siege-engines",
+    "recordType": "dynamic-terrain",
+    "level": 2,
+    "ev": "8",
+    "size": "2",
+    "role": "Артиллерист",
+    "organization": "Осадное орудие"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.siege-engines.field-ballista"
+    }
+  ]
+}

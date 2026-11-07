@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.fire-giant-fireballer",
+  "title": "Огненный великан-метатель",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/fire-giant-fireballer.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-fireballer",
+  "originalName": "Fire Giant Fireballer",
+  "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9      |            Minion Harrier             | EV 11 for four minions |\n|:----------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **13**<br>Stamina |          **5**<br>Stability           |  **3**<br>Free Strike  |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason  |          **+2**<br>Intuition          |   **+1**<br>Presence   |\n\n> ❇️ **Blazing Leap (Signature Ability)**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 2 fire damage\n> - **12-16:** 5 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The fireballer can jump up to 4 squares before using this ability.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the fireballer or uses a melee ability against them, that enemy takes 5 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/fire-giant-fireballer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "11 for four minions",
+    "size": "4",
+    "keywords": [
+      "Огненный великан",
+      "Великан"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.fire-giant-fireballer"
+    }
+  ]
+}

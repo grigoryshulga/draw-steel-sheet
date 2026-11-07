@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.elf-high.statblock.soot-crow",
+  "title": "Сажистый ворон",
+  "chapter": "23. Бестиарий",
+  "group": "Высшие эльфы",
+  "path": "Monsters/monster/elf-high/statblock/soot-crow.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/soot-crow",
+  "originalName": "Soot Crow",
+  "originalDescription": "| Elemental, High Elf |          -          |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-------------------:|:-------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|   **1T**<br>Size    |   **7**<br>Speed    | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n|  **-**<br>Immunity  | **Fly**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|   **0**<br>Might    |  **+2**<br>Agility  | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> 🗡 **Heckle (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** Until the end of their turn, the soot crow ignores opportunity attacks from the target.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-high/statblock/soot-crow.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-high",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1T",
+    "keywords": [
+      "Элементаль",
+      "Высший эльф"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-high.statblock.soot-crow"
+    }
+  ]
+}

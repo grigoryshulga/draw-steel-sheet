@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.draconian.draconian-malice",
+      "title": "Раздор драконидов",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/draconian-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian/draconian-malice",
+      "originalName": "Draconian Malice",
+      "originalDescription": "At the start of any draconian's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guarding Gale (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A draconian acting this turn flaps their wings and creates a mighty gale. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the draconian is pushed up to 4 squares, and if they have M < 2, they are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Breath Weapon (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Special:** The damage dealt by this ability matches a damage type the draconian has immunity to.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Scaleshatter Burst (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |             **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The draconian's scales shatter from battle damage. The draconian has damage weakness 5 but can take two turns per round until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/draconian-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.draconian-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.aeolyxria-the-uncanny",
+      "title": "Эоликсрия Непостижимая",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/aeolyxria-the-uncanny.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/aeolyxria-the-uncanny",
+      "originalName": "Aeolyxria the Uncanny",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n|  **Poison 6**<br>Immunity   | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **-1**<br>Might       |  **+2**<br>Agility  |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Spittlesplash (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 10**           |  **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 poison damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 15 poison damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 poison damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Experimental Treasure**\n>\n> | **Magic, Ranged, Strike** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** The targets regains 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n> - **12-16:** 12 corruption damage; A < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 12 lightning damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The first time in an encounter that Aeolyxria makes a power roll for this ability, she can subsequently use the outcome of that roll instead of rolling whenever she uses this ability until the end of the encounter.\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> 🔳 **Elevate (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 1 cube within 5** | **🎯 Special** |\n>\n> **Effect:** The ground in the area rises 5 squares, creating a pillar of dirt. Any creature in the area moves with the ground to its new elevation.\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Aeolyxria creates an additional pillar for each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❗️ **Blood For Blood**\n>\n> | **Ranged, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|---------------------:|\n> | **📏 Ranged 5**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally is made [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) by the target.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 poison damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 12 poison damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 15 poison damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **That's Our Opening!**\n>\n> The Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) whenever Aeolyxria imposes a condition on an enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/aeolyxria-the-uncanny.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.aeolyxria-the-uncanny"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.dorzinuuth-the-base",
+      "title": "Дорзинуут Подлый",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/dorzinuuth-the-base.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/dorzinuuth-the-base",
+      "originalName": "Dorzinuuth the Base",
+      "originalDescription": "| Draconian, Dragon, Humanoid |             -              |      Level 6       |        Leader         |        EV 32         |       \n|:---------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|       \n|        **2**<br>Size        |       **5**<br>Speed       | **180**<br>Stamina |  **3**<br>Stability   | **7**<br>Free Strike |       \n| **Lightning 6**<br>Immunity | **Fly, hover**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **+4**<br>Might       |     **+1**<br>Agility      |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Punishing Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 16 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 19 damage; M < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If the target has M < 4, they are also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> 🔳 **I'll Cut A Path**\n>\n> | **Area, Weapon**           |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Before the power roll is made, Dorzinuuth [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the end of the line.\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 15 damage; M < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Watch Your Six!**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |      **🎯 One ally** |\n>\n> **Trigger:** An ally within distance takes damage while Dorzinuuth isn't [flying](scc.v1:mcdm.heroes.v1/movement/fly).\n>\n> **Effect:** Dorzinuuth shields the triggering ally with his wings, halving the damage.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of his turns, Dorzinuuth can take 10 damage to end one effect on him that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Remember Your Oath**\n>\n> If Dorzinuuth hears a creature recite the Dragon Phalanx oath, he takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on strikes made against that character until the end of the encounter.\n\n> ⭐️ **Sheltering Wings**\n>\n> While Dorzinuuth isn't [flying](scc.v1:mcdm.heroes.v1/movement/fly), strikes made against him take a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane).\n\n> ☠️ **Roaring Gambit ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Dorzinuuth lets loose a powerful roar. Each target makes a **Reason test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n>\n> **Effect:** Each ally in the area gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on their next strike.\n\n> ☠️ **Wings of Second Wind ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) or [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed and regains 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ☠️ **Snap, Crackle, Pop ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 5 burst**  | **🎯 Each ally in the area** |\n>\n> **Effect:** Dorzinuuth covers the targets in an electrifying mesh. Whenever a target takes damage from a melee ability, the attacker takes 6 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/dorzinuuth-the-base.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "2",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.dorzinuuth-the-base"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.locratix-the-morningstar",
+      "title": "Лократикс Утренняя звезда",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/locratix-the-morningstar.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/locratix-the-morningstar",
+      "originalName": "Locratix the Morningstar",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |     Elite Harrier     |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Size        |   **8**<br>Speed    | **160**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n|   **Acid 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **+1**<br>Might       |  **+3**<br>Agility  |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Skewer (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** | \n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Locratix deals 6 damage to each creature or object in a 2 x 1 line behind the target.\n\n> 🔳 **Acidic Stun (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 3 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 12 acid damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 15 acid damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target takes an extra 6 damage from Locratix's abilities.\n\n> 👤 **Takeoff**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Locratix [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to her speed. Any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the space on the ground she took off from who has A < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Stay Back!**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 2** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 the target's speed is 0 (EoT)\n> - **12-16:** 12 acid damage; A < 2 the target's speed is 0 (EoT)\n> - **17+:** 15 acid damage; A < 3 the target's speed is 0 (EoT)\n\n> ⭐️ **Flighty**\n>\n> When Locratix deals rolled damage to an enemy, that enemy can't use Locratix as the trigger for any of their [triggered actions](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) until the start of Locratix's next turn.\n\n> ⭐️ **Absorbing Scales**\n>\n> When Locratix takes damage of any type for which she has damage immunity, she has damage immunity 6 against the next strike made against her.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/locratix-the-morningstar.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.locratix-the-morningstar"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.lydixavus-the-deadeye",
+      "title": "Лидиксавус Меткий глаз",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/lydixavus-the-deadeye.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/lydixavus-the-deadeye",
+      "originalName": "Lydixavus the Deadeye",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |    Elite Artillery    |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n|   **Cold 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **-1**<br>Might       |  **+3**<br>Agility  |  **+3**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Breathsnipe (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------:|\n> | **📏 Ranged 15**           | **🎯 One enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 cold damage\n> - **12-16:** 16 cold damage; the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n> - **17+:** 19 cold damage; the target has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n\n> 🔳 **Ice Lob**\n>\n> | **Area, Magic, Ranged** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 2 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 cold damage; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 12 cold damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 15 cold damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> 👤 **Parting Gift**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Lydixavus [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed, leaving a size 1S ice mine in the space they took off from. The ice mine explodes when an enemy enters its space, using the power roll for the Ice Lob ability, and targeting the triggering creature and each creature and object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the ice mine.\n\n> ❗️ **Wasn't Aiming For You**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** Lydixavus obtains a tier 1 outcome on their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability).\n>\n> **Effect:** Lydixavus uses their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) again, targeting a creature within 5 squares of the original target.\n\n> ⭐️ **Scorekeeping Scales**\n>\n> Lydixavus knows the location of every creature who has ever dealt damage to them. If any of those creatures are within 20 squares of Lydixavus, Lydixavus always has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to them as long as a size 1 opening exists between Lydixavus and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/lydixavus-the-deadeye.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.lydixavus-the-deadeye"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.myxovidan-the-sintaker",
+      "title": "Миксовидан Поглотитель грехов",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/myxovidan-the-sintaker.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/myxovidan-the-sintaker",
+      "originalName": "Myxovidan the Sintaker",
+      "originalDescription": "| Draconian, Dragon, Humanoid  |          -          |      Level 6       |      Elite Hexer      |        EV 32         |       \n|:----------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|        **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n| **Corruption 6**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **-1**<br>Might        |  **+3**<br>Agility  |  **+2**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Breaking Palm (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |    **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Melee 1**            | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 15 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 18 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Myxovidan regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ❇️ **Expunging Exhalation**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 corruption damage; M < 1 the target has corruption weakness 3 (save ends)\n> - **12-16:** 12 corruption damage; M < 2 the target has corruption weakness 3 (save ends)\n> - **17+:** 15 corruption damage; M < 3 the target has corruption weakness 3 (save ends)\n\n> 🏹 **Step and Swap**\n>\n> | **Ranged**      |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|----------------:|\n> | **📏 Ranged 3** | **🎯 One ally** |\n>\n> **Effect:** Myxovidan and the target [shift](scc.v1:mcdm.heroes.v1/movement/shifting) to swap places.\n\n> ❗️ **Anyone Can Do That (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** An [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature damages Myxovidan with a melee ability.\n>\n> **Effect:** Myxovidan recreates the ability to use it against the triggering creature. If the ability has a power roll, Myxovidan uses his highest characteristic score for the roll. If Myxovidan gets a higher tier outcome than the triggering creature, the Director gains 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ⭐️ **Stench of Death**\n>\n> Whenever an enemy regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) while within 5 squares of Myxovidan, they regain 3 less [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/myxovidan-the-sintaker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.myxovidan-the-sintaker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.draconian.statblock.phrrygalax-the-subduer",
+      "title": "Фрригалакс Покоритель",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/draconian/statblock/phrrygalax-the-subduer.md",
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/phrrygalax-the-subduer",
+      "originalName": "Phrrygalax the Subduer",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |      Elite Brute      |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1L**<br>Size        |   **5**<br>Speed    | **180**<br>Stamina |  **3**<br>Stability   | **7**<br>Free Strike |       \n|   **Fire 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might       |  **+2**<br>Agility  |  **+0**<br>Reason  |  **+0**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Baneful Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 16 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; M < 2 3 damage, [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ❇️ **Spinning Spit (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 1 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 13 fire damage\n> - **17+:** 16 fire damage\n\n> 👤 **Heavy Landing**\n>\n> | **Area**    | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Phrrygalax [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to his speed and lands in an unoccupied space on the ground. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to where he lands who has A < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Armor of the Ancients (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** Phrrygalax takes acid, cold, corruption, fire, lightning, or poison damage.\n>\n> **Effect:** Phrrygalax takes no damage and instead regains the same amount of [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). He then swaps his current damage immunity with the triggering damage type.\n\n> ❗️ **Still Your Tongue!**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** Phrrygalax hears a creature within 5 squares reciting the oath of Good King Omund's Dragon Phalanx.\n>\n> **Effect:** Phrrygalax [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to his speed and uses Baneful Blade against the triggering creature. That ability deals an extra 7 damage.\n\n> ⭐️ **Oathbreaker's Vengeance**\n>\n> Whenever Phrrygalax fails a saving throw, he deals an additional 7 damage on his next strike.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/phrrygalax-the-subduer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1L",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.draconian.statblock.phrrygalax-the-subduer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.group.draconian",
+          "title": "Дракониды"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.draconian",
+      "title": "Дракониды",
+      "chapter": "23. Бестиарий",
+      "group": "Дракониды",
+      "path": "Monsters/monster/group/draconian.md",
+      "originalId": "mcdm.monsters.v1/monster.group/draconian",
+      "originalName": "Draconians",
+      "originalDescription": "Draconians—wyrmwights as some call them, also known as dragon knights in Orden—are a people created through an obscure ritual known as Dracogenesis. Most [draconians](scc.v1:mcdm.monsters.v1/monster.group/draconian) have an elemental affinity connected to their draconic scales, which they can change given enough time and training.\n\nSix individual draconians are presented in this section—not an adventuring party, but six warriors whose reputations precede them. All are likely to be found serving in various military forces as high-ranking commanders.\n\n###### Aeolyxria the Uncanny\n\nFrom the moment she hatched, Aeolyxria (ay-oh-LIX-ree-ah) has enjoyed a fascination with the occult. She wanders the land, gathering strange tomes and artifacts to study. When she takes a job, it's because she has a new doohickey she wants to test out. Aeolyxria possesses a sharp, tactical mind that lets her treat any battlefield as if it offered homefield advantage. If she could just get a handle on all her equipment, she'd be unstoppable!\n\n###### Locratix the Morningstar\n\nA traveler from a faraway land and the sole progeny of her Dracogenesis clutch, Locratix (low-CRA-tics) focuses on survival over all other things. The very concept of the dragon knights is anathema to her, as there is no reason a wyrmwight should hand over the power that keeps them alive. Locratix travels widely while taking on mercenary jobs, but she is always just one better deal away from skewering her present employer on the end of her lance.\n\n###### Lydixavus the Deadeye\n\nNothing escapes Lydixavus (lee-DIX-uh-vas) or their unrivaled precision. After decades of careful training, they have honed their breath weapon into a swift and far-traveling bullet of ice. Lydixavus is motivated by revenge. Each scar, each dent in their scales tells a story, and Lydixavus aims to return those gifts tenfold to those who bestowed them.\n\n###### Myxovidan the Sintaker\n\nMyxovidan (mix-OH-vih-din) was raised by a secluded order of monks who claimed his obsidian-black scales and nausea-inducing breath were an evil that must be purged. They subjected him to an austere lifestyle, full of intense training, meditation, and denial of worldly pleasures. But Myxovidan's hunger would be satisfied, one way or another. When Myxovidan departed the order, he left behind a collection of emaciated monk corpses who looked as though they'd had the life sucked out of them.\n\n###### Phrrygalax the Subduer\n\nPhrrygalax (fuh-RIJ-ih-lax) was once a dragon knight in the service of Good King Omund. Though he took the oath to defend others against tyranny, he was always keenly aware he was created for violence. When the betrayal of the dragon knight Mandrake fractured the Dragon Phalanx that was the order of the dragon knights, Phrrygalax gleefully renounced his oath to follow what he believes to be his true, brutal purpose. Many who served with him believed he was merely waiting for a convenient excuse to do so.\n\n###### Dorzinuuth the Base\n\nTo those who know the Dragon Phalanx of old, no name inspires more awe and fear than that of Dorzinuuth (dor-ZIN-yew-uth). A mastermind on the battlefield and the foundation of the dragon knights' fraternity, Dorzinuuth was known for mounting daring campaigns and always returning with the same number of soldiers and often alongside new recruits. In the wake of the death of Good King Omund, many were shocked to see Dorzinuuth debase himself with banditry and petty mercenary jobs. Others hold on to the hope that he makes unknown moves in darkness, waiting for the day when he can again uphold his oath in the light.\n\n###### Draconian Languages\n\nMost draconians speak Caelian in addition to the languages of their employers and creators. Lydixavus, Phrrygalax, and Dorzinuuth all speak Caelian and Vastariax. Aeolyxria speaks Caelian and the First Language. Locratix speaks Caelian and Oaxuatl. Myxovidan speaks Caelian and Axiomatic.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/draconian.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.draconian"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.draconian.draconian-malice",
+          "title": "Раздор драконидов"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.aeolyxria-the-uncanny",
+          "title": "Эоликсрия Непостижимая"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.dorzinuuth-the-base",
+          "title": "Дорзинуут Подлый"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.locratix-the-morningstar",
+          "title": "Лократикс Утренняя звезда"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.lydixavus-the-deadeye",
+          "title": "Лидиксавус Меткий глаз"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.myxovidan-the-sintaker",
+          "title": "Миксовидан Поглотитель грехов"
+        },
+        {
+          "id": "monsters.monster.draconian.statblock.phrrygalax-the-subduer",
+          "title": "Фрригалакс Покоритель"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.draconian.draconian-malice",
+      "kind": "monster-feature",
+      "name": "Раздор драконидов",
+      "markdown": "В начале хода любого драконида вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Защитный шквал (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Драконид, действующий в этот ход, взмахивает крыльями, создавая мощный шквал. Каждое существо [смежное](#/catalog/glossary#term-glossary.adjacent) с драконидом отталкивается на расстояние до 4 клеток; если М < 2, оно также падает [ничком](#/catalog/glossary#term-glossary.prone).\n\n> 🔳 **Дыхательное оружие (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия**            |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Линия 4 x 2 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Особое:** Наносимый этой способностью урон соответствует одному из типов урона, к которому драконид обладает иммунитетом.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона\n\n> ❇️ **Взрыв раскалывающей чешуи (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |             **[Свободный маневр](#/catalog/glossary#term-glossary.free-maneuver)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 2**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** Чешуя драконида осыпается от боевых повреждений. Драконид получает уязвимость к урону 5, но может совершать два хода за раунд до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.draconian-malice",
+        "path": "Monsters/monster/draconian/draconian-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian/draconian-malice",
+      "originalName": "Draconian Malice",
+      "originalDescription": "At the start of any draconian's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Guarding Gale (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A draconian acting this turn flaps their wings and creates a mighty gale. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the draconian is pushed up to 4 squares, and if they have M < 2, they are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Breath Weapon (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Special:** The damage dealt by this ability matches a damage type the draconian has immunity to.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n\n> ❇️ **Scaleshatter Burst (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |             **[Free maneuver](scc.v1:mcdm.heroes.v1/rule.combat/free-maneuver)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** The draconian's scales shatter from battle damage. The draconian has damage weakness 5 but can take two turns per round until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/draconian-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.aeolyxria-the-uncanny",
+      "kind": "monster",
+      "name": "Эоликсрия Непостижимая",
+      "markdown": "| Драконид, Дракон, Гуманоид |          -          |      Уровень 6      |   Элита, Контроллер   |        Боевая ценность 32         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:---------------------------------------:|\n|       **1M**<br>Размер        |   **5**<br>Скорость    | **140**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n|  **Яд 6**<br>Иммунитет   | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **-1**<br>Мощь       |  **+2**<br>Ловкость  |  **+2**<br>Разум  |  **+3**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🏹 **Ядовитые брызги (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------:|\n> | **📏 Дальний бой 10**          |  **🎯 Два врага** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона ядом; если М < 1, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n> - **12-16:** 15 урона ядом; если М < 2, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n> - **17+:** 18 урона ядом; если М < 3, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n\n> 🏹 **Экспериментальная находка**\n>\n> | **Магия, Дальний бой, Удар** |                **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** Цели восстанавливают 10 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n> - **12-16:** 12 урона порчей; если Л < 2, цель получает состояние [Ослабление](#/catalog/glossary#term-glossary.weakened) (до успешного спасброска)\n> - **17+:** 12 урона молнией; если Л < 2, цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного спасброска)\n>\n> **Эффект:** Первый раз за столкновение, когда Эоликсрия совершает бросок силы для этой способности, она может затем использовать результат этого броска вместо нового броска при каждом применении способности до конца столкновения.\n>\n> **2+ [Раздора](#/codex/monsters.rule.monster.malice):** За каждые потраченные 2 [Раздора](#/codex/monsters.rule.monster.malice) способность выбирает целью ещё одну цель.\n\n> 🔳 **Подъём (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|---------------:|\n> | **📏 Куб 1 в пределах 5** | **🎯 Особая** |\n>\n> **Эффект:** Земля в области поднимается на 5 клеток, образуя земляную колонну. Все существа в области поднимаются вместе с землёй на новую высоту.\n>\n> **1+ [Раздора](#/codex/monsters.rule.monster.malice):** За каждый потраченный [Раздор](#/codex/monsters.rule.monster.malice) Эоликсрия создаёт ещё одну колонну.\n\n> ❗️ **Кровь за кровь**\n>\n> | **Дальний, Оружие** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------------------|---------------------:|\n> | **📏 Дальний бой 5**    |  **🎯 Одно существо** |\n>\n> **Триггер:** Цель вызывает у союзника [кровотечение](#/catalog/glossary#term-glossary.bleeding).\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона ядом; если Л < 2, цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного спасброска)\n> - **12-16:** 12 урона ядом; если Л < 3, цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного спасброска)\n> - **17+:** 15 урона ядом; цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного спасброска)\n\n> ⭐️ **Вот наш шанс!**\n>\n> Ведущий получает 1 [Раздор](#/codex/monsters.rule.monster.malice) всякий раз, когда Эоликсрия накладывает на врага состояние.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.aeolyxria-the-uncanny",
+        "path": "Monsters/monster/draconian/statblock/aeolyxria-the-uncanny.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/aeolyxria-the-uncanny",
+      "originalName": "Aeolyxria the Uncanny",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n|  **Poison 6**<br>Immunity   | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **-1**<br>Might       |  **+2**<br>Agility  |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Spittlesplash (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 10**           |  **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 poison damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 15 poison damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 poison damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Experimental Treasure**\n>\n> | **Magic, Ranged, Strike** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** The targets regains 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n> - **12-16:** 12 corruption damage; A < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 12 lightning damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The first time in an encounter that Aeolyxria makes a power roll for this ability, she can subsequently use the outcome of that roll instead of rolling whenever she uses this ability until the end of the encounter.\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> 🔳 **Elevate (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 1 cube within 5** | **🎯 Special** |\n>\n> **Effect:** The ground in the area rises 5 squares, creating a pillar of dirt. Any creature in the area moves with the ground to its new elevation.\n>\n> **1+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Aeolyxria creates an additional pillar for each [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❗️ **Blood For Blood**\n>\n> | **Ranged, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|---------------------:|\n> | **📏 Ranged 5**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally is made [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) by the target.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 poison damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 12 poison damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 15 poison damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **That's Our Opening!**\n>\n> The Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) whenever Aeolyxria imposes a condition on an enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/aeolyxria-the-uncanny.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.dorzinuuth-the-base",
+      "kind": "monster",
+      "name": "Дорзинуут Подлый",
+      "markdown": "| Драконид, Дракон, Гуманоид |             -              |      Уровень 6      |        Лидер         |        Боевая ценность 32         |\n|:---------------------------:|:--------------------------:|:------------------:|:---------------------:|:---------------------------------------:|\n|        **2**<br>Размер        |       **5**<br>Скорость       | **180**<br>Выносливость |  **3**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Молния 6**<br>Иммунитет | **Полёт, Парение**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+4**<br>Мощь       |     **+1**<br>Ловкость      |  **+1**<br>Разум  |  **+2**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🗡 **Карающий цеп (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 11 урона; если М < 2, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 16 урона; если М < 3, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 19 урона; если М < 4, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Если М < 4, цель также получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до успешного спасброска).\n\n> 🔳 **Я прорублю путь**\n>\n> | **Область, Оружие**           |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Линия 5 x 2 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** До совершения броска силы Дорзинуут [смещается](#/catalog/glossary#term-glossary.shift) в незанятое пространство, [смежное](#/catalog/glossary#term-glossary.adjacent) с концом линии.\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 13 урона; если М < 3, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 15 урона; если М < 4, цель получает состояние [Лежачий](#/catalog/glossary#term-glossary.prone)\n\n> ❗️ **Берегись удара сзади!**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|---------------------:|\n> | **📏 Ближний бой 1** |      **🎯 Один союзник** |\n>\n> **Триггер:** Союзник в пределах досягаемости получает урон, пока Дорзинуут не [летит](#/catalog/glossary#term-glossary.fly).\n>\n> **Эффект:** Дорзинуут прикрывает крыльями союзника, получение урона которым вызвало это действие, уменьшая урон вдвое.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода Дорзинуут может получить 10 урона, чтобы прекратить один эффект на себе, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким образом.\n\n> ⭐️ **Помни свою клятву**\n>\n> Услышав, как существо произносит клятву драконьей фаланги, Дорзинуут получает [помеху](#/catalog/glossary#term-glossary.bane) на удары по этому персонажу до конца столкновения.\n\n> ⭐️ **Защищающие крылья**\n>\n> Пока Дорзинуут не [летит](#/catalog/glossary#term-glossary.fly), удары по нему совершаются с [помехой](#/catalog/glossary#term-glossary.bane).\n\n> ☠️ **Рёв и риск ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область**       |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 5**    | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Дорзинуут издаёт оглушительный рёв. Каждая цель проходит **проверку Разума**.\n>\n> - **≤11:** состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n> - **12-16:** состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ)\n> - **17+:** Без эффекта.\n>\n> **Эффект:** Каждый союзник в области получает [преимущество](#/catalog/glossary#term-glossary.edge) на следующий удар.\n\n> ☠️ **Крылья второго дыхания ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область**        |                                 **-** |\n> |--------------------|--------------------------------------:|\n> | **📏 Взрыв 10**    | **🎯 Себя и каждого союзника в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) или [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости и восстанавливает 10 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n\n> ☠️ **Хлоп, треск, вспышка ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область, Магия** |                        **-** |\n> |--------------------|-----------------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Дорзинуут оплетает цели искрящейся сетью. Каждый раз, когда цель получает урон от способности ближнего боя, атакующий получает 6 урона молнией.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.dorzinuuth-the-base",
+        "path": "Monsters/monster/draconian/statblock/dorzinuuth-the-base.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/dorzinuuth-the-base",
+      "originalName": "Dorzinuuth the Base",
+      "originalDescription": "| Draconian, Dragon, Humanoid |             -              |      Level 6       |        Leader         |        EV 32         |       \n|:---------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|       \n|        **2**<br>Size        |       **5**<br>Speed       | **180**<br>Stamina |  **3**<br>Stability   | **7**<br>Free Strike |       \n| **Lightning 6**<br>Immunity | **Fly, hover**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **+4**<br>Might       |     **+1**<br>Agility      |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Punishing Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 16 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 19 damage; M < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If the target has M < 4, they are also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> 🔳 **I'll Cut A Path**\n>\n> | **Area, Weapon**           |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Before the power roll is made, Dorzinuuth [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the end of the line.\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 13 damage; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 15 damage; M < 4 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Watch Your Six!**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |      **🎯 One ally** |\n>\n> **Trigger:** An ally within distance takes damage while Dorzinuuth isn't [flying](scc.v1:mcdm.heroes.v1/movement/fly).\n>\n> **Effect:** Dorzinuuth shields the triggering ally with his wings, halving the damage.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of his turns, Dorzinuuth can take 10 damage to end one effect on him that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Remember Your Oath**\n>\n> If Dorzinuuth hears a creature recite the Dragon Phalanx oath, he takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on strikes made against that character until the end of the encounter.\n\n> ⭐️ **Sheltering Wings**\n>\n> While Dorzinuuth isn't [flying](scc.v1:mcdm.heroes.v1/movement/fly), strikes made against him take a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane).\n\n> ☠️ **Roaring Gambit ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Dorzinuuth lets loose a powerful roar. Each target makes a **Reason test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n>\n> **Effect:** Each ally in the area gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on their next strike.\n\n> ☠️ **Wings of Second Wind ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) or [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed and regains 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ☠️ **Snap, Crackle, Pop ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 5 burst**  | **🎯 Each ally in the area** |\n>\n> **Effect:** Dorzinuuth covers the targets in an electrifying mesh. Whenever a target takes damage from a melee ability, the attacker takes 6 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/dorzinuuth-the-base.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "2",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.locratix-the-morningstar",
+      "kind": "monster",
+      "name": "Лократикс Утренняя звезда",
+      "markdown": "| Драконид, Дракон, Гуманоид |          -          |      Уровень 6      |     Элита, Налётчик     |        Боевая ценность 32         |\n|:---------------------------:|:-------------------:|:------------------:|:-----------------------:|:---------------------------------------:|\n|       **1M**<br>Размер        |   **8**<br>Скорость    | **160**<br>Выносливость |  **2**<br>Устойчивость   | **7**<br>Свободный удар |\n|   **Кислота 6**<br>Иммунитет    | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+1**<br>Мощь       |  **+3**<br>Ловкость  |  **+1**<br>Разум  |  **+2**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> 🗡 **Пронзание (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона; если М < 1, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n> - **17+:** 18 урона; если М < 2, цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска)\n>\n> **Эффект:** Лократикс наносит 6 урона каждому существу или объекту в линии 2 x 1 за целью.\n\n> 🔳 **Кислотный удар (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия**            |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------:|\n> | **📏 Линия 3 x 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона кислотой; если М < 1, цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n> - **12-16:** 12 урона кислотой; если М < 2, цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n> - **17+:** 15 урона кислотой; если М < 3, цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n>\n> **Эффект:** Пока цель находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed), наложенном таким образом, она получает дополнительно 6 урона от способностей Лократикс.\n\n> 👤 **Взлёт**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Лократикс [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости. Каждое существо [смежное](#/catalog/glossary#term-glossary.adjacent) с пространством на земле, откуда она взлетела, если Л < 2, падает [ничком](#/catalog/glossary#term-glossary.prone).\n\n> ❗️ **Назад!**\n>\n> | **Ближний** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо в пределах досягаемости перемещается или [принудительно перемещается](#/catalog/glossary#term-glossary.forced-movement).\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона кислотой; если Л < 1, Скорость цели становится равна 0 (КсХ)\n> - **12-16:** 12 урона кислотой; если Л < 2, Скорость цели становится равна 0 (КсХ)\n> - **17+:** 15 урона кислотой; если Л < 3, Скорость цели становится равна 0 (КсХ)\n\n> ⭐️ **Неуловимая**\n>\n> Когда Лократикс наносит врагу выброшенный урон, этот враг не может выбрать Лократикс триггером для любого из своих [действий по триггеру](#/catalog/glossary#term-glossary.triggered-action) до начала следующего хода Лократикс.\n\n> ⭐️ **Поглощающая чешуя**\n>\n> Когда Лократикс получает урон типа, к которому у неё есть иммунитет, она получает иммунитет к урону 6 против следующего удара по ней.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.locratix-the-morningstar",
+        "path": "Monsters/monster/draconian/statblock/locratix-the-morningstar.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/locratix-the-morningstar",
+      "originalName": "Locratix the Morningstar",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |     Elite Harrier     |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Size        |   **8**<br>Speed    | **160**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n|   **Acid 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **+1**<br>Might       |  **+3**<br>Agility  |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Skewer (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** | \n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Locratix deals 6 damage to each creature or object in a 2 x 1 line behind the target.\n\n> 🔳 **Acidic Stun (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 3 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 12 acid damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 15 acid damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target takes an extra 6 damage from Locratix's abilities.\n\n> 👤 **Takeoff**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Locratix [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to her speed. Any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the space on the ground she took off from who has A < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Stay Back!**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 2** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 the target's speed is 0 (EoT)\n> - **12-16:** 12 acid damage; A < 2 the target's speed is 0 (EoT)\n> - **17+:** 15 acid damage; A < 3 the target's speed is 0 (EoT)\n\n> ⭐️ **Flighty**\n>\n> When Locratix deals rolled damage to an enemy, that enemy can't use Locratix as the trigger for any of their [triggered actions](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) until the start of Locratix's next turn.\n\n> ⭐️ **Absorbing Scales**\n>\n> When Locratix takes damage of any type for which she has damage immunity, she has damage immunity 6 against the next strike made against her.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/locratix-the-morningstar.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.lydixavus-the-deadeye",
+      "kind": "monster",
+      "name": "Лидиксавус Меткий глаз",
+      "markdown": "| Драконид, Дракон, Гуманоид |          -          |      Уровень 6       |    Элита, Артиллерист    |        Боевая ценность 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Размер        |   **5**<br>Скорость    | **140**<br>Выносливость |  **2**<br>Устойчивость   |  **7**<br>Свободный удар |       \n|   **Холод 6**<br>Иммунитет    | **Летает**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |       \n|       **-1**<br>Мощь       |  **+3**<br>Ловкость  |  **+3**<br>Разум  |  **+3**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🏹 **Выстрел дыханием (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** |  **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------:|\n> | **📏 Дальний бой 15**           | **🎯 Один враг** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона холодом\n> - **12-16:** 16 урона холодом; цель получает [помеху](#/catalog/glossary#term-glossary.bane) к следующему удару\n> - **17+:** 19 урона холодом; цель получает двойную [помеху](#/catalog/glossary#term-glossary.bane) к следующему удару\n\n> 🔳 **Ледяной залп**\n>\n> | **Область, Магия, Дальний бой** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 Куб 2 в пределах 10** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона холодом; при М < 1 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 12 урона холодом; при М < 2 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 15 урона холодом; при М < 3 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n\n> 👤 **Прощальный подарок**\n>\n> | **-**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Лидиксавус [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости и оставляет ледяную мину размером 1S в пространстве, откуда взлетел. Ледяная мина взрывается, когда враг входит в её пространство: она использует бросок силы способности «Ледяной залп» и поражает существо, сработавшее на мину, а также каждое существо и объект, [смежные](#/catalog/glossary#term-glossary.adjacent) с миной.\n\n> ❗️ **Я не в тебя целился**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Лидиксавус получает результат 1-го тира своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability).\n>\n> **Эффект:** Лидиксавус ещё раз использует свою [знаковую способность](#/catalog/glossary#term-glossary.signature-ability), выбрав целью существо в пределах 5 клеток от первоначальной цели.\n\n> ⭐️ **Чешуя не забывает**\n>\n> Лидиксавус знает местонахождение каждого существа, когда-либо наносившего ему урон. Если какое-либо из этих существ находится в пределах 20 клеток от Лидиксавуса, у Лидиксавуса всегда есть [линия воздействия](#/catalog/glossary#term-glossary.line-of-effect) до него, пока между Лидиксавусом и целью есть проход размером 1.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.lydixavus-the-deadeye",
+        "path": "Monsters/monster/draconian/statblock/lydixavus-the-deadeye.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/lydixavus-the-deadeye",
+      "originalName": "Lydixavus the Deadeye",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |    Elite Artillery    |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n|   **Cold 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **-1**<br>Might       |  **+3**<br>Agility  |  **+3**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Breathsnipe (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------:|\n> | **📏 Ranged 15**           | **🎯 One enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 cold damage\n> - **12-16:** 16 cold damage; the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n> - **17+:** 19 cold damage; the target has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n\n> 🔳 **Ice Lob**\n>\n> | **Area, Magic, Ranged** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 2 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 cold damage; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 12 cold damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 15 cold damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> 👤 **Parting Gift**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Lydixavus [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed, leaving a size 1S ice mine in the space they took off from. The ice mine explodes when an enemy enters its space, using the power roll for the Ice Lob ability, and targeting the triggering creature and each creature and object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the ice mine.\n\n> ❗️ **Wasn't Aiming For You**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** Lydixavus obtains a tier 1 outcome on their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability).\n>\n> **Effect:** Lydixavus uses their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) again, targeting a creature within 5 squares of the original target.\n\n> ⭐️ **Scorekeeping Scales**\n>\n> Lydixavus knows the location of every creature who has ever dealt damage to them. If any of those creatures are within 20 squares of Lydixavus, Lydixavus always has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to them as long as a size 1 opening exists between Lydixavus and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/lydixavus-the-deadeye.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.myxovidan-the-sintaker",
+      "kind": "monster",
+      "name": "Миксовидан Поглотитель грехов",
+      "markdown": "| Драконид, Дракон, Гуманоид |          -          |      Уровень 6       |      Элита, Проклинатель      |        Боевая ценность 32         |       \n|:----------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|        **1M**<br>Размер        |   **5**<br>Скорость    | **140**<br>Выносливость |  **2**<br>Устойчивость   |  **7**<br>Свободный удар |       \n| **Порча 6**<br>Иммунитет | **Летает**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |       \n|       **-1**<br>Мощь        |  **+3**<br>Ловкость  |  **+2**<br>Разум  |  **+2**<br>Интуиция  |  **+1**<br>Присутствие  |\n\n> 🗡 **Ломающее касание (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |    **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Два врага** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона; при М < 1 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 15 урона; при М < 2 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 18 урона порчей; при М < 3 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Миксовидан восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном половине нанесённого урона.\n\n> ❇️ **Очищающее извержение**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Взрыв 2**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона порчей; при М < 1 у цели появляется уязвимость к урону порчей 3 (до прох.)\n> - **12-16:** 12 урона порчей; при М < 2 у цели появляется уязвимость к урону порчей 3 (до прох.)\n> - **17+:** 15 урона порчей; при М < 3 у цели появляется уязвимость к урону порчей 3 (до прох.)\n\n> 🏹 **Шаг и подмена**\n>\n> | **Дальний бой**      |    **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|----------------:|\n> | **📏 Дальний бой 3** | **🎯 Один союзник** |\n>\n> **Эффект:** Миксовидан и цель [смещаются](#/catalog/glossary#term-glossary.shift), меняясь местами.\n\n> ❗️ **Другим тоже можно (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с Миксовиданом, наносит ему урон способностью ближнего боя.\n>\n> **Эффект:** Миксовидан повторяет эту способность, используя её против существа, сработавшего на условие. Если способность включает бросок силы, для броска Миксовидан использует наибольшее значение своей характеристики. Если Миксовидан получает результат более высокого тира, чем существо, сработавшее на условие, Ведущий получает 2 [Раздора](#/codex/monsters.rule.monster.malice).\n\n> ⭐️ **Смертельное зловоние**\n>\n> Каждый раз, когда враг восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina), находясь в пределах 5 клеток от Миксовидана, он восстанавливает на 3 меньше [Выносливости](#/catalog/glossary#term-glossary.stamina).\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.myxovidan-the-sintaker",
+        "path": "Monsters/monster/draconian/statblock/myxovidan-the-sintaker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/myxovidan-the-sintaker",
+      "originalName": "Myxovidan the Sintaker",
+      "originalDescription": "| Draconian, Dragon, Humanoid  |          -          |      Level 6       |      Elite Hexer      |        EV 32         |       \n|:----------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|        **1M**<br>Size        |   **5**<br>Speed    | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n| **Corruption 6**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **-1**<br>Might        |  **+3**<br>Agility  |  **+2**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Breaking Palm (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |    **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-------------------:|\n> | **📏 Melee 1**            | **🎯 Two enemies** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 15 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 18 corruption damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Myxovidan regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ❇️ **Expunging Exhalation**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 corruption damage; M < 1 the target has corruption weakness 3 (save ends)\n> - **12-16:** 12 corruption damage; M < 2 the target has corruption weakness 3 (save ends)\n> - **17+:** 15 corruption damage; M < 3 the target has corruption weakness 3 (save ends)\n\n> 🏹 **Step and Swap**\n>\n> | **Ranged**      |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|----------------:|\n> | **📏 Ranged 3** | **🎯 One ally** |\n>\n> **Effect:** Myxovidan and the target [shift](scc.v1:mcdm.heroes.v1/movement/shifting) to swap places.\n\n> ❗️ **Anyone Can Do That (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** An [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature damages Myxovidan with a melee ability.\n>\n> **Effect:** Myxovidan recreates the ability to use it against the triggering creature. If the ability has a power roll, Myxovidan uses his highest characteristic score for the roll. If Myxovidan gets a higher tier outcome than the triggering creature, the Director gains 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ⭐️ **Stench of Death**\n>\n> Whenever an enemy regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) while within 5 squares of Myxovidan, they regain 3 less [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/myxovidan-the-sintaker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.draconian.statblock.phrrygalax-the-subduer",
+      "kind": "monster",
+      "name": "Фрригалакс Покоритель",
+      "markdown": "| Драконид, Дракон, Гуманоид |          -          |      Уровень 6       |      Элита, Громила      |        Боевая ценность 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1L**<br>Размер        |   **5**<br>Скорость    | **180**<br>Выносливость |  **3**<br>Устойчивость   |  **7**<br>Свободный удар |       \n|   **Огонь 6**<br>Иммунитет    | **Летает**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |       \n|       **+3**<br>Мощь       |  **+2**<br>Ловкость  |  **+0**<br>Разум  |  **+0**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🗡 **Гибельный клинок (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 16 урона; при М < 1 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 19 урона; при М < 2 цель получает 3 урона и [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> ❇️ **Крутящееся плевание (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Взрыв 1**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона огнём\n> - **12-16:** 13 урона огнём\n> - **17+:** 16 урона огнём\n\n> 👤 **Тяжёлое приземление**\n>\n> | **Область**    | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Фрригалакс [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости и приземляется в незанятом пространстве на земле. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с местом приземления и имеющее Л < 2, сбито [с ног](#/catalog/glossary#term-glossary.prone).\n\n> ❗️ **Доспехи древних (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 На себя** |          **🎯 На себя** |\n>\n> **Условие:** Фрригалакс получает урон кислотой, холодом, порчей, огнём, молнией или ядом.\n>\n> **Эффект:** Фрригалакс не получает урон, а вместо этого восстанавливает такое же количество [Выносливости](#/catalog/glossary#term-glossary.stamina). Затем он меняет свой текущий иммунитет к урону на иммунитет к типу урона, вызвавшему это условие.\n\n> ❗️ **Придержи язык!**\n>\n> | **-**       | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 На себя** |               **🎯 На себя** |\n>\n> **Условие:** Фрригалакс слышит, как существо в пределах 5 клеток произносит клятву Драконьей фаланги доброго короля Омунда.\n>\n> **Эффект:** Фрригалакс [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и использует «Гибельный клинок» против существа, сработавшего на условие. Эта способность наносит дополнительно 7 урона.\n\n> ⭐️ **Месть клятвопреступника**\n>\n> Каждый раз, когда Фрригалакс проваливает спасбросок, его следующий удар наносит дополнительно 7 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.draconian.statblock.phrrygalax-the-subduer",
+        "path": "Monsters/monster/draconian/statblock/phrrygalax-the-subduer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.draconian.statblock/phrrygalax-the-subduer",
+      "originalName": "Phrrygalax the Subduer",
+      "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |      Elite Brute      |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1L**<br>Size        |   **5**<br>Speed    | **180**<br>Stamina |  **3**<br>Stability   | **7**<br>Free Strike |       \n|   **Fire 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might       |  **+2**<br>Agility  |  **+0**<br>Reason  |  **+0**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🗡 **Baneful Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 16 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; M < 2 3 damage, [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ❇️ **Spinning Spit (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 1 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 13 fire damage\n> - **17+:** 16 fire damage\n\n> 👤 **Heavy Landing**\n>\n> | **Area**    | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Phrrygalax [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to his speed and lands in an unoccupied space on the ground. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to where he lands who has A < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Armor of the Ancients (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** Phrrygalax takes acid, cold, corruption, fire, lightning, or poison damage.\n>\n> **Effect:** Phrrygalax takes no damage and instead regains the same amount of [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). He then swaps his current damage immunity with the triggering damage type.\n\n> ❗️ **Still Your Tongue!**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** Phrrygalax hears a creature within 5 squares reciting the oath of Good King Omund's Dragon Phalanx.\n>\n> **Effect:** Phrrygalax [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to his speed and uses Baneful Blade against the triggering creature. That ability deals an extra 7 damage.\n\n> ⭐️ **Oathbreaker's Vengeance**\n>\n> Whenever Phrrygalax fails a saving throw, he deals an additional 7 damage on his next strike.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/draconian/statblock/phrrygalax-the-subduer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1L",
+        "keywords": [
+          "Драконид",
+          "Дракон",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.group.draconian",
+      "kind": "monster-lore",
+      "name": "Дракониды",
+      "markdown": "Дракониды — вирмвайты, как их иногда называют, или рыцари-драконы, как их знают в Ордене, — народ, созданный в результате малоизученного ритуала, известного как Дракогенез. У большинства [драконидов](#/codex/monsters.monster.group.draconian) есть родство со стихией, связанное с их драконьей чешуёй; со временем и тренировками они могут его менять.\n\nВ этом разделе представлены шесть отдельных драконидов — не отряд искателей приключений, а шестеро воинов, чья слава бежит впереди них. Вероятнее всего, они служат старшими командирами в различных военных силах.\n\n###### Аэоликсрия Непостижимая\n\nС самого появления на свет Аэоликсрия (эй-оу-ЛИКС-ри-а) была увлечена оккультным. Она странствует по миру, собирая для изучения странные фолианты и артефакты. Она берётся за работу, только если у неё появилась новая штуковина, которую хочется испытать. Острый тактический ум Аэоликсрии позволяет ей сражаться на любом поле боя так, словно она действует на знакомой местности. Вот бы ей ещё разобраться со всем своим снаряжением — тогда её было бы не остановить!\n\n###### Лократикс Утренняя звезда\n\nПутешественница из далёкой страны и единственный отпрыск своей кладки Дракогенеза, Лократикс (лоу-КРА-тикс) ставит выживание превыше всего. Сама идея рыцарей-драконов ей отвратительна: нет никакой причины, по которой вирмвайт должен отдавать силу, поддерживающую его жизнь. Лократикс много странствует и берётся за наёмнические задания, но всегда готова пронзить своим копьём нынешнего работодателя, если подвернётся сделка получше.\n\n###### Лидиксавус Меткий глаз\n\nОт Лидиксавуса (ли-ДИКС-а-вас) не ускользает ничто, а его меткость не знает равных. Десятилетия упорных тренировок отточили его оружие дыхания, превратив его в стремительную и дальнобойную ледяную пулю. Лидиксавусом движет жажда мести. Каждый шрам и каждая вмятина на чешуе — история, и Лидиксавус намерен отплатить тем, кто оставил эти следы, десятикратно.\n\n###### Миксовидан Поглотитель грехов\n\nМиксовидана (микс-ОУ-ви-дин) воспитал отшельнический орден монахов, утверждавших, что его обсидианово-чёрная чешуя и вызывающее тошноту дыхание — зло, которое следует искоренить. Они подвергали его суровой жизни, полной изнурительных тренировок, медитации и отказа от мирских удовольствий. Но голод Миксовидана всё равно должен был быть утолён — так или иначе. Уходя из ордена, Миксовидан оставил после себя множество истощённых трупов монахов, словно из них высосали жизнь.\n\n###### Фрригалакс Покоритель\n\nНекогда Фрригалакс (фа-РИДЖ-и-лакс) был рыцарем-драконом на службе у доброго короля Омунда. Он поклялся защищать других от тирании, но всегда понимал, что его создали для насилия. Когда предательство рыцаря-дракона Мандрейка раскололо Драконью фалангу — орден рыцарей-драконов, — Фрригалакс с ликованием отрёкся от клятвы, чтобы следовать тому, что считал своим истинным, жестоким предназначением. Многие из тех, кто служил рядом с ним, полагали, что он лишь ждал удобного предлога.\n\n###### Дорзинут Низменный\n\nДля тех, кто помнит старую Драконью фалангу, имя Дорзинута (дор-ЗИН-ю-ут) внушает больше благоговения и страха, чем любое другое. Дорзинут был выдающимся стратегом и опорой братства рыцарей-драконов: он прославился дерзкими военными походами, из которых неизменно возвращался с тем же числом солдат, а нередко и с новобранцами. После смерти доброго короля Омунда многие были потрясены тем, что Дорзинут опустился до разбоя и мелких наёмнических поручений. Другие всё ещё надеются, что он скрытно плетёт неизвестные им замыслы и ждёт дня, когда вновь сможет открыто исполнить свою клятву.\n\n###### Языки драконидов\n\nБольшинство драконидов говорят на кэлианском, а также на языках своих нанимателей и создателей. Лидиксавус, Фрригалакс и Дорзинут говорят на кэлианском и Вастарьяксе. Аэоликсрия говорит на кэлианском и Первом языке. Лократикс говорит на кэлианском и оахуатле. Миксовидан говорит на кэлианском и Аксиоматике.\n",
+      "source": {
+        "articleId": "monsters.monster.group.draconian",
+        "path": "Monsters/monster/group/draconian.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/draconian",
+      "originalName": "Draconians",
+      "originalDescription": "Draconians—wyrmwights as some call them, also known as dragon knights in Orden—are a people created through an obscure ritual known as Dracogenesis. Most [draconians](scc.v1:mcdm.monsters.v1/monster.group/draconian) have an elemental affinity connected to their draconic scales, which they can change given enough time and training.\n\nSix individual draconians are presented in this section—not an adventuring party, but six warriors whose reputations precede them. All are likely to be found serving in various military forces as high-ranking commanders.\n\n###### Aeolyxria the Uncanny\n\nFrom the moment she hatched, Aeolyxria (ay-oh-LIX-ree-ah) has enjoyed a fascination with the occult. She wanders the land, gathering strange tomes and artifacts to study. When she takes a job, it's because she has a new doohickey she wants to test out. Aeolyxria possesses a sharp, tactical mind that lets her treat any battlefield as if it offered homefield advantage. If she could just get a handle on all her equipment, she'd be unstoppable!\n\n###### Locratix the Morningstar\n\nA traveler from a faraway land and the sole progeny of her Dracogenesis clutch, Locratix (low-CRA-tics) focuses on survival over all other things. The very concept of the dragon knights is anathema to her, as there is no reason a wyrmwight should hand over the power that keeps them alive. Locratix travels widely while taking on mercenary jobs, but she is always just one better deal away from skewering her present employer on the end of her lance.\n\n###### Lydixavus the Deadeye\n\nNothing escapes Lydixavus (lee-DIX-uh-vas) or their unrivaled precision. After decades of careful training, they have honed their breath weapon into a swift and far-traveling bullet of ice. Lydixavus is motivated by revenge. Each scar, each dent in their scales tells a story, and Lydixavus aims to return those gifts tenfold to those who bestowed them.\n\n###### Myxovidan the Sintaker\n\nMyxovidan (mix-OH-vih-din) was raised by a secluded order of monks who claimed his obsidian-black scales and nausea-inducing breath were an evil that must be purged. They subjected him to an austere lifestyle, full of intense training, meditation, and denial of worldly pleasures. But Myxovidan's hunger would be satisfied, one way or another. When Myxovidan departed the order, he left behind a collection of emaciated monk corpses who looked as though they'd had the life sucked out of them.\n\n###### Phrrygalax the Subduer\n\nPhrrygalax (fuh-RIJ-ih-lax) was once a dragon knight in the service of Good King Omund. Though he took the oath to defend others against tyranny, he was always keenly aware he was created for violence. When the betrayal of the dragon knight Mandrake fractured the Dragon Phalanx that was the order of the dragon knights, Phrrygalax gleefully renounced his oath to follow what he believes to be his true, brutal purpose. Many who served with him believed he was merely waiting for a convenient excuse to do so.\n\n###### Dorzinuuth the Base\n\nTo those who know the Dragon Phalanx of old, no name inspires more awe and fear than that of Dorzinuuth (dor-ZIN-yew-uth). A mastermind on the battlefield and the foundation of the dragon knights' fraternity, Dorzinuuth was known for mounting daring campaigns and always returning with the same number of soldiers and often alongside new recruits. In the wake of the death of Good King Omund, many were shocked to see Dorzinuuth debase himself with banditry and petty mercenary jobs. Others hold on to the hope that he makes unknown moves in darkness, waiting for the day when he can again uphold his oath in the light.\n\n###### Draconian Languages\n\nMost draconians speak Caelian in addition to the languages of their employers and creators. Lydixavus, Phrrygalax, and Dorzinuuth all speak Caelian and Vastariax. Aeolyxria speaks Caelian and the First Language. Locratix speaks Caelian and Oaxuatl. Myxovidan speaks Caelian and Axiomatic.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/draconian.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "draconian",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-shadow.statblock.shadow-elf-panther",
+  "title": "Теневой эльф-пантера",
+  "chapter": "23. Бестиарий",
+  "group": "Теневые эльфы",
+  "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-panther.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-panther",
+  "originalName": "Shadow Elf Panther",
+  "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |     Platoon Brute     |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **70**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+2**<br>Agility   | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Dusk Cleave (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The panther can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature or object [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ❇️ **Bladestorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 8 corruption damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 10 corruption damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The panther has a double edge on strikes against targets [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way.\n\n> ⭐️ **Of the Umbra**\n>\n> The panther ignores concealment created by darkness. While the panther is in direct sunlight, they have damage weakness 3. While the panther has concealment, they have damage immunity 3.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-shadow/statblock/shadow-elf-panther.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-shadow",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "12",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Теневой эльф"
+    ],
+    "role": "Громила",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-shadow.statblock.shadow-elf-panther"
+    }
+  ]
+}

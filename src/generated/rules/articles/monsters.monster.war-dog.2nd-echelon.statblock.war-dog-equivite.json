@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-equivite",
+      "title": "Пёс войны-эквит",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-equivite.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-equivite",
+      "originalName": "War Dog Equivite",
+      "originalDescription": "| Soulless, War Dog |         -         |      Level 4      |      Horde Brute      |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **8**<br>Speed   | **53**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+3**<br>Agility | **-1**<br>Reason  |  **-2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Fuse-Iron Lance ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 8 damage\n> - **17+:** 10 damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** This ability gains an edge while charging.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability deals an extra 3 fire damage to the target and each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> 🗡 **Blazing Charge**\n>\n> | **Melee, Weapon**         |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------:|\n> | **📏 Special; see below** | **🎯 Special** |\n>\n> **Effect:** The equivite moves up to their speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Any mundane size 1 object whose space they move through is destroyed. The equivite makes one power roll against each enemy whose space they move through for the first time.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Loyalty Collar**\n>\n> When the equivite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-equivite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.2nd-echelon.statblock.war-dog-equivite"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.2nd-echelon.statblock.war-dog-equivite",
+      "kind": "monster",
+      "name": "Пёс войны-эквит",
+      "markdown": "| Бездушный, Пёс войны |         -         |     Уровень 4     | Орда-громила | Боевая ценность 6 |\n|:---------------------:|:-----------------:|:----------------:|:------------:|:----------------------:|\n| **2**<br>Размер       | **8**<br>Скорость | **53**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет    | **-**<br>Движение |        -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь        | **+3**<br>Ловкость | **-1**<br>Разум | **-2**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Копьё из сплавленного железа ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**               | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 8 урона\n> - **17+:** 10 урона; И < 3 — [испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n>\n> **Эффект:** При совершении рывка эта способность получает преимущество.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Способность наносит цели и каждому врагу, [смежному](#/catalog/glossary#term-glossary.adjacent) с ней, дополнительно 3 урона огнём.\n\n> 🗡 **Пылающий натиск**\n>\n> | **Ближний бой, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 Особое; см. ниже**  | **🎯 Особое** |\n>\n> **Эффект:** Эквит перемещается на расстояние до своей Скорости, игнорируя [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain). Любой обычный объект размера 1, через занятую которым клетку он проходит, уничтожается. Эквит совершает один бросок силы против каждого врага, через занятую которым клетку он проходит впервые.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 5 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 3; М < 3 — [сбит с ног](#/catalog/glossary#term-glossary.prone)\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) эквита снижается до 0, его ошейник преданности взрывается и наносит 2d6 урона каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу и объекту.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-equivite",
+        "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-equivite.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-equivite",
+      "originalName": "War Dog Equivite",
+      "originalDescription": "| Soulless, War Dog |         -         |      Level 4      |      Horde Brute      |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **8**<br>Speed   | **53**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+3**<br>Agility | **-1**<br>Reason  |  **-2**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Fuse-Iron Lance ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 8 damage\n> - **17+:** 10 damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** This ability gains an edge while charging.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability deals an extra 3 fire damage to the target and each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> 🗡 **Blazing Charge**\n>\n> | **Melee, Weapon**         |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------:|\n> | **📏 Special; see below** | **🎯 Special** |\n>\n> **Effect:** The equivite moves up to their speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Any mundane size 1 object whose space they move through is destroyed. The equivite makes one power roll against each enemy whose space they move through for the first time.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Loyalty Collar**\n>\n> When the equivite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-equivite.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

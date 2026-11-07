@@ -1,0 +1,29 @@
+{
+  "id": "monster.undead.1st-echelon.statblock.zombie",
+  "kind": "monster",
+  "name": "Зомби",
+  "markdown": "| Нежить, Бездушный | - | Уровень 1 | Орда Громила | Боевая ценность 3 |\n|:--:|:--:|:--:|:--:|:--:|\n| **1M**<br>Размер | **5**<br>Скорость | **20**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, яд 1**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-5**<br>Разум | **-2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Дубина и хватка ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона\n> - **17+:** 7 урона; цель [схвачена](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Эффект:** Цель, которую зомби держит в [захвате](scc.v1:mcdm.heroes.v1/condition/grabbed) в начале ее хода, получает 2 урона порчей. Существо, получившее таким образом 5 или более урона порчей, становится ненасытно жадным до плоти; чтобы избавиться от этого эффекта, оно должно завершить проект отдыха «Найти лекарство» из Draw Steel: Heroes.\n\n> ❇️ **Зомби-пыль (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область** | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Зомби падает [сбитым с ног](scc.v1:mcdm.heroes.v1/condition/prone), поднимая волну праха и тления.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона порчей\n> - **12-16:** 3 урона порчей; при М < 1 цель [ослаблена](scc.v1:mcdm.heroes.v1/condition/weakened) (до прох.)\n> - **17+:** 4 урона порчей; при М < 2 цель [оглушена](scc.v1:mcdm.heroes.v1/condition/dazed) (до прох.)\n\n> ⭐️ **Бесконечный рыцарь**\n>\n> В первый раз, когда урон, отличный от урона огнем или святого урона, должен снизить [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) зомби до 0, если его тело не разрушено, вместо этого у него остается 10 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina), и он падает [сбитым с ног](scc.v1:mcdm.heroes.v1/condition/prone).\n",
+  "source": {
+    "articleId": "monsters.monster.undead.1st-echelon.statblock.zombie",
+    "path": "Monsters/monster/undead/1st-echelon/statblock/zombie.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon.statblock/zombie",
+  "originalName": "Zombie",
+  "originalDescription": "|            Undead, Soulless            |         -         |      Level 1      |      Horde Brute      |         EV 3         |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |  **5**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **Corruption 1, poison 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+2**<br>Might             | **+1**<br>Agility | **-5**<br>Reason  |  **-2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Clobber and Clutch ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** A target who starts their turn [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the zombie takes 2 corruption damage. A creature who takes 5 or more corruption damage this way becomes insatiably hungry for flesh, and must complete the Find a Cure downtime project in Draw Steel: Heroes to end this effect.\n\n> ❇️ **Zombie Dust (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 2 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The zombie falls [prone](scc.v1:mcdm.heroes.v1/condition/prone), expelling a wave of rot and dust.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 corruption damage\n> - **12-16:** 3 corruption damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 4 corruption damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ⭐️ **Endless Knight**\n>\n> The first time the zombie is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/1st-echelon/statblock/zombie.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Бездушный"
+    ],
+    "role": "Громила",
+    "organization": "Орда"
+  }
+}

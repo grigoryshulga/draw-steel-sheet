@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.griffon.griffon-malice",
+      "title": "Раздор грифонов",
+      "chapter": "23. Бестиарий",
+      "group": "Грифоны",
+      "path": "Monsters/monster/griffon/griffon-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.griffon/griffon-malice",
+      "originalName": "Griffon Malice",
+      "originalDescription": "At the start of any griffon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Swoop (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The griffon flies up to their speed, and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature who makes an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against them during this movement.\n\n> ❇️ **Piercing Cry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A griffon acting this turn unleashes a hideous screech at one enemy within 5 squares of them, forcing that creature to make an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> 🌀 **Wildwinds (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Winds bluster and blow across the encounter map. Until the end of the encounter, each creature who can't fly or isn't mounted on a flying creature takes a −3 penalty to [stability](scc.v1:mcdm.heroes.v1/rule.character/stability), and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effect targeting such a creature moves them an additional 5 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/griffon-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.griffon.griffon-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.griffon",
+          "title": "Грифоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.griffon.statblock.griffon",
+      "title": "Грифон",
+      "chapter": "23. Бестиарий",
+      "group": "Грифоны",
+      "path": "Monsters/monster/griffon/statblock/griffon.md",
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/griffon",
+      "originalName": "Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2      |      Elite Mount      |        EV 16         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **9**<br>Speed    | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Claw Swipes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; the griffon can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 10 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 13 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability is used as part of the Charge main action, the griffon can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) one of the targets.\n\n> 🔳 **Crack the Earth**\n>\n> | **Area, Ranged**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 8** | **🎯 Each enemy in the area** |\n>\n> **Special:** The griffon must be flying and must have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **Effect:** The griffon flies up to half their speed toward the ground, then sends the creature or object they've [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) hurtling down. The creature or object hits the ground to turn the area into an impact crater, and takes falling damage that can't be reduced in any way.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; A < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 9 damage; A < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🔳 **Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Special:** A target object must be size 2 or smaller.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Zephyr Feint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The griffon takes damage.\n>\n> **Effect:** The griffon halves the damage, ignores any nondamaging effects associated with it, and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon or their rider [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.griffon.statblock.griffon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.griffon.griffon-malice",
+          "title": "Раздор грифонов"
+        },
+        {
+          "id": "monsters.monster.group.griffon",
+          "title": "Грифоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.griffon.statblock.striped-condor-griffon",
+      "title": "Полосатый грифон-кондор",
+      "chapter": "23. Бестиарий",
+      "group": "Грифоны",
+      "path": "Monsters/monster/griffon/statblock/striped-condor-griffon.md",
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/striped-condor-griffon",
+      "originalName": "Striped Condor Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |   **7**<br>Speed    | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Violent Thrashing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares; the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares\n> - **17+:** 14 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone); the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares\n\n> 👤 **Bound Ahead (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed along the ground in straight line. Each enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the griffon during this shift can choose to either take 5 damage or be knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Power Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 5 x 3 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; M < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Circle and Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** The griffon flies directly above a creature within distance.\n>\n> **Effect:** The griffon dives down onto the target, taking no damage from falling if they reach the ground. The target takes 3 damage for each square the griffon dove, and if they have A < 2, they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.\n\n> ⭐️ **Banded Predator**\n>\n> The griffon can attempt hide even while observed. Additionally, while no enemy has line of effect to them, the griffon can attempt to hide at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/striped-condor-griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "3",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.griffon.statblock.striped-condor-griffon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.griffon.griffon-malice",
+          "title": "Раздор грифонов"
+        },
+        {
+          "id": "monsters.monster.group.griffon",
+          "title": "Грифоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.griffon",
+      "title": "Грифоны",
+      "chapter": "23. Бестиарий",
+      "group": "Грифоны",
+      "path": "Monsters/monster/group/griffon.md",
+      "originalId": "mcdm.monsters.v1/monster.group/griffon",
+      "originalName": "Griffons",
+      "originalDescription": "With the head, front legs, and wings of a bird and the powerful body and haunches of a feline, griffons are the apex predator's apex predator. Highly territorial with ranges spanning hundreds of leagues, these air-superiority hunters make quick work of any humanoids foolish enough to stumble into griffon lands.\n\n#### Coveted Mounts\n\nAttempting to capture a wild griffon typically ends in injury or worse, though humanoids who hatch griffons in captivity and raise them from birth find they make loyal companions. Some humanoid cultures raise griffons as mounts for the military or city guard, and griffon eggs can fetch a fine price.\n\nDaring poachers sometimes attempt to steal griffon eggs from wild aeries, but such thieves typically meet their end by beak or talon. So great is the death toll that many localities have outlawed the poaching of griffon eggs.\n\n#### Inaccessible Aeries\n\nGriffons roost alone or in pairs on craggy mountainsides, in forests, or on cliffs overlooking the ocean. They hide their nests in enormous treetops, scrubby thickets clinging to a cliff, or similarly sheltered nooks that are nearly unreachable for creatures who can't fly. Each aerie holds up to three eggs during brooding season, which lasts for three months starting in the early spring. Chicks hatch after forty days of incubation, then remain in or near the nest as their parents feed them. About forty days after hatching, a griffon chick learns to fly—and after that, it's only a matter of days before they set out from their nest into the wider world, generally making their own nest somewhere nearby.\n\n#### Rare Breeds\n\nGriffons come in many varieties. While the most common griffon is the leonine eagle, others include a falcon-panther variety, a bearded vulture-clouded leopard variety, and a striped condor griffon that combines the features of condor and tiger. Questions abound as to whether these creatures came about naturally or were fashioned by magic hands, and many scholars offer abundant rewards to adventurers who can bring them evidence of rare or undiscovered griffon types.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.griffon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.griffon.griffon-malice",
+          "title": "Раздор грифонов"
+        },
+        {
+          "id": "monsters.monster.griffon.statblock.griffon",
+          "title": "Грифон"
+        },
+        {
+          "id": "monsters.monster.griffon.statblock.striped-condor-griffon",
+          "title": "Полосатый грифон-кондор"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.griffon.griffon-malice",
+      "kind": "monster-feature",
+      "name": "Раздор грифонов",
+      "markdown": "В начале хода любого грифона вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Пикирование (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------|-----------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Грифон пролетает расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому существу, которое совершит против него [атаку по возможности](#/catalog/glossary#term-glossary.opportunity-attack) во время этого перемещения.\n\n> ❇️ **Пронзительный крик (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Грифон, действующий в этот ход, испускает жуткий вопль, направленный на одного врага в пределах 5 клеток от себя; цель должна пройти **тест Интуиции**.\n>\n> - **≤11:** [Испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12-16:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ)\n> - **17+:** Без эффекта.\n\n> 🌀 **Буйные ветры (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Вихревые ветры проносятся по карте столкновения. До конца столкновения каждое нелетающее существо, не едущее верхом на летающем существе, получает штраф −3 к [Устойчивости](#/catalog/glossary#term-glossary.stability), а любой эффект [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement), нацеленный на такое существо, перемещает его ещё на 5 клеток.\n",
+      "source": {
+        "articleId": "monsters.monster.griffon.griffon-malice",
+        "path": "Monsters/monster/griffon/griffon-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.griffon/griffon-malice",
+      "originalName": "Griffon Malice",
+      "originalDescription": "At the start of any griffon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Swoop (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The griffon flies up to their speed, and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature who makes an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against them during this movement.\n\n> ❇️ **Piercing Cry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A griffon acting this turn unleashes a hideous screech at one enemy within 5 squares of them, forcing that creature to make an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> 🌀 **Wildwinds (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Winds bluster and blow across the encounter map. Until the end of the encounter, each creature who can't fly or isn't mounted on a flying creature takes a −3 penalty to [stability](scc.v1:mcdm.heroes.v1/rule.character/stability), and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effect targeting such a creature moves them an additional 5 squares.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/griffon-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.griffon.statblock.griffon",
+      "kind": "monster",
+      "name": "Грифон",
+      "markdown": "| Зверь, Грифон |          -          |     Уровень 2      |       Элита Скакун        | Боевая ценность 16 |\n|:-----------------:|:-------------------:|:-----------------:|:-------------------------:|:-----------------------:|\n| **2**<br>Размер | **9**<br>Скорость | **80**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Удары когтями (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; грифон может [смещаться](#/catalog/glossary#term-glossary.shift) на 1 клетку\n> - **12-16:** 10 урона; грифон [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток\n> - **17+:** 13 урона; грифон [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток\n>\n> **Эффект:** Если эта способность используется в рамках основного действия «Атака с рывком», грифон может [схватить](#/catalog/glossary#term-glossary.grabbed) одну из целей.\n\n> 🔳 **Расколоть землю**\n>\n> | **Область, Дальний бой** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|--------------------------------:|\n> | **📏 Куб 3 в пределах 8** | **🎯 Каждый враг в области** |\n>\n> **Особое:** Грифон должен лететь и держать [схваченным](#/catalog/glossary#term-glossary.grabbed) существо или объект.\n>\n> **Эффект:** Грифон пролетает вниз, к земле, расстояние до половины своей Скорости, а затем швыряет вниз [схваченное](#/catalog/glossary#term-glossary.grabbed) существо или объект. При ударе о землю оно превращает место падения в воронку и получает урон от падения, который нельзя уменьшить никаким способом.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; при Л < 1 — [толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 9 урона; при Л < 2 — [толчок](#/catalog/glossary#term-glossary.forced-movement) 4; [сбивание с ног](#/catalog/glossary#term-glossary.prone)\n\n> 🔳 **Взмах крыльев (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------------------:|\n> | **📏 Линия 4 × 2 в пределах 1** | **🎯 Каждое существо или объект в области** |\n>\n> **Особое:** Целевой объект должен иметь размер 2 или меньше.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при Л < 0 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **12-16:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; при Л < 1 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **17+:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5; при Л < 2 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n\n> ❗️ **Обманный манёвр зефира (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Грифон получает урон.\n>\n> **Эффект:** Грифон уменьшает урон вдвое, игнорирует все связанные с ним эффекты, не наносящие урон, и [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Хищный зверь**\n>\n> Пока существо [схвачено](#/catalog/glossary#term-glossary.grabbed) грифоном, оно совершает манёвр «Освободиться от захвата» с двойной помехой.\n\n> ⭐️ **Устойчивый**\n>\n> Любой бросок силы, который может [сбить грифона или его всадника с ног](#/catalog/glossary#term-glossary.prone), совершается с помехой.\n",
+      "source": {
+        "articleId": "monsters.monster.griffon.statblock.griffon",
+        "path": "Monsters/monster/griffon/statblock/griffon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/griffon",
+      "originalName": "Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2      |      Elite Mount      |        EV 16         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **9**<br>Speed    | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Claw Swipes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; the griffon can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 10 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 13 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability is used as part of the Charge main action, the griffon can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) one of the targets.\n\n> 🔳 **Crack the Earth**\n>\n> | **Area, Ranged**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 8** | **🎯 Each enemy in the area** |\n>\n> **Special:** The griffon must be flying and must have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **Effect:** The griffon flies up to half their speed toward the ground, then sends the creature or object they've [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) hurtling down. The creature or object hits the ground to turn the area into an impact crater, and takes falling damage that can't be reduced in any way.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; A < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 9 damage; A < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🔳 **Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Special:** A target object must be size 2 or smaller.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Zephyr Feint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The griffon takes damage.\n>\n> **Effect:** The griffon halves the damage, ignores any nondamaging effects associated with it, and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon or their rider [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.griffon.statblock.striped-condor-griffon",
+      "kind": "monster",
+      "name": "Полосатый грифон-кондор",
+      "markdown": "| Зверь, Грифон |          -          |     Уровень 2       |        Элита Громила        | Боевая ценность 16 |\n|:-----------------:|:-------------------:|:------------------:|:---------------------------:|:-----------------------:|\n| **3**<br>Размер | **7**<br>Скорость | **100**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Яростная тряска (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 11 урона; одну цель [отталкивает](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 2 клеток, другую [отталкивает](#/catalog/glossary#term-glossary.forced-movement) по вертикали на расстояние до 2 клеток\n> - **17+:** 14 урона; одну цель [отталкивает](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 2 клеток и [сбивает с ног](#/catalog/glossary#term-glossary.prone), другую [отталкивает](#/catalog/glossary#term-glossary.forced-movement) по вертикали на расстояние до 3 клеток\n\n> 👤 **Мчаться вперёд (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Грифон [смещается](#/catalog/glossary#term-glossary.shift) по земле по прямой на расстояние до своей Скорости. Каждый враг, оказавшийся [смежным](#/catalog/glossary#term-glossary.adjacent) с грифоном во время этого смещения, может выбрать: получить 5 урона или быть [сбитым с ног](#/catalog/glossary#term-glossary.prone).\n\n> 🔳 **Мощный взмах крыльев (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------------------:|\n> | **📏 Линия 5 × 3 в пределах 1** | **🎯 Каждое существо или объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; при М < 0 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **12-16:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; при М < 1 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **17+:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 6; при М < 2 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n\n> ❗️ **Кружить и атаковать**\n>\n> | **Дальний бой** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------|---------------------------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Грифон пролетает прямо над существом в пределах дальности.\n>\n> **Эффект:** Грифон пикирует на цель и не получает урон от падения, если достигает земли. Цель получает 3 урона за каждую клетку пикирования грифона, а если у неё Л < 2, её [хватают](#/catalog/glossary#term-glossary.grabbed) или [сбивают с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Хищный зверь**\n>\n> Пока существо [схвачено](#/catalog/glossary#term-glossary.grabbed) грифоном, оно совершает манёвр «Освободиться от захвата» с двойной помехой.\n\n> ⭐️ **Устойчивый**\n>\n> Любой бросок силы, который может [сбить грифона с ног](#/catalog/glossary#term-glossary.prone), совершается с помехой.\n\n> ⭐️ **Полосатый хищник**\n>\n> Грифон может попытаться спрятаться, даже если за ним наблюдают. Кроме того, если ни один враг не имеет линии воздействия на него, грифон может попытаться спрятаться в конце своего хода.\n",
+      "source": {
+        "articleId": "monsters.monster.griffon.statblock.striped-condor-griffon",
+        "path": "Monsters/monster/griffon/statblock/striped-condor-griffon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/striped-condor-griffon",
+      "originalName": "Striped Condor Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |   **7**<br>Speed    | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Violent Thrashing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares; the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares\n> - **17+:** 14 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone); the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares\n\n> 👤 **Bound Ahead (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed along the ground in straight line. Each enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the griffon during this shift can choose to either take 5 damage or be knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Power Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 5 x 3 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; M < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Circle and Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** The griffon flies directly above a creature within distance.\n>\n> **Effect:** The griffon dives down onto the target, taking no damage from falling if they reach the ground. The target takes 3 damage for each square the griffon dove, and if they have A < 2, they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.\n\n> ⭐️ **Banded Predator**\n>\n> The griffon can attempt hide even while observed. Additionally, while no enemy has line of effect to them, the griffon can attempt to hide at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/striped-condor-griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "3",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.group.griffon",
+      "kind": "monster-lore",
+      "name": "Грифоны",
+      "markdown": "С головой, передними лапами и крыльями птицы, а также мощным туловищем и задними лапами кошачьего семейства, грифон — хищник, стоящий на вершине пищевой цепи среди хищников. Эти охотники, господствующие в небе, крайне ревностно защищают свои владения, которые могут простираться на сотни лиг, и быстро расправляются с любыми гуманоидами, достаточно глупыми, чтобы забрести в земли грифонов.\n\n#### Драгоценные скакуны\n\nПопытка поймать дикого грифона обычно заканчивается увечьем или смертью. Однако гуманоиды, вылупляющие грифонов в неволе и выращивающие их с самого рождения, получают верных спутников. Некоторые культуры гуманоидов разводят грифонов как скакунов для армии или городской стражи, а яйца грифона можно продать за большие деньги.\n\nОтважные браконьеры порой пытаются украсть яйца из диких гнездовий грифонов, но обычно такие воры погибают от клюва или когтей. Погибших так много, что во многих местах браконьерство на яйца грифонов запрещено.\n\n#### Недоступные гнездовья\n\nГрифоны устраивают гнёзда поодиночке или парами на скалистых горных склонах, в лесах или на утёсах над океаном. Они прячут гнёзда на верхушках огромных деревьев, среди чахлых зарослей на обрывах и в других укромных местах, куда почти невозможно добраться без крыльев. В сезон высиживания, который длится три месяца и начинается ранней весной, в каждом гнезде бывает до трёх яиц. Птенцы вылупляются после сорока дней насиживания, а затем остаются в гнезде или рядом с ним, пока родители их кормят. Примерно через сорок дней после вылупления птенец учится летать, а ещё через несколько дней покидает гнездо и отправляется в большой мир — обычно обустраивая собственное гнездо неподалёку.\n\n#### Редкие разновидности\n\nГрифоны бывают самых разных видов. Самый распространённый — львиный орёл; среди прочих встречаются разновидность сокола и пантеры, разновидность бородатого грифа и дымчатого леопарда, а также полосатый грифон-кондор, сочетающий черты кондора и тигра. Учёные спорят, появились ли эти существа естественным путём или были созданы магией, и многие из них обещают щедро наградить искателей приключений, которые принесут доказательства существования редких или неизвестных разновидностей грифонов.\n",
+      "source": {
+        "articleId": "monsters.monster.group.griffon",
+        "path": "Monsters/monster/group/griffon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/griffon",
+      "originalName": "Griffons",
+      "originalDescription": "With the head, front legs, and wings of a bird and the powerful body and haunches of a feline, griffons are the apex predator's apex predator. Highly territorial with ranges spanning hundreds of leagues, these air-superiority hunters make quick work of any humanoids foolish enough to stumble into griffon lands.\n\n#### Coveted Mounts\n\nAttempting to capture a wild griffon typically ends in injury or worse, though humanoids who hatch griffons in captivity and raise them from birth find they make loyal companions. Some humanoid cultures raise griffons as mounts for the military or city guard, and griffon eggs can fetch a fine price.\n\nDaring poachers sometimes attempt to steal griffon eggs from wild aeries, but such thieves typically meet their end by beak or talon. So great is the death toll that many localities have outlawed the poaching of griffon eggs.\n\n#### Inaccessible Aeries\n\nGriffons roost alone or in pairs on craggy mountainsides, in forests, or on cliffs overlooking the ocean. They hide their nests in enormous treetops, scrubby thickets clinging to a cliff, or similarly sheltered nooks that are nearly unreachable for creatures who can't fly. Each aerie holds up to three eggs during brooding season, which lasts for three months starting in the early spring. Chicks hatch after forty days of incubation, then remain in or near the nest as their parents feed them. About forty days after hatching, a griffon chick learns to fly—and after that, it's only a matter of days before they set out from their nest into the wider world, generally making their own nest somewhere nearby.\n\n#### Rare Breeds\n\nGriffons come in many varieties. While the most common griffon is the leonine eagle, others include a falcon-panther variety, a bearded vulture-clouded leopard variety, and a striped condor griffon that combines the features of condor and tiger. Questions abound as to whether these creatures came about naturally or were fashioned by magic hands, and many scholars offer abundant rewards to adventurers who can bring them evidence of rare or undiscovered griffon types.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

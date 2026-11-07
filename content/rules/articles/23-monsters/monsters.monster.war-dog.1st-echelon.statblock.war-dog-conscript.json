@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.war-dog.1st-echelon.statblock.war-dog-conscript",
+  "title": "Пёс войны-призывник",
+  "chapter": "23. Бестиарий",
+  "group": "Псы войны",
+  "path": "Monsters/monster/war-dog/1st-echelon/statblock/war-dog-conscript.md",
+  "originalId": "mcdm.monsters.v1/monster.war-dog.1st-echelon.statblock/war-dog-conscript",
+  "originalName": "War Dog Conscript",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 1      |                 Minion Harrier                 | EV 3 for four minions |\n|:---------------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|       **1M**<br>Size        |  **7**<br>Speed   | **4**<br>Stamina |               **0**<br>Stability               | **1**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|       **+2**<br>Might       | **0**<br>Agility  | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> ⚔️ **Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If used with the Charge main action, this ability gains an edge.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the conscript is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d3 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/1st-echelon/statblock/war-dog-conscript.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.war-dog.1st-echelon.statblock.war-dog-conscript"
+    }
+  ]
+}

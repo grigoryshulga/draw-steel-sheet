@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.chimera.chimera-malice",
+      "title": "Раздор химеры",
+      "chapter": "23. Бестиарий",
+      "group": "Химера",
+      "path": "Monsters/monster/chimera/chimera-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.chimera/chimera-malice",
+      "originalName": "Chimera Malice",
+      "originalDescription": "At the start of a chimera's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Defensive Snapping (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera takes up a defensive stance. Until the start of their next turn, the chimera can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy who comes within 2 squares of them.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Unstable Terrain (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera shakes the ground, causing an eruption of loose rocks and debris that creates three size 2 stone objects anywhere on the encounter map. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more objects when they appear who has A < 2 takes 5 damage.\n\n> 🌀 **Ashen Clouds (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the start of the chimera's next turn, all areas of the encounter map are shrouded in a thick cloud of ash. All creatures and objects on the map have [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) that the chimera ignores. Additionally, each enemy in the cloud who has I < 1 has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) only within 3 squares. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of this feature increases by 1 each time it's used.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/chimera/chimera-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.chimera.chimera-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.chimera",
+          "title": "Химера"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.chimera.statblock.chimera",
+      "title": "Химера",
+      "chapter": "23. Бестиарий",
+      "group": "Химера",
+      "path": "Monsters/monster/chimera/statblock/chimera.md",
+      "originalId": "mcdm.monsters.v1/monster.chimera.statblock/chimera",
+      "originalName": "Chimera",
+      "originalDescription": "|     Beast, Chimera     |          -          |      Level 3       |         Solo          |        EV 60         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **2**<br>Size      |   **10**<br>Speed   | **300**<br>Stamina |  **1**<br>Stability   | **6**<br>Free Strike |\n| **Fire 6**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ☠️ **Solo Monster**\n>\n> **End Effect:** At the end of each of their turns, the chimera can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n> **Solo Turns:** The chimera can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Volant**\n>\n> When the chimera makes a creature [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) or reduces them to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can move their speed toward an enemy.\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** This strike deals an extra 3 damage if it gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) or has a double edge.\n\n> 🔳 **Dragon's Eruption (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 fire damage; A < 1 3 fire damage\n> - **12-16:** 5 fire damage; A < 2 5 fire damage\n> - **17+:** 7 fire damage; A < 3 7 fire damage\n\n> ❇️ **Roar (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 psychic damage\n> - **12-16:** 8 psychic damage; I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 10 psychic damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n\n> 🗡 **Lion's Toss**\n>\n> | **Melee, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 2**    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** Vertical push 2\n> - **12-16:** Vertical push 3\n> - **17+:** Vertical push 5\n\n> ❗️ **Ram's Defiance**\n>\n> | **Melee, Strike, Weapon** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 2**            | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature makes a strike against the chimera and obtains a tier 1 outcome.\n>\n> **Effect:** The chimera [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares. If they end this shift within distance of the target, make a power roll.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 10 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ☠️ **Overture of Destruction (Villain Action 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 1 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The chimera can use Bite and Lion's Toss against each target.\n\n> ☠️ **Fire Solo (Villain Action 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The chimera uses Dragon's Eruption and Roar without spending [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ☠️ **Chorus of Destruction (Villain Action 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The chimera uses Roar, then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. When the chimera ends this shift, they use Dragon's Eruption. The use of these abilities as part of this [villain action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) costs no [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/chimera/statblock/chimera.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "60",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Химера"
+        ],
+        "organization": "Одиночка"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.chimera.statblock.chimera"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.chimera.chimera-malice",
+          "title": "Раздор химеры"
+        },
+        {
+          "id": "monsters.monster.group.chimera",
+          "title": "Химера"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.chimera",
+      "title": "Химера",
+      "chapter": "23. Бестиарий",
+      "group": "Химера",
+      "path": "Monsters/monster/group/chimera.md",
+      "originalId": "mcdm.monsters.v1/monster.group/chimera",
+      "originalName": "Chimera",
+      "originalDescription": "Massive flexing claws. Lashing draconic tail. Nimble leathery wings. And not one, but three menacing heads: a snarling lion, a helix-horned ram, and a dragon with fire sparking in their throat. Many see the chimera as an aggressor—but few know this creature's origins as a divine guardian.\n\n### The First Chimera\n\nThe first chimera was a gift. A deity gave a devout queen this young guardian—one with a dragon's cunning, a lion's bravery, and a ram's tenacity. The queen raised the chimera to be a strong protector not just for herself but also her people, who loved the chimera and their ruler. But neighboring lands feared the beast. As a conquering force swept into the land, slaughtering the chimera was their fell goal.\n\nThe queen's resulting fury was said to be felt by the gods. As she screamed, a nearby volcano erupted, spewing basalt and chimeras over the land. With fiery might, the chimeras destroyed the opposing army, then dispersed. Each found a new territory and claimed the role of divine protector over that place, its inhabitants, and its treasures.\n\n### Tactical Warriors\n\nChimeras have many ways to keep themselves and their charges from being cornered. The lion head snaps up enemies in massive jaws and hurls them away, the ram head pummels them to the ground, and the dragon head bathes them in fire. The three heads crying out together can shake even the most stalwart warriors.\n\n### One Being, Three Heads\n\nUnlike some other multiheaded creatures, a chimera possesses a single unified mind. Their heads work together, never snapping at one another over food, favors, or personality conflicts. The heads often express the chimera's emotions in unison, braying together in times of battle or purring all at once to show affection.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/chimera.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.chimera"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.chimera.chimera-malice",
+          "title": "Раздор химеры"
+        },
+        {
+          "id": "monsters.monster.chimera.statblock.chimera",
+          "title": "Химера"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.chimera.chimera-malice",
+      "kind": "monster-feature",
+      "name": "Раздор химеры",
+      "markdown": "В начале хода химеры вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Защитный укус (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Химера принимает оборонительную стойку. До начала своего следующего хода она может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому врагу, который оказывается в пределах 2 клеток от нее.\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Химера совершает дополнительное основное действие в свой ход. Она может использовать эту особенность, даже если [оглушена](#/catalog/glossary#term-glossary.dazed).\n\n> 🔳 **Нестабильная местность (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Химера сотрясает землю, вызывая извержение рыхлых камней и обломков, и создает в любых местах карты столкновения три каменных объекта размера 2. Каждое существо, стоящее [рядом](#/catalog/glossary#term-glossary.adjacent) хотя бы с одним из объектов в момент их появления и имеющее Л < 2, получает 5 урона.\n\n> 🌀 **Пепельные облака (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До начала следующего хода химеры всю карту столкновения окутывает густое облако пепла. Все существа и объекты на карте получают [покров](#/catalog/glossary#term-glossary.concealment), который химера игнорирует. Кроме того, каждый враг в облаке с И < 1 имеет [линию воздействия](#/catalog/glossary#term-glossary.line-of-effect) только в пределах 3 клеток. [Потенциал](#/catalog/glossary#term-glossary.potency) этой особенности повышается на 1 при каждом использовании.\n",
+      "source": {
+        "articleId": "monsters.monster.chimera.chimera-malice",
+        "path": "Monsters/monster/chimera/chimera-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.chimera/chimera-malice",
+      "originalName": "Chimera Malice",
+      "originalDescription": "At the start of a chimera's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Defensive Snapping (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera takes up a defensive stance. Until the start of their next turn, the chimera can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy who comes within 2 squares of them.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Unstable Terrain (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The chimera shakes the ground, causing an eruption of loose rocks and debris that creates three size 2 stone objects anywhere on the encounter map. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more objects when they appear who has A < 2 takes 5 damage.\n\n> 🌀 **Ashen Clouds (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the start of the chimera's next turn, all areas of the encounter map are shrouded in a thick cloud of ash. All creatures and objects on the map have [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) that the chimera ignores. Additionally, each enemy in the cloud who has I < 1 has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) only within 3 squares. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of this feature increases by 1 each time it's used.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/chimera/chimera-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.chimera.statblock.chimera",
+      "kind": "monster",
+      "name": "Химера",
+      "markdown": "| Зверь, Химера |          -          |       3-й уровень       |         Одиночка          |        Боевая ценность 60         |\n|:----------------------:|:-------------------:|:-----------------------:|:---------------------:|:--------------------------------------:|\n|     **2**<br>Размер      |   **10**<br>Скорость   | **300**<br>Выносливость |  **1**<br>Устойчивость   | **6**<br>Свободный удар |\n| **Огонь 6**<br>Иммунитет к урону | **Полет**<br>Передвижение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость к урону   |\n|    **+3**<br>Мощь     |  **+2**<br>Ловкость  |  **-2**<br>Разум  |  **+1**<br>Интуиция  |  **+0**<br>Присутствие  |\n\n> ☠️ **Монстр-одиночка**\n>\n> **Прекращение эффекта:** В конце каждого своего хода химера может получить 5 урона, чтобы прекратить один эффект на себе, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким образом.\n>\n> **Ходы одиночки:** Химера может совершать два хода в каждом раунде. Она не может совершать их подряд.\n\n> ⭐️ **Летучая**\n>\n> Когда химера вызывает у существа [утомление](#/catalog/glossary#term-glossary.winded) или снижает его [Выносливость](#/catalog/glossary#term-glossary.stamina) до 0, она может переместиться на расстояние своей Скорости в сторону врага.\n\n> 🗡 **Укус (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 2**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** Этот удар наносит дополнительно 3 урона, если получает [преимущество](#/catalog/glossary#term-glossary.edge) или двойное преимущество.\n\n> 🔳 **Извержение дракона (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний бой** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10**      | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона огнем; при Л < 1 — 3 урона огнем\n> - **12-16:** 5 урона огнем; при Л < 2 — 5 урона огнем\n> - **17+:** 7 урона огнем; при Л < 3 — 7 урона огнем\n\n> ❇️ **Рев (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 урона психической энергией\n> - **12-16:** 8 урона психической энергией; при И < 2 цель [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **17+:** 10 урона психической энергией; при И < 3 цель [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.)\n\n> 🗡 **Бросок львиной головы**\n>\n> | **Ближний бой, Оружие** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 Ближний бой 2**    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** Вертикально оттеснить на 2\n> - **12-16:** Вертикально оттеснить на 3\n> - **17+:** Вертикально оттеснить на 5\n\n> ❗️ **Непокорность бараньей головы**\n>\n> | **Ближний бой, Удар, Оружие** |           **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------------------------|-------------------------------:|\n> | **📏 Ближний бой 2**          | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо наносит удар по химере и получает результат 1-го тира.\n>\n> **Эффект:** Химера [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 5 клеток. Если после смещения она оказывается в пределах дистанции до цели, совершите бросок силы.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона; при М < 1 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 8 урона; цель [сбита с ног](#/catalog/glossary#term-glossary.prone); при М < 2 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 10 урона; цель [сбита с ног](#/catalog/glossary#term-glossary.prone); при М < 3 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ☠️ **Прелюдия разрушения (Действие злодея 1)**\n>\n> | **Область**       |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 1**    | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Химера может применить «Укус» и «Бросок львиной головы» против каждой цели.\n\n> ☠️ **Огненное соло (Действие злодея 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** Химера применяет «Извержение дракона» и «Рев», не тратя [Раздор](#/codex/monsters.rule.monster.malice).\n\n> ☠️ **Хор разрушения (Действие злодея 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** Химера применяет «Рев», затем [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по каждому врагу, который оказывается [рядом](#/catalog/glossary#term-glossary.adjacent) с ней во время смещения. Завершив смещение, химера применяет «Извержение дракона». Использование этих способностей в рамках этого [действия злодея](#/codex/monsters.rule.monster.villain-action) не требует траты [Раздора](#/codex/monsters.rule.monster.malice).\n",
+      "source": {
+        "articleId": "monsters.monster.chimera.statblock.chimera",
+        "path": "Monsters/monster/chimera/statblock/chimera.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.chimera.statblock/chimera",
+      "originalName": "Chimera",
+      "originalDescription": "|     Beast, Chimera     |          -          |      Level 3       |         Solo          |        EV 60         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **2**<br>Size      |   **10**<br>Speed   | **300**<br>Stamina |  **1**<br>Stability   | **6**<br>Free Strike |\n| **Fire 6**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ☠️ **Solo Monster**\n>\n> **End Effect:** At the end of each of their turns, the chimera can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n>\n> **Solo Turns:** The chimera can take two turns each round. They can't take turns consecutively.\n\n> ⭐️ **Volant**\n>\n> When the chimera makes a creature [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) or reduces them to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can move their speed toward an enemy.\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 16 damage\n>\n> **Effect:** This strike deals an extra 3 damage if it gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) or has a double edge.\n\n> 🔳 **Dragon's Eruption (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 fire damage; A < 1 3 fire damage\n> - **12-16:** 5 fire damage; A < 2 5 fire damage\n> - **17+:** 7 fire damage; A < 3 7 fire damage\n\n> ❇️ **Roar (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 psychic damage\n> - **12-16:** 8 psychic damage; I < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 10 psychic damage; I < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n\n> 🗡 **Lion's Toss**\n>\n> | **Melee, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 2**    | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** Vertical push 2\n> - **12-16:** Vertical push 3\n> - **17+:** Vertical push 5\n\n> ❗️ **Ram's Defiance**\n>\n> | **Melee, Strike, Weapon** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------------|-------------------------------:|\n> | **📏 Melee 2**            | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature makes a strike against the chimera and obtains a tier 1 outcome.\n>\n> **Effect:** The chimera [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares. If they end this shift within distance of the target, make a power roll.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 10 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ☠️ **Overture of Destruction (Villain Action 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 1 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The chimera can use Bite and Lion's Toss against each target.\n\n> ☠️ **Fire Solo (Villain Action 2)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The chimera uses Dragon's Eruption and Roar without spending [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ☠️ **Chorus of Destruction (Villain Action 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The chimera uses Roar, then [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. When the chimera ends this shift, they use Dragon's Eruption. The use of these abilities as part of this [villain action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) costs no [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/chimera/statblock/chimera.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "60",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Химера"
+        ],
+        "organization": "Одиночка"
+      }
+    },
+    {
+      "id": "monster.group.chimera",
+      "kind": "monster-lore",
+      "name": "Химера",
+      "markdown": "Массивные напряженные когти. Хлещущий драконий хвост. Проворные кожистые крылья. И не одна, а три грозные головы: рычащий лев, баран с витым рогом и дракон, у которого в глотке пляшут искры пламени. Многие считают химеру агрессором, но мало кто знает о ее происхождении — она была божественным стражем.\n\n### Первая химера\n\nПервая химера была даром. Божество подарило благочестивой королеве юного стража — в нем сочетались хитрость дракона, храбрость льва и упорство барана. Королева вырастила химеру сильным защитником не только для себя, но и для своего народа, который любил и химеру, и свою правительницу. Однако соседние земли боялись чудовище. Когда на страну обрушились завоеватели, их роковой целью стало убить химеру.\n\nГоворили, что ярость королевы отозвалась даже богам. Когда она закричала, неподалеку извергся вулкан, разбросав по земле базальт и химер. Обладая огненной мощью, химеры уничтожили вражескую армию, а затем разошлись. Каждая выбрала свою территорию и стала божественным защитником этого места, его обитателей и сокровищ.\n\n### Тактические воины\n\nХимеры умеют не допускать, чтобы их самих или их подопечных загнали в угол. Голова льва хватает врагов огромными челюстями и швыряет прочь, голова барана сбивает их с ног, а голова дракона окатывает пламенем. Совместный рев трех голов способен потрясти даже самых стойких воинов.\n\n### Одно существо, три головы\n\nВ отличие от некоторых других многоголовых существ, химера обладает единым разумом. Ее головы действуют сообща и не грызутся из-за еды, одолжений или разногласий в характерах. Часто все головы одновременно выражают чувства химеры: вместе блеют в бою или разом мурлычут, показывая привязанность.\n",
+      "source": {
+        "articleId": "monsters.monster.group.chimera",
+        "path": "Monsters/monster/group/chimera.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/chimera",
+      "originalName": "Chimera",
+      "originalDescription": "Massive flexing claws. Lashing draconic tail. Nimble leathery wings. And not one, but three menacing heads: a snarling lion, a helix-horned ram, and a dragon with fire sparking in their throat. Many see the chimera as an aggressor—but few know this creature's origins as a divine guardian.\n\n### The First Chimera\n\nThe first chimera was a gift. A deity gave a devout queen this young guardian—one with a dragon's cunning, a lion's bravery, and a ram's tenacity. The queen raised the chimera to be a strong protector not just for herself but also her people, who loved the chimera and their ruler. But neighboring lands feared the beast. As a conquering force swept into the land, slaughtering the chimera was their fell goal.\n\nThe queen's resulting fury was said to be felt by the gods. As she screamed, a nearby volcano erupted, spewing basalt and chimeras over the land. With fiery might, the chimeras destroyed the opposing army, then dispersed. Each found a new territory and claimed the role of divine protector over that place, its inhabitants, and its treasures.\n\n### Tactical Warriors\n\nChimeras have many ways to keep themselves and their charges from being cornered. The lion head snaps up enemies in massive jaws and hurls them away, the ram head pummels them to the ground, and the dragon head bathes them in fire. The three heads crying out together can shake even the most stalwart warriors.\n\n### One Being, Three Heads\n\nUnlike some other multiheaded creatures, a chimera possesses a single unified mind. Their heads work together, never snapping at one another over food, favors, or personality conflicts. The heads often express the chimera's emotions in unison, braying together in times of battle or purring all at once to show affection.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/chimera.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "chimera",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "monster.undead.3rd-echelon.statblock.blood-starved-vampire",
+  "kind": "monster",
+  "name": "Изголодавшийся по крови вампир",
+  "markdown": "| Нежить, Вампир | - | Уровень 7 | Миньон, Налётчик | Боевая ценность 9 за четырёх миньонов |\n|:--------------------------------------:|:---------------------:|:-----------------:|:-------------------------------------:|:---------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **12**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **Порча 7, яд 7**<br>Иммунитет | **Лазание**<br>Движение | - | **Бонус +3 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+4**<br>Мощь | **+1**<br>Ловкость | **-3**<br>Разум | **+1**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Кормёжка в исступлении ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 6 урона\n> - **17+:** 7 урона; при М < 4 цель получает состояние [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (КсХ)\n>\n> **Эффект:** Если цель, у которой от этой способности началось [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding), уже [кровоточит](scc.v1:mcdm.heroes.v1/condition/bleeding), вместо этого она падает [Лежащей](scc.v1:mcdm.heroes.v1/condition/prone) и не может встать до конца своего следующего хода.\n\n> ⭐️ **Неутолимая жажда крови**\n>\n> Скорость изголодавшегося вампира равна 10, пока любое существо в пределах 10 клеток от него [кровоточит](scc.v1:mcdm.heroes.v1/condition/bleeding). В свой ход вампир обязан применить «Кормёжку в исступлении» против [кровоточащего](scc.v1:mcdm.heroes.v1/condition/bleeding) существа, если может.\n",
+  "source": {
+    "articleId": "monsters.monster.undead.3rd-echelon.statblock.blood-starved-vampire",
+    "path": "Monsters/monster/undead/3rd-echelon/statblock/blood-starved-vampire.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/blood-starved-vampire",
+  "originalName": "Blood-Starved Vampire",
+  "originalDescription": "|            Undead, Vampire             |           -           |      Level 7      |            Minion Harrier             | EV 9 for four minions |\n|:--------------------------------------:|:---------------------:|:-----------------:|:-------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |    **6**<br>Speed     | **12**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Corruption 7, poison 7**<br>Immunity | **Climb**<br>Movement |         -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|            **+4**<br>Might             |   **+1**<br>Agility   | **-3**<br>Reason  |          **+1**<br>Intuition          |  **-3**<br>Presence   |\n\n> 🗡 **Feeding Frenzy ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage\n> - **17+:** 7 damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n>\n> **Effect:** If a target made [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way is already [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), they are instead knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand until the end of their next turn.\n\n> ⭐️ **Unslakable Bloodthirst**\n>\n> The blood-starved vampire has speed 10 while any creature within 10 squares of them is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). The vampire must use Feeding Frenzy against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature on their turn if they are able to.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/3rd-echelon/statblock/blood-starved-vampire.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Вампир"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.4th-echelon.statblock.war-dog-hunter-killer",
+      "title": "Пёс войны: охотник-убийца",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/4th-echelon/statblock/war-dog-hunter-killer.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.4th-echelon.statblock/war-dog-hunter-killer",
+      "originalName": "War Dog Hunter-Killer",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 10      |                Minion Artillery                | EV 12 for four minions |\n|:---------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|       **1M**<br>Size        |  **5**<br>Speed   | **14**<br>Stamina |               **0**<br>Stability               |  **5**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **+4 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+1**<br>Might       | **+5**<br>Agility | **+3**<br>Reason  |              **+5**<br>Intuition               |   **+2**<br>Presence   |\n\n> 🏹 **Fuse-Iron Rocket ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target before the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) takes 5 fire damage.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the hunter-killer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 3d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/4th-echelon/statblock/war-dog-hunter-killer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.4th-echelon.statblock.war-dog-hunter-killer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.4th-echelon.statblock.war-dog-hunter-killer",
+      "kind": "monster",
+      "name": "Пёс войны: охотник-убийца",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны | - | Уровень 10 | Миньон Артиллерист | Боевая ценность 12 за четырех миньонов |\n|:---------------------------:|:-------------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **14**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+4 к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+5**<br>Ловкость | **+3**<br>Разум | **+5**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Ракета с железным сердечником ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 5 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** 8 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 10 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n>\n> **Эффект:** Каждый враг, [смежный](#/catalog/glossary#term-glossary.adjacent) с целью до [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement), получает 5 урона огнем.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) охотника-убийцы снижается до 0, его ошейник верности взрывается и наносит 3d6 урона каждому [смежному](#/catalog/glossary#term-glossary.adjacent) врагу и объекту.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.4th-echelon.statblock.war-dog-hunter-killer",
+        "path": "Monsters/monster/war-dog/4th-echelon/statblock/war-dog-hunter-killer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.4th-echelon.statblock/war-dog-hunter-killer",
+      "originalName": "War Dog Hunter-Killer",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 10      |                Minion Artillery                | EV 12 for four minions |\n|:---------------------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:----------------------:|\n|       **1M**<br>Size        |  **5**<br>Speed   | **14**<br>Stamina |               **0**<br>Stability               |  **5**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **+4 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness    |\n|       **+1**<br>Might       | **+5**<br>Agility | **+3**<br>Reason  |              **+5**<br>Intuition               |   **+2**<br>Presence   |\n\n> 🏹 **Fuse-Iron Rocket ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target before the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) takes 5 fire damage.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the hunter-killer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 3d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/4th-echelon/statblock/war-dog-hunter-killer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

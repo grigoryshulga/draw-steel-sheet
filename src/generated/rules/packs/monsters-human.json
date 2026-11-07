@@ -1,0 +1,1294 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.human",
+      "title": "Люди",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/group/human.md",
+      "originalId": "mcdm.monsters.v1/monster.group/human",
+      "originalName": "Humans",
+      "originalDescription": "Humans flourish in every habitable part of the world, from inviting coastal cities to unforgiving mountainous terrain. While most humans live quietly in peaceful communities, some are drawn to adventure by an unquenchable thirst for excitement or power.\n\n#### Villains and Heroes\n\nRecognizing their limited lifespans, humans often set their eyes on immortality. They unfurl empires at the tip of a sword, sacrifice lives to erect grand monuments, and even aspire to godhood, all in hopes that their names will be remembered forever.\n\nViolence and greed are close cousins in the human family. Those with power and wealth often strive for more with might or magic. Others turn to theft, sometimes driven to desperation by rapacious neighbors. Travelers in human lands are likely to encounter robbers and barons both seeking to exact a toll.\n\nOther humans pursue power more subtly, turning their cunning toward selfish ends. When ambitions exceed circumstances, there is always some ancient evil power to call on. Cultists seek fell power in exchange for service, sacrificing to forbidden gods and courting apocalypse.\n\nFortunately, many humans devote themselves to righting wrongs and reshaping the world for the better. Human heroes plunge themselves into danger time and time again, standing against natural and supernatural perils in pursuit of justice.\n\n#### Risks and Rewards\n\nHumans devote as much attention to games and gambling as to more serious pursuits. Perhaps this competitive nature explains their renowned knack for seizing the moment—knowing when to risk all on a throw of the dice. Whether in sport or battle, humans quickly spot their opponent's mistakes and seize the advantage.\n\nHumans see unrealized potential everywhere, whether envisioning an untamed forest transformed into a prosperous village, or an ancient dungeon yielding chests filled with coins. Pursuing such ambitions might end in catastrophe, but for these gamblers, it's a game worth playing.\n\n#### Swords for Hire\n\nWith an appetite for warfare and gold, human adventurers are well represented in most mercenary bands. A human mercenary makes a stout ally... if you can afford their price.\n\n#### Connected to the Natural World\n\nHumans are connected to the natural world in a way that many other folk are not. As such, they have an uncanny knack for detecting when nearby creatures, objects, and phenomena have been created by magic and psionics. This same sense allows them to resist supernatural effects.\n\n#### Human Languages\n\nMost humans speak Caelian and one Vaslorian human language.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/human.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.human"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.monster.human.statblock.giant-hawk",
+          "title": "Гигантский ястреб"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-apprentice-mage",
+          "title": "Человек-ученик мага"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-archer",
+          "title": "Человек-лучник"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-bandit-chief",
+          "title": "Человек-главарь банды"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-blackguard",
+          "title": "Человек-чёрный страж"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-brawler",
+          "title": "Человек-забияка"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-death-acolyte",
+          "title": "Человек-адепт смерти"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-death-cultist",
+          "title": "Человек-культист смерти"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-guard",
+          "title": "Человек-стражник"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-knave",
+          "title": "Человек-негодяй"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-raider",
+          "title": "Человек-налётчик"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-rogue",
+          "title": "Человек-разбойник"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-scoundrel",
+          "title": "Человек-пройдоха"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-storm-mage",
+          "title": "Человек-маг бури"
+        },
+        {
+          "id": "monsters.monster.human.statblock.human-trickshot",
+          "title": "Человек-трюковой стрелок"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.human-malice",
+      "title": "Раздор людей",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/human-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.human/human-malice",
+      "originalName": "Human Malice",
+      "originalDescription": "At the start of any human's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Alchemical Device (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 corruption damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 corruption damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> ⭐️ **Exploit Opening (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each human acting this turn gains an edge on abilities until the end of their turn, or has a double edge on any ability that targets an enemy affected by a condition.\n\n> ⭐️ **Staying Power (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) human in the encounter regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to 5 times their level.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/human-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.human-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.giant-hawk",
+      "title": "Гигантский ястреб",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/giant-hawk.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/giant-hawk",
+      "originalName": "Giant Hawk",
+      "originalDescription": "|   Animal, Human   |          -          |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **5**<br>Speed    | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-3**<br>Reason  |  **+1**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Talons (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 👤 **Dive (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The hawk moves up to their speed.\n\n> ⭐️ **Mounted Platform**\n>\n> Once per turn when the hawk moves, any creature riding the hawk can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) during or after the movement.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/giant-hawk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Человек"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.giant-hawk"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-apprentice-mage",
+      "title": "Человек-ученик мага",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-apprentice-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-apprentice-mage",
+      "originalName": "Human Apprentice Mage",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 2      |                Minion Controller                | EV 4 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **4**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> 🏹 **Lightning Strike (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 lightning damage\n> - **12-16:** 3 lightning damage\n> - **17+:** 5 lightning damage\n>\n> **Effect:** If the apprentice mage doesn't use a maneuver or a move action this turn, the target is also [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n\n> ⭐️ **Supernatural Insight**\n>\n> The apprentice mage ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-apprentice-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-apprentice-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-archer",
+      "title": "Человек-лучник",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-archer.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-archer",
+      "originalName": "Human Archer",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |   **0**<br>Presence   |\n\n> 🏹 **Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Supernatural Insight**\n>\n> The archer ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-archer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-archer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-bandit-chief",
+      "title": "Человек-главарь банды",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-bandit-chief.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-bandit-chief",
+      "originalName": "Human Bandit Chief",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 3       |        Leader         |        EV 20         |\n|:---------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Corruption 4, psychic 4**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **+3**<br>Agility |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Whip and Magic Longsword (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 2**                   | **🎯 Two enemies or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** Any target who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the bandit chief after the power roll is resolved takes 3 corruption damage.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target.\n\n> 🗡 **Kneel, Peasant!**\n>\n> | **Melee**      |     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------:|\n> | **📏 Melee 1** | **🎯 One enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword, loses the Melee keyword, and is a 1 burst that targets each enemy in the area.\n\n> ❗️ **Bloodstones**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The bandit chief makes a power roll.\n>\n> **Effect:** The bandit chief takes 5 corruption damage and increases the outcome of the power roll by one tier. This damage can't be reduced in any way.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the bandit chief can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Supernatural Insight**\n>\n> The bandit chief ignores concealment if it's granted by a supernatural effect.\n\n> ☠️ **Shoot! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                                  **-** |\n> |-----------------|---------------------------------------:|\n> | **📏 10 burst** | **🎯 Each artillery ally in the area** |\n>\n> **Effect:** Each target makes a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Form Up! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. Additionally, until the end of the encounter, while the bandit chief or any ally is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a target, they have damage immunity 2.\n\n> ☠️ **Lead From the Front ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The bandit chief [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 10 squares regardless of their speed. During or after this movement, they can use their Whip and Magic Longsword against up to four targets. Additionally, one ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against that target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-bandit-chief.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-bandit-chief"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-blackguard",
+      "title": "Человек-чёрный страж",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-blackguard.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-blackguard",
+      "originalName": "Human Blackguard",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |        Leader         |        EV 12         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+3**<br>Might             | **+2**<br>Agility | **+2**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> ❇️ **Zweihander Swing (Signature Ability)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** One ally within 10 squares can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** One ally within 10 squares can use their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) instead.\n\n> 🏹 **You!**\n>\n> | **Ranged**       |     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------:|\n> | **📏 Ranged 10** | **🎯 One enemy** |\n>\n> **Effect:** The target is marked until the start of the blackguard's next turn. The blackguard and each of their allies gain an edge on abilities used against targets marked by the blackguard.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the blackguard can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Supernatural Insight**\n>\n> The blackguard ignores concealment if it's granted by a supernatural effect.\n\n> ❗️ **Parry!**\n>\n> | **Melee**      |    **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|------------------------:|\n> | **📏 Melee 1** | **🎯 Self or one ally** |\n>\n> **Trigger:** A creature makes a strike against the blackguard or an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n>\n> **Effect:** The damage is halved.\n\n> ☠️ **Advance! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **-**       |       **-** | \n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The blackguard [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. During or after this movement, they can use their Zweihander Swing twice.\n\n> ☠️ **Back! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** The blackguard [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) each target up to 5 squares.\n\n> ☠️ **I Can Throw My Blade and So Should You! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic, Ranged, Weapon** |                         **-** |\n> |---------------------------------|------------------------------:|\n> | **📏 3 cube within 5**          | **🎯 Each enemy in the area** |\n>\n> **Effect:** The blackguard uses their Zweihander Swing against each target. Each ally within 5 squares of the area can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target (one target per ally).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-blackguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-blackguard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-brawler",
+      "title": "Человек-забияка",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-brawler.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-brawler",
+      "originalName": "Human Brawler",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |     Platoon Brute     |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Haymaker (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver\n>\n> **Effect:** A target who is already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) takes an extra 2 damage.\n\n> 🗡 **Throw (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-------------------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature grabbed by the brawler** |\n>\n> **Effect:** The brawler [pushes](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 5 squares.\n\n> ⭐️ **Shoot the Hostage**\n>\n> The brawler halves the damage from any strike if they have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) of size 1S or larger. The [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature or object takes the remaining damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The brawler ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-brawler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-brawler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-death-acolyte",
+      "title": "Человек-адепт смерти",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-death-acolyte.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-death-acolyte",
+      "originalName": "Human Death Acolyte",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |                  Minion Hexer                   | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> 🏹 **Necrotic Bolt (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 corruption damage\n> - **12-16:** 2 corruption damage\n> - **17+:** 3 corruption damage\n>\n> **Effect:** One creature within 5 squares regains 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Supernatural Insight**\n>\n> The death acolyte ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-death-acolyte.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-death-acolyte"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-death-cultist",
+      "title": "Человек-культист смерти",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-death-cultist.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-death-cultist",
+      "originalName": "Human Death Cultist",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |    Platoon Support    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> ⚔️ **Death Scythe (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**              | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 corruption damage\n> - **12-16:** 9 corruption damage\n> - **17+:** 12 corruption damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The death cultist regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ❇️ **Rise, My Minions (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) per [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion))**\n>\n> | **Area**       |                        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------------:|\n> | **📏 5 burst** | **🎯 Each dead [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) in the area** |\n>\n> **Effect:** Each target who died during this encounter revives with full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). They immediately die at the end of the encounter or if the death cultist is killed. A target can be revived multiple times by this ability.\n\n> ⭐️ **Supernatural Insight**\n>\n> The death cultist ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-death-cultist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-death-cultist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-guard",
+      "title": "Человек-стражник",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-guard.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-guard",
+      "originalName": "Human Guard",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |             Minion Brute              | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **5**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Halberd (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the guard is flanked, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a different target [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ⭐️ **Supernatural Insight**\n>\n> The guard ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-guard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-guard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-knave",
+      "title": "Человек-негодяй",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-knave.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-knave",
+      "originalName": "Human Knave",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Morningstar and Javelin (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 the target has a double bane on their next power roll\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT).\n\n> ⭐️ **I'm Your Enemy**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature the knave has [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) deals damage to a creature other than the knave, the knave can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Overwhelm**\n>\n> An enemy who starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the knave can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Supernatural Insight**\n>\n> The knave ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-knave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-knave"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-raider",
+      "title": "Человек-налётчик",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-raider.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-raider",
+      "originalName": "Human Raider",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🗡 **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If this ability is used as part of a charge, the raider can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using the ability.\n\n> ⭐️ **Supernatural Insight**\n>\n> The raider ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-raider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-raider"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-rogue",
+      "title": "Человек-разбойник",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-rogue.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-rogue",
+      "originalName": "Human Rogue",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Concealed Dagger (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If the rogue is disguised or hidden when they use this ability, it deals an extra 3 damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The rogue ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-rogue.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-rogue"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-scoundrel",
+      "title": "Человек-пройдоха",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-scoundrel.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-scoundrel",
+      "originalName": "Human Scoundrel",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Rapier and Dagger (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 🌀 **Dagger Storm (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------|----------------:|\n> | **📏 -** |        **🎯 -** |\n>\n> The scoundrel uses Rapier and Dagger against up to three targets. They [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares before or after each strike.\n\n> ⭐️ **Supernatural Insight**\n>\n> The scoundrel ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-scoundrel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-scoundrel"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-storm-mage",
+      "title": "Человек-маг бури",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-storm-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-storm-mage",
+      "originalName": "Human Storm Mage",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 3      |  Platoon Controller   |        EV 10         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Corruption 3, psychic 3**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **0**<br>Agility  | **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Lightning Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 lightning damage\n> - **12-16:** 10 lightning damage\n> - **17+:** 13 lightning damage\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability loses the Ranged and Strike keywords, takes the Area keyword, and is a 10 x 1 line within 15 that targets each enemy and object in the area.\n\n> 🔳 **Gust of Wind (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|-----------------------------------------:|\n> | **📏 5 cube within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The gust of wind disperses gas or vapor and extinguishes any flames, including supernatural effects.\n\n> ⭐️ **Arcane Shield**\n>\n> Any melee ability targeting the storm mage takes a bane.\n>\n> Additionally, whenever the mage takes damage from an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy, the enemy takes 2 lightning damage, and if they have R < 1 they are [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares.\n\n> ⭐️ **Supernatural Insight**\n>\n> The storm mage ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-storm-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-storm-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.human.statblock.human-trickshot",
+      "title": "Человек-трюковой стрелок",
+      "chapter": "23. Бестиарий",
+      "group": "Люди",
+      "path": "Monsters/monster/human/statblock/human-trickshot.md",
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-trickshot",
+      "originalName": "Human Trickshot",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Trick Crossbow (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 15**       | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n>\n> **Effect:** This ability ignores cover and concealment.\n>\n> **3 Malice:** This ability targets one additional target.\n\n> ⭐️ **Supernatural Insight**\n>\n> The trickshot ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-trickshot.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.human.statblock.human-trickshot"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.human",
+          "title": "Люди"
+        },
+        {
+          "id": "monsters.monster.human.human-malice",
+          "title": "Раздор людей"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.human",
+      "kind": "monster-lore",
+      "name": "Люди",
+      "markdown": "Люди процветают во всех пригодных для жизни уголках мира — от гостеприимных прибрежных городов до суровых горных краёв. Большинство людей живут тихо и мирно, но некоторых к приключениям влечёт неутолимая жажда острых ощущений или власти.\n\n#### Злодеи и герои\n\nПомня о своей короткой жизни, люди часто стремятся обрести бессмертие. Они создают империи остриём меча, жертвуют жизнями ради возведения величественных памятников и даже мечтают стать богами — всё в надежде, что их имена останутся в памяти навсегда.\n\nНасилие и жадность в человеческом роду — близкие родственники. Обладая властью и богатством, люди часто стремятся получить ещё больше — силой или магией. Другие обращаются к воровству, порой доведённые до отчаяния алчными соседями. Путешественники в человеческих землях могут встретить и разбойников, и баронов, жаждущих взимать плату за проход.\n\nДругие люди добиваются власти более тонкими способами, направляя свою хитрость на достижение эгоистичных целей. Когда амбиции превосходят возможности, всегда найдётся древняя злая сила, к которой можно воззвать. Культисты ищут запретную мощь в обмен на службу, приносят жертвы запретным богам и заигрывают с апокалипсисом.\n\nК счастью, многие люди посвящают себя борьбе с несправедливостью и переменам к лучшему. Герои-люди снова и снова бросаются навстречу опасности, противостоя природным и сверхъестественным угрозам в погоне за справедливостью.\n\n#### Риски и награды\n\nЛюди уделяют играм и азартным развлечениям не меньше внимания, чем более серьёзным занятиям. Возможно, их соревновательный нрав объясняет знаменитое умение ловить момент — понимать, когда стоит поставить всё на бросок костей. Будь то спорт или бой, люди быстро замечают ошибки противника и пользуются преимуществом.\n\nЛюди повсюду видят нераскрытый потенциал: будь то необузданный лес, который можно превратить в процветающую деревню, или древнее подземелье, где могут найтись сундуки с монетами. Погоня за такими мечтами может закончиться катастрофой, но для этих игроков игра стоит свеч.\n\n#### Наёмные мечи\n\nИз-за страсти к войне и золоту людей-приключенцев можно встретить в большинстве отрядов наёмников. Человек-наёмник — надёжный союзник… если вы можете заплатить за его услуги.\n\n#### Связь с природой\n\nЛюди связаны с природой так, как многие другие народы не связаны. Благодаря этому они с необычайной чуткостью распознают, когда находящиеся поблизости существа, объекты и явления созданы магией или псионикой. Это же чутьё помогает им сопротивляться сверхъестественным эффектам.\n\n#### Языки людей\n\nБольшинство людей говорят на кэлианском и одном из человеческих языков Васлории.\n",
+      "source": {
+        "articleId": "monsters.monster.group.human",
+        "path": "Monsters/monster/group/human.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/human",
+      "originalName": "Humans",
+      "originalDescription": "Humans flourish in every habitable part of the world, from inviting coastal cities to unforgiving mountainous terrain. While most humans live quietly in peaceful communities, some are drawn to adventure by an unquenchable thirst for excitement or power.\n\n#### Villains and Heroes\n\nRecognizing their limited lifespans, humans often set their eyes on immortality. They unfurl empires at the tip of a sword, sacrifice lives to erect grand monuments, and even aspire to godhood, all in hopes that their names will be remembered forever.\n\nViolence and greed are close cousins in the human family. Those with power and wealth often strive for more with might or magic. Others turn to theft, sometimes driven to desperation by rapacious neighbors. Travelers in human lands are likely to encounter robbers and barons both seeking to exact a toll.\n\nOther humans pursue power more subtly, turning their cunning toward selfish ends. When ambitions exceed circumstances, there is always some ancient evil power to call on. Cultists seek fell power in exchange for service, sacrificing to forbidden gods and courting apocalypse.\n\nFortunately, many humans devote themselves to righting wrongs and reshaping the world for the better. Human heroes plunge themselves into danger time and time again, standing against natural and supernatural perils in pursuit of justice.\n\n#### Risks and Rewards\n\nHumans devote as much attention to games and gambling as to more serious pursuits. Perhaps this competitive nature explains their renowned knack for seizing the moment—knowing when to risk all on a throw of the dice. Whether in sport or battle, humans quickly spot their opponent's mistakes and seize the advantage.\n\nHumans see unrealized potential everywhere, whether envisioning an untamed forest transformed into a prosperous village, or an ancient dungeon yielding chests filled with coins. Pursuing such ambitions might end in catastrophe, but for these gamblers, it's a game worth playing.\n\n#### Swords for Hire\n\nWith an appetite for warfare and gold, human adventurers are well represented in most mercenary bands. A human mercenary makes a stout ally... if you can afford their price.\n\n#### Connected to the Natural World\n\nHumans are connected to the natural world in a way that many other folk are not. As such, they have an uncanny knack for detecting when nearby creatures, objects, and phenomena have been created by magic and psionics. This same sense allows them to resist supernatural effects.\n\n#### Human Languages\n\nMost humans speak Caelian and one Vaslorian human language.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/human.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.human.human-malice",
+      "kind": "monster-feature",
+      "name": "Раздор людей",
+      "markdown": "В начале хода любого человека вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Алхимическое устройство (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** |                             **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 10**  | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона Порчей; Л < 0 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона Порчей; Л < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона Порчей; Л < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Особое:** эту способность не может использовать [миньон](#/codex/monsters.rule.organization.minion).\n\n> ⭐️ **Использовать слабину (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый человек, действующий в этот ход, получает преимущество на проверки способностей до конца своего хода; если же способность нацелена на врага, находящегося под действием состояния, он получает двойное преимущество.\n\n> ⭐️ **Стойкость (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый человек в столкновении, кроме [миньонов](#/codex/monsters.rule.organization.minion), восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном 5, умноженным на его уровень.\n",
+      "source": {
+        "articleId": "monsters.monster.human.human-malice",
+        "path": "Monsters/monster/human/human-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human/human-malice",
+      "originalName": "Human Malice",
+      "originalDescription": "At the start of any human's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Alchemical Device (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 corruption damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 corruption damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> ⭐️ **Exploit Opening (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each human acting this turn gains an edge on abilities until the end of their turn, or has a double edge on any ability that targets an enemy affected by a condition.\n\n> ⭐️ **Staying Power (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) human in the encounter regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to 5 times their level.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/human-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.human.statblock.giant-hawk",
+      "kind": "monster",
+      "name": "Гигантский ястреб",
+      "markdown": "| Животное, Человек | - | Уровень 1 | Взвод, Скакун | Боевая ценность 6 |\n|:-----------------:|:---:|:---------:|:-------------:|:----------------------:|\n| **2**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-3**<br>Разум | **+1**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Когти (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона; [Захват](#/catalog/glossary#term-glossary.grabbed)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** если эта способность получает преимущество или двойное преимущество, она наносит ещё 2 урона.\n\n> 👤 **Пикирование (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** ястреб перемещается на расстояние до своей Скорости.\n\n> ⭐️ **Платформа для всадника**\n>\n> Один раз за ход, когда ястреб перемещается, любое существо, едущее на нём верхом, может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) во время или после перемещения.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.giant-hawk",
+        "path": "Monsters/monster/human/statblock/giant-hawk.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/giant-hawk",
+      "originalName": "Giant Hawk",
+      "originalDescription": "|   Animal, Human   |          -          |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **5**<br>Speed    | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-3**<br>Reason  |  **+1**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Talons (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 👤 **Dive (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The hawk moves up to their speed.\n\n> ⭐️ **Mounted Platform**\n>\n> Once per turn when the hawk moves, any creature riding the hawk can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) during or after the movement.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/giant-hawk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Животное",
+          "Человек"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-apprentice-mage",
+      "kind": "monster",
+      "name": "Человек-ученик мага",
+      "markdown": "| Человек, Гуманоид | - | Уровень 2 | Миньон, Контроллер | Боевая ценность 4 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:------------------:|:--------------------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 2, Психический 2**<br>Иммунитет | **-**<br>Движение | - | **+5 к дальности дистанционных атак**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Молниеносный удар (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний 10**         | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона молнией\n> - **12-16:** 3 урона молнией\n> - **17+:** 5 урона молнией\n>\n> **Эффект:** если ученик мага в этот ход не использует манёвр или действие движения, цель также получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Ученик мага игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-apprentice-mage",
+        "path": "Monsters/monster/human/statblock/human-apprentice-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-apprentice-mage",
+      "originalName": "Human Apprentice Mage",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 2      |                Minion Controller                | EV 4 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **4**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> 🏹 **Lightning Strike (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 lightning damage\n> - **12-16:** 3 lightning damage\n> - **17+:** 5 lightning damage\n>\n> **Effect:** If the apprentice mage doesn't use a maneuver or a move action this turn, the target is also [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n\n> ⭐️ **Supernatural Insight**\n>\n> The apprentice mage ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-apprentice-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-archer",
+      "kind": "monster",
+      "name": "Человек-лучник",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Артиллерист | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:------------------:|:--------------------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **+5 к дальности дистанционных атак**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Арбалет (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Дальний 10**          | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Лучник игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-archer",
+        "path": "Monsters/monster/human/statblock/human-archer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-archer",
+      "originalName": "Human Archer",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |   **0**<br>Presence   |\n\n> 🏹 **Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> ⭐️ **Supernatural Insight**\n>\n> The archer ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-archer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-bandit-chief",
+      "kind": "monster",
+      "name": "Человек-главарь банды",
+      "markdown": "| Человек, Гуманоид | - | Уровень 3 | Лидер | Боевая ценность 20 |\n|:-----------------:|:---:|:---------:|:-----:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **120**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **Порча 4, Психический 4**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+3**<br>Ловкость | **+2**<br>Разум | **+3**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Хлыст и магический длинный меч (Знаковая способность)**\n>\n> | **Магия, Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Ближний 2**                 | **🎯 Два врага или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 12 урона; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 15 урона; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 3\n>\n> **Эффект:** каждая цель, оказавшаяся [смежной](#/catalog/glossary#term-glossary.adjacent) с главарём банды после разрешения броска силы, получает 3 урона Порчей.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** способность нацеливается ещё на одну цель.\n\n> 🗡 **На колени, крестьянин!**\n>\n> | **Ближний** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------------:|\n> | **📏 Ближний 1** | **🎯 Один враг** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1; М < 1 [Сбит с ног](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; М < 2 [Сбит с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; М < 3 [Сбит с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** способность получает ключевое слово «Область», теряет ключевое слово «Ближний» и становится взрывом 1, нацеленным на каждого врага в области.\n\n> ❗️ **Кровавые камни**\n>\n> | **Магия** | **[Действие по триггеру](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------|---------------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Условие:** главарь банды совершает бросок силы.\n>\n> **Эффект:** главарь банды получает 5 урона Порчей и повышает результат броска силы на один тир. Этот урон нельзя уменьшить никаким способом.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода главарь банды может получить 5 урона, чтобы прекратить один действующий на него эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Главарь банды игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n\n> ☠️ **Огонь! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область** | **-** |\n> |-------------|-------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник-артиллерист в области** |\n>\n> **Эффект:** каждая цель совершает [свободный удар дальнего боя](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **В строй! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область** | **-** |\n> |-------------|-------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Кроме того, до конца столкновения, пока главарь банды или любой его союзник находится [смежно](#/catalog/glossary#term-glossary.adjacent) с целью, они обладают иммунитетом к урону 2.\n\n> ☠️ **Веди их за собой! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-** | **-** |\n> |------|------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** главарь банды [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 10 клеток независимо от своей Скорости. Во время или после этого перемещения он может применить «Хлыст и магический длинный меч» против не более чем четырёх целей. Кроме того, один союзник, [смежный](#/catalog/glossary#term-glossary.adjacent) с каждой целью, может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по этой цели.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-bandit-chief",
+        "path": "Monsters/monster/human/statblock/human-bandit-chief.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-bandit-chief",
+      "originalName": "Human Bandit Chief",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 3       |        Leader         |        EV 20         |\n|:---------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Corruption 4, psychic 4**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **+3**<br>Agility |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Whip and Magic Longsword (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 2**                   | **🎯 Two enemies or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 15 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** Any target who is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the bandit chief after the power roll is resolved takes 3 corruption damage.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target.\n\n> 🗡 **Kneel, Peasant!**\n>\n> | **Melee**      |     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------:|\n> | **📏 Melee 1** | **🎯 One enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 3 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword, loses the Melee keyword, and is a 1 burst that targets each enemy in the area.\n\n> ❗️ **Bloodstones**\n>\n> | **Magic**   | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The bandit chief makes a power roll.\n>\n> **Effect:** The bandit chief takes 5 corruption damage and increases the outcome of the power roll by one tier. This damage can't be reduced in any way.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the bandit chief can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Supernatural Insight**\n>\n> The bandit chief ignores concealment if it's granted by a supernatural effect.\n\n> ☠️ **Shoot! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**        |                                  **-** |\n> |-----------------|---------------------------------------:|\n> | **📏 10 burst** | **🎯 Each artillery ally in the area** |\n>\n> **Effect:** Each target makes a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Form Up! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. Additionally, until the end of the encounter, while the bandit chief or any ally is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a target, they have damage immunity 2.\n\n> ☠️ **Lead From the Front ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The bandit chief [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 10 squares regardless of their speed. During or after this movement, they can use their Whip and Magic Longsword against up to four targets. Additionally, one ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against that target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-bandit-chief.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-blackguard",
+      "kind": "monster",
+      "name": "Человек-чёрный страж",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:-----------------:|:---:|:---------:|:-----:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **80**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 2, Психический 2**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+2**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ❇️ **Удар двуручным мечом (Знаковая способность)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Взрыв 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; М < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона; М < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 8 урона; М < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** один союзник в пределах 10 клеток может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** вместо этого один союзник в пределах 10 клеток может использовать свою [знаковую способность](#/catalog/glossary#term-glossary.signature-ability).\n\n> 🏹 **Ты!**\n>\n> | **Дальний** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------------:|\n> | **📏 Дальний 10** | **🎯 Один враг** |\n>\n> **Эффект:** цель помечена до начала следующего хода чёрного стража. Чёрный страж и каждый его союзник получают преимущество на проверки способностей против целей, помеченных чёрным стражем.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода чёрный страж может получить 5 урона, чтобы прекратить один действующий на него эффект, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Чёрный страж игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n\n> ❗️ **Парирование!**\n>\n> | **Ближний** | **[Действие по триггеру](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|------------------------:|\n> | **📏 Ближний 1** | **🎯 Себя или одного союзника** |\n>\n> **Условие:** существо совершает удар по чёрному стражу или по союзнику, [смежному](#/catalog/glossary#term-glossary.adjacent) с ним.\n>\n> **Эффект:** урон уменьшается вдвое.\n\n> ☠️ **Вперёд! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **-** | **-** |\n> |-------|------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** чёрный страж [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Во время или после этого перемещения он может дважды использовать «Удар двуручным мечом».\n\n> ☠️ **Назад! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область, Магия** | **-** |\n> |-------------------|------:|\n> | **📏 Взрыв 5** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** чёрный страж [швыряет](#/catalog/glossary#term-glossary.forced-movement) каждую цель на расстояние до 5 клеток.\n\n> ☠️ **Я могу метнуть клинок, и вы тоже! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область, Магия, Дальний, Оружие** | **-** |\n> |-------------------------------------|------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** чёрный страж использует «Удар двуручным мечом» против каждой цели. Затем каждый союзник в пределах 5 клеток от области может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по цели (одна цель на союзника).\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-blackguard",
+        "path": "Monsters/monster/human/statblock/human-blackguard.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-blackguard",
+      "originalName": "Human Blackguard",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |        Leader         |        EV 12         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+3**<br>Might             | **+2**<br>Agility | **+2**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> ❇️ **Zweihander Swing (Signature Ability)**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** One ally within 10 squares can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** One ally within 10 squares can use their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) instead.\n\n> 🏹 **You!**\n>\n> | **Ranged**       |     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------:|\n> | **📏 Ranged 10** | **🎯 One enemy** |\n>\n> **Effect:** The target is marked until the start of the blackguard's next turn. The blackguard and each of their allies gain an edge on abilities used against targets marked by the blackguard.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the blackguard can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Supernatural Insight**\n>\n> The blackguard ignores concealment if it's granted by a supernatural effect.\n\n> ❗️ **Parry!**\n>\n> | **Melee**      |    **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|------------------------:|\n> | **📏 Melee 1** | **🎯 Self or one ally** |\n>\n> **Trigger:** A creature makes a strike against the blackguard or an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n>\n> **Effect:** The damage is halved.\n\n> ☠️ **Advance! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **-**       |       **-** | \n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The blackguard [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. During or after this movement, they can use their Zweihander Swing twice.\n\n> ☠️ **Back! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 5 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** The blackguard [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) each target up to 5 squares.\n\n> ☠️ **I Can Throw My Blade and So Should You! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic, Ranged, Weapon** |                         **-** |\n> |---------------------------------|------------------------------:|\n> | **📏 3 cube within 5**          | **🎯 Each enemy in the area** |\n>\n> **Effect:** The blackguard uses their Zweihander Swing against each target. Each ally within 5 squares of the area can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a target (one target per ally).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-blackguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-brawler",
+      "kind": "monster",
+      "name": "Человек-забияка",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Взвод, Громила | Боевая ценность 6 |\n|:-----------------:|:---:|:---------:|:-------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Размашистый удар (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; М < 2 [Захват](#/catalog/glossary#term-glossary.grabbed), а цель получает помеху на маневр ускальзывания.\n>\n> **Эффект:** цель, уже находящаяся в состоянии [Захват](#/catalog/glossary#term-glossary.grabbed), получает ещё 2 урона.\n\n> 🗡 **Бросок (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо, схваченное забиякой** |\n>\n> **Эффект:** забияка [толкает](#/catalog/glossary#term-glossary.forced-movement) цель на расстояние до 5 клеток.\n\n> ⭐️ **Прикрываться заложником**\n>\n> Забияка получает вдвое меньше урона от любого удара, если он [схватил](#/catalog/glossary#term-glossary.grabbed) существо или объект размером 1S или больше. [Схваченное](#/catalog/glossary#term-glossary.grabbed) существо или объект получает оставшийся урон.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Забияка игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-brawler",
+        "path": "Monsters/monster/human/statblock/human-brawler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-brawler",
+      "originalName": "Human Brawler",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |     Platoon Brute     |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Haymaker (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and the target takes a bane on the Escape Grab maneuver\n>\n> **Effect:** A target who is already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) takes an extra 2 damage.\n\n> 🗡 **Throw (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-------------------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature grabbed by the brawler** |\n>\n> **Effect:** The brawler [pushes](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 5 squares.\n\n> ⭐️ **Shoot the Hostage**\n>\n> The brawler halves the damage from any strike if they have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) of size 1S or larger. The [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature or object takes the remaining damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The brawler ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-brawler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-death-acolyte",
+      "kind": "monster",
+      "name": "Человек-адепт смерти",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Проклинатель | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:--------------------:|:--------------------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **+5 к дальности дистанционных атак**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Некротический заряд (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Дальний 10** | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урона Порчей\n> - **12-16:** 2 урона Порчей\n> - **17+:** 3 урона Порчей\n>\n> **Эффект:** одно существо в пределах 5 клеток восстанавливает 1 [Выносливость](#/catalog/glossary#term-glossary.stamina).\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Адепт смерти игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-death-acolyte",
+        "path": "Monsters/monster/human/statblock/human-death-acolyte.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-death-acolyte",
+      "originalName": "Human Death Acolyte",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |                  Minion Hexer                   | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> 🏹 **Necrotic Bolt (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 corruption damage\n> - **12-16:** 2 corruption damage\n> - **17+:** 3 corruption damage\n>\n> **Effect:** One creature within 5 squares regains 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Supernatural Insight**\n>\n> The death acolyte ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-death-acolyte.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-death-cultist",
+      "kind": "monster",
+      "name": "Человек-культист смерти",
+      "markdown": "| Человек, Гуманоид | - | Уровень 2 | Взвод, Поддержка | Боевая ценность 8 |\n|:-----------------:|:---:|:---------:|:----------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 2, Психический 2**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⚔️ **Коса смерти (Знаковая способность)**\n>\n> | **Магия, Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Ближний 1 или Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона Порчей\n> - **12-16:** 9 урона Порчей\n> - **17+:** 12 урона Порчей; И < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** культист смерти восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном половине нанесённого урона.\n\n> ❇️ **Восстаньте, миньоны (1 [Раздор](#/codex/monsters.rule.monster.malice) за [миньона](#/codex/monsters.rule.organization.minion))**\n>\n> | **Область** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|------------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Каждый погибший [миньон](#/codex/monsters.rule.organization.minion) в области** |\n>\n> **Эффект:** каждая цель, погибшая в этом столкновении, оживает с полной [Выносливостью](#/catalog/glossary#term-glossary.stamina). Она немедленно погибает в конце столкновения или если культиста смерти убьют. Эта способность может оживлять цель неоднократно.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Культист смерти игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-death-cultist",
+        "path": "Monsters/monster/human/statblock/human-death-cultist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-death-cultist",
+      "originalName": "Human Death Cultist",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |    Platoon Support    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> ⚔️ **Death Scythe (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**              | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 corruption damage\n> - **12-16:** 9 corruption damage\n> - **17+:** 12 corruption damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The death cultist regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ❇️ **Rise, My Minions (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) per [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion))**\n>\n> | **Area**       |                        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------------:|\n> | **📏 5 burst** | **🎯 Each dead [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) in the area** |\n>\n> **Effect:** Each target who died during this encounter revives with full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). They immediately die at the end of the encounter or if the death cultist is killed. A target can be revived multiple times by this ability.\n\n> ⭐️ **Supernatural Insight**\n>\n> The death cultist ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-death-cultist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-guard",
+      "kind": "monster",
+      "name": "Человек-стражник",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Громила | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:---------------:|:--------------------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **+2 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Алебарда (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 2** | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** если стражник окружён, он может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по другой цели, [смежной](#/catalog/glossary#term-glossary.adjacent) с ним.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Стражник игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-guard",
+        "path": "Monsters/monster/human/statblock/human-guard.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-guard",
+      "originalName": "Human Guard",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |             Minion Brute              | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **5**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Halberd (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the guard is flanked, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a different target [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ⭐️ **Supernatural Insight**\n>\n> The guard ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-guard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-knave",
+      "kind": "monster",
+      "name": "Человек-негодяй",
+      "markdown": "| Человек, Гуманоид | - | Уровень 2 | Взвод, Защитник | Боевая ценность 8 |\n|:-----------------:|:---:|:---------:|:----------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **50**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 2, Психический 2**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Моргенштерн и дротик (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Ближний 1 или Дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; М < 2 следующий бросок силы цели совершается с двойной помехой\n>\n> **Эффект:** цель получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ).\n\n> ⭐️ **Я твой враг**\n>\n> Если [смежное](#/catalog/glossary#term-glossary.adjacent) с негодяем существо, на которое он наложил [Провокацию](#/catalog/glossary#term-glossary.taunted), наносит урон не негодяю, негодяй может совершить против него [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Подавление**\n>\n> Враг, начинающий ход [смежно](#/catalog/glossary#term-glossary.adjacent) с негодяем, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Негодяй игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-knave",
+        "path": "Monsters/monster/human/statblock/human-knave.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-knave",
+      "originalName": "Human Knave",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 2, psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **+2**<br>Might             | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Morningstar and Javelin (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 the target has a double bane on their next power roll\n>\n> **Effect:** The target is [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT).\n\n> ⭐️ **I'm Your Enemy**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature the knave has [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) deals damage to a creature other than the knave, the knave can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Overwhelm**\n>\n> An enemy who starts their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the knave can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Supernatural Insight**\n>\n> The knave ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-knave.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-raider",
+      "kind": "monster",
+      "name": "Человек-налётчик",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Налётчик | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:----------------:|:--------------------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество при ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Ручные топоры (Знаковая способность)**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** если эта способность используется в рамках атаки с рывком, налётчик может совершить [свободный удар дальнего боя](#/catalog/glossary#term-glossary.free-strike) перед её применением.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Налётчик игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-raider",
+        "path": "Monsters/monster/human/statblock/human-raider.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-raider",
+      "originalName": "Human Raider",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🗡 **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If this ability is used as part of a charge, the raider can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using the ability.\n\n> ⭐️ **Supernatural Insight**\n>\n> The raider ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-raider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-rogue",
+      "kind": "monster",
+      "name": "Человек-разбойник",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Миньон, Засадник | Боевая ценность 3 за четырёх миньонов |\n|:-----------------:|:---:|:---------:|:----------------:|:--------------------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество при ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> ⚔️ **Скрытый кинжал (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-----------------------------------------:|\n> | **📏 Ближний 1 или Дальний 5** | **🎯 По одному существу или объекту на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** если разбойник замаскирован или скрыт при использовании способности, она наносит ещё 3 урона.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Разбойник игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-rogue",
+        "path": "Monsters/monster/human/statblock/human-rogue.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-rogue",
+      "originalName": "Human Rogue",
+      "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Ambusher               | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> ⚔️ **Concealed Dagger (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or Ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If the rogue is disguised or hidden when they use this ability, it deals an extra 3 damage.\n\n> ⭐️ **Supernatural Insight**\n>\n> The rogue ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-rogue.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-scoundrel",
+      "kind": "monster",
+      "name": "Человек-пройдоха",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Взвод, Засадник | Боевая ценность 6 |\n|:-----------------:|:---:|:---------:|:----------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Рапира и кинжал (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** если эта способность получает преимущество или двойное преимущество, она наносит ещё 2 урона.\n\n> 🌀 **Шторм кинжалов (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------|----------------:|\n> | **📏 -** | **🎯 -** |\n>\n> Пройдоха использует «Рапиру и кинжал» против не более чем трёх целей. Перед каждым ударом или после него он может [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Пройдоха игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-scoundrel",
+        "path": "Monsters/monster/human/statblock/human-scoundrel.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-scoundrel",
+      "originalName": "Human Scoundrel",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Rapier and Dagger (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If this ability gains an edge or has a double edge, it deals an extra 2 damage.\n\n> 🌀 **Dagger Storm (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------|----------------:|\n> | **📏 -** |        **🎯 -** |\n>\n> The scoundrel uses Rapier and Dagger against up to three targets. They [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares before or after each strike.\n\n> ⭐️ **Supernatural Insight**\n>\n> The scoundrel ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-scoundrel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-storm-mage",
+      "kind": "monster",
+      "name": "Человек-маг бури",
+      "markdown": "| Человек, Гуманоид | - | Уровень 3 | Взвод, Контроллер | Боевая ценность 10 |\n|:-----------------:|:---:|:---------:|:----------------:|:-----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **Порча 3, Психический 3**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **+2**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Молния (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Дальний 15** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона молнией\n> - **12-16:** 10 урона молнией\n> - **17+:** 13 урона молнией\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** способность теряет ключевые слова «Дальний» и «Удар», получает ключевое слово «Область» и становится линией 10 x 1 в пределах 15, нацеленной на каждого врага и объект в области.\n\n> 🔳 **Порыв ветра (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------------------------:|\n> | **📏 Куб 5 в пределах 1** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 2; М < 0 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 4; М < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 6; М < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** порыв ветра рассеивает газ или пар и гасит любое пламя, в том числе вызванное сверхъестественными эффектами.\n\n> ⭐️ **Магический щит**\n>\n> Любая способность ближнего боя, нацеленная на мага бури, получает помеху.\n>\n> Кроме того, каждый раз, когда маг получает урон от [смежного](#/catalog/glossary#term-glossary.adjacent) врага, этот враг получает 2 урона молнией; если его Р < 1, он также [отталкивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 2 клеток.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Маг бури игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-storm-mage",
+        "path": "Monsters/monster/human/statblock/human-storm-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-storm-mage",
+      "originalName": "Human Storm Mage",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 3      |  Platoon Controller   |        EV 10         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Corruption 3, psychic 3**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **0**<br>Agility  | **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Lightning Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 lightning damage\n> - **12-16:** 10 lightning damage\n> - **17+:** 13 lightning damage\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability loses the Ranged and Strike keywords, takes the Area keyword, and is a 10 x 1 line within 15 that targets each enemy and object in the area.\n\n> 🔳 **Gust of Wind (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|-----------------------------------------:|\n> | **📏 5 cube within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The gust of wind disperses gas or vapor and extinguishes any flames, including supernatural effects.\n\n> ⭐️ **Arcane Shield**\n>\n> Any melee ability targeting the storm mage takes a bane.\n>\n> Additionally, whenever the mage takes damage from an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy, the enemy takes 2 lightning damage, and if they have R < 1 they are [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares.\n\n> ⭐️ **Supernatural Insight**\n>\n> The storm mage ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-storm-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.statblock.human-trickshot",
+      "kind": "monster",
+      "name": "Человек-трюковой стрелок",
+      "markdown": "| Человек, Гуманоид | - | Уровень 1 | Взвод, Артиллерист | Боевая ценность 6 |\n|:-----------------:|:---:|:---------:|:----------------:|:----------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **20**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Порча 1, Психический 1**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Трюковой арбалет (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Ближний 1 или Дальний 15** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона\n>\n> **Эффект:** эта способность игнорирует укрытие и сокрытие.\n>\n> **3 Раздора:** эта способность нацеливается ещё на одну цель.\n\n> ⭐️ **Сверхъестественная проницательность**\n>\n> Стрелок-трюкач игнорирует сокрытие, если оно вызвано сверхъестественным эффектом.\n",
+      "source": {
+        "articleId": "monsters.monster.human.statblock.human-trickshot",
+        "path": "Monsters/monster/human/statblock/human-trickshot.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human.statblock/human-trickshot",
+      "originalName": "Human Trickshot",
+      "originalDescription": "|             Human, Humanoid             |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size              |  **5**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Trick Crossbow (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 15**       | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n>\n> **Effect:** This ability ignores cover and concealment.\n>\n> **3 Malice:** This ability targets one additional target.\n\n> ⭐️ **Supernatural Insight**\n>\n> The trickshot ignores concealment if it's granted by a supernatural effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/statblock/human-trickshot.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Человек",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

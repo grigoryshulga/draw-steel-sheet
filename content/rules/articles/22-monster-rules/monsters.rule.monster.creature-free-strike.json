@@ -1,0 +1,23 @@
+{
+  "id": "monsters.rule.monster.creature-free-strike",
+  "title": "Свободные удары существ",
+  "chapter": "22. Монстры: правила ведущего",
+  "group": "Правила ведущего",
+  "path": "Monsters/rule/monster/creature-free-strike.md",
+  "originalId": "mcdm.monsters.v1/rule.monster/creature-free-strike",
+  "originalName": "Creature Free Strikes",
+  "originalDescription": "When a Director-controlled creature makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) (see Chapter 10: Combat in *Draw Steel: Heroes*), they don't roll. Instead, their stat block notes a Free Strike value representing the amount of damage they deal with either of the following:\n\n- A melee free strike with a distance of melee 1 or the melee distance of the creature's [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) (see below), whichever is higher.\n- A ranged free strike with a distance of 5 or the ranged distance of the creature's [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), whichever is higher.\n\nA creature's free strike has the [Strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) keyword, as well as the Magic, Psionic, or Weapon keywords if those keywords are found in the creature's signature ability. Additionally, if the creature's signature ability deals damage of a specific [damage type](scc.v1:mcdm.heroes.v1/rule.damage/damage-type), the free strike also uses that damage type. If the creature's signature ability deals more than one type of damage, you decide which [damage type](scc.v1:mcdm.heroes.v1/rule.damage/damage-type) the creature's free strike uses when the strike is made.\n\nCreature free strikes are a static number for two reasons. First, it keeps gameplay fast. You don't have to stop play to roll dice, and there's no chance of a creature rolling a [critical hit](scc.v1:mcdm.heroes.v1/rule.combat/critical-hit) and bogging things down further when it isn't their turn. Second, by keeping these static values relatively low, heroes are encouraged to take more risks when it really counts, even if that might result in them taking damage from a free strike.\n\n##### Creature Opportunity Attacks\n\nEven though a Director-controlled creature doesn't have to roll when they make a free strike, if that creature takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) against a target, they can't make an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against that target.\n\n> **Stat Block Self-Reference**\n> \n> Whenever a creature's stat block talks about enemies or allies, it refers to enemies or allies of that creature by default. (Chapter 5: Classes of *Draw Steel: Heroes* talks about enemies and allies.) Likewise, if a stat block refers to a [target](scc.v1:mcdm.heroes.v1/rule.combat/target) \"within x squares,\" that always means \"within x squares of this creature\" unless additional text says otherwise.",
+  "director": {
+    "section": "rules",
+    "sourcePath": "rule/monster/creature-free-strike.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "",
+    "recordType": "rule"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "rule.monster.creature-free-strike"
+    }
+  ]
+}

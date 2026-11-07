@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.minotaur.statblock.minotaur-lackey",
+      "title": "Минотавр-прислужник",
+      "chapter": "23. Бестиарий",
+      "group": "Минотавры",
+      "path": "Monsters/monster/minotaur/statblock/minotaur-lackey.md",
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-lackey",
+      "originalName": "Minotaur Lackey",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |            Minion Harrier             | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **13**<br>Stamina |          **2**<br>Stability           |  **3**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|       **+3**<br>Might        | **+4**<br>Agility |  **0**<br>Reason  |          **+1**<br>Intuition          |   **-1**<br>Presence   |\n\n> 🗡 **Horn Vault ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target who is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an obstacle and has M < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Minotaur Sense**\n>\n> The lackey can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-lackey.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.statblock.minotaur-lackey"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.minotaur",
+          "title": "Минотавры"
+        },
+        {
+          "id": "monsters.monster.minotaur.minotaur-malice",
+          "title": "Раздор минотавров"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.minotaur.statblock.minotaur-lackey",
+      "kind": "monster",
+      "name": "Минотавр-прислужник",
+      "markdown": "| Проклятый, Гуманоид, Минотавр |         -         |      Уровень 8      |            Миньон Налётчик             | Боевая ценность 10 для четырёх миньонов |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:-------------------------:|\n|        **2**<br>Размер         |  **8**<br>Скорость   | **13**<br>Выносливость |          **2**<br>Устойчивость           |  **3**<br>Свободный удар  |\n|      **-**<br>Иммунитет       | **-**<br>Движение |         -         |          **Бонус +2 к Скорости**<br>С капитаном |   **-**<br>Уязвимость    |\n|       **+3**<br>Мощь        | **+4**<br>Ловкость |  **0**<br>Разум  |          **+1**<br>Интуиция          |   **-1**<br>Присутствие   |\n\n> 🗡 **Роговой прыжок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2**                 | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона.\n> - **12-16:** 6 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1.\n> - **17+:** 8 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 3.\n>\n> **Эффект:** Если [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) приводит цель к препятствию, а её М < 3, она начинает [истекать кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.).\n\n> ⭐️ **Чутьё минотавра**\n>\n> При тестах на навигацию, поиск или выслеживание прислужник не может получить результат ниже тира 2.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.statblock.minotaur-lackey",
+        "path": "Monsters/monster/minotaur/statblock/minotaur-lackey.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur.statblock/minotaur-lackey",
+      "originalName": "Minotaur Lackey",
+      "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 8      |            Minion Harrier             | EV 10 for four minions |\n|:----------------------------:|:-----------------:|:-----------------:|:-------------------------------------:|:----------------------:|\n|        **2**<br>Size         |  **8**<br>Speed   | **13**<br>Stamina |          **2**<br>Stability           |  **3**<br>Free Strike  |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness    |\n|       **+3**<br>Might        | **+4**<br>Agility |  **0**<br>Reason  |          **+1**<br>Intuition          |   **-1**<br>Presence   |\n\n> 🗡 **Horn Vault ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 2**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** A target who is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an obstacle and has M < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends).\n\n> ⭐️ **Minotaur Sense**\n>\n> The lackey can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/statblock/minotaur-lackey.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "10 for four minions",
+        "size": "2",
+        "keywords": [
+          "Проклятый",
+          "Гуманоид",
+          "Минотавр"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

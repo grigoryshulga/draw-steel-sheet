@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-guerrilla",
+      "title": "Лесной эльф-партизан",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-guerrilla.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-guerrilla",
+      "originalName": "Wode Elf Guerrilla",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3      |   Platoon Ambusher    |        EV 10         |\n|:-----------------------:|:------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |    **+2**<br>Agility     |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Splinter Dagger (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The guerrilla can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target, and deals an additional 3 damage if both targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other.\n\n> ❗️ **Do Not Hesitate in the Wode (3 Malice)**\n>\n> | **Ranged**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|--------------------------:|\n> | **📏 Ranged 20** | **🎯 Self and each ally** |\n>\n> **Special:** The guerrilla must be acting as a captain.\n>\n> **Trigger:** An ally ends their turn while the guerrilla hasn't acted this round.\n>\n> **Effect:** The targets take their turn immediately. Each target gains an edge on abilities until the end of their turn.\n\n> ⭐️ **Into the Green**\n>\n> The guerrilla can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the guerrilla that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-guerrilla.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-guerrilla"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-guerrilla",
+      "kind": "monster",
+      "name": "Лесной эльф-партизан",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |            -             |      Уровень 3      | Взводный засадник | Боевая ценность 10 |\n|:-----------------------:|:------------------------:|:------------------:|:-----------------:|:---------------------:|\n|     **1M**<br>Размер     |      **7**<br>Скорость   | **50**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **Телепортация**<br>Движение |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        |    **+2**<br>Ловкость    | **0**<br>Разум       | **0**<br>Интуиция       | **+1**<br>Присутствие |\n\n> ⚔️ **Кинжал-щепка (знаковая способность)**\n>\n> | **Магия, ближний бой, дальний бой, удар, оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------------------------|----------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**             | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 14 урона; М < 2 — [кровоточит](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Партизан может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до 3 клеток.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Способность нацеливается ещё на одну цель и наносит дополнительно 3 урона, если обе цели [смежны](#/catalog/glossary#term-glossary.adjacent) друг с другом.\n\n> ❗️ **Не медлите в лесу (3 Раздора)**\n>\n> | **Дальний бой** | **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|-------------------------------:|\n> | **📏 Дальний бой 20** | **🎯 Партизан и каждый союзник** |\n>\n> **Особое:** Партизан должен действовать как капитан.\n>\n> **Условие:** Союзник заканчивает ход, пока партизан ещё не действовал в этом раунде.\n>\n> **Эффект:** Цели немедленно совершают свои ходы. До конца своего хода каждая цель получает преимущество на проверки способностей.\n\n> ⭐️ **В зелень**\n>\n> В конце каждого своего хода партизан может попытаться скрыться.\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на партизана, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-guerrilla",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-guerrilla.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-guerrilla",
+      "originalName": "Wode Elf Guerrilla",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3      |   Platoon Ambusher    |        EV 10         |\n|:-----------------------:|:------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |    **+2**<br>Agility     |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> ⚔️ **Splinter Dagger (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The guerrilla can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target, and deals an additional 3 damage if both targets are [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other.\n\n> ❗️ **Do Not Hesitate in the Wode (3 Malice)**\n>\n> | **Ranged**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|--------------------------:|\n> | **📏 Ranged 20** | **🎯 Self and each ally** |\n>\n> **Special:** The guerrilla must be acting as a captain.\n>\n> **Trigger:** An ally ends their turn while the guerrilla hasn't acted this round.\n>\n> **Effect:** The targets take their turn immediately. Each target gains an edge on abilities until the end of their turn.\n\n> ⭐️ **Into the Green**\n>\n> The guerrilla can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the guerrilla that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-guerrilla.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

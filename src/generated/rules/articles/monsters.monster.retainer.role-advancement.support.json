@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.role-advancement.support",
+      "title": "Способности поддержки",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/role-advancement/support.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/support",
+      "originalName": "Support Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Battlefield Medic**\n>\n> | **Melee**      |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------:|\n> | **📏 Melee 1** | **🎯 Self or one ally** |\n>\n> **Effect:** The target spends a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ability rolls against the target take a bane until the start of the retainer's next turn.\n\n> **Level 7 Role Advancement Ability**\n\n> 🏹 **Focus Fire (Encounter)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 18 damage\n>\n> **Effect:** One ally within distance gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Back from the Dead (Encounter)**\n>\n> | **Melee**      | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------:|\n> | **📏 Melee 1** | **🎯 One ally** |\n>\n> **Effect:** If the target is at or below 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they have died due to [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) loss since the end of the retainer's last turn, the target is alive with 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/support.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.support"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.role-advancement.support",
+      "kind": "monster-feature",
+      "name": "Способности поддержки",
+      "markdown": "> **Способность развития роли 4-го уровня**\n>\n> 🗡 **Полевой медик**\n>\n> | **Ближний**      | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------:|\n> | **📏 Ближний 1** | **🎯 На себя или одного союзника** |\n>\n> **Эффект:** Цель тратит [Восстановление](#/catalog/glossary#term-glossary.recovery), а броски способностей против неё совершаются с помехой до начала следующего хода помощника.\n\n> **Способность развития роли 7-го уровня**\n>\n> 🏹 **Сосредоточенный огонь (Столкновение)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Дальний 5**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 18 урона\n>\n> **Эффект:** Один союзник в пределах дальности получает 2 [всплеска](#/catalog/glossary#term-glossary.surge).\n\n> **Способность развития роли 10-го уровня**\n>\n> 🗡 **Возвращение с того света (Столкновение)**\n>\n> | **Ближний**      | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|----------------:|\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Эффект:** Если у цели 0 или меньше [Выносливости](#/catalog/glossary#term-glossary.stamina) либо она погибла из-за потери [Выносливости](#/catalog/glossary#term-glossary.stamina) после конца последнего хода помощника, цель оживает с 1 [Выносливостью](#/catalog/glossary#term-glossary.stamina) и может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.support",
+        "path": "Monsters/monster/retainer/role-advancement/support.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/support",
+      "originalName": "Support Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Battlefield Medic**\n>\n> | **Melee**      |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------:|\n> | **📏 Melee 1** | **🎯 Self or one ally** |\n>\n> **Effect:** The target spends a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ability rolls against the target take a bane until the start of the retainer's next turn.\n\n> **Level 7 Role Advancement Ability**\n\n> 🏹 **Focus Fire (Encounter)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 18 damage\n>\n> **Effect:** One ally within distance gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Back from the Dead (Encounter)**\n>\n> | **Melee**      | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------:|\n> | **📏 Melee 1** | **🎯 One ally** |\n>\n> **Effect:** If the target is at or below 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they have died due to [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) loss since the end of the retainer's last turn, the target is alive with 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/support.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

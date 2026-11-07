@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.rival.3rd-echelon.statblock.rival-talent",
+  "title": "Соперник-талант",
+  "chapter": "23. Бестиарий",
+  "group": "Соперники",
+  "path": "Monsters/monster/rival/3rd-echelon/statblock/rival-talent.md",
+  "originalId": "mcdm.monsters.v1/monster.rival.3rd-echelon.statblock/rival-talent",
+  "originalName": "Rival Talent",
+  "originalDescription": "|  Humanoid, Rival  |         -         |      Level 8       |      Elite Hexer      |        EV 40         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **180**<br>Stamina |  **2**<br>Stability   | **8**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **0**<br>Agility  |  **+4**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Control Synapses ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Telekinesis** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|--------------------------------:|\n> | **📏 Ranged 10**                         | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 psychic damage\n> - **12-16:** 17 psychic damage\n> - **17+:** 21 psychic damage\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against one enemy of the talent's choice. The target can't be moved in a way that would harm them.\n\n> 🏹 **Disorientate (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic, Ranged, Telepathy** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 Ranged 10**               | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 psychic damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 8 psychic damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 psychic damage; R < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Mind Requital (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature deals damage to the talent.\n>\n> **Effect:** The talent halves the damage and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares. The triggering creature takes psychic damage equal to half the damage dealt.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the talent chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the talent and the creature can add a d3 roll to power rolls they make against each other.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/rival/3rd-echelon/statblock/rival-talent.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "rival",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Соперник"
+    ],
+    "role": "Проклинатель",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.rival.3rd-echelon.statblock.rival-talent"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { RuleArticle, RuleEntity } from "../../rules/schema";
 import type { ArtAsset } from "../../lib/art";
 import { ArtworkFigure } from "../Artwork";
@@ -32,6 +33,7 @@ export function RuleArticleContent({
   art,
   onOpenEntity,
   headingOffset = 0,
+  headingActions,
 }: {
   article: RuleArticle;
   entities: Record<string, RuleEntity>;
@@ -40,6 +42,7 @@ export function RuleArticleContent({
   onOpenEntity?: (entity: RuleEntity) => void;
   /** Сдвиг заголовков статьи относительно её собственного заголовка. */
   headingOffset?: number;
+  headingActions?: ReactNode;
 }) {
   const leadIndex = article.blocks.findIndex((block) =>
     block.type === "markdown"
@@ -48,6 +51,7 @@ export function RuleArticleContent({
   );
   return (
     <div className="rule-article" data-rule-article={article.id}>
+      {article.director && article.originalName && article.blocks[leadIndex]?.type === 'markdown' && <p className="director-original-name" lang="en">{article.originalName}</p>}
       {article.blocks.map((block, index) => {
         const isLead = index === leadIndex;
         if (block.type === "markdown") {
@@ -89,9 +93,17 @@ export function RuleArticleContent({
             art={isLead ? art : undefined}
             onOpen={onOpenEntity ? () => onOpenEntity(entity) : undefined}
             headingLevel={2 + headingOffset}
+            headingActions={isLead ? headingActions : undefined}
           />
         );
       })}
+      {!!article.related?.length && <details className="director-related" open={article.director?.recordType === 'statblock'}>
+        <summary>Связанные правила и существа · {article.related.length}</summary>
+        <ul>{article.related.map(item => <li key={item.id}><a href={`#/codex/${item.id}`}>{item.title}</a></li>)}</ul>
+      </details>}
+      {article.director && article.originalId && <a className="catalog-source"
+        href={`https://github.com/SteelCompendium/data-unified/blob/${article.director.sourceRevision}/en/books/monsters/md/${article.director.sourcePath.replace(/\.json$/, '.md')}`}
+        target="_blank" rel="noreferrer">Источник · Draw Steel: Monsters (EN) ↗</a>}
     </div>
   );
 }

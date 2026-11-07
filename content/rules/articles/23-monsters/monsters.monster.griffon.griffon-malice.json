@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.griffon.griffon-malice",
+  "title": "Раздор грифонов",
+  "chapter": "23. Бестиарий",
+  "group": "Грифоны",
+  "path": "Monsters/monster/griffon/griffon-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.griffon/griffon-malice",
+  "originalName": "Griffon Malice",
+  "originalDescription": "At the start of any griffon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Swoop (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The griffon flies up to their speed, and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature who makes an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against them during this movement.\n\n> ❇️ **Piercing Cry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A griffon acting this turn unleashes a hideous screech at one enemy within 5 squares of them, forcing that creature to make an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> 🌀 **Wildwinds (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Winds bluster and blow across the encounter map. Until the end of the encounter, each creature who can't fly or isn't mounted on a flying creature takes a −3 penalty to [stability](scc.v1:mcdm.heroes.v1/rule.character/stability), and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effect targeting such a creature moves them an additional 5 squares.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/griffon/griffon-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "griffon",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.griffon.griffon-malice"
+    }
+  ]
+}

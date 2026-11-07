@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 import type { Ability, Character } from "../types";
-import { Card, CardHeader, CardTitle } from "./ui";
+import { AbilityCardFrame } from "./rules/AbilityCardFrame";
 import {
   AbilityBody,
   AbilityTags,
@@ -78,10 +78,15 @@ export function AbilityCard({
   const view = abilityCardView(ability, character, origin);
 
   return (
-    <Card
-      className={`sheet-ability-card${full ? " is-full" : ""}${flat ? " is-flat" : ""}${className ? ` ${className}` : ""}`}
-      data-action={ability.actionType}
-      data-kind={ability.kind}
+    <AbilityCardFrame
+      title={ability.name || "Без названия"}
+      titleText={ability.name || "Без названия"}
+      tags={<AbilityTags view={view} />}
+      actionType={ability.actionType}
+      kind={ability.kind}
+      full={full}
+      flat={flat}
+      className={className}
       data-basic={view.basic ? "true" : undefined}
       data-openable={openOnCardClick && onOpen ? "true" : undefined}
       selected={selected}
@@ -90,18 +95,6 @@ export function AbilityCard({
       openOnCardClick={openOnCardClick}
       keyboardTarget="title"
     >
-      <CardHeader className="sheet-ability-card-head card-band">
-        <CardTitle
-          as="h4"
-          title={ability.name || "Без названия"}
-          onOpen={onOpen}
-          openLabel={`Открыть способность: ${ability.name || "без названия"}`}
-        >
-          {ability.name || "Без названия"}
-        </CardTitle>
-        <AbilityTags view={view} />
-      </CardHeader>
-
       <AbilityContent ability={ability} view={view} full={full} />
 
       {details}
@@ -116,6 +109,6 @@ export function AbilityCard({
           </span>
         )}
       </footer>}
-    </Card>
+    </AbilityCardFrame>
   );
 }

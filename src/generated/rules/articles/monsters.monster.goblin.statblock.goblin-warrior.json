@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.goblin.statblock.goblin-warrior",
+      "title": "Гоблин-воин",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/goblin-warrior.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-warrior",
+      "originalName": "Goblin Warrior",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Harrier     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Spear Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 🗡 **Bury the Point (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 6 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 7 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The warrior doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-warrior.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.goblin-warrior"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.goblin.statblock.goblin-warrior",
+      "kind": "monster",
+      "name": "Гоблин-воин",
+      "markdown": "| Гоблин, Гуманоид |          -          |     Уровень 1      |       Орда Налётчик        | Боевая ценность 3 |\n|:-----------------:|:-------------------:|:-----------------:|:--------------------------:|:----------------------:|\n| **1S**<br>Размер | **6**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **-2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Атака копьём с рывком (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n\n> 🗡 **Вонзить острие (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при М < 0 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 6 урона; при М < 1 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 7 урона; при М < 2 — [кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, воин не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.goblin-warrior",
+        "path": "Monsters/monster/goblin/statblock/goblin-warrior.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-warrior",
+      "originalName": "Goblin Warrior",
+      "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Harrier     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-2**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Spear Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n\n> 🗡 **Bury the Point (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 6 damage; M < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 7 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Crafty**\n>\n> The warrior doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/goblin-warrior.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3",
+        "size": "1S",
+        "keywords": [
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-marauder",
+      "title": "Гнолл-налётчик",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-marauder.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-marauder",
+      "originalName": "Gnoll Marauder",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Harrier     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fury Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Marauder's Cackletongue (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the marauder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the marauder moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-marauder"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.gnoll.statblock.gnoll-marauder",
+      "kind": "monster",
+      "name": "Гнолл-налётчик",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Налётчик | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:---------------:|:---------:|\n| **1M**<br>Размер | **7**<br>Скорость | **20**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Яростный кистень (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12–16:** 5 урона\n> - **17+:** 7 урона; [сбита с ног](#/catalog/glossary#term-glossary.prone); если Л < 2, [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **2+ [Раздора](#/codex/monsters.rule.monster.malice):** Способность выбирает одну дополнительную цель за каждые потраченные 2 [Раздора](#/codex/monsters.rule.monster.malice).\n\n> ❇️ **Клекот налётчика (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                          **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Налётчик и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Предсмертная ярость**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 7 клеток от налётчика падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), налётчик перемещается на расстояние до своей Скорости и может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-marauder",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-marauder.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-marauder",
+      "originalName": "Gnoll Marauder",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Harrier     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fury Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Marauder's Cackletongue (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the marauder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the marauder moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

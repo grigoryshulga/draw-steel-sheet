@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.dragon.crucible-dragon-malice",
+      "title": "Раздор дракона-горнила",
+      "chapter": "23. Бестиарий",
+      "group": "Драконы",
+      "path": "Monsters/monster/dragon/crucible-dragon-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.dragon/crucible-dragon-malice",
+      "originalName": "Crucible Dragon Malice",
+      "originalDescription": "At the start of a crucible dragon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Swordfall (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> While the dragon is [flying](scc.v1:mcdm.heroes.v1/movement/fly), they shape themself into a blade and fall. Each creature and object in the dragon's space when they hit the ground and in a 6 x 4 line within 1 square of the dragon takes 7 damage. A creature who takes this damage and has A < 4 takes 4 extra damage per square the dragon fell and is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). A creature not [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way can move into the nearest unoccupied space.\n\n> 🔳 **Shower of Blades (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon shakes loose a cloud of shattered weapons in a 6 x 4 line within 1 square of them. Each creature and object in the area makes an **Agility test**.\n>\n> - **≤11:** 16 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 13 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n> - **17+:** 7 damage\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Meltdown (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon superheats the ground across the encounter map until the end of the round. Any enemy who starts their turn on the ground is slagged as if affected by the dragon's Slag Spew ability.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dragon/crucible-dragon-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dragon",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dragon.crucible-dragon-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dragon.gloom-dragon-malice",
+          "title": "Раздор сумрачного дракона"
+        },
+        {
+          "id": "monsters.monster.dragon.meteor-dragon-malice",
+          "title": "Раздор метеорного дракона"
+        },
+        {
+          "id": "monsters.monster.dragon.omen-dragon-malice",
+          "title": "Раздор дракона-предвестника"
+        },
+        {
+          "id": "monsters.monster.dragon.thorn-dragon-malice",
+          "title": "Раздор колючего дракона"
+        },
+        {
+          "id": "monsters.monster.group.dragon",
+          "title": "Драконы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.dragon.crucible-dragon-malice",
+      "kind": "monster-feature",
+      "name": "Раздор дракона-горнила",
+      "markdown": "В начале хода дракона-горнила вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Падение клинка (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Находясь в [полёте](#/catalog/glossary#term-glossary.fly), дракон придаёт себе форму клинка и падает вниз. Каждое существо и объект в пространстве дракона в момент его удара о землю, а также в линии 6 x 4 в пределах 1 клетки от дракона получает 7 урона. Существо, получившее этот урон и имеющее Л < 4, получает дополнительно 4 урона за каждую клетку падения дракона и [опутано](#/catalog/glossary#term-glossary.restrained) (до прох.). Существо, не [опутанное](#/catalog/glossary#term-glossary.restrained) таким образом, может переместиться в ближайшее незанятое пространство.\n\n> 🔳 **Дождь клинков (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Дракон стряхивает облако расколотого оружия, создавая линию 6 x 4 в пределах 1 клетки от себя. Каждое существо и объект в области проходит **тест Ловкости**.\n>\n> - **≤11:** 16 урона; [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 13 урона; [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (КсХ)\n> - **17+:** 7 урона\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В свой ход дракон совершает дополнительное основное действие. Он может использовать эту особенность, даже если он [оглушён](#/catalog/glossary#term-glossary.dazed).\n\n> 🌀 **Расплавление (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Дракон раскаляет землю по всей карте столкновения до конца раунда. Любой враг, начинающий свой ход на земле, превращается в шлак, как если бы на него подействовала способность дракона «Струя шлака».\n",
+      "source": {
+        "articleId": "monsters.monster.dragon.crucible-dragon-malice",
+        "path": "Monsters/monster/dragon/crucible-dragon-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dragon/crucible-dragon-malice",
+      "originalName": "Crucible Dragon Malice",
+      "originalDescription": "At the start of a crucible dragon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Swordfall (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> While the dragon is [flying](scc.v1:mcdm.heroes.v1/movement/fly), they shape themself into a blade and fall. Each creature and object in the dragon's space when they hit the ground and in a 6 x 4 line within 1 square of the dragon takes 7 damage. A creature who takes this damage and has A < 4 takes 4 extra damage per square the dragon fell and is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). A creature not [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way can move into the nearest unoccupied space.\n\n> 🔳 **Shower of Blades (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon shakes loose a cloud of shattered weapons in a 6 x 4 line within 1 square of them. Each creature and object in the area makes an **Agility test**.\n>\n> - **≤11:** 16 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 13 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n> - **17+:** 7 damage\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Meltdown (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The dragon superheats the ground across the encounter map until the end of the round. Any enemy who starts their turn on the ground is slagged as if affected by the dragon's Slag Spew ability.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dragon/crucible-dragon-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dragon",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

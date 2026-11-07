@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.hobgoblin.statblock.hobgoblin-grandguard",
+  "title": "Хобгоблин-старший страж",
+  "chapter": "23. Бестиарий",
+  "group": "Хобгоблины",
+  "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-grandguard.md",
+  "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-grandguard",
+  "originalName": "Hobgoblin Grandguard",
+  "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |      Level 6       |   Platoon Defender    |        EV 16         |\n|:-------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|             **2**<br>Size             |  **4**<br>Speed   | **111**<br>Stamina |  **4**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 6**<br>Immunity         | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+3**<br>Might            | **+2**<br>Agility |  **+3**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🗡 **Tower Shield Smash (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 14 damage\n> - **17+:** 17 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Each ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a [prone](scc.v1:mcdm.heroes.v1/condition/prone) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against that target.\n\n> 🔳 **Thunder Rush (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Charge, Weapon**   |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|----------------------------------------:|\n> | **📏 1 x 2 line within 1** | **🎯 Each enemy or object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 11 damage\n> - **17+:** 14 damage\n>\n> **Effect:** Each target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 10 squares in the same direction, and the grandguard [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) into the area left behind by the targets.\n\n> ⭐️ **Wide Guard**\n>\n> Any strike made against an ally within 2 squares of the grandguard takes a bane.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the grandguard is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the grandguard takes 3 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/hobgoblin/statblock/hobgoblin-grandguard.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "hobgoblin",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "16",
+    "size": "2",
+    "keywords": [
+      "Гоблин",
+      "Хобгоблин",
+      "Гуманоид",
+      "Адский"
+    ],
+    "role": "Защитник",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.hobgoblin.statblock.hobgoblin-grandguard"
+    }
+  ]
+}

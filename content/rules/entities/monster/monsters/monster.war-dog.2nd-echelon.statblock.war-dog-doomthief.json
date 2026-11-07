@@ -1,0 +1,30 @@
+{
+  "id": "monster.war-dog.2nd-echelon.statblock.war-dog-doomthief",
+  "kind": "monster",
+  "name": "Пёс войны-похититель рока",
+  "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |     Уровень 5     | Орда-защитник | Боевая ценность 7 |\n|:-------------------------------:|:-----------------:|:----------------:|:-------------:|:----------------------:|\n| **1L**<br>Размер                | **5**<br>Скорость | **40**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет              | **-**<br>Движение |        -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь                  | **-1**<br>Ловкость | **0**<br>Разум | **+3**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🔳 **Разрывная скорострельная пушка ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Область, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|--------------------------------:|\n> | **📏 Линия 10 × 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона; [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 1\n> - **12-16:** 5 урона; [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 3\n> - **17+:** 6 урона; [отталкивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 5; Л < 3 — [замедление](scc.v1:mcdm.heroes.v1/condition/slowed) (до прох.)\n>\n> **Эффект:** В тот же ход, когда пёс войны использует эту способность, он не может перемещаться по собственной воле.\n\n> ⭐️ **Притяжение рока**\n>\n> Пёс войны испускает ауру 3 искажённой судьбы, которая блокирует линию воздействия для любой способности врага, если пёс войны не входит в число её целей.\n\n> 👤 **Разрастающийся рок (4 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Пёс войны получает иммунитет к урону 4, а радиус ауры от особенности «Притяжение рока» увеличивается на 3. Оба эффекта действуют до начала его следующего хода.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) пса войны снижается до 0, его ошейник преданности взрывается и наносит 2d6 урона каждому [смежному](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) врагу и объекту.\n",
+  "source": {
+    "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-doomthief",
+    "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-doomthief.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-doomthief",
+  "originalName": "War Dog Doomthief",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 5      |    Horde Defender     |         EV 7         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1L**<br>Size        |  **5**<br>Speed   | **40**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+3**<br>Might       | **-1**<br>Agility |  **0**<br>Reason  |  **+3**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🔳 **Ripper Shrikegun ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Area, Weapon**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 10 x 3 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The doomthief can't willingly move on the same turn they use this ability.\n\n> ⭐️ **Doom Magnet**\n>\n> The doomthief emits a 3 aura of warped fate that blocks line of effect for any enemy ability that doesn't include them as a target.\n\n> 👤 **Expanding Doom (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The doomthief has damage immunity 4 and the size of the aura from their Doom Magnet trait increases by 3, both until the start of their next turn.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the doomthief is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-doomthief.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7",
+    "size": "1L",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Защитник",
+    "organization": "Орда"
+  }
+}

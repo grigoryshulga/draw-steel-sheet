@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.devil-defector",
+  "title": "Дьявол-перебежчик",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/devil-defector.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/devil-defector",
+  "originalName": "Devil Defector",
+  "originalDescription": "|    Devil, Infernal     |          -          |      Level 5      |    Hexer Retainer     |         EV -         |\n|:----------------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **57**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+3**<br>Might     |  **+2**<br>Agility  | **+3**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Black Flame (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 corruption or fire damage\n> - **12-16:** 10 corruption or fire damage\n> - **17+:** 13 corruption or fire damage\n\n> ❗️ **Tempting Offer (Encounter)**\n>\n> | **Ranged, Strike** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Ranged 10**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A sapient enemy is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Effect:** The defector makes an offer to keep the target alive. If the target accepts, they are reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead. On the target's next turn, the defector controls their move action and the target must use a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against a creature of the defector's choice or immediately die. To have the target turn down the offer, the Diretor must spend 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the defector's true name, the defector loses their damage immunities and their Tempting Offer triggered action until the end of the encounter.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/devil-defector.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Дьявол",
+      "Адский"
+    ],
+    "role": "Проклинатель",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.devil-defector"
+    }
+  ]
+}

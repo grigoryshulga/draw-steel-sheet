@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.power-fixtures.holy-idol",
+      "title": "Священный идол",
+      "chapter": "25. Динамическая местность",
+      "group": "Источники силы",
+      "path": "Monsters/dynamic-terrain/power-fixtures/holy-idol.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/holy-idol",
+      "originalName": "Holy Idol",
+      "originalDescription": "An empowering monument to a higher power enables a villain's machinations.\n\n- **EV:** 7\n- **Stamina:** 35\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The holy idol must be completely destroyed.\n\n> ⭐️ **Empowered Will**\n>\n> At the start of each round while the holy idol is intact, the Director gains a d6 that lasts until the end of the round. When a Director-controlled creature deals or takes damage, the Director can roll the d6 to increase the damage the creature deals or reduce the damage the creature takes by an amount equal to the roll (to a minimum of 2 damage). If multiple idols are in play, only one d6 can be applied to a single instance of damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/holy-idol.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Поддержка",
+        "organization": "Реликвия"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.power-fixtures.holy-idol"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.power-fixtures.psionic-shard",
+      "title": "Псионический осколок",
+      "chapter": "25. Динамическая местность",
+      "group": "Источники силы",
+      "path": "Monsters/dynamic-terrain/power-fixtures/psionic-shard.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/psionic-shard",
+      "originalName": "Psionic Shard",
+      "originalDescription": "A massive humming crystal makes the air around it feel thick.\n\n- **EV:** 7\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The psionic shard must be completely destroyed.\n\n> ⭐️ **Psionic Barrier**\n>\n> A psionic shard is attuned to one side in an encounter. While a psionic shard is intact, any damage dealt to each ally of the shard in the encounter is halved.\n\n> ❗️ **Psionic Pulse**\n>\n> | **-**          | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|--------------------------:|\n> | **📏 Special** |            **🎯 Special** |\n>\n> **Trigger:** The shard is destroyed.\n>\n> **Effect:** The shard releases a shockwave channeled through each creature affected by Psionic Barrier. Each ally in the encounter is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/psionic-shard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.power-fixtures.psionic-shard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.power-fixtures.tree-of-might",
+      "title": "Древо мощи",
+      "chapter": "25. Динамическая местность",
+      "group": "Источники силы",
+      "path": "Monsters/dynamic-terrain/power-fixtures/tree-of-might.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/tree-of-might",
+      "originalName": "Tree of Might",
+      "originalDescription": "A gnarled tree has unearthed roots that writhe and curl.\n\n- **EV:** 14\n- **Stamina:** 60\n- **Size:** 3\n- **Immunity:** 5 to all damage except corruption or fire damage\n\n> 🌀 **Deactivate**\n>\n> The tree of might must be completely destroyed.\n\n> ⭐️ **Tree's Nourishment**\n>\n> At the start of each round while the tree of might is intact, each enemy touching the ground in the encounter area who has M < 0 takes 10 corruption damage, and the tree of might grows a fruit. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1 each subsequent round.\n\n> ⭐️ **Mighty Fruit**\n>\n> Once per round, any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tree of might can take a fruit from the tree and eat it (no action required). The creature gains 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) and has their Might score increased by 1 (to a maximum of 6) until the end of the encounter.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/tree-of-might.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "14",
+        "size": "3",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.power-fixtures.tree-of-might"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.power-fixtures.holy-idol",
+      "kind": "terrain",
+      "name": "Священный идол",
+      "markdown": "Дарующий силу памятник высшей силе помогает злодею в его замыслах.\n\n- **БЦ:** 7\n- **Выносливость:** 35\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Священного идола необходимо полностью уничтожить.\n\n> ⭐️ **Усиленная воля**\n>\n> В начале каждого раунда, пока идол цел, Ведущий получает d6, сохраняющийся до конца раунда. Когда существо под управлением Ведущего наносит или получает урон, Ведущий может бросить d6, чтобы увеличить нанесённый существом урон или уменьшить полученный им урон на выпавшее значение (минимум до 2 урона). Если в игре несколько идолов, к одному случаю нанесения урона можно применить только один d6.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.power-fixtures.holy-idol",
+        "path": "Monsters/dynamic-terrain/power-fixtures/holy-idol.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/holy-idol",
+      "originalName": "Holy Idol",
+      "originalDescription": "An empowering monument to a higher power enables a villain's machinations.\n\n- **EV:** 7\n- **Stamina:** 35\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The holy idol must be completely destroyed.\n\n> ⭐️ **Empowered Will**\n>\n> At the start of each round while the holy idol is intact, the Director gains a d6 that lasts until the end of the round. When a Director-controlled creature deals or takes damage, the Director can roll the d6 to increase the damage the creature deals or reduce the damage the creature takes by an amount equal to the roll (to a minimum of 2 damage). If multiple idols are in play, only one d6 can be applied to a single instance of damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/holy-idol.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Поддержка",
+        "organization": "Реликвия"
+      }
+    },
+    {
+      "id": "dynamic-terrain.power-fixtures.psionic-shard",
+      "kind": "terrain",
+      "name": "Псионический осколок",
+      "markdown": "От массивного гудящего кристалла воздух вокруг кажется густым.\n\n- **БЦ:** 7\n- **Выносливость:** 40\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Псионический осколок необходимо полностью уничтожить.\n\n> ⭐️ **Псионический барьер**\n>\n> Псионический осколок настроен на одну из сторон столкновения. Пока он цел, любой урон, наносимый каждому союзнику осколка в столкновении, уменьшается вдвое.\n\n> ❗️ **Псионический импульс**\n>\n> | **-** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Особое** | **🎯 Особое** |\n>\n> **Условие:** Осколок уничтожен.\n>\n> **Эффект:** Осколок выпускает ударную волну через каждое существо, находящееся под действием псионического барьера. Каждый союзник в столкновении получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) до конца своего следующего хода.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.power-fixtures.psionic-shard",
+        "path": "Monsters/dynamic-terrain/power-fixtures/psionic-shard.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/psionic-shard",
+      "originalName": "Psionic Shard",
+      "originalDescription": "A massive humming crystal makes the air around it feel thick.\n\n- **EV:** 7\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The psionic shard must be completely destroyed.\n\n> ⭐️ **Psionic Barrier**\n>\n> A psionic shard is attuned to one side in an encounter. While a psionic shard is intact, any damage dealt to each ally of the shard in the encounter is halved.\n\n> ❗️ **Psionic Pulse**\n>\n> | **-**          | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|--------------------------:|\n> | **📏 Special** |            **🎯 Special** |\n>\n> **Trigger:** The shard is destroyed.\n>\n> **Effect:** The shard releases a shockwave channeled through each creature affected by Psionic Barrier. Each ally in the encounter is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/psionic-shard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "7",
+        "size": "2",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    },
+    {
+      "id": "dynamic-terrain.power-fixtures.tree-of-might",
+      "kind": "terrain",
+      "name": "Древо мощи",
+      "markdown": "Оголённые корни этого узловатого дерева извиваются и скручиваются.\n\n- **БЦ:** 14\n- **Выносливость:** 60\n- **Размер:** 3\n- **Иммунитет:** 5 ко всему урону, кроме урона порчей или огнём\n\n> 🌀 **Отключение**\n>\n> Древо мощи необходимо полностью уничтожить.\n\n> ⭐️ **Питание древа**\n>\n> В начале каждого раунда, пока древо мощи цело, каждый враг в области столкновения, касающийся земли и имеющий М < 0, получает 10 урона порчей, а на древе вырастает плод. [Потенциал](#/catalog/glossary#term-glossary.potency) увеличивается на 1 в каждом последующем раунде.\n\n> ⭐️ **Могучий плод**\n>\n> Один раз за раунд любое существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с древом мощи клетке может взять с него плод и съесть его (действие не требуется). Существо получает 10 [временной Выносливости](#/catalog/glossary#term-glossary.temporary-stamina), а его значение Мощи увеличивается на 1 (максимум до 6) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.power-fixtures.tree-of-might",
+        "path": "Monsters/dynamic-terrain/power-fixtures/tree-of-might.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/tree-of-might",
+      "originalName": "Tree of Might",
+      "originalDescription": "A gnarled tree has unearthed roots that writhe and curl.\n\n- **EV:** 14\n- **Stamina:** 60\n- **Size:** 3\n- **Immunity:** 5 to all damage except corruption or fire damage\n\n> 🌀 **Deactivate**\n>\n> The tree of might must be completely destroyed.\n\n> ⭐️ **Tree's Nourishment**\n>\n> At the start of each round while the tree of might is intact, each enemy touching the ground in the encounter area who has M < 0 takes 10 corruption damage, and the tree of might grows a fruit. The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1 each subsequent round.\n\n> ⭐️ **Mighty Fruit**\n>\n> Once per round, any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tree of might can take a fruit from the tree and eat it (no action required). The creature gains 10 [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) and has their Might score increased by 1 (to a maximum of 6) until the end of the encounter.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/power-fixtures/tree-of-might.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "power-fixtures",
+        "recordType": "dynamic-terrain",
+        "level": 5,
+        "ev": "14",
+        "size": "3",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      }
+    }
+  ]
+}

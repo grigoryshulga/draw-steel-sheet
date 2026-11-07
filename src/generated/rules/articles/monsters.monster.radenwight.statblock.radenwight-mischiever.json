@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.radenwight.statblock.radenwight-mischiever",
+      "title": "Раденвайт-проказник",
+      "chapter": "23. Бестиарий",
+      "group": "Раденвайты",
+      "path": "Monsters/monster/radenwight/statblock/radenwight-mischiever.md",
+      "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-mischiever",
+      "originalName": "Radenwight Mischiever",
+      "originalDescription": "| Humanoid, Radenwight |           -           |     Level 1      |                Minion Ambusher                 |  EV 3 for 4 minions  |\n|:--------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:--------------------:|\n|    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |  **-**<br>Weakness   |\n|   **-1**<br>Might    |   **+2**<br>Agility   | **0**<br>Reason  |              **+1**<br>Intuition               |  **0**<br>Presence   |\n\n> ⚔️ **Dagger Dance ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Ranged, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the mischiever is hidden when they use this ability, they can target two creatures.\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The mischiever makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/radenwight/statblock/radenwight-mischiever.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "radenwight",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.radenwight.statblock.radenwight-mischiever"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.radenwight",
+          "title": "Раденвайты"
+        },
+        {
+          "id": "monsters.monster.radenwight.radenwight-malice",
+          "title": "Раздор раденвайтов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.radenwight.statblock.radenwight-mischiever",
+      "kind": "monster",
+      "name": "Раденвайт-проказник",
+      "markdown": "| Гуманоид, Раденвайт |           -           |     Уровень 1     |             Миньон, Засадник             |  Боевая ценность 3 за 4 миньона  |\n|:--------------------:|:---------------------:|:----------------:|:------------------------------------------:|:-------------------:|\n|    **1S**<br>Размер   |    **7**<br>Скорость   | **4**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n|  **-**<br>Иммунитет   | **Лазание**<br>Движение |        -         | **Бонус +1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n|   **-1**<br>Мощь      |   **+2**<br>Ловкость   | **0**<br>Разум    | **+1**<br>Интуиция    | **0**<br>Присутствие |\n\n> ⚔️ **Танец кинжалов ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Дальний, Удар, Оружие** |                **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-------------------------------:|\n> | **📏 Ближний 1 или дальний 5**    | **🎯 Одно существо на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Если проказник скрыт, когда использует эту способность, он может выбрать две цели.\n\n> ❗️ **Готовый грызун**\n>\n> | **Ближний, Оружие** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |--------------------|---------------------:|\n> | **📏 Ближний 1**   | **🎯 Одно существо** |\n>\n> **Триггер:** Союзник наносит цели урон.\n>\n> **Эффект:** Проказник совершает по цели [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.radenwight.statblock.radenwight-mischiever",
+        "path": "Monsters/monster/radenwight/statblock/radenwight-mischiever.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-mischiever",
+      "originalName": "Radenwight Mischiever",
+      "originalDescription": "| Humanoid, Radenwight |           -           |     Level 1      |                Minion Ambusher                 |  EV 3 for 4 minions  |\n|:--------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:--------------------:|\n|    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |  **-**<br>Weakness   |\n|   **-1**<br>Might    |   **+2**<br>Agility   | **0**<br>Reason  |              **+1**<br>Intuition               |  **0**<br>Presence   |\n\n> ⚔️ **Dagger Dance ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Ranged, Strike, Weapon** |                **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** If the mischiever is hidden when they use this ability, they can target two creatures.\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The mischiever makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/radenwight/statblock/radenwight-mischiever.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "radenwight",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

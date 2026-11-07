@@ -1,0 +1,20 @@
+{
+  "id": "monster.griffon.griffon-malice",
+  "kind": "monster-feature",
+  "name": "Раздор грифонов",
+  "markdown": "В начале хода любого грифона вы можете потратить [Раздор](scc.v1:mcdm.monsters.v1/rule.monster/malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Пикирование (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------|-----------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Грифон пролетает расстояние до своей Скорости и может совершить [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) по каждому существу, которое совершит против него [атаку по возможности](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) во время этого перемещения.\n\n> ❇️ **Пронзительный крик (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Грифон, действующий в этот ход, испускает жуткий вопль, направленный на одного врага в пределах 5 клеток от себя; цель должна пройти **тест Интуиции**.\n>\n> - **≤11:** [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) (до прох.)\n> - **12-16:** [Испуг](scc.v1:mcdm.heroes.v1/condition/frightened) (КсХ)\n> - **17+:** Без эффекта.\n\n> 🌀 **Буйные ветры (10 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Вихревые ветры проносятся по карте столкновения. До конца столкновения каждое нелетающее существо, не едущее верхом на летающем существе, получает штраф −3 к [Устойчивости](scc.v1:mcdm.heroes.v1/rule.character/stability), а любой эффект [принудительного перемещения](scc.v1:mcdm.heroes.v1/movement/forced-movement), нацеленный на такое существо, перемещает его ещё на 5 клеток.\n",
+  "source": {
+    "articleId": "monsters.monster.griffon.griffon-malice",
+    "path": "Monsters/monster/griffon/griffon-malice.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.griffon/griffon-malice",
+  "originalName": "Griffon Malice",
+  "originalDescription": "At the start of any griffon's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Swoop (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The griffon flies up to their speed, and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature who makes an [opportunity attack](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) against them during this movement.\n\n> ❇️ **Piercing Cry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A griffon acting this turn unleashes a hideous screech at one enemy within 5 squares of them, forcing that creature to make an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> 🌀 **Wildwinds (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Winds bluster and blow across the encounter map. Until the end of the encounter, each creature who can't fly or isn't mounted on a flying creature takes a −3 penalty to [stability](scc.v1:mcdm.heroes.v1/rule.character/stability), and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effect targeting such a creature moves them an additional 5 squares.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/griffon/griffon-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "griffon",
+    "recordType": "featureblock"
+  }
+}

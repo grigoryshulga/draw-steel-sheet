@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.advancement-features.time-raider-mind-healer",
+      "title": "Способности развития рейдера времени-целителя разума",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/advancement-features/time-raider-mind-healer.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/time-raider-mind-healer",
+      "originalName": "Time Raider Mind Healer Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🏹 **Stim Charge (Encounter)**\n>\n> | **Ranged**      |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|--------------------:|\n> | **📏 Ranged 3** | **🎯 One creature** |\n>\n> **Effect:** The target can spend 1 [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and has their speed doubled until the end of their next turn.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🏹 **Mind Whelm (Encounter)**\n>\n> | **Psionic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|--------------------:|\n> | **📏 Ranged 3**             | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 psychic damage; R < WEAK [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 13 psychic damage; R < AVERAGE [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 17 psychic damage; R < STRONG [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Psychic Short Circuit (Encounter)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 2 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 psychic damage\n> - **12-16:** 16 psychic damage\n> - **17+:** 21 psychic damage\n>\n> **Effect:** If the mind healer is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), or [taunted](scc.v1:mcdm.heroes.v1/condition/taunted), they can end one of those conditions and impose the same condition on one enemy in the area. Additionally, they can do the same for their mentor if the mentor is in the area and is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), or [taunted](scc.v1:mcdm.heroes.v1/condition/taunted).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/time-raider-mind-healer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.time-raider-mind-healer"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.advancement-features.time-raider-mind-healer",
+      "kind": "monster-feature",
+      "name": "Способности развития рейдера времени-целителя разума",
+      "markdown": "> **Способность развития Помощника 4-го уровня**\n\n> 🏹 **Стимулятор (Столкновение)**\n>\n> | **Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|----------------------:|\n> | **📏 Дальний 3** | **🎯 Одно существо** |\n>\n> **Эффект:** Цель может потратить 1 [Восстановление](#/catalog/glossary#term-glossary.recovery); до конца своего следующего хода её Скорость удваивается.\n\n> **Способность развития Помощника 7-го уровня**\n\n> 🏹 **Натиск разума (Столкновение)**\n>\n> | **Псионика, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|----------------------:|\n> | **📏 Дальний 3**                | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 психического урона; Р < СЛАБЫЙ — [испуг](#/catalog/glossary#term-glossary.frightened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 13 психического урона; Р < СРЕДНИЙ — [испуг](#/catalog/glossary#term-glossary.frightened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 17 психического урона; Р < СИЛЬНЫЙ — [испуг](#/catalog/glossary#term-glossary.frightened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n\n> **Способность развития Помощника 10-го уровня**\n\n> ❇️ **Психическое короткое замыкание (Столкновение)**\n>\n> | **Область, Псионика** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------|----------------------:|\n> | **📏 Взрыв 2**        | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 психического урона\n> - **12-16:** 16 психического урона\n> - **17+:** 21 психического урона\n>\n> **Эффект:** Если целитель разума [оглушён](#/catalog/glossary#term-glossary.dazed), [испуган](#/catalog/glossary#term-glossary.frightened) или [спровоцирован](#/catalog/glossary#term-glossary.taunted), он может снять с себя одно из этих состояний и наложить то же состояние на одного врага в области. Кроме того, он может таким же образом снять одно из этих состояний со своего Наставника и наложить его на врага в области, если Наставник находится в области и [оглушён](#/catalog/glossary#term-glossary.dazed), [испуган](#/catalog/glossary#term-glossary.frightened) или [спровоцирован](#/catalog/glossary#term-glossary.taunted).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.time-raider-mind-healer",
+        "path": "Monsters/monster/retainer/advancement-features/time-raider-mind-healer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/time-raider-mind-healer",
+      "originalName": "Time Raider Mind Healer Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🏹 **Stim Charge (Encounter)**\n>\n> | **Ranged**      |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|--------------------:|\n> | **📏 Ranged 3** | **🎯 One creature** |\n>\n> **Effect:** The target can spend 1 [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and has their speed doubled until the end of their next turn.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🏹 **Mind Whelm (Encounter)**\n>\n> | **Psionic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|--------------------:|\n> | **📏 Ranged 3**             | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 psychic damage; R < WEAK [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 13 psychic damage; R < AVERAGE [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 17 psychic damage; R < STRONG [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Psychic Short Circuit (Encounter)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 2 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 psychic damage\n> - **12-16:** 16 psychic damage\n> - **17+:** 21 psychic damage\n>\n> **Effect:** If the mind healer is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), or [taunted](scc.v1:mcdm.heroes.v1/condition/taunted), they can end one of those conditions and impose the same condition on one enemy in the area. Additionally, they can do the same for their mentor if the mentor is in the area and is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), or [taunted](scc.v1:mcdm.heroes.v1/condition/taunted).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/time-raider-mind-healer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

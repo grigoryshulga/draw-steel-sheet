@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.human.statblock.human-raider",
+  "title": "Человек-налётчик",
+  "chapter": "23. Бестиарий",
+  "group": "Люди",
+  "path": "Monsters/monster/human/statblock/human-raider.md",
+  "originalId": "mcdm.monsters.v1/monster.human.statblock/human-raider",
+  "originalName": "Human Raider",
+  "originalDescription": "|             Human, Humanoid             |         -         |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:---------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size              |  **7**<br>Speed   | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n| **Corruption 1, psychic 1**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|             **0**<br>Might              | **+2**<br>Agility | **0**<br>Reason  |             **0**<br>Intuition              |   **0**<br>Presence   |\n\n> 🗡 **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** If this ability is used as part of a charge, the raider can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before using the ability.\n\n> ⭐️ **Supernatural Insight**\n>\n> The raider ignores concealment if it's granted by a supernatural effect.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/human/statblock/human-raider.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "human",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Человек",
+      "Гуманоид"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.human.statblock.human-raider"
+    }
+  ]
+}

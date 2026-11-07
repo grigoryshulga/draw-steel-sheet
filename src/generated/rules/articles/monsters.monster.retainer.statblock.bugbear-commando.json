@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.bugbear-commando",
+      "title": "Багбир-коммандос",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/bugbear-commando.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/bugbear-commando",
+      "originalName": "Bugbear Commando",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 2      |   Ambusher Retainer   |         EV -         |\n|:------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|         **1L**<br>Size         |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|        **+2**<br>Might         | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Bear Hug (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 6 damage\n> - **17+:** 11 damage\n>\n> **Effect:** If the commando started their turn with concealment from the target or hidden from them, they gain 1 [surge](scc.v1:mcdm.heroes.v1/rule.resource/surge) that can be used immediately.\n\n> 🗡 **Throw**\n>\n> | **Melee, Strike** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.\n>\n> **Effect:** The target is vertical pushed up to 5 squares. An ally doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way.\n\n> ❗️ **Catcher**\n>\n> | **Melee**      |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A size 1 creature or object is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) within distance, or a size 1 ally willingly moves within distance.\n>\n> **Effect:** The target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/bugbear-commando.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "-",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.bugbear-commando"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.bugbear-commando"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.ambusher"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.bugbear-commando",
+          "title": "Багбир-коммандос: особенности развития"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.ambusher",
+          "title": "Способности развития роли Засадника"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.bugbear-commando",
+      "kind": "retainer",
+      "name": "Багбир-коммандос",
+      "markdown": "| Багбир, Фея, Гоблин, Гуманоид | - | Уровень 2 | Помощник-засадник | Боевая ценность - |\n|---|---|---|---|---|\n| **1L**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Медвежьи объятия (Знаковая способность)**\n>\n> | **Ближний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 6 урона\n> - **17+:** 11 урона\n>\n> **Эффект:** Если коммандос начал ход, имея маскировку от цели или скрывшись от неё, он получает 1 [всплеск](#/catalog/glossary#term-glossary.surge), который можно использовать немедленно.\n\n> 🗡 **Бросок**\n>\n> | **Ближний бой, удар** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Особое:** Цель должна быть [схвачена](#/catalog/glossary#term-glossary.grabbed) коммандос.\n>\n> **Эффект:** Цель отталкивается вертикально на расстояние до 5 клеток. Союзник не получает урон от такого [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement).\n\n> ❗️ **Ловец**\n>\n> | **Ближний бой** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Существо или объект, вызвавший активацию** |\n>\n> **Условие:** Существо или объект размера 1 [принудительно перемещается](#/catalog/glossary#term-glossary.forced-movement) в пределах дистанции либо союзник размера 1 добровольно перемещается в пределах дистанции.\n>\n> **Эффект:** Коммандос [хватает](#/catalog/glossary#term-glossary.grabbed) цель.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.bugbear-commando",
+        "path": "Monsters/monster/retainer/statblock/bugbear-commando.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/bugbear-commando",
+      "originalName": "Bugbear Commando",
+      "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 2      |   Ambusher Retainer   |         EV -         |\n|:------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|         **1L**<br>Size         |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|        **+2**<br>Might         | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Bear Hug (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 6 damage\n> - **17+:** 11 damage\n>\n> **Effect:** If the commando started their turn with concealment from the target or hidden from them, they gain 1 [surge](scc.v1:mcdm.heroes.v1/rule.resource/surge) that can be used immediately.\n\n> 🗡 **Throw**\n>\n> | **Melee, Strike** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 Melee 1**    | **🎯 One creature or object** |\n>\n> **Special:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.\n>\n> **Effect:** The target is vertical pushed up to 5 squares. An ally doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way.\n\n> ❗️ **Catcher**\n>\n> | **Melee**      |                **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Melee 1** | **🎯 The triggering creature or object** |\n>\n> **Trigger:** A size 1 creature or object is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) within distance, or a size 1 ally willingly moves within distance.\n>\n> **Effect:** The target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the commando.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/bugbear-commando.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "-",
+        "size": "1L",
+        "keywords": [
+          "Багбир",
+          "Фея",
+          "Гоблин",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.bugbear-commando",
+      "kind": "monster-feature",
+      "name": "Багбир-коммандос: особенности развития",
+      "markdown": "> **Способность развития помощника 4-го уровня**\n\n> 🗡 **Захват за лицо (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона; при М < СЛАБЫЙ цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 9 урона; при М < СРЕДНИЙ цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 13 урона; при М < СИЛЬНЫЙ цель [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Пока цель [схвачена](#/catalog/glossary#term-glossary.grabbed) таким образом, она не может общаться, а все существа и объекты получают Покров относительно неё.\n\n> **Способность развития помощника 7-го уровня**\n\n> 🏹 **Утащить в тень (Столкновение)**\n>\n>\n> | **Магия, Дальний, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Дальний 10**       | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** Притянуть на 8\n> - **12-16:** Притянуть на 10\n> - **17+:** Притянуть на 12\n>\n> **Эффект:** Цель получает 1 урон за каждую клетку, на которую её [притянули](#/catalog/glossary#term-glossary.forced-movement).\n\n> **Способность развития помощника 10-го уровня**\n\n> 🗡 **Свернуть шею (Столкновение)**\n>\n> | **Ближний**      |                             **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|--------------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо, схваченное коммандос** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 12 урона\n> - **12-16:** 18 урона\n> - **17+:** 24 урона\n>\n> **Эффект:** Цель получает 15 урона, перестаёт быть [схваченной](#/catalog/glossary#term-glossary.grabbed) и падает [сбитой с ног](#/catalog/glossary#term-glossary.prone).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.bugbear-commando",
+        "path": "Monsters/monster/retainer/advancement-features/bugbear-commando.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/bugbear-commando",
+      "originalName": "Bugbear Commando Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 🗡 **Face Grab (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage; M < WEAK [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 9 damage; M < AVERAGE [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 13 damage; M < STRONG [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** While the target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, they can't communicate and all creatures and objects have concealment from them.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🏹 **Shadow Drag (Encounter)**\n>\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** Pull 8\n> - **12-16:** Pull 10\n> - **17+:** Pull 12\n>\n> **Effect:** The target takes 1 damage for each square they are [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🗡 **Neck Snap (Encounter)**\n>\n> | **Melee**      |                             **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------------:|\n> | **📏 Melee 1** | **🎯 One creature grabbed by the commando** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 18 damage\n> - **17+:** 24 damage\n>\n> **Effect:** The target takes 15 damage, they are no longer [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and they fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/bugbear-commando.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.ambusher",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Засадника",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 🗡 **К горлу (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 5 урона; М < СЛАБЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 9 урона; М < СРЕДНИЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 12 урона; М < СИЛЬНЫЙ — [кровотечение](#/catalog/glossary#term-glossary.bleeding) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n>\n> **Эффект:** Если цель [схвачена](#/catalog/glossary#term-glossary.grabbed) или Засадник получил преимущество на бросок силы, он получает 2 [Всплеска](#/catalog/glossary#term-glossary.surge).\n\n> **Способность развития роли 7-го уровня**\n\n> ⚔️ **Подрезать подколенные сухожилия (Столкновение)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|----------------------:|\n> | **📏 Ближний 1 или дальний 5**    | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона; М < СЛАБЫЙ — [замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **12-16:** 10 урона; М < СРЕДНИЙ — [замедление](#/catalog/glossary#term-glossary.slowed) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 15 урона; М < СИЛЬНЫЙ — [замедление](#/catalog/glossary#term-glossary.slowed), цель не может использовать триггеры ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n>\n> **Эффект:** Засадник и его Наставник могут каждый переместиться на расстояние до своей Скорости.\n\n> **Способность развития роли 10-го уровня**\n\n> ⚔️ **Прижать к земле (Столкновение)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|----------------------:|\n> | **📏 Ближний 1 или дальний 5**    | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 урона; цель размером 1 или меньше, у которой М < СЛАБЫЙ, [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 16 урона; цель размером 1 или меньше, у которой М < СРЕДНИЙ, [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 21 урон; цель размером 1 или меньше, у которой М < СИЛЬНЫЙ, [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Засадник получает 2 [Всплеска](#/catalog/glossary#term-glossary.surge), когда любое существо наносит удар по цели, которую [схватили](#/catalog/glossary#term-glossary.grabbed) этой способностью.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.ambusher",
+        "path": "Monsters/monster/retainer/role-advancement/ambusher.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/ambusher",
+      "originalName": "Ambusher Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Go for the Jugular (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage; M < WEAK [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; M < AVERAGE [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or the retainer had an edge on the power roll, the retainer gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> **Level 7 Role Advancement Ability**\n\n> ⚔️ **Hamstring Slice (Encounter)**\n>\n> | **Melee, Ranged, Strike, Weapon** |     **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; M < WEAK [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 10 damage; M < AVERAGE [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 15 damage; M < STRONG [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target can't used triggered actions ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The retainer and their mentor can each move up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ⚔️ **Hold 'Em Down (Encounter)**\n>\n> | **Melee, Ranged, Strike, Weapon** |     **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; a size 1 or smaller target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; a size 1 or smaller target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; a size 1 or smaller target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge) when any creature makes a strike against a target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/ambusher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1138 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.dwarf.dwarf-malice",
+      "title": "Раздор дворфов",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/dwarf-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf/dwarf-malice",
+      "originalName": "Dwarf Malice",
+      "originalDescription": "At the start of any dwarf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Breaching Charge (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A dwarf can destroy one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) object or square of wall for each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the destroyed object or square takes the object's Stamina in damage (3 for wood, 6 for stone, or 9 for metal).\n\n> ⭐️ **Rappelling Barrage (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each dwarf acting this turn can automatically climb at full speed while moving. At any point during this movement, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🔳 **Snaring Line (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**      |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|              \n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes an **Agility test**.\n>\n> - **≤11:** 8 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **12-16:** 6 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.\n>\n> The snaring line remains until the end of the encounter. Any enemy who moves into the area for the first time in a round or starts their turn there must make the test.\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/dwarf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.dwarf-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-axethrower",
+      "title": "Дварф-метатель топоров",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-axethrower.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-axethrower",
+      "originalName": "Dwarf Axethrower",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Defender             |  EV 3 for 4 minions  |\n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **7**<br>Stamina |           **2**<br>Stability            | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason |           **+2**<br>Intuition           |  **+0**<br>Presence  |\n\n> ⚔️ **Whistling Axes (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage; one ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike)\n>\n> **Effect:** The target can't use triggered actions until the start of the next round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-axethrower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-axethrower"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-catchpole",
+      "title": "Дварф с багром",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-catchpole.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-catchpole",
+      "originalName": "Dwarf Catchpole",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |              Minion Brute               |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **7**<br>Stamina |           **2**<br>Stability            | **2**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> 🗡 **Maul (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If the target is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), they take an extra 2 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-catchpole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-catchpole"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-driver",
+      "title": "Дварф-погонщик",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-driver.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-driver",
+      "originalName": "Dwarf Driver",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Harrier              |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **7**<br>Speed   | **6**<br>Stamina |           **1**<br>Stability            | **1**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+1**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> ⚔️ **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-driver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-driver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-gunner",
+      "title": "Дварф-стрелок",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-gunner.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-gunner",
+      "originalName": "Dwarf Gunner",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |   Platoon Artillery   |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **26**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🏹 **Portable Ballista (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** If the target is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an object or a wall after the power roll is resolved, they are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If the target is pushed into another creature, the target and the creature are each [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🏹 **Ensnaring Chains (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon** |                                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|-------------------------------------------------:|\n> | **📏 Ranged 10**   | **🎯 One [prone](scc.v1:mcdm.heroes.v1/condition/prone), [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature** |\n>\n> **Effect:** The gunner makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target, and the [prone](scc.v1:mcdm.heroes.v1/condition/prone), [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) conditions on the target end. The target is then [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ⭐️ **Split Shot**\n>\n> Whenever the gunner deals rolled damage to a target, one creature or object adjacent to the target takes 3 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-gunner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-gunner"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-hunter",
+      "title": "Дварф-охотник",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-hunter.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-hunter",
+      "originalName": "Dwarf Hunter",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Support              |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **6**<br>Stamina |           **1**<br>Stability            | **1**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> 🏹 **Snaring Javelin (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-hunter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-hunter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-launcher",
+      "title": "Дварф-гранатомётчик",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-launcher.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-launcher",
+      "originalName": "Dwarf Launcher",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |     Platoon Hexer     |         EV 8         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **39**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🔳 **Concussive Grenade (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 5**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Sleep Grenade (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon**     |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:| \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |   \n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 poison damage; I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 6 poison damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 8 poison damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** A target [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way treats their characteristic scores as 1 lower for the purpose of resisting [potencies](scc.v1:mcdm.heroes.v1/rule.character/potency).\n\n> ⭐️ **Indirect Fire**\n>\n> The launcher ignores concealment and cover, and doesn't need line of effect to use their abilities as long as a size 1 opening exists between the dwarf and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-launcher"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-marauder",
+      "title": "Дварф-мародёр",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-marauder.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-marauder",
+      "originalName": "Dwarf Marauder",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 3       |        Leader         |        EV 20         | \n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **132**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+3**<br>Might  | **+0**<br>Agility |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ⚔️ **Levitating Axes (Signature Ability)**\n>\n> | **Melee, Psionic, Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 10**                | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 15 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target force moved [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally of the marauder lord is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🏹 **Magnetomancy**\n>\n> | **Psionic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Ranged 10**    | **🎯 One creature or object** |\n>\n> **Effect:** The target vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability takes the Area keyword and loses the Ranged keyword, its distance becomes a 10 burst, and it targets each [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) creature in the area.\n\n> ❗️ **Your Weapon Is Useless**\n>\n> | **Psionic, Ranged** |    **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|------------------------:|\n> | **📏 Ranged 10**    | **🎯 Self or one ally** |\n>\n> **Trigger:** A creature makes a melee strike against the target.\n>\n> **Effect:** The target halves any damage from the strike and the triggering creature takes 4 damage.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the marauder lord can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ☠️ **Ajax Will Pay Well for These Specimens (Villain Action 1)**\n>\n> | **Area, Psionic, Ranged, Weapon** | **-** |\n> |-----------------------------------|------------------------------:|\n> | **📏 5 cube within 10**           | **🎯 Each enemy in the area** |\n>\n> **Effect:** The marauder lord uses Levitating Axes against each target, making one power roll against all targets.\n\n> ☠️ **Don't Let Them Escape! (Villain Action 2)**\n>\n> | **Area**       |                        **-** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target shifts up to their speed. The marauder lord then uses Levitating Axes.\n\n> ☠️ **Test Your Metal! (Villain Action 3)**\n>\n> | **Psionic, Ranged** |          **-** |\n> |---------------------|---------------:|\n> | **📏 Ranged 10**    | **🎯 Special** |\n>\n> **Effect:** The marauder lord creates three size 2 metal objects in unoccupied spaces within distance. Whenever the marauder lord uses Magnetomancy, they can additionally target one of these objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-marauder"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-reel-winch",
+      "title": "Дварф-лебёдчик",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-reel-winch.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-reel-winch",
+      "originalName": "Dwarf Reel Winch",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Platoon Support    |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🏹 **Snaring Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🏹 **Reel Them In (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon** |           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Ranged 10**   | **🎯 Three creatures** |\n>\n> **Effect:** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 8 squares. A [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) target can be pulled an additional 2 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **We Have a Quota!**\n>\n> If a target made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the reel winch is already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) conditions end and the target is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-reel-winch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-reel-winch"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-shieldwall",
+      "title": "Дварф-щитовик",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-shieldwall.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-shieldwall",
+      "originalName": "Dwarf Shieldwall",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 3      |   Platoon Defender    |        EV 10         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **72**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Wide Axe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 10 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 13 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n>\n> **Effect:** The shieldwall can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square to remain [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target.\n\n> ❗️ **Intercepting Shield (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature makes a strike against an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the shieldwall.\n>\n> **Effect:** The shieldwall becomes the target of the triggering strike and halves the damage.\n\n> ⭐️ **Call to the Wall**\n>\n> Whenever a creature deals damage to or takes damage from the shieldwall, the shieldwall can make that creature [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of the creature's next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-shieldwall.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-shieldwall"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-stone-whisperer",
+      "title": "Дварф-каменный шептун",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-stone-whisperer.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-stone-whisperer",
+      "originalName": "Dwarf Stone Whisperer",
+      "originalDescription": "|  Dwarf, Humanoid  |           -            |      Level 3      |  Platoon Controller   |        EV 10         | \n|:-----------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |     **5**<br>Speed     | **52**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  |   **+0**<br>Agility    | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🔳 **Tile Slide (Signature Ability)**\n>\n> | **Area, Magic**        |                             **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|--------------------------------------------:|\n> | **📏 2 cube within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Stone Wave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **Stone Walker**\n>\n> Whenever the stone whisperer willingly moves, they can phase through up to 2 squares of stone as part of that movement. If they end their movement inside stone, they are shunted out into the space from which they entered it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-stone-whisperer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-stone-whisperer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-trapper",
+      "title": "Дварф-ловчий",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-trapper.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-trapper",
+      "originalName": "Dwarf Trapper",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Platoon Harrier    |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **7**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ⚔️ **Concussive Bolts (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Steam-Powered Snare (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 5**   | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a **Might test**.\n>\n> - **≤11:** 7 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **12-16:** 5 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.\n>\n> The snare remains until the end of the encounter. Any enemy who moves into the area for the first time in a round or starts their turn there must make the test.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-trapper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-trapper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.dwarf-warden",
+      "title": "Дварф-надзиратель",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/dwarf-warden.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-warden",
+      "originalName": "Dwarf Warden",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 2      |     Platoon Brute     |         EV 8         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Concussive Maul (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Concussive Shockwave (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **Escort the Prisoners**\n>\n> Whenever the warden moves, they can carry an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) enemy as if the enemy were [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-warden.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.dwarf-warden"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.dwarf.statblock.servitor-war-walker",
+      "title": "Боевой шагоход-сервитор",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/dwarf/statblock/servitor-war-walker.md",
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/servitor-war-walker",
+      "originalName": "Servitor War Walker",
+      "originalDescription": "|  Dwarf, Humanoid  |           -           |      Level 1      |      Elite Mount      |        EV 12         | \n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **3**<br>Size   |    **8**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  |   **+0**<br>Agility   | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Grasping Claws (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target already [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ❇️ **Stunning Blast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 lightning damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 lightning damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 lightning damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Cupola**\n>\n> While riding the war walker, three size 1 allies can occupy the same space. Creatures riding the war walker have cover.\n\n> ⭐️ **Mobile Prison Harness**\n>\n> Any [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war walker is automatically [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and takes a bane on power rolls. A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the war walker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/servitor-war-walker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.dwarf.statblock.servitor-war-walker"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.group.dwarf",
+          "title": "Дварфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.dwarf",
+      "title": "Дварфы",
+      "chapter": "23. Бестиарий",
+      "group": "Дварфы",
+      "path": "Monsters/monster/group/dwarf.md",
+      "originalId": "mcdm.monsters.v1/monster.group/dwarf",
+      "originalName": "Dwarves",
+      "originalDescription": "Possessed of a strength that belies their size, dwarves have flesh infused with stone—a silico-organic hybrid that makes them physically denser than humans or elves. They enjoy a reputation in Orden as savvy engineers and technologists thanks to the lore they inherited from their elder siblings, the long-extinct steel dwarves.\n\nThey are the children of the Elder God Ord. A common phrase among the dwarves is \"Ord made the world.\" Their way of saying, \"What will be, will be.\" Dwarves take great pride in knowing that along with Aan, Eth, and Kul, their god created the mundane world, and many dwarves leave their homes to see the world and seek glory in Ord's name.\n\n### Tools of the Trade\n\nThose raised within dwarven enclaves have a relationship with technology not found in many other places on Orden. The gifts of the steel dwarves are many in number, but the most prominent is that of pneumatic steam power.\n\nDwarves have incorporated steam into much of their warfare and weaponry, making them deadly opponents. But like all technology, it's a double-headed hammer. As much as they use steam for destruction, construction is where it truly shines. Creating the formidable and brutalist facades common to dwarven architecture is made much easier with the use of tools designed to utilize pneumatic power. Some of the larger and more metropolitan dwarven cities are rumored to power wealthier districts using steam from geothermal vents.\n\n### Innovative Operation\n\nThe dwarves have yet to crack all the secrets of the valok, the autonomous machines that were their ancestors' greatest achievement, but they've made great strides in researching them. They've innovated ways to repurpose, recycle, and reverse engineer (to a limited degree) valok assemblage, giving rise to a new multifaceted occupation: the operator.\n\nOperators now span the world and come from all walks of life, but the first among them were dwarves who built powered suits from excavated valok parts. These suits were initially used for construction and utility purposes, but can be repurposed and refitted for warfare when the need arises.\n\nWord of these wonderous dwarven creations quickly spread among the tunnels of the underground, and up into the overworld. This led to a brief arms race where artisans, craftspeople, and smiths from all over were commissioned by wealthy rulers and aristocrats to create mechanized suits to bolster their armies and personal guard.\n\n### The Press-Gangs of Kal Kalavar\n\nBefore Ajax came to power, the dwarves of Kal Kalavar were renowned for their disciplined constabulary. The constables were kind, kept order, and kept the city safe.\n\nBut now, the dwarves of Kal Kalavar have submitted to Ajax's rule and pay him tribute in prisoners. Ajax has need of bodies, to be used as either forced labor or as fodder for the Body Banks, whether to make war dogs or grant eternal life to those in Ajax's favor. Most dwarves don't like this deal, but the press-gangs are committed to their work.\n\nThe marauder lords who lead the press-gangs make use of salvaged valok communication arrays that they wear like a mohawk on their heads. The array gives them access to magnetomancy, allowing them to shape and levitate metal, including wielding multiple axes in battle.\n\n### Servitor War Walkers\n\nThe war walker is a common sight in both dwarven armies and dwarven cities. They vary widely in appearance and make, ranging from cobbled-together heaps of belts, gears, and plates to elegant and sleek marvels of dwarven engineering. In battle, war walkers carry multiple dwarves and keep foes at a distance. In society, they're used for public transit and accessibility needs within dwarven cities.\n\n### Stone Whisperers\n\nSome dwarves are born with an innate talent to communicate with stone. Young dwarves identified with this gift are taken to a secretive enclave where they are trained to manipulate the movement and shape of stones using only whispers. The stone whispering technique is a deadly and quiet force in battle, and often the rumble of stone is the only precursor to an enemy's crushing defeat.\n\nLegends speak of stone singers, dwarves who could move mountains with their song. However, those same legends tell a tale of two stone singers who harmonized their voices and nearly ended the world. This is why today's stone whisperers stay quiet, afraid of their own potential.\n\n### Dwarf Languages\n\nMost dwarves speak Caelian and Zaliac.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/dwarf.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.dwarf"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.dwarf.dwarf-malice",
+          "title": "Раздор дворфов"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-axethrower",
+          "title": "Дварф-метатель топоров"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-catchpole",
+          "title": "Дварф с багром"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-driver",
+          "title": "Дварф-погонщик"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-gunner",
+          "title": "Дварф-стрелок"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-hunter",
+          "title": "Дварф-охотник"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-launcher",
+          "title": "Дварф-гранатомётчик"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-marauder",
+          "title": "Дварф-мародёр"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-reel-winch",
+          "title": "Дварф-лебёдчик"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-shieldwall",
+          "title": "Дварф-щитовик"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-stone-whisperer",
+          "title": "Дварф-каменный шептун"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-trapper",
+          "title": "Дварф-ловчий"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.dwarf-warden",
+          "title": "Дварф-надзиратель"
+        },
+        {
+          "id": "monsters.monster.dwarf.statblock.servitor-war-walker",
+          "title": "Боевой шагоход-сервитор"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.dwarf.dwarf-malice",
+      "kind": "monster-feature",
+      "name": "Раздор дворфов",
+      "markdown": "В начале хода любого дворфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 👤 **Подрывной заряд (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> За каждые потраченные 3 [Раздора](#/codex/monsters.rule.monster.malice) дворф может разрушить один [смежный](#/catalog/glossary#term-glossary.adjacent) объект или одну клетку стены. Каждый враг, [смежный](#/catalog/glossary#term-glossary.adjacent) с разрушенным объектом или клеткой, получает урон, равный Выносливости объекта (3 для дерева, 6 для камня или 9 для металла).\n\n> ⭐️ **Обстрел на канатах (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый дворф, действующий в этот ход, может карабкаться с полной Скоростью во время перемещения. В любой момент этого перемещения он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🔳 **Опутывающая линия (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|--------------------------------:|\n> | **📏 Линия 10 x 1 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель проходит **тест Ловкости**.\n>\n> - **≤11:** 8 урона; [Опутанность](#/catalog/glossary#term-glossary.restrained) (КсХ)\n> - **12-16:** 6 урона; [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** Без эффекта.\n>\n> Опутывающая линия сохраняется до конца столкновения. Каждый враг, который впервые за раунд перемещается в область или начинает там свой ход, должен пройти тест.\n>\n> **Особое:** [Миньон](#/codex/monsters.rule.organization.minion) не может использовать эту способность.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.dwarf-malice",
+        "path": "Monsters/monster/dwarf/dwarf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf/dwarf-malice",
+      "originalName": "Dwarf Malice",
+      "originalDescription": "At the start of any dwarf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 👤 **Breaching Charge (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A dwarf can destroy one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) object or square of wall for each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the destroyed object or square takes the object's Stamina in damage (3 for wood, 6 for stone, or 9 for metal).\n\n> ⭐️ **Rappelling Barrage (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each dwarf acting this turn can automatically climb at full speed while moving. At any point during this movement, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> 🔳 **Snaring Line (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged**      |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|------------------------------:|              \n> | **📏 10 x 1 line within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes an **Agility test**.\n>\n> - **≤11:** 8 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **12-16:** 6 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.\n>\n> The snaring line remains until the end of the encounter. Any enemy who moves into the area for the first time in a round or starts their turn there must make the test.\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/dwarf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-axethrower",
+      "kind": "monster",
+      "name": "Дварф-метатель топоров",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Миньон, Защитник | Боевая ценность 3 за 4 миньона |\n|:----------------:|:-:|:---------:|:----------------:|:----------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **7**<br>Выносливость | **2**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к Выносливости**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> ⚔️ **Свистящие топоры (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|------------------------------------:|\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона; один союзник, [смежный](#/catalog/glossary#term-glossary.adjacent) с целью, может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike)\n>\n> **Эффект:** Цель не может использовать действия по условию до начала следующего раунда.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-axethrower",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-axethrower.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-axethrower",
+      "originalName": "Dwarf Axethrower",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Defender             |  EV 3 for 4 minions  |\n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **7**<br>Stamina |           **2**<br>Stability            | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason |           **+2**<br>Intuition           |  **+0**<br>Presence  |\n\n> ⚔️ **Whistling Axes (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage; one ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike)\n>\n> **Effect:** The target can't use triggered actions until the start of the next round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-axethrower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-catchpole",
+      "kind": "monster",
+      "name": "Дварф с багром",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Миньон, Громила | Боевая ценность 3 за 4 миньона |\n|:----------------:|:-:|:---------:|:---------------:|:----------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **7**<br>Выносливость | **2**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к Выносливости**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Кувалда (Знаковая способность)**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона; цель [схвачена](#/catalog/glossary#term-glossary.grabbed) или [сбита с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Если цель [Опутана](#/catalog/glossary#term-glossary.restrained), она получает ещё 2 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-catchpole",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-catchpole.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-catchpole",
+      "originalName": "Dwarf Catchpole",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |              Minion Brute               |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **7**<br>Stamina |           **2**<br>Stability            | **2**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> 🗡 **Maul (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If the target is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), they take an extra 2 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-catchpole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-driver",
+      "kind": "monster",
+      "name": "Дварф-погонщик",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Миньон, Налётчик | Боевая ценность 3 за 4 миньона |\n|:----------------:|:-:|:---------:|:----------------:|:----------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **6**<br>Выносливость | **1**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к Выносливости**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> ⚔️ **Ручные топоры (Знаковая способность)**\n>\n> | **Рывок, Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------------|------------------------------------:|\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 2 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 3 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-driver",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-driver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-driver",
+      "originalName": "Dwarf Driver",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Harrier              |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **7**<br>Speed   | **6**<br>Stamina |           **1**<br>Stability            | **1**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+1**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> ⚔️ **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-driver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-gunner",
+      "kind": "monster",
+      "name": "Дварф-стрелок",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Взвод, Артиллерист | Боевая ценность 6 |\n|:----------------:|:-:|:---------:|:-----------------:|:-----------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **26**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🏹 **Переносная баллиста (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 9 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 12 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5\n>\n> **Эффект:** Если после завершения броска силы цель оказывается [смежна](#/catalog/glossary#term-glossary.adjacent) с объектом или стеной, она [Опутана](#/catalog/glossary#term-glossary.restrained) до конца своего следующего хода. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Если цель оттолкнули в другое существо, оба существа [Опутаны](#/catalog/glossary#term-glossary.restrained) до конца своего следующего хода.\n\n> 🏹 **Опутывающие цепи (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|-----------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо, которое [сбито с ног](#/catalog/glossary#term-glossary.prone), [опутано](#/catalog/glossary#term-glossary.restrained) или [замедлено](#/catalog/glossary#term-glossary.slowed)** |\n>\n> **Эффект:** Стрелок наносит цели [свободный удар](#/catalog/glossary#term-glossary.free-strike), а состояния [Лежащий](#/catalog/glossary#term-glossary.prone), [Опутанность](#/catalog/glossary#term-glossary.restrained) и [Замедление](#/catalog/glossary#term-glossary.slowed) у цели прекращаются. Затем цель становится [Опутанной](#/catalog/glossary#term-glossary.restrained) (до прох.).\n\n> ⭐️ **Расщеплённый выстрел**\n>\n> Каждый раз, когда стрелок наносит цели выброшенный урон, одно существо или объект, смежный с целью, получает 3 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-gunner",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-gunner.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-gunner",
+      "originalName": "Dwarf Gunner",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |   Platoon Artillery   |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **26**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🏹 **Portable Ballista (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** If the target is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an object or a wall after the power roll is resolved, they are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If the target is pushed into another creature, the target and the creature are each [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🏹 **Ensnaring Chains (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon** |                                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|-------------------------------------------------:|\n> | **📏 Ranged 10**   | **🎯 One [prone](scc.v1:mcdm.heroes.v1/condition/prone), [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature** |\n>\n> **Effect:** The gunner makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target, and the [prone](scc.v1:mcdm.heroes.v1/condition/prone), [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) conditions on the target end. The target is then [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> ⭐️ **Split Shot**\n>\n> Whenever the gunner deals rolled damage to a target, one creature or object adjacent to the target takes 3 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-gunner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-hunter",
+      "kind": "monster",
+      "name": "Дварф-охотник",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Миньон, Поддержка | Боевая ценность 3 за 4 миньона |\n|:----------------:|:-:|:---------:|:-----------------:|:----------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **6**<br>Выносливость | **1**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к Выносливости**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🏹 **Опутывающее копьё (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Дальний 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 2 урона; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 3 урона; [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 4\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-hunter",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-hunter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-hunter",
+      "originalName": "Dwarf Hunter",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Support              |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **6**<br>Stamina |           **1**<br>Stability            | **1**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> 🏹 **Snaring Javelin (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-hunter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for 4 minions",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-launcher",
+      "kind": "monster",
+      "name": "Дварф-гранатомётчик",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Взвод, Проклинатель | Боевая ценность 8 |\n|:----------------:|:-:|:---------:|:------------------:|:-----------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **39**<br>Выносливость | **3**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🔳 **Контузящая граната (Знаковая способность)**\n>\n> | **Область, Дальний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|------------------------------------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при М < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 8 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при М < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> 🔳 **Усыпляющая граната (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона ядом; при И < 0 — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 6 урона ядом; при И < 1 — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 8 урона ядом; при И < 2 — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Цель, [Оглушённая](#/catalog/glossary#term-glossary.dazed) таким образом, считает свои значения характеристик на 1 ниже при сопротивлении [Потенциалам](#/catalog/glossary#term-glossary.potency).\n\n> ⭐️ **Навесной огонь**\n>\n> Метатель игнорирует укрытие и покров, а также может использовать свои способности без линии воздействия, если между ним и целью есть проход размером 1.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-launcher",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-launcher.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-launcher",
+      "originalName": "Dwarf Launcher",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |     Platoon Hexer     |         EV 8         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **39**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🔳 **Concussive Grenade (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 5**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Sleep Grenade (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon**     |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:| \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |   \n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 poison damage; I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 6 poison damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 8 poison damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** A target [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way treats their characteristic scores as 1 lower for the purpose of resisting [potencies](scc.v1:mcdm.heroes.v1/rule.character/potency).\n\n> ⭐️ **Indirect Fire**\n>\n> The launcher ignores concealment and cover, and doesn't need line of effect to use their abilities as long as a size 1 opening exists between the dwarf and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-marauder",
+      "kind": "monster",
+      "name": "Дварф-мародёр",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 3 | Лидер | Боевая ценность 20 |\n|:----------------:|:-:|:---------:|:-----:|:-----------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **132**<br>Выносливость | **4**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+0**<br>Ловкость | **+2**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> ⚔️ **Левитирующие топоры (Знаковая способность)**\n>\n> | **Ближний, Псионика, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------------------|------------------------------------:|\n> | **📏 Ближний 1 или дальний 10** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 12 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 15 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 5\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Цель, принудительно перемещённая в клетку, [смежную](#/catalog/glossary#term-glossary.adjacent) с союзником предводителя мародёров, становится [Опутанной](#/catalog/glossary#term-glossary.restrained) до конца своего следующего хода.\n\n> 🏹 **Магнитомантия**\n>\n> | **Псионика, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------|-----------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Эффект:** Цель вертикально [швыряет](#/catalog/glossary#term-glossary.forced-movement)ся на расстояние до 5 клеток. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Эта способность получает ключевое слово «Область» и теряет ключевое слово «Дальний», а её дистанция становится «Взрыв 10»; она выбирает каждое [Опутанное](#/catalog/glossary#term-glossary.restrained) существо в области.\n\n> ❗️ **Твоё оружие бесполезно**\n>\n> | **Псионика, Дальний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------------|----------------------------------------:|\n> | **📏 Дальний 10** | **🎯 Себя или одного союзника** |\n>\n> **Условие:** Существо совершает удар ближнего боя по цели.\n>\n> **Эффект:** Цель получает половину урона от удара, а существо, вызвавшее действие, получает 4 урона.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода предводитель мародёров может получить 5 урона, чтобы прекратить у себя один эффект, от которого можно избавиться спасброском. Этот урон нельзя уменьшить никаким образом.\n\n> ☠️ **Аякс щедро заплатит за эти экземпляры (Действие злодея 1)**\n>\n> | **Область, Псионика, Дальний, Оружие** | **-** |\n> |-----------------------------------------|---:|\n> | **📏 Куб 5 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Предводитель мародёров использует «Левитирующие топоры» против каждой цели, совершая один бросок силы для всех целей.\n\n> ☠️ **Не дайте им сбежать! (Действие злодея 2)**\n>\n> | **Область** | **-** |\n> |-------------|---:|\n> | **📏 Взрыв 5** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель смещается на расстояние до своей Скорости. Затем предводитель мародёров использует «Левитирующие топоры».\n\n> ☠️ **Проверка на прочность! (Действие злодея 3)**\n>\n> | **Псионика, Дальний** | **-** |\n> |-----------------------|---:|\n> | **📏 Дальний 10** | **🎯 Особое** |\n>\n> **Эффект:** Предводитель мародёров создаёт три металлических объекта размера 2 в свободных пространствах в пределах дистанции. Каждый раз, когда предводитель мародёров использует «Магнитомантию», он может дополнительно выбрать один из этих объектов.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-marauder",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-marauder.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-marauder",
+      "originalName": "Dwarf Marauder",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 3       |        Leader         |        EV 20         | \n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **132**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+3**<br>Might  | **+0**<br>Agility |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ⚔️ **Levitating Axes (Signature Ability)**\n>\n> | **Melee, Psionic, Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------------|--------------------------------:|\n> | **📏 Melee 1 or ranged 10**                | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 15 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target force moved [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally of the marauder lord is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) until the end of their next turn.\n\n> 🏹 **Magnetomancy**\n>\n> | **Psionic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Ranged 10**    | **🎯 One creature or object** |\n>\n> **Effect:** The target vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability takes the Area keyword and loses the Ranged keyword, its distance becomes a 10 burst, and it targets each [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) creature in the area.\n\n> ❗️ **Your Weapon Is Useless**\n>\n> | **Psionic, Ranged** |    **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|------------------------:|\n> | **📏 Ranged 10**    | **🎯 Self or one ally** |\n>\n> **Trigger:** A creature makes a melee strike against the target.\n>\n> **Effect:** The target halves any damage from the strike and the triggering creature takes 4 damage.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the marauder lord can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ☠️ **Ajax Will Pay Well for These Specimens (Villain Action 1)**\n>\n> | **Area, Psionic, Ranged, Weapon** | **-** |\n> |-----------------------------------|------------------------------:|\n> | **📏 5 cube within 10**           | **🎯 Each enemy in the area** |\n>\n> **Effect:** The marauder lord uses Levitating Axes against each target, making one power roll against all targets.\n\n> ☠️ **Don't Let Them Escape! (Villain Action 2)**\n>\n> | **Area**       |                        **-** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target shifts up to their speed. The marauder lord then uses Levitating Axes.\n\n> ☠️ **Test Your Metal! (Villain Action 3)**\n>\n> | **Psionic, Ranged** |          **-** |\n> |---------------------|---------------:|\n> | **📏 Ranged 10**    | **🎯 Special** |\n>\n> **Effect:** The marauder lord creates three size 2 metal objects in unoccupied spaces within distance. Whenever the marauder lord uses Magnetomancy, they can additionally target one of these objects.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-reel-winch",
+      "kind": "monster",
+      "name": "Дварф-лебёдчик",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Взвод, Поддержка | Боевая ценность 6 |\n|:----------------:|:-:|:---------:|:----------------:|:-----------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **36**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🏹 **Опутывающий арбалет (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при М < 0 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 7 урона; при М < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона; при М < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Цель [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 5 клеток. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> 🏹 **Подтянуть к себе (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|-----------------------:|\n> | **📏 Дальний 10** | **🎯 Три существа** |\n>\n> **Эффект:** Цели [притягиваются](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 8 клеток. Цель в состоянии [Опутанность](#/catalog/glossary#term-glossary.restrained) или [Замедление](#/catalog/glossary#term-glossary.slowed) можно притянуть ещё на 2 клетки. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> ⭐️ **У нас есть норма!**\n>\n> Если цель, которую лебёдчик сделал [Замедленной](#/catalog/glossary#term-glossary.slowed), уже находится в состоянии [Захват](#/catalog/glossary#term-glossary.grabbed) или [Замедление](#/catalog/glossary#term-glossary.slowed), состояния [Захват](#/catalog/glossary#term-glossary.grabbed) и [Замедление](#/catalog/glossary#term-glossary.slowed) прекращаются, а цель становится [Опутанной](#/catalog/glossary#term-glossary.restrained) (до прох.).\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-reel-winch",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-reel-winch.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-reel-winch",
+      "originalName": "Dwarf Reel Winch",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Platoon Support    |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🏹 **Snaring Crossbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🏹 **Reel Them In (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon** |           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Ranged 10**   | **🎯 Three creatures** |\n>\n> **Effect:** The target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 8 squares. A [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) target can be pulled an additional 2 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **We Have a Quota!**\n>\n> If a target made [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the reel winch is already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), the [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) conditions end and the target is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-reel-winch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-shieldwall",
+      "kind": "monster",
+      "name": "Дварф-щитовик",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 3 | Взвод, Защитник | Боевая ценность 10 |\n|:----------------:|:-:|:---------:|:---------------:|:------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **72**<br>Выносливость | **4**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Широкий топор (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 10 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 13 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1\n>\n> **Эффект:** Щитовик может [сместиться](#/catalog/glossary#term-glossary.shift) на 1 клетку, чтобы остаться [смежным](#/catalog/glossary#term-glossary.adjacent) с целью. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Эта способность выбирает ещё одну цель.\n\n> ❗️ **Щит-перехватчик (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------|----------------------------------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Условие:** Существо наносит удар союзнику, [смежному](#/catalog/glossary#term-glossary.adjacent) со щитовиком.\n>\n> **Эффект:** Щитовик становится целью вызвавшего действие удара и получает половину урона.\n\n> ⭐️ **К стене!**\n>\n> Каждый раз, когда существо наносит урон щитовику или получает урон от него, щитовик может наложить на это существо [Провокацию](#/catalog/glossary#term-glossary.taunted) до конца следующего хода существа.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-shieldwall",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-shieldwall.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-shieldwall",
+      "originalName": "Dwarf Shieldwall",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 3      |   Platoon Defender    |        EV 10         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **72**<br>Stamina |  **4**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Wide Axe (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 10 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 13 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n>\n> **Effect:** The shieldwall can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square to remain [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target.\n\n> ❗️ **Intercepting Shield (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature makes a strike against an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the shieldwall.\n>\n> **Effect:** The shieldwall becomes the target of the triggering strike and halves the damage.\n\n> ⭐️ **Call to the Wall**\n>\n> Whenever a creature deals damage to or takes damage from the shieldwall, the shieldwall can make that creature [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) until the end of the creature's next turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-shieldwall.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-stone-whisperer",
+      "kind": "monster",
+      "name": "Дварф-каменный шептун",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 3 | Взвод, Контроллер | Боевая ценность 10 |\n|:----------------:|:-:|:---------:|:-----------------:|:------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **52**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Закапывание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+0**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🔳 **Сдвиг плит (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|------------------------------------:|\n> | **📏 Куб 2 в пределах 1** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 1; при М < 0 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 8 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 3; при М < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 11 урона; [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 5; при М < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> 🔳 **Каменная волна (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|-----------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; при Р < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при Р < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при Р < 3 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain) для врагов. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> ⭐️ **Каменный ходок**\n>\n> Когда каменный шептун добровольно перемещается, он может проходить сквозь камень на протяжении до 2 клеток пути в рамках этого перемещения. Если он заканчивает перемещение внутри камня, его вытесняет наружу в пространство, откуда он в него вошёл.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-stone-whisperer",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-stone-whisperer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-stone-whisperer",
+      "originalName": "Dwarf Stone Whisperer",
+      "originalDescription": "|  Dwarf, Humanoid  |           -            |      Level 3      |  Platoon Controller   |        EV 10         | \n|:-----------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |     **5**<br>Speed     | **52**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  |   **+0**<br>Agility    | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🔳 **Tile Slide (Signature Ability)**\n>\n> | **Area, Magic**        |                             **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|--------------------------------------------:|\n> | **📏 2 cube within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Stone Wave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; R < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; R < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **Stone Walker**\n>\n> Whenever the stone whisperer willingly moves, they can phase through up to 2 squares of stone as part of that movement. If they end their movement inside stone, they are shunted out into the space from which they entered it.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-stone-whisperer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-trapper",
+      "kind": "monster",
+      "name": "Дварф-ловчий",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Взвод, Налётчик | Боевая ценность 6 |\n|:----------------:|:-:|:---------:|:---------------:|:-----------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **36**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> ⚔️ **Контузящие болты (Знаковая способность)**\n>\n> | **Рывок, Ближний, Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------------|------------------------------------:|\n> | **📏 Ближний 1 или дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** 7 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4\n> - **17+:** 9 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 6\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> 🔳 **Паровая ловушка (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-----------------------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель проходит **тест Мощи**.\n>\n> - **≤11:** 7 урона; [Опутанность](#/catalog/glossary#term-glossary.restrained) (КсХ)\n> - **12-16:** 5 урона; [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** Без эффекта.\n>\n> Ловушка сохраняется до конца столкновения. Каждый враг, который впервые за раунд перемещается в область или начинает там свой ход, должен пройти тест.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-trapper",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-trapper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-trapper",
+      "originalName": "Dwarf Trapper",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |    Platoon Harrier    |         EV 6         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **7**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> ⚔️ **Concussive Bolts (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Steam-Powered Snare (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 5**   | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a **Might test**.\n>\n> - **≤11:** 7 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **12-16:** 5 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** No effect.\n>\n> The snare remains until the end of the encounter. Any enemy who moves into the area for the first time in a round or starts their turn there must make the test.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-trapper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.dwarf-warden",
+      "kind": "monster",
+      "name": "Дварф-надзиратель",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 2 | Взвод, Громила | Боевая ценность 8 |\n|:----------------:|:-:|:---------:|:--------------:|:-----------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **59**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Контузящая кувалда (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12-16:** 10 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 13 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5; при М < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> 🔳 **Контузящая ударная волна (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; при Л < 0 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 8 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; при Л < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 11 урона; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2; при Л < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> ⭐️ **Сопровождение пленников**\n>\n> Когда надзиратель перемещается, он может переносить [смежного](#/catalog/glossary#term-glossary.adjacent) с ним [Опутанного](#/catalog/glossary#term-glossary.restrained) врага, как если бы тот был им [Схвачен](#/catalog/glossary#term-glossary.grabbed).\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.dwarf-warden",
+        "path": "Monsters/monster/dwarf/statblock/dwarf-warden.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-warden",
+      "originalName": "Dwarf Warden",
+      "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 2      |     Platoon Brute     |         EV 8         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Concussive Maul (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Concussive Shockwave (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon**       |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ⭐️ **Escort the Prisoners**\n>\n> Whenever the warden moves, they can carry an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) enemy as if the enemy were [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/dwarf-warden.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.dwarf.statblock.servitor-war-walker",
+      "kind": "monster",
+      "name": "Боевой шагоход-сервитор",
+      "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Элита, Скакун | Боевая ценность 12 |\n|:----------------:|:-:|:---------:|:-------------:|:------------------:|\n| **3**<br>Размер | **8**<br>Скорость | **60**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **-2**<br>Разум | **+0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Хватающие клешни (Знаковая способность)**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|------------------------------------:|\n> | **📏 Ближний 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; при М < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Цель, уже [опутанная](#/catalog/glossary#term-glossary.restrained) или ставшая [опутанной](#/catalog/glossary#term-glossary.restrained) этой способностью, [притягивается](#/catalog/glossary#term-glossary.forced-movement) на расстояние до 3 клеток. Эта способность может принудительно перемещать цель, [Опутанную](#/catalog/glossary#term-glossary.restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained), если Ведущий не решит иначе.\n\n> ❇️ **Ошеломляющий взрыв (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона молнией; при Л < 0 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона молнией; при Л < 1 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 7 урона молнией; при Л < 2 — [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ⭐️ **Купол**\n>\n> Пока существа едут верхом на боевом шагоходе, три союзника размера 1 могут занимать одно и то же пространство. Всадники на боевом шагоходе получают укрытие.\n\n> ⭐️ **Тюремная подвесная упряжь**\n>\n> Любое [Опутанное](#/catalog/glossary#term-glossary.restrained) или [Замедленное](#/catalog/glossary#term-glossary.slowed) существо, оказавшееся [смежно](#/catalog/glossary#term-glossary.adjacent) с боевым шагоходом, автоматически становится [Опутанным](#/catalog/glossary#term-glossary.restrained) (до прох.) и получает помеху к броскам силы. Существо, ставшее [Опутанным](#/catalog/glossary#term-glossary.restrained) таким образом, перемещается вместе с боевым шагоходом.\n",
+      "source": {
+        "articleId": "monsters.monster.dwarf.statblock.servitor-war-walker",
+        "path": "Monsters/monster/dwarf/statblock/servitor-war-walker.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/servitor-war-walker",
+      "originalName": "Servitor War Walker",
+      "originalDescription": "|  Dwarf, Humanoid  |           -           |      Level 1      |      Elite Mount      |        EV 12         | \n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **3**<br>Size   |    **8**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  |   **+0**<br>Agility   | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-2**<br>Presence  |\n\n> 🗡 **Grasping Claws (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** A target already [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares. A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> ❇️ **Stunning Blast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 lightning damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 lightning damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 lightning damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Cupola**\n>\n> While riding the war walker, three size 1 allies can occupy the same space. Creatures riding the war walker have cover.\n\n> ⭐️ **Mobile Prison Harness**\n>\n> Any [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war walker is automatically [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and takes a bane on power rolls. A creature [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way moves with the war walker.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/dwarf/statblock/servitor-war-walker.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Дварф",
+          "Гуманоид"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.group.dwarf",
+      "kind": "monster-lore",
+      "name": "Дварфы",
+      "markdown": "Несмотря на небольшой рост, дворфы обладают недюжинной силой. Их плоть пропитана камнем — это кремниево-органический гибрид, благодаря которому они физически плотнее людей и эльфов. В Ордене они прославились как искусные инженеры и технологи благодаря знаниям, унаследованным от старших братьев и сестёр — давно исчезнувших стальных дворфов.\n\nОни — дети Старшего бога Орда. Распространённая поговорка дворфов гласит: «Орд создал мир». Так они говорят: «Чему быть, того не миновать». Дворфы гордятся тем, что их бог вместе с Ааном, Этом и Кулом создал обыденный мир. Многие дворфы покидают родные места, чтобы увидеть мир и прославиться во имя Орда.\n\n### Инструменты ремесла\n\nДворфы, выросшие в подземных анклавах, обладают особым отношением к технологиям, нечасто встречающимся в других местах Ордена. Наследие стальных дворфов велико, но важнейшим его даром стала пневматическая паровая энергия.\n\nДворфы широко применяют пар в военном деле и оружии, превращаясь в смертоносных противников. Но у любой технологии две стороны. Пар служит не только разрушению: особенно ярко он проявляет себя в строительстве. Инструменты на пневматическом приводе значительно упрощают создание внушительных и суровых фасадов, характерных для дворфийской архитектуры. Поговаривают, что в некоторых крупных и космополитичных дворфийских городах пар из геотермальных источников снабжает энергией богатые кварталы.\n\n### Инновационная эксплуатация\n\nДворфы пока не раскрыли всех тайн валоков — автономных машин, величайшего творения их предков, — однако добились значительных успехов в их изучении. Они нашли способы повторно использовать и перерабатывать конструкции валоков, а также в ограниченной степени проводить их обратное проектирование. Так появилась новая многогранная профессия — оператор.\n\nТеперь операторы встречаются по всему миру и происходят из самых разных слоёв общества, однако первыми из них были дворфы, собиравшие силовые костюмы из извлечённых частей валоков. Изначально эти костюмы предназначались для строительства и других практических задач, но при необходимости их можно переоборудовать для войны.\n\nВесть об этих чудесных дворфийских изобретениях быстро разнеслась по подземным туннелям и достигла поверхности. Началась недолгая гонка вооружений: ремесленников, мастеров и кузнецов со всего света нанимали богатые правители и аристократы, чтобы те создавали механизированные костюмы для укрепления их армий и личной охраны.\n\n### Отряды вербовщиков Кал-Калавара\n\nДо прихода Аякса дворфы Кал-Калавара славились дисциплинированной городской стражей. Стражники были добры, поддерживали порядок и охраняли город.\n\nНо теперь дворфы Кал-Калавара подчинились власти Аякса и платят ему дань пленниками. Аяксу нужны тела — для принудительных работ или пополнения Банков тел, где из них делают псов войны либо даруют вечную жизнь тем, кто пользуется его благосклонностью. Большинству дворфов эта сделка не по душе, но отряды вербовщиков продолжают своё дело.\n\nПредводители мародёров, командующие отрядами вербовщиков, используют спасённые коммуникационные массивы валоков, которые носят на голове, словно ирокез. Массив даёт им доступ к магнитомантии — способности придавать металлу форму и левитировать его, в том числе одновременно владея несколькими топорами в бою.\n\n### Боевые шагоходы-сервиторы\n\nБоевые шагоходы часто встречаются и в армиях дворфов, и в их городах. Их облик и устройство сильно различаются: от груды ремней, шестерён и пластин, кое-как собранной из подручных деталей, до элегантных и изящных шедевров дворфийской инженерии. В бою шагоходы переносят нескольких дворфов и держат врагов на расстоянии. В мирное время их используют для общественного транспорта и помощи людям с ограниченной подвижностью в дворфийских городах.\n\n### Каменные шептуны\n\nНекоторые дворфы рождаются с врождённым даром общения с камнем. Юных дворфов, в которых распознали этот дар, забирают в тайный анклав, где их учат управлять движением и формой камней одним лишь шёпотом. Искусство каменного шёпота — смертоносная и беззвучная сила в бою; нередко рокоту камня предшествует лишь неминуемое сокрушительное поражение врага.\n\nВ легендах говорится о каменных певцах — дворфах, способных песней сдвигать горы. Но те же легенды рассказывают о двух каменных певцах, чьи согласованные голоса едва не уничтожили мир. Поэтому современные каменные шептуны молчат, опасаясь собственной силы.\n\n### Языки дворфов\n\nБольшинство дворфов говорят на кэлианском и залиаке.\n",
+      "source": {
+        "articleId": "monsters.monster.group.dwarf",
+        "path": "Monsters/monster/group/dwarf.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/dwarf",
+      "originalName": "Dwarves",
+      "originalDescription": "Possessed of a strength that belies their size, dwarves have flesh infused with stone—a silico-organic hybrid that makes them physically denser than humans or elves. They enjoy a reputation in Orden as savvy engineers and technologists thanks to the lore they inherited from their elder siblings, the long-extinct steel dwarves.\n\nThey are the children of the Elder God Ord. A common phrase among the dwarves is \"Ord made the world.\" Their way of saying, \"What will be, will be.\" Dwarves take great pride in knowing that along with Aan, Eth, and Kul, their god created the mundane world, and many dwarves leave their homes to see the world and seek glory in Ord's name.\n\n### Tools of the Trade\n\nThose raised within dwarven enclaves have a relationship with technology not found in many other places on Orden. The gifts of the steel dwarves are many in number, but the most prominent is that of pneumatic steam power.\n\nDwarves have incorporated steam into much of their warfare and weaponry, making them deadly opponents. But like all technology, it's a double-headed hammer. As much as they use steam for destruction, construction is where it truly shines. Creating the formidable and brutalist facades common to dwarven architecture is made much easier with the use of tools designed to utilize pneumatic power. Some of the larger and more metropolitan dwarven cities are rumored to power wealthier districts using steam from geothermal vents.\n\n### Innovative Operation\n\nThe dwarves have yet to crack all the secrets of the valok, the autonomous machines that were their ancestors' greatest achievement, but they've made great strides in researching them. They've innovated ways to repurpose, recycle, and reverse engineer (to a limited degree) valok assemblage, giving rise to a new multifaceted occupation: the operator.\n\nOperators now span the world and come from all walks of life, but the first among them were dwarves who built powered suits from excavated valok parts. These suits were initially used for construction and utility purposes, but can be repurposed and refitted for warfare when the need arises.\n\nWord of these wonderous dwarven creations quickly spread among the tunnels of the underground, and up into the overworld. This led to a brief arms race where artisans, craftspeople, and smiths from all over were commissioned by wealthy rulers and aristocrats to create mechanized suits to bolster their armies and personal guard.\n\n### The Press-Gangs of Kal Kalavar\n\nBefore Ajax came to power, the dwarves of Kal Kalavar were renowned for their disciplined constabulary. The constables were kind, kept order, and kept the city safe.\n\nBut now, the dwarves of Kal Kalavar have submitted to Ajax's rule and pay him tribute in prisoners. Ajax has need of bodies, to be used as either forced labor or as fodder for the Body Banks, whether to make war dogs or grant eternal life to those in Ajax's favor. Most dwarves don't like this deal, but the press-gangs are committed to their work.\n\nThe marauder lords who lead the press-gangs make use of salvaged valok communication arrays that they wear like a mohawk on their heads. The array gives them access to magnetomancy, allowing them to shape and levitate metal, including wielding multiple axes in battle.\n\n### Servitor War Walkers\n\nThe war walker is a common sight in both dwarven armies and dwarven cities. They vary widely in appearance and make, ranging from cobbled-together heaps of belts, gears, and plates to elegant and sleek marvels of dwarven engineering. In battle, war walkers carry multiple dwarves and keep foes at a distance. In society, they're used for public transit and accessibility needs within dwarven cities.\n\n### Stone Whisperers\n\nSome dwarves are born with an innate talent to communicate with stone. Young dwarves identified with this gift are taken to a secretive enclave where they are trained to manipulate the movement and shape of stones using only whispers. The stone whispering technique is a deadly and quiet force in battle, and often the rumble of stone is the only precursor to an enemy's crushing defeat.\n\nLegends speak of stone singers, dwarves who could move mountains with their song. However, those same legends tell a tale of two stone singers who harmonized their voices and nearly ended the world. This is why today's stone whisperers stay quiet, afraid of their own potential.\n\n### Dwarf Languages\n\nMost dwarves speak Caelian and Zaliac.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/dwarf.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "dwarf",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

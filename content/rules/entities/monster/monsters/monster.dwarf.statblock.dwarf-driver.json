@@ -1,0 +1,29 @@
+{
+  "id": "monster.dwarf.statblock.dwarf-driver",
+  "kind": "monster",
+  "name": "Дварф-погонщик",
+  "markdown": "| Дварф, Гуманоид | - | Уровень 1 | Миньон, Налётчик | Боевая ценность 3 за 4 миньона |\n|:----------------:|:-:|:---------:|:----------------:|:----------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **6**<br>Выносливость | **1**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к Выносливости**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> ⚔️ **Ручные топоры (Знаковая способность)**\n>\n> | **Рывок, Ближний, Дальний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------------|------------------------------------:|\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон; [Толчок](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 урона; [Толчок](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 урона; [Толчок](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Эффект:** Эта способность может принудительно перемещать цель, [Опутанную](scc.v1:mcdm.heroes.v1/condition/restrained) дворфом. Это принудительное перемещение не прекращает состояние [Опутанность](scc.v1:mcdm.heroes.v1/condition/restrained), если Ведущий не решит иначе.\n",
+  "source": {
+    "articleId": "monsters.monster.dwarf.statblock.dwarf-driver",
+    "path": "Monsters/monster/dwarf/statblock/dwarf-driver.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-driver",
+  "originalName": "Dwarf Driver",
+  "originalDescription": "|  Dwarf, Humanoid  |         -         |     Level 1      |             Minion Harrier              |  EV 3 for 4 minions  | \n|:-----------------:|:-----------------:|:----------------:|:---------------------------------------:|:--------------------:| \n|  **1M**<br>Size   |  **7**<br>Speed   | **6**<br>Stamina |           **1**<br>Stability            | **1**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to Stamina**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+1**<br>Agility | **+0**<br>Reason |           **+0**<br>Intuition           |  **+0**<br>Presence  |\n\n> ⚔️ **Handaxes (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/dwarf/statblock/dwarf-driver.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "dwarf",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for 4 minions",
+    "size": "1M",
+    "keywords": [
+      "Дварф",
+      "Гуманоид"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.gnoll.gnoll-malice",
+      "title": "Раздор гноллов",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/gnoll-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll/gnoll-malice",
+      "originalName": "Gnoll Malice",
+      "originalDescription": "At the start of any gnoll's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Iron Jaws (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|---------------:|\n> | **📏 1 cube within 3**   | **🎯 Special** \n>\n> **Effect:** A gnoll acting this turn drops an iron-jawed snare into the area. The first time any enemy moves into the area, they make an **Agility test**. If they were unaware of the snare, the test takes a bane.\n>\n> - **≤11:** 6 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 4 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n> - **17+:** No effect.\n>\n> **Effect:** While an enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, each gnoll in the encounter gains an edge on strikes made against them.\n\n> 👤 **Bloodpool (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One gnoll [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) suddenly explodes into a pool of blood, splattering the area within 3 squares of them. Any gnoll who starts their turn in this area deals an extra 5 damage on their next strike before the end of their turn. Once per round, an abyssal hyena who starts their turn in the area turns into a **gnoll marauder**, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> 🌀 **Echoes of Laughter (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the encounter, the encounter map is encased in a soundscape of laughter and howling. Each enemy takes a bane on the first power roll they make each round. Whenever a gnoll is killed, this effect is suppressed until the start of the next round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/gnoll-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.gnoll-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.abyssal-hyena",
+      "title": "Гиена Бездны",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/abyssal-hyena.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/abyssal-hyena",
+      "originalName": "Abyssal Hyena",
+      "originalDescription": "| Abyssal, Animal, Gnoll |         -         |     Level 2      |             Minion Brute              | EV 4 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **8**<br>Speed   | **7**<br>Stamina |          **1**<br>Stability           | **3**<br>Free Strike  |\n|   **-**<br>Immunity    | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+2**<br>Might     | **+1**<br>Agility | **-3**<br>Reason |          **0**<br>Intuition           |  **-2**<br>Presence   |\n\n> 🗡 **Snapjaw (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ⭐️ **Death Snap**\n>\n> When the abyssal hyena is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/abyssal-hyena.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Животное",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.abyssal-hyena"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-abyssal-archer",
+      "title": "Гнолл-лучник Бездны",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-abyssal-archer.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-abyssal-archer",
+      "originalName": "Gnoll Abyssal Archer",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |    Horde Artillery    |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **+1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🏹 **Dark Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 6 corruption damage\n> - **17+:** 8 corruption damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** This ability gains an edge against any target not at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❇️ **Archer's Cackletongue (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Until the end of their next turn, each target gains an edge on their next strike. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Distant Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the abyssal archer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the abyssal archer can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Bloodscent**\n>\n> The abyssal archer doesn't need line of effect to use their abilities against any creature who isn't at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), as long as a size 1 opening exists between the archer and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-abyssal-archer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-abyssal-archer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-abyssal-summoner",
+      "title": "Гнолл-призыватель Бездны",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-abyssal-summoner.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-abyssal-summoner",
+      "originalName": "Gnoll Abyssal Summoner",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Support     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **0**<br>Agility  |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Flame Wad (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 fire damage\n> - **12-16:** 5 fire damage\n> - **17+:** 7 fire damage; I < 2 the target is burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🏹 **Call Abyssal Hyenas (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** Two abyssal hyenas claw up from the ground in unoccupied spaces within distance.\n\n> ❇️ **Summoner's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 2 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** One abyssal hyena target turns into a gnoll marauder, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the abyssal summoner is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the abyssal summoner moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-abyssal-summoner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Поддержка",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-abyssal-summoner"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-bonesplitter",
+      "title": "Гнолл-костолом",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-bonesplitter.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-bonesplitter",
+      "originalName": "Gnoll Bonesplitter",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |      Horde Brute      |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **25**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n| **+2**<br>Might | **+1**<br>Agility | **0**<br>Reason | **0**<br>Intuition | **+1**<br>Presence |\n\n> 🗡 **Three-Tail Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); M < 2 the target takes a bane on the Escape Grab maneuver\n>\n> **Effect:** While the bonesplitter has a target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), they can't use Three-Tail Flail against another target.\n\n> ❇️ **Bonesplitter's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Up to three targets can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the bonesplitter is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the bonesplitter moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-bonesplitter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1L",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-bonesplitter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-cackler",
+      "title": "Гнолл-хохотун",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-cackler.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-cackler",
+      "originalName": "Gnoll Cackler",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |      Horde Hexer      |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **0**<br>Agility  | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Moment of Brutality (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 8**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 psychic damage; I < 0 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature of the cackler's choice\n> - **12-16:** 5 psychic damage; I < 1 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature of the cackler's choice\n> - **17+:** 7 psychic damage; I < 2 the target uses a signature ability against a creature of the cackler's choice\n>\n> **Effect:** An ally targeted by this ability ignores the damage and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❇️ **Cackler's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------------------------:|\n> | **📏 2 burst**  | **🎯 Each creature in the area** |\n>\n> **Effect:** Each enemy target makes an **Intuition test**. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the cackler is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the cackler moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-cackler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1S",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-cackler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-carnage",
+      "title": "Гнолл-мясник",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-carnage.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-carnage",
+      "originalName": "Gnoll Carnage",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2       |        Leader         |        EV 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **100**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+3**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> 🗡 **Shrapnel Whip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; A < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 14 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** An ally targeted by this ability ignores the damage and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❇️ **Carnage's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target deals an extra 3 damage with their next strike until the start of the carnage's next turn. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Rampage**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the carnage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the carnage can move up to their speed, then can either make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against two creatures or use Shrapnel Whip against one creature.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the carnage can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Endless Hunger**\n>\n> If the carnage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) while there are still gnolls on the encounter map, one gnoll on the map is transformed into a gnoll carnage, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ☠️ **Call Up From the Abyss ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Magic, Ranged** |          **-** |\n> |-------------------|---------------:|\n> | **📏 Ranged 10**  | **🎯 Special** |\n>\n> **Effect:** The carnage summons four abyssal hyenas into unoccupied spaces within distance.\n\n> ☠️ **Edacity ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Self and three allies** |\n>\n> **Effect:** Each target moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Any creature damaged by one of these [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) who has M < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ☠️ **Deepest Wounds ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                                **-** |\n> |-----------------|-------------------------------------:|\n> | **📏 5 burst**  | **🎯 Each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) enemy in the area** |\n>\n> **Effect:** The carnage's eyes and all exposed blood within distance glow bright red. Each target makes a **Presence test**.\n>\n> - **≤11:** The target can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) until the end of the encounter.\n> - **12-16:** The target can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **17+:** No effect\n>\n> **Effect:** Until the end of the encounter, all gnolls have a double edge on power rolls that target a [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-carnage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-carnage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-chainflail",
+      "title": "Гнолл-цепник",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-chainflail.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-chainflail",
+      "originalName": "Gnoll Chainflail",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |                Minion Artillery                | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **4**<br>Stamina |               **1**<br>Stability               | **3**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  | **+1**<br>Reason |               **0**<br>Intuition               |  **-2**<br>Presence   |\n\n> 🏹 **Chain Shotput (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the chainflail is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the chainflail can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-chainflail.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-chainflail"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-mage-mauler",
+      "title": "Гнолл-крушитель магов",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-mage-mauler.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-mage-mauler",
+      "originalName": "Gnoll Mage Mauler",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |                  Minion Hexer                  | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **4**<br>Stamina |               **1**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to melee distance**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Wizard Ripper (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 1**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 acid damage\n> - **12-16:** 3 cold damage\n> - **17+:** 5 lightning damage; the target can't use magic abilities (EoT)\n>\n> **Effect:** The target takes a bane on their next power roll.\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the mage mauler is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the mage mauler can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-mage-mauler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-mage-mauler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-marauder",
+      "title": "Гнолл-налётчик",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-marauder.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-marauder",
+      "originalName": "Gnoll Marauder",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Harrier     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fury Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Marauder's Cackletongue (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the marauder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the marauder moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-marauder"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.gnoll-wildling",
+      "title": "Гнолл-дикарь",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/gnoll-wildling.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-wildling",
+      "originalName": "Gnoll Wildling",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |               Minion Harrier                | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **5**<br>Stamina |             **1**<br>Stability              | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason |             **+0**<br>Intuition             |  **-2**<br>Presence   |\n\n> 🗡 **Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 3 damage\n> - **17+:** 5 damage; the wildling can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the wildling is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the wildling can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-wildling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.gnoll-wildling"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.gnoll.statblock.tusker-demon",
+      "title": "Демон-бивень",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/gnoll/statblock/tusker-demon.md",
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/tusker-demon",
+      "originalName": "Tusker Demon",
+      "originalDescription": "| Abyssal, Demon, Gnoll |         -         |      Level 2       |      Elite Brute      |        EV 16         | \n|:---------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size     |  **7**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|   **-**<br>Immunity   | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might    | **-1**<br>Agility |  **-3**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If this ability is used as part of the Charge main action, it deals an extra 4 damage.\n\n> ❗️ **Vengeful Tusker**\n>\n> | **Ranged**      |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|----------------------------:|\n> | **📏 Ranged 7** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance deals damage to the tusker.\n>\n> **Effect:** The tusker demon uses the Charge main action and Gore against the target.\n\n> ⭐️ **Trample**\n>\n> The tusker demon can move through enemies' spaces at their usual speed. When the tusker enters a creature's space for the first time on a turn, that creature takes 5 damage. The tusker demon can end their turn in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) size 1 creature's space, preventing the creature from standing up.\n\n> ⭐️ **Lethe**\n>\n> While the tusker demon is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an edge on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/tusker-demon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.statblock.tusker-demon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.group.gnoll",
+          "title": "Гноллы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.gnoll",
+      "title": "Гноллы",
+      "chapter": "23. Бестиарий",
+      "group": "Гноллы",
+      "path": "Monsters/monster/group/gnoll.md",
+      "originalId": "mcdm.monsters.v1/monster.group/gnoll",
+      "originalName": "Gnolls",
+      "originalDescription": "Edacity. The hyena-faced gnolls know only blood and hunger. These fiends carry with them the evil legacy of an unwitting demonic heritage. Originally from the Abyssal Wasteland, gnolls quickly spread across the timescape, and they thrive in deserts, plains, and other sparsely populated places. Though a gnoll's muzzle is just as likely to be bloodied by carrion as by prey, their hunting packs hunger for violence, and they eagerly hunt travelers and raid settlements. A pack's eerie war cry, a wild cackle, presages a night of battle and terror.\n\n#### Born From Blood\n\nThe Abyssal Waste is an alien landscape hostile to most life. Yet amid its desolation, fiendish creatures thrive, including abyssal hyenas—bloodthirsty scavengers who fight with other lesser fiends over the corpses of demons. The first gnolls arose when a pack of those predators lapped at the ichor oozing from the wounds of a dying demon prince, As'sylrak the Warper.\n\nAs his last act, the demon gave the fiendish hyenas a demonic cunning to match their insatiable hunger, bound his evil will to theirs, and turned their paws into hands so they could wield weapons. He called these new fiends \"gnoll,\" an Abyssal word that has many meanings, one of which is \"to consume completely.\" And true to their name, the gnolls immediately devoured their creator.\n\n#### Ceaseless Hunger\n\nThe merciless gnolls quickly spread across the timescape in search of new victims to quench their never-ending hunger. Their packs were originally followed by some of the abyssal hyenas who didn't receive As'sylrak's blessing, with those tagalongs enjoying the castoffs of the gnoll packs. Gnolls never forgot the day when they tasted immortal flesh—and they hunger for more, longing for a day when they hunt the gods themselves through heavenly halls.\n\n#### Gnoll War\n\nMost gnolls live for the thrill of the hunt and the taste of flesh, and they aren't choosy with their targets. Perhaps the one saving grace for most humanoid communities is that gnoll war bands constantly battle each other for territory, keeping their numbers reduced.\n\n#### Abyssal Hyenas\n\nStronger and smarter than their beastly counterparts, abyssal hyenas crawl out of the Abyssal Wasteland to feed on corpses gnolls leave in their wake. When reinforcements are needed, gnoll spellcasters can use magic to transform abyssal hyenas into gnolls.\n\n#### Tusker Demons\n\nTowering among the gnolls of a war band, the elephantine tusker demon serves as beast of burden and war machine. Tusker demons have no facial features except a twisted crown of tusks that surrounds their ravening maw. Although they usually follow gnoll commands, tuskers in lethe (see the [Demons] section) are prone to violent outbursts and charge at anything that moves—enemies and allies alike.\n\n#### Gnoll Languages\n\nMost gnolls speak Tholl. Gnoll carnages and other older gnolls usually also know Variac.\n\n#### Heroes Beware!\n\nWhen gnolls go into a frenzy and coordinate their individual Cackletongue maneuvers, few heroes will leave the battlefield unscarred. Any 1st-echelon encounter that contains more than two non-minion gnolls can be considered one difficulty category harder at the Director's discretion.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/gnoll.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.gnoll"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.gnoll.gnoll-malice",
+          "title": "Раздор гноллов"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.abyssal-hyena",
+          "title": "Гиена Бездны"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-abyssal-archer",
+          "title": "Гнолл-лучник Бездны"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-abyssal-summoner",
+          "title": "Гнолл-призыватель Бездны"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-bonesplitter",
+          "title": "Гнолл-костолом"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-cackler",
+          "title": "Гнолл-хохотун"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-carnage",
+          "title": "Гнолл-мясник"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-chainflail",
+          "title": "Гнолл-цепник"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-mage-mauler",
+          "title": "Гнолл-крушитель магов"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-marauder",
+          "title": "Гнолл-налётчик"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.gnoll-wildling",
+          "title": "Гнолл-дикарь"
+        },
+        {
+          "id": "monsters.monster.gnoll.statblock.tusker-demon",
+          "title": "Демон-бивень"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.gnoll.gnoll-malice",
+      "kind": "monster-feature",
+      "name": "Раздор гноллов",
+      "markdown": "В начале хода любого гнолла вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Железные челюсти (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний, Оружие** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-------------------------------------:|\n> | **📏 1 куб в пределах 3**      | **🎯 Особое** |\n>\n> **Эффект:** Действующий в этот ход гнолл устанавливает в области капкан с железными челюстями. Первое существо, попавшее в область, — любой враг — проходит **тест Ловкости**. Если оно не знало о капкане, тест совершается с помехой.\n>\n> - **≤11:** 6 урона; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12–16:** 4 урона; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (КсХ)\n> - **17+:** Без эффекта.\n>\n> **Эффект:** Пока враг [истекает кровью](#/catalog/glossary#term-glossary.bleeding) из-за этого капкана, каждый гнолл в столкновении получает преимущество на удары по нему.\n\n> 👤 **Лужа крови (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один гнолл, являющийся [миньоном](#/codex/monsters.rule.organization.minion), внезапно взрывается и превращается в лужу крови, забрызгивая область в пределах 3 клеток от себя. Каждый гнолл, начинающий ход в этой области, наносит на 5 урона больше своим следующим ударом до конца хода. Один раз за раунд гиена Бездны, начинающая ход в этой области, превращается в гнолла-налётчика, сохраняя текущую [Выносливость](#/catalog/glossary#term-glossary.stamina).\n\n> 🌀 **Эхо хохота (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца столкновения карту боя наполняют раскаты смеха и вой. Каждый враг получает помеху на первый бросок силы, который совершает в каждом раунде. Когда гнолла убивают, действие этого эффекта приостанавливается до начала следующего раунда.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.gnoll-malice",
+        "path": "Monsters/monster/gnoll/gnoll-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll/gnoll-malice",
+      "originalName": "Gnoll Malice",
+      "originalDescription": "At the start of any gnoll's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Iron Jaws (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|---------------:|\n> | **📏 1 cube within 3**   | **🎯 Special** \n>\n> **Effect:** A gnoll acting this turn drops an iron-jawed snare into the area. The first time any enemy moves into the area, they make an **Agility test**. If they were unaware of the snare, the test takes a bane.\n>\n> - **≤11:** 6 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 4 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n> - **17+:** No effect.\n>\n> **Effect:** While an enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, each gnoll in the encounter gains an edge on strikes made against them.\n\n> 👤 **Bloodpool (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One gnoll [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) suddenly explodes into a pool of blood, splattering the area within 3 squares of them. Any gnoll who starts their turn in this area deals an extra 5 damage on their next strike before the end of their turn. Once per round, an abyssal hyena who starts their turn in the area turns into a **gnoll marauder**, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> 🌀 **Echoes of Laughter (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the encounter, the encounter map is encased in a soundscape of laughter and howling. Each enemy takes a bane on the first power roll they make each round. Whenever a gnoll is killed, this effect is suppressed until the start of the next round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/gnoll-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.abyssal-hyena",
+      "kind": "monster",
+      "name": "Гиена Бездны",
+      "markdown": "| Бездны, Животное, Гнолл | - | Уровень 2 | Миньон — Громила | Боевая ценность 4 за четыре миньона |\n|:----------------------:|:--:|:---------:|:---------------:|:--------------------------:|\n| **1M**<br>Размер | **8**<br>Скорость | **7**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-3**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Хватка челюстей (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**           | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12–16:** 4 урона\n> - **17+:** 6 урона; [схвачена](#/catalog/glossary#term-glossary.grabbed)\n\n> ⭐️ **Смертельный укус**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) гиены Бездны снижается до 0, перед смертью она может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.abyssal-hyena",
+        "path": "Monsters/monster/gnoll/statblock/abyssal-hyena.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/abyssal-hyena",
+      "originalName": "Abyssal Hyena",
+      "originalDescription": "| Abyssal, Animal, Gnoll |         -         |     Level 2      |             Minion Brute              | EV 4 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **8**<br>Speed   | **7**<br>Stamina |          **1**<br>Stability           | **3**<br>Free Strike  |\n|   **-**<br>Immunity    | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+2**<br>Might     | **+1**<br>Agility | **-3**<br>Reason |          **0**<br>Intuition           |  **-2**<br>Presence   |\n\n> 🗡 **Snapjaw (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ⭐️ **Death Snap**\n>\n> When the abyssal hyena is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/abyssal-hyena.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Животное",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-abyssal-archer",
+      "kind": "monster",
+      "name": "Гнолл-лучник Бездны",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Артиллерист | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:-----------------:|:---------:|\n| **1M**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🏹 **Тёмный длинный лук (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------------------------------:|\n> | **📏 Дальний 10**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона Порчей\n> - **12–16:** 6 урона Порчей\n> - **17+:** 8 урона Порчей; если Л < 2, цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Эта способность получает преимущество против любой цели, чья [Выносливость](#/catalog/glossary#term-glossary.stamina) не полна.\n\n> ❇️ **Клекот лучника (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                          **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Сам лучник и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель получает преимущество на свой следующий удар до конца своего следующего хода. Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Безумие смерти на расстоянии**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от лучника Бездны падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), лучник может совершить [свободный удар дальнего боя](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Чует кровь**\n>\n> Лучнику Бездны не нужна линия воздействия, чтобы использовать способности против любого существа, у которого [Выносливость](#/catalog/glossary#term-glossary.stamina) не достигла максимума, если между лучником и целью есть проход размером 1.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-abyssal-archer",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-abyssal-archer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-abyssal-archer",
+      "originalName": "Gnoll Abyssal Archer",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |    Horde Artillery    |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **+1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🏹 **Dark Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 6 corruption damage\n> - **17+:** 8 corruption damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** This ability gains an edge against any target not at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❇️ **Archer's Cackletongue (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Until the end of their next turn, each target gains an edge on their next strike. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Distant Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the abyssal archer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the abyssal archer can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Bloodscent**\n>\n> The abyssal archer doesn't need line of effect to use their abilities against any creature who isn't at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), as long as a size 1 opening exists between the archer and the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-abyssal-archer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Артиллерист",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-abyssal-summoner",
+      "kind": "monster",
+      "name": "Гнолл-призыватель Бездны",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Поддержка | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:---------------:|:---------:|\n| **1M**<br>Размер | **5**<br>Скорость | **20**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Огненный сгусток (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|----------------------------------------------:|\n> | **📏 Дальний 5**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона Огнём\n> - **12–16:** 5 урона Огнём\n> - **17+:** 7 урона Огнём; если И < 2, цель горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона Огнём в начале каждого своего хода. Горящий объект получает 1d6 урона Огнём в конце каждого раунда.\n\n> 🏹 **Призыв гиен Бездны (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------:|\n> | **📏 Дальний 5** | **🎯 Особое** |\n>\n> **Эффект:** Две гиены Бездны выбираются из-под земли в незанятых клетках в пределах дистанции.\n\n> ❇️ **Клекот призывателя (4 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                 **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Одна из целей — гиен Бездны — превращается в гнолла-налётчика, сохраняя текущую [Выносливость](#/catalog/glossary#term-glossary.stamina). Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Предсмертная ярость**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от призывателя Бездны падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), призыватель перемещается на расстояние до своей Скорости и может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-abyssal-summoner",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-abyssal-summoner.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-abyssal-summoner",
+      "originalName": "Gnoll Abyssal Summoner",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Support     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **0**<br>Agility  |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Flame Wad (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 fire damage\n> - **12-16:** 5 fire damage\n> - **17+:** 7 fire damage; I < 2 the target is burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> 🏹 **Call Abyssal Hyenas (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** Two abyssal hyenas claw up from the ground in unoccupied spaces within distance.\n\n> ❇️ **Summoner's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 2 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** One abyssal hyena target turns into a gnoll marauder, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the abyssal summoner is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the abyssal summoner moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-abyssal-summoner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Поддержка",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-bonesplitter",
+      "kind": "monster",
+      "name": "Гнолл-костолом",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Громила | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:--------------:|:---------:|\n| **1L**<br>Размер | **5**<br>Скорость | **25**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Трёххвостый кистень (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12–16:** 6 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 8 урона; [схвачена](#/catalog/glossary#term-glossary.grabbed); если М < 2, цель получает помеху на манёвр «Ускользнуть от захвата»\n>\n> **Эффект:** Пока костолом держит цель [схваченной](#/catalog/glossary#term-glossary.grabbed), он не может использовать «Трёххвостый кистень» против другой цели.\n\n> ❇️ **Клекот костолома (4 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                          **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Костолом и каждый союзник в области** |\n>\n> **Эффект:** До трёх целей могут совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Предсмертная ярость**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от костолома падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), костолом перемещается на расстояние до своей Скорости и может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-bonesplitter",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-bonesplitter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-bonesplitter",
+      "originalName": "Gnoll Bonesplitter",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |      Horde Brute      |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **25**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n| **+2**<br>Might | **+1**<br>Agility | **0**<br>Reason | **0**<br>Intuition | **+1**<br>Presence |\n\n> 🗡 **Three-Tail Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 8 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); M < 2 the target takes a bane on the Escape Grab maneuver\n>\n> **Effect:** While the bonesplitter has a target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), they can't use Three-Tail Flail against another target.\n\n> ❇️ **Bonesplitter's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Up to three targets can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the bonesplitter is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the bonesplitter moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-bonesplitter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1L",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-cackler",
+      "kind": "monster",
+      "name": "Гнолл-хохотун",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Проклинатель | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:-----------------:|:---------:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Миг жестокости (Знаковая способность)**\n>\n> | **Магия, Дальний, Удар** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------------:|\n> | **📏 Дальний 8**         | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона Психикой; если И < 0, цель совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу на выбор хохотуна\n> - **12–16:** 5 урона Психикой; если И < 1, цель совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу на выбор хохотуна\n> - **17+:** 7 урона Психикой; если И < 2, цель использует знаковую способность против существа на выбор хохотуна\n>\n> **Эффект:** Союзник, ставший целью этой способности, не получает урон и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❇️ **Клекот хохотуна (4 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** |                     **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-------------------------------------------------:|\n> | **📏 Взрыв 2**     | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Каждая цель-враг проходит **тест Интуиции**. Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n>\n> - **≤11:** [Испуг](#/catalog/glossary#term-glossary.frightened) (до прох.)\n> - **12–16:** [Испуг](#/catalog/glossary#term-glossary.frightened) (КсХ)\n> - **17+:** Без эффекта.\n\n> ⭐️ **Предсмертная ярость**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от хохотуна падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), хохотун перемещается на расстояние до своей Скорости и может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-cackler",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-cackler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-cackler",
+      "originalName": "Gnoll Cackler",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |      Horde Hexer      |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **0**<br>Agility  | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Moment of Brutality (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 8**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 psychic damage; I < 0 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature of the cackler's choice\n> - **12-16:** 5 psychic damage; I < 1 the target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature of the cackler's choice\n> - **17+:** 7 psychic damage; I < 2 the target uses a signature ability against a creature of the cackler's choice\n>\n> **Effect:** An ally targeted by this ability ignores the damage and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❇️ **Cackler's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------------------------:|\n> | **📏 2 burst**  | **🎯 Each creature in the area** |\n>\n> **Effect:** Each enemy target makes an **Intuition test**. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the cackler is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the cackler moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-cackler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1S",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Проклинатель",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-carnage",
+      "kind": "monster",
+      "name": "Гнолл-мясник",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Лидер | Боевая ценность 16 |\n|:-------------:|:--:|:---------:|:-----:|:----------:|\n| **1M**<br>Размер | **5**<br>Скорость | **100**<br>Выносливость | **1**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+3**<br>Присутствие |\n\n> 🗡 **Хлыст с осколками (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------------:|\n> | **📏 Ближний 2**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 8 урона; если Л < 1, [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12–16:** 11 урона; если Л < 2, [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 14 урона; если Л < 3, [Кровотечение](#/catalog/glossary#term-glossary.bleeding) и [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Союзник, ставший целью этой способности, не получает урон и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ❇️ **Клекот мясника (4 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                          **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------------------------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Мясник и каждый союзник в области** |\n>\n> **Эффект:** До начала следующего хода мясника каждая цель наносит на 3 урона больше своим следующим ударом. Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Смертельный разгул**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от мясника падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), Мясник может переместиться на расстояние до своей Скорости, а затем совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike) по двум существам или использовать «Хлыст с осколками» против одного существа.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода Мясник может получить 5 урона, чтобы прекратить один эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким способом.\n\n> ⭐️ **Ненасытный голод**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) мясника снижается до 0, пока на карте столкновения остаются гноллы, один гнолл на карте превращается в гнолла-мясника, сохраняя текущую [Выносливость](#/catalog/glossary#term-glossary.stamina).\n\n> ☠️ **Призыв из Бездны ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Магия, Дальний** |          **-** |\n> |--------------------|---------------:|\n> | **📏 Дальний 10**  | **🎯 Особое** |\n>\n> **Эффект:** Мясник призывает четырёх гиен Бездны в незанятые клетки в пределах дистанции.\n\n> ☠️ **Ненасытность ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область** |                        **-** |\n> |-------------|---------------------------:|\n> | **📏 Взрыв 10** | **🎯 Мясник и три союзника** |\n>\n> **Эффект:** Каждая цель перемещается на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Любое существо, получившее урон от одного из этих [свободных ударов](#/catalog/glossary#term-glossary.free-strike), если его М < 2, сбивается [с ног](#/catalog/glossary#term-glossary.prone).\n\n> ☠️ **Глубочайшие раны ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область, Магия** |                                **-** |\n> |--------------------|-----------------------------------:|\n> | **📏 Взрыв 5**     | **🎯 Каждый [утомлённый](#/catalog/glossary#term-glossary.winded) враг в области** |\n>\n> **Эффект:** Глаза мясника и вся пролитая кровь в пределах дистанции вспыхивают ярко-красным светом. Каждая цель проходит **тест Присутствия**.\n>\n> - **≤11:** Цель не может восстановить [Выносливость](#/catalog/glossary#term-glossary.stamina) до конца столкновения.\n> - **12–16:** Цель не может восстановить [Выносливость](#/catalog/glossary#term-glossary.stamina) (до прох.).\n> - **17+:** Без эффекта.\n>\n> **Эффект:** До конца столкновения все гноллы получают двойное преимущество на броски силы, нацеленные на [утомлённого](#/catalog/glossary#term-glossary.winded) врага.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-carnage",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-carnage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-carnage",
+      "originalName": "Gnoll Carnage",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2       |        Leader         |        EV 16         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **100**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+3**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **+3**<br>Presence  |\n\n> 🗡 **Shrapnel Whip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; A < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 14 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** An ally targeted by this ability ignores the damage and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❇️ **Carnage's Cackletongue (4 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target deals an extra 3 damage with their next strike until the start of the carnage's next turn. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Rampage**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the carnage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the carnage can move up to their speed, then can either make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against two creatures or use Shrapnel Whip against one creature.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the carnage can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Endless Hunger**\n>\n> If the carnage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) while there are still gnolls on the encounter map, one gnoll on the map is transformed into a gnoll carnage, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ☠️ **Call Up From the Abyss ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Magic, Ranged** |          **-** |\n> |-------------------|---------------:|\n> | **📏 Ranged 10**  | **🎯 Special** |\n>\n> **Effect:** The carnage summons four abyssal hyenas into unoccupied spaces within distance.\n\n> ☠️ **Edacity ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Self and three allies** |\n>\n> **Effect:** Each target moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Any creature damaged by one of these [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) who has M < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ☠️ **Deepest Wounds ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                                **-** |\n> |-----------------|-------------------------------------:|\n> | **📏 5 burst**  | **🎯 Each [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) enemy in the area** |\n>\n> **Effect:** The carnage's eyes and all exposed blood within distance glow bright red. Each target makes a **Presence test**.\n>\n> - **≤11:** The target can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) until the end of the encounter.\n> - **12-16:** The target can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **17+:** No effect\n>\n> **Effect:** Until the end of the encounter, all gnolls have a double edge on power rolls that target a [winded](scc.v1:mcdm.heroes.v1/rule.health/winded) enemy.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-carnage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-chainflail",
+      "kind": "monster",
+      "name": "Гнолл-цепник",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Миньон — Артиллерист | Боевая ценность 4 за четыре миньона |\n|:-------------:|:--:|:---------:|:--------------------:|:--------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **4**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🏹 **Цепной снаряд (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний 8**          | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12–16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 6 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 3\n\n> ⭐️ **Круг смерти**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от цепника падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), цепник может переместиться на расстояние до своей Скорости.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-chainflail",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-chainflail.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-chainflail",
+      "originalName": "Gnoll Chainflail",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |                Minion Artillery                | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **4**<br>Stamina |               **1**<br>Stability               | **3**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **0**<br>Agility  | **+1**<br>Reason |               **0**<br>Intuition               |  **-2**<br>Presence   |\n\n> 🏹 **Chain Shotput (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 8**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the chainflail is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the chainflail can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-chainflail.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-mage-mauler",
+      "kind": "monster",
+      "name": "Гнолл-крушитель магов",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Миньон — Проклинатель | Боевая ценность 4 за четыре миньона |\n|:-------------:|:--:|:---------:|:---------------------:|:--------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **4**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 к дистанции ближнего боя**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-1**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Крушитель чародеев (Знаковая способность)**\n>\n> | **Магия, Ближний, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**         | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона Кислотой\n> - **12–16:** 3 урона Холодом\n> - **17+:** 5 урона Молнией; цель не может использовать способности Магии (КсХ)\n>\n> **Эффект:** Цель получает помеху на следующий бросок силы.\n\n> ⭐️ **Круг смерти**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от гнолла-крушителя магов падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), крушитель магов может переместиться на расстояние до своей Скорости.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-mage-mauler",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-mage-mauler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-mage-mauler",
+      "originalName": "Gnoll Mage Mauler",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |                  Minion Hexer                  | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **4**<br>Stamina |               **1**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to melee distance**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Wizard Ripper (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 1**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 acid damage\n> - **12-16:** 3 cold damage\n> - **17+:** 5 lightning damage; the target can't use magic abilities (EoT)\n>\n> **Effect:** The target takes a bane on their next power roll.\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the mage mauler is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the mage mauler can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-mage-mauler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-marauder",
+      "kind": "monster",
+      "name": "Гнолл-налётчик",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Орда — Налётчик | Боевая ценность 4 |\n|:-------------:|:--:|:---------:|:---------------:|:---------:|\n| **1M**<br>Размер | **7**<br>Скорость | **20**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Яростный кистень (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12–16:** 5 урона\n> - **17+:** 7 урона; [сбита с ног](#/catalog/glossary#term-glossary.prone); если Л < 2, [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **2+ [Раздора](#/codex/monsters.rule.monster.malice):** Способность выбирает одну дополнительную цель за каждые потраченные 2 [Раздора](#/codex/monsters.rule.monster.malice).\n\n> ❇️ **Клекот налётчика (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** |                          **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------------------------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Налётчик и каждый союзник в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости. Если какая-либо цель в этот ход ещё не использовала собственный манёвр «Клекот», она может немедленно использовать его бесплатно.\n\n> ⭐️ **Предсмертная ярость**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 7 клеток от налётчика падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), налётчик перемещается на расстояние до своей Скорости и может совершить [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-marauder",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-marauder.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-marauder",
+      "originalName": "Gnoll Marauder",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |     Horde Harrier     |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fury Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** This ability targets one additional target for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Marauder's Cackletongue (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the marauder is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the marauder moves up to their speed and can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-marauder.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Орда"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.gnoll-wildling",
+      "kind": "monster",
+      "name": "Гнолл-дикарь",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Миньон — Налётчик | Боевая ценность 4 за четыре миньона |\n|:-------------:|:--:|:---------:|:----------------:|:--------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **5**<br>Выносливость | **1**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **Получает преимущество на удары**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🗡 **Кистень (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12–16:** 3 урона\n> - **17+:** 5 урона; гнолл-дикарь может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу, [смежному](#/catalog/glossary#term-glossary.adjacent) с целью\n\n> ⭐️ **Круг смерти**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 7 клеток от гнолла-дикаря падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), гнолл-дикарь может переместиться на расстояние до своей Скорости.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.gnoll-wildling",
+        "path": "Monsters/monster/gnoll/statblock/gnoll-wildling.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-wildling",
+      "originalName": "Gnoll Wildling",
+      "originalDescription": "|  Abyssal, Gnoll   |         -         |     Level 2      |               Minion Harrier                | EV 4 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **5**<br>Stamina |             **1**<br>Stability              | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason |             **+0**<br>Intuition             |  **-2**<br>Presence   |\n\n> 🗡 **Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 3 damage\n> - **17+:** 5 damage; the wildling can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target\n\n> ⭐️ **Death Circle**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 7 squares of the wildling is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the wildling can move up to their speed.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/gnoll-wildling.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "4 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Бездны",
+          "Гнолл"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.gnoll.statblock.tusker-demon",
+      "kind": "monster",
+      "name": "Демон-бивень",
+      "markdown": "| Бездны, Демон, Гнолл | - | Уровень 2 | Элита — Громила | Боевая ценность 16 |\n|:--------------------:|:--:|:---------:|:--------------:|:----------:|\n| **3**<br>Размер | **7**<br>Скорость | **100**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **-1**<br>Ловкость | **-3**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Бодание (Знаковая способность)**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|-----------------------------------------------:|\n> | **📏 Ближний 2**                | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **12–16:** 11 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **17+:** 14 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 3, [сбита с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Если способность используется в рамках основного действия «Атака с рывком», она наносит дополнительно 4 урона.\n\n> ❗️ **Мстительный бивень**\n>\n> | **Дальний** |        **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|----------------------------------------------:|\n> | **📏 Дальний 7** | **🎯 Враг, вызвавший срабатывание** |\n>\n> **Условие:** Враг в пределах дистанции наносит бивню урон.\n>\n> **Эффект:** Демон-бивень использует основное действие «Атака с рывком» и способность «Бодание» против цели.\n\n> ⭐️ **Растоптать**\n>\n> Демон-бивень может перемещаться сквозь клетки врагов с обычной для себя Скоростью. Когда он впервые за ход входит в клетку существа, это существо получает 5 урона. Демон-бивень может закончить ход в клетке существа размером 1, которое [лежит](#/catalog/glossary#term-glossary.prone), и не дать ему встать.\n\n> ⭐️ **Лета**\n>\n> Пока демон-бивень [утомлён](#/catalog/glossary#term-glossary.winded), он получает преимущество на удары, а любой удар по нему совершается с преимуществом.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.statblock.tusker-demon",
+        "path": "Monsters/monster/gnoll/statblock/tusker-demon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/tusker-demon",
+      "originalName": "Tusker Demon",
+      "originalDescription": "| Abyssal, Demon, Gnoll |         -         |      Level 2       |      Elite Brute      |        EV 16         | \n|:---------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **3**<br>Size     |  **7**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n|   **-**<br>Immunity   | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might    | **-1**<br>Agility |  **-3**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 2**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If this ability is used as part of the Charge main action, it deals an extra 4 damage.\n\n> ❗️ **Vengeful Tusker**\n>\n> | **Ranged**      |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|----------------------------:|\n> | **📏 Ranged 7** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance deals damage to the tusker.\n>\n> **Effect:** The tusker demon uses the Charge main action and Gore against the target.\n\n> ⭐️ **Trample**\n>\n> The tusker demon can move through enemies' spaces at their usual speed. When the tusker enters a creature's space for the first time on a turn, that creature takes 5 damage. The tusker demon can end their turn in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) size 1 creature's space, preventing the creature from standing up.\n\n> ⭐️ **Lethe**\n>\n> While the tusker demon is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an edge on strikes, and any strike made against them gains an edge.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/statblock/tusker-demon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон",
+          "Гнолл"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.group.gnoll",
+      "kind": "monster-lore",
+      "name": "Гноллы",
+      "markdown": "Гноллы с гиеньими мордами знают только кровь и голод. Эти исчадия несут в себе злобное наследие демонического рода, о котором сами не ведают. Родом из Пустоши Бездны, гноллы быстро распространились по Пространству времён и процветают в пустынях, степях и других малонаселённых местах. Их морды одинаково часто бывают запачканы кровью падали и добычи, но охотничьи стаи жаждут насилия, с охотой преследуют путников и совершают набеги на поселения. Жуткий боевой клич стаи — дикий хохот — предвещает ночь битвы и ужаса.\n\n#### Рождённые из крови\n\nПустошь Бездны — чуждый и враждебный всему живому край. И всё же среди его бесплодных земель процветают исчадия, в том числе гиены Бездны — кровожадные падальщики, которые сражаются с другими низшими исчадиями за трупы демонов. Первые гноллы появились, когда стая этих хищников лакала ихор, сочившийся из ран умирающего демонического князя Ас'сильрака Искажателя.\n\nПоследним поступком демон наделил бесовских гиен демонической смекалкой, под стать их ненасытному голоду, связал их со своей злой волей и превратил лапы в руки, чтобы они могли пользоваться оружием. Он назвал новых исчадий «гноллами» — это слово на языке Бездны имеет множество значений, одно из которых — «поглощать целиком». И гноллы оправдали своё имя: они немедленно пожрали своего создателя.\n\n#### Неутолимый голод\n\nБезжалостные гноллы быстро разошлись по Пространству времён в поисках новых жертв, способных утолить их бесконечный голод. Поначалу за их стаями следовали некоторые гиены Бездны, не получившие благословения Ас'сильрака; эти попутчики довольствовались объедками, которые оставляли гноллы. Гноллы никогда не забывали вкус бессмертной плоти и жаждали новой добычи, мечтая о дне, когда смогут охотиться на самих богов в небесных чертогах.\n\n#### Война гноллов\n\nБольшинство гноллов живёт ради охотничьего азарта и вкуса плоти, не разбирая, на кого охотиться. Пожалуй, единственное, что спасает большинство гуманоидных общин: военные отряды гноллов постоянно сражаются друг с другом за территорию, не давая своей численности расти.\n\n#### Гиены Бездны\n\nГиены Бездны сильнее и умнее своих обычных сородичей. Они выбираются из Пустоши Бездны, чтобы пожирать трупы, оставленные гноллами. Когда нужны подкрепления, гноллы-заклинатели могут магией превращать гиен Бездны в гноллов.\n\n#### Демоны-бивни\n\nВозвышаясь над гноллами военного отряда, огромный демон-бивень служит вьючным животным и боевой машиной. На его лице нет ничего, кроме искривлённой короны бивней, окружающей ненасытную пасть. Обычно демоны-бивни подчиняются приказам гноллов, однако в состоянии Леты (см. раздел «Демоны») они склонны к вспышкам ярости и бросаются на всё, что движется, — и на врагов, и на союзников.\n\n#### Языки гноллов\n\nБольшинство гноллов говорит на толле. Гноллы-мясники и другие старейшие гноллы обычно знают также вариак.\n\n#### Героям стоит быть начеку!\n\nКогда гноллы впадают в безумие и согласованно используют собственные манёвры «Клекот», мало кто из героев покинет поле боя невредимым. По усмотрению Ведущего любое столкновение первого эшелона, где участвуют более двух гноллов, не являющихся миньонами, можно считать на одну категорию сложности выше.\n",
+      "source": {
+        "articleId": "monsters.monster.group.gnoll",
+        "path": "Monsters/monster/group/gnoll.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/gnoll",
+      "originalName": "Gnolls",
+      "originalDescription": "Edacity. The hyena-faced gnolls know only blood and hunger. These fiends carry with them the evil legacy of an unwitting demonic heritage. Originally from the Abyssal Wasteland, gnolls quickly spread across the timescape, and they thrive in deserts, plains, and other sparsely populated places. Though a gnoll's muzzle is just as likely to be bloodied by carrion as by prey, their hunting packs hunger for violence, and they eagerly hunt travelers and raid settlements. A pack's eerie war cry, a wild cackle, presages a night of battle and terror.\n\n#### Born From Blood\n\nThe Abyssal Waste is an alien landscape hostile to most life. Yet amid its desolation, fiendish creatures thrive, including abyssal hyenas—bloodthirsty scavengers who fight with other lesser fiends over the corpses of demons. The first gnolls arose when a pack of those predators lapped at the ichor oozing from the wounds of a dying demon prince, As'sylrak the Warper.\n\nAs his last act, the demon gave the fiendish hyenas a demonic cunning to match their insatiable hunger, bound his evil will to theirs, and turned their paws into hands so they could wield weapons. He called these new fiends \"gnoll,\" an Abyssal word that has many meanings, one of which is \"to consume completely.\" And true to their name, the gnolls immediately devoured their creator.\n\n#### Ceaseless Hunger\n\nThe merciless gnolls quickly spread across the timescape in search of new victims to quench their never-ending hunger. Their packs were originally followed by some of the abyssal hyenas who didn't receive As'sylrak's blessing, with those tagalongs enjoying the castoffs of the gnoll packs. Gnolls never forgot the day when they tasted immortal flesh—and they hunger for more, longing for a day when they hunt the gods themselves through heavenly halls.\n\n#### Gnoll War\n\nMost gnolls live for the thrill of the hunt and the taste of flesh, and they aren't choosy with their targets. Perhaps the one saving grace for most humanoid communities is that gnoll war bands constantly battle each other for territory, keeping their numbers reduced.\n\n#### Abyssal Hyenas\n\nStronger and smarter than their beastly counterparts, abyssal hyenas crawl out of the Abyssal Wasteland to feed on corpses gnolls leave in their wake. When reinforcements are needed, gnoll spellcasters can use magic to transform abyssal hyenas into gnolls.\n\n#### Tusker Demons\n\nTowering among the gnolls of a war band, the elephantine tusker demon serves as beast of burden and war machine. Tusker demons have no facial features except a twisted crown of tusks that surrounds their ravening maw. Although they usually follow gnoll commands, tuskers in lethe (see the [Demons] section) are prone to violent outbursts and charge at anything that moves—enemies and allies alike.\n\n#### Gnoll Languages\n\nMost gnolls speak Tholl. Gnoll carnages and other older gnolls usually also know Variac.\n\n#### Heroes Beware!\n\nWhen gnolls go into a frenzy and coordinate their individual Cackletongue maneuvers, few heroes will leave the battlefield unscarred. Any 1st-echelon encounter that contains more than two non-minion gnolls can be considered one difficulty category harder at the Director's discretion.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/gnoll.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

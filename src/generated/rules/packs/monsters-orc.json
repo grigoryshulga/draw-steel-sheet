@@ -1,0 +1,1296 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.group.orc",
+      "title": "Орки",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/group/orc.md",
+      "originalId": "mcdm.monsters.v1/monster.group/orc",
+      "originalName": "Orcs",
+      "originalDescription": "In a long-lost language, the word oruk-\"blood fire\"-described the glowing appearance of the orc people when they push themselves to their limits. While orcs know one another as kanin (\"the people\") in their own language, they also use \"orc\" with great pride, especially when dealing with other folk.\n\nOrc history spans the world and all its ages. They've settled into villages and cities, hot and cold climates, high in the mountains and deep underground. Most orcs live in diverse [Humanoid](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) societies, though a few live secluded in the tropics. Though they are no more likely to stand in the way of adventurers' than any other folk, orcs who do fill the same roles as other humanoids: mercenaries, bounty hunters, garroters, guards, cultists, and corrupt kings.\n\n#### Relentlessly Tough\n\nOrcs grow to impressive heights. The veins that commonly stripe their tough-skinned faces can appear more vibrant when they're excited or driven. Their hair, which ranges from coarse to fine, extends from their heads and drapes across their shoulders like royal mantles. Strong tusks extend past their lips and guard the rest of their teeth.\n\nFew other humanoids can match the endurance of an orc, and orcs who train for hunting and combat can rally themselves to move faster and prevail longer. Should an orc find themself on the brink of death, their veins instinctively surge with \"blood fire,\" glowing brightly and invigorating them to perform one last attack. Blood fire often appears red, though orcs from the mountains and underground glow blue and white, respectively.\n\n#### Innate Power\n\nThe intense power of an orc's spirit occasionally manifests as raw magic. Orc eyes of Grole hone their magic into a singular elemental affinity for focused manipulation. Orc terranovas move their magic through their feet, surging into the earth. Orc godcallers use song to spark the magic inherent in every creature's spirit.\n\n#### Mohlers\n\nMohlers are spined, pig-like animals who corkscrew through the ground as fast as they can run. Native to deserts and forests, these burrowing creatures produce shallow networks of tunnels just below the surface. Where orcs go, mohlers are sure to follow. In times of peace, orcs domesticate them to plow the earth and eat pests—and in times of war, mohlers reshape the battlefield to knock the orcs' enemies off their feet.\n\nWhen an orc community has exceptional gratitude for the deeds of one of their own or an outsider, they bestow the companionship of a mohler upon the individual. Treated kindly, mohlers make steadfast companions, protecting their caregivers with their lives. If mistreated, a mohler returns to their original den, and the orcs hunt the responsible party.\n\n#### Scyzas\n\nOrcs rely on giant bipedal lizards called scyzas to carry them over great distances. They adorn these mounts, which originated in the tropics, with great harnesses that allow dozens of orcs to ride a scyza at the same time. The lizards are fearless in the face of danger, making them perfect battle mounts. A scyza's trunk-like legs and claws cleave through the ground and kick up terrible dust storms. Worse still are their battering head crests, which emit a terrible, bone-shaking ringing sound.\n\n#### Orc Languages\n\nMost orcs speak Caelian and Kalliak.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/orc.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.orc"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.mohler",
+          "title": "Мохлер"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-blitzer",
+          "title": "Орк-блицер"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-bloodrunner",
+          "title": "Орк-кровобег"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-bloodspark",
+          "title": "Орк-кровяная искра"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-chainlock",
+          "title": "Орк-цепник"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-eye-of-grole",
+          "title": "Око Грола"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-garotter",
+          "title": "Орк-душитель"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-glorifier",
+          "title": "Орк-прославитель"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-godcaller",
+          "title": "Орк-богозыватель"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-juggernaut",
+          "title": "Орк-джаггернаут"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-rampart",
+          "title": "Орк-бастион"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-razor",
+          "title": "Орк-бритва"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-terranova",
+          "title": "Орк-Терранова"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.orc-warleader",
+          "title": "Орк-военачальник"
+        },
+        {
+          "id": "monsters.monster.orc.statblock.scyza",
+          "title": "Сциза"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.orc-malice",
+      "title": "Раздор орков",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/orc-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.orc/orc-malice",
+      "originalName": "Orc Malice",
+      "originalDescription": "At the start of any orc's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Overwhelming March (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each orc [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, moving through enemy spaces if they can. Each enemy passed through during this movement makes a **Might test**.\n>\n> - **≤11:** 6 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 4 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🔳 **Mohler Trench (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An orc acting this turn summons 2 **mohlers** out of the ground, who dig a trench that is a 10 x 1 line within 10 squares when they appear. The trench is 2 squares deep and is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). The trench can't be created directly underneath creatures.\n\n> 🔳 **Mohler Cavity (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ground shakes as a group of mohlers dig a 5 cube pit beneath an area where at least one creature is on the ground. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Each orc in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the pit before it is completed. Each nonorc in the area makes an **Agility test**.\n>\n> - **≤11:** 4 damage; the target falls; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 4 damage; the target falls\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the pit.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/orc-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.orc-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.mohler",
+      "title": "Мохлер",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/mohler.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/mohler",
+      "originalName": "Mohler",
+      "originalDescription": "|    Animal, Orc    |           -            |     Level 1      |            Minion Ambusher            | EV 3 for four minions |\n|:-----------------:|:----------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |     **7**<br>Speed     | **4**<br>Stamina |          **1**<br>Stability           | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Burrow**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+0**<br>Might  |   **+2**<br>Agility    | **-4**<br>Reason |          **+1**<br>Intuition          |  **-3**<br>Presence   |\n\n> 🗡 **Earth Bump ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The distance increases to melee 2. If the mohler is 1 or more squares beneath the target before they use this ability, a target who has M < 1 is also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Seismic Sense**\n>\n> The mohler doesn't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures or objects touching the ground.\n\n> ⭐️ **Ground Grinder**\n>\n> The mohler can use the Dig maneuver at the start of the encounter. Additionally, while the mohler [burrows](scc.v1:mcdm.heroes.v1/movement/burrow) within 1 square below the ground, the ground above where they burrow is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/mohler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.mohler"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-blitzer",
+      "title": "Орк-блицер",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-blitzer.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-blitzer",
+      "originalName": "Orc Blitzer",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Lugged Spear ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** A target who starts their next turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more blitzers takes 3 damage.\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the blitzer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-blitzer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-blitzer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-bloodrunner",
+      "title": "Орк-кровобег",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-bloodrunner.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-bloodrunner",
+      "originalName": "Orc Bloodrunner",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |    Platoon Harrier    |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Shield Bash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance is equal to the number of squares the bloodrunner moved on their turn before using this ability. An ally targeted by this ability ignores the damage and can move up to that same distance.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** An ally targeted by this ability can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) after the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is resolved.\n\n> ⭐️ **Unimpeded**\n>\n> The bloodrunner can end their movement in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature's space. The first time on a turn that a bloodrunner enters any creature's space, that creature takes 3 damage.\n\n> ⭐️ **Relentless**\n>\n> If the bloodrunner is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the bloodrunner is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-bloodrunner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-bloodrunner"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-bloodspark",
+      "title": "Орк-кровяная искра",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-bloodspark.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-bloodspark",
+      "originalName": "Orc Bloodspark",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                     Minion Artillery                     | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:--------------------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **3**<br>Stamina |                    **0**<br>Stability                    |  **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to forced movement distance**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **0**<br>Reason  |                    **0**<br>Intuition                    |   **+2**<br>Presence  |\n\n> 🏹 **Explosive Mote ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, or the bloodspark can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the target\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the bloodspark [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the bloodspark [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the bloodspark is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-bloodspark.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-bloodspark"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-chainlock",
+      "title": "Орк-цепник",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-chainlock.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-chainlock",
+      "originalName": "Orc Chainlock",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **20**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **+1**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Hook and Chain ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 0 the target is hooked (save ends)\n> - **12-16:** 7 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 the target is hooked (save ends)\n> - **17+:** 9 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 the target is hooked (save ends)\n>\n> **Effect:** A hooked target can't move more than 3 squares away from the chainlock's position when this ability is used.\n\n> 🏹 **Heavy Crossbolt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Chain Link**\n>\n> Whenever the chainlock is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) by a creature's melee ability, the creature is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) the same distance toward the chainlock after the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is resolved.\n\n> ⭐️ **Relentless**\n>\n> If the chainlock is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the chainlock is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-chainlock.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-chainlock"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-eye-of-grole",
+      "title": "Око Грола",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-eye-of-grole.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-eye-of-grole",
+      "originalName": "Orc Eye of Grole",
+      "originalDescription": "|               Humanoid, Orc               |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **1M**<br>Size               |  **6**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Cold, fire, or lightning**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|              **+1**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⭐️ **Elemental Affinity**\n>\n> The eye has an affinity for one of the following damage types cold, fire, or lightning. The chosen type determines the eye's [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) and the damage dealt by their abilities.\n\n> 🏹 **Elemental Discharge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **12-16:** 9 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n> - **17+:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares away from the target\n>\n> **Effect:** This ability deals cold, fire, or lightning damage.\n\n> 🔳 **Power Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** This ability deals cold, fire, or lightning damage, and any enemy targeted by the ability has [damage weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3 to the same damage type (save ends).\n\n> ⭐️ **Relentless**\n>\n> If the eye is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the eye is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-eye-of-grole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-eye-of-grole"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-garotter",
+      "title": "Орк-душитель",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-garotter.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-garotter",
+      "originalName": "Orc Garotter",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Dagger Feint ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; the garroter can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 9 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 12 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 4 damage.\n\n> 🗡 **Strangle**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 12 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, a target can't communicate or use magic abilities.\n\n> 👤 **Chroma Cloak (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**          |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------:|\n> | **📏 -**       |            **🎯 -** |\n>\n> The garroter turns invisible until the end of their turn. This invisibility ends early if they take damage or use an ability.\n\n> ⭐️ **Relentless**\n>\n> If the garroter is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the garroter is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-garotter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-garotter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-glorifier",
+      "title": "Орк-прославитель",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-glorifier.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-glorifier",
+      "originalName": "Orc Glorifier",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                Minion Controller                | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> ⚔️ **Call to Victory ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**       | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 sonic damage\n> - **12-16:** 2 sonic damage; P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 3 sonic damage; P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Allies gain an edge on melee [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) against the target until the glorifier and each other glorifier in their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad) are killed.\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the glorifier is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-glorifier.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-glorifier"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-godcaller",
+      "title": "Орк-богозыватель",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-godcaller.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-godcaller",
+      "originalName": "Orc Godcaller",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Power Chord ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 sonic damage\n> - **12-16:** 7 sonic damage\n> - **17+:** 9 sonic damage; P < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> 🏹 **Cadenza**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 10**  | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The godcaller targets a second ally.\n\n> 🏹 **Rallying Ostinato (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 10**  | **🎯 Self and three allies** |\n>\n> **Effect:** Each target regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the end of the encounter.\n\n> ⭐️ **Relentless**\n>\n> If the godcaller is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the godcaller is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-godcaller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-godcaller"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-juggernaut",
+      "title": "Орк-джаггернаут",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-juggernaut.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-juggernaut",
+      "originalName": "Orc Juggernaut",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |     Platoon Brute     |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Haymaker Greataxe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 6 damage.\n\n> ❗️ **Hrraaaaaagh! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The juggernaut takes damage.\n>\n> **Effect:** The juggernaut moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Blood in the Water**\n>\n> Whenever the juggernaut willingly moves, they can move 3 additional squares if they end their movement closer to a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature.\n\n> ⭐️ **Relentless**\n>\n> If the juggernaut is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the juggernaut is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-juggernaut.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-juggernaut"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-rampart",
+      "title": "Орк-бастион",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-rampart.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-rampart",
+      "originalName": "Orc Rampart",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **59**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **My Spear, My Foe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 12 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** This ability has a double edge against any target who dealt damage to the rampart this round.\n\n> 👤 **Castling**\n>\n> | **-**                  |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** | **🎯 One ally** |\n>\n> **Effect:** The rampart moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target, then can swap places with the target.\n\n> ❗️ **No.**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature targets an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the rampart with an ability that doesn't also target the rampart.\n>\n> **Effect:** The rampart becomes the target of the triggering ability instead.\n\n> ⭐️ **Relentless**\n>\n> If the rampart is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the rampart is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-rampart.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-rampart"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-razor",
+      "title": "Орк-бритва",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-razor.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-razor",
+      "originalName": "Orc Razor",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Boot and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The razor gains an edge against any target affected by a [condition](scc.v1:mcdm.heroes.v1/rule.combat/condition).\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the razor is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-razor.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-razor"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-terranova",
+      "title": "Орк-Терранова",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-terranova.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-terranova",
+      "originalName": "Orc Terranova",
+      "originalDescription": "|   Humanoid, Orc   |           -            |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |     **6**<br>Speed     | **30**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  |   **+1**<br>Agility    | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Earth Pillar ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 9 damage; A < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 12 damage; A < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** Each target must be on the ground, and the ground in each target's space rises 1 square.\n\n> ❇️ **Sinkhole (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; M < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 7 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 10 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Seismic Step**\n>\n> The terranova ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Additionally, they don't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures touching the ground.\n\n> ⭐️ **Relentless**\n>\n> If the terranova is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the terranova is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-terranova.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-terranova"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.orc-warleader",
+      "title": "Орк-военачальник",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-warleader.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-warleader",
+      "originalName": "Orc Warleader",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3       |        Leader         |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+2**<br>Agility |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Go. ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|----------------:|\n> | **📏 Ranged 10** | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets two allies.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets one ally and a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad).\n\n> 🗡 **Mace Lariat**\n>\n> | **Melee, Strike, Weapon** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------:|\n> | **📏 Melee 1**            | **🎯 Each enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> 🏹 **Lockdown (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**                |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------:|\n> | **📏 Self and ranged 10** | **🎯 Self and three allies** |\n>\n> **Effect:** Each target moves up to their speed and can use the [Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) maneuver, which gains an edge.\n\n> ❗️ **Courtesy Call**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |  **🎯 One creature** |\n>\n> **Trigger:** The target obtains a tier 1 outcome on one power roll.\n>\n> **Effect:** The target has a double edge on their next power roll before the end of the encounter.\n\n> ☠️ **Close In ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**       |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target moves up to their speed. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a target after this move makes an Intuition test.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (EoT)\n> - **17+:** No effect\n\n> ☠️ **Familial Reinforcements ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |       **-** |\n> |------------------|------------:|\n> | **📏 Ranged 10** | **🎯 Self** |\n>\n> **Effect:** The warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and four orc blitzers appear in unoccupied spaces within distance.\n\n> ☠️ **I'll Do This Myself ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** Three times in succession, the warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can use Mace Lariat.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Relentless**\n>\n> If the warleader is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the warleader is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-warleader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-warleader"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.orc.statblock.scyza",
+      "title": "Сциза",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/scyza.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/scyza",
+      "originalName": "Scyza",
+      "originalDescription": "|    Animal, Orc    |         -         |      Level 3       |      Elite Mount      |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size   |  **6**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **-1**<br>Agility |  **-4**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clawed Kick ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The scyza roars, and if the target has I < 2, they are [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends).\n\n> 🗡 **Whiptail**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Against a target on top of the scyza, this ability gains an edge, and the target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an unoccupied [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) square and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Crestfall (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 2**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage, 1 sonic damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 7 damage, 2 sonic damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 damage, 3 sonic damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ❇️ **Sandstorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------:|\n> | **📏 3 burst** | **🎯 Special** |\n>\n> **Effect:** The scyza kicks up a sandstorm, granting [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) to themself and any ally in the area until the end of the scyza's next turn. Each enemy in the area makes an Intuition test.\n>\n> - **≤11:** 10 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 7 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 4 damage\n\n> ❗️ **Brace and Break**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The scyza or an ally riding the scyza is targeted by an ability.\n>\n> **Effect:** Any damage dealt by the triggering ability is halved. If the creature or object who used the ability is within 3 squares of the scyza, the scyza can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Terrible Beast**\n>\n> The scyza deals an extra 6 damage with abilities used against objects.\n\n> ⭐️ **War Harness**\n>\n> While riding the scyza, three size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/scyza.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "4",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.scyza"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.group.orc",
+      "kind": "monster-lore",
+      "name": "Орки",
+      "markdown": "На давно забытом языке слово «орук» — «кровавый огонь» — описывало сияние народа орков, когда они выкладываются до предела. На своём языке орки называют друг друга «канин» («народ»), но и словом «орк» пользуются с большой гордостью, особенно в общении с другими народами.\n\nИстория орков охватывает весь мир и все его эпохи. Они селились в деревнях и городах, в жарком и холодном климате, высоко в горах и глубоко под землёй. Большинство орков живёт в разнообразных [обществах гуманоидов](#/codex/monsters.rule.keyword.humanoid), хотя некоторые обособленно обитают в тропиках. Орки не чаще других народов встают на пути искателей приключений, но те из них, кто всё же становится противником, занимают те же роли, что и прочие гуманоиды: наёмники, охотники за головами, душители, стражники, культисты и продажные короли.\n\n#### Непреклонная стойкость\n\nОрки вырастают до внушительного роста. Жилы, часто проступающие на их жёсткой коже лица, становятся ярче, когда орки возбуждены или чем-то увлечены. Их волосы — от жёстких до мягких — спадают с головы на плечи, словно королевская мантия. Мощные клыки выступают из-под губ, защищая остальные зубы.\n\nВыносливостью орка могут похвастаться немногие гуманоиды. Орки, обученные охоте и бою, умеют собраться с силами, чтобы двигаться быстрее и дольше держаться. Если орк оказывается на пороге смерти, жилы инстинктивно вспыхивают «кровавым огнём», придавая ему сил для последней атаки. Чаще всего кровавый огонь красный, но у горных орков и орков из-под земли он светится соответственно синим и белым.\n\n#### Врождённая сила\n\nМогучий дух орка порой проявляется в виде необузданной магии. Орки, известные как «ока Грола», направляют магию в одну избранную стихию и учатся тонко ею управлять. Орки-террановы проводят магию через ступни, заставляя её волнами расходиться по земле. Орки-богозыватели используют песню, чтобы пробудить магию, заключённую в духе каждого существа.\n\n#### Молеры\n\nМолеры — покрытые шипами свиноподобные животные, которые винтом прокладывают путь под землёй с той же скоростью, с какой бегают. Эти землерои живут в пустынях и лесах, прокладывая неглубокие туннели чуть ниже поверхности. Где появляются орки, следом за ними приходят и молеры. В мирное время орки приручают их, чтобы вспахивать землю и поедать вредителей; в военное молеры меняют поле боя, сбивая врагов орков с ног.\n\nЕсли община орков особенно благодарна кому-то из своих или чужаков за совершённые поступки, она дарит этому человеку молера в спутники. При добром обращении молеры становятся верными друзьями и до последнего защищают тех, кто за ними ухаживает. Если же с молером плохо обращаться, он возвращается в своё прежнее логово, а орки начинают охоту на виновника.\n\n#### Скайзы\n\nОрки ездят на огромных двуногих ящерицах, называемых скайзами, чтобы преодолевать большие расстояния. Этих выходцев из тропиков украшают массивными упряжками, позволяющими одновременно ехать верхом на одной скайзе десяткам орков. Ящерицы бесстрашны перед лицом опасности, поэтому из них получаются идеальные боевые скакуны. Мощные, как стволы деревьев, ноги и когти скайзы вспахивают землю и поднимают страшные пыльные бури. Ещё опаснее их ударные гребни на голове, издающие жуткий звон, от которого содрогаются кости.\n\n#### Языки орков\n\nБольшинство орков говорит на кэлианском и каллиаке.\n",
+      "source": {
+        "articleId": "monsters.monster.group.orc",
+        "path": "Monsters/monster/group/orc.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/orc",
+      "originalName": "Orcs",
+      "originalDescription": "In a long-lost language, the word oruk-\"blood fire\"-described the glowing appearance of the orc people when they push themselves to their limits. While orcs know one another as kanin (\"the people\") in their own language, they also use \"orc\" with great pride, especially when dealing with other folk.\n\nOrc history spans the world and all its ages. They've settled into villages and cities, hot and cold climates, high in the mountains and deep underground. Most orcs live in diverse [Humanoid](scc.v1:mcdm.monsters.v1/rule.keyword/humanoid) societies, though a few live secluded in the tropics. Though they are no more likely to stand in the way of adventurers' than any other folk, orcs who do fill the same roles as other humanoids: mercenaries, bounty hunters, garroters, guards, cultists, and corrupt kings.\n\n#### Relentlessly Tough\n\nOrcs grow to impressive heights. The veins that commonly stripe their tough-skinned faces can appear more vibrant when they're excited or driven. Their hair, which ranges from coarse to fine, extends from their heads and drapes across their shoulders like royal mantles. Strong tusks extend past their lips and guard the rest of their teeth.\n\nFew other humanoids can match the endurance of an orc, and orcs who train for hunting and combat can rally themselves to move faster and prevail longer. Should an orc find themself on the brink of death, their veins instinctively surge with \"blood fire,\" glowing brightly and invigorating them to perform one last attack. Blood fire often appears red, though orcs from the mountains and underground glow blue and white, respectively.\n\n#### Innate Power\n\nThe intense power of an orc's spirit occasionally manifests as raw magic. Orc eyes of Grole hone their magic into a singular elemental affinity for focused manipulation. Orc terranovas move their magic through their feet, surging into the earth. Orc godcallers use song to spark the magic inherent in every creature's spirit.\n\n#### Mohlers\n\nMohlers are spined, pig-like animals who corkscrew through the ground as fast as they can run. Native to deserts and forests, these burrowing creatures produce shallow networks of tunnels just below the surface. Where orcs go, mohlers are sure to follow. In times of peace, orcs domesticate them to plow the earth and eat pests—and in times of war, mohlers reshape the battlefield to knock the orcs' enemies off their feet.\n\nWhen an orc community has exceptional gratitude for the deeds of one of their own or an outsider, they bestow the companionship of a mohler upon the individual. Treated kindly, mohlers make steadfast companions, protecting their caregivers with their lives. If mistreated, a mohler returns to their original den, and the orcs hunt the responsible party.\n\n#### Scyzas\n\nOrcs rely on giant bipedal lizards called scyzas to carry them over great distances. They adorn these mounts, which originated in the tropics, with great harnesses that allow dozens of orcs to ride a scyza at the same time. The lizards are fearless in the face of danger, making them perfect battle mounts. A scyza's trunk-like legs and claws cleave through the ground and kick up terrible dust storms. Worse still are their battering head crests, which emit a terrible, bone-shaking ringing sound.\n\n#### Orc Languages\n\nMost orcs speak Caelian and Kalliak.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/orc.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "monster"
+      }
+    },
+    {
+      "id": "monster.orc.orc-malice",
+      "kind": "monster-feature",
+      "name": "Раздор орков",
+      "markdown": "В начале хода любого орка вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Сокрушительный марш (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый орк [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, при возможности проходя через клетки врагов. Каждый враг, через клетку которого он прошёл во время перемещения, проходит **тест Мощи**.\n>\n> - **≤11:** 6 урона; [сбит с ног](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 4 урона; [сбит с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** [Оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n\n> 🔳 **Траншея молеров (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Действующий в этот ход орк призывает из-под земли 2 **молеров**. Появившись, они прокладывают траншею — линию 10 × 1 в пределах 10 клеток. Глубина траншеи — 2 клетки; это [труднопроходимая местность](#/catalog/glossary#term-glossary.difficult-terrain). Траншею нельзя проложить прямо под существами.\n\n> 🔳 **Яма молеров (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Земля содрогается, когда группа молеров выкапывает под областью яму в виде куба 5, если хотя бы одно существо в этой области находится на земле. Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). До завершения ямы каждый орк в области может [смещаться](#/catalog/glossary#term-glossary.shift) в ближайшую незанятую клетку за её пределами. Каждое существо, не являющееся орком, проходит **тест Ловкости**.\n>\n> - **≤11:** 4 урона; цель падает, оказывается [сбитой с ног](#/catalog/glossary#term-glossary.prone) и не может встать (КсХ)\n> - **12-16:** 4 урона; цель падает\n> - **17+:** Цель может [смещаться](#/catalog/glossary#term-glossary.shift) в ближайшую незанятую клетку за пределами ямы.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.orc-malice",
+        "path": "Monsters/monster/orc/orc-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc/orc-malice",
+      "originalName": "Orc Malice",
+      "originalDescription": "At the start of any orc's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Overwhelming March (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each orc [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, moving through enemy spaces if they can. Each enemy passed through during this movement makes a **Might test**.\n>\n> - **≤11:** 6 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 4 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> 🔳 **Mohler Trench (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An orc acting this turn summons 2 **mohlers** out of the ground, who dig a trench that is a 10 x 1 line within 10 squares when they appear. The trench is 2 squares deep and is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). The trench can't be created directly underneath creatures.\n\n> 🔳 **Mohler Cavity (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ground shakes as a group of mohlers dig a 5 cube pit beneath an area where at least one creature is on the ground. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Each orc in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the pit before it is completed. Each nonorc in the area makes an **Agility test**.\n>\n> - **≤11:** 4 damage; the target falls; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 4 damage; the target falls\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the pit.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/orc-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.mohler",
+      "kind": "monster",
+      "name": "Мохлер",
+      "markdown": "| Животное, Орк |           -            |       Уровень 1       |             Миньон-Засадник             | Боевая ценность 3 за четырёх миньонов |\n|:------------------:|:----------------------:|:---------------------:|:----------------------------------------:|:----------------------------------------:|\n|  **1S**<br>Размер  | **7**<br>Скорость     | **4**<br>Выносливость | **1**<br>Устойчивость                    | **2**<br>Свободный удар                  |\n| **-**<br>Иммунитет | **Закапывание**<br>Движение | - | **+2 к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+0**<br>Мощь | **+2**<br>Ловкость | **-4**<br>Разум | **+1**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Земляной толчок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Дистанция увеличивается до ближнего 2. Если перед применением этой способности мохлер находился как минимум на 1 клетку ниже цели, цель с М < 1 также сбивают [с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Сейсмическое чутьё**\n>\n> Мохлеру не требуется [линия воздействия](#/catalog/glossary#term-glossary.line-of-effect), чтобы применять способности против существ и объектов, касающихся земли.\n\n> ⭐️ **Перемалывание земли**\n>\n> В начале столкновения мохлер может совершить манёвр копания. Кроме того, пока мохлер [зарывается](#/catalog/glossary#term-glossary.burrow) под землю на глубине не более 1 клетки, земля над ним становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.mohler",
+        "path": "Monsters/monster/orc/statblock/mohler.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/mohler",
+      "originalName": "Mohler",
+      "originalDescription": "|    Animal, Orc    |           -            |     Level 1      |            Minion Ambusher            | EV 3 for four minions |\n|:-----------------:|:----------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1S**<br>Size   |     **7**<br>Speed     | **4**<br>Stamina |          **1**<br>Stability           | **2**<br>Free Strike  |\n| **-**<br>Immunity | **Burrow**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+0**<br>Might  |   **+2**<br>Agility    | **-4**<br>Reason |          **+1**<br>Intuition          |  **-3**<br>Presence   |\n\n> 🗡 **Earth Bump ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** The distance increases to melee 2. If the mohler is 1 or more squares beneath the target before they use this ability, a target who has M < 1 is also knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Seismic Sense**\n>\n> The mohler doesn't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures or objects touching the ground.\n\n> ⭐️ **Ground Grinder**\n>\n> The mohler can use the Dig maneuver at the start of the encounter. Additionally, while the mohler [burrows](scc.v1:mcdm.heroes.v1/movement/burrow) within 1 square below the ground, the ground above where they burrow is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/mohler.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1S",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-blitzer",
+      "kind": "monster",
+      "name": "Орк-блицер",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |             Миньон-Налётчик             | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:----------------------------------------:|:----------------------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 бонус к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Копьё наизготовку ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** Цель, которая начинает свой следующий ход [смежно](#/catalog/glossary#term-glossary.adjacent) с тремя или более блицерами, получает 3 урона.\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) блицера снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-blitzer",
+        "path": "Monsters/monster/orc/statblock/orc-blitzer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-blitzer",
+      "originalName": "Orc Blitzer",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Lugged Spear ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** A target who starts their next turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more blitzers takes 3 damage.\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the blitzer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-blitzer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-bloodrunner",
+      "kind": "monster",
+      "name": "Орк-кровобег",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 3       |    Взвод-Налётчик     |     Боевая ценность 10     |\n|:----------------:|:-----------------:|:---------------------:|:---------------------:|:-----------------------------:|\n| **1M**<br>Размер | **8**<br>Скорость | **50**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Удар щитом ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; особое: [отталкивание](#/catalog/glossary#term-glossary.forced-movement)\n> - **12-16:** 10 урона; особое: [отталкивание](#/catalog/glossary#term-glossary.forced-movement)\n> - **17+:** 13 урона; особое: [отталкивание](#/catalog/glossary#term-glossary.forced-movement) или [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Дистанция [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement) равна числу клеток, на которое кровобег переместился в свой ход до применения этой способности. Союзник, выбранный целью этой способности, не получает урон и может переместиться на такое же расстояние.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Союзник, выбранный целью этой способности, может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike) после завершения [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement).\n\n> ⭐️ **Неудержимый**\n>\n> Кровобег может завершить перемещение в пространстве [лежащего](#/catalog/glossary#term-glossary.prone) существа. Когда кровобег впервые за ход входит в пространство любого существа, это существо получает 3 урона.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) кровобега снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) кровобега снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-bloodrunner",
+        "path": "Monsters/monster/orc/statblock/orc-bloodrunner.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-bloodrunner",
+      "originalName": "Orc Bloodrunner",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |    Platoon Harrier    |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **50**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Shield Bash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) special or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance is equal to the number of squares the bloodrunner moved on their turn before using this ability. An ally targeted by this ability ignores the damage and can move up to that same distance.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** An ally targeted by this ability can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) after the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is resolved.\n\n> ⭐️ **Unimpeded**\n>\n> The bloodrunner can end their movement in a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature's space. The first time on a turn that a bloodrunner enters any creature's space, that creature takes 3 damage.\n\n> ⭐️ **Relentless**\n>\n> If the bloodrunner is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the bloodrunner is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-bloodrunner.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-bloodspark",
+      "kind": "monster",
+      "name": "Орк-кровяная искра",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |                  Миньон-Артиллерист                  | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:-----------------------------------------------------:|:----------------------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 бонус к дистанции принудительного перемещения**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Взрывная искра ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1 клетку или кровяная искра может [сместиться](#/catalog/glossary#term-glossary.shift) на 1 клетку от цели\n> - **12-16:** 4 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки или кровяная искра может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 2 клеток\n> - **17+:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки или кровяная искра может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 4 клеток\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) кровяной искры снижается до 0, перед смертью она может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-bloodspark",
+        "path": "Monsters/monster/orc/statblock/orc-bloodspark.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-bloodspark",
+      "originalName": "Orc Bloodspark",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                     Minion Artillery                     | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:--------------------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **3**<br>Stamina |                    **0**<br>Stability                    |  **2**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to forced movement distance**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **0**<br>Reason  |                    **0**<br>Intuition                    |   **+2**<br>Presence  |\n\n> 🏹 **Explosive Mote ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, or the bloodspark can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square away from the target\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the bloodspark [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the bloodspark [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the bloodspark is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-bloodspark.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-chainlock",
+      "kind": "monster",
+      "name": "Орк-цепник",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |     Взвод-Проклинатель     |     Боевая ценность 6     |\n|:----------------:|:-----------------:|:---------------------:|:--------------------------:|:----------------------------:|\n| **1L**<br>Размер | **5**<br>Скорость | **20**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **+0**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Крюк и цепь ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 3** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 1 клетку; при М < 0 цель зацеплена (до прох.)\n> - **12-16:** 7 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки; при М < 1 цель зацеплена (до прох.)\n> - **17+:** 9 урона; [притянуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки; при М < 2 цель зацеплена (до прох.)\n>\n> **Эффект:** Зацепленная цель не может удалиться от орка-цепника более чем на 3 клетки от его позиции в момент применения этой способности.\n\n> 🏹 **Тяжёлый арбалетный болт (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Дальний 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при Л < 0 цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 7 урона; при Л < 1 цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона; цель [сбита с ног](#/catalog/glossary#term-glossary.prone); при Л < 2 цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ⭐️ **Звено цепи**\n>\n> Когда существо [принудительно перемещает](#/catalog/glossary#term-glossary.forced-movement) орка-цепника способностью ближнего боя, после завершения [принудительного перемещения](#/catalog/glossary#term-glossary.forced-movement) это существо [притягивается](#/catalog/glossary#term-glossary.forced-movement) к орку-цепнику на такое же расстояние.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) орка-цепника снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) орка-цепника снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-chainlock",
+        "path": "Monsters/monster/orc/statblock/orc-chainlock.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-chainlock",
+      "originalName": "Orc Chainlock",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **20**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **+1**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🗡 **Hook and Chain ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 0 the target is hooked (save ends)\n> - **12-16:** 7 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 the target is hooked (save ends)\n> - **17+:** 9 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 the target is hooked (save ends)\n>\n> **Effect:** A hooked target can't move more than 3 squares away from the chainlock's position when this ability is used.\n\n> 🏹 **Heavy Crossbolt (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ⭐️ **Chain Link**\n>\n> Whenever the chainlock is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) by a creature's melee ability, the creature is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) the same distance toward the chainlock after the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is resolved.\n\n> ⭐️ **Relentless**\n>\n> If the chainlock is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the chainlock is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-chainlock.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-eye-of-grole",
+      "kind": "monster",
+      "name": "Око Грола",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |   Взвод-Артиллерист   |     Боевая ценность 6     |\n|:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------:|:----------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **20**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **Холод, огонь или молния**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+1**<br>Ловкость | **+0**<br>Разум | **+0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⭐️ **Стихийное сродство**\n>\n> Око обладает сродством к одному из следующих типов урона: холод, огонь или молния. Выбранный тип определяет [иммунитет к урону](#/catalog/glossary#term-glossary.damage-immunity) ока и урон, который наносят его способности.\n\n> 🏹 **Стихийный разряд ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 2 клеток\n> - **12-16:** 9 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 4 клеток\n> - **17+:** 12 урона; [сдвинуть](#/catalog/glossary#term-glossary.forced-movement) на 6 клеток или око может [сместиться](#/catalog/glossary#term-glossary.shift) от цели на расстояние до 6 клеток\n>\n> **Эффект:** Эта способность наносит урон холодом, огнём или молнией.\n\n> 🔳 **Выброс силы (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------------------------:|\n> | **📏 Линия 5 x 2 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки\n> - **12-16:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки\n> - **17+:** 8 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4 клетки; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Эта способность наносит урон холодом, огнём или молнией, а каждый враг, выбранный её целью, получает [уязвимость к урону](#/catalog/glossary#term-glossary.damage-weakness) того же типа 3 (до прох.).\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) ока снижается до 0, перед смертью оно может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) ока снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-eye-of-grole",
+        "path": "Monsters/monster/orc/statblock/orc-eye-of-grole.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-eye-of-grole",
+      "originalName": "Orc Eye of Grole",
+      "originalDescription": "|               Humanoid, Orc               |         -         |      Level 1      |   Platoon Artillery   |         EV 6         |\n|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|              **1M**<br>Size               |  **6**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **Cold, fire, or lightning**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|              **+1**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⭐️ **Elemental Affinity**\n>\n> The eye has an affinity for one of the following damage types cold, fire, or lightning. The chosen type determines the eye's [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) and the damage dealt by their abilities.\n\n> 🏹 **Elemental Discharge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares away from the target\n> - **12-16:** 9 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares away from the target\n> - **17+:** 12 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6, or the eye [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares away from the target\n>\n> **Effect:** This ability deals cold, fire, or lightning damage.\n\n> 🔳 **Power Burst (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 2 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** This ability deals cold, fire, or lightning damage, and any enemy targeted by the ability has [damage weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3 to the same damage type (save ends).\n\n> ⭐️ **Relentless**\n>\n> If the eye is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the eye is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-eye-of-grole.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-garotter",
+      "kind": "monster",
+      "name": "Орк-душитель",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |    Взвод-Засадник     |     Боевая ценность 6     |\n|:----------------:|:-----------------:|:---------------------:|:---------------------:|:----------------------------:|\n| **1L**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Обманный выпад кинжалом ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; душитель может [сместиться](#/catalog/glossary#term-glossary.shift) на 1 клетку\n> - **12-16:** 9 урона; душитель может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток\n> - **17+:** 12 урона; душитель может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток\n>\n> **Эффект:** Если эта способность получает преимущество или двойное преимущество, она наносит дополнительно 4 урона.\n\n> 🗡 **Удушение**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона; при И < 1 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 12 урона; [схватить](#/catalog/glossary#term-glossary.grabbed) цель; при И < 2 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** Пока цель [схвачена](#/catalog/glossary#term-glossary.grabbed) таким образом, она не может общаться или применять способности Магии.\n\n> 👤 **Хроматический плащ (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------|--------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> Душитель становится невидимым до конца своего хода. Невидимость заканчивается досрочно, если он получает урон или использует способность.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) душителя снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) душителя снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-garotter",
+        "path": "Monsters/monster/orc/statblock/orc-garotter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-garotter",
+      "originalName": "Orc Garotter",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Dagger Feint ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; the garroter can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 9 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 12 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 4 damage.\n\n> 🗡 **Strangle**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 12 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, a target can't communicate or use magic abilities.\n\n> 👤 **Chroma Cloak (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**          |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------:|\n> | **📏 -**       |            **🎯 -** |\n>\n> The garroter turns invisible until the end of their turn. This invisibility ends early if they take damage or use an ability.\n\n> ⭐️ **Relentless**\n>\n> If the garroter is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the garroter is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-garotter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-glorifier",
+      "kind": "monster",
+      "name": "Орк-прославитель",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |              Миньон-Контроллер              | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:-------------------------------------------:|:----------------------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+5 бонус к дальности**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⚔️ **Призыв к победе ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Ближний, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Ближний 1 или дальний 5** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урона звуком\n> - **12-16:** 2 урона звуком; при П < 1 цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 3 урона звуком; при П < 2 цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n>\n> **Эффект:** Союзники получают преимущество на [удары](#/catalog/glossary#term-glossary.strike) ближнего боя по цели, пока этот прославитель и все остальные прославители в его [отряде](#/codex/monsters.rule.monster.squad) не будут убиты.\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) прославителя снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-glorifier",
+        "path": "Monsters/monster/orc/statblock/orc-glorifier.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-glorifier",
+      "originalName": "Orc Glorifier",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                Minion Controller                | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> ⚔️ **Call to Victory ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**       | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 sonic damage\n> - **12-16:** 2 sonic damage; P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 3 sonic damage; P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Allies gain an edge on melee [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) against the target until the glorifier and each other glorifier in their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad) are killed.\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the glorifier is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-glorifier.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-godcaller",
+      "kind": "monster",
+      "name": "Орк-богозыватель",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |       Взвод-Поддержка       |     Боевая ценность 6     |\n|:----------------:|:-----------------:|:---------------------:|:---------------------------:|:----------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+0**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> ⚔️ **Мощный аккорд ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Ближний, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Ближний 1 или дальний 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона звуком\n> - **12-16:** 7 урона звуком\n> - **17+:** 9 урона звуком; при П < 2 цель получает состояние [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n\n> 🏹 **Каденция**\n>\n> | **Магия, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|----------------:|\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Эффект:** Цель перемещается на расстояние до своей Скорости и может совершить основное действие.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Богозыватель выбирает второго союзника.\n\n> 🏹 **Воодушевляющее остинато (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------------:|\n> | **📏 Дальний 10** | **🎯 Сам богозыватель и три союзника** |\n>\n> **Эффект:** Каждая цель восстанавливает 15 [Выносливости](#/catalog/glossary#term-glossary.stamina) и игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain) до конца столкновения.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) богозывателя снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) богозывателя снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-godcaller",
+        "path": "Monsters/monster/orc/statblock/orc-godcaller.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-godcaller",
+      "originalName": "Orc Godcaller",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Power Chord ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 sonic damage\n> - **12-16:** 7 sonic damage\n> - **17+:** 9 sonic damage; P < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> 🏹 **Cadenza**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 10**  | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The godcaller targets a second ally.\n\n> 🏹 **Rallying Ostinato (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 10**  | **🎯 Self and three allies** |\n>\n> **Effect:** Each target regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the end of the encounter.\n\n> ⭐️ **Relentless**\n>\n> If the godcaller is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the godcaller is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-godcaller.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-juggernaut",
+      "kind": "monster",
+      "name": "Орк-джаггернаут",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 3       |       Взвод-Громила       |     Боевая ценность 10     |\n|:----------------:|:-----------------:|:---------------------:|:-------------------------:|:-----------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **60**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **-1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Размашистый удар двуручным топором ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 14 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone); при М < 2 цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Цель, которая уже [лежит](#/catalog/glossary#term-glossary.prone), получает дополнительно 6 урона.\n\n> ❗️ **Хрррааааа! (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action) |\n> |-------|--------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Джаггернаут получает урон.\n>\n> **Эффект:** Джаггернаут перемещается на расстояние до своей Скорости и может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Кровь в воде**\n>\n> Каждый раз, когда джаггернаут перемещается по своей воле, он может пройти ещё 3 клетки, если в конце перемещения окажется ближе к [лежащему](#/catalog/glossary#term-glossary.prone) существу.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) джаггернаута снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) джаггернаута снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-juggernaut",
+        "path": "Monsters/monster/orc/statblock/orc-juggernaut.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-juggernaut",
+      "originalName": "Orc Juggernaut",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |     Platoon Brute     |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Haymaker Greataxe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 6 damage.\n\n> ❗️ **Hrraaaaaagh! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The juggernaut takes damage.\n>\n> **Effect:** The juggernaut moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Blood in the Water**\n>\n> Whenever the juggernaut willingly moves, they can move 3 additional squares if they end their movement closer to a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature.\n\n> ⭐️ **Relentless**\n>\n> If the juggernaut is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the juggernaut is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-juggernaut.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-rampart",
+      "kind": "monster",
+      "name": "Орк-бастион",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 2       |     Взвод-Защитник     |     Боевая ценность 8     |\n|:----------------:|:-----------------:|:---------------------:|:----------------------:|:----------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **59**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Моё копьё — мой враг ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона; цель получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ)\n> - **17+:** 12 урона; цель получает состояние [Провокация](#/catalog/glossary#term-glossary.taunted) (КсХ)\n>\n> **Эффект:** Эта способность получает двойное преимущество против любой цели, которая нанесла урон бастиону в этом раунде.\n\n> 👤 **Рокировка**\n>\n> | **-** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------|----------------:|\n> | **📏 На себя; см. ниже** | **🎯 Один союзник** |\n>\n> **Эффект:** Бастион перемещается или [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, оказываясь [смежно](#/catalog/glossary#term-glossary.adjacent) с целью, а затем может поменяться с ней местами.\n\n> ❗️ **Нет.**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------|---------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Существо выбирает целью союзника, [смежного](#/catalog/glossary#term-glossary.adjacent) с бастионом, способностью, которая не выбирает целью также и бастион.\n>\n> **Эффект:** Вместо этого целью вызвавшей триггер способности становится бастион.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) бастиона снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) бастиона снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-rampart",
+        "path": "Monsters/monster/orc/statblock/orc-rampart.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-rampart",
+      "originalName": "Orc Rampart",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **59**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **My Spear, My Foe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 12 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** This ability has a double edge against any target who dealt damage to the rampart this round.\n\n> 👤 **Castling**\n>\n> | **-**                  |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** | **🎯 One ally** |\n>\n> **Effect:** The rampart moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target, then can swap places with the target.\n\n> ❗️ **No.**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature targets an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the rampart with an ability that doesn't also target the rampart.\n>\n> **Effect:** The rampart becomes the target of the triggering ability instead.\n\n> ⭐️ **Relentless**\n>\n> If the rampart is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the rampart is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-rampart.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-razor",
+      "kind": "monster",
+      "name": "Орк-бритва",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |                    Миньон-Громила                    | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:-----------------------------------------------------:|:----------------------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **5**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+1 бонус к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Сапог и клинок ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки\n> - **17+:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки или [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Орк-бритва получает преимущество против любой цели, на которую действует какое-либо [состояние](#/catalog/glossary#term-glossary.condition).\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) орка-бритвы снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-razor",
+        "path": "Monsters/monster/orc/statblock/orc-razor.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-razor",
+      "originalName": "Orc Razor",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                  Minion Brute                  | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **5**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+1 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Boot and Blade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The razor gains an edge against any target affected by a [condition](scc.v1:mcdm.heroes.v1/rule.combat/condition).\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the razor is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-razor.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1L",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Громила",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-terranova",
+      "kind": "monster",
+      "name": "Орк-Терранова",
+      "markdown": "| Гуманоид, Орк |           -            |       Уровень 2       |   Взвод-Контроллер    |     Боевая ценность 8     |\n|:----------------:|:----------------------:|:---------------------:|:---------------------:|:----------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **30**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Закапывание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+1**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Земляной столб ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|----------------------------------:|\n> | **📏 Дальний 10** | **🎯 Три существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона; при Л < 0 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n> - **12-16:** 9 урона; при Л < 1 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n> - **17+:** 12 урона; при Л < 2 цель [сбита с ног](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n>\n> **Эффект:** Каждая цель должна находиться на земле; земля в пространстве каждой цели поднимается на 1 клетку.\n\n> ❇️ **Провал грунта (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------------------------:|\n> | **📏 Взрыв 3** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона; при М < 0 цель получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** 7 урона; при М < 1 цель получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 10 урона; при М < 2 цель получает состояние [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Сейсмический шаг**\n>\n> Терранова игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain). Кроме того, ему не требуется [линия воздействия](#/catalog/glossary#term-glossary.line-of-effect), чтобы применять способности против существ, касающихся земли.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) террановы снижается до 0, перед смертью она может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) его цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) террановы снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-terranova",
+        "path": "Monsters/monster/orc/statblock/orc-terranova.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-terranova",
+      "originalName": "Orc Terranova",
+      "originalDescription": "|   Humanoid, Orc   |           -            |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |     **6**<br>Speed     | **30**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  |   **+1**<br>Agility    | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Earth Pillar ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 9 damage; A < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 12 damage; A < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** Each target must be on the ground, and the ground in each target's space rises 1 square.\n\n> ❇️ **Sinkhole (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; M < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 7 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 10 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Seismic Step**\n>\n> The terranova ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Additionally, they don't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures touching the ground.\n\n> ⭐️ **Relentless**\n>\n> If the terranova is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the terranova is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-terranova.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.orc-warleader",
+      "kind": "monster",
+      "name": "Орк-военачальник",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 3       |       Лидер       |     Боевая ценность 20     |\n|:----------------:|:-----------------:|:---------------------:|:-----------------:|:-----------------------------:|\n| **1M**<br>Размер | **6**<br>Скорость | **120**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🏹 **Вперёд! ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------:|\n> | **📏 Дальний 10** | **🎯 Один союзник** |\n>\n> **Эффект:** Цель перемещается на расстояние до своей Скорости и может совершить основное действие.\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** Военачальник выбирает двух союзников.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Военачальник выбирает одного союзника и [отряд](#/codex/monsters.rule.monster.squad) [миньонов](#/codex/monsters.rule.organization.minion).\n\n> 🗡 **Булава-лассо**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------:|\n> | **📏 Ближний 1** | **🎯 Каждый враг** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1 клетку; при М < 1 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 10 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3 клетки; при М < 2 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 13 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток; при М < 3 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n\n> 🏹 **Блокада (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------------------------:|\n> | **📏 На себя и дальний 10** | **🎯 На себя и трёх союзников** |\n>\n> **Эффект:** Каждая цель перемещается на расстояние до своей Скорости и может совершить манёвр [Захват](#/catalog/glossary#term-glossary.grab-maneuver) с преимуществом.\n\n> ❗️ **Вежливое напутствие**\n>\n> | **Дальний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Дальний 10** | **🎯 Одно существо** |\n>\n> **Триггер:** Цель получает результат тира 1 на одном из бросков силы.\n>\n> **Эффект:** До конца столкновения цель получает двойное преимущество на следующий бросок силы.\n\n> ☠️ **Сблизиться ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область** | **-** |\n> |-------------|-----------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель перемещается на расстояние до своей Скорости. Каждый враг, оказавшийся [смежно](#/catalog/glossary#term-glossary.adjacent) с целью после этого перемещения, проходит проверку Интуиции.\n>\n> - **≤11:** Испытывает [испуг](#/catalog/glossary#term-glossary.frightened) перед военачальником (до прох.)\n> - **12-16:** Испытывает [испуг](#/catalog/glossary#term-glossary.frightened) перед военачальником (КсХ)\n> - **17+:** Без эффекта\n\n> ☠️ **Семейное подкрепление ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний** | **-** |\n> |-------------|------------:|\n> | **📏 Дальний 10** | **🎯 На себя** |\n>\n> **Эффект:** Военачальник [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, а в незанятых пространствах в пределах дальности появляются четыре орка-блицера.\n\n> ☠️ **Я сам с этим разберусь ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-** | **-** |\n> |-------|------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Три раза подряд военачальник [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может применить «Булаву на верёвке».\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода военачальник может получить 5 урона, чтобы прекратить действие одного эффекта на себе, который можно прекратить с помощью [спасброска](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким образом.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) военачальника снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если в результате этого свободного удара [Выносливость](#/catalog/glossary#term-glossary.stamina) его цели снижается до 0, вместо этого [Выносливость](#/catalog/glossary#term-glossary.stamina) военачальника снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-warleader",
+        "path": "Monsters/monster/orc/statblock/orc-warleader.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-warleader",
+      "originalName": "Orc Warleader",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3       |        Leader         |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+3**<br>Might  | **+2**<br>Agility |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Go. ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|----------------:|\n> | **📏 Ranged 10** | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets two allies.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The warleader targets one ally and a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad).\n\n> 🗡 **Mace Lariat**\n>\n> | **Melee, Strike, Weapon** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------:|\n> | **📏 Melee 1**            | **🎯 Each enemy** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> 🏹 **Lockdown (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**                |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------:|\n> | **📏 Self and ranged 10** | **🎯 Self and three allies** |\n>\n> **Effect:** Each target moves up to their speed and can use the [Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/grab) maneuver, which gains an edge.\n\n> ❗️ **Courtesy Call**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |  **🎯 One creature** |\n>\n> **Trigger:** The target obtains a tier 1 outcome on one power roll.\n>\n> **Effect:** The target has a double edge on their next power roll before the end of the encounter.\n\n> ☠️ **Close In ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area**       |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target moves up to their speed. Each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a target after this move makes an Intuition test.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of the warleader (EoT)\n> - **17+:** No effect\n\n> ☠️ **Familial Reinforcements ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Ranged**       |       **-** |\n> |------------------|------------:|\n> | **📏 Ranged 10** | **🎯 Self** |\n>\n> **Effect:** The warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and four orc blitzers appear in unoccupied spaces within distance.\n\n> ☠️ **I'll Do This Myself ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **-**       |       **-** |\n> |-------------|------------:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** Three times in succession, the warleader [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can use Mace Lariat.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Relentless**\n>\n> If the warleader is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the warleader is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-warleader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.orc.statblock.scyza",
+      "kind": "monster",
+      "name": "Сциза",
+      "markdown": "| Животное, Орк |         -         |       Уровень 3       |       Элита-Скакун       |     Боевая ценность 20     |\n|:------------------:|:-----------------:|:---------------------:|:------------------------:|:-----------------------------:|\n| **4**<br>Размер | **6**<br>Скорость | **100**<br>Выносливость | **3**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **-1**<br>Ловкость | **-4**<br>Разум | **+0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Когтистый удар ногой ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 14 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n>\n> **Эффект:** Сциза рычит. Если у цели И < 2, она [испытывает испуг](#/catalog/glossary#term-glossary.frightened) (до прох.).\n\n> 🗡 **Хлёсткий хвост**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 3** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 13 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 16 урона; при Л < 2 цель получает состояние [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Против цели, находящейся на спине сцизы, эта способность получает преимущество, а цель [отталкивается](#/catalog/glossary#term-glossary.forced-movement) в свободную [смежную](#/catalog/glossary#term-glossary.adjacent) клетку и оказывается [сбитой с ног](#/catalog/glossary#term-glossary.prone).\n\n> 🔳 **Падение гребня (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона и 1 урон звуком; при Р < 0 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 7 урона и 2 урона звуком; при Р < 1 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 9 урона и 3 урона звуком; при Р < 2 цель получает состояние [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n\n> ❇️ **Песчаная буря (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|---------------:|\n> | **📏 Взрыв 3** | **🎯 Особое** |\n>\n> **Эффект:** Сциза поднимает песчаную бурю, давая себе и каждому союзнику в области [покров](#/catalog/glossary#term-glossary.concealment) до конца своего следующего хода. Каждый враг в области проходит проверку Интуиции.\n>\n> - **≤11:** 10 урона; [сбить с ног](#/catalog/glossary#term-glossary.prone); цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **12-16:** 7 урона; цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** 4 урона\n\n> ❗️ **Выдержать и ответить**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------|---------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Сциза или союзник, едущий на ней верхом, становится целью способности.\n>\n> **Эффект:** Любой урон от вызвавшей триггер способности уменьшается вдвое. Если существо или объект, применившие эту способность, находятся в пределах 3 клеток от сцизы, она может нанести им [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Ужасный зверь**\n>\n> Сциза наносит дополнительно 6 урона способностями, применёнными против объектов.\n\n> ⭐️ **Боевая сбруя**\n>\n> Пока на сцизе едут верхом, в её пространстве могут находиться три союзника размера 1.\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.scyza",
+        "path": "Monsters/monster/orc/statblock/scyza.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/scyza",
+      "originalName": "Scyza",
+      "originalDescription": "|    Animal, Orc    |         -         |      Level 3       |      Elite Mount      |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size   |  **6**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **-1**<br>Agility |  **-4**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clawed Kick ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The scyza roars, and if the target has I < 2, they are [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends).\n\n> 🗡 **Whiptail**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Against a target on top of the scyza, this ability gains an edge, and the target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an unoccupied [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) square and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Crestfall (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 2**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage, 1 sonic damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 7 damage, 2 sonic damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 damage, 3 sonic damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ❇️ **Sandstorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------:|\n> | **📏 3 burst** | **🎯 Special** |\n>\n> **Effect:** The scyza kicks up a sandstorm, granting [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) to themself and any ally in the area until the end of the scyza's next turn. Each enemy in the area makes an Intuition test.\n>\n> - **≤11:** 10 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 7 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 4 damage\n\n> ❗️ **Brace and Break**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The scyza or an ally riding the scyza is targeted by an ability.\n>\n> **Effect:** Any damage dealt by the triggering ability is halved. If the creature or object who used the ability is within 3 squares of the scyza, the scyza can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Terrible Beast**\n>\n> The scyza deals an extra 6 damage with abilities used against objects.\n\n> ⭐️ **War Harness**\n>\n> While riding the scyza, three size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/scyza.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "4",
+        "keywords": [
+          "Животное",
+          "Орк"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

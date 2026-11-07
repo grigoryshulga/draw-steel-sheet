@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.animal.statblock.big-animal-b",
+  "title": "Крупное животное B",
+  "chapter": "23. Бестиарий",
+  "group": "Животные",
+  "path": "Monsters/monster/animal/statblock/big-animal-b.md",
+  "originalId": "mcdm.monsters.v1/monster.animal.statblock/big-animal-b",
+  "originalName": "Big Animal B",
+  "originalDescription": "|      Animal       |         -         |      Level 2      |      Elite Mount      |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **3**<br>Size   |  **6**<br>Speed   | **80**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  | \n\n> 🗡 **Natural Weapon (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage; push 1\n> - **17+:** 13 damage; push 2\n\n> 👤 **Trundle**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The animal moves up to their speed. They can make a free strike against each creature who makes an opportunity attack against them during this movement.\n\n> ❗️ **Animal Rally**\n>\n> | **-**            | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 20** |      **🎯 One ally** |\n>\n> **Trigger:** The target is knocked prone.\n>\n> **Effect:** The animal moves up to their speed. If they end their turn adjacent to the target, they can use the [Stand Up](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/stand-up) maneuver to let the target stand, then get on to ride them.\n\n> ⭐️ **Beast of Burden**\n>\n> While riding the animal, two size 1 allies can occupy the same space.\n\n> ⭐️ **Nature's Spirit**\n>\n> While outdoors or in a natural environment, the animal can negate a bane on their abilities or turn a double bane into a bane.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/animal/statblock/big-animal-b.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "animal",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "16",
+    "size": "3",
+    "keywords": [
+      "Животное"
+    ],
+    "role": "Скакун",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.animal.statblock.big-animal-b"
+    }
+  ]
+}

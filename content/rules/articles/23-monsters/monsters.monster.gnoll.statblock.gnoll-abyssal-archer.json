@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.gnoll.statblock.gnoll-abyssal-archer",
+  "title": "Гнолл-лучник Бездны",
+  "chapter": "23. Бестиарий",
+  "group": "Гноллы",
+  "path": "Monsters/monster/gnoll/statblock/gnoll-abyssal-archer.md",
+  "originalId": "mcdm.monsters.v1/monster.gnoll.statblock/gnoll-abyssal-archer",
+  "originalName": "Gnoll Abyssal Archer",
+  "originalDescription": "|  Abyssal, Gnoll   |         -         |      Level 2      |    Horde Artillery    |         EV 4         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+2**<br>Agility | **+1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🏹 **Dark Longbow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 corruption damage\n> - **12-16:** 6 corruption damage\n> - **17+:** 8 corruption damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** This ability gains an edge against any target not at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ❇️ **Archer's Cackletongue (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------------------------:|\n> | **📏 2 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Until the end of their next turn, each target gains an edge on their next strike. If any target hasn't used their own Cackletongue maneuver on this turn, they can use it immediately at no cost.\n\n> ⭐️ **Distant Death Frenzy**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally within 5 squares of the abyssal archer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the abyssal archer can make a ranged [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Bloodscent**\n>\n> The abyssal archer doesn't need line of effect to use their abilities against any creature who isn't at full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), as long as a size 1 opening exists between the archer and the target.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/gnoll/statblock/gnoll-abyssal-archer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "gnoll",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "4",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Гнолл"
+    ],
+    "role": "Артиллерист",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.gnoll.statblock.gnoll-abyssal-archer"
+    }
+  ]
+}

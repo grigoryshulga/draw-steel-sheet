@@ -1,4 +1,5 @@
-import manifestJson from "../generated/rules/manifest.json";
+import navigationJson from "../generated/rules/navigation.json";
+import { headingId } from "../lib/codex";
 import type { RuleManifest, RulePack, RuleSearchIndex } from "./schema";
 import {
   RuleDataError,
@@ -24,34 +25,28 @@ export {
  * динамическим импортом при первом поиске. Статьи читаются отдельными JSON
  * по URL сборки; пакеты глав остаются ленивым источником отдельных сущностей.
  */
-const manifest = manifestJson as RuleManifest;
-const packLoaders = import.meta.glob<RulePack>(
-  "../generated/rules/packs/*.json",
-  { import: "default" },
-);
-const packLoadersById = new Map<string, () => Promise<RulePack>>();
-for (const [file, loader] of Object.entries(packLoaders)) {
-  const name = /\/([^/]+)\.json$/.exec(file)?.[1];
-  if (name) packLoadersById.set(name, loader);
-}
-
-// URLs are small; article prose is fetched as JSON only when opened. no-inline
-// prevents short articles from becoming data URLs inside the navigation bundle.
-const articleUrls = import.meta.glob<string>("../generated/rules/articles/*.json", {
-  query: "?url&no-inline", import: "default", eager: true,
-});
-
+const manifest = {
+  ...navigationJson,
+  articles: navigationJson.articles.map(entry => ({
+    ...entry,
+    headings: entry.headings.map(heading => ({ ...heading, id: headingId(heading.title) })),
+  })),
+} as RuleManifest;
 const repository: RuleRepository = createRuleRepository({
   manifest,
   loadArticlePack: async (id) => {
+    // Hundreds of source-preserving IDs make even the URL directory substantial.
+    // Load it only when reading an article, separately from navigation and filters.
+    const { articleUrls } = await import("./article-assets");
     const url = articleUrls[`../generated/rules/articles/${id}.json`];
     if (!url) throw new RuleDataError("unknown-article", `Статья «${id}» не найдена.`, { ruleId: id });
     const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json() as RulePack;
   },
-  loadPack: (packId) => {
-    const loader = packLoadersById.get(packId);
+  loadPack: async (packId) => {
+    const { packLoaders } = await import("./pack-assets");
+    const loader = packLoaders[`../generated/rules/packs/${packId}.json`];
     if (!loader) {
       return Promise.reject(
         new RuleDataError(

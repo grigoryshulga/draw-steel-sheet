@@ -1,0 +1,31 @@
+{
+  "id": "monster.hobgoblin.statblock.hobgoblin-lancer",
+  "kind": "monster",
+  "name": "Хобгоблин-копейщик",
+  "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |         -         |     Уровень 4      |                 Миньон Налётчик                 | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|            **1M**<br>Размер             |  **7**<br>Скорость   | **8**<br>Выносливость |               **0**<br>Устойчивость               | **2**<br>Свободный удар  |\n|        **Огонь 2**<br>Иммунитет         | **-**<br>Движение |        -         | **Бонус +2 к урону от ударов**<br>С капитаном |   **-**<br>Уязвимость   |\n|            **+1**<br>Мощь            | **+3**<br>Ловкость | **0**<br>Разум  |              **+2**<br>Интуиция               |   **0**<br>Присутствие   |\n\n> ⚔️ **Мрачный выпад (Знаковая способность)**\n>\n> | **Магия, Ближний, Дальний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|-----------------------------------------:|\n> | **📏 Ближний 2 или Дальний 5**               | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона порчей\n> - **12-16:** 4 урона порчей; [толчок](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 урона порчей; [толчок](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Эффект:** Копейщик наносит дополнительно 2 урона, если занимает высокую позицию относительно цели.\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) копейщика снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с копейщиком, получает 2 урона огнём.\n",
+  "source": {
+    "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-lancer",
+    "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-lancer.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-lancer",
+  "originalName": "Hobgoblin Lancer",
+  "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |     Level 4      |                 Minion Harrier                 | EV 6 for four minions |\n|:-------------------------------------:|:-----------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|            **1M**<br>Size             |  **7**<br>Speed   | **8**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n|        **Fire 2**<br>Immunity         | **-**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **+1**<br>Might            | **+3**<br>Agility | **0**<br>Reason  |              **+2**<br>Intuition               |   **0**<br>Presence   |\n\n> ⚔️ **Grim Thrust (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|-----------------------------------------:|\n> | **📏 Melee 2 or ranged 5**               | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 corruption damage\n> - **12-16:** 4 corruption damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 corruption damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The lancer deals an extra 2 damage if they have high ground against the target.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the lancer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the lancer takes 2 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/hobgoblin/statblock/hobgoblin-lancer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "hobgoblin",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гоблин",
+      "Хобгоблин",
+      "Гуманоид",
+      "Адский"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

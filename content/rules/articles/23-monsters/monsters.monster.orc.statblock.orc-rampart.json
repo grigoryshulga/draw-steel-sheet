@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-rampart",
+  "title": "Орк-бастион",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-rampart.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-rampart",
+  "originalName": "Orc Rampart",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **59**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **My Spear, My Foe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 12 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** This ability has a double edge against any target who dealt damage to the rampart this round.\n\n> 👤 **Castling**\n>\n> | **-**                  |    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; see below** | **🎯 One ally** |\n>\n> **Effect:** The rampart moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target, then can swap places with the target.\n\n> ❗️ **No.**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature targets an ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the rampart with an ability that doesn't also target the rampart.\n>\n> **Effect:** The rampart becomes the target of the triggering ability instead.\n\n> ⭐️ **Relentless**\n>\n> If the rampart is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the rampart is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-rampart.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "8",
+    "size": "1L",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Защитник",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-rampart"
+    }
+  ]
+}

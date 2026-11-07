@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.bugbear.statblock.bugbear-knightmare",
+  "title": "Багбир-кошмар",
+  "chapter": "23. Бестиарий",
+  "group": "Багбиры",
+  "path": "Monsters/monster/bugbear/statblock/bugbear-knightmare.md",
+  "originalId": "mcdm.monsters.v1/monster.bugbear.statblock/bugbear-knightmare",
+  "originalName": "Bugbear Knightmare",
+  "originalDescription": "| Bugbear, Fey, Goblin, Humanoid |         -         |      Level 8      |                Minion Hexer                 | EV 10 for four minions |\n|:------------------------------:|:-----------------:|:-----------------:|:-------------------------------------------:|:----------------------:|\n|         **1L**<br>Size         |  **5**<br>Speed   | **12**<br>Stamina |             **2**<br>Stability              |  **3**<br>Free Strike  |\n|       **-**<br>Immunity        | **-**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness    |\n|        **+4**<br>Might         | **+3**<br>Agility | **+1**<br>Reason  |             **+1**<br>Intuition             |   **+4**<br>Presence   |\n\n> 🗡 **Corrosive Blade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 6 corruption damage; P < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 8 corruption damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); P < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way or already [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the knightmare can be vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares.\n\n> ⭐️ **Bu'gathic Inspiration**\n>\n> Any ally has a +1 bonus to power rolls, saving throws, or damage rolled as a d6 or a d3 for each knightmare adjacent to them.\n\n> ⭐️ **Magic Terror**\n>\n> Each enemy has a −1 penalty to power rolls, saving throws, or damage rolled as a d6 or a d3 for each knightmare adjacent to them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/bugbear/statblock/bugbear-knightmare.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "bugbear",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10 for four minions",
+    "size": "1L",
+    "keywords": [
+      "Багбир",
+      "Фея",
+      "Гоблин",
+      "Гуманоид"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.bugbear.statblock.bugbear-knightmare"
+    }
+  ]
+}

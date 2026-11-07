@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-wode.statblock.wode-elf-druid",
+  "title": "Лесной эльф-друид",
+  "chapter": "23. Бестиарий",
+  "group": "Лесные эльфы",
+  "path": "Monsters/monster/elf-wode/statblock/wode-elf-druid.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-druid",
+  "originalName": "Wode Elf Druid",
+  "originalDescription": "| Fey, Humanoid, Wode Elf |           -           |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |    **7**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |   **+1**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Entangling Vines (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 8 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 10 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** While [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) this way, a target can't search for hidden creatures.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The size of the cube and the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) both increase by 1.\n\n> 🏹 **The Wode Protects Us (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self and three allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 10 squares to a space that has cover or concealment.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the druid that would take a bane from cover or concealment have a double bane instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-wode/statblock/wode-elf-druid.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-wode",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "8",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Лесной эльф"
+    ],
+    "role": "Контроллер",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-wode.statblock.wode-elf-druid"
+    }
+  ]
+}

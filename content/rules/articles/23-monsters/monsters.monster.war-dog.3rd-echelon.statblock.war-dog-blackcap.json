@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-blackcap",
+  "title": "Пёс войны-черношапочник",
+  "chapter": "23. Бестиарий",
+  "group": "Псы войны",
+  "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-blackcap.md",
+  "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-blackcap",
+  "originalName": "War Dog Blackcap",
+  "originalDescription": "| Humanoid, Soulless, War Dog |            -             |      Level 7      |    Horde Ambusher     |         EV 9         |\n|:---------------------------:|:------------------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |      **6**<br>Speed      | **45**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|      **-**<br>Immunity      | **Teleport**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |    **+4**<br>Agility     | **+4**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Flesh-Eater Knife ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**               | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 11 damage\n> - **17+:** 12 damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** The blackcap can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to their speed before using this ability, creating an ash clone (see below) in their original square.\n\n> 🏹 **Ashes to Ashes**\n>\n> | **Ranged**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 Ranged 20** | **🎯 Up to three ash clones** |\n>\n> **Effect:** Each target makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Ash Clones**\n>\n> An ash clone created by the blackcap has the blackcap's statistics but has 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). Ash clones don't take turns in combat, but they can act when the blackcap allows them to and can move when the blackcap willingly moves.\n\n> ⭐️ **Duplicating Loyalty Collar**\n>\n> When the blackcap or any of their ash clones is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), that creature's loyalty collar explodes, dealing 3d6 poison damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object. If any [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy has A < 3 they are also [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-blackcap.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Засадник",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.war-dog.3rd-echelon.statblock.war-dog-blackcap"
+    }
+  ]
+}

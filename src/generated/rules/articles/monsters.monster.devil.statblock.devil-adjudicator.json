@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.devil.statblock.devil-adjudicator",
+      "title": "Дьявол-арбитр",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-adjudicator.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-adjudicator",
+      "originalName": "Devil Adjudicator",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+1**<br>Agility  |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Infernal Injunction (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 15 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 18 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** The adjudicator can slide a target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) by this ability up to 2 squares.\n\n> 🏹 **Adjudicator's Interdiction**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls, and can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **12-16:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls (save ends).\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Quid Pro Quo**\n>\n> | **Magic, Ranged** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------:|\n> | **📏 Ranged 10**  | **🎯 One ally or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) creature** |\n>\n> **Effect:** The adjudicator and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to switch places.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the adjudicator with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The adjudicator chooses a new target for the strike.\n> - **12-16:** The adjudicator halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Vexatious Litigation**\n>\n> Any creature within 10 squares of the adjudicator who has P < 3 takes a −2 penalty to saving throws.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the adjudicator's true name, the adjudicator loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-adjudicator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-adjudicator"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.devil.statblock.devil-adjudicator",
+      "kind": "monster",
+      "name": "Дьявол-арбитр",
+      "markdown": "| Дьявол, Адский |          -          |      Уровень 6      |   Элита, Контроллер   | Боевая ценность 32 |\n|:---------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Размер     |   **6**<br>Скорость    | **140**<br>Выносливость |  **1**<br>Устойчивость   | **7**<br>Свободный удар |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     |  **+1**<br>Ловкость  |  **+2**<br>Разум  |  **+1**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🏹 **Адский запрет (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n> - **12-16:** 15 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n> - **17+:** 18 урона огнём; если И < 1, цель получает состояние [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного спасброска)\n>\n> **Эффект:** Арбитр может швырнуть цель, получившую состояние [Испуг](#/catalog/glossary#term-glossary.frightened) от этой способности, на расстояние до 2 клеток.\n\n> 🏹 **Запрет арбитра**\n>\n> | **Магия, Дальний бой** |     **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|--------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Одно существо** |\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed), [помеху](#/catalog/glossary#term-glossary.bane) на броски силы и не может восстанавливать [Выносливость](#/catalog/glossary#term-glossary.stamina) (до успешного спасброска).\n> - **12-16:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) и [помеху](#/catalog/glossary#term-glossary.bane) на броски силы (до успешного спасброска).\n> - **17+:** Цель получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного спасброска).\n\n> 🏹 **Услуга за услугу**\n>\n> | **Магия, Дальний бой** |                           **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------------------------------:|\n> | **📏 Дальний бой 10**  | **🎯 Один союзник или существо с состоянием [Испуг](#/catalog/glossary#term-glossary.frightened)** |\n>\n> **Эффект:** Арбитр и цель [телепортируются](#/catalog/glossary#term-glossary.teleport), меняясь местами.\n\n> ❗️ **Дьявольское очарование (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний бой** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------------|-------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Существо-триггер** |\n>\n> **Триггер:** Существо выбирает арбитра целью удара.\n>\n> **Эффект:** Цель проходит проверку Присутствия.\n>\n> - **≤11:** Арбитр выбирает новую цель для удара.\n> - **12-16:** Арбитр вдвое уменьшает урон от вызвавшей триггер атаки.\n> - **17+:** Цель получает [помеху](#/catalog/glossary#term-glossary.bane) на этот удар.\n\n> ⭐️ **Обременительная тяжба**\n>\n> Любое существо в пределах 10 клеток от арбитра, у которого Присутствие < 3, получает штраф −2 к спасброскам.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя арбитра, арбитр теряет иммунитеты к урону, все наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) и способность «Дьявольское очарование» до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-adjudicator",
+        "path": "Monsters/monster/devil/statblock/devil-adjudicator.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-adjudicator",
+      "originalName": "Devil Adjudicator",
+      "originalDescription": "|    Devil, Infernal     |          -          |      Level 6       |   Elite Controller    |        EV 32         |\n|:----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+1**<br>Agility  |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Infernal Injunction (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** 15 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **17+:** 18 fire damage; I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n>\n> **Effect:** The adjudicator can slide a target [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) by this ability up to 2 squares.\n\n> 🏹 **Adjudicator's Interdiction**\n>\n> | **Magic, Ranged** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 10**  | **🎯 One creature** |\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls, and can't regain [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) (save ends).\n> - **12-16:** The target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls (save ends).\n> - **17+:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> 🏹 **Quid Pro Quo**\n>\n> | **Magic, Ranged** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------:|\n> | **📏 Ranged 10**  | **🎯 One ally or [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) creature** |\n>\n> **Effect:** The adjudicator and the target [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to switch places.\n\n> ❗️ **Devilish Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 5**   | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature targets the adjudicator with a strike.\n>\n> **Effect:** The target makes a Presence test.\n>\n> - **≤11:** The adjudicator chooses a new target for the strike.\n> - **12-16:** The adjudicator halves the triggering damage.\n> - **17+:** The target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the strike.\n\n> ⭐️ **Vexatious Litigation**\n>\n> Any creature within 10 squares of the adjudicator who has P < 3 takes a −2 penalty to saving throws.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the adjudicator's true name, the adjudicator loses their damage immunities, any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability), and their Devilish Charm ability until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-adjudicator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

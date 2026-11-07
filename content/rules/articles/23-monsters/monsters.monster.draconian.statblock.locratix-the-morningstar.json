@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.draconian.statblock.locratix-the-morningstar",
+  "title": "Лократикс Утренняя звезда",
+  "chapter": "23. Бестиарий",
+  "group": "Дракониды",
+  "path": "Monsters/monster/draconian/statblock/locratix-the-morningstar.md",
+  "originalId": "mcdm.monsters.v1/monster.draconian.statblock/locratix-the-morningstar",
+  "originalName": "Locratix the Morningstar",
+  "originalDescription": "| Draconian, Dragon, Humanoid |          -          |      Level 6       |     Elite Harrier     |        EV 32         |       \n|:---------------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|       \n|       **1M**<br>Size        |   **8**<br>Speed    | **160**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |       \n|   **Acid 6**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |       \n|       **+1**<br>Might       |  **+3**<br>Agility  |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Skewer (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** | \n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 18 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Locratix deals 6 damage to each creature or object in a 2 x 1 line behind the target.\n\n> 🔳 **Acidic Stun (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 3 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 12 acid damage; M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 15 acid damage; M < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target takes an extra 6 damage from Locratix's abilities.\n\n> 👤 **Takeoff**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Locratix [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to her speed. Any creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the space on the ground she took off from who has A < 2 is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ❗️ **Stay Back!**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 2** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement).\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 acid damage; A < 1 the target's speed is 0 (EoT)\n> - **12-16:** 12 acid damage; A < 2 the target's speed is 0 (EoT)\n> - **17+:** 15 acid damage; A < 3 the target's speed is 0 (EoT)\n\n> ⭐️ **Flighty**\n>\n> When Locratix deals rolled damage to an enemy, that enemy can't use Locratix as the trigger for any of their [triggered actions](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) until the start of Locratix's next turn.\n\n> ⭐️ **Absorbing Scales**\n>\n> When Locratix takes damage of any type for which she has damage immunity, she has damage immunity 6 against the next strike made against her.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/draconian/statblock/locratix-the-morningstar.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "draconian",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "32",
+    "size": "1M",
+    "keywords": [
+      "Драконид",
+      "Дракон",
+      "Гуманоид"
+    ],
+    "role": "Налётчик",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.draconian.statblock.locratix-the-morningstar"
+    }
+  ]
+}

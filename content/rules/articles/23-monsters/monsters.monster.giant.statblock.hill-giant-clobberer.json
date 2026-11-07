@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.hill-giant-clobberer",
+  "title": "Холмовой великан-дубинщик",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/hill-giant-clobberer.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/hill-giant-clobberer",
+  "originalName": "Hill Giant Clobberer",
+  "originalDescription": "|    Giant, Hill Giant     |           -           |      Level 7       |      Elite Brute      |        EV 36         |\n|:------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **4**<br>Size       |    **6**<br>Speed     | **200**<br>Stamina |  **5**<br>Stability   | **8**<br>Free Strike | \n| **Damage 3**<br>Immunity | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+4**<br>Might      |   **-1**<br>Agility   |  **-1**<br>Reason  |  **-1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clobberin' Club (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 17 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 21 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 12 damage.\n\n> 🗡 **Stomp (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 3 can't stand (save ends)\n> - **17+:** 25 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 can't stand (save ends)\n>\n> **Effect:** In suitably soft ground, the target is entrenched in a 2-square deep hole.\n\n> ❇️ **Hill Quake**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 3 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target must make either a **Might test** or an **Agility test**.\n>\n> - **≤11:** 6 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 2 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n>\n> **Effect:** The clobberer can choose to fall [prone](scc.v1:mcdm.heroes.v1/condition/prone) in order to double the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) distance.\n\n> ❗️ **You Ain't Getting Away**\n>\n> | **Melee**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the clobberer.\n>\n> **Effect:** The target makes an Agility test.\n>\n> - **≤11:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and the target takes a bane on the Escape Grab maneuver\n> - **12-16:** [Grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** No effect\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target who would be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by this ability is instead either vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 5 squares; or they take 5 damage, are knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and can't stand until the end of their next turn.\n\n> ⭐️ **Destructive Path**\n>\n> The clobberer automatically destroys any mundane size 1 objects in their path when they move or are [forced moved](scc.v1:mcdm.heroes.v1/movement/forced-movement). They can break through any mundane wall made of wood, stone, or a similarly sturdy material this way as long as the wall is 2 squares thick or less.\n\n> ⭐️ **Distracted**\n>\n> Whenever the clobberer targets a creature or object with an ability, any enemy within distance of the ability can use a free triggered action to distract the clobberer. The clobberer targets that enemy instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/hill-giant-clobberer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "36",
+    "size": "4",
+    "keywords": [
+      "Великан",
+      "Холмовой великан"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.hill-giant-clobberer"
+    }
+  ]
+}

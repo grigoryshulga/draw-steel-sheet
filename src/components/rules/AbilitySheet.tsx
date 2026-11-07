@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import type {
   Ability,
   AbilityKind,
@@ -34,14 +34,17 @@ export interface AbilityFactView {
   label: string;
   value: string;
   title?: string;
+  /** Rich source text keeps authored links in monster cards. */
+  content?: ReactNode;
 }
 
 export interface AbilityTierView {
   tier: Tier;
   range: string;
   rangeTitle: string;
-  damage?: { value: string; type?: DamageType };
+  damage?: { value: string; type?: DamageType; label?: ReactNode };
   effect?: string;
+  effectContent?: ReactNode;
 }
 
 export interface AbilitySheetView {
@@ -204,7 +207,7 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
 }
 
 /** Общая строка параметров карточки и окна способности. */
-export function AbilityFacts({ view }: { view: AbilitySheetView }) {
+export function AbilityFacts({ view }: { view: Pick<AbilitySheetView, 'facts' | 'roll' | 'keywords'> }) {
   return (
     <div className="sheet-ability-meta">
       {view.facts.map((fact) => (
@@ -212,6 +215,8 @@ export function AbilityFacts({ view }: { view: AbilitySheetView }) {
           <span className="sheet-ability-fact-mark" aria-hidden="true">
             {fact.label === "Бросок" && view.roll ? (
               <CharacteristicGlyph characteristic={view.roll.characteristic} />
+            ) : fact.label === "Ключевые слова" ? (
+              <Icon name="tag" size={14} />
             ) : fact.label === "Бросок" ? (
               <Icon name="dice" size={14} />
             ) : (
@@ -220,7 +225,7 @@ export function AbilityFacts({ view }: { view: AbilitySheetView }) {
           </span>
           <span className="sheet-ability-fact-value">
             <span className="sr-only">{fact.title || fact.label}: </span>
-            <CharacteristicGlyphText text={fact.value || "—"} />
+            {fact.content ?? <CharacteristicGlyphText text={fact.value || "—"} />}
           </span>
         </span>
       ))}
@@ -259,28 +264,7 @@ export function AbilityBody({
     <>
       <AbilityFacts view={view} />
 
-      {tiers.length > 0 && (
-        <div className="sheet-ability-tiers">
-          {tiers.map((tier) => (
-            <div
-              className="sheet-ability-tier"
-              data-tier={tier.tier}
-              key={tier.tier}
-            >
-              <span className="sheet-ability-range mono" title={tier.rangeTitle}>
-                <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
-                <span className="sr-only">{tier.range}</span>
-              </span>
-              {tier.damage && (
-                <DamageChip value={tier.damage.value} type={tier.damage.type} />
-              )}
-              {tier.effect && (
-                <span className="sheet-ability-effect"><CharacteristicGlyphText text={tier.effect} /></span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+      <AbilityTiers tiers={tiers} />
 
       {view.effect && (
         <p className={`sheet-ability-body${full ? " is-full-body" : ""}`}>
@@ -298,4 +282,30 @@ export function AbilityBody({
       )}
     </>
   );
+}
+
+/** Shared tier rows; rich source effects are rendered without losing links. */
+export function AbilityTiers({ tiers }: { tiers: AbilityTierView[] }) {
+  return tiers.length > 0 ? (
+        <div className="sheet-ability-tiers">
+          {tiers.map((tier) => (
+            <div
+              className="sheet-ability-tier"
+              data-tier={tier.tier}
+              key={tier.tier}
+            >
+              <span className="sheet-ability-range mono" title={tier.rangeTitle}>
+                <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
+                <span className="sr-only">{tier.range}</span>
+              </span>
+              {tier.damage && (
+                <DamageChip value={tier.damage.value} type={tier.damage.type} label={tier.damage.label} />
+              )}
+              {(tier.effectContent || tier.effect) && (
+                <div className="sheet-ability-effect">{tier.effectContent ?? <CharacteristicGlyphText text={tier.effect ?? ''} />}</div>
+              )}
+            </div>
+          ))}
+        </div>
+  ) : null;
 }

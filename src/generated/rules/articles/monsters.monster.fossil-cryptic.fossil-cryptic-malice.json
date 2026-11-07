@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.fossil-cryptic.fossil-cryptic-malice",
+      "title": "Раздор ископаемого криптика",
+      "chapter": "23. Бестиарий",
+      "group": "Ископаемый криптик",
+      "path": "Monsters/monster/fossil-cryptic/fossil-cryptic-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.fossil-cryptic/fossil-cryptic-malice",
+      "originalName": "Fossil Cryptic Malice",
+      "originalDescription": "At the start of a fossil cryptic's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🏹 **Floor Mosaic (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The fossil cryptic [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) one creature on the ground up to 5 squares. If the creature is [prone](scc.v1:mcdm.heroes.v1/condition/prone), this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) ignores [stability](scc.v1:mcdm.heroes.v1/rule.character/stability).\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The fossil cryptic takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Stone Pillars (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two pillars of stone 1 square wide either thrust up out of the ground or jut down from the ceiling anywhere on the encounter map, to a height of up to 5 squares. A creature in the area of a pillar before it appears is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) on its surface. If the creature comes into contact with the ceiling above or the floor beneath the pillar and has M < 2 they are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🌀 **Choking Dust (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The air across the encounter map is thick with dust until the end of the encounter. Each enemy in the dust is suffocating. Additionally, at the end of each round, each enemy in the dust makes a **Might test**.\n>\n> - **≤11:** Until the end of the enemy's next turn, their [stability](scc.v1:mcdm.heroes.v1/rule.character/stability) is reduced to 0, and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effects targeting them gain a +2 bonus to the distance moved.\n> - **12-16:** The enemy's [stability](scc.v1:mcdm.heroes.v1/rule.character/stability) is halved (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/fossil-cryptic/fossil-cryptic-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fossil-cryptic",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.fossil-cryptic.fossil-cryptic-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.fossil-cryptic",
+          "title": "Ископаемый криптик"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.fossil-cryptic.fossil-cryptic-malice",
+      "kind": "monster-feature",
+      "name": "Раздор ископаемого криптика",
+      "markdown": "В начале хода ископаемого криптика вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🏹 **Напольная мозаика (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Ископаемый криптик [сдвигает](#/catalog/glossary#term-glossary.forced-movement) одно существо на земле на расстояние до 5 клеток. Если существо [сбито с ног](#/catalog/glossary#term-glossary.prone), это [принудительное движение](#/catalog/glossary#term-glossary.forced-movement) игнорирует его [Устойчивость](#/catalog/glossary#term-glossary.stability).\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В свой ход ископаемый криптик совершает дополнительное основное действие. Он может использовать эту особенность, даже если [оглушён](#/catalog/glossary#term-glossary.dazed).\n\n> 🔳 **Каменные столпы (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В любой точке карты столкновения из земли вздымаются два каменных столпа шириной в 1 клетку или свисают с потолка; каждый достигает высоты до 5 клеток. Существо, находившееся в области столпа до его появления, [сбивается с ног](#/catalog/glossary#term-glossary.prone) и оказывается на его поверхности. Если существо касается потолка над столпом или пола под ним и имеет М < 2, оно [опутано](#/catalog/glossary#term-glossary.restrained) (до прох.).\n\n> 🌀 **Удушающая пыль (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца столкновения воздух по всей карте наполняет густая пыль. Каждый враг в ней задыхается. Кроме того, в конце каждого раунда каждый враг в пыли проходит **тест Мощи**.\n>\n> - **≤11:** До конца следующего хода врага его [Устойчивость](#/catalog/glossary#term-glossary.stability) снижается до 0, а дистанция любого эффекта [принудительного движения](#/catalog/glossary#term-glossary.forced-movement), нацеленного на него, получают бонус +2 к дистанции перемещения.\n> - **12-16:** [Устойчивость](#/catalog/glossary#term-glossary.stability) врага уменьшается вдвое (КсХ).\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.fossil-cryptic.fossil-cryptic-malice",
+        "path": "Monsters/monster/fossil-cryptic/fossil-cryptic-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.fossil-cryptic/fossil-cryptic-malice",
+      "originalName": "Fossil Cryptic Malice",
+      "originalDescription": "At the start of a fossil cryptic's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🏹 **Floor Mosaic (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The fossil cryptic [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) one creature on the ground up to 5 squares. If the creature is [prone](scc.v1:mcdm.heroes.v1/condition/prone), this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) ignores [stability](scc.v1:mcdm.heroes.v1/rule.character/stability).\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The fossil cryptic takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Stone Pillars (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two pillars of stone 1 square wide either thrust up out of the ground or jut down from the ceiling anywhere on the encounter map, to a height of up to 5 squares. A creature in the area of a pillar before it appears is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) on its surface. If the creature comes into contact with the ceiling above or the floor beneath the pillar and has M < 2 they are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends).\n\n> 🌀 **Choking Dust (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The air across the encounter map is thick with dust until the end of the encounter. Each enemy in the dust is suffocating. Additionally, at the end of each round, each enemy in the dust makes a **Might test**.\n>\n> - **≤11:** Until the end of the enemy's next turn, their [stability](scc.v1:mcdm.heroes.v1/rule.character/stability) is reduced to 0, and any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) effects targeting them gain a +2 bonus to the distance moved.\n> - **12-16:** The enemy's [stability](scc.v1:mcdm.heroes.v1/rule.character/stability) is halved (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/fossil-cryptic/fossil-cryptic-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "fossil-cryptic",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

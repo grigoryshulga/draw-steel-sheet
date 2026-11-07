@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.orc.statblock.orc-blitzer",
+      "title": "Орк-блицер",
+      "chapter": "23. Бестиарий",
+      "group": "Орки",
+      "path": "Monsters/monster/orc/statblock/orc-blitzer.md",
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-blitzer",
+      "originalName": "Orc Blitzer",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Lugged Spear ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** A target who starts their next turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more blitzers takes 3 damage.\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the blitzer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-blitzer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.orc.statblock.orc-blitzer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.orc",
+          "title": "Орки"
+        },
+        {
+          "id": "monsters.monster.orc.orc-malice",
+          "title": "Раздор орков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.orc.statblock.orc-blitzer",
+      "kind": "monster",
+      "name": "Орк-блицер",
+      "markdown": "| Гуманоид, Орк |         -         |       Уровень 1       |             Миньон-Налётчик             | Боевая ценность 3 за четырёх миньонов |\n|:----------------:|:-----------------:|:---------------------:|:----------------------------------------:|:----------------------------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+2 бонус к скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Копьё наизготовку ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона\n>\n> **Эффект:** Цель, которая начинает свой следующий ход [смежно](#/catalog/glossary#term-glossary.adjacent) с тремя или более блицерами, получает 3 урона.\n\n> ⭐️ **Кровавое пламя**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) блицера снижается до 0, перед смертью он может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.orc.statblock.orc-blitzer",
+        "path": "Monsters/monster/orc/statblock/orc-blitzer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-blitzer",
+      "originalName": "Orc Blitzer",
+      "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Lugged Spear ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage\n>\n> **Effect:** A target who starts their next turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more blitzers takes 3 damage.\n\n> ⭐️ **Bloodfire Bur**\n>\n> If the blitzer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/orc/statblock/orc-blitzer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "orc",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

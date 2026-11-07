@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.supernatural-objects.the-black-obelisk",
+      "title": "Чёрный обелиск",
+      "chapter": "25. Динамическая местность",
+      "group": "Сверхъестественные объекты",
+      "path": "Monsters/dynamic-terrain/supernatural-objects/the-black-obelisk.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.supernatural-objects/the-black-obelisk",
+      "originalName": "The Black Obelisk",
+      "originalDescription": "A foreboding obelisk shaped of dark stone harrows the minds and spirits of those around it.\n\n- **EV:** 20\n- **Stamina:** 100\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the black obelisk can make a **Reason test**.\n>\n> - **≤11:** The creature accidentally activates the **Your Fears Become Manifest** ability, which gains an edge.\n> - **12-16:** The creature must make another test to deactivate the obelisk. If they obtain this outcome a second time, they accidentally activate **Your Fears Become Manifest**.\n> - **17+:** The obelisk is deactivated until the end of the encounter.\n\n> ❕ **Activate**\n>\n> A new round starts.\n>\n> **Effect:** The **Your Fears Become Manifest** ability.\n\n> ❗️ **Your Fears Become Manifest**\n>\n> | **Area, Magic** |     **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy in the area** |\n>\n> **Trigger:** A new round starts.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** P < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n>\n> **Effect:** The target is pushed 2 squares.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/supernatural-objects/the-black-obelisk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "supernatural-objects",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "role": "Контроллер",
+        "organization": "Реликвия"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.supernatural-objects.the-black-obelisk"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.supernatural-objects.the-black-obelisk",
+      "kind": "terrain",
+      "name": "Чёрный обелиск",
+      "markdown": "Зловещий обелиск из тёмного камня терзает разум и дух окружающих.\n\n- **БЦ:** 20\n- **Выносливость:** 100\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с чёрным обелиском клетке может манёвром совершить **проверку Разума**.\n>\n> - **≤11:** Существо случайно активирует способность **Ваши страхи воплощаются**, которая получает преимущество.\n> - **12-16:** Существо должно совершить ещё одну проверку, чтобы отключить обелиск. При повторном получении этого результата оно случайно активирует **Ваши страхи воплощаются**.\n> - **17+:** Обелиск отключён до конца столкновения.\n\n> ❕ **Активация**\n>\n> Начинается новый раунд.\n>\n> **Эффект:** Способность **Ваши страхи воплощаются**.\n\n> ❗️ **Ваши страхи воплощаются**\n>\n> | **Область, магия** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Взрыв 10** | **🎯 Каждый враг в области** |\n>\n> **Условие:** Начинается новый раунд.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** П < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **12-16:** П < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) и [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ)\n> - **17+:** П < 3 [Испуг](#/catalog/glossary#term-glossary.frightened), [Замедление](#/catalog/glossary#term-glossary.slowed) и [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ)\n>\n> **Эффект:** Цель отталкивается на 2 клетки.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.supernatural-objects.the-black-obelisk",
+        "path": "Monsters/dynamic-terrain/supernatural-objects/the-black-obelisk.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.supernatural-objects/the-black-obelisk",
+      "originalName": "The Black Obelisk",
+      "originalDescription": "A foreboding obelisk shaped of dark stone harrows the minds and spirits of those around it.\n\n- **EV:** 20\n- **Stamina:** 100\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the black obelisk can make a **Reason test**.\n>\n> - **≤11:** The creature accidentally activates the **Your Fears Become Manifest** ability, which gains an edge.\n> - **12-16:** The creature must make another test to deactivate the obelisk. If they obtain this outcome a second time, they accidentally activate **Your Fears Become Manifest**.\n> - **17+:** The obelisk is deactivated until the end of the encounter.\n\n> ❕ **Activate**\n>\n> A new round starts.\n>\n> **Effect:** The **Your Fears Become Manifest** ability.\n\n> ❗️ **Your Fears Become Manifest**\n>\n> | **Area, Magic** |     **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy in the area** |\n>\n> **Trigger:** A new round starts.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** P < 3 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n>\n> **Effect:** The target is pushed 2 squares.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/supernatural-objects/the-black-obelisk.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "supernatural-objects",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "role": "Контроллер",
+        "organization": "Реликвия"
+      }
+    }
+  ]
+}

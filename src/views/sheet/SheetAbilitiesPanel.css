@@ -2,12 +2,6 @@
   grid-column: 1 / -1;
 }
 
-.sheet-ability-sections {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-7);
-}
-
 /* Выбор способности, которую выдаёт черта происхождения. */
 .sheet-ability-ancestry-choices {
   display: flex;
@@ -39,98 +33,6 @@
   font-size: var(--text-2xs);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.sheet-ability-section-head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-8);
-}
-
-.sheet-ability-section-head h3 {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-/* Точка у заголовка повторяет цвет окантовки карточек этой секции. */
-.sheet-ability-section-head h3::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: var(--space-4);
-  border-radius: 50%;
-  background: var(--section-accent, var(--muted));
-  vertical-align: middle;
-}
-
-.sheet-ability-section[data-action="main"] {
-  --section-accent: var(--ability-main);
-}
-
-.sheet-ability-section[data-action="maneuver"] {
-  --section-accent: var(--ability-maneuver);
-}
-
-.sheet-ability-section[data-action="move"] {
-  --section-accent: var(--cyan);
-}
-
-.sheet-ability-section[data-action="trigger"] {
-  --section-accent: var(--ability-trigger);
-}
-
-.sheet-ability-section[data-action="free-trigger"] {
-  --section-accent: var(--ability-trigger);
-}
-
-.sheet-ability-section[data-action="free-maneuver"] {
-  --section-accent: var(--ability-maneuver);
-}
-
-.sheet-ability-section[data-action="none"] {
-  --section-accent: var(--muted);
-}
-
-.sheet-ability-section-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-4);
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.sheet-ability-section-toggle svg {
-  color: var(--muted);
-  transition: transform 0.15s ease;
-}
-
-.sheet-ability-section.is-collapsed .sheet-ability-section-toggle svg {
-  transform: rotate(-90deg);
-}
-
-.sheet-ability-section.is-collapsed .sheet-ability-section-head {
-  margin-bottom: 0;
-}
-
-.sheet-ability-count {
-  font-size: var(--text-2xs);
-  color: var(--muted);
-}
-
-.sheet-ability-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--line);
 }
 
 .sheet-ability-summary-toggle {
@@ -171,13 +73,6 @@
   margin: 0;
   border-bottom: 0;
   border-radius: calc(var(--card-radius) - 1px);
-}
-
-.sheet-ability-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
-  align-items: stretch;
-  gap: var(--space-5);
 }
 
 /* Поиск и фильтр занимают одну строку. */
@@ -277,12 +172,6 @@
   cursor: default;
 }
 
-
-@media (max-width: 560px) {
-  .sheet-ability-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ---------- Поп-ап способности ---------- */
 
@@ -437,10 +326,6 @@
 }
 
 /* Пассивные эффекты: та же карточка, что у способности, но без действия. */
-.sheet-ability-section[data-action="passive"] {
-  --section-accent: var(--ability-passive);
-}
-
 .sheet-passive-card {
   --card-color: var(--ability-passive);
 }

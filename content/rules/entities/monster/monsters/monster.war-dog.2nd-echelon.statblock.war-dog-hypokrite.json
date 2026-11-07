@@ -1,0 +1,30 @@
+{
+  "id": "monster.war-dog.2nd-echelon.statblock.war-dog-hypokrite",
+  "kind": "monster",
+  "name": "Пёс войны-лицемер",
+  "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |     Уровень 4     | Орда-засадник | Боевая ценность 6 |\n|:-------------------------------:|:-----------------:|:----------------:|:-------------:|:----------------------:|\n| **1M**<br>Размер                | **8**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет              | **-**<br>Движение |        -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь                  | **+3**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Игольчатый нож ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 8 урона; Л < 2 — [кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n> - **17+:** 10 урона; Л < 3 — [кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) и [ослабление](scc.v1:mcdm.heroes.v1/condition/weakened) (до прох.)\n>\n> **Эффект:** Если лицемер скрыт или замаскирован, эта способность наносит дополнительно 6 урона.\n\n> ❗️ **Притвориться мёртвым (2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Дальний бой** | **[Триггер](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-----------------------------:|\n> | **📏 Дальний бой 20** | **🎯 Особое** |\n>\n> **Триггер:** Лицемер получает урон.\n>\n> **Эффект:** Лицемер взрывает свой ошейник преданности, нанося 2d6 урона каждому [смежному](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) врагу, но [телепортируется](scc.v1:mcdm.heroes.v1/movement/teleport) в свободную клетку [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с союзником в пределах дистанции и остаётся в живых.\n\n> ⭐️ **Лицо в толпе**\n>\n> Лицемер невидим, пока находится [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с любым союзником, который не скрыт, и может пытаться скрыться, даже если за ним наблюдают. Используя манёвр скрытности, лицемер может замаскироваться под другое существо, находящееся в пределах линии воздействия.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) лицемера снижается до 0, его ошейник преданности взрывается и наносит 2d6 урона каждому [смежному](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) врагу и объекту.\n",
+  "source": {
+    "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-hypokrite",
+    "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-hypokrite.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-hypokrite",
+  "originalName": "War Dog Hypokrite",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 4      |    Horde Ambusher     |         EV 6         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |  **8**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       | **+3**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🗡 **Needle-Knife ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 8 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 10 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** This ability deals an extra 6 damage if the hypokrite is hidden or disguised.\n\n> ❗️ **Feign Death (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 20** |       **🎯 Special** |\n>\n> **Trigger:** The hypokrite takes damage.\n>\n> **Effect:** The hypokrite detonates their loyalty collar to deal 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy, but [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally within distance and remains alive.\n\n> ⭐️ **Face in the Crowd**\n>\n> The hypokrite is invisible while [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to any ally who isn't hidden, and they can attempt to hide even while observed. Whenever they use the Hide maneuver, the hypokrite can disguise themself as another creature within line of effect.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the hypokrite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-hypokrite.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Засадник",
+    "organization": "Орда"
+  }
+}

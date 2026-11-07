@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.basalt-stone-giant",
+  "title": "Базальтовый каменный великан",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/basalt-stone-giant.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/basalt-stone-giant",
+  "originalName": "Basalt Stone Giant",
+  "originalDescription": "| Giant, Stone Giant |           -            |      Level 8       |   Elite Controller    |        EV 40         |\n|:------------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size    |     **7**<br>Speed     | **207**<br>Stamina |  **10**<br>Stability  | **8**<br>Free Strike |\n| **-**<br>Immunity  | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+4**<br>Might   |   **+2**<br>Agility    |  **+1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Rune-Signed Blade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 3**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 17 damage; M < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 21 damage; M < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If a target was already [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), that condition continues but their speed is 0 until the end of their next turn.\n\n> ⚔️ **Forked Knife (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 3 or ranged 12**       | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 10 damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 16 damage; A < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 20 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); A < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The knife lands in the target's square, and has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and damage immunity 5. Whenever the knife takes damage, it deals 4 sonic damage to each enemy within 3 squares. The knife lasts until the end of the encounter, and can't be picked up or manipulated.\n\n> 👤 **Cobblestone Shape**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The basalt stone giant moves up to their speed. Each square that they leave during this move is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Giants ignore this [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ❗️ **Resonate Rune**\n>\n> | **Area, Magic** |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|------------------------------:|\n> | **📏 2 burst**  | **🎯 Each enemy in the area** |\n>\n> **Trigger:** The basalt stone giant takes damage.\n>\n> **Effect:** The target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares, or if they have A < 3, they are [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 6 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Stonebreaker Flesh**\n>\n> Whenever an enemy obtains a tier 1 outcome on a melee ability used against the basalt stone giant, they take a bane on that ability until the end of the encounter.\n\n> ⭐️ **Stone Steps**\n>\n> The basalt stone giant ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Stone Swim**\n>\n> The basalt stone giant can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) through stone, but can't drag other creatures underground when they do so.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/basalt-stone-giant.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "4",
+    "keywords": [
+      "Великан",
+      "Каменный великан"
+    ],
+    "role": "Контроллер",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.basalt-stone-giant"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.role-advancement.brute",
+  "title": "Способности развития роли Громилы",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/role-advancement/brute.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/brute",
+  "originalName": "Brute Abilities",
+  "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 👤 **Big Windup**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of the retainer's next turn, strikes made against the retainer gain an edge. At the start of the retainer's next turn, they gain 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge), and any ability they use before the end of their turn that [force moves](scc.v1:mcdm.heroes.v1/movement/forced-movement) a creature can move that creature 2 additional squares.\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Overhand Swat (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 16 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** If the target ends any [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) from this ability in a square [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the retainer's mentor, the mentor can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Dizzying Sweep (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 14 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 20 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The retainer is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/role-advancement/brute.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.role-advancement.brute"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "monster.demon.2nd-echelon.statblock.tormenauk",
+  "kind": "monster",
+  "name": "Торменаук",
+  "markdown": "| Бездны, Демон |         -         |      Уровень 6      |      Орда-Громила      | Боевая ценность 8 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **2**<br>Размер   |  **6**<br>Скорость   | **45**<br>Выносливость |  **2**<br>Устойчивость   |   **4**<br>Свободный удар   |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **-**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **+3**<br>Мощь  | **+0**<br>Ловкость | **+2**<br>Разум  |  **+1**<br>Интуиция  |    **+2**<br>Присутствие    |\n\n> 🗡 **Множество пастей (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 9 урона\n> - **17+:** 11 урона; цель [схвачена](scc.v1:mcdm.heroes.v1/condition/grabbed) и получает [помеху](scc.v1:mcdm.heroes.v1/rule.dice/bane) на маневр [«Освободиться от захвата»](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/escape-grab)\n>\n> **Эффект:** Любая цель, [схваченная](scc.v1:mcdm.heroes.v1/condition/grabbed) таким образом, получает 4 психического урона в начале каждого хода торменаука.\n\n> ❇️ **Вопль агонии (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область, Магия** |                  **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 Всплеск 3**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 4 психического урона; И < 1 [Оглушение](scc.v1:mcdm.heroes.v1/condition/dazed) (до прох.)\n> - **12-16:** 6 психического урона; И < 2 [Оглушение](scc.v1:mcdm.heroes.v1/condition/dazed) (до прох.)\n> - **17+:** 8 психического урона; И < 3 [Оглушение](scc.v1:mcdm.heroes.v1/condition/dazed) (до прох.)\n>\n> **Эффект:** [Потенция](scc.v1:mcdm.heroes.v1/rule.character/potency) увеличивается на 1, если цель [схвачена](scc.v1:mcdm.heroes.v1/condition/grabbed) торменауком.\n\n> ⭐️ **Лета**\n>\n> Пока торменаук [утомлён](scc.v1:mcdm.heroes.v1/rule.health/winded), он получает [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge) на ударах, а любой удар по нему также получает преимущество.\n\n> ⭐️ **Зрение душ**\n>\n> От торменаука нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.2nd-echelon.statblock.tormenauk",
+    "path": "Monsters/monster/demon/2nd-echelon/statblock/tormenauk.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/tormenauk",
+  "originalName": "Tormenauk",
+  "originalDescription": "|  Abyssal, Demon   |         -         |      Level 6      |      Horde Brute      |           EV 8           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **2**<br>Size   |  **6**<br>Speed   | **45**<br>Stamina |  **2**<br>Stability   |   **4**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+3**<br>Might  | **+0**<br>Agility | **+2**<br>Reason  |  **+1**<br>Intuition  |    **+2**<br>Presence    |\n\n> 🗡 **Many Maws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 9 damage\n> - **17+:** 11 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), and the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on the [Escape Grab](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/escape-grab) maneuver\n>\n> **Effect:** Any target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way takes 4 psychic damage at the start of each of the tormenauk's turns.\n\n> ❇️ **Agony Wail (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 4 psychic damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 6 psychic damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 8 psychic damage; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1 if the target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the tormenauk.\n\n> ⭐️ **Lethe**\n>\n> While the tormenauk is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the tormenauk can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/2nd-echelon/statblock/tormenauk.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "8",
+    "size": "2",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Громила",
+    "organization": "Орда"
+  }
+}

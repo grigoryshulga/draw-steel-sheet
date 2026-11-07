@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elemental.statblock.force-of-earth",
+      "title": "Сила земли",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/force-of-earth.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/force-of-earth",
+      "originalName": "Force of Earth",
+      "originalDescription": "|     Elemental     |           -            |      Level 3       |      Elite Brute      |        EV 20         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **132**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **-1**<br>Agility    |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Slam Into Dirt (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The target's space is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> 🏹 **Convocation of Quartz**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the force's next turn, any melee strike made against the target takes a bane if it doesn't already have a bane or double bane.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the target grows a carapace of stone. They have a +3 bonus to stability and gain 15 temporary Stamina.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The force takes damage.\n>\n> **Effect:** The force halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. This damage weakness increases by 3 each time the force uses this ability in the same encounter.\n\n> ⭐️ **Fickle and Free**\n>\n> The force can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Primordial Strength**\n>\n> The force's strikes gain a +6 damage bonus against objects.\n\n> ⭐️ **Stone Swim**\n>\n> The force can burrow through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/force-of-earth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.force-of-earth"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elemental.statblock.force-of-earth",
+      "kind": "monster",
+      "name": "Сила земли",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Громила | Боевая ценность 20 |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **5**<br>Скорость | **132**<br>Выносливость | **2**<br>Устойчивость | **6**<br>Свободный удар |\n| **-**<br>Иммунитет | **Подкоп**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **-1**<br>Ловкость | **+0**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Вмять в землю (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 8 урона\n> - **12-16:** 12 урона; при М < 1 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 15 урона; при М < 2 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Пространство цели становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> 🏹 **Призыв кварца**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода силы земли любой удар ближнего боя по цели получает помеху, если у него ещё нет помехи или двойной помехи.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** На цели вырастает каменный панцирь до конца столкновения. Её Устойчивость увеличивается на +3, и она получает 15 временной Выносливости.\n\n> ❗️ **Сломать броню (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Условие:** Сила земли получает урон.\n>\n> **Эффект:** Сила земли получает половину урона, а до конца столкновения её уязвимость к урону равна 3, а Скорость увеличивается на +3. Эта уязвимость к урону увеличивается на 3 каждый раз, когда сила земли использует эту способность в том же столкновении.\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Силу земли нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и она игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Изначальная сила**\n>\n> Удары силы земли наносят объектам дополнительный урон +6.\n\n> ⭐️ **Плавание в камне**\n>\n> Сила земли может рыть проход сквозь камень, но при этом не может утаскивать других существ под землю.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.force-of-earth",
+        "path": "Monsters/monster/elemental/statblock/force-of-earth.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/force-of-earth",
+      "originalName": "Force of Earth",
+      "originalDescription": "|     Elemental     |           -            |      Level 3       |      Elite Brute      |        EV 20         |\n|:-----------------:|:----------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |     **5**<br>Speed     | **132**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **-1**<br>Agility    |  **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Slam Into Dirt (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 12 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The target's space is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> 🏹 **Convocation of Quartz**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the force's next turn, any melee strike made against the target takes a bane if it doesn't already have a bane or double bane.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the target grows a carapace of stone. They have a +3 bonus to stability and gain 15 temporary Stamina.\n\n> ❗️ **Break Armor (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The force takes damage.\n>\n> **Effect:** The force halves the damage, and has damage weakness 3 and a +3 bonus to speed until the end of the encounter. This damage weakness increases by 3 each time the force uses this ability in the same encounter.\n\n> ⭐️ **Fickle and Free**\n>\n> The force can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Primordial Strength**\n>\n> The force's strikes gain a +6 damage bonus against objects.\n\n> ⭐️ **Stone Swim**\n>\n> The force can burrow through stone, but can't drag other creatures underground when they do so.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/force-of-earth.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "2",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

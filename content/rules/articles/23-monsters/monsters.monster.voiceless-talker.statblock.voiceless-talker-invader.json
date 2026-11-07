@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.voiceless-talker.statblock.voiceless-talker-invader",
+  "title": "Безмолвный захватчик",
+  "chapter": "23. Бестиарий",
+  "group": "Безмолвные",
+  "path": "Monsters/monster/voiceless-talker/statblock/voiceless-talker-invader.md",
+  "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/voiceless-talker-invader",
+  "originalName": "Voiceless Talker Invader",
+  "originalDescription": "| Horror, Voiceless Talker  |                -                |      Level 6       |   Elite Controller    |        EV 32         |\n|:-------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |         **5**<br>Speed          | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |        **+1**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Tentacle ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; M < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 18 damage; M < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> ❇️ **Psionic Boom (3 Malice)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 3 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage; R < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 psychic damage; R < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 12 psychic damage; R < 3 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4 and [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **2 Malice:** The size of the burst increases to 5.\n\n> 🗡 **Tentacle Toss**\n>\n> | **Melee, Psionic** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|--------------------:|\n> | **📏 Melee 1**     | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 10 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; vertical [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n\n> ❗️ **Brain Drain**\n>\n> | **Melee, Psionic** |           **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|-------------------------------:|\n> | **📏 Special**     | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the invader resists an ability's [potency](scc.v1:mcdm.heroes.v1/rule.character/potency).\n>\n> **Effect:** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 2.\n\n> ⭐️ **Psionic Amplifier**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the invader uses a psionic ability, they can do so as if they were in the invader's space, and the ability has a double edge.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/voiceless-talker/statblock/voiceless-talker-invader.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "voiceless-talker",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "32",
+    "size": "1M",
+    "keywords": [
+      "Ужас",
+      "Безмолвный"
+    ],
+    "role": "Контроллер",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.voiceless-talker.statblock.voiceless-talker-invader"
+    }
+  ]
+}

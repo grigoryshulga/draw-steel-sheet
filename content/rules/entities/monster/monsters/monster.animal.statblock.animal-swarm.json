@@ -1,0 +1,29 @@
+{
+  "id": "monster.animal.statblock.animal-swarm",
+  "kind": "monster",
+  "name": "Рой животных",
+  "markdown": "| Животное, Рой | — | Уровень 1 | Элита, Проклинатель | Боевая ценность 12 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **—**<br>Иммунитет | **—**<br>Движение | — | **—**<br>С капитаном | **—**<br>Уязвимость |\n| **-2**<br>Мощь | **+1**<br>Ловкость | **-3**<br>Разум | **+2**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Шквал (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона; притягивание 1\n> - **17+:** 12 урона; притягивание 2\n>\n> **Эффект:** Если цель [притянута](scc.v1:mcdm.heroes.v1/movement/forced-movement) в пространство роя животных, этот [принудительный сдвиг](scc.v1:mcdm.heroes.v1/movement/forced-movement) наносит урон только по решению Ведущего.\n\n> ⭐️ **Рой**\n>\n> Рой животных может перемещаться через пространства так, будто это существо размера 1M, и может занимать пространства других существ. В начале каждого своего хода рой может сделать [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) по каждому существу, с которым делит пространство.\n\n> ❇️ **Преграда**\n>\n> | **Область** | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------|---------------:|\n> | **📏 Аура 1** | **🎯 Особое** |\n>\n> **Эффект:** До начала следующего хода роя область считается [труднопроходимой местностью](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) для врагов.\n\n> ⭐️ **Дух природы**\n>\n> На открытом воздухе или в естественной среде рой животных может отменить помеху на броски своих способностей или заменить двойную помеху помехой.\n",
+  "source": {
+    "articleId": "monsters.monster.animal.statblock.animal-swarm",
+    "path": "Monsters/monster/animal/statblock/animal-swarm.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.animal.statblock/animal-swarm",
+  "originalName": "Animal Swarm",
+  "originalDescription": "|   Animal, Swarm   |         -         |      Level 1      |      Elite Hexer      |        EV 12         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|   **2**<br>Size   |  **5**<br>Speed   | **40**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **-2**<br>Might  | **+1**<br>Agility | **-3**<br>Reason  |  **+2**<br>Intuition  |  **-3**<br>Presence  | \n\n> 🗡 **Flurry (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; pull 1\n> - **17+:** 12 damage; pull 2\n>\n> **Effect:** If the target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) into the animal swarm, that [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) deals damage only at the Director's determination.\n\n> ⭐️ **Swarm**\n>\n> The animal swarm can move through spaces as if they were a size 1M creature, and can occupy other creatures' spaces. At the start of each of the animal swarm's turns, they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each creature whose space they share.\n\n> ❇️ **Impede**\n>\n> | **Area**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------|---------------:|\n> | **📏 1 aura** | **🎯 Special** |\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies until the start of the animal swarm's next turn.\n\n> ⭐️ **Nature's Spirit**\n>\n> While outdoors or in a natural environment, the animal swarm can negate a bane on their abilities or turn a double bane into a bane.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/animal/statblock/animal-swarm.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "animal",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "12",
+    "size": "2",
+    "keywords": [
+      "Животное",
+      "Рой"
+    ],
+    "role": "Проклинатель",
+    "organization": "Элита"
+  }
+}

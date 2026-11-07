@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.scyza",
+  "title": "Сциза",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/scyza.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/scyza",
+  "originalName": "Scyza",
+  "originalDescription": "|    Animal, Orc    |         -         |      Level 3       |      Elite Mount      |        EV 20         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **4**<br>Size   |  **6**<br>Speed   | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **-1**<br>Agility |  **-4**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Clawed Kick ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n>\n> **Effect:** The scyza roars, and if the target has I < 2, they are [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends).\n\n> 🗡 **Whiptail**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 8 damage\n> - **12-16:** 13 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 16 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Against a target on top of the scyza, this ability gains an edge, and the target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) into an unoccupied [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) square and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Crestfall (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 2**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage, 1 sonic damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 7 damage, 2 sonic damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 9 damage, 3 sonic damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n\n> ❇️ **Sandstorm (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|---------------:|\n> | **📏 3 burst** | **🎯 Special** |\n>\n> **Effect:** The scyza kicks up a sandstorm, granting [concealment](scc.v1:mcdm.heroes.v1/rule.combat/concealment) to themself and any ally in the area until the end of the scyza's next turn. Each enemy in the area makes an Intuition test.\n>\n> - **≤11:** 10 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 7 damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 4 damage\n\n> ❗️ **Brace and Break**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The scyza or an ally riding the scyza is targeted by an ability.\n>\n> **Effect:** Any damage dealt by the triggering ability is halved. If the creature or object who used the ability is within 3 squares of the scyza, the scyza can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Terrible Beast**\n>\n> The scyza deals an extra 6 damage with abilities used against objects.\n\n> ⭐️ **War Harness**\n>\n> While riding the scyza, three size 1 allies can occupy the same space.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/scyza.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "20",
+    "size": "4",
+    "keywords": [
+      "Животное",
+      "Орк"
+    ],
+    "role": "Скакун",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.scyza"
+    }
+  ]
+}

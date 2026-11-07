@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.orc-charger",
+  "title": "Орк-налётчик",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/orc-charger.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/orc-charger",
+  "originalName": "Orc Charger",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **21**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Notched Axe (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n\n> ⭐️ **Relentless**\n>\n> If the charger is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the charger is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/orc-charger.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Налётчик",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.orc-charger"
+    }
+  ]
+}

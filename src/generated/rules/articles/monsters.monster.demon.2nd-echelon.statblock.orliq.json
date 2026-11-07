@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.2nd-echelon.statblock.orliq",
+      "title": "Орлик",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/2nd-echelon/statblock/orliq.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/orliq",
+      "originalName": "Orliq",
+      "originalDescription": "|  Abyssal, Demon   |          -          |     Level 4      |            Minion Harrier             |  EV 6 for four minions   |\n|:-----------------:|:-------------------:|:----------------:|:-------------------------------------:|:------------------------:|\n|  **1T**<br>Size   |   **6**<br>Speed    | **8**<br>Stamina |          **0**<br>Stability           |   **2**<br>Free Strike   |\n| **-**<br>Immunity | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **-1**<br>Might  |  **+3**<br>Agility  | **+1**<br>Reason |          **+0**<br>Intuition          |    **-1**<br>Presence    |\n\n> 🗡 **Soul Prism (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 corruption damage; slide 2\n> - **12-16:** 4 corruption damage; vertical slide 2\n> - **17+:** 6 corruption damage; vertical slide 2\n\n> ⭐️ **Imposing Energy**\n>\n> Any enemy who starts their turn with two or more orliq [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the orliq can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/orliq.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.2nd-echelon.statblock.orliq"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.2nd-echelon.statblock.orliq",
+      "kind": "monster",
+      "name": "Орлик",
+      "markdown": "| Бездны, Демон |          -          |     Уровень 4      |            Миньон-Налётчик            | Боевая ценность 6 за четырёх миньонов |\n|:-----------------:|:-------------------:|:----------------:|:-------------------------------------:|:------------------------:|\n|  **1T**<br>Размер   |   **6**<br>Скорость    | **8**<br>Выносливость |          **0**<br>Устойчивость           |   **2**<br>Свободный удар   |\n| **-**<br>Иммунитет | **Полёт**<br>Движение |        -         | **Бонус +2 к Скорости**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **-1**<br>Мощь  |  **+3**<br>Ловкость  | **+1**<br>Разум |          **+0**<br>Интуиция          |    **-1**<br>Присутствие    |\n\n> 🗡 **Призма душ (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**                   | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона Порчей; швырнуть на 2 клетки\n> - **12-16:** 4 урона Порчей; швырнуть вертикально на 2 клетки\n> - **17+:** 6 урона Порчей; швырнуть вертикально на 2 клетки\n\n> ⭐️ **Подавляющая энергия**\n>\n> Любой враг, начинающий ход, когда два или более орлика [смежны](#/catalog/glossary#term-glossary.adjacent) с ним, получает [Замедление](#/catalog/glossary#term-glossary.slowed) до КсХ.\n\n> ⭐️ **Зрение душ**\n>\n> От орлика нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.2nd-echelon.statblock.orliq",
+        "path": "Monsters/monster/demon/2nd-echelon/statblock/orliq.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/orliq",
+      "originalName": "Orliq",
+      "originalDescription": "|  Abyssal, Demon   |          -          |     Level 4      |            Minion Harrier             |  EV 6 for four minions   |\n|:-----------------:|:-------------------:|:----------------:|:-------------------------------------:|:------------------------:|\n|  **1T**<br>Size   |   **6**<br>Speed    | **8**<br>Stamina |          **0**<br>Stability           |   **2**<br>Free Strike   |\n| **-**<br>Immunity | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **-1**<br>Might  |  **+3**<br>Agility  | **+1**<br>Reason |          **+0**<br>Intuition          |    **-1**<br>Presence    |\n\n> 🗡 **Soul Prism (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 corruption damage; slide 2\n> - **12-16:** 4 corruption damage; vertical slide 2\n> - **17+:** 6 corruption damage; vertical slide 2\n\n> ⭐️ **Imposing Energy**\n>\n> Any enemy who starts their turn with two or more orliq [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the orliq can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/orliq.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.elf-wode.statblock.wodenelg",
+  "title": "Воденельг",
+  "chapter": "23. Бестиарий",
+  "group": "Лесные эльфы",
+  "path": "Monsters/monster/elf-wode/statblock/wodenelg.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wodenelg",
+  "originalName": "Wodenelg",
+  "originalDescription": "|  Plant, Wode Elf  |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **10**<br>Speed  | **30**<br>Stamina |  **1**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The wodenelg's rider can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) at any point during the charge.\n\n> ⭐️ **Sure-Footed**\n>\n> The wodenelg ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and doesn't provoke oppotunity attacks by moving.\n\n> 👤 **Where I End the Woods Begin (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The wodenelg and their rider become invisible until the start of the wodenelg's next turn.\n\n> ⭐️ **Mounted Stability**\n>\n> The wodenelg's rider has damage immunity 2.\n\n> ⭐️ **Shared Glamor**\n>\n> If the wodenelg's rider has the Masking Glamor trait, the wodenelg also has that trait.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-wode/statblock/wodenelg.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-wode",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "2",
+    "keywords": [
+      "Растение",
+      "Лесной эльф"
+    ],
+    "role": "Скакун",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-wode.statblock.wodenelg"
+    }
+  ]
+}

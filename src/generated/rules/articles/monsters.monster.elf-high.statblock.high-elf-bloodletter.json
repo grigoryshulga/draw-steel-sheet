@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-bloodletter",
+      "title": "Высший эльф-кровопускатель",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-bloodletter.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-bloodletter",
+      "originalName": "High Elf Bloodletter",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Razor's Edge (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; R < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The bloodletter and each of their allies has a double edge on abilities targeting a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way.\n\n> ❇️ **Blood Haze (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 1 burst**  | **🎯 Special** |\n>\n> **Effect:** Until the end of the next round, a cloud of blood vapor fills the area. The cloud blocks line of effect for enemies, and any enemy has damage weakness 3 while in the area. The bloodletter can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and can attempt to hide if they end that shift with concealment.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the bloodletter can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-bloodletter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-bloodletter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-high.statblock.high-elf-bloodletter",
+      "kind": "monster",
+      "name": "Высший эльф-кровопускатель",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Взвод, Засадник | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Острое лезвие (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; при Р < 2 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Кровопускатель и каждый его союзник получают двойное преимущество на броски способностей против существа, которое из-за этой способности [истекает кровью](#/catalog/glossary#term-glossary.bleeding).\n\n> ❇️ **Кровавый туман (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|---------------:|\n> | **📏 Взрыв 1** | **🎯 Особое** |\n>\n> **Эффект:** До конца следующего раунда область заполняет облако кровавого тумана. Оно перекрывает врагам линию эффекта, а каждый враг внутри области получает уязвимость к урону 3. Затем кровопускатель может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и попытаться спрятаться, если после смещения будет заслонён от взглядов врагов.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода кровопускатель может выбрать один эффект на себе, который можно прекратить спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-bloodletter",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-bloodletter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-bloodletter",
+      "originalName": "High Elf Bloodletter",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Razor's Edge (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; R < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The bloodletter and each of their allies has a double edge on abilities targeting a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way.\n\n> ❇️ **Blood Haze (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 1 burst**  | **🎯 Special** |\n>\n> **Effect:** Until the end of the next round, a cloud of blood vapor fills the area. The cloud blocks line of effect for enemies, and any enemy has damage weakness 3 while in the area. The bloodletter can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and can attempt to hide if they end that shift with concealment.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the bloodletter can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-bloodletter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

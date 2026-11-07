@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.hobgoblin.statblock.hobgoblin-brandbearer",
+  "title": "Хобгоблин-клеймитель",
+  "chapter": "23. Бестиарий",
+  "group": "Хобгоблины",
+  "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-brandbearer.md",
+  "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-brandbearer",
+  "originalName": "Hobgoblin Brandbearer",
+  "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |     Level 4      |                Minion Hexer                 | EV 6 for four minions |\n|:-------------------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **7**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|        **Fire 2**<br>Immunity         | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **0**<br>Might             | **+1**<br>Agility | **+2**<br>Reason |             **0**<br>Intuition              |  **+3**<br>Presence   |\n\n> 🗡 **Searing Grasp (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 1**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 fire damage\n> - **12-16:** 4 fire damage; M < 2 fire weakness 5 (save ends)\n> - **17+:** 6 fire damage; M < 3 fire weakness 5 (save ends)\n\n> ⭐️ **Open Furnace**\n>\n> Whenever an enemy takes fire damage, they take 1 extra fire damage for each brandbearer [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the brandbearer is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the brandbearer takes 2 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/hobgoblin/statblock/hobgoblin-brandbearer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "hobgoblin",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гоблин",
+      "Хобгоблин",
+      "Гуманоид",
+      "Адский"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.hobgoblin.statblock.hobgoblin-brandbearer"
+    }
+  ]
+}

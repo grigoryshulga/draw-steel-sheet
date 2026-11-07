@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.goblin.statblock.war-spider",
+      "title": "Боевой паук",
+      "chapter": "23. Бестиарий",
+      "group": "Гоблины",
+      "path": "Monsters/monster/goblin/statblock/war-spider.md",
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/war-spider",
+      "originalName": "War Spider",
+      "originalDescription": "|  Animal, Goblin   |           -           |      Level 1      |      Elite Mount      |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+1**<br>Agility   | **-4**<br>Reason  |  **0**<br>Intuition   |  **-3**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 11 poison damage\n> - **17+:** 14 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For any tier outcome, if the target has M < 3, they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends).\n\n> 🗡 **Leg Blade**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n\n> 👤 **Trample (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Leg Blade against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The spider makes one power roll against all targets.\n\n> 🔳 **Web**\n>\n> | **Area, Weapon**       |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The spider or any ally riding the spider takes damage.\n>\n> **Effect:** The damage is halved, and the spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares after the triggering effect resolves.\n\n> ⭐️ **Ride Launcher**\n>\n> Any ally who leaps off the back of the spider can jump up to 6 squares without making a test, and takes no damage if they fall during the jump. After any ally jumps, the first melee strike the make on the same turn gains an edge.\n\n> ⭐️ **Wide Back**\n>\n> While riding the spider, two size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/war-spider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.goblin.statblock.war-spider"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.goblin.goblin-malice",
+          "title": "Раздор гоблинов"
+        },
+        {
+          "id": "monsters.monster.group.goblin",
+          "title": "Гоблины"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.goblin.statblock.war-spider",
+      "kind": "monster",
+      "name": "Боевой паук",
+      "markdown": "| Животное, Гоблин |          -          |     Уровень 1      |        Элита Скакун        | Боевая ценность 12 |\n|:-----------------:|:-------------------:|:-----------------:|:--------------------------:|:-----------------------:|\n| **3**<br>Размер | **7**<br>Скорость | **60**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+1**<br>Ловкость | **-4**<br>Разум | **0**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Укус (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона ядом\n> - **12-16:** 11 урона ядом\n> - **17+:** 14 урона ядом; при М < 2 — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** При любом результате тира, если у цели М < 3, она получает состояние [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.).\n\n> 🗡 **Клинок на лапе**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона\n\n> 👤 **Затоптать (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Паук [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и использует «Клинок на лапе» против каждого существа, которое оказывается [смежным](#/catalog/glossary#term-glossary.adjacent) с ним во время смещения. Паук совершает один бросок силы против всех целей.\n\n> 🔳 **Паутина**\n>\n> | **Область, Оружие** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|--------------------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** при Л < 0 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** при Л < 1 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** при Л < 2 — [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Для врагов эта область является [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ❗️ **Шмыгнуть**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Паук или союзник, едущий на нём верхом, получает урон.\n>\n> **Эффект:** Урон уменьшается вдвое, а после завершения вызвавшего его эффекта паук [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Подбрасывание всадника**\n>\n> Любой союзник, спрыгнувший со спины паука, может прыгнуть на расстояние до 6 клеток без теста и не получает урон, если падает во время прыжка. После прыжка союзника первый совершённый им в том же ходу удар ближнего боя получает преимущество.\n\n> ⭐️ **Широкая спина**\n>\n> Пока на пауке едут верхом, в одном пространстве с ним могут находиться два союзника размера 1.\n",
+      "source": {
+        "articleId": "monsters.monster.goblin.statblock.war-spider",
+        "path": "Monsters/monster/goblin/statblock/war-spider.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.goblin.statblock/war-spider",
+      "originalName": "War Spider",
+      "originalDescription": "|  Animal, Goblin   |           -           |      Level 1      |      Elite Mount      |        EV 12         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |   **+1**<br>Agility   | **-4**<br>Reason  |  **0**<br>Intuition   |  **-3**<br>Presence  |\n\n> 🗡 **Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 poison damage\n> - **12-16:** 11 poison damage\n> - **17+:** 14 poison damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** For any tier outcome, if the target has M < 3, they are [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends).\n\n> 🗡 **Leg Blade**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage\n\n> 👤 **Trample (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Self** | **🎯 Self** |\n>\n> **Effect:** The spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and uses Leg Blade against each creature who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them during the shift. The spider makes one power roll against all targets.\n\n> 🔳 **Web**\n>\n> | **Area, Weapon**       |                     **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** A < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** A < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies.\n\n> ❗️ **Skitter**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The spider or any ally riding the spider takes damage.\n>\n> **Effect:** The damage is halved, and the spider [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares after the triggering effect resolves.\n\n> ⭐️ **Ride Launcher**\n>\n> Any ally who leaps off the back of the spider can jump up to 6 squares without making a test, and takes no damage if they fall during the jump. After any ally jumps, the first melee strike the make on the same turn gains an edge.\n\n> ⭐️ **Wide Back**\n>\n> While riding the spider, two size 1 allies can occupy the same space.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/goblin/statblock/war-spider.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "goblin",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "12",
+        "size": "3",
+        "keywords": [
+          "Животное",
+          "Гоблин"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

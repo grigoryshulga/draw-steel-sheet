@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elemental.statblock.essence-of-tides",
+      "title": "Эссенция приливов",
+      "chapter": "23. Бестиарий",
+      "group": "Элементали",
+      "path": "Monsters/monster/elemental/statblock/essence-of-tides.md",
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-tides",
+      "originalName": "Essence of Tides",
+      "originalDescription": "|       Elemental        |          -           |      Level 3      |   Elite Controller    |        EV 20         |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |    **7**<br>Speed    | **80**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **Cold 5**<br>Immunity | **Swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+0**<br>Agility   | **+1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Water Wing (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 1**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** If a target has P < 2, their stability is reduced to 0 and they move 2 additional squares whenever they are force moved (save ends).\n\n> 🏹 **Convocation of Waves**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has cold immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is a pool of water that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). This water extends out behind the target as they move, creating a stream that lasts until the end of the encounter. Any enemy who ends their turn in the stream and has M < 2 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ❗️ **Sea-Salted Wounds (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally deals rolled damage to the target.\n>\n> **Effect:** The essence makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Water Glide**\n>\n> Whenever the essence starts their turn in a space containing water, they can [fly](scc.v1:mcdm.heroes.v1/movement/fly) until the end of their turn. While flying, the essence doesn't provoke opportunity attacks.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-tides.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elemental.statblock.essence-of-tides"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elemental.elemental-malice",
+          "title": "Раздор элементалей"
+        },
+        {
+          "id": "monsters.monster.group.elemental",
+          "title": "Элементали"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elemental.statblock.essence-of-tides",
+      "kind": "monster",
+      "name": "Эссенция приливов",
+      "markdown": "| Элементаль | - | Уровень 3 | Элита, Контроллер | Боевая ценность 20 |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **5**<br>Свободный удар |\n| **Холод 5**<br>Иммунитет | **Плавание**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+0**<br>Ловкость | **+1**<br>Разум | **-1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Водяное крыло (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 11 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 14 урона; [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n>\n> **Эффект:** Если у цели П < 2, её Устойчивость снижается до 0, а при каждом принудительном перемещении её перемещают ещё на 2 клетки (до прох.).\n\n> 🏹 **Призыв волн**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До начала следующего хода эссенции цель получает иммунитет к холоду 5.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** До конца столкновения земля в пределах 1 клетки от цели превращается в водоём, который считается [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). При перемещении цели вода тянется за ней, образуя поток, который сохраняется до конца столкновения. Любой враг, который заканчивает свой ход в потоке и имеет М < 2, [замедлен](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> ❗️ **Просоленные морем раны (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Ближний бой 1** | **🎯 Один враг** |\n>\n> **Условие:** Союзник наносит цели урон по результату броска.\n>\n> **Эффект:** Эссенция совершает против цели [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Переменчивость и свобода**\n>\n> Эссенцию нельзя [опутать](#/catalog/glossary#term-glossary.restrained), [замедлить](#/catalog/glossary#term-glossary.slowed) или [сбить с ног](#/catalog/glossary#term-glossary.prone), и она игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain).\n\n> ⭐️ **Скольжение по воде**\n>\n> Если в начале своего хода эссенция находится в пространстве с водой, она может [лететь](#/catalog/glossary#term-glossary.fly) до конца хода. Пока она летит, её перемещение не провоцирует атаки по возможности.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.statblock.essence-of-tides",
+        "path": "Monsters/monster/elemental/statblock/essence-of-tides.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental.statblock/essence-of-tides",
+      "originalName": "Essence of Tides",
+      "originalDescription": "|       Elemental        |          -           |      Level 3      |   Elite Controller    |        EV 20         |\n|:----------------------:|:--------------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size     |    **7**<br>Speed    | **80**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |\n| **Cold 5**<br>Immunity | **Swim**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+2**<br>Might     |  **+0**<br>Agility   | **+1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Water Wing (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 1**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 14 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** If a target has P < 2, their stability is reduced to 0 and they move 2 additional squares whenever they are force moved (save ends).\n\n> 🏹 **Convocation of Waves**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 5**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the start of the essence's next turn, the target has cold immunity 5.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Until the end of the encounter, the ground within 1 square of the target is a pool of water that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). This water extends out behind the target as they move, creating a stream that lasts until the end of the encounter. Any enemy who ends their turn in the stream and has M < 2 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> ❗️ **Sea-Salted Wounds (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 1** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally deals rolled damage to the target.\n>\n> **Effect:** The essence makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Fickle and Free**\n>\n> The essence can't be [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone), and they ignore [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Water Glide**\n>\n> Whenever the essence starts their turn in a space containing water, they can [fly](scc.v1:mcdm.heroes.v1/movement/fly) until the end of their turn. While flying, the essence doesn't provoke opportunity attacks.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/statblock/essence-of-tides.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Элементаль"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

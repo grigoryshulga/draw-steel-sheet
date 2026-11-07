@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.power-fixtures.psionic-shard",
+  "kind": "terrain",
+  "name": "Псионический осколок",
+  "markdown": "От массивного гудящего кристалла воздух вокруг кажется густым.\n\n- **БЦ:** 7\n- **Выносливость:** 40\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Псионический осколок необходимо полностью уничтожить.\n\n> ⭐️ **Псионический барьер**\n>\n> Псионический осколок настроен на одну из сторон столкновения. Пока он цел, любой урон, наносимый каждому союзнику осколка в столкновении, уменьшается вдвое.\n\n> ❗️ **Псионический импульс**\n>\n> | **-** | **Бесплатное [триггерное действие](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---|---:|\n> | **📏 Особое** | **🎯 Особое** |\n>\n> **Условие:** Осколок уничтожен.\n>\n> **Эффект:** Осколок выпускает ударную волну через каждое существо, находящееся под действием псионического барьера. Каждый союзник в столкновении получает состояние [Оглушение](scc.v1:mcdm.heroes.v1/condition/dazed) до конца своего следующего хода.\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.power-fixtures.psionic-shard",
+    "path": "Monsters/dynamic-terrain/power-fixtures/psionic-shard.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.power-fixtures/psionic-shard",
+  "originalName": "Psionic Shard",
+  "originalDescription": "A massive humming crystal makes the air around it feel thick.\n\n- **EV:** 7\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> The psionic shard must be completely destroyed.\n\n> ⭐️ **Psionic Barrier**\n>\n> A psionic shard is attuned to one side in an encounter. While a psionic shard is intact, any damage dealt to each ally of the shard in the encounter is halved.\n\n> ❗️ **Psionic Pulse**\n>\n> | **-**          | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|--------------------------:|\n> | **📏 Special** |            **🎯 Special** |\n>\n> **Trigger:** The shard is destroyed.\n>\n> **Effect:** The shard releases a shockwave channeled through each creature affected by Psionic Barrier. Each ally in the encounter is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) until the end of their next turn.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/power-fixtures/psionic-shard.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "power-fixtures",
+    "recordType": "dynamic-terrain",
+    "level": 5,
+    "ev": "7",
+    "size": "2",
+    "role": "Защитник",
+    "organization": "Укрепление"
+  }
+}

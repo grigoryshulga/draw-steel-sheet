@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-eclipse",
+      "title": "Теневое затмение",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-eclipse.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-eclipse",
+      "originalName": "Shadow Elf Eclipse",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **6**<br>Speed     | **180**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+4**<br>Might      |   **+3**<br>Agility   |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Manifold Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; I < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🏹 **Grasping Shadow**\n>\n> | **Magic, Ranged** |                                       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Three creatures or objects casting a shadow** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; I < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Put It Out!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability that emits light, including abilities that deal fire or lightning damage.\n>\n> **Effect:** The target has a double bane on the ability.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the eclipse can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Of the Umbra**\n>\n> The eclipse ignores concealment created by darkness. While the eclipse is in direct sunlight, they have damage weakness 3. While the eclipse has concealment, they have damage immunity 3.\n\n> ☠️ **From the Shadows (Villain Action 1)**\n>\n> | **Ranged**      |          **-** |\n> |-----------------|---------------:|    \n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The eclipse calls forth one brush stalker into an unoccupied space within distance. Each ally within distance can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Cast Away All Hope (Villain Action 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|    \n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge). Additionally, until the end of the round, allies ignore edges and double edges on any targets' abilities, and ignore any nondamaging effects of any target's damage-dealing abilities.\n\n> ☠️ **Umbral Hunger (Villain Action 3)**\n>\n> | **Area, Magic**        |                         **-** |\n> |------------------------|------------------------------:|    \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 corruption damage; R < 2 the target has speed 0 (save ends)\n> - **12-16:** 12 corruption damage; R < 3 the target has speed 0 (save ends)\n> - **17+:** 15 corruption damage; R < 4 the target has speed 0 (save ends)\n>\n> **Effect:** The area is shrouded in darkness that creates concealment until the end of the encounter. Any enemy who starts their turn in the area takes 5 corruption damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-eclipse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-eclipse"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-eclipse",
+      "kind": "monster",
+      "name": "Теневое затмение",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |      Уровень 6      | Лидер |        Боевая ценность 32         |\n|:-------------------------:|:---------------------:|:------------------:|:-----:|:--------------------:|\n|      **1M**<br>Размер       |   **6**<br>Скорость    | **180**<br>Выносливость | **1**<br>Устойчивость | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+4**<br>Мощь | **+3**<br>Ловкость | **+2**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Клинок между мирами (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 11 урона; И < 2 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 16 урона; И < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 19 урона; И < 4 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** [Потенциал](#/catalog/glossary#term-glossary.potency) увеличивается на 1.\n\n> 🏹 **Хваткая тень**\n>\n> | **Магия, Дальний бой** |                                       **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------------------------------------------:|\n> | **📏 Дальний бой 5**   | **🎯 Три отбрасывающих тень существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток; И < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 7 клеток; И < 3 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** [Притягивание](#/catalog/glossary#term-glossary.forced-movement) на 10 клеток; И < 4 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ❗️ **Погасить!**\n>\n> | **Дальний бой**       |        **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-----------------------|----------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Враг, вызвавший триггер** |\n>\n> **Условие:** Враг в пределах дистанции использует способность, излучающую свет, в том числе способность, наносящую урон огнём или молнией.\n>\n> **Эффект:** Цель получает двойную Помеху на эту способность.\n\n> ⭐️ **Прекращение эффекта**\n>\n> В конце каждого своего хода Затмение может получить 10 урона, чтобы прекратить один действующий на него эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким образом.\n\n> ⭐️ **Дитя тени**\n>\n> Затмение игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, оно получает уязвимость к урону 3. Если Затмение находится под покровом, оно получает иммунитет к урону 3.\n\n> ☠️ **Из теней (Действие злодея 1)**\n>\n> | **Дальний бой**      |          **-** |\n> |----------------------|---------------:|\n> | **📏 Дальний бой 5** | **🎯 Особое** |\n>\n> **Эффект:** Затмение призывает одного чащобного охотника в свободное пространство в пределах дистанции. Затем каждый союзник в пределах дистанции может совершить [Смещение](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и нанести [Свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Отриньте всякую надежду (Действие злодея 2)**\n>\n> | **Область, Магия** |                         **-** |\n> |-------------------|------------------------------:|\n> | **📏 Взрыв 3**    | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель теряет все свои [Всплески](#/catalog/glossary#term-glossary.surge). Кроме того, до конца раунда союзники не учитывают преимущества и двойные преимущества способностей любых целей и игнорируют все не наносящие урон эффекты способностей целей, наносящих урон.\n\n> ☠️ **Сумрачный голод (Действие злодея 3)**\n>\n> | **Область, Магия**        |                         **-** |\n> |---------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона порчей; Р < 2 Скорость цели становится равной 0 (до прох.)\n> - **12-16:** 12 урона порчей; Р < 3 Скорость цели становится равной 0 (до прох.)\n> - **17+:** 15 урона порчей; Р < 4 Скорость цели становится равной 0 (до прох.)\n>\n> **Эффект:** Область окутывает темнота, создающая покров до конца столкновения. Каждый враг, начинающий свой ход в этой области, получает 5 урона порчей.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-eclipse",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-eclipse.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-eclipse",
+      "originalName": "Shadow Elf Eclipse",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 6       |        Leader         |        EV 32         |\n|:-------------------------:|:---------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **6**<br>Speed     | **180**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+4**<br>Might      |   **+3**<br>Agility   |  **+2**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Manifold Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 11 damage; I < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 16 damage; I < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 19 damage; I < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1.\n\n> 🏹 **Grasping Shadow**\n>\n> | **Magic, Ranged** |                                       **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|---------------------------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Three creatures or objects casting a shadow** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; I < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 7; I < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** [Pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 10; I < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Put It Out!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability that emits light, including abilities that deal fire or lightning damage.\n>\n> **Effect:** The target has a double bane on the ability.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the eclipse can take 10 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Of the Umbra**\n>\n> The eclipse ignores concealment created by darkness. While the eclipse is in direct sunlight, they have damage weakness 3. While the eclipse has concealment, they have damage immunity 3.\n\n> ☠️ **From the Shadows (Villain Action 1)**\n>\n> | **Ranged**      |          **-** |\n> |-----------------|---------------:|    \n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The eclipse calls forth one brush stalker into an unoccupied space within distance. Each ally within distance can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Cast Away All Hope (Villain Action 2)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|    \n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target loses all their [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge). Additionally, until the end of the round, allies ignore edges and double edges on any targets' abilities, and ignore any nondamaging effects of any target's damage-dealing abilities.\n\n> ☠️ **Umbral Hunger (Villain Action 3)**\n>\n> | **Area, Magic**        |                         **-** |\n> |------------------------|------------------------------:|    \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 corruption damage; R < 2 the target has speed 0 (save ends)\n> - **12-16:** 12 corruption damage; R < 3 the target has speed 0 (save ends)\n> - **17+:** 15 corruption damage; R < 4 the target has speed 0 (save ends)\n>\n> **Effect:** The area is shrouded in darkness that creates concealment until the end of the encounter. Any enemy who starts their turn in the area takes 5 corruption damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-eclipse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 6,
+        "ev": "32",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

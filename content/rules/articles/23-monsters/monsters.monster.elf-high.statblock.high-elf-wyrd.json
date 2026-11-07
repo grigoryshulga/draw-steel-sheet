@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-high.statblock.high-elf-wyrd",
+  "title": "Высший эльф-вирд",
+  "chapter": "23. Бестиарий",
+  "group": "Высшие эльфы",
+  "path": "Monsters/monster/elf-high/statblock/high-elf-wyrd.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-wyrd",
+  "originalName": "High Elf Wyrd",
+  "originalDescription": "|  Fey, High Elf, Humanoid  |         -         |      Level 3      |  Platoon Controller   |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+1**<br>Agility | **+2**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Twystrd (Signature Ability)**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 1 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Vertical push 3\n> - **12-16:** Vertical push 5\n> - **17+:** Vertical push 6\n>\n> **Effect:** For each elemental mote adjacent to the wyrd, the size of the cube increases by 1.\n\n> 🏹 **Summon Elemental (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The wyrd summons two elemental motes or two soot crows into unoccupied spaces within distance.\n\n> 🔳 **Wyrd Warp (2 Malice)**\n>\n> | **Area, Magic**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 8 wall within 8** | **🎯 Special** |\n>\n> **Effect:** The wyrd shapes the land in the area as if it were loose clay, either raising the ground or pushing it down to create a trench. Any creature in the area moves with the terrain to its new higher elevation, or falls if the ground is lowered beneath them.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the wyrd can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-high/statblock/high-elf-wyrd.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-high",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "10",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Высший эльф",
+      "Гуманоид"
+    ],
+    "role": "Контроллер",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-high.statblock.high-elf-wyrd"
+    }
+  ]
+}

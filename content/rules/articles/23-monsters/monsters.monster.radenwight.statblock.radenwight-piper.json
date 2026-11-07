@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.radenwight.statblock.radenwight-piper",
+  "title": "Раденвайт-дудочник",
+  "chapter": "23. Бестиарий",
+  "group": "Раденвайты",
+  "path": "Monsters/monster/radenwight/statblock/radenwight-piper.md",
+  "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-piper",
+  "originalName": "Radenwight Piper",
+  "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |    Platoon Support    |         EV 6         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **0**<br>Might    |   **0**<br>Agility    |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> ⚔️ **Piercing Trill ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 sonic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 7 sonic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 9 sonic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n>\n> **Effect:** The piper or one ally within distance regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> ❇️ **Vivace Vivace!**\n>\n> | **Area, Magic** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 3 burst**  | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target who has used their Ready Rodent ability this round regains the use of their triggered action.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The area increases to a 6 burst.\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The piper makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n\n> ⭐️ **Musical Suggestion**\n>\n> At the end of the piper's turn, they can [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) creature up to 2 squares, ignoring stability.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/radenwight/statblock/radenwight-piper.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "radenwight",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Раденвайт"
+    ],
+    "role": "Поддержка",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.radenwight.statblock.radenwight-piper"
+    }
+  ]
+}

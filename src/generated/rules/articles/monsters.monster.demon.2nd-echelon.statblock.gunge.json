@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.2nd-echelon.statblock.gunge",
+      "title": "Гундж",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/2nd-echelon/statblock/gunge.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/gunge",
+      "originalName": "Gunge",
+      "originalDescription": "|  Abyssal, Demon   |         -         |      Level 4      |   Horde Controller    |           EV 6           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **3**<br>Size   |  **6**<br>Speed   | **25**<br>Stamina |  **0**<br>Stability   |   **2**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+3**<br>Might  | **+2**<br>Agility | **+1**<br>Reason  |  **+2**<br>Intuition  |    **-1**<br>Presence    |\n\n> 🔳 **Bilious Expulsion (Signature Ability)**\n>\n> | **Area, Ranged, Weapon**           |                           **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------------------:|\n> | **📏 1 burst, or 3 cube within 5** | **🎯 One creature or object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 acid damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 acid damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The ground and any surfaces in the area pool with slime. The slime is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies, and any enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) while in the area.\n\n> ❗️ **Spew Slide (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The gunge takes damage from a melee strike.\n>\n> **Effect:** The gunge vomits with great force, letting them [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and ignore any additional effects from the strike. The space the gunge occupied before the shift is covered in slime that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Additionally, any enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) while in the slime.\n\n> ⭐️ **Lethe**\n>\n> While the gunge is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the gunge can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/gunge.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.2nd-echelon.statblock.gunge"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.2nd-echelon.statblock.gunge",
+      "kind": "monster",
+      "name": "Гундж",
+      "markdown": "| Бездны, Демон |         -         |      Уровень 4      |      Орда-Контроллер    | Боевая ценность 6 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **3**<br>Размер   |  **6**<br>Скорость   | **25**<br>Выносливость |  **0**<br>Устойчивость   |   **2**<br>Свободный удар   |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **-**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **+3**<br>Мощь  | **+2**<br>Ловкость | **+1**<br>Разум  |  **+2**<br>Интуиция  |    **-1**<br>Присутствие    |\n\n> 🔳 **Желчное извержение (Знаковая способность)**\n>\n> | **Область, Дальний бой, Оружие**           |                           **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|------------------------------------------:|\n> | **📏 Всплеск 1 или куб 3 в пределах 5** | **🎯 Одно существо или объект в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона Кислотой; М < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 7 урона Кислотой; М < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона Кислотой; М < 3 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Земля и все поверхности в области покрываются слизью. Для врагов эта слизь считается [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а каждый враг, находящийся в области, страдает от [Кровотечения](#/catalog/glossary#term-glossary.bleeding).\n\n> ❗️ **Рвотный рывок (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-**       | **Свободный [Триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 На себя** |               **🎯 На себя** |\n>\n> **Условие:** Гундж получает урон от удара ближнего боя.\n>\n> **Эффект:** Гундж с силой изрыгает слизь и может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние вплоть до своей Скорости, игнорируя любые дополнительные эффекты этого удара. Клетка, которую гундж занимал до смещения, покрывается слизью, считающейся для врагов [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain). Кроме того, любой враг, находящийся в слизи, страдает от [Кровотечения](#/catalog/glossary#term-glossary.bleeding).\n\n> ⭐️ **Лета**\n>\n> Пока гундж [утомлён](#/catalog/glossary#term-glossary.winded), он получает [преимущество](#/catalog/glossary#term-glossary.edge) на ударах, а любой удар по нему также получает преимущество.\n\n> ⭐️ **Зрение душ**\n>\n> От гунджа нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.2nd-echelon.statblock.gunge",
+        "path": "Monsters/monster/demon/2nd-echelon/statblock/gunge.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/gunge",
+      "originalName": "Gunge",
+      "originalDescription": "|  Abyssal, Demon   |         -         |      Level 4      |   Horde Controller    |           EV 6           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **3**<br>Size   |  **6**<br>Speed   | **25**<br>Stamina |  **0**<br>Stability   |   **2**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+3**<br>Might  | **+2**<br>Agility | **+1**<br>Reason  |  **+2**<br>Intuition  |    **-1**<br>Presence    |\n\n> 🔳 **Bilious Expulsion (Signature Ability)**\n>\n> | **Area, Ranged, Weapon**           |                           **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------------------:|\n> | **📏 1 burst, or 3 cube within 5** | **🎯 One creature or object in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 acid damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 7 acid damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 acid damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The ground and any surfaces in the area pool with slime. The slime is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies, and any enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) while in the area.\n\n> ❗️ **Spew Slide (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The gunge takes damage from a melee strike.\n>\n> **Effect:** The gunge vomits with great force, letting them [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and ignore any additional effects from the strike. The space the gunge occupied before the shift is covered in slime that is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) for enemies. Additionally, any enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) while in the slime.\n\n> ⭐️ **Lethe**\n>\n> While the gunge is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the gunge can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/2nd-echelon/statblock/gunge.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Контроллер",
+        "organization": "Орда"
+      }
+    }
+  ]
+}

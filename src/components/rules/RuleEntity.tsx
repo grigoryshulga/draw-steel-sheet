@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { CharacteristicGlyphText } from "../CharacteristicGlyph";
 import type { RuleEntity } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
@@ -72,6 +73,7 @@ export function RuleEntityView({
   onOpen,
   withAnchor = true,
   headingLevel = 2,
+  headingActions,
 }: {
   entity: RuleEntity;
   art?: ArtAsset;
@@ -81,6 +83,7 @@ export function RuleEntityView({
   withAnchor?: boolean;
   /** Уровень заголовка имени сущности: на странице класса он ниже заголовка уровня. */
   headingLevel?: number;
+  headingActions?: ReactNode;
 }) {
   const anchor = withAnchor ? ruleEntityAnchor(entity) : undefined;
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
@@ -89,6 +92,11 @@ export function RuleEntityView({
   const openable = Boolean(ability && onOpen);
   const Heading = headingTag(headingLevel);
   const nestedHeadingOffset = headingLevel === 2 ? 0 : headingLevel - 1;
+  const creatureSheet = Boolean(entity.director && (entity.kind === 'monster' || entity.kind === 'retainer'));
+  const directorHeading = creatureSheet ? <div className="director-mini-title" id={withAnchor ? content.headingId || undefined : undefined}>
+    <Heading className="rule-entity-name" id={anchor}>{entity.name}</Heading>
+    {entity.originalName && <span className="director-mini-original" lang="en">{entity.originalName}</span>}
+  </div> : undefined;
 
   if (ability)
     return (
@@ -157,7 +165,7 @@ export function RuleEntityView({
       data-kind={entity.kind}
       aria-labelledby={anchor}
     >
-      <header
+      {!creatureSheet && <header
         className="rule-entity-head"
         id={withAnchor ? content.headingId || undefined : undefined}
       >
@@ -165,8 +173,9 @@ export function RuleEntityView({
           <Heading className="rule-entity-name" id={anchor}>
             {entity.name}
           </Heading>
+          {entity.director && entity.originalName && <span className="director-original-name" lang="en">{entity.originalName}</span>}
         </div>
-      </header>
+      </header>}
 
       {art && hasMarkdown && (
         <ArtworkFigure
@@ -182,6 +191,8 @@ export function RuleEntityView({
           text={content.markdown}
           articleId={entity.source.articleId}
           headingOffset={nestedHeadingOffset}
+          directorHeading={directorHeading}
+          directorHeadingActions={headingActions}
         />
       ) : (
         <p className="rule-entity-empty">

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.ogre.ogre-malice",
+      "title": "Раздор огров",
+      "chapter": "23. Бестиарий",
+      "group": "Огры",
+      "path": "Monsters/monster/ogre/ogre-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.ogre/ogre-malice",
+      "originalName": "Ogre Malice",
+      "originalDescription": "At the start of any ogre's turn, you can spend Malice to activate one of the following features.\n\n> ❇️ **Shockwave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One ogre acting this turn jumps and lands on their rear, causing a 3 burst shockwave. Each size 1 creature in the area makes a **Might test** or **Agility test**.\n>\n> - **≤11:** 5 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n\n> 🌀 **Bully (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each ogre in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If they can, they gang up on the same target rather than picking different targets.\n\n> ⭐️ **Rampage (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each ogre has damage immunity 5 and deals an extra 5 damage with abilities, and heroic abilities that target any ogre have their Heroic Resource cost reduced by 1 (to a minimum of 1).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/ogre-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ogre.ogre-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ogre",
+          "title": "Огры"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.ogre.ogre-malice",
+      "kind": "monster-feature",
+      "name": "Раздор огров",
+      "markdown": "В начале хода любого огра вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> ❇️ **Ударная волна (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один из действующих в этот ход огров подпрыгивает и приземляется на зад, создавая ударную волну «Взрыв 3». Каждое существо размера 1 в области проходит **тест Мощи** или **тест Ловкости**.\n>\n> - **≤11:** 5 урона; вертикально [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **12-16:** 4 урона; вертикально [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** [Оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n\n> 🌀 **Задира (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый огр в столкновении [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Если возможно, все они нападают на одну и ту же цель, а не выбирают разные цели.\n\n> ⭐️ **Буйство (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый огр получает иммунитет к урону 5 и наносит способностями дополнительно 5 урона; кроме того, стоимость Героического ресурса героических способностей, нацеленных на любого огра, уменьшается на 1 (минимум до 1).\n",
+      "source": {
+        "articleId": "monsters.monster.ogre.ogre-malice",
+        "path": "Monsters/monster/ogre/ogre-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ogre/ogre-malice",
+      "originalName": "Ogre Malice",
+      "originalDescription": "At the start of any ogre's turn, you can spend Malice to activate one of the following features.\n\n> ❇️ **Shockwave (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One ogre acting this turn jumps and lands on their rear, causing a 3 burst shockwave. Each size 1 creature in the area makes a **Might test** or **Agility test**.\n>\n> - **≤11:** 5 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 4 damage; vertical [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n\n> 🌀 **Bully (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each ogre in the encounter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If they can, they gang up on the same target rather than picking different targets.\n\n> ⭐️ **Rampage (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each ogre has damage immunity 5 and deals an extra 5 damage with abilities, and heroic abilities that target any ogre have their Heroic Resource cost reduced by 1 (to a minimum of 1).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ogre/ogre-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ogre",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

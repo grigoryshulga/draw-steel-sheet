@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-garotter",
+  "title": "Орк-душитель",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-garotter.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-garotter",
+  "originalName": "Orc Garotter",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **-1**<br>Presence  |\n\n> 🗡 **Dagger Feint ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; the garroter can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 9 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 12 damage; the garroter [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability gains an edge or has a double edge, it deals an extra 4 damage.\n\n> 🗡 **Strangle**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 12 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed); I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way, a target can't communicate or use magic abilities.\n\n> 👤 **Chroma Cloak (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**          |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|--------------------:|\n> | **📏 -**       |            **🎯 -** |\n>\n> The garroter turns invisible until the end of their turn. This invisibility ends early if they take damage or use an ability.\n\n> ⭐️ **Relentless**\n>\n> If the garroter is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the garroter is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-garotter.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1L",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Засадник",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-garotter"
+    }
+  ]
+}

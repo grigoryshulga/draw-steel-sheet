@@ -1,0 +1,29 @@
+{
+  "id": "monster.orc.statblock.orc-juggernaut",
+  "kind": "monster",
+  "name": "Орк-джаггернаут",
+  "markdown": "| Гуманоид, Орк |         -         |       Уровень 3       |       Взвод-Громила       |     Боевая ценность 10     |\n|:----------------:|:-----------------:|:---------------------:|:-------------------------:|:-----------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **60**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **-1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Размашистый удар двуручным топором ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона; [сбить с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 урона; [сбить с ног](scc.v1:mcdm.heroes.v1/condition/prone); при М < 2 цель получает состояние [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n>\n> **Эффект:** Цель, которая уже [лежит](scc.v1:mcdm.heroes.v1/condition/prone), получает дополнительно 6 урона.\n\n> ❗️ **Хрррааааа! (1 [Раздор](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | Свободный [триггер](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) |\n> |-------|--------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Триггер:** Джаггернаут получает урон.\n>\n> **Эффект:** Джаггернаут перемещается на расстояние до своей Скорости и может нанести [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Кровь в воде**\n>\n> Каждый раз, когда джаггернаут перемещается по своей воле, он может пройти ещё 3 клетки, если в конце перемещения окажется ближе к [лежащему](scc.v1:mcdm.heroes.v1/condition/prone) существу.\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) джаггернаута снижается до 0, перед смертью он может нанести [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Если в результате этого свободного удара [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) цели снижается до 0, вместо этого [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) джаггернаута снижается до 1.\n",
+  "source": {
+    "articleId": "monsters.monster.orc.statblock.orc-juggernaut",
+    "path": "Monsters/monster/orc/statblock/orc-juggernaut.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-juggernaut",
+  "originalName": "Orc Juggernaut",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 3      |     Platoon Brute     |        EV 10         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility | **-1**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Haymaker Greataxe ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** A target who is already [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 6 damage.\n\n> ❗️ **Hrraaaaaagh! (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |               **🎯 Self** |\n>\n> **Trigger:** The juggernaut takes damage.\n>\n> **Effect:** The juggernaut moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Blood in the Water**\n>\n> Whenever the juggernaut willingly moves, they can move 3 additional squares if they end their movement closer to a [prone](scc.v1:mcdm.heroes.v1/condition/prone) creature.\n\n> ⭐️ **Relentless**\n>\n> If the juggernaut is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the juggernaut is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-juggernaut.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "10",
+    "size": "1L",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Громила",
+    "organization": "Взвод"
+  }
+}

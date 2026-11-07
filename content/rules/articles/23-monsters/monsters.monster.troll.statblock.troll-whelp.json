@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.troll.statblock.troll-whelp",
+  "title": "Троллёнок",
+  "chapter": "23. Бестиарий",
+  "group": "Тролли",
+  "path": "Monsters/monster/troll/statblock/troll-whelp.md",
+  "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-whelp",
+  "originalName": "Troll Whelp",
+  "originalDescription": "|   Giant, Troll    |         -         |      Level 5      |                  Minion Brute                  |      EV 7 for four minions      |\n|:-----------------:|:-----------------:|:-----------------:|:----------------------------------------------:|:-------------------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **10**<br>Stamina |               **3**<br>Stability               |      **3**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+2 damage bonus to strikes**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+3**<br>Might  | **+1**<br>Agility | **-1**<br>Reason  |               **0**<br>Intuition               |        **0**<br>Presence        |\n\n> 🗡 **Jaws and Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 6 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 7 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Lingering Hunger**\n>\n> Whenever two or more whelps are simultaneously reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't acid or fire damage, half of those whelps become troll limbjumbles with 4 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/troll/statblock/troll-whelp.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "troll",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7 for four minions",
+    "size": "1L",
+    "keywords": [
+      "Великан",
+      "Тролль"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.troll.statblock.troll-whelp"
+    }
+  ]
+}

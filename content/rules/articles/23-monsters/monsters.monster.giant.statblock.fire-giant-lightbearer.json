@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.fire-giant-lightbearer",
+  "title": "Огненный великан-светоносец",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/fire-giant-lightbearer.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-lightbearer",
+  "originalName": "Fire Giant Lightbearer",
+  "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |     Elite Support     |        EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **200**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+4**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Flamelash (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 fire damage; slide 2\n> - **12-16:** 17 fire damage; slide 4\n> - **17+:** 22 fire damage; slide 6\n\n> 🏹 **Living Blaze (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 6**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 fire damage\n> - **12-16:** 21 fire damage\n> - **17+:** 26 fire damage\n>\n> **Effect:** The blaze ricochets, targeting one additional target within 4 squares of an original target and taking a bane against that target, or targeting two additional targets within 2 squares of an original target and having a double bane against those targets. The lightbearer makes one power roll against all targets.\n\n> 🏹 **Travel By Fire**\n>\n> | **Magic, Ranged** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------------------:|\n> | **📏 Ranged 5**   | **🎯 Two creatures or objects** |\n>\n> **Effect:** The lightbearer can target themself with this ability. Each target takes 1d6 fire damage and [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) in a plume of smoke to swap places with the other target.\n\n> ❗️ **Emergency Beacon**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The lightbearer takes damage.\n>\n> **Effect:** The lightbearer emits a beacon of light until the start of their next turn. Each fire giant who has line of effect to the lightbearer has a double edge on abilities.\n\n> ⭐️ **Healing Heat**\n>\n> Any fire giant targeted by the lightbearer's damage-dealing abilities ignores the damage and instead regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage that would have been dealt. If the lightbearer moves a fire giant using an ability, they can choose to ignore [stability](scc.v1:mcdm.heroes.v1/rule.character/stability).\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the lightbearer or uses a melee ability against them, that enemy takes 5 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/fire-giant-lightbearer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "44",
+    "size": "4",
+    "keywords": [
+      "Огненный великан",
+      "Великан"
+    ],
+    "role": "Поддержка",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.fire-giant-lightbearer"
+    }
+  ]
+}

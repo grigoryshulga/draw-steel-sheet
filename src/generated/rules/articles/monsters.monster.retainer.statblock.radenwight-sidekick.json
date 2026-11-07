@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.radenwight-sidekick",
+      "title": "Раденвайт-напарник",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/radenwight-sidekick.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/radenwight-sidekick",
+      "originalName": "Radenwight Sidekick",
+      "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |   Support Retainer    |         EV -         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **21**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **0**<br>Might    |   **+2**<br>Agility   |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Dagger's Bite (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The sidekick makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/radenwight-sidekick.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "role": "Поддержка",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.radenwight-sidekick"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.radenwight-sidekick"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.support"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.radenwight-sidekick",
+          "title": "Способности развития раденвайта-напарника"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.support",
+          "title": "Способности поддержки"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.radenwight-sidekick",
+      "kind": "retainer",
+      "name": "Раденвайт-напарник",
+      "markdown": "| Гуманоид, Раденвайт | - | Уровень 1 | Помощник поддержки | Боевая ценность - |\n|---|---|---|---|---|\n| **1S**<br>Размер | **5**<br>Скорость | **21**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Укус кинжала (Знаковая способность)**\n>\n> | **Ближний бой, дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1 или дальний бой 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n\n> ❗️ **Готовый грызун**\n>\n> | **Ближний бой, оружие** | **[Триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо** |\n>\n> **Условие:** Союзник наносит цели урон.\n>\n> **Эффект:** Напарник совершает [свободный удар](#/catalog/glossary#term-glossary.free-strike) по цели.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.radenwight-sidekick",
+        "path": "Monsters/monster/retainer/statblock/radenwight-sidekick.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/radenwight-sidekick",
+      "originalName": "Radenwight Sidekick",
+      "originalDescription": "| Humanoid, Radenwight |           -           |      Level 1      |   Support Retainer    |         EV -         |\n|:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **21**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **0**<br>Might    |   **+2**<br>Agility   |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Dagger's Bite (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The sidekick makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/radenwight-sidekick.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1S",
+        "keywords": [
+          "Гуманоид",
+          "Раденвайт"
+        ],
+        "role": "Поддержка",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.radenwight-sidekick",
+      "kind": "monster-feature",
+      "name": "Способности развития раденвайта-напарника",
+      "markdown": "> **Способность развития Помощника 4-го уровня**\n\n> 👤 **Подброс**\n>\n> | **—**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Если в любой момент своего хода Наставник напарника переместится [смежно](#/catalog/glossary#term-glossary.adjacent) с напарником, Наставник получает бонус +1 к Скорости и может автоматически взбираться с полной Скоростью во время перемещения до конца своего хода.\n\n> **Способность развития Помощника 7-го уровня**\n\n> 🔳 **Мешок жуков (Столкновение)**\n>\n> | **Область, Дальний** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|----------------------:|\n> | **📏 Куб 3 в пределах 3** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона ядом; М < СЛАБЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **12-16:** 9 урона ядом; М < СРЕДНИЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n> - **17+:** 13 урона ядом; М < СИЛЬНЫЙ — [ослабление](#/catalog/glossary#term-glossary.weakened) ([спасбросок](#/catalog/glossary#term-glossary.saving-throw) прекращает эффект)\n\n> **Способность развития Помощника 10-го уровня**\n\n> 🏹 **Победный писк (Столкновение)**\n>\n> | **Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|-----------:|\n> | **📏 Дальний 10** | **🎯 На себя и каждого союзника** |\n>\n> **Эффект:** Каждая цель может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery) и снять с себя состояния [Оглушение](#/catalog/glossary#term-glossary.dazed), [Испуг](#/catalog/glossary#term-glossary.frightened) и [Ослабление](#/catalog/glossary#term-glossary.weakened).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.radenwight-sidekick",
+        "path": "Monsters/monster/retainer/advancement-features/radenwight-sidekick.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/radenwight-sidekick",
+      "originalName": "Radenwight Sidekick Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 👤 **Boost**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** If the sidekick's mentor moves [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the sidekick at any point during the mentor's turn, the mentor gains a +1 bonus to speed and can automatically climb at full speed while moving until the end of their turn.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Bug Bag (Encounter)**\n>\n> | **Area, Ranged**       |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 3** | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 poison damage; M < WEAK [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 poison damage; M < AVERAGE [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 13 poison damage; M < STRONG [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n\n> **Level 10 Retainer Advancement Ability**\n\n> 🏹 **Triumphant Squeak (Encounter)**\n>\n> | **Ranged** | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> | --- | ---:|\n> | **📏 Ranged 10** | **🎯 Self and each ally** |\n>\n> **Effect:** Each target can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ends the [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), [frightened](scc.v1:mcdm.heroes.v1/condition/frightened), and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) conditions on themself.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/radenwight-sidekick.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.support",
+      "kind": "monster-feature",
+      "name": "Способности поддержки",
+      "markdown": "> **Способность развития роли 4-го уровня**\n>\n> 🗡 **Полевой медик**\n>\n> | **Ближний**      | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------:|\n> | **📏 Ближний 1** | **🎯 На себя или одного союзника** |\n>\n> **Эффект:** Цель тратит [Восстановление](#/catalog/glossary#term-glossary.recovery), а броски способностей против неё совершаются с помехой до начала следующего хода помощника.\n\n> **Способность развития роли 7-го уровня**\n>\n> 🏹 **Сосредоточенный огонь (Столкновение)**\n>\n> | **Дальний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Дальний 5**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 9 урона\n> - **12-16:** 13 урона\n> - **17+:** 18 урона\n>\n> **Эффект:** Один союзник в пределах дальности получает 2 [всплеска](#/catalog/glossary#term-glossary.surge).\n\n> **Способность развития роли 10-го уровня**\n>\n> 🗡 **Возвращение с того света (Столкновение)**\n>\n> | **Ближний**      | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|----------------:|\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Эффект:** Если у цели 0 или меньше [Выносливости](#/catalog/glossary#term-glossary.stamina) либо она погибла из-за потери [Выносливости](#/catalog/glossary#term-glossary.stamina) после конца последнего хода помощника, цель оживает с 1 [Выносливостью](#/catalog/glossary#term-glossary.stamina) и может потратить [Восстановление](#/catalog/glossary#term-glossary.recovery).\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.support",
+        "path": "Monsters/monster/retainer/role-advancement/support.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/support",
+      "originalName": "Support Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Battlefield Medic**\n>\n> | **Melee**      |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------:|\n> | **📏 Melee 1** | **🎯 Self or one ally** |\n>\n> **Effect:** The target spends a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries), and ability rolls against the target take a bane until the start of the retainer's next turn.\n\n> **Level 7 Role Advancement Ability**\n\n> 🏹 **Focus Fire (Encounter)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 5**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 13 damage\n> - **17+:** 18 damage\n>\n> **Effect:** One ally within distance gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> **Level 10 Role Advancement Ability**\n\n> 🗡 **Back from the Dead (Encounter)**\n>\n> | **Melee**      | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------:|\n> | **📏 Melee 1** | **🎯 One ally** |\n>\n> **Effect:** If the target is at or below 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), or if they have died due to [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) loss since the end of the retainer's last turn, the target is alive with 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and can spend a [Recovery](scc.v1:mcdm.heroes.v1/rule.health/recoveries).",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/support.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

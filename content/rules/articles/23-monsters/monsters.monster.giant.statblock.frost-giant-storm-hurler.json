@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.giant.statblock.frost-giant-storm-hurler",
+  "title": "Метатель бури ледяных великанов",
+  "chapter": "23. Бестиарий",
+  "group": "Великаны",
+  "path": "Monsters/monster/giant/statblock/frost-giant-storm-hurler.md",
+  "originalId": "mcdm.monsters.v1/monster.giant.statblock/frost-giant-storm-hurler",
+  "originalName": "Frost Giant Storm Hurler",
+  "originalDescription": "|   Frost Giant, Giant   |         -         |      Level 8       |    Elite Artillery    |        EV 40         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **4**<br>Size      |  **7**<br>Speed   | **180**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n| **Cold 8**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|    **+4**<br>Might     | **-1**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🏹 **Ice Javelins (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 15**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 cold damage\n> - **12-16:** 18 cold damage; M < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 22 cold damage; M < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Whenever a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way takes damage from that condition, their speed decreases by 1 (to a minimum of 0) until that condition ends.\n\n> 🏹 **Flower of Frost (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 15**  |  **🎯 Special** |\n>\n> **Effect:** The storm hurler throws three size 1L ice javelins into unoccupied squares within distance. Each javelin has 30 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fire weakness 5. At the start of the storm hurler's next turn, all javelins not destroyed explode in a shower of icicles. Each enemy and object within 3 squares of an exploding javelin makes an **Agility test**.\n>\n> - **≤11:** 14 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 cold damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 7 cold damage\n\n> 🗡 **Ice Dance**\n>\n> | **Melee**      |          **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|----------------------:|\n> | **📏 Melee 1** | **🎯 One giant ally** |\n>\n> **Effect:** The storm hurler and the target each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares while staying [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to each other. The target can then jump up to 5 squares and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ❗️ **Frozen Retribution**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The storm hurler is targeted by a ranged strike.\n>\n> **Effect:** The triggering strike has a double bane. If the strike obtains a tier 1 outcome, the storm hurler uses Ice Javelins against the creature who made it.\n\n> ⭐️ **Kingdom of Isolation**\n>\n> The storm hurler is surrounded by a snowstorm. Any enemy who starts their turn within 2 squares of the storm hurler can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/giant/statblock/frost-giant-storm-hurler.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "giant",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "40",
+    "size": "4",
+    "keywords": [
+      "Ледяной великан",
+      "Великан"
+    ],
+    "role": "Артиллерист",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.giant.statblock.frost-giant-storm-hurler"
+    }
+  ]
+}

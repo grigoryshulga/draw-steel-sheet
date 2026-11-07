@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.voiceless-talker.statblock.mindkiller",
+  "title": "Убийца разума",
+  "chapter": "23. Бестиарий",
+  "group": "Безмолвные",
+  "path": "Monsters/monster/voiceless-talker/statblock/mindkiller.md",
+  "originalId": "mcdm.monsters.v1/monster.voiceless-talker.statblock/mindkiller",
+  "originalName": "Mindkiller",
+  "originalDescription": "| Horror, Voiceless Talker  |             -              |      Level 6       |      Elite Hexer      |        EV 32         |\n|:-------------------------:|:--------------------------:|:------------------:|:---------------------:|:--------------------:|\n|      **1S**<br>Size       |       **6**<br>Speed       | **140**<br>Stamina |  **2**<br>Stability   | **7**<br>Free Strike |\n| **Psychic 6**<br>Immunity | **Fly, hover**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **-1**<br>Might      |     **+3**<br>Agility      |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> ⭐️ **Brain Latch**\n>\n> The mindkiller can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) creatures who are size 4 or smaller, using their Reason score in place of Might. A creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller takes a bane on ability rolls made to escape the grab.\n\n> 🗡 **Killer Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 11 damage\n> - **12-16:** 17 damage; A < 2 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; A < 3 [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n\n> 🏹 **Concealing Strike (2 Malice)**\n>\n> | **Psionic, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|---------------------:|\n> | **📏 Ranged 5**             | **🎯 Two creatures** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage; R < 1 the mindkiller is invisible to the target (save ends)\n> - **12-16:** 15 damage; R < 2 the mindkiller is invisible to the target (save ends)\n> - **17+:** 18 damage; R < 3 the mindkiller is invisible to the target (save ends)\n\n> 🗡 **Mindwipe**\n>\n> | **Melee, Psionic, Strike** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Melee 1**             | **🎯 One creature** |\n>\n> **Effect:** The target must be [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the mindkiller. If the target has R < 2, they take a −1 penalty to their Reason, Intuition, or Presence score and the mindkiller has a +1 bonus to the same score, all until the end of the encounter.\n\n> ❗️ **Meat Shield**\n>\n> | **-**       | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The mindkiller takes damage.\n>\n> **Effect:** The mindkiller halves the damage. If the mindkiller has a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), that creature takes the other half of the damage.\n>\n> **3 Malice:** A [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) creature takes the damage instead of the mindkiller.\n\n> ⭐️ **Psionic Conductor**\n>\n> Whenever a non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) voiceless talker within 5 squares of the mindkiller uses a psionic ability, they can do so as if they were in the mindkiller's space.\n\n> ⭐️ **Nimble**\n>\n> The mindkiller can move through enemies' spaces at their usual speed.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/voiceless-talker/statblock/mindkiller.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "voiceless-talker",
+    "recordType": "statblock",
+    "level": 6,
+    "ev": "32",
+    "size": "1S",
+    "keywords": [
+      "Ужас",
+      "Безмолвный"
+    ],
+    "role": "Проклинатель",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.voiceless-talker.statblock.mindkiller"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-cloak",
+      "title": "Теневой плащ",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-cloak.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-cloak",
+      "originalName": "Shadow Elf Cloak",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |            Minion Harrier             | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **8**<br>Speed     | **8**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+1**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Stick and Poke (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** The cloak shifts up to 2 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The cloak ignores concealment created by darkness. While the cloak is in direct sunlight, they have damage weakness 3. While the cloak has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-cloak.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-cloak"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-cloak",
+      "kind": "monster",
+      "name": "Теневой плащ",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Налётчик | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:-----------------:|:------------------------:|\n|      **1M**<br>Размер       |   **8**<br>Скорость    | **8**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **+2 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Придержать и уколоть (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**          | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 6 урона\n>\n> **Эффект:** Теневой плащ смещается на расстояние до 2 клеток.\n\n> ⭐️ **Дитя тени**\n>\n> Теневой плащ игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если теневой плащ находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-cloak",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-cloak.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-cloak",
+      "originalName": "Shadow Elf Cloak",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |            Minion Harrier             | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **8**<br>Speed     | **8**<br>Stamina |          **0**<br>Stability           | **2**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|      **+3**<br>Might      |   **+1**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Stick and Poke (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** The cloak shifts up to 2 squares.\n\n> ⭐️ **Of the Umbra**\n>\n> The cloak ignores concealment created by darkness. While the cloak is in direct sunlight, they have damage weakness 3. While the cloak has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-cloak.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

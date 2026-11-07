@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-terranova",
+  "title": "Орк-Терранова",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-terranova.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-terranova",
+  "originalName": "Orc Terranova",
+  "originalDescription": "|   Humanoid, Orc   |           -            |      Level 2      |  Platoon Controller   |         EV 8         |\n|:-----------------:|:----------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |     **6**<br>Speed     | **30**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |\n| **-**<br>Immunity | **Burrow**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  |   **+1**<br>Agility    | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Earth Pillar ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage; A < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 9 damage; A < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **17+:** 12 damage; A < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n>\n> **Effect:** Each target must be on the ground, and the ground in each target's space rises 1 square.\n\n> ❇️ **Sinkhole (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|-----------------------------------------:|\n> | **📏 3 burst**   | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage; M < 0 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 7 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 10 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> ⭐️ **Seismic Step**\n>\n> The terranova ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain). Additionally, they don't need [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to use abilities against creatures touching the ground.\n\n> ⭐️ **Relentless**\n>\n> If the terranova is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the terranova is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-terranova.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "8",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Контроллер",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-terranova"
+    }
+  ]
+}

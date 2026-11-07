@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.rival.2nd-echelon.statblock.rival-shadow",
+      "title": "Соперник-тень",
+      "chapter": "23. Бестиарий",
+      "group": "Соперники",
+      "path": "Monsters/monster/rival/2nd-echelon/statblock/rival-shadow.md",
+      "originalId": "mcdm.monsters.v1/monster.rival.2nd-echelon.statblock/rival-shadow",
+      "originalName": "Rival Shadow",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 5       |    Elite Ambusher     |        EV 28         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+3**<br>Agility |  **+1**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🗡 **Ambuscade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 18 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The shadow can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 6 squares, then can attempt to hide.\n\n> 👤 **Poison the Blade**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The shadow coats their weapon with poison. They gain an edge on their next [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), and any [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) for that strike increases by 1.\n\n> ⭐️ **Exploit Opening**\n>\n> The shadow deals an extra 7 damage to any [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) target.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the shadow chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the shadow and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/2nd-echelon/statblock/rival-shadow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.rival.2nd-echelon.statblock.rival-shadow"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.rival",
+          "title": "Соперники"
+        },
+        {
+          "id": "monsters.monster.rival.rival-malice-level-1-malice-features",
+          "title": "Раздор соперников (особенности Раздора 1-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.rival.2nd-echelon.statblock.rival-shadow",
+      "kind": "monster",
+      "name": "Соперник-тень",
+      "markdown": "| Гуманоид, Соперник |         -         |      Уровень 5      |      Элита, Засадник      |        Боевая ценность 28         |\n|:-------------------:|:-----------------:|:------------------:|:-------------------------:|:--------------------:|\n|  **1M**<br>Размер   |  **7**<br>Скорость | **140**<br>Выносливость |  **1**<br>Устойчивость   | **7**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость |\n|  **0**<br>Мощь   | **+3**<br>Ловкость |  **+1**<br>Разум  |  **0**<br>Интуиция   |  **+2**<br>Присутствие  |\n\n> 🗡 **Засада ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 10 урона\n> - **12-16:** 15 урона; Л < 2 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **17+:** 18 урона; Л < 3 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **1 [Раздор](#/codex/monsters.rule.monster.malice):** Тень может [телепортироваться](#/catalog/glossary#term-glossary.teleport) не более чем на 6 клеток, а затем попытаться скрыться.\n\n> 👤 **Отравить клинок**\n>\n> | **-**       | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Тень покрывает своё оружие ядом. Она получает преимущество на следующую [атаку](#/catalog/glossary#term-glossary.strike), а [Потенциал](#/catalog/glossary#term-glossary.potency) этой атаки увеличивается на 1.\n\n> ⭐️ **Использовать брешь**\n>\n> Тень наносит дополнительно 7 урона любой цели с состоянием [Кровотечение](#/catalog/glossary#term-glossary.bleeding).\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения тень выбирает одно существо в пределах своей [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect). И тень, и это существо могут добавлять результат броска d3 к броскам силы, которые они совершают друг против друга.\n",
+      "source": {
+        "articleId": "monsters.monster.rival.2nd-echelon.statblock.rival-shadow",
+        "path": "Monsters/monster/rival/2nd-echelon/statblock/rival-shadow.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival.2nd-echelon.statblock/rival-shadow",
+      "originalName": "Rival Shadow",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 5       |    Elite Ambusher     |        EV 28         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **140**<br>Stamina |  **1**<br>Stability   | **7**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+3**<br>Agility |  **+1**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🗡 **Ambuscade ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 10 damage\n> - **12-16:** 15 damage; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 18 damage; A < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The shadow can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 6 squares, then can attempt to hide.\n\n> 👤 **Poison the Blade**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The shadow coats their weapon with poison. They gain an edge on their next [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), and any [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) for that strike increases by 1.\n\n> ⭐️ **Exploit Opening**\n>\n> The shadow deals an extra 7 damage to any [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) target.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the shadow chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the shadow and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/2nd-echelon/statblock/rival-shadow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Засадник",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

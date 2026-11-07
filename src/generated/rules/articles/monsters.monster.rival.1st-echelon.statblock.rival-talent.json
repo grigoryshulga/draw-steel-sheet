@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.rival.1st-echelon.statblock.rival-talent",
+      "title": "Соперник-талант",
+      "chapter": "23. Бестиарий",
+      "group": "Соперники",
+      "path": "Monsters/monster/rival/1st-echelon/statblock/rival-talent.md",
+      "originalId": "mcdm.monsters.v1/monster.rival.1st-echelon.statblock/rival-talent",
+      "originalName": "Rival Talent",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 2      |      Elite Hexer      |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **60**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **0**<br>Agility  | **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Reverberating Blast ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Telekinesis** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|--------------------------------:|\n> | **📏 Ranged 10**                         | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 psychic damage; M < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 10 psychic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 13 psychic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🏹 **Muddle the Mind (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic, Ranged, Telepathy** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 Ranged 10**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** R < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Precognitive Shift (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature deals damage to the talent.\n>\n> **Effect:** The talent halves the damage and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the talent chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the talent and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/1st-echelon/statblock/rival-talent.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.rival.1st-echelon.statblock.rival-talent"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.rival",
+          "title": "Соперники"
+        },
+        {
+          "id": "monsters.monster.rival.rival-malice-level-1-malice-features",
+          "title": "Раздор соперников (особенности Раздора 1-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.rival.1st-echelon.statblock.rival-talent",
+      "kind": "monster",
+      "name": "Соперник-талант",
+      "markdown": "| Гуманоид, Соперник | - | Уровень 2 | Элита, Проклинатель | Боевая ценность 16 |\n|:------------------:|:--:|:---------:|:----------------:|:---------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **60**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **+2**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Реверберирующий взрыв ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Псионика, Дальний, Удар, Телекинез** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------------|--------------------------------:|\n> | **📏 Дальний 10**                         | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 психического урона; если М < 0, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **12-16:** 10 психического урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 2; если М < 1, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 13 психического урона; [толчок](#/catalog/glossary#term-glossary.forced-movement) 3; если М < 2, цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n\n> 🏹 **Помутить разум (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Псионика, Дальний, Телепатия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Дальний 10**                | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** если Р < 0, цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** если Р < 1, цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** если Р < 2, цель [оглушена](#/catalog/glossary#term-glossary.dazed) и [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n\n> ❗️ **Предвидящее смещение (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Псионика** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |--------------|---------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Существо наносит урон таланту.\n>\n> **Эффект:** Талант получает половину урона и совершает [смещение](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения талант выбирает одно существо в пределах своей [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect). Талант и это существо могут добавлять результат броска d3 к броскам силы, которые совершают друг против друга.\n",
+      "source": {
+        "articleId": "monsters.monster.rival.1st-echelon.statblock.rival-talent",
+        "path": "Monsters/monster/rival/1st-echelon/statblock/rival-talent.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival.1st-echelon.statblock/rival-talent",
+      "originalName": "Rival Talent",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 2      |      Elite Hexer      |        EV 16         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **5**<br>Speed   | **60**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **0**<br>Agility  | **+2**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Reverberating Blast ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Psionic, Ranged, Strike, Telekinesis** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|--------------------------------:|\n> | **📏 Ranged 10**                         | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 psychic damage; M < 0 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 10 psychic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 1 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 13 psychic damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🏹 **Muddle the Mind (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic, Ranged, Telepathy** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------|------------------------------:|\n> | **📏 Ranged 10**               | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** R < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n\n> ❗️ **Precognitive Shift (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** A creature deals damage to the talent.\n>\n> **Effect:** The talent halves the damage and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the talent chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the talent and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/1st-echelon/statblock/rival-talent.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Проклинатель",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

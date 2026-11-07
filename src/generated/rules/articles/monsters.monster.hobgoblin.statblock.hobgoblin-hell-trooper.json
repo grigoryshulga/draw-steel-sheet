@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.hobgoblin.statblock.hobgoblin-hell-trooper",
+      "title": "Хобгоблин-пехотинец Ада",
+      "chapter": "23. Бестиарий",
+      "group": "Хобгоблины",
+      "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-hell-trooper.md",
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-hell-trooper",
+      "originalName": "Hobgoblin Hell Trooper",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |      Level 4      |     Platoon Brute     |        EV 12         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **70**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 4**<br>Immunity         | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+3**<br>Might            | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fire Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 10 fire damage\n> - **17+:** 13 fire damage\n>\n> **Effect:** Until the end of their turn, the trooper doesn't provoke opportunity attacks from any target.\n\n> 🏹 **Fight Me, Coward!**\n>\n> | **Magic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 5**   | **🎯 One creature** |\n>\n> **Effect:** If the target has P < 2, they are taunted (EoT). While taunted this way, the target takes 1d6 fire damage whenever they use an ability or strike that doesn't target the trooper.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the trooper is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the trooper takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-hell-trooper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.statblock.hobgoblin-hell-trooper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.hobgoblin",
+          "title": "Хобгоблины"
+        },
+        {
+          "id": "monsters.monster.hobgoblin.hobgoblin-malice",
+          "title": "Раздор хобгоблинов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.hobgoblin.statblock.hobgoblin-hell-trooper",
+      "kind": "monster",
+      "name": "Хобгоблин-пехотинец Ада",
+      "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |         -         |      Уровень 4      |     Взвод Громила     |        Боевая ценность 12         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Размер             |  **5**<br>Скорость   | **70**<br>Выносливость |  **2**<br>Устойчивость   | **6**<br>Свободный удар |\n|        **Огонь 4**<br>Иммунитет         | **-**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|            **+3**<br>Мощь            | **+2**<br>Ловкость |  **0**<br>Разум  |  **0**<br>Интуиция   |  **+1**<br>Присутствие  |\n\n> 🗡 **Огненный цеп (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний 2**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона огнём\n> - **12-16:** 10 урона огнём\n> - **17+:** 13 урона огнём\n>\n> **Эффект:** До конца своего хода пехотинец не провоцирует атаки по возможности со стороны любой цели.\n\n> 🏹 **Сразись со мной, трус!**\n>\n> | **Магия, Дальний** |        **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|--------------------:|\n> | **📏 Дальний 5**   | **🎯 Одно существо** |\n>\n> **Эффект:** Цель с П < 2 получает состояние Провокация (КсХ). Пока цель спровоцирована таким образом, она получает 1d6 урона огнём каждый раз, когда использует способность или совершает удар, не нацеленный на пехотинца.\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) пехотинца снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с пехотинцем, получает 3 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-hell-trooper",
+        "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-hell-trooper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-hell-trooper",
+      "originalName": "Hobgoblin Hell Trooper",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |      Level 4      |     Platoon Brute     |        EV 12         |\n|:-------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **70**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 4**<br>Immunity         | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+3**<br>Might            | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Fire Flail (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 7 fire damage\n> - **12-16:** 10 fire damage\n> - **17+:** 13 fire damage\n>\n> **Effect:** Until the end of their turn, the trooper doesn't provoke opportunity attacks from any target.\n\n> 🏹 **Fight Me, Coward!**\n>\n> | **Magic, Ranged** |        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|--------------------:|\n> | **📏 Ranged 5**   | **🎯 One creature** |\n>\n> **Effect:** If the target has P < 2, they are taunted (EoT). While taunted this way, the target takes 1d6 fire damage whenever they use an ability or strike that doesn't target the trooper.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the trooper is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the trooper takes 3 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-hell-trooper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "12",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Громила",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

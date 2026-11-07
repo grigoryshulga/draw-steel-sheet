@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.radenwight.statblock.radenwight-swiftpaw",
+  "title": "Раденвайт-быстролап",
+  "chapter": "23. Бестиарий",
+  "group": "Раденвайты",
+  "path": "Monsters/monster/radenwight/statblock/radenwight-swiftpaw.md",
+  "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-swiftpaw",
+  "originalName": "Radenwight Swiftpaw",
+  "originalDescription": "| Humanoid, Radenwight |           -           |     Level 1      |               Minion Harrier                |  EV 3 for 4 minions  |\n|:--------------------:|:---------------------:|:----------------:|:-------------------------------------------:|:--------------------:|\n|    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |  **-**<br>Weakness   |\n|    **0**<br>Might    |   **+2**<br>Agility   | **+1**<br>Reason |             **0**<br>Intuition              |  **-1**<br>Presence  |\n\n> 🗡 **Rapier Flunge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, the swiftpaw can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 2 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, the swiftpaw [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 3 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, the swiftpaw [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The swiftpaw makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/radenwight/statblock/radenwight-swiftpaw.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "radenwight",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for 4 minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Раденвайт"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.radenwight.statblock.radenwight-swiftpaw"
+    }
+  ]
+}

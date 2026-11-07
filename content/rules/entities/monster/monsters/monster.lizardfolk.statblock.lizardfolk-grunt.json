@@ -1,0 +1,29 @@
+{
+  "id": "monster.lizardfolk.statblock.lizardfolk-grunt",
+  "kind": "monster",
+  "name": "Ящеролюд-рядовой",
+  "markdown": "| Гуманоид, Ящеролюд |          -           |     Уровень 1      |            Миньон, Налётчик             | Боевая ценность 3 за четырёх миньонов |\n|:------------------:|:-------------------:|:----------------:|:---------------------------------------:|:-----------------------:|\n|    **1M**<br>Размер    |    **6**<br>Скорость    | **4**<br>Выносливость |          **0**<br>Устойчивость           |   **1**<br>Свободный удар  |\n|  **-**<br>Иммунитет   | **Плавание**<br>Перемещение |        -         | **+2 к Скорости**<br>С капитаном |   **-**<br>Уязвимость   |\n|   **+1**<br>Мощь    |  **+2**<br>Ловкость   | **0**<br>Разум  |          **0**<br>Интуиция           |   **0**<br>Присутствие   |\n\n> 🗡 **Укус и бросок (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона; [швыряние](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 урона; [швыряние](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> ⭐️ **Рептильное спасение**\n>\n> Пока у рядового есть хвост, получив состояние [Захват](scc.v1:mcdm.heroes.v1/condition/grabbed), [Лежащий](scc.v1:mcdm.heroes.v1/condition/prone), [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) или [Ослабление](scc.v1:mcdm.heroes.v1/condition/weakened), он может потерять хвост, чтобы немедленно завершить это состояние, а затем [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 2 клеток.\n",
+  "source": {
+    "articleId": "monsters.monster.lizardfolk.statblock.lizardfolk-grunt",
+    "path": "Monsters/monster/lizardfolk/statblock/lizardfolk-grunt.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.lizardfolk.statblock/lizardfolk-grunt",
+  "originalName": "Lizardfolk Grunt",
+  "originalDescription": "| Humanoid, Lizardfolk |          -           |     Level 1      |            Minion Harrier             | EV 3 for four minions |\n|:--------------------:|:--------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|    **1M**<br>Size    |    **6**<br>Speed    | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|  **-**<br>Immunity   | **Swim**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|   **+1**<br>Might    |  **+2**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Snap and Toss (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 3 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n\n> ⭐️ **Reptilian Escape**\n>\n> While the grunt has a tail, whenever they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), [prone](scc.v1:mcdm.heroes.v1/condition/prone), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), they can lose their tail to immediately end that condition, then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/lizardfolk/statblock/lizardfolk-grunt.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "lizardfolk",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Ящеролюд"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

@@ -1,0 +1,1158 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-high.high-elf-malice",
+      "title": "Раздор высших эльфов",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/high-elf-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high/high-elf-malice",
+      "originalName": "High Elf Malice",
+      "originalDescription": "At the start of any high elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🌀 **Chaincast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, whenever a high elf uses a magic ability, they can use it as if they were occupying the square of another high elf on the encounter map to whom they have line of effect.\n\n> 🔳 **Gift From an Accursed Tome (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The high elf chooses a damage type and condition from one of the following combinations: cold damage and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), poison damage and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or corruption damage and [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 1 chosen condition (save ends)\n> - **12-16:** 9 damage; R < 2 chosen condition (save ends)\n> - **17+:** 12 damage; R < 3 chosen condition (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> 🌀 **In Defiance of Time (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each high elf in the encounter gains a +4 bonus to speed, and whenever a high elf uses an ability against an enemy, each high elf [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to that enemy can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/high-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.high-elf-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.brambleguard",
+      "title": "Терновый страж",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/brambleguard.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/brambleguard",
+      "originalName": "Brambleguard",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **4**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **0**<br>Agility  |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Wall of Roses (Signature Ability)**\n>\n> | **Area, Magic**           | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 Special; see below** |     **🎯 Self** |\n>\n> **Effect:** Until the start of the brambleguard's next turn, their speed is 0 and they extend themself into a 5 wall. Each ally who starts their turn adjacent to the brambleguard regains 5 Stamina and can apply the Magic keyword to their weapon abilities until the end of their turn.\n\n> ❇️ **Whip Frenzy**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Thicket and Thorns**\n>\n> The brambleguard blocks line of effect for enemies. Each enemy who starts their turn adjacent to a brambleguard takes 4 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/brambleguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.brambleguard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.ceramic-horse",
+      "title": "Керамический конь",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/ceramic-horse.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/ceramic-horse",
+      "originalName": "Ceramic Horse",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **10**<br>Speed  | **30**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Elemental Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 fire damage\n> - **17+:** 9 lightning damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Stomp**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** Any target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 2 damage.\n\n> 👤 **Buck (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       |              **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |  **🎯 The horse's rider** |\n>\n> **Effect:** The horse vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 3 squares, ignoring stability. The target can use a ranged ability at any point during this forced movement, and takes no damage if they then fall.\n\n> ⭐️ **Shared Otherworldly Grace**\n>\n> If the ceramic horse's rider has the Otherworldly Grace trait, the ceramic horse also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/ceramic-horse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.ceramic-horse"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.elemental-mote",
+      "title": "Элементальная частица",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/elemental-mote.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/elemental-mote",
+      "originalName": "Elemental Mote",
+      "originalDescription": "| Elemental, High Elf, Soulless |          -          |     Level 1      |             Minion Hexer              | EV 3 for four minions |\n|:-----------------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|        **1T**<br>Size         |   **5**<br>Speed    | **3**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|       **-**<br>Immunity       | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|        **0**<br>Might         |  **0**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |  **+2**<br>Presence   |\n\n> 🗡 **Dweomer Plume (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 2**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage; R < 1 damage weakness 3 (save ends)\n> - **17+:** 3 damage; R < 2 damage weakness 3 (save ends)\n\n> ⭐️ **Spark of Life**\n>\n> On their turn, the mote can leave the encounter in a flash of light to revive one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) dead soot crow, brambleguard, or ceramic horse. The revived creature returns with 3 Stamina.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/elemental-mote.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф",
+          "Бездушный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.elemental-mote"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-bloodletter",
+      "title": "Высший эльф-кровопускатель",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-bloodletter.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-bloodletter",
+      "originalName": "High Elf Bloodletter",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Razor's Edge (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; R < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The bloodletter and each of their allies has a double edge on abilities targeting a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way.\n\n> ❇️ **Blood Haze (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 1 burst**  | **🎯 Special** |\n>\n> **Effect:** Until the end of the next round, a cloud of blood vapor fills the area. The cloud blocks line of effect for enemies, and any enemy has damage weakness 3 while in the area. The bloodletter can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and can attempt to hide if they end that shift with concealment.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the bloodletter can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-bloodletter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-bloodletter"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-dawn-mage",
+      "title": "Высший эльф-маг рассвета",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-dawn-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-dawn-mage",
+      "originalName": "High Elf Dawn Mage",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |     Level 1      |                Minion Controller                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **0**<br>Agility  | **+2**<br>Reason |               **-1**<br>Intuition               |  **+1**<br>Presence   |\n\n> 🏹 **Bright Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 holy damage\n> - **12-16:** 2 holy damage\n> - **17+:** 3 holy damage\n>\n> **Effect:** Until the start of the dawn mage's next turn, the target can't hide.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the dawn mage can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-dawn-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-dawn-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-deathtouch",
+      "title": "Высший эльф Смертельного касания",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-deathtouch.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-deathtouch",
+      "originalName": "High Elf Deathtouch",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 2      |   Platoon Artillery   |         EV 8         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might     | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Heartpiercer (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage; R < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends); P < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword and loses the Strike keyword, its distance becomes a 3 cube within 10, and it targets each enemy in the area.\n\n> 🗡 **Kiss of Death**\n>\n> | **Magic, Melee** |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------:|\n> | **📏 Melee 1**   | **🎯 One willing ally** |\n>\n> **Effect:** The target has a +5 bonus to speed and automatically obtains a tier 3 outcome on power rolls. They can still roll to determine if they score a critical hit. At the end of their next turn, the target immediately dies.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the deathtouch can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-deathtouch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-deathtouch"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-orbweaver",
+      "title": "Высший эльф-шаропряд",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-orbweaver.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-orbweaver",
+      "originalName": "High Elf Orbweaver",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 3      |     Platoon Hexer     |        EV 10         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **0**<br>Agility  | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Awash (Signature Ability)**\n>\n> | **Area, Magic**        |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 cold damage; M < 0 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 6 cold damage; M < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 cold damage; M < 2 [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🏹 **Aetherweb**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two enemies or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; R < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** Each enemy within 3 squares of a target suffers the same [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) effect as the target unless they are already [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, or if they immediately [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target (no action required).\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the orbweaver can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-orbweaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-orbweaver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-ordinator",
+      "title": "Высший эльф-ординатор",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-ordinator.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-ordinator",
+      "originalName": "High Elf Ordinator",
+      "originalDescription": "| Fey, High Elf, Humanoid |          -          |      Level 3       |        Leader         |        EV 20         |\n|:-----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |   **5**<br>Speed    | **120**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |  **+2**<br>Agility  |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Lightning Rod (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 lightning damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 14 lightning damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 17 lightning damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** Until the start of the ordinator's next turn, each ally high elf in the encounter gains an edge on ability rolls against the target.\n\n> ❇️ **Elemental Uproar**\n>\n> | **Area, Magic** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------------------------------:|\n> | **📏 10 burst** | **🎯 Each elemental ally in the area** |\n>\n> **Effect:** Each target can move up to their speed or make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Elemental mote targets can, instead, use their Spark of Life trait.\n\n> 🏹 **Summon Elemental (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** The ordinator summons four elemental motes or four soot crows into unoccupied space within distance.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ordinator instead summons one ceramic horse or one winded brambleguard into an unoccupied space within distance.\n\n> ❗️ **Enough!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability against the ordinator or any ally within distance.\n>\n> **Effect:** The ordinator uses Lightning Rod against the target after the ability is resolved.\n\n> ⭐️ **Otherworldly Blessing**\n>\n> At the start of each of their turns, the ordinator can choose one or more effects on them that can be ended by a saving throw. The effects instead end at the end of the ordinator's turn.\n\n> ☠️ **Fountains Roar, Now Free From the Earth (Villain Action 1)**\n>\n> | **Area, Magic** |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target glows briefly, and can end one effect on themself then move up to their speed.\n\n> ☠️ **And the Sun Forsook Her Children (Villain Action 2)**\n>\n> | **Area, Magic, Ranged** |                         **-** |\n> |-------------------------|------------------------------:|\n> | **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a **Presence test**.\n>\n> - **≤11:** 12 corruption damage; pull 5 toward the center of the cube\n> - **12-16:** 9 corruption damage; pull 3 toward the center of the cube\n> - **17+:** Pull 1 toward the center of the cube\n>\n> **Effect:** The area turns dark and distorted, and is difficult terrain for enemies.\n\n> ☠️ **But We Will Change Her Mind (Villain Action 3)**\n>\n> | **Area, Magic** |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target's free strike now has the Magic keyword and can target two creatures or objects. Additionally, each target glows with magic.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-ordinator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-ordinator"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-palinode",
+      "title": "Высший эльф-палинод",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-palinode.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-palinode",
+      "originalName": "High Elf Palinode",
+      "originalDescription": "|  Fey, High Elf, Humanoid  |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **0**<br>Agility  |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Instill Regret (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 8**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 psychic damage\n> - **12-16:** 7 psychic damage; I < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 9 psychic damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1. If the target is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way at the end of the encounter, they can't take a respite activity during their next respite.\n\n> 🏹 **Recall**\n>\n> | **Magic, Ranged** |      **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Ranged 5**   | **🎯 Two allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the palinode. The palinode and each target then gain 5 temporary Stamina.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the palinode can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-palinode.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-palinode"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-quiver",
+      "title": "Колчан высших эльфов",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-quiver.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-quiver",
+      "originalName": "High Elf Quiver",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **+1**<br>Reason |               **0**<br>Intuition                |   **0**<br>Presence   |\n\n> 🏹 **Heavy Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** Each ally adjacent to the target shifts up to 2 squares.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the quiver can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-quiver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-quiver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-wyrd",
+      "title": "Высший эльф-вирд",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-wyrd.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-wyrd",
+      "originalName": "High Elf Wyrd",
+      "originalDescription": "|  Fey, High Elf, Humanoid  |         -         |      Level 3      |  Platoon Controller   |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+1**<br>Agility | **+2**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Twystrd (Signature Ability)**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 1 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Vertical push 3\n> - **12-16:** Vertical push 5\n> - **17+:** Vertical push 6\n>\n> **Effect:** For each elemental mote adjacent to the wyrd, the size of the cube increases by 1.\n\n> 🏹 **Summon Elemental (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The wyrd summons two elemental motes or two soot crows into unoccupied spaces within distance.\n\n> 🔳 **Wyrd Warp (2 Malice)**\n>\n> | **Area, Magic**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 8 wall within 8** | **🎯 Special** |\n>\n> **Effect:** The wyrd shapes the land in the area as if it were loose clay, either raising the ground or pushing it down to create a trench. Any creature in the area moves with the terrain to its new higher elevation, or falls if the ground is lowered beneath them.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the wyrd can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-wyrd.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-wyrd"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-zephyr",
+      "title": "Высший эльф-зефир",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-zephyr.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-zephyr",
+      "originalName": "High Elf Zephyr",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |    Platoon Harrier    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Sweeping Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** On a tier 3 outcome, the zephyr can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. If they do so and that creature and the target both have A < 2, the creature and the target are both [prone](scc.v1:mcdm.heroes.v1/condition/prone). On any tier outcome, the zephyr can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> 👤 **Windwalk**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The zephyr [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If they don't end this movment on solid ground, they are [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Like the Wind**\n>\n> The zephyr doesn't provoke opportunity attacks by moving.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the zephyr can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-zephyr.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-zephyr"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.elf-high.statblock.soot-crow",
+      "title": "Сажистый ворон",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/soot-crow.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/soot-crow",
+      "originalName": "Soot Crow",
+      "originalDescription": "| Elemental, High Elf |          -          |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-------------------:|:-------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|   **1T**<br>Size    |   **7**<br>Speed    | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n|  **-**<br>Immunity  | **Fly**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|   **0**<br>Might    |  **+2**<br>Agility  | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> 🗡 **Heckle (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** Until the end of their turn, the soot crow ignores opportunity attacks from the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/soot-crow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.soot-crow"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    },
+    {
+      "id": "monsters.monster.group.elf-high",
+      "title": "Высшие эльфы",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/group/elf-high.md",
+      "originalId": "mcdm.monsters.v1/monster.group/elf-high",
+      "originalName": "Elves, High",
+      "originalDescription": "The children of the solar celestials, the high elves were created to tend to the sun elves as librarians and heralds. Now they sequester themselves away from the world amid the fallen cities of the sky elves, remembering a better age, before the arrival of humans and war to the world made the high elves who they are today.\n\n#### Glamorous\n\nThe high elves hold an unwavering poise worthy of a noble background. They also emit a glamor that allows them to take on physical features and aspects of personality as they desire. Each person sees this glamor slightly differently, emphasizing some details over others based on one's own values and fascinations.\n\n#### Loremasters\n\nThe adage \"knowledge is power\" is a rough translation of an ancient Hyrallic saying. A closer translation is \"knowledge before power.\" High elves believe knowledge is the pursuit from which all good things flow: life, power, legacy.\n\nIn their ruined towers, they study ancient history and magic thought long extinct. They revive dead spells and languages and manipulate their use to suit their means. High elves can use this magic for wondrous creations. They can also use it to kill by lifting a finger.\n\n#### Elemental Summoners\n\nThrough their studies of ancient magic, many high elves have cultivated a strong bond to elemental creatures and can call upon their aid. In service to high elves, soot crows scout from the sky, living vine walls called brambleguards create labyrinthine barricades, and ceramic horses provide fast transport over long distances.\n\nMany high elves can also summon magical wisps called elemental motes. These sprites enervate their foes against high elf magic and revive fallen elementals in a brilliant flash by sacrificing their own energy.\n\n#### Surround and Suppress\n\nFoes who threaten high elf armies are dealt with quickly and entirely. High elves take advantage of each other's magic to corral enemies together and throw huge waves of destruction upon them. The more exposure a victim has to high elf magic, the more effective that magic is in destroying them. High elf wyrds ensure there's no escape, warping the environment into treacherous pits—and eventually, graveyards.\n\n#### Magical Manipulation\n\nThe high elves practice a tradition of group-casting magic that empowers their abilities as more elves participate. This enables them to extend their spells farther, sometimes even miles away from the caster when an entire platoon works in unison.\n\nMany high elves have also collected extensive libraries of tomes over the centuries. Even on the battlefield, an elf can turn to a book to transform a mundane weapon volley into a magical one.\n\n#### The Unseen Hands\n\nThe Unseen Hands is a sect of high elf radicals who believe they have stumbled upon sky elf texts detailing their downfall at the hands of the sun elves. The story surrounding their purported discoveries has twisted into a narrative decrying modern society for benefiting from the lore accumulated in service to the sun elves. The sect hides among high elf society in plain sight, slowly manipulating nobles as they attempt to dismantle that society and plunge the world into anarchy.\n\n#### The Ordinator\n\nBeing in the presence of a high elf ordinator inspires an ancient fear in those who know high elf history. Occupying a position of both military and clerical authority, an ordinator is capable of focusing a force of high elves to precisely strike an arrow's tip from the other end of the battlefield. These spellcasters are among the most studied elves in their communities and courts, and their strategic minds are matched only by their affinity with elementals. The ordinator is not only an illuminating beacon of command for their platoon; they are a spiritual beacon of hope for their people.\n\n#### High Elf Languages\n\nMost high elves speak Caelian and Hyrallic, with some also speaking Yllyric.\n\n> **The Ordinator is a Magic Beacon**\n>\n> Whenever a high elf ordinator appears on an encounter map, the Chaincast Malice feature is improved and always active. When any elf uses a magic ability as if they were in the ordinator's space, that ability has a double edge.\n\n###### High Elf Deployments\n\n> **High Elf Deployments**\n>\n> High elves are obsessed with knowledge: discovering it, documenting it, and protecting it. While this means that many of them are cloistered in towers with noses buried firmly in ancient tomes, lost knowledge is often found in dangerous ruins or in the collections of powerful individuals with no intent to share. When this happens, strike teams of like-minded high elves deploy to infiltrate and \"forcefully acquire\" such knowledge.\n>\n> Many high elves also consider themselves guardians of dangerous or forbidden lore and are ready to defend it with their lives. Many illusory groves and glamoured ruins conceal repositories and powerful warriors sworn to keep these secrets out of the hands of those who would use them for ill.\n>\n> **High Elf Sample Encounters**\n>\n> - **Ruin Hunters, 24 EV:** Eight soot crows, eight dawn mages, one palinode, one zephyr\n> - **Grove Guardians, 36 EV:** Eight elemental motes, eight soot crows, one brambleguard, one wyrd, one ceramic horse\n> - **Acquisitor Strike Team, 46 EV:** Eight quivers, eight soot crows, one brambleguard, three bloodletters, one deathtouch\n> - **Relic Wardens, 74 EV:** Sixteen elemental motes, eight dawn mages, two bloodletters, one brambleguard, one palinode, one orbweaver, one ordinator",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-high.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "monster"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.group.elf-high"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.brambleguard",
+          "title": "Терновый страж"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.ceramic-horse",
+          "title": "Керамический конь"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.elemental-mote",
+          "title": "Элементальная частица"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-bloodletter",
+          "title": "Высший эльф-кровопускатель"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-dawn-mage",
+          "title": "Высший эльф-маг рассвета"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-deathtouch",
+          "title": "Высший эльф Смертельного касания"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-orbweaver",
+          "title": "Высший эльф-шаропряд"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-ordinator",
+          "title": "Высший эльф-ординатор"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-palinode",
+          "title": "Высший эльф-палинод"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-quiver",
+          "title": "Колчан высших эльфов"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-wyrd",
+          "title": "Высший эльф-вирд"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.high-elf-zephyr",
+          "title": "Высший эльф-зефир"
+        },
+        {
+          "id": "monsters.monster.elf-high.statblock.soot-crow",
+          "title": "Сажистый ворон"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-high.high-elf-malice",
+      "kind": "monster-feature",
+      "name": "Раздор высших эльфов",
+      "markdown": "В начале хода любого высшего эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🌀 **Цепное заклинание (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда, когда высший эльф использует магическую способность, он может использовать её так, словно занимает клетку другого высшего эльфа на карте столкновения, до которого у него есть линия эффекта.\n\n> 🔳 **Дар из проклятого фолианта (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Линия 5 × 1 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Высший эльф выбирает один тип урона и одно состояние из следующих сочетаний: урон холодом и [замедление](#/catalog/glossary#term-glossary.slowed), урон ядом и [ослабление](#/catalog/glossary#term-glossary.weakened) или урон порчей и [испуг](#/catalog/glossary#term-glossary.frightened).\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при Р < 1 выбранное состояние (до прох.)\n> - **12-16:** 9 урона; при Р < 2 выбранное состояние (до прох.)\n> - **17+:** 12 урона; при Р < 3 выбранное состояние (до прох.)\n>\n> **Особое:** [Миньон](#/codex/monsters.rule.organization.minion) не может использовать эту способность.\n\n> 🌀 **Вопреки времени (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый высший эльф в столкновении получает бонус +4 к Скорости. Кроме того, когда высший эльф использует способность против врага, каждый высший эльф, [смежный](#/catalog/glossary#term-glossary.adjacent) с этим врагом, может совершить против него [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.high-elf-malice",
+        "path": "Monsters/monster/elf-high/high-elf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high/high-elf-malice",
+      "originalName": "High Elf Malice",
+      "originalDescription": "At the start of any high elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🌀 **Chaincast (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, whenever a high elf uses a magic ability, they can use it as if they were occupying the square of another high elf on the encounter map to whom they have line of effect.\n\n> 🔳 **Gift From an Accursed Tome (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic**            |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 5 x 1 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The high elf chooses a damage type and condition from one of the following combinations: cold damage and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), poison damage and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or corruption damage and [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 1 chosen condition (save ends)\n> - **12-16:** 9 damage; R < 2 chosen condition (save ends)\n> - **17+:** 12 damage; R < 3 chosen condition (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> 🌀 **In Defiance of Time (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each high elf in the encounter gains a +4 bonus to speed, and whenever a high elf uses an ability against an enemy, each high elf [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to that enemy can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/high-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.brambleguard",
+      "kind": "monster",
+      "name": "Терновый страж",
+      "markdown": "| Элементаль, Высший эльф | - | Уровень 2 | Взвод, Защитник | Боевая ценность 8 |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **4**<br>Скорость | **59**<br>Выносливость | **3**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🔳 **Стена роз (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------:|\n> | **📏 Особое; см. ниже** | **🎯 Себя** |\n>\n> **Эффект:** До начала следующего хода тернового стража его Скорость равна 0, а сам он вытягивается в стену длиной 5. Каждый союзник, который начинает свой ход рядом с терновым стражем, восстанавливает 5 Выносливости и до конца хода может добавлять ключевое слово «Магия» к своим способностям оружия.\n\n> ❇️ **Яростные плети**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **17+:** 10 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; при Л < 2 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> ⭐️ **Заросли и шипы**\n>\n> Терновый страж перекрывает врагам линию эффекта. Каждый враг, который начинает ход рядом с терновым стражем, получает 4 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.brambleguard",
+        "path": "Monsters/monster/elf-high/statblock/brambleguard.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/brambleguard",
+      "originalName": "Brambleguard",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **4**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **0**<br>Agility  |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Wall of Roses (Signature Ability)**\n>\n> | **Area, Magic**           | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 Special; see below** |     **🎯 Self** |\n>\n> **Effect:** Until the start of the brambleguard's next turn, their speed is 0 and they extend themself into a 5 wall. Each ally who starts their turn adjacent to the brambleguard regains 5 Stamina and can apply the Magic keyword to their weapon abilities until the end of their turn.\n\n> ❇️ **Whip Frenzy**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Thicket and Thorns**\n>\n> The brambleguard blocks line of effect for enemies. Each enemy who starts their turn adjacent to a brambleguard takes 4 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/brambleguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.ceramic-horse",
+      "kind": "monster",
+      "name": "Керамический конь",
+      "markdown": "| Элементаль, Высший эльф | - | Уровень 1 | Взвод, Скакун | Боевая ценность 6 |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **10**<br>Скорость | **30**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Элементальный рывок (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона огнём\n> - **17+:** 9 урона молнией; при М < 2 цель [сбита с ног](#/catalog/glossary#term-glossary.prone)\n\n> ❇️ **Топот**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------------:|\n> | **📏 Взрыв 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Любая цель, которая [лежит](#/catalog/glossary#term-glossary.prone), получает ещё 2 урона.\n\n> 👤 **Взбрыкнуть (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|--------------------------:|\n> | **📏 Себя** | **🎯 Всадник коня** |\n>\n> **Эффект:** Конь вертикально [швыряет](#/catalog/glossary#term-glossary.forced-movement) цель на расстояние до 3 клеток, игнорируя Устойчивость. Во время этого принудительного перемещения цель может в любой момент использовать способность дальнего боя; если после этого она падает, урон она не получает.\n\n> ⭐️ **Общая неземная грация**\n>\n> Если у всадника керамического коня есть черта «Неземная грация», то она есть и у коня.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.ceramic-horse",
+        "path": "Monsters/monster/elf-high/statblock/ceramic-horse.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/ceramic-horse",
+      "originalName": "Ceramic Horse",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **10**<br>Speed  | **30**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Elemental Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 fire damage\n> - **17+:** 9 lightning damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Stomp**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** Any target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 2 damage.\n\n> 👤 **Buck (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       |              **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |  **🎯 The horse's rider** |\n>\n> **Effect:** The horse vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 3 squares, ignoring stability. The target can use a ranged ability at any point during this forced movement, and takes no damage if they then fall.\n\n> ⭐️ **Shared Otherworldly Grace**\n>\n> If the ceramic horse's rider has the Otherworldly Grace trait, the ceramic horse also has that trait.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/ceramic-horse.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Скакун",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.elemental-mote",
+      "kind": "monster",
+      "name": "Элементальная частица",
+      "markdown": "| Элементаль, Высший эльф, Бездушный | - | Уровень 1 | Миньон, Проклинатель | Боевая ценность 3 за отряд из четырёх миньонов |\n|:-----------------------------:|:----------------:|:----------------:|:-------------------------------------:|:---------------------:|\n| **1T**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **Бонус +2 к Скорости**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Перо волшебства (Знаковая способность)**\n>\n> | **Магия, Ближний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона; при Р < 1 уязвимость к урону 3 (до прох.)\n> - **17+:** 3 урона; при Р < 2 уязвимость к урону 3 (до прох.)\n\n> ⭐️ **Искра жизни**\n>\n> В свой ход частица может покинуть столкновение во вспышке света, чтобы воскресить одного мёртвого [смежного](#/catalog/glossary#term-glossary.adjacent) с ней сажистого ворона, тернового стража или керамического коня. Воскрешённое существо возвращается с 3 Выносливости.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.elemental-mote",
+        "path": "Monsters/monster/elf-high/statblock/elemental-mote.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/elemental-mote",
+      "originalName": "Elemental Mote",
+      "originalDescription": "| Elemental, High Elf, Soulless |          -          |     Level 1      |             Minion Hexer              | EV 3 for four minions |\n|:-----------------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|        **1T**<br>Size         |   **5**<br>Speed    | **3**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike  |\n|       **-**<br>Immunity       | **Fly**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|        **0**<br>Might         |  **0**<br>Agility   | **0**<br>Reason  |          **0**<br>Intuition           |  **+2**<br>Presence   |\n\n> 🗡 **Dweomer Plume (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|-----------------------------------------:|\n> | **📏 Melee 2**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage; R < 1 damage weakness 3 (save ends)\n> - **17+:** 3 damage; R < 2 damage weakness 3 (save ends)\n\n> ⭐️ **Spark of Life**\n>\n> On their turn, the mote can leave the encounter in a flash of light to revive one [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) dead soot crow, brambleguard, or ceramic horse. The revived creature returns with 3 Stamina.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/elemental-mote.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф",
+          "Бездушный"
+        ],
+        "role": "Проклинатель",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-bloodletter",
+      "kind": "monster",
+      "name": "Высший эльф-кровопускатель",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Взвод, Засадник | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **+1**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Острое лезвие (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 9 урона\n> - **17+:** 12 урона; при Р < 2 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n>\n> **Эффект:** Кровопускатель и каждый его союзник получают двойное преимущество на броски способностей против существа, которое из-за этой способности [истекает кровью](#/catalog/glossary#term-glossary.bleeding).\n\n> ❇️ **Кровавый туман (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|---------------:|\n> | **📏 Взрыв 1** | **🎯 Особое** |\n>\n> **Эффект:** До конца следующего раунда область заполняет облако кровавого тумана. Оно перекрывает врагам линию эффекта, а каждый враг внутри области получает уязвимость к урону 3. Затем кровопускатель может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и попытаться спрятаться, если после смещения будет заслонён от взглядов врагов.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода кровопускатель может выбрать один эффект на себе, который можно прекратить спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-bloodletter",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-bloodletter.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-bloodletter",
+      "originalName": "High Elf Bloodletter",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |   Platoon Ambusher    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Razor's Edge (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; R < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The bloodletter and each of their allies has a double edge on abilities targeting a creature [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way.\n\n> ❇️ **Blood Haze (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 1 burst**  | **🎯 Special** |\n>\n> **Effect:** Until the end of the next round, a cloud of blood vapor fills the area. The cloud blocks line of effect for enemies, and any enemy has damage weakness 3 while in the area. The bloodletter can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, and can attempt to hide if they end that shift with concealment.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the bloodletter can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-bloodletter.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Засадник",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-dawn-mage",
+      "kind": "monster",
+      "name": "Высший эльф-маг рассвета",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Миньон, Контроллер | Боевая ценность 3 за отряд из четырёх миньонов |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **Бонус +5 к дистанции дальнего боя**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **+2**<br>Разум | **-1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Светлый заряд (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон святой силой\n> - **12-16:** 2 урона святой силой\n> - **17+:** 3 урона святой силой\n>\n> **Эффект:** До начала следующего хода мага рассвета цель не может прятаться.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода маг рассвета может выбрать один эффект на себе, который можно прекратить спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-dawn-mage",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-dawn-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-dawn-mage",
+      "originalName": "High Elf Dawn Mage",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |     Level 1      |                Minion Controller                | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **0**<br>Agility  | **+2**<br>Reason |               **-1**<br>Intuition               |  **+1**<br>Presence   |\n\n> 🏹 **Bright Bolt (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 holy damage\n> - **12-16:** 2 holy damage\n> - **17+:** 3 holy damage\n>\n> **Effect:** Until the start of the dawn mage's next turn, the target can't hide.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the dawn mage can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-dawn-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-deathtouch",
+      "kind": "monster",
+      "name": "Высший эльф Смертельного касания",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 2 | Взвод, Артиллерист | Боевая ценность 8 |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Пронзитель сердца (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Дальний бой 15** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона; при Р < 1 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.); при И < 1 [испугана](#/catalog/glossary#term-glossary.frightened) (до прох.); при П < 1 [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **5 [Раздора](#/codex/monsters.rule.monster.malice):** Способность получает ключевое слово «Область» и теряет ключевое слово «Удар», её дистанция становится кубом 3 в пределах 10, и она выбирает целью каждого врага в области.\n\n> 🗡 **Поцелуй смерти**\n>\n> | **Магия, Ближний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Один добровольный союзник** |\n>\n> **Эффект:** Скорость цели увеличивается на +5, и при бросках силы она автоматически получает результат 3-го тира. При этом цель всё ещё может бросить кости, чтобы определить, нанесла ли критический удар. В конце своего следующего хода цель немедленно умирает.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода высший эльф Касания Смерти может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-deathtouch",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-deathtouch.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-deathtouch",
+      "originalName": "High Elf Deathtouch",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 2      |   Platoon Artillery   |         EV 8         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might     | **0**<br>Agility  | **+1**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🏹 **Heartpiercer (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------:|\n> | **📏 Ranged 15**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage; R < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); I < 1 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends); P < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ability takes the Area keyword and loses the Strike keyword, its distance becomes a 3 cube within 10, and it targets each enemy in the area.\n\n> 🗡 **Kiss of Death**\n>\n> | **Magic, Melee** |            **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------:|\n> | **📏 Melee 1**   | **🎯 One willing ally** |\n>\n> **Effect:** The target has a +5 bonus to speed and automatically obtains a tier 3 outcome on power rolls. They can still roll to determine if they score a critical hit. At the end of their next turn, the target immediately dies.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the deathtouch can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-deathtouch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-orbweaver",
+      "kind": "monster",
+      "name": "Высший эльф-шаропряд",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 3 | Взвод, Проклинатель | Боевая ценность 10 |\n|:-----------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **+2**<br>Разум | **+2**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🔳 **Захлестнуть (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона холодом; при М < 0 [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **12-16:** 6 урона холодом; при М < 1 [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 5 или [сбить с ног](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 9 урона холодом; при М < 2 [швырнуть](#/catalog/glossary#term-glossary.forced-movement) на 5 или [сбить с ног](#/catalog/glossary#term-glossary.prone)\n\n> 🏹 **Эфирная паутина**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Дальний бой 8** | **🎯 Два врага или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; при Р < 0 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 8 урона; при Р < 1 цель [замедлена](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 11 урона; при Р < 2 цель [опутана](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Каждый враг в пределах 3 клеток от цели испытывает такое же воздействие на [потенцию](#/catalog/glossary#term-glossary.potency), как и цель, если только он уже не находится [рядом](#/catalog/glossary#term-glossary.adjacent) с ней или немедленно не [сместится](#/catalog/glossary#term-glossary.shift) без действия в свободное пространство [рядом](#/catalog/glossary#term-glossary.adjacent) с целью.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода шаропряд может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-orbweaver",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-orbweaver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-orbweaver",
+      "originalName": "High Elf Orbweaver",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 3      |     Platoon Hexer     |        EV 10         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **0**<br>Agility  | **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Awash (Signature Ability)**\n>\n> | **Area, Magic**        |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 cold damage; M < 0 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **12-16:** 6 cold damage; M < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 cold damage; M < 2 [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🏹 **Aetherweb**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 8**           | **🎯 Two enemies or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 8 damage; R < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; R < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** Each enemy within 3 squares of a target suffers the same [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) effect as the target unless they are already [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, or if they immediately [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target (no action required).\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the orbweaver can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-orbweaver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-ordinator",
+      "kind": "monster",
+      "name": "Высший эльф-ординатор",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 3 | Лидер | Боевая ценность 20 |\n|:-----------------------:|:-------------------:|:------------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **120**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+3**<br>Разум | **+2**<br>Интуиция | **+3**<br>Присутствие |\n\n> 🏹 **Громоотвод (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 9 урона молнией; при Р < 1 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 14 урона молнией; при Р < 2 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 17 урона молнией; при Р < 3 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **Эффект:** До начала следующего хода ординатора каждый союзный высший эльф в столкновении получает преимущество на броски способностей против цели.\n\n> ❇️ **Элементальный переполох**\n>\n> | **Область, Магия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|---------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзный элементаль в области** |\n>\n> **Эффект:** Каждая цель может переместиться на расстояние до своей Скорости или совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). Цели — элементальные частицы вместо этого могут использовать свою черту «Искра жизни».\n\n> 🏹 **Призвать элементаля (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|---------------:|\n> | **📏 Дальний бой 10** | **🎯 Особое** |\n>\n> **Эффект:** Ординатор призывает четырёх элементальных частиц или четырёх сажистых воронов в свободные пространства в пределах дистанции.\n>\n> **3 [Раздора](#/codex/monsters.rule.monster.malice):** Вместо этого ординатор призывает одного керамического коня или одного утомлённого тернового стража в свободное пространство в пределах дистанции.\n\n> ❗️ **Хватит!**\n>\n> | **Дальний бой** | **[Действие по условию](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Вызвавший действие враг** |\n>\n> **Условие:** Враг в пределах дистанции использует способность против ординатора или любого его союзника в пределах дистанции.\n>\n> **Эффект:** После разрешения способности ординатор использует против цели «Громоотвод».\n\n> ⭐️ **Неземное благословение**\n>\n> В начале каждого своего хода ординатор может выбрать один или несколько эффектов на себе, которые можно прекратить успешным спасброском. Вместо этого эти эффекты прекращаются в конце его хода.\n\n> ☠️ **Фонтаны ревут, вырвавшись из земли (Действие злодея 1)**\n>\n> | **Область, Магия** | **-** |\n> |-----------------|-----------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель ненадолго вспыхивает и может прекратить один действующий на неё эффект, а затем переместиться на расстояние до своей Скорости.\n\n> ☠️ **И солнце оставило своих детей (Действие злодея 2)**\n>\n> | **Область, Магия, Дальний бой** | **-** |\n> |-------------------------|------------------------------:|\n> | **📏 Куб 5 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Каждая цель проходит **тест Присутствия**.\n>\n> - **≤11:** 12 урона порчей; притянуть на 5 к центру куба\n> - **12-16:** 9 урона порчей; притянуть на 3 к центру куба\n> - **17+:** притянуть на 1 к центру куба\n>\n> **Эффект:** Область становится тёмной и искажённой, а для врагов в ней это труднопроходимая местность.\n\n> ☠️ **Но мы изменим её решение (Действие злодея 3)**\n>\n> | **Область, Магия** | **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Себя и каждого союзника в области** |\n>\n> **Эффект:** Свободный удар каждой цели получает ключевое слово «Магия» и может выбирать целью два существа или объекта. Кроме того, каждая цель начинает сиять магией.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-ordinator",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-ordinator.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-ordinator",
+      "originalName": "High Elf Ordinator",
+      "originalDescription": "| Fey, High Elf, Humanoid |          -          |      Level 3       |        Leader         |        EV 20         |\n|:-----------------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |   **5**<br>Speed    | **120**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      |  **+2**<br>Agility  |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Lightning Rod (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 9 lightning damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 14 lightning damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 17 lightning damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** Until the start of the ordinator's next turn, each ally high elf in the encounter gains an edge on ability rolls against the target.\n\n> ❇️ **Elemental Uproar**\n>\n> | **Area, Magic** |                           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------------------------------:|\n> | **📏 10 burst** | **🎯 Each elemental ally in the area** |\n>\n> **Effect:** Each target can move up to their speed or make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). Elemental mote targets can, instead, use their Spark of Life trait.\n\n> 🏹 **Summon Elemental (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** The ordinator summons four elemental motes or four soot crows into unoccupied space within distance.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The ordinator instead summons one ceramic horse or one winded brambleguard into an unoccupied space within distance.\n\n> ❗️ **Enough!**\n>\n> | **Ranged**       |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ranged 10** | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance uses an ability against the ordinator or any ally within distance.\n>\n> **Effect:** The ordinator uses Lightning Rod against the target after the ability is resolved.\n\n> ⭐️ **Otherworldly Blessing**\n>\n> At the start of each of their turns, the ordinator can choose one or more effects on them that can be ended by a saving throw. The effects instead end at the end of the ordinator's turn.\n\n> ☠️ **Fountains Roar, Now Free From the Earth (Villain Action 1)**\n>\n> | **Area, Magic** |                        **-** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target glows briefly, and can end one effect on themself then move up to their speed.\n\n> ☠️ **And the Sun Forsook Her Children (Villain Action 2)**\n>\n> | **Area, Magic, Ranged** |                         **-** |\n> |-------------------------|------------------------------:|\n> | **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** Each target makes a **Presence test**.\n>\n> - **≤11:** 12 corruption damage; pull 5 toward the center of the cube\n> - **12-16:** 9 corruption damage; pull 3 toward the center of the cube\n> - **17+:** Pull 1 toward the center of the cube\n>\n> **Effect:** The area turns dark and distorted, and is difficult terrain for enemies.\n\n> ☠️ **But We Will Change Her Mind (Villain Action 3)**\n>\n> | **Area, Magic** |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target's free strike now has the Magic keyword and can target two creatures or objects. Additionally, each target glows with magic.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-ordinator.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "20",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-palinode",
+      "kind": "monster",
+      "name": "Высший эльф-палинод",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Взвод, Поддержка | Боевая ценность 6 |\n|:-------------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **Психический 5**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🏹 **Внушить сожаление (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Дальний бой 8** | **🎯 Одно существо** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 психического урона\n> - **12-16:** 7 психического урона; при И < 1 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 9 психического урона; при И < 2 цель [ослаблена](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** [Потенция](#/catalog/glossary#term-glossary.potency) увеличивается на 1. Если в конце столкновения цель всё ещё [ослаблена](#/catalog/glossary#term-glossary.weakened) этим способом, во время следующего отдыха она не может выбрать занятие.\n\n> 🏹 **Воззвание**\n>\n> | **Магия, Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------:|\n> | **📏 Дальний бой 5** | **🎯 Два союзника** |\n>\n> **Эффект:** Каждая цель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) в свободное пространство [рядом](#/catalog/glossary#term-glossary.adjacent) с палинодом. Затем палинод и каждая цель получают 5 временной Выносливости.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода палинод может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-palinode",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-palinode.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-palinode",
+      "originalName": "High Elf Palinode",
+      "originalDescription": "|  Fey, High Elf, Humanoid  |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **0**<br>Agility  |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **Instill Regret (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 8**           | **🎯 One creature** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 psychic damage\n> - **12-16:** 7 psychic damage; I < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 9 psychic damage; I < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) increases by 1. If the target is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way at the end of the encounter, they can't take a respite activity during their next respite.\n\n> 🏹 **Recall**\n>\n> | **Magic, Ranged** |      **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Ranged 5**   | **🎯 Two allies** |\n>\n> **Effect:** Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the palinode. The palinode and each target then gain 5 temporary Stamina.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the palinode can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-palinode.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Поддержка",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-quiver",
+      "kind": "monster",
+      "name": "Колчан высших эльфов",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Миньон, Артиллерист | Боевая ценность 3 за отряд из четырёх миньонов |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **3**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **Бонус +5 к дистанции дальнего боя**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Тяжёлая стрела (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 10** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Каждый союзник рядом с целью может сместиться на расстояние до 2 клеток.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода колчан может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-quiver",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-quiver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-quiver",
+      "originalName": "High Elf Quiver",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |     Level 1      |                Minion Artillery                 | EV 3 for four minions |\n|:-----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size      |  **5**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **2**<br>Free Strike  |\n|    **-**<br>Immunity    | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility | **+1**<br>Reason |               **0**<br>Intuition                |   **0**<br>Presence   |\n\n> 🏹 **Heavy Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** Each ally adjacent to the target shifts up to 2 squares.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the quiver can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-quiver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-wyrd",
+      "kind": "monster",
+      "name": "Высший эльф-вирд",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 3 | Взвод, Контроллер | Боевая ценность 10 |\n|:-------------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **40**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **Психический 5**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **+2**<br>Разум | **-1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🔳 **Вирдовый вихрь (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|------------------------------:|\n> | **📏 Куб 1 в пределах 5** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** вертикально оттолкнуть на 3\n> - **12-16:** вертикально оттолкнуть на 5\n> - **17+:** вертикально оттолкнуть на 6\n>\n> **Эффект:** За каждую элементальную частицу рядом с вирдом размер куба увеличивается на 1.\n\n> 🏹 **Призвать элементаля (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний бой** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|---------------:|\n> | **📏 Дальний бой 5** | **🎯 Особое** |\n>\n> **Эффект:** Вирд призывает двух элементальных частиц или двух сажистых воронов в свободные пространства в пределах дистанции.\n\n> 🔳 **Искривить землю вирдом (2 Раздора)**\n>\n> | **Область, Магия** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------|---------------:|\n> | **📏 Стена длиной 8 в пределах 8** | **🎯 Особое** |\n>\n> **Эффект:** Вирд меняет землю в области, словно мягкую глину: поднимает её или вдавливает, создавая ров. Любое существо в области перемещается вместе с местностью на новую высоту или падает, если земля под ним опускается.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода вирд может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-wyrd",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-wyrd.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-wyrd",
+      "originalName": "High Elf Wyrd",
+      "originalDescription": "|  Fey, High Elf, Humanoid  |         -         |      Level 3      |  Platoon Controller   |        EV 10         |\n|:-------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       | **+1**<br>Agility | **+2**<br>Reason  |  **-1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Twystrd (Signature Ability)**\n>\n> | **Area, Magic**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 1 cube within 5** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Vertical push 3\n> - **12-16:** Vertical push 5\n> - **17+:** Vertical push 6\n>\n> **Effect:** For each elemental mote adjacent to the wyrd, the size of the cube increases by 1.\n\n> 🏹 **Summon Elemental (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**      |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|---------------:|\n> | **📏 Ranged 5** | **🎯 Special** |\n>\n> **Effect:** The wyrd summons two elemental motes or two soot crows into unoccupied spaces within distance.\n\n> 🔳 **Wyrd Warp (2 Malice)**\n>\n> | **Area, Magic**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 8 wall within 8** | **🎯 Special** |\n>\n> **Effect:** The wyrd shapes the land in the area as if it were loose clay, either raising the ground or pushing it down to create a trench. Any creature in the area moves with the terrain to its new higher elevation, or falls if the ground is lowered beneath them.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the wyrd can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-wyrd.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 3,
+        "ev": "10",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Контроллер",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.high-elf-zephyr",
+      "kind": "monster",
+      "name": "Высший эльф-зефир",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Взвод, Налётчик | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Размашистый клинок (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** При результате 3-го тира зефир может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу, которое находится [рядом](#/catalog/glossary#term-glossary.adjacent) с целью. Если он это делает и у существа и цели Л < 2, оба они [сбиты с ног](#/catalog/glossary#term-glossary.prone). При любом результате тира зефир затем может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> 👤 **Хождение по ветру**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** Зефир [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости. Если после этого перемещения он не окажется на твёрдой поверхности, то будет [сбит с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Быстрый, как ветер**\n>\n> Перемещение зефира не провоцирует атаки по возможности.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода зефир может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-zephyr",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-zephyr.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-zephyr",
+      "originalName": "High Elf Zephyr",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |    Platoon Harrier    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Sweeping Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** On a tier 3 outcome, the zephyr can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. If they do so and that creature and the target both have A < 2, the creature and the target are both [prone](scc.v1:mcdm.heroes.v1/condition/prone). On any tier outcome, the zephyr can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> 👤 **Windwalk**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The zephyr [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If they don't end this movment on solid ground, they are [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Like the Wind**\n>\n> The zephyr doesn't provoke opportunity attacks by moving.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the zephyr can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-zephyr.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-high.statblock.soot-crow",
+      "kind": "monster",
+      "name": "Сажистый ворон",
+      "markdown": "| Элементаль, Высший эльф | - | Уровень 1 | Миньон, Налётчик | Боевая ценность 3 за отряд из четырёх миньонов |\n|:-------------------:|:----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n| **1T**<br>Размер | **7**<br>Скорость | **4**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **Преимущество на ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Поддёвка (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона\n> - **17+:** 3 урона; [спровоцирована](#/catalog/glossary#term-glossary.taunted) (КсХ)\n>\n> **Эффект:** До конца своего хода сажистый ворон игнорирует атаки по возможности от цели.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.soot-crow",
+        "path": "Monsters/monster/elf-high/statblock/soot-crow.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/soot-crow",
+      "originalName": "Soot Crow",
+      "originalDescription": "| Elemental, High Elf |          -          |     Level 1      |               Minion Harrier                | EV 3 for four minions |\n|:-------------------:|:-------------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|   **1T**<br>Size    |   **7**<br>Speed    | **4**<br>Stamina |             **0**<br>Stability              | **1**<br>Free Strike  |\n|  **-**<br>Immunity  | **Fly**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|   **0**<br>Might    |  **+2**<br>Agility  | **0**<br>Reason  |             **0**<br>Intuition              |  **+1**<br>Presence   |\n\n> 🗡 **Heckle (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage\n> - **17+:** 3 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n>\n> **Effect:** Until the end of their turn, the soot crow ignores opportunity attacks from the target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/soot-crow.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "3 for four minions",
+        "size": "1T",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.group.elf-high",
+      "kind": "monster-lore",
+      "name": "Высшие эльфы",
+      "markdown": "Потомков солнечных небожителей, высших эльфов, создали, чтобы они служили солнечным эльфам библиотекарями и глашатаями. Теперь они сторонятся мира и уединяются среди павших городов небесных эльфов, вспоминая лучшие времена — эпоху до прихода людей и войны, которая сделала высших эльфов такими, какие они сегодня.\n\n#### Обворожительные\n\nВысшие эльфы держатся с неизменным достоинством, подобающим знатному происхождению. Кроме того, они излучают чары, позволяющие им по желанию менять черты внешности и особенности своего характера. Каждый видит эти чары немного по-своему: одни подробности проступают ярче других в зависимости от ценностей и увлечений наблюдателя.\n\n#### Хранители знаний\n\nПословица «знание — сила» — приблизительный перевод древнего изречения на хираллике. Ближе к оригиналу будет «знание прежде силы». Высшие эльфы верят, что стремление к знаниям лежит в основе всего благого: жизни, силы и наследия.\n\nВ разрушенных башнях они изучают древнюю историю и магию, которую считали давно исчезнувшей. Они возвращают к жизни забытые заклинания и языки и применяют их по своему усмотрению. С помощью этой магии высшие эльфы создают чудеса. А ещё одним движением пальца могут убить.\n\n#### Призыватели элементалей\n\nИзучая древнюю магию, многие высшие эльфы установили прочную связь с элементалями и могут призывать их на помощь. Сажевые вороны-разведчики служат высшим эльфам, обозревая окрестности с высоты; живые стены из лозы, называемые ежевичными стражами, выстраивают лабиринты баррикад; керамические кони быстро перевозят их на большие расстояния.\n\nМногие высшие эльфы также призывают магических огоньков, называемых элементальными искрами. Эти духи ослабляют противников, делая их уязвимыми для магии высших эльфов, а павших элементалей возвращают к жизни ослепительной вспышкой, жертвуя собственной энергией.\n\n#### Окружить и подавить\n\nС врагами, угрожающими армиям высших эльфов, расправляются быстро и беспощадно. Высшие эльфы используют магию друг друга, чтобы сгонять противников в кучу и обрушивать на них целые волны разрушения. Чем дольше жертва подвергается магии высших эльфов, тем действеннее эта магия её уничтожает. Вирды высших эльфов не дают врагам бежать: они превращают местность в коварные ямы, а затем и в могилы.\n\n#### Магические манипуляции\n\nВысшие эльфы практикуют совместное колдовство: с каждым новым участником их способности становятся сильнее. Благодаря этому заклинания достигают всё дальше; когда целый взвод действует сообща, их порой можно направить за многие мили от заклинателя.\n\nЗа века многие высшие эльфы собрали обширные библиотеки. Даже на поле боя эльф может открыть книгу и превратить обычный залп оружия в магическую атаку.\n\n#### Незримые Руки\n\nНезримые Руки — секта радикальных высших эльфов. Они верят, что нашли в текстах небесных эльфов описание их гибели от рук солнечных эльфов. История этих предполагаемых открытий превратилась в обвинение современного общества: оно пользуется знаниями, накопленными на службе солнечным эльфам. Секта незаметно действует среди высших эльфов и исподволь манипулирует знатью, пытаясь разрушить это общество и ввергнуть мир в анархию.\n\n#### Ординатор\n\nПрисутствие ординатора высших эльфов пробуждает древний страх у всех, кто знает историю этого народа. Обладая и военной, и духовной властью, ординатор способен направить отряд высших эльфов так, чтобы те точно сбили наконечник стрелы на другом конце поля боя. Эти маги — одни из самых образованных эльфов в своих общинах и при дворах; их стратегический ум уступает разве что их близости к элементалям. Ординатор не только яркий маяк командования для своего взвода, но и духовный маяк надежды для своего народа.\n\n#### Языки высших эльфов\n\nБольшинство высших эльфов говорят на кэлианском и хираллике, а некоторые также знают иллирик.\n\n> **Ординатор — магический маяк**\n>\n> Когда ординатор высших эльфов появляется на карте столкновения, особенность «Цепное колдовство Раздора» усиливается и действует постоянно. Когда любой эльф использует магическую способность так, словно находится в пространстве ординатора, эта способность получает двойное преимущество.\n\n###### Размещение высших эльфов\n\n> **Размещение высших эльфов**\n>\n> Высшие эльфы одержимы знаниями: они стремятся их открывать, описывать и оберегать. Поэтому многие из них затворничают в башнях, уткнувшись носом в древние фолианты. Но утраченные знания часто хранятся в опасных руинах или в собраниях влиятельных людей, которые и не думают ими делиться. Тогда ударные группы единомышленников направляются туда, чтобы проникнуть и «заполучить знания силой».\n>\n> Многие высшие эльфы считают себя хранителями опасных или запретных знаний и готовы защищать их ценой жизни. За иллюзорными рощами и зачарованными руинами нередко скрываются хранилища и могучие воины, поклявшиеся не дать тем, кто употребит эти тайны во зло, завладеть ими.\n>\n> **Примеры столкновений с высшими эльфами**\n>\n> - **Охотники за руинами, 24 БЦ:** восемь сажевых воронов, восемь магов рассвета, один палинод, один зефир\n> - **Стражи рощ, 36 БЦ:** восемь элементальных искр, восемь сажевых воронов, один ежевичный страж, один вирд, один керамический конь\n> - **Отряд захватчиков, 46 БЦ:** восемь колчанов, восемь сажевых воронов, один ежевичный страж, три кровопускателя, одно касание смерти\n> - **Стражи реликвий, 74 БЦ:** шестнадцать элементальных искр, восемь магов рассвета, два кровопускателя, один ежевичный страж, один палинод, один сферопряд, один ординатор\n",
+      "source": {
+        "articleId": "monsters.monster.group.elf-high",
+        "path": "Monsters/monster/group/elf-high.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.group/elf-high",
+      "originalName": "Elves, High",
+      "originalDescription": "The children of the solar celestials, the high elves were created to tend to the sun elves as librarians and heralds. Now they sequester themselves away from the world amid the fallen cities of the sky elves, remembering a better age, before the arrival of humans and war to the world made the high elves who they are today.\n\n#### Glamorous\n\nThe high elves hold an unwavering poise worthy of a noble background. They also emit a glamor that allows them to take on physical features and aspects of personality as they desire. Each person sees this glamor slightly differently, emphasizing some details over others based on one's own values and fascinations.\n\n#### Loremasters\n\nThe adage \"knowledge is power\" is a rough translation of an ancient Hyrallic saying. A closer translation is \"knowledge before power.\" High elves believe knowledge is the pursuit from which all good things flow: life, power, legacy.\n\nIn their ruined towers, they study ancient history and magic thought long extinct. They revive dead spells and languages and manipulate their use to suit their means. High elves can use this magic for wondrous creations. They can also use it to kill by lifting a finger.\n\n#### Elemental Summoners\n\nThrough their studies of ancient magic, many high elves have cultivated a strong bond to elemental creatures and can call upon their aid. In service to high elves, soot crows scout from the sky, living vine walls called brambleguards create labyrinthine barricades, and ceramic horses provide fast transport over long distances.\n\nMany high elves can also summon magical wisps called elemental motes. These sprites enervate their foes against high elf magic and revive fallen elementals in a brilliant flash by sacrificing their own energy.\n\n#### Surround and Suppress\n\nFoes who threaten high elf armies are dealt with quickly and entirely. High elves take advantage of each other's magic to corral enemies together and throw huge waves of destruction upon them. The more exposure a victim has to high elf magic, the more effective that magic is in destroying them. High elf wyrds ensure there's no escape, warping the environment into treacherous pits—and eventually, graveyards.\n\n#### Magical Manipulation\n\nThe high elves practice a tradition of group-casting magic that empowers their abilities as more elves participate. This enables them to extend their spells farther, sometimes even miles away from the caster when an entire platoon works in unison.\n\nMany high elves have also collected extensive libraries of tomes over the centuries. Even on the battlefield, an elf can turn to a book to transform a mundane weapon volley into a magical one.\n\n#### The Unseen Hands\n\nThe Unseen Hands is a sect of high elf radicals who believe they have stumbled upon sky elf texts detailing their downfall at the hands of the sun elves. The story surrounding their purported discoveries has twisted into a narrative decrying modern society for benefiting from the lore accumulated in service to the sun elves. The sect hides among high elf society in plain sight, slowly manipulating nobles as they attempt to dismantle that society and plunge the world into anarchy.\n\n#### The Ordinator\n\nBeing in the presence of a high elf ordinator inspires an ancient fear in those who know high elf history. Occupying a position of both military and clerical authority, an ordinator is capable of focusing a force of high elves to precisely strike an arrow's tip from the other end of the battlefield. These spellcasters are among the most studied elves in their communities and courts, and their strategic minds are matched only by their affinity with elementals. The ordinator is not only an illuminating beacon of command for their platoon; they are a spiritual beacon of hope for their people.\n\n#### High Elf Languages\n\nMost high elves speak Caelian and Hyrallic, with some also speaking Yllyric.\n\n> **The Ordinator is a Magic Beacon**\n>\n> Whenever a high elf ordinator appears on an encounter map, the Chaincast Malice feature is improved and always active. When any elf uses a magic ability as if they were in the ordinator's space, that ability has a double edge.\n\n###### High Elf Deployments\n\n> **High Elf Deployments**\n>\n> High elves are obsessed with knowledge: discovering it, documenting it, and protecting it. While this means that many of them are cloistered in towers with noses buried firmly in ancient tomes, lost knowledge is often found in dangerous ruins or in the collections of powerful individuals with no intent to share. When this happens, strike teams of like-minded high elves deploy to infiltrate and \"forcefully acquire\" such knowledge.\n>\n> Many high elves also consider themselves guardians of dangerous or forbidden lore and are ready to defend it with their lives. Many illusory groves and glamoured ruins conceal repositories and powerful warriors sworn to keep these secrets out of the hands of those who would use them for ill.\n>\n> **High Elf Sample Encounters**\n>\n> - **Ruin Hunters, 24 EV:** Eight soot crows, eight dawn mages, one palinode, one zephyr\n> - **Grove Guardians, 36 EV:** Eight elemental motes, eight soot crows, one brambleguard, one wyrd, one ceramic horse\n> - **Acquisitor Strike Team, 46 EV:** Eight quivers, eight soot crows, one brambleguard, three bloodletters, one deathtouch\n> - **Relic Wardens, 74 EV:** Sixteen elemental motes, eight dawn mages, two bloodletters, one brambleguard, one palinode, one orbweaver, one ordinator",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/group/elf-high.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "monster"
+      }
+    }
+  ]
+}

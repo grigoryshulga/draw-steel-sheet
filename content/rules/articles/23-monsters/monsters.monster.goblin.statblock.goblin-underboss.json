@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.goblin.statblock.goblin-underboss",
+  "title": "Гоблин-заместитель",
+  "chapter": "23. Бестиарий",
+  "group": "Гоблины",
+  "path": "Monsters/monster/goblin/statblock/goblin-underboss.md",
+  "originalId": "mcdm.monsters.v1/monster.goblin.statblock/goblin-underboss",
+  "originalName": "Goblin Underboss",
+  "originalDescription": "| Goblin, Humanoid  |           -           |      Level 1      |     Horde Support     |         EV 3         |\n|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |    **5**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **-1**<br>Might  |   **+2**<br>Agility   |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Swordplay (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** One ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ❇️ **Get Reckless!**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Until the start of the underboss's next turn, each target gains an edge on strikes, and any strike made against a target gains an edge.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Strikes made against targets no longer gain an edge.\n\n> ⭐️ **Crafty**\n>\n> The underboss doesn't provoke [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack) by moving.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/goblin/statblock/goblin-underboss.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "goblin",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гоблин",
+      "Гуманоид"
+    ],
+    "role": "Поддержка",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.goblin.statblock.goblin-underboss"
+    }
+  ]
+}

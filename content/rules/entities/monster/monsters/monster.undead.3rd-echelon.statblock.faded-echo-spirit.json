@@ -1,0 +1,28 @@
+{
+  "id": "monster.undead.3rd-echelon.statblock.faded-echo-spirit",
+  "kind": "monster",
+  "name": "Дух угасающего эха",
+  "markdown": "| Нежить | - | Уровень 7 | Миньон, Проклинатель | Боевая ценность 9 за четырёх миньонов |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **10**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **Порча 7, яд 7**<br>Иммунитет | **Полёт, парение**<br>Движение | - | **Преимущество на ударах**<br>С капитаном | **-**<br>Уязвимость |\n| **-3**<br>Мощь | **+4**<br>Ловкость | **-5**<br>Разум | **+1**<br>Интуиция | **-3**<br>Присутствие |\n\n> 🗡 **Полая хватка ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 3 урона Порчей\n> - **12-16:** 6 урона Порчей; при П < 3 цель [ослаблена](scc.v1:mcdm.heroes.v1/condition/weakened)\n> - **17+:** 7 урона Порчей; при П < 4 цель [ослаблена](scc.v1:mcdm.heroes.v1/condition/weakened)\n>\n> **Эффект:** Состояние [Ослабление](scc.v1:mcdm.heroes.v1/condition/weakened), полученное таким образом, заканчивается, если затронутая цель завершает свой ход, когда рядом с ней в пределах 5 клеток нет духов.\n\n> ⭐️ **Фазирование порчей**\n>\n> Дух может перемещаться сквозь существ и объекты с обычной скоростью, но не может завершить ход внутри существа или объекта. Первый раз за раунд, когда дух проходит сквозь существо, это существо получает 4 урона Порчей. Дух не получает урон, если его [принудительно перемещают](scc.v1:mcdm.heroes.v1/movement/forced-movement) в объект.\n",
+  "source": {
+    "articleId": "monsters.monster.undead.3rd-echelon.statblock.faded-echo-spirit",
+    "path": "Monsters/monster/undead/3rd-echelon/statblock/faded-echo-spirit.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/faded-echo-spirit",
+  "originalName": "Faded Echo Spirit",
+  "originalDescription": "|                 Undead                 |             -              |      Level 7      |                Minion Hexer                 | EV 9 for four minions |\n|:--------------------------------------:|:--------------------------:|:-----------------:|:-------------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |       **5**<br>Speed       | **10**<br>Stamina |             **1**<br>Stability              | **3**<br>Free Strike  |\n| **Corruption 7, poison 7**<br>Immunity | **Fly, hover**<br>Movement |         -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **-3**<br>Might             |     **+4**<br>Agility      | **-5**<br>Reason  |             **+1**<br>Intuition             |  **-3**<br>Presence   |\n\n> 🗡 **Hollow Grasp ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 6 corruption damage; P < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened)\n> - **17+:** 7 corruption damage; P < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened)\n>\n> **Effect:** This [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) condition ends if an affected target ends their turn with no spirit within 5 squares of them.\n\n> ⭐️ **Corruptive Phasing**\n>\n> The spirit can move through creatures and objects at their usual speed, but can't end their turn inside a creature or object. The first time in a round that the spirit moves through a creature, that creature takes 4 corruption damage. The spirit doesn't take damage from being [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) into objects.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/3rd-echelon/statblock/faded-echo-spirit.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Нежить"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  }
+}

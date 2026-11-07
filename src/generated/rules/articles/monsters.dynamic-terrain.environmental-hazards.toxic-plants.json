@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.environmental-hazards.toxic-plants",
+      "title": "Ядовитые растения",
+      "chapter": "25. Динамическая местность",
+      "group": "Природные опасности",
+      "path": "Monsters/dynamic-terrain/environmental-hazards/toxic-plants.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/toxic-plants",
+      "originalName": "Toxic Plants",
+      "originalDescription": "Colorful mushrooms or lovely flowering plants release a cloud of spores or pollen when disturbed, causing creatures to fall into a magical slumber.\n\n- **EV:** 2 per 10 x 10 field\n- **Stamina:** 3 per square\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> Each square of plants must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature starts their turn in the area of the toxic plants, or enters a square of toxic plants without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Effect:** The **Sleep Spores** ability.\n\n> ❗️ **Sleep Spores**\n>\n> | **Magic, Melee, Strike** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------------|-------------------------------:|\n> | **📏 Melee 0**           | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature starts their turn in the area of the toxic plants, or enters a square of toxic plants without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target who starts their turn in the area of the toxic plants falls [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand.\n\n> ⭐️ **Upgrades**\n>\n> **Poisonous Spores (+2 EV)** Any creature [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) by this hazard takes 1d6 poison damage at the start of each of their turns.\n>\n> **Carnivorous Plants (+2 EV)** The plants are carnivorous and attempt to slowly digest any creature who falls among them. Any creature who starts their turn [prone](scc.v1:mcdm.heroes.v1/condition/prone) in the area takes 4 acid damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/toxic-plants.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "2 за поле 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.environmental-hazards.toxic-plants"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.environmental-hazards.toxic-plants",
+      "kind": "terrain",
+      "name": "Ядовитые растения",
+      "markdown": "Потревоженные яркие грибы или прекрасные цветущие растения выпускают облако спор или пыльцы, погружая существ в волшебный сон.\n\n- **БЦ:** 2 за поле 10 x 10\n- **Выносливость:** 3 за клетку\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> Каждую клетку растений необходимо уничтожить отдельно.\n\n> ❕ **Активация**\n>\n> Существо начинает ход в области ядовитых растений или входит в их клетку, не совершая [шаг](#/catalog/glossary#term-glossary.shift).\n>\n> **Эффект:** Способность **Сонные споры**.\n\n> ❗️ **Сонные споры**\n>\n> | **Магия, ближний бой, удар** | **Бесплатное [триггерное действие](#/catalog/glossary#term-glossary.triggered-action)** |\n> |---|---:|\n> | **📏 Ближний бой 0** | **🎯 Существо, вызвавшее активацию** |\n>\n> **Условие:** Существо начинает ход в области ядовитых растений или входит в их клетку, не совершая [шаг](#/catalog/glossary#term-glossary.shift).\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** М < 0 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** М < 1 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** М < 2 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Если цель, находящаяся в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed), полученном таким образом, начинает ход в области растений, она падает [ничком](#/catalog/glossary#term-glossary.prone) и не может встать.\n\n> ⭐️ **Улучшения**\n>\n> **Ядовитые споры (+2 БЦ)** Любое существо, получившее от этой опасности состояние [Оглушение](#/catalog/glossary#term-glossary.dazed), получает 1d6 урона ядом в начале каждого своего хода.\n>\n> **Плотоядные растения (+2 БЦ)** Растения плотоядны и пытаются медленно переварить любое существо, упавшее среди них. Любое существо, начинающее ход [лёжа](#/catalog/glossary#term-glossary.prone) в области, получает 4 урона кислотой.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.environmental-hazards.toxic-plants",
+        "path": "Monsters/dynamic-terrain/environmental-hazards/toxic-plants.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/toxic-plants",
+      "originalName": "Toxic Plants",
+      "originalDescription": "Colorful mushrooms or lovely flowering plants release a cloud of spores or pollen when disturbed, causing creatures to fall into a magical slumber.\n\n- **EV:** 2 per 10 x 10 field\n- **Stamina:** 3 per square\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> Each square of plants must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature starts their turn in the area of the toxic plants, or enters a square of toxic plants without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Effect:** The **Sleep Spores** ability.\n\n> ❗️ **Sleep Spores**\n>\n> | **Magic, Melee, Strike** |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------------|-------------------------------:|\n> | **📏 Melee 0**           | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature starts their turn in the area of the toxic plants, or enters a square of toxic plants without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** M < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** M < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** M < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target who starts their turn in the area of the toxic plants falls [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand.\n\n> ⭐️ **Upgrades**\n>\n> **Poisonous Spores (+2 EV)** Any creature [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) by this hazard takes 1d6 poison damage at the start of each of their turns.\n>\n> **Carnivorous Plants (+2 EV)** The plants are carnivorous and attempt to slowly digest any creature who falls among them. Any creature who starts their turn [prone](scc.v1:mcdm.heroes.v1/condition/prone) in the area takes 4 acid damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/environmental-hazards/toxic-plants.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "environmental-hazards",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "2 за поле 10 x 10",
+        "size": "Одна или несколько клеток",
+        "role": "Проклинатель",
+        "organization": "Опасность"
+      }
+    }
+  ]
+}

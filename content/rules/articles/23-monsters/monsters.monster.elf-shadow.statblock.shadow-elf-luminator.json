@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.elf-shadow.statblock.shadow-elf-luminator",
+  "title": "Теневой эльф-светоносец",
+  "chapter": "23. Бестиарий",
+  "group": "Теневые эльфы",
+  "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-luminator.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-luminator",
+  "originalName": "Shadow Elf Luminator",
+  "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |    Platoon Support    |        EV 12         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **60**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |   **+1**<br>Agility   | **+1**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🏹 **Lumina Mark (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 3**           | **🎯 One creature or object** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 lightning damage\n> - **12-16:** 12 lightning damage\n> - **17+:** 15 lightning damage\n>\n> **Effect:** The next strike made against the target deals an extra 5 damage.\n\n> ❇️ **Mourning Till Dusk (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic** |              **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 2 burst**  | **🎯 Each ally in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** The target regains 6 Stamina.\n> - **12-16:** The target regains 9 Stamina.\n> - **17+:** The target regains 12 Stamina and the Director gains 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n>\n> **Effect:** Each target gains an edge on their next strike.\n\n> ⭐️ **Of the Umbra**\n>\n> The luminator ignores concealment created by darkness. While the luminator is in direct sunlight, they have damage weakness 3. While the luminator has concealment, they have damage immunity 3.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-shadow/statblock/shadow-elf-luminator.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-shadow",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "12",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Теневой эльф"
+    ],
+    "role": "Поддержка",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-shadow.statblock.shadow-elf-luminator"
+    }
+  ]
+}

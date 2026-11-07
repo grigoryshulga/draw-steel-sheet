@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.arrow-launcher",
+      "title": "Стреломёт",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/arrow-launcher.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/arrow-launcher",
+      "originalName": "Arrow Launcher",
+      "originalDescription": "A small wooden cart uses alchemical rockets to launch up to a hundred arrows at a time across a wide area.\n\n- **EV:** 8\n- **Stamina:** 30\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an arrow launcher can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arrow Storm** ability.\n> - **12-16:** The arrow launcher is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The arrow launcher is deactivated and can't be used.\n\n> 🔳 **Arrow Storm**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher is reloaded, allowing **Arrow Storm** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arrow Storm** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Flaming Arrows (+1 EV) Arrow Storm** deals fire damage, and can ignite flammable objects in its area.\n>\n> **Screamers (+3 EV)** The arrows make a high-pitched screaming noise as they are fired and descend onto their targets. The **Screamers** ability replaces **Arrow Storm**.\n\n> 🔳 **Screamers**\n>\n> | **Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |--------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**  | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 8 damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 11 damage; R < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/arrow-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.arrow-launcher"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.siege-engines.arrow-launcher",
+      "kind": "terrain",
+      "name": "Стреломёт",
+      "markdown": "Небольшая деревянная тележка с помощью алхимических ракет запускает до сотни стрел за раз по широкой области.\n\n- **БЦ:** 8\n- **Выносливость:** 30\n- **Размер:** 1L\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) со стреломётом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Буря стрел**.\n> - **12-16:** Стреломёт отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Стреломёт отключён, и его нельзя использовать.\n\n> 🔳 **Буря стрел**\n>\n> | **- Область, дальний бой, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 5 в пределах 20** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 8 урона\n> - **17+:** 11 урона\n>\n> **Эффект:** Способность нельзя использовать снова, пока стреломёт не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Стреломёт перезаряжается, позволяя снова использовать **Бурю стрел**. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Наведение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Следующее использование **Бури стрел** получает преимущество и бонус +10 к дальности. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Перемещение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Стреломёт и использующее действие существо вместе перемещаются на расстояние до 3 клеток.\n\n> ⭐️ **Улучшения**\n>\n> **Горящие стрелы (+1 БЦ)** **Буря стрел** наносит урон огнём и может воспламенить горючие объекты в своей области.\n>\n> **Визгуны (+3 БЦ)** Выпущенные и падающие на цели стрелы издают пронзительный визг. Способность **Визгуны** заменяет **Бурю стрел**.\n\n> 🔳 **Визгуны**\n>\n> | **Область, дальний бой, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 5 в пределах 20** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; Р < 0 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 8 урона; Р < 1 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 11 урона; Р < 2 [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Способность нельзя использовать снова, пока стреломёт не перезарядят.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.arrow-launcher",
+        "path": "Monsters/dynamic-terrain/siege-engines/arrow-launcher.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/arrow-launcher",
+      "originalName": "Arrow Launcher",
+      "originalDescription": "A small wooden cart uses alchemical rockets to launch up to a hundred arrows at a time across a wide area.\n\n- **EV:** 8\n- **Stamina:** 30\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an arrow launcher can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arrow Storm** ability.\n> - **12-16:** The arrow launcher is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The arrow launcher is deactivated and can't be used.\n\n> 🔳 **Arrow Storm**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher is reloaded, allowing **Arrow Storm** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arrow Storm** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Flaming Arrows (+1 EV) Arrow Storm** deals fire damage, and can ignite flammable objects in its area.\n>\n> **Screamers (+3 EV)** The arrows make a high-pitched screaming noise as they are fired and descend onto their targets. The **Screamers** ability replaces **Arrow Storm**.\n\n> 🔳 **Screamers**\n>\n> | **Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |--------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**  | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 8 damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 11 damage; R < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/arrow-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    }
+  ]
+}

@@ -245,6 +245,15 @@ export function CodexView() {
     window.location.hash = codexArticleHref(id);
   };
 
+  const creatureSheet = entry?.director?.recordType === 'statblock'
+    && ['monsters', 'retainers'].includes(entry.director.section);
+  const bookmarkAction = entry && <Button
+    size="sm"
+    variant={bookmarks.includes(entry.id) ? "soft" : "ghost"}
+    aria-pressed={bookmarks.includes(entry.id)}
+    onClick={() => toggleBookmark(entry.id)}
+  >{bookmarks.includes(entry.id) ? "В закладках" : "В закладки"}</Button>;
+
   return (
     <div className="codex-view">
       <LibraryHeader title="Книга" />
@@ -422,7 +431,7 @@ export function CodexView() {
                     </>
                   )}
                 </nav>
-                <header className="codex-article-head">
+                {(!creatureSheet || !loaded) && <header className="codex-article-head">
                   <div>
                     <h1>{entry.title}</h1>
                     {loaded?.article.originalName && (
@@ -431,17 +440,8 @@ export function CodexView() {
                       </p>
                     )}
                   </div>
-                  <Button
-                    size="sm"
-                    variant={bookmarks.includes(entry.id) ? "soft" : "ghost"}
-                    aria-pressed={bookmarks.includes(entry.id)}
-                    onClick={() => toggleBookmark(entry.id)}
-                  >
-                    {bookmarks.includes(entry.id)
-                      ? "В закладках"
-                      : "В закладки"}
-                  </Button>
-                </header>
+                  {bookmarkAction}
+                </header>}
                 {headings.length > 0 && (
                   <details className="codex-inline-toc">
                     <summary>В этой статье · {headings.length}</summary>
@@ -489,6 +489,8 @@ export function CodexView() {
                       article={loaded.article}
                       entities={loaded.entities}
                       art={artForArticle(entry.id)}
+                      headingOffset={creatureSheet ? -1 : 0}
+                      headingActions={creatureSheet ? bookmarkAction : undefined}
                     />
                   ))}
                 {loaded?.article.originalDescription && (

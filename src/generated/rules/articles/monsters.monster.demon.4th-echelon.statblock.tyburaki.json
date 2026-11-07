@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.4th-echelon.statblock.tyburaki",
+      "title": "Тибураки",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/4th-echelon/statblock/tyburaki.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/tyburaki",
+      "originalName": "Tyburaki",
+      "originalDescription": "|  Abyssal, Demon   |          -           |     Level 10      |                 Minion Harrier                 |  EV 12 for four minions  |\n|:-----------------:|:--------------------:|:-----------------:|:----------------------------------------------:|:------------------------:|\n|   **2**<br>Size   |    **8**<br>Speed    | **15**<br>Stamina |               **0**<br>Stability               |   **4**<br>Free Strike   |\n| **-**<br>Immunity | **Swim**<br>Movement |         -         | **+4 damage bonus to strikes**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  |  **+5**<br>Agility   | **+0**<br>Reason  |              **+3**<br>Intuition               |    **-1**<br>Presence    |\n\n> 🗡 **Tail Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The tyburaki can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ⭐️ **Breacher**\n>\n> While swimming, the tyburaki can jump 5 squares as part of their movement.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the tyburaki can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/statblock/tyburaki.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "2",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.4th-echelon.statblock.tyburaki"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.4th-echelon.statblock.tyburaki",
+      "kind": "monster",
+      "name": "Тибураки",
+      "markdown": "| Бездны, Демон | - | Уровень 10 | Миньон, Налётчик | Боевая ценность 12 за четыре миньона |\n|:-----------------:|:--------------------:|:-----------------:|:----------------------------------------------:|:------------------------:|\n| **2**<br>Размер | **8**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Плавание**<br>Движение | - | **Бонус к урону от ударов +4**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+2**<br>Мощь | **+5**<br>Ловкость | **+0**<br>Разум | **+3**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Укус хвостом (знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 4 урона\n> - **12–16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** Тибураки может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike) каждому врагу, [соседнему](#/catalog/glossary#term-glossary.adjacent) с целью.\n\n> ⭐️ **Прыжок из воды**\n>\n> Плавая, тибураки может в рамках своего движения прыгнуть на 5 клеток.\n\n> ⭐️ **Зрение душ**\n>\n> Ни одно существо в пределах 2 клеток от тибураки не может скрыться от него.\n",
+      "source": {
+        "articleId": "monsters.monster.demon.4th-echelon.statblock.tyburaki",
+        "path": "Monsters/monster/demon/4th-echelon/statblock/tyburaki.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/tyburaki",
+      "originalName": "Tyburaki",
+      "originalDescription": "|  Abyssal, Demon   |          -           |     Level 10      |                 Minion Harrier                 |  EV 12 for four minions  |\n|:-----------------:|:--------------------:|:-----------------:|:----------------------------------------------:|:------------------------:|\n|   **2**<br>Size   |    **8**<br>Speed    | **15**<br>Stamina |               **0**<br>Stability               |   **4**<br>Free Strike   |\n| **-**<br>Immunity | **Swim**<br>Movement |         -         | **+4 damage bonus to strikes**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  |  **+5**<br>Agility   | **+0**<br>Reason  |              **+3**<br>Intuition               |    **-1**<br>Presence    |\n\n> 🗡 **Tail Bite (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 3**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** The tyburaki can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target.\n\n> ⭐️ **Breacher**\n>\n> While swimming, the tyburaki can jump 5 squares as part of their movement.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the tyburaki can't be hidden from them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/statblock/tyburaki.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "12 for four minions",
+        "size": "2",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

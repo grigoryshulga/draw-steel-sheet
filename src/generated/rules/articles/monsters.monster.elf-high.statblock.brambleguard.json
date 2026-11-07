@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-high.statblock.brambleguard",
+      "title": "Терновый страж",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/brambleguard.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/brambleguard",
+      "originalName": "Brambleguard",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **4**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **0**<br>Agility  |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Wall of Roses (Signature Ability)**\n>\n> | **Area, Magic**           | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 Special; see below** |     **🎯 Self** |\n>\n> **Effect:** Until the start of the brambleguard's next turn, their speed is 0 and they extend themself into a 5 wall. Each ally who starts their turn adjacent to the brambleguard regains 5 Stamina and can apply the Magic keyword to their weapon abilities until the end of their turn.\n\n> ❇️ **Whip Frenzy**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Thicket and Thorns**\n>\n> The brambleguard blocks line of effect for enemies. Each enemy who starts their turn adjacent to a brambleguard takes 4 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/brambleguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.brambleguard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-high.statblock.brambleguard",
+      "kind": "monster",
+      "name": "Терновый страж",
+      "markdown": "| Элементаль, Высший эльф | - | Уровень 2 | Взвод, Защитник | Боевая ценность 8 |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **4**<br>Скорость | **59**<br>Выносливость | **3**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🔳 **Стена роз (Знаковая способность)**\n>\n> | **Область, Магия** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------:|\n> | **📏 Особое; см. ниже** | **🎯 Себя** |\n>\n> **Эффект:** До начала следующего хода тернового стража его Скорость равна 0, а сам он вытягивается в стену длиной 5. Каждый союзник, который начинает свой ход рядом с терновым стражем, восстанавливает 5 Выносливости и до конца хода может добавлять ключевое слово «Магия» к своим способностям оружия.\n\n> ❇️ **Яростные плети**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|------------------------------:|\n> | **📏 Взрыв 2** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3\n> - **17+:** 10 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 3; при Л < 2 цель [истекает кровью](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> ⭐️ **Заросли и шипы**\n>\n> Терновый страж перекрывает врагам линию эффекта. Каждый враг, который начинает ход рядом с терновым стражем, получает 4 урона.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.brambleguard",
+        "path": "Monsters/monster/elf-high/statblock/brambleguard.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/brambleguard",
+      "originalName": "Brambleguard",
+      "originalDescription": "| Elemental, High Elf |         -         |      Level 2      |   Platoon Defender    |         EV 8         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **4**<br>Speed   | **59**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **0**<br>Agility  |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🔳 **Wall of Roses (Signature Ability)**\n>\n> | **Area, Magic**           | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|----------------:|\n> | **📏 Special; see below** |     **🎯 Self** |\n>\n> **Effect:** Until the start of the brambleguard's next turn, their speed is 0 and they extend themself into a 5 wall. Each ally who starts their turn adjacent to the brambleguard regains 5 Stamina and can apply the Magic keyword to their weapon abilities until the end of their turn.\n\n> ❇️ **Whip Frenzy**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 2 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 10 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> ⭐️ **Thicket and Thorns**\n>\n> The brambleguard blocks line of effect for enemies. Each enemy who starts their turn adjacent to a brambleguard takes 4 damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/brambleguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "keywords": [
+          "Элементаль",
+          "Высший эльф"
+        ],
+        "role": "Защитник",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

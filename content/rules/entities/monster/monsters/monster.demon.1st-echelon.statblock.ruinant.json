@@ -1,0 +1,29 @@
+{
+  "id": "monster.demon.1st-echelon.statblock.ruinant",
+  "kind": "monster",
+  "name": "Руинант",
+  "markdown": "| Бездны, Демон |         -         |      Уровень 1      |     Орда-Налётчик     | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Размер   |  **6**<br>Скорость   | **15**<br>Выносливость |  **0**<br>Устойчивость   |   **1**<br>Свободный удар   |\n| **-**<br>Иммунитет | **-**<br>Движение |         -         | **-**<br>С капитаном |  **Святой 3**<br>Уязвимость  |\n|  **+0**<br>Мощь  | **+2**<br>Ловкость | **+0**<br>Разум  |  **+0**<br>Интуиция  |    **+1**<br>Присутствие    |\n\n> 🗡 **Кровоточащие когти (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона; М < 2 [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n\n> 🏹 **Соль на раны (3 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Магия, Дальний бой, Удар** |           **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------:|\n> | **📏 Дальний бой 10**          | **🎯 Три существа** |\n>\n> **Особое:** [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) каждой цели должна быть ниже максимальной.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон Порчей\n> - **12-16:** 2 урона Порчей\n> - **17+:** 3 урона Порчей\n\n> ⭐️ **Лета**\n>\n> Пока руинант [утомлён](scc.v1:mcdm.heroes.v1/rule.health/winded), он получает [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge) на ударах, а любой удар по нему также получает преимущество.\n\n> ⭐️ **Зрение душ**\n>\n> От руинанта нельзя скрыть ни одно существо в пределах 2 клеток от него.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.1st-echelon.statblock.ruinant",
+    "path": "Monsters/monster/demon/1st-echelon/statblock/ruinant.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.1st-echelon.statblock/ruinant",
+  "originalName": "Ruinant",
+  "originalDescription": "|  Abyssal, Demon   |         -         |      Level 1      |     Horde Harrier     |           EV 3           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   |   **1**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 3**<br>Weakness  |\n|  **+0**<br>Might  | **+2**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |    **+1**<br>Presence    |\n\n> 🗡 **Bloodletting Claws (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> 🏹 **Salt Wounds (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |           **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------:|\n> | **📏 Ranged 10**          | **🎯 Three creatures** |\n>\n> **Special:** Each target must be at less than full [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 corruption damage\n> - **12-16:** 2 corruption damage\n> - **17+:** 3 corruption damage\n\n> ⭐️ **Lethe**\n>\n> While the ruinant is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the ruinant can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/1st-echelon/statblock/ruinant.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  }
+}

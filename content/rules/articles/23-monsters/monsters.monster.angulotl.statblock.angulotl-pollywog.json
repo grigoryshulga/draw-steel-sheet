@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.angulotl.statblock.angulotl-pollywog",
+  "title": "Ангулотл-головастик",
+  "chapter": "23. Бестиарий",
+  "group": "Ангулотлы",
+  "path": "Monsters/monster/angulotl/statblock/angulotl-pollywog.md",
+  "originalId": "mcdm.monsters.v1/monster.angulotl.statblock/angulotl-pollywog",
+  "originalName": "Angulotl Pollywog",
+  "originalDescription": "|         Angulotl         |              -              |     Level 1      |            Minion Harrier             |  EV 3 for 4 minions  |\n|:------------------------:|:---------------------------:|:----------------:|:-------------------------------------:|:--------------------:|\n|      **1S**<br>Size      |       **6**<br>Speed        | **4**<br>Stamina |          **0**<br>Stability           | **1**<br>Free Strike |\n| **Poison 2**<br>Immunity | **Climb, swim**<br>Movement |        -         | **+2 bonus to speed**<br>With Captain |  **-**<br>Weakness   |\n|     **+0**<br>Might      |      **+2**<br>Agility      | **-2**<br>Reason |          **-2**<br>Intuition          |  **+0**<br>Presence  |\n\n> 🗡 **Nip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon**  |                         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|----------------------------------------:|\n> | **📏 Melee 1**             |          **🎯 One creature per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 poison damage\n> - **12-16:** 2 poison damage; the pollywog can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **17+:** 3 poison damage; the pollywog [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n\n> ⭐️ **Quick Snack**\n>\n> Any angulotl who can target the pollywog with a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) can eat them as a maneuver. The angulotl regains 4 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and is wet until the end of their next turn.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/angulotl/statblock/angulotl-pollywog.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "angulotl",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for 4 minions",
+    "size": "1S",
+    "keywords": [
+      "Ангулотл"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.angulotl.statblock.angulotl-pollywog"
+    }
+  ]
+}

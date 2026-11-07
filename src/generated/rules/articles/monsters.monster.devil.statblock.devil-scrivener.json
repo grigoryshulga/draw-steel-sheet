@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.devil.statblock.devil-scrivener",
+      "title": "Дьявол-писец",
+      "chapter": "23. Бестиарий",
+      "group": "Дьяволы",
+      "path": "Monsters/monster/devil/statblock/devil-scrivener.md",
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-scrivener",
+      "originalName": "Devil Scrivener",
+      "originalDescription": "|    Devil, Infernal     |          -          |     Level 5      |            Minion Harrier             | EV 7 for four minions |\n|:----------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **9**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+3**<br>Agility  | **+1**<br>Reason |          **+1**<br>Intuition          |  **+2**<br>Presence   |\n\n> 🗡 **Litigation (Signature Ability)**\n>\n> | **Charge, Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 5 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 6 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n>\n> **Effect:** The scrivener can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the scrivener's true name, the scrivener loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-scrivener.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.devil.statblock.devil-scrivener"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.devil.devil-malice",
+          "title": "Раздор дьяволов"
+        },
+        {
+          "id": "monsters.monster.group.devil",
+          "title": "Дьяволы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.devil.statblock.devil-scrivener",
+      "kind": "monster",
+      "name": "Дьявол-писец",
+      "markdown": "| Дьявол, Адский |         -         |     Уровень 5      |          Миньон, Налётчик          | Боевая ценность 7 за четырёх миньонов |\n|:---------------------:|:-----------------:|:----------------:|:----------------------------------:|:------------------------------------------:|\n|     **1M**<br>Размер     |  **6**<br>Скорость   | **9**<br>Выносливость |          **0**<br>Устойчивость           | **3**<br>Свободный удар  |\n| **Огонь 5**<br>Иммунитет | **Полёт**<br>Движение |        -         | **+3 к Скорости**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+0**<br>Мощь     |  **+3**<br>Ловкость  | **+1**<br>Разум |          **+1**<br>Интуиция          |  **+2**<br>Присутствие   |\n\n> 🗡 **Тяжба (Знаковая способность)**\n>\n> | **Рывок, Магия, Ближний бой, Удар** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**                | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона порчей\n> - **12-16:** 5 урона порчей; состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n> - **17+:** 6 урона порчей; состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ)\n>\n> **Эффект:** Писарь может [смещаться](#/catalog/glossary#term-glossary.shift) на 1 клетку.\n\n> ⭐️ **Истинное имя**\n>\n> Если существо в пределах 10 клеток произносит истинное имя дьявола-писца, тот теряет иммунитет к огню и все не наносящие урон эффекты своей [знаковой способности](#/catalog/glossary#term-glossary.signature-ability) до конца столкновения.\n",
+      "source": {
+        "articleId": "monsters.monster.devil.statblock.devil-scrivener",
+        "path": "Monsters/monster/devil/statblock/devil-scrivener.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-scrivener",
+      "originalName": "Devil Scrivener",
+      "originalDescription": "|    Devil, Infernal     |          -          |     Level 5      |            Minion Harrier             | EV 7 for four minions |\n|:----------------------:|:-------------------:|:----------------:|:-------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |   **6**<br>Speed    | **9**<br>Stamina |          **0**<br>Stability           | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **Fly**<br>Movement |        -         | **+3 bonus to speed**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     |  **+3**<br>Agility  | **+1**<br>Reason |          **+1**<br>Intuition          |  **+2**<br>Presence   |\n\n> 🗡 **Litigation (Signature Ability)**\n>\n> | **Charge, Magic, Melee, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                   | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 corruption damage\n> - **12-16:** 5 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **17+:** 6 corruption damage; [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n>\n> **Effect:** The scrivener can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the scrivener's true name, the scrivener loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/devil/statblock/devil-scrivener.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "devil",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "7 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Дьявол",
+          "Адский"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.role-advancement.ambusher",
+  "title": "Способности развития роли Засадника",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/role-advancement/ambusher.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/ambusher",
+  "originalName": "Ambusher Abilities",
+  "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Go for the Jugular (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage; M < WEAK [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; M < AVERAGE [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; M < STRONG [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the target is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or the retainer had an edge on the power roll, the retainer gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> **Level 7 Role Advancement Ability**\n\n> ⚔️ **Hamstring Slice (Encounter)**\n>\n> | **Melee, Ranged, Strike, Weapon** |     **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage; M < WEAK [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT)\n> - **12-16:** 10 damage; M < AVERAGE [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 15 damage; M < STRONG [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and the target can't used triggered actions ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** The retainer and their mentor can each move up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ⚔️ **Hold 'Em Down (Encounter)**\n>\n> | **Melee, Ranged, Strike, Weapon** |     **[Main Action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; a size 1 or smaller target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; a size 1 or smaller target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; a size 1 or smaller target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer gains 2 [surges](scc.v1:mcdm.heroes.v1/rule.resource/surge) when any creature makes a strike against a target [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) this way.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/role-advancement/ambusher.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.role-advancement.ambusher"
+    }
+  ]
+}

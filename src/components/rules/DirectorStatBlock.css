@@ -1,0 +1,70 @@
+.director-mini-sheet {
+  container: director-mini / inline-size;
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: var(--surface-2);
+  overflow-wrap: anywhere;
+  font-size: var(--text-body);
+}
+.director-mini-identity { padding: var(--space-6) var(--space-7); border-bottom: 1px solid var(--line); }
+.director-mini-heading { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-4) var(--space-6); margin-bottom: var(--space-5); }
+.director-mini-title { flex: 1 1 200px; min-width: 0; }
+.director-mini-title .rule-entity-name { margin: 0; font-size: var(--text-xl); line-height: var(--leading-snug); }
+.director-mini-original { display: block; margin-top: var(--space-2); color: var(--muted); font-size: var(--text-sm); line-height: var(--leading-snug); }
+.director-mini-type { flex: 0 1 auto; padding: var(--space-2) var(--space-4); border-radius: var(--radius-xs); border: 1px solid var(--line); color: var(--accent); font-size: var(--text-sm); font-weight: 600; }
+.director-mini-rank { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); }
+.director-mini-level { color: var(--accent); font-weight: 600; }
+.director-mini-ev {
+  margin-left: auto;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  background: var(--surface);
+  font-weight: 600;
+}
+.director-mini-keywords { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-sm); }
+.rule-text .director-mini-sheet dl { margin: 0; }
+.director-mini-combat { display: grid; grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr)); gap: var(--space-2); padding: var(--space-6); }
+.director-mini-stat { min-width: 0; padding: var(--space-5) var(--space-3); text-align: center; }
+.director-mini-stat dt { display: flex; align-items: center; justify-content: center; gap: var(--space-2); color: var(--muted); font-size: var(--text-sm); }
+.rule-text .director-mini-sheet dd { margin: 0; }
+.director-mini-stat dd { font-size: var(--text-2xl); line-height: var(--leading-tight); font-weight: 600; color: var(--fg-bright); }
+.rule-text .director-mini-stat dd { margin-top: var(--space-3); }
+.director-mini-stat.is-primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--ability-main) 35%, var(--line));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--ability-main) 8%, transparent);
+}
+.director-mini-stat.is-primary dt { color: var(--fg); }
+.director-mini-stat.is-primary dd { font-size: calc(var(--text-2xl) + var(--space-4)); }
+.director-mini-characteristics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.director-mini-characteristics > div { min-width: 0; text-align: center; padding-block: var(--space-3); border-right: 1px solid var(--line); }
+.director-mini-characteristics > div:last-child { border: 0; }
+.director-mini-characteristics dt { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--muted); }
+.director-mini-characteristics .characteristic-glyph { color: var(--fg-bright); font-size: var(--text-lg); }
+.director-mini-characteristics dd { font-size: var(--text-xl); font-weight: 600; line-height: var(--leading-normal); }
+.director-mini-details { display: grid; gap: var(--space-4); padding: var(--space-6) var(--space-7); border-top: 1px solid var(--line); }
+.director-mini-details > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-5); }
+.director-mini-details dt { color: var(--muted); font-size: var(--text-sm); }
+.director-mini-details [data-weakness="true"] dt { color: var(--red); }
+.director-mini-details dd { flex: 1 1 auto; }
+.director-mini-sheet strong { font-weight: inherit; }
+@container director-mini (max-width: 460px) {
+  .director-mini-combat { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .director-mini-stat.is-primary { grid-row: span 2; }
+}
+@container director-mini (max-width: 360px) {
+  .director-mini-characteristic-label {
+    position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
+}

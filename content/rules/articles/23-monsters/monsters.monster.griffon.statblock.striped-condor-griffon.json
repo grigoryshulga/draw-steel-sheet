@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.griffon.statblock.striped-condor-griffon",
+  "title": "Полосатый грифон-кондор",
+  "chapter": "23. Бестиарий",
+  "group": "Грифоны",
+  "path": "Monsters/monster/griffon/statblock/striped-condor-griffon.md",
+  "originalId": "mcdm.monsters.v1/monster.griffon.statblock/striped-condor-griffon",
+  "originalName": "Striped Condor Griffon",
+  "originalDescription": "|  Beast, Griffon   |          -          |      Level 2       |      Elite Brute      |        EV 16         |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:--------------------:|\n|   **3**<br>Size   |   **7**<br>Speed    | **100**<br>Stamina |  **3**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  |  **-1**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Violent Thrashing (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 11 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares; the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares\n> - **17+:** 14 damage; one target is [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 2 squares and knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone); the other target is vertical [pushed](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 3 squares\n\n> 👤 **Bound Ahead (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 Self** |     **🎯 Self** |\n>\n> **Effect:** The griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed along the ground in straight line. Each enemy who comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the griffon during this shift can choose to either take 5 damage or be knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> 🔳 **Power Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 5 x 3 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2; M < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; M < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; M < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Circle and Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** The griffon flies directly above a creature within distance.\n>\n> **Effect:** The griffon dives down onto the target, taking no damage from falling if they reach the ground. The target takes 3 damage for each square the griffon dove, and if they have A < 2, they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.\n\n> ⭐️ **Banded Predator**\n>\n> The griffon can attempt hide even while observed. Additionally, while no enemy has line of effect to them, the griffon can attempt to hide at the end of their turn.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/griffon/statblock/striped-condor-griffon.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "griffon",
+    "recordType": "statblock",
+    "level": 2,
+    "ev": "16",
+    "size": "3",
+    "keywords": [
+      "Зверь",
+      "Грифон"
+    ],
+    "role": "Громила",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.griffon.statblock.striped-condor-griffon"
+    }
+  ]
+}

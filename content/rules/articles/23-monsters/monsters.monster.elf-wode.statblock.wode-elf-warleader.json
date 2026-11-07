@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.elf-wode.statblock.wode-elf-warleader",
+  "title": "Лесной эльф-военный предводитель",
+  "chapter": "23. Бестиарий",
+  "group": "Лесные эльфы",
+  "path": "Monsters/monster/elf-wode/statblock/wode-elf-warleader.md",
+  "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-warleader",
+  "originalName": "Wode Elf Warleader",
+  "originalDescription": "| Fey, Humanoid, Wode Elf |            -             |      Level 3       |        Leader         |        EV 20         |\n|:-----------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |      **7**<br>Speed      | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n|    **-**<br>Immunity    | **Teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **+2**<br>Might     |    **+3**<br>Agility     |  **+2**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Wodeblade (Signature Ability)**\n>\n> | **Magic, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                   | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 damage; M < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 12 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 15 damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** The warleader can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to 3 squares between each strike.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by this ability takes an extra 3 damage.\n\n> ❇️ **Fairness Is a Human Concept (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**        |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 10 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) target can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), then each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares. A target who has cover or concealment at the end of this shift can attempt to hide at the end of the warleader's turn.\n\n> ❗️ **Wode Sickness**\n>\n> | **Ranged**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|---------------------:|\n> | **📏 Ranged 10** |     **🎯 One enemy** |\n>\n> **Trigger:** An ally ends their turn.\n>\n> **Effect:** The target must not have taken their turn this round. The target takes their turn immediately, and if they have P < 2 they are [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) and take a bane on strikes until the end of their turn.\n\n> ⭐️ **End Effect**\n>\n> At the end of each of their turns, the warleader can take 5 damage to end one effect on them that can be ended by a saving throw. This damage can't be reduced in any way.\n\n> ⭐️ **Into the Green**\n>\n> The warleader can attempt to hide at the end of each of their turns.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the warleader that would take a bane from cover or concealment have a double bane instead.\n\n> ☠️ **You Will All Witness my Blade (Villain Action 1)**\n>\n> | **Area**       |                         **-** |\n> |----------------|------------------------------:|\n> | **📏 5 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The warleader uses Wodeblade against each target and gains an edge on the power roll.\n\n> ☠️ **Suppressing Volley (Villain Action 2)**\n>\n> | **Area**       |                        **-** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** The warleader can use Wodeblade. Each target can then make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Is It Now or Is It Then? (Villain Action 3)**\n>\n> | **Area**       |                                 **-** |\n> |----------------|--------------------------------------:|\n> | **📏 5 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target is invisible until the start of the next round. The warleader then uses Wodeblade.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-wode/statblock/wode-elf-warleader.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-wode",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "20",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Лесной эльф"
+    ],
+    "organization": "Лидер"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.elf-wode.statblock.wode-elf-warleader"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "monsters.dynamic-terrain.mechanisms.pressure-plate",
+  "title": "Нажимная плита",
+  "chapter": "25. Динамическая местность",
+  "group": "Механизмы",
+  "path": "Monsters/dynamic-terrain/mechanisms/pressure-plate.md",
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.mechanisms/pressure-plate",
+  "originalName": "Pressure Plate",
+  "originalDescription": "This mechanism acts as a trigger for another linked mechanism, and is skillfully hidden from view in the floor.\n\n- **EV:** 2\n- **Stamina:** -\n- **Size:** Any area\n- **Typical Space:** One square, up to a 4 x 4-square area\n- **Link:** A pressure plate is linked to another mechanism that it activates when triggered.\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a pressure plate can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the pressure plate.\n> - **12-16:** The pressure plate is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The pressure plate is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> The pressure plate is calibrated to be triggered by creatures or objects of a particular size. The pressure plate triggers when a creature or object of the appropriate size enters its area.\n>\n> **Effect:** The linked mechanism is activated. A pressure plate automatically resets and can be triggered repeatedly.\n\n> ⭐️ **Upgrade**\n>\n> **Tripwire (−1 EV)** The pressure plate is a tripwire, which can trigger once and must be manually reset. A concealed tripwire can be discovered with an **easy Intuition test**.\n\n> ⭐️ **Hidden**\n>\n> The pressure plate is hidden until triggered or detected.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/mechanisms/pressure-plate.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "mechanisms",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "2",
+    "size": "Любая область",
+    "role": "Поддержка",
+    "organization": "Спусковой механизм"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "dynamic-terrain.mechanisms.pressure-plate"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.retainer.advancement-features.orc-charger",
+  "title": "Способности развития орка-налётчика",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/advancement-features/orc-charger.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/orc-charger",
+  "originalName": "Orc Charger Advancement Features",
+  "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 👤 **Blood Oath (Encounter)**\n>\n> | **Self**    | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of the charger's next turn, the charger and their mentor each have [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) equal to their Recovery value and a +2 bonus to speed, and they each gain an edge on reactive tests.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 👤 **Mow 'Em Down (Encounter)**\n>\n> | **-**                  | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; See below** |     **🎯 Self** |\n>\n> **Effect:** The charger moves in a straight line up to their speed. During this move, they ignore enemy [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), and they can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against any creature they move [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Vein Burst (Encounter)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 2 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 12 psychic damage\n> - **12-16:** 18 psychic damage\n> - **17+:** 24 psychic damage\n>\n> **Effect:** The charger takes psychic damage equal to the number of enemies affected. This damage can't be reducetd in any way.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/orc-charger.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.advancement-features.orc-charger"
+    }
+  ]
+}

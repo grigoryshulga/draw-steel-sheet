@@ -1,0 +1,20 @@
+{
+  "id": "monster.retainer.advancement-features.human-warrior",
+  "kind": "monster-feature",
+  "name": "Человек-воин: особенности развития",
+  "markdown": "> **Способность развития помощника 4-го уровня**\n\n> ❗️ **Извините, босс (Столкновение)**\n>\n> | **Ближний**      |          **[Триггер](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|------------------------------:|\n> | **📏 Ближний 1** | **🎯 Наставник воина** |\n>\n> **Триггер:** Наставник воина становится целью удара, находясь в пределах дистанции.\n>\n> **Эффект:** Воин и Наставник меняются местами. Новая цель удара — воин, а сам удар совершается с двойной помехой.\n\n> **Способность развития помощника 7-го уровня**\n\n> 🗡 **Защитный бой (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** |     **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 11 урона\n> - **17+:** 16 урона\n>\n> **Эффект:** До начала следующего хода воина броски способностей против воина или любого его [смежного](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) союзника совершаются с двойной помехой.\n\n> **Способность развития помощника 10-го уровня**\n\n> ❇️ **Стальной вихрь (Столкновение)**\n>\n> | **Область, Рывок, Оружие** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Взрыв 1**            | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 12 урона\n> - **12-16:** 18 урона\n> - **17+:** 24 урона\n",
+  "source": {
+    "articleId": "monsters.monster.retainer.advancement-features.human-warrior",
+    "path": "Monsters/monster/retainer/advancement-features/human-warrior.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/human-warrior",
+  "originalName": "Human Warrior Advancement Features",
+  "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> ❗️ **'Scuse Me, Boss (Encounter)**\n>\n> | **Melee**      |          **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|------------------------------:|\n> | **📏 Melee 1** |   **🎯 The warrior's mentor** |\n>\n> **Trigger:** The warrior's mentor is targeted by a strike while within distance.\n>\n> **Effect:** The warrior and the mentor switch places. The warrior is the strike's new target and the strike has a double bane.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 🗡 **Defensive Fighting (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 11 damage\n> - **17+:** 16 damage\n>\n> **Effect:** Until the start of the warrior's next turn, ability rolls against the warrior or any ally [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the warrior have a double bane.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Whirlwind of Steel (Encounter)**\n>\n> | **Area, Charge, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 1 burst**           | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 12 damage\n> - **12-16:** 18 damage\n> - **17+:** 24 damage",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/human-warrior.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "monster.hobgoblin.statblock.hobgoblin-recruit",
+  "kind": "monster",
+  "name": "Хобгоблин-новобранец",
+  "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |         -         |     Уровень 4      |              Миньон Громила               | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|            **1M**<br>Размер             |  **5**<br>Скорость   | **9**<br>Выносливость |           **0**<br>Устойчивость            | **3**<br>Свободный удар  |\n|        **Огонь 2**<br>Иммунитет         | **-**<br>Движение |        -         | **Бонус +4 к Выносливости**<br>С капитаном |   **-**<br>Уязвимость   |\n|            **+3**<br>Мощь            | **+2**<br>Ловкость | **0**<br>Разум  |           **0**<br>Интуиция            |  **+1**<br>Присутствие   |\n\n> 🗡 **Выпад мечом (Знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**            | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона; цель получает состояние [Захват](scc.v1:mcdm.heroes.v1/condition/grabbed) или [сбита с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Тактическое расположение**\n>\n> Каждый союзник, не являющийся [миньоном](scc.v1:mcdm.monsters.v1/rule.organization/minion), наносит на 1 урон больше за каждого новобранца, [смежного](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с ним.\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) новобранца снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с новобранцем, получает 2 урона огнём.\n",
+  "source": {
+    "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-recruit",
+    "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-recruit.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-recruit",
+  "originalName": "Hobgoblin Recruit",
+  "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |         -         |     Level 4      |              Minion Brute               | EV 6 for four minions |\n|:-------------------------------------:|:-----------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|            **1M**<br>Size             |  **5**<br>Speed   | **9**<br>Stamina |           **0**<br>Stability            | **3**<br>Free Strike  |\n|        **Fire 2**<br>Immunity         | **-**<br>Movement |        -         | **+4 bonus to Stamina**<br>With Captain |   **-**<br>Weakness   |\n|            **+3**<br>Might            | **+2**<br>Agility | **0**<br>Reason  |           **0**<br>Intuition            |  **+1**<br>Presence   |\n\n> 🗡 **Sword Lunge (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) or [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ⭐️ **Tactical Positioning**\n>\n> Any non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) ally deals 1 extra damage for each recruit [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the recruit is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the recruit takes 2 fire damage.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/hobgoblin/statblock/hobgoblin-recruit.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "hobgoblin",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гоблин",
+      "Хобгоблин",
+      "Гуманоид",
+      "Адский"
+    ],
+    "role": "Громила",
+    "organization": "Миньон"
+  }
+}

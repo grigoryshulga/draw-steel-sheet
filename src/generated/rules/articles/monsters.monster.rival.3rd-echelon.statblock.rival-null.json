@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.rival.3rd-echelon.statblock.rival-null",
+      "title": "Соперник-нуль",
+      "chapter": "23. Бестиарий",
+      "group": "Соперники",
+      "path": "Monsters/monster/rival/3rd-echelon/statblock/rival-null.md",
+      "originalId": "mcdm.monsters.v1/monster.rival.3rd-echelon.statblock/rival-null",
+      "originalName": "Rival Null",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 8       |     Elite Harrier     |        EV 40         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **200**<br>Stamina |  **3**<br>Stability   | **8**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+4**<br>Agility |  **+3**<br>Reason  |  **+4**<br>Intuition  |  **0**<br>Presence   |\n\n>  🗡 **Inertial Flow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares; A < 2 8 damage\n> - **12-16:** 17 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares; A < 3 13 damage\n> - **17+:** 21 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares; A < 4 17 damage\n\n> 🗡 **Stun (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Psionic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 17 damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 21 damage; R < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Force Dampener**\n>\n> The first time each round that the null is targeted by a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), it takes a bane and the null halves any damage from it.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the null chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the null and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/3rd-echelon/statblock/rival-null.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.rival.3rd-echelon.statblock.rival-null"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.rival",
+          "title": "Соперники"
+        },
+        {
+          "id": "monsters.monster.rival.rival-malice-level-1-malice-features",
+          "title": "Раздор соперников (особенности Раздора 1-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.rival.3rd-echelon.statblock.rival-null",
+      "kind": "monster",
+      "name": "Соперник-нуль",
+      "markdown": "| Гуманоид, Соперник |         -         |      Уровень 8      |      Элита, Налётчик      |        Боевая ценность 40         |\n|:-------------------:|:-----------------:|:------------------:|:------------------------:|:--------------------:|\n|  **1M**<br>Размер   |  **7**<br>Скорость | **200**<br>Выносливость |  **3**<br>Устойчивость   | **8**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость |\n|  **+2**<br>Мощь  | **+4**<br>Ловкость |  **+3**<br>Разум  |  **+4**<br>Интуиция  |  **0**<br>Присутствие   |\n\n> 🗡 **Инерционный поток ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|--------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона; нуль [смещается](#/catalog/glossary#term-glossary.shift) не более чем на 3 клетки; Л < 2 — 8 урона\n> - **12-16:** 17 урона; нуль [смещается](#/catalog/glossary#term-glossary.shift) не более чем на 4 клетки; Л < 3 — 13 урона\n> - **17+:** 21 урона; нуль [смещается](#/catalog/glossary#term-glossary.shift) не более чем на 5 клеток; Л < 4 — 17 урона\n\n> 🗡 **Оглушение (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Ближний бой, Псионика, Удар, Оружие** |                  **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                    | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 12 урона; Р < 2 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12-16:** 17 урона; Р < 3 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 21 урон; Р < 4 [Оглушение](#/catalog/glossary#term-glossary.dazed) и [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n\n> ⭐️ **Гаситель силы**\n>\n> В первый раз за каждый раунд, когда нуль становится целью [атаки](#/catalog/glossary#term-glossary.strike), эта атака получает помеху, а нуль уменьшает весь урон от неё вдвое.\n\n> ⭐️ **Соперничество**\n>\n> В начале столкновения нуль выбирает одно существо в пределах своей [линии воздействия](#/catalog/glossary#term-glossary.line-of-effect). И нуль, и это существо могут добавлять результат броска d3 к броскам силы, которые они совершают друг против друга.\n",
+      "source": {
+        "articleId": "monsters.monster.rival.3rd-echelon.statblock.rival-null",
+        "path": "Monsters/monster/rival/3rd-echelon/statblock/rival-null.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival.3rd-echelon.statblock/rival-null",
+      "originalName": "Rival Null",
+      "originalDescription": "|  Humanoid, Rival  |         -         |      Level 8       |     Elite Harrier     |        EV 40         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **200**<br>Stamina |  **3**<br>Stability   | **8**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+4**<br>Agility |  **+3**<br>Reason  |  **+4**<br>Intuition  |  **0**<br>Presence   |\n\n>  🗡 **Inertial Flow ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares; A < 2 8 damage\n> - **12-16:** 17 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares; A < 3 13 damage\n> - **17+:** 21 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares; A < 4 17 damage\n\n> 🗡 **Stun (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Psionic, Strike, Weapon** |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|------------------------------:|\n> | **📏 Melee 1**                     | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 12 damage; R < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 17 damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 21 damage; R < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Force Dampener**\n>\n> The first time each round that the null is targeted by a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), it takes a bane and the null halves any damage from it.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the null chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the null and the creature can add a d3 roll to power rolls they make against each other.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/3rd-echelon/statblock/rival-null.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "statblock",
+        "level": 8,
+        "ev": "40",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Соперник"
+        ],
+        "role": "Налётчик",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.ashen-hoarder.ashen-hoarder-malice",
+      "title": "Раздор Пепельного накопителя",
+      "chapter": "23. Бестиарий",
+      "group": "Пепельный накопитель",
+      "path": "Monsters/monster/ashen-hoarder/ashen-hoarder-malice.md",
+      "originalId": "mcdm.monsters.v1/monster.ashen-hoarder/ashen-hoarder-malice",
+      "originalName": "Ashen Hoarder Malice",
+      "originalDescription": "At the start of an ashen hoarder's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Relentless Strikes (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against two targets.\n\n> 🔳 **Blade Wall (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder summons a 10 [wall](scc.v1:mcdm.heroes.v1/rule.combat/wall) of bones and blades into unoccupied squares within 5 squares of them. Each square of the wall has 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). An enemy who comes adjacent to the wall for the first time in a round or starts their turn there takes 3 damage.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Bone Storm (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder launches bone lances into the air, raining them down on enemies and impaling those unlucky enough to be on the receiving end. Each enemy within 20 squares of the ashen hoarder makes an **[Agility](scc.v1:mcdm.heroes.v1/rule.character/agility) test**.\n>\n> - **≤11:** 14 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) and [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n> - **17+:** 6 damage",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ashen-hoarder/ashen-hoarder-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ashen-hoarder",
+        "recordType": "featureblock"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.ashen-hoarder.ashen-hoarder-malice"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.ashen-hoarder",
+          "title": "Пепельный накопитель"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.ashen-hoarder.ashen-hoarder-malice",
+      "kind": "monster-feature",
+      "name": "Раздор Пепельного накопителя",
+      "markdown": "В начале хода Пепельного накопителя вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 👤 **Неумолимые удары (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Пепельный накопитель перемещается на расстояние до своей Скорости и может сделать [свободный удар](#/catalog/glossary#term-glossary.free-strike) по двум целям.\n\n> 🔳 **Стена клинков (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Пепельный накопитель создаёт [стену](#/catalog/glossary#term-glossary.wall) длиной 10 из костей и клинков в незанятых клетках в пределах 5 клеток от себя. У каждой клетки стены 5 [Выносливости](#/catalog/glossary#term-glossary.stamina). Каждый враг, впервые за раунд оказывающийся рядом со стеной или начинающий там ход, получает 3 урона.\n\n> ☠️ **Действие одиночки (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В свой ход Пепельный накопитель совершает дополнительное основное действие. Он может использовать эту особенность, даже если находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed).\n\n> 🔳 **Костяная буря (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Пепельный накопитель запускает в воздух костяные пики, которые обрушиваются на врагов и пронзают тех, кому не повезло оказаться под ними. Каждый враг в пределах 20 клеток от Пепельного накопителя проходит **[тест Ловкости](#/catalog/glossary#term-glossary.agility)**.\n>\n> - **≤11:** 14 урона; [Опутанность](#/catalog/glossary#term-glossary.restrained) и [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12-16:** 11 урона; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) ([КсХ](#/catalog/glossary#term-glossary.eot))\n> - **17+:** 6 урона\n",
+      "source": {
+        "articleId": "monsters.monster.ashen-hoarder.ashen-hoarder-malice",
+        "path": "Monsters/monster/ashen-hoarder/ashen-hoarder-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.ashen-hoarder/ashen-hoarder-malice",
+      "originalName": "Ashen Hoarder Malice",
+      "originalDescription": "At the start of an ashen hoarder's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Relentless Strikes (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against two targets.\n\n> 🔳 **Blade Wall (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder summons a 10 [wall](scc.v1:mcdm.heroes.v1/rule.combat/wall) of bones and blades into unoccupied squares within 5 squares of them. Each square of the wall has 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). An enemy who comes adjacent to the wall for the first time in a round or starts their turn there takes 3 damage.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🔳 **Bone Storm (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The ashen hoarder launches bone lances into the air, raining them down on enemies and impaling those unlucky enough to be on the receiving end. Each enemy within 20 squares of the ashen hoarder makes an **[Agility](scc.v1:mcdm.heroes.v1/rule.character/agility) test**.\n>\n> - **≤11:** 14 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) and [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 11 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([EoT](scc.v1:mcdm.heroes.v1/rule.combat/end-of-turn))\n> - **17+:** 6 damage",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/ashen-hoarder/ashen-hoarder-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "ashen-hoarder",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

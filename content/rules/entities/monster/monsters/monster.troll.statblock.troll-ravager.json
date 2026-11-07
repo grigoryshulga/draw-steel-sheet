@@ -1,0 +1,29 @@
+{
+  "id": "monster.troll.statblock.troll-ravager",
+  "kind": "monster",
+  "name": "Тролль-разоритель",
+  "markdown": "| Великан, Тролль |         -         |    **Уровень 9**     | **Миньон, Налётчик** | **Боевая ценность 11 за четырёх миньонов** |\n|:------------------------:|:-----------------:|:-------------------:|:-------------------:|:-----------------------------:|\n| **2**<br>Размер           | **8**<br>Скорость | **15**<br>Выносливость | **2**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет         | **-**<br>Движение |          -          | **Бонус +2 к Скорости**<br>С капитаном | **Кислота 5, огонь **<br>Уязвимость |\n| **+4**<br>Мощь             | **+2**<br>Ловкость | **0**<br>Разум       | **+1**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Укус и бегство ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 1**           | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 4 урона; налётчик может [смещаться](scc.v1:mcdm.heroes.v1/movement/shifting) на 1 клетку\n> - **12-16:** 6 урона; налётчик [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 2 клеток\n> - **17+:** 8 урона; налётчик [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 3 клеток\n>\n> **Эффект:** [отряда](scc.v1:mcdm.monsters.v1/rule.monster/squad) троллей-разорителей восстанавливает запас [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) на величину [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina), равную половине нанесённого урона.\n\n> ⭐️ **Коллективный голод**\n>\n> Тролль-разоритель умирает, только если запас [отряда](scc.v1:mcdm.monsters.v1/rule.monster/squad) по [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) снижается до 0 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) из-за урона кислотой или огнём; если он заканчивает свой ход с 0 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) в запасе его [отряда](scc.v1:mcdm.monsters.v1/rule.monster/squad) по [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina); либо если он получает урон кислотой или огнём, когда запас [отряда](scc.v1:mcdm.monsters.v1/rule.monster/squad) по [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) равен 0 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n",
+  "source": {
+    "articleId": "monsters.monster.troll.statblock.troll-ravager",
+    "path": "Monsters/monster/troll/statblock/troll-ravager.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.troll.statblock/troll-ravager",
+  "originalName": "Troll Ravager",
+  "originalDescription": "|   Giant, Troll    |         -         |      Level 9      |            Minion Harrier             |     EV 11 for four minions      |\n|:-----------------:|:-----------------:|:-----------------:|:-------------------------------------:|:-------------------------------:|\n|   **2**<br>Size   |  **8**<br>Speed   | **15**<br>Stamina |          **2**<br>Stability           |      **4**<br>Free Strike       |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **+2 bonus to speed**<br>With Captain |  **Acid 5, fire **<br>Weakness  |\n|  **+4**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |          **+1**<br>Intuition          |       **+1**<br>Presence        |\n\n> 🗡 **Dine and Dash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 4 damage; the ravager can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 6 damage; the ravager [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 8 damage; the ravager [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** The ravager's [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to half the damage dealt.\n\n> ⭐️ **Group Appetite**\n>\n> The ravager dies only if their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by acid or fire damage, if they end their turn with 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) in their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool, or if they take acid or fire damage while their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad)'s [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) pool is at 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/troll/statblock/troll-ravager.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "troll",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "11 for four minions",
+    "size": "2",
+    "keywords": [
+      "Великан",
+      "Тролль"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  }
+}

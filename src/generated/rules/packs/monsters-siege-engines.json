@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.arrow-launcher",
+      "title": "Стреломёт",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/arrow-launcher.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/arrow-launcher",
+      "originalName": "Arrow Launcher",
+      "originalDescription": "A small wooden cart uses alchemical rockets to launch up to a hundred arrows at a time across a wide area.\n\n- **EV:** 8\n- **Stamina:** 30\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an arrow launcher can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arrow Storm** ability.\n> - **12-16:** The arrow launcher is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The arrow launcher is deactivated and can't be used.\n\n> 🔳 **Arrow Storm**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher is reloaded, allowing **Arrow Storm** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arrow Storm** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Flaming Arrows (+1 EV) Arrow Storm** deals fire damage, and can ignite flammable objects in its area.\n>\n> **Screamers (+3 EV)** The arrows make a high-pitched screaming noise as they are fired and descend onto their targets. The **Screamers** ability replaces **Arrow Storm**.\n\n> 🔳 **Screamers**\n>\n> | **Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |--------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**  | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 8 damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 11 damage; R < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/arrow-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.arrow-launcher"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.boiling-oil-cauldron",
+      "title": "Котёл кипящего масла",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/boiling-oil-cauldron.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron",
+      "originalName": "Boiling Oil Cauldron",
+      "originalDescription": "A large cauldron of boiling oil stands ready to be poured onto enemies.\n\n- **EV:** 10\n- **Stamina:** 50\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a boiling oil cauldron can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Boiling Oil** ability.\n> - **12-16:** The boiling oil cauldron is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The boiling oil cauldron is deactivated and can't be used.\n\n> 🔳 **Boiling Oil**\n>\n> | **Area, Weapon**       |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |------------------------|--------------------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 fire damage; M < 1 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 fire damage; M < 2 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 fire damage; M < 3 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the boiling oil is poured down on targets from above, it has [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and gains an edge on the power roll. A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round. This ability can't be used again until the boiling oil cauldron is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The boiling oil cauldron is reloaded, allowing **Boiling Oil** to be used again. This action can be used only once per round.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/boiling-oil-cauldron.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "1L",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.boiling-oil-cauldron"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.catapult",
+      "title": "Катапульта",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/catapult.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/catapult",
+      "originalName": "Catapult",
+      "originalDescription": "This massive counterweighted engine hurls a heavy projectile for a devastating assault.\n\n- **EV:** 10\n- **Stamina:** 50\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a catapult can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arcing Shot** ability.\n> - **12-16:** The catapult is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The catapult is deactivated and can't be used.\n\n> 🔳 **Arcing Shot**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 3 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage; A < 0 push 1\n> - **17+:** 12 damage; A < 1 push 2\n>\n> **Effect:** Line of effect for this ability is an arc that can be traced over obstacles between the catapult and the target area. This ability can't be used again until the catapult is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|-------------------------------------:|\n> | **📏 -** |                             **🎯 -** |\n>\n> **Effect:** The catapult is reloaded, allowing **Arcing Shot** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arcing Shot** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The catapult and the creature using this action move together up to 2 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Air Assault (+2 EV)** The side fielding the catapult has trained their forces to safely use the siege engine to launch them across the battlefield. As an adjacent creature main action, the catapult can be used to vertical push 10 any ally of size 1L or less. If the ally lands in an unoccupied space, they take no damage.\n>\n> **Flammable (+2 EV) Arcing Shot** deals fire damage, and the area of that ability is on fire until the end of the encounter. Any creature who enters the area for the first time in a round or starts their turn there takes 2 fire damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/catapult.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.catapult"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.exploding-mill-wheel",
+      "title": "Взрывающееся мельничное колесо",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/exploding-mill-wheel.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/exploding-mill-wheel",
+      "originalName": "Exploding Mill Wheel",
+      "originalDescription": "A massive wooden wheel is loaded with explosives and rolled toward enemy forces or fortifications, ready to explode.\n\n- **EV:** 10\n- **Stamina:** 25\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an exploding mill wheel that isn't rolling can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Roll the Wheel** ability.\n> - **12-16:** The exploding mill wheel is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The exploding mill wheel is deactivated and can't be used.\n>\n> Once the wheel is rolling, it can't be deactivated. However, it can be exploded early by destroying it or blocking its movement with a suitably large creature or object.\n\n> 🌀 **Roll the Wheel**\n>\n> | **Area**       |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------|--------------------------------------------:|\n> | **📏 Special** | **🎯 Each creature and object in the area** |\n>\n> **Effect:** When this ability is used and at the start of every turn thereafter, the exploding mill wheel rolls, moving 2 squares in a straight line. Each creature and object of size 2 or smaller in the area defined by the wheel's movement is targeted by the following power roll. A target [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way is moved to either side of the wheel, as the Director determines.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; push 1\n> - **12-16:** 9 damage; push 2\n> - **17+:** 12 damage; push 3\n>\n> If the wheel enters the space of any creature or object of size 3 or larger, or if it is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), its movement stops and it explodes. Each creature and object in a 5 burst centered on the wheel is targeted by the following power roll.\n>\n> - **≤11:** 5 damage; push 1; M < 0 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; push 2; M < 1 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; push 3; M < 2 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Piloted (+4 EV)** The wheel has been fitted with a control mechanism and a pilot's seat for a creature of size 1M or smaller. As a move action, the pilot can turn the wheel in any direction while it is moving. As a main action, the pilot can leap out of the pilot's seat, landing in an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space while the wheel continues moving in a straight line.\n>\n> Without proper training, determining how to pilot the wheel requires a **Reason test**.\n>\n> - **≤11:** The wheel immediately explodes as if striking a size 3 or larger creature or object.\n> - **12-16:** The creature fails to pilot the wheel.\n> - **17+:** The creature can pilot the wheel.\n>\n> On a natural 19 or 20, a creature can both pilot the wheel and can disarm its explosives as a maneuver.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/exploding-mill-wheel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.exploding-mill-wheel"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.field-ballista",
+      "title": "Полевая баллиста",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/field-ballista.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista",
+      "originalName": "Field Ballista",
+      "originalDescription": "A massive crossbow fires thick metal bolts with devastating effect.\n\n- **EV:** 8\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a field ballista can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Release Bolt** ability.\n> - **12-16:** The field ballista is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The field ballista is deactivated and can't be used.\n\n> 🏹 **Release Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage; M < 1 push 1\n> - **17+:** 11 damage; M < 2 push 2\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista is reloaded, allowing **Release Bolt** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n> \n> **Effect:** The next use of **Release Bolt** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Penetrating Bolt (+2 EV)** The field ballista targets the nearest two additional creatures or objects in a straight line beyond the initial target.\n>\n> **Chain Bolt (+2 EV)** The field ballista's bolts are set with heavy chains that wrap around targets. The **Chain Bolt** ability replaces **Release Bolt**, and the field ballista gains the **Crank the Chain** ability.\n>\n> 🏹 **Chain Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 10 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n>\n> 🏹 **Crank the Chain**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |                 **🎯 One creature** |\n>\n> **Special:** The target must be [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the field ballista.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Pull 1\n> - **12-16:** Pull 3\n> - **17+:** Pull 5\n>\n> **Effect:** This [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) triggers [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/field-ballista.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.field-ballista"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.iron-dragon",
+      "title": "Железный дракон",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/iron-dragon.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/iron-dragon",
+      "originalName": "Iron Dragon",
+      "originalDescription": "A massive metal device uses a bellows system and liquid fuel to shoot out gouts of flame.\n\n- **EV:** 12\n- **Stamina:** 60\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an iron dragon can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Gout of Flame** ability.\n> - **12-16:** The iron dragon is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The iron dragon is deactivated and can't be used.\n\n> 🔳 **Gout of Flame**\n>\n> | **Area, Weapon**           |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 8 x 2 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 fire damage; A < 0 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 10 fire damage; A < 1 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 13 fire damage; A < 2 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round. This ability can't be used again until the iron dragon is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The iron dragon is reloaded, allowing **Gout of Flame** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Gout of Flame** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The iron dragon and the creature using this action move together up to 2 squares.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/iron-dragon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.iron-dragon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    },
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.watchtower",
+      "title": "Сторожевая башня",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/watchtower.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/watchtower",
+      "originalName": "Watchtower",
+      "originalDescription": "A sturdy wooden tower accessed by interior ladders or stairs provides [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) for attackers.\n\n- **EV:** 8\n- **Stamina:** 50\n- **Size:** 3\n\n> 🌀 **Deactivate**\n>\n> The watchtower must be completely destroyed.\n\n> ⭐️ **High Ground and Cover**\n>\n> Creatures who have access to the watchtower's interior ladders or stairs have [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) against creatures outside the watchtower.\n\n> 🌀 **Getting Inside**\n>\n> A creature outside and [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the watchtower can gain access to the interior by climbing it as an **Agility test** or breaking into it with a **Might test**.\n>\n> - **≤11:** 1d6 damage; the creature remains outside the watchtower\n> - **12-16:** The creature remains outside the watchtower.\n> - **17+:** The creature gains access to the watchtower.\n\n> ⭐️ **Upgrades**\n>\n> **Ballista Emplacement (+12 EV)** The watchtower is equipped with a [field ballista](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista) that can be used by creatures in the watchtower. The ballista can't be moved.\n>\n> **Boiling Oil Cauldron (+17 EV)** The watchtower is equipped with a [boiling oil cauldron](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron) that can be used by creatures in the watchtower.\n>\n> **Spyglass (+2 EV)** Any creature in the watchtower can use the spyglass to search for hidden creatures around the tower, gaining an edge on the Intuition test and increasing the distance at which creatures can be spotted to 15 squares.\n>\n> **Stone Tower (+2 EV)** The watchtower is reinforced with stone and has 75 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Iron Tower (+4 EV)** The watchtower is reinforced with stone and iron and has 100 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/watchtower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "3",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.watchtower"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.siege-engines.arrow-launcher",
+      "kind": "terrain",
+      "name": "Стреломёт",
+      "markdown": "Небольшая деревянная тележка с помощью алхимических ракет запускает до сотни стрел за раз по широкой области.\n\n- **БЦ:** 8\n- **Выносливость:** 30\n- **Размер:** 1L\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) со стреломётом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Буря стрел**.\n> - **12-16:** Стреломёт отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Стреломёт отключён, и его нельзя использовать.\n\n> 🔳 **Буря стрел**\n>\n> | **- Область, дальний бой, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 5 в пределах 20** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 8 урона\n> - **17+:** 11 урона\n>\n> **Эффект:** Способность нельзя использовать снова, пока стреломёт не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Стреломёт перезаряжается, позволяя снова использовать **Бурю стрел**. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Наведение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Следующее использование **Бури стрел** получает преимущество и бонус +10 к дальности. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Перемещение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Стреломёт и использующее действие существо вместе перемещаются на расстояние до 3 клеток.\n\n> ⭐️ **Улучшения**\n>\n> **Горящие стрелы (+1 БЦ)** **Буря стрел** наносит урон огнём и может воспламенить горючие объекты в своей области.\n>\n> **Визгуны (+3 БЦ)** Выпущенные и падающие на цели стрелы издают пронзительный визг. Способность **Визгуны** заменяет **Бурю стрел**.\n\n> 🔳 **Визгуны**\n>\n> | **Область, дальний бой, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 5 в пределах 20** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; Р < 0 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 8 урона; Р < 1 [Оглушение](#/catalog/glossary#term-glossary.dazed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 11 урона; Р < 2 [Испуг](#/catalog/glossary#term-glossary.frightened) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Способность нельзя использовать снова, пока стреломёт не перезарядят.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.arrow-launcher",
+        "path": "Monsters/dynamic-terrain/siege-engines/arrow-launcher.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/arrow-launcher",
+      "originalName": "Arrow Launcher",
+      "originalDescription": "A small wooden cart uses alchemical rockets to launch up to a hundred arrows at a time across a wide area.\n\n- **EV:** 8\n- **Stamina:** 30\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an arrow launcher can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arrow Storm** ability.\n> - **12-16:** The arrow launcher is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The arrow launcher is deactivated and can't be used.\n\n> 🔳 **Arrow Storm**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage\n> - **17+:** 11 damage\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher is reloaded, allowing **Arrow Storm** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arrow Storm** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The arrow launcher and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Flaming Arrows (+1 EV) Arrow Storm** deals fire damage, and can ignite flammable objects in its area.\n>\n> **Screamers (+3 EV)** The arrows make a high-pitched screaming noise as they are fired and descend onto their targets. The **Screamers** ability replaces **Arrow Storm**.\n\n> 🔳 **Screamers**\n>\n> | **Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |--------------------------|--------------------------------------------:|\n> | **📏 5 cube within 20**  | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; R < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 8 damage; R < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 11 damage; R < 2 [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the arrow launcher is reloaded.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/arrow-launcher.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "1L",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.boiling-oil-cauldron",
+      "kind": "terrain",
+      "name": "Котёл кипящего масла",
+      "markdown": "Большой котёл кипящего масла готов опрокинуться на врагов.\n\n- **БЦ:** 10\n- **Выносливость:** 50\n- **Размер:** 1L\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с котлом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Кипящее масло**.\n> - **12-16:** Котёл отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Котёл отключён, и его нельзя использовать.\n\n> 🔳 **Кипящее масло**\n>\n> | **Область, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона огнём; М < 1 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 9 урона огнём; М < 2 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 12 урона огнём; М < 3 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Если кипящее масло выливают на цели сверху, оно получает преимущество [высоты](#/catalog/glossary#term-glossary.high-ground) и преимущество на бросок силы. Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда. Способность нельзя использовать снова, пока котёл не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Котёл перезаряжается, позволяя снова использовать **Кипящее масло**. Это действие можно использовать только один раз за раунд.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.boiling-oil-cauldron",
+        "path": "Monsters/dynamic-terrain/siege-engines/boiling-oil-cauldron.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron",
+      "originalName": "Boiling Oil Cauldron",
+      "originalDescription": "A large cauldron of boiling oil stands ready to be poured onto enemies.\n\n- **EV:** 10\n- **Stamina:** 50\n- **Size:** 1L\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a boiling oil cauldron can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Boiling Oil** ability.\n> - **12-16:** The boiling oil cauldron is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The boiling oil cauldron is deactivated and can't be used.\n\n> 🔳 **Boiling Oil**\n>\n> | **Area, Weapon**       |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |------------------------|--------------------------------------------:|\n> | **📏 3 cube within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 fire damage; M < 1 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 fire damage; M < 2 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 fire damage; M < 3 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** If the boiling oil is poured down on targets from above, it has [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and gains an edge on the power roll. A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round. This ability can't be used again until the boiling oil cauldron is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The boiling oil cauldron is reloaded, allowing **Boiling Oil** to be used again. This action can be used only once per round.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/boiling-oil-cauldron.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "1L",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.catapult",
+      "kind": "terrain",
+      "name": "Катапульта",
+      "markdown": "Это массивное орудие с противовесом мечет тяжёлый снаряд, нанося сокрушительный удар.\n\n- **БЦ:** 10\n- **Выносливость:** 50\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с катапультой клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Навесной выстрел**.\n> - **12-16:** Катапульта отключена, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Катапульта отключена, и её нельзя использовать.\n\n> 🔳 **Навесной выстрел**\n>\n> | **- Область, дальний бой, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Куб 3 в пределах 20** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 9 урона; Л < 0 отталкивание 1\n> - **17+:** 12 урона; Л < 1 отталкивание 2\n>\n> **Эффект:** Линия воздействия способности проходит по дуге, которую можно провести над препятствиями между катапультой и областью цели. Способность нельзя использовать снова, пока катапульту не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Катапульта перезаряжается, позволяя снова использовать **Навесной выстрел**. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Наведение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Следующее использование **Навесного выстрела** получает преимущество и бонус +10 к дальности. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Перемещение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Катапульта и использующее действие существо вместе перемещаются на расстояние до 2 клеток.\n\n> ⭐️ **Улучшения**\n>\n> **Воздушный десант (+2 БЦ)** Сторона, использующая катапульту, обучила свои войска безопасно запускать себя через поле боя. Основным действием существа в соседней клетке катапульта может вертикально оттолкнуть на 10 клеток любого союзника размера 1L или меньше. Если союзник приземляется в незанятом пространстве, он не получает урона.\n>\n> **Зажигательная (+2 БЦ)** **Навесной выстрел** наносит урон огнём, а область способности горит до конца столкновения. Любое существо, впервые за раунд входящее в эту область или начинающее там ход, получает 2 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.catapult",
+        "path": "Monsters/dynamic-terrain/siege-engines/catapult.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/catapult",
+      "originalName": "Catapult",
+      "originalDescription": "This massive counterweighted engine hurls a heavy projectile for a devastating assault.\n\n- **EV:** 10\n- **Stamina:** 50\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a catapult can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Arcing Shot** ability.\n> - **12-16:** The catapult is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The catapult is deactivated and can't be used.\n\n> 🔳 **Arcing Shot**\n>\n> | **- Area, Ranged, Weapon** |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 3 cube within 20**    | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage; A < 0 push 1\n> - **17+:** 12 damage; A < 1 push 2\n>\n> **Effect:** Line of effect for this ability is an arc that can be traced over obstacles between the catapult and the target area. This ability can't be used again until the catapult is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|-------------------------------------:|\n> | **📏 -** |                             **🎯 -** |\n>\n> **Effect:** The catapult is reloaded, allowing **Arcing Shot** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Arcing Shot** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The catapult and the creature using this action move together up to 2 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Air Assault (+2 EV)** The side fielding the catapult has trained their forces to safely use the siege engine to launch them across the battlefield. As an adjacent creature main action, the catapult can be used to vertical push 10 any ally of size 1L or less. If the ally lands in an unoccupied space, they take no damage.\n>\n> **Flammable (+2 EV) Arcing Shot** deals fire damage, and the area of that ability is on fire until the end of the encounter. Any creature who enters the area for the first time in a round or starts their turn there takes 2 fire damage.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/catapult.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.exploding-mill-wheel",
+      "kind": "terrain",
+      "name": "Взрывающееся мельничное колесо",
+      "markdown": "Огромное деревянное колесо загружено взрывчаткой и готово взорваться, когда его покатят на вражеские войска или укрепления.\n\n- **БЦ:** 10\n- **Выносливость:** 25\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с неподвижным колесом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Катить колесо**.\n> - **12-16:** Колесо отключено, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Колесо отключено, и его нельзя использовать.\n>\n> Начав катиться, колесо уже нельзя отключить. Однако его можно взорвать раньше, уничтожив или преградив ему путь достаточно крупным существом или объектом.\n\n> 🌀 **Катить колесо**\n>\n> | **Область** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Особое** | **🎯 Каждое существо и объект в области** |\n>\n> **Эффект:** При использовании этой способности и затем в начале каждого хода взрывающееся колесо катится на 2 клетки по прямой. Каждое существо и объект размера 2 или меньше в области, определяемой движением колеса, становится целью следующего броска силы. Цель, [принудительно перемещённая](#/catalog/glossary#term-glossary.forced-movement) таким образом, перемещается на одну из сторон колеса по решению Ведущего.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона; отталкивание 1\n> - **12-16:** 9 урона; отталкивание 2\n> - **17+:** 12 урона; отталкивание 3\n>\n> Если колесо входит в пространство существа или объекта размера 3 или больше либо его [Выносливость](#/catalog/glossary#term-glossary.stamina) снижается до 0, оно останавливается и взрывается. Каждое существо и объект во взрыве 5 с центром на колесе становится целью следующего броска силы.\n>\n> - **≤11:** 5 урона; отталкивание 1; М < 0 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 9 урона; отталкивание 2; М < 1 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 12 урона; отталкивание 3; М < 2 горение (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ⭐️ **Улучшение**\n>\n> **Управляемое (+4 БЦ)** Колесо оснащено механизмом управления и сиденьем для пилота размера 1M или меньше. Действием движения пилот может повернуть катящееся колесо в любом направлении. Основным действием пилот может выпрыгнуть из сиденья и приземлиться в [соседней](#/catalog/glossary#term-glossary.adjacent) клетке, пока колесо продолжает катиться по прямой.\n>\n> Без соответствующей подготовки, чтобы разобраться в управлении колесом, требуется **проверка Разума**.\n>\n> - **≤11:** Колесо немедленно взрывается, словно столкнувшись с существом или объектом размера 3 или больше.\n> - **12-16:** Существу не удаётся управлять колесом.\n> - **17+:** Существо может управлять колесом.\n>\n> При натуральном результате 19 или 20 существо может как управлять колесом, так и обезвредить его взрывчатку манёвром.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.exploding-mill-wheel",
+        "path": "Monsters/dynamic-terrain/siege-engines/exploding-mill-wheel.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/exploding-mill-wheel",
+      "originalName": "Exploding Mill Wheel",
+      "originalDescription": "A massive wooden wheel is loaded with explosives and rolled toward enemy forces or fortifications, ready to explode.\n\n- **EV:** 10\n- **Stamina:** 25\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an exploding mill wheel that isn't rolling can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Roll the Wheel** ability.\n> - **12-16:** The exploding mill wheel is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The exploding mill wheel is deactivated and can't be used.\n>\n> Once the wheel is rolling, it can't be deactivated. However, it can be exploded early by destroying it or blocking its movement with a suitably large creature or object.\n\n> 🌀 **Roll the Wheel**\n>\n> | **Area**       |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------|--------------------------------------------:|\n> | **📏 Special** | **🎯 Each creature and object in the area** |\n>\n> **Effect:** When this ability is used and at the start of every turn thereafter, the exploding mill wheel rolls, moving 2 squares in a straight line. Each creature and object of size 2 or smaller in the area defined by the wheel's movement is targeted by the following power roll. A target [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement) this way is moved to either side of the wheel, as the Director determines.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage; push 1\n> - **12-16:** 9 damage; push 2\n> - **17+:** 12 damage; push 3\n>\n> If the wheel enters the space of any creature or object of size 3 or larger, or if it is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), its movement stops and it explodes. Each creature and object in a 5 burst centered on the wheel is targeted by the following power roll.\n>\n> - **≤11:** 5 damage; push 1; M < 0 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 9 damage; push 2; M < 1 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 12 damage; push 3; M < 2 burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ⭐️ **Upgrade**\n>\n> **Piloted (+4 EV)** The wheel has been fitted with a control mechanism and a pilot's seat for a creature of size 1M or smaller. As a move action, the pilot can turn the wheel in any direction while it is moving. As a main action, the pilot can leap out of the pilot's seat, landing in an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) space while the wheel continues moving in a straight line.\n>\n> Without proper training, determining how to pilot the wheel requires a **Reason test**.\n>\n> - **≤11:** The wheel immediately explodes as if striking a size 3 or larger creature or object.\n> - **12-16:** The creature fails to pilot the wheel.\n> - **17+:** The creature can pilot the wheel.\n>\n> On a natural 19 or 20, a creature can both pilot the wheel and can disarm its explosives as a maneuver.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/exploding-mill-wheel.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 3,
+        "ev": "10",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.field-ballista",
+      "kind": "terrain",
+      "name": "Полевая баллиста",
+      "markdown": "Массивный арбалет стреляет толстыми металлическими болтами с разрушительной силой.\n\n- **БЦ:** 8\n- **Выносливость:** 40\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с полевой баллистой клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Выпустить болт**.\n> - **12-16:** Баллиста отключена, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Баллиста отключена, и её нельзя использовать.\n\n> 🏹 **Выпустить болт**\n>\n> | **Дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Дальний бой 20** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 8 урона; М < 1 отталкивание 1\n> - **17+:** 11 урона; М < 2 отталкивание 2\n>\n> **Эффект:** Способность нельзя использовать снова, пока баллисту не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Баллиста перезаряжается, позволяя снова использовать **Выпустить болт**. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Наведение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Следующее использование **Выпустить болт** получает преимущество и бонус +10 к дальности. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Перемещение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Баллиста и использующее действие существо вместе перемещаются на расстояние до 3 клеток.\n\n> ⭐️ **Улучшения**\n>\n> **Пробивной болт (+2 БЦ)** Баллиста выбирает целью два ближайших дополнительных существа или объекта на прямой линии за первоначальной целью.\n>\n> **Цепной болт (+2 БЦ)** Болты баллисты снабжены тяжёлыми цепями, опутывающими цели. Способность **Цепной болт** заменяет **Выпустить болт**, а баллиста получает способность **Натянуть цепь**.\n>\n> 🏹 **Цепной болт**\n>\n> | **Дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Дальний бой 20** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 7 урона; М < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 10 урона; М < 2 [Замедление](#/catalog/glossary#term-glossary.slowed) (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Способность нельзя использовать снова, пока баллисту не перезарядят.\n>\n> 🏹 **Натянуть цепь**\n>\n> | **Дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Дальний бой 20** | **🎯 Одно существо** |\n>\n> **Особое:** Цель должна иметь состояние [Замедление](#/catalog/glossary#term-glossary.slowed), полученное от баллисты.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** Притягивание 1\n> - **12-16:** Притягивание 3\n> - **17+:** Притягивание 5\n>\n> **Эффект:** Это [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) вызывает [провоцированные атаки](#/catalog/glossary#term-glossary.opportunity-attack).\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.field-ballista",
+        "path": "Monsters/dynamic-terrain/siege-engines/field-ballista.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista",
+      "originalName": "Field Ballista",
+      "originalDescription": "A massive crossbow fires thick metal bolts with devastating effect.\n\n- **EV:** 8\n- **Stamina:** 40\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a field ballista can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Release Bolt** ability.\n> - **12-16:** The field ballista is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The field ballista is deactivated and can't be used.\n\n> 🏹 **Release Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 8 damage; M < 1 push 1\n> - **17+:** 11 damage; M < 2 push 2\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista is reloaded, allowing **Release Bolt** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n> \n> **Effect:** The next use of **Release Bolt** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The field ballista and the creature using this action move together up to 3 squares.\n\n> ⭐️ **Upgrades**\n>\n> **Penetrating Bolt (+2 EV)** The field ballista targets the nearest two additional creatures or objects in a straight line beyond the initial target.\n>\n> **Chain Bolt (+2 EV)** The field ballista's bolts are set with heavy chains that wrap around targets. The **Chain Bolt** ability replaces **Release Bolt**, and the field ballista gains the **Crank the Chain** ability.\n>\n> 🏹 **Chain Bolt**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |       **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 7 damage; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 10 damage; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** This ability can't be used again until the field ballista is reloaded.\n>\n> 🏹 **Crank the Chain**\n>\n> | **Ranged, Strike, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|------------------------------------:|\n> | **📏 Ranged 20**           |                 **🎯 One creature** |\n>\n> **Special:** The target must be [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) by the field ballista.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** Pull 1\n> - **12-16:** Pull 3\n> - **17+:** Pull 5\n>\n> **Effect:** This [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) triggers [opportunity attacks](scc.v1:mcdm.heroes.v1/rule.combat/opportunity-attack).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/field-ballista.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.iron-dragon",
+      "kind": "terrain",
+      "name": "Железный дракон",
+      "markdown": "Массивное металлическое устройство с помощью мехов и жидкого топлива извергает потоки пламени.\n\n- **БЦ:** 12\n- **Выносливость:** 60\n- **Размер:** 2\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с железным драконом клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо случайно активирует способность **Поток пламени**.\n> - **12-16:** Железный дракон отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Железный дракон отключён, и его нельзя использовать.\n\n> 🔳 **Поток пламени**\n>\n> | **Область, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 Линия 8 x 2 в пределах 1** | **🎯 Каждое существо и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 6 урона огнём; Л < 0 цель загорается (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **12-16:** 10 урона огнём; Л < 1 цель загорается (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n> - **17+:** 13 урона огнём; Л < 2 цель загорается (до успешного [спасброска](#/catalog/glossary#term-glossary.saving-throw))\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда. Способность нельзя использовать снова, пока железного дракона не перезарядят.\n\n> ⭐️ **Перезарядка**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Железный дракон перезаряжается, позволяя снова использовать **Поток пламени**. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Наведение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Следующее использование **Потока пламени** получает преимущество и бонус +10 к дальности. Это действие можно использовать только один раз за раунд.\n\n> ⭐️ **Перемещение**\n>\n> | **-** | **[Основное действие](#/catalog/glossary#term-glossary.turn) (существо в соседней клетке)** |\n> |---|---:|\n> | **📏 -** | **🎯 -** |\n>\n> **Эффект:** Железный дракон и использующее действие существо вместе перемещаются на расстояние до 2 клеток.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.iron-dragon",
+        "path": "Monsters/dynamic-terrain/siege-engines/iron-dragon.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/iron-dragon",
+      "originalName": "Iron Dragon",
+      "originalDescription": "A massive metal device uses a bellows system and liquid fuel to shoot out gouts of flame.\n\n- **EV:** 12\n- **Stamina:** 60\n- **Size:** 2\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an iron dragon can make an **Agility test**.\n>\n> - **≤11:** The creature accidentally activates the **Gout of Flame** ability.\n> - **12-16:** The iron dragon is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The iron dragon is deactivated and can't be used.\n\n> 🔳 **Gout of Flame**\n>\n> | **Area, Weapon**           |         **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------------------------|--------------------------------------------:|\n> | **📏 8 x 2 line within 1** | **🎯 Each creature and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 6 fire damage; A < 0 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **12-16:** 10 fire damage; A < 1 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n> - **17+:** 13 fire damage; A < 2 the target is burning ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round. This ability can't be used again until the iron dragon is reloaded.\n\n> ⭐️ **Reload**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The iron dragon is reloaded, allowing **Gout of Flame** to be used again. This action can be used only once per round.\n\n> ⭐️ **Spot**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The next use of **Gout of Flame** gains an edge and has a +10 bonus to ranged distance. This action can be used only once per round.\n\n> ⭐️ **Move**\n>\n> | **-**    | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn) (Adjacent creature)** |\n> |----------|------------------------------------:|\n> | **📏 -** |                            **🎯 -** |\n>\n> **Effect:** The iron dragon and the creature using this action move together up to 2 squares.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/iron-dragon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 4,
+        "ev": "12",
+        "size": "2",
+        "role": "Артиллерист",
+        "organization": "Осадное орудие"
+      }
+    },
+    {
+      "id": "dynamic-terrain.siege-engines.watchtower",
+      "kind": "terrain",
+      "name": "Сторожевая башня",
+      "markdown": "Прочная деревянная башня с внутренними лестницами предоставляет атакующим [укрытие](#/catalog/glossary#term-glossary.cover) и [преимущество высоты](#/catalog/glossary#term-glossary.high-ground).\n\n- **БЦ:** 8\n- **Выносливость:** 50\n- **Размер:** 3\n\n> 🌀 **Отключение**\n>\n> Сторожевую башню необходимо полностью уничтожить.\n\n> ⭐️ **Высота и укрытие**\n>\n> Существа, имеющие доступ к внутренним лестницам башни, получают [преимущество высоты](#/catalog/glossary#term-glossary.high-ground) и [укрытие](#/catalog/glossary#term-glossary.cover) против существ снаружи.\n\n> 🌀 **Попасть внутрь**\n>\n> Существо снаружи, в [соседней](#/catalog/glossary#term-glossary.adjacent) с башней клетке, может попасть внутрь, взобравшись на неё с помощью **проверки Ловкости** или взломав её с помощью **проверки Мощи**.\n>\n> - **≤11:** 1d6 урона; существо остаётся снаружи башни\n> - **12-16:** Существо остаётся снаружи башни.\n> - **17+:** Существо попадает внутрь башни.\n\n> ⭐️ **Улучшения**\n>\n> **Установленная баллиста (+12 БЦ)** Башня оснащена [полевой баллистой](#/codex/monsters.dynamic-terrain.siege-engines.field-ballista), которой могут пользоваться находящиеся в башне существа. Баллисту нельзя перемещать.\n>\n> **Котёл кипящего масла (+17 БЦ)** Башня оснащена [котлом кипящего масла](#/codex/monsters.dynamic-terrain.siege-engines.boiling-oil-cauldron), которым могут пользоваться находящиеся в башне существа.\n>\n> **Подзорная труба (+2 БЦ)** Любое существо в башне может использовать подзорную трубу для поиска скрытых существ вокруг башни, получая преимущество на проверку Интуиции и увеличивая расстояние обнаружения существ до 15 клеток.\n>\n> **Каменная башня (+2 БЦ)** Башня укреплена камнем и имеет 75 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n>\n> **Железная башня (+4 БЦ)** Башня укреплена камнем и железом и имеет 100 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.watchtower",
+        "path": "Monsters/dynamic-terrain/siege-engines/watchtower.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/watchtower",
+      "originalName": "Watchtower",
+      "originalDescription": "A sturdy wooden tower accessed by interior ladders or stairs provides [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) for attackers.\n\n- **EV:** 8\n- **Stamina:** 50\n- **Size:** 3\n\n> 🌀 **Deactivate**\n>\n> The watchtower must be completely destroyed.\n\n> ⭐️ **High Ground and Cover**\n>\n> Creatures who have access to the watchtower's interior ladders or stairs have [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) against creatures outside the watchtower.\n\n> 🌀 **Getting Inside**\n>\n> A creature outside and [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the watchtower can gain access to the interior by climbing it as an **Agility test** or breaking into it with a **Might test**.\n>\n> - **≤11:** 1d6 damage; the creature remains outside the watchtower\n> - **12-16:** The creature remains outside the watchtower.\n> - **17+:** The creature gains access to the watchtower.\n\n> ⭐️ **Upgrades**\n>\n> **Ballista Emplacement (+12 EV)** The watchtower is equipped with a [field ballista](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista) that can be used by creatures in the watchtower. The ballista can't be moved.\n>\n> **Boiling Oil Cauldron (+17 EV)** The watchtower is equipped with a [boiling oil cauldron](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron) that can be used by creatures in the watchtower.\n>\n> **Spyglass (+2 EV)** Any creature in the watchtower can use the spyglass to search for hidden creatures around the tower, gaining an edge on the Intuition test and increasing the distance at which creatures can be spotted to 15 squares.\n>\n> **Stone Tower (+2 EV)** The watchtower is reinforced with stone and has 75 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Iron Tower (+4 EV)** The watchtower is reinforced with stone and iron and has 100 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/watchtower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "3",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    }
+  ]
+}

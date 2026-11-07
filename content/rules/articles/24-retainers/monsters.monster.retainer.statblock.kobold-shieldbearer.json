@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.retainer.statblock.kobold-shieldbearer",
+  "title": "Кобольд-щитоносец",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/kobold-shieldbearer.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/kobold-shieldbearer",
+  "originalName": "Kobold Shieldbearer",
+  "originalDescription": "| Humanoid, Kobold  |         -         |      Level 1       |   Defender Retainer   |         EV -         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |  **5**<br>Speed   | **21**<br>Stamina  |  **4**<br>Stability   | **6**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+1**<br>Agility |  **0**<br>Reason   |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> 🗡 **Gladius (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n\n> ⭐️ **Shield, Boss?**\n>\n> While the shieldbearer is [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to their mentor, both have a +1 bonus to [stability](scc.v1:mcdm.heroes.v1/rule.character/stability), have [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover), and grant [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) to allies.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/kobold-shieldbearer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "-",
+    "size": "2",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Защитник",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.kobold-shieldbearer"
+    }
+  ]
+}

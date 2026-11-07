@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.siege-engines.watchtower",
+      "title": "Сторожевая башня",
+      "chapter": "25. Динамическая местность",
+      "group": "Осадные орудия",
+      "path": "Monsters/dynamic-terrain/siege-engines/watchtower.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/watchtower",
+      "originalName": "Watchtower",
+      "originalDescription": "A sturdy wooden tower accessed by interior ladders or stairs provides [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) for attackers.\n\n- **EV:** 8\n- **Stamina:** 50\n- **Size:** 3\n\n> 🌀 **Deactivate**\n>\n> The watchtower must be completely destroyed.\n\n> ⭐️ **High Ground and Cover**\n>\n> Creatures who have access to the watchtower's interior ladders or stairs have [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) against creatures outside the watchtower.\n\n> 🌀 **Getting Inside**\n>\n> A creature outside and [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the watchtower can gain access to the interior by climbing it as an **Agility test** or breaking into it with a **Might test**.\n>\n> - **≤11:** 1d6 damage; the creature remains outside the watchtower\n> - **12-16:** The creature remains outside the watchtower.\n> - **17+:** The creature gains access to the watchtower.\n\n> ⭐️ **Upgrades**\n>\n> **Ballista Emplacement (+12 EV)** The watchtower is equipped with a [field ballista](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista) that can be used by creatures in the watchtower. The ballista can't be moved.\n>\n> **Boiling Oil Cauldron (+17 EV)** The watchtower is equipped with a [boiling oil cauldron](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron) that can be used by creatures in the watchtower.\n>\n> **Spyglass (+2 EV)** Any creature in the watchtower can use the spyglass to search for hidden creatures around the tower, gaining an edge on the Intuition test and increasing the distance at which creatures can be spotted to 15 squares.\n>\n> **Stone Tower (+2 EV)** The watchtower is reinforced with stone and has 75 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Iron Tower (+4 EV)** The watchtower is reinforced with stone and iron and has 100 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/watchtower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "3",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.siege-engines.watchtower"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.siege-engines.watchtower",
+      "kind": "terrain",
+      "name": "Сторожевая башня",
+      "markdown": "Прочная деревянная башня с внутренними лестницами предоставляет атакующим [укрытие](#/catalog/glossary#term-glossary.cover) и [преимущество высоты](#/catalog/glossary#term-glossary.high-ground).\n\n- **БЦ:** 8\n- **Выносливость:** 50\n- **Размер:** 3\n\n> 🌀 **Отключение**\n>\n> Сторожевую башню необходимо полностью уничтожить.\n\n> ⭐️ **Высота и укрытие**\n>\n> Существа, имеющие доступ к внутренним лестницам башни, получают [преимущество высоты](#/catalog/glossary#term-glossary.high-ground) и [укрытие](#/catalog/glossary#term-glossary.cover) против существ снаружи.\n\n> 🌀 **Попасть внутрь**\n>\n> Существо снаружи, в [соседней](#/catalog/glossary#term-glossary.adjacent) с башней клетке, может попасть внутрь, взобравшись на неё с помощью **проверки Ловкости** или взломав её с помощью **проверки Мощи**.\n>\n> - **≤11:** 1d6 урона; существо остаётся снаружи башни\n> - **12-16:** Существо остаётся снаружи башни.\n> - **17+:** Существо попадает внутрь башни.\n\n> ⭐️ **Улучшения**\n>\n> **Установленная баллиста (+12 БЦ)** Башня оснащена [полевой баллистой](#/codex/monsters.dynamic-terrain.siege-engines.field-ballista), которой могут пользоваться находящиеся в башне существа. Баллисту нельзя перемещать.\n>\n> **Котёл кипящего масла (+17 БЦ)** Башня оснащена [котлом кипящего масла](#/codex/monsters.dynamic-terrain.siege-engines.boiling-oil-cauldron), которым могут пользоваться находящиеся в башне существа.\n>\n> **Подзорная труба (+2 БЦ)** Любое существо в башне может использовать подзорную трубу для поиска скрытых существ вокруг башни, получая преимущество на проверку Интуиции и увеличивая расстояние обнаружения существ до 15 клеток.\n>\n> **Каменная башня (+2 БЦ)** Башня укреплена камнем и имеет 75 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n>\n> **Железная башня (+4 БЦ)** Башня укреплена камнем и железом и имеет 100 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.siege-engines.watchtower",
+        "path": "Monsters/dynamic-terrain/siege-engines/watchtower.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.siege-engines/watchtower",
+      "originalName": "Watchtower",
+      "originalDescription": "A sturdy wooden tower accessed by interior ladders or stairs provides [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) and [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) for attackers.\n\n- **EV:** 8\n- **Stamina:** 50\n- **Size:** 3\n\n> 🌀 **Deactivate**\n>\n> The watchtower must be completely destroyed.\n\n> ⭐️ **High Ground and Cover**\n>\n> Creatures who have access to the watchtower's interior ladders or stairs have [high ground](scc.v1:mcdm.heroes.v1/movement/high-ground) and [cover](scc.v1:mcdm.heroes.v1/rule.combat/cover) against creatures outside the watchtower.\n\n> 🌀 **Getting Inside**\n>\n> A creature outside and [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the watchtower can gain access to the interior by climbing it as an **Agility test** or breaking into it with a **Might test**.\n>\n> - **≤11:** 1d6 damage; the creature remains outside the watchtower\n> - **12-16:** The creature remains outside the watchtower.\n> - **17+:** The creature gains access to the watchtower.\n\n> ⭐️ **Upgrades**\n>\n> **Ballista Emplacement (+12 EV)** The watchtower is equipped with a [field ballista](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/field-ballista) that can be used by creatures in the watchtower. The ballista can't be moved.\n>\n> **Boiling Oil Cauldron (+17 EV)** The watchtower is equipped with a [boiling oil cauldron](scc.v1:mcdm.monsters.v1/dynamic-terrain.siege-engines/boiling-oil-cauldron) that can be used by creatures in the watchtower.\n>\n> **Spyglass (+2 EV)** Any creature in the watchtower can use the spyglass to search for hidden creatures around the tower, gaining an edge on the Intuition test and increasing the distance at which creatures can be spotted to 15 squares.\n>\n> **Stone Tower (+2 EV)** The watchtower is reinforced with stone and has 75 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n>\n> **Iron Tower (+4 EV)** The watchtower is reinforced with stone and iron and has 100 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/siege-engines/watchtower.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "siege-engines",
+        "recordType": "dynamic-terrain",
+        "level": 2,
+        "ev": "8",
+        "size": "3",
+        "role": "Защитник",
+        "organization": "Укрепление"
+      }
+    }
+  ]
+}

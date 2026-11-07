@@ -1,0 +1,20 @@
+{
+  "id": "monster.retainer.advancement-features.hobgoblin-flameslinger",
+  "kind": "monster-feature",
+  "name": "Хобгоблин-метатель огня: особенности развития",
+  "markdown": "> **Способность развития помощника 7-го уровня**\n\n> 🔳 **Нечестивое притяжение (Столкновение)**\n>\n> | **Область, Магия, Дальний** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10**  | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона; притягивание 1\n> - **12-16:** 12 урона; притягивание 2\n> - **17+:** 16 урона; притягивание 4\n>\n> **Эффект:** Цель, притянутая в клетку [смежную](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с метателем огня, если у неё П < СРЕДНИЙ, сбивается [с ног](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> **Способность развития помощника 10-го уровня**\n\n> ❇️ **Огненная спираль (Столкновение)**\n>\n> | **Область, Магия** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------|------------------------------:|\n> | **📏 Взрыв 3**     | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 8 урона; [оттолкнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 2\n> - **12-16:** 12 урона; [оттолкнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 3\n> - **17+:** 16 урона; [оттолкнуть](scc.v1:mcdm.heroes.v1/movement/forced-movement) на 5\n>\n> **Эффект:** Если Наставник метателя огня находится не далее 10 клеток от него, источником взрыва вместо метателя огня может быть Наставник.\n",
+  "source": {
+    "articleId": "monsters.monster.retainer.advancement-features.hobgoblin-flameslinger",
+    "path": "Monsters/monster/retainer/advancement-features/hobgoblin-flameslinger.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/hobgoblin-flameslinger",
+  "originalName": "Hobgoblin Flameslinger Advancement Features",
+  "originalDescription": "> **Level 7 Retainer Advancement Ability**\n\n> 🔳 **Unholy Attraction (Encounter)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage; pull 1\n> - **12-16:** 12 damage; pull 2\n> - **17+:** 16 damage, pull 4\n>\n> **Effect:** A target who is pulled [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the flameslinger and who has P < AVERAGE is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Fire Spiral (Encounter)**\n>\n> | **Area, Magic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------:|\n> | **📏 3 burst**  | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 16 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5\n>\n> **Effect:** If the flameslinger's mentor is within 10 squares of the flameslinger, the mentor can be the source of the burst instead of the flameslinger.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/advancement-features/hobgoblin-flameslinger.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "featureblock"
+  }
+}

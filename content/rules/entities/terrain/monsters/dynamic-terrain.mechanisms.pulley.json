@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.mechanisms.pulley",
+  "kind": "terrain",
+  "name": "Подъёмный блок",
+  "markdown": "Система блока с противовесом позволяет быстро подняться на стену, строительные леса, башню или другое сооружение.\n\n- **БЦ:** 1\n- **Выносливость:** 1\n- **Размер:** 1S\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с блоком клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо приводит блок в действие.\n> - **12-16:** Блок отключён, но существо получает состояние [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) (КсХ).\n> - **17+:** Блок отключён и не срабатывает.\n\n> ❕ **Активация**\n>\n> Существо в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с блоком клетке использует манёвр, чтобы высвободить его.\n>\n> **Эффект:** Существо, вызвавшее активацию, поднимается на вершину сооружения, к которому прикреплён блок. Блок необходимо заново установить вручную.\n\n> ⭐️ **Можно взобраться**\n>\n> Существо в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с блоком клетке может взобраться по его верёвкам на вершину сооружения, совершив **лёгкую проверку Ловкости**.\n\n> ⭐️ **Улучшение**\n>\n> **Замкнутая цепь (+1 БЦ)** Вместо верёвки и блока используется замкнутая цепь с противовесом. Она автоматически возвращается в исходное положение и может срабатывать неоднократно.\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.mechanisms.pulley",
+    "path": "Monsters/dynamic-terrain/mechanisms/pulley.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.mechanisms/pulley",
+  "originalName": "Pulley",
+  "originalDescription": "A counterweighted pulley system can be used to quickly ascend to the top of a wall, scaffold, tower, or other structure.\n\n- **EV:** 1\n- **Stamina:** 1\n- **Size:** 1S\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a pulley can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the pulley.\n> - **12-16:** The pulley is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The pulley is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> A creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the pulley uses a maneuver to release the pulley.\n>\n> **Effect:** The triggering creature is lifted to the top of the structure the pulley is attached to. The pulley must be manually reset.\n\n> ⭐️ **Climbable**\n>\n> A creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the pulley can climb its ropes with an **easy Agility test** to ascend to the top of the structure it's attached to.\n\n> ⭐️ **Upgrade**\n>\n> **Looped Chain (+1 EV)** Instead of a rope and pulley, the system uses a counterweighted looped chain. A looped chain automatically resets and can be triggered repeatedly.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/mechanisms/pulley.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "mechanisms",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "1",
+    "size": "1S",
+    "role": "Поддержка",
+    "organization": "Спусковой механизм"
+  }
+}

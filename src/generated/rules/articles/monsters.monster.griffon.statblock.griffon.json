@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.griffon.statblock.griffon",
+      "title": "Грифон",
+      "chapter": "23. Бестиарий",
+      "group": "Грифоны",
+      "path": "Monsters/monster/griffon/statblock/griffon.md",
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/griffon",
+      "originalName": "Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2      |      Elite Mount      |        EV 16         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **9**<br>Speed    | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Claw Swipes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; the griffon can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 10 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 13 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability is used as part of the Charge main action, the griffon can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) one of the targets.\n\n> 🔳 **Crack the Earth**\n>\n> | **Area, Ranged**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 8** | **🎯 Each enemy in the area** |\n>\n> **Special:** The griffon must be flying and must have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **Effect:** The griffon flies up to half their speed toward the ground, then sends the creature or object they've [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) hurtling down. The creature or object hits the ground to turn the area into an impact crater, and takes falling damage that can't be reduced in any way.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; A < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 9 damage; A < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🔳 **Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Special:** A target object must be size 2 or smaller.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Zephyr Feint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The griffon takes damage.\n>\n> **Effect:** The griffon halves the damage, ignores any nondamaging effects associated with it, and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon or their rider [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.griffon.statblock.griffon"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.griffon.griffon-malice",
+          "title": "Раздор грифонов"
+        },
+        {
+          "id": "monsters.monster.group.griffon",
+          "title": "Грифоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.griffon.statblock.griffon",
+      "kind": "monster",
+      "name": "Грифон",
+      "markdown": "| Зверь, Грифон |          -          |     Уровень 2      |       Элита Скакун        | Боевая ценность 16 |\n|:-----------------:|:-------------------:|:-----------------:|:-------------------------:|:-----------------------:|\n| **2**<br>Размер | **9**<br>Скорость | **80**<br>Выносливость | **2**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полёт**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **-1**<br>Разум | **+1**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Удары когтями (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------------|-------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 7 урона; грифон может [смещаться](#/catalog/glossary#term-glossary.shift) на 1 клетку\n> - **12-16:** 10 урона; грифон [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток\n> - **17+:** 13 урона; грифон [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 3 клеток\n>\n> **Эффект:** Если эта способность используется в рамках основного действия «Атака с рывком», грифон может [схватить](#/catalog/glossary#term-glossary.grabbed) одну из целей.\n\n> 🔳 **Расколоть землю**\n>\n> | **Область, Дальний бой** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|--------------------------------:|\n> | **📏 Куб 3 в пределах 8** | **🎯 Каждый враг в области** |\n>\n> **Особое:** Грифон должен лететь и держать [схваченным](#/catalog/glossary#term-glossary.grabbed) существо или объект.\n>\n> **Эффект:** Грифон пролетает вниз, к земле, расстояние до половины своей Скорости, а затем швыряет вниз [схваченное](#/catalog/glossary#term-glossary.grabbed) существо или объект. При ударе о землю оно превращает место падения в воронку и получает урон от падения, который нельзя уменьшить никаким способом.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 6 урона; при Л < 1 — [толчок](#/catalog/glossary#term-glossary.forced-movement) 3\n> - **17+:** 9 урона; при Л < 2 — [толчок](#/catalog/glossary#term-glossary.forced-movement) 4; [сбивание с ног](#/catalog/glossary#term-glossary.prone)\n\n> 🔳 **Взмах крыльев (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------------------------------------:|\n> | **📏 Линия 4 × 2 в пределах 1** | **🎯 Каждое существо или объект в области** |\n>\n> **Особое:** Целевой объект должен иметь размер 2 или меньше.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 3; при Л < 0 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **12-16:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; при Л < 1 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n> - **17+:** [Толчок](#/catalog/glossary#term-glossary.forced-movement) 5; при Л < 2 [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) происходит по вертикали\n\n> ❗️ **Обманный манёвр зефира (1 [Раздор](#/codex/monsters.rule.monster.malice))**\n>\n> | **-** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------|-------------------------------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Условие:** Грифон получает урон.\n>\n> **Эффект:** Грифон уменьшает урон вдвое, игнорирует все связанные с ним эффекты, не наносящие урон, и [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> ⭐️ **Хищный зверь**\n>\n> Пока существо [схвачено](#/catalog/glossary#term-glossary.grabbed) грифоном, оно совершает манёвр «Освободиться от захвата» с двойной помехой.\n\n> ⭐️ **Устойчивый**\n>\n> Любой бросок силы, который может [сбить грифона или его всадника с ног](#/catalog/glossary#term-glossary.prone), совершается с помехой.\n",
+      "source": {
+        "articleId": "monsters.monster.griffon.statblock.griffon",
+        "path": "Monsters/monster/griffon/statblock/griffon.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.griffon.statblock/griffon",
+      "originalName": "Griffon",
+      "originalDescription": "|  Beast, Griffon   |          -          |      Level 2      |      Elite Mount      |        EV 16         |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:--------------------:|\n|   **2**<br>Size   |   **9**<br>Speed    | **80**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  |  **+2**<br>Agility  | **-1**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🗡 **Claw Swipes (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|--------------------------------:|\n> | **📏 Melee 1**                    | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 7 damage; the griffon can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square\n> - **12-16:** 10 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares\n> - **17+:** 13 damage; the griffon [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares\n>\n> **Effect:** If this ability is used as part of the Charge main action, the griffon can [grab](scc.v1:mcdm.heroes.v1/condition/grabbed) one of the targets.\n\n> 🔳 **Crack the Earth**\n>\n> | **Area, Ranged**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:|\n> | **📏 3 cube within 8** | **🎯 Each enemy in the area** |\n>\n> **Special:** The griffon must be flying and must have a creature or object [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n>\n> **Effect:** The griffon flies up to half their speed toward the ground, then sends the creature or object they've [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) hurtling down. The creature or object hits the ground to turn the area into an impact crater, and takes falling damage that can't be reduced in any way.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 6 damage; A < 1 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n> - **17+:** 9 damage; A < 2 [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> 🔳 **Wing Buffet (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                               **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-------------------------------------------:|\n> | **📏 4 x 2 line within 1** | **🎯 Each creature or object in the area** |\n>\n> **Special:** A target object must be size 2 or smaller.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; A < 0 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **12-16:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 1 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n> - **17+:** [Push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5; A < 2 the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) is vertical\n\n> ❗️ **Zephyr Feint (1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The griffon takes damage.\n>\n> **Effect:** The griffon halves the damage, ignores any nondamaging effects associated with it, and [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> ⭐️ **Beast of Prey**\n>\n> While [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) by the griffon, a creature has a double bane on the Escape Grab maneuver.\n\n> ⭐️ **Steady**\n>\n> Any power roll that could knock the griffon or their rider [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes a bane.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/griffon/statblock/griffon.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "griffon",
+        "recordType": "statblock",
+        "level": 2,
+        "ev": "16",
+        "size": "2",
+        "keywords": [
+          "Зверь",
+          "Грифон"
+        ],
+        "role": "Скакун",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

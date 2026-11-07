@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.valok.statblock.multivok-bodyguard",
+      "title": "Мультивок-телохранитель",
+      "chapter": "23. Бестиарий",
+      "group": "Валоки",
+      "path": "Monsters/monster/valok/statblock/multivok-bodyguard.md",
+      "originalId": "mcdm.monsters.v1/monster.valok.statblock/multivok-bodyguard",
+      "originalName": "Multivok Bodyguard",
+      "originalDescription": "| Construct, Multivok, Soulless, Valok |         -         |      Level 9       |    Elite Defender     |        EV 44         |\n|:------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|            **2**<br>Size             |  **5**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n|          **-**<br>Immunity           | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|           **+4**<br>Might            | **0**<br>Agility  |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **-4**<br>Presence  |\n\n> 🏹 **Gatling Bolt Gun ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 damage\n> - **12-16:** 18 damage\n> - **17+:** 22 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> 🗡 **Valiar Axe (3 Malice)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 21 damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 26 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** The bodyguard has a double edge on this ability if it was previously used against the same target in this encounter.\n\n> ❇️ **Magnetic Pull**\n>\n> | **Area**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy and object in the area** |\n>\n> **Special:** This ability targets only metal-clad enemies and metal objects of size 3 or smaller.\n>\n> **Effect:** Each target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 8 squares, or if they have M < 3, they are [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 15 squares. The bodyguard can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each target who ends this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ❗️ **Valiar Cloak**\n>\n> | **Melee**      | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 2** |          **🎯 Self** |\n>\n> **Trigger:** One ally within distance is targeted by an enemy's ability. The bodyguard can use this ability after seeing the outcome of the power roll.\n>\n> **Effect:** The bodyguard becomes the triggering ability's target instead.\n\n> ⭐️ **Multivok Maintenance**\n>\n> At the start of the bodyguard's turn, each servok within 2 squares of them regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Crafted to Perfection**\n>\n> The bodyguard's shape can't be changed by any external effect.\n\n> ⭐️ **Valiar Might**\n>\n> While the bodyguard isn't [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), any power roll made against them is automatically a tier 1 outcome. A critical hit still grants its additional main action.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/valok/statblock/multivok-bodyguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "valok",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "2",
+        "keywords": [
+          "Конструкт",
+          "Мультивок",
+          "Бездушный",
+          "Валок"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.valok.statblock.multivok-bodyguard"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.valok",
+          "title": "Валоки"
+        },
+        {
+          "id": "monsters.monster.valok.valok-malice",
+          "title": "Раздор валоков"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.valok.statblock.multivok-bodyguard",
+      "kind": "monster",
+      "name": "Мультивок-телохранитель",
+      "markdown": "| Конструкт, Мультивок, Бездушный, Валок |         -         |      Уровень 9       |    Элита — Защитник     |        Боевая ценность 44         |\n|:------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|            **2**<br>Размер             |  **5**<br>Скорость   | **240**<br>Выносливость |  **5**<br>Устойчивость   | **9**<br>Свободный удар |\n|          **-**<br>Иммунитет           | **-**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|           **+4**<br>Мощь            | **0**<br>Ловкость  |  **-2**<br>Разум  |  **+1**<br>Интуиция  |  **-4**<br>Присутствие  |\n\n> 🏹 **Гатлинг-пушка ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Дальний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Дальний бой 10**           | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 13 урона\n> - **12-16:** 18 урона\n> - **17+:** 22 урона; Л < 4 [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n\n> 🗡 **Валиарский топор (3 Раздора)**\n>\n> | **Ближний бой, Удар, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2**            | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 15 урона; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 21 урона; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 26 урона; [Сбит с ног](#/catalog/glossary#term-glossary.prone); М < 4 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Если в этом столкновении телохранитель уже применял эту способность против той же цели, он получает двойное преимущество.\n\n> ❇️ **Магнитное притяжение**\n>\n> | **Область**        |                             **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------|-----------------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый враг и объект в области** |\n>\n> **Особое:** Эта способность выбирает целями только врагов в металлических доспехах и металлические объекты размером 3 или меньше.\n>\n> **Эффект:** Каждая цель [притягивается](#/catalog/glossary#term-glossary.forced-movement) не более чем на 8 клеток; если её М < 3, она [притягивается](#/catalog/glossary#term-glossary.forced-movement) не более чем на 15 клеток. Телохранитель может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike) каждой цели, которая завершает это [принудительное перемещение](#/catalog/glossary#term-glossary.forced-movement) [рядом](#/catalog/glossary#term-glossary.adjacent) с ним.\n\n> ❗️ **Валиарский плащ**\n>\n> | **Ближний бой**      | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Ближний бой 2** |          **🎯 Сам телохранитель** |\n>\n> **Условие:** Враг выбирает целью способность союзника в пределах дистанции. Телохранитель может применить эту способность после того, как увидит результат броска силы.\n>\n> **Эффект:** Вместо этого целью способности становится телохранитель.\n\n> ⭐️ **Обслуживание мультивоков**\n>\n> В начале своего хода телохранитель восстанавливает каждому сервоку в пределах 2 клеток от себя 15 [Выносливости](#/catalog/glossary#term-glossary.stamina).\n\n> ⭐️ **Создан до совершенства**\n>\n> Внешние эффекты не могут изменить форму телохранителя.\n\n> ⭐️ **Мощь Валиара**\n>\n> Пока у телохранителя нет состояний [Кровотечение](#/catalog/glossary#term-glossary.bleeding), [Ослабление](#/catalog/glossary#term-glossary.weakened) или [Утомление](#/catalog/glossary#term-glossary.winded), любой бросок силы против него автоматически даёт результат 1-го тира. Критическое попадание по-прежнему даёт дополнительное основное действие.\n",
+      "source": {
+        "articleId": "monsters.monster.valok.statblock.multivok-bodyguard",
+        "path": "Monsters/monster/valok/statblock/multivok-bodyguard.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.valok.statblock/multivok-bodyguard",
+      "originalName": "Multivok Bodyguard",
+      "originalDescription": "| Construct, Multivok, Soulless, Valok |         -         |      Level 9       |    Elite Defender     |        EV 44         |\n|:------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|            **2**<br>Size             |  **5**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **9**<br>Free Strike |\n|          **-**<br>Immunity           | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|           **+4**<br>Might            | **0**<br>Agility  |  **-2**<br>Reason  |  **+1**<br>Intuition  |  **-4**<br>Presence  |\n\n> 🏹 **Gatling Bolt Gun ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|--------------------------------:|\n> | **📏 Ranged 10**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 damage\n> - **12-16:** 18 damage\n> - **17+:** 22 damage; A < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> 🗡 **Valiar Axe (3 Malice)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 15 damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 21 damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 26 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** The bodyguard has a double edge on this ability if it was previously used against the same target in this encounter.\n\n> ❇️ **Magnetic Pull**\n>\n> | **Area**        |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy and object in the area** |\n>\n> **Special:** This ability targets only metal-clad enemies and metal objects of size 3 or smaller.\n>\n> **Effect:** Each target is [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 8 squares, or if they have M < 3, they are [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) up to 15 squares. The bodyguard can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against each target who ends this [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them.\n\n> ❗️ **Valiar Cloak**\n>\n> | **Melee**      | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 2** |          **🎯 Self** |\n>\n> **Trigger:** One ally within distance is targeted by an enemy's ability. The bodyguard can use this ability after seeing the outcome of the power roll.\n>\n> **Effect:** The bodyguard becomes the triggering ability's target instead.\n\n> ⭐️ **Multivok Maintenance**\n>\n> At the start of the bodyguard's turn, each servok within 2 squares of them regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Crafted to Perfection**\n>\n> The bodyguard's shape can't be changed by any external effect.\n\n> ⭐️ **Valiar Might**\n>\n> While the bodyguard isn't [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), any power roll made against them is automatically a tier 1 outcome. A critical hit still grants its additional main action.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/valok/statblock/multivok-bodyguard.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "valok",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "2",
+        "keywords": [
+          "Конструкт",
+          "Мультивок",
+          "Бездушный",
+          "Валок"
+        ],
+        "role": "Защитник",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

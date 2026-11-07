@@ -1,0 +1,30 @@
+{
+  "id": "monster.war-dog.2nd-echelon.statblock.war-dog-mischievite",
+  "kind": "monster",
+  "name": "Пёс войны-проказник",
+  "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |     Уровень 5     | Орда-налётчик | Боевая ценность 7 |\n|:-------------------------------:|:-----------------:|:----------------:|:-------------:|:----------------------:|\n| **1M**<br>Размер                | **6**<br>Скорость | **35**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет              | **-**<br>Движение |        -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь                  | **+3**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Ножи из сплавленного железа ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Ближний бой, Дальний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 5**    | **🎯 Два существа** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 8 урона; Р < 3 — цель ослеплена (до прох.)\n>\n> **Эффект:** Ослеплённая цель получает помеху на удары и может проводить линию воздействия только в пределах 1 клетки.\n\n> 🏹 **Отвод глаз**\n>\n> | **Дальний бой** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|-----------------------------:|\n> | **📏 Дальний бой 3** | **🎯 Один союзник или ослеплённое существо** |\n>\n> **Эффект:** Проказник меняется местами с целью. Союзник, выбранный целью этой способности, может совершить [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) до или после перемещения.\n>\n> **2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Когда проказника выбирают целью способности, он может использовать эту способность как [триггер](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action). Если он это делает, поменявшаяся с ним местами цель становится новой целью вызвавшей триггер способности.\n\n> ⭐️ **Хитрость**\n>\n> Перемещаясь, проказник не провоцирует атаки по возможности.\n\n> ⭐️ **Ошейник верности**\n>\n> Когда [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina) проказника снижается до 0, его ошейник преданности взрывается и наносит 2d6 урона каждому [смежному](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) врагу и объекту.\n",
+  "source": {
+    "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-mischievite",
+    "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-mischievite.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-mischievite",
+  "originalName": "War Dog Mischievite",
+  "originalDescription": "| Humanoid, Soulless, War Dog |         -         |      Level 5      |     Horde Harrier     |         EV 7         |\n|:---------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |  **6**<br>Speed   | **35**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|      **-**<br>Immunity      | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       | **+3**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Fuse-Iron Knives ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Ranged, Strike, Weapon** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|---------------------:|\n> | **📏 Melee 1 or ranged 5**        | **🎯 Two creatures** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 8 damage; R < 3 the target is dazzled (save ends)\n>\n> **Effect:** A dazzled target takes a bane on strikes and has line of effect only within 1 square.\n\n> 🏹 **Misdirection**\n>\n> | **Ranged**      |                        **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------|------------------------------------:|\n> | **📏 Ranged 3** | **🎯 One ally or dazzled creature** |\n>\n> **Effect:** The mischievite swaps positions with the target. An ally targeted by this ability can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before or after being swapped.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The mischievite can use this ability as a [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action) when they are targeted by an ability. If they do, the swapped target becomes the new target of the triggering ability.\n\n> ⭐️ **Crafty**\n>\n> The mischievite doesn't provoke opportunity attacks by moving.\n\n> ⭐️ **Loyalty Collar**\n>\n> When the mischievite is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 2d6 damage to each [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy and object.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-mischievite.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "war-dog",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Бездушный",
+      "Пёс войны"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-shadow.statblock.shadow-elf-sniper",
+      "title": "Теневой эльф-снайпер",
+      "chapter": "23. Бестиарий",
+      "group": "Теневые эльфы",
+      "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-sniper.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-sniper",
+      "originalName": "Shadow Elf Sniper",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Artillery                | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Lumina Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 7**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The next strike made against the target gains an edge.\n\n> ⭐️ **Of the Umbra**\n>\n> The sniper ignores concealment created by darkness. While the sniper is in direct sunlight, they have damage weakness 3. While the sniper has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.statblock.shadow-elf-sniper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-shadow.shadow-elf-malice",
+          "title": "Раздор теневых эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-shadow",
+          "title": "Теневые эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-shadow.statblock.shadow-elf-sniper",
+      "kind": "monster",
+      "name": "Теневой эльф-снайпер",
+      "markdown": "| Фея, Гуманоид, Теневой эльф |           -           |     Уровень 4      | Миньон — Артиллерист | Боевая ценность 6 за четырёх миньонов |\n|:-------------------------:|:---------------------:|:-----------------:|:--------------------:|:------------------------:|\n|      **1M**<br>Размер       |   **5**<br>Скорость    | **7**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **+2 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🏹 **Световая стрела (Знаковая способность)**\n>\n> | **Дальний бой, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------------|-----------------------------------------:|\n> | **📏 Дальний бой 7**           | **🎯 Одно существо или объект за миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Следующий удар по цели получает преимущество.\n\n> ⭐️ **Дитя тени**\n>\n> Снайпер игнорирует покров, созданный темнотой. Находясь под прямыми солнечными лучами, он получает уязвимость к урону 3. Если снайпер находится под покровом, он получает иммунитет к урону 3.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.statblock.shadow-elf-sniper",
+        "path": "Monsters/monster/elf-shadow/statblock/shadow-elf-sniper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow.statblock/shadow-elf-sniper",
+      "originalName": "Shadow Elf Sniper",
+      "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |     Level 4      |                Minion Artillery                | EV 6 for four minions |\n|:-------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **7**<br>Stamina |               **0**<br>Stability               | **3**<br>Free Strike  |\n|     **-**<br>Immunity     | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🏹 **Lumina Arrow (Signature Ability)**\n>\n> | **Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|-----------------------------------------:|\n> | **📏 Ranged 7**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** The next strike made against the target gains an edge.\n\n> ⭐️ **Of the Umbra**\n>\n> The sniper ignores concealment created by darkness. While the sniper is in direct sunlight, they have damage weakness 3. While the sniper has concealment, they have damage immunity 3.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/statblock/shadow-elf-sniper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Теневой эльф"
+        ],
+        "role": "Артиллерист",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-taxiarch",
+      "title": "Пёс войны — Таксиарх",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-taxiarch.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-taxiarch",
+      "originalName": "War Dog Taxiarch",
+      "originalDescription": "| Humanoid, Soulless, War Dog |            -             |      Level 9       |        Leader         |        EV 44         |\n|:---------------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |      **7**<br>Speed      | **240**<br>Stamina |  **1**<br>Stability   | **9**<br>Free Strike |\n|      **-**<br>Immunity      | **Teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |    **+3**<br>Agility     |  **+5**<br>Reason  |  **+4**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Stunning Surge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 lightning damage; the lightning spreads 1 square; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 19 lightning damage; the lightning spreads 2 squares; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 23 lightning damage; the lightning spreads 3 squares; I < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The spread is the distance the charge arcs from a target to nearby enemies. Each enemy within spread takes 5 lightning damage.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The lighting spread increases by 2 squares. Additionally, any creature who takes lightning damage from this ability and who has M < 4 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) until the end of their next turn.\n\n> 🔳 **Overcharge (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|--------------------------------:|\n> | **📏 4 cube within 10** | **🎯 Each war dog in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) that deals an extra 5 lightning damage.\n\n> ❗️ **Thunderstruck**\n>\n> | **Magic, Melee** |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Melee 1**   | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance deals damage to the taxiarch.\n>\n> **Effect:** After the ability is resolved, the target is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and is thunderstruck (save ends). A thunderstruck creature has lightning weakness 5, and the taxiarch gains an edge on power rolls against them.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the taxiarch can take 15 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **Magnetic Trickery ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5, and if the the target has M < 4, they fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ☠️ **Conductor of Combat ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area, Magic** |                           **-** |\n> |-----------------|--------------------------------:|\n> | **📏 5 burst**  | **🎯 Each war dog in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) or use a maneuver.\n\n> ☠️ **Unlimited Power! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                            **-** |\n> |-----------------|---------------------------------:|\n> | **📏 3 burst**  | **🎯 Each creature in the area** |\n>\n> **Effect:** Each target makes an Agility test.\n>\n> - **≤11:** 18 lightning damage; the target is thunderstruck (save ends)\n> - **12-16:** 14 lightning damage; the target is thunderstruck (EoT)\n> - **17+:** 9 lightning damage\n>\n> See Thunderstruck. Additionally, until the end of the encounter, any enemy who moves within 3 squares of the taxiarch for the first time in a round or starts their turn there takes 3 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-taxiarch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.3rd-echelon.statblock.war-dog-taxiarch"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.3rd-echelon.statblock.war-dog-taxiarch",
+      "kind": "monster",
+      "name": "Пёс войны — Таксиарх",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны |            -             |      Уровень 9       |        Лидер         |        Боевая ценность 44         |\n|:---------------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------------------------:|\n|       **1M**<br>Размер        |      **7**<br>Скорость      | **240**<br>Выносливость |  **1**<br>Устойчивость   | **9**<br>Свободный удар |\n|      **-**<br>Иммунитет      | **Телепортация**<br>Движение |         -          | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|       **+1**<br>Мощь       |    **+3**<br>Ловкость     |  **+5**<br>Разум  |  **+4**<br>Интуиция  |  **+3**<br>Присутствие  |\n\n> 🏹 **Оглушительный разряд ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Магия, Дальний, Удар** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Дальний 10**          | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 14 урона Молнией; разряд распространяется на 1 клетку; при И < 3 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n> - **12-16:** 19 урона Молнией; разряд распространяется на 2 клетки; при И < 4 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n> - **17+:** 23 урона Молнией; разряд распространяется на 3 клетки; при И < 5 цель [оглушена](#/catalog/glossary#term-glossary.dazed) (до успешного спасброска)\n>\n> **Эффект:** Расстояние распространения показывает, как далеко заряд перескакивает от цели к находящимся рядом врагам. Каждый враг в пределах этой дистанции получает 5 урона Молнией.\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Дальность распространения разряда увеличивается на 2 клетки. Кроме того, любое существо, получившее урон Молнией от этой способности и имеющее М < 4, [замедлено](#/catalog/glossary#term-glossary.slowed) до конца своего следующего хода.\n\n> 🔳 **Перегрузка (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** |                    **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|--------------------------------:|\n> | **📏 Куб 4 в пределах 10** | **🎯 Каждый пёс войны в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости и может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike), наносящий дополнительно 5 урона Молнией.\n\n> ❗️ **Поражённый молнией**\n>\n> | **Магия, Ближний** |        **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Ближний 1**   | **🎯 Враг, вызвавший триггер** |\n>\n> **Спусковой механизм:** Враг в пределах дистанции наносит урон таксиарху.\n>\n> **Эффект:** После завершения способности цель [телепортируется](#/catalog/glossary#term-glossary.teleport) на расстояние до 5 клеток и поражается молнией (до успешного спасброска). Поражённое молнией существо получает уязвимость к Молнии 5, а таксиарх получает преимущество к броскам силы против него.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода таксиарх может получить 15 урона, чтобы прекратить действие одного эффекта на себе, который обычно прекращается [спасброском](#/catalog/glossary#term-glossary.saving-throw). Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Магнитные уловки ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область, Магия** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** [Швыряние](#/catalog/glossary#term-glossary.forced-movement) 5; если М < 4, цель [сбивается с ног](#/catalog/glossary#term-glossary.prone).\n\n> ☠️ **Боевой дирижёр ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Область, Магия** |                           **-** |\n> |-----------------|--------------------------------:|\n> | **📏 Взрыв 5**  | **🎯 Каждый пёс войны в области** |\n>\n> **Эффект:** Каждая цель [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости, а затем может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) или использовать манёвр.\n\n> ☠️ **Безграничная мощь! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **Область, Магия** |                            **-** |\n> |-----------------|---------------------------------:|\n> | **📏 Взрыв 3**  | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Каждая цель проходит тест Ловкости.\n>\n> - **≤11:** 18 урона Молнией; цель поражена молнией (до успешного спасброска)\n> - **12-16:** 14 урона Молнией; цель поражена молнией (КсХ)\n> - **17+:** 9 урона Молнией\n>\n> См. «Поражённый молнией». Кроме того, до конца столкновения каждый враг, который впервые за раунд перемещается в пределах 3 клеток от таксиарха или начинает там свой ход, получает 3 урона Молнией.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.3rd-echelon.statblock.war-dog-taxiarch",
+        "path": "Monsters/monster/war-dog/3rd-echelon/statblock/war-dog-taxiarch.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.3rd-echelon.statblock/war-dog-taxiarch",
+      "originalName": "War Dog Taxiarch",
+      "originalDescription": "| Humanoid, Soulless, War Dog |            -             |      Level 9       |        Leader         |        EV 44         |\n|:---------------------------:|:------------------------:|:------------------:|:---------------------:|:--------------------:|\n|       **1M**<br>Size        |      **7**<br>Speed      | **240**<br>Stamina |  **1**<br>Stability   | **9**<br>Free Strike |\n|      **-**<br>Immunity      | **Teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+1**<br>Might       |    **+3**<br>Agility     |  **+5**<br>Reason  |  **+4**<br>Intuition  |  **+3**<br>Presence  |\n\n> 🏹 **Stunning Surge ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Ranged, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 14 lightning damage; the lightning spreads 1 square; I < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 19 lightning damage; the lightning spreads 2 squares; I < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 23 lightning damage; the lightning spreads 3 squares; I < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** The spread is the distance the charge arcs from a target to nearby enemies. Each enemy within spread takes 5 lightning damage.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The lighting spread increases by 2 squares. Additionally, any creature who takes lightning damage from this ability and who has M < 4 is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) until the end of their next turn.\n\n> 🔳 **Overcharge (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|--------------------------------:|\n> | **📏 4 cube within 10** | **🎯 Each war dog in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) that deals an extra 5 lightning damage.\n\n> ❗️ **Thunderstruck**\n>\n> | **Magic, Melee** |        **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |------------------|----------------------------:|\n> | **📏 Melee 1**   | **🎯 The triggering enemy** |\n>\n> **Trigger:** An enemy within distance deals damage to the taxiarch.\n>\n> **Effect:** After the ability is resolved, the target is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and is thunderstruck (save ends). A thunderstruck creature has lightning weakness 5, and the taxiarch gains an edge on power rolls against them.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the taxiarch can take 15 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ☠️ **Magnetic Trickery ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Area, Magic** |                         **-** |\n> |-----------------|------------------------------:|\n> | **📏 10 burst** | **🎯 Each enemy in the area** |\n>\n> **Effect:** [Slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5, and if the the target has M < 4, they fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ☠️ **Conductor of Combat ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area, Magic** |                           **-** |\n> |-----------------|--------------------------------:|\n> | **📏 5 burst**  | **🎯 Each war dog in the area** |\n>\n> **Effect:** Each target [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) or use a maneuver.\n\n> ☠️ **Unlimited Power! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area, Magic** |                            **-** |\n> |-----------------|---------------------------------:|\n> | **📏 3 burst**  | **🎯 Each creature in the area** |\n>\n> **Effect:** Each target makes an Agility test.\n>\n> - **≤11:** 18 lightning damage; the target is thunderstruck (save ends)\n> - **12-16:** 14 lightning damage; the target is thunderstruck (EoT)\n> - **17+:** 9 lightning damage\n>\n> See Thunderstruck. Additionally, until the end of the encounter, any enemy who moves within 3 squares of the taxiarch for the first time in a round or starts their turn there takes 3 lightning damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/3rd-echelon/statblock/war-dog-taxiarch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

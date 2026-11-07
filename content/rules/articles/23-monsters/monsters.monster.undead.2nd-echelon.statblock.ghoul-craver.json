@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.undead.2nd-echelon.statblock.ghoul-craver",
+  "title": "Упырь-обжора",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/2nd-echelon/statblock/ghoul-craver.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/ghoul-craver",
+  "originalName": "Ghoul Craver",
+  "originalDescription": "|                 Undead                 |           -           |     Level 4      |                 Minion Harrier                 | EV 6 for four minions |\n|:--------------------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |    **7**<br>Speed     | **8**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **Corruption 4, poison 4**<br>Immunity | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **+3**<br>Might             |   **+2**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Taste ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** This ability has a double edge against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) target.\n\n> ⭐️ **Ever So Hungry**\n>\n> Any enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more ghoul cravers can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Hunger**\n>\n> When the ghoul craver uses the Charge main action, they gain a +2 bonus to speed until the end of their turn.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/2nd-echelon/statblock/ghoul-craver.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "6 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Нежить"
+    ],
+    "role": "Налётчик",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.2nd-echelon.statblock.ghoul-craver"
+    }
+  ]
+}

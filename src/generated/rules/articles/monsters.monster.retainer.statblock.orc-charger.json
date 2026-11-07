@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.retainer.statblock.orc-charger",
+      "title": "Орк-налётчик",
+      "chapter": "24. Помощники",
+      "group": "Помощники",
+      "path": "Monsters/monster/retainer/statblock/orc-charger.md",
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/orc-charger",
+      "originalName": "Orc Charger",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **21**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Notched Axe (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n\n> ⭐️ **Relentless**\n>\n> If the charger is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the charger is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/orc-charger.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.retainer.statblock.orc-charger"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.advancement-features.orc-charger"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.retainer.role-advancement.harrier"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.retainer.advancement-features.orc-charger",
+          "title": "Способности развития орка-налётчика"
+        },
+        {
+          "id": "monsters.monster.retainer.role-advancement.harrier",
+          "title": "Способности развития роли Налётчика"
+        },
+        {
+          "id": "monsters.chapter.retainers",
+          "title": "Помощники"
+        },
+        {
+          "id": "monsters.guide.retainer-advancement",
+          "title": "Таблица развития помощников"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.retainer.statblock.orc-charger",
+      "kind": "retainer",
+      "name": "Орк-налётчик",
+      "markdown": "| Гуманоид, Орк | - | Уровень 1 | Помощник-налётчик | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **8**<br>Скорость | **21**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Зазубренный топор (Знаковая способность)**\n>\n> | **Рывок, ближний бой, дальний бой, удар, оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1 или дальний бой 5** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n\n> ⭐️ **Неумолимость**\n>\n> Если [Выносливость](#/catalog/glossary#term-glossary.stamina) налётчика снижается до 0, он может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) перед смертью. Если [Выносливость](#/catalog/glossary#term-glossary.stamina) цели этого [свободного удара](#/catalog/glossary#term-glossary.free-strike) снижается до 0, [Выносливость](#/catalog/glossary#term-glossary.stamina) налётчика вместо этого снижается до 1.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.statblock.orc-charger",
+        "path": "Monsters/monster/retainer/statblock/orc-charger.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.statblock/orc-charger",
+      "originalName": "Orc Charger",
+      "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |   Harrier Retainer    |         EV -         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **8**<br>Speed   | **21**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+2**<br>Might  | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **0**<br>Presence   |\n\n> ⚔️ **Notched Axe (Signature Ability)**\n>\n> | **Charge, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 5**                | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n\n> ⭐️ **Relentless**\n>\n> If the charger is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the charger is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/statblock/orc-charger.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "-",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Орк"
+        ],
+        "role": "Налётчик",
+        "organization": "Помощник"
+      }
+    },
+    {
+      "id": "monster.retainer.advancement-features.orc-charger",
+      "kind": "monster-feature",
+      "name": "Способности развития орка-налётчика",
+      "markdown": "> **Способность развития Помощника 4-го уровня**\n\n> 👤 **Кровная клятва (Столкновение)**\n>\n> | **На себя** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-----------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** До начала следующего хода налётчика он и его Наставник получают [временную Выносливость](#/catalog/glossary#term-glossary.temporary-stamina) в размере своего значения Восстановления, а также бонус +2 к Скорости; кроме того, каждый из них получает преимущество на тесты реакцией.\n\n> **Способность развития Помощника 7-го уровня**\n\n> 👤 **Смети их (Столкновение)**\n>\n> | **—** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------|----------------------:|\n> | **📏 На себя; см. ниже** | **🎯 На себя** |\n>\n> **Эффект:** Налётчик перемещается по прямой на расстояние до своей Скорости. Во время этого перемещения он игнорирует [свободные удары](#/catalog/glossary#term-glossary.free-strike) врагов и может нанести [свободный удар ближнего боя](#/catalog/glossary#term-glossary.free-strike) каждому существу, с которым оказывается [смежен](#/catalog/glossary#term-glossary.adjacent).\n\n> **Способность развития Помощника 10-го уровня**\n\n> ❇️ **Разрыв вен (Столкновение)**\n>\n> | **Область, Псионика** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------|----------------------:|\n> | **📏 Взрыв 2**        | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 12 психического урона\n> - **12-16:** 18 психического урона\n> - **17+:** 24 психического урона\n>\n> **Эффект:** Налётчик получает психический урон, равный количеству затронутых врагов. Этот урон нельзя уменьшить никаким способом.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.advancement-features.orc-charger",
+        "path": "Monsters/monster/retainer/advancement-features/orc-charger.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.advancement-features/orc-charger",
+      "originalName": "Orc Charger Advancement Features",
+      "originalDescription": "> **Level 4 Retainer Advancement Ability**\n\n> 👤 **Blood Oath (Encounter)**\n>\n> | **Self**    | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** Until the start of the charger's next turn, the charger and their mentor each have [temporary Stamina](scc.v1:mcdm.heroes.v1/rule.health/temporary-stamina) equal to their Recovery value and a +2 bonus to speed, and they each gain an edge on reactive tests.\n\n> **Level 7 Retainer Advancement Ability**\n\n> 👤 **Mow 'Em Down (Encounter)**\n>\n> | **-**                  | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|----------------:|\n> | **📏 Self; See below** |     **🎯 Self** |\n>\n> **Effect:** The charger moves in a straight line up to their speed. During this move, they ignore enemy [free strikes](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike), and they can make a melee [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against any creature they move [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to.\n\n> **Level 10 Retainer Advancement Ability**\n\n> ❇️ **Vein Burst (Encounter)**\n>\n> | **Area, Psionic** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------------------:|\n> | **📏 2 burst**    | **🎯 Each enemy in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 12 psychic damage\n> - **12-16:** 18 psychic damage\n> - **17+:** 24 psychic damage\n>\n> **Effect:** The charger takes psychic damage equal to the number of enemies affected. This damage can't be reducetd in any way.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/advancement-features/orc-charger.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    },
+    {
+      "id": "monster.retainer.role-advancement.harrier",
+      "kind": "monster-feature",
+      "name": "Способности развития роли Налётчика",
+      "markdown": "> **Способность развития роли 4-го уровня**\n\n> 🗡 **Таран (Столкновение)**\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> | **Рывок, Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------------|----------------------:|\n> | **📏 Ближний 1**                | **🎯 Один враг** |\n>\n> - **≤11:** 5 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **12-16:** 9 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 2\n> - **17+:** 12 урона; [оттолкнуть](#/catalog/glossary#term-glossary.forced-movement) на 4\n\n> **Способность развития роли 7-го уровня**\n\n> 🗡 **Встречаемся там (Столкновение)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|----------------------:|\n> | **📏 Ближний 1**          | **🎯 Одно существо** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 7 урона\n> - **12-16:** 10 урона\n> - **17+:** 15 урона\n>\n> **Эффект:** До или после удара Налётчик и его Наставник могут каждый [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> **Способность развития роли 10-го уровня**\n\n> ❇️ **Схватить и заколоть (Столкновение)**\n>\n> | **Область, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|----------------------:|\n> | **📏 Взрыв 1**      | **🎯 Каждое существо в области** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 11 урона; одна цель с М < СЛАБЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **12-16:** 16 урона; одна цель с М < СРЕДНИЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n> - **17+:** 21 урон; одна цель с М < СИЛЬНЫЙ [схвачена](#/catalog/glossary#term-glossary.grabbed)\n>\n> **Эффект:** Налётчик [смещается](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток и может переместить с собой существо, которое [схватил](#/catalog/glossary#term-glossary.grabbed) этой способностью.\n",
+      "source": {
+        "articleId": "monsters.monster.retainer.role-advancement.harrier",
+        "path": "Monsters/monster/retainer/role-advancement/harrier.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.retainer.role-advancement/harrier",
+      "originalName": "Harrier Abilities",
+      "originalDescription": "> **Level 4 Role Advancement Ability**\n\n> 🗡 **Tackle (Encounter)**\n>\n> **Power Roll + highest characteristic:**\n>\n> | **Charge, Melee, Strike, Weapon** |  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------:|\n> | **📏 Melee 1**                    | **🎯 One enemy** |\n>\n> - **≤11:** 5 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 9 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 12 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n\n> **Level 7 Role Advancement Ability**\n\n> 🗡 **Meet You There (Encounter)**\n>\n> | **Melee, Strike, Weapon** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Melee 1**            | **🎯 One creature** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 7 damage\n> - **12-16:** 10 damage\n> - **17+:** 15 damage\n>\n> **Effect:** Before or after the strike, the retainer and their mentor can each [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> **Level 10 Role Advancement Ability**\n\n> ❇️ **Nab and Stab (Encounter)**\n>\n> | **Area, Weapon** |                  **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------------------------:|\n> | **📏 1 burst**   | **🎯 Each creature in the area** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 11 damage; one target who has M < WEAK is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **12-16:** 16 damage; one target who has M < AVERAGE is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 21 damage; one target who has M < STRONG is [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** The retainer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares, and can move a creature [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed) using this ability with them.",
+      "director": {
+        "section": "retainers",
+        "sourcePath": "monster/retainer/role-advancement/harrier.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "retainer",
+        "recordType": "featureblock"
+      }
+    }
+  ]
+}

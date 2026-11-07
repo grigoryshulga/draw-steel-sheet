@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.dynamic-terrain.mechanisms.switch",
+      "title": "Выключатель",
+      "chapter": "25. Динамическая местность",
+      "group": "Механизмы",
+      "path": "Monsters/dynamic-terrain/mechanisms/switch.md",
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.mechanisms/switch",
+      "originalName": "Switch",
+      "originalDescription": "Set into any surface, this mechanism acts as a trigger for another linked mechanism.\n\n- **EV:** 1\n- **Stamina:** 3\n- **Size:** 1T\n- **Link:** A switch is linked to another mechanism that it activates when triggered.\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a switch can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the switch.\n> - **12-16:** The switch is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The switch is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> A creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the switch uses a maneuver to trigger it.\n>\n> **Effect:** The linked mechanism is activated. A switch automatically resets and can be triggered repeatedly.\n\n> ⭐️ **Upgrade**\n>\n> **Concealed (+1 EV)** The switch is hidden.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/mechanisms/switch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "mechanisms",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1T",
+        "role": "Поддержка",
+        "organization": "Спусковой механизм"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "dynamic-terrain.mechanisms.switch"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.chapter.dynamic-terrain",
+          "title": "Динамическая местность"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "dynamic-terrain.mechanisms.switch",
+      "kind": "terrain",
+      "name": "Выключатель",
+      "markdown": "Этот встроенный в любую поверхность механизм служит спусковым механизмом для другого связанного механизма.\n\n- **БЦ:** 1\n- **Выносливость:** 3\n- **Размер:** 1T\n- **Связь:** Выключатель связан с другим механизмом, который он приводит в действие при срабатывании.\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с выключателем клетке может манёвром совершить **проверку Ловкости**.\n>\n> - **≤11:** Существо приводит выключатель в действие.\n> - **12-16:** Выключатель отключён, но существо получает состояние [Замедление](#/catalog/glossary#term-glossary.slowed) (КсХ).\n> - **17+:** Выключатель отключён и не срабатывает.\n\n> ❕ **Активация**\n>\n> Существо в [соседней](#/catalog/glossary#term-glossary.adjacent) с выключателем клетке использует манёвр, чтобы привести его в действие.\n>\n> **Эффект:** Связанный механизм активируется. Выключатель автоматически возвращается в исходное положение и может срабатывать неоднократно.\n\n> ⭐️ **Улучшение**\n>\n> **Скрытый (+1 БЦ)** Выключатель скрыт.\n",
+      "source": {
+        "articleId": "monsters.dynamic-terrain.mechanisms.switch",
+        "path": "Monsters/dynamic-terrain/mechanisms/switch.md"
+      },
+      "originalId": "mcdm.monsters.v1/dynamic-terrain.mechanisms/switch",
+      "originalName": "Switch",
+      "originalDescription": "Set into any surface, this mechanism acts as a trigger for another linked mechanism.\n\n- **EV:** 1\n- **Stamina:** 3\n- **Size:** 1T\n- **Link:** A switch is linked to another mechanism that it activates when triggered.\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a switch can make an **Agility test**.\n>\n> - **≤11:** The creature triggers the switch.\n> - **12-16:** The switch is deactivated but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT).\n> - **17+:** The switch is deactivated and doesn't trigger.\n\n> ❕ **Activate**\n>\n> A creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the switch uses a maneuver to trigger it.\n>\n> **Effect:** The linked mechanism is activated. A switch automatically resets and can be triggered repeatedly.\n\n> ⭐️ **Upgrade**\n>\n> **Concealed (+1 EV)** The switch is hidden.",
+      "director": {
+        "section": "terrain",
+        "sourcePath": "dynamic-terrain/mechanisms/switch.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "mechanisms",
+        "recordType": "dynamic-terrain",
+        "level": 1,
+        "ev": "1",
+        "size": "1T",
+        "role": "Поддержка",
+        "organization": "Спусковой механизм"
+      }
+    }
+  ]
+}

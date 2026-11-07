@@ -1,0 +1,29 @@
+{
+  "id": "monster.elf-high.statblock.ceramic-horse",
+  "kind": "monster",
+  "name": "Керамический конь",
+  "markdown": "| Элементаль, Высший эльф | - | Уровень 1 | Взвод, Скакун | Боевая ценность 6 |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **2**<br>Размер | **10**<br>Скорость | **30**<br>Выносливость | **2**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Элементальный рывок (Знаковая способность)**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона огнём\n> - **17+:** 9 урона молнией; при М < 2 цель [сбита с ног](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Топот**\n>\n> | **Область, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 Взрыв 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 5 урона\n> - **17+:** 7 урона\n>\n> **Эффект:** Любая цель, которая [лежит](scc.v1:mcdm.heroes.v1/condition/prone), получает ещё 2 урона.\n\n> 👤 **Взбрыкнуть (2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-** | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|--------------------------:|\n> | **📏 Себя** | **🎯 Всадник коня** |\n>\n> **Эффект:** Конь вертикально [швыряет](scc.v1:mcdm.heroes.v1/movement/forced-movement) цель на расстояние до 3 клеток, игнорируя Устойчивость. Во время этого принудительного перемещения цель может в любой момент использовать способность дальнего боя; если после этого она падает, урон она не получает.\n\n> ⭐️ **Общая неземная грация**\n>\n> Если у всадника керамического коня есть черта «Неземная грация», то она есть и у коня.\n",
+  "source": {
+    "articleId": "monsters.monster.elf-high.statblock.ceramic-horse",
+    "path": "Monsters/monster/elf-high/statblock/ceramic-horse.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/ceramic-horse",
+  "originalName": "Ceramic Horse",
+  "originalDescription": "| Elemental, High Elf |         -         |      Level 1      |     Platoon Mount     |         EV 6         |\n|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|    **2**<br>Size    |  **10**<br>Speed  | **30**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |\n|  **-**<br>Immunity  | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|   **+2**<br>Might   | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Elemental Charge (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 fire damage\n> - **17+:** 9 lightning damage; M < 2 [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❇️ **Stomp**\n>\n> | **Area, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|------------------------------:|\n> | **📏 1 burst**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 5 damage\n> - **17+:** 7 damage\n>\n> **Effect:** Any target who is [prone](scc.v1:mcdm.heroes.v1/condition/prone) takes an extra 2 damage.\n\n> 👤 **Buck (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **-**       |              **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|--------------------------:|\n> | **📏 Self** |  **🎯 The horse's rider** |\n>\n> **Effect:** The horse vertical [slides](scc.v1:mcdm.heroes.v1/movement/forced-movement) the target up to 3 squares, ignoring stability. The target can use a ranged ability at any point during this forced movement, and takes no damage if they then fall.\n\n> ⭐️ **Shared Otherworldly Grace**\n>\n> If the ceramic horse's rider has the Otherworldly Grace trait, the ceramic horse also has that trait.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/elf-high/statblock/ceramic-horse.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "elf-high",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "2",
+    "keywords": [
+      "Элементаль",
+      "Высший эльф"
+    ],
+    "role": "Скакун",
+    "organization": "Взвод"
+  }
+}

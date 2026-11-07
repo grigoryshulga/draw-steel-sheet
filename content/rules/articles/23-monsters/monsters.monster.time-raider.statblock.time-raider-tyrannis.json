@@ -1,0 +1,31 @@
+{
+  "id": "monsters.monster.time-raider.statblock.time-raider-tyrannis",
+  "title": "Рейдер времени — Тираннис",
+  "chapter": "23. Бестиарий",
+  "group": "Рейдеры времени",
+  "path": "Monsters/monster/time-raider/statblock/time-raider-tyrannis.md",
+  "originalId": "mcdm.monsters.v1/monster.time-raider.statblock/time-raider-tyrannis",
+  "originalName": "Time Raider Tyrannis",
+  "originalDescription": "|   Humanoid, Time Raider   |                -                |       Level 3       |        Leader         |        EV 20         |\n|:-------------------------:|:-------------------------------:|:-------------------:|:---------------------:|:--------------------:|\n|       **2**<br>Size       |         **10**<br>Speed         | **120**<br>Stamina  |  **2**<br>Stability   | **5**<br>Free Strike |\n| **Psychic 5**<br>Immunity | **Hover, teleport**<br>Movement |          -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **0**<br>Might       |        **+3**<br>Agility        |  **+3**<br>Reason   |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> ⚔️ **Gatling Blaster ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Psionic, Ranged, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------------------------|--------------------------------:|\n> | **📏 Melee 2 or ranged 10**                | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 8 corruption damage\n> - **12-16:** 12 corruption damage\n> - **17+:** 15 corruption damage\n>\n> **Effect:** Each target takes a −2 penalty to speed until the start of the tyrannis's next turn.\n\n> 🏹 **Air Raid! (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Psionic, Ranged** |              **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------|--------------------------:|\n> | **📏 Ranged 10**    | **🎯 Three time raiders** |\n>\n> **Effect:** Each target can [fly](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). If a target doesn't land in an unoccupied space, they fall.\n\n> ❗️ **Precog Reflexes**\n>\n> | **Psionic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |---------------------|-------------------------------:|\n> | **📏 Ranged 10**    | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance makes a strike against the tyrannis.\n>\n> **Effect:** The strike takes a bane. After the strike resolves, the tyrannis can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The strike has a double bane instead.\n\n> ⭐️ **[End Effect](scc.v1:mcdm.monsters.v1/rule.monster/end-effect)**\n>\n> At the end of each of their turns, the tyrannis can take 5 damage to end one effect on them that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw). This damage can't be reduced in any way.\n\n> ⭐️ **Foresight**\n>\n> The tyrannis doesn't take a bane on strikes against creatures with concealment.\n\n> ☠️ **We Will Won! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 1)**\n>\n> | **Psionic, Ranged** |                        **-** |\n> |---------------------|-----------------------------:|\n> | **📏 Ranged 10**    | **🎯 Self and three allies** |\n>\n> **Effect:** Each target gains 15 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), and has their speed doubled until the end of their next turn.\n\n> ☠️ **Stick to the Plan! ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 2)**\n>\n> | **Area**        |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 10 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Each target can end one effect on them or can move up to their speed.\n\n> ☠️ **Armageddon ([Villain Action](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) 3)**\n>\n> | **Area**       |          **-** |\n> |----------------|---------------:|\n> | **📏 5 burst** | **🎯 Special** |\n>\n> **Effect:** The tyrannis fires a sensor mine into each unoccupied square in the area, and creates a gravity well whose area contains one or more squares of the tyrannis's space (see Gravity Well). Whenever an enemy enters a square with a sensor mine in it, the mine explodes, dealing 3 damage to the enemy.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/time-raider/statblock/time-raider-tyrannis.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "time-raider",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "20",
+    "size": "2",
+    "keywords": [
+      "Гуманоид",
+      "Рейдер времени"
+    ],
+    "organization": "Лидер"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.time-raider.statblock.time-raider-tyrannis"
+    }
+  ]
+}

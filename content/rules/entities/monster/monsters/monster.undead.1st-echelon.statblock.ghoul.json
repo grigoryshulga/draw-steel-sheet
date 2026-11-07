@@ -1,0 +1,28 @@
+{
+  "id": "monster.undead.1st-echelon.statblock.ghoul",
+  "kind": "monster",
+  "name": "Упырь",
+  "markdown": "| Нежить |         -         |    **Уровень 1**     | **Орда, Налётчик** | **Боевая ценность 3** |\n|:----------:|:-----------------:|:-------------------:|:------------------:|:--------:|\n| **1M**<br>Размер | **7**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **Порча 1, Яд 1**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **-2**<br>Разум | **0**<br>Интуиция | **-1**<br>Присутствие |\n\n> 🗡 **Острые когти ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1**                | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона; М < 2 [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n\n> 👤 **Прыжок**\n>\n> | **-**       | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|----------------:|\n> | **📏 На себя** | **🎯 На себя** |\n>\n> **Эффект:** Упырь прыгает на расстояние до 3 клеток. Если он приземляется на врага размером 1, тот сбивается [с ног](scc.v1:mcdm.heroes.v1/condition/prone), и упырь может нанести ему [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ⭐️ **Восстань**\n>\n> Если [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) упыря впервые снижается до 0 от урона, не являющегося уроном огнём или святым уроном, а его тело не уничтожено, вместо этого у него остаётся 1 [Выносливость](scc.v1:mcdm.heroes.v1/rule.health/stamina), и он падает [Лежащим](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Голод**\n>\n> Используя основное действие «Атака с рывком», упырь получает бонус +2 к Скорости до конца своего хода.\n",
+  "source": {
+    "articleId": "monsters.monster.undead.1st-echelon.statblock.ghoul",
+    "path": "Monsters/monster/undead/1st-echelon/statblock/ghoul.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon.statblock/ghoul",
+  "originalName": "Ghoul",
+  "originalDescription": "|                 Undead                 |         -         |      Level 1      |     Horde Harrier     |        EV 3          |\n|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **Corruption 1, poison 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|             **0**<br>Might             | **+2**<br>Agility | **-2**<br>Reason  |  **0**<br>Intuition   |  **-1**<br>Presence  |\n\n> 🗡 **Razor Claws ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n\n> 👤 **Leap**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The ghoul jumps up to 3 squares. If they land on a size 1 enemy, that enemy is knocked [prone](scc.v1:mcdm.heroes.v1/condition/prone) and the ghoul can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Arise**\n>\n> The first time the ghoul is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) by damage that isn't fire damage or holy damage and their body isn't destroyed, they instead have 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and fall [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Hunger**\n>\n> When the ghoul uses the Charge main action, they gain a +2 bonus to speed until the end of their turn.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/1st-echelon/statblock/ghoul.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1M",
+    "keywords": [
+      "Нежить"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  }
+}

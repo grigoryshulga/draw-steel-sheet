@@ -1,0 +1,34 @@
+{
+  "id": "monsters.monster.valok.statblock.servok-miner",
+  "title": "Сервок-шахтёр",
+  "chapter": "23. Бестиарий",
+  "group": "Валоки",
+  "path": "Monsters/monster/valok/statblock/servok-miner.md",
+  "originalId": "mcdm.monsters.v1/monster.valok.statblock/servok-miner",
+  "originalName": "Servok Miner",
+  "originalDescription": "| Construct, Servok, Soulless, Valok |               -               |      Level 9       |   Elite Controller    |        EV 44         |\n|:----------------------------------:|:-----------------------------:|:------------------:|:---------------------:|:--------------------:|\n|           **2**<br>Size            |        **5**<br>Speed         | **200**<br>Stamina |  **6**<br>Stability   | **9**<br>Free Strike |\n|         **-**<br>Immunity          | **Burrow, climb**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|          **+4**<br>Might           |       **-2**<br>Agility       |  **-4**<br>Reason  |  **-1**<br>Intuition  |  **-5**<br>Presence  |\n\n> 🗡 **Drill Press ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 2**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 13 damage; M < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **12-16:** 18 damage; M < 3 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends) and [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 22 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone); M < 4 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** In suitably soft ground, a target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way is etrenched in a 1-square-deep hole.\n\n> 🔳 **Unload Rocks (3 Malice)**\n>\n> | **Area**               |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|-----------------------------------------:|\n> | **📏 4 cube within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Effect:** Each target makes an **Agility test**.\n>\n> - **≤11:** 14 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; the miner's allies have concealment from the target (save ends)\n> - **12-16:** 11 damage; [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **17+:** 7 damage\n>\n> The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain).\n\n> 🔳 **Break Ground (5 Malice)**\n>\n> | **Area**                    |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 20 x 1 line within 1** | **🎯 Each enemy and object in the area** |\n>\n> **Effect:** A 5-square-deep fissure opens along the ground in the area. Each ally in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure. Each target makes an **Agility test**.\n>\n> - **≤11:** 14 damage; the target falls into the fissure, and is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 11 damage; the target is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and hanging onto the edge of the fissure\n> - **17+:** 7 damage; the target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure\n\n> ❗️ **Miner Inconvenience (2 Malice)**\n>\n> | **Area**    | **[Triggered Action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------|---------------------:|\n> | **📏 Self** |          **🎯 Self** |\n>\n> **Trigger:** The miner is targeted by a strike.\n>\n> **Effect:** Until the end of the round, dust and dirt billow in a 2 burst around the miner's initial space. While the miner is in the area, they ignore the nondamaging effects of any strike made against them, including the triggering strike.\n\n> ⭐️ **Valiar Tunneler**\n>\n> The miner can burrow through stone and metal. When the miner burrows, they create a stable size 2 tunnel in their wake.\n\n> ⭐️ **Servok Siege Machine**\n>\n> The miner ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and their abilities deal an extra 15 damage to objects.\n\n> ⭐️ **Crafted to Perfection**\n>\n> The miner's shape can't be changed by any external effect.\n\n> ⭐️ **Valiar Might**\n>\n> While the miner isn't [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), any power roll made against them is automatically a tier 1 outcome. A critical hit still grants its additional main action.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/valok/statblock/servok-miner.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "valok",
+    "recordType": "statblock",
+    "level": 9,
+    "ev": "44",
+    "size": "2",
+    "keywords": [
+      "Конструкт",
+      "Сервок",
+      "Бездушный",
+      "Валок"
+    ],
+    "role": "Контроллер",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.valok.statblock.servok-miner"
+    }
+  ]
+}

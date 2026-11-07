@@ -1,0 +1,29 @@
+{
+  "id": "monster.demon.4th-echelon.statblock.vicisitator",
+  "kind": "monster",
+  "name": "Вициситатор",
+  "markdown": "| Бездны, Демон | - | Уровень 10 | Орда, Налётчик | Боевая ценность 12 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n| **1M**<br>Размер | **9**<br>Скорость | **60**<br>Выносливость | **0**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+4**<br>Мощь | **+5**<br>Ловкость | **-1**<br>Разум | **-2**<br>Интуиция | **-3**<br>Присутствие |\n\n> ⚔️ **Прикосновение искажения (знаковая способность)**\n>\n> | **Магия, Ближний, Дальний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 10** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 9 урона\n> - **12–16:** 12 урона\n> - **17+:** 14 урона; при **И < 5** цель получает [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) и [Ослабление](scc.v1:mcdm.heroes.v1/condition/weakened) (до прох.)\n>\n> **Особое:** Эффекты [Замедления](scc.v1:mcdm.heroes.v1/condition/slowed) и [Ослабления](scc.v1:mcdm.heroes.v1/condition/weakened), наложенные таким образом, нельзя игнорировать.\n\n> 🔳 **Сдирание души (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область** | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|\n> | **📏 Линия 6 × 3 в пределах 1** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 4 урона психикой; при **П < 3** — [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n> - **12–16:** 7 урона психикой; при **П < 4** — [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n> - **17+:** 9 урона психикой; при **П < 5** — [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до прох.)\n>\n> **Эффект:** Существо, у которого из-за этой способности открыто [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding), теряет 2d6 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina) вместо 1d6.\n\n> ⭐️ **Лета**\n>\n> Пока вициситатор находится в состоянии [Утомление](scc.v1:mcdm.heroes.v1/rule.health/winded), он получает [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge) при ударах, а удары по нему также совершаются с преимуществом.\n\n> ⭐️ **Зрение душ**\n>\n> Ни одно существо в пределах 2 клеток от вициситатора не может скрыться от него.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.4th-echelon.statblock.vicisitator",
+    "path": "Monsters/monster/demon/4th-echelon/statblock/vicisitator.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/vicisitator",
+  "originalName": "Vicisitator",
+  "originalDescription": "|  Abyssal, Demon   |         -         |     Level 10      |     Horde Harrier     |          EV 12           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1M**<br>Size   |  **9**<br>Speed   | **60**<br>Stamina |  **0**<br>Stability   |   **4**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+4**<br>Might  | **+5**<br>Agility | **-1**<br>Reason  |  **-2**<br>Intuition  |    **-3**<br>Presence    |\n\n> ⚔️ **Warp Touch (Signature Ability)**\n>\n> | **Magic, Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**              | **🎯 One creature or object** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 9 damage\n> - **12-16:** 12 damage\n> - **17+:** 14 damage; I < 5 the target is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Special:** The effects of being [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way can't be ignored.\n\n> 🔳 **Soul Flay (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**                   |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------|------------------------------:|                  \n> | **📏 6 x 3 line within 1** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 4 psychic damage; P < 3 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 7 psychic damage; P < 4 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 9 psychic damage; P < 5 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** Any creature who is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) from this ability loses 2d6 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead of 1d6.\n\n> ⭐️ **Lethe**\n>\n> While the vicisitator is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the vicisitator can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/4th-echelon/statblock/vicisitator.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 10,
+    "ev": "12",
+    "size": "1M",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Налётчик",
+    "organization": "Орда"
+  }
+}

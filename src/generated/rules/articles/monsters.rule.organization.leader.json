@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.rule.organization.leader",
+      "title": "Лидер",
+      "chapter": "22. Монстры: правила ведущего",
+      "group": "Правила ведущего",
+      "path": "Monsters/rule/organization/leader.md",
+      "originalId": "mcdm.monsters.v1/rule.organization/leader",
+      "originalName": "Leader",
+      "originalDescription": "A leader is a powerful monster who buffs their allies and grants them additional actions. They utilize [villain actions](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) and can stand toe-to-toe with two or more heroes of the same level by themself. Typically, only one leader appears in a battle at a time, alongside [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion), [horde](scc.v1:mcdm.monsters.v1/rule.organization/horde) or [platoon](scc.v1:mcdm.monsters.v1/rule.organization/platoon) creatures, and [elites](scc.v1:mcdm.monsters.v1/rule.organization/elite). Leader creatures have no additional creature role (see Creature Roles).",
+      "director": {
+        "section": "rules",
+        "sourcePath": "rule/organization/leader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "",
+        "recordType": "rule"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "rule.organization.leader"
+        }
+      ],
+      "related": []
+    }
+  ],
+  "entities": [
+    {
+      "id": "rule.organization.leader",
+      "kind": "monster-rule",
+      "name": "Лидер",
+      "markdown": "Лидер — могущественный монстр, который усиливает союзников и даёт им дополнительные действия. Лидеры используют [действия злодея](#/codex/monsters.rule.monster.villain-action) и в одиночку способны на равных сражаться с двумя или более героями того же уровня. Обычно в бою присутствует только один лидер, а вместе с ним — [миньоны](#/codex/monsters.rule.organization.minion), существа [орды](#/codex/monsters.rule.organization.horde) или [взвода](#/codex/monsters.rule.organization.platoon), а также [элита](#/codex/monsters.rule.organization.elite). У лидеров нет дополнительной боевой роли (см. «Роли существ»).\n",
+      "source": {
+        "articleId": "monsters.rule.organization.leader",
+        "path": "Monsters/rule/organization/leader.md"
+      },
+      "originalId": "mcdm.monsters.v1/rule.organization/leader",
+      "originalName": "Leader",
+      "originalDescription": "A leader is a powerful monster who buffs their allies and grants them additional actions. They utilize [villain actions](scc.v1:mcdm.monsters.v1/rule.monster/villain-action) and can stand toe-to-toe with two or more heroes of the same level by themself. Typically, only one leader appears in a battle at a time, alongside [minions](scc.v1:mcdm.monsters.v1/rule.organization/minion), [horde](scc.v1:mcdm.monsters.v1/rule.organization/horde) or [platoon](scc.v1:mcdm.monsters.v1/rule.organization/platoon) creatures, and [elites](scc.v1:mcdm.monsters.v1/rule.organization/elite). Leader creatures have no additional creature role (see Creature Roles).",
+      "director": {
+        "section": "rules",
+        "sourcePath": "rule/organization/leader.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "",
+        "recordType": "rule"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "monster.demon.2nd-echelon.statblock.bale-eye",
+  "kind": "monster",
+  "name": "Глаз Рока",
+  "markdown": "| Бездны, Демон |          -          |      Уровень 5      |      Орда-Проклинатель      | Боевая ценность 7 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **4**<br>Размер   |  **6**<br>Скорость    | **30**<br>Выносливость |  **2**<br>Устойчивость   |   **3**<br>Свободный удар   |\n| **-**<br>Иммунитет | **Полёт**<br>Движение |         -         | **-**<br>С капитаном |  **Святой 5**<br>Уязвимость  |\n|  **+0**<br>Мощь  |  **+0**<br>Ловкость  | **+3**<br>Разум  |  **+3**<br>Интуиция  |    **+3**<br>Присутствие    |\n\n> 🏹 **Увядающие видения (Знаковая способность)**\n>\n> | **Магия, Дальний бой, Удар** |     **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Дальний бой 15**          | **🎯 Одно существо** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 6 психического урона\n> - **12-16:** 8 психического урона\n> - **17+:** 9 психического урона\n>\n> **Эффект:** У цели появляется [уязвимость](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) к Порче 5 (КсХ).\n>\n> **2 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Если у цели И < 2, у неё появляется [уязвимость](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) к Порче 5 (до прох.).\n\n> 🔳 **Разрывы демонического искажения (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область, Магия, Дальний бой** |               **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 Куб 4 в пределах 5**  | **🎯 Каждый враг в области** |\n>\n> **Особое:** Глаз Рока должен создать куб под собой.\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 3 психического урона; Л < 1, цель искажена (до прох.)\n> - **12-16:** 5 психического урона; Л < 2, цель искажена (до прох.)\n> - **17+:** 6 психического урона; Л < 3, цель искажена (до прох.)\n>\n> **Эффект:** Пока существо искажено, при бросках силы с характеристикой выше 0 оно получает двойную [помеху](scc.v1:mcdm.heroes.v1/rule.dice/bane), а при бросках силы с характеристикой ниже 0 — двойное [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge).\n\n> ⭐️ **Лета**\n>\n> Пока глаз Рока [утомлён](scc.v1:mcdm.heroes.v1/rule.health/winded), он получает [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge) на ударах, а любой удар по нему также получает преимущество.\n\n> ⭐️ **Зрение душ**\n>\n> От глаза Рока нельзя скрыть ни одно существо в пределах 5 клеток от него.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.2nd-echelon.statblock.bale-eye",
+    "path": "Monsters/monster/demon/2nd-echelon/statblock/bale-eye.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.2nd-echelon.statblock/bale-eye",
+  "originalName": "Bale Eye",
+  "originalDescription": "|  Abyssal, Demon   |          -          |      Level 5      |      Horde Hexer      |           EV 7           |\n|:-----------------:|:-------------------:|:-----------------:|:---------------------:|:------------------------:|\n|   **4**<br>Size   |   **6**<br>Speed    | **30**<br>Stamina |  **2**<br>Stability   |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **Fly**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+0**<br>Might  |  **+0**<br>Agility  | **+3**<br>Reason  |  **+3**<br>Intuition  |    **+3**<br>Presence    |\n\n> 🏹 **Wilting Visions (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |     **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------:|\n> | **📏 Ranged 15**          | **🎯 One creature** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 6 psychic damage\n> - **12-16:** 8 psychic damage\n> - **17+:** 9 psychic damage\n>\n> **Effect:** The target has corruption [weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 5 (EoT).\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** If the target has I < 2, they have corruption [weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 5 (save ends).\n\n> 🔳 **Demonwarp Tears (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 4 cube within 5**  | **🎯 Each enemy in the area** |\n>\n> **Special:** The bale eye must create the cube beneath themself.\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 psychic damage; A < 1 the target is warped (save ends)\n> - **12-16:** 5 psychic damage; A < 2 the target is warped (save ends)\n> - **17+:** 6 psychic damage; A < 3 the target is warped (save ends)\n>\n> **Effect:** While warped, a creature has a double [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on power rolls using any characteristic higher than 0, and has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on power rolls using any characteristic lower than 0.\n\n> ⭐️ **Lethe**\n>\n> While the bale eye is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 5 squares of the bale eye can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/2nd-echelon/statblock/bale-eye.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7",
+    "size": "4",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Проклинатель",
+    "organization": "Орда"
+  }
+}

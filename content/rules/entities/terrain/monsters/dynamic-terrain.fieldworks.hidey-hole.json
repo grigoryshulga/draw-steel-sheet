@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.fieldworks.hidey-hole",
+  "kind": "terrain",
+  "name": "Тайник-убежище",
+  "markdown": "Полость в полу, стене или потолке может скрывать угрозу.\n\n- **БЦ:** 1\n- **Выносливость:** -\n- **Размер:** Одна или несколько клеток\n\n> 🌀 **Отключение**\n>\n> Существо в [соседней](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с убежищем клетке может манёвром совершить **проверку Мощи**.\n>\n> - **≤11:** Существо получает состояние [Опутанность](scc.v1:mcdm.heroes.v1/condition/restrained) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)).\n> - **12-16:** Убежище обрушивается, но существо получает состояние [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)).\n> - **17+:** Убежище обрушивается, и его нельзя использовать до ремонта.\n\n> ❕ **Активация**\n>\n> Существо начинает столкновение в убежище или заканчивает там ход.\n>\n> **Эффект:** Вызвавшее активацию существо может попытаться [спрятаться](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) бесплатным триггерным действием.\n\n> ⭐️ **Улучшение**\n>\n> **Сеть (+1 БЦ за убежище)** Убежище соединено с сетью тоннелей. Существо, знакомое с сетью, может переместиться из одного убежища в любую клетку [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с соединённым убежищем, если ему доступно перемещение, равное расстоянию по прямой до этой клетки. Существо, не знакомое с сетью, может манёвром совершить **трудную проверку Интуиции**, чтобы обнаружить соединённое убежище.\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.fieldworks.hidey-hole",
+    "path": "Monsters/dynamic-terrain/fieldworks/hidey-hole.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.fieldworks/hidey-hole",
+  "originalName": "Hidey-Hole",
+  "originalDescription": "A cavity in a floor, wall, or ceiling might hold hidden threats.\n\n- **EV:** 1\n- **Stamina:** -\n- **Size:** One or more squares\n\n> 🌀 **Deactivate**\n>\n> As a maneuver, a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a hidey-hole can make a **Might test**.\n>\n> - **≤11:** The creature is [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **12-16:** The hidey-hole collapses but the creature is [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).\n> - **17+:** The hidey-hole collapses and can no longer be used until repaired.\n\n> ❕ **Activate**\n>\n> A creature starts the encounter in the hidey-hole or ends their turn there.\n>\n> **Effect:** The triggering creature can attempt to [hide](scc.v1:mcdm.heroes.v1/feature.common.maneuvers/hide) as a free triggered action.\n\n> ⭐️ **Upgrade**\n>\n> **Network (+1 EV per hidey-hole)** The hidey-hole is connected to a tunnel network. A creature familiar with the network can move from one hidey-hole to any space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to a connected hidey-hole if they have movement available equal to the straight-line distance to that space. A creature unfamiliar with the network can use a maneuver to make a **hard Intuition test** to discover a connected hidey-hole.",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/fieldworks/hidey-hole.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "fieldworks",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "1",
+    "size": "Одна или несколько клеток",
+    "role": "Засадник",
+    "organization": "Укрепление"
+  }
+}

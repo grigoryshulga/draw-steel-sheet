@@ -1,0 +1,29 @@
+{
+  "id": "monster.lizardfolk.statblock.lizardfolk-tonguer",
+  "kind": "monster",
+  "name": "Языкарь",
+  "markdown": "| Гуманоид, Ящеролюд |          -           |     Уровень 1      |             Миньон, Артиллерист             | Боевая ценность 3 за четырёх миньонов |\n|:------------------:|:-------------------:|:----------------:|:-------------------------------------------:|:-----------------------:|\n|    **1S**<br>Размер    |    **5**<br>Скорость    | **3**<br>Выносливость |           **0**<br>Устойчивость            |   **2**<br>Свободный удар  |\n|  **-**<br>Иммунитет   | **Плавание**<br>Перемещение |        -         | **+1 к ударам**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **0**<br>Мощь    |  **+2**<br>Ловкость   | **0**<br>Разум  |           **+1**<br>Интуиция           |   **0**<br>Присутствие   |\n\n> 🗡 **Удар языком (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|-----------------------------------------:|\n> | **📏 Ближний бой 8**           | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона; [притягивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1 или языкарь может [сместиться](scc.v1:mcdm.heroes.v1/movement/shifting) на 1 клетку к цели\n> - **12-16:** 4 урона; [притягивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 или языкарь [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 2 клеток к цели\n> - **17+:** 5 урона; [притягивание](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3 или языкарь [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 3 клеток к цели\n>\n> **Эффект:** Если [принудительное перемещение](scc.v1:mcdm.heroes.v1/movement/forced-movement) или [смещение](scc.v1:mcdm.heroes.v1/movement/shifting) оставляет цель [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с языкарём, цель также оказывается [схваченной](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ⭐️ **Рептильное спасение**\n>\n> Пока у языкаря есть хвост, получив состояние [Захват](scc.v1:mcdm.heroes.v1/condition/grabbed), [Лежащий](scc.v1:mcdm.heroes.v1/condition/prone), [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) или [Ослабление](scc.v1:mcdm.heroes.v1/condition/weakened), он может потерять хвост, чтобы немедленно завершить это состояние, а затем [смещается](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до 2 клеток.\n",
+  "source": {
+    "articleId": "monsters.monster.lizardfolk.statblock.lizardfolk-tonguer",
+    "path": "Monsters/monster/lizardfolk/statblock/lizardfolk-tonguer.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.lizardfolk.statblock/lizardfolk-tonguer",
+  "originalName": "Lizardfolk Tonguer",
+  "originalDescription": "| Humanoid, Lizardfolk |          -           |     Level 1      |            Minion Artillery             | EV 3 for four minions |\n|:--------------------:|:--------------------:|:----------------:|:---------------------------------------:|:---------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed    | **3**<br>Stamina |           **0**<br>Stability            | **2**<br>Free Strike  |\n|  **-**<br>Immunity   | **Swim**<br>Movement |        -         | **+1 bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|    **0**<br>Might    |  **+2**<br>Agility   | **0**<br>Reason  |           **+1**<br>Intuition           |   **0**<br>Presence   |\n\n> 🗡 **Tonguelash (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Melee 8**            | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1, or the tonguer can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) 1 square toward the target\n> - **12-16:** 4 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2, or the tonguer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares toward the target\n> - **17+:** 5 damage; [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3, or the tonguer [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 3 squares toward the target\n>\n> **Effect:** If the [forced movement](scc.v1:mcdm.heroes.v1/movement/forced-movement) or the [shift](scc.v1:mcdm.heroes.v1/movement/shifting) leaves the target [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the tonguer, the target is also [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed).\n\n> ⭐️ **Reptilian Escape**\n>\n> While the tonguer has a tail, whenever they are [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed), [prone](scc.v1:mcdm.heroes.v1/condition/prone), [slowed](scc.v1:mcdm.heroes.v1/condition/slowed), or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), they can lose their tail to immediately end that condition, then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/lizardfolk/statblock/lizardfolk-tonguer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "lizardfolk",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Ящеролюд"
+    ],
+    "role": "Артиллерист",
+    "organization": "Миньон"
+  }
+}

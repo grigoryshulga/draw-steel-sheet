@@ -1,0 +1,29 @@
+{
+  "id": "monster.radenwight.statblock.radenwight-scrapper",
+  "kind": "monster",
+  "name": "Раденвайт-задира",
+  "markdown": "| Гуманоид, Раденвайт |           -           |      Уровень 1      |      Миньон, Защитник      |  Боевая ценность 3 за 4 миньона  |\n|:--------------------:|:---------------------:|:-------------------:|:--------------------------:|:-------------------:|\n|    **1S**<br>Размер   |    **5**<br>Скорость   | **5**<br>Выносливость | **1**<br>Устойчивость | **1**<br>Свободный удар |\n|  **-**<br>Иммунитет   | **Лазание**<br>Движение |        -         | **Бонус +2 к дистанции ближнего боя**<br>С капитаном | **-**<br>Уязвимость |\n|   **-1**<br>Мощь      |   **+1**<br>Ловкость   | **0**<br>Разум    | **0**<br>Интуиция    | **+2**<br>Присутствие |\n\n> 🗡 **Удар баклером ([Знаковая способность](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Рывок, Ближний, Удар, Оружие** |                          **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Ближний 1**                 | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 1 урон\n> - **12-16:** 2 урона; [провокация](scc.v1:mcdm.heroes.v1/condition/taunted) (КсХ)\n> - **17+:** 3 урона; [провокация](scc.v1:mcdm.heroes.v1/condition/taunted) (КсХ)\n\n> ❗️ **Готовый грызун**\n>\n> | **Ближний, Оружие** | **[Триггер](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |--------------------|---------------------:|\n> | **📏 Ближний 1**   | **🎯 Одно существо** |\n>\n> **Триггер:** Союзник наносит цели урон.\n>\n> **Эффект:** Задира совершает по цели [свободный удар](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n",
+  "source": {
+    "articleId": "monsters.monster.radenwight.statblock.radenwight-scrapper",
+    "path": "Monsters/monster/radenwight/statblock/radenwight-scrapper.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.radenwight.statblock/radenwight-scrapper",
+  "originalName": "Radenwight Scrapper",
+  "originalDescription": "| Humanoid, Radenwight |           -           |     Level 1      |                Minion Defender                 |  EV 3 for 4 minions  |\n|:--------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:--------------------:|\n|    **1S**<br>Size    |    **5**<br>Speed     | **5**<br>Stamina |               **1**<br>Stability               | **1**<br>Free Strike |\n|  **-**<br>Immunity   | **Climb**<br>Movement |        -         | **+2 bonus to melee distance**<br>With Captain |  **-**<br>Weakness   |\n|   **-1**<br>Might    |   **+1**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |  **+2**<br>Presence  |\n\n> 🗡 **Buckler Bash ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 damage\n> - **12-16:** 2 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n> - **17+:** 3 damage; [taunted](scc.v1:mcdm.heroes.v1/condition/taunted) (EoT)\n\n> ❗️ **Ready Rodent**\n>\n> | **Melee, Weapon** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Melee 1**    |  **🎯 One creature** |\n>\n> **Trigger:** An ally deals damage to the target.\n>\n> **Effect:** The scrapper makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/radenwight/statblock/radenwight-scrapper.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "radenwight",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for 4 minions",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Раденвайт"
+    ],
+    "role": "Защитник",
+    "organization": "Миньон"
+  }
+}

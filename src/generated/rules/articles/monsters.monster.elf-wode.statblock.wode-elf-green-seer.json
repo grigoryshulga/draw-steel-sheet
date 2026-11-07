@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-wode.statblock.wode-elf-green-seer",
+      "title": "Лесной эльф-зелёный провидец",
+      "chapter": "23. Бестиарий",
+      "group": "Лесные эльфы",
+      "path": "Monsters/monster/elf-wode/statblock/wode-elf-green-seer.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-green-seer",
+      "originalName": "Wode Elf Green Seer",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+1**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **The Forest's Embrace (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage; I < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 9 damage; I < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a target can't search for hidden creatures.\n\n> 🏹 **The Natural Cycle (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; P < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 6 damage; P < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); the target has a double bane on strikes (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target is covered in lichen.\n\n> ❗️ **Foreseen Punishment**\n>\n> | **Ranged**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature uses a triggered action targeting the green seer or an ally within distance.\n>\n> **Effect:** The green seer makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target after the target's triggered action is resolved.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the green seer that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-green-seer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-wode.statblock.wode-elf-green-seer"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-wode.wode-elf-malice",
+          "title": "Раздор лесных эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-wode",
+          "title": "Лесные эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-wode.statblock.wode-elf-green-seer",
+      "kind": "monster",
+      "name": "Лесной эльф-зелёный провидец",
+      "markdown": "| Фея, Гуманоид, Лесной эльф |         -         |      Уровень 1      | Взводный проклинатель | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Размер     |  **7**<br>Скорость  | **20**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n|    **-**<br>Иммунитет    | **-**<br>Движение   |         -         | **-**<br>С капитаном | **-**<br>Уязвимость |\n|     **0**<br>Мощь        | **+1**<br>Ловкость  | **0**<br>Разум       | **+2**<br>Интуиция      | **+1**<br>Присутствие |\n\n> 🏹 **Объятия леса (знаковая способность)**\n>\n> | **Магия, дальний бой, удар** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|----------------------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона; И < 1 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **17+:** 9 урона; И < 2 — [опутан](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Эффект:** Пока цель [опутана](#/catalog/glossary#term-glossary.restrained) таким образом, она не может искать скрытых существ.\n\n> 🏹 **Естественный цикл (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, дальний бой, удар** |         **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|---------------------:|\n> | **📏 Дальний бой 10**         | **🎯 Два существа** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; П < 1 — [ослаблен](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 6 урона; П < 1 — [кровоточит](#/catalog/glossary#term-glossary.bleeding) (до прох.); удары по цели совершаются с двойной помехой (до прох.)\n>\n> **Эффект:** Пока цель [кровоточит](#/catalog/glossary#term-glossary.bleeding) или [ослаблена](#/catalog/glossary#term-glossary.weakened) таким образом, она покрывается лишайником.\n\n> ❗️ **Предвиденное возмездие**\n>\n> | **Дальний бой** |      **Свободный [триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |------------------|--------------------------------:|\n> | **📏 Дальний бой 5** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо использует триггер, нацеленный на зелёного провидца или союзника в пределах дистанции.\n>\n> **Эффект:** После разрешения триггера цели зелёный провидец совершает по ней [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Маскирующий морок**\n>\n> Способности, нацеленные на зелёного провидца, которые получили бы помеху из-за укрытия или покрова, вместо этого получают двойную помеху.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-wode.statblock.wode-elf-green-seer",
+        "path": "Monsters/monster/elf-wode/statblock/wode-elf-green-seer.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-wode.statblock/wode-elf-green-seer",
+      "originalName": "Wode Elf Green Seer",
+      "originalDescription": "| Fey, Humanoid, Wode Elf |         -         |      Level 1      |     Platoon Hexer     |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **20**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+1**<br>Agility |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🏹 **The Forest's Embrace (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ranged 10**          | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage; I < 1 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 9 damage; I < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a target can't search for hidden creatures.\n\n> 🏹 **The Natural Cycle (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |         **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 10**          | **🎯 Two creatures** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; P < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 6 damage; P < 1 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends); the target has a double bane on strikes (save ends)\n>\n> **Effect:** While [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) or [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) this way, a target is covered in lichen.\n\n> ❗️ **Foreseen Punishment**\n>\n> | **Ranged**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 5** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature uses a triggered action targeting the green seer or an ally within distance.\n>\n> **Effect:** The green seer makes a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the target after the target's triggered action is resolved.\n\n> ⭐️ **Masking Glamor**\n>\n> Abilities targeting the green seer that would take a bane from cover or concealment have a double bane instead.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-wode/statblock/wode-elf-green-seer.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-wode",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Гуманоид",
+          "Лесной эльф"
+        ],
+        "role": "Проклинатель",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

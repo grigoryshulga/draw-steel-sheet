@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.undead.2nd-echelon.statblock.ghoul-craver",
+      "title": "Упырь-обжора",
+      "chapter": "23. Бестиарий",
+      "group": "Нежить",
+      "path": "Monsters/monster/undead/2nd-echelon/statblock/ghoul-craver.md",
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/ghoul-craver",
+      "originalName": "Ghoul Craver",
+      "originalDescription": "|                 Undead                 |           -           |     Level 4      |                 Minion Harrier                 | EV 6 for four minions |\n|:--------------------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |    **7**<br>Speed     | **8**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **Corruption 4, poison 4**<br>Immunity | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **+3**<br>Might             |   **+2**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Taste ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** This ability has a double edge against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) target.\n\n> ⭐️ **Ever So Hungry**\n>\n> Any enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more ghoul cravers can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Hunger**\n>\n> When the ghoul craver uses the Charge main action, they gain a +2 bonus to speed until the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/ghoul-craver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.undead.2nd-echelon.statblock.ghoul-craver"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.undead",
+          "title": "Нежить"
+        },
+        {
+          "id": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+          "title": "Нежить: черты Раздора (уровень 1+)"
+        },
+        {
+          "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+          "title": "Нежить: черты Раздора (уровень 4+)"
+        },
+        {
+          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
+          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
+          "title": "Нежить (особенности Раздора 10-го уровня)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.undead.2nd-echelon.statblock.ghoul-craver",
+      "kind": "monster",
+      "name": "Упырь-обжора",
+      "markdown": "| Нежить | - | Уровень 4 | Миньон Налётчик | Боевая ценность 6 за четырех миньонов |\n|:--:|:--:|:--:|:--:|:--:|\n| **1M**<br>Размер | **7**<br>Скорость | **8**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **Порча 4, яд 4**<br>Иммунитет | **Лазание**<br>Движение | - | **+2 к урону от ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+3**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **0**<br>Присутствие |\n\n> 🗡 **Отведать ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Рывок, Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона\n> - **17+:** 6 урона\n>\n> **Эффект:** Эта способность получает двойное преимущество против цели, которая [истекает кровью](#/catalog/glossary#term-glossary.bleeding).\n\n> ⭐️ **Вечный голод**\n>\n> Враг, находящийся [рядом](#/catalog/glossary#term-glossary.adjacent) как минимум с тремя упырями-обжорами, не может [смещаться](#/catalog/glossary#term-glossary.shift).\n\n> ⭐️ **Голод**\n>\n> Когда упырь-обжора использует основное действие атаки с Рывком, его Скорость увеличивается на +2 до конца хода.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.2nd-echelon.statblock.ghoul-craver",
+        "path": "Monsters/monster/undead/2nd-echelon/statblock/ghoul-craver.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon.statblock/ghoul-craver",
+      "originalName": "Ghoul Craver",
+      "originalDescription": "|                 Undead                 |           -           |     Level 4      |                 Minion Harrier                 | EV 6 for four minions |\n|:--------------------------------------:|:---------------------:|:----------------:|:----------------------------------------------:|:---------------------:|\n|             **1M**<br>Size             |    **7**<br>Speed     | **8**<br>Stamina |               **0**<br>Stability               | **2**<br>Free Strike  |\n| **Corruption 4, poison 4**<br>Immunity | **Climb**<br>Movement |        -         | **+2 damage bonus to strikes**<br>With Captain |   **-**<br>Weakness   |\n|            **+3**<br>Might             |   **+2**<br>Agility   | **0**<br>Reason  |               **0**<br>Intuition               |   **0**<br>Presence   |\n\n> 🗡 **Taste ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Charge, Melee, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage\n> - **17+:** 6 damage\n>\n> **Effect:** This ability has a double edge against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) target.\n\n> ⭐️ **Ever So Hungry**\n>\n> Any enemy [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to three or more ghoul cravers can't [shift](scc.v1:mcdm.heroes.v1/movement/shifting).\n\n> ⭐️ **Hunger**\n>\n> When the ghoul craver uses the Charge main action, they gain a +2 bonus to speed until the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/statblock/ghoul-craver.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Нежить"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

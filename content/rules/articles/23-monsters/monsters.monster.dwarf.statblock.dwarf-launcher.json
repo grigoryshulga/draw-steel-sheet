@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.dwarf.statblock.dwarf-launcher",
+  "title": "Дварф-гранатомётчик",
+  "chapter": "23. Бестиарий",
+  "group": "Дварфы",
+  "path": "Monsters/monster/dwarf/statblock/dwarf-launcher.md",
+  "originalId": "mcdm.monsters.v1/monster.dwarf.statblock/dwarf-launcher",
+  "originalName": "Dwarf Launcher",
+  "originalDescription": "|  Dwarf, Humanoid  |         -         |      Level 1      |     Platoon Hexer     |         EV 8         | \n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:| \n|  **1M**<br>Size   |  **5**<br>Speed   | **39**<br>Stamina |  **3**<br>Stability   | **4**<br>Free Strike | \n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   | \n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+2**<br>Intuition  |  **+0**<br>Presence  |\n\n> 🔳 **Concussive Grenade (Signature Ability)**\n>\n> | **Area, Ranged, Weapon** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 3 cube within 5**   | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **12-16:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 8 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3; M < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** A target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by a dwarf can be force moved by this ability. This forced movement doesn't end the [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) condition unless the Director determines otherwise.\n\n> 🔳 **Sleep Grenade (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged, Weapon**     |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|------------------------------:| \n> | **📏 3 cube within 5** | **🎯 Each enemy in the area** |   \n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 poison damage; I < 0 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 6 poison damage; I < 1 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 8 poison damage; I < 2 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **Effect:** A target [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way treats their characteristic scores as 1 lower for the purpose of resisting [potencies](scc.v1:mcdm.heroes.v1/rule.character/potency).\n\n> ⭐️ **Indirect Fire**\n>\n> The launcher ignores concealment and cover, and doesn't need line of effect to use their abilities as long as a size 1 opening exists between the dwarf and the target.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/dwarf/statblock/dwarf-launcher.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "dwarf",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "8",
+    "size": "1M",
+    "keywords": [
+      "Дварф",
+      "Гуманоид"
+    ],
+    "role": "Проклинатель",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.dwarf.statblock.dwarf-launcher"
+    }
+  ]
+}

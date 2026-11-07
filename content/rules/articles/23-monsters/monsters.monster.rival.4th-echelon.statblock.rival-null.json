@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.rival.4th-echelon.statblock.rival-null",
+  "title": "Соперник-нуль",
+  "chapter": "23. Бестиарий",
+  "group": "Соперники",
+  "path": "Monsters/monster/rival/4th-echelon/statblock/rival-null.md",
+  "originalId": "mcdm.monsters.v1/monster.rival.4th-echelon.statblock/rival-null",
+  "originalName": "Rival Null",
+  "originalDescription": "|  Humanoid, Rival  |         -         |      Level 10      |     Elite Harrier     |         EV 48         |\n|:-----------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|  **1M**<br>Size   |  **7**<br>Speed   | **240**<br>Stamina |  **3**<br>Stability   | **10**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|  **+3**<br>Might  | **+5**<br>Agility |  **+4**<br>Reason  |  **+5**<br>Intuition  |   **0**<br>Presence   |\n\n> 🗡 **Kinetic Danse ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 1**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 4 squares; A < 3 10 damage\n> - **12-16:** 20 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 5 squares; A < 4 15 damage\n> - **17+:** 24 damage; the null [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to 6 squares; A < 5 19 damage\n\n> 🗡 **Incapacitate (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Psionic, Strike, Weapon** |                    **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------------------|--------------------------------:|\n> | **📏 Melee 1**                     | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 13 damage; R < 3 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 17 damage; R < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **17+:** 20 damage; R < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Energy Conservation**\n>\n> The first time each round that the null is targeted by a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike), it takes a bane and the null halves the damage from it. The creature making the strike takes 10 damage.\n\n> ⭐️ **Rivalry**\n>\n> At the start of an encounter, the null chooses one creature within their [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect). Both the null and the creature can add a d3 roll to power rolls they make against each other.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/rival/4th-echelon/statblock/rival-null.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "rival",
+    "recordType": "statblock",
+    "level": 10,
+    "ev": "48",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Соперник"
+    ],
+    "role": "Налётчик",
+    "organization": "Элита"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.rival.4th-echelon.statblock.rival-null"
+    }
+  ]
+}

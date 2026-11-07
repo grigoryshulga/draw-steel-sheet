@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.giant.statblock.fire-giant-red-fist",
+      "title": "Красный кулак огненных великанов",
+      "chapter": "23. Бестиарий",
+      "group": "Великаны",
+      "path": "Monsters/monster/giant/statblock/fire-giant-red-fist.md",
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-red-fist",
+      "originalName": "Fire Giant Red Fist",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |      Elite Brute      |         EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **10**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🗡 **Flaming Punch (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 19 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 3 burning (save ends)\n> - **17+:** 23 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; A < 4 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ❇️ **Caldera (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Special** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** The distance is a 2 burst; 8 fire damage; M < 2 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** The distance is a 3 burst; 12 fire damage; M < 3 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** The distance is a 4 burst; 15 fire damage; M < 4 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The outermost squares of the area become a 1-square-tall wall of stone. The rest of the area is on fire until the end of the encounter. A creature who enters the area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> 👤 **Blazing Leap**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The red fist jumps up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them when they land takes 5 fire damage.\n\n> ❗️ **Heat and Pressure**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance willingly moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the red fist.\n>\n> **Effect:** The target makes a **Might test**. A target with fire immunity automatically obtains a tier 3 outcome.\n>\n> - **≤11:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** No effect\n\n> ❗️ **Guardian Block**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 3** |          **🎯 Self** |\n>\n> **Trigger:** An ally within distance is targeted by an enemy's ability.\n>\n> **Effect:** The red fist becomes the target of the triggering ability, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the enemy after the ability resolves.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the red fist or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-red-fist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.giant.statblock.fire-giant-red-fist"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.giant.giant-malice",
+          "title": "Раздор великанов"
+        },
+        {
+          "id": "monsters.monster.group.giant",
+          "title": "Великаны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.giant.statblock.fire-giant-red-fist",
+      "kind": "monster",
+      "name": "Красный кулак огненных великанов",
+      "markdown": "| Огненный великан, Великан |         -         |      Уровень 9       |      Элита Громила      |         Боевая ценность 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Размер      |  **8**<br>Скорость   | **240**<br>Выносливость |  **5**<br>Устойчивость   | **10**<br>Свободный удар |\n| **Огонь 9**<br>Иммунитет | **-**<br>Движение |         -          | **-**<br>С капитаном |   **-**<br>Уязвимость   |\n|    **+4**<br>Мощь     | **+2**<br>Ловкость |  **0**<br>Разум   |  **+2**<br>Интуиция  |  **+1**<br>Присутствие   |\n\n> 🗡 **Пылающий кулак (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Ближний бой 3**            | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 14 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** 19 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 4; при Л < 3 цель горит (до прох.)\n> - **17+:** 23 урона огнём; [Толчок](#/catalog/glossary#term-glossary.forced-movement) 6; при Л < 4 цель горит (до прох.)\n>\n> **Эффект:** Горящее существо получает 1d6 урона огнём в начале каждого своего хода. Горящий объект получает 1d6 урона огнём в конце каждого раунда.\n\n> ❇️ **Кальдера (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область**       |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Особое** | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** область — взрыв 2; 8 урона огнём; при М < 2 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 2\n> - **12-16:** область — взрыв 3; 12 урона огнём; при М < 3 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 4\n> - **17+:** область — взрыв 4; 15 урона огнём; при М < 4 [Притягивание](#/catalog/glossary#term-glossary.forced-movement) 6\n>\n> **Эффект:** По внешнему краю области возникает каменная стена высотой 1 клетка. Остальная часть области горит до конца столкновения. Существо, впервые за раунд входящее в область или начинающее там ход, получает 3 урона огнём.\n\n> 👤 **Пылающий прыжок**\n>\n> | **-**       | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 На себя** |  **🎯 На себя** |\n>\n> **Эффект:** Красный кулак прыгает на расстояние до 5 клеток. Каждое существо [смежно](#/catalog/glossary#term-glossary.adjacent) с ним в момент приземления получает 5 урона огнём.\n\n> ❗️ **Жар и давление**\n>\n> | **Ближний бой**      |      **Свободный [Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Ближний бой 3** | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции добровольно перемещается или [смещается](#/catalog/glossary#term-glossary.shift) прочь от Красного кулака.\n>\n> **Эффект:** Цель проходит **тест Мощи**. Цель с иммунитетом к огню автоматически получает результат тира 3.\n>\n> - **≤11:** [Ослабление](#/catalog/glossary#term-glossary.weakened) и [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** [Ослабление](#/catalog/glossary#term-glossary.weakened) (КсХ)\n> - **17+:** Без эффекта\n\n> ❗️ **Защитная стойка**\n>\n> | **Ближний бой**      | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Ближний бой 3** |          **🎯 На себя** |\n>\n> **Условие:** Враг выбирает целью способности союзника в пределах дистанции.\n>\n> **Эффект:** Красный кулак становится целью срабатывающей способности, а после её разрешения может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по врагу.\n\n> ⭐️ **Палящая кожа**\n>\n> Когда [смежный](#/catalog/glossary#term-glossary.adjacent) враг [схватывает](#/catalog/glossary#term-glossary.grabbed) Красный кулак или применяет против него способность ближнего боя, этот враг получает 5 урона огнём.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.statblock.fire-giant-red-fist",
+        "path": "Monsters/monster/giant/statblock/fire-giant-red-fist.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant.statblock/fire-giant-red-fist",
+      "originalName": "Fire Giant Red Fist",
+      "originalDescription": "|   Fire Giant, Giant    |         -         |      Level 9       |      Elite Brute      |         EV 44         |\n|:----------------------:|:-----------------:|:------------------:|:---------------------:|:---------------------:|\n|     **4**<br>Size      |  **8**<br>Speed   | **240**<br>Stamina |  **5**<br>Stability   | **10**<br>Free Strike |\n| **Fire 9**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |   **-**<br>Weakness   |\n|    **+4**<br>Might     | **+2**<br>Agility |  **0**<br>Reason   |  **+2**<br>Intuition  |  **+1**<br>Presence   |\n\n> 🗡 **Flaming Punch (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|--------------------------------:|\n> | **📏 Melee 3**            | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 14 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** 19 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4; A < 3 burning (save ends)\n> - **17+:** 23 fire damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6; A < 4 burning (save ends)\n>\n> **Effect:** A burning creature takes 1d6 fire damage at the start of each of their turns. A burning object takes 1d6 fire damage at the end of each round.\n\n> ❇️ **Caldera (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------------------:|\n> | **📏 Special** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** The distance is a 2 burst; 8 fire damage; M < 2 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2\n> - **12-16:** The distance is a 3 burst; 12 fire damage; M < 3 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 4\n> - **17+:** The distance is a 4 burst; 15 fire damage; M < 4 [pull](scc.v1:mcdm.heroes.v1/movement/forced-movement) 6\n>\n> **Effect:** The outermost squares of the area become a 1-square-tall wall of stone. The rest of the area is on fire until the end of the encounter. A creature who enters the area for the first time in a round or starts their turn there takes 3 fire damage.\n\n> 👤 **Blazing Leap**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The red fist jumps up to 5 squares. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them when they land takes 5 fire damage.\n\n> ❗️ **Heat and Pressure**\n>\n> | **Melee**      |      **Free [triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|-------------------------------:|\n> | **📏 Melee 3** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance willingly moves or [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) away from the red fist.\n>\n> **Effect:** The target makes a **Might test**. A target with fire immunity automatically obtains a tier 3 outcome.\n>\n> - **≤11:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) and [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (EoT)\n> - **17+:** No effect\n\n> ❗️ **Guardian Block**\n>\n> | **Melee**      | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |----------------|---------------------:|\n> | **📏 Melee 3** |          **🎯 Self** |\n>\n> **Trigger:** An ally within distance is targeted by an enemy's ability.\n>\n> **Effect:** The red fist becomes the target of the triggering ability, then can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the enemy after the ability resolves.\n\n> ⭐️ **Searing Skin**\n>\n> Whenever an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) enemy [grabs](scc.v1:mcdm.heroes.v1/condition/grabbed) the red fist or uses a melee ability against them, that enemy takes 5 fire damage.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/statblock/fire-giant-red-fist.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "statblock",
+        "level": 9,
+        "ev": "44",
+        "size": "4",
+        "keywords": [
+          "Огненный великан",
+          "Великан"
+        ],
+        "role": "Громила",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

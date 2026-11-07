@@ -1,0 +1,30 @@
+{
+  "id": "monster.retainer.statblock.shadow-elf-shade",
+  "kind": "retainer",
+  "name": "Теневой эльф-призрак",
+  "markdown": "| Фея, Гуманоид, Теневой эльф | - | Уровень 4 | Помощник-засадник | Боевая ценность - |\n|---|---|---|---|---|\n| **1M**<br>Размер | **5**<br>Скорость | **48**<br>Выносливость | **0**<br>Устойчивость | **5**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Перемещение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **+1**<br>Мощь | **+3**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **+1**<br>Присутствие |\n\n> ⚔️ **Сумрачный кинжал (Знаковая способность)**\n>\n> | **Ближний бой, дальний бой, удар, оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Ближний бой 1 или дальний бой 3** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + наивысшая характеристика:**\n>\n> - **≤11:** 6 урона\n> - **12-16:** 10 урона\n> - **17+:** 13 урона\n>\n> **Эффект:** Всякий раз, когда призрак начинает ход с маскировкой от цели, он получает 1 [всплеск](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> 🔳 **Наступление сумерек (столкновение)**\n>\n> | **Область, магия** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---|---:|\n> | **📏 Куб 3 в пределах 1** | **🎯 Особое** |\n>\n> **Эффект:** До конца следующего хода область заполнена тьмой. Наставник призрака игнорирует маскировку, созданную этой тьмой.\n\n> ⭐️ **Дитя тени**\n>\n> Призрак игнорирует маскировку, созданную тьмой. Под прямым солнечным светом он имеет [уязвимость к урону](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3. Пока у призрака есть маскировка, он имеет [иммунитет к урону](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 3.\n",
+  "source": {
+    "articleId": "monsters.monster.retainer.statblock.shadow-elf-shade",
+    "path": "Monsters/monster/retainer/statblock/shadow-elf-shade.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/shadow-elf-shade",
+  "originalName": "Shadow Elf Shade",
+  "originalDescription": "| Fey, Humanoid, Shadow Elf |           -           |      Level 4      |   Ambusher Retainer   |         EV -         |\n|:-------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|      **1M**<br>Size       |    **5**<br>Speed     | **48**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |\n|     **-**<br>Immunity     | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|      **+1**<br>Might      |   **+3**<br>Agility   |  **0**<br>Reason  |  **+2**<br>Intuition  |  **+1**<br>Presence  |\n\n> ⚔️ **Gloom Dagger (Signature Ability)**\n>\n> | **Melee, Ranged, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 3**        | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 6 damage\n> - **12-16:** 10 damage\n> - **17+:** 13 damage\n>\n> **Effect:** Whenever the shade starts their turn with concealment from the target, they gain 1 [surge](scc.v1:mcdm.heroes.v1/rule.resource/surge).\n\n> 🔳 **Duskfall (Encounter)**\n>\n> | **Area, Magic**        |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------------|---------------:|\n> | **📏 3 cube within 1** | **🎯 Special** |\n>\n> **Effect:** Until the end of the next turn, the area is filled with darkness. The shade's mentor ignores concealment created by this darkness.\n\n> ⭐️ **Of the Umbra**\n>\n> The shade ignores concealment created by darkness. While the shade is in direct sunlight, they have [damage weakness](scc.v1:mcdm.heroes.v1/rule.damage/damage-weakness) 3. While the shade has concealment, they have [damage immunity](scc.v1:mcdm.heroes.v1/rule.damage/damage-immunity) 3.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/shadow-elf-shade.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 4,
+    "ev": "-",
+    "size": "1M",
+    "keywords": [
+      "Фея",
+      "Гуманоид",
+      "Теневой эльф"
+    ],
+    "role": "Засадник",
+    "organization": "Помощник"
+  }
+}

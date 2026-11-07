@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.elf-high.statblock.high-elf-zephyr",
+      "title": "Высший эльф-зефир",
+      "chapter": "23. Бестиарий",
+      "group": "Высшие эльфы",
+      "path": "Monsters/monster/elf-high/statblock/high-elf-zephyr.md",
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-zephyr",
+      "originalName": "High Elf Zephyr",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |    Platoon Harrier    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Sweeping Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** On a tier 3 outcome, the zephyr can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. If they do so and that creature and the target both have A < 2, the creature and the target are both [prone](scc.v1:mcdm.heroes.v1/condition/prone). On any tier outcome, the zephyr can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> 👤 **Windwalk**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The zephyr [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If they don't end this movment on solid ground, they are [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Like the Wind**\n>\n> The zephyr doesn't provoke opportunity attacks by moving.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the zephyr can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-zephyr.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.elf-high.statblock.high-elf-zephyr"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.elf-high.high-elf-malice",
+          "title": "Раздор высших эльфов"
+        },
+        {
+          "id": "monsters.monster.group.elf-high",
+          "title": "Высшие эльфы"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.elf-high.statblock.high-elf-zephyr",
+      "kind": "monster",
+      "name": "Высший эльф-зефир",
+      "markdown": "| Фея, Высший эльф, Гуманоид | - | Уровень 1 | Взвод, Налётчик | Боевая ценность 6 |\n|:-----------------------:|:-----------------:|:-----------------:|:--------------------:|:--------------------:|\n| **1M**<br>Размер | **7**<br>Скорость | **30**<br>Выносливость | **0**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+2**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+1**<br>Присутствие |\n\n> 🗡 **Размашистый клинок (Знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 5 урона\n> - **12-16:** 7 урона\n> - **17+:** 9 урона\n>\n> **Эффект:** При результате 3-го тира зефир может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike) по существу, которое находится [рядом](#/catalog/glossary#term-glossary.adjacent) с целью. Если он это делает и у существа и цели Л < 2, оба они [сбиты с ног](#/catalog/glossary#term-glossary.prone). При любом результате тира зефир затем может [сместиться](#/catalog/glossary#term-glossary.shift) на расстояние до 2 клеток.\n\n> 👤 **Хождение по ветру**\n>\n> | **-** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|-------------:|\n> | **📏 Себя** | **🎯 Себя** |\n>\n> **Эффект:** Зефир [летит](#/catalog/glossary#term-glossary.fly) на расстояние до своей Скорости. Если после этого перемещения он не окажется на твёрдой поверхности, то будет [сбит с ног](#/catalog/glossary#term-glossary.prone).\n\n> ⭐️ **Быстрый, как ветер**\n>\n> Перемещение зефира не провоцирует атаки по возможности.\n\n> ⭐️ **Неземная грация**\n>\n> В начале каждого своего хода зефир может выбрать один эффект на себе, который можно прекратить успешным спасброском. Вместо этого эффект прекращается в конце его хода.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-high.statblock.high-elf-zephyr",
+        "path": "Monsters/monster/elf-high/statblock/high-elf-zephyr.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-high.statblock/high-elf-zephyr",
+      "originalName": "High Elf Zephyr",
+      "originalDescription": "| Fey, High Elf, Humanoid |         -         |      Level 1      |    Platoon Harrier    |         EV 6         |\n|:-----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|     **1M**<br>Size      |  **7**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n|    **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|     **0**<br>Might      | **+2**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+1**<br>Presence  |\n\n> 🗡 **Sweeping Blade (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 2**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 7 damage\n> - **17+:** 9 damage\n>\n> **Effect:** On a tier 3 outcome, the zephyr can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against a creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the target. If they do so and that creature and the target both have A < 2, the creature and the target are both [prone](scc.v1:mcdm.heroes.v1/condition/prone). On any tier outcome, the zephyr can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to 2 squares.\n\n> 👤 **Windwalk**\n>\n> | **-**       | **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|-------------:|\n> | **📏 Self** |  **🎯 Self** |\n>\n> **Effect:** The zephyr [flies](scc.v1:mcdm.heroes.v1/movement/fly) up to their speed. If they don't end this movment on solid ground, they are [prone](scc.v1:mcdm.heroes.v1/condition/prone).\n\n> ⭐️ **Like the Wind**\n>\n> The zephyr doesn't provoke opportunity attacks by moving.\n\n> ⭐️ **Otherworldly Grace**\n>\n> At the start of each of their turns, the zephyr can choose one effect on them that can be ended by a saving throw. That effect instead ends at the end of their turn.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-high/statblock/high-elf-zephyr.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-high",
+        "recordType": "statblock",
+        "level": 1,
+        "ev": "6",
+        "size": "1M",
+        "keywords": [
+          "Фея",
+          "Высший эльф",
+          "Гуманоид"
+        ],
+        "role": "Налётчик",
+        "organization": "Взвод"
+      }
+    }
+  ]
+}

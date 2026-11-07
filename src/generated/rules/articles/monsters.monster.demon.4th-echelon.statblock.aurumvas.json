@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.demon.4th-echelon.statblock.aurumvas",
+      "title": "Аурумвас",
+      "chapter": "23. Бестиарий",
+      "group": "Демоны",
+      "path": "Monsters/monster/demon/4th-echelon/statblock/aurumvas.md",
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/aurumvas",
+      "originalName": "Aurumvas",
+      "originalDescription": "|  Abyssal, Demon   |          -          |      Level 10      |        Leader         |          EV 48           |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n|   **3**<br>Size   |   **8**<br>Speed    | **260**<br>Stamina |  **2**<br>Stability   |  **10**<br>Free Strike   |\n| **-**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+5**<br>Might  |  **+2**<br>Agility  |  **+5**<br>Reason  |  **+3**<br>Intuition  |    **+5**<br>Presence    |\n\n> ⭐️ **Absorb Soul**\n>\n> Whenever any demon is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) within 10 squares of Aurumvas, the Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice). Aurumvas loses this trait while he is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🗡 **Greedy Hands (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 2**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 corruption damage; R < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 20 corruption damage; R < 5 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 24 corruption damage; R < 6 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Aurumvas regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> 🏹 **Covetous Bolts (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 20**          | **🎯 Two creatures** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 psychic damage; P < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 20 psychic damage; P < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 24 psychic damage; P < 6 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target can't gain [Heroic Resources](scc.v1:mcdm.heroes.v1/rule.resource/heroic-resource).\n\n> 🏹 **Greed Is Good (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Aurumvas chooses a supernatural treasure or an item made of gold and [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to that object, then ends one effect on him that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw).\n\n> ⭐️ **More... More...**\n>\n> While Aurumvas is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), he has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 5 squares of Aurumvas can't be hidden from him.\n\n> ☠️ **Time Is Money (Villain Action 1)**\n>\n> | **Area, Magic** |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 20 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Aurumvas warps time with his abyssal avarice. Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Hostile Acquisition (Villain Action 2)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Aurumvas chooses up to three treasures within distance that he has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to and that aren't artifacts. Until the end of the encounter, ethereal golden snakes swirl around the target treasures. While an affected treasure is worn or held by a hero, each time that hero gains any amount of their [Heroic Resource](scc.v1:mcdm.heroes.v1/rule.resource/heroic-resource), the Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ☠️ **No Matter the Cost (Villain Action 3)**\n>\n> | **Area, Magic, Ranged**       |                            **-** |\n> |-------------------------------|---------------------------------:|\n> | **📏 Four 3 cubes within 10** | **🎯 Each creature in the area** |\n>\n> **Effect:** Aurumvas summons treasures from his vaults into the area, then causes them to explode.\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 10 fire damage; push 1\n> - **12-16:** 15 fire damage; push 2\n> - **17+:** 19 fire damage; push 3",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/statblock/aurumvas.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "48",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "organization": "Лидер"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.demon.4th-echelon.statblock.aurumvas"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.demon.1st-echelon.demon-malice-level-1-malice-features",
+          "title": "Демоны: особенности Раздора для 1-го уровня и выше"
+        },
+        {
+          "id": "monsters.monster.demon.2nd-echelon.demon-malice-level-4-malice-features",
+          "title": "Раздор демонов (особенности Раздора для уровня 4+)"
+        },
+        {
+          "id": "monsters.monster.demon.3rd-echelon.demon-malice-level-7-malice-features",
+          "title": "Раздор демонов (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.demon.4th-echelon.demon-malice-level-10-malice-features",
+          "title": "Раздор демонов (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.group.demon",
+          "title": "Демоны"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.demon.4th-echelon.statblock.aurumvas",
+      "kind": "monster",
+      "name": "Аурумвас",
+      "markdown": "| Бездны, Демон | - | Уровень 10 | Лидер | Боевая ценность 48 |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n| **3**<br>Размер | **8**<br>Скорость | **260**<br>Выносливость | **2**<br>Устойчивость | **10**<br>Свободный удар |\n| **-**<br>Иммунитет | **Полет**<br>Движение | - | **-**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+5**<br>Мощь | **+2**<br>Ловкость | **+5**<br>Разум | **+3**<br>Интуиция | **+5**<br>Присутствие |\n\n> ⭐️ **Поглощение души**\n>\n> Каждый раз, когда любой демон теряет всю [Выносливость](#/catalog/glossary#term-glossary.stamina) и оказывается на 0 в пределах 10 клеток от Аурумваса, Ведущий получает 1 [Раздор](#/codex/monsters.rule.monster.malice). Пока Аурумвас находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed), он теряет эту черту.\n\n> 🗡 **Алчные руки (знаковая способность)**\n>\n> | **Магия, Ближний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Ближний бой 2** | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 15 урона Порчей; при **Р < 4** — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12–16:** 20 урона Порчей; при **Р < 5** — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 24 урона Порчей; при **Р < 6** — [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Аурумвас восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном нанесённому урону.\n\n> 🏹 **Алчные снаряды (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний, Удар** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Дальний бой 20** | **🎯 Два существа** |\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 15 урона психикой; при **П < 4** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **12–16:** 20 урона психикой; при **П < 5** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n> - **17+:** 24 урона психикой; при **П < 6** — [Оглушение](#/catalog/glossary#term-glossary.dazed) (до прох.)\n>\n> **2 [Раздора](#/codex/monsters.rule.monster.malice):** Пока цель находится в состоянии [Оглушение](#/catalog/glossary#term-glossary.dazed), наложенном этой способностью, она не может получать [Героические ресурсы](#/catalog/glossary#term-glossary.heroic-resource).\n\n> 🏹 **Жадность — это хорошо (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** | **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |------------------|---------------:|\n> | **📏 Дальний бой 10** | **🎯 Особое** |\n>\n> **Эффект:** Аурумвас выбирает сверхъестественное сокровище или предмет из золота и [телепортируется](#/catalog/glossary#term-glossary.teleport) в свободное пространство [смежное](#/catalog/glossary#term-glossary.adjacent) с этим объектом, а затем прекращает один эффект на себе, который можно прекратить [спасброском](#/catalog/glossary#term-glossary.saving-throw).\n\n> ⭐️ **Ещё... Ещё...**\n>\n> Пока Аурумвас находится в состоянии [Утомление](#/catalog/glossary#term-glossary.winded), при ударах он получает двойное [преимущество](#/catalog/glossary#term-glossary.edge).\n\n> ⭐️ **Зрение душ**\n>\n> Ни одно существо в пределах 5 клеток от Аурумваса не может скрыться от него.\n\n> ☠️ **Время — деньги (действие злодея 1)**\n>\n> | **Область, Магия** | **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 Взрыв 20** | **🎯 Он сам и каждый союзник в области** |\n>\n> **Эффект:** Аурумвас искажает время своей бездонной алчностью. Каждая цель может [телепортироваться](#/catalog/glossary#term-glossary.teleport) на расстояние до своей Скорости и нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Враждебное присвоение (действие злодея 2)**\n>\n> | **Дальний** | **-** |\n> |------------------|---------------:|\n> | **📏 Дальний бой 10** | **🎯 Особое** |\n>\n> **Эффект:** Аурумвас выбирает до трёх сокровищ в пределах дистанции, на которые у него есть [линия воздействия](#/catalog/glossary#term-glossary.line-of-effect) и которые не являются артефактами. До конца столкновения вокруг выбранных сокровищ кружат бестелесные золотые змеи. Пока затронутое сокровище надето на герое или находится у него в руках, каждый раз, когда герой получает любое количество [Героического ресурса](#/catalog/glossary#term-glossary.heroic-resource), Ведущий получает 1 [Раздор](#/codex/monsters.rule.monster.malice).\n\n> ☠️ **Любой ценой (действие злодея 3)**\n>\n> | **Область, Магия, Дальний** | **-** |\n> |-------------------------------|---------------------------------:|\n> | **📏 Четыре куба 3 в пределах 10** | **🎯 Каждое существо в области** |\n>\n> **Эффект:** Аурумвас призывает сокровища из своих хранилищ в эту область, а затем заставляет их взорваться.\n>\n> **Бросок силы + 5:**\n>\n> - **≤11:** 10 урона огнём; толчок 1\n> - **12–16:** 15 урона огнём; толчок 2\n> - **17+:** 19 урона огнём; толчок 3\n",
+      "source": {
+        "articleId": "monsters.monster.demon.4th-echelon.statblock.aurumvas",
+        "path": "Monsters/monster/demon/4th-echelon/statblock/aurumvas.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.demon.4th-echelon.statblock/aurumvas",
+      "originalName": "Aurumvas",
+      "originalDescription": "|  Abyssal, Demon   |          -          |      Level 10      |        Leader         |          EV 48           |\n|:-----------------:|:-------------------:|:------------------:|:---------------------:|:------------------------:|\n|   **3**<br>Size   |   **8**<br>Speed    | **260**<br>Stamina |  **2**<br>Stability   |  **10**<br>Free Strike   |\n| **-**<br>Immunity | **Fly**<br>Movement |         -          | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+5**<br>Might  |  **+2**<br>Agility  |  **+5**<br>Reason  |  **+3**<br>Intuition  |    **+5**<br>Presence    |\n\n> ⭐️ **Absorb Soul**\n>\n> Whenever any demon is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) within 10 squares of Aurumvas, the Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice). Aurumvas loses this trait while he is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🗡 **Greedy Hands (Signature Ability)**\n>\n> | **Magic, Melee, Strike** |                 **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|--------------------------------:|\n> | **📏 Melee 2**           | **🎯 Two creatures or objects** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 corruption damage; R < 4 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 20 corruption damage; R < 5 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 24 corruption damage; R < 6 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Aurumvas regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the damage dealt.\n\n> 🏹 **Covetous Bolts (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged, Strike** |      **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|---------------------:|\n> | **📏 Ranged 20**          | **🎯 Two creatures** |\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 15 psychic damage; P < 4 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **12-16:** 20 psychic damage; P < 5 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n> - **17+:** 24 psychic damage; P < 6 [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) (save ends)\n>\n> **2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** While [dazed](scc.v1:mcdm.heroes.v1/condition/dazed) this way, a target can't gain [Heroic Resources](scc.v1:mcdm.heroes.v1/rule.resource/heroic-resource).\n\n> 🏹 **Greed Is Good (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Ranged**       |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Aurumvas chooses a supernatural treasure or an item made of gold and [teleports](scc.v1:mcdm.heroes.v1/movement/teleport) to an unoccupied space [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to that object, then ends one effect on him that can be ended by a [saving throw](scc.v1:mcdm.heroes.v1/rule.general/saving-throw).\n\n> ⭐️ **More... More...**\n>\n> While Aurumvas is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), he has a double [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 5 squares of Aurumvas can't be hidden from him.\n\n> ☠️ **Time Is Money (Villain Action 1)**\n>\n> | **Area, Magic** |                                 **-** |\n> |-----------------|--------------------------------------:|\n> | **📏 20 burst** | **🎯 Self and each ally in the area** |\n>\n> **Effect:** Aurumvas warps time with his abyssal avarice. Each target can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) up to their speed and make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike).\n\n> ☠️ **Hostile Acquisition (Villain Action 2)**\n>\n> | **Ranged**       |          **-** |\n> |------------------|---------------:|\n> | **📏 Ranged 10** | **🎯 Special** |\n>\n> **Effect:** Aurumvas chooses up to three treasures within distance that he has [line of effect](scc.v1:mcdm.heroes.v1/rule.combat/line-of-effect) to and that aren't artifacts. Until the end of the encounter, ethereal golden snakes swirl around the target treasures. While an affected treasure is worn or held by a hero, each time that hero gains any amount of their [Heroic Resource](scc.v1:mcdm.heroes.v1/rule.resource/heroic-resource), the Director gains 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ☠️ **No Matter the Cost (Villain Action 3)**\n>\n> | **Area, Magic, Ranged**       |                            **-** |\n> |-------------------------------|---------------------------------:|\n> | **📏 Four 3 cubes within 10** | **🎯 Each creature in the area** |\n>\n> **Effect:** Aurumvas summons treasures from his vaults into the area, then causes them to explode.\n>\n> **Power Roll + 5:**\n>\n> - **≤11:** 10 fire damage; push 1\n> - **12-16:** 15 fire damage; push 2\n> - **17+:** 19 fire damage; push 3",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/demon/4th-echelon/statblock/aurumvas.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "demon",
+        "recordType": "statblock",
+        "level": 10,
+        "ev": "48",
+        "size": "3",
+        "keywords": [
+          "Бездны",
+          "Демон"
+        ],
+        "organization": "Лидер"
+      }
+    }
+  ]
+}

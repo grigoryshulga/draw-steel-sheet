@@ -1,0 +1,29 @@
+{
+  "id": "monster.kobold.statblock.kobold-signifer",
+  "kind": "monster",
+  "name": "Кобольд-сигнифер",
+  "markdown": "| Гуманоид, Кобольд | - | Уровень 1 | Поддержка орды | Боевая ценность 3 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n| **1S**<br>Размер | **5**<br>Скорость | **15**<br>Выносливость | **0**<br>Устойчивость | **1**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Передвижение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+1**<br>Ловкость | **0**<br>Разум | **0**<br>Интуиция | **+2**<br>Присутствие |\n\n> 🗡 **Сигнум (знаковая способность)**\n>\n> | **Ближний бой, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------------|---------------------------------------------:|\n> | **📏 Ближний бой 1** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12-16:** 4 урона\n> - **17+:** 5 урона\n>\n> **Эффект:** Один союзник в пределах 10 клеток от сигнифера может [сместиться](scc.v1:mcdm.heroes.v1/movement/shifting) на расстояние до своей Скорости, если в конце этого смещения окажется [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с союзником.\n>\n> **2+ [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice):** Ещё один союзник может [сместиться](scc.v1:mcdm.heroes.v1/movement/shifting) за каждые 2 потраченных [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice).\n\n> ❇️ **Слава легиону (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область** | **[Манёвр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------|---------------------------------------------:|\n> | **📏 Взрыв 5** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель восстанавливает 5 [Выносливости](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Щит? Щит!**\n>\n> Пока сигнифер находится [рядом](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) с союзником, у которого тоже есть эта черта, его Устойчивость равна 1, у него есть укрытие, и он даёт укрытие союзникам.\n\n> ⭐️ **Высокие стандарты**\n>\n> Каждый союзник, начинающий ход в пределах 5 клеток от сигнифера, получает бонус +2 к Скорости и бонус +2 к урону Ударов до конца своего хода. Кроме того, если сигнифер убит, любой кобольд-[миньон](scc.v1:mcdm.monsters.v1/rule.organization/minion) может в ходе того же столкновения войти в его клетку, чтобы забрать сигнум — боевое знамя, которое он несёт (без действия), и заменить свой блок характеристик блоком характеристик сигнифера.\n",
+  "source": {
+    "articleId": "monsters.monster.kobold.statblock.kobold-signifer",
+    "path": "Monsters/monster/kobold/statblock/kobold-signifer.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.kobold.statblock/kobold-signifer",
+  "originalName": "Kobold Signifer",
+  "originalDescription": "| Humanoid, Kobold  |         -         |      Level 1      |     Horde Support     |         EV 3         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1S**<br>Size   |  **5**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility |  **0**<br>Reason  |  **0**<br>Intuition   |  **+2**<br>Presence  |\n\n> 🗡 **Signum (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 3 damage\n> - **12-16:** 4 damage\n> - **17+:** 5 damage\n>\n> **Effect:** One ally within 10 squares of the signifer can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed if they end that shift [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally.\n>\n> **2+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** One additional ally can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) for each 2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent.\n\n> ❇️ **Glory to the Legion (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|-----------------------------:|\n> | **📏 5 burst** | **🎯 Each ally in the area** |\n>\n> **Effect:** Each target regains 5 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> ⭐️ **Shield? Shield!**\n>\n> While [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an ally who also has this trait, the signifer has stability 1, has cover, and grants cover to allies.\n\n> ⭐️ **Upholding High Standards**\n>\n> Any ally who starts their turn within 5 squares of the signifer gains a +2 bonus to speed and a +2 damage bonus to strikes until the end of their turn. Additionally, if the signifer is killed, any kobold [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) can enter their space during the same encounter to retrieve the signum battle standard they carry (no action required) and replace their stat block with the signifer stat block.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/kobold/statblock/kobold-signifer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "kobold",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3",
+    "size": "1S",
+    "keywords": [
+      "Гуманоид",
+      "Кобольд"
+    ],
+    "role": "Поддержка",
+    "organization": "Орда"
+  }
+}

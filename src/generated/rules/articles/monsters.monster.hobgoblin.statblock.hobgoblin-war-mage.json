@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.hobgoblin.statblock.hobgoblin-war-mage",
+      "title": "Хобгоблин-боевой маг",
+      "chapter": "23. Бестиарий",
+      "group": "Хобгоблины",
+      "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-war-mage.md",
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-war-mage",
+      "originalName": "Hobgoblin War Mage",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |                -                |      Level 5       |   Elite Controller    |        EV 28         |\n|:-------------------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |         **5**<br>Speed          | **120**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **0**<br>Might             |        **+2**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Hellfire (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 fire damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 9 fire damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 11 fire damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** Before using this ability, the war mage can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) a creature within 10 squares of them up to 2 squares.\n\n> 🏹 **Enchantments of War**\n>\n> | **Magic, Ranged** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Ranged 10**  | **🎯 Two allies** |\n>\n> **Effect:** Each target gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and has a double edge on their next power roll. The war mage can spend any amount of their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) to increase the temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) each target gains by an equivalent amount.\n\n> 🔳 **Unhallowed Ground (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 5 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The war mage consecrates the area and causes it to smolder until the end of the encounter. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and an enemy in the area has fire weakness 10.\n\n> ❗️ **Magic Siphon**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 10**  | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance uses a magic ability.\n>\n> **Effect:** Any damage dealt or [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) regained from the creature's ability is halved. The war mage regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the remaining damage dealt or [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) regained.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the war mage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war mage takes 3 fire damage.\n\n> ⭐️ **Despair, You Who Face Death**\n>\n> Any enemy within 2 squares of the war mage has a −2 penalty to saving throws.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-war-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.hobgoblin.statblock.hobgoblin-war-mage"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.hobgoblin",
+          "title": "Хобгоблины"
+        },
+        {
+          "id": "monsters.monster.hobgoblin.hobgoblin-malice",
+          "title": "Раздор хобгоблинов"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.hobgoblin.statblock.hobgoblin-war-mage",
+      "kind": "monster",
+      "name": "Хобгоблин-боевой маг",
+      "markdown": "| Гоблин, Хобгоблин, Гуманоид, Адский |                -                |      Уровень 5       |   Элита Контроллер    |        Боевая ценность 28         |\n|:-------------------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Размер             |         **5**<br>Скорость          | **120**<br>Выносливость |  **0**<br>Устойчивость   | **6**<br>Свободный удар |\n|        **Огонь 5**<br>Иммунитет         | **Парение, телепортация**<br>Движение |         -         | **-**<br>С капитаном |  **-**<br>Уязвимость   |\n|            **0**<br>Мощь             |        **+2**<br>Ловкость        |  **+3**<br>Разум  |  **+2**<br>Интуиция  |  **+2**<br>Присутствие  |\n\n> 🔳 **Адское пламя (Знаковая способность)**\n>\n> | **Область, Магия, Дальний** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 5 урона огнём; М < 1 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **12-16:** 9 урона огнём; М < 2 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n> - **17+:** 11 урона огнём; М < 3 [Ослабление](#/catalog/glossary#term-glossary.weakened) (до прох.)\n>\n> **Эффект:** Перед использованием способности боевой маг может [телепортировать](#/catalog/glossary#term-glossary.teleport) существо в пределах 10 клеток от себя не более чем на 2 клетки.\n\n> 🏹 **Военные чары**\n>\n> | **Магия, Дальний** |   **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------|------------------:|\n> | **📏 Дальний 10**  | **🎯 Два союзника** |\n>\n> **Эффект:** Каждая цель получает 10 временной [Выносливости](#/catalog/glossary#term-glossary.stamina) и двойное преимущество к следующему броску силы. Боевой маг может потратить любое количество своей текущей [Выносливости](#/catalog/glossary#term-glossary.stamina), чтобы увеличить временную [Выносливость](#/catalog/glossary#term-glossary.stamina), получаемую каждой целью, на равное количество.\n\n> 🔳 **Осквернённая земля (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------|---------------:|\n> | **📏 Куб 5 в пределах 10** | **🎯 Особое** |\n>\n> **Эффект:** Боевой маг освящает область, заставляя её тлеть до конца столкновения. Область становится [труднопроходимой местностью](#/catalog/glossary#term-glossary.difficult-terrain), а враги в этой области получают уязвимость к огню 10.\n\n> ❗️ **Похищение магии**\n>\n> | **Магия, Дальний** |           **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Дальний 10**  | **🎯 Существо, вызвавшее срабатывание** |\n>\n> **Условие:** Существо в пределах дистанции использует способность Магии.\n>\n> **Эффект:** Любой урон, нанесённый способностью существа, или [Выносливость](#/catalog/glossary#term-glossary.stamina), восстановленная ею, уменьшается вдвое. Боевой маг восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном оставшемуся после уменьшения урону или восстановленной [Выносливости](#/catalog/glossary#term-glossary.stamina).\n\n> ⭐️ **Адский ихор**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) боевого мага снижается до 0, он выплёскивает горящую кровь. Каждое существо, [смежное](#/catalog/glossary#term-glossary.adjacent) с боевым магом, получает 3 урона огнём.\n\n> ⭐️ **Отчаяние, вы, кто встречает смерть**\n>\n> Каждый враг в пределах 2 клеток от боевого мага получает штраф −2 к спасброскам.\n",
+      "source": {
+        "articleId": "monsters.monster.hobgoblin.statblock.hobgoblin-war-mage",
+        "path": "Monsters/monster/hobgoblin/statblock/hobgoblin-war-mage.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.hobgoblin.statblock/hobgoblin-war-mage",
+      "originalName": "Hobgoblin War Mage",
+      "originalDescription": "| Goblin, Hobgoblin, Humanoid, Infernal |                -                |      Level 5       |   Elite Controller    |        EV 28         |\n|:-------------------------------------:|:-------------------------------:|:------------------:|:---------------------:|:--------------------:|\n|            **1M**<br>Size             |         **5**<br>Speed          | **120**<br>Stamina |  **0**<br>Stability   | **6**<br>Free Strike |\n|        **Fire 5**<br>Immunity         | **Hover, teleport**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **0**<br>Might             |        **+2**<br>Agility        |  **+3**<br>Reason  |  **+2**<br>Intuition  |  **+2**<br>Presence  |\n\n> 🔳 **Hellfire (Signature Ability)**\n>\n> | **Area, Magic, Ranged** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 5 fire damage; M < 1 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **12-16:** 9 fire damage; M < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n> - **17+:** 11 fire damage; M < 3 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n>\n> **Effect:** Before using this ability, the war mage can [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) a creature within 10 squares of them up to 2 squares.\n\n> 🏹 **Enchantments of War**\n>\n> | **Magic, Ranged** |   **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|------------------:|\n> | **📏 Ranged 10**  | **🎯 Two allies** |\n>\n> **Effect:** Each target gains 10 temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and has a double edge on their next power roll. The war mage can spend any amount of their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) to increase the temporary [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) each target gains by an equivalent amount.\n\n> 🔳 **Unhallowed Ground (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|---------------:|\n> | **📏 5 cube within 10** | **🎯 Special** |\n>\n> **Effect:** The war mage consecrates the area and causes it to smolder until the end of the encounter. The area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) and an enemy in the area has fire weakness 10.\n\n> ❗️ **Magic Siphon**\n>\n> | **Magic, Ranged** |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|-------------------------------:|\n> | **📏 Ranged 10**  | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance uses a magic ability.\n>\n> **Effect:** Any damage dealt or [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) regained from the creature's ability is halved. The war mage regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to the remaining damage dealt or [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) regained.\n\n> ⭐️ **Infernal Ichor**\n>\n> When the war mage is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they spray burning blood. Each creature [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to the war mage takes 3 fire damage.\n\n> ⭐️ **Despair, You Who Face Death**\n>\n> Any enemy within 2 squares of the war mage has a −2 penalty to saving throws.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/hobgoblin/statblock/hobgoblin-war-mage.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "hobgoblin",
+        "recordType": "statblock",
+        "level": 5,
+        "ev": "28",
+        "size": "1M",
+        "keywords": [
+          "Гоблин",
+          "Хобгоблин",
+          "Гуманоид",
+          "Адский"
+        ],
+        "role": "Контроллер",
+        "organization": "Элита"
+      }
+    }
+  ]
+}

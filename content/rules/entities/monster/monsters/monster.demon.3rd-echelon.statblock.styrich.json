@@ -1,0 +1,29 @@
+{
+  "id": "monster.demon.3rd-echelon.statblock.styrich",
+  "kind": "monster",
+  "name": "Стирих",
+  "markdown": "| Бездны, Демон | - | Уровень 8 | Орда, Проклинатель | Боевая ценность 10 |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n| **1L**<br>Размер | **6**<br>Скорость | **45**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **-**<br>С капитаном | **Святой 5**<br>Уязвимость |\n| **+2**<br>Мощь | **+4**<br>Ловкость | **+0**<br>Разум | **+2**<br>Интуиция | **+0**<br>Присутствие |\n\n> 🗡 **Волосы-хлысты (знаковая способность)**\n>\n> | **Ближний, Удар, Оружие** | **[Основное действие](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Ближний бой 4** | **🎯 Одно существо или объект** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** 7 урона; притягивание 1\n> - **12–16:** 10 урона; притягивание 2, [Захват](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 12 урона; притягивание 3, [Захват](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Эффект:** Любую цель, [Опутанную](scc.v1:mcdm.heroes.v1/condition/restrained) способностью «Опутывающее гнездо» стириха, можно притянуть на расстояние, указанное результатом броска силы.\n\n> ❇️ **Опутывающее гнездо (5 [Раздора](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Область** | **[Маневр](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 Взрыв 4** | **🎯 Каждый враг в области** |\n>\n> **Бросок силы + 4:**\n>\n> - **≤11:** при **Л < 2** — [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) (до прох.)\n> - **12–16:** [Замедление](scc.v1:mcdm.heroes.v1/condition/slowed) (КсХ) либо при **Л < 3** цель получает 3 урона и [Опутанность](scc.v1:mcdm.heroes.v1/condition/restrained) (КсХ)\n> - **17+:** [Опутанность](scc.v1:mcdm.heroes.v1/condition/restrained) (КсХ) либо при **Л < 4** цель получает 3 урона и [Опутанность](scc.v1:mcdm.heroes.v1/condition/restrained) (до прох.)\n\n> ⭐️ **Лета**\n>\n> Пока стирих находится в состоянии [Утомление](scc.v1:mcdm.heroes.v1/rule.health/winded), он получает [преимущество](scc.v1:mcdm.heroes.v1/rule.dice/edge) при ударах, а удары по нему также совершаются с преимуществом.\n\n> ⭐️ **Зрение душ**\n>\n> Ни одно существо в пределах 2 клеток от стириха не может скрыться от него.\n",
+  "source": {
+    "articleId": "monsters.monster.demon.3rd-echelon.statblock.styrich",
+    "path": "Monsters/monster/demon/3rd-echelon/statblock/styrich.md"
+  },
+  "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/styrich",
+  "originalName": "Styrich",
+  "originalDescription": "|  Abyssal, Demon   |         -         |      Level 8      |     Horde Hexer      |          EV 10           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **45**<br>Stamina |  **1**<br>Stability   |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  | **+4**<br>Agility | **+0**<br>Reason  |  **+2**<br>Intuition  |    **+0**<br>Presence    |\n\n> 🗡 **Hair Whip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 4**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; pull 1\n> - **12-16:** 10 damage; pull 2, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 12 damage; pull 3, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** Any target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by the styrich's Tangled Nest ability can be pulled the distance determined by the power roll.\n\n> ❇️ **Tangled Nest (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 4 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT) or A < 3 3 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT) or A < 4 3 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Lethe**\n>\n> While the styrich is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the styrich can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/3rd-echelon/statblock/styrich.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10",
+    "size": "1L",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Проклинатель",
+    "organization": "Орда"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.demon.3rd-echelon.statblock.styrich",
+  "title": "Стирих",
+  "chapter": "23. Бестиарий",
+  "group": "Демоны",
+  "path": "Monsters/monster/demon/3rd-echelon/statblock/styrich.md",
+  "originalId": "mcdm.monsters.v1/monster.demon.3rd-echelon.statblock/styrich",
+  "originalName": "Styrich",
+  "originalDescription": "|  Abyssal, Demon   |         -         |      Level 8      |     Horde Hexer      |          EV 10           |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|\n|  **1L**<br>Size   |  **6**<br>Speed   | **45**<br>Stamina |  **1**<br>Stability   |   **3**<br>Free Strike   |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **Holy 5**<br>Weakness  |\n|  **+2**<br>Might  | **+4**<br>Agility | **+0**<br>Reason  |  **+2**<br>Intuition  |    **+0**<br>Presence    |\n\n> 🗡 **Hair Whip (Signature Ability)**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 4**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; pull 1\n> - **12-16:** 10 damage; pull 2, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n> - **17+:** 12 damage; pull 3, [grabbed](scc.v1:mcdm.heroes.v1/condition/grabbed)\n>\n> **Effect:** Any target [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) by the styrich's Tangled Nest ability can be pulled the distance determined by the power roll.\n\n> ❇️ **Tangled Nest (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area**       |                  **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------|------------------------------:|\n> | **📏 4 burst** | **🎯 Each enemy in the area** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** [Slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (EoT) or A < 3 3 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** [Restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT) or A < 4 3 damage and [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n\n> ⭐️ **Lethe**\n>\n> While the styrich is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded), they gain an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on strikes, and any strike made against them gains an edge.\n\n> ⭐️ **Soulsight**\n>\n> Any creature within 2 squares of the styrich can't be hidden from them.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/demon/3rd-echelon/statblock/styrich.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "demon",
+    "recordType": "statblock",
+    "level": 8,
+    "ev": "10",
+    "size": "1L",
+    "keywords": [
+      "Бездны",
+      "Демон"
+    ],
+    "role": "Проклинатель",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.demon.3rd-echelon.statblock.styrich"
+    }
+  ]
+}

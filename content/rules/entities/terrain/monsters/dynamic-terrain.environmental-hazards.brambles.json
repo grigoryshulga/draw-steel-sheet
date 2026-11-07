@@ -1,0 +1,25 @@
+{
+  "id": "dynamic-terrain.environmental-hazards.brambles",
+  "kind": "terrain",
+  "name": "Колючие заросли",
+  "markdown": "Эти заросли состоят из тесно переплетённых лоз с острыми шипами.\n\n- **БЦ:** 1 за заросли размером 10 x 10\n- **Выносливость:** 3 за клетку\n- **Размер:** Одна или несколько клеток [труднопроходимой местности](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n\n> 🌀 **Отключение**\n>\n> Каждую клетку зарослей необходимо уничтожить отдельно.\n\n> ❕ **Активация**\n>\n> Существо входит в клетку зарослей, не совершая [шаг](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Эффект:** Существо получает 1 урон за каждую клетку зарослей, в которую входит.\n\n> ⭐️ **Улучшение**\n>\n> **Ядовитые шипы (+1 БЦ)** Заросли ядовиты. Любое существо, получившее от них урон, также получает состояние [Кровотечение](scc.v1:mcdm.heroes.v1/condition/bleeding) (до успешного [спасброска](scc.v1:mcdm.heroes.v1/rule.general/saving-throw)).\n",
+  "source": {
+    "articleId": "monsters.dynamic-terrain.environmental-hazards.brambles",
+    "path": "Monsters/dynamic-terrain/environmental-hazards/brambles.md"
+  },
+  "originalId": "mcdm.monsters.v1/dynamic-terrain.environmental-hazards/brambles",
+  "originalName": "Brambles",
+  "originalDescription": "This thicket features close-growing vines tipped with sharp thorns.\n\n- **EV:** 1 per 10 x 10 thicket\n- **Stamina:** 3 per square\n- **Size:** One or more squares of [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain)\n\n> 🌀 **Deactivate**\n>\n> Each square of brambles must be individually destroyed.\n\n> ❕ **Activate**\n>\n> A creature enters a square of brambles without [shifting](scc.v1:mcdm.heroes.v1/movement/shifting).\n>\n> **Effect:** A creature takes 1 damage per square of brambles they enter.\n\n> ⭐️ **Upgrade**\n>\n> **Poisonous Thorns (+1 EV)** The brambles are poisonous. Any creature who takes damage from brambles is also [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) ([save](scc.v1:mcdm.heroes.v1/rule.general/saving-throw) ends).",
+  "director": {
+    "section": "terrain",
+    "sourcePath": "dynamic-terrain/environmental-hazards/brambles.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "environmental-hazards",
+    "recordType": "dynamic-terrain",
+    "level": 1,
+    "ev": "1 за заросли размером 10 x 10",
+    "size": "Одна или несколько клеток труднопроходимой местности",
+    "role": "Защитник",
+    "organization": "Опасность"
+  }
+}

@@ -23,6 +23,12 @@ export const RULE_KINDS = [
   "item",
   "project",
   "title",
+  "monster",
+  "retainer",
+  "terrain",
+  "monster-feature",
+  "monster-lore",
+  "monster-rule",
 ];
 
 /** Стоимость ресурса в заголовке блока способности. */
@@ -227,6 +233,7 @@ export function chapterSlug(chapter) {
  * чтобы ленивая загрузка не тянула весь раздел на 1,4 МБ.
  */
 export function packIdForArticle(article) {
+  if (article.director) return `monsters-${article.director.groupSlug || article.director.section}`;
   const match = /^(\d+)/.exec(article.chapter);
   const chapter = match ? match[1] : slugify(article.chapter) || "chapter";
   if (chapter === "08" && article.group) {

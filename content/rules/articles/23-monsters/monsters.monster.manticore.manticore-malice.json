@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.manticore.manticore-malice",
+  "title": "Раздор мантикоры",
+  "chapter": "23. Бестиарий",
+  "group": "Мантикора",
+  "path": "Monsters/monster/manticore/manticore-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.manticore/manticore-malice",
+  "originalName": "Manticore Malice",
+  "originalDescription": "At the start of any manticore's turn, you can spend Malice to activate one of the following features.\n\n> 🌀 **Uncanny Mimicry (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore uses their mimicry in an attempt to unnerve one creature within their line of effect. If the target has R < 4, they take a bane on power rolls against the manticore (save ends). Each time this feature is used against the same target during the encounter, its [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) decreases by 2.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Desperate Howl (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore lets out an unnerving cry. Each enemy within the manticore's line of effect makes an **Intuition test**.\n>\n> - **≤11:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (save ends)\n> - **12-16:** [Frightened](scc.v1:mcdm.heroes.v1/condition/frightened) (EoT)\n> - **17+:** No effect.\n\n> ❇️ **Barrage of Barbs (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The manticore sprays tail spikes across the ground within 5 squares of them. Each enemy in that area who has A < 3 is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends). Additionally, the area is [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain), and any enemy takes 3 poison damage for each square of the area they enter. An enemy who takes 9 poison damage this way on one turn is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) until the end of the encounter.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/manticore/manticore-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "manticore",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.manticore.manticore-malice"
+    }
+  ]
+}

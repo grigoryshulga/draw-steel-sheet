@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.devil.statblock.devil-notary",
+  "title": "Дьявол-нотариус",
+  "chapter": "23. Бестиарий",
+  "group": "Дьяволы",
+  "path": "Monsters/monster/devil/statblock/devil-notary.md",
+  "originalId": "mcdm.monsters.v1/monster.devil.statblock/devil-notary",
+  "originalName": "Devil Notary",
+  "originalDescription": "|    Devil, Infernal     |         -         |     Level 5      |                  Minion Hexer                   | EV 7 for four minions |\n|:----------------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|     **1M**<br>Size     |  **6**<br>Speed   | **8**<br>Stamina |               **0**<br>Stability                | **3**<br>Free Strike  |\n| **Fire 5**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|    **+0**<br>Might     | **+1**<br>Agility | **+3**<br>Reason |               **+1**<br>Intuition               |  **+2**<br>Presence   |\n\n> 🏹 **Importunity (Signature Ability)**\n>\n> | **Magic, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Ranged 5**           | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 3 fire damage\n> - **12-16:** 5 fire damage; R < 2 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n> - **17+:** 6 fire damage; R < 3 the target takes a [bane](scc.v1:mcdm.heroes.v1/rule.dice/bane) on their next strike\n>\n> **Effect:** One non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) devil within 5 squares of the notary gains an [edge](scc.v1:mcdm.heroes.v1/rule.dice/edge) on their next strike.\n\n> ⭐️ **True Name**\n>\n> If a creature within 10 squares speaks the notary's true name, the notary loses their fire immunity and any nondamaging effects of their [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) until the end of the encounter.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/devil/statblock/devil-notary.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "devil",
+    "recordType": "statblock",
+    "level": 5,
+    "ev": "7 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Дьявол",
+      "Адский"
+    ],
+    "role": "Проклинатель",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.devil.statblock.devil-notary"
+    }
+  ]
+}

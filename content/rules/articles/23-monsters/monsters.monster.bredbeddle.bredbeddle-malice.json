@@ -1,0 +1,23 @@
+{
+  "id": "monsters.monster.bredbeddle.bredbeddle-malice",
+  "title": "Раздор Бредбеддла",
+  "chapter": "23. Бестиарий",
+  "group": "Бредбеддл",
+  "path": "Monsters/monster/bredbeddle/bredbeddle-malice.md",
+  "originalId": "mcdm.monsters.v1/monster.bredbeddle/bredbeddle-malice",
+  "originalName": "Bredbeddle Malice",
+  "originalDescription": "At the start of a bredbeddle's turn, you can spend Malice to activate one of the following features.\n\n> ⭐️ **Engreen (3 Malice)**\n>\n> The bredbeddle's axe lengthens and turns a ghastly green, granting a +1 bonus to the distance of the bredbeddle's melee strikes and the dimensions of their burst area abilities until the end of their turn.\n\n> 🔳 **Shadow Stockade (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A ghostly size 1L stockade seeps out from under the bredbeddle's feet to fill an unoccupied square within 10 squares. When a size 1L or smaller enemy enters the stockade's square, they are [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends). When a [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) creature is no longer [restrained](scc.v1:mcdm.heroes.v1/condition/restrained), the stockade fades away. At the start of each of the bredbeddle's turns, they can [slide](scc.v1:mcdm.heroes.v1/movement/forced-movement) an active stockade and any creature in it up to 5 squares.\n\n> ☠️ **Solo Action (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The bredbeddle takes an additional main action on their turn. They can use this feature even if they are [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Green Phantom (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A phantom second bredbeddle phases into view, appearing in an unoccupied space anywhere on the encounter map, then vanishing at the end of the round. The phantom bredbeddle shares the original bredbeddle's statistics but has 24 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), corruption immunity 10, and can [fly](scc.v1:mcdm.heroes.v1/movement/fly). The phantom bredbeddle can take one turn and use any of the bredbeddle's abilities except for villain actions. Only one phantom bredbeddle can be active at a time.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/bredbeddle/bredbeddle-malice.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "bredbeddle",
+    "recordType": "featureblock"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.bredbeddle.bredbeddle-malice"
+    }
+  ]
+}

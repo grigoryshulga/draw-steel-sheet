@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-glorifier",
+  "title": "Орк-прославитель",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-glorifier.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-glorifier",
+  "originalName": "Orc Glorifier",
+  "originalDescription": "|   Humanoid, Orc   |         -         |     Level 1      |                Minion Controller                | EV 3 for four minions |\n|:-----------------:|:-----------------:|:----------------:|:-----------------------------------------------:|:---------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **3**<br>Stamina |               **0**<br>Stability                | **1**<br>Free Strike  |\n| **-**<br>Immunity | **-**<br>Movement |        -         | **+5 bonus to ranged distance**<br>With Captain |   **-**<br>Weakness   |\n|  **0**<br>Might   | **+1**<br>Agility | **0**<br>Reason  |               **0**<br>Intuition                |  **+2**<br>Presence   |\n\n> ⚔️ **Call to Victory ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 5**       | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 1 sonic damage\n> - **12-16:** 2 sonic damage; P < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 3 sonic damage; P < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** Allies gain an edge on melee [strikes](scc.v1:mcdm.heroes.v1/rule.combat/strike) against the target until the glorifier and each other glorifier in their [squad](scc.v1:mcdm.monsters.v1/rule.monster/squad) are killed.\n\n> ⭐️ **Bloodfire Burn**\n>\n> If the glorifier is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-glorifier.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "3 for four minions",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Контроллер",
+    "organization": "Миньон"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-glorifier"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "articles": [
+    {
+      "id": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-sweeper",
+      "title": "Пёс войны-чистильщик",
+      "chapter": "23. Бестиарий",
+      "group": "Псы войны",
+      "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-sweeper.md",
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-sweeper",
+      "originalName": "War Dog Sweeper",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 4      |               Minion Harrier                | EV 6 for four minions |\n|:---------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|       **1M**<br>Size        |  **6**<br>Speed   | **8**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|       **0**<br>Might        | **+3**<br>Agility | **0**<br>Reason  |             **+2**<br>Intuition             |   **0**<br>Presence   |\n\n> ⚔️ **Shrikegun Shot ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 3**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** Any target within 2 squares of the sweeper takes an extra 3 damage.\n\n> ⭐️ **Shrapnel-Laced Loyalty Collar**\n>\n> When the sweeper is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d6 damage to each enemy and object within 2 squares of them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-sweeper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      },
+      "blocks": [
+        {
+          "type": "entity",
+          "ref": "monster.war-dog.2nd-echelon.statblock.war-dog-sweeper"
+        }
+      ],
+      "related": [
+        {
+          "id": "monsters.monster.group.war-dog",
+          "title": "Псы войны"
+        },
+        {
+          "id": "monsters.monster.war-dog.1st-echelon.war-dog-malice-level-1-malice-features",
+          "title": "Особенности Раздора псов войны (1-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.2nd-echelon.war-dog-malice-level-4-malice-features",
+          "title": "Особенности Раздора псов войны (4-й уровень и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.3rd-echelon.war-dog-malice-level-7-malice-features",
+          "title": "Раздор псов войны (особенности Раздора 7-го уровня и выше)"
+        },
+        {
+          "id": "monsters.monster.war-dog.4th-echelon.war-dog-malice-level-10-malice-features",
+          "title": "Псы войны: Раздор (особенности Раздора 10-го уровня и выше)"
+        },
+        {
+          "id": "monsters.rule.monster.malice",
+          "title": "Раздор"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "monster.war-dog.2nd-echelon.statblock.war-dog-sweeper",
+      "kind": "monster",
+      "name": "Пёс войны-чистильщик",
+      "markdown": "| Гуманоид, Бездушный, Пёс войны |         -         |     Уровень 4     | Миньон-налётчик | Боевая ценность 6 за четыре миньона |\n|:-------------------------------:|:-----------------:|:----------------:|:--------------:|:----------------------------------------:|\n| **1M**<br>Размер                | **6**<br>Скорость | **8**<br>Выносливость | **0**<br>Устойчивость | **2**<br>Свободный удар |\n| **-**<br>Иммунитет              | **-**<br>Движение |        -         | **Получает преимущество на удары**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь                   | **+3**<br>Ловкость | **0**<br>Разум | **+2**<br>Интуиция | **0**<br>Присутствие |\n\n> ⚔️ **Выстрел скорострельной пушки ([Знаковая способность](#/catalog/glossary#term-glossary.signature-ability))**\n>\n> | **Ближний бой, Дальний бой, Удар, Оружие** | **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------------------|--------------------------------------:|\n> | **📏 Ближний бой 1 или дальний бой 3**    | **🎯 Одно существо или объект на каждого миньона** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 2 урона\n> - **12-16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 1\n> - **17+:** 6 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) на 3\n>\n> **Эффект:** Цель, находящаяся в пределах 2 клеток от чистильщика, получает дополнительно 3 урона.\n\n> ⭐️ **Ошейник преданности с шрапнелью**\n>\n> Когда [Выносливость](#/catalog/glossary#term-glossary.stamina) чистильщика снижается до 0, его ошейник преданности взрывается и наносит 1d6 урона каждому врагу и объекту в пределах 2 клеток от него.\n",
+      "source": {
+        "articleId": "monsters.monster.war-dog.2nd-echelon.statblock.war-dog-sweeper",
+        "path": "Monsters/monster/war-dog/2nd-echelon/statblock/war-dog-sweeper.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.war-dog.2nd-echelon.statblock/war-dog-sweeper",
+      "originalName": "War Dog Sweeper",
+      "originalDescription": "| Humanoid, Soulless, War Dog |         -         |     Level 4      |               Minion Harrier                | EV 6 for four minions |\n|:---------------------------:|:-----------------:|:----------------:|:-------------------------------------------:|:---------------------:|\n|       **1M**<br>Size        |  **6**<br>Speed   | **8**<br>Stamina |             **0**<br>Stability              | **2**<br>Free Strike  |\n|      **-**<br>Immunity      | **-**<br>Movement |        -         | **Gain an edge on strikes**<br>With Captain |   **-**<br>Weakness   |\n|       **0**<br>Might        | **+3**<br>Agility | **0**<br>Reason  |             **+2**<br>Intuition             |   **0**<br>Presence   |\n\n> ⚔️ **Shrikegun Shot ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Ranged, Strike, Weapon** |                          **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|-----------------------------------------:|\n> | **📏 Melee 1 or ranged 3**        | **🎯 One creature or object per minion** |\n>\n> **Power Roll + 3:**\n>\n> - **≤11:** 2 damage\n> - **12-16:** 4 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 1\n> - **17+:** 6 damage; [push](scc.v1:mcdm.heroes.v1/movement/forced-movement) 3\n>\n> **Effect:** Any target within 2 squares of the sweeper takes an extra 3 damage.\n\n> ⭐️ **Shrapnel-Laced Loyalty Collar**\n>\n> When the sweeper is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), their loyalty collar explodes, dealing 1d6 damage to each enemy and object within 2 squares of them.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/war-dog/2nd-echelon/statblock/war-dog-sweeper.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "war-dog",
+        "recordType": "statblock",
+        "level": 4,
+        "ev": "6 for four minions",
+        "size": "1M",
+        "keywords": [
+          "Гуманоид",
+          "Бездушный",
+          "Пёс войны"
+        ],
+        "role": "Налётчик",
+        "organization": "Миньон"
+      }
+    }
+  ]
+}

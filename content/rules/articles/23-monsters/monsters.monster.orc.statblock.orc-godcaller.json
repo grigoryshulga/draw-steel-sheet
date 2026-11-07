@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.orc.statblock.orc-godcaller",
+  "title": "Орк-богозыватель",
+  "chapter": "23. Бестиарий",
+  "group": "Орки",
+  "path": "Monsters/monster/orc/statblock/orc-godcaller.md",
+  "originalId": "mcdm.monsters.v1/monster.orc.statblock/orc-godcaller",
+  "originalName": "Orc Godcaller",
+  "originalDescription": "|   Humanoid, Orc   |         -         |      Level 1      |    Platoon Support    |         EV 6         |\n|:-----------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|  **1M**<br>Size   |  **6**<br>Speed   | **30**<br>Stamina |  **0**<br>Stability   | **3**<br>Free Strike |\n| **-**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|  **+1**<br>Might  | **+0**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+2**<br>Presence  |\n\n> ⚔️ **Power Chord ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Magic, Melee, Ranged, Strike** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |----------------------------------|------------------------------:|\n> | **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 5 sonic damage\n> - **12-16:** 7 sonic damage\n> - **17+:** 9 sonic damage; P < 2 [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends)\n\n> 🏹 **Cadenza**\n>\n> | **Magic, Ranged** | **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|----------------:|\n> | **📏 Ranged 10**  | **🎯 One ally** |\n>\n> **Effect:** The target moves up to their speed and can use a main action.\n>\n> **3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice):** The godcaller targets a second ally.\n\n> 🏹 **Rallying Ostinato (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 10**  | **🎯 Self and three allies** |\n>\n> **Effect:** Each target regains 15 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the end of the encounter.\n\n> ⭐️ **Relentless**\n>\n> If the godcaller is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), they can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) before dying. If the target of the free strike is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina), the godcaller is reduced to 1 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) instead.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/orc/statblock/orc-godcaller.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "orc",
+    "recordType": "statblock",
+    "level": 1,
+    "ev": "6",
+    "size": "1M",
+    "keywords": [
+      "Гуманоид",
+      "Орк"
+    ],
+    "role": "Поддержка",
+    "organization": "Взвод"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.orc.statblock.orc-godcaller"
+    }
+  ]
+}

@@ -51,6 +51,7 @@ import {
   writeJsonText,
 } from "./lib/common.mjs";
 import { compactId, decorateConsumerProjections, maps } from "./lib/originals.mjs";
+import { createDirectorLinkResolver } from './lib/director-content.mjs';
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -1829,8 +1830,20 @@ export function buildConsumerData({
   const libraryProjection = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,
     catalog: catalog.entries,
-    glossary: glossary.entries,
+    glossary: [...glossary.entries],
   };
+  const resolveDirectorLinks = createDirectorLinkResolver(articles, entities);
+  const knownTerms = new Set(glossary.entries.map(entry => entry.english.toLowerCase()));
+  for (const entity of entities.filter(entity => entity.kind === 'monster-rule')) {
+    if (knownTerms.has(entity.originalName.toLowerCase())) continue;
+    const introduction = entity.markdown.trim().split(/\n\s*\n/)[0];
+    libraryProjection.glossary.push({
+      id: `monsters.${entity.id}`, name: entity.name, english: entity.originalName,
+      letter: entity.name[0].toLocaleUpperCase('ru'),
+      markdown: `${resolveDirectorLinks(introduction)}\n\n[Полные правила в Кодексе](#/codex/${entity.source.articleId})`,
+    });
+  }
+  libraryProjection.glossary.sort((a, b) => a.name.localeCompare(b.name, 'ru'));
   const kitProjection = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,
     kits: kits.kits,
@@ -1976,7 +1989,7 @@ export function buildConsumerData({
   const stats = {
     abilities: abilities.abilities.length,
     catalog: catalog.entries.length,
-    glossary: glossary.entries.length,
+    glossary: libraryProjection.glossary.length,
     kits: kits.kits.length,
     perks: perks.perks.length,
     features: features.features.length,

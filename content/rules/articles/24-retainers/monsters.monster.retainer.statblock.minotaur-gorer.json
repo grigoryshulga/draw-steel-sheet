@@ -1,0 +1,33 @@
+{
+  "id": "monsters.monster.retainer.statblock.minotaur-gorer",
+  "title": "Минотавр-бодальщик",
+  "chapter": "24. Помощники",
+  "group": "Помощники",
+  "path": "Monsters/monster/retainer/statblock/minotaur-gorer.md",
+  "originalId": "mcdm.monsters.v1/monster.retainer.statblock/minotaur-gorer",
+  "originalName": "Minotaur Gorer",
+  "originalDescription": "| Accursed, Humanoid, Minotaur |         -         |      Level 3      |    Brute Retainer     |         EV -         |\n|:----------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|\n|        **2**<br>Size         |  **6**<br>Speed   | **39**<br>Stamina |  **2**<br>Stability   | **6**<br>Free Strike |\n|      **-**<br>Immunity       | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|       **+2**<br>Might        | **+1**<br>Agility |  **0**<br>Reason  |  **+1**<br>Intuition  |  **0**<br>Presence   |\n\n> 🗡 **Gore (Signature Ability)**\n>\n> | **Charge, Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-----------------------------------|------------------------------:|\n> | **📏 Melee 1**                    | **🎯 One creature or object** |\n>\n> **Power Roll + highest characteristic:**\n>\n> - **≤11:** 5 damage\n> - **12-16:** 9 damage\n> - **17+:** 12 damage; M < STRONG [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n\n> ❗️ **Retaliatory Strike**\n>\n> | **Ranged**      |           **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-----------------|-------------------------------:|\n> | **📏 Ranged 6** | **🎯 The triggering creature** |\n>\n> **Trigger:** A creature within distance deals damage to the gorer.\n>\n> **Effect:** The gorer uses the [Charge](scc.v1:mcdm.heroes.v1/feature.common.main-actions/charge) main action and Gore against the target.\n\n> ⭐️ **Minotaur Sense**\n>\n> The gorer can't obtain less than a tier 2 outcome when making tests to navigate, search, or seek.",
+  "director": {
+    "section": "retainers",
+    "sourcePath": "monster/retainer/statblock/minotaur-gorer.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "retainer",
+    "recordType": "statblock",
+    "level": 3,
+    "ev": "-",
+    "size": "2",
+    "keywords": [
+      "Проклятый",
+      "Гуманоид",
+      "Минотавр"
+    ],
+    "role": "Громила",
+    "organization": "Помощник"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.retainer.statblock.minotaur-gorer"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monsters.monster.undead.3rd-echelon.statblock.vampire",
+  "title": "Вампир",
+  "chapter": "23. Бестиарий",
+  "group": "Нежить",
+  "path": "Monsters/monster/undead/3rd-echelon/statblock/vampire.md",
+  "originalId": "mcdm.monsters.v1/monster.undead.3rd-echelon.statblock/vampire",
+  "originalName": "Vampire",
+  "originalDescription": "|            Undead, Vampire             |           -           |      Level 7      |      Horde Hexer      |         EV 9         |\n|:--------------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|\n|             **1M**<br>Size             |    **6**<br>Speed     | **40**<br>Stamina |  **3**<br>Stability   | **3**<br>Free Strike |\n| **Corruption 7, poison 7**<br>Immunity | **Climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |\n|            **+4**<br>Might             |   **+2**<br>Agility   | **+1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |\n\n> 🗡 **Exsanguinating Bite ([Signature Ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; M < 2 [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 10 corruption damage; M < 3 5 corruption damage and [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **17+:** 11 corruption damage; M < 4 7 corruption damage and [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n>\n> **Effect:** The vampire regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to any corruption damage dealt.\n\n> 🗡 **Vicious Pursuit (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Melee, Strike, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |---------------------------|------------------------------:|\n> | **📏 Melee 1**            | **🎯 One creature or object** |\n>\n> **Power Roll + 4:**\n>\n> - **≤11:** 7 damage; A < 2 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 10 damage; A < 3 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 11 damage; A < 4 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n>\n> **Effect:** If the target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding), the vampire [shifts](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed before using this ability.\n\n> ❗️ **Reactive Charm (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** | **[Triggered action](scc.v1:mcdm.heroes.v1/rule.combat/triggered-action)** |\n> |-------------------|---------------------:|\n> | **📏 Ranged 5**   |     **🎯 One enemy** |\n>\n> **Trigger:** A creature makes a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) against the vampire.\n>\n> **Effect:** The target becomes the new target of the [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike).\n\n> ⭐️ **Unslakable Bloodthirst**\n>\n> The vampire has speed 10 while any creature within 10 squares of them is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). The vampire must make a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) against a [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) creature on their turn if they are able to.",
+  "director": {
+    "section": "monsters",
+    "sourcePath": "monster/undead/3rd-echelon/statblock/vampire.json",
+    "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "groupSlug": "undead",
+    "recordType": "statblock",
+    "level": 7,
+    "ev": "9",
+    "size": "1M",
+    "keywords": [
+      "Нежить",
+      "Вампир"
+    ],
+    "role": "Проклинатель",
+    "organization": "Орда"
+  },
+  "blocks": [
+    {
+      "type": "entity",
+      "ref": "monster.undead.3rd-echelon.statblock.vampire"
+    }
+  ]
+}
