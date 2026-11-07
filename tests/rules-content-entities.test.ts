@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 
 import { applyEnglishIds } from "../scripts/content/english-ids.mjs";
 import { decorateKit, maps } from "../scripts/content/lib/originals.mjs";
@@ -16,6 +16,20 @@ const SOURCE = path.join(ROOT, "src/data");
 const MIGRATE = path.join(ROOT, "scripts/content/migrate-entities.mjs");
 const IMPORT = path.join(ROOT, "scripts/content/import-legacy.mjs");
 const IDENTITY = path.join(ROOT, "scripts/content/lib/consumer-identity.json");
+const temporaryDirectories = new Set<string>();
+
+afterEach(() => {
+  for (const directory of temporaryDirectories) {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+  temporaryDirectories.clear();
+});
+
+function makeTemporaryDirectory(prefix: string) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), prefix));
+  temporaryDirectories.add(directory);
+  return directory;
+}
 
 function readJson(file: string): any {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -683,7 +697,7 @@ describe("stage two migration commands", () => {
   it(
     "is idempotent and preserves curated entity edits and article references",
     () => {
-      const root = fs.mkdtempSync(path.join(os.tmpdir(), "rules-stage-two-"));
+      const root = makeTemporaryDirectory("rules-stage-two-");
       const content = path.join(root, "content/rules");
       fs.cpSync(RULES, content, { recursive: true });
       const identityPath = path.join(root, "consumer-identity.json");
@@ -738,7 +752,7 @@ describe("stage two migration commands", () => {
   it(
     "refuses to guess when a source article and an edited entity disagree",
     () => {
-      const root = fs.mkdtempSync(path.join(os.tmpdir(), "rules-conflict-"));
+      const root = makeTemporaryDirectory("rules-conflict-");
       fs.cpSync(RULES, path.join(root, "content/rules"), { recursive: true });
       const content = path.join(root, "content/rules");
 
@@ -777,7 +791,7 @@ describe("stage two migration commands", () => {
   it(
     "produces the same stage two tree from a fresh legacy import",
     () => {
-      const root = fs.mkdtempSync(path.join(os.tmpdir(), "rules-import-stage-two-"));
+      const root = makeTemporaryDirectory("rules-import-stage-two-");
       const out = path.join(root, "content/rules");
       const identityPath = path.join(root, "consumer-identity.json");
       fs.copyFileSync(IDENTITY, identityPath);

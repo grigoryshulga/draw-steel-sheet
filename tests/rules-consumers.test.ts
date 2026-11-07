@@ -4,7 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 
 import { ABILITY_COMPENDIUM } from "../src/data/compendium";
 import { CATALOG, GLOSSARY } from "../src/data/library";
@@ -31,6 +31,14 @@ const CONTENT = path.join(ROOT, "content/rules");
 const GENERATOR = path.join(ROOT, "scripts/content/build-consumer-data.mjs");
 const IDENTITY = path.join(ROOT, "scripts/content/lib/consumer-identity.json");
 const OUT = path.join(ROOT, "src/generated/consumers");
+const temporaryDirectories = new Set<string>();
+
+afterEach(() => {
+  for (const directory of temporaryDirectories) {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+  temporaryDirectories.clear();
+});
 
 function readJson(file: string): any {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -74,6 +82,7 @@ function findJsonFile(
 /** Изолированная копия канонического дерева и сопоставления ID. */
 function makeSandbox() {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-data-"));
+  temporaryDirectories.add(directory);
   const content = path.join(directory, "content");
   fs.cpSync(CONTENT, content, { recursive: true });
   const identity = path.join(directory, "identity.json");

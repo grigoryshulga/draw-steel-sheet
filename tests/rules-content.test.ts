@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 
 import { maps } from "../scripts/content/lib/originals.mjs";
 
@@ -14,6 +14,20 @@ const RULES = path.join(ROOT, "content/rules");
 const GENERATED = path.join(ROOT, "src/generated/rules");
 const IMPORT = path.join(ROOT, "scripts/content/import-legacy.mjs");
 const BUILD = path.join(ROOT, "scripts/content/build-rules.mjs");
+const temporaryDirectories = new Set<string>();
+
+afterEach(() => {
+  for (const directory of temporaryDirectories) {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+  temporaryDirectories.clear();
+});
+
+function makeTemporaryDirectory(prefix: string) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), prefix));
+  temporaryDirectories.add(directory);
+  return directory;
+}
 
 function readJson(file: string): any {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -557,8 +571,8 @@ describe("content commands", () => {
   it(
     "is deterministic and accepts an authoring edit",
     () => {
-      const first = fs.mkdtempSync(path.join(os.tmpdir(), "rules-build-a-"));
-      const second = fs.mkdtempSync(path.join(os.tmpdir(), "rules-build-b-"));
+      const first = makeTemporaryDirectory("rules-build-a-");
+      const second = makeTemporaryDirectory("rules-build-b-");
       execFileSync(process.execPath, [BUILD, "--out", first], {
         cwd: ROOT,
         stdio: "pipe",
@@ -575,7 +589,7 @@ describe("content commands", () => {
         stdio: "pipe",
       });
 
-      const authored = fs.mkdtempSync(path.join(os.tmpdir(), "rules-edit-"));
+      const authored = makeTemporaryDirectory("rules-edit-");
       fs.cpSync(RULES, path.join(authored, "content/rules"), {
         recursive: true,
       });
@@ -622,7 +636,7 @@ describe("content commands", () => {
   it(
     "refuses to overwrite curated content unless --replace is explicit",
     () => {
-      const out = fs.mkdtempSync(path.join(os.tmpdir(), "rules-import-"));
+      const out = makeTemporaryDirectory("rules-import-");
       const noise = path.join(out, "articles/99-noise/old.json");
       fs.mkdirSync(path.dirname(noise), { recursive: true });
       fs.writeFileSync(noise, "{}\n");
